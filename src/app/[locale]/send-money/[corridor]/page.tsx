@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getDataUpdatedISO, getDataUpdatedInstant } from "@/lib/data-freshness";
+import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
 import { quoteFreshness } from "@/lib/quote-freshness";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -63,24 +63,11 @@ import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLin
 import SendScoreCard from "@/components/SendScoreCard";
 import StickyBestCTA from "@/components/StickyBestCTA";
 import { providerLogo } from "@/lib/provider-logo";
-import LiveTimestamp from "@/components/LiveTimestamp";
 import CryptoRailSection from "@/components/CryptoRailSection";
 
 interface Props {
   params: Promise<{ corridor: string; locale: string }>;
 }
-
-/** Returns the most recent mtime of scraped quote files as an ISO date string. */
-function getDataFreshnessDate(): string {
-  return getDataUpdatedISO().split("T")[0];
-}
-
-/** Full ISO timestamp of most recent scrape — used by <LiveTimestamp /> for relative "X mins ago" rendering.
- *  Scans any *-quotes.json or *-rates.json file so we don't depend on specific filenames being present.
- *
- *  Vercel normalises all file mtimes to 2018-10-20T00:00:00Z in build containers for reproducibility.
- *  We detect this sentinel and fall back to NEXT_PUBLIC_BUILD_TIME (injected at build time via vercel.json)
- *  so schemas always show a realistic date rather than one that predates the site by 6 years. */
 
 const corridorEditorialNotes: Record<
   string,
@@ -93,18 +80,16 @@ const corridorEditorialNotes: Record<
   }
 > = {
   "uk-to-india": {
-    title: "What matters on the UK to India corridor",
-    summary:
-      "According to SendMoneyCompare's real-time comparison of 15+ providers, GBP to INR is one of the most competitive remittance routes in Europe — but the cheapest option still changes based on how you fund the transfer, how quickly the money needs to arrive, and which payout rail the provider uses in India.",
-    bullets: [
-      "Bank transfer funding is usually the cheapest option from the UK. Debit card funding can be faster, but the extra card fee often wipes out the speed benefit on smaller transfers.",
-      "For urgent transfers, providers connected to IMPS or UPI-linked bank rails can deliver within minutes. Traditional bank SWIFT wires rarely compete on either cost or speed.",
-      "If you send regularly for family support, tuition, or property costs, the exchange-rate markup matters more than the advertised transfer fee. A 1% worse rate on GBP 1,000 can cost more than a GBP 5 fee difference.",
-      "Recipients in India often prefer direct bank deposit to SBI, HDFC, ICICI, Axis, or Kotak accounts. Cash pickup matters less on this corridor than in markets where banking access is lower.",
+    "title": "Decide the payment purpose before choosing a GBP-to-INR provider",
+    "summary": "Sending pounds to India involves two separate choices: how you fund the payment in the UK and how the recipient receives rupees. Compare the estimated INR payout, then confirm the receiving method and account are supported for your payment purpose.",
+    "bullets": [
+      "Family support: verify the bank or UPI details with the recipient before requesting a final quote.",
+      "A fixed rupee invoice: compare the pounds required for that exact INR receipt, not just equal pound sends.",
+      "Investment or another restricted purpose: check the provider’s terms first; the sourced FAQ below explains a specific Wise restriction.",
+      "An urgent payment: confirm the arrival estimate after choosing how you will pay in the UK."
     ],
-    warningTitle: "Common mistake UK senders make",
-    warningBody:
-      "Comparing only the upfront fee misses the real cost. On UK to India transfers, the provider with the lowest fee is often not the provider that delivers the most INR once FX markup is included.",
+    "warningTitle": "Confirm the final quote under the same conditions",
+    "warningBody": "Use the sources in the questions below to check recipient requirements and provider restrictions. The comparison estimates price; it does not verify every account, payment purpose or delivery option."
   },
   "uk-to-south-africa": {
     title: "What matters on the UK to South Africa corridor",
@@ -135,18 +120,16 @@ const corridorEditorialNotes: Record<
       "Save the quote’s funding method, delivery method, customer offer, total debit and final INR payout. If one of those changes at checkout, compare again before paying.",
   },
   "usa-to-pakistan": {
-    title: "What matters on the USA to Pakistan corridor",
-    summary:
-      "Based on SendMoneyCompare's analysis of 10+ providers, sending USD to Pakistan involves navigating State Bank of Pakistan (SBP) regulations and a currency that can move sharply. Cash pickup remains important here because a significant portion of recipients prefer collecting money in person rather than through bank transfers.",
-    bullets: [
-      "JazzCash and Easypaisa mobile wallets have become major payout options in Pakistan. If your recipient uses either service, you can often get same-day delivery at lower cost than traditional bank deposit or cash pickup.",
-      "PKR has experienced significant volatility in recent years. If you are sending a large amount, consider locking in the rate at the time of transfer rather than using providers that quote indicative rates and settle later.",
-      "Cash pickup through Western Union, MoneyGram, or Ria remains critical for recipients in smaller cities and rural areas where bank access is limited. Compare cash pickup fees separately — they are often higher than bank deposit fees.",
-      "SBP requires all inbound remittances to be converted at the official interbank rate. However, providers still differ in the margin they add on top, so the amount your recipient gets in PKR can vary by 2–3% across providers.",
+    "title": "Check the Pakistani account product, not just the bank name",
+    "summary": "For a US-to-Pakistan transfer, confirm whether your recipient needs a bank deposit, wallet payment or cash pickup before comparing prices. For a bank deposit, check the account type as well as the IBAN: a provider may support the bank but exclude a particular account product.",
+    "bullets": [
+      "Personal bank deposit: ask for the IBAN and account product. The Wise restrictions cited below show why the bank name alone is insufficient.",
+      "Cash collection: choose a location the recipient can actually reach and confirm its collection requirements.",
+      "Wallet payment: check the supported wallet and receiving allowance before paying.",
+      "Repeat family support: request a returning-customer quote so the first-transfer promotion does not set a misleading budget."
     ],
-    warningTitle: "Understand PKR conversion rules",
-    warningBody:
-      "Pakistan requires remittances to be paid out in PKR at the official rate. Some providers advertise attractive USD/PKR rates that include hidden margins. Always compare the final PKR amount your recipient will receive, not just the quoted exchange rate.",
+    "warningTitle": "Confirm the final quote under the same conditions",
+    "warningBody": "Use the sources in the questions below to check recipient requirements and provider restrictions. The comparison estimates price; it does not verify every account, payment purpose or delivery option."
   },
   "usa-to-mexico": {
     title: "What matters on the USA to Mexico corridor",
@@ -163,18 +146,16 @@ const corridorEditorialNotes: Record<
       "Some providers still route Mexican bank deposits through slower SWIFT networks, taking 1–3 days. Always confirm your provider uses SPEI for bank deposits — the speed difference is dramatic and SPEI transfers are usually cheaper too.",
   },
   "usa-to-philippines": {
-    title: "What matters on the USA to Philippines corridor",
-    summary:
-      "According to SendMoneyCompare's analysis, the Philippines is one of the top remittance destinations globally, and Filipino recipients have more payout options than almost any other corridor. Mobile wallets, bank deposits, and an extensive cash pickup network mean you should choose your provider based on how your recipient prefers to collect money.",
-    bullets: [
-      "GCash and Maya (formerly PayMaya) mobile wallets are widely used in the Philippines and many providers now support direct wallet top-up. This is often the fastest delivery method — funds can arrive in minutes at lower fees than bank deposit.",
-      "For bank deposits, BPI and BDO are the most commonly supported banks. Some providers also support UnionBank, Metrobank, and Landbank. Confirm your recipient's bank is supported before initiating the transfer.",
-      "Cash pickup remains essential in the Philippines. Cebuana Lhuillier and M Lhuillier have thousands of branches nationwide, including in provincial areas. Western Union and MoneyGram also have extensive networks through partner locations.",
-      "Competition on this corridor is strong — Remitly, Wise, WorldRemit, and Xoom all compete aggressively. Rates can differ by 2–4% on a $500 transfer, so comparing before every send is worthwhile.",
+    "title": "Match the PHP transfer to how the recipient will spend it",
+    "summary": "Choose how the recipient will use the pesos before comparing a US-to-Philippines transfer. A bank account, GCash or Maya wallet, and cash collection have different practical requirements. For a wallet payment, check the recipient’s available receiving allowance before you send.",
+    "bullets": [
+      "Wallet spending: confirm that the wallet can receive the amount before selecting its quote.",
+      "A bank payment: obtain the bank account details directly from the recipient and confirm the receiving account is supported.",
+      "Cash needs: ask whether pickup or withdrawal is practical and what it costs the recipient.",
+      "A deadline: use the complete funding-to-arrival estimate, not just the local PHP payout speed."
     ],
-    warningTitle: "Check payout network before choosing a provider",
-    warningBody:
-      "The cheapest provider is only useful if your recipient can actually collect the money. Verify that the provider supports your recipient's preferred bank, mobile wallet, or cash pickup location — especially outside Metro Manila.",
+    "warningTitle": "Confirm the final quote under the same conditions",
+    "warningBody": "Use the sources in the questions below to check recipient requirements and provider restrictions. The comparison estimates price; it does not verify every account, payment purpose or delivery option."
   },
   "uk-to-europe": {
     title: "What matters on the UK to Europe corridor",
@@ -317,18 +298,16 @@ const corridorEditorialNotes: Record<
       "Some providers still route EUR transfers through SWIFT, not SEPA — adding 2–4 extra days and potential correspondent bank fees. Always ask your provider which network they use for EUR delivery to Europe before initiating a transfer.",
   },
   "uk-to-nigeria": {
-    title: "What matters on the UK to Nigeria corridor",
-    summary:
-      "GBP to NGN is one of the most volatile exchange rate corridors in the world due to Nigeria's ongoing currency reforms. The difference between the best and worst provider can exceed 10% on any given day — making comparison more critical here than on almost any other route.",
-    bullets: [
-      "The Central Bank of Nigeria's exchange rate reforms mean the official NGN rate is closer to market rates than before, but providers still source naira through different channels. This creates rate differences of 5–10% between the best and worst provider.",
-      "Lemfi is hugely popular in the Nigerian diaspora community in the UK and often has competitive NGN rates. Include them alongside Wise and WorldRemit in every comparison.",
-      "Bank transfers to GTBank, Access Bank, Zenith Bank, and First Bank are the most reliable delivery methods. Transfers arrive within 1–3 business days. Some providers offer same-day delivery.",
-      "Nigeria's NGN rate can move significantly within a single day. If you're sending a large amount, compare rates in the morning and again in the afternoon — and send when rates favour you.",
+    "title": "Compare the full naira payout, including any offer limits",
+    "summary": "For a UK-to-Nigeria transfer, first confirm the currency and delivery method the recipient needs. This comparison estimates NGN payouts from GBP. An offer for a different receiving currency or account type is a different comparison.",
+    "bullets": [
+      "Keep the receiving currency consistent: a GBP-to-NGN estimate does not price a transfer into another currency.",
+      "Check the whole amount: an introductory rate may apply only within an offer cap.",
+      "Choose the receiving method first, then confirm the bank, wallet or collection location.",
+      "For an unfamiliar service, check the firm’s permissions and contact details on the FCA register before paying."
     ],
-    warningTitle: "Never use yesterday's rate on this corridor",
-    warningBody:
-      "NGN is one of the most volatile currencies in Africa. Rates can swing by ₦50,000+ per £1,000 between the morning and afternoon of the same day. Always check live rates at the moment you send — historical comparisons are meaningless on this corridor.",
+    "warningTitle": "Confirm the final quote under the same conditions",
+    "warningBody": "Use the sources in the questions below to check recipient requirements and provider restrictions. The comparison estimates price; it does not verify every account, payment purpose or delivery option."
   },
   "australia-to-philippines": {
     title: "What matters on the Australia to Philippines corridor",
@@ -855,7 +834,7 @@ import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { corridorPageRenders, companyPageRenders, rateHistoryHref } from "@/lib/route-map";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
-import { SITE_STATS, COVERAGE } from "@/lib/site-stats";
+import { SITE_STATS } from "@/lib/site-stats";
 import { formatLocalDate } from "@/lib/format-date";
 
 // ── Static generation ──
@@ -905,11 +884,11 @@ const corridorRelatedNews: Record<string, { slug: string; label: string }> = {
   },
   "uk-to-india": {
     slug: "inr-weakest-year-send-money-india-april-2026",
-    label: "INR at 92.98/USD — should you send money to India now or wait?",
+    label: "April 2026 analysis: INR at 92.98/USD and transfer timing",
   },
   "usa-to-india": {
     slug: "inr-weakest-year-send-money-india-april-2026",
-    label: "INR at 92.98/USD — should you send money to India now or wait?",
+    label: "April 2026 analysis: INR at 92.98/USD and transfer timing",
   },
   "canada-to-india": {
     slug: "inr-weakest-year-send-money-india-april-2026",
@@ -945,20 +924,20 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-pakistan": {
     title: "Cheapest Way to Send Money USA to Pakistan — USD→PKR Rates (2026)",
     description:
-      "USD to PKR rates from Wise, Remitly, Western Union & 10+ providers — updated every 6 hrs. Compare fees, speed & delivery options to Pakistan.",
+      "Compare USD to PKR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     ogTitle: "USA→Pakistan: Who Gives the Best USD→PKR Rate?",
     ogDescription:
-      "Compare real-time USD to PKR rates from 15+ providers. Find the cheapest and fastest way to send money from USA to Pakistan.",
+      "Compare USD to PKR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     keywords:
       "send money USA to Pakistan, USD to PKR, cheapest way to send money to Pakistan, money transfer Pakistan, remittance to Pakistan, USD PKR exchange rate",
   },
   "usa-to-india": {
     title: "Cheapest Way to Send Money USA to India — USD→INR Rates (2026)",
     description:
-      "USD to INR rates from Wise, Remitly, Western Union & 10+ providers — updated every 6 hrs. See who delivers the most rupees after all fees.",
+      "Compare USD to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     ogTitle: "USA→India: Who Gives the Best USD→INR Rate?",
     ogDescription:
-      "Compare real-time USD to INR rates from 15+ providers. Find the cheapest and fastest way to send money from USA to India.",
+      "Compare USD to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     keywords:
       "send money USA to India, USD to INR, cheapest way to send money to India, money transfer India, remittance to India, USD INR exchange rate",
   },
@@ -975,10 +954,10 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-philippines": {
     title: "Cheapest Way to Send Money USA to Philippines — USD→PHP Rates (2026)",
     description:
-      "USD to PHP rates from 15+ providers — GCash, bank deposit & cash pickup options. Compare Wise, Remitly, WorldRemit fees and delivery speed.",
+      "Compare USD to PHP provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     ogTitle: "USA→Philippines: Who Gives the Best USD→PHP Rate?",
     ogDescription:
-      "Compare real-time USD to PHP rates from 15+ providers. Find the cheapest way to send money from USA to Philippines via GCash, bank, or cash pickup.",
+      "Compare USD to PHP provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     keywords:
       "send money USA to Philippines, USD to PHP, cheapest way to send money to Philippines, money transfer Philippines, remittance to Philippines, GCash transfer, USD PHP exchange rate",
   },
@@ -995,10 +974,10 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-india": {
     title: "Cheapest Way to Send Money UK to India — GBP→INR Rates (2026)",
     description:
-      "GBP to INR rates from Wise, Remitly, OFX & 10+ providers. IMPS instant delivery. Save £40–£70 per transfer vs banks.",
+      "Compare GBP to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     ogTitle: "UK→India: Who Gives the Best GBP→INR Rate?",
     ogDescription:
-      "Compare real-time GBP to INR rates from 15+ providers. Find the cheapest, fastest way to transfer money from UK to India.",
+      "Compare GBP to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     keywords:
       "send money UK to India, send money from UK to India, money transfer UK to India, money to India from UK, best money transfer to India from UK, cheapest way to send money to India from UK, transfer money from UK to India, wire transfer from UK to India, GBP to INR, sending money from UK to India, how to send money from UK to India, best way to transfer money from UK to India, online money transfer from UK to India",
   },
@@ -1065,10 +1044,10 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-nigeria": {
     title: "Cheapest Way to Send Money UK to Nigeria — GBP→NGN Rates (2026)",
     description:
-      "GBP to NGN rates from Lemfi, Wise, WorldRemit & more. Naira rates vary 10%+ between providers — compare before you send. Updated every 6 hrs.",
+      "Compare GBP to NGN provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     ogTitle: "UK→Nigeria: Who Gives the Best GBP→NGN Rate?",
     ogDescription:
-      "Compare GBP to NGN rates from 10+ providers. Up to 10% difference between best and worst. Find the most naira per pound today.",
+      "Compare GBP to NGN provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
     keywords:
       "send money UK to Nigeria, GBP to NGN, cheapest way to send money to Nigeria from UK, Lemfi UK Nigeria, money transfer Nigeria, GBP NGN exchange rate, naira exchange rate UK, remittance to Nigeria from UK",
   },
@@ -1907,9 +1886,11 @@ export default async function CorridorPage({ params }: Props) {
     ? null
     : `(${fromCurrency} → ${toCurrency})`;
 
-  const best = quotes[0];
-  const worst = quotes[quotes.length - 1];
-  const savings = best && worst ? best.receiveAmount - worst.receiveAmount : 0;
+  const comparison = corridorComparisonSummary(quotes, sampleAmount, fromCurrency, toCurrency, getProviderName);
+  const { best, lowest: worst, difference: savings } = comparison;
+  const resolvedFaqs = corridor.faqs.map((faq) => faq.answerFromComparison
+    ? { ...faq, a: `${comparison.answer} ${faq.a}` }
+    : faq);
   const editorialNote = corridorEditorialNotes[slug];
   const countryDetails = !isCurrencyCorridor ? getCountryDetails(corridor.toCountry, toCurrency) : null;
   const rateInsight = getRateInsight(fromCurrency, toCurrency);
@@ -1955,21 +1936,16 @@ export default async function CorridorPage({ params }: Props) {
     : isCountryPg
     ? `Everything you need to know about sending money to ${corridor.toCountry}. Compare live ${toCurrency} exchange rates, fees, delivery times, recipient requirements, and find the cheapest provider today.`
     : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency}).`;
-  const dataUpdatedDate = getDataFreshnessDate();
-  const dataUpdatedISO = getDataUpdatedISO();
-  // Freshness of THIS corridor's own observations. getDataUpdatedISO() is the
-  // newest scrape anywhere on the site, so a corridor last priced on Monday
-  // inherited Wednesday's stamp and read as current. The gap is ~1 day today,
-  // not the months an outside audit claimed, but the stamp should still be
-  // answerable from the rows on the page rather than from unrelated routes.
-  const freshness = quoteFreshness(quotes);
+  const freshness = quoteFreshness(comparison.compared);
+  const modifiedDate = [freshness.latest?.slice(0, 10), corridor.editorialUpdatedAt, countryDetails?.editorialUpdatedAt]
+    .filter((date): date is string => !!date).sort().at(-1);
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: pageTitle,
     description: pageDescription,
     url: `https://sendmoneycompare.com/send-money/${slug}`,
-    dateModified: (freshness.latest ?? dataUpdatedISO).slice(0, 10),
+    ...(modifiedDate ? { dateModified: modifiedDate } : {}),
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
     about: [
       { "@type": "Thing", name: "International Money Transfer" },
@@ -2001,10 +1977,8 @@ export default async function CorridorPage({ params }: Props) {
         midRate={midRate}
         best={best}
         worst={worst}
-        quotes={quotes}
-        // The visible stamp needs the real scrape instant: dataUpdatedISO is
-        // truncated to midnight, which rendered a literal "00:00 UTC".
-        dataUpdatedISO={freshness.latest ?? getDataUpdatedInstant()}
+        quotes={comparison.compared}
+        dataUpdatedISO={freshness.latest}
         isCountryPage={isCountryPage}
         headingPrefix={headingPrefix}
         headingSuffix={headingSuffix}
@@ -2012,29 +1986,20 @@ export default async function CorridorPage({ params }: Props) {
       />
 
       {/* ─── AI-Citable Answer Block ─── */}
-      {best && (
+      {comparison.compared.length > 0 && (
         <section className="bg-[var(--color-primary-surface)] border-y border-[var(--color-primary-light)]">
           <Container className="py-5">
             <div className="max-w-3xl text-sm text-[var(--color-on-surface)] leading-relaxed">
               <p>
                 <strong>Quick answer:</strong>{" "}
-                {isCountryPage
-                  ? `The cheapest way to send money to ${corridor.toCountry} in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is ${getProviderName(best.providerSlug)}, which delivers ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"} and an exchange rate of ${best.exchangeRate.toFixed(4)}.`
-                  : isCurrencyCorridor
-                  ? `The best ${fromCurrency} to ${toCurrency} exchange rate in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is offered by ${getProviderName(best.providerSlug)}, delivering ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"}.`
-                  : `The cheapest way to send money from ${corridor.fromCountry} to ${corridor.toCountry} in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is ${getProviderName(best.providerSlug)}, which delivers ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"}.`}
-                {savings > 1 && ` According to SendMoneyCompare's comparison of ${quotes.length} providers updated every 6 hours, the difference between the cheapest and most expensive provider on this corridor is ${savings.toLocaleString(undefined, { maximumFractionDigits: 0 })} ${toCurrency}.`}
+                {comparison.answer}
               </p>
-              {/* This stamp is scrape freshness, NOT a human review. It previously read
-                  "Last reviewed <date> by Awais Imran, Reviews Editor" off
-                  getDataFreshnessDate(), which asserted that a named person had read
-                  this article on whatever day a scraper last ran — untrue on every one
-                  of these pages, and the kind of unverifiable E-E-A-T claim that costs
-                  more trust than it buys on YMYL finance content. A named reviewer
-                  belongs here only once the corridor data records a real
-                  editoriallyReviewedAt. */}
               <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
-                Quotes updated: <time dateTime={freshness.latest ?? dataUpdatedDate}>{formatLocalDate((freshness.latest ?? dataUpdatedDate).slice(0, 10))}</time>{freshness.oldest && freshness.latest && freshness.oldest.slice(0, 10) !== freshness.latest.slice(0, 10) ? <> (oldest quote on this corridor: <time dateTime={freshness.oldest}>{formatLocalDate(freshness.oldest.slice(0, 10))}</time>)</> : null} — collected automatically from provider APIs every {SITE_STATS.refreshHours} hours. <Link href="/methodology" className="hover:underline">How we collect and rank quotes</Link>.
+                {freshness.latest ? <>Latest pricing observation: <time dateTime={freshness.latest}>{formatLocalDate(freshness.latest.slice(0, 10))}</time>.
+                  {freshness.oldest && freshness.oldest.slice(0, 10) !== freshness.latest.slice(0, 10) && <> Oldest observation used: <time dateTime={freshness.oldest}>{formatLocalDate(freshness.oldest.slice(0, 10))}</time>.</>}
+                </> : "Pricing collection dates are unavailable."}
+                {freshness.undated > 0 && " Some estimates have no recorded collection date."}
+                {" "}Payouts are estimated from collected fees and markups with a mid-market reference. Collection schedules vary by source. Confirm eligibility, funding method and delivery method with the provider. <Link href="/methodology" className="hover:underline">How we collect and rank quotes</Link>.
               </p>
             </div>
           </Container>
@@ -2061,14 +2026,14 @@ export default async function CorridorPage({ params }: Props) {
             What is the cheapest way to send {fromCurrency} to {toCurrency}?
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mb-2">
-            Sending {sendSymbol}{sampleAmount.toLocaleString()} from {headingFrom} to {headingTo}. Sorted by best value — most money received.
+            Sending {sendSymbol}{sampleAmount.toLocaleString()} from {headingFrom} to {headingTo}. Ranked by estimated payout, with customer ratings used for closely matched results.
           </p>
           <p className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-variant)] mb-6">
             <span className="relative flex h-1.5 w-1.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
             </span>
-            Source: SendMoneyCompare · Data updated every {SITE_STATS.refreshHours} hours from live provider APIs
+            Source: SendMoneyCompare · Estimated payouts from collected pricing and mid-market rates
           </p>
 
           {quotes.length > 0 ? (
@@ -2277,7 +2242,7 @@ export default async function CorridorPage({ params }: Props) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
               <p className="text-sm text-[var(--color-success-dark)]">
-                <strong>Potential savings:</strong> Choosing the best provider over the most expensive saves your recipient{" "}
+                <strong>Estimated payout difference:</strong> The first-ranked provider pays more than the lowest estimate by{" "}
                 <strong>
                   {receiveSymbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </strong>{" "}
@@ -2297,7 +2262,7 @@ export default async function CorridorPage({ params }: Props) {
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[var(--color-on-surface-muted)] mb-5">
               <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">Akif Hazarvi</Link></span>
               <span className="text-[var(--color-outline)]">·</span>
-              <span>Refreshed every {SITE_STATS.refreshHours} hours from {COVERAGE.providers}</span>
+              <span>Pricing collected from provider APIs and comparison sources</span>
             </div>
             <div className="mb-5">
               <AffiliateDisclosure />
@@ -2541,8 +2506,8 @@ export default async function CorridorPage({ params }: Props) {
       {countryDetails && (() => {
         const howToSteps: { step: number; Icon: LucideIcon; title: string; description: string }[] = [
           { step: 1, Icon: ClipboardList, title: "Enter your transfer details", description: `Choose how much ${fromCurrency} you want to send, compare providers above, and pick the one offering the best ${toCurrency} amount for your transfer to ${corridor.toCountry}.` },
-          { step: 2, Icon: UserPlus, title: "Add your recipient", description: `Enter your recipient's details in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` — you'll need their ${countryDetails.recipientRequirements[1].label.toLowerCase()}` : ""}. Most providers verify details instantly.` },
-          { step: 3, Icon: Rocket, title: "Send & track your transfer", description: `Pay using bank transfer, debit card, or credit card. Track your money in real-time until it arrives${countryDetails.deliveryMethods[0] ? ` — ${countryDetails.deliveryMethods[0].method.toLowerCase()} typically takes ${countryDetails.deliveryMethods[0].speed.toLowerCase()}` : ""}.` },
+          { step: 2, Icon: UserPlus, title: "Add your recipient", description: `Enter your recipient's details in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` — you'll need their ${countryDetails.recipientRequirements[1].label.toLowerCase()}` : ""}. Complete the provider’s verification before expecting delivery.` },
+          { step: 3, Icon: Rocket, title: "Send & track your transfer", description: "Choose an available funding method, confirm the final payout and arrival estimate, then keep your tracking reference." },
         ];
         return (
         <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
@@ -2624,6 +2589,7 @@ export default async function CorridorPage({ params }: Props) {
                   </div>
                 ))}
               </div>
+              {countryDetails.sources && <p className="mt-3 mb-3 text-xs text-[var(--color-on-surface-variant)]">Provider sources for these receiving options: {countryDetails.sources.map((source, index) => <span key={source.url}>{index > 0 && " · "}<a href={source.url} className="underline">{source.label}</a></span>)}</p>}
               {countryDetails.requirementsNote && (
                 <div className="mt-4 bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20 rounded-lg px-5 py-4">
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
@@ -2850,7 +2816,7 @@ export default async function CorridorPage({ params }: Props) {
               How can my recipient receive money in {corridor.toCountry}?
             </h2>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-              Your recipient in {corridor.toCountry} can receive money through these delivery methods. The best option depends on their location and preferences.
+              Check these receiving options with the provider. Availability depends on the sending country, recipient and transfer conditions.
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
               {countryDetails.deliveryMethods.map((dm) => {
@@ -3323,7 +3289,7 @@ export default async function CorridorPage({ params }: Props) {
               Common questions about sending money from {headingFrom} to {headingTo}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
-              {corridor.faqs.map((faq) => (
+              {resolvedFaqs.map((faq) => (
                 <details key={faq.q} className="group py-4">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                     {faq.q}
@@ -3589,7 +3555,7 @@ export default async function CorridorPage({ params }: Props) {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
-              ...corridor.faqs.map((faq) => ({
+              ...resolvedFaqs.map((faq) => ({
                 "@type": "Question",
                 name: faq.q,
                 acceptedAnswer: { "@type": "Answer", text: faq.a },
@@ -3641,7 +3607,7 @@ export default async function CorridorPage({ params }: Props) {
               "@context": "https://schema.org",
               "@type": "FinancialProduct",
               name: `${fromCurrency} to ${toCurrency} Money Transfer`,
-              description: `Compare ${fromCurrency} to ${toCurrency} exchange rates from ${quotes.length} providers. Best rate: ${best?.exchangeRate.toFixed(4)} from ${best ? getProviderName(best.providerSlug) : ""}`,
+              description: comparison.answer,
               url: `https://sendmoneycompare.com/send-money/${slug}`,
               offers: quotes.slice(0, 5).map((q) => ({
                 "@type": "Offer",

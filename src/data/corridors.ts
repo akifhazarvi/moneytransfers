@@ -27,7 +27,7 @@ export interface Corridor {
   /** Typical delivery times for this route */
   deliveryNote: string;
   /** Corridor-specific FAQ entries */
-  faqs: { q: string; a: string; sources?: { label: string; url: string }[] }[];
+  faqs: { q: string; a: string; answerFromComparison?: boolean; sources?: { label: string; url: string }[] }[];
   /** Date of a substantive editorial change, independent of quote collection. */
   editorialUpdatedAt?: string;
   /** True for auto-generated currency-pair pages (usd-to-inr) vs editorial country pages (usa-to-india) */
@@ -57,6 +57,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         "q": "What is the cheapest way to send money from the USA to India?",
+        "answerFromComparison": true,
         "a": "Start with the estimated INR payout for your send amount in the comparison above. A provider with no transfer fee can still deliver fewer rupees through its exchange-rate markup. Shortlist the best estimates, then request quotes using the same US funding method and Indian delivery method. Compare the total dollars debited and rupees delivered. First-transfer offers and account eligibility can change the result; the comparison does not establish a permanent cheapest provider.",
         "sources": [
           {
@@ -132,43 +133,63 @@ export const corridors: Corridor[] = [
     fromFlag: "🇺🇸",
     toFlag: "🇵🇰",
     sampleAmount: 1000,
-    intro:
-      "Pakistan receives over $30 billion in remittances annually, with the United States being one of the largest source countries. Over 500,000 Pakistani-Americans send money home regularly — and choosing the right provider can save thousands of rupees on every single transfer.",
-    context:
-      "The USD to PKR corridor has seen significant exchange rate volatility in recent years, with the Pakistani rupee fluctuating sharply against the dollar. This makes it especially important to compare providers at the time of sending rather than relying on advertised rates. Specialist transfer services like Wise, Remitly, TapTap Send, and ACE Money Transfer typically offer rates 2–4% better than traditional banks, which translates to PKR 5,000–10,000 more on a $1,000 transfer. Providers like Western Union and MoneyGram offer widespread cash pickup networks across Pakistan, making them ideal when the recipient doesn't have a bank account.",
-    feesNote:
-      "Transfer fees from the US to Pakistan range from $0 (TapTap Send charges zero fees; Wise and Remitly waive fees for certain payment methods) to $5–$10 for express delivery or credit card funding. Western Union and MoneyGram typically charge $5–$8 for online transfers but more for agent-assisted sends. The real cost difference lies in the exchange rate markup — even a 1% difference on $1,000 means PKR 2,800+ less for your recipient. Always compare the total amount received (after fees and exchange rate) rather than the fee alone.",
-    deliveryNote:
-      "Bank transfers to Pakistan typically arrive within 1–3 business days. Cash pickup through Western Union, MoneyGram, JazzCash, Easypaisa, or partner bank branches is often available within minutes. Mobile wallet delivery via JazzCash and Easypaisa is growing rapidly and is supported by Remitly, ACE Money Transfer, and others. ACE Money Transfer also offers home delivery in select cities.",
+    editorialUpdatedAt: "2026-09-11",
+    intro: "For a US-to-Pakistan transfer, confirm whether your recipient needs a bank deposit, wallet payment or cash pickup before comparing prices. For a bank deposit, check the account type as well as the IBAN: a provider may support the bank but exclude a particular account product.",
+    context: "A household payment to a personal PKR account is different from paying a business. Treat the USD-to-PKR comparison as a shortlist, then check that the provider accepts your recipient account and purpose. For cash collection, confirm a convenient payout location with the recipient.",
+    feesNote: "Compare the total USD cost and PKR payout at your exact amount. A zero-fee offer can have a minimum amount or specific receiving method, and a promotional rate may cover only the first transfer. Check these conditions before treating an advertised offer as your actual price.",
+    deliveryNote: "Separate US funding time from conversion and delivery in Pakistan. An arrival estimate may start after the provider has received your money. Keep the confirmation and tracking reference so the provider can investigate if the recipient has not received the funds.",
     faqs: [
       {
-        q: "What is the cheapest way to send money from the USA to Pakistan?",
-        a: "Based on our current comparison data, Wise and TapTap Send consistently deliver the most Pakistani rupees per dollar. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6%–0.8%, meaning the quoted cost is the total cost with no hidden markup. TapTap Send charges zero transfer fees and offers a competitive exchange rate, making it one of the most affordable options for this corridor. Remitly and ACE Money Transfer also offer strong value, particularly for first-time users who can take advantage of promotional zero-fee rates and enhanced exchange rates. On a $1,000 transfer, the difference between the cheapest and most expensive provider can exceed PKR 10,000 — so comparing is essential. Always check the total PKR amount your recipient will receive rather than just the advertised transfer fee.",
+        "q": "What is the cheapest way to send money from the US to Pakistan?",
+        "a": "Confirm the final payout for your funding method and recipient account. Do not assume that a bank-deposit estimate also applies to a wallet or cash pickup.",
+        "answerFromComparison": true,
+        "sources": [
+          {
+            "label": "How our estimates and ranking work",
+            "url": "/methodology"
+          }
+        ]
       },
       {
-        q: "How long does it take to send money from the US to Pakistan?",
-        a: "Transfer speed to Pakistan depends on the delivery method. Cash pickup through Western Union and MoneyGram is available within minutes at thousands of agent locations across Pakistan, including in smaller cities and towns. Mobile wallet transfers via JazzCash and Easypaisa are also near-instant — funds arrive in the recipient's mobile wallet within minutes and can be withdrawn at any agent point. Bank deposits to Pakistani banks typically take 1–3 business days, with some providers like Remitly offering same-day express delivery to major banks such as HBL, UBL, and MCB. ACE Money Transfer offers home delivery in select Pakistani cities, where cash is delivered directly to the recipient's address. Funding your transfer with a debit card rather than ACH bank transfer can reduce the overall delivery time by 1–2 days.",
+        "q": "Which Pakistani accounts can receive a Wise transfer?",
+        "a": "Wise supports personal PKR bank accounts and excludes business accounts and certain express accounts, including the Meezan Bank Express and Allied Bank Express products named in its guide. Confirm the account product with the recipient, not just the bank name.",
+        "sources": [
+          {
+            "label": "Wise: supported PKR accounts and recipient details",
+            "url": "https://wise.com/help/articles/2932334/guide-to-pkr-transfers"
+          }
+        ]
       },
       {
-        q: "Which provider gives the best exchange rate for USD to PKR?",
-        a: "Wise consistently offers the rate closest to the mid-market (interbank) rate for USD to PKR, because it uses the actual mid-market rate with zero markup and charges only a small transparent fee. TapTap Send and Remitly follow closely, typically within 0.5%–1.5% of the mid-market rate. ACE Money Transfer often matches or beats Remitly on this corridor. Western Union and MoneyGram tend to apply higher exchange rate markups of 1.5%–3.5%, though they offer the widest cash pickup networks in Pakistan. The Pakistani rupee has experienced significant volatility in recent years, which means rates can change substantially within a single day. We recommend comparing all providers at the exact time you plan to send rather than relying on rates quoted hours or days earlier.",
+        "q": "What recipient details do I need for a Wise bank deposit?",
+        "a": "Wise asks for the recipient’s full name and a 24-character Pakistani IBAN starting with PK. Obtain the IBAN from the recipient’s bank records and check it before paying.",
+        "sources": [
+          {
+            "label": "Wise: supported PKR accounts and recipient details",
+            "url": "https://wise.com/help/articles/2932334/guide-to-pkr-transfers"
+          }
+        ]
       },
       {
-        q: "Can I send money to a JazzCash or Easypaisa account?",
-        a: "Yes, several major providers support direct transfers to JazzCash and Easypaisa mobile wallets in Pakistan. Remitly, ACE Money Transfer, and Western Union all offer mobile wallet delivery to both platforms. This is one of the fastest and most convenient delivery methods available — funds typically arrive within minutes of sending. JazzCash (operated by Jazz/Mobilink) and Easypaisa (operated by Telenor Microfinance Bank) are Pakistan's two largest mobile money platforms, with millions of active users and extensive agent networks across the country. Recipients can use the funds directly for purchases, bill payments, and bank transfers, or withdraw cash at any JazzCash or Easypaisa agent location. Mobile wallet delivery is particularly useful for recipients in areas with limited banking infrastructure.",
+        "q": "What if the recipient needs cash or a mobile wallet?",
+        "a": "Western Union’s US-to-Pakistan page lists qualifying bank deposits, mobile wallets and cash pickup. Select the receiving option in the quote and confirm the exact wallet or pickup location. Its advertised bank-transfer price should not be assumed to cover every option.",
+        "sources": [
+          {
+            "label": "Western Union: sending from the US to Pakistan",
+            "url": "https://www.westernunion.com/us/en/send-money-to-pakistan.html"
+          }
+        ]
       },
       {
-        q: "Which provider is best for cash pickup in Pakistan?",
-        a: "Western Union has the largest cash pickup network in Pakistan, with thousands of agent locations in cities, towns, and rural areas across all provinces. MoneyGram is the second largest, with extensive coverage through partner banks and retail locations. ACE Money Transfer, a UK-based service popular with Pakistani diaspora communities, also offers cash pickup through partner banks including HBL, UBL, Bank Alfalah, and Allied Bank. For cash pickup, speed is a key advantage — all three services typically make funds available within minutes. Western Union's My WU loyalty programme offers reduced fees for frequent senders. Cash pickup requires the recipient to present valid government-issued ID (CNIC) and the transaction reference number at the pickup location. No bank account is needed, making this ideal for unbanked recipients.",
-      },
-      {
-        q: "What documents do I need to send money to Pakistan?",
-        a: "All regulated money transfer providers require identity verification to comply with US anti-money-laundering (AML) regulations. For your first transfer, you will typically need a valid government-issued photo ID — a US passport, driver's license, or state identification card — plus your Social Security Number. Most providers also require your date of birth and current residential address. First-time transfers may trigger additional verification steps, including a selfie photograph or proof of address (utility bill or bank statement). For transfers above $3,000, some providers request documentation showing the source of funds or purpose of the transfer. These requirements are mandated by FinCEN and the Bank Secrecy Act, not by the providers themselves. Subsequent transfers to the same recipient are usually much faster, as your identity is already verified in the provider's system.",
-      },
-      {
-        q: "Is there a limit on remittances to Pakistan?",
-        a: "Transfer limits vary by provider. Most services allow $2,500–$10,000 per single transaction, with daily and monthly limits that may be higher. Western Union and ACE Money Transfer offer increased limits after full identity verification — up to $50,000 per transaction in some cases. On the receiving side, Pakistan's State Bank does not cap incoming remittances — there is no upper limit on how much money can be received from abroad. In fact, Pakistan actively encourages formal remittance channels through its Roshan Digital Account programme and tax incentives. Under US regulations, transfers exceeding $10,000 require the financial institution to file a Currency Transaction Report (CTR), but this is a reporting requirement and does not prevent or delay the transfer. For very large transfers, services like OFX and XE offer better rates and dedicated support.",
-      },
+        "q": "Why might the quoted rate change at checkout?",
+        "a": "Western Union publishes conditions for its introductory exchange-rate offer and says rates vary with payment and payout methods. Compare the full transfer total at checkout, especially if your amount exceeds an offer’s cap or you have used the service before.",
+        "sources": [
+          {
+            "label": "Western Union: sending from the US to Pakistan",
+            "url": "https://www.westernunion.com/us/en/send-money-to-pakistan.html"
+          }
+        ]
+      }
     ],
   },
   {
@@ -180,31 +201,63 @@ export const corridors: Corridor[] = [
     fromFlag: "🇺🇸",
     toFlag: "🇵🇭",
     sampleAmount: 1000,
-    intro:
-      "The Philippines is among the top remittance-receiving countries in the world, with the US as its largest source. Over 4 million Filipino-Americans send money home regularly — making this one of the most competitive corridors.",
-    context:
-      "Competition between providers on the USD to PHP route is fierce, which benefits senders. Exchange rate markups can be as low as 0.3% with the best providers, compared to 3–5% at banks. For a $1,000 transfer, choosing the right provider can mean 1,500–2,500 extra pesos for your recipient.",
-    feesNote:
-      "Many providers offer free or near-free transfers on this corridor due to high competition. Remitly, WorldRemit, and Wise all offer low-fee options. Credit card funding typically costs more ($3–$10) compared to bank transfer or debit card funding.",
-    deliveryNote:
-      "Bank deposits to major Philippine banks (BDO, BPI, Metrobank) typically arrive within minutes to 1 business day. Cash pickup is available through thousands of locations including Cebuana Lhuillier and M Lhuillier outlets. GCash transfers are often instant.",
+    editorialUpdatedAt: "2026-09-11",
+    intro: "Choose how the recipient will use the pesos before comparing a US-to-Philippines transfer. A bank account, GCash or Maya wallet, and cash collection have different practical requirements. For a wallet payment, check the recipient’s available receiving allowance before you send.",
+    context: "The highest PHP estimate is useful only if the money can reach the chosen account or wallet. Keep the delivery method the same when comparing providers. If the recipient needs cash, include the practical cost and availability of collecting or withdrawing it in the decision.",
+    feesNote: "Use your exact USD budget and compare the final PHP receipt. Check whether fees are added to your debit or deducted from the send amount. A first-transfer offer is a separate price from the one a repeat sender may receive.",
+    deliveryNote: "A provider’s local payout speed starts after funding and conversion where stated. Ask for the complete arrival estimate. If a wallet rejects the payment, check the recipient’s account and receiving limits before trying again.",
     faqs: [
       {
-        q: "What is the cheapest way to send money from the US to the Philippines?",
-        a: "Based on our latest comparison data, Remitly and Wise consistently deliver the most Philippine pesos per dollar on this corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5%–0.8%, making it one of the cheapest options for larger transfers. Remitly offers competitive rates with express delivery and frequently runs promotional zero-fee first transfers that can save $3–$5 on initial sends. For a $1,000 transfer, the difference between the best and worst providers can exceed PHP 1,500–2,500 — equivalent to several days of wages in the Philippines. WorldRemit and TapTap Send also offer competitive rates on this corridor. Competition is fierce because the US-to-Philippines route is one of the world's largest remittance corridors, which benefits senders through lower costs and more delivery options.",
+        "q": "What is the cheapest way to send money from the US to the Philippines?",
+        "a": "Check that the provider supports the actual bank, wallet or cash-delivery option your recipient needs, then compare the final quote for that method.",
+        "answerFromComparison": true,
+        "sources": [
+          {
+            "label": "How our estimates and ranking work",
+            "url": "/methodology"
+          }
+        ]
       },
       {
-        q: "Can I send money to GCash from the United States?",
-        a: "Yes, several major providers support direct transfers to GCash wallets in the Philippines. Remitly and WorldRemit both offer GCash as a delivery option, with funds typically arriving within minutes of sending. GCash is the Philippines' most popular mobile wallet with over 90 million registered users, making it one of the most convenient ways to receive money from abroad. Recipients can use GCash funds immediately for purchases at millions of merchants, bill payments, bank transfers, or cash withdrawals at GCash partner outlets across the country. To receive via GCash, your recipient needs an active GCash account linked to their Philippine mobile number — you simply enter their mobile number when creating the transfer. This delivery method is especially convenient for younger recipients who may prefer digital payments over traditional bank deposits or cash pickup.",
+        "q": "Can I send pesos to GCash or Maya through Wise?",
+        "a": "Wise lists GCash and Maya among supported wallets. Its published wallet limit is 50,000 PHP per transfer, and the wallet can apply its own receiving or account limit. Ask the recipient to check their allowance; the provider’s maximum does not guarantee the wallet can accept that amount.",
+        "sources": [
+          {
+            "label": "Wise: PHP bank and wallet transfers",
+            "url": "https://wise.com/help/articles/2932333/guide-to-php-transfers"
+          }
+        ]
       },
       {
-        q: "How long does a money transfer to the Philippines take?",
-        a: "Transfer speed depends on the delivery method you choose. Express transfers to major Philippine banks (BDO, BPI, Metrobank, Landbank) via Remitly or WorldRemit can arrive within minutes to a few hours using the InstaPay or PESONet domestic payment systems. GCash and PayMaya mobile wallet transfers are also near-instant — typically arriving within minutes. Cash pickup at Cebuana Lhuillier, M Lhuillier, and other pawnshop networks is available within minutes of sending, with thousands of outlets across the Philippines including in rural areas. Standard bank deposits take 1–2 business days. Traditional bank wire transfers from US banks are the slowest option at 3–5 business days. Funding your transfer with a debit card rather than ACH bank transfer can reduce the overall timeline by 1–3 days.",
+        "q": "What details does Wise need for a Philippine bank deposit?",
+        "a": "Wise requests the recipient’s full name, bank name and bank account number. Take the account number from the recipient’s banking records rather than using a card number or a wallet number as a substitute.",
+        "sources": [
+          {
+            "label": "Wise: PHP bank and wallet transfers",
+            "url": "https://wise.com/help/articles/2932333/guide-to-php-transfers"
+          }
+        ]
       },
       {
-        q: "What is the maximum I can send to the Philippines?",
-        a: "Transfer limits vary by provider. Most specialist services allow $2,500–$25,000 per single transaction, with higher limits available after completing full identity verification. Wise allows transfers up to $1,000,000 for fully verified accounts. OFX and XE have no upper limit and specialise in large transfers. On the receiving side, the Philippines' Bangko Sentral ng Pilipinas (BSP) does not restrict incoming remittances from abroad — the Philippine government actively encourages formal remittance channels. However, Philippine banks may request additional documentation from recipients for individual deposits exceeding PHP 500,000, as part of the country's anti-money-laundering requirements. Under US regulations, transfers over $10,000 trigger a Currency Transaction Report filing by the financial institution. For very large transfers, providers like OFX offer better exchange rates and dedicated support.",
+        "q": "Is an instant PHP transfer instant from the moment I pay?",
+        "a": "Wise describes its local instant payout after it receives and converts the money. Funding and conversion can add time. Use the arrival estimate supplied for your transaction rather than assuming the local payout speed covers the whole journey.",
+        "sources": [
+          {
+            "label": "Wise: PHP bank and wallet transfers",
+            "url": "https://wise.com/help/articles/2932333/guide-to-php-transfers"
+          }
+        ]
       },
+      {
+        "q": "What if my recipient prefers cash pickup?",
+        "a": "Remitly’s US-to-Philippines page lists cash pickup alongside other delivery methods. Choose the pickup partner and location before confirming and check its collection requirements. Compare that specific quote with a bank or wallet option only if the recipient can use both.",
+        "sources": [
+          {
+            "label": "Remitly: US-to-Philippines delivery options",
+            "url": "https://www.remitly.com/us/en/money-transfer/send-money-to-philippines"
+          }
+        ]
+      }
     ],
   },
   {
@@ -289,47 +342,63 @@ export const corridors: Corridor[] = [
     fromFlag: "🇬🇧",
     toFlag: "🇮🇳",
     sampleAmount: 1000,
-    intro:
-      "The UK has one of the largest Indian diaspora populations in the world. Sending money from the UK to India is a well-served corridor with strong competition between providers — meaning better rates for senders.",
-    context:
-      "GBP to INR transfers benefit from high competition and well-established payment rails. Specialist providers typically offer rates 2–4% better than high-street banks. On a £1,000 transfer, that difference can mean ₹2,000–₹4,000 more for your recipient. Wise, OFX, and Remitly are consistently strong on this corridor.",
-    feesNote:
-      "Fees from the UK to India range from £0 (Wise for certain payments) to £5–£10. Most providers charge less than £5 for bank transfer funding. The exchange rate markup is usually the larger cost component — look for providers offering rates within 0.5% of the mid-market rate.",
-    deliveryNote:
-      "Bank deposits to India from the UK typically arrive within 1–2 business days. Express options via IMPS are available from several providers and can deliver within minutes. SWIFT transfers through banks take 3–5 business days.",
+    editorialUpdatedAt: "2026-09-11",
+    intro: "Sending pounds to India involves two separate choices: how you fund the payment in the UK and how the recipient receives rupees. Compare the estimated INR payout, then confirm the receiving method and account are supported for your payment purpose.",
+    context: "A family-support transfer and an investment payment can share a GBP-to-INR rate but have different eligibility requirements. Before comparing a large payment, establish the recipient account type and purpose; a low estimate is only useful if the provider can process that transfer.",
+    feesNote: "Compare the total GBP debit and INR payout for the same funding method. Check whether a welcome rate has an amount cap and what the returning-customer quote would be. Do not apply the sample amount’s fees to a larger transfer without requesting a new quote.",
+    deliveryNote: "Ask for the expected arrival time after choosing the payment and receiving methods. Keep a record of the promised arrival date, rather than treating a local instant-payment option as an end-to-end delivery guarantee.",
     faqs: [
       {
-        q: "What is the cheapest way to send money from the UK to India?",
-        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most Indian rupees per pound on the GBP to INR corridor. Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.4%–0.7%, meaning there is no hidden exchange rate markup and the quoted fee is the total cost. Remitly offers competitive rates with a slightly wider exchange rate spread but makes up for it with express delivery options and frequent promotional zero-fee first transfers. For a £1,000 transfer, the difference between the cheapest specialist provider and a high-street bank can exceed ₹3,000–₹5,000 — a substantial sum. OFX is also strong on this corridor for larger transfers (£5,000+), where its zero-fee model and tightening exchange rate spreads can beat even Wise. We recommend comparing all providers on the day you send, as GBP/INR rates fluctuate throughout the day.",
+        "q": "What is the cheapest way to send money from the UK to India?",
+        "a": "Check the final quotes with the same funding and payout methods before choosing. The ranking applies to this sample amount and observed pricing, not every GBP-to-INR transfer.",
+        "answerFromComparison": true,
+        "sources": [
+          {
+            "label": "How our estimates and ranking work",
+            "url": "/methodology"
+          }
+        ]
       },
       {
-        q: "How long does a transfer from the UK to India take?",
-        a: "Transfer speed from the UK to India depends on the provider and delivery method. Express transfers via IMPS (Immediate Payment Service) or UPI can arrive in the recipient's Indian bank account within minutes — Remitly, WorldRemit, and Wise all offer express delivery options on this corridor. Standard bank deposits take 1–2 business days with specialist providers, as they use efficient payment rails and have established relationships with Indian banks. High-street bank SWIFT transfers are the slowest option, typically taking 3–5 business days and often passing through one or more correspondent banks, each of which may deduct intermediary fees. Funding with a UK debit card via Faster Payments is instant, while bank transfer funding clears within hours in the UK. India's banking infrastructure processes incoming international payments efficiently, especially to major banks like SBI, HDFC, ICICI, and Axis Bank.",
+        "q": "What details does the recipient need for an Indian bank deposit?",
+        "a": "Wise requests the recipient’s name, account number, IFSC and payment purpose for an INR bank transfer. Ask the recipient to confirm these from their banking records. Do not use an example IFSC as the actual branch code.",
+        "sources": [
+          {
+            "label": "Wise: INR transfer requirements",
+            "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"
+          }
+        ]
       },
       {
-        q: "Do UK banks charge for sending money to India?",
-        a: "Yes, UK high-street banks are among the most expensive ways to send money to India. Most major banks — including HSBC, Barclays, Lloyds, NatWest, and Santander — charge £15–£30 per international wire transfer plus an exchange rate markup of 3%–5% above the mid-market rate. On a £1,000 transfer, the transfer fee plus exchange rate markup can total £45–£80 in costs. By comparison, specialist providers like Wise typically charge £4–£7 total for the same transfer, and Remitly charges £1–£4. That means switching from a bank to a specialist provider can save £30–£70 per transfer. For someone sending £500 monthly to family in India, this adds up to £360–£840 saved per year. Some banks also charge the recipient's bank an intermediary fee, further reducing the amount received — specialist providers typically avoid these intermediary charges entirely.",
+        "q": "Can I choose UPI instead of a bank deposit?",
+        "a": "Remitly lists UPI, bank deposit and cash pickup on its UK-to-India page. Select the method you intend to use before checking its price and arrival estimate. A price for one receiving method does not establish the price for another.",
+        "sources": [
+          {
+            "label": "Remitly: UK-to-India delivery options",
+            "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-india"
+          }
+        ]
       },
       {
-        q: "Can I send money to India from the UK using a debit card?",
-        a: "Yes, most specialist money transfer providers accept UK debit cards as a funding method with little or no additional surcharge. Wise charges approximately 0.2%–0.3% extra for debit card funding compared to bank transfer, while Remitly and WorldRemit often include debit card funding at no extra cost. The key advantage of debit card funding is speed: your payment is processed instantly via the UK Faster Payments network, meaning the transfer begins immediately rather than waiting 1–2 hours for a manual bank transfer to clear. Credit card funding is also available from most providers but typically incurs a significantly higher surcharge of 1.5%–3%, as card networks charge merchants more for credit transactions. For the best balance of speed and cost, UK debit card funding is the recommended choice for most transfers to India.",
+        "q": "Can I use a family-transfer quote for an investment payment?",
+        "a": "Check the provider’s purpose restrictions first. Wise states that it does not support transfers to India for investment or charitable donation. Confirm acceptance of your purpose and account type before sending a large payment.",
+        "sources": [
+          {
+            "label": "Wise: INR transfer requirements",
+            "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"
+          }
+        ]
       },
       {
-        q: "How can I transfer money from UK to India online?",
-        a: "To send money from the UK to India online: (1) Choose a specialist provider — Wise, Remitly, or OFX typically offer the best GBP to INR rates. (2) Create an account and verify your identity (passport or driving licence). (3) Enter the amount, your recipient's Indian bank account details (account number and IFSC code), and choose delivery method. (4) Fund via UK bank transfer (Faster Payments) or debit card. (5) Your recipient receives INR in their Indian bank account within minutes (express/IMPS) or 1–2 business days (standard). Across the corridors we price at $1,000, specialist providers average about half the total cost of a bank — and considerably less than that against a high-street branch wire, which adds a £20–£40 fee on top of its exchange rate markup.",
-      },
-      {
-        q: "What is the best money transfer service from UK to India?",
-        a: "Based on our latest comparison data, the best services from UK to India are: Wise — uses the real mid-market GBP/INR rate with 0% markup, making it the cheapest for most transfer sizes. Remitly — excellent for express delivery (minutes via IMPS) with competitive rates and $25 off first transfer. OFX — best for large transfers (£5,000+) with zero fees and dedicated dealers. For regular family support transfers, Wise delivers the most INR per pound consistently. For urgent transfers where speed matters most, Remitly's express option is the fastest. We recommend comparing all three on the day you send, as rates fluctuate throughout the day.",
-      },
-      {
-        q: "What is the maximum limit for money transfer from UK to India?",
-        a: "Transfer limits from UK to India vary by provider: Wise allows up to £1,000,000 per transfer for fully verified accounts. OFX has no upper limit for business or personal transfers (dedicated dealer support for large amounts). Remitly limits are typically £25,000 per transfer for personal accounts. XE allows up to £500,000 per transfer. On the receiving side, India's Reserve Bank of India does not cap incoming remittances — there is no limit on how much money can be received from abroad. UK regulations require identity verification for larger transfers, but there is no legal maximum on personal remittances. For very large transfers (£50,000+), OFX and TorFX offer better rates and dedicated support.",
-      },
-      {
-        q: "Is wire transfer from UK to India the cheapest option?",
-        a: "No — wire transfers through UK banks are among the most expensive ways to send money to India. High-street banks charge £15–£30 per SWIFT wire plus a 3–5% exchange rate markup. On a £1,000 transfer, that's £45–£80 in total costs. Specialist online providers like Wise charge £4–£7 total for the same transfer with 0% exchange rate markup. That's a saving of £40–£70 per transfer. For someone sending £500 monthly to family in India, switching from bank wires to Wise saves £360–£840 per year. The only scenario where a bank wire might be necessary is if your recipient requires a specific SWIFT reference for a property purchase or institutional payment.",
-      },
+        "q": "Does FCA regulation mean my money is protected like a bank deposit?",
+        "a": "Check the firm and its permissions on the FCA register. The FCA explains that money with a non-bank payment service provider is not covered by the Financial Services Compensation Scheme; safeguarding arrangements differ from bank-deposit protection. Read the provider’s terms before leaving money with it.",
+        "sources": [
+          {
+            "label": "FCA: using payment service providers",
+            "url": "https://www.fca.org.uk/consumers/using-payment-service-providers"
+          }
+        ]
+      }
     ],
   },
   {
@@ -597,35 +666,63 @@ export const corridors: Corridor[] = [
     fromFlag: "🇬🇧",
     toFlag: "🇳🇬",
     sampleAmount: 1000,
-    intro:
-      "Nigeria has a large diaspora in the UK, and GBP to NGN is one of the most popular remittance corridors from Britain. Exchange rate differences between providers can be enormous on this route.",
-    context:
-      "Due to Nigeria's exchange rate dynamics, the difference between the best and worst provider can be 10–15% on GBP to NGN transfers. This makes comparison more important on this corridor than almost any other. Always check the total naira amount your recipient will receive.",
-    feesNote:
-      "Fees range from £0 to £5 with specialist providers. However, fees are a minor factor compared to the exchange rate — a 5% rate difference on £1,000 is worth £50, dwarfing any fee.",
-    deliveryNote:
-      "Bank transfers to Nigerian accounts take 1–3 business days. Some providers offer same-day delivery. Cash pickup is available through partner networks.",
+    editorialUpdatedAt: "2026-09-11",
+    intro: "For a UK-to-Nigeria transfer, first confirm the currency and delivery method the recipient needs. This comparison estimates NGN payouts from GBP. An offer for a different receiving currency or account type is a different comparison.",
+    context: "Check the final naira payout for the whole amount you intend to send. A welcome exchange rate may apply to only part of a transfer or only to a new customer. Compare account-specific checkout quotes before assuming the headline rate is your effective rate.",
+    feesNote: "Compare the full GBP debit with the final NGN payout. Check any promotional cap and the non-promotional rate for your payment method. Use the differences shown by the current comparison; a fixed claim that providers always differ by 5% or 10% is not a substitute for observed prices.",
+    deliveryNote: "Confirm that the recipient’s bank, wallet or cash location is supported and use the provider’s full arrival estimate. Verify the receiving currency as well as the amount before paying.",
     faqs: [
       {
-        q: "What is the cheapest way to send money from the UK to Nigeria?",
-        a: "Lemfi (formerly LemFi), Wise, WorldRemit, and Remitly are consistently among the best performers on the GBP to NGN corridor. Lemfi is specifically popular in the Nigerian diaspora community for its competitive naira rates and fast delivery. Wise offers full mid-market rate transparency. Due to NGN exchange rate volatility, the cheapest provider changes regularly — differences of ₦50,000 to ₦150,000 per £1,000 are common between the best and worst providers on any given day. This makes comparing before every single transfer essential. UK high-street banks charge £15–£30 per wire plus a 4–6% markup on NGN, meaning they routinely deliver ₦100,000–₦200,000 less per £1,000 than the best specialist providers.",
+        "q": "What is the cheapest way to send money from the UK to Nigeria?",
+        "a": "The figures compare NGN estimates for this amount. They do not establish a price for another receiving currency, funding method or account type.",
+        "answerFromComparison": true,
+        "sources": [
+          {
+            "label": "How our estimates and ranking work",
+            "url": "/methodology"
+          }
+        ]
       },
       {
-        q: "Why do GBP to NGN rates differ so much between providers?",
-        a: "Nigeria's exchange rate market has undergone significant liberalisation since the Central Bank of Nigeria (CBN) moved to a unified, market-determined exchange rate in 2023. However, different providers still source naira at different rates depending on their Nigerian banking relationships and liquidity sources. Some providers source NGN through the official I&E window, others through alternative channels. This structural difference can create rate gaps of 3–8% between providers on the same day. Additionally, the naira's volatility means rates can move significantly within a single day. Rate alerts and same-day comparison are essential tools for anyone sending money to Nigeria regularly.",
+        "q": "Does Remitly support only bank deposits to Nigeria?",
+        "a": "Remitly’s UK-to-Nigeria page lists bank deposit, cash pickup and mobile wallet. Availability must be checked for your recipient and transaction in the quote flow. Confirm the payout currency too; the comparison here is for naira.",
+        "sources": [
+          {
+            "label": "Remitly: UK-to-Nigeria methods and offer terms",
+            "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-nigeria"
+          }
+        ]
       },
       {
-        q: "How long does a UK to Nigeria transfer take?",
-        a: "Most specialist providers deliver to Nigerian bank accounts within 1–3 business days. Some providers — including Lemfi and Remitly — offer same-day delivery to GTBank, Access Bank, Zenith Bank, and First Bank for transfers initiated during business hours. Cash pickup through Western Union and MoneyGram partner locations is available within minutes. Mobile money delivery is less developed in Nigeria than in East Africa, but providers like WorldRemit support transfers to OPay and Paga wallets in select cases. Funding your transfer via UK Faster Payments gives your provider same-day receipt of funds, which speeds up the overall process compared to standard bank transfer funding.",
+        "q": "Why can the welcome rate differ from my checkout rate?",
+        "a": "Remitly states that its welcome offer is for new customers and includes a promotional amount cap, with further payment-method conditions. Read the terms for your whole amount, not just the rate shown in the headline. Returning customers should compare their account’s actual quote.",
+        "sources": [
+          {
+            "label": "Remitly: UK-to-Nigeria methods and offer terms",
+            "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-nigeria"
+          }
+        ]
       },
       {
-        q: "Which Nigerian banks are supported for GBP to NGN transfers?",
-        a: "Most major Nigerian commercial banks are supported by specialist transfer providers. These include GTBank (Guaranty Trust Bank), Access Bank, Zenith Bank, First Bank of Nigeria, UBA (United Bank for Africa), Sterling Bank, Stanbic IBTC, and FCMB. Your recipient's account should be in their legal name and fully verified to avoid delays — Nigerian banks have strict AML requirements for inward remittances. Transfers must be received in NGN at the official rate; dollar-denominated accounts (domiciliary accounts) cannot receive naira remittances. Your recipient will typically need to provide their Bank Verification Number (BVN) to the receiving bank if they haven't already completed full KYC.",
+        "q": "How do I check an unfamiliar UK transfer provider?",
+        "a": "Use the FCA register and check the firm’s permissions and contact details against the service you intend to use. The FCA explains that a non-bank payment service provider does not provide the same FSCS protection as a bank. Regulation is not a guarantee that a transfer cannot fail.",
+        "sources": [
+          {
+            "label": "FCA: using payment service providers",
+            "url": "https://www.fca.org.uk/consumers/using-payment-service-providers"
+          }
+        ]
       },
       {
-        q: "Is it safe to send money from the UK to Nigeria online?",
-        a: "Yes, using an FCA-authorised provider is safe and legally protected in the UK. All regulated providers must segregate customer funds, comply with anti-money laundering rules, and meet strict capital requirements. The transfer recipient in Nigeria is protected by CBN regulations governing incoming remittances. Avoid using unofficial channels or individuals promising better rates — unregulated transfers have no legal protection and are a common vehicle for fraud. Legitimate providers charge slightly more than black-market alternatives but guarantee your recipient receives the funds and offer recourse if anything goes wrong. Always verify FCA authorisation at the FCA Register before using an unfamiliar provider.",
-      },
+        "q": "Should I wait for a better GBP-to-NGN rate?",
+        "a": "Our comparison describes collected prices, not a forecast. If there is a payment deadline, weigh it against the provider’s arrival estimate. Use dated rate history to understand past movements without assuming they predict the next one.",
+        "sources": [
+          {
+            "label": "How we collect data and estimate costs",
+            "url": "/methodology"
+          }
+        ]
+      }
     ],
   },
   // ── AUD corridors continued ──

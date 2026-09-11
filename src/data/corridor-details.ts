@@ -39,6 +39,8 @@ export interface TransferRegulations {
 }
 
 export interface CountryDetails {
+  sources?: { label: string; url: string }[];
+  editorialUpdatedAt?: string;
   countryName: string;
   countryCode: string;
   currency: string;
@@ -77,6 +79,8 @@ const currencyToCountryCode: Record<string, string> = {
 
 const countryDetailsMap: Record<string, CountryDetails> = {
   pakistan: {
+    editorialUpdatedAt: "2026-09-11",
+    sources: [{"label": "Wise PKR requirements", "url": "https://wise.com/help/articles/2932334/guide-to-pkr-transfers"}, {"label": "Western Union US-to-Pakistan options", "url": "https://www.westernunion.com/us/en/send-money-to-pakistan.html"}],
     countryName: "Pakistan",
     countryCode: "PK",
     currency: "PKR",
@@ -86,44 +90,52 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { label: "Bank name", description: "Name of the recipient's bank (e.g. HBL, UBL, MCB, Allied Bank)", required: true },
       { label: "Mobile number", description: "Required for JazzCash or Easypaisa mobile wallet transfers (11-digit Pakistani mobile number)", required: false, example: "03001234567" },
     ],
-    requirementsNote: "Pakistan adopted the IBAN system in 2012. All Pakistani banks now use 24-character IBANs. If your recipient only has an old-format account number, their bank can provide the IBAN equivalent.",
+    requirementsNote: "Confirm the recipient details and account eligibility in the provider’s transfer form. The sources below describe specific services; their requirements are not universal rules for every provider.",
     deliveryMethods: [
-      { method: "Bank Deposit", speed: "1–3 business days", description: "Direct transfer to any Pakistani bank account via IBAN. Most common method for recipients with bank accounts.", providers: ["wise", "remitly", "worldremit", "western-union", "moneygram", "ace-money-transfer"] },
-      { method: "JazzCash Mobile Wallet", speed: "Minutes", description: "Instant transfer to JazzCash mobile wallet — Pakistan's largest mobile money platform with 40M+ users. Recipient collects via their phone.", providers: ["remitly", "ace-money-transfer", "western-union"] },
-      { method: "Easypaisa Mobile Wallet", speed: "Minutes", description: "Transfer to Easypaisa wallet by Telenor Microfinance Bank. Widely used in urban and semi-urban Pakistan.", providers: ["remitly", "ace-money-transfer", "worldremit"] },
-      { method: "Cash Pickup", speed: "Minutes", description: "Recipient collects cash in person from agent locations across Pakistan — thousands of pickup points in all major and many smaller cities.", providers: ["western-union", "moneygram", "ria", "ace-money-transfer"] },
-      { method: "Home Delivery", speed: "Same day to 2 days", description: "Cash delivered to the recipient's doorstep in select Pakistani cities including Karachi, Lahore, and Islamabad.", providers: ["ace-money-transfer"] },
+      {
+        "method": "Bank deposit",
+        "speed": "Check transaction estimate",
+        "description": "Wise’s PKR guide covers personal bank accounts and lists account exclusions.",
+        "providers": [
+          "wise"
+        ]
+      },
+      {
+        "method": "Cash pickup or mobile wallet",
+        "speed": "Check transaction estimate",
+        "description": "Western Union lists these options for US-to-Pakistan transfers. Check availability from your sending country.",
+        "providers": [
+          "western-union"
+        ]
+      }
     ],
-    receivingNote: "Mobile wallets (JazzCash and Easypaisa) are growing rapidly in Pakistan and are often the fastest delivery method. Cash pickup remains essential for recipients in smaller cities and rural areas where bank access is limited.",
+    receivingNote: "Choose a method the recipient can use and confirm the complete arrival estimate. Local payout speed does not include every funding or verification step.",
     regulations: {
-      regulatoryBody: "State Bank of Pakistan (SBP)",
-      inboundLimit: "No cap on incoming remittances — Pakistan actively encourages inbound transfers through the Pakistan Remittance Initiative (PRI)",
-      documentationNeeded: [
-        "Government-issued photo ID (passport, driver's license, or state ID)",
-        "Social Security Number (for US senders) or equivalent tax ID",
-        "Proof of address may be required for first-time transfers",
-        "Source of funds documentation for transfers over $3,000 with some providers",
+      "inboundLimit": "Confirm the limit for your amount, payment purpose and recipient account directly with the chosen provider.",
+      "documentationNeeded": [
+        "Recipient details for the selected receiving method",
+        "Any identity, payment-purpose or source-of-funds documents requested by the provider"
       ],
-      importantNotes: [
-        "All inbound remittances are converted to PKR at the official interbank rate set by SBP — but providers add varying margins on top.",
-        "Pakistan offers tax incentives for remittance recipients under the government's Roshan Digital Account program.",
-        "Transfers over $10,000 (or equivalent) must be reported under US Bank Secrecy Act / UK Money Laundering Regulations.",
-        "Cash pickup limits may apply depending on the provider and location — typically PKR 500,000 per transaction.",
-      ],
+      "importantNotes": [
+        "Check account restrictions before paying. A price estimate does not verify recipient eligibility.",
+        "Keep the confirmation and transfer reference in case the recipient needs the provider to trace the payment."
+      ]
     },
     popularBanks: [
-      { name: "Habib Bank Limited (HBL)", swiftCode: "HABORPKAXXX", notes: "Pakistan's largest bank by assets and branch network" },
-      { name: "United Bank Limited (UBL)", swiftCode: "UNABORPKXXX", notes: "Second-largest private bank, strong international remittance services" },
-      { name: "MCB Bank", swiftCode: "MCABORPKXXX", notes: "One of the oldest and most profitable banks in Pakistan" },
-      { name: "Allied Bank Limited (ABL)", swiftCode: "ABPAPKKAXXX", notes: "Extensive rural and semi-urban branch network" },
-      { name: "Bank Alfalah", swiftCode: "ALFHPKKAXXX", notes: "Strong digital banking and mobile app" },
-      { name: "Meezan Bank", swiftCode: "MEABORPKXXX", notes: "Pakistan's largest Islamic bank" },
-      { name: "National Bank of Pakistan (NBP)", swiftCode: "NBPAPKKAXXX", notes: "Government-owned, widest branch reach across Pakistan" },
-      { name: "Standard Chartered Pakistan", swiftCode: "SCBLPKKXXXX", notes: "International bank with premium services" },
+      { name: "Habib Bank Limited (HBL)" },
+      { name: "United Bank Limited (UBL)" },
+      { name: "MCB Bank" },
+      { name: "Allied Bank Limited (ABL)" },
+      { name: "Bank Alfalah" },
+      { name: "Meezan Bank" },
+      { name: "National Bank of Pakistan (NBP)" },
+      { name: "Standard Chartered Pakistan" },
     ],
   },
 
   india: {
+    editorialUpdatedAt: "2026-09-11",
+    sources: [{"label": "Wise INR requirements", "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"}, {"label": "Remitly UK-to-India options", "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-india"}],
     countryName: "India",
     countryCode: "IN",
     currency: "INR",
@@ -133,43 +145,52 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { label: "IFSC code", description: "11-character Indian Financial System Code identifying the specific bank branch", required: true, example: "HDFC0001234" },
       { label: "Bank name & branch", description: "Name of the bank and branch (e.g. HDFC Bank, Andheri West Branch)", required: true },
     ],
-    requirementsNote: "India does not use the IBAN system. Instead, you need the recipient's bank account number and IFSC code. The IFSC code uniquely identifies each bank branch and is printed on cheque books or available on the bank's website.",
+    requirementsNote: "Confirm the recipient details and account eligibility in the provider’s transfer form. The sources below describe specific services; their requirements are not universal rules for every provider.",
     deliveryMethods: [
-      { method: "Bank Deposit (IMPS)", speed: "Minutes", description: "Instant transfer via India's IMPS system to any bank account. Available 24/7 including weekends and holidays.", providers: ["wise", "remitly", "worldremit", "instarem", "xoom"] },
-      { method: "Bank Deposit (NEFT)", speed: "2–4 hours", description: "Local bank settlement is only one stage of an international transfer. Use the provider’s complete arrival estimate.", providers: ["wise", "remitly", "ofx"] },
-      { method: "UPI Transfer", speed: "Minutes", description: "Direct transfer to UPI-linked bank accounts. Growing in popularity for remittances.", providers: ["remitly", "google-pay"] },
-      { method: "Cash Pickup", speed: "Minutes", description: "Recipient collects cash from agent locations across India — available through banking correspondents and retail partners.", providers: ["western-union", "moneygram", "ria", "xoom"] },
-      { method: "Mobile Wallet", speed: "Minutes", description: "Transfer to Paytm or other digital wallets. Useful when the recipient prefers digital payment over bank deposit.", providers: ["worldremit"] },
+      {
+        "method": "Bank deposit",
+        "speed": "Check transaction estimate",
+        "description": "Wise’s INR guide lists recipient details and payment-purpose restrictions.",
+        "providers": [
+          "wise"
+        ]
+      },
+      {
+        "method": "UPI or cash pickup",
+        "speed": "Check transaction estimate",
+        "description": "Remitly lists these options for UK senders. Check availability from your sending country.",
+        "providers": [
+          "remitly"
+        ]
+      }
     ],
-    receivingNote: "IMPS is the preferred delivery method for speed and convenience — it works 24/7 and reaches virtually every bank account in India. For recipients in rural areas, cash pickup through Western Union or MoneyGram agent networks remains important.",
+    receivingNote: "Choose a method the recipient can use and confirm the complete arrival estimate. Local payout speed does not include every funding or verification step.",
     regulations: {
-      regulatoryBody: "Reserve Bank of India (RBI)",
-      inboundLimit: "Confirm the provider’s limit for your payment purpose and receiving account; an INR quote does not establish eligibility for every type of remittance",
-      documentationNeeded: [
-        "Government-issued photo ID (passport, driver's license, or state ID)",
-        "Social Security Number or equivalent tax ID (for US/UK/Canadian senders)",
-        "Proof of address for first-time transfers with most providers",
+      "inboundLimit": "Confirm the limit for your amount, payment purpose and recipient account directly with the chosen provider.",
+      "documentationNeeded": [
+        "Recipient details for the selected receiving method",
+        "Any identity, payment-purpose or source-of-funds documents requested by the provider"
       ],
-      importantNotes: [
-        "India's Tax Collected at Source (TCS) applies only to outbound remittances from India, not to money received from abroad.",
-        "Documentation and reporting depend on the sending country, payment method and purpose. Ask the provider what is required before funding the transfer.",
-        "Provide the correct payment purpose. The provider or recipient bank may request additional information before processing the transfer.",
-        "NRI (Non-Resident Indian) accounts like NRE and NRO have different rules — check with the recipient's bank if they hold an NRI account.",
-      ],
+      "importantNotes": [
+        "Check account restrictions before paying. A price estimate does not verify recipient eligibility.",
+        "Keep the confirmation and transfer reference in case the recipient needs the provider to trace the payment."
+      ]
     },
     popularBanks: [
-      { name: "State Bank of India (SBI)", notes: "India's largest bank with 22,000+ branches" },
-      { name: "HDFC Bank", notes: "Largest private sector bank, excellent digital services" },
-      { name: "ICICI Bank", notes: "Strong international remittance integration" },
-      { name: "Axis Bank", notes: "Popular for NRI banking and remittances" },
-      { name: "Punjab National Bank (PNB)", notes: "Second-largest public sector bank" },
-      { name: "Kotak Mahindra Bank", notes: "Fast-growing private bank with strong digital presence" },
-      { name: "Bank of Baroda", notes: "Major public sector bank with international presence" },
-      { name: "Canara Bank", notes: "Large public sector bank in southern India" },
+      { name: "State Bank of India (SBI)" },
+      { name: "HDFC Bank" },
+      { name: "ICICI Bank" },
+      { name: "Axis Bank" },
+      { name: "Punjab National Bank (PNB)" },
+      { name: "Kotak Mahindra Bank" },
+      { name: "Bank of Baroda" },
+      { name: "Canara Bank" },
     ],
   },
 
   philippines: {
+    editorialUpdatedAt: "2026-09-11",
+    sources: [{"label": "Wise PHP requirements", "url": "https://wise.com/help/articles/2932333/guide-to-php-transfers"}, {"label": "Remitly US-to-Philippines options", "url": "https://www.remitly.com/us/en/money-transfer/send-money-to-philippines"}],
     countryName: "Philippines",
     countryCode: "PH",
     currency: "PHP",
@@ -180,37 +201,44 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { label: "GCash number", description: "11-digit mobile number linked to GCash wallet (for GCash transfers)", required: false, example: "09171234567" },
       { label: "Maya number", description: "Mobile number linked to Maya (formerly PayMaya) wallet", required: false },
     ],
-    requirementsNote: "The Philippines does not use IBAN. Bank transfers require the account number and bank name. For mobile wallet transfers, you only need the recipient's registered mobile number.",
+    requirementsNote: "Confirm the recipient details and account eligibility in the provider’s transfer form. The sources below describe specific services; their requirements are not universal rules for every provider.",
     deliveryMethods: [
-      { method: "Bank Deposit", speed: "Minutes to 1 day", description: "Direct deposit to Philippine bank accounts including BDO, BPI, Metrobank, UnionBank, and Landbank.", providers: ["wise", "remitly", "worldremit", "xoom", "western-union"] },
-      { method: "GCash", speed: "Minutes", description: "Instant transfer to GCash mobile wallet — the most popular digital wallet in the Philippines with 90M+ registered users.", providers: ["remitly", "worldremit", "xoom"] },
-      { method: "Maya (PayMaya)", speed: "Minutes", description: "Transfer to Maya digital wallet. Popular alternative to GCash, especially for online payments.", providers: ["remitly", "worldremit"] },
-      { method: "Cash Pickup", speed: "Minutes", description: "Recipient collects cash from Cebuana Lhuillier, M Lhuillier, or other payout partners — thousands of locations across the Philippines including provincial areas.", providers: ["western-union", "moneygram", "remitly", "worldremit", "ria"] },
-      { method: "Door-to-Door Delivery", speed: "1–2 days", description: "Cash delivered to the recipient's home — available in Metro Manila and select provincial areas.", providers: ["remitly", "worldremit"] },
+      {
+        "method": "Bank deposit or mobile wallet",
+        "speed": "Check transaction estimate",
+        "description": "Wise’s PHP guide distinguishes bank and wallet requirements.",
+        "providers": [
+          "wise"
+        ]
+      },
+      {
+        "method": "Cash pickup",
+        "speed": "Check transaction estimate",
+        "description": "Remitly lists cash pickup for US senders. Check the receiving location and availability from your sending country.",
+        "providers": [
+          "remitly"
+        ]
+      }
     ],
-    receivingNote: "GCash is the dominant mobile wallet in the Philippines and is often the fastest, cheapest way to receive money. Cebuana Lhuillier and M Lhuillier have the widest cash pickup networks, reaching even remote provincial areas.",
+    receivingNote: "Choose a method the recipient can use and confirm the complete arrival estimate. Local payout speed does not include every funding or verification step.",
     regulations: {
-      regulatoryBody: "Bangko Sentral ng Pilipinas (BSP)",
-      inboundLimit: "No restriction on incoming remittances — the Philippines actively encourages OFW (Overseas Filipino Worker) remittances",
-      documentationNeeded: [
-        "Government-issued photo ID (passport, driver's license, or state ID)",
-        "Social Security Number or equivalent tax ID",
-        "Reference number or MTCN (for cash pickup)",
+      "inboundLimit": "Confirm the limit for your amount, payment purpose and recipient account directly with the chosen provider.",
+      "documentationNeeded": [
+        "Recipient details for the selected receiving method",
+        "Any identity, payment-purpose or source-of-funds documents requested by the provider"
       ],
-      importantNotes: [
-        "The Philippines is one of the world's top remittance-receiving countries — the BSP has created a supportive regulatory environment for inbound transfers.",
-        "Cash pickups over PHP 500,000 may require additional ID from the recipient.",
-        "GCash wallet limits: PHP 100,000 for basic accounts, PHP 500,000 for fully verified accounts.",
-        "OFW (Overseas Filipino Worker) remittances are exempt from documentary stamp tax.",
-      ],
+      "importantNotes": [
+        "Check account restrictions before paying. A price estimate does not verify recipient eligibility.",
+        "Keep the confirmation and transfer reference in case the recipient needs the provider to trace the payment."
+      ]
     },
     popularBanks: [
-      { name: "BDO Unibank", swiftCode: "ABORPHPHXXX", notes: "Largest bank in the Philippines by assets" },
-      { name: "Bank of the Philippine Islands (BPI)", swiftCode: "BABORPHPHXXX", notes: "Oldest bank in Southeast Asia, strong remittance services" },
-      { name: "Metrobank", swiftCode: "MABORPHPHXXX", notes: "Third-largest bank with extensive branch network" },
-      { name: "UnionBank", swiftCode: "UBPHPHMMXXX", notes: "Leader in digital banking innovation" },
-      { name: "Landbank of the Philippines", swiftCode: "TLBPPHPHXXX", notes: "Government-owned, strong in rural areas" },
-      { name: "Philippine National Bank (PNB)", swiftCode: "PNBMPHPHXXX", notes: "Wide international presence for OFW services" },
+      { name: "BDO Unibank" },
+      { name: "Bank of the Philippine Islands (BPI)" },
+      { name: "Metrobank" },
+      { name: "UnionBank" },
+      { name: "Landbank of the Philippines" },
+      { name: "Philippine National Bank (PNB)" },
     ],
   },
 
@@ -259,43 +287,46 @@ const countryDetailsMap: Record<string, CountryDetails> = {
   },
 
   nigeria: {
+    editorialUpdatedAt: "2026-09-11",
+    sources: [{"label": "Remitly UK-to-Nigeria options", "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-nigeria"}],
     countryName: "Nigeria",
     countryCode: "NG",
     currency: "NGN",
     recipientRequirements: [
-      { label: "Full name", description: "Recipient's full name as registered with their bank (matching BVN records)", required: true },
-      { label: "Bank account number", description: "10-digit NUBAN (Nigeria Uniform Bank Account Number)", required: true, example: "0123456789" },
+      { label: "Full name", description: "Recipient’s name as shown in their banking records", required: true },
+      { label: "Bank account number", description: "Use the account number from the recipient’s bank records", required: true, example: "0123456789" },
       { label: "Bank name", description: "Name of the receiving bank (e.g. GTBank, Access Bank, Zenith Bank, First Bank)", required: true },
     ],
-    requirementsNote: "Nigeria uses the NUBAN (Nigeria Uniform Bank Account Number) system — a standardized 10-digit account number. Every Nigerian bank account holder also has a BVN (Bank Verification Number) which links all their accounts across banks.",
+    requirementsNote: "Confirm the recipient details and account eligibility in the provider’s transfer form. The sources below describe specific services; their requirements are not universal rules for every provider.",
     deliveryMethods: [
-      { method: "Bank Deposit", speed: "Minutes to 1 day", description: "Direct transfer to Nigerian bank accounts via the NIBSS instant payment system. Most banks credit within hours.", providers: ["wise", "remitly", "worldremit", "western-union", "moneygram"] },
-      { method: "Mobile Money", speed: "Minutes", description: "Transfer to mobile money wallets like OPay or Paga — growing alternatives for recipients without traditional bank accounts.", providers: ["worldremit"] },
-      { method: "Cash Pickup", speed: "Minutes", description: "Recipient collects cash from partner bank branches and agent locations across Nigeria.", providers: ["western-union", "moneygram", "ria"] },
+      {
+        "method": "Bank deposit, cash pickup or mobile wallet",
+        "speed": "Check transaction estimate",
+        "description": "Remitly lists these options for UK senders. Confirm the recipient, payout currency and availability from your sending country.",
+        "providers": [
+          "remitly"
+        ]
+      }
     ],
-    receivingNote: "Bank deposit is the most common and reliable delivery method in Nigeria. The NIBSS Instant Payment (NIP) system enables near-real-time transfers between Nigerian banks. Mobile money is growing but less established than in East Africa.",
+    receivingNote: "Choose a method the recipient can use and confirm the complete arrival estimate. Local payout speed does not include every funding or verification step.",
     regulations: {
-      regulatoryBody: "Central Bank of Nigeria (CBN)",
-      inboundLimit: "No cap on incoming diaspora remittances — Nigeria actively encourages inbound transfers",
-      documentationNeeded: [
-        "Government-issued photo ID (passport, driver's license, or state ID)",
-        "Social Security Number or equivalent tax ID",
-        "Proof of source of funds for transfers over $5,000 with some providers",
+      "inboundLimit": "Confirm the limit for your amount, payment purpose and recipient account directly with the chosen provider.",
+      "documentationNeeded": [
+        "Recipient details for the selected receiving method",
+        "Any identity, payment-purpose or source-of-funds documents requested by the provider"
       ],
-      importantNotes: [
-        "The CBN has unified exchange rates following currency reforms. The gap between official and parallel market rates has narrowed significantly.",
-        "NGN rates can change rapidly — always check the rate at the exact time of sending, not hours earlier.",
-        "Recipients may need their BVN (Bank Verification Number) for cash pickups over certain thresholds.",
-        "Nigerian domiciliary (DOM) accounts can receive foreign currency directly without conversion to NGN.",
-      ],
+      "importantNotes": [
+        "Check account restrictions before paying. A price estimate does not verify recipient eligibility.",
+        "Keep the confirmation and transfer reference in case the recipient needs the provider to trace the payment."
+      ]
     },
     popularBanks: [
-      { name: "GTBank (Guaranty Trust)", swiftCode: "GTBINGLAXXX", notes: "Leading digital bank in Nigeria" },
-      { name: "Access Bank", swiftCode: "ABORINGCXXX", notes: "Nigeria's largest bank by assets after merger with Diamond Bank" },
-      { name: "Zenith Bank", swiftCode: "ZEABORILXXX", notes: "Strong corporate and retail banking" },
-      { name: "First Bank of Nigeria", swiftCode: "FABORINLXXX", notes: "Nigeria's oldest bank, largest branch network" },
-      { name: "United Bank for Africa (UBA)", swiftCode: "UNAFNGLAXXX", notes: "Pan-African presence across 20+ countries" },
-      { name: "Fidelity Bank", swiftCode: "FIDTNGLA", notes: "Growing mid-tier bank with strong SME services" },
+      { name: "GTBank (Guaranty Trust)" },
+      { name: "Access Bank" },
+      { name: "Zenith Bank" },
+      { name: "First Bank of Nigeria" },
+      { name: "United Bank for Africa (UBA)" },
+      { name: "Fidelity Bank" },
     ],
   },
 

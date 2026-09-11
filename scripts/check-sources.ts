@@ -27,6 +27,8 @@
 import { blogPosts } from "../src/data/blog-posts";
 import { businessPages } from "../src/data/business-pages";
 import { newsItems } from "../src/data/news";
+import { corridors } from "../src/data/corridors";
+import { getCountryDetails } from "../src/data/corridor-details";
 
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
@@ -35,14 +37,23 @@ const CONCURRENCY = 8;
 const TIMEOUT_MS = 15_000;
 
 const sources = new Map<string, Set<string>>();
+function recordSource(url: string, where: string) {
+  if (!/^https?:\/\//.test(url) || SITE.test(url)) return;
+  const set = sources.get(url) ?? new Set<string>();
+  set.add(where);
+  sources.set(url, set);
+}
 function scan(html: string | undefined, where: string) {
   if (!html) return;
-  for (const m of html.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
-    if (SITE.test(m[1])) continue;
-    const set = sources.get(m[1]) ?? new Set<string>();
-    set.add(where);
-    sources.set(m[1], set);
+  for (const m of html.matchAll(/href="(https?:\/\/[^"]+)"/g)) recordSource(m[1], where);
+}
+
+for (const corridor of corridors) {
+  for (const faq of corridor.faqs) {
+    for (const source of faq.sources ?? []) recordSource(source.url, `corridor:${corridor.slug}`);
   }
+  const details = getCountryDetails(corridor.toCountry, corridor.toCurrency);
+  for (const source of details?.sources ?? []) recordSource(source.url, `destination:${details!.countryName}`);
 }
 
 for (const p of blogPosts) {

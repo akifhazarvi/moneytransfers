@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { allCorridors } from "@/data/corridors";
+import { getCountryDetails } from "@/data/corridor-details";
 import { shouldNoindex } from "@/lib/corridor-tiers";
 import { providers } from "@/data/providers";
 import { blogPosts } from "@/data/blog-posts";
@@ -73,7 +74,7 @@ const DATA_UPDATED = getDataUpdatedDate();
 // Each constant is the date that family's template or editorial content last
 // actually changed, per git history. Bump one when you change that family —
 // the same discipline STATIC_HUB_DATE already follows.
-const CORRIDOR_CONTENT_DATE = "2026-09-07";   // freshness stamp split from human review; reviewedBy dropped
+const CORRIDOR_CONTENT_DATE = "2026-09-11";   // freshness stamp split from human review; reviewedBy dropped
 const COMPARISON_CONTENT_DATE = "2026-08-19"; // /compare, /banks, review fallback
 const RATE_PAGE_CONTENT_DATE = "2026-09-01";  // /exchange-rates/* — inline quotes added
 
@@ -214,9 +215,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
     .filter((c) => !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
     .map((c) => entry(`send-money/${c.slug}`,
-      c.editorialUpdatedAt && c.editorialUpdatedAt > CORRIDOR_CONTENT_DATE
-        ? c.editorialUpdatedAt
-        : CORRIDOR_CONTENT_DATE));
+      [CORRIDOR_CONTENT_DATE, c.editorialUpdatedAt, !c.isCurrencyCorridor ? getCountryDetails(c.toCountry, c.toCurrency)?.editorialUpdatedAt : undefined]
+        .filter((date): date is string => !!date).sort().at(-1)!));
 
   // ── Provider reviews ──
   const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));

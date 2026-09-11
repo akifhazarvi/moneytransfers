@@ -1,0 +1,697 @@
+{
+  "note": "Snapshot computed from the local dataset on 2026-09-11. Live page answers are computed at render time, not copied from this snapshot. These are modelled estimates, not completed transfers.",
+  "rows": [
+    {
+      "slug": "usa-to-india",
+      "amount": 1000,
+      "from": "USD",
+      "to": "INR",
+      "observations": {
+        "oldest": "2026-09-11T07:51:21.942Z",
+        "latest": "2026-09-11T21:11:40.463Z",
+        "undated": 0
+      },
+      "answer": "For 1,000 USD to INR, TapTap Send ranks first among 21 provider estimates, with an estimated payout of 95,652.12 INR. The first-ranked estimate pays 6,834.72 INR more than the lowest estimate in this comparison.",
+      "providers": [
+        {
+          "slug": "taptap-send",
+          "estimatedReceipt": 95652.12,
+          "dateCollected": "2026-09-11T20:50:44.513Z"
+        },
+        {
+          "slug": "xoom",
+          "estimatedReceipt": 95508.73,
+          "dateCollected": "2026-09-11T07:51:32.691Z"
+        },
+        {
+          "slug": "lemfi",
+          "estimatedReceipt": 95414.07,
+          "dateCollected": "2026-09-11T21:11:40.463Z"
+        },
+        {
+          "slug": "instarem",
+          "estimatedReceipt": 95451.37,
+          "dateCollected": "2026-09-11T20:48:50.235Z"
+        },
+        {
+          "slug": "revolut",
+          "estimatedReceipt": 95394.1,
+          "dateCollected": "2026-09-11T07:51:30.593Z"
+        },
+        {
+          "slug": "paysend",
+          "estimatedReceipt": 95384.46,
+          "dateCollected": "2026-09-11T07:51:30.593Z"
+        },
+        {
+          "slug": "remitly",
+          "estimatedReceipt": 95269.74,
+          "dateCollected": "2026-09-11T21:01:54.872Z"
+        },
+        {
+          "slug": "moneygram",
+          "estimatedReceipt": 95156.33,
+          "dateCollected": "2026-09-11T07:51:30.593Z"
+        },
+        {
+          "slug": "western-union",
+          "estimatedReceipt": 95049.88,
+          "dateCollected": "2026-09-11T20:56:53.524Z"
+        },
+        {
+          "slug": "worldremit",
+          "estimatedReceipt": 95003.95,
+          "dateCollected": "2026-09-11T20:56:53.524Z"
+        },
+        {
+          "slug": "xe",
+          "estimatedReceipt": 94935.16,
+          "dateCollected": "2026-09-11T07:51:30.593Z"
+        },
+        {
+          "slug": "wise",
+          "estimatedReceipt": 94920.95,
+          "dateCollected": "2026-09-11T20:50:47.274Z"
+        },
+        {
+          "slug": "wells-fargo-expresssend",
+          "estimatedReceipt": 94755.38,
+          "dateCollected": "2026-09-11T18:54:04.978Z"
+        },
+        {
+          "slug": "ria",
+          "estimatedReceipt": 94489.57,
+          "dateCollected": "2026-09-11T07:51:34.522Z"
+        },
+        {
+          "slug": "currencyfair",
+          "estimatedReceipt": 94336.63,
+          "dateCollected": "2026-09-11T07:51:21.942Z"
+        },
+        {
+          "slug": "wells-fargo",
+          "estimatedReceipt": 92602.65,
+          "dateCollected": "2026-09-11T20:56:53.524Z"
+        },
+        {
+          "slug": "chase",
+          "estimatedReceipt": 92111.1,
+          "dateCollected": "2026-09-11T20:56:53.524Z"
+        },
+        {
+          "slug": "ofx",
+          "estimatedReceipt": 91759.17,
+          "dateCollected": "2026-09-11T20:46:43.535Z"
+        },
+        {
+          "slug": "hdfc-bank",
+          "estimatedReceipt": 91771.74,
+          "dateCollected": "2026-09-11T18:54:04.978Z"
+        },
+        {
+          "slug": "moneycorp",
+          "estimatedReceipt": 91312.69,
+          "dateCollected": "2026-09-11T07:51:30.593Z"
+        },
+        {
+          "slug": "chase-us",
+          "estimatedReceipt": 88817.4,
+          "dateCollected": "2026-09-11T18:54:04.978Z"
+        }
+      ],
+      "faqSources": [
+        {
+          "label": "How our estimates and rankings work",
+          "url": "/methodology"
+        },
+        {
+          "label": "Remitly: US-to-India delivery options",
+          "url": "https://www.remitly.com/us/en/money-transfer/send-money-to-india"
+        },
+        {
+          "label": "Wise: INR recipient details and restrictions",
+          "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"
+        },
+        {
+          "label": "Remitly: US-to-India delivery options",
+          "url": "https://www.remitly.com/us/en/money-transfer/send-money-to-india"
+        },
+        {
+          "label": "Wise: INR recipient details and restrictions",
+          "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"
+        },
+        {
+          "label": "IRS: remittance tax and payment-method exclusions",
+          "url": "https://www.irs.gov/newsroom/treasury-irs-issue-proposed-regulations-on-the-new-remittance-transfer-tax-established-under-the-one-big-beautiful-bill"
+        },
+        {
+          "label": "IRS: gift-tax questions",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-gift-taxes"
+        },
+        {
+          "label": "India Income Tax Department: gifts and exemptions",
+          "url": "https://www.incometaxindia.gov.in/en/deemed-income-including-gifts-"
+        }
+      ]
+    },
+    {
+      "slug": "uk-to-india",
+      "amount": 1000,
+      "from": "GBP",
+      "to": "INR",
+      "observations": {
+        "oldest": "2026-09-11T07:52:24.759Z",
+        "latest": "2026-09-11T21:11:54.841Z",
+        "undated": 0
+      },
+      "answer": "For 1,000 GBP to INR, TapTap Send ranks first among 30 provider estimates, with an estimated payout of 129,294.74 INR. MoneyGram has a higher estimated payout by 0.98 INR; the table uses customer ratings to order closely matched estimates. The first-ranked estimate pays 7,000.52 INR more than the lowest estimate in this comparison.",
+      "providers": [
+        {
+          "slug": "taptap-send",
+          "estimatedReceipt": 129294.74,
+          "dateCollected": "2026-09-11T20:50:44.512Z"
+        },
+        {
+          "slug": "moneygram",
+          "estimatedReceipt": 129295.72,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "revolut",
+          "estimatedReceipt": 128997.52,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "transfergo",
+          "estimatedReceipt": 129049.1,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "paysend",
+          "estimatedReceipt": 128971.53,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "worldremit",
+          "estimatedReceipt": 129087.89,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "remitly",
+          "estimatedReceipt": 128701.98,
+          "dateCollected": "2026-09-11T21:03:44.141Z"
+        },
+        {
+          "slug": "xe",
+          "estimatedReceipt": 128622.47,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "wise",
+          "estimatedReceipt": 128604.44,
+          "dateCollected": "2026-09-11T20:52:21.909Z"
+        },
+        {
+          "slug": "ria",
+          "estimatedReceipt": 128636.17,
+          "dateCollected": "2026-09-11T07:53:29.474Z"
+        },
+        {
+          "slug": "instarem",
+          "estimatedReceipt": 128531.97,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "skrill",
+          "estimatedReceipt": 128557.83,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "currencyfair",
+          "estimatedReceipt": 128244.53,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "hsbc",
+          "estimatedReceipt": 128312.19,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "lemfi",
+          "estimatedReceipt": 127958.12,
+          "dateCollected": "2026-09-11T21:11:54.841Z"
+        },
+        {
+          "slug": "western-union",
+          "estimatedReceipt": 128031.05,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "natwest",
+          "estimatedReceipt": 126411.75,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "rbs",
+          "estimatedReceipt": 126411.75,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "dahabshiil",
+          "estimatedReceipt": 125610.72,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "barclays",
+          "estimatedReceipt": 125687.77,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "monese",
+          "estimatedReceipt": 124876.66,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "nationwide",
+          "estimatedReceipt": 124579.25,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "ofx",
+          "estimatedReceipt": 124294.45,
+          "dateCollected": "2026-09-11T20:47:34.017Z"
+        },
+        {
+          "slug": "moneycorp",
+          "estimatedReceipt": 124146.02,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "mukuru",
+          "estimatedReceipt": 123920.19,
+          "dateCollected": "2026-09-11T07:52:24.759Z"
+        },
+        {
+          "slug": "lloyds",
+          "estimatedReceipt": 123392.48,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "halifax",
+          "estimatedReceipt": 123097.96,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "paypal",
+          "estimatedReceipt": 122785.62,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "santander",
+          "estimatedReceipt": 122369.11,
+          "dateCollected": "2026-09-11T20:58:01.468Z"
+        },
+        {
+          "slug": "hdfc-bank",
+          "estimatedReceipt": 122294.22,
+          "dateCollected": "2026-09-11T18:54:05.161Z"
+        }
+      ],
+      "faqSources": [
+        {
+          "label": "How our estimates and ranking work",
+          "url": "/methodology"
+        },
+        {
+          "label": "Wise: INR transfer requirements",
+          "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"
+        },
+        {
+          "label": "Remitly: UK-to-India delivery options",
+          "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-india"
+        },
+        {
+          "label": "Wise: INR transfer requirements",
+          "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"
+        },
+        {
+          "label": "FCA: using payment service providers",
+          "url": "https://www.fca.org.uk/consumers/using-payment-service-providers"
+        }
+      ]
+    },
+    {
+      "slug": "usa-to-pakistan",
+      "amount": 1000,
+      "from": "USD",
+      "to": "PKR",
+      "observations": {
+        "oldest": "2026-09-11T07:51:47.025Z",
+        "latest": "2026-09-11T21:11:42.415Z",
+        "undated": 0
+      },
+      "answer": "For 1,000 USD to PKR, WorldRemit ranks first among 17 provider estimates, with an estimated payout of 277,625.21 PKR. The first-ranked estimate pays 25,226.71 PKR more than the lowest estimate in this comparison.",
+      "providers": [
+        {
+          "slug": "worldremit",
+          "estimatedReceipt": 277625.21,
+          "dateCollected": "2026-09-11T20:57:01.116Z"
+        },
+        {
+          "slug": "taptap-send",
+          "estimatedReceipt": 277292.56,
+          "dateCollected": "2026-09-11T20:50:44.514Z"
+        },
+        {
+          "slug": "lemfi",
+          "estimatedReceipt": 277211.06,
+          "dateCollected": "2026-09-11T21:11:42.415Z"
+        },
+        {
+          "slug": "moneygram",
+          "estimatedReceipt": 277237.11,
+          "dateCollected": "2026-09-11T07:51:50.232Z"
+        },
+        {
+          "slug": "western-union",
+          "estimatedReceipt": 276906.74,
+          "dateCollected": "2026-09-11T20:57:01.116Z"
+        },
+        {
+          "slug": "sendwave",
+          "estimatedReceipt": 276823.74,
+          "dateCollected": "2026-09-11T07:51:50.232Z"
+        },
+        {
+          "slug": "instarem",
+          "estimatedReceipt": 276793.58,
+          "dateCollected": "2026-09-11T20:49:13.130Z"
+        },
+        {
+          "slug": "ria",
+          "estimatedReceipt": 276793.58,
+          "dateCollected": "2026-09-11T07:51:47.025Z"
+        },
+        {
+          "slug": "remitly",
+          "estimatedReceipt": 276599.53,
+          "dateCollected": "2026-09-11T21:02:24.220Z"
+        },
+        {
+          "slug": "xe",
+          "estimatedReceipt": 275213.49,
+          "dateCollected": "2026-09-11T07:51:50.232Z"
+        },
+        {
+          "slug": "wise",
+          "estimatedReceipt": 275194.3,
+          "dateCollected": "2026-09-11T20:50:57.686Z"
+        },
+        {
+          "slug": "boss-money",
+          "estimatedReceipt": 275468.37,
+          "dateCollected": "2026-09-11T07:51:50.232Z"
+        },
+        {
+          "slug": "xoom",
+          "estimatedReceipt": 272884.93,
+          "dateCollected": "2026-09-11T07:53:12.071Z"
+        },
+        {
+          "slug": "paysend",
+          "estimatedReceipt": 273033.53,
+          "dateCollected": "2026-09-11T07:51:50.232Z"
+        },
+        {
+          "slug": "ofx",
+          "estimatedReceipt": 268596.77,
+          "dateCollected": "2026-09-11T20:47:20.252Z"
+        },
+        {
+          "slug": "chase",
+          "estimatedReceipt": 264928.32,
+          "dateCollected": "2026-09-11T20:57:01.116Z"
+        },
+        {
+          "slug": "chase-us",
+          "estimatedReceipt": 252398.5,
+          "dateCollected": "2026-09-11T18:54:13.704Z"
+        }
+      ],
+      "faqSources": [
+        {
+          "label": "How our estimates and ranking work",
+          "url": "/methodology"
+        },
+        {
+          "label": "Wise: supported PKR accounts and recipient details",
+          "url": "https://wise.com/help/articles/2932334/guide-to-pkr-transfers"
+        },
+        {
+          "label": "Wise: supported PKR accounts and recipient details",
+          "url": "https://wise.com/help/articles/2932334/guide-to-pkr-transfers"
+        },
+        {
+          "label": "Western Union: sending from the US to Pakistan",
+          "url": "https://www.westernunion.com/us/en/send-money-to-pakistan.html"
+        },
+        {
+          "label": "Western Union: sending from the US to Pakistan",
+          "url": "https://www.westernunion.com/us/en/send-money-to-pakistan.html"
+        }
+      ]
+    },
+    {
+      "slug": "usa-to-philippines",
+      "amount": 1000,
+      "from": "USD",
+      "to": "PHP",
+      "observations": {
+        "oldest": "2026-09-11T07:51:34.429Z",
+        "latest": "2026-09-11T21:11:41.834Z",
+        "undated": 0
+      },
+      "answer": "For 1,000 USD to PHP, InstaReM ranks first among 18 provider estimates, with an estimated payout of 62,499.98 PHP. The first-ranked estimate pays 2,996.21 PHP more than the lowest estimate in this comparison.",
+      "providers": [
+        {
+          "slug": "instarem",
+          "estimatedReceipt": 62499.98,
+          "dateCollected": "2026-09-11T20:48:54.109Z"
+        },
+        {
+          "slug": "taptap-send",
+          "estimatedReceipt": 62299.68,
+          "dateCollected": "2026-09-11T20:50:44.514Z"
+        },
+        {
+          "slug": "revolut",
+          "estimatedReceipt": 62243.73,
+          "dateCollected": "2026-09-11T07:51:34.429Z"
+        },
+        {
+          "slug": "lemfi",
+          "estimatedReceipt": 62237.38,
+          "dateCollected": "2026-09-11T21:11:41.834Z"
+        },
+        {
+          "slug": "xe",
+          "estimatedReceipt": 62136.94,
+          "dateCollected": "2026-09-11T07:51:34.429Z"
+        },
+        {
+          "slug": "currencyfair",
+          "estimatedReceipt": 62157.42,
+          "dateCollected": "2026-09-11T07:51:34.429Z"
+        },
+        {
+          "slug": "paysend",
+          "estimatedReceipt": 62143.2,
+          "dateCollected": "2026-09-11T07:51:34.429Z"
+        },
+        {
+          "slug": "wise",
+          "estimatedReceipt": 62133.13,
+          "dateCollected": "2026-09-11T20:50:49.343Z"
+        },
+        {
+          "slug": "worldremit",
+          "estimatedReceipt": 62037.9,
+          "dateCollected": "2026-09-11T07:51:34.429Z"
+        },
+        {
+          "slug": "sendwave",
+          "estimatedReceipt": 61737.75,
+          "dateCollected": "2026-09-11T07:51:34.429Z"
+        },
+        {
+          "slug": "boss-money",
+          "estimatedReceipt": 61776.17,
+          "dateCollected": "2026-09-11T07:51:34.429Z"
+        },
+        {
+          "slug": "ria",
+          "estimatedReceipt": 61531.57,
+          "dateCollected": "2026-09-11T07:51:37.862Z"
+        },
+        {
+          "slug": "wells-fargo-expresssend",
+          "estimatedReceipt": 61286.3,
+          "dateCollected": "2026-09-11T18:54:04.419Z"
+        },
+        {
+          "slug": "western-union",
+          "estimatedReceipt": 60801.38,
+          "dateCollected": "2026-09-11T20:56:55.469Z"
+        },
+        {
+          "slug": "remitly",
+          "estimatedReceipt": 60709.8,
+          "dateCollected": "2026-09-11T21:02:02.386Z"
+        },
+        {
+          "slug": "wells-fargo",
+          "estimatedReceipt": 60609.65,
+          "dateCollected": "2026-09-11T20:56:55.469Z"
+        },
+        {
+          "slug": "ofx",
+          "estimatedReceipt": 59789.67,
+          "dateCollected": "2026-09-11T20:46:47.226Z"
+        },
+        {
+          "slug": "paypal",
+          "estimatedReceipt": 59503.77,
+          "dateCollected": "2026-09-11T20:56:55.469Z"
+        }
+      ],
+      "faqSources": [
+        {
+          "label": "How our estimates and ranking work",
+          "url": "/methodology"
+        },
+        {
+          "label": "Wise: PHP bank and wallet transfers",
+          "url": "https://wise.com/help/articles/2932333/guide-to-php-transfers"
+        },
+        {
+          "label": "Wise: PHP bank and wallet transfers",
+          "url": "https://wise.com/help/articles/2932333/guide-to-php-transfers"
+        },
+        {
+          "label": "Wise: PHP bank and wallet transfers",
+          "url": "https://wise.com/help/articles/2932333/guide-to-php-transfers"
+        },
+        {
+          "label": "Remitly: US-to-Philippines delivery options",
+          "url": "https://www.remitly.com/us/en/money-transfer/send-money-to-philippines"
+        }
+      ]
+    },
+    {
+      "slug": "uk-to-nigeria",
+      "amount": 1000,
+      "from": "GBP",
+      "to": "NGN",
+      "observations": {
+        "oldest": "2026-09-11T07:52:26.634Z",
+        "latest": "2026-09-11T21:11:55.519Z",
+        "undated": 0
+      },
+      "answer": "For 1,000 GBP to NGN, MoneyGram ranks first among 14 provider estimates, with an estimated payout of 1,854,807.91 NGN. The first-ranked estimate pays 69,253.77 NGN more than the lowest estimate in this comparison.",
+      "providers": [
+        {
+          "slug": "moneygram",
+          "estimatedReceipt": 1854807.91,
+          "dateCollected": "2026-09-11T07:52:26.634Z"
+        },
+        {
+          "slug": "taptap-send",
+          "estimatedReceipt": 1850003.57,
+          "dateCollected": "2026-09-11T20:50:44.513Z"
+        },
+        {
+          "slug": "remitly",
+          "estimatedReceipt": 1845515.44,
+          "dateCollected": "2026-09-11T21:03:46.461Z"
+        },
+        {
+          "slug": "transfergo",
+          "estimatedReceipt": 1841565.9,
+          "dateCollected": "2026-09-11T07:52:26.634Z"
+        },
+        {
+          "slug": "paysend",
+          "estimatedReceipt": 1842463.52,
+          "dateCollected": "2026-09-11T07:52:26.634Z"
+        },
+        {
+          "slug": "ria",
+          "estimatedReceipt": 1839045.88,
+          "dateCollected": "2026-09-11T07:53:33.838Z"
+        },
+        {
+          "slug": "mukuru",
+          "estimatedReceipt": 1840309.22,
+          "dateCollected": "2026-09-11T07:52:26.634Z"
+        },
+        {
+          "slug": "dahabshiil",
+          "estimatedReceipt": 1839759.88,
+          "dateCollected": "2026-09-11T07:52:26.634Z"
+        },
+        {
+          "slug": "wise",
+          "estimatedReceipt": 1837346.56,
+          "dateCollected": "2026-09-11T20:52:26.464Z"
+        },
+        {
+          "slug": "lemfi",
+          "estimatedReceipt": 1830076.31,
+          "dateCollected": "2026-09-11T21:11:55.519Z"
+        },
+        {
+          "slug": "sendwave",
+          "estimatedReceipt": 1831313.43,
+          "dateCollected": "2026-09-11T07:52:26.634Z"
+        },
+        {
+          "slug": "worldremit",
+          "estimatedReceipt": 1831313.43,
+          "dateCollected": "2026-09-11T07:52:26.634Z"
+        },
+        {
+          "slug": "western-union",
+          "estimatedReceipt": 1798114.14,
+          "dateCollected": "2026-09-11T20:58:05.519Z"
+        },
+        {
+          "slug": "instarem",
+          "estimatedReceipt": 1785554.14,
+          "dateCollected": "2026-09-11T07:52:26.634Z"
+        }
+      ],
+      "faqSources": [
+        {
+          "label": "How our estimates and ranking work",
+          "url": "/methodology"
+        },
+        {
+          "label": "Remitly: UK-to-Nigeria methods and offer terms",
+          "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-nigeria"
+        },
+        {
+          "label": "Remitly: UK-to-Nigeria methods and offer terms",
+          "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-nigeria"
+        },
+        {
+          "label": "FCA: using payment service providers",
+          "url": "https://www.fca.org.uk/consumers/using-payment-service-providers"
+        },
+        {
+          "label": "How we collect data and estimate costs",
+          "url": "/methodology"
+        }
+      ]
+    }
+  ]
+}

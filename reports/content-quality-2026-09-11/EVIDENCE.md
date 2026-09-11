@@ -40,3 +40,15 @@ The pilot removed older tax thresholds rather than replacing them with another u
 ## Record to keep for each new substantive claim
 
 Record the page and exact claim, whether it is observed/modelled/historical/editorial, the dataset or direct source URL, collection or verification date, scope and missing conditions, calculation where applicable, and the next review trigger. Give human reviewer credit only when that person actually performed the review. Keep supporting citations beside the claim in the page; keep detailed calculation provenance in the implementation or research method.
+
+## Second batch: additional sources verified September 11
+
+- [Wise PKR transfer guide](https://wise.com/help/articles/2932334/guide-to-pkr-transfers): personal-account scope, excluded account products, and recipient name/IBAN requirements. These are Wise's restrictions, not a blanket prohibition for all providers.
+- [Western Union US-to-Pakistan page](https://www.westernunion.com/us/en/send-money-to-pakistan.html): receiving options and promotional conditions for US senders. Other sending-country availability must be checked separately.
+- [Wise PHP transfer guide](https://wise.com/help/articles/2932333/guide-to-php-transfers): bank/wallet requirements, wallet limit, and the distinction between local payout and conversion time. Wallet-account limits can be more restrictive.
+- [Remitly US-to-Philippines page](https://www.remitly.com/us/en/money-transfer/send-money-to-philippines): cash pickup and other receiving methods, subject to recipient location.
+- [Remitly UK-to-India page](https://www.remitly.com/gb/en/money-transfer/send-money-to-india): bank deposit, UPI and cash pickup options. This does not establish a method-specific price in our dataset.
+- [Remitly UK-to-Nigeria page](https://www.remitly.com/gb/en/money-transfer/send-money-to-nigeria): receiving methods and conditional welcome pricing. Published promotional rate/cap numbers were not copied into permanent prose.
+- [FCA payment-service guidance](https://www.fca.org.uk/consumers/using-payment-service-providers): register/permissions checks and the distinction between safeguarding and FSCS coverage. Regulation is not a guarantee against failed transfers.
+
+`priority-comparison-evidence.json` records the local inputs and computed answers for the five priority corridors after the September 11 scraper updates. The page computes these answers from data on each render. The same computed text is used in the priority recommendation FAQs and their JSON-LD. The snapshot is audit evidence, not a separate source of live prices.
