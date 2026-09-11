@@ -11620,10 +11620,10 @@
     "date": "2026-09-11",
     "providers": {
       "lemfi": {
-        "rate": 13.3383,
+        "rate": 13.336,
         "fee": 0,
-        "markup": -0.33,
-        "receiveAmount": 1333.83
+        "markup": -0.41,
+        "receiveAmount": 1333.6
       },
       "moneygram": {
         "rate": 13.3383,
@@ -11638,10 +11638,10 @@
         "receiveAmount": 1334
       },
       "western-union": {
-        "rate": 12.9819,
+        "rate": 12.9669,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 1285.34
+        "receiveAmount": 1283.86
       },
       "dahabshiil": {
         "rate": 13.365,
@@ -11662,10 +11662,10 @@
         "receiveAmount": 1320.4
       },
       "instarem": {
-        "rate": 12.9318,
+        "rate": 12.9265,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1293.18
+        "receiveAmount": 1292.65
       },
       "xe": {
         "rate": 13.2327,
@@ -11688,7 +11688,7 @@
       "remitly": {
         "rate": 13.3383,
         "fee": 1.99,
-        "markup": null,
+        "markup": -0.35,
         "receiveAmount": 1307.29
       },
       "revolut": {
@@ -11698,10 +11698,10 @@
         "receiveAmount": 1294.85
       },
       "wise": {
-        "rate": 13.2879,
-        "fee": 3.37,
+        "rate": 13.285,
+        "fee": 2.95,
         "markup": null,
-        "receiveAmount": 1284.01
+        "receiveAmount": 1289.31
       },
       "ria": {
         "rate": 13.1994,

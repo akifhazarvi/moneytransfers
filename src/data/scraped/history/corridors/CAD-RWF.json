@@ -2001,16 +2001,16 @@
     "date": "2026-09-11",
     "providers": {
       "lemfi": {
-        "rate": 1060.37,
+        "rate": 1060,
         "fee": 0,
-        "markup": 0.48,
-        "receiveAmount": 106037
+        "markup": 0.4,
+        "receiveAmount": 106000
       },
       "taptap-send": {
-        "rate": 1055.983,
+        "rate": 1055.533,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 105598.3
+        "receiveAmount": 105553.3
       }
     }
   }
