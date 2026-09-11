@@ -166,3 +166,42 @@ claims naming a provider, 73 of which the comparison contradicted**; 59 sat in
 false, but they will drift, and the checker lists them on success so they stay
 visible. `corridorComparisonSummary()` is wired on 5 of 108 corridors; extending
 it is the durable fix and the obvious next batch.
+
+## Phase 2 complete — one source for each dynamic claim (2026-09-11)
+
+Work-order item 2 is done for the corridor family. `corridorComparisonSummary()`
+now answers the recommendation FAQ on **106 of 108 corridors**, up from 5. The
+two exceptions do not ask a recommendation question. The winner, the provider
+count and the payout come from the same eligible quote set that builds the
+table, so they cannot disagree with it.
+
+Order of operations mattered: the `answerFromComparison` flag **prepends** the
+computed answer rather than replacing the text, so the 20 remaining hardcoded
+superlative sentences were removed first. Wiring the flag without that cleanup
+would have produced a page that recommends one provider and then names another
+in the next sentence — the original defect, restated more confidently.
+
+What stays in the prose is what does not move with the day's rates: funding
+rails, delivery methods, provider relationships, eligibility conditions.
+
+Verified in the rendered FAQ JSON-LD, which is where the contradiction was being
+served to Google:
+
+> canada-to-india — "For 1,000 CAD to INR, Remitly ranks first among 19 provider
+> estimates, with an estimated payout of 69,229.85 INR. The first-ranked estimate
+> pays 4,742.15 INR more than the lowest estimate in this comparison."
+
+`check:corridor-claims` now reports **2 hardcoded claims site-wide, down from
+95**; both are page descriptions ("compare X and Y for the best rate") rather
+than standing-winner claims. `check:corridor-summary` and the full build, link
+and indexing checks pass.
+
+**Still open, in the order I would take them:** the other editorial surfaces have
+not been scanned at all — `corridor-deep-content.ts` (18 blocks, one known
+contradiction at ireland-to-bangladesh), `sweden-content.ts`,
+`corridor-details.ts` destination blocks beyond the four already cleaned, and
+`corridorEditorialNotes` inside the corridor page. Country and payment-method
+eligibility still lacks provenance through the quote engine, so a currency-pair
+estimate must not be published as a verified bank or wallet quote for every
+country sharing that currency. None of this pass establishes that any corridor's
+eligibility conditions have been verified.
