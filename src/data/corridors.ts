@@ -279,6 +279,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Mexican banks (BBVA, Banorte, Santander) typically arrive within minutes to 1 business day. Cash pickup is available at thousands of OXXO stores, Elektra, and bank branches — often within minutes. SPEI transfers are usually same-day.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Mexico?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5%–0.7%, making it one of the most cost-effective options for this corridor. Remitly frequently offers zero-fee promotions and enhanced exchange rates for first-time users, which can save $3–$10 on an initial transfer. Xoom benefits from PayPal's infrastructure and offers competitive rates with express delivery via SPEI. The USD to MXN corridor is one of the most competitive in the world — Mexico received over $63 billion in remittances in 2025, and intense provider competition keeps costs low. For a $1,000 transfer, the difference between the best and worst providers can exceed MXN 300–600. We recommend comparing on the day you send, as peso rates fluctuate significantly throughout the day.",
       },
@@ -315,6 +316,7 @@ export const corridors: Corridor[] = [
       "Bank transfers to major Nigerian banks (GTBank, Access, Zenith, UBA) typically take 1–3 business days. Mobile money and cash pickup options are available through partners. Some providers offer same-day delivery for an additional fee.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Nigeria?",
         a: "The provider offering the best naira rate changes frequently due to NGN volatility. Always compare the total naira amount received, not just the fee — exchange rate differences can be worth tens of thousands of naira.",
       },
@@ -420,6 +422,7 @@ export const corridors: Corridor[] = [
       "SEPA-compatible transfers from specialist providers typically arrive within 1 business day. Some providers offer same-day delivery for EUR payments. Bank SWIFT transfers take 2–4 business days.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send GBP to EUR?",
         a: "Wise charges a transparent percentage fee of typically 0.35%–0.45% with zero exchange rate markup — on a £1,000 transfer, that's roughly £3.50–£4.50 total cost. CurrencyFair uses a marketplace model where you can set your own desired rate and wait for a match, sometimes achieving rates even better than the mid-market rate. Revolut also offers interbank rates for GBP to EUR during weekday market hours, with a free tier allowing up to £1,000 per month. OFX and XE charge no transfer fees and are strong options for larger amounts (£5,000+). All of these specialist options are dramatically cheaper than UK high-street banks, which charge £15–£30 per transfer plus a 2%–4% exchange rate markup.",
       },
@@ -453,8 +456,9 @@ export const corridors: Corridor[] = [
       "Specialist providers typically deliver to Indian bank accounts within 1–2 business days. Express options with IMPS delivery are available from Remitly and others. Bank wire transfers from Canada take 3–5 business days.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Canada to India?",
-        a: "Wise and Remitly are consistently the cheapest options for CAD to INR transfers. Wise offers the mid-market rate with a transparent fee, while Remitly offers competitive promotions. Both accept Interac e-Transfer for easy funding.",
+        a: "Wise offers the mid-market rate with a transparent fee, while Remitly offers competitive promotions. Both accept Interac e-Transfer for easy funding.",
       },
       {
         q: "Can I fund a transfer with Interac e-Transfer?",
@@ -486,6 +490,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to India from Australia typically arrive within 1–2 business days with specialist providers. Express options are available from Remitly and Instarem. Bank wire transfers take 3–5 business days.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Australia to India?",
         a: "Wise, Instarem, and Remitly offer the best value for AUD to INR. Instarem is headquartered in Singapore and has strong rates on Asian corridors. Wise offers the mid-market rate with a transparent fee.",
       },
@@ -519,6 +524,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Bangladeshi banks (bKash, Nagad, Dutch-Bangla) typically arrive within 1–3 business days. Mobile financial service (MFS) transfers via bKash are often available within minutes.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Bangladesh?",
         a: "Remitly offers express bKash delivery in minutes and frequently runs zero-fee promotions for new customers. Wise charges the real mid-market exchange rate with a transparent fee of around 0.6–0.8%, making it the most cost-transparent option. ACE Money Transfer is another strong performer specifically on this corridor, often beating global brands on rate. Avoid US bank wire transfers — they charge $25–$50 per transaction plus a 3–5% exchange rate markup, typically costing $50–$80 more than specialist providers on a $1,000 transfer. Always compare the total BDT your recipient will receive rather than the advertised fee alone, as exchange rate differences between providers can exceed 2–3%.",
       },
@@ -559,6 +565,7 @@ export const corridors: Corridor[] = [
       "UK bank deposits from specialist providers typically arrive within 1 business day via Faster Payments. US bank SWIFT wires take 2–4 business days.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to the UK?",
         a: "Wise uses the real mid-market exchange rate with 0% markup and a transparent fee of approximately 0.5–0.7% — on a $1,000 transfer, that's about $5–$7 total cost. OFX charges $0 in fees with a small exchange rate spread, making it particularly competitive for transfers over $5,000. By comparison, US banks charge $25–$50 per wire plus a 2–3% FX markup, costing $45–$80 total on the same $1,000 transfer. We recommend comparing Wise, OFX, and XE on the day you send.",
       },
@@ -595,6 +602,7 @@ export const corridors: Corridor[] = [
       "EUR transfers via specialist providers typically arrive within 1 business day via SEPA. Traditional US bank SWIFT wires take 2–4 business days and may incur correspondent bank fees.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Europe?",
         a: "Wise charges the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of approximately 0.5–0.7%, costing around $5–$7 on a $1,000 transfer. OFX charges zero fees with a small exchange rate spread of around 0.4–0.8%, making it particularly competitive for transfers over $5,000. CurrencyFair and XE are also strong options. By comparison, US banks charge $25–$50 per wire plus a 2–3% FX markup, totaling $45–$80 on the same $1,000 transfer — 7–10 times more expensive. For the absolute lowest total cost, fund your transfer via ACH bank debit rather than debit or credit card.",
       },
@@ -636,8 +644,9 @@ export const corridors: Corridor[] = [
       "Cash pickup and mobile wallet transfers (JazzCash, Easypaisa) can arrive within minutes. Bank deposits take 1–3 business days. Cash home delivery is available in some areas through select providers.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to Pakistan?",
-        a: "ACE Money Transfer, Wise, WorldRemit, and Remitly consistently deliver the most rupees per pound on the GBP to PKR corridor. ACE Money Transfer has particularly strong relationships with Pakistani banks and often offers competitive PKR rates. Wise uses the real mid-market rate with a transparent fee, typically costing 0.5–0.8% of the transfer amount. The PKR rate varies significantly between providers — a 2% difference on £1,000 means £20 less reaching your recipient before fees are even considered. UK high-street banks charge £15–£30 per transfer plus 3–5% exchange rate markups, costing £50–£80 more than specialists on the same transfer. Always compare the total PKR amount received, not just the advertised transfer fee.",
+        a: "ACE Money Transfer has particularly strong relationships with Pakistani banks and often offers competitive PKR rates. Wise uses the real mid-market rate with a transparent fee, typically costing 0.5–0.8% of the transfer amount. The PKR rate varies significantly between providers — a 2% difference on £1,000 means £20 less reaching your recipient before fees are even considered. UK high-street banks charge £15–£30 per transfer plus 3–5% exchange rate markups, costing £50–£80 more than specialists on the same transfer. Always compare the total PKR amount received, not just the advertised transfer fee.",
       },
       {
         q: "Can I send money from the UK to JazzCash or Easypaisa?",
@@ -745,8 +754,9 @@ export const corridors: Corridor[] = [
       "GCash and bank deposit transfers are often available within minutes to 1 business day. Cash pickup through Cebuana Lhuillier is fast and widely available across the Philippines.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Australia to the Philippines?",
-        a: "Instarem, Wise, Remitly, and WorldRemit consistently offer the best total cost for AUD to PHP transfers. Instarem is a Singapore-based Asia-Pacific specialist with particularly strong AUD to PHP rates due to regional banking partnerships — it is often overlooked by Australians who only compare global brands. Wise charges the real mid-market rate with a transparent fee of around 0.5–0.8%. Remitly offers competitive rates and express delivery. Australian banks are among the most expensive in the world for international transfers, charging A$20–$30 per wire plus 3–5% FX markups. On a A$1,000 transfer, switching from your bank to a specialist provider typically saves A$45–$75. Always compare the total PHP your recipient will receive.",
+        a: "Instarem is a Singapore-based Asia-Pacific specialist with particularly strong AUD to PHP rates due to regional banking partnerships — it is often overlooked by Australians who only compare global brands. Wise charges the real mid-market rate with a transparent fee of around 0.5–0.8%. Remitly offers competitive rates and express delivery. Australian banks are among the most expensive in the world for international transfers, charging A$20–$30 per wire plus 3–5% FX markups. On a A$1,000 transfer, switching from your bank to a specialist provider typically saves A$45–$75. Always compare the total PHP your recipient will receive.",
       },
       {
         q: "Can I send to GCash from Australia?",
@@ -785,6 +795,7 @@ export const corridors: Corridor[] = [
       "PIX delivery via Wise, Remitly, Boss Money, or Xoom: typically under 30 minutes end-to-end once the source ACH funding clears. PIX itself is sub-10-second within Brazil; the dominant variable is the US-side ACH clearing window (1–2 business days for ACH funding, instant for debit card or wire funding). TED bank-deposit delivery: same-day during Brazilian banking hours (8am–4:30pm BRT, which is 6am–2:30pm Eastern), next business day if initiated outside those hours. Cash pickup via Western Union or MoneyGram at Banco do Brasil, Caixa Econômica Federal, or Bradesco branches: typically within 30–60 minutes. SWIFT-based US bank wires: 2–4 business days through correspondent banking (typically Citibank New York → Itaú or Santander Brazil), with potential lifting fees of USD 10–30 deducted by intermediaries. For senders in Florida or Massachusetts with predictable monthly transfer schedules, debit-card-funded PIX delivery is the structurally fastest option (under 1 hour end-to-end, including weekends).",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Brazil?",
         a: "Remitly is competitive on smaller transfers (USD 100–500) and frequently runs promotional zero-fee or zero-markup offers for first-time senders. For cash pickup at Banco do Brasil, Caixa Econômica Federal, Bradesco, or Lojas Americanas locations, Western Union and MoneyGram offer the largest networks but charge 1.5–3% FX markup. Brazil's 0.38% IOF tax applies on top of any provider's fees regardless — on USD 1,000 that is BRL ~19 deducted automatically at conversion. US banks (Chase, Bank of America, Wells Fargo) charge USD 40–50 wire fees plus 3–5% FX markup, costing USD 60–90 more than Wise on a USD 1,000 transfer.",
       },
@@ -873,6 +884,7 @@ export const corridors: Corridor[] = [
       "GCash transfers arrive within minutes. Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup is widely available.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Canada to the Philippines?",
         a: "Remitly offers competitive rates with express delivery options and zero-fee promotions for new customers. Instarem, as an Asia-Pacific specialist, often has particularly strong CAD to PHP rates due to regional liquidity relationships. Wise charges the real mid-market rate with a transparent 0.5–0.9% fee. Canadian banks charge C$30–$80 per international wire plus 3–5% exchange rate markups, costing C$60–$130 more than specialist providers on a C$1,000 transfer. Compare the total PHP your recipient receives — rate differences of ₱500–₱1,500 per C$1,000 are common between providers.",
       },
@@ -913,6 +925,7 @@ export const corridors: Corridor[] = [
       "bKash and Nagad transfers arrive within minutes. Bank deposits take 1–3 business days. Cash pickup is available through partner networks.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to Bangladesh?",
         a: "ACE Money Transfer, WorldRemit, Remitly, and Wise are the strongest performers for GBP to BDT transfers. ACE Money Transfer specialises in South Asian corridors and often has particularly competitive BDT rates from the UK. Wise charges the real mid-market exchange rate with a transparent fee of around 0.6–0.9%. UK high-street banks charge £15–£30 per transfer plus 3–5% exchange rate markups — on a £500 transfer, that's £25–£50 more than specialist providers. The exchange rate is the main cost variable: a 2% rate difference on £500 means £10 less reaching your recipient before any fees. Always compare the total BDT your recipient will receive across multiple providers before sending.",
       },
@@ -954,6 +967,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to India via NEFT/IMPS typically arrive within hours to 1 business day. Several providers offer instant delivery to major Indian banks through UPI or IMPS. Cash pickup is widely available through Western Union and MoneyGram agent networks in India.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from UAE to India?",
         a: "Wise uses the mid-market rate with a small transparent fee, while Remitly frequently offers promotional rates for new users. Al Ansari Exchange and UAE Exchange are also competitive and convenient with branches across the UAE.",
       },
@@ -994,8 +1008,9 @@ export const corridors: Corridor[] = [
       "Mobile wallet transfers via JazzCash and Easypaisa arrive within minutes. Bank deposits take 1–2 business days. Cash pickup through Western Union, MoneyGram, and local bank partners is typically available same-day.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from UAE to Pakistan?",
-        a: "TapTap Send, Wise, and ACE Money Transfer consistently offer the best total value. TapTap Send charges zero fees with competitive rates. Wise uses the mid-market rate with a transparent fee. Always compare on the day you send — rates change frequently due to PKR volatility.",
+        a: "TapTap Send charges zero fees with competitive rates. Wise uses the mid-market rate with a transparent fee. Always compare on the day you send — rates change frequently due to PKR volatility.",
       },
       {
         q: "How long does it take to send money from UAE to Pakistan?",
@@ -1034,6 +1049,7 @@ export const corridors: Corridor[] = [
       "GCash transfers arrive within minutes. Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup through Cebuana Lhuillier, M Lhuillier, and other partners is available same-day in the Philippines.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from UAE to the Philippines?",
         a: "Remitly, Wise, and WorldRemit offer the best total value for AED to PHP transfers. Remitly often has promotional rates for new users and supports GCash delivery. Compare all providers to find today's best rate.",
       },
@@ -1075,8 +1091,9 @@ export const corridors: Corridor[] = [
       "IMPS and UPI-enabled transfers to India arrive within minutes. Standard bank deposits take 1–2 business days. Cash pickup through Western Union and MoneyGram is available same-day at partner locations across India.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to India?",
-        a: "Wise, TapTap Send, and Remitly consistently offer the best value for SAR to INR transfers. Wise provides the mid-market rate with transparent fees. TapTap Send charges zero fees. Compare all providers on the day you send for the best rate.",
+        a: "Wise provides the mid-market rate with transparent fees. TapTap Send charges zero fees. Compare all providers on the day you send for the best rate.",
       },
       {
         q: "How long does it take to transfer money from Saudi Arabia to India?",
@@ -1115,6 +1132,7 @@ export const corridors: Corridor[] = [
       "JazzCash and Easypaisa transfers arrive within minutes. Bank deposits take 1–2 business days. Cash pickup through Western Union, MoneyGram, and local bank branches is available same-day across Pakistan.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to Pakistan?",
         a: "TapTap Send and ACE Money Transfer frequently offer the best value. TapTap Send charges zero fees. ACE Money Transfer runs regular promotions for this corridor. Always compare the total PKR received after all fees and exchange rate markups.",
       },
@@ -1155,6 +1173,7 @@ export const corridors: Corridor[] = [
       "bKash and Nagad transfers arrive within minutes. Bank deposits to Bangladeshi banks take 1–3 business days. Cash pickup is available through partner networks in major cities across Bangladesh.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to Bangladesh?",
         a: "TapTap Send and Wise typically offer the best value. TapTap Send charges zero fees with competitive rates. Wise uses the mid-market rate. ACE Money Transfer also offers strong rates with bKash delivery.",
       },
@@ -1191,6 +1210,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Egyptian banks typically arrive within 1–2 business days. Instapay-linked transfers can be faster. Cash pickup through Western Union and MoneyGram is available same-day at thousands of locations across Egypt.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to Egypt?",
         a: "Wise and Western Union typically offer competitive rates for SAR to EGP. Wise provides the mid-market rate with transparent fees. Western Union offers convenient cash pickup across Egypt. Compare all providers on the day you send due to EGP volatility.",
       },
@@ -1228,6 +1248,7 @@ export const corridors: Corridor[] = [
       "IMPS and UPI transfers to India arrive within minutes from most providers. Standard bank deposits take 1–2 business days. DBS Remit and InstaReM offer same-day delivery in many cases.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Singapore to India?",
         a: "Wise provides the mid-market rate with a small fee. InstaReM (now Nium) offers competitive rates with Singapore-based support. DBS Remit is convenient for DBS/POSB account holders.",
       },
@@ -1268,6 +1289,7 @@ export const corridors: Corridor[] = [
       "GCash transfers arrive within minutes. Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup through Cebuana Lhuillier and M Lhuillier is available same-day across the Philippines.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Singapore to the Philippines?",
         a: "Remitly, Wise, and InstaReM offer the best total value for SGD to PHP transfers. Remitly often has zero-fee promotions and supports GCash delivery. Wise provides the mid-market rate. Compare on the day you send for the best deal.",
       },
@@ -1304,6 +1326,7 @@ export const corridors: Corridor[] = [
       "Bank transfers to Indonesian banks like BCA, Mandiri, and BNI typically arrive within 1–2 business days. Some providers offer same-day delivery. Cash pickup is available through partner locations in Indonesia.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Singapore to Indonesia?",
         a: "Wise and InstaReM offer the best total value for SGD to IDR transfers. Wise provides the mid-market rate with a transparent fee. InstaReM offers competitive rates with local support. Compare all providers for today's best rate.",
       },
@@ -1341,6 +1364,7 @@ export const corridors: Corridor[] = [
       "IMPS and UPI transfers to India arrive within minutes. Standard bank deposits take 1–2 business days. Some providers offer same-day delivery for early submissions from New Zealand.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from New Zealand to India?",
         a: "Wise provides the mid-market rate with a transparent fee. OFX is strong for larger transfers over NZD 2,000. Compare all providers on the day you send.",
       },
@@ -1377,6 +1401,7 @@ export const corridors: Corridor[] = [
       "GCash transfers arrive within minutes. Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup through Cebuana Lhuillier and M Lhuillier is available same-day.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from New Zealand to the Philippines?",
         a: "Remitly, Wise, and Orbit Remit offer the best value for NZD to PHP transfers. Remitly often has zero-fee promotions and supports GCash. Orbit Remit has strong NZ-based support. Compare all providers today.",
       },
@@ -1413,6 +1438,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Fiji typically take 2–3 business days. Cash pickup through Western Union is available same-day at locations across Fiji. Some providers offer faster delivery to major Fijian banks like ANZ Fiji and BSP.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from New Zealand to Fiji?",
         a: "Wise and Orbit Remit typically offer the best value for NZD to FJD transfers. Pacific corridor costs are higher than average, so comparing providers is especially important. Wise provides the mid-market rate with a transparent fee.",
       },
@@ -1450,6 +1476,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Philippine banks (BDO, BPI, Metrobank, Landbank) typically arrive within 1–2 business days. GCash and Maya wallet transfers through Remitly and WorldRemit arrive within minutes. Cash pickup is available at Cebuana Lhuillier, M Lhuillier, and Western Union agent locations — the Philippines has one of the densest cash pickup networks in Asia, with over 40,000 payout points nationwide. Funding via UK Faster Payments (instant bank transfer) speeds up the overall process compared to slower BACS transfers.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to the Philippines?",
         a: "Wise uses the real mid-market exchange rate — the same rate you see on Google — and charges a transparent fee of around 0.4%–0.6% for bank-funded transfers, with no hidden exchange rate markup. TapTap Send charges zero transfer fees and offers a competitive rate, making it highly cost-effective for this corridor. Remitly is another strong option, especially for new users who receive a promotional enhanced rate on their first transfer. For a £500 transfer, the difference between the cheapest provider and a high-street bank can exceed ₱2,000. Always fund your transfer via bank transfer (Faster Payments) rather than debit or credit card, as card-funded transfers typically incur an additional 1%–2% surcharge across most providers.",
       },
@@ -1491,6 +1518,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Indian accounts via UPI or IMPS can arrive within minutes when using providers like Remitly or Wise. Standard NEFT bank deposits take 1–2 business days. Cash pickup through Western Union and MoneyGram agent networks in India is available within minutes. The overall speed depends heavily on how you fund the transfer: SEPA Instant transfers (available at many European banks) allow the provider to receive your euros within seconds, while standard SEPA credit transfers take up to one business day. This means a Remitly express transfer funded via SEPA Instant can deliver rupees to an Indian bank account in under an hour.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Europe to India?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.4%–0.6% for SEPA-funded transfers, ensuring the quoted cost is the total cost with no hidden margin. Instarem offers a competitive rate with a small percentage-based margin and no flat fee, making it cost-effective for both small and large amounts. Remitly is also strong on this corridor, particularly for first-time users who benefit from promotional zero-fee offers and enhanced exchange rates. For a €1,000 transfer, the difference between the cheapest specialist provider and a traditional European bank can exceed ₹3,000–₹4,000. Always fund via SEPA bank transfer rather than debit or credit card to avoid additional processing surcharges of 1%–3%.",
       },
@@ -1531,6 +1559,7 @@ export const corridors: Corridor[] = [
       "GCash and Maya wallet transfers arrive within minutes through Remitly, WorldRemit, and Wise. Bank deposits to BDO, BPI, Metrobank, UnionBank, and Landbank typically take 1–2 business days. Cash pickup at Cebuana Lhuillier, M Lhuillier, Palawan Pawnshop, and Western Union locations is available within minutes — the Philippines has one of the world's densest cash pickup networks with over 60,000 payout points. Funding via SEPA Instant from your European bank (where available) can reduce total delivery time to under one hour for mobile wallet transfers.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Europe to the Philippines?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5%–0.7% for SEPA-funded transfers, making the quoted cost the total cost. Remitly offers competitive rates and frequently runs promotional zero-fee first transfers with enhanced exchange rates for new users. WorldRemit is another strong option with flat fees starting at €1.99. For a €1,000 transfer, the difference between the cheapest specialist provider and a traditional European bank can exceed ₱3,000–₱5,000. Always fund your transfer via SEPA bank transfer to avoid card-processing surcharges. For OFWs sending regularly, comparing providers monthly is worthwhile as promotional offers and rate competitiveness shift frequently.",
       },
@@ -1571,6 +1600,7 @@ export const corridors: Corridor[] = [
       "Bank transfers to Nigerian bank accounts (GTBank, Access Bank, Zenith Bank, First Bank, UBA) typically arrive within 1–2 business days, with some providers offering same-day delivery. Mobile wallet transfers to OPay and PalmPay are growing in availability and can arrive within minutes. Cash pickup through Western Union and MoneyGram agent locations in Nigeria is available within minutes. Funding via SEPA Instant from your European bank can reduce total delivery time significantly. Note that Nigerian banking system processing times can vary, and transfers initiated on weekends or public holidays may experience delays.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Europe to Nigeria?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6%–1.0% and no hidden markup. Remitly and WorldRemit are also competitive, particularly for first-time users who benefit from promotional rates. For a €1,000 transfer, the difference between the cheapest and most expensive provider can exceed ₦40,000–₦60,000 due to the naira's high value differential. This makes comparison more important on this corridor than almost any other. Always fund via SEPA bank transfer to avoid additional card-processing fees of 1%–3%.",
       },
@@ -1612,6 +1642,7 @@ export const corridors: Corridor[] = [
       "bKash and Nagad wallet transfers typically arrive within minutes. Bank deposits to Bangladeshi banks such as Islami Bank, Dutch-Bangla Bank, and Sonali Bank take 1–2 business days. Cash pickup through exchange house partner networks is usually available same-day. Western Union and MoneyGram offer cash pickup at thousands of agent locations across Bangladesh within minutes.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UAE to Bangladesh?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee and no hidden markup, making it one of the most cost-effective options for bank-funded transfers. Remitly offers competitive rates with frequent promotional offers for new users. Traditional exchange houses like Al Ansari and Lulu Exchange offer convenience — especially for cash-in funding — but typically apply higher exchange rate markups of 1.5%–3%. On an AED 2,000 transfer, the difference between the best digital provider and a typical exchange house can exceed BDT 2,000–4,000. Additionally, recipients receive a 2.5% government cash incentive on remittances through formal banking channels, which effectively boosts the total amount received. Always compare the total BDT delivered rather than just the transfer fee.",
       },
@@ -1653,6 +1684,7 @@ export const corridors: Corridor[] = [
       "JazzCash and Easypaisa mobile wallet transfers arrive within minutes. Cash pickup through Western Union and MoneyGram agent locations across Pakistan is also near-instant. Bank deposits to major Pakistani banks like HBL, UBL, MCB, and Allied Bank take 1–2 business days, with some providers offering same-day express options.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Canada to Pakistan?",
         a: "Wise uses the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of around 0.6%–0.9% and no hidden exchange rate markup. TapTap Send charges zero transfer fees and offers a competitive exchange rate, making it particularly attractive for smaller, regular transfers. Remitly and ACE Money Transfer also perform well on this corridor, especially for first-time users who benefit from promotional rates. On a CAD 1,000 transfer, the difference between the cheapest and most expensive provider can exceed PKR 8,000–12,000.",
       },
@@ -1694,8 +1726,9 @@ export const corridors: Corridor[] = [
       "JazzCash and Easypaisa transfers arrive within minutes. Cash pickup at Western Union and MoneyGram agent locations across Pakistan is near-instant. Bank deposits to HBL, UBL, MCB, and other major banks take 1–2 business days, with some providers offering same-day delivery.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Australia to Pakistan?",
-        a: "Based on our latest comparison data, Wise and TapTap Send consistently deliver the most Pakistani rupees per Australian dollar. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6%–1% and no hidden markup, making it one of the most cost-effective options for this corridor. TapTap Send charges zero transfer fees and offers a competitive rate. ACE Money Transfer and Remitly also perform well, particularly for first-time users with promotional offers. On an AUD 1,000 transfer, the difference between the best and worst providers can exceed PKR 8,000–12,000. Funding via PayID is the fastest option from Australia — it processes in seconds and is supported by Wise and several other providers. Always compare the total PKR your recipient will receive rather than the advertised fee alone, as exchange rate markups account for the majority of the total cost.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6%–1% and no hidden markup, making it one of the most cost-effective options for this corridor. TapTap Send charges zero transfer fees and offers a competitive rate. ACE Money Transfer and Remitly also perform well, particularly for first-time users with promotional offers. On an AUD 1,000 transfer, the difference between the best and worst providers can exceed PKR 8,000–12,000. Funding via PayID is the fastest option from Australia — it processes in seconds and is supported by Wise and several other providers. Always compare the total PKR your recipient will receive rather than the advertised fee alone, as exchange rate markups account for the majority of the total cost.",
       },
       {
         q: "What funding options are available for sending money from Australia?",
@@ -1735,8 +1768,9 @@ export const corridors: Corridor[] = [
       "Bank deposits to Egyptian banks like CIB, NBE, and Banque Misr take 1–2 business days. Some providers offer same-day delivery through Egypt's InstaPay instant payment infrastructure. Cash pickup through Western Union and MoneyGram agent locations is available within minutes. Vodafone Cash mobile wallet delivery is supported by select providers and arrives instantly.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UAE to Egypt?",
-        a: "Based on our latest comparison data, Wise consistently delivers the most Egyptian pounds per dirham by using the real mid-market exchange rate with a transparent fee and no hidden markup. Remitly also offers competitive rates on this corridor with frequent promotional offers for new users. Traditional UAE exchange houses like Al Ansari and Lulu Exchange offer convenience for cash-in funding but typically apply exchange rate markups of 1.5%–3.5% — on an AED 3,000 transfer, this can mean EGP 2,000–5,000 less reaching your recipient. Given Egypt's dramatic currency devaluation, percentage markups now translate to much larger absolute amounts than they did a few years ago. Western Union offers widespread cash pickup in Egypt but usually at higher total cost. Always compare the total EGP your recipient will receive, and factor in that exchange rates on this corridor can move significantly within a single day.",
+        a: "Remitly also offers competitive rates on this corridor with frequent promotional offers for new users. Traditional UAE exchange houses like Al Ansari and Lulu Exchange offer convenience for cash-in funding but typically apply exchange rate markups of 1.5%–3.5% — on an AED 3,000 transfer, this can mean EGP 2,000–5,000 less reaching your recipient. Given Egypt's dramatic currency devaluation, percentage markups now translate to much larger absolute amounts than they did a few years ago. Western Union offers widespread cash pickup in Egypt but usually at higher total cost. Always compare the total EGP your recipient will receive, and factor in that exchange rates on this corridor can move significantly within a single day.",
       },
       {
         q: "How has the EGP exchange rate crisis affected remittances?",
@@ -1776,8 +1810,9 @@ export const corridors: Corridor[] = [
       "GCash transfers arrive within minutes and are the most popular delivery method for this corridor. Bank deposits to major Philippine banks (BDO, BPI, Metrobank, Landbank) take 1–2 business days. Cash pickup through Western Union, MoneyGram, Cebuana Lhuillier, and M Lhuillier is near-instant. Some providers offer door-to-door delivery in select Philippine cities.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to the Philippines?",
-        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most Philippine pesos per Saudi riyal. Wise uses the real mid-market exchange rate with a transparent fee and no hidden markup, making it ideal for larger transfers. For OFWs sending smaller, regular amounts, TapTap Send charges zero fees with a competitive rate. Al Rajhi Bank's remittance service is widely used for its convenience — with branches across Saudi Arabia and a popular mobile app — but its exchange rate typically includes a 1%–2% markup. On a SAR 2,000 transfer, the difference between the cheapest and most expensive provider can exceed PHP 2,000–4,000. Many providers offer first-transfer promotions with enhanced rates. For frequent monthly senders, even a small rate improvement adds up significantly over a year — potentially PHP 25,000–50,000 in savings across 12 transfers.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee and no hidden markup, making it ideal for larger transfers. For OFWs sending smaller, regular amounts, TapTap Send charges zero fees with a competitive rate. Al Rajhi Bank's remittance service is widely used for its convenience — with branches across Saudi Arabia and a popular mobile app — but its exchange rate typically includes a 1%–2% markup. On a SAR 2,000 transfer, the difference between the cheapest and most expensive provider can exceed PHP 2,000–4,000. Many providers offer first-transfer promotions with enhanced rates. For frequent monthly senders, even a small rate improvement adds up significantly over a year — potentially PHP 25,000–50,000 in savings across 12 transfers.",
       },
       {
         q: "Can I send money directly to GCash from Saudi Arabia?",
@@ -1817,6 +1852,7 @@ export const corridors: Corridor[] = [
       "MTN MoMo transfers arrive within minutes and are the most popular delivery method. Bank deposits to major Ghanaian banks like GCB Bank, Ecobank, and Stanbic Bank take 1–2 business days. Cash pickup through Western Union and MoneyGram agent locations is near-instant. Some providers also support Vodafone Cash and AirtelTigo Money delivery.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to Ghana?",
         a: "Sendwave (now part of WorldRemit) charges zero transfer fees and offers a competitive exchange rate, making it popular among the Ghanaian diaspora in the UK. WorldRemit also performs well, particularly for MTN MoMo delivery. On a £500 transfer, the difference between the cheapest and most expensive provider can exceed GHS 150–300, which is significant purchasing power in Ghana. Funding via Faster Payments from your UK bank account is instant and free, so there is no reason to use slower or costlier funding methods. Compare all providers at the time of sending, as the cedi can be volatile.",
       },
@@ -1858,6 +1894,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to major Pakistani banks (HBL, UBL, Meezan, Allied) typically arrive within 1–24 hours. JazzCash and Easypaisa mobile wallet deliveries are often instant. Cash pickup through partner networks is available in all major cities. SEPA funding adds 0–1 business day to total delivery time.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Europe to Pakistan?",
         a: "SEPA transfers are free or very low cost from most European bank accounts and avoid the 1–2% card processing surcharge. Wise generally offers the closest rate to the mid-market EUR/PKR exchange rate with a transparent fee of around €3–5 for a €1,000 transfer. ACE Money Transfer frequently runs zero-fee promotions on the Europe-to-Pakistan corridor. Compare the total received amount in PKR rather than just the fee — a provider with a €0 fee but a 2% rate markup costs more than one charging €4 with a 0.3% markup. On a €1,000 transfer, that difference could mean 5,000–10,000 PKR more for your recipient.",
       },
@@ -1899,6 +1936,7 @@ export const corridors: Corridor[] = [
       "MTN MoMo and Vodafone Cash deliveries are typically instant — funds arrive within seconds to minutes. Bank deposits to GCB, Ecobank, Fidelity, or Stanbic take 1–24 hours. Cash pickup is usually available within minutes. Debit card funding provides fastest end-to-end experience, while ACH transfers take 1–3 business days to clear.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Ghana?",
         a: "For mobile money deliveries under $1,000, Sendwave often provides the best overall value with zero explicit fees, though their exchange rate includes a 1–3% markup. Wise typically offers the most transparent pricing with rates close to mid-market USD/GHS plus a flat fee of $3–5. Remitly frequently offers promotional rates with fees as low as $0–2. For a $500 transfer, the difference between providers can be 20–50 GHS. ACH bank transfer funding is cheaper than debit or credit card funding — cards add 1–2% in processing fees. Avoid your US bank's wire transfer service, which typically charges $25–50 plus a poor exchange rate.",
       },
@@ -1939,6 +1977,7 @@ export const corridors: Corridor[] = [
       "Nequi and Daviplata wallet deliveries are typically instant. Bank deposits to Bancolombia, Davivienda, BBVA Colombia arrive within 1–24 hours. Cash pickup at Efecty locations (over 10,000 points) is usually available within minutes. Some providers leverage Transfiya for real-time bank-to-bank settlement.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Colombia?",
         a: "Wise or Remitly funded via ACH bank transfer are typically cheapest. Wise offers the mid-market USD/COP rate with a fee of around $4–7 on $1,000. Remitly's economy option charges as low as $0–2 but with a slightly marked-up rate. Xoom frequently offers zero-fee promotions on this corridor. Compare total COP received rather than fees alone. On $1,000, the difference between cheapest and most expensive providers can be 50,000–150,000 COP. Avoid US bank wires, which charge $25–45 plus unfavorable rates, and Colombian receiving banks may deduct additional charges.",
       },
@@ -1980,6 +2019,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to GTBank, Access Bank, First Bank, Zenith Bank, and UBA typically arrive within 1–24 hours. Cash pickup is available through Western Union and MoneyGram partner locations. Mobile wallet delivery via OPay is growing. Interac funding gives providers same-day receipt.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Canada to Nigeria?",
         a: "Lemfi specialises in African corridors and often has the most competitive NGN rates from Canada. Wise charges the real mid-market rate with a transparent fee of C$3–6. WorldRemit offers multiple delivery options with fees under C$5. Canadian banks charge C$30–80 per wire plus 3–5% exchange rate markups, costing C$45–100 more than specialists on a C$500 transfer. Fund via Interac e-Transfer for the lowest fees. Always compare total NGN received — naira volatility means even small rate differences translate to thousands of naira.",
       },
@@ -2020,6 +2060,7 @@ export const corridors: Corridor[] = [
       "Transfers to UK bank accounts via Faster Payments arrive within minutes to hours once the provider processes payment. SWIFT transfers take 1–3 business days. PayID funding from Australian accounts is instant, enabling same-day delivery to the UK with most specialist providers.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send AUD to the UK?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around A$5–8 per A$1,000. OFX waives transfer fees for amounts above A$1,000 and offers competitive exchange rates — as an Australian-founded company, their AUD pricing is particularly strong. Revolut offers free transfers up to certain monthly limits. Australian banks charge A$20–30 per international transfer plus 2.5–4% exchange rate markups, costing A$45–70 more than specialists on A$1,000. Fund via PayID or bank transfer for the lowest cost. Compare total GBP received, not fees alone.",
       },
@@ -2060,6 +2101,7 @@ export const corridors: Corridor[] = [
       "bKash and Nagad wallet deliveries are instant. Bank deposits to Dutch-Bangla, Islami, BRAC, or Bank Asia take 1–3 business days. Cash pickup is available within minutes. PayNow funding from Singapore gives providers instant receipt, enabling same-day delivery.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Singapore to Bangladesh?",
         a: "Instarem, headquartered in Singapore, offers competitive SGD/BDT rates with fees of S$2–5. Wise charges the mid-market exchange rate with a transparent fee of S$3–5. Remitly and WorldRemit also offer competitive rates with bKash delivery. Fund your transfer via PayNow or FAST for the lowest fees — these are free from most Singapore banks. Avoid bank wire transfers, which charge S$20–35 plus poor exchange rates. On a S$500 transfer, switching from a bank to a specialist saves S$15–30. Remember that Bangladesh's 2.5% remittance incentive applies when recipients receive through formal banking channels.",
       },
@@ -2100,6 +2142,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Vietcombank, BIDV, Agribank, and Techcombank take 1–3 business days, with some providers offering same-day express delivery. Cash pickup through Western Union and MoneyGram agent locations is available within minutes. Home delivery is offered by select providers in major cities like Ho Chi Minh City and Hanoi.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Vietnam?",
         a: "Remitly and Wise are typically the most cost-effective for USD to VND transfers. Remitly offers competitive VND rates with express delivery and frequently runs zero-fee promotions for new users. Wise charges the mid-market exchange rate with a fee of $5–8 per $1,000. Xoom offers competitive pricing, especially during promotional periods. For a $1,000 transfer, the difference between the best and worst providers can be 200,000–500,000 VND — significant purchasing power in Vietnam. ACH bank transfer funding is cheapest. Avoid US bank wires, which charge $25–50 plus poor exchange rates and potential correspondent bank fees.",
       },
@@ -2140,6 +2183,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to BCA, BRI, Mandiri, and BNI typically arrive within 1–2 business days, with some providers offering same-day delivery. Cash pickup through Western Union and MoneyGram partners is available in major cities. Indonesia's BI-FAST instant payment system is enabling faster domestic settlement for incoming remittances.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the US to Indonesia?",
         a: "Wise and Instarem typically offer the best value for USD to IDR transfers. Wise charges the mid-market exchange rate with a transparent fee of $3–6 on $500. Instarem, as an Asia-Pacific specialist, often has strong IDR rates. Remitly offers competitive pricing with express delivery options. For a $500 transfer, the difference between providers can be 150,000–400,000 IDR. ACH funding is cheapest from US accounts. Given the large numbers involved in IDR (your $500 becomes roughly 8 million IDR), even small percentage differences in exchange rate translate to noticeable amounts. Compare the total IDR your recipient will receive rather than the fee.",
       },
@@ -2181,6 +2225,7 @@ export const corridors: Corridor[] = [
       "Cash pickup is available within minutes through Western Union, MoneyGram, Caribe Express, and Vimenca agent locations across the Dominican Republic. Bank deposits to Banco Popular, Banreservas, and BHD Leon typically arrive within 1–2 business days. Some providers offer same-day delivery for debit card-funded transfers.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to the Dominican Republic?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–0.8%, meaning no hidden markup on the exchange rate. Remitly offers competitive rates with frequent promotional zero-fee first transfers for new users. For a $500 transfer, the difference between the cheapest digital provider and a traditional operator can exceed DOP 800–1,500. WorldRemit and Xoom (PayPal) also offer competitive rates on this route. We recommend comparing all providers at the time of sending, as rates fluctuate throughout the day.",
       },
@@ -2221,6 +2266,7 @@ export const corridors: Corridor[] = [
       "Cash pickup is available within minutes at Western Union and MoneyGram agent locations across Jamaica, including in rural parishes. Bank deposits to NCB, Scotiabank Jamaica, and other major banks take 1–2 business days. Some providers offer same-day express delivery for debit card-funded transfers to major banks.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to Jamaica?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–0.9%, so the quoted cost is the total cost with no hidden markup. Remitly offers competitive rates with express delivery and frequently provides promotional zero-fee first transfers. For a $500 transfer, the difference between the cheapest and most expensive provider can exceed JMD 2,000. WorldRemit and Xoom also serve this corridor well. Traditional operators like Western Union remain popular for cash pickup convenience but typically offer less favourable exchange rates.",
       },
@@ -2261,6 +2307,7 @@ export const corridors: Corridor[] = [
       "Cash pickup is available within minutes at Western Union and MoneyGram agent locations across Jamaica. Bank deposits to NCB, Scotiabank Jamaica, and CIBC FirstCaribbean typically arrive within 1–2 business days. WorldRemit and Remitly offer express delivery options for card-funded transfers. Transfers initiated on UK bank holidays or Jamaican public holidays may experience delays.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to Jamaica?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.4–0.8%, meaning no hidden markup on the exchange rate. WorldRemit, a London-headquartered company, offers competitive rates with frequent promotional offers for new users. For a £500 transfer, the difference between the cheapest digital provider and a traditional operator can exceed JMD 4,000. Remitly and Xoom also offer competitive rates on this route. We recommend comparing all providers at the time of sending, as the GBP to JMD rate fluctuates throughout the day.",
       },
@@ -2301,6 +2348,7 @@ export const corridors: Corridor[] = [
       "Cash pickup is available within minutes at Western Union, MoneyGram, CAM Transfer, and Unitransfer agent locations across Haiti, including in Cap-Haitien, Gonaives, Les Cayes, and Port-au-Prince. Mon Cash mobile money transfers arrive within minutes. Bank deposits to Sogebank, BNC, and Unibank take 1–3 business days. Cash pickup remains the fastest and most widely accessible delivery method due to Haiti's limited banking infrastructure.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to Haiti?",
         a: "For the Haiti corridor, the cheapest option depends on the delivery method you need. If your recipient can access a bank account, Wise and Remitly offer the best exchange rates with fees of $0–$5, typically delivering 1–3% more gourdes per dollar than traditional operators. For cash pickup, which most Haitian recipients prefer, CAM Transfer and Unitransfer specialize in the Haiti corridor and offer competitive flat fees of $3–$6 with reasonable exchange rates. Western Union has the widest agent network but typically applies higher exchange rate markups of 2–4%. For a $500 transfer, the difference between providers can exceed HTG 2,000–4,000. WorldRemit also serves this corridor with competitive rates for both bank deposit and cash pickup.",
       },
@@ -2342,6 +2390,7 @@ export const corridors: Corridor[] = [
       "SWIFT transfers from Indian banks to US bank accounts typically take 2–4 business days due to correspondent banking intermediaries. Wise and Instarem can deliver within 1–2 business days using faster payment rails. Transfers initiated after Indian banking hours or on holidays will be processed the next business day. All outbound remittances require Form A2 (purpose of remittance declaration) and a PAN card.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from India to the USA?",
         a: "Wise uses the real mid-market rate with a transparent fee of around 0.6–1%, making it significantly cheaper than banks which mark up the rate by 1.5–3.5%. BookMyForex offers competitive interbank rates with low fees and is popular for larger education-related transfers. For an INR 50,000 transfer, choosing Wise over a bank can save INR 1,000–2,500 in exchange rate markup alone. Instarem is another strong option, particularly for recurring transfers. Traditional banks like SBI and HDFC are the most expensive option due to high SWIFT fees and wide exchange rate spreads.",
       },
@@ -2382,6 +2431,7 @@ export const corridors: Corridor[] = [
       "SWIFT transfers from Indian banks to UK bank accounts typically take 2–4 business days. Wise can deliver to UK accounts within 1–2 business days, often faster via Faster Payments on the UK side. Transfers initiated after Indian banking hours or on Indian public holidays will be processed the next business day. UK bank holidays (particularly August and December) may cause minor delays on the receiving end.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from India to the UK?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.2%, making it significantly cheaper than banks. BookMyForex is popular for large education payments, offering near-interbank rates with low processing fees. For an INR 50,000 transfer, the difference between Wise and a bank can be INR 1,500–3,500 in total savings. Instarem is another strong option for regular transfers. Traditional banks are the most expensive due to wide exchange rate markups and high SWIFT fees.",
       },
@@ -2422,6 +2472,7 @@ export const corridors: Corridor[] = [
       "SWIFT transfers from Indian banks to Canadian bank accounts typically take 2–4 business days. Wise and Instarem can deliver within 1–2 business days using Interac or direct deposit rails on the Canadian side. Form A2 and PAN verification are required for all outbound LRS remittances. Canadian banking hours and holidays (including provincial holidays) may affect deposit timing.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from India to Canada?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.1%, making it significantly cheaper than Indian banks. BookMyForex is especially popular for large education payments to Canadian universities, offering near-interbank rates. For an INR 50,000 transfer, using a digital provider over a bank can save INR 1,200–3,000 in total costs. Instarem is another strong option, particularly for recurring monthly transfers for living expenses. Always compare the total CAD amount your recipient will receive rather than just the fee.",
       },
@@ -2462,6 +2513,7 @@ export const corridors: Corridor[] = [
       "SWIFT transfers from Indian banks to Australian bank accounts typically take 2–4 business days. Wise and Instarem can deliver within 1–2 business days using NPP (New Payments Platform) or direct deposit on the Australian side. Form A2 and PAN verification are required for all outbound LRS remittances. Australian banking hours and holidays may affect deposit timing — note that Australia is 4.5–5.5 hours ahead of India.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from India to Australia?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.2%. Instarem, which has a strong presence in both the Indian and Australian markets, offers competitive rates with fees of 0.5–1%. For an INR 50,000 transfer, using a digital provider over a bank saves INR 1,000–2,800. BookMyForex is popular for larger education-related transfers. Traditional banks are the most expensive option due to high SWIFT fees and wide exchange rate spreads of 2–3.5%.",
       },
@@ -2503,8 +2555,9 @@ export const corridors: Corridor[] = [
       "Bank deposits to PrivatBank and monobank accounts in Ukraine typically arrive within 1–2 business days via digital providers like Wise and Remitly. Cash pickup through Western Union and MoneyGram agent locations is available within minutes at thousands of points across Ukraine. Mobile wallet top-ups and card transfers are growing in popularity, particularly through monobank's integration with international transfer services.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to Ukraine?",
-        a: "Based on our latest comparison data, Wise consistently delivers the most hryvnias per dollar on the USD to UAH corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.2%, meaning the quoted cost is the total cost with no hidden markup. Remitly and WorldRemit are also competitive, especially for first-time users who benefit from promotional rates. Western Union offers the widest cash pickup network in Ukraine but typically has a higher total cost due to exchange rate markups of 1.5–3%. For a $500 transfer, using Wise or Remitly over a traditional bank can deliver UAH 400–1,000 more to your recipient.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.2%, meaning the quoted cost is the total cost with no hidden markup. Remitly and WorldRemit are also competitive, especially for first-time users who benefit from promotional rates. Western Union offers the widest cash pickup network in Ukraine but typically has a higher total cost due to exchange rate markups of 1.5–3%. For a $500 transfer, using Wise or Remitly over a traditional bank can deliver UAH 400–1,000 more to your recipient.",
       },
       {
         q: "How long does a money transfer from the USA to Ukraine take?",
@@ -2543,6 +2596,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Ukrainian accounts via Wise typically arrive within 1–2 business days, with some transfers completing same-day. TransferGo offers express delivery within hours to PrivatBank and monobank accounts. Cash pickup through Western Union and MoneyGram is available within minutes at thousands of locations across Ukraine. Faster Payments funding from UK bank accounts means your money leaves almost instantly — the main variable is processing time on the Ukrainian receiving side.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to Ukraine?",
         a: "For a £500 transfer, Wise typically delivers UAH 1,000–3,000 more than banks or high-street money transfer shops. TransferGo is the second most competitive option, specializing in UK-to-Eastern-Europe transfers with fees of £1–£3 and rates within 0.5–1% of mid-market. Western Union offers convenience through widespread cash pickup in Ukraine but charges more in total due to exchange rate markups. We recommend comparing all providers on the day you send, as the GBP/UAH rate fluctuates throughout the day.",
       },
@@ -2583,6 +2637,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Ukrainian accounts via Wise arrive within 1–2 business days. TransferGo offers express delivery within hours to PrivatBank and monobank. Cash pickup through Western Union and MoneyGram is available within minutes across Ukraine. SEPA transfers to provider accounts clear within hours (SEPA Instant) or by the next business day (standard SEPA), so the main delay is on the Ukrainian receiving side. Sending from non-eurozone EU countries (Poland, Czech Republic) via local bank transfer is equally fast.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Europe to Ukraine?",
         a: "TransferGo is a close second, specializing in European-to-Ukrainian transfers with fees of €1–€3 and competitive exchange rates. Both providers accept SEPA bank transfers for free funding, eliminating any cost on the sending side. For a €500 transfer, Wise or TransferGo typically deliver UAH 500–2,000 more than Western Union or traditional banks. Paysend offers flat €1 card-to-card transfers that can also be cost-effective for smaller amounts.",
       },
@@ -2624,6 +2679,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to CBE and other Ethiopian bank accounts typically take 1–3 business days. Cash pickup through Western Union, MoneyGram, and WorldRemit partner locations is available within minutes at hundreds of agent points across Addis Ababa and major cities. Mobile money delivery via Telebirr is growing rapidly and supported by Remitly and WorldRemit, offering near-instant receipt for recipients in both urban and rural areas. Door-to-door cash delivery is also available in some areas through select providers.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to Ethiopia?",
         a: "Remitly offers competitive exchange rates with frequently waived fees for first-time users and debit card funding. WorldRemit provides strong rates with delivery to bank accounts, cash pickup, and Telebirr mobile wallets. Western Union and MoneyGram offer the widest cash pickup networks but typically have higher exchange rate markups of 2–4%. For a $500 transfer, using Remitly or WorldRemit over a traditional bank or money transfer operator can deliver ETB 1,000–3,000 more to your recipient.",
       },
@@ -2665,6 +2721,7 @@ export const corridors: Corridor[] = [
       "Cash pickup in Guatemala is available within minutes through Western Union (3,000+ locations), MoneyGram, Remitly partners, and WorldRemit agents — coverage extends to Guatemala City, Quetzaltenango, Huehuetenango, and rural departments. Bank deposits to Banco Industrial, Banrural, and Bantrab typically arrive within 1–2 business days. Mobile wallet delivery is emerging but not yet widespread. Home delivery is available through select providers in major urban areas.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to Guatemala?",
         a: "Wise is also highly competitive, using the real mid-market rate with a transparent fee of 0.5–1.2%. For cash pickup, which many Guatemalan recipients prefer, Remitly and WorldRemit offer better total value than Western Union or MoneyGram due to tighter exchange rate spreads. For a $500 transfer, using a digital provider can deliver Q100–Q300 more than traditional operators. We recommend comparing on the day you send, as promotional rates and offers change frequently.",
       },
@@ -2706,6 +2763,7 @@ export const corridors: Corridor[] = [
       "GCash delivery is near-instant once the transfer is processed, making it the fastest option for recipients with a GCash wallet. Bank deposits to BDO, BPI, Metrobank, and other Philippine banks typically arrive within 1–2 business days via digital providers. Cash pickup through Western Union, MoneyGram, and Cebuana Lhuillier locations is available within minutes at thousands of points across the Philippines. SBI Remit offers same-day delivery to select Philippine banks and GCash. SWIFT transfers from Japanese banks take 2–4 business days.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Japan to the Philippines?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1%, with no hidden markup. SBI Remit, which is optimized for Japan-to-Asia transfers, offers competitive rates with low flat fees. For a ¥100,000 transfer, using Wise or SBI Remit instead of a Japanese bank (MUFG, Mizuho, SMBC) saves PHP 1,500–4,000 in total cost. Western Union and MoneyGram are more expensive but offer the widest cash pickup networks. Remitly is also competitive on this corridor with promotional offers for new users.",
       },
@@ -2746,6 +2804,7 @@ export const corridors: Corridor[] = [
       "Wise and Instarem deliver to Indian bank accounts within 1–2 business days, with many transfers arriving same-day via IMPS (Immediate Payment Service) or NEFT. UPI-linked delivery is also available through select providers, enabling near-instant receipt. SWIFT transfers from Japanese banks take 3–5 business days and may incur additional correspondent bank deductions. Funding via furikomi (Japanese bank transfer) typically clears same-day if sent before the bank's cutoff time. Credit card and convenience store payment options are also available with some providers.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Japan to India?",
         a: "Wise uses the real mid-market exchange rate — the same rate shown on Google — with a transparent fee of 0.6–1.2%. Instarem offers competitive rates within 0.5–1% of mid-market, with particular strength on Asian corridors. For a ¥100,000 transfer, using either provider over a Japanese bank (MUFG, Mizuho, SMBC) saves INR 1,000–3,500 in total cost. Western Union and MoneyGram are available but charge more due to exchange rate markups. SBI Remit also covers the JPY to INR corridor with competitive pricing. Always compare the total INR received rather than fees alone.",
       },
@@ -2786,6 +2845,7 @@ export const corridors: Corridor[] = [
       "Wise delivers to US bank accounts within 1–2 business days, with many transfers arriving same-day via ACH. OFX and XE typically deliver within 1–2 business days. SWIFT transfers from Japanese banks take 2–4 business days and may incur correspondent bank deductions of $15–$25 by intermediary banks. Same-day ACH is available through select providers for US recipients with verified accounts. Funding via furikomi from a Japanese bank clears same-day if sent before the cutoff time.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Japan to the USA?",
         a: "Wise is the most cost-effective option for most JPY to USD transfer amounts, using the real mid-market exchange rate with a transparent fee of 0.5–0.9%. For a ¥100,000 transfer (approximately $670), Wise charges about ¥500–¥900 in total. OFX is the best option for large transfers (¥500,000+) because it charges no flat fee and offers tighter exchange rate spreads on higher volumes — contact their dealing desk for amounts over ¥1,000,000. XE offers competitive rates with a margin of 0.4–1% and no upfront fee. Japanese banks are the most expensive option by a wide margin, costing ¥5,500–¥9,000 in fees and markup on the same ¥100,000 transfer.",
       },
@@ -2827,6 +2887,7 @@ export const corridors: Corridor[] = [
       "GCash delivery is near-instant and is the most popular method for Filipino recipients. Bank deposits to BDO, BPI, Metrobank, and other Philippine banks arrive within 1–2 business days via Wise and Remitly. Cash pickup through Western Union, MoneyGram, Cebuana Lhuillier, and M Lhuillier locations is available within minutes at tens of thousands of points across the Philippines. Many Filipino workers in Hong Kong send money on Sundays (their day off), so providers with weekend processing offer a significant advantage.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Hong Kong to the Philippines?",
         a: "Remitly and WorldRemit are also highly competitive, especially for first-time users who benefit from promotional exchange rates and zero-fee offers. For a HKD 5,000 transfer, using a digital provider over a traditional money changer saves PHP 200–800. High-street money changers in Central or Mong Kok may seem convenient but typically apply wider exchange rate spreads. For workers sending weekly, the cumulative annual savings from using Wise or Remitly can exceed PHP 10,000–20,000.",
       },
@@ -2867,6 +2928,7 @@ export const corridors: Corridor[] = [
       "Wise and Instarem deliver to Indian bank accounts within 1–2 business days, with many transfers arriving same-day via IMPS (Immediate Payment Service). India's 24/7 IMPS system means there is no delay for weekends or bank holidays on the receiving side. Remitly offers express delivery within hours. Traditional SWIFT transfers from Hong Kong banks take 2–4 business days and may incur correspondent bank deductions. Funding via FPS (Faster Payment System) from Hong Kong bank accounts is instant and free, so the main delay is provider processing time.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Hong Kong to India?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. Instarem, which has strong Asian corridor optimization, charges 0.5–1% with competitive rates. For a HKD 5,000 transfer, using Wise or Instarem over a Hong Kong bank (HSBC, Standard Chartered, Bank of China HK) saves INR 1,000–2,500. Remitly is competitive for smaller amounts with frequent promotional offers. Because the HKD is pegged to the USD, the mid-market HKD/INR rate is very stable, making exchange rate markup the primary cost variable to compare.",
       },
@@ -2908,8 +2970,9 @@ export const corridors: Corridor[] = [
       "GCash delivery is near-instant and is the preferred method for many Filipino recipients. Bank deposits to BDO, BPI, Metrobank, and UnionBank typically arrive within 1–2 business days via SentBe, Hanpass, or Wise. Cash pickup through Western Union and Cebuana Lhuillier is available within minutes at thousands of locations across the Philippines. Korean bank SWIFT transfers take 3–5 business days. Most Korean fintech providers accept funding via Korean bank transfer, which clears same-day when initiated before the cutoff time.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from South Korea to the Philippines?",
-        a: "SentBe and Wise are consistently the cheapest options for KRW to PHP transfers. SentBe, a Korean fintech company, charges around 0.5–1% with competitive exchange rates optimized for the Korean remittance market. Wise uses the real mid-market exchange rate with a transparent fee of 0.6–1.2%. Hanpass is another strong option, particularly popular among Filipino workers due to multilingual support (Korean, Filipino, English). For a ₩1,000,000 transfer, using any of these digital providers over a Korean bank (KB Kookmin, Shinhan, Hana) saves PHP 2,000–5,000. Always compare the total PHP received, as fee structures differ between providers.",
+        a: "SentBe, a Korean fintech company, charges around 0.5–1% with competitive exchange rates optimized for the Korean remittance market. Wise uses the real mid-market exchange rate with a transparent fee of 0.6–1.2%. Hanpass is another strong option, particularly popular among Filipino workers due to multilingual support (Korean, Filipino, English). For a ₩1,000,000 transfer, using any of these digital providers over a Korean bank (KB Kookmin, Shinhan, Hana) saves PHP 2,000–5,000. Always compare the total PHP received, as fee structures differ between providers.",
       },
       {
         q: "What is SentBe and is it reliable for Philippines transfers?",
@@ -2948,8 +3011,9 @@ export const corridors: Corridor[] = [
       "Bank deposits to Vietnamese bank accounts (Vietcombank, BIDV, Agribank, Techcombank, VPBank) typically arrive within 1–2 business days via SentBe, Hanpass, or Wise. Cash pickup through Western Union and MoneyGram partner locations is available within minutes across Vietnam. MoMo mobile wallet delivery is supported by select providers for near-instant receipt. Korean bank SWIFT transfers take 3–5 business days. Vietnamese banks operate Monday through Saturday (half-day Saturday), so transfers sent Friday or Saturday may settle faster than those sent on Sunday.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from South Korea to Vietnam?",
-        a: "SentBe and Wise are consistently the cheapest options for KRW to VND transfers. SentBe, built for the Korean remittance market, charges around 0.5–1% with competitive exchange rates. Wise uses the real mid-market exchange rate with a transparent fee of 0.6–1.2%. Hanpass is another strong option, particularly popular among Vietnamese workers for its Vietnamese-language app and customer support. For a ₩1,000,000 transfer, using a digital provider instead of a Korean bank saves VND 300,000–800,000 in total cost. Western Union and MoneyGram offer wide cash pickup networks in Vietnam but charge more in exchange rate markup.",
+        a: "SentBe, built for the Korean remittance market, charges around 0.5–1% with competitive exchange rates. Wise uses the real mid-market exchange rate with a transparent fee of 0.6–1.2%. Hanpass is another strong option, particularly popular among Vietnamese workers for its Vietnamese-language app and customer support. For a ₩1,000,000 transfer, using a digital provider instead of a Korean bank saves VND 300,000–800,000 in total cost. Western Union and MoneyGram offer wide cash pickup networks in Vietnam but charge more in exchange rate markup.",
       },
       {
         q: "How long does a transfer from South Korea to Vietnam take?",
@@ -2989,6 +3053,7 @@ export const corridors: Corridor[] = [
       "Cash pickup is available within minutes through Western Union and MoneyGram at thousands of agent locations across Honduras, including Tegucigalpa, San Pedro Sula, La Ceiba, and rural towns. Bank deposits to Banco Atlántida, BAC Honduras, and Ficohsa arrive within 1–2 business days. Tigo Money wallet delivery is near-instant where supported. Remitly and WorldRemit offer express delivery options for both cash pickup and bank deposit.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to Honduras?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, meaning no hidden markup on the exchange rate. Remitly offers competitive rates with frequent zero-fee promotions for new and returning users. For a $500 transfer, using a digital provider over Western Union or a bank wire saves HNL 100–400 in total value received. Xoom (PayPal) is another popular option with fast delivery to Honduran banks and cash pickup locations, though its exchange rate markup is slightly higher than Wise.",
       },
@@ -3030,6 +3095,7 @@ export const corridors: Corridor[] = [
       "Cash pickup is available within minutes through IME, Prabhu, Western Union, and MoneyGram at thousands of agent locations across Nepal, including Kathmandu, Pokhara, Biratnagar, and remote hill districts. Bank deposits to Nepal's major banks (Nepal Bank, Rastriya Banijya Bank, Nabil Bank, NIC Asia) arrive within 1–2 business days. eSewa and Khalti wallet delivery is near-instant where supported. Traditional bank SWIFT transfers take 3–5 business days with potential delays due to Nepal's banking infrastructure.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to Nepal?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5–1%. Remitly offers competitive rates with frequent promotional offers, including zero-fee first transfers. IME Pay, operated by Nepal's largest domestic remittance network IME Group, also offers direct US-to-Nepal transfers at competitive rates. For a $500 transfer, using a digital provider over a traditional operator saves NPR 500–1,500. Western Union and MoneyGram have the widest cash pickup networks in Nepal but charge more in exchange rate markup.",
       },
@@ -3070,8 +3136,9 @@ export const corridors: Corridor[] = [
       "Cash pickup through IME, Prabhu, Western Union, and MoneyGram is available within minutes across Nepal's 77 districts. Bank deposits to Nabil Bank, NIC Asia, Nepal Bank, and other Nepali banks arrive within 1–2 business days via Wise or WorldRemit. eSewa and Khalti wallet delivery is near-instant where supported. UK bank SWIFT transfers take 3–5 business days. Funding via UK Faster Payments from a UK bank account is instant and free, so the main delay is provider processing time.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to Nepal?",
-        a: "Wise and WorldRemit are consistently the cheapest options for GBP to NPR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, making the total cost fully visible upfront. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and wide delivery options in Nepal. For a £500 transfer, using a digital provider over a UK bank (Barclays, HSBC, NatWest) saves NPR 1,500–4,000 in total cost. Remitly is also competitive, particularly for cash pickup delivery. Always compare the total NPR received rather than just the advertised fee.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, making the total cost fully visible upfront. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and wide delivery options in Nepal. For a £500 transfer, using a digital provider over a UK bank (Barclays, HSBC, NatWest) saves NPR 1,500–4,000 in total cost. Remitly is also competitive, particularly for cash pickup delivery. Always compare the total NPR received rather than just the advertised fee.",
       },
       {
         q: "How long does a transfer from the UK to Nepal take?",
@@ -3110,6 +3177,7 @@ export const corridors: Corridor[] = [
       "Cash pickup through IME and Prabhu is available within minutes at over 25,000 agent locations across Nepal. Bank deposits to Nepali banks (Nabil Bank, NIC Asia, Nepal Bank, Himalayan Bank) arrive within 1–2 business days. eSewa and Khalti wallet delivery is near-instant where supported. UAE exchange house transfers typically complete within same-day to 1 business day for cash pickup. Traditional bank SWIFT transfers take 3–5 business days. Many Nepali workers send money on Fridays (the UAE weekend), and providers with weekend processing offer an advantage.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UAE to Nepal?",
         a: "IME and Prabhu offices in the UAE offer some of the most competitive rates for AED to NPR transfers, with fees of AED 10–15 and exchange rates close to the mid-market rate. Wise is also highly competitive, charging around 0.5–1% with the real mid-market rate and no hidden markup. Al Ansari Exchange and Unimoni (formerly UAE Exchange) are widely used but tend to have slightly wider exchange rate spreads. For an AED 1,000 transfer, comparing all providers on the day you send can mean a difference of NPR 300–1,000 received. Digital providers are increasingly offering better value than high-street exchange houses.",
       },
@@ -3151,6 +3219,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Bank of Ceylon, People's Bank, Commercial Bank, and Hatton National Bank arrive within 1–2 business days via Wise, Remitly, or WorldRemit. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Sri Lanka, including Colombo, Kandy, Galle, and Jaffna. Traditional bank SWIFT transfers take 3–5 business days. Sri Lankan banks operate Monday through Friday, so weekend transfers are queued for Monday processing.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the USA to Sri Lanka?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, ensuring no hidden exchange rate markup. Remitly offers competitive rates with frequent promotional offers for new users. WorldRemit is also competitive with wide delivery options in Sri Lanka. For a $500 transfer, using a digital provider over a traditional operator saves LKR 2,000–6,000 in total value. Since the LKR depreciation, getting the best possible exchange rate has become even more impactful for recipients.",
       },
@@ -3191,6 +3260,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Bank of Ceylon, Commercial Bank, Hatton National Bank, and Sampath Bank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union and MoneyGram is available within minutes across Sri Lanka. UK bank SWIFT transfers take 3–5 business days. Funding via UK Faster Payments is instant and free, so the main delay is provider processing. Sri Lankan banks are closed on Poya (full-moon) days, which are national holidays, affecting deposit timing.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to Sri Lanka?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions. For a £500 transfer, using a digital provider over a UK bank saves LKR 5,000–15,000 in total cost. Remitly is also competitive, especially for first-time users. Traditional high-street money transfer shops in areas like Tooting and East Ham may offer competitive cash rates but lack the convenience and transparency of digital providers.",
       },
@@ -3232,6 +3302,7 @@ export const corridors: Corridor[] = [
       "Wise and Instarem deliver to Indian bank accounts within 1–2 business days, with many transfers arriving same-day via IMPS. India's 24/7 IMPS system means there is no delay for weekends or bank holidays on the receiving side. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across India. Malaysian bank SWIFT transfers take 3–5 business days. Funding from a Malaysian bank account via DuitNow or FPX is fast and convenient.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Malaysia to India?",
         a: "Instarem, an APAC-focused fintech headquartered in Singapore, charges around 0.5–1% with competitive exchange rates optimized for Asian corridors. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. For an MYR 2,000 transfer, using a digital provider over a Malaysian bank (Maybank, CIMB, Public Bank) saves INR 800–2,500. DeeMoney is another option gaining traction in Southeast Asian corridors. Always compare the total INR received rather than just the advertised fee.",
       },
@@ -3272,8 +3343,9 @@ export const corridors: Corridor[] = [
       "Bank deposits to BCA, Bank Mandiri, BRI, and BNI arrive within 1–2 business days via Wise or Instarem. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Indonesia, including Jakarta, Surabaya, Medan, and rural areas. Indonesian bank transfers via the domestic BI-FAST system are increasingly fast for same-day settlement. Malaysian bank SWIFT transfers take 3–5 business days. Many Indonesian workers send money on weekends, and providers with weekend processing offer an advantage.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Malaysia to Indonesia?",
-        a: "Wise and Instarem are consistently the cheapest options for MYR to IDR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. Instarem charges 0.5–1% with competitive rates optimized for Southeast Asian corridors. For an MYR 2,000 transfer, using a digital provider over a traditional money changer or Malaysian bank saves IDR 100,000–350,000. Western Union and MoneyGram offer wide cash pickup networks across Indonesia's islands but charge more in exchange rate markup. For frequent senders, the cumulative annual savings from using a digital provider can be substantial.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. Instarem charges 0.5–1% with competitive rates optimized for Southeast Asian corridors. For an MYR 2,000 transfer, using a digital provider over a traditional money changer or Malaysian bank saves IDR 100,000–350,000. Western Union and MoneyGram offer wide cash pickup networks across Indonesia's islands but charge more in exchange rate markup. For frequent senders, the cumulative annual savings from using a digital provider can be substantial.",
       },
       {
         q: "How long does a transfer from Malaysia to Indonesia take?",
@@ -3312,6 +3384,7 @@ export const corridors: Corridor[] = [
       "GCash delivery is near-instant and is the most popular method for Filipino recipients receiving money from Malaysia. Bank deposits to BDO, BPI, Metrobank, and UnionBank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union, MoneyGram, Cebuana Lhuillier, and M Lhuillier is available within minutes at tens of thousands of locations across the Philippines. Funding from a Malaysian bank account via FPX is fast and convenient. Many Filipino workers in Malaysia send on weekends, and providers with weekend processing offer an advantage.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Malaysia to the Philippines?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and supports GCash delivery. For an MYR 2,000 transfer, using a digital provider over Western Union or a money changer saves PHP 400–1,200. Remitly is also competitive with promotional offers. For workers sending biweekly, the cumulative annual savings from using a digital provider can exceed PHP 10,000–25,000.",
       },
@@ -3353,6 +3426,7 @@ export const corridors: Corridor[] = [
       "Wise delivers to Indian bank accounts within 1–2 business days, with same-day delivery common via IMPS. India's 24/7 IMPS system means there is no receiving-side delay for weekends or holidays. Remitly offers express delivery within hours. Swiss bank SWIFT transfers take 3–5 business days with potential correspondent bank deductions of INR 250–500. Funding from a Swiss bank account is typically processed within 1 business day, as Switzerland does not support instant SEPA-style payments for international transfers.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Switzerland to India?",
         a: "Wise is the clear winner for CHF to INR transfers, using the real mid-market exchange rate with a transparent fee of around 0.5–1%. Swiss banks like UBS, PostFinance, and cantonal banks charge 20–40 CHF per SWIFT transfer plus exchange rate markups of 2–4% — making them among the most expensive options globally. For a CHF 1,000 transfer, Wise delivers INR 3,000–6,000 more than a Swiss bank transfer. Remitly is also competitive with promotional offers. Because Switzerland is outside the SEPA zone for credit transfers, there is no cheap bank-to-bank alternative — digital providers like Wise are the most cost-effective solution.",
       },
@@ -3393,6 +3467,7 @@ export const corridors: Corridor[] = [
       "GCash delivery is near-instant and is the most popular method for Filipino recipients in the Philippines. Bank deposits to BDO, BPI, Metrobank, and UnionBank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union, Cebuana Lhuillier, and M Lhuillier is available within minutes across the Philippines. Swiss bank SWIFT transfers take 3–5 business days with potential correspondent bank deductions. Funding from a Swiss bank account typically takes 1 business day to reach the provider.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Switzerland to the Philippines?",
         a: "WorldRemit is also competitive, especially with frequent zero-fee promotions and direct GCash delivery. Swiss banks charge 20–40 CHF per SWIFT transfer plus a 2–4% exchange rate markup, making them the most expensive option. For a CHF 1,000 transfer, Wise delivers PHP 2,000–5,000 more than a Swiss bank transfer. Remitly offers competitive rates for first-time users. Because SEPA credit transfers are not available from Switzerland, digital providers offer the best alternative to expensive SWIFT transfers.",
       },
@@ -3434,6 +3509,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to GTBank, First Bank, Access Bank, and Zenith Bank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Nigeria. Mobile money delivery is growing in Nigeria but is less established than in East Africa. South African bank SWIFT transfers take 3–5 business days with potential correspondent bank delays. Nigerian banks operate Monday through Friday, so weekend timing affects bank deposit speed.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from South Africa to Nigeria?",
         a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. WorldRemit offers competitive rates with frequent zero-fee promotions and multiple delivery options in Nigeria. For an R5,000 transfer, using a digital provider over a South African bank (Standard Bank, FNB, Absa) saves NGN 5,000–15,000. South African banks are particularly expensive for intra-Africa SWIFT transfers, charging R150–R400 plus wide exchange rate spreads. Always compare the total NGN received rather than just the advertised fee.",
       },
@@ -3474,8 +3550,9 @@ export const corridors: Corridor[] = [
       "Wise delivers to UK bank accounts within 1–2 business days, with many transfers arriving same-day via UK Faster Payments. OFX typically delivers within 1–2 business days for standard transfers. South African bank SWIFT transfers take 2–4 business days. UK banks receive GBP via Faster Payments almost instantly once the provider releases the funds. Funding from a South African bank account via EFT takes 1–2 business days, and immediate payment options through some providers can speed up the process.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from South Africa to the UK?",
-        a: "Wise, OFX, and CurrencyFair are consistently the most cost-effective options for ZAR to GBP transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. OFX is particularly competitive for large transfers (R50,000+), offering negotiated rates with no fixed fees. CurrencyFair allows you to set your own exchange rate and match with other users for rates close to mid-market. For an R10,000 transfer, using a digital provider over a South African bank (Standard Bank, FNB, Absa, Nedbank) saves £10–£30. For emigration-sized transfers of R1,000,000+, the savings can exceed £1,000.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. OFX is particularly competitive for large transfers (R50,000+), offering negotiated rates with no fixed fees. CurrencyFair allows you to set your own exchange rate and match with other users for rates close to mid-market. For an R10,000 transfer, using a digital provider over a South African bank (Standard Bank, FNB, Absa, Nedbank) saves £10–£30. For emigration-sized transfers of R1,000,000+, the savings can exceed £1,000.",
       },
       {
         q: "What are SARB exchange control limits for UK transfers?",
@@ -3514,8 +3591,9 @@ export const corridors: Corridor[] = [
       "M-Pesa delivery is near-instant and is the most popular receiving method in Kenya. Bank deposits to Equity Bank, KCB, Co-operative Bank, and other Kenyan banks arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union and MoneyGram is available at agent locations across Kenya. South African bank SWIFT transfers take 3–5 business days, often longer due to correspondent bank routing through Europe. Funding from a South African bank account via EFT typically takes 1–2 business days.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from South Africa to Kenya?",
-        a: "Wise and WorldRemit are consistently the cheapest options for ZAR to KES transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and supports direct M-Pesa delivery. For an R5,000 transfer, using a digital provider over a South African bank saves KES 2,000–6,000. South African banks are particularly expensive for intra-Africa transfers because they often route through European correspondent banks, adding unnecessary fees and delays. Always compare the total KES received.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and supports direct M-Pesa delivery. For an R5,000 transfer, using a digital provider over a South African bank saves KES 2,000–6,000. South African banks are particularly expensive for intra-Africa transfers because they often route through European correspondent banks, adding unnecessary fees and delays. Always compare the total KES received.",
       },
       {
         q: "Can I send money to M-Pesa in Kenya from South Africa?",
@@ -3561,6 +3639,7 @@ export const corridors: Corridor[] = [
       "GCash wallet delivery is near-instant (usually under 30 minutes) via Remitly and Wise — GCash has over 81 million active users in the Philippines, making it the dominant mobile money rail. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within 1–3 business days via InstaPay or PESONet. Cash pickup through Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours at over 9,000 locations nationwide. Funding with MobilePay or a Danish debit card is faster than bank transfer (which can add 1–2 days).",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Denmark to the Philippines?",
         a: "Wise uses the real mid-market exchange rate — the same rate shown on Google and Reuters — with a small transparent fee of around 1–1.5%, meaning the quoted cost is the total cost with no hidden markup. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers, saving DKK 50–100 on your initial send. Panda Remit charges zero fees on first transfers and then DKK 10–40 thereafter, making it strong for occasional senders. For a DKK 5,000 transfer, the gap between the cheapest specialist provider and a Danish bank can exceed PHP 1,500–2,000. Avoid sending via Danske Bank or Nordea unless you specifically need the bank's international wire infrastructure — their 3–5% exchange rate markup plus fixed fees compounds quickly.",
       },
@@ -3602,6 +3681,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Colombian banks (Bancolombia, Davivienda, BBVA Colombia, Banco de Bogotá) typically arrive within 1–3 business days. Cash pickup is widely available through Efecty, Western Union, and MoneyGram networks — over 10,000 locations nationwide including small towns. Digital wallets like Nequi and Daviplata are increasingly supported by specialist providers for real-time delivery (under 30 minutes), though coverage from Denmark is still limited.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Denmark to Colombia?",
         a: "Wise is the most cost-effective option on the DKK→COP corridor for most transfer sizes. Wise uses the real mid-market exchange rate with a transparent fee of around 1.2–1.8%, meaning the quoted total is what you pay — no hidden markup. Remitly is competitive and often runs promotional first-transfer offers. For a DKK 5,000 send, Wise typically delivers COP 30,000–100,000 more than a traditional Danish bank. If your recipient needs cash and doesn't have a bank account, Western Union and MoneyGram have the widest pickup network but charge 3–5% in combined fees and rate markup. Avoid bank wire transfers for amounts under DKK 10,000 — the fixed fees make them uncompetitive.",
       },
@@ -3643,6 +3723,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Malaysian banks (Maybank, CIMB, Public Bank, Hong Leong) arrive within 1–3 business days via SWIFT. Providers integrated with DuitNow (Malaysia's real-time rails, operated by PayNet) can deliver in seconds once funds are converted. Wise typically delivers within 1–2 business days; Instarem and Revolut often deliver same-day for bank-to-bank transfers. Malaysia has limited cash pickup infrastructure compared to the Philippines or Pakistan — bank deposit is the dominant delivery method.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Denmark to Malaysia?",
         a: "Wise is typically cheapest for DKK→MYR transfers above DKK 1,000, using the real mid-market exchange rate with a 0.8–1.2% fee. Revolut is competitive for smaller amounts if both sender and recipient have Revolut accounts — transfers between Revolut users are fee-free within monthly plan limits. Instarem offers strong rates for students and regular senders, with promotional zero-fee transfers for new users. For a DKK 3,000 transfer, the gap between the cheapest specialist and a Danish bank typically exceeds MYR 30–60. Avoid sending via Danske Bank unless the SWIFT route is required for business reasons.",
       },
@@ -3684,6 +3765,7 @@ export const corridors: Corridor[] = [
       "GCash wallet delivery is near-instant (usually under 30 minutes) via Remitly, Wise, and WorldRemit — GCash has 81+ million users in the Philippines and is the dominant rail for smaller monthly remittances. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via InstaPay. Cash pickup at Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours across 9,000+ locations. Wise reports that 70% of its transfers complete in under 20 seconds on this corridor.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Finland to the Philippines?",
         a: "Wise uses the mid-market rate with a transparent 0.6–1% fee and is typically cheapest for transfers above EUR 200. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers, making it strong for new users. Panda Remit charges zero fees on first transfers and then EUR 1.99–5.99 thereafter. For a EUR 500 transfer, the gap between the cheapest specialist and a Finnish bank can exceed PHP 2,000 — a meaningful amount for daily household expenses in the Philippines. Avoid Nordea or OP for anything under EUR 1,000 — the fixed fees and 3–5% rate markup make them uncompetitive for typical family remittances.",
       },
@@ -3725,6 +3807,7 @@ export const corridors: Corridor[] = [
       "GCash wallet delivery is near-instant (under 30 minutes in most cases) via Remitly, Wise, and WorldRemit. Paysend delivers to major Philippine banks (BDO, BPI, Metrobank, Landbank) within 1–2 business days. Wise reports 70% of transfers completing in under 20 seconds on this corridor. Cash pickup at Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours across 9,000+ locations. Funding with a Norwegian debit card or BankID-backed SEPA transfer is near-instant; funding with a credit card adds cost and occasionally adds a cash-advance fee from your card issuer.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Norway to the Philippines?",
         a: "Wise is the most cost-effective option for most transfer sizes on the NOK→PHP corridor. Wise uses the real mid-market exchange rate with a small transparent fee of around 0.8–1.2%, and reports that 70% of its transfers on this route complete in under 20 seconds. Remitly frequently runs zero-fee first transfers, which can save NOK 30–50 on your initial send. For a NOK 5,000 transfer, the gap between the cheapest specialist and DNB, Nordea, or SpareBank 1 exceeds PHP 500–800 — a real difference for a Filipino household. Always check the total PHP amount received rather than just the advertised fee.",
       },
@@ -3766,6 +3849,7 @@ export const corridors: Corridor[] = [
       "GCash delivery via Remitly or Wise is near-instant — usually under 30 minutes. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via InstaPay. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is available within 1–2 hours. Swedish senders can fund via Swish (Sweden's domestic real-time rail) with some providers — this is near-instant — or via SEPA Instant bank transfer to the provider's EUR account.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Sweden to the Philippines?",
         a: "Wise uses the real mid-market exchange rate with a small transparent fee of roughly 0.8–1.2%. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers. Panda Remit charges zero fees on first transfers and then SEK 20–60 thereafter. For a SEK 5,000 transfer, the gap between the cheapest specialist and a Swedish bank (Swedbank, SEB, Nordea) typically exceeds PHP 400. For smaller amounts under SEK 1,000, check whether any provider offers a flat-fee option — percentage pricing usually wins for bigger amounts.",
       },
@@ -3807,6 +3891,7 @@ export const corridors: Corridor[] = [
       "Orange Money delivery is near-instant (1–5 minutes) via supporting providers. Joro Cash transfers are similarly fast. Cash pickup via Western Union, MoneyGram, or Ria is available within 1–2 hours at 4,000+ locations including CIH, BMCE, and Attijariwafa branches. Bank deposits to Moroccan accounts take 2–4 business days for standard SWIFT routing. Paysend typically delivers within 1–2 business days. Specialist fintechs are faster than banks on essentially every metric.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "Vad är det bästa sättet att skicka pengar till Marocko? (What's the best way to send money to Morocco?)",
         a: "För de flesta överföringar är Wise och Paysend de mest kostnadseffektiva alternativen från Sverige till Marocko. Wise använder den verkliga marknadskursen med en transparent avgift på cirka 0,8–1,2%. Paysend tar ut en platt avgift på endast 19 SEK oavsett belopp — detta är mycket konkurrenskraftigt för mindre belopp under SEK 2,000. Remitly erbjuder snabb leverans och kör ofta kampanjer med avgiftsfria första överföringar. För kontantuttag i Marocko är Western Union, MoneyGram och Ria bäst — de har tillsammans över 4,000 agentplatser. Jämför alltid det totala MAD-beloppet mottagaren får, inte bara avgiften — växelkursmarginalen är ofta den dolda kostnaden.",
       },
@@ -3852,6 +3937,7 @@ export const corridors: Corridor[] = [
       "SPEI (Sistema de Pagos Electrónicos Interbancarios) is Mexico's real-time bank transfer rail — transfers via Wise or Remitly arrive in the recipient's Mexican bank account within seconds once processed. Oxxo cash pickup via Remitly, Western Union, or MoneyGram is typically available within 1–2 hours at 21,000+ Oxxo stores nationwide. Bank deposits to BBVA México, Banorte, Santander, Citibanamex, and HSBC arrive via SPEI in minutes. Fund your transfer via Swish (where supported), SEPA Instant bank transfer, or Swedish card — SEPA Instant from a Swedish account is fastest on the sender side.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Sweden to Mexico?",
         a: "Wise uses the real mid-market rate with a transparent fee of roughly 0.6–1.0% — the best option for transfers above SEK 2,000. Remitly offers competitive rates plus promotional zero-fee first transfers, and runs faster on express delivery. For cash pickup specifically, Western Union, MoneyGram, and Ria have the widest Oxxo and bank-branch network in Mexico (21,000+ locations). Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in SWIFT fees — on a SEK 5,000 transfer, the specialist advantage is typically MXN 150–250. Always compare total MXN received, not just the fee.",
       },
@@ -3897,6 +3983,7 @@ export const corridors: Corridor[] = [
       "Revolut-to-Revolut transfers are instant and free if both sender and recipient are on Revolut. Wise typically delivers to Romanian bank accounts within hours for SEPA-routed transfers. TransferGo's Now option delivers in under 30 minutes. Paysend delivers within 1–2 business days. Standard SEPA transfers to BCR, BRD, Banca Transilvania, ING, or Raiffeisen arrive within hours if sent during business days. Traditional SWIFT wires from Swedish banks take 2–4 business days. Funding via Swish (where supported) or SEPA Instant from a Swedish bank is near-instant.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Sweden to Romania?",
         a: "For most transfers, Revolut is hard to beat — Revolut-to-Revolut is instant and free, and Romania is one of Revolut's largest markets (millions of Romanian users). For non-Revolut recipients, Wise and TransferGo are the most cost-effective: Wise charges roughly 0.6–1.0% on SEK→RON with the real mid-market rate; TransferGo offers Now (instant) and Tomorrow (cheaper) speed tiers. Paysend's flat SEK 19 fee is ideal for small amounts under SEK 2,000. Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in fees — a specialist typically delivers RON 100–200 more on a SEK 5,000 transfer. Always check total RON received, not just the fee.",
       },
@@ -3942,6 +4029,7 @@ export const corridors: Corridor[] = [
       "PIX delivery is near-instant — funds arrive in the recipient's Brazilian bank account or digital wallet within 10 seconds, 24/7, including weekends and holidays. Wise and Remitly both support direct PIX to Itaú, Bradesco, Santander, Banco do Brasil, Nubank, and Inter. Your recipient provides a PIX key (CPF number, email, phone, or random key) which routes the payment instantly. Cash pickup via Western Union and MoneyGram is available at several thousand agent locations, typically within 1–2 hours. Traditional SWIFT wires to Brazilian bank accounts take 2–4 business days and are much more expensive due to IOF interactions. Funding via Swish or SEPA Instant from Swedish banks is near-instant on the sender side.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Sweden to Brazil?",
         a: "Remitly is competitive and often runs zero-fee first-transfer promotions; strong for express delivery and cash pickup. Instarem has occasional promotional rates on SEK→BRL. For very small amounts (under SEK 1,000), Paysend's flat SEK 19 fee may win despite being slightly behind on rate. Swedish banks (Swedbank, SEB, Nordea, Handelsbanken) are the most expensive — 3–5% exchange markup plus SEK 150–200 SWIFT fees means BRL 50–100 less on a SEK 5,000 transfer. Always compare total BRL received after IOF tax, not just the headline fee.",
       },
@@ -3987,6 +4075,7 @@ export const corridors: Corridor[] = [
       "Nequi and Daviplata mobile wallet delivery via Remitly or Wise is typically near-instant — funds arrive in the recipient's wallet within minutes. Bank deposits to Bancolombia, Davivienda, Banco de Bogotá, BBVA Colombia, or AV Villas settle within hours to 1 business day via ACH Colombia. Cash pickup via Western Union, MoneyGram, or Ria is available within 1–2 hours at thousands of locations, including supermarkets (Éxito, Olímpica), drugstores, and dedicated agent offices — critical for rural recipients. Traditional SWIFT wires from Swedish banks take 2–4 business days. Funding via Swish or SEPA Instant makes the sender leg near-instant.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Sweden to Colombia?",
         a: "Wise charges roughly 0.7–1.2% total using the real mid-market rate — best for transfers above SEK 2,000. Remitly offers competitive rates with frequent zero-fee first-transfer promotions and fast express delivery to banks and Nequi/Daviplata wallets. For cash pickup specifically, Western Union and MoneyGram have the widest agent network in Colombia (including rural areas where bank access is limited). Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in fees — on a SEK 5,000 transfer, specialists deliver COP 40,000–80,000 more. Always compare total COP received, not just the fee.",
       },
@@ -4032,6 +4121,7 @@ export const corridors: Corridor[] = [
       "GCash wallet delivery is near-instant (under 30 minutes) via Remitly, Wise, and WorldRemit. Wise reports 70% of EUR→PHP transfers complete in under 20 seconds. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via the Philippines' InstaPay domestic rail. Cash pickup at Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours at 9,000+ locations nationwide. SEPA Instant from an Irish bank to the provider is usually under 10 seconds.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Ireland to the Philippines?",
         a: "It uses the real mid-market exchange rate with a transparent 0.6–1.0% fee, and integrates with SEPA Instant so the funds arrive at Wise in seconds. Remitly is competitive with promotional first-transfer offers that can save EUR 5–10 on your initial send. WorldRemit and Panda Remit are also competitive, especially for GCash delivery. For a EUR 500 transfer, the gap between Wise and AIB or Bank of Ireland typically exceeds PHP 2,000. Avoid sending via AIB or Bank of Ireland for anything under EUR 2,000 — the fixed fees and 3–5% rate markup make them uncompetitive for typical family remittances.",
       },
@@ -4073,6 +4163,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Malaysian banks (Maybank, CIMB, Public Bank, Hong Leong) arrive within 1–3 business days via SWIFT, or within seconds if the provider has integrated with DuitNow. Wise and Instarem offer some of the fastest delivery on this corridor. Cash pickup is limited in Malaysia — bank deposit is the dominant method. Touch 'n Go eWallet and GrabPay are expanding their remittance partnerships but Ireland-specific coverage is limited as of 2026. SEPA Instant from an Irish bank funds the provider in seconds.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Ireland to Malaysia?",
         a: "Panda Remit offers zero fees on first transfers and then EUR 1.99–5.99 per subsequent transfer, making it strong for recurring small amounts (such as student monthly allowances). For a EUR 1,000 transfer, the gap between Wise and AIB or Bank of Ireland typically exceeds MYR 40–80. Remitly and Instarem are also competitive. Avoid bank wires for transfers under EUR 2,000 — the fixed fees make them uncompetitive.",
       },
@@ -4114,6 +4205,7 @@ export const corridors: Corridor[] = [
       "GCash delivery is near-instant (under 30 minutes) via Remitly, Wise, and WorldRemit. GCash is the critical rail — it reaches 81+ million Filipinos and works on any smartphone. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via InstaPay. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is available within 1–2 hours. Dutch senders fund via SEPA Instant (iDEAL-backed) — near-instant from any major Dutch bank.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the Netherlands to the Philippines?",
         a: "Wise uses the real mid-market exchange rate with a transparent 0.6–1.0% fee — best for transfers above EUR 200. Remitly offers competitive rates with express delivery and frequently runs promotional zero-fee first transfers. For monthly EUR 300 remittances typical of healthcare workers supporting family, the gap between Remitly or Wise and a Dutch bank (ING, Rabobank, ABN AMRO) exceeds PHP 600 per transfer — that's PHP 7,200 per year on identical transfer amounts. Panda Remit and WorldRemit are also competitive, especially for GCash delivery. Always compare the total PHP received rather than just the fee.",
       },
@@ -4155,8 +4247,9 @@ export const corridors: Corridor[] = [
       "Bank deposits to Polish banks (mBank, PKO BP, Santander Bank Polska, ING Bank Śląski) arrive within seconds via SEPA Instant + BLIK or Express Elixir for supporting providers. Wise reports many EUR→PLN transfers completing in under 20 seconds. Polish recipients can also receive via BLIK codes where the provider supports it. Traditional SEPA (non-Instant) transfers take 1 business day; SWIFT routing is not needed within SEPA.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Greece to Poland?",
-        a: "Wise is consistently the cheapest option for EUR→PLN transfers — it uses the real mid-market exchange rate with a 0.5–1.0% fee and integrates with SEPA Instant for near-real-time delivery. Remitly and TransferGo are competitive alternatives, especially for first-time users with promotional rates. For a EUR 500 transfer, specialist providers typically beat Greek banks (Alpha Bank, Eurobank, National Bank of Greece) by PLN 20–40 due to lower fees and tighter exchange rates. Both EUR and PLN are SEPA currencies, so SWIFT fees never apply — a key difference from Greece→non-EU corridors.",
+        a: "Remitly and TransferGo are competitive alternatives, especially for first-time users with promotional rates. For a EUR 500 transfer, specialist providers typically beat Greek banks (Alpha Bank, Eurobank, National Bank of Greece) by PLN 20–40 due to lower fees and tighter exchange rates. Both EUR and PLN are SEPA currencies, so SWIFT fees never apply — a key difference from Greece→non-EU corridors.",
       },
       {
         q: "Can I send money to BLIK in Poland?",
@@ -4196,8 +4289,9 @@ export const corridors: Corridor[] = [
       "Bank deposits to German accounts (Deutsche Bank, Commerzbank, Sparkasse, N26) arrive within 1–3 business days via SEPA, or in seconds via SEPA Instant where both sender's provider and recipient's bank support it. Wise reports near-instant completion on most CZK→EUR transfers. Revolut-to-Revolut is instant. Czech National Bank's interbank system (CERTIS) handles the CZK leg; SEPA handles the EUR leg.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the Czech Republic to Germany?",
-        a: "Remitly has been the cheapest CZK→EUR provider for 97.5% of the last 3 months according to comparison data, followed closely by Wise, XE, and TransferGo. Wise uses the real mid-market exchange rate with a transparent fee of around 0.3–0.8%. Remitly charges a small percentage fee (under 0.3% for most amounts) and offers fast delivery. For a CZK 20,000 transfer (typical weekly wage), specialist providers beat Czech banks (Česká spořitelna, ČSOB, Komerční banka) by EUR 10–25 per transaction. For cross-border commuters making weekly transfers, this adds up to EUR 500+ per year. Always compare the total EUR received rather than just the fee.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.3–0.8%. Remitly charges a small percentage fee (under 0.3% for most amounts) and offers fast delivery. For a CZK 20,000 transfer (typical weekly wage), specialist providers beat Czech banks (Česká spořitelna, ČSOB, Komerční banka) by EUR 10–25 per transaction. For cross-border commuters making weekly transfers, this adds up to EUR 500+ per year. Always compare the total EUR received rather than just the fee.",
       },
       {
         q: "Is Revolut the cheapest option for Czech Republic to Germany transfers?",
@@ -4242,6 +4336,7 @@ export const corridors: Corridor[] = [
       "Bank deposits to Standard Bank, FNB, Absa, Nedbank, or Capitec arrive within 2–3 business days via SWIFT. Wise and WorldRemit typically complete most transfers within 1–3 business days end-to-end. Cash pickup through Western Union, MoneyGram, and Shoprite MoneyMarket is available within 10 minutes to 2 hours at thousands of locations across South Africa. Mobile wallet delivery is limited compared to East African corridors — bank deposit remains the dominant method. Priority same-day SWIFT is possible if submitted before 14:00 GMT but costs £25+ from most UK banks.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from the UK to South Africa?",
         a: "WorldRemit is competitive for cash pickup delivery (Shoprite MoneyMarket, Western Union) with strong Africa-specific coverage, though on price our own GBP→ZAR archive over 169 days puts Ria ahead on 49% of days and TapTap Send on 38% — choose WorldRemit for the pickup network rather than the rate. Remitly offers promotional zero-fee first transfers which can save £5–£15 on your initial send, especially valuable for transfers under £500. For a £1,000 transfer, the gap between Wise and a UK high-street bank like NatWest (which applies a 4.25% exchange rate markup) exceeds R400–R500 reaching your recipient. Always compare the total ZAR amount received rather than just the advertised fee.",
       },
@@ -4296,8 +4391,9 @@ export const corridors: Corridor[] = [
       "bKash (70 million+ users, operated by BRAC), Nagad (Bangladesh Post Office, unicorn as of 2023) and Rocket (Dutch-Bangla Bank) are the dominant mobile-wallet destinations — direct delivery via Wise, Remitly or TapTap Send typically arrives in seconds to 2 hours. Bank deposits to Sonali Bank, Islami Bank Bangladesh, Dutch-Bangla Bank, BRAC Bank, City Bank and Prime Bank settle within hours to 1 business day via domestic rails. Non-Resident Bangladeshis can open a Foreign Currency Account (FCA) under Bangladesh Bank guidelines to hold inbound remittances in EUR or USD. Traditional SWIFT from AIB or Bank of Ireland is slowest at 2–5 business days.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Ireland to Bangladesh?",
-        a: "Wise, TapTap Send and Remitly are consistently the cheapest options for EUR→BDT from Ireland. Wise uses the real mid-market exchange rate with a transparent 0.6–1.2% fee and supports direct delivery to bKash, Nagad and all major Bangladeshi banks. TapTap Send specialises in emerging-market corridors and usually publishes the tightest EUR→BDT rates with near-instant mobile-wallet delivery. Remitly runs promotional zero-fee first transfers that can save EUR 5–10 on your initial send. On a EUR 500 transfer, the gap between one of these specialist providers and AIB or Bank of Ireland is typically BDT 3,000–4,000 less reaching your family. Importantly, all three are licensed by Bangladesh Bank, which means your recipient qualifies for the 2.5% government cash incentive automatically.",
+        a: "Wise uses the real mid-market exchange rate with a transparent 0.6–1.2% fee and supports direct delivery to bKash, Nagad and all major Bangladeshi banks. TapTap Send specialises in emerging-market corridors and usually publishes the tightest EUR→BDT rates with near-instant mobile-wallet delivery. Remitly runs promotional zero-fee first transfers that can save EUR 5–10 on your initial send. On a EUR 500 transfer, the gap between one of these specialist providers and AIB or Bank of Ireland is typically BDT 3,000–4,000 less reaching your family. Importantly, all three are licensed by Bangladesh Bank, which means your recipient qualifies for the 2.5% government cash incentive automatically.",
       },
       {
         q: "What is the 2.5% Bangladesh remittance incentive and how does it work?",
@@ -4342,6 +4438,7 @@ export const corridors: Corridor[] = [
       "SEPA Instant delivery to any French bank (BNP Paribas, Crédit Agricole, Société Générale, Crédit Mutuel, La Banque Postale) completes in under 10 seconds, 24/7/365, up to EUR 100,000 per transaction. Standard SEPA Credit Transfer arrives next business day — fine for non-urgent transfers. From the Danish side, SEPA Instant Credit Transfer from DKK accounts went live in April 2025 when Denmark joined TARGET services, so both legs of the transfer are now instant. SWIFT via Danske Bank or Nordea takes 1–3 business days and incurs extra correspondent-bank fees — only use SWIFT for amounts above the SEPA Instant EUR 100,000 threshold. French IBAN format is 27 characters (FR + 2 check digits + 5-digit bank code + 5-digit branch code + 11-character account + 2 national check).",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Denmark to France?",
         a: "It uses the real mid-market exchange rate with a transparent 0.4–0.9% fee — meaning no hidden FX spread. Revolut is competitive for standing balances: it's free to exchange up to EUR 1,000/month on the Standard plan and 0.5% above, so for regular smaller transfers it can beat Wise. Lunar (Danish fintech) and Pleo (for business users) also offer competitive SEPA pricing. Danske Bank and Nordea are not price-competitive for third-party transfers: Danske charges around DKK 50 per SEPA plus 1.5–3% FX markup, and Nordea has similar pricing. On a DKK 37,000 (~EUR 5,000) property deposit, the gap between Wise and Danske Bank is typically EUR 70–120 — material but not catastrophic because of the stable ERM II peg. Always request SEPA routing (not SWIFT) on the outbound side — some French receiving banks charge EUR 10–25 on SWIFT inbound wires but nothing on SEPA.",
       },
@@ -4379,8 +4476,9 @@ export const corridors: Corridor[] = [
     deliveryNote: "SkyRemit delivers to Australian bank accounts in 1–2 business days. Wise delivers 1–2 business days. Chinese bank SWIFT wires take 3–5 business days, sometimes longer during Chinese New Year and Golden Week (October 1–7).",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send CNY to Australia?",
-        a: "SkyRemit (¥79 fixed fee, PBOC-licensed) and Wise (0% markup, 0.41% fee) are the cheapest options for CNY to AUD transfers. Both are significantly cheaper than Chinese bank SWIFT wires. Compare the total AUD received — not just the fee — to find the best deal for your amount.",
+        a: "Both are significantly cheaper than Chinese bank SWIFT wires. Compare the total AUD received — not just the fee — to find the best deal for your amount.",
       },
       {
         q: "How much can I send from China to Australia per year?",
@@ -4412,7 +4510,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the best app to send CNY to Canada?",
-        a: "SkyRemit is the leading dedicated app for CNY outbound transfers — ¥79 fixed fee, PBOC-licensed, funded via WeChat Pay or Alipay. Wise is the best alternative for expats who want 0% exchange rate markup and an English-language interface. Both beat Chinese bank SWIFT wires on cost and speed.",
+        a: "SkyRemit is the leading dedicated app for CNY outbound transfers — ¥79 fixed fee, PBOC-licensed, funded via WeChat Pay or Alipay. Both beat Chinese bank SWIFT wires on cost and speed.",
       },
       {
         q: "Can Chinese students in China send money to Canada for tuition?",
@@ -4443,6 +4541,7 @@ export const corridors: Corridor[] = [
     deliveryNote: "SkyRemit delivers to UK bank accounts (Barclays, HSBC, Lloyds, NatWest, Santander UK) in 1–2 business days. Wise delivers same-day to 1 business day for GBP. Chinese bank SWIFT wires take 3–5 business days. University payments may require additional processing time at the institution.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to pay UK university tuition from China?",
         a: "For tuition payments (large amounts up to £45,000+), Wise offers 0% markup on CNY/GBP with a transparent percentage fee — saving thousands versus Chinese bank wires. SkyRemit's ¥79 flat fee is very competitive for amounts above ¥30,000. For amounts above the $50,000 SAFE annual quota, your bank can process with a university acceptance letter and tuition invoice as documentation.",
       },
@@ -4475,6 +4574,7 @@ export const corridors: Corridor[] = [
     deliveryNote: "SkyRemit delivers to US bank accounts (Chase, Bank of America, Wells Fargo, Citibank, etc.) in 1–2 business days. Wise delivers 1–2 business days. Chinese bank SWIFT wires take 3–5 business days and may be subject to US bank OFAC compliance screening, which can add delays.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send CNY from China to the US?",
         a: "SkyRemit (¥79 flat fee, PBOC-licensed) and Wise (0% markup, 0.41% fee) are cheapest. On a ¥100,000 transfer, each saves approximately ¥2,000–¥3,500 versus a Chinese bank SWIFT wire. Compare total USD received — not just the headline fee.",
       },
@@ -4511,6 +4611,7 @@ export const corridors: Corridor[] = [
       "bKash, Nagad, and Rocket mobile-wallet transfers from Australia generally arrive within minutes once the provider has processed the transaction. Bank deposits to Bangladeshi banks (Dutch-Bangla Bank, Islami Bank, BRAC Bank, Bank Asia, Sonali, Janata) usually take 1–3 business days. Funding via PayID/Osko from your Australian bank account is near-instant; debit card funding is similarly fast.",
     faqs: [
       {
+        answerFromComparison: true,
         q: "What is the cheapest way to send money from Australia to Bangladesh?",
         a: "Specialist providers — Wise, Remitly, WorldRemit, OFX, Western Union, and South Asian-focused services like IME and Prabhu Money Transfer — typically beat Australian bank rates by 2–4% on AUD-to-BDT. The biggest cost variable is the exchange rate markup, not the headline fee, so always compare the total BDT your recipient will receive across providers before sending. Wise uses the real mid-market rate with a small transparent fee; Remitly and WorldRemit often run promotional first-transfer offers worth checking on day one.",
       },
