@@ -1,29 +1,29 @@
 {
-  "dataAsOf": "2026-09-11",
-  "corridorsScored": 201,
+  "dataAsOf": "2026-09-12",
+  "corridorsScored": 198,
   "corridorsWithAnyScore": 1006,
-  "singleProviderReadings": 805,
+  "singleProviderReadings": 808,
   "bands": {
-    "exceptional": 14,
+    "exceptional": 12,
     "great": 49,
-    "good": 79,
-    "typical": 37,
-    "poor": 22
+    "good": 76,
+    "typical": 38,
+    "poor": 23
   },
-  "goodOrBetterPct": 71,
+  "goodOrBetterPct": 69,
   "confidence": {
-    "high": 201,
+    "high": 198,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 168,
+  "medianDaysObserved": 169,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 65,
+      "score": 67,
       "band": "good",
       "headline": "Good time to send",
-      "explanation": "Today's best rate is +0.48% vs the 30-day average, 62% of the way up the 90-day range. Rates are falling — -0.30% week on week. Today's best beats the median provider by +2.54%.",
+      "explanation": "Today's best rate is +0.46% vs the 30-day average, 62% of the way up the 90-day range. Rates are flat over the past week. Today's best beats the median provider by +2.54%.",
       "components": [
         {
           "key": "range",
@@ -36,8 +36,8 @@
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 57.98165561464362,
-          "detail": "+0.48% vs the 30-day average"
+          "score": 57.73950218842976,
+          "detail": "+0.46% vs the 30-day average"
         },
         {
           "key": "competitiveness",
@@ -50,11 +50,11 @@
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 42.56317612237048,
-          "detail": "falling — -0.30% week on week"
+          "score": 50.46639937330532,
+          "detail": "flat over the past week"
         }
       ],
-      "daysObserved": 174,
+      "daysObserved": 175,
       "rangeWindowDays": 90,
       "confidence": "high"
     }

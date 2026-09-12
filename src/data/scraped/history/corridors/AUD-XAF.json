@@ -2013,5 +2013,22 @@
         "receiveAmount": 40173
       }
     }
+  },
+  {
+    "date": "2026-09-12",
+    "providers": {
+      "lemfi": {
+        "rate": 401,
+        "fee": 0,
+        "markup": 1.12,
+        "receiveAmount": 40100
+      },
+      "taptap-send": {
+        "rate": 401.27,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 40127
+      }
+    }
   }
 ]

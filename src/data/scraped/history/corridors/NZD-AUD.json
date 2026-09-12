@@ -6688,5 +6688,40 @@
         "receiveAmount": 79.69
       }
     }
+  },
+  {
+    "date": "2026-09-12",
+    "providers": {
+      "paypal": {
+        "rate": 0.7754,
+        "fee": 6.99,
+        "markup": null,
+        "receiveAmount": 72.12
+      },
+      "westpac-nz": {
+        "rate": 0.7979,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 79.79
+      },
+      "kiwibank": {
+        "rate": 0.7954,
+        "fee": 20,
+        "markup": null,
+        "receiveAmount": 63.63
+      },
+      "bank-of-new-zealand-nz": {
+        "rate": 0.7868,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 78.68
+      },
+      "auckland-savings-bank-nz": {
+        "rate": 0.7984,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 75.85
+      }
+    }
   }
 ]
