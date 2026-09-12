@@ -77,7 +77,14 @@ const NOT_A_RANKING_CLAIM: RegExp[] = [
   // speed" are outside what this guard can judge. Flagging them would assert
   // that a cost record refutes a timing claim, which it does not.
   /\bbest (delivery|payout|receiving|payment) (option|method|rail)\b/i,
-  /\bwins on (speed|time|delivery|arrival)\b/i,
+  /\bwins on (speed|time|delivery|arrival|transparency|features|support|coverage|app)\b/i,
+  // Claims about who is DEAREST. The leader record names who delivered most; it
+  // cannot refute "Western Union and UK banks are consistently the most
+  // expensive". Judging that against the leader reports a true sentence as false.
+  /\b(most expensive|priciest|worst value|dearest)\b/i,
+  // Sentences that already carry the hedge this guard exists to enforce, e.g.
+  // "competitive, but not automatically the cheapest".
+  /\bnot (automatically |always |necessarily )?(the )?(cheapest|best)\b/i,
 ];
 function assertsAWinner(sentence: string): boolean {
   return !NOT_A_RANKING_CLAIM.some((re) => re.test(sentence));
