@@ -1061,6 +1061,17 @@ const corridorSpecificGuide: Record<string, { slug: string; label: string }> = {
   "USA|Kenya": { slug: "send-money-to-kenya-from-usa-guide", label: "USA to Kenya: 6 cheapest options" },
 };
 
+// corridors.ts spells the sending country out ("United States"), the guide map
+// above abbreviates it ("USA"), so every USA and UK key silently missed and the
+// corridor fell through to the country-wide guide. That stranded five submitted,
+// indexable guides — the ones sitemap-allowlists.ts annotates "top stranded" —
+// with no link from the corridor they were written for. Normalise before keying.
+const guideCountryAlias: Record<string, string> = {
+  "United States": "USA",
+  "United Kingdom": "UK",
+  "United Arab Emirates": "UAE",
+};
+
 /**
  * Returns the single best guide link for a corridor, preferring the
  * corridor-specific guide when one exists. This avoids cannibalization
@@ -1071,7 +1082,8 @@ function getBestGuideLink(
   fromCountry: string,
   toCountry: string,
 ): { href: string; label: string } | null {
-  const specific = corridorSpecificGuide[`${fromCountry}|${toCountry}`];
+  const from = guideCountryAlias[fromCountry] ?? fromCountry;
+  const specific = corridorSpecificGuide[`${from}|${toCountry}`];
   if (specific) return { href: `/guides/${specific.slug}`, label: specific.label };
   const country = countryToGuideSlug[toCountry];
   if (country) return { href: `/guides/${country.slug}`, label: country.label };

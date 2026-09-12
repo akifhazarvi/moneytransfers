@@ -55,6 +55,7 @@
     "check:rankings": "npx tsx scripts/check-rankings.ts",
     "check:corridor-summary": "npx tsx scripts/check-corridor-summary.ts",
     "check:corridor-claims": "npx tsx scripts/check-corridor-claims.ts",
+    "check:crawl-paths": "node scripts/check-crawl-paths.mjs",
     "build:corridor-leaders": "npx tsx scripts/build-corridor-leaders.ts"
   },
   "dependencies": {
