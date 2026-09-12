@@ -230,6 +230,9 @@ ${body}
 //   {{RATINGS_DATE}}                       6 September 2026 (Trustpilot scrape)
 //   {{IBAN_FORMAT_TABLE}}                  89-country IBAN length/example table
 //   {{LEADS:wise}}                         44 of the 212 corridors we can compare
+//   {{LEADER_MAP}}                         a table of who actually leads, by
+//        provider, with the corridor count and examples — the answer to "which
+//        app is best" is "it depends on your route", stated with the evidence
 //   {{UNANIMOUS_LEAD:taptap-send}}          "10 corridors — including EUR → CNY,
 //        GBP → CNY and USD → MYR — where it delivered the most on every one of
 //        the last 91 days we could compare". The strongest honest claim a
@@ -739,6 +742,37 @@ export function renderDataTokens(html: string): string {
     if (!row) return match;
     return `${row.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare`;
   });
+
+  // {{LEADER_MAP}} -> a table of providers by corridors led, with examples.
+  //
+  // "Best money transfer app" has no single answer and the site's own data says
+  // so: the top provider leads 44 of 216 corridors, a fifth of them. A ranked
+  // list of six apps implies one winner; this shows the territory each one
+  // actually holds, which is both the honest answer and the more useful one for
+  // a reader who only cares about their own route.
+  //
+  // Complete by construction — every provider leading 5+ corridors appears, in
+  // order. It is NOT a curated set, so it cannot be tuned to favour a partner:
+  // whoever leads most appears first, and a provider that stops leading drops
+  // out on the next build.
+  out = out.split("{{LEADER_MAP}}").join((() => {
+    const byProvider = new Map<string, { name: string; corridors: string[] }>();
+    for (const [pair, v] of Object.entries(corridorLeaders as Record<string, { slug: string; name: string }>)) {
+      const entry = byProvider.get(v.slug) ?? { name: v.name, corridors: [] };
+      entry.corridors.push(pair);
+      byProvider.set(v.slug, entry);
+    }
+    const rows = [...byProvider.values()]
+      .filter((e) => e.corridors.length >= 5)
+      .sort((a, b) => b.corridors.length - a.corridors.length)
+      .map((e) => {
+        const examples = e.corridors.slice(0, 3).map((c) => c.replace("-", " → ")).join(", ");
+        return `<tr><td>${e.name}</td><td>${e.corridors.length}</td><td>${examples}</td></tr>`;
+      })
+      .join("");
+    if (!rows) return "";
+    return `<div class="overflow-x-auto"><table><thead><tr><th>Provider</th><th>Corridors it leads</th><th>Examples</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  })());
 
   // {{UNANIMOUS_LEAD:slug}} -> "10 corridors — including EUR → CNY, GBP → CNY
   // and USD → MYR — where it delivered the most on every one of the last 91 days
