@@ -89,6 +89,12 @@ const NOT_A_RANKING_CLAIM: RegExp[] = [
   // The leader record ranks payout, so it cannot judge "Remitly is the best for
   // speed and small transfers (frequent $0-fee promos, delivery in minutes)".
   /\bbest (for|on) (speed|small transfers|large transfers|the app|app|support|coverage|cash pickup|beginners)\b/i,
+  // BUSINESS-scoped claims. providerConsistency is built from consumer
+  // remittance quotes, so it ranks LemFi and Ria — apps that do not serve
+  // business payments at all. Judging "Wise Business offers ... which is usually
+  // cheaper" against a consumer leader is the same consumer/business mismatch
+  // BUSINESS_FX_SLUGS exists to prevent on the comparison widget.
+  /\b(business (payments?|account|transfers?)|Wise Business|Revolut Business|business-focused)\b/i,
 ];
 
 /**
