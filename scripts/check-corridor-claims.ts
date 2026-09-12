@@ -224,7 +224,15 @@ for (const post of blogPosts) {
   post.sections.forEach((sec, i) => fields.push([`s${i}`, sec.content]));
   (post.faqs ?? []).forEach((faq, i) => fields.push([`faq${i}`, faq.answer]));
   for (const [field, text] of fields) {
-    const plain = String(text).replace(/<[^>]+>/g, " ");
+    // Close block-level tags to sentence boundaries BEFORE stripping markup.
+    // Stripping first glues a heading, a link label and the paragraph after it
+    // into one pseudo-sentence, so "Quick Comparison: Best Providers for CAD to
+    // INR" merged with the provider names in the table beneath it and reported
+    // as a ranking claim. Headings and link text are not claims.
+    const plain = String(text)
+      .replace(/<\/(h[1-6]|p|li|td|th|tr|div|section)>/gi, ". ")
+      .replace(/<br\s*\/?>/gi, ". ")
+      .replace(/<[^>]+>/g, " ");
     for (const sentence of plain.split(/(?<=\.)\s+/)) {
       if (!SUPERLATIVE.test(sentence)) continue;
       if (!assertsAWinner(sentence)) continue;
