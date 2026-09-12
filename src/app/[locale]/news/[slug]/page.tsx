@@ -14,7 +14,6 @@ import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
-import GuidePageNudge from "@/components/GuidePageNudge";
 import { COVERAGE } from "@/lib/site-stats";
 
 interface Props {
@@ -371,7 +370,6 @@ export default async function NewsArticlePage({ params }: Props) {
         </div>
       </Container>
       {/* Sticky nudge — best live rate slides up after 30s or 50% scroll */}
-      <GuidePageNudge from="USD" to="INR" amount={1000} slug={slug} />
     </div>
   );
 }

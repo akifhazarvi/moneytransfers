@@ -25,7 +25,6 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import InlineQuotesImpression from "@/components/InlineQuotesImpression";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
-import GuidePageNudge from "@/components/GuidePageNudge";
 import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
 import SettlementRace from "@/components/SettlementRace";
@@ -704,14 +703,13 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="guide-preview-grid">{relatedPosts.map((related) => <GuidePreview key={related.slug} post={related} />)}</div>
         </Container>
       )}
-      {/* Sticky nudge — slides up after 30s or 50% scroll with live best quote */}
-      <GuidePageNudge
-        only={inlineQuoteCorridor.business ? BUSINESS_FX_SLUGS : undefined}
-        from={inlineQuoteCorridor.from}
-        to={inlineQuoteCorridor.to}
-        amount={inlineQuoteCorridor.amount}
-        slug={slug}
-      />
+      {/* Sticky nudge removed 2026-09-12. Measured over 30 days: 1,000
+          impressions, 15 clicks, 90 dismissals — six people closed it for every
+          one who used it, and every impression came from a /guides/ page.
+          Interrupting a reader six times per click is a bad trade for the 1.5%
+          it converted. The in-page partner block and the comparison table carry
+          the CTAs instead. Component kept for reuse; re-adding it needs better
+          evidence than "more surface is more clicks". */}
     </>
   );
 }
