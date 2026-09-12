@@ -377,8 +377,20 @@ export default async function ExchangeRatePairPage({ params }: Props) {
   const quotes = p.corridor ? generateQuotes(1000, p.from, p.to).slice(0, 8) : [];
   const editorial = editorialContent[pair];
 
-  // Related pairs (same base currency, excluding self)
-  const relatedPairs = CURRENCY_PAIRS.filter((rp) => rp.slug !== pair && (rp.from === p.from || rp.to === p.to)).slice(0, 6);
+  // Related pairs (same base or quote currency, excluding self).
+  // This used to take .slice(0, 6) of declaration order, so every USD page
+  // linked the same first six siblings and the pairs declared later —
+  // usd-to-cad, usd-to-aud, usd-to-jpy, usd-to-cny — were linked from no
+  // sibling at all, leaving them on a single inbound link from the hub.
+  // Rotating the six-slot window by the pair's own position spreads the slots
+  // across the whole sibling set and is deterministic, so a given pair renders
+  // the same rail on every build.
+  const siblings = CURRENCY_PAIRS.filter((rp) => rp.slug !== pair && (rp.from === p.from || rp.to === p.to));
+  const offset = CURRENCY_PAIRS.findIndex((cp) => cp.slug === pair);
+  const relatedPairs =
+    siblings.length <= 6
+      ? siblings
+      : Array.from({ length: 6 }, (_, i) => siblings[(offset + i) % siblings.length]);
 
   // JSON-LD
   const rateSchema = midRate ? {
