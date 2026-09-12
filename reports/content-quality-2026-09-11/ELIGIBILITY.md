@@ -37,9 +37,39 @@ identified by currency pair alone, so a EUR→TZS observation collected for a
 French sender is indistinguishable from one for an Austrian sender. Whether a
 provider actually serves Austria→Tanzania is not something this dataset knows.
 
-`paymentMethod` (2,868 rows) and `deliveryMethod` (2,468) DO exist and are not
-surfaced, so delivery-method provenance is partially recoverable — but country
-eligibility is not recoverable at all from what we hold.
+### Correction (same day): method provenance is not recoverable either
+
+The first version of this file said `paymentMethod` (2,868 rows) and
+`deliveryMethod` (2,468) "DO exist and are not surfaced, so delivery-method
+provenance is partially recoverable". **That was wrong, and the error was mine:
+the census sampled only the first 400 rows per file, so those counts were the
+sum of capped samples, not real coverage.**
+
+Counted across all **19,787** quote rows:
+
+| Field | Rows present | Coverage | Sources |
+| --- | --- | --- | --- |
+| `deliveryMethod` | 647 | **3.3%** | skyremit 448, ria 132, pandaremit 45, remitly 22 |
+| `paymentMethod` | 672 | **3.4%** | same four |
+
+The values are also not normalised — `Bank Deposit` alongside `BANK_DEPOSIT`,
+`Debit Card` alongside `DEBIT` — and the single largest value is a bundle rather
+than a method: `WeChat Pay / Alipay / Bank Transfer` accounts for 448 of the 672.
+
+So method provenance is **not** partially recoverable. Plumbing the field through
+the pipeline would deliver a value that is absent 96.7% of the time, from four
+sources, in inconsistent casing. Country eligibility is not recoverable, and
+neither is method.
+
+### A related finding this turned up
+
+`providers.ts` carries hand-maintained `paymentMethods[]` and `deliveryMethods[]`
+arrays per provider — "Bank Deposit", "Cash Pickup", "Mobile Money" and so on.
+Those are **editorial claims with no measured backing**: the observed method is
+absent from 96.7% of quotes, so nothing in the pipeline can confirm or contradict
+them. They are the same shape as the provider ranking claims cleared earlier
+today — a hand-typed assertion standing where measurement is assumed. They have
+not been audited.
 
 ## What follows
 
