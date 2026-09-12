@@ -230,6 +230,10 @@ ${body}
 //   {{RATINGS_DATE}}                       6 September 2026 (Trustpilot scrape)
 //   {{IBAN_FORMAT_TABLE}}                  89-country IBAN length/example table
 //   {{LEADS:wise}}                         44 of the 212 corridors we can compare
+//   {{UNANIMOUS_LEAD:taptap-send}}          "10 corridors — including EUR → CNY,
+//        GBP → CNY and USD → MYR — where it delivered the most on every one of
+//        the last 91 days we could compare". The strongest honest claim a
+//        provider can make here, and it goes unstated because nothing computed it.
 //   {{CORRIDOR_LEADER:USD:INR}}            "Ria Money Transfer, which led on 73 of
 //        the last 91 days we could compare" — the measured leader
 //        for ONE corridor, as opposed to {{LEADS:}}'s site-wide count
@@ -734,6 +738,30 @@ export function renderDataTokens(html: string): string {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
     if (!row) return match;
     return `${row.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare`;
+  });
+
+  // {{UNANIMOUS_LEAD:slug}} -> "10 corridors — including EUR → CNY, GBP → CNY
+  // and USD → MYR — where it delivered the most on every one of the last 91 days
+  // we could compare".
+  //
+  // A provider that wins EVERY contested day on a corridor is making a far
+  // stronger claim than "consistently competitive", and until now nothing said
+  // it. TapTap Send does this on 10 corridors; the guides described it with
+  // adjectives instead, and one of those adjectives ("consistently at or near
+  // the top") was false on the corridor it was written about. This renders the
+  // count and names examples, so the highlight is earned rather than asserted.
+  //
+  // Deliberately requires a FULL sweep (wins === contestedDays). "Nearly always"
+  // is a different and weaker claim; if it is wanted, give it its own token
+  // rather than loosening this one.
+  out = out.replace(/\{\{UNANIMOUS_LEAD:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
+    const rows = Object.entries(corridorLeaders as Record<string, { slug: string; wins: number; contestedDays: number }>)
+      .filter(([, v]) => v.slug === slug && v.wins === v.contestedDays && v.contestedDays > 0)
+      .sort((a, b) => b[1].contestedDays - a[1].contestedDays);
+    if (rows.length < 2) return match;
+    const days = rows[0][1].contestedDays;
+    const examples = rows.slice(0, 3).map(([pair]) => pair.replace("-", " → ")).join(", ");
+    return `${rows.length} corridors — including ${examples} — where it delivered the most on every one of the last ${days} days we could compare`;
   });
 
   // {{CORRIDOR_LEADER:USD:INR}} -> "Ria Money Transfer, which led on 73 of the
