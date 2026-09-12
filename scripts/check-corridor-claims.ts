@@ -86,6 +86,21 @@ const NOT_A_RANKING_CLAIM: RegExp[] = [
   // "competitive, but not automatically the cheapest".
   /\bnot (automatically |always |necessarily )?(the )?(cheapest|best)\b/i,
 ];
+
+/**
+ * Pairwise claims — "OFX consistently beats Wise on total cost", "matching or
+ * slightly beating Wise on small transfers". The leader record says who
+ * delivered most overall; it cannot refute a claim about one provider against
+ * ANOTHER NAMED ONE, which can be true even when neither ever leads. Judging
+ * those against the leader reports true sentences as contradictions.
+ *
+ * Detected as a comparison verb whose object is a provider name.
+ */
+function isPairwiseComparison(sentence: string, names: string[]): boolean {
+  return names.some((n) =>
+    new RegExp(`\\b(beats?|beating|beaten|matching|matches|outperforms?|undercuts?|edges? out|versus|vs\\.?)\\s+(?:the\\s+)?${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(sentence),
+  );
+}
 function assertsAWinner(sentence: string): boolean {
   return !NOT_A_RANKING_CLAIM.some((re) => re.test(sentence));
 }
@@ -196,6 +211,7 @@ function scanBlocks(
       for (const sentence of String(text).split(/(?<=\.)\s+/)) {
         if (!pattern.test(sentence)) continue;
         if (!assertsAWinner(sentence)) continue;
+        if (isPairwiseComparison(sentence, NAMES)) continue;
         const named = NAMES.filter((n) => sentence.toLowerCase().includes(n.toLowerCase()));
         if (!named.length) continue;
         scanned++;
@@ -245,6 +261,7 @@ for (const post of blogPosts) {
       if (!assertsAWinner(sentence)) continue;
       const named = NAMES.filter((n) => sentence.toLowerCase().includes(n.toLowerCase()));
       if (!named.length) continue;
+      if (isPairwiseComparison(sentence, NAMES)) continue;
       const pair = sentence.match(PAIR) ?? plain.match(PAIR);
       if (!pair) continue;
       const record = habitualLeaders(pair[1], pair[2]);
