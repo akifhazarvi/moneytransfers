@@ -1686,7 +1686,7 @@ export const corridors: Corridor[] = [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send money from Canada to Pakistan?",
-        a: "Wise uses the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of around 0.6%–0.9% and no hidden exchange rate markup. TapTap Send charges zero transfer fees and offers a competitive exchange rate, making it particularly attractive for smaller, regular transfers. Remitly and ACE Money Transfer also perform well on this corridor, especially for first-time users who benefit from promotional rates. On a CAD 1,000 transfer, the difference between the cheapest and most expensive provider can exceed PKR 8,000–12,000.",
+        a: "Wise uses the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of around 0.6%–0.9% and no hidden exchange rate markup. On a CAD 1,000 transfer the gap between the best and worst estimate in our comparison is {{SPREAD:CAD:PKR:1000}}. TapTap Send charges zero transfer fees and offers a competitive exchange rate, making it particularly attractive for smaller, regular transfers. Remitly and ACE Money Transfer also perform well on this corridor, especially for first-time users who benefit from promotional rates. On a CAD 1,000 transfer, the difference between the cheapest and most expensive provider can exceed PKR 8,000–12,000.",
       },
       {
         q: "Can I send money to a JazzCash or Easypaisa account from Canada?",

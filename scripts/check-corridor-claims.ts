@@ -68,8 +68,12 @@ const SUPERLATIVE_SV = /\b(billigast\w*|bäst\w*|alltid|mest fördelaktig\w*|kon
  * cries wolf gets switched off, which is the failure mode worth avoiding.
  */
 const NOT_A_RANKING_CLAIM: RegExp[] = [
-  // "Compare X, Y, Z … to find the cheapest" / "Jämför … för att hitta den billigaste"
-  /\b(compare|jämför)\b[\s\S]*\b(to find|för att hitta)\b/i,
+  // Descriptions of the comparison itself rather than a claim about who wins:
+  // "Compare X, Y, Z … to find the cheapest", "Jämför … för att hitta den
+  // billigaste", "Compare SkyRemit, Wise and bank transfers for the best rate",
+  // "Find the cheapest CNY to USD transfer with … comparison".
+  /\b(compare|jämför)\b[\s\S]*\b(to find|för att hitta|for the best|for the cheapest)\b/i,
+  /\bfind the cheapest\b[\s\S]*\bcomparison\b/i,
   // Imperative advice that happens to start with "Always"
   /\balways (retain|keep|check|confirm|use|compare|verify|read|include)\b/i,
   // Superlatives about DELIVERY or SPEED. providerConsistency measures cost
@@ -195,6 +199,11 @@ for (const corridor of corridors as unknown as Record<string, never>[] as unknow
   for (const [field, text] of fields) {
     for (const sentence of String(text).split(/(?<=\.)\s+/)) {
       if (!SUPERLATIVE.test(sentence)) continue;
+      // These two ran on the guide and block scans but NOT here until
+      // 2026-09-11, so every exclusion class — most-expensive, advice, pairwise,
+      // business-scoped — was silently skipped for all 108 corridors.
+      if (!assertsAWinner(sentence)) continue;
+      if (isPairwiseComparison(sentence, NAMES)) continue;
       // Case-insensitive: the prose writes "Lemfi", providers.ts says "LemFi",
       // and a case-sensitive match silently skipped those entirely.
       const named = NAMES.filter((n) => sentence.toLowerCase().includes(n.toLowerCase()));
