@@ -53,7 +53,12 @@ for (const file of walk(app)) {
     const target = pathOf($(a).attr('href'), path);
     if (!target || target === path) return;
     links.add(target);
-    if ($(a).closest('main').length && !$(a).closest('nav,header,footer').length) mainLinks.add(target);
+    // Main content = inside <main>, minus the site-wide header/footer. A <nav>
+    // INSIDE <main> counts: the /send-money hub renders its corridor index as a
+    // semantic <nav>, and excluding that made 207 submitted URLs look as though
+    // nothing but boilerplate pointed at them. Only chrome outside <main> is
+    // boilerplate here.
+    if ($(a).closest('main').length && !$(a).closest('header,footer').length) mainLinks.add(target);
   });
   const noindex = $('meta[name="robots"],meta[name="googlebot"]').toArray()
     .some(e => /\b(noindex|none)\b/i.test($(e).attr('content') || ''));
