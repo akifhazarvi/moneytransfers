@@ -1491,6 +1491,8 @@ const rawBlogPosts: BlogPost[] = [
       "send-money-uk-to-india-guide",
       "send-money-canada-to-india-guide",
       "cheapest-way-to-send-money-internationally",
+      "how-to-send-money-to-india-2026",
+      "send-money-to-india-cash-pickup-ria",
     ],
   },
 
@@ -1939,6 +1941,7 @@ const rawBlogPosts: BlogPost[] = [
       "cheapest-way-to-send-money-internationally",
       "lowest-fx-fees-business-payments-2026",
       "multi-currency-accounts-exchange-rates",
+      "xe-business-payments-review",
     ],
   },
 
@@ -3492,6 +3495,8 @@ const rawBlogPosts: BlogPost[] = [
       "send-money-to-philippines-guide",
       "send-money-to-nigeria-guide",
       "cheapest-way-to-send-money-internationally",
+      "pakistan-rupee-forecast-2026",
+      "taptap-send-vs-wise-remitly-usd-to-pkr",
     ],
   },
   // ============================
@@ -3689,6 +3694,7 @@ const rawBlogPosts: BlogPost[] = [
       "best-money-transfer-apps",
       "multi-currency-account-wars-2026",
       "revolut-us-banking-license-2026",
+      "xe-tax-season-cross-border-money-2026",
     ],
   },
   // ============================
@@ -14285,7 +14291,7 @@ const rawBlogPosts: BlogPost[] = [
       { question: "How fast are stablecoin transfers?", answer: "On-chain settlement takes 2-3 seconds on Solana or Tron. However, the total time includes buying USDC (minutes to hours depending on funding method) and converting to local currency at the destination (minutes to days depending on the off-ramp)." },
       { question: "What's the cheapest way to send $5,000 abroad?", answer: "For most corridors, Wise offers the best combination of cost (0.5-1%), speed (1-2 days), and convenience. For crypto-native users on high-fee corridors, stablecoins can be cheaper. SWIFT wire transfers are the most expensive option at 2-5% total cost. Compare all options on our comparison tool." },
     ],
-    relatedSlugs: ["wire-transfer-guide", "cheapest-way-to-send-money-internationally", "exchange-rate-markup-explained", "best-money-transfer-apps"],
+    relatedSlugs: ["wire-transfer-guide", "cheapest-way-to-send-money-internationally", "exchange-rate-markup-explained", "best-money-transfer-apps", "authorization-vs-settlement-stablecoins"],
   },
   // ============================
   // Money Transfer Limits Guide
@@ -15539,7 +15545,7 @@ const rawBlogPosts: BlogPost[] = [
       { question: "How much can I withdraw from ATMs with Revolut Standard?", answer: "£200/month at 0% fee. Over that, 2% fee (minimum £1). Premium increases this to £400/month and Metal to £800/month. For ATM-heavy usage, Metal pays for itself at ~£1,500/month of ATM withdrawals." },
       { question: "What is DCC and why should I avoid it?", answer: "DCC (Dynamic Currency Conversion) is when an ATM or card terminal asks 'Do you want to pay in your home currency or the local currency?' Always choose the LOCAL currency. If you choose your home currency, the merchant applies a terrible exchange rate (typically 3-8% worse) on top of any other fees. Let Revolut handle the conversion at its much better rate." },
     ],
-    relatedSlugs: ["wise-vs-remitly-comparison", "best-money-transfer-apps", "best-money-transfer-apps-expats-2026", "multi-currency-accounts-exchange-rates", "exchange-rate-markup-explained"],
+    relatedSlugs: ["wise-vs-remitly-comparison", "best-money-transfer-apps", "best-money-transfer-apps-expats-2026", "multi-currency-accounts-exchange-rates", "exchange-rate-markup-explained", "how-to-buy-spacex-nvidia-stock-using-revolut"],
   },
   // ============================
   // XE for Tax Season — Cross-Border Money Movement

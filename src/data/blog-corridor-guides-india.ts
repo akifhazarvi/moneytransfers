@@ -983,6 +983,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       "wise-vs-remitly-comparison",
       "us-remittance-tax-2026",
       "how-to-send-money-abroad",
+      "top-money-transfer-apps-usa-to-india-2026",
     ],
   },
 ];

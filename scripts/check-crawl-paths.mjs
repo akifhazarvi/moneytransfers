@@ -92,8 +92,24 @@ const guideLinks = Object.entries(guidePairs).map(([corridor, guide]) => {
   if (!linked || !pages.has(target)) errors.push(`Missing rendered corridor-to-guide link: ${source} -> ${target}`);
   return { source, target, linked };
 });
+/** Submitted URLs whose only inbound link is their hub index. Reported, not
+ * failed: the /send-money hub indexing all 436 corridors is deliberate (see
+ * shouldNoindex in corridor-tiers.ts). It is the /guides and /news entries here
+ * that tend to be real — editorial pages nothing contextual points at, which is
+ * what sitemap-allowlists.ts means when it annotates a guide "top stranded". */
+const inbound = new Map(submitted.map(p => [p, 0]));
+for (const page of pages.values())
+  for (const target of page.links) if (inbound.has(target)) inbound.set(target, inbound.get(target) + 1);
+const stranded = {};
+for (const [path, n] of inbound) {
+  if (n > 1) continue;
+  (stranded[path.split('/')[1] || '(home)'] ??= []).push({ path, inboundPages: n });
+}
 console.log(JSON.stringify({ measuredAt: new Date().toISOString(), scope: 'Local build, English initial HTML; excludes nofollow anchors. Main content excludes nav/header/footer. Not a Google crawl measurement.',
   pages: pages.size, submitted: submitted.length, unreachable,
   submittedWithoutMainContentPath: submitted.filter(p => !mainPaths.has(p)),
+  strandedByFamily: Object.fromEntries(Object.entries(stranded)
+    .map(([f, rs]) => [f, { count: rs.length, paths: f === 'send-money' ? rs.slice(0, 5).map(r => r.path) : rs.map(r => r.path) }])
+    .sort((a, b) => b[1].count - a[1].count)),
   priority: priorities, guideLinks, errors }, null, 2));
 if (errors.length && !process.argv.includes('--report')) process.exitCode = 1;
