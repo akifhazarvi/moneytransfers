@@ -180,7 +180,7 @@ export const corridorDeepBlocks: Record<string, CorridorDeepBlock> = {
     faqs: [
       {
         q: "What is the cheapest way to send money to Egypt?",
-        a: "Wise is structurally cheapest for transfers above £/€/$500 — real mid-market rate plus 0.6–1.2% fee. Remitly is highly competitive with frequent zero-fee promotions and is the top choice for mobile-wallet or cash-pickup delivery. Western Union and Ria win on cash pickup volume — 3,000+ locations across Egypt including all post offices. Avoid bank-to-bank SWIFT from UK/US/Gulf banks for transfers under £5,000 — the FX markup (3–5%) and correspondent fees often double the all-in cost versus a specialist.",
+        a: "Wise's fee structure favours transfers above £/€/$500 — real mid-market rate plus 0.6–1.2% fee. Remitly is highly competitive with frequent zero-fee promotions and is the top choice for mobile-wallet or cash-pickup delivery. Western Union and Ria win on cash pickup volume — 3,000+ locations across Egypt including all post offices. Avoid bank-to-bank SWIFT from UK/US/Gulf banks for transfers under £5,000 — the FX markup (3–5%) and correspondent fees often double the all-in cost versus a specialist.",
       },
       {
         q: "How fast does money arrive in Egypt?",
