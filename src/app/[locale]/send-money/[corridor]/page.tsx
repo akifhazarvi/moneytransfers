@@ -1253,7 +1253,18 @@ export default async function CorridorPage({ params }: Props) {
                   {freshness.oldest && freshness.oldest.slice(0, 10) !== freshness.latest.slice(0, 10) && <> Oldest observation used: <time dateTime={freshness.oldest}>{formatLocalDate(freshness.oldest.slice(0, 10))}</time>.</>}
                 </> : "Pricing collection dates are unavailable."}
                 {freshness.undated > 0 && " Some estimates have no recorded collection date."}
-                {" "}Payouts are estimated from collected fees and markups with a mid-market reference. Collection schedules vary by source. Confirm eligibility, funding method and delivery method with the provider. <Link href="/methodology" className="hover:underline">How we collect and rank quotes</Link>.
+                {" "}Payouts are estimated from collected fees and markups with a mid-market reference. Collection schedules vary by source.{" "}
+                {/* Says WHY eligibility needs confirming, rather than only that
+                    it does. Quotes are keyed by currency pair and nothing else:
+                    a field census over all 19,787 scraped rows found no sending
+                    country on any source, so a {fromCurrency}→{toCurrency}
+                    observation collected for one country cannot be told apart
+                    from another's. 742 of 841 corridor pages (88%) share their
+                    pair with at least one other page — twelve share each busy
+                    EUR pair. See reports/content-quality-2026-09-11/ELIGIBILITY.md.
+                    Do not soften this to imply we verified country coverage
+                    until something in the pipeline records it. */}
+                Quotes are collected by currency pair, so we cannot confirm that every provider serves {corridor.fromCountry} specifically — check availability, funding method and delivery method with the provider before you commit. <Link href="/methodology" className="hover:underline">How we collect and rank quotes</Link>.
               </p>
             </div>
           </Container>

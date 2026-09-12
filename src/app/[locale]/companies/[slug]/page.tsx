@@ -294,6 +294,20 @@ function DefaultReview({
                   </div>
                 ))}
               </div>
+              {/* These rows are the provider's own published terms, held in
+                  providers.ts by hand. Nothing in the pipeline can check them:
+                  a field census over all 19,787 scraped quote rows found an
+                  observed deliveryMethod on 3.3% and paymentMethod on 3.4%,
+                  from four sources, in inconsistent casing. So the site cannot
+                  confirm or contradict "Cash Pickup, Mobile Money" for any
+                  provider, and presenting them unattributed made them look
+                  measured. Say whose figures they are instead. Cost IS measured
+                  and is stated separately in the comparison. */}
+              <p className="mt-4 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
+                These details are {provider.name}&rsquo;s own published terms, recorded by our editors
+                rather than measured by our price collection. Limits and available methods vary by
+                country and account, so confirm them with {provider.name} before you send.
+              </p>
             </Card>
           </div>
 
