@@ -29,6 +29,11 @@ const pairRelatedNews: Record<string, string> = {
   "usd-to-pkr": "pakistan-record-41-billion-remittance-2026",
   "usd-to-ngn": "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
   "gbp-to-ngn": "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+  // The digital-yuan analysis names no provider, so it never reached a company
+  // page, and every other rail that could carry it is labelled "latest". This
+  // callout makes no recency claim, and CBDC settlement is squarely about what
+  // a USD->CNY transfer costs.
+  "usd-to-cny": "china-digital-yuan-interest-bearing-cbdc",
 };
 
 /* ── Corridor pair config ─────────────────────────────────── */
@@ -736,6 +741,16 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                   );
                 })}
               </div>
+              {/* /currency-converter had no link outside the footer, so nothing
+                  in context pointed at the tool that answers the obvious next
+                  question on a rate page. */}
+              <p className="mt-4 text-2sm text-[var(--color-on-surface-variant)]">
+                Need a specific figure?{" "}
+                <Link href="/currency-converter" className="text-[var(--color-primary)] hover:underline">
+                  Convert any {p.from} amount to {p.toName}
+                </Link>
+                .
+              </p>
             </div>
           )}
 
