@@ -31,7 +31,7 @@ export const newGuidesJul2026: BlogPost[] = [
       {
         heading: "What Is the Cheapest Way to Send Money from the UK to Nigeria?",
         content: `<div class="blog-answer-box">
-<p><strong>Quick answer:</strong> The cheapest way to send money from the UK to Nigeria in 2026 is through a specialist app — not your bank. Based on our live rate analysis, <strong><a href="/companies/lemfi">Lemfi</a></strong> (zero transfer fee, strong NGN rate), <strong><a href="/companies/taptap-send">TapTap Send</a></strong> (zero fee, instant delivery to NGN bank accounts), and <strong><a href="/companies/remitly">Remitly</a></strong> (Express delivery in minutes) consistently come out ahead of Wise on cost for this corridor. High-street banks average a 4–6% hidden markup on GBP→NGN — that's £40–£60 lost on every £1,000 you send. <a href="/send-money">Compare live GBP→NGN rates</a> for your exact amount.</p>
+<p><strong>Quick answer:</strong> The cheapest way to send money from the UK to Nigeria in 2026 is through a specialist app — not your bank. <strong><a href="/companies/lemfi">Lemfi</a></strong> (zero transfer fee), <strong><a href="/companies/taptap-send">TapTap Send</a></strong> (zero fee, delivery to NGN bank accounts) and <strong><a href="/companies/remitly">Remitly</a></strong> (Express delivery) all quote this corridor. On measured payouts the most frequent leader is {{CORRIDOR_LEADER:GBP:NGN}}. High-street banks average a 4–6% hidden markup on GBP→NGN — that's £40–£60 lost on every £1,000 you send. <a href="/send-money">Compare live GBP→NGN rates</a> for your exact amount.</p>
 </div>
 <p>Nigeria is one of the world's top remittance destinations — the Nigerian diaspora in the UK alone sends billions of pounds home every year. But the difference between a good and a bad transfer provider can be staggering: on a £1,000 transfer, an extra 3% markup costs your family ₦45,000 or more at current rates.</p>
 <p>We updated this guide with live data from our scraper engine to rank every provider by what your recipient actually receives in naira — the only number that matters.</p>`,
@@ -761,7 +761,7 @@ export const newGuidesJul2026: BlogPost[] = [
 <tr><td><strong>🇪🇺 Europe</strong></td><td><a href="/companies/lemfi">Lemfi</a> (EUR→NGN, zero fee)</td><td><a href="/companies/wise">Wise</a> (0% markup)</td><td>BNP Paribas, ING (5%+ markup)</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Rankings based on live rate analysis July 2026. <a href="/send-money">Get exact live quotes at your amount →</a></p>
+<p class="blog-footnote">Provider ordering below is editorial. Measured leader: {{CORRIDOR_LEADER:GBP:NGN}}. <a href="/send-money">Get exact live quotes at your amount →</a></p>
 </div>`,
       },
       {

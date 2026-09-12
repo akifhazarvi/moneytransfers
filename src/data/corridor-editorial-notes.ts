@@ -106,7 +106,7 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
     bullets: [
       "SEPA (Single Euro Payments Area) transfers within Europe settle in hours and cost a fraction of SWIFT wires. Any provider routing your transfer via SEPA rather than SWIFT will be significantly cheaper and faster for EUR deliveries.",
       "Post-Brexit, UK banks are no longer part of SEPA directly, but most specialist providers maintain SEPA access through European banking partners. This means you can still get SEPA-speed delivery without paying traditional international wire fees.",
-      "Wise and Revolut consistently offer the tightest GBP/EUR spreads on this corridor, often within 0.3–0.5% of the mid-market rate. Traditional banks typically charge 2–4% in hidden FX markup on top of their wire fees.",
+      "Wise and Revolut both price GBP/EUR close to mid-market, often within 0.3–0.5%. On measured payouts the most frequent leader is {{CORRIDOR_LEADER:GBP:EUR}}. Traditional banks typically charge 2–4% in hidden FX markup on top of their wire fees.",
       "For regular payments like rent, mortgage, or salary splitting across the UK and Europe, consider providers offering recurring transfers or multi-currency accounts. The convenience savings on monthly payments add up quickly.",
     ],
     warningTitle: "Your UK bank is probably the most expensive option",
@@ -482,7 +482,7 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
     bullets: [
       "IMPS delivery to Indian bank accounts (SBI, HDFC, ICICI, Axis, Kotak) arrives within minutes and is available from most NZ-based providers. India's 24/7 instant payment infrastructure makes delivery fast regardless of time zones.",
       "POLi online banking is a common funding method in New Zealand, allowing instant transfers from NZ bank accounts to your provider. Wise and Instarem both support POLi funding for NZD transfers.",
-      "Wise and Instarem are the strongest digital providers on this corridor, consistently offering competitive NZD/INR rates. Traditional banks like ANZ and Westpac NZ charge significantly higher fees and worse exchange rates.",
+      "Wise and Instarem both quote NZD/INR competitively. On measured payouts the most frequent leader is {{CORRIDOR_LEADER:NZD:INR}}. Traditional banks like ANZ and Westpac NZ charge significantly higher fees and worse exchange rates.",
       "New Zealand's Financial Markets Authority (FMA) and anti-money-laundering regulations govern money transfer operators. Ensure your provider is registered with the NZ Companies Office and compliant with AML/CFT requirements.",
     ],
     warningTitle: "NZ bank international transfers are expensive — use a specialist",
@@ -705,7 +705,7 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
       "Nigeria's complex exchange rate environment makes the CAD→NGN corridor one of the trickiest to navigate. The naira's unification under CBN reforms has reduced the official-parallel gap, but rates still vary enormously between providers.",
     bullets: [
       "Interac e-Transfer funding is the fastest way to initiate a transfer from Canada — most providers process Interac-funded transfers within minutes.",
-      "Lemfi (formerly LemFi) specializes in the Canada-to-Nigeria corridor and often offers the best CAD→NGN rates, with direct bank deposit and mobile wallet delivery.",
+      "Lemfi (formerly LemFi) specialises in the Canada-to-Nigeria corridor and is a frequent leader on CAD→NGN in our data, with direct bank deposit and mobile wallet delivery.",
       "Naira volatility means the rate you see can change by 5% or more in a week — compare rates on the day you send, not based on past experience.",
       "FINTRAC requires all Canadian remittance providers to verify your identity and report large transactions — have your documents ready to avoid delays on first transfers.",
     ],

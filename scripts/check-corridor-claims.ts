@@ -95,6 +95,15 @@ const NOT_A_RANKING_CLAIM: RegExp[] = [
   // cheaper" against a consumer leader is the same consumer/business mismatch
   // BUSINESS_FX_SLUGS exists to prevent on the comparison widget.
   /\b(business (payments?|account|transfers?)|Wise Business|Revolut Business|business-focused)\b/i,
+  // Advice telling the reader NOT to assume a winner — the behaviour this guard
+  // wants. "Don't assume your usual provider is the cheapest — check at least
+  // Wise, Remitly and one other before every transfer."
+  /\b(do ?n[o']t assume|never assume|always check|check at least)\b/i,
+  // Claims about a FUNDING rail or a channel, not a provider ranking: "PayNow
+  // funding is instant and free, making it the cheapest way to INITIATE a
+  // transfer"; "the cash-counter rate is rarely the cheapest".
+  /\bcheapest way to (initiate|fund|start)\b/i,
+  /\b(cash[- ]counter|branch|walk[- ]in) rate\b/i,
 ];
 
 /**
@@ -110,6 +119,10 @@ function isPairwiseComparison(sentence: string, names: string[]): boolean {
   return names.some((n) =>
     new RegExp(`\\b(beats?|beating|beaten|matching|matches|outperforms?|undercuts?|edges? out|versus|vs\\.?)\\s+(?:the\\s+)?${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(sentence),
   );
+}
+const LIST_AGREEING = process.env.LIST_AGREEING === "1";
+function noteAgreeing(where: string, sentence: string) {
+  if (LIST_AGREEING) console.log(`  AGREES ${where}\n    "${sentence.trim().slice(0, 150)}"`);
 }
 function assertsAWinner(sentence: string): boolean {
   return !NOT_A_RANKING_CLAIM.some((re) => re.test(sentence));
@@ -189,7 +202,7 @@ for (const corridor of corridors as unknown as Record<string, never>[] as unknow
       scanned++;
       const record = habitualLeaders(corridor.fromCurrency, corridor.toCurrency);
       if (record) {
-        if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; continue; }
+        if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; noteAgreeing(`${corridor.slug} [${field}]`, sentence); continue; }
         problems.push({ slug: corridor.slug, field, claimed: named.join("/"), leader, basis: record.basis, sentence: sentence.trim().slice(0, 160) });
         continue;
       }
@@ -226,7 +239,7 @@ function scanBlocks(
         if (!named.length) continue;
         scanned++;
         if (record) {
-          if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; continue; }
+          if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; noteAgreeing(`${slug} (${label}) [${field}]`, sentence); continue; }
           problems.push({ slug: `${slug} (${label})`, field, claimed: named.join("/"), leader, basis: record.basis, sentence: sentence.trim().slice(0, 160) });
           continue;
         }
@@ -277,7 +290,7 @@ for (const post of blogPosts) {
       const record = habitualLeaders(pair[1], pair[2]);
       if (!record) continue;
       scanned++;
-      if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; continue; }
+      if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; noteAgreeing(`guides/${post.slug} [${field}]`, sentence); continue; }
       problems.push({
         slug: `guides/${post.slug}`, field, claimed: named.join("/"),
         leader: pair[1] + "->" + pair[2], basis: record.basis,
