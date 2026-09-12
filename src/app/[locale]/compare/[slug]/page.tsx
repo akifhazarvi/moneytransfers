@@ -160,11 +160,22 @@ function getRelatedComparisons(a: (typeof providers)[number], b: (typeof provide
   // means only editorial + sitemap-allowlisted pairs resolve — everything else
   // 404s, so don't surface internal links to them), and limit.
   const seen = new Set<string>();
-  return related.filter((r) => {
+  const eligible = related.filter((r) => {
     if (seen.has(r.slug)) return false;
     seen.add(r.slug);
     return EDITORIAL_COMPARE_SLUGS.has(r.slug) || SITEMAP_COMPARISON_SLUGS.has(r.slug);
-  }).slice(0, 8);
+  });
+  if (eligible.length <= 8) return eligible;
+  // Taking the head of the list meant 48 of the 52 rendered compare pages
+  // showed the same first eight, and pairs sitting low in provider order were
+  // linked from nowhere — moneygram-vs-xoom was eligible on 18 pages and cut on
+  // all 18. Rotate the eight-slot window by this pair's own position so the
+  // slots reach the whole eligible set, deterministically per pair.
+  const offset =
+    (providers.findIndex((p) => p.slug === a.slug) * providers.length +
+      providers.findIndex((p) => p.slug === b.slug)) %
+    eligible.length;
+  return Array.from({ length: 8 }, (_, i) => eligible[(offset + i) % eligible.length]);
 }
 
 // ── Default (auto-generated) comparison page ──

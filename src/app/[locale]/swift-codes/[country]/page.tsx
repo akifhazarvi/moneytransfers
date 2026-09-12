@@ -333,10 +333,25 @@ export default async function SwiftCountryPage({ params }: Props) {
   // Related countries. Excludes retired slugs so the rail never links to a 410
   // — the same dead-internal-link bug the corridor retirement had to fix.
   const allCountries = getSwiftCountries().filter((c) => !GONE_SWIFT_SLUGS.has(c.slug));
-  const related = allCountries
+  // Sorting by branch count and taking six meant all 107 country pages linked
+  // the same six, so 101 countries were linked from no sibling page at all —
+  // georgia, ireland and netherlands were left on a single inbound link from
+  // the hub. Keep three anchors (the largest networks, which is what the sort
+  // was for) and rotate the other three slots through the rest by the current
+  // country's own position. Same six links per page, deterministic per country,
+  // but the rail now reaches the whole set instead of the same head.
+  const ranked = allCountries
     .filter((c) => c.slug !== slug)
-    .sort((a, b) => b.branches.length - a.branches.length)
-    .slice(0, 6);
+    .sort((a, b) => b.branches.length - a.branches.length);
+  const rotatable = ranked.slice(3);
+  const offset = allCountries.findIndex((c) => c.slug === slug);
+  const related =
+    rotatable.length < 3
+      ? ranked.slice(0, 6)
+      : [
+          ...ranked.slice(0, 3),
+          ...Array.from({ length: 3 }, (_, i) => rotatable[(offset * 3 + i) % rotatable.length]),
+        ];
   const editorialNote = getSwiftEditorial(locale, slug);
   const swiftFaqsList = getSwiftFaqs(locale, slug);
 

@@ -387,15 +387,21 @@ export default async function IbanCountryPage({ params }: Props) {
   const editorialNote = getIbanEditorial(locale, slug);
   const countryFaqsList = getIbanFaqs(locale, slug);
 
-  // Get related countries (same region / sepa status)
-  const related = wiseCountries
-    .filter(
-      (c) =>
-        c.slug &&
-        c.slug !== slug &&
-        (c.sepa === country.sepa || c.currency === country.currency)
-    )
-    .slice(0, 6);
+  // Related countries (same SEPA status or currency). Taking the first six in
+  // declaration order meant countries declared late — czechia among them — were
+  // linked from no sibling page. Rotate the six-slot window by the current
+  // country's own position so the rail covers the pool, deterministically.
+  const relatedPool = wiseCountries.filter(
+    (c) =>
+      c.slug &&
+      c.slug !== slug &&
+      (c.sepa === country.sepa || c.currency === country.currency)
+  );
+  const ibanOffset = wiseCountries.findIndex((c) => c.slug === slug);
+  const related =
+    relatedPool.length <= 6
+      ? relatedPool
+      : Array.from({ length: 6 }, (_, i) => relatedPool[(ibanOffset + i) % relatedPool.length]);
 
   // Build the IBAN structure breakdown
   const ibanParts: { label: string; value: string; length: number; color: string }[] = [
