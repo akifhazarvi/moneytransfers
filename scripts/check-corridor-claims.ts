@@ -84,7 +84,11 @@ const NOT_A_RANKING_CLAIM: RegExp[] = [
   /\b(most expensive|priciest|worst value|dearest)\b/i,
   // Sentences that already carry the hedge this guard exists to enforce, e.g.
   // "competitive, but not automatically the cheapest".
-  /\bnot (automatically |always |necessarily )?(the )?(cheapest|best)\b/i,
+  /\bnot (automatically |always |necessarily )?(the )?(outright )?(cheapest|best|winner)\b/i,
+  // "best FOR <non-cost dimension>" — speed, app quality, small transfers.
+  // The leader record ranks payout, so it cannot judge "Remitly is the best for
+  // speed and small transfers (frequent $0-fee promos, delivery in minutes)".
+  /\bbest (for|on) (speed|small transfers|large transfers|the app|app|support|coverage|cash pickup|beginners)\b/i,
 ];
 
 /**
