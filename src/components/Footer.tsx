@@ -2,7 +2,6 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
 import LazyTrustpilot from "@/components/LazyTrustpilot";
-import WhatsAppFooterLink from "@/components/WhatsAppFooterLink";
 
 type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean; label?: string };
 type StaticLink = { href: string; label: string };
@@ -22,21 +21,20 @@ export default function Footer() {
       ],
     },
     {
-      // Resources column rebuilt 2026-05-25 from Bing data: replaced /guides
-      // hub (0 Bing impr) and /remittance-cost-index (0 Bing impr) with the
-      // two highest-traffic guides on the entire site:
-      //   - best-money-transfer-apps: 6,789 Bing impr
-      //   - money-transfer-limits-by-provider-country: 999 Bing impr
-      // Existing winning guides (cheapest-way 15 impr, safety-guide 3 impr,
-      // how-to-send 83 impr) retained. This is the always-visible Resources
-      // column — every additional link here costs equity from the 5 winners.
+      // Resources column rebuilt 2026-09-12 from GA4 pageviews (90d to
+      // 2026-09-11) — the four most-read guides on the site:
+      //   best-money-transfer-services 372, swift-codes-explained 365,
+      //   revolut-foreign-transaction-fees-2026 227, how-to-send-money-abroad 181.
+      // Replaces the May 2026 Bing-picked five. The homepage block carries the
+      // same four; keep the two in step. Every other guide keeps its inbound
+      // link from the /guides hub, which indexes them all.
       titleKey: "resources",
       links: [
-        { href: "/guides/best-money-transfer-apps", labelKey: "bestAppsGuideLink" },
-        { href: "/guides/money-transfer-limits-by-provider-country", labelKey: "limitsGuideLink" },
-        { href: "/guides/how-to-send-money-abroad", labelKey: "howToSendGuideLink" },
-        { href: "/guides/cheapest-way-to-send-money-internationally", labelKey: "cheapestWayGuideLink" },
-        { href: "/guides/money-transfer-safety-guide", labelKey: "safetyGuideLink" },
+        { href: "/guides/best-money-transfer-services", labelKey: "bestServicesGuideLink", label: "Best money transfer services" },
+        { href: "/guides/swift-codes-explained", labelKey: "swiftCodesGuideLink", label: "What is a SWIFT code?" },
+        { href: "/guides/revolut-foreign-transaction-fees-2026", labelKey: "revolutFeesGuideLink", label: "Revolut foreign transaction fees" },
+        { href: "/guides/how-to-send-money-abroad", labelKey: "howToSendGuideLink", label: "How to send money abroad" },
+        { href: "/guides", labelKey: "guidesHubLink", label: "All guides" },
       ],
     },
     {
@@ -89,22 +87,6 @@ export default function Footer() {
         { href: "/for-ai", labelKey: "forAiLink", label: "For AI assistants" },
       ],
     },
-  ];
-
-  // ── Top guides (Bing data, May 26 2026): 9 highest-traffic guides ──
-  // Total Bing impressions across these 9 ≈ 12,200/90d. Replaces the dead
-  // sendMoneyToLinks corridor list (42 corridors, 35 total Bing impr).
-  // Concentrates link equity on pages that actually earn organic rankings.
-  const topGuides: StaticLink[] = [
-    { href: "/guides/best-money-transfer-apps", label: "Best money transfer apps" },
-    { href: "/guides/us-dollar-forecast-2026", label: "USD forecast 2026" },
-    { href: "/guides/money-transfer-limits-by-provider-country", label: "Transfer limits by provider & country" },
-    { href: "/guides/iban-numbers-explained", label: "IBAN numbers explained" },
-    { href: "/guides/revolut-foreign-transaction-fees-2026", label: "Revolut foreign transaction fees" },
-    { href: "/guides/send-money-to-philippines-guide", label: "Send money to the Philippines" },
-    { href: "/guides/wire-transfer-guide", label: "Wire transfer fees & alternatives" },
-    { href: "/guides/send-money-to-china-guide", label: "Send money to China" },
-    { href: "/guides/how-to-send-money-abroad", label: "How to send money abroad" },
   ];
 
   // ── IBAN country pages (Bing data, May 26): 17 highest-impression IBANs ──
@@ -212,18 +194,6 @@ export default function Footer() {
             sets of /iban/, /swift-codes/, /guides/ winners — concentrates
             link equity on the pages that actually rank organically. */}
         <div className="border-t border-white/10 pt-6 mb-10 sm:mb-12 grid sm:grid-cols-2 gap-x-8 sm:gap-y-0">
-          <FooterDisclosure label={`Top money transfer guides (${topGuides.length})`}>
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
-              {topGuides.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-2sm text-white/65 hover:text-white transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </FooterDisclosure>
-
           <FooterDisclosure label={`IBAN formats by country (${ibanCountries.length})`}>
             <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
               {ibanCountries.map((link) => (
@@ -293,9 +263,6 @@ export default function Footer() {
                 <span className="font-normal text-white/60">money</span>
               </span>
             </Link>
-
-            {/* Follow — WhatsApp channel (client wrapper so the click is tracked) */}
-            <WhatsAppFooterLink />
 
             {/* Legal — inline, separated by dots (Apple style) */}
             <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-white/55">
