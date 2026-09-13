@@ -276,7 +276,7 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
               All corridors we compare
             </h2>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mb-5">
-              {corridorIndex.total} routes with live provider data, grouped by where you send from.
+              {corridorIndex.total} routes with live provider data. Open a group to see its corridors.
             </p>
 
             <div>
@@ -299,41 +299,47 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
                   </ul>
                 </details>
               ))}
+
+              {corridorIndex.countryPages.length > 0 && (
+                <details className="border-b border-[var(--color-outline)] last:border-b-0">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 py-2.5 text-sm font-medium text-[var(--color-on-surface)]">
+                    <span>Destination guides</span>
+                    <span className="shrink-0 text-2xs font-normal text-[var(--color-on-surface-variant)]">
+                      {corridorIndex.countryPages.length} countries
+                    </span>
+                  </summary>
+                  <ul className="grid gap-x-6 gap-y-1.5 pb-4 pt-1 sm:grid-cols-2 lg:grid-cols-3">
+                    {corridorIndex.countryPages.map((c) => (
+                      <li key={c.slug}>
+                        <Link href={`/send-money/${c.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
+                          Send money to {c.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )}
+
+              {corridorIndex.currencyPairs.length > 0 && (
+                <details className="border-b border-[var(--color-outline)] last:border-b-0">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 py-2.5 text-sm font-medium text-[var(--color-on-surface)]">
+                    <span>By currency pair</span>
+                    <span className="shrink-0 text-2xs font-normal text-[var(--color-on-surface-variant)]">
+                      {corridorIndex.currencyPairs.length} pairs
+                    </span>
+                  </summary>
+                  <ul className="grid grid-cols-2 gap-x-6 gap-y-1.5 pb-4 pt-1 sm:grid-cols-3 lg:grid-cols-5">
+                    {corridorIndex.currencyPairs.map((c) => (
+                      <li key={c.slug}>
+                        <Link href={`/send-money/${c.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
+                          {c.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )}
             </div>
-
-            {corridorIndex.countryPages.length > 0 && (
-              <>
-                <h3 className="mt-7 mb-3 text-2sm font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-                  Destination guides
-                </h3>
-                <ul className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-3">
-                  {corridorIndex.countryPages.map((c) => (
-                    <li key={c.slug}>
-                      <Link href={`/send-money/${c.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
-                        Send money to {c.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-
-            {corridorIndex.currencyPairs.length > 0 && (
-              <>
-                <h3 className="mt-7 mb-3 text-2sm font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-                  By currency pair
-                </h3>
-                <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
-                  {corridorIndex.currencyPairs.map((c) => (
-                    <li key={c.slug}>
-                      <Link href={`/send-money/${c.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
-                        {c.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
           </nav>
 
           <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
