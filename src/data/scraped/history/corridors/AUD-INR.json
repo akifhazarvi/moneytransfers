@@ -18255,5 +18255,100 @@
         "receiveAmount": 6758.44
       }
     }
+  },
+  {
+    "date": "2026-09-13",
+    "providers": {
+      "lemfi": {
+        "rate": 68.7,
+        "fee": 0,
+        "markup": -0.24,
+        "receiveAmount": 6870
+      },
+      "moneygram": {
+        "rate": 68.1587,
+        "fee": 1.49,
+        "markup": 0.6,
+        "receiveAmount": 6714.31
+      },
+      "western-union": {
+        "rate": 67.8767,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 6652.59
+      },
+      "currencyfair": {
+        "rate": 68.054,
+        "fee": 1.76,
+        "markup": 0.75,
+        "receiveAmount": 6685.62
+      },
+      "instarem": {
+        "rate": 68.49,
+        "fee": 0.6,
+        "markup": null,
+        "receiveAmount": 6807.91
+      },
+      "paysend": {
+        "rate": 66.3011,
+        "fee": 0,
+        "markup": 3.31,
+        "receiveAmount": 6630.11
+      },
+      "remitly": {
+        "rate": 68.49,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 6781.19
+      },
+      "revolut": {
+        "rate": 68.1552,
+        "fee": 1.41,
+        "markup": 0.61,
+        "receiveAmount": 6719.42
+      },
+      "ria": {
+        "rate": 68.252,
+        "fee": 2.89,
+        "markup": null,
+        "receiveAmount": 6949.03
+      },
+      "taptap-send": {
+        "rate": 68.8,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6880
+      },
+      "anz": {
+        "rate": 65.7816,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6578.16
+      },
+      "nab": {
+        "rate": 66.0582,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6605.82
+      },
+      "commonwealth-bank": {
+        "rate": 66.1566,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6615.66
+      },
+      "westpac": {
+        "rate": 65.8932,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6589.32
+      },
+      "wise": {
+        "rate": 68.5232,
+        "fee": 1.37,
+        "markup": null,
+        "receiveAmount": 6758.44
+      }
+    }
   }
 ]

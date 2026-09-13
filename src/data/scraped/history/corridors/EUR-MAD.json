@@ -13911,5 +13911,100 @@
         "receiveAmount": 920.23
       }
     }
+  },
+  {
+    "date": "2026-09-13",
+    "providers": {
+      "lemfi": {
+        "rate": 10.81,
+        "fee": 0,
+        "markup": 0.94,
+        "receiveAmount": 1081
+      },
+      "moneygram": {
+        "rate": 10.7394,
+        "fee": 0.8,
+        "markup": 1.61,
+        "receiveAmount": 1065.35
+      },
+      "taptap-send": {
+        "rate": 10.7,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1070
+      },
+      "xe": {
+        "rate": 10.7138,
+        "fee": 4,
+        "markup": 1.85,
+        "receiveAmount": 1028.52
+      },
+      "western-union": {
+        "rate": 10.6308,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1052.55
+      },
+      "dahabshiil": {
+        "rate": 10.7245,
+        "fee": 1.99,
+        "markup": 1.75,
+        "receiveAmount": 1051.11
+      },
+      "worldremit": {
+        "rate": 10.617,
+        "fee": 1.99,
+        "markup": 2.73,
+        "receiveAmount": 1040.57
+      },
+      "paysend": {
+        "rate": 10.8535,
+        "fee": 0,
+        "markup": 0.57,
+        "receiveAmount": 1085.35
+      },
+      "sendwave": {
+        "rate": 10.8209,
+        "fee": 1.99,
+        "markup": 0.87,
+        "receiveAmount": 1060.56
+      },
+      "remitly": {
+        "rate": 10.67,
+        "fee": 2.49,
+        "markup": null,
+        "receiveAmount": 1040.43
+      },
+      "revolut": {
+        "rate": 10.7782,
+        "fee": 2.75,
+        "markup": 1.26,
+        "receiveAmount": 1048.18
+      },
+      "wise": {
+        "rate": 10.9228,
+        "fee": 6,
+        "markup": null,
+        "receiveAmount": 1026.74
+      },
+      "ria": {
+        "rate": 10.7314,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 1117.14
+      },
+      "deutsche-bank": {
+        "rate": 10.6603,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 676.39
+      },
+      "commerzbank": {
+        "rate": 10.5169,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 920.23
+      }
+    }
   }
 ]

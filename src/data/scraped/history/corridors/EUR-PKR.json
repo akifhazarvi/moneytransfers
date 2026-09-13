@@ -15369,5 +15369,106 @@
         "receiveAmount": 31580.33
       }
     }
+  },
+  {
+    "date": "2026-09-13",
+    "providers": {
+      "moneygram": {
+        "rate": 321.5835,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31839.98
+      },
+      "taptap-send": {
+        "rate": 321.1,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31792.11
+      },
+      "western-union": {
+        "rate": 315.8994,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31277.2
+      },
+      "dahabshiil": {
+        "rate": 322.7667,
+        "fee": 1.99,
+        "markup": -0.23,
+        "receiveAmount": 31634.36
+      },
+      "profee": {
+        "rate": 320.4339,
+        "fee": 1.2,
+        "markup": 0.5,
+        "receiveAmount": 31658.87
+      },
+      "worldremit": {
+        "rate": 318.7021,
+        "fee": 2.99,
+        "markup": 1.04,
+        "receiveAmount": 30917.29
+      },
+      "instarem": {
+        "rate": 319.9472,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31994.72
+      },
+      "xe": {
+        "rate": 318.9447,
+        "fee": 1,
+        "markup": 0.96,
+        "receiveAmount": 31575.53
+      },
+      "paysend": {
+        "rate": 320.7101,
+        "fee": 0,
+        "markup": 0.41,
+        "receiveAmount": 32071.01
+      },
+      "sendwave": {
+        "rate": 321.2783,
+        "fee": 1.99,
+        "markup": 0.24,
+        "receiveAmount": 31488.48
+      },
+      "remitly": {
+        "rate": 320.12,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 31374.96
+      },
+      "revolut": {
+        "rate": 319.2764,
+        "fee": 2.75,
+        "markup": 0.86,
+        "receiveAmount": 31049.63
+      },
+      "ria": {
+        "rate": 320.0751,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 33140
+      },
+      "deutsche-bank": {
+        "rate": 318.1965,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 20189.57
+      },
+      "skrill": {
+        "rate": 306.7255,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 30672.55
+      },
+      "wise": {
+        "rate": 321.887,
+        "fee": 1.89,
+        "markup": null,
+        "receiveAmount": 31580.33
+      }
+    }
   }
 ]

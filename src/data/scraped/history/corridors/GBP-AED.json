@@ -7439,5 +7439,64 @@
         "receiveAmount": 484.83
       }
     }
+  },
+  {
+    "date": "2026-09-13",
+    "providers": {
+      "western-union": {
+        "rate": 4.7935,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 465.02
+      },
+      "santander": {
+        "rate": 4.8257,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 361.93
+      },
+      "remitly": {
+        "rate": 4.9467,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 484.83
+      },
+      "rbs": {
+        "rate": 4.8552,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 485.52
+      },
+      "paypal": {
+        "rate": 4.7517,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 460.96
+      },
+      "barclays": {
+        "rate": 4.829,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 482.9
+      },
+      "instarem": {
+        "rate": 4.9344,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 493.44
+      },
+      "nationwide": {
+        "rate": 4.8623,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 413.29
+      },
+      "natwest": {
+        "rate": 4.8552,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 485.52
+      }
+    }
   }
 ]

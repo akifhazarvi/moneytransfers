@@ -16077,5 +16077,94 @@
         "receiveAmount": 182726.5
       }
     }
+  },
+  {
+    "date": "2026-09-13",
+    "providers": {
+      "lemfi": {
+        "rate": 1830,
+        "fee": 0,
+        "markup": -1.95,
+        "receiveAmount": 183000
+      },
+      "moneygram": {
+        "rate": 1841.9456,
+        "fee": 0.99,
+        "markup": -2.54,
+        "receiveAmount": 182371.03
+      },
+      "taptap-send": {
+        "rate": 1840,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 184000
+      },
+      "western-union": {
+        "rate": 1799.9722,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 176415.28
+      },
+      "dahabshiil": {
+        "rate": 1829.5806,
+        "fee": 1.99,
+        "markup": -1.86,
+        "receiveAmount": 179317.19
+      },
+      "transfergo": {
+        "rate": 1830.6444,
+        "fee": 0,
+        "markup": -1.91,
+        "receiveAmount": 183064.44
+      },
+      "worldremit": {
+        "rate": 1829.5869,
+        "fee": 0.99,
+        "markup": -1.86,
+        "receiveAmount": 181147.4
+      },
+      "instarem": {
+        "rate": 1782.9373,
+        "fee": 0,
+        "markup": 0.74,
+        "receiveAmount": 178293.73
+      },
+      "mukuru": {
+        "rate": 1833.13,
+        "fee": 0,
+        "markup": -2.05,
+        "receiveAmount": 183313
+      },
+      "paysend": {
+        "rate": 1839.7202,
+        "fee": 0,
+        "markup": -2.42,
+        "receiveAmount": 183972.02
+      },
+      "sendwave": {
+        "rate": 1829.5869,
+        "fee": 0.99,
+        "markup": -1.86,
+        "receiveAmount": 181147.4
+      },
+      "remitly": {
+        "rate": 1840.92,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 184092
+      },
+      "ria": {
+        "rate": 1842.977,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 187920.5
+      },
+      "wise": {
+        "rate": 1847.62,
+        "fee": 1.16,
+        "markup": null,
+        "receiveAmount": 182618.76
+      }
+    }
   }
 ]
