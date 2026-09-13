@@ -18568,7 +18568,7 @@
       "lemfi": {
         "rate": 44.6,
         "fee": 2,
-        "markup": 1.3,
+        "markup": 1.35,
         "receiveAmount": 4370.8
       },
       "moneygram": {
@@ -18632,10 +18632,10 @@
         "receiveAmount": 4428.94
       },
       "remitly": {
-        "rate": 43.96,
+        "rate": 44.84,
         "fee": 0,
-        "markup": 2.69,
-        "receiveAmount": 4396
+        "markup": null,
+        "receiveAmount": 4484
       },
       "wise": {
         "rate": 45.1363,
@@ -18668,10 +18668,10 @@
         "receiveAmount": 4102.99
       },
       "rbc": {
-        "rate": 43.9367,
+        "rate": 43.956,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4393.67
+        "receiveAmount": 4395.6
       }
     }
   }

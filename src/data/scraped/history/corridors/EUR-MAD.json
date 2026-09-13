@@ -13916,10 +13916,10 @@
     "date": "2026-09-13",
     "providers": {
       "lemfi": {
-        "rate": 10.81,
+        "rate": 10.82,
         "fee": 0,
-        "markup": 0.99,
-        "receiveAmount": 1081
+        "markup": 0.88,
+        "receiveAmount": 1082
       },
       "moneygram": {
         "rate": 10.7394,
@@ -13928,10 +13928,10 @@
         "receiveAmount": 1065.35
       },
       "taptap-send": {
-        "rate": 10.7,
+        "rate": 10.71,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1070
+        "receiveAmount": 1071
       },
       "xe": {
         "rate": 10.7138,
@@ -13972,7 +13972,7 @@
       "remitly": {
         "rate": 10.67,
         "fee": 2.49,
-        "markup": null,
+        "markup": 2.27,
         "receiveAmount": 1040.43
       },
       "revolut": {
