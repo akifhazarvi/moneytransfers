@@ -6049,10 +6049,10 @@
     "date": "2026-09-13",
     "providers": {
       "lemfi": {
-        "rate": 51.18,
+        "rate": 51.24,
         "fee": 0,
-        "markup": 0.35,
-        "receiveAmount": 5118
+        "markup": 0.25,
+        "receiveAmount": 5124
       },
       "ria": {
         "rate": 50.9127,
@@ -6061,16 +6061,16 @@
         "receiveAmount": 5092.41
       },
       "taptap-send": {
-        "rate": 51.19,
+        "rate": 51.3,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5119
+        "receiveAmount": 5130
       },
       "remitly": {
-        "rate": 50.78,
+        "rate": 50.8,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 4976.95
+        "receiveAmount": 4978.91
       },
       "western-union": {
         "rate": 50.5018,
