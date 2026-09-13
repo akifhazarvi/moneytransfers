@@ -6,13 +6,10 @@ import RatingBadge from "@/components/RatingBadge";
 import HeroConverterCard from "@/components/HeroConverterCard";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
-import LazyNewsTicker from "@/components/LazyNewsTicker";
 import LazyHomeDynamicSection from "@/components/LazyHomeDynamicSection";
 import { HomeSelectionProvider } from "@/components/HomeSelectionContext";
 import MobileDetailsRail from "@/components/MobileDetailsRail";
-import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import { providers } from "@/data/providers";
-import { getLatestNews } from "@/data/news";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
@@ -20,6 +17,7 @@ import { COVERAGE } from "@/lib/site-stats";
 import ProviderLink from "@/components/ProviderLink";
 import { getGoUrl } from "@/lib/affiliate";
 import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
+import { unanimousLeads } from "@/lib/unanimous-leads";
 
 /**
  * What we can honestly say about Wise being "Best Rate".
@@ -38,6 +36,59 @@ const wiseLeadClaim = wiseRow
       CONSISTENCY_ROWS[0]?.providerSlug === "wise" ? ", more than any other provider" : ""
     } — no single provider wins everywhere.`
   : "No single provider is cheapest everywhere — compare your exact transfer.";
+
+/**
+ * The four highest-traffic guides, by GA4 pageviews over the 90 days to
+ * 2026-09-11: best-money-transfer-services (372), swift-codes-explained (365),
+ * revolut-foreign-transaction-fees-2026 (227), how-to-send-money-abroad (181).
+ *
+ * Google contributes almost none of that — GSC shows 11 impressions across the
+ * whole /guides family in the same window — so the ranking is Bing, AI
+ * assistants and direct. Re-pull GA4 before changing a slot; the footer's
+ * Resources column carries the same four so the two link sets cannot drift.
+ */
+const TOP_GUIDES = [
+  {
+    href: "/guides/best-money-transfer-services",
+    title: "Best money transfer services",
+    blurb: "Who is actually cheapest, who reaches furthest, and where each one costs you.",
+    cta: "Read the guide",
+  },
+  {
+    href: "/guides/swift-codes-explained",
+    title: "What is a SWIFT code?",
+    blurb: "How to find your bank's BIC, and what each of the 8-11 characters means.",
+    cta: "Find your code",
+  },
+  {
+    href: "/guides/revolut-foreign-transaction-fees-2026",
+    title: "Revolut foreign transaction fees",
+    blurb: "Where the \u201czero fee\u201d claim stops \u2014 weekend markups, limits and card charges.",
+    cta: "See the fees",
+  },
+  {
+    href: "/guides/how-to-send-money-abroad",
+    title: "How to send money abroad",
+    blurb: "Five ways to move money internationally, ranked on cost and speed.",
+    cta: "Compare methods",
+  },
+];
+
+/**
+ * TapTap Send is a paid partner. Everything the homepage block says about it is
+ * measured and recomputed on each build from the consistency index and the
+ * corridor-leader archive, so a scrape that reorders the table degrades the
+ * sentence instead of falsifying it — the same rule the guide partner blocks
+ * follow. The block sits below the FAQ, under every comparison on the page:
+ * the partnership buys placement, never a position in a ranked table.
+ */
+const taptapRank = CONSISTENCY_ROWS.findIndex((r) => r.providerSlug === "taptap-send") + 1;
+const taptapRow = CONSISTENCY_ROWS.find((r) => r.providerSlug === "taptap-send");
+const taptapSweep = unanimousLeads("taptap-send");
+const ordinal = (n: number) => {
+  const suffix = n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th";
+  return `${n}${suffix}`;
+};
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
 const featuredProviders = featuredProviderSlugs
@@ -545,36 +596,38 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
       </MobileDetailsRail>
 
-      {/* ─── FROM OUR DATA — research + tools built on the same live quotes.
-           Added 2026-07-03 so these pages get homepage link equity; moved below
-           the provider section 2026-09-06 so the page reads as a transfer
-           comparison first — the crypto/tax framing above the fold blurred what
-           the site is about while it is trying to regain search trust. ─── */}
+      {/* ─── MOST-READ GUIDES — the four highest-traffic guides on the site.
+           Replaced the three "From our data" cards on 2026-09-12: the homepage
+           block now points at the pages people actually read (GA4 pageviews,
+           90d to 2026-09-11) rather than at three research/tool pages, which
+           keep their footer links. Picks are data-gated — re-pull GA4 before
+           swapping one, do not swap on taste. ─── */}
       <section className="py-8 sm:py-12 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="text-center mb-6 max-w-2xl mx-auto">
             <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
-              From our data
+              Most-read guides
             </h2>
             <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
-              Research and free tools built on the same live quotes that power every comparison above.
+              The four guides our readers open most, kept current with the same live quotes as every comparison above.
             </p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <Link href="/remittance-cost-index" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
-              <p className="text-sm font-bold text-[var(--color-on-surface)]">Remittance Cost Index</p>
-              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Which specialists and banks cost most on a $1,000 transfer, from today&apos;s quotes.</p>
-              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">See the index →</span>
-            </Link>
-            <Link href="/cash-out" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
-              <p className="text-sm font-bold text-[var(--color-on-surface)]">Cash out crypto by country</p>
-              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Cheapest USDT/USDC/BTC off-ramp to local currency, by destination.</p>
-              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">Pick a country →</span>
-            </Link>
-            <Link href="/tools/us-remittance-tax" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
-              <p className="text-sm font-bold text-[var(--color-on-surface)]">US remittance tax calculator</p>
-              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Work out the new 1% tax on money sent abroad — and how to pay $0.</p>
-              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">Open the tool →</span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {TOP_GUIDES.map((g) => (
+              <Link
+                key={g.href}
+                href={g.href}
+                className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors"
+              >
+                <p className="text-sm font-bold text-[var(--color-on-surface)]">{g.title}</p>
+                <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">{g.blurb}</p>
+                <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">{g.cta} →</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-5 text-center">
+            <Link href="/guides" className="text-sm font-semibold text-[var(--color-primary)] hover:underline">
+              All guides &rarr;
             </Link>
           </div>
         </Container>
@@ -639,23 +692,57 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
 
-      {/* ─── WhatsApp channel — near page end, after FAQ ─── */}
-      <section className="py-8 sm:py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
-        <Container>
-          <WhatsAppInlineCTA source="home_inline" />
-        </Container>
-      </section>
-
-      {/* ─── LATEST NEWS ─── moved to bottom (below FAQ) */}
-      <LazyNewsTicker
-        items={getLatestNews(6).map((n) => ({
-          slug: n.slug,
-          title: n.title,
-          excerpt: n.excerpt,
-          category: n.category,
-          publishedAt: n.publishedAt,
-        }))}
-      />
+      {/* ─── PARTNER — TapTap Send. Replaced the WhatsApp channel CTA on
+           2026-09-12. Last position on the page, after the FAQ and every
+           comparison, and the only affiliate CTA outside the tables. ─── */}
+      {taptapRow && (
+        <section className="py-8 sm:py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
+          <Container>
+            <div className="max-w-3xl mx-auto rounded-2xl bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)]/60 p-6 sm:p-8">
+              <span className="inline-block text-2xs font-semibold uppercase tracking-[0.12em] text-[var(--color-on-surface-variant)]">
+                Partner
+              </span>
+              <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
+                TapTap Send
+              </h2>
+              <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                The partner we recommend first for everyday remittances, and the measurement behind that is ours:
+                it ranks {ordinal(taptapRank)} of {CONSISTENCY_ROWS.length} providers in our consistency index, is the most frequent winner on{" "}
+                {taptapRow.corridorsLed} of the {CONSISTENCY_INDEX.comparableCorridors} corridors we can compare
+                {taptapSweep.corridors >= 2 && (
+                  <>
+                    {" "}
+                    and delivered the most on <strong className="font-semibold text-[var(--color-on-surface)]">every one</strong> of the
+                    last {taptapSweep.days} comparable days on {taptapSweep.corridors} of them
+                  </>
+                )}
+                .
+              </p>
+              <p className="mt-3 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
+                We earn a commission if you send with TapTap Send. That is why it is featured here — it is not why it
+                sits where it does in the comparisons above, which are ordered on measured payout alone. Which provider
+                is cheapest changes with your route and amount, so compare yours before you send.
+              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <ProviderLink
+                  href={getGoUrl("taptap-send")}
+                  provider="taptap-send"
+                  source="home_partner_feature"
+                  className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                >
+                  Send with TapTap Send
+                </ProviderLink>
+                <Link
+                  href="/companies/taptap-send"
+                  className="text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                >
+                  Read our review &rarr;
+                </Link>
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* Mobile back-to-top + section label */}
       <MobileScrollNav

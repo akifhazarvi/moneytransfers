@@ -10,7 +10,6 @@ import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import { generateComparisonContent } from "@/lib/comparison-content";
 import Container from "@/components/Container";
-import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import Card from "@/components/Card";
 import ProsConsList from "@/components/ProsConsList";
 import ComparisonTable from "@/components/ComparisonTable";
@@ -728,12 +727,6 @@ function DefaultComparison({
         </aside>
       </div>
 
-      {/* WhatsApp channel — a visitor comparing two providers head-to-head is
-          exactly who wants to know when the answer changes. Sits at the end of
-          the comparison, below its affiliate CTAs. */}
-      <div className="pt-8">
-        <WhatsAppInlineCTA source="compare_page_inline" />
-      </div>
     </Container>
     </>
   );

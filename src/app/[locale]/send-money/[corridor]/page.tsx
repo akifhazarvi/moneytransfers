@@ -30,7 +30,6 @@ import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import CrossLinks from "@/components/CrossLinks";
-import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import MobileDetailsRail from "@/components/MobileDetailsRail";
 
@@ -1630,21 +1629,6 @@ export default async function CorridorPage({ params }: Props) {
           <CryptoRailSection from={fromCurrency} to={toCurrency} amount={sampleAmount} />
         </Container>
       </section>
-
-      {/* ─── WhatsApp channel — genuinely post-results now. It used to sit below
-           the FAQ and both "more for this corridor" rails, i.e. past everything,
-           so almost nobody scrolled to it. Here it follows the affiliate
-           comparison and the crypto block but precedes the long-form content,
-           and like CryptoRailSection it is not an affiliate link, so it never
-           competes with provider_clicked. ─── */}
-      <Container className="py-6">
-        <WhatsAppInlineCTA
-          source="corridor_results_inline"
-          from={fromCurrency}
-          to={toCurrency}
-          corridorSlug={slug}
-        />
-      </Container>
 
       {/* ─── Guides, fees & details — collapsed on mobile so live results stay near the fold.
            All content remains in the DOM for AI citation, FAQ schema, and link equity. ─── */}

@@ -15,7 +15,6 @@ import ProviderLink from "@/components/ProviderLink";
 import RatingBadge from "@/components/RatingBadge";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import CrossLinks from "@/components/CrossLinks";
-import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import { getGoUrl } from "@/lib/affiliate";
 import { trustpilotIndex } from "@/lib/unified-quotes";
@@ -402,15 +401,6 @@ function DefaultReview({
             </Link>
           </div>
         </div>
-      </Container>
-
-      {/* WhatsApp channel — placed after the review body and before the
-          cross-links. Provider review pages are among the site's strongest
-          Bing entry points and previously carried no follow CTA at all, so
-          this is reach rather than a new idea. Below the affiliate CTAs in the
-          review itself, so it never competes with provider_clicked. */}
-      <Container className="pb-8">
-        <WhatsAppInlineCTA source="company_review_inline" />
       </Container>
 
       {crossLinks}
