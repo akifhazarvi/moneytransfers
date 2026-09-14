@@ -12992,10 +12992,10 @@
     "date": "2026-09-14",
     "providers": {
       "lemfi": {
-        "rate": 141.95,
+        "rate": 142.15,
         "fee": 1.49,
-        "markup": 0.04,
-        "receiveAmount": 13983.49
+        "markup": -0.03,
+        "receiveAmount": 14003.2
       },
       "moneygram": {
         "rate": 140.3578,
@@ -13004,16 +13004,16 @@
         "receiveAmount": 13756.47
       },
       "taptap-send": {
-        "rate": 142.18,
+        "rate": 141.757,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14218
+        "receiveAmount": 14175.7
       },
       "western-union": {
-        "rate": 136.086,
+        "rate": 136.0944,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 13473.87
+        "receiveAmount": 13474.71
       },
       "dahabshiil": {
         "rate": 140.7849,
@@ -13028,10 +13028,10 @@
         "receiveAmount": 13612.76
       },
       "instarem": {
-        "rate": 140.646,
+        "rate": 140.7557,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14064.6
+        "receiveAmount": 14075.57
       },
       "xe": {
         "rate": 141.5124,
@@ -13052,10 +13052,10 @@
         "receiveAmount": 14026.84
       },
       "remitly": {
-        "rate": 141.76,
+        "rate": 141.93,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 14035.66
+        "receiveAmount": 14052.49
       },
       "revolut": {
         "rate": 141.5065,
@@ -13064,10 +13064,10 @@
         "receiveAmount": 13825.19
       },
       "wise": {
-        "rate": 142.076,
+        "rate": 142.217,
         "fee": 3.23,
         "markup": null,
-        "receiveAmount": 13748.69
+        "receiveAmount": 13762.34
       },
       "ria": {
         "rate": 141.87,
@@ -13076,10 +13076,10 @@
         "receiveAmount": 14187
       },
       "skrill": {
-        "rate": 135.2469,
+        "rate": 135.3278,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 13524.69
+        "receiveAmount": 13532.78
       }
     }
   }
