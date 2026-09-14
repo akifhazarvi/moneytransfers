@@ -18207,7 +18207,7 @@
       "moneygram": {
         "rate": 0.8494,
         "fee": 1.99,
-        "markup": 1.47,
+        "markup": 1.94,
         "receiveAmount": 83.25
       },
       "taptap-send": {
@@ -18219,14 +18219,14 @@
       "boss-money": {
         "rate": 0.8452,
         "fee": 2.49,
-        "markup": 1.95,
+        "markup": 2.42,
         "receiveAmount": 82.42
       },
       "xe": {
-        "rate": 0.8437,
+        "rate": 0.853,
         "fee": 0,
-        "markup": 2.13,
-        "receiveAmount": 84.37
+        "markup": 1.52,
+        "receiveAmount": 85.3
       },
       "western-union": {
         "rate": 0.8551,
@@ -18235,16 +18235,16 @@
         "receiveAmount": 84.67
       },
       "currencyfair": {
-        "rate": 0.8574,
-        "fee": 3.5,
-        "markup": 0.54,
-        "receiveAmount": 82.74
+        "rate": 0.8611,
+        "fee": 3.48,
+        "markup": 0.59,
+        "receiveAmount": 83.11
       },
       "paysend": {
-        "rate": 0.8485,
+        "rate": 0.8526,
         "fee": 1.99,
         "markup": 1.57,
-        "receiveAmount": 83.16
+        "receiveAmount": 83.56
       },
       "remitly": {
         "rate": 0.8597,
@@ -18253,10 +18253,10 @@
         "receiveAmount": 85.97
       },
       "revolut": {
-        "rate": 0.8606,
-        "fee": 1.75,
-        "markup": 0.17,
-        "receiveAmount": 84.56
+        "rate": 0.8639,
+        "fee": 0.75,
+        "markup": 0.27,
+        "receiveAmount": 85.74
       },
       "wise": {
         "rate": 0.8645,
@@ -18265,10 +18265,10 @@
         "receiveAmount": 85.29
       },
       "ria": {
-        "rate": 0.8432,
+        "rate": 0.8456,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 85.7
+        "receiveAmount": 85.95
       },
       "paypal": {
         "rate": 0.8265,
@@ -18289,10 +18289,10 @@
         "receiveAmount": 79.71
       },
       "xoom": {
-        "rate": 0.7827,
+        "rate": 0.786,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 78.27
+        "receiveAmount": 78.6
       }
     }
   }
