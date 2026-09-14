@@ -1,29 +1,29 @@
 {
-  "dataAsOf": "2026-09-13",
-  "corridorsScored": 197,
+  "dataAsOf": "2026-09-14",
+  "corridorsScored": 196,
   "corridorsWithAnyScore": 1006,
-  "singleProviderReadings": 809,
+  "singleProviderReadings": 810,
   "bands": {
-    "exceptional": 8,
+    "exceptional": 7,
     "great": 56,
-    "good": 70,
-    "typical": 40,
-    "poor": 23
+    "good": 74,
+    "typical": 35,
+    "poor": 24
   },
-  "goodOrBetterPct": 68,
+  "goodOrBetterPct": 70,
   "confidence": {
-    "high": 197,
+    "high": 196,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 170,
+  "medianDaysObserved": 171,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 64,
+      "score": 65,
       "band": "good",
       "headline": "Good time to send",
-      "explanation": "Today's best rate is +0.29% vs the 30-day average, 54% of the way up the 90-day range. Rates are improving — +0.26% week on week. Today's best beats the median provider by +2.63%.",
+      "explanation": "Today's best rate is +0.28% vs the 30-day average, 54% of the way up the 90-day range. Rates are improving — +0.53% week on week. Today's best beats the median provider by +2.63%.",
       "components": [
         {
           "key": "range",
@@ -36,8 +36,8 @@
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 54.81427432083934,
-          "detail": "+0.29% vs the 30-day average"
+          "score": 54.66541853422464,
+          "detail": "+0.28% vs the 30-day average"
         },
         {
           "key": "competitiveness",
@@ -50,11 +50,11 @@
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 56.59269345985239,
-          "detail": "improving — +0.26% week on week"
+          "score": 63.275493351084805,
+          "detail": "improving — +0.53% week on week"
         }
       ],
-      "daysObserved": 176,
+      "daysObserved": 177,
       "rangeWindowDays": 90,
       "confidence": "high"
     }
