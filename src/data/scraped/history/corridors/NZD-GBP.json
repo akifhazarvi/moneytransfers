@@ -6681,34 +6681,34 @@
     "date": "2026-09-14",
     "providers": {
       "paypal": {
-        "rate": 0.4103,
+        "rate": 0.41,
         "fee": 6.99,
         "markup": null,
-        "receiveAmount": 38.17
+        "receiveAmount": 38.13
       },
       "kiwibank": {
-        "rate": 0.4209,
+        "rate": 0.4201,
         "fee": 20,
         "markup": null,
-        "receiveAmount": 33.67
+        "receiveAmount": 33.6
       },
       "bank-of-new-zealand-nz": {
-        "rate": 0.4214,
+        "rate": 0.4211,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 42.14
+        "receiveAmount": 42.11
       },
       "auckland-savings-bank-nz": {
-        "rate": 0.4218,
+        "rate": 0.4211,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 40.07
+        "receiveAmount": 40
       },
       "westpac-nz": {
-        "rate": 0.42,
+        "rate": 0.4198,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 42
+        "receiveAmount": 41.98
       }
     }
   }
