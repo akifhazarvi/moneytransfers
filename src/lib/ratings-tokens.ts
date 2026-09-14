@@ -675,6 +675,11 @@ export function renderDataTokens(html: string): string {
   // Mirrors the scrape cron. Copy stating a refresh interval should read this
   // rather than hand-typing "every 6 hours" and drifting from the workflow.
   out = out.split("{{REFRESH_HOURS}}").join(String(SITE_STATS.refreshHours));
+  // {{CONSISTENCY_PROVIDERS}} -> "66". The size of the consistency index, which
+  // is smaller than {{PROVIDER_COUNT}}: it counts only providers with enough
+  // comparable quote-days to rank. Two guides hand-typed "66" next to TapTap's
+  // third place, so the sentence would have survived the index growing.
+  out = out.split("{{CONSISTENCY_PROVIDERS}}").join(String(CONSISTENCY_ROWS.length));
 
   // Business-scoped league table. {{QUOTE_TABLE}} ranks EVERY provider quoting a
   // route, which is right for a remittance page and wrong for a B2B one: on

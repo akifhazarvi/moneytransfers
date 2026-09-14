@@ -31,6 +31,15 @@ import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import { corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
+import { CONSISTENCY_INDEX, CONSISTENCY_ROWS, TOP_LEADER, TOP_LEADER_SHARE } from "@/lib/consistency-index";
+import { REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
+
+/**
+ * The second-most-frequent winner. Named alongside the leader because the point
+ * of the quick answer is that the lead is narrow: a reader who takes one name
+ * away from this page has taken the wrong thing away.
+ */
+const RUNNER_UP = CONSISTENCY_ROWS[1];
 
 export const revalidate = 21600;
 
@@ -276,11 +285,15 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
             <p>
               <strong className="text-[var(--color-primary)]">Quick answer:</strong>{" "}
               To compare money transfer services accurately, look at the total amount your recipient receives — not the advertised fee.
-              For most corridors in {month} {year}, <strong>Wise</strong> offers the cheapest rate for transfers above $500 (mid-market rate + ~0.5% fee),{" "}
-              <strong>Remitly</strong> wins on first-transfer promos and fast emerging-market delivery,{" "}
-              <strong>TapTap Send</strong> delivered the most on 36% of African corridor days in our own 169-day archive, and{" "}
-              <strong>OFX</strong> is best for large transfers above $10,000 (fee-free at that size).
-              Banks like Chase, Barclays, HSBC, and NatWest typically cost 3–5% more due to hidden exchange-rate markup.
+              No provider is cheapest everywhere, and the measured spread is smaller than the marketing suggests.
+              In {month} {year}, <strong>{TOP_LEADER.providerName}</strong> is the most frequent winner on{" "}
+              {TOP_LEADER.corridorsLed} of the {CONSISTENCY_INDEX.comparableCorridors} corridors we can compare — more than
+              any other provider, and still only {TOP_LEADER_SHARE}% of them. <strong>{RUNNER_UP.providerName}</strong> leads{" "}
+              {RUNNER_UP.corridorsLed}. That is why the honest answer is to compare your own route rather than trust a
+              single name. Across every corridor we price at ${REMITTANCE_INDEX.amount.toLocaleString()}, specialists
+              average ${REMITTANCE_INDEX.avgSpecialistCost} in total cost against ${REMITTANCE_INDEX.avgBankCost} for
+              banks — a gap driven by exchange-rate markup ({REMITTANCE_INDEX.avgSpecialistMarkupPct}% against{" "}
+              {REMITTANCE_INDEX.avgBankMarkupPct}%) rather than by the advertised fee.
             </p>
           </div>
         </Container>
