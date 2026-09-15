@@ -7915,22 +7915,22 @@
     "date": "2026-09-15",
     "providers": {
       "westpac": {
-        "rate": 1.1903,
+        "rate": 1.1902,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 119.03
+        "receiveAmount": 119.02
       },
       "western-union": {
-        "rate": 1.2168,
+        "rate": 1.2187,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 120.48
+        "receiveAmount": 120.66
       },
       "nab": {
-        "rate": 1.2045,
+        "rate": 1.205,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 120.45
+        "receiveAmount": 120.5
       },
       "anz": {
         "rate": 1.2001,
@@ -7939,16 +7939,22 @@
         "receiveAmount": 120.01
       },
       "paypal": {
-        "rate": 1.1764,
+        "rate": 1.1776,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 111.75
+        "receiveAmount": 111.87
       },
       "commonwealth-bank": {
-        "rate": 1.1974,
+        "rate": 1.1941,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 119.74
+        "receiveAmount": 119.41
+      },
+      "hsbc": {
+        "rate": 1.2067,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 120.67
       }
     }
   }
