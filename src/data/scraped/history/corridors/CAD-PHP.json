@@ -18781,5 +18781,112 @@
         "receiveAmount": 4102.78
       }
     }
+  },
+  {
+    "date": "2026-09-15",
+    "providers": {
+      "lemfi": {
+        "rate": 44.5,
+        "fee": 2,
+        "markup": 1.56,
+        "receiveAmount": 4361
+      },
+      "moneygram": {
+        "rate": 45.0148,
+        "fee": 3.49,
+        "markup": 0.64,
+        "receiveAmount": 4344.38
+      },
+      "western-union": {
+        "rate": 44.5674,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 4412.62
+      },
+      "dahabshiil": {
+        "rate": 44.8372,
+        "fee": 1.99,
+        "markup": 1.03,
+        "receiveAmount": 4394.49
+      },
+      "worldremit": {
+        "rate": 44.7281,
+        "fee": 3.99,
+        "markup": 1.27,
+        "receiveAmount": 4294.35
+      },
+      "instarem": {
+        "rate": 44.8158,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4481.58
+      },
+      "xe": {
+        "rate": 44.87,
+        "fee": 5,
+        "markup": 0.96,
+        "receiveAmount": 4262.65
+      },
+      "paysend": {
+        "rate": 45.1966,
+        "fee": 3,
+        "markup": 0.24,
+        "receiveAmount": 4384.07
+      },
+      "koho": {
+        "rate": 45.25,
+        "fee": 1.67,
+        "markup": 0.12,
+        "receiveAmount": 4449.43
+      },
+      "sendwave": {
+        "rate": 44.8414,
+        "fee": 0.99,
+        "markup": 1.02,
+        "receiveAmount": 4439.74
+      },
+      "remitly": {
+        "rate": 44.87,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4487
+      },
+      "wise": {
+        "rate": 45.2024,
+        "fee": 2.51,
+        "markup": null,
+        "receiveAmount": 4406.78
+      },
+      "ria": {
+        "rate": 44.5957,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 4591
+      },
+      "taptap-send": {
+        "rate": 44.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4450
+      },
+      "paypal": {
+        "rate": 43.126,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 4097.4
+      },
+      "rbc": {
+        "rate": 44.0336,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4403.36
+      },
+      "bmo": {
+        "rate": 42.1203,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4212.03
+      }
+    }
   }
 ]

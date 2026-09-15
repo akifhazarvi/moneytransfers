@@ -16585,5 +16585,100 @@
         "receiveAmount": 187.08
       }
     }
+  },
+  {
+    "date": "2026-09-15",
+    "providers": {
+      "taptap-send": {
+        "rate": 1.88,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 188
+      },
+      "paypal": {
+        "rate": 1.8047,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 175.08
+      },
+      "western-union": {
+        "rate": 1.8615,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 180.59
+      },
+      "barclays": {
+        "rate": 1.8406,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 184.06
+      },
+      "rbs": {
+        "rate": 1.8497,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 184.97
+      },
+      "lloyds": {
+        "rate": 1.8257,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 165.22
+      },
+      "nationwide": {
+        "rate": 1.8565,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 157.8
+      },
+      "santander": {
+        "rate": 1.8412,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 138.09
+      },
+      "monese": {
+        "rate": 1.8938,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 183.69
+      },
+      "skrill": {
+        "rate": 1.8573,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 185.73
+      },
+      "remitly": {
+        "rate": 1.8795,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 186.09
+      },
+      "instarem": {
+        "rate": 1.8834,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 188.34
+      },
+      "natwest": {
+        "rate": 1.8497,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 184.97
+      },
+      "hsbc": {
+        "rate": 1.873,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 187.3
+      },
+      "halifax": {
+        "rate": 1.8255,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 165.21
+      }
+    }
   }
 ]
