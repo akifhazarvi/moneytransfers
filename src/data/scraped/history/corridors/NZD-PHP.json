@@ -12852,34 +12852,34 @@
     "date": "2026-09-15",
     "providers": {
       "moneygram": {
-        "rate": 35.1801,
+        "rate": 35.0463,
         "fee": 4.99,
-        "markup": 3.01,
-        "receiveAmount": 3342.46
+        "markup": 3.31,
+        "receiveAmount": 3329.75
       },
       "western-union": {
-        "rate": 35.9658,
+        "rate": 35.735,
         "fee": 2.2,
-        "markup": 0.85,
-        "receiveAmount": 3517.46
+        "markup": 1.41,
+        "receiveAmount": 3494.88
       },
       "xe": {
-        "rate": 36.1522,
+        "rate": 36.0061,
         "fee": 5,
-        "markup": 0.33,
-        "receiveAmount": 3434.46
+        "markup": 0.67,
+        "receiveAmount": 3420.58
       },
       "remitly": {
-        "rate": 35.89,
+        "rate": 35.81,
         "fee": 1.99,
-        "markup": 1.06,
-        "receiveAmount": 3517.58
+        "markup": 1.21,
+        "receiveAmount": 3509.74
       },
       "revolut": {
-        "rate": 36.0928,
+        "rate": 36.0724,
         "fee": 1.2,
-        "markup": 0.5,
-        "receiveAmount": 3565.97
+        "markup": 0.48,
+        "receiveAmount": 3563.95
       },
       "wise": {
         "rate": 36.199,
@@ -12888,10 +12888,10 @@
         "receiveAmount": 3561.26
       },
       "ria": {
-        "rate": 36.1502,
+        "rate": 35.9697,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 3615.02
+        "receiveAmount": 3596.97
       },
       "kiwibank": {
         "rate": 35.3532,
@@ -12922,6 +12922,12 @@
         "fee": 5,
         "markup": null,
         "receiveAmount": 3374.02
+      },
+      "skrill": {
+        "rate": 34.4992,
+        "fee": 0,
+        "markup": 4.82,
+        "receiveAmount": 3449.92
       }
     }
   }

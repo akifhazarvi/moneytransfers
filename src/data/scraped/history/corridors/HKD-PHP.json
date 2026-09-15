@@ -8194,16 +8194,16 @@
     "date": "2026-09-15",
     "providers": {
       "moneygram": {
-        "rate": 7.9265,
+        "rate": 7.9285,
         "fee": 8,
-        "markup": 1.19,
-        "receiveAmount": 729.24
+        "markup": 1.06,
+        "receiveAmount": 729.42
       },
       "western-union": {
-        "rate": 7.9661,
+        "rate": 7.9709,
         "fee": 5,
-        "markup": 0.7,
-        "receiveAmount": 756.78
+        "markup": 0.53,
+        "receiveAmount": 757.24
       },
       "currencyfair": {
         "rate": 7.978,
@@ -8218,10 +8218,10 @@
         "receiveAmount": 795.84
       },
       "singx": {
-        "rate": 8.0088,
+        "rate": 8.0014,
         "fee": 20,
-        "markup": 0.16,
-        "receiveAmount": 640.7
+        "markup": 0.15,
+        "receiveAmount": 640.11
       },
       "wise": {
         "rate": 8.0191,

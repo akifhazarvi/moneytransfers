@@ -5916,16 +5916,16 @@
     "date": "2026-09-15",
     "providers": {
       "paysend": {
-        "rate": 32.5067,
+        "rate": 32.4988,
         "fee": 9,
-        "markup": 3.22,
-        "receiveAmount": 2958.11
+        "markup": 3.01,
+        "receiveAmount": 2957.39
       },
       "remitly": {
-        "rate": 33.53,
+        "rate": 33.51,
         "fee": 9,
-        "markup": 0.17,
-        "receiveAmount": 3051.23
+        "markup": 0,
+        "receiveAmount": 3049.41
       },
       "taptap-send": {
         "rate": 33.54,

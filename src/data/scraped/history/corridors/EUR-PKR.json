@@ -15600,16 +15600,16 @@
         "receiveAmount": 31124.22
       },
       "profee": {
-        "rate": 318.4655,
+        "rate": 318.3924,
         "fee": 1.2,
         "markup": 0.54,
-        "receiveAmount": 31464.39
+        "receiveAmount": 31457.17
       },
       "worldremit": {
-        "rate": 317.8589,
+        "rate": 316.9072,
         "fee": 2.99,
-        "markup": 0.73,
-        "receiveAmount": 30835.49
+        "markup": 1,
+        "receiveAmount": 30743.17
       },
       "instarem": {
         "rate": 318.195,
@@ -15618,40 +15618,40 @@
         "receiveAmount": 31819.5
       },
       "xe": {
-        "rate": 318.0371,
+        "rate": 317.4317,
         "fee": 1,
-        "markup": 0.68,
-        "receiveAmount": 31485.67
+        "markup": 0.84,
+        "receiveAmount": 31425.74
       },
       "paysend": {
-        "rate": 318.3664,
+        "rate": 318.4492,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 31836.64
+        "markup": 0.52,
+        "receiveAmount": 31844.92
       },
       "sendwave": {
-        "rate": 320.4282,
+        "rate": 319.4689,
         "fee": 1.99,
-        "markup": -0.07,
-        "receiveAmount": 31405.17
+        "markup": 0.2,
+        "receiveAmount": 31311.14
       },
       "remitly": {
-        "rate": 318.93,
+        "rate": 318.43,
         "fee": 1.99,
-        "markup": 0.4,
-        "receiveAmount": 31258.33
+        "markup": 0.52,
+        "receiveAmount": 31209.32
       },
       "revolut": {
-        "rate": 318.481,
+        "rate": 318.5887,
         "fee": 1.75,
-        "markup": 0.54,
-        "receiveAmount": 31290.75
+        "markup": 0.47,
+        "receiveAmount": 31301.34
       },
       "ria": {
-        "rate": 319.2103,
+        "rate": 318.6932,
         "fee": 0.9,
         "markup": null,
-        "receiveAmount": 33054
+        "receiveAmount": 33007
       },
       "skrill": {
         "rate": 304.9464,
@@ -15664,6 +15664,12 @@
         "fee": 1.89,
         "markup": null,
         "receiveAmount": 31407.46
+      },
+      "dahabshiil": {
+        "rate": 320.6881,
+        "fee": 1.99,
+        "markup": -0.18,
+        "receiveAmount": 31430.64
       }
     }
   }
