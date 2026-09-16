@@ -77,6 +77,8 @@ import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 import { SITE_STATS } from "@/lib/site-stats";
 import { formatLocalDate } from "@/lib/format-date";
+import { getCorridorEditorial } from "@/data/corridor-editorial";
+import { renderDataTokens } from "@/lib/ratings-tokens";
 
 // ── Static generation ──
 // Only pre-render corridors with real data (Tier 1 & 2).
@@ -1141,6 +1143,7 @@ export default async function CorridorPage({ params }: Props) {
 
   const comparison = corridorComparisonSummary(quotes, sampleAmount, fromCurrency, toCurrency, getProviderName);
   const { best, lowest: worst, difference: savings } = comparison;
+  const corridorEditorial = getCorridorEditorial(slug);
   const resolvedFaqs = corridor.faqs.map((faq) => faq.answerFromComparison
     ? { ...faq, a: `${comparison.answer} ${faq.a}` }
     : faq);
@@ -1532,7 +1535,11 @@ export default async function CorridorPage({ params }: Props) {
               <AffiliateDisclosure />
             </div>
             <div className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
-              <p>{corridor.intro}</p>
+              {corridorEditorial ? (
+                <p dangerouslySetInnerHTML={{ __html: renderDataTokens(corridorEditorial.theRoute) }} />
+              ) : (
+                <p>{corridor.intro}</p>
+              )}
               {corridor.highlights && corridor.highlights.length > 0 ? (
                 <ul className="space-y-2.5 mt-4">
                   {corridor.highlights.map((h, i) => (
@@ -1542,6 +1549,8 @@ export default async function CorridorPage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
+              ) : corridorEditorial ? (
+                <p dangerouslySetInnerHTML={{ __html: renderDataTokens(corridorEditorial.measuredRecord) }} />
               ) : (
                 <p>{corridor.context}</p>
               )}
@@ -1549,6 +1558,37 @@ export default async function CorridorPage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* Hand-written editorial — content brief §4. Only for the corridors named
+          in Pages_to_Rewrite_30pct; the local-rails content is specific to the
+          destination and cannot be said about any other route, which is what
+          the brief asks these blocks to do. */}
+      {corridorEditorial && (
+        <section className="bg-[var(--color-surface-dim)] py-8 sm:py-10 border-t border-[var(--color-outline)]">
+          <Container>
+            <div className="max-w-3xl space-y-8">
+              <div>
+                <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
+                  {corridorEditorial.localRails.heading}
+                </h2>
+                <p
+                  className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: renderDataTokens(corridorEditorial.localRails.body) }}
+                />
+              </div>
+              <div>
+                <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
+                  {corridorEditorial.beforeYouSend.heading}
+                </h2>
+                <p
+                  className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: renderDataTokens(corridorEditorial.beforeYouSend.body) }}
+                />
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* ─── Best Provider Summary ─── */}
       {best && (
