@@ -90,7 +90,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { label: "Bank name", description: "Name of the recipient's bank (e.g. HBL, UBL, MCB, Allied Bank)", required: true },
       { label: "Mobile number", description: "Required for JazzCash or Easypaisa mobile wallet transfers (11-digit Pakistani mobile number)", required: false, example: "03001234567" },
     ],
-    requirementsNote: "Confirm the recipient details and account eligibility in the provider’s transfer form. The sources below describe specific services; their requirements are not universal rules for every provider.",
+    requirementsNote: "Pakistan uses standard IBAN — 24 characters, starting with 'PK' (adopted in 2012). Your recipient can find it on their bank statement or through their bank's app.",
     deliveryMethods: [
       {
         "method": "Bank deposit",
@@ -146,7 +146,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { label: "IFSC code", description: "11-character Indian Financial System Code identifying the specific bank branch", required: true, example: "HDFC0001234" },
       { label: "Bank name & branch", description: "Name of the bank and branch (e.g. HDFC Bank, Andheri West Branch)", required: true },
     ],
-    requirementsNote: "Confirm the recipient details and account eligibility in the provider’s transfer form. The sources below describe specific services; their requirements are not universal rules for every provider.",
+    requirementsNote: "India doesn't use IBAN. You'll need the recipient's account number plus the 11-character IFSC code identifying their specific bank branch — get both from the recipient, not just the bank name.",
     deliveryMethods: [
       {
         "method": "Bank deposit",
@@ -203,7 +203,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { label: "GCash number", description: "11-digit mobile number linked to GCash wallet (for GCash transfers)", required: false, example: "09171234567" },
       { label: "Maya number", description: "Mobile number linked to Maya (formerly PayMaya) wallet", required: false },
     ],
-    requirementsNote: "Confirm the recipient details and account eligibility in the provider’s transfer form. The sources below describe specific services; their requirements are not universal rules for every provider.",
+    requirementsNote: "The Philippines doesn't use IBAN. You'll need the recipient's bank account number (typically 10–12 digits) and the receiving bank's name — for GCash or Maya transfers, the linked mobile number instead.",
     deliveryMethods: [
       {
         "method": "Bank deposit or mobile wallet",
@@ -300,7 +300,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { label: "Bank account number", description: "Use the account number from the recipient’s bank records", required: true, example: "0123456789" },
       { label: "Bank name", description: "Name of the receiving bank (e.g. GTBank, Access Bank, Zenith Bank, First Bank)", required: true },
     ],
-    requirementsNote: "Confirm the recipient details and account eligibility in the provider’s transfer form. The sources below describe specific services; their requirements are not universal rules for every provider.",
+    requirementsNote: "Nigeria doesn't use IBAN. You'll need the recipient's 10-digit bank account number (Nigeria's NUBAN format, standard since 2011) and the receiving bank's name.",
     deliveryMethods: [
       {
         "method": "Bank deposit, cash pickup or mobile wallet",
