@@ -149,7 +149,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickA: {
       heading: "Pick Remitly for a corridor it actually serves",
-      body: `Remitly is the sharper instrument on established remittance routes — the US, UK, Canada and Australia into South Asia, the Philippines, Mexico and East Africa. Express delivery arrives in minutes, economy costs less if the money can wait, and cash pickup, mobile money and home delivery are all available. Its Trustpilot rating is the higher of the two. The constraint is the narrower country list, and — depending on your account's verification level and sending country — a per-transfer limit that may sit below Remitly's published $300,000 US ceiling, itself already below Western Union's $50,000.`,
+      body: `Remitly is the sharper instrument on established remittance routes — the US, UK, Canada and Australia into South Asia, the Philippines, Mexico and East Africa. Express delivery arrives in minutes, economy costs less if the money can wait, and cash pickup, mobile money and home delivery are all available. Its Trustpilot rating is the higher of the two. The constraint is the narrower country list — and depending on your account's verification level and sending country, your actual per-transfer limit may sit well below Remitly's published $300,000 US ceiling, which is itself six times Western Union's $50,000 cap.`,
     },
     pickB: {
       heading: "Pick Western Union for reach, size and unusual destinations",
