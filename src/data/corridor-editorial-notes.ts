@@ -21,6 +21,42 @@ export interface CorridorEditorialNote {
 }
 
 export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
+  "send-money-to-india": {
+    "title": "Confirm the receiving method and IFSC before comparing quotes",
+    "summary": "Sending to India comes down to two decisions regardless of where you send from: which receiving method your recipient can actually use, and whether their account and IFSC details are current. Get both confirmed before comparing quotes — a wrong IFSC digit routes to the wrong branch, not just a delay.",
+    "bullets": [
+      "Bank deposit: get the recipient's account number and 11-character IFSC code directly from them, not from memory or an old statement.",
+      "UPI: offered by some providers for instant, low-value payouts — confirm your provider supports it for your sending country before assuming it's an option.",
+      "Large or regular transfers: ask the provider about its own limits and documentation above certain thresholds — these vary by provider, separately from India's own rules.",
+      "First transfer with a new provider: send a small test amount to confirm the account and IFSC combination clears before sending the full amount."
+    ],
+    "warningTitle": "India is the world's largest remittance recipient",
+    "warningBody": "India took in $137.7 billion in personal remittances in 2024 — more than the next two recipient countries combined (World Bank data). That scale is exactly why USD/INR, GBP/INR and AED/INR pricing varies more between providers than on thinner corridors, and why it's worth comparing rather than defaulting to whichever provider a friend or family member already uses."
+  },
+  "send-money-to-philippines": {
+    "title": "Bank, GCash or Maya — match the receiving method before comparing",
+    "summary": "A meaningful share of Philippine remittances move through GCash or Maya rather than a bank account. Confirm which one your recipient actually uses before comparing quotes — not every provider offers wallet delivery, and the ones that do vary on speed and fees for that specific rail.",
+    "bullets": [
+      "GCash or Maya: confirm the linked mobile number and that the wallet can receive the amount — some wallets cap how much can land in a single transaction.",
+      "Bank deposit: get the account number and the receiving bank's name directly from the recipient.",
+      "Cash pickup: check the specific location is practical for your recipient and what identification they'll need.",
+      "A time-sensitive transfer: use the full funding-to-arrival estimate, not just the local payout speed once funds land."
+    ],
+    "warningTitle": "Philippine remittances topped $40 billion in 2024 — the world's 3rd-largest inflow",
+    "warningBody": "The Philippines received $40.3 billion in personal remittances in 2024 (World Bank), behind only India and Mexico. That volume is why so many providers built dedicated GCash and Maya delivery rather than treating this as just another bank-deposit corridor — worth checking which one actually fits your recipient before you compare prices."
+  },
+  "send-money-to-pakistan": {
+    "title": "Confirm the receiving method works for your recipient's location",
+    "summary": "Pakistan's remittance market is large enough that real price competition exists, but coverage still varies by provider — not every one supports every receiving method in every city. Confirm the method before comparing quotes, not after.",
+    "bullets": [
+      "Bank deposit: Pakistan uses standard IBAN — 24 characters, starting with 'PK'. Get it from the recipient's bank statement or app, not from memory.",
+      "JazzCash or Easypaisa: confirm the linked mobile number and that the wallet is active before selecting that quote.",
+      "Cash pickup: check the specific branch or agent location is realistic for your recipient to reach.",
+      "If timing matters, ask whether your provider's last domestic leg uses Raast (instant, once funds land) or standard clearing (can add a business day)."
+    ],
+    "warningTitle": "Pakistan is the world's 5th-largest remittance recipient",
+    "warningBody": "At $34.9 billion in 2024 (World Bank), Pakistan receives more in remittances than all but four other countries — a scale that reflects how many transfers move on this corridor every day, and why it's worth comparing rather than defaulting to a familiar name."
+  },
   "uk-to-india": {
     "title": "Decide the payment purpose before choosing a GBP-to-INR provider",
     "summary": "Sending pounds to India involves two separate choices: how you fund the payment in the UK and how the recipient receives rupees. Compare the estimated INR payout, then confirm the receiving method and account are supported for your payment purpose.",
