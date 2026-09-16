@@ -61,7 +61,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickA: {
       heading: "Pick Wise when the recipient has a bank account",
-      body: `Wise is the better instrument when the money is going account-to-account and you want to be able to audit what you paid. The mid-market rate with a stated fee means the cost is a number you can read rather than infer, which matters most on larger amounts where a rate markup outgrows any fee. It also supports transfers up to $1,000,000 against Remitly's $10,000 ceiling, holds balances in 50 currencies, and is regulated by the FCA, FinCEN and ASIC. If you are paying tuition, a mortgage, a contractor or yourself, this is the one to start with.`,
+      body: `Wise is the better instrument when the money is going account-to-account and you want to be able to audit what you paid. The mid-market rate with a stated fee means the cost is a number you can read rather than infer, which matters most on larger amounts where a rate markup outgrows any fee. It also supports transfers up to $1,000,000 against Remitly's $300,000, holds balances in 50 currencies, and is regulated by the FCA, FinCEN and ASIC — though on Remitly the $300,000 is a published ceiling rather than a typical limit; individual accounts get a lower figure that depends on verification level, payment method and destination. If you are paying tuition, a mortgage, a contractor or yourself, this is the one to start with.`,
     },
     pickB: {
       heading: "Pick Remitly when the payout method is the constraint",
@@ -133,7 +133,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickA: {
       heading: "Pick Remitly for a corridor it actually serves",
-      body: `Remitly is the sharper instrument on established remittance routes — the US, UK, Canada and Australia into South Asia, the Philippines, Mexico and East Africa. Express delivery arrives in minutes, economy costs less if the money can wait, and cash pickup, mobile money and home delivery are all available. Its Trustpilot rating is the higher of the two. The constraint is the $10,000 ceiling and the narrower country list.`,
+      body: `Remitly is the sharper instrument on established remittance routes — the US, UK, Canada and Australia into South Asia, the Philippines, Mexico and East Africa. Express delivery arrives in minutes, economy costs less if the money can wait, and cash pickup, mobile money and home delivery are all available. Its Trustpilot rating is the higher of the two. The constraint is the narrower country list, and — depending on your account's verification level — a lower per-transfer limit than Wise\u2019s $1,000,000, since Remitly\u2019s $300,000 published ceiling is not what every account gets.`,
     },
     pickB: {
       heading: "Pick Western Union for reach, size and unusual destinations",

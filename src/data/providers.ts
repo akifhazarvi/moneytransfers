@@ -133,7 +133,18 @@ export const providers: Provider[] = [
     regulators: ["FinCEN", "FCA"],
     website: "https://remitly.com",
     minTransfer: 1,
-    maxTransfer: 10000,
+    // 2026-09-15 content-brief validation caught this at $10,000 — 30x under
+    // Remitly's own published ceiling. Source: remitly.com/us/en/landing/send-limits
+    // ("Transfer up to 300,000 USD in a single transaction"). That page is also
+    // explicit that an individual account's actual limit is lower and depends on
+    // verification level, payment method, destination and transfer history — it
+    // does not publish the lower-tier figures, so $300,000 is the ceiling, not
+    // a typical limit. Flagging rather than silently assuming the other
+    // maxTransfer: 10000 values shared with worldremit/moneygram/taptap-send/
+    // paysend/profee/mukuru/dahabshiil/koho are correct — MoneyGram's checked out
+    // independently (~$10k/transaction), WorldRemit's is in the right range
+    // (~$5-9k by method); the rest are unverified and were not part of this pass.
+    maxTransfer: 300000,
     transferSpeed: "Minutes to 3-5 days",
     supportedCountries: 100,
     supportedCurrencies: 40,

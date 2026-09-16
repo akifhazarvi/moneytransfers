@@ -1,10 +1,10 @@
 {
- "generated": "2026-09-16T02:13:32.995Z",
+ "generated": "2026-09-16T03:59:36.195Z",
  "rationale": "Corridor pages whose currency pair is already represented by a stronger page. Quotes are keyed on currency pair, not country pair, so these restate a twin verbatim. Content brief Sep 2026, §4 / §10-A generation threshold.",
- "renderedBefore": 845,
- "distinctCurrencyPairs": 388,
- "retiring": 419,
- "renderedAfter": 426,
+ "renderedBefore": 847,
+ "distinctCurrencyPairs": 389,
+ "retiring": 420,
+ "renderedAfter": 427,
  "keptPerPair": {
   "AED-ARS": "aed-to-ars",
   "AED-BDT": "uae-to-bangladesh",
@@ -206,7 +206,7 @@
   "EUR-KES": "eur-to-kes",
   "EUR-KRW": "eur-to-krw",
   "EUR-MAD": "belgium-to-morocco",
-  "EUR-MXN": "eur-to-mxn",
+  "EUR-MXN": "belgium-to-mexico",
   "EUR-MYR": "germany-to-malaysia",
   "EUR-NGN": "germany-to-nigeria",
   "EUR-NOK": "eur-to-nok",
@@ -393,7 +393,8 @@
   "USD-XAF": "send-money-to-cameroon",
   "USD-XOF": "send-money-to-senegal",
   "USD-ZAR": "usa-to-south-africa, send-money-to-south-africa, send-money-to-zimbabwe",
-  "USD-ZMW": "send-money-to-zambia"
+  "USD-ZMW": "send-money-to-zambia",
+  "ZAR-NGN": "south-africa-to-nigeria"
  },
  "surplus": [
   {
@@ -1009,6 +1010,12 @@
    "redirectTo": "belgium-to-morocco"
   },
   {
+   "slug": "eur-to-mxn",
+   "pair": "EUR-MXN",
+   "keptInstead": "belgium-to-mexico",
+   "redirectTo": "belgium-to-mexico"
+  },
+  {
    "slug": "eur-to-rwf",
    "pair": "EUR-RWF",
    "keptInstead": "austria-to-rwanda",
@@ -1275,8 +1282,8 @@
   {
    "slug": "germany-to-mexico",
    "pair": "EUR-MXN",
-   "keptInstead": "eur-to-mxn",
-   "redirectTo": "eur-to-mxn"
+   "keptInstead": "belgium-to-mexico",
+   "redirectTo": "belgium-to-mexico"
   },
   {
    "slug": "germany-to-morocco",

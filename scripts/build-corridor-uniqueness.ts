@@ -74,9 +74,25 @@ const EDITORIALLY_LINKED = new Set<string>();
   }
 }
 
-/** Pages the route actually builds today, minus the ones already retired. */
+/**
+ * Pages the route actually builds today, minus the ones already retired.
+ *
+ * BUG FIXED 2026-09-15 (caught in content-brief validation): this used to
+ * filter out RETIRED_CORRIDOR_SLUGS directly, but that is the pre-ranking-
+ * rescue list — gone-corridors.ts's real GONE_CORRIDOR_SLUGS subtracts
+ * RANKING_CORRIDOR_SLUGS from it, because a ranking URL is never actually
+ * retired however this list names it. belgium-to-mexico is on
+ * RETIRED_CORRIDOR_SLUGS AND on RANKING_CORRIDOR_SLUGS, so it renders live —
+ * but the old filter here dropped it from the EUR-MXN group before the
+ * survivor logic ever ran. eur-to-mxn then "won" that pair by being the only
+ * entrant, with no real competitor check, and shipped at 39 unique words.
+ * Can't import GONE_CORRIDOR_SLUGS directly (gone-corridors.ts imports this
+ * script's JSON output — that would be circular), so the same subtraction is
+ * replicated here instead.
+ */
+const trulyGone = new Set([...RETIRED_CORRIDOR_SLUGS].filter((slug) => !RANKING_CORRIDOR_SLUGS.has(slug)));
 const rendered = allCorridors
-  .filter((c) => !RETIRED_CORRIDOR_SLUGS.has(c.slug))
+  .filter((c) => !trulyGone.has(c.slug))
   .filter(
     (c) =>
       getCorridorTier(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage) <= 2 ||
