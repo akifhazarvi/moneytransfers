@@ -9366,14 +9366,14 @@
       "western-union": {
         "rate": 57.4011,
         "fee": 0.99,
-        "markup": null,
+        "markup": 2.72,
         "receiveAmount": 5683.28
       },
       "instarem": {
-        "rate": 58.477,
+        "rate": 58.487,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 5847.7
+        "markup": 0.88,
+        "receiveAmount": 5848.7
       },
       "paysend": {
         "rate": 57.9679,
@@ -9388,10 +9388,10 @@
         "receiveAmount": 5414.62
       },
       "wise": {
-        "rate": 58.723,
-        "fee": 10.2,
+        "rate": 58.9205,
+        "fee": 0,
         "markup": null,
-        "receiveAmount": 5273.33
+        "receiveAmount": 5892.05
       }
     }
   }

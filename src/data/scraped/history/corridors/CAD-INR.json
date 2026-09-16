@@ -17321,22 +17321,22 @@
         "receiveAmount": 4668.29
       },
       "western-union": {
-        "rate": 68.7194,
+        "rate": 68.6109,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 6735.19
+        "markup": 0.34,
+        "receiveAmount": 6724.56
       },
       "worldremit": {
-        "rate": 68.8574,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 6885.74
+        "rate": 68.8587,
+        "fee": 0.99,
+        "markup": -0.02,
+        "receiveAmount": 6817.7
       },
       "instarem": {
-        "rate": 68.417,
+        "rate": 68.3811,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 6841.7
+        "markup": 0.67,
+        "receiveAmount": 6838.11
       },
       "paysend": {
         "rate": 68.6665,
@@ -17351,10 +17351,10 @@
         "receiveAmount": 6796.13
       },
       "remitly": {
-        "rate": 68.5569,
+        "rate": 68.53,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 6719.26
+        "receiveAmount": 6716.63
       },
       "ria": {
         "rate": 68.3856,
@@ -17387,10 +17387,10 @@
         "receiveAmount": 6668.87
       },
       "wise": {
-        "rate": 68.8721,
+        "rate": 68.8207,
         "fee": 2.57,
         "markup": null,
-        "receiveAmount": 6710.21
+        "receiveAmount": 6705.2
       }
     }
   }

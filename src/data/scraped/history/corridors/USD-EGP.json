@@ -6172,10 +6172,10 @@
     "date": "2026-09-16",
     "providers": {
       "lemfi": {
-        "rate": 52.07,
+        "rate": 52.15,
         "fee": 0,
-        "markup": -0.05,
-        "receiveAmount": 5207
+        "markup": 0.09,
+        "receiveAmount": 5215
       },
       "ria": {
         "rate": 51.7775,
@@ -6202,10 +6202,10 @@
         "receiveAmount": 5021.35
       },
       "wise": {
-        "rate": 52.175,
+        "rate": 52.2,
         "fee": 8.61,
         "markup": null,
-        "receiveAmount": 4768.27
+        "receiveAmount": 4770.56
       }
     }
   }

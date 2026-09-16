@@ -22193,10 +22193,10 @@
     "date": "2026-09-16",
     "providers": {
       "moneygram": {
-        "rate": 373.139,
+        "rate": 373.7202,
         "fee": 0.99,
-        "markup": null,
-        "receiveAmount": 36944.49
+        "markup": -0.03,
+        "receiveAmount": 37002.04
       },
       "hsbc": {
         "rate": 360.5198,
@@ -22211,10 +22211,10 @@
         "receiveAmount": 37029.74
       },
       "western-union": {
-        "rate": 371.7763,
+        "rate": 373.4403,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 36437.79
+        "markup": 0.04,
+        "receiveAmount": 36600.88
       },
       "dahabshiil": {
         "rate": 376.5011,
@@ -22235,16 +22235,16 @@
         "receiveAmount": 36986.23
       },
       "worldremit": {
-        "rate": 374.0402,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 37404.02
+        "rate": 374.9307,
+        "fee": 0.99,
+        "markup": -0.36,
+        "receiveAmount": 37121.89
       },
       "instarem": {
-        "rate": 370.8038,
+        "rate": 371.0511,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 37080.38
+        "markup": 0.68,
+        "receiveAmount": 37105.11
       },
       "xe": {
         "rate": 371.6259,
@@ -22271,10 +22271,10 @@
         "receiveAmount": 36706.58
       },
       "remitly": {
-        "rate": 373.604,
-        "fee": 0.99,
+        "rate": 373.17,
+        "fee": 2.99,
         "markup": null,
-        "receiveAmount": 36990.53
+        "receiveAmount": 36201.22
       },
       "revolut": {
         "rate": 371.7872,
@@ -22301,10 +22301,10 @@
         "receiveAmount": 30842.08
       },
       "wise": {
-        "rate": 373.63,
+        "rate": 373.227,
         "fee": 1.33,
         "markup": null,
-        "receiveAmount": 36866.07
+        "receiveAmount": 36826.31
       }
     }
   }

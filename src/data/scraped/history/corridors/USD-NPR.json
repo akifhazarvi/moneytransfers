@@ -10414,10 +10414,10 @@
         "receiveAmount": 14897.52
       },
       "western-union": {
-        "rate": 152.212,
+        "rate": 152.207,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 14918.3
+        "markup": 0.91,
+        "receiveAmount": 14917.81
       },
       "worldremit": {
         "rate": 151.4456,
@@ -10428,7 +10428,7 @@
       "instarem": {
         "rate": 152.0353,
         "fee": 0,
-        "markup": null,
+        "markup": 1.02,
         "receiveAmount": 15203.53
       },
       "xe": {

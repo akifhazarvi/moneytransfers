@@ -14191,7 +14191,7 @@
       "lemfi": {
         "rate": 1574,
         "fee": 0,
-        "markup": -2.89,
+        "markup": -2.82,
         "receiveAmount": 157400
       },
       "moneygram": {
@@ -14207,10 +14207,10 @@
         "receiveAmount": 157500
       },
       "western-union": {
-        "rate": 1562.7166,
+        "rate": 1563.1906,
         "fee": 0.99,
-        "markup": null,
-        "receiveAmount": 154724.57
+        "markup": -2.01,
+        "receiveAmount": 154771.5
       },
       "dahabshiil": {
         "rate": 1561.9001,
@@ -14231,10 +14231,10 @@
         "receiveAmount": 155287.14
       },
       "instarem": {
-        "rate": 1518.1463,
+        "rate": 1520.1941,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 151814.63
+        "markup": 0.79,
+        "receiveAmount": 152019.41
       },
       "paysend": {
         "rate": 1572.2725,
@@ -14261,10 +14261,10 @@
         "receiveAmount": 154968.68
       },
       "wise": {
-        "rate": 1582.11,
+        "rate": 1582.38,
         "fee": 1.72,
         "markup": null,
-        "receiveAmount": 155489.77
+        "receiveAmount": 155516.31
       }
     }
   }
