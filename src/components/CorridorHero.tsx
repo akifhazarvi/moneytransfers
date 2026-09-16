@@ -132,6 +132,17 @@ export default function CorridorHero({
                     </span>
                   </>
                 )}
+                {/* Named editor — content brief §10-A step 6 ("a visible
+                    last-updated date and author") and §5.4. The pricing stamp
+                    beside it already carries the date; what was missing was
+                    anyone standing behind the ranking. */}
+                <span className="text-white/25 hidden sm:inline">|</span>
+                <span className="hidden sm:inline">
+                  Edited by{" "}
+                  <Link href="/about/akif-hazarvi" className="text-white/90 underline underline-offset-2 hover:text-white">
+                    Akif Hazarvi
+                  </Link>
+                </span>
               </div>
             </div>
 
