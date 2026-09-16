@@ -1130,6 +1130,13 @@ export default async function CorridorPage({ params }: Props) {
   const midRate = getExchangeRate(fromCurrency, toCurrency);
   const sendSymbol = getCurrencySymbol(fromCurrency);
   const receiveSymbol = getCurrencySymbol(toCurrency);
+  // Real per-corridor rate history (best/worst rate, provider, date, over the
+  // full tracked window) — genuinely different content per currency pair, not
+  // shared boilerplate. Resolve eagerly and drop it if the token didn't
+  // resolve (the ~84 thin corridors below rate-history.ts's 30-day minimum) —
+  // a raw unresolved {{RATE_STORY}} literal must never reach the page.
+  const rateStoryResolved = renderDataTokens(`{{RATE_STORY:${fromCurrency}:${toCurrency}}}`);
+  const rateStory = rateStoryResolved.includes("{{") ? null : rateStoryResolved;
 
   // Display labels: currency corridors use "USD to INR" style, country corridors use "United States to India"
   const headingFrom = isCurrencyCorridor ? fromCurrency : corridor.fromCountry;
@@ -1999,6 +2006,7 @@ export default async function CorridorPage({ params }: Props) {
             </h2>
             <div className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
               <p>{corridor.feesNote}</p>
+              {rateStory && <p className="text-sm md:text-md">{rateStory}</p>}
               <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-5">
                 <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Understanding the total cost</h3>
                 <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">

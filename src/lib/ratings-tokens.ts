@@ -25,6 +25,7 @@ import { computeBusinessFxIndex, BUSINESS_FX_SLUGS, type BusinessFxIndex } from 
 import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 import CORRIDOR_LEADERS from "@/data/scraped/corridor-leaders.json";
+import { getRateInsight } from "@/lib/rate-history";
 import { getBankAggregateStats, getBankCorridorQuotes } from "@/lib/bank-comparisons";
 
 export interface StoreRating {
@@ -688,6 +689,92 @@ export function renderDataTokens(html: string): string {
     }
     return match;
   });
+
+  // {{RATE_STORY:USD:INR}} -> one of four genuinely different sentence
+  // architectures, chosen by what the corridor's own 91+-day history actually
+  // shows — not the same template with blanks filled in. The axis that picks
+  // the shape is real: whether the corridor is volatile or stable (the gap
+  // between the best and worst payout day's distance from the period average,
+  // split at the site-wide median of 4.5pp) crossed with whether today sits in
+  // a favourable or unfavourable tier of that range. A volatile corridor with
+  // good timing today gets a "this moves, and today is one of the better days"
+  // structure; a stable corridor with poor timing gets "this barely moves, so
+  // waiting buys you little" — different claims, different sentence shapes,
+  // because the underlying facts genuinely differ.
+  //
+  // WHY THIS ISN'T A "RATE SPREAD" CLAIM (kept from the first version)
+  // rate-insights.json's bestRate/worstRate are the RATE ON THE DAY THAT HAD
+  // THE BEST/WORST RECEIVE AMOUNT (build-rate-insights.ts picks the day by
+  // receiveAmount, which bundles rate and fee, then reports that day's rate) —
+  // so the worst-payout day's rate is not guaranteed to be numerically lower
+  // than the best-payout day's rate. Confirmed on USD-PKR: worstRate (279.65)
+  // > bestRate (278.45), because MoneyGram's "worst" day had a fee that
+  // outweighed a nominally decent rate. Every branch below compares each
+  // day's rate to the PERIOD AVERAGE instead, which is a valid same-basis
+  // comparison regardless of which direction the fee effect runs, and states
+  // "best/worst-value day" rather than implying a clean rate extreme.
+  out = out.replace(/\{\{RATE_STORY:([A-Z]{3}):([A-Z]{3})\}\}/g, (match, from: string, to: string) => {
+    const insight = getRateInsight(from, to);
+    if (!insight || insight.totalDays < 30) return match;
+    const { stats, totalDays, dateRange, level } = insight;
+    const bestVsAvg = ((stats.bestRate - stats.avgRate) / stats.avgRate) * 100;
+    const worstVsAvg = ((stats.worstRate - stats.avgRate) / stats.avgRate) * 100;
+    const gap = Math.abs(bestVsAvg - worstVsAvg);
+    // Sanity ceiling, not just a floor. The organic distribution across 1,026
+    // corridors has p75 at 7.1pp and a max of ~10pp outside a handful of
+    // clustered outliers: 8 corridors (all AED/SAR-origin into INR/BDT/PHP/PKR)
+    // sit at 150-161pp, and a second cluster (all BOB-destination) sits at
+    // 55-68pp — both patterns are too systematic (same currency on one side,
+    // every time) to be real volatility rather than a scraper/unit artifact on
+    // that specific currency. Below 30pp comfortably covers every corridor that
+    // looks organic; above it, decline to publish a number rather than assert
+    // a swing the data can't actually support.
+    if (gap > 30) return match;
+    const volatile = gap >= 4.5;
+    const favourable = level === "great" || level === "good";
+    const bestProv = providerName(stats.bestRateProvider);
+    const worstProv = providerName(stats.worstRateProvider);
+    const bestDate = longDate(stats.bestRateDate);
+    const worstDate = longDate(stats.worstRateDate);
+    const since = longDate(dateRange.from);
+    const gapStr = gap.toFixed(1);
+
+    if (volatile && favourable) {
+      return (
+        `This corridor moves more than most we track — across the ${totalDays} days since ${since}, ` +
+        `the best and worst payout days sat ${gapStr} percentage points apart relative to the period ` +
+        `average. Today happens to fall in the "${level}" tier of that range, which is the better half ` +
+        `of it. ${bestProv} had the standout day, ${bestDate}; the low point came from ${worstProv} ` +
+        `on ${worstDate}. On a corridor that swings this much, checking before you send is worth more ` +
+        `than it would be on a calmer one.`
+      );
+    }
+    if (volatile && !favourable) {
+      return (
+        `Across the ${totalDays} days we've watched this pair since ${since}, the gap between the best ` +
+        `and worst payout day has run to ${gapStr} percentage points against the average — a genuinely ` +
+        `volatile corridor. Today isn't on the good side of that range; it sits in the "${level}" tier. ` +
+        `${bestProv} delivered the best day on record (${bestDate}), ${worstProv} the worst (${worstDate}), ` +
+        `which is the kind of spread that makes waiting a day or two, if you can, worth considering here.`
+      );
+    }
+    if (!volatile && favourable) {
+      return (
+        `${bestProv}'s best day for this pair, ${bestDate}, and ${worstProv}'s worst, ${worstDate}, sat only ` +
+        `${gapStr} percentage points apart over the ${totalDays} days since ${since} — this corridor doesn't ` +
+        `move much. That also means today's "${level}" reading is close to what you'd get most days here, ` +
+        `so there's little upside to timing a transfer on this route beyond picking the right provider.`
+      );
+    }
+    return (
+      `This is a stable corridor: over ${totalDays} days since ${since}, the best payout day (${bestProv}, ` +
+      `${bestDate}) and the worst (${worstProv}, ${worstDate}) differed by only ${gapStr} percentage points ` +
+      `against the average. Today reads "${level}", but on a corridor this flat that's unlikely to change ` +
+      `much if you wait — the bigger lever here is which provider you pick, not when you send.`
+    );
+  });
+
+
 
   // {{LEAD_PAIRS:wise}} -> "AED→INR, AED→KES, GBP→AUD, USD→PKR and 40 more"
   //
