@@ -1769,7 +1769,9 @@ export default async function CorridorPage({ params }: Props) {
                 Which provider is best for each transfer type?
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                Different providers excel at different things. Here&apos;s who&apos;s best for each use case on the {headingFrom} to {headingTo} route.
+                {cheapest.providerSlug === fastest.providerSlug
+                  ? `${getProviderName(cheapest.providerSlug)} currently leads on both cost and speed for ${headingFrom} to ${headingTo} — check the categories below if cash pickup or a specific payout method matters more to you than either.`
+                  : `${getProviderName(cheapest.providerSlug)} currently delivers the most ${toCurrency} on this route, while ${getProviderName(fastest.providerSlug)} is the fastest. The cheapest option and the fastest one aren't always the same provider, so match the pick below to what this transfer actually needs.`}
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {categories.map(({ label, Icon, provider: quote, reason }) => {
@@ -1830,7 +1832,9 @@ export default async function CorridorPage({ params }: Props) {
               How to send money to {corridor.toCountry}
             </h2>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-              Sending money to {corridor.toCountry} is straightforward with the right provider. Here&apos;s how it works in 3 simple steps.
+              {countryDetails.recipientRequirements[1]
+                ? `Sending to ${corridor.toCountry} takes 3 steps — the one detail worth having ready in advance is your recipient's ${countryDetails.recipientRequirements[1].label.toLowerCase()}.`
+                : `Sending money to ${corridor.toCountry} is straightforward with the right provider — here's how it works in 3 steps.`}
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
               {howToSteps.map(({ step, Icon, title, description }) => (
