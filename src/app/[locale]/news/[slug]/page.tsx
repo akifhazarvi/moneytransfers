@@ -15,6 +15,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { COVERAGE } from "@/lib/site-stats";
+import { renderDataTokens } from "@/lib/ratings-tokens";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -228,7 +229,7 @@ export default async function NewsArticlePage({ params }: Props) {
 
             {/* Content — split at midpoint with live quotes injected in the middle */}
             {(() => {
-              const clean = sanitizeHtml(item.content);
+              const clean = sanitizeHtml(renderDataTokens(item.content));
               // Split on </p> boundaries so we never cut mid-tag
               const parts = clean.split(/(?<=<\/p>)/);
               const mid = Math.ceil(parts.length / 2);

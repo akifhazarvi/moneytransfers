@@ -1613,7 +1613,7 @@ export const newsItems: NewsItem[] = [
 <tr><td>UK high-street bank</td><td>£15–£30</td><td>~4–6%</td><td>1–3 business days</td></tr>
 </tbody>
 </table></div>
-<p>For Nigeria specifically, <a href="/companies/lemfi">Lemfi</a> remains the sharpest rate in the diaspora community. Revolut's advantage is that senders who already hold GBP/EUR/USD in a Revolut account can now transfer instantly without opening a new service — a friction saving, not necessarily a cost saving.</p>
+<p>The table above is an April 2026 snapshot, and it's worth being explicit that it hasn't held: {{CORRIDOR_LEADER:GBP:NGN}} on GBP to NGN as of today, not Lemfi or Revolut. That's the nature of this market — new entrants compress the field for a few months and then the ranking moves again. Check <a href="/send-money/uk-to-nigeria">today's UK to Nigeria comparison</a> rather than treating this table as current. Revolut's structural advantage hasn't changed, though: senders who already hold GBP/EUR/USD in a Revolut account can transfer instantly without opening a new service — a friction saving, not necessarily a cost saving.</p>
 
 <h2>Why this matters beyond Revolut</h2>
 <p>Three implications worth tracking:</p>
