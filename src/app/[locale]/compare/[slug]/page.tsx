@@ -527,6 +527,17 @@ function DefaultComparison({
                     dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.workedExample.body) }}
                   />
                 </div>
+                {editorial.secondExample && (
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mt-4">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                      {editorial.secondExample.heading}
+                    </h3>
+                    <p
+                      className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.secondExample.body) }}
+                    />
+                  </div>
+                )}
               </section>
 
               <section id="when-to-use" className="mb-10">

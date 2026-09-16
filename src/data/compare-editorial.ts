@@ -44,6 +44,14 @@ export interface CompareEditorial {
   measuredRecord: string;
   /** Brief §10-A step 3: "a worked calculation example". */
   workedExample: CompareEditorialSection;
+  /**
+   * A second worked example on a different corridor. Optional — only where
+   * both providers actually quote a second corridor we price; several pairs
+   * (e.g. ofx-vs-xoom) only overlap on one. Genuinely new information, not
+   * padding: whether the same provider wins across corridors is itself a
+   * finding, not a restatement of the first example.
+   */
+  secondExample?: CompareEditorialSection;
   /** Where each genuinely wins, written for this pair only. */
   pickA: CompareEditorialSection;
   pickB: CompareEditorialSection;
@@ -77,6 +85,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "A worked example: £1,000 to euros",
       body: `On £1,000 GBP→EUR, the difference between these two is {{RECEIVE_DIFF:wise:paypal:GBP:EUR:1000}}, with {{CHEAPER:wise:paypal:GBP:EUR:1000}} delivering more. Wise's all-in cost on that transfer is {{COST_PCT:wise:GBP:EUR:1000}} against {{COST_PCT:paypal:GBP:EUR:1000}} for PayPal. The instructive part is where the money goes: PayPal's fee is capped at $4.99, so on a larger transfer the fee looks trivial while the 3–4% rate markup scales with the amount. A fee cap is not a cost cap when the markup is uncapped.`,
     },
+    secondExample: {
+      heading: "A second corridor: $1,000 to Mexico",
+      body: `On $1,000 USD→MXN the gap is {{RECEIVE_DIFF:wise:paypal:USD:MXN:1000}}, with {{CHEAPER:wise:paypal:USD:MXN:1000}} ahead — {{COST_PCT:wise:USD:MXN:1000}} all-in against {{COST_PCT:paypal:USD:MXN:1000}} for PayPal. The margin here is proportionally similar to the GBP→EUR example above: PayPal's combined fee-plus-markup model doesn't have a corridor where it becomes the cheaper option in our data.`,
+    },
     pickA: {
       heading: "Pick Wise for essentially any deliberate transfer",
       body: `If you have decided in advance to send money abroad, Wise is the cheaper instrument on the corridors we measure, and the gap is not marginal. It supports transfers to $1,000,000, holds 50 currencies, and gives you a rate you can verify against any published mid-market quote. For recurring transfers — rent, family support, salary — the difference compounds every month and is the single largest lever available on this page.`,
@@ -94,6 +106,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     workedExample: {
       heading: "A worked example: £1,000 to euros",
       body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:paypal:revolut:GBP:EUR:1000}}, with {{CHEAPER:paypal:revolut:GBP:EUR:1000}} delivering more. Revolut's all-in cost is {{COST_PCT:revolut:GBP:EUR:1000}} against {{COST_PCT:paypal:GBP:EUR:1000}} for PayPal. One timing note this example cannot show: our pricing is observed at a point in time, and Revolut's weekend markup means the same transfer sent on a Saturday costs more than the figure above. If the transfer is not urgent, the day you send is a real lever here — the only page on this site where that is true of one provider and not the other.`,
+    },
+    secondExample: {
+      heading: "A second corridor: $1,000 to Mexico",
+      body: `Outside Europe the gap widens rather than narrows: on $1,000 USD→MXN, {{CHEAPER:paypal:revolut:USD:MXN:1000}} delivers {{RECEIVE_DIFF:paypal:revolut:USD:MXN:1000}} more, at {{COST_PCT:revolut:USD:MXN:1000}} all-in against {{COST_PCT:paypal:USD:MXN:1000}} for PayPal. Revolut's weekday interbank rate holds up well outside the euro corridors it's most associated with; PayPal's 3–4% markup applies the same way everywhere, which is the more consistent (and more expensive) of the two patterns.`,
     },
     pickA: {
       heading: "Pick PayPal only where the transaction already lives there",
@@ -149,6 +165,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "A worked example: $1,000 to India",
       body: `On $1,000 USD→INR the difference is {{RECEIVE_DIFF:wise:western-union:USD:INR:1000}}, with {{CHEAPER:wise:western-union:USD:INR:1000}} ahead. Wise's all-in cost is {{COST_PCT:wise:USD:INR:1000}} against {{COST_PCT:western-union:USD:INR:1000}} for Western Union. Worth isolating: Wise's cost is entirely its fee, because its markup is 0% — so on a larger transfer Wise's cost grows slowly while a percentage markup grows in step with the amount. On recurring transfers that difference compounds monthly.`,
     },
+    secondExample: {
+      heading: "A second corridor: $1,000 to Mexico",
+      body: `On $1,000 USD→MXN the gap narrows to {{RECEIVE_DIFF:wise:western-union:USD:MXN:1000}}, with {{CHEAPER:wise:western-union:USD:MXN:1000}} ahead at {{COST_PCT:wise:USD:MXN:1000}} against {{COST_PCT:western-union:USD:MXN:1000}} for Western Union. That's a noticeably tighter margin than the India example — Western Union's markup isn't flat across corridors, and Mexico is one of the routes where its agent network keeps it closer to competitive.`,
+    },
     pickA: {
       heading: "Pick Wise for bank-to-bank transfers of any size",
       body: `If the recipient has an account that can receive a deposit, Wise is the cheaper route on the corridors we measure, and it scales: transfers to $1,000,000, balances in 50 currencies, regulation by the FCA, FinCEN and ASIC. For tuition, property, payroll, contractors or your own accounts abroad, the audit trail matters as much as the price — you can check the rate you were given against any published mid-market quote, which is not true of a marked-up rate.`,
@@ -166,6 +186,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     workedExample: {
       heading: "A worked example: $1,000 to India",
       body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:worldremit:USD:INR:1000}}, with {{CHEAPER:wise:worldremit:USD:INR:1000}} delivering more. Wise's all-in cost is {{COST_PCT:wise:USD:INR:1000}} against {{COST_PCT:worldremit:USD:INR:1000}} for WorldRemit. India is a bank-deposit corridor, which is Wise's strongest ground; the comparison narrows considerably on corridors where mobile money is the normal way to receive money, because there the alternative is not a cheaper bank transfer but no transfer.`,
+    },
+    secondExample: {
+      heading: "A second corridor: $1,000 to Mexico",
+      body: `The pattern holds outside India: on $1,000 USD→MXN, {{CHEAPER:wise:worldremit:USD:MXN:1000}} delivers {{RECEIVE_DIFF:wise:worldremit:USD:MXN:1000}} more, at an all-in cost of {{COST_PCT:wise:USD:MXN:1000}} against {{COST_PCT:worldremit:USD:MXN:1000}} for WorldRemit. WorldRemit's markup runs wider on a bank-deposit corridor like this one than on the mobile-money routes it's built for — the gap you saw on India isn't a one-off.`,
     },
     pickA: {
       heading: "Pick Wise for bank deposits and larger amounts",
@@ -185,6 +209,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "A worked example: $1,000 to India",
       body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:ofx:xe:USD:INR:1000}}, with {{CHEAPER:ofx:xe:USD:INR:1000}} ahead — all-in costs of {{COST_PCT:ofx:USD:INR:1000}} and {{COST_PCT:xe:USD:INR:1000}} respectively. Read this one with care: $1,000 is well below the amount at which either broker is competitive. Both quote better rates as the amount rises, and neither charges a fee, so their cost curve flattens where a per-transfer fee would not. The meaningful comparison for these two happens at $20,000 and above, which our sample corridors do not reach.`,
     },
+    secondExample: {
+      heading: "A second corridor: $1,000 to Mexico",
+      body: `The same ordering holds on $1,000 USD→MXN: {{CHEAPER:ofx:xe:USD:MXN:1000}} delivers {{RECEIVE_DIFF:ofx:xe:USD:MXN:1000}} more, at {{COST_PCT:xe:USD:MXN:1000}} against {{COST_PCT:ofx:USD:MXN:1000}} for OFX. Two data points from two different currency pairs pointing the same way is weak evidence on its own, but it's enough to say the India result wasn't a one-off — get a live quote for your own corridor rather than assuming either pattern generalises further than that.`,
+    },
     pickA: {
       heading: "Pick OFX for large transfers and a named dealer",
       body: `OFX has no upper transfer limit and no transfer fee, and its proposition above roughly $10,000 is a dealer you can call — useful when a transfer is time-sensitive, needs to be split, or is part of something larger like a property purchase or an emigration. It reaches 190 countries, the widest in this pair, and is regulated by ASIC, the FCA and FinCEN. For a one-off five- or six-figure transfer where a fractional rate improvement outweighs any fee, this is the model that fits.`,
@@ -202,6 +230,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     workedExample: {
       heading: "A worked example: $1,000 to India",
       body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:ofx:xoom:USD:INR:1000}}, with {{CHEAPER:ofx:xoom:USD:INR:1000}} delivering more — {{COST_PCT:ofx:USD:INR:1000}} all-in for OFX against {{COST_PCT:xoom:USD:INR:1000}} for Xoom. The number that does not appear here is time. OFX quotes one to three business days; Xoom quotes minutes. If the money has to arrive today, the cheaper figure above is not available to you at any speed, and the comparison is decided before price enters it.`,
+    },
+    secondExample: {
+      heading: "Why there's only one worked example here",
+      body: `We could not build a second one for this pair, and that's worth explaining rather than skipping past. Xoom quotes {{COSTCORRIDORS:xoom}} of the corridors we price, against {{COSTCORRIDORS:ofx}} for OFX — a broker with a global reach and a remittance app built around a much narrower set of routes rarely overlap on the same currency pair at the same amount. USD→INR is one of the few places they do. If your corridor isn't USD→INR, neither provider's figure above is a reliable stand-in for it — get a live quote from both rather than extrapolating from this example.`,
     },
     pickA: {
       heading: "Pick OFX for planned transfers, especially large ones",
