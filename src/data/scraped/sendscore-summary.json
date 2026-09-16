@@ -1,14 +1,14 @@
 {
-  "dataAsOf": "2026-09-15",
+  "dataAsOf": "2026-09-16",
   "corridorsScored": 198,
-  "corridorsWithAnyScore": 1006,
-  "singleProviderReadings": 808,
+  "corridorsWithAnyScore": 1020,
+  "singleProviderReadings": 822,
   "bands": {
-    "exceptional": 10,
-    "great": 51,
-    "good": 75,
-    "typical": 42,
-    "poor": 20
+    "exceptional": 9,
+    "great": 48,
+    "good": 79,
+    "typical": 44,
+    "poor": 18
   },
   "goodOrBetterPct": 69,
   "confidence": {
@@ -16,28 +16,28 @@
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 172,
+  "medianDaysObserved": 173,
   "example": {
     "pair": "USD-INR",
     "score": {
       "score": 72,
       "band": "good",
       "headline": "Good time to send",
-      "explanation": "Today's best rate is +0.54% vs the 30-day average, 66% of the way up the 90-day range. Rates are improving — +0.86% week on week. Today's best beats the median provider by +2.54%.",
+      "explanation": "Today's best rate is +0.52% vs the 30-day average, 66% of the way up the 90-day range. Rates are improving — +1.03% week on week. Today's best beats the median provider by +2.54%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 66.22908974884892,
+          "score": 66.04802492897059,
           "detail": "66% of the way up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 59.027039535098844,
-          "detail": "+0.54% vs the 30-day average"
+          "score": 58.7267128432064,
+          "detail": "+0.52% vs the 30-day average"
         },
         {
           "key": "competitiveness",
@@ -50,11 +50,11 @@
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 71.56737858677208,
-          "detail": "improving — +0.86% week on week"
+          "score": 75.848794844059,
+          "detail": "improving — +1.03% week on week"
         }
       ],
-      "daysObserved": 178,
+      "daysObserved": 179,
       "rangeWindowDays": 90,
       "confidence": "high"
     }

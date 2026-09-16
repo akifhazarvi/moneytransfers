@@ -6702,5 +6702,46 @@
         "receiveAmount": 19872.46
       }
     }
+  },
+  {
+    "date": "2026-09-16",
+    "providers": {
+      "ria": {
+        "rate": 196.8079,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 20390
+      },
+      "taptap-send": {
+        "rate": 200,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 19602
+      },
+      "western-union": {
+        "rate": 195.7016,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 19376.42
+      },
+      "remitly": {
+        "rate": 196.4724,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 19452.73
+      },
+      "worldremit": {
+        "rate": 198.4059,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 19840.59
+      },
+      "rbc": {
+        "rate": 193.6876,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 19368.76
+      }
+    }
   }
 ]
