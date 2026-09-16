@@ -446,10 +446,17 @@ export const SITEMAP_SWIFT_SLUGS = new Set<string>([
 ]); // 23 URLs (was 14)
 
 export const SITEMAP_BUSINESS_SLUGS = new Set<string>([
-  // Cleaned 2026-06-21: removed phantom "b2b-transfers" (no such page in
-  // business-pages.ts — it was being submitted to the sitemap as a 404/noindex
-  // contradiction). Real slugs are vendor-payments (kept, indexable),
-  // small-business + bulk-payments (now noindexed off-sitemap — see
-  // business/[slug]/page.tsx).
+  // Cleaned 2026-06-21: all four business-pages.ts slugs — small-business,
+  // bulk-payments, vendor-payments, b2b-transfers — render live (verified
+  // 2026-09-16: b2b-transfers is a real ~2,500-word page, not a phantom; an
+  // earlier version of this comment claimed otherwise and was wrong, caught
+  // when the Sep 2026 content brief named it as a backlink destination).
+  // Only vendor-payments is on the sitemap; the other three are noindexed via
+  // business/[slug]/page.tsx's SITEMAP_BUSINESS_SLUGS check, which is a
+  // deliberate indexing decision (thin/overlapping vs. vendor-payments' demand),
+  // not a statement that those pages don't exist. A page being noindexed still
+  // makes it a poor backlink destination — the link's authority signal has
+  // nowhere indexable to land — so vendor-payments remains the one to send
+  // outreach to.
   "vendor-payments",
 ]); // 1 URL

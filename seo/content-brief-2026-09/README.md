@@ -41,15 +41,20 @@ Two things worth knowing before you click:
 
 The workbook's `Link_Building_Categories` tab gives one example URL per
 category to guide outreach. Nine check out. The `/business/` row names
-`sendmoneycompare.com/business/b2b-transfers` — **that page does not exist.**
-It was removed in the 2026-06-21 sitemap cleanup as a phantom URL (no
-corresponding entry in `business-pages.ts` — it had been submitted to the
-sitemap as a 404/noindex contradiction, per `sitemap-allowlists.ts:448`).
+`sendmoneycompare.com/business/b2b-transfers` — **that page renders (verified
+live: a real ~2,500-word page with its own content), but it's noindexed.**
+Correction from an earlier version of this section: it is not a phantom/
+nonexistent page — it's a real entry in `business-pages.ts`, deliberately kept
+off the sitemap in the 2026-06-21 cleanup alongside `small-business` and
+`bulk-payments`, while only `vendor-payments` was judged to carry enough
+independent demand to index (see `sitemap-allowlists.ts`).
 
-Use `/business/vendor-payments` (indexable, on the sitemap allowlist) or the
-`/business` hub itself for that category's outreach instead. Don't build
-`/business/b2b-transfers` just to match the brief's example — check whether a
-B2B-transfers page belongs in the business-pages data set on its own merits
+A noindexed page is still the wrong backlink destination — an editorial link
+into it has no indexable page to transfer authority to. Use
+`/business/vendor-payments` (indexable, on the sitemap allowlist) or the
+`/business` hub itself for that category's outreach instead. Don't build a new
+B2B-transfers page or flip this one's indexing status just to match the
+brief's example — that's a content/indexing call to make on its own merits
 first.
 
 ## What is implemented in code
