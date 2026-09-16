@@ -16,16 +16,18 @@ lines, 17 KB against Google's 2 MB / 100,000-line cap. None of the 7 genuine
 editorial referrers (WorldFirst UK, eco.com, ARQ Finance, comparetravelcash.co.uk,
 OrbitRemit, Dots, OSL) appears anywhere in the list.
 
-Upload is **not completed or automatically recommended**. Google says most
-sites do not need disavow; use it for substantial artificial links that caused,
-or are likely to cause, a manual action. This brief reports no manual action.
-Review the actual links and any purchased-link history first; tool labels and
-zero estimated traffic alone do not settle this decision.
+**Uploaded 2026-09-15** (site owner's call, after the review this section
+flagged — Google's own guidance is that most sites don't need disavow, so this
+was a judgement call, not a default action). Disavow suppresses the link as a
+*ranking signal*; it does not remove the link, block referral traffic, or
+change anything visible on the site. Effect (if any) shows up in Google's own
+handling over the following weeks, not immediately — nothing to check right
+away beyond confirming the upload succeeded in Search Console.
 
-If justified, use Google's separate [disavow tool](https://search.google.com/search-console/disavow-links)
-with a URL-prefix property (Domain properties are unsupported). Uploading
-replaces the previous list, so reconcile it with any existing list first.
-See [Google's instructions](https://support.google.com/webmasters/answer/2648487?hl=en).
+See [Google's instructions](https://support.google.com/webmasters/answer/2648487?hl=en)
+for re-uploading if the list ever needs a correction — a fresh upload replaces
+the previous one entirely, so any future change needs the full 439-domain
+file, not a delta.
 
 Two things worth knowing before you click:
 
@@ -78,7 +80,10 @@ article. Implementation is not the same as factual review or acceptance.
   figures still need review. Further review and a fresh SiteLiner crawl
   are needed; the local threshold is not a Google ranking rule.
 - **§5.2 / §5.3 — earning 1–2 links per category.** Outreach, by hand.
-- **Task B — vendor audit and disavow decision/upload evidence.** External work.
+- **Task B — vendor audit.** Disavow uploaded 2026-09-15. Auditing vendors/
+  agencies for the seoexpress/link-baron/rank-forge style packages the spam
+  clusters were named after, and halting any live link purchases, is still
+  open — external work.
 - **§5.4 — verified contact details.** The owner supplied a Denver address and
   general email; these have now been added in local source with a map link.
   No phone number or separate press/partnership mailboxes were supplied.
