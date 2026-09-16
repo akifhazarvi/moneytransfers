@@ -44,6 +44,7 @@ import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { providerLogo } from "@/lib/provider-logo";
 import { getBankEditorial } from "@/data/bank-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
+import { PageByline } from "@/components/PageByline";
 
 // Revalidate every 6 hours to match scraper cadence — these pages are
 // only valuable while the data is fresh.
@@ -243,6 +244,11 @@ export default async function BankPage({ params }: Props) {
       <section className="py-12 bg-[var(--color-surface)]">
         <Container>
           <div className="max-w-3xl">
+            {/* Named editor + review date — flagged as missing on the two
+                brief-listed bank pages by the second validation pass. */}
+            <div className="mb-6">
+              <PageByline updated={dataFreshness.slice(0, 10)} cadence={null} />
+            </div>
             <h2 className="text-h3 font-normal text-[var(--color-on-surface)] mb-4">
               How {bank.name} charges for international transfers
             </h2>

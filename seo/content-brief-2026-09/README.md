@@ -35,6 +35,21 @@ Two things worth knowing before you click:
   `askbuy.ai`, `prori.ai`, `recomate.ai`, `feedbackplatform.io` and `jake.eu`.
   File syntax and workbook agreement do not prove a domain's classification.
 
+## Link-building category destinations (§5.2/§5.3) — one correction
+
+The workbook's `Link_Building_Categories` tab gives one example URL per
+category to guide outreach. Nine check out. The `/business/` row names
+`sendmoneycompare.com/business/b2b-transfers` — **that page does not exist.**
+It was removed in the 2026-06-21 sitemap cleanup as a phantom URL (no
+corresponding entry in `business-pages.ts` — it had been submitted to the
+sitemap as a 404/noindex contradiction, per `sitemap-allowlists.ts:448`).
+
+Use `/business/vendor-payments` (indexable, on the sitemap allowlist) or the
+`/business` hub itself for that category's outreach instead. Don't build
+`/business/b2b-transfers` just to match the brief's example — check whether a
+B2B-transfers page belongs in the business-pages data set on its own merits
+first.
+
 ## What is implemented in code
 
 | Brief item | Where |

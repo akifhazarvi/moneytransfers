@@ -18,6 +18,8 @@ import type { Metadata } from "next";
 
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { renderDataTokens } from "@/lib/ratings-tokens";
+import { PageByline } from "@/components/PageByline";
+import { quoteDataDate } from "@/lib/unified-quotes";
 
 // Someone looking up a SWIFT/BIC code is mid-transfer. If the destination is
 // itself a USD country the USD→USD corridor is meaningless, so send from GBP —
@@ -553,6 +555,14 @@ export default async function SwiftCountryPage({ params }: Props) {
 
           {editorialNote && (
             <Card>
+              {/* Named editor + review date — flagged as missing on
+                  /swift-codes/mexico by the second validation pass. */}
+              <div className="mb-4">
+                <PageByline
+                  updated={quoteDataDate ?? new Date().toISOString().split("T")[0]}
+                  cadence="SWIFT/BIC data from the SWIFT registry"
+                />
+              </div>
               <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 {editorialNote.title}
               </h2>
