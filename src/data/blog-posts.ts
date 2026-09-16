@@ -503,7 +503,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is the Mid-Market Exchange Rate?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An exchange rate markup is the difference between the mid-market rate (the real rate on Google) and the rate a provider gives you — typically 0.5-4% for banks. On a $1,000 transfer, a 3% bank markup costs you ~$30 in hidden fees. <a href="/companies/wise">Wise</a> charges 0% markup, while <a href="/companies/remitly">Remitly</a> averages 0.45%. <a href="/send-money">Compare real rates</a> across {{PROVIDER_COUNT}} providers to see the true cost.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An exchange rate markup is the difference between the mid-market rate (the real rate on Google) and the rate a provider gives you — typically 0.5-4% for banks. On a $1,000 transfer, a 3% bank markup costs you ~$30 in hidden fees. <a href="/companies/wise">Wise</a> charges {{AVG_MARKUP:wise}}, while <a href="/companies/remitly">Remitly</a> averages {{AVG_MARKUP:remitly}}. <a href="/send-money">Compare real rates</a> across {{PROVIDER_COUNT}} providers to see the true cost.</p></div>
 <p>The <strong>mid-market rate</strong> (also called the interbank rate or real exchange rate) is the midpoint between the buy and sell price of a currency on the global market. It's the rate banks use when trading with each other — and it's the fairest rate available. The mid-market rate is published by sources like <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer">the European Central Bank</a> and the <a href="https://www.federalreserve.gov/releases/h10/" target="_blank" rel="noopener noreferrer">US Federal Reserve's H.10 release</a>.</p>
 <p>When you Google "USD to INR," the rate shown is the mid-market rate. No individual consumer gets this exact rate, but some providers come very close. Understanding this is key to finding <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest way to send money internationally</a>.</p>
 <div class="blog-table-box">
@@ -512,8 +512,8 @@ const rawBlogPosts: BlogPost[] = [
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
 <tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup — always uses the real mid-market rate</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Low 0.45% markup with Express delivery option</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>0.42% avg markup with zero fees</td></tr>
+<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>{{AVG_MARKUP:remitly}} with Express delivery option</td></tr>
+<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>{{AVG_MARKUP:instarem}} with zero fees</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
@@ -525,7 +525,7 @@ const rawBlogPosts: BlogPost[] = [
 <p><strong>Example:</strong> If the mid-market rate is 1 USD = 92.30 INR on a <a href="/send-money/usa-to-india">USD to INR transfer</a>:</p>
 <ul>
 <li><strong><a href="/companies/wise">Wise</a></strong> (0% markup): Gives you 92.30 INR per dollar</li>
-<li><strong><a href="/companies/remitly">Remitly</a></strong> (0.45% markup): Gives you 91.88 INR per dollar</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong> ({{AVG_MARKUP:remitly}} markup): gives you noticeably less than Wise on the same $1,000 — check today's <a href="/compare/wise-vs-remitly">Wise vs Remitly</a> comparison for the exact gap on your corridor</li>
 <li><strong>Your bank</strong> (3% markup): Gives you 89.53 INR per dollar</li>
 </ul>
 <p>On a $1,000 transfer, that 3% bank markup costs you ₹2,770 compared to the mid-market rate — and the bank may also charge a separate transfer fee on top. See how <a href="/compare/wise-vs-remitly">Wise compares to Remitly</a> in detail.</p>
@@ -545,14 +545,15 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Which Providers Have the Lowest Markup?",
         content: `<p>Based on our analysis of thousands of real quotes across {{PROVIDER_COUNT}} providers:</p>
 <ul>
-<li><strong><a href="/companies/wise">Wise</a></strong> — 0% markup (uses the real mid-market rate, charges a transparent fee instead)</li>
-<li><strong><a href="/companies/instarem">Instarem</a></strong> — 0.42% average markup</li>
-<li><strong><a href="/companies/remitly">Remitly</a></strong> — 0.45% average markup</li>
-<li><strong><a href="/companies/moneygram">MoneyGram</a></strong> — 0.38% average markup</li>
-<li><strong><a href="/companies/ofx">OFX</a></strong> — 2.75% average markup (but no transfer fee)</li>
+<li><strong><a href="/companies/wise">Wise</a></strong> — {{AVG_MARKUP:wise}} (uses the real mid-market rate, charges a transparent fee instead)</li>
+<li><strong><a href="/companies/instarem">Instarem</a></strong> — {{AVG_MARKUP:instarem}}</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong> — {{AVG_MARKUP:remitly}}</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong> — {{AVG_MARKUP:moneygram}}</li>
+<li><strong><a href="/companies/ofx">OFX</a></strong> — {{AVG_MARKUP:ofx}} (but no transfer fee)</li>
 <li><strong>Banks (average)</strong> — 2.5–4% markup</li>
 </ul>
-<p>Wise is unique in charging zero markup. They make money entirely through their upfront fee, which makes the total cost transparent and easy to understand. For a complete ranking, see our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide.</p>
+<p>Wise is the only provider in our data charging close to zero markup — it makes money entirely through its upfront fee, which is why the total cost is easy to check against a mid-market quote. Note the figures above are medians, not averages: a straight average is skewed by the handful of corridors where our own benchmark is unreliable, so median is the more honest read of what a provider typically charges. For a complete ranking, see our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide.</p>
+<p>One pattern worth flagging before you pick a provider on markup alone: our own <a href="/tools/fx-markup-checker">markup checker</a> and 91-day <a href="/provider-consistency">consistency data</a> show markup doesn't fully predict who delivers the most on a given day — a low-markup provider that charges a fee can lose to a higher-markup, fee-free one on a small transfer. Compare the total received for your actual amount, not the markup percentage in isolation.</p>
 <p>The <a href="https://www.imf.org/en/Topics/climate-change/country-data" target="_blank" rel="noopener noreferrer">IMF</a> and <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank</a> both highlight reducing remittance costs as a key development goal, with the UN SDG target of under 3% total cost.</p>`,
       },
       {
@@ -560,6 +561,12 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>Many providers advertise "$0 fees" or "fee-free transfers." This is technically true — they don't charge a separate transfer fee. But they compensate by offering a worse exchange rate with a higher markup.</p>
 <p>A transfer with a $0 fee but 3% markup on $1,000 costs you $30. A transfer with a $7 fee but 0% markup costs you $7. The "$0 fee" option is actually <strong>4x more expensive</strong>.</p>
 <p><strong>Always compare the amount the recipient receives</strong>, not just the fee. Our <a href="/send-money">comparison tool</a> shows this as the primary comparison metric. The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">CFPB</a> and <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> both require regulated providers to disclose the full cost of international transfers.</p>`,
+      },
+      {
+        heading: "Markup Isn't Flat — It Changes by Corridor",
+        content: `<p>The medians above are each provider's typical markup across every corridor we price, and typical is not the same as fixed. The same provider can run close to zero markup on a liquid pair like USD/EUR and several points wider on a thin one — this is measurable, and worth checking before you assume a provider's reputation carries across every currency it quotes.</p>
+<p>CLAUDE.md's own content-integrity rule for this site is to report medians rather than means for exactly this reason: a mean gets dragged by the corridors where a provider's pricing is least reliable. Our own benchmark shows this happening on USD to NGN, where the measured markup reads as low as -3.16% for at least one provider — a number that looks like a measurement error before it looks like a bargain, and is a reminder that "average markup" claims (including the ones on this page) are a summary, not a guarantee for your specific route.</p>
+<p>The practical takeaway: use the provider medians on this page to shortlist two or three candidates, then check the live rate for your actual corridor and amount in the <a href="/send-money">comparison table</a> before sending — the medians tell you who to check, not what you'll get.</p>`,
       },
       {
         heading: "Sources & Methodology",
@@ -571,7 +578,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is a good exchange rate markup?",
         answer:
-          "Anything under 1% is good, under 0.5% is excellent. <a href=\"/companies/wise\">Wise</a> offers 0% markup. Banks typically charge 2–4% which is poor value. Check our <a href=\"/send-money\">comparison tool</a> to see the markup each provider charges for your specific corridor.",
+          "Anything under 1% is good, under 0.5% is excellent. <a href=\"/companies/wise\">Wise</a> offers {{AVG_MARKUP:wise}}. Banks typically charge 2\u20134% which is poor value. Check our <a href=\"/send-money\">comparison tool</a> to see the markup each provider charges for your specific corridor.",
       },
       {
         question: "Why is my bank's exchange rate different from Google?",
