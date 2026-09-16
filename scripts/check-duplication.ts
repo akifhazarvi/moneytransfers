@@ -1,7 +1,7 @@
 /**
- * Measures near-duplicate content across every prerendered page, and fails the
- * build when a page's duplicate share exceeds the threshold the content brief
- * sets.
+ * Measures repeated text across prerendered English pages. This standalone
+ * acceptance check fails for missing brief targets, targets at/above 30%, or
+ * pages below the local minimum-unique-word heuristic. It is not a build hook.
  *
  * WHY
  * The Sep 2026 content brief ("Content_Links_Brief_sendmoneycompare_EN.docx")
@@ -10,17 +10,15 @@
  * §10-A step 7 requires re-scanning after each rewrite so that "each processed
  * page's match % must drop below 30%".
  *
- * SiteLiner's free crawl stops at 250 URLs, so those figures are a sample of
- * 167 of our 1,326 pages — and they sampled the good ones. Measured across the
- * whole build the same way, site-wide duplication was 79.5%, with 1,237 pages
- * above 30% and a median corridor page at 98.3% duplicate / 39 unique words.
- * A third-party sampler cannot be the acceptance test for a fix it cannot see
- * most of, so this reimplements the measurement over what we actually ship.
+ * This is a local diagnostic, not a reproduction of SiteLiner's proprietary
+ * metric. The corpus and matching method differ, so do not compare these
+ * percentages as a before/after SiteLiner result. A fresh SiteLiner crawl is
+ * still needed for the brief's explicit external acceptance requirement.
  *
  * METHOD
- * Word-level 10-gram shingling over <main> text, which is what SiteLiner
- * approximates. A word counts as duplicate when any shingle covering it also
- * occurs on another page. Reported as: duplicate share (SiteLiner's "match %")
+ * Word-level 10-gram shingling over <main> text. A word counts as duplicate
+ * when any shingle covering it also occurs on another page. Reported as a
+ * local duplicate share (not SiteLiner's "match %")
  * and unique words (what the page contributes that no other page does).
  *
  * The build HTML streams Suspense content into <div hidden> and splices it over
@@ -35,11 +33,19 @@
  *   npx tsx scripts/check-duplication.ts --blocks   # show the repeated passages
  */
 import { readFileSync, readdirSync, existsSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { CONTENT_BRIEF_REWRITES, REWRITE_THRESHOLD_PCT } from "../src/lib/content-brief-rewrites";
 
 const ROOT = join(__dirname, "..");
-const APP = join(ROOT, ".next/server/app");
+function optionPath(flag: string, fallback: string): string {
+  const i = process.argv.indexOf(flag);
+  if (i < 0) return fallback;
+  const value = process.argv[i + 1];
+  if (!value || value.startsWith("--")) throw new Error(`${flag} requires a path`);
+  return resolve(value);
+}
+const APP = optionPath("--build-dir", join(ROOT, ".next/server/app"));
+const OUTPUT = optionPath("--output", join(ROOT, "duplication-report.json"));
 const REPORT_ONLY = process.argv.includes("--report");
 const SHOW_BLOCKS = process.argv.includes("--blocks");
 const SECTION = (() => {
@@ -208,27 +214,31 @@ const byRoute = new Map(results.map((r) => [r.route, r]));
 const brief = CONTENT_BRIEF_REWRITES.map(([path, was]) => ({ path, was, now: byRoute.get(path) }));
 const measured = brief.filter((b) => b.now);
 const stillOver = measured.filter((b) => b.now!.pct >= REWRITE_THRESHOLD_PCT);
+const missing = brief.filter((b) => !b.now);
 
-console.log(`\n  Content brief §10-A — the 37 named pages (target: under ${REWRITE_THRESHOLD_PCT}%)`);
-console.log(`    passing: ${measured.length - stillOver.length}/${measured.length}`);
+console.log(`\n  Content brief §10-A — local diagnostic for the 37 named pages (target: under ${REWRITE_THRESHOLD_PCT}%)`);
+console.log(`    passing: ${measured.length - stillOver.length}/${brief.length}`);
 if (brief.length !== measured.length) {
   console.log(`    not in this build: ${brief.filter((b) => !b.now).map((b) => b.path).join(", ")}`);
 }
 for (const b of measured.sort((x, y) => y.now!.pct - x.now!.pct)) {
   const flag = b.now!.pct >= REWRITE_THRESHOLD_PCT ? "✗" : "✓";
   console.log(
-    `    ${flag} ${String(b.was).padStart(3)}% -> ${String(b.now!.pct).padStart(5)}%  ` +
+    `    ${flag} SiteLiner baseline ${String(b.was).padStart(3)}% | local ${String(b.now!.pct).padStart(5)}%  ` +
       `${String(b.now!.unique).padStart(5)} uniq  ${b.path}`,
   );
 }
 
 writeFileSync(
-  join(ROOT, "duplication-report.json"),
+  OUTPUT,
   JSON.stringify(
     {
       generated: new Date().toISOString(),
+      method: "Local 10-word shingle overlap; not comparable with SiteLiner percentages",
+      buildDirectory: APP,
       sitewide,
-      briefPagesPassing: `${measured.length - stillOver.length}/${measured.length}`,
+      briefPagesPassing: `${measured.length - stillOver.length}/${brief.length}`,
+      missingBriefPages: missing.map((b) => b.path),
       brief: measured.map((b) => ({ path: b.path, was: b.was, now: b.now!.pct, unique: b.now!.unique })),
       pages: scoped,
     },
@@ -236,17 +246,27 @@ writeFileSync(
     1,
   ),
 );
-console.log(`\n  wrote duplication-report.json`);
+console.log(`\n  wrote ${OUTPUT}`);
 
 if (REPORT_ONLY) process.exit(0);
 
+let failed = false;
+if (missing.length) {
+  failed = true;
+  console.error(`\n✗ ${missing.length} brief target(s) are missing or too short to measure.`);
+}
+if (stillOver.length) {
+  failed = true;
+  console.error(`\n✗ ${stillOver.length} brief target(s) remain at or above ${REWRITE_THRESHOLD_PCT}% local overlap. A SiteLiner re-scan is also required.`);
+}
 if (underUnique.length) {
+  failed = true;
   console.error(
     `\n✗ ${underUnique.length} page(s) contribute fewer than ${MIN_UNIQUE_WORDS} words found nowhere else.\n` +
-      `  The content brief's generation threshold: only build a page when unique data exists for it.\n` +
-      `  Either give these pages their own data, or stop generating them (src/lib/gone-corridors.ts).\n`,
+      `  Review their unique data and usefulness; this word-count heuristic alone\n` +
+      `  does not justify retiring a ranking URL.\n`,
   );
-  process.exit(1);
 }
+if (failed) process.exit(1);
 
-console.log(`\n✓ every page clears ${MIN_UNIQUE_WORDS} unique words\n`);
+console.log(`\n✓ all ${brief.length} brief targets pass the local overlap check, and every measured page clears ${MIN_UNIQUE_WORDS} unique words\n`);

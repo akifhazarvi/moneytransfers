@@ -16,20 +16,24 @@ lines, 17 KB against Google's 2 MB / 100,000-line cap. None of the 7 genuine
 editorial referrers (WorldFirst UK, eco.com, ARQ Finance, comparetravelcash.co.uk,
 OrbitRemit, Dots, OSL) appears anywhere in the list.
 
-Upload: **Search Console → Links → Disavow links → select the property → Upload**,
-then pick `disavow.txt`. Uploading replaces the previous list, so this file must
-stay the complete list rather than a delta.
+Upload is **not completed or automatically recommended**. Google says most
+sites do not need disavow; use it for substantial artificial links that caused,
+or are likely to cause, a manual action. This brief reports no manual action.
+Review the actual links and any purchased-link history first; tool labels and
+zero estimated traffic alone do not settle this decision.
+
+If justified, use Google's separate [disavow tool](https://search.google.com/search-console/disavow-links)
+with a URL-prefix property (Domain properties are unsupported). Uploading
+replaces the previous list, so reconcile it with any existing list first.
+See [Google's instructions](https://support.google.com/webmasters/answer/2648487?hl=en).
 
 Two things worth knowing before you click:
 
 - Disavow suppresses the link as a *ranking signal*. It does not block referral
   traffic and it does not remove the link. Nothing on the site changes.
-- The five `.ai` / `.io` entries in the "Other" cluster (`askbuy.ai`, `prori.ai`,
-  `recomate.ai`, `feedbackplatform.io`, `jake.eu`) are the only judgement calls in
-  the file — the rest are unambiguous PBN and casino spam. They look like AI
-  aggregators, and AI assistants are a channel that converts for us. Disavowing
-  them costs no traffic either way, but they are the five to eyeball if you want
-  to check anything.
+- Every proposed exclusion needs evidence. This includes entries such as
+  `askbuy.ai`, `prori.ai`, `recomate.ai`, `feedbackplatform.io` and `jake.eu`.
+  File syntax and workbook agreement do not prove a domain's classification.
 
 ## What is implemented in code
 
@@ -41,17 +45,32 @@ Two things worth knowing before you click:
 | §10-A step 6 + §5.4 visible author, date, sources | `src/components/PageByline.tsx` |
 | §4 the 37 pages to rewrite (and their exemption from retirement) | `src/lib/content-brief-rewrites.ts` |
 
-`npm run check:duplication` prints the 37 named pages against the share SiteLiner
-measured for each. That is the brief's §10-A step 7 acceptance test, run against
-our own build instead of a 250-URL third-party crawl.
+`npm run check:duplication` checks all 37 named pages and now fails for missing
+targets, targets at/above 30% local overlap, or pages under 50 unique words.
+It is a standalone diagnostic, not a build hook or a reproduction of SiteLiner.
+The corpus and algorithm differ; do not read its numbers as a SiteLiner
+before/after result. The brief's requested SiteLiner re-scan remains open.
+
+Editorial entries/changes now exist for all 37 pages: 10 comparisons, 11 company
+reviews, 7 corridors, 2 banks, 3 IBAN pages, 1 SWIFT page, 2 guides and 1 news
+article. Implementation is not the same as factual review or acceptance.
 
 ## What is not code, and is still open
 
-- **§4 / Stage 2 — rewriting the 37 pages.** Editorial writing per page: real
-  fees, timelines and providers for that corridor, local specifics, worked
-  examples. Template changes cannot deliver this; see the finding below.
+- **§4 / Stage 2 — acceptance and factual review.** The September 15 existing
+  build measured 0/37 targets under 30% local overlap. Concurrent workspace
+  changes correct the discovered Remitly limit; claim scope and other static
+  figures still need review. Further review and a fresh SiteLiner crawl
+  are needed; the local threshold is not a Google ranking rule.
 - **§5.2 / §5.3 — earning 1–2 links per category.** Outreach, by hand.
-- **Task B — the disavow upload.** Search Console, by hand.
+- **Task B — vendor audit and disavow decision/upload evidence.** External work.
+- **§5.4 — verified contact details.** The owner supplied a Denver address and
+  general email; these have now been added in local source with a map link.
+  No phone number or separate press/partnership mailboxes were supplied.
+- **§10-D — deployment, URL inspections and outcome monitoring.** Not verified.
+
+See the [detailed requirement checklist](REQUIREMENTS.md) and
+[validation report](../../reports/content-brief-validation-2026-09-15.md).
 
 ## Finding worth carrying into Stage 2
 

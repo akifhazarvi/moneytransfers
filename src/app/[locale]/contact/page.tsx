@@ -42,6 +42,24 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       <section className="py-12">
         <Container>
           <div className="max-w-3xl mx-auto space-y-10">
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                SendMoneyCompare
+              </h2>
+              <address className="not-italic text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                370 W 12th Ave<br />
+                Denver, CO 80204<br />
+                United States
+              </address>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=370+W+12th+Ave+Denver+CO+80204"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-2 text-sm text-[var(--color-primary)] hover:underline"
+              >
+                View address on Google Maps
+              </a>
+            </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mb-3">
@@ -56,10 +74,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   Questions about our comparison tools, data, or content.
                 </p>
                 <a
-                  href="mailto:akif@sendmoneycompare.com"
+                  href="mailto:info@sendmoneycompare.com"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  akif@sendmoneycompare.com
+                  info@sendmoneycompare.com
                 </a>
               </div>
 

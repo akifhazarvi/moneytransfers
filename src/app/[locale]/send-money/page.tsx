@@ -4,7 +4,8 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import SendMoneyClient from "@/components/SendMoneyClient";
 import CircleFlag from "@/components/CircleFlag";
-import { providers, currencies, getProviderName } from "@/data/providers";
+import { PageByline } from "@/components/PageByline";
+import { currencies, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -13,7 +14,7 @@ import { SITEMAP_RATE_PAIR_SLUGS } from "@/lib/sitemap-allowlists";
 import { allCorridors } from "@/data/corridors";
 import { shouldNoindex } from "@/lib/corridor-tiers";
 import { corridorPageRenders } from "@/lib/route-map";
-import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
+import { COVERAGE, SITE_STATS } from "@/lib/site-stats";
 
 /**
  * Crawlable index of every corridor the sitemap submits.
@@ -179,6 +180,9 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
             </svg>
             Reviewed on Trustpilot
           </a>
+        </div>
+        <div className="mb-6">
+          <PageByline updated="2026-09-15" cadence={null} />
         </div>
       </Container>
 
