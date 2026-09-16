@@ -10602,40 +10602,40 @@
     "date": "2026-09-16",
     "providers": {
       "lemfi": {
-        "rate": 0.6167,
+        "rate": 0.6159,
         "fee": 0,
-        "markup": 0.83,
-        "receiveAmount": 61.67
+        "markup": 1.05,
+        "receiveAmount": 61.59
       },
       "taptap-send": {
-        "rate": 0.618,
+        "rate": 0.619,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 61.8
+        "receiveAmount": 61.9
       },
       "bmo": {
-        "rate": 0.5984,
+        "rate": 0.5988,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 59.84
+        "receiveAmount": 59.88
       },
       "td-bank": {
-        "rate": 0.6041,
+        "rate": 0.6046,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 60.41
+        "receiveAmount": 60.46
       },
       "paypal": {
-        "rate": 0.5966,
+        "rate": 0.5968,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 57.87
+        "receiveAmount": 57.9
       },
       "bnc": {
-        "rate": 0.6089,
+        "rate": 0.6093,
         "fee": 5.95,
         "markup": null,
-        "receiveAmount": 57.26
+        "receiveAmount": 57.3
       },
       "rbc": {
         "rate": 0.6033,
@@ -10644,22 +10644,22 @@
         "receiveAmount": 60.33
       },
       "remitly": {
-        "rate": 0.6186,
+        "rate": 0.6193,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 61.86
+        "receiveAmount": 61.93
       },
       "western-union": {
-        "rate": 0.6076,
+        "rate": 0.6072,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 59.55
+        "receiveAmount": 59.51
       },
       "instarem": {
-        "rate": 0.6187,
+        "rate": 0.6191,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 61.87
+        "receiveAmount": 61.91
       }
     }
   }

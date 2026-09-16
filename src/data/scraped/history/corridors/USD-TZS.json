@@ -6214,10 +6214,10 @@
     "date": "2026-09-16",
     "providers": {
       "lemfi": {
-        "rate": 2617.26,
+        "rate": 2616.24,
         "fee": 0,
         "markup": 1.1,
-        "receiveAmount": 261726
+        "receiveAmount": 261624
       },
       "ria": {
         "rate": 2567.2365,
@@ -6226,10 +6226,10 @@
         "receiveAmount": 262666.33
       },
       "taptap-send": {
-        "rate": 2617.5,
+        "rate": 2612,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 261750
+        "receiveAmount": 261200
       },
       "western-union": {
         "rate": 2581.7512,
@@ -6238,16 +6238,16 @@
         "receiveAmount": 255619.19
       },
       "remitly": {
-        "rate": 2598.57,
+        "rate": 2599.67,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 259857
+        "receiveAmount": 259967
       },
       "wise": {
-        "rate": 2643.22,
-        "fee": 3.67,
+        "rate": 2645.22,
+        "fee": 4.11,
         "markup": null,
-        "receiveAmount": 254621.38
+        "receiveAmount": 253650.15
       }
     }
   }
