@@ -6,6 +6,7 @@
 
 import { type Provider, type TransferQuote } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
+import { renderTrustpilot } from "@/lib/ratings-tokens";
 
 // ── Types ──
 
@@ -466,13 +467,15 @@ function generateFAQs(
   // 2. Which is faster?
   faqs.push({
     q: `Which is faster, ${a.name} or ${b.name}?`,
-    a: `${a.name} typically completes transfers in ${a.transferSpeed}, while ${b.name} takes ${b.transferSpeed}. Actual speed depends on the corridor, payment method, and delivery option you choose. Bank transfers tend to be slower than card-funded transfers, and bank deposits are generally faster than cash pickups.`,
+    a: `${a.name} typically completes transfers in ${a.transferSpeed}, while ${b.name} takes ${b.transferSpeed}. Actual speed depends on the corridor, payment method, and delivery option you choose.`,
   });
 
   // 3. Safety/regulation
+  const aTrustpilot = renderTrustpilot(a.slug);
+  const bTrustpilot = renderTrustpilot(b.slug);
   faqs.push({
     q: `Are ${a.name} and ${b.name} safe to use?`,
-    a: `Yes, both are regulated money transfer services. ${a.name} is regulated by ${a.regulators.join(", ")} and has a ${a.rating.toFixed(1)}/5 Trustpilot rating. ${b.name} is regulated by ${b.regulators.join(", ")} with a ${b.rating.toFixed(1)}/5 Trustpilot rating. Both companies are required to safeguard customer funds under their respective regulatory frameworks.`,
+    a: `Yes, both are regulated money transfer services. ${a.name} is regulated by ${a.regulators.join(", ")}${aTrustpilot ? ` and has a ${aTrustpilot} Trustpilot rating` : ""}. ${b.name} is regulated by ${b.regulators.join(", ")}${bTrustpilot ? ` with a ${bTrustpilot} Trustpilot rating` : ""}.`,
   });
 
   // 4. Transfer limits
@@ -480,7 +483,7 @@ function generateFAQs(
   const bMax = b.maxTransfer ? `$${b.maxTransfer.toLocaleString()}` : "no published upper limit";
   faqs.push({
     q: `What are the transfer limits for ${a.name} vs ${b.name}?`,
-    a: `${a.name} has a maximum transfer of ${aMax} (minimum $${a.minTransfer}), while ${b.name} allows up to ${bMax} (minimum $${b.minTransfer}). Limits may vary by corridor, account verification level, and payment method. New accounts typically start with lower limits that increase over time.`,
+    a: `${a.name} has a maximum transfer of ${aMax} (minimum $${a.minTransfer}), while ${b.name} allows up to ${bMax} (minimum $${b.minTransfer}).`,
   });
 
   // 5. Delivery methods (if they differ)
