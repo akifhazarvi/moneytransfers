@@ -619,7 +619,7 @@ export const newsItems: NewsItem[] = [
 <p>Cash transfers remain significantly more expensive — averaging 5–7% total cost at agent locations — and now carry the additional 1% tax burden. For a $1,000 transfer, switching from a cash agent to a digital app saves <strong>$40–$70</strong>.</p>
 
 <h2>Winners and losers</h2>
-<p>The clear winners are digital-first providers. <a href="/companies/remitly">Remitly</a> reports that Mexico is now its fastest-growing corridor by transaction count. <a href="/companies/wise">Wise</a> offers the mid-market exchange rate with 0% markup — consistently the cheapest option for bank-to-bank transfers to Mexico.</p>
+<p>The clear winners are digital-first providers. <a href="/companies/remitly">Remitly</a> reports that Mexico is now its fastest-growing corridor by transaction count. <a href="/companies/wise">Wise</a> offers the mid-market exchange rate with 0% markup on this corridor — a real advantage, though the measured total-cost leader here is someone else: {{CORRIDOR_LEADER:USD:MXN}}.</p>
 
 <p>The losers are traditional agent networks. <a href="/companies/western-union">Western Union</a>, whose CEO recently <a href="/news/western-union-ceo-digital-competition-2026">acknowledged losing ground to digital rivals</a>, still operates thousands of agent locations across Mexico but is seeing digital transactions grow 3x faster than in-person visits. <a href="/companies/moneygram">MoneyGram</a> faces similar pressure.</p>
 
@@ -1449,7 +1449,7 @@ export const newsItems: NewsItem[] = [
 
 <h2>Frequently asked questions</h2>
 <h3>What is the cheapest way to send money from the UK to Pakistan in 2026?</h3>
-<p>As of April 2026, ACE Money Transfer, Wise, and Remitly consistently deliver the most rupees per pound on the GBP to PKR corridor. Differences of 5,000–15,000 PKR per £1,000 are common between the best and worst providers on any given day — compare before every transfer at our <a href="/send-money/uk-to-pakistan">UK to Pakistan comparison page</a>.</p>
+<p>ACE Money Transfer, Wise, and Remitly are among the more visible app-based names on the GBP to PKR corridor, but they are not the measured leader: {{CORRIDOR_LEADER:GBP:PKR}}. Differences of 5,000–15,000 PKR per £1,000 are common between the best and worst providers on any given day — compare before every transfer at our <a href="/send-money/uk-to-pakistan">UK to Pakistan comparison page</a>.</p>
 
 <h3>How much did Pakistan receive in remittances in February 2026?</h3>
 <p>Pakistan received <strong>$3.3 billion in remittances in February 2026</strong>, with the UK contributing $532 million (down 7% from January's $575M). Full-year inflows are projected to reach a record $41 billion, up from $38B in 2025.</p>
@@ -1558,7 +1558,7 @@ export const newsItems: NewsItem[] = [
 <p>For most senders, now is fine. Provider choice saves more than timing: the cheapest USD/INR provider typically delivers 1–3% more rupees than the most expensive on the same day, versus a 0.3–1% typical weekly rate swing. If you're sending over $30,000, consider a forward contract via <a href="/companies/ofx">OFX</a> or <a href="/companies/currencies-direct">Currencies Direct</a>.</p>
 
 <h3>What's the best app to send USD to INR in 2026?</h3>
-<p>On the <a href="/send-money/usa-to-india">USA→India corridor</a>, Wise, Remitly, and Instarem consistently lead on total INR delivered. Wise uses the mid-market rate with a fee of ~0.4–0.6%. Remitly's Economy tier is often the cheapest; Express is fastest. Instarem offers competitive rates with zero fees for first transfers.</p>
+<p>On the <a href="/send-money/usa-to-india">USA→India corridor</a>, {{CORRIDOR_LEADER:USD:INR}}. Wise, Remitly and Instarem are the names most associated with this route: Wise uses the mid-market rate with a fee of ~0.4–0.6%, Remitly's Economy tier undercuts its own faster Express option, and Instarem offers competitive rates with zero fees for first transfers — but none of the three is the standing leader on our measured record, so compare live rates before sending.</p>
 
 <h3>How much has the rupee fallen against the dollar in the past year?</h3>
 <p>INR is <strong>down 9.18%</strong> against USD in the 12 months to April 20, 2026, trading at ₹92.98 versus roughly ₹85 a year ago. For a $1,000 transfer, that's ~₹7,800 more rupees delivered than last April.</p>
@@ -1761,7 +1761,7 @@ export const newsItems: NewsItem[] = [
 <p>Central bank rate decisions are the single biggest driver of exchange rate moves. When the Fed cuts rates, the dollar typically weakens — bad if you're sending USD abroad (your recipient gets less). When the ECB hikes, the euro typically strengthens — good if you're sending EUR, bad if you're buying EUR with another currency. On a $5,000 transfer, a 1% rate move equals about $50 — usually smaller than the gap between the cheapest and most expensive provider. <strong>Pick the provider first, time the transfer second.</strong> See our full guide to <a href="/news/central-bank-super-week-march-2026">how central bank decisions affect your transfers</a>.</p>
 
 <h3>Which provider has the best USD to INR rate in May 2026?</h3>
-<p>On the <a href="/send-money/usa-to-india">USA → India corridor</a>, Wise, Remitly, and Instarem consistently lead on total INR delivered. <a href="/companies/wise">Wise</a> uses the mid-market rate with a fee of ~0.4–0.6%. <a href="/companies/remitly">Remitly</a>'s Economy tier is often cheapest; Express is fastest. <a href="/companies/instarem">Instarem</a> offers competitive rates with zero fees for first transfers.</p>
+<p>On the <a href="/send-money/usa-to-india">USA → India corridor</a>, {{CORRIDOR_LEADER:USD:INR}}. <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a> and <a href="/companies/instarem">Instarem</a> are the names most associated with this route: Wise uses the mid-market rate with a fee of ~0.4–0.6%, Remitly's Economy tier undercuts its own faster Express option, and Instarem offers competitive rates with zero fees for first transfers — but none of the three is the standing leader on our measured record, so compare live rates before sending.</p>
 
 <h2>Live rates and tools</h2>
 <ul>

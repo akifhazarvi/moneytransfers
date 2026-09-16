@@ -43,6 +43,7 @@
 import { corridors } from "../src/data/corridors";
 import { getRateInsight } from "../src/lib/rate-history";
 import { corridorDeepBlocks } from "../src/data/corridor-deep-content";
+import { newsItems } from "../src/data/news";
 import { swedishCorridorBlocks } from "../src/data/sweden-content";
 import { corridorEditorialNotes } from "../src/data/corridor-editorial-notes";
 import { blogPosts } from "../src/data/blog-posts";
@@ -320,8 +321,44 @@ scanBlocks(
   SUPERLATIVE,
 );
 
+/**
+ * News articles (src/data/news.ts). Not covered until 2026-09-16 — same blind
+ * spot as guides had before 2026-09-11, just never extended here. `content` is
+ * one HTML string rather than blogPosts' sections[]/faqs[], so it gets the same
+ * markup-to-sentence treatment as the guide scan, just with one field instead
+ * of several. No newsIsIndexable() exists (unlike guides), so every item is
+ * scanned rather than filtered.
+ */
+for (const item of newsItems) {
+  const fields: [string, string][] = [["excerpt", item.excerpt ?? ""], ["content", item.content ?? ""]];
+  for (const [field, text] of fields) {
+    const plain = String(text)
+      .replace(/<\/(h[1-6]|p|li|td|th|tr|div|section)>/gi, ". ")
+      .replace(/<br\s*\/?>/gi, ". ")
+      .replace(/<[^>]+>/g, " ");
+    for (const sentence of plain.split(/(?<=\.)\s+/)) {
+      if (!SUPERLATIVE.test(sentence)) continue;
+      if (!assertsAWinner(sentence)) continue;
+      const named = NAMES.filter((n) => sentence.toLowerCase().includes(n.toLowerCase()));
+      if (!named.length) continue;
+      if (isPairwiseComparison(sentence, NAMES)) continue;
+      const pair = sentence.match(PAIR) ?? plain.match(PAIR);
+      if (!pair) continue;
+      const record = habitualLeaders(pair[1], pair[2]);
+      if (!record) continue;
+      scanned++;
+      if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; noteAgreeing(`news/${item.slug} [${field}]`, sentence); continue; }
+      problems.push({
+        slug: `news/${item.slug}`, field, claimed: named.join("/"),
+        leader: pair[1] + "->" + pair[2], basis: record.basis,
+        sentence: sentence.trim().slice(0, 160),
+      });
+    }
+  }
+}
+
 console.log(
-  `check:corridor-claims — ${corridors.length} corridors + ${Object.keys(corridorDeepBlocks).length} deep blocks + ${Object.keys(swedishCorridorBlocks).length} Swedish blocks, ${scanned} superlative claims naming a provider\n`,
+  `check:corridor-claims — ${corridors.length} corridors + ${Object.keys(corridorDeepBlocks).length} deep blocks + ${Object.keys(swedishCorridorBlocks).length} Swedish blocks + ${newsItems.length} news articles, ${scanned} superlative claims naming a provider\n`,
 );
 
 if (problems.length) {
