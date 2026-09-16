@@ -36,6 +36,7 @@
  */
 import { readFileSync, readdirSync, existsSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { CONTENT_BRIEF_REWRITES, REWRITE_THRESHOLD_PCT } from "../src/lib/content-brief-rewrites";
 
 const ROOT = join(__dirname, "..");
 const APP = join(ROOT, ".next/server/app");
@@ -199,9 +200,41 @@ if (SHOW_BLOCKS) {
   }
 }
 
+// The brief's acceptance test, §10-A step 7: "Re-scan with SiteLiner: each
+// processed page's match % must drop below 30%." These are the 37 pages it
+// named, with the share SiteLiner measured for each, so progress on the pages
+// the brief is actually scored on is visible rather than buried in the totals.
+const byRoute = new Map(results.map((r) => [r.route, r]));
+const brief = CONTENT_BRIEF_REWRITES.map(([path, was]) => ({ path, was, now: byRoute.get(path) }));
+const measured = brief.filter((b) => b.now);
+const stillOver = measured.filter((b) => b.now!.pct >= REWRITE_THRESHOLD_PCT);
+
+console.log(`\n  Content brief §10-A — the 37 named pages (target: under ${REWRITE_THRESHOLD_PCT}%)`);
+console.log(`    passing: ${measured.length - stillOver.length}/${measured.length}`);
+if (brief.length !== measured.length) {
+  console.log(`    not in this build: ${brief.filter((b) => !b.now).map((b) => b.path).join(", ")}`);
+}
+for (const b of measured.sort((x, y) => y.now!.pct - x.now!.pct)) {
+  const flag = b.now!.pct >= REWRITE_THRESHOLD_PCT ? "✗" : "✓";
+  console.log(
+    `    ${flag} ${String(b.was).padStart(3)}% -> ${String(b.now!.pct).padStart(5)}%  ` +
+      `${String(b.now!.unique).padStart(5)} uniq  ${b.path}`,
+  );
+}
+
 writeFileSync(
   join(ROOT, "duplication-report.json"),
-  JSON.stringify({ generated: new Date().toISOString(), sitewide, pages: scoped }, null, 1),
+  JSON.stringify(
+    {
+      generated: new Date().toISOString(),
+      sitewide,
+      briefPagesPassing: `${measured.length - stillOver.length}/${measured.length}`,
+      brief: measured.map((b) => ({ path: b.path, was: b.was, now: b.now!.pct, unique: b.now!.unique })),
+      pages: scoped,
+    },
+    null,
+    1,
+  ),
 );
 console.log(`\n  wrote duplication-report.json`);
 

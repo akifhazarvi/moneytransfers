@@ -20,6 +20,8 @@ import { getIbanEditorial, getIbanFaqs } from "@/data/iban-content";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { INDEXED_IBAN_SLUGS as indexedIbanCountries } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
+import { PageByline } from "@/components/PageByline";
+import { quoteDataDate } from "@/lib/unified-quotes";
 
 // Default sending currency for the inline comparison. USD is the largest
 // outbound remittance market and the site's default quote currency; the widget
@@ -465,6 +467,15 @@ export default async function IbanCountryPage({ params }: Props) {
                   )}
                 </div>
               </div>
+            </div>
+            {/* Named author, review date and sources — content brief §5.4 /
+                §10-A step 6. IBAN formats are reference data people act on when
+                moving money, so the page should say who stands behind it. */}
+            <div className="mb-4">
+              <PageByline
+                updated={quoteDataDate ?? new Date().toISOString().split("T")[0]}
+                cadence="IBAN structures from the SWIFT IBAN Registry"
+              />
             </div>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
               The International Bank Account Number (IBAN) for {name} is <strong className="font-medium text-[var(--color-on-surface)]">{country.ibanLength} characters</strong> long

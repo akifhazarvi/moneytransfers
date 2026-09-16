@@ -26,6 +26,8 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { fitTitle } from "@/lib/seo-title";
 import { comparePageHref } from "@/lib/route-map";
+import { PageByline } from "@/components/PageByline";
+import { quoteDataDate } from "@/lib/unified-quotes";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -198,6 +200,12 @@ function DefaultReview({
       </div>
 
       <Container className="py-8">
+        {/* Named author, review date and sources — content brief §5.4 / §10-A
+            step 6. A provider review is YMYL finance content; an unattributed
+            one gives E-E-A-T nothing to read. */}
+        <div className="mb-6">
+          <PageByline updated={quoteDataDate ?? new Date().toISOString().split("T")[0]} reviewerSlug="awais-imran" />
+        </div>
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             {/* Header card */}

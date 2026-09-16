@@ -214,11 +214,11 @@ export function generateComparisonContent(a: Provider, b: Provider): ComparisonC
   const intro = generateIntro(a, b, costWinner, corridorData);
 
   // When to use each
-  const whenToUseA = generateWhenToUse(a, b);
-  const whenToUseB = generateWhenToUse(b, a);
+  const whenToUseA = generateWhenToUse(a, b, corridorData, "a");
+  const whenToUseB = generateWhenToUse(b, a, corridorData, "b");
 
   // Key differences
-  const keyDifferences = generateKeyDifferences(a, b);
+  const keyDifferences = generateKeyDifferences(a, b, corridorData);
 
   // FAQs
   const faqs = generateFAQs(a, b, corridorData, costWinner, overallWinner);
@@ -270,8 +270,59 @@ function generateIntro(
 
 // ── When to use generator ──
 
-function generateWhenToUse(primary: Provider, other: Provider): string[] {
+/**
+ * Median of a list. Medians, not means, throughout this file: a single corridor
+ * where our own mid-market benchmark is unreliable (USD->NGN reads -3.16%) is
+ * enough to move a mean far enough to misdescribe a provider.
+ */
+function median(xs: number[]): number | null {
+  if (!xs.length) return null;
+  const s = [...xs].sort((x, y) => x - y);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+
+/** What this pair actually did on the corridors we price, for this page only. */
+function measuredEdge(corridorData: CorridorComparison[], side: "a" | "b") {
+  const priced = corridorData.filter((c) => c.quoteA && c.quoteB);
+  const won = priced.filter((c) => c.winner === side);
+  const best = [...won].sort((x, y) => (y.savings ?? 0) - (x.savings ?? 0))[0];
+  const feeSide = side === "a" ? "quoteA" : "quoteB";
+  const medianFee = median(priced.map((c) => c[feeSide]!.fee));
+  return { priced, won, best, medianFee };
+}
+
+function generateWhenToUse(
+  primary: Provider,
+  other: Provider,
+  corridorData: CorridorComparison[],
+  side: "a" | "b",
+): string[] {
   const reasons: string[] = [];
+
+  // Lead with what this pair measured on this page, not a claim that would read
+  // the same on every comparison featuring this provider. The content brief
+  // (§10-A) asks for blocks that "depend on that page's own data"; a canned
+  // "you want the real mid-market rate" line is the opposite of that, and it is
+  // why /compare/* measured 74-79% duplicate against its own siblings.
+  const { priced, won, best, medianFee } = measuredEdge(corridorData, side);
+  if (priced.length && won.length) {
+    reasons.push(
+      `You send on the routes where it actually won: ${primary.name} delivered more than ${other.name} ` +
+        `on ${won.length} of the ${priced.length} corridors we price (${won.map((c) => c.label).join(", ")})` +
+        (best?.savings
+          ? `, by as much as ${best.symbol}${best.savings.toFixed(2)} on ${best.label} for ${best.currencySymbol}${best.amount.toLocaleString()}`
+          : "") +
+        ".",
+    );
+  }
+  if (medianFee !== null) {
+    reasons.push(
+      medianFee === 0
+        ? `You want no upfront fee on these routes — ${primary.name} quoted a zero transfer fee across the corridors we price, so its cost sits entirely in the exchange rate.`
+        : `You are comparing total cost, not headline fee — ${primary.name}'s median transfer fee across the corridors we price was ${best?.currencySymbol ?? "$"}${medianFee.toFixed(2)}.`,
+    );
+  }
 
   if (usesMidMarketRate(primary)) {
     reasons.push("You want the real mid-market exchange rate with no hidden markup");
@@ -322,8 +373,30 @@ function generateWhenToUse(primary: Provider, other: Provider): string[] {
 
 // ── Key differences ──
 
-function generateKeyDifferences(a: Provider, b: Provider): string[] {
+function generateKeyDifferences(
+  a: Provider,
+  b: Provider,
+  corridorData: CorridorComparison[],
+): string[] {
   const diffs: string[] = [];
+
+  // Measured first. Everything below this is a specification both providers
+  // publish, so it reads identically on every page either one appears on; this
+  // row is the only one that belongs to this pair.
+  const priced = corridorData.filter((c) => c.quoteA && c.quoteB);
+  if (priced.length) {
+    const winsA = priced.filter((c) => c.winner === "a");
+    const winsB = priced.filter((c) => c.winner === "b");
+    const gaps = priced.map((c) => Math.abs((c.quoteA!.receiveAmount - c.quoteB!.receiveAmount) / c.quoteB!.receiveAmount) * 100);
+    const medGap = median(gaps);
+    diffs.push(
+      `**Measured cost on our sample corridors**: across ${priced.length} corridors priced from collected quotes, ` +
+        `${a.name} delivered more on ${winsA.length} (${winsA.map((c) => c.label).join(", ") || "none"}) and ` +
+        `${b.name} on ${winsB.length} (${winsB.map((c) => c.label).join(", ") || "none"})` +
+        (medGap !== null ? `. The median gap between them was ${medGap.toFixed(2)}% of the amount received` : "") +
+        `. These are estimates from collected pricing, not guaranteed quotes.`,
+    );
+  }
 
   // Fee model
   diffs.push(`**Fee model**: ${a.name} charges ${a.feeStructure}, while ${b.name} charges ${b.feeStructure}.`);
