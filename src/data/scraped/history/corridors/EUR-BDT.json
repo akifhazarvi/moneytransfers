@@ -13182,10 +13182,10 @@
     "date": "2026-09-16",
     "providers": {
       "lemfi": {
-        "rate": 141.9,
+        "rate": 141.6,
         "fee": 0,
-        "markup": -0.01,
-        "receiveAmount": 14190
+        "markup": -0.35,
+        "receiveAmount": 14160
       },
       "moneygram": {
         "rate": 139.361,
@@ -13194,22 +13194,22 @@
         "receiveAmount": 13658.77
       },
       "skrill": {
-        "rate": 135.1627,
+        "rate": 133.9806,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 13516.27
+        "receiveAmount": 13398.06
       },
       "taptap-send": {
-        "rate": 141.794,
+        "rate": 141.125,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14179.4
+        "receiveAmount": 14112.5
       },
       "western-union": {
-        "rate": 140.3597,
+        "rate": 135.9449,
         "fee": 0.99,
-        "markup": 1.27,
-        "receiveAmount": 13897.01
+        "markup": null,
+        "receiveAmount": 13459.9
       },
       "dahabshiil": {
         "rate": 140.2931,
@@ -13224,10 +13224,10 @@
         "receiveAmount": 13599.57
       },
       "instarem": {
-        "rate": 141.104,
+        "rate": 139.8466,
         "fee": 0,
-        "markup": 0.75,
-        "receiveAmount": 14110.4
+        "markup": null,
+        "receiveAmount": 13984.66
       },
       "xe": {
         "rate": 140.9662,
@@ -13248,10 +13248,10 @@
         "receiveAmount": 14013.25
       },
       "remitly": {
-        "rate": 141.45,
+        "rate": 140.5,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 14004.96
+        "receiveAmount": 13910.91
       },
       "revolut": {
         "rate": 141.7091,
@@ -13260,10 +13260,10 @@
         "receiveAmount": 13844.98
       },
       "wise": {
-        "rate": 142.043,
-        "fee": 0,
+        "rate": 141.144,
+        "fee": 3.43,
         "markup": null,
-        "receiveAmount": 14204.3
+        "receiveAmount": 13630.28
       },
       "ria": {
         "rate": 141.32,

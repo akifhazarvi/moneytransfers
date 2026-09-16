@@ -15007,13 +15007,13 @@
       "instarem": {
         "rate": 121.8907,
         "fee": 0,
-        "markup": 1.07,
+        "markup": null,
         "receiveAmount": 12189.07
       },
       "lemfi": {
         "rate": 122.58,
         "fee": 0,
-        "markup": 0.33,
+        "markup": 0.41,
         "receiveAmount": 12258
       },
       "moneygram": {
@@ -15029,10 +15029,10 @@
         "receiveAmount": 12334.14
       },
       "taptap-send": {
-        "rate": 122.2,
+        "rate": 122.15,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 12220
+        "receiveAmount": 12215
       },
       "boss-money": {
         "rate": 121.3612,
@@ -15043,7 +15043,7 @@
       "western-union": {
         "rate": 121.869,
         "fee": 0.99,
-        "markup": 1.09,
+        "markup": null,
         "receiveAmount": 12066.25
       },
       "worldremit": {
@@ -15071,10 +15071,10 @@
         "receiveAmount": 12196.33
       },
       "remitly": {
-        "rate": 122.29,
-        "fee": 3.99,
+        "rate": 122.28,
+        "fee": 0.99,
         "markup": null,
-        "receiveAmount": 11741.06
+        "receiveAmount": 12106.94
       },
       "wise": {
         "rate": 123.125,

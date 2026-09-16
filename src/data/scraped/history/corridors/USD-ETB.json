@@ -9096,7 +9096,7 @@
       "lemfi": {
         "rate": 159.87,
         "fee": 0,
-        "markup": 1.4,
+        "markup": 0.72,
         "receiveAmount": 15987
       },
       "moneygram": {
@@ -9142,10 +9142,10 @@
         "receiveAmount": 15814.57
       },
       "wise": {
-        "rate": 160.941,
-        "fee": 0,
+        "rate": 160.783,
+        "fee": 8.21,
         "markup": null,
-        "receiveAmount": 16094.1
+        "receiveAmount": 14758.27
       }
     }
   }

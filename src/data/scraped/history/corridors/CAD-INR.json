@@ -17321,22 +17321,22 @@
         "receiveAmount": 4668.29
       },
       "western-union": {
-        "rate": 68.6109,
+        "rate": 68.6639,
         "fee": 1.99,
-        "markup": 0.34,
-        "receiveAmount": 6724.56
+        "markup": null,
+        "receiveAmount": 6729.75
       },
       "worldremit": {
-        "rate": 68.8587,
-        "fee": 0.99,
-        "markup": -0.02,
-        "receiveAmount": 6817.7
+        "rate": 68.6372,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6863.72
       },
       "instarem": {
-        "rate": 68.3811,
+        "rate": 68.1161,
         "fee": 0,
-        "markup": 0.67,
-        "receiveAmount": 6838.11
+        "markup": null,
+        "receiveAmount": 6811.61
       },
       "paysend": {
         "rate": 68.6665,
@@ -17351,10 +17351,10 @@
         "receiveAmount": 6796.13
       },
       "remitly": {
-        "rate": 68.53,
+        "rate": 68.2571,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 6716.63
+        "receiveAmount": 6689.88
       },
       "ria": {
         "rate": 68.3856,
@@ -17363,34 +17363,34 @@
         "receiveAmount": 7043.09
       },
       "taptap-send": {
-        "rate": 69,
+        "rate": 68.8,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6900
+        "receiveAmount": 6880
       },
       "bmo": {
-        "rate": 66.9568,
+        "rate": 66.7426,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6695.68
+        "receiveAmount": 6674.26
       },
       "td-bank": {
-        "rate": 66.5068,
+        "rate": 66.2469,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6650.68
+        "receiveAmount": 6624.69
       },
       "rbc": {
-        "rate": 66.6887,
+        "rate": 66.2469,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6668.87
+        "receiveAmount": 6624.69
       },
       "wise": {
-        "rate": 68.8207,
+        "rate": 68.6504,
         "fee": 2.57,
         "markup": null,
-        "receiveAmount": 6705.2
+        "receiveAmount": 6688.61
       }
     }
   }

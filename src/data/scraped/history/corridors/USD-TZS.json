@@ -6216,7 +6216,7 @@
       "lemfi": {
         "rate": 2616.24,
         "fee": 0,
-        "markup": 0.94,
+        "markup": 1.09,
         "receiveAmount": 261624
       },
       "ria": {
@@ -6232,22 +6232,22 @@
         "receiveAmount": 261200
       },
       "western-union": {
-        "rate": 2581.7512,
+        "rate": 2580.375,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 255619.19
+        "receiveAmount": 255482.93
       },
       "remitly": {
-        "rate": 2599.67,
+        "rate": 2600.52,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 259967
+        "receiveAmount": 260052
       },
       "wise": {
-        "rate": 2641.32,
-        "fee": 0,
+        "rate": 2641.16,
+        "fee": 3.65,
         "markup": null,
-        "receiveAmount": 264132
+        "receiveAmount": 254475.77
       }
     }
   }

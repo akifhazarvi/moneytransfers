@@ -13979,15 +13979,15 @@
     "date": "2026-09-16",
     "providers": {
       "instarem": {
-        "rate": 1317.5569,
+        "rate": 1319.535,
         "fee": 0,
-        "markup": 0.71,
-        "receiveAmount": 131755.69
+        "markup": null,
+        "receiveAmount": 131953.5
       },
       "lemfi": {
         "rate": 1357,
         "fee": 0,
-        "markup": -2.27,
+        "markup": -1.98,
         "receiveAmount": 135700
       },
       "moneygram": {
@@ -14017,7 +14017,7 @@
       "western-union": {
         "rate": 1347.9324,
         "fee": 0.99,
-        "markup": -1.58,
+        "markup": null,
         "receiveAmount": 133458.79
       },
       "worldremit": {
@@ -14039,16 +14039,16 @@
         "receiveAmount": 135832.9
       },
       "remitly": {
-        "rate": 1347.85,
+        "rate": 1347.97,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 134785
+        "receiveAmount": 134797
       },
       "wise": {
         "rate": 1371.63,
-        "fee": 0,
+        "fee": 1.71,
         "markup": null,
-        "receiveAmount": 137163
+        "receiveAmount": 134817.51
       },
       "xoom": {
         "rate": 1320.6288,

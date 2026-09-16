@@ -2623,14 +2623,14 @@
       "lemfi": {
         "rate": 70.17,
         "fee": 0,
-        "markup": 0.05,
+        "markup": -0.44,
         "receiveAmount": 7017
       },
       "taptap-send": {
-        "rate": 70.17,
+        "rate": 70,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 7017
+        "receiveAmount": 7000
       }
     }
   }

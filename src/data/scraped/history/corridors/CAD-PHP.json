@@ -18893,10 +18893,10 @@
     "date": "2026-09-16",
     "providers": {
       "lemfi": {
-        "rate": 44.75,
+        "rate": 44.6,
         "fee": 2,
-        "markup": 0.53,
-        "receiveAmount": 4385.5
+        "markup": 0.65,
+        "receiveAmount": 4370.8
       },
       "moneygram": {
         "rate": 44.7369,
@@ -18905,10 +18905,10 @@
         "receiveAmount": 4317.56
       },
       "western-union": {
-        "rate": 44.3816,
+        "rate": 44.3934,
         "fee": 0.99,
-        "markup": 1.43,
-        "receiveAmount": 4394.22
+        "markup": null,
+        "receiveAmount": 4395.39
       },
       "worldremit": {
         "rate": 44.4541,
@@ -18917,10 +18917,10 @@
         "receiveAmount": 4268.04
       },
       "instarem": {
-        "rate": 44.6102,
+        "rate": 44.4984,
         "fee": 0,
-        "markup": 0.93,
-        "receiveAmount": 4461.02
+        "markup": null,
+        "receiveAmount": 4449.84
       },
       "xe": {
         "rate": 44.6572,
@@ -18947,16 +18947,16 @@
         "receiveAmount": 4412.54
       },
       "remitly": {
-        "rate": 44.69,
+        "rate": 44.53,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4469
+        "receiveAmount": 4453
       },
       "wise": {
-        "rate": 44.9941,
-        "fee": 0,
+        "rate": 44.9097,
+        "fee": 2.51,
         "markup": null,
-        "receiveAmount": 4499.41
+        "receiveAmount": 4378.25
       },
       "ria": {
         "rate": 44.3418,
@@ -18971,22 +18971,22 @@
         "receiveAmount": 4440
       },
       "paypal": {
-        "rate": 43.186,
+        "rate": 43.2121,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 4103.1
+        "receiveAmount": 4105.58
       },
       "rbc": {
-        "rate": 43.8174,
+        "rate": 43.7328,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4381.74
+        "receiveAmount": 4373.28
       },
       "bmo": {
-        "rate": 41.9044,
+        "rate": 41.7841,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4190.44
+        "receiveAmount": 4178.41
       },
       "dahabshiil": {
         "rate": 44.7081,
