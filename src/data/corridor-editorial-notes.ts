@@ -70,8 +70,8 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
       "Wallet payment: check the supported wallet and receiving allowance before paying.",
       "Repeat family support: request a returning-customer quote so the first-transfer promotion does not set a misleading budget."
     ],
-    "warningTitle": "Confirm the final quote under the same conditions",
-    "warningBody": "Use the sources in the questions below to check recipient requirements and provider restrictions. The comparison estimates price; it does not verify every account, payment purpose or delivery option."
+    "warningTitle": "Ask whether your provider uses Raast for the final leg",
+    "warningBody": "Raast, Pakistan's instant payment system, can credit a bank account within seconds once your dollars have converted and landed in-country — but not every provider routes through it yet. One still using standard domestic clearing can take a business day for that same last-mile step, even after the money has already converted."
   },
   "usa-to-mexico": {
     title: "What matters on the USA to Mexico corridor",
@@ -96,8 +96,8 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
       "Cash needs: ask whether pickup or withdrawal is practical and what it costs the recipient.",
       "A deadline: use the complete funding-to-arrival estimate, not just the local PHP payout speed."
     ],
-    "warningTitle": "Confirm the final quote under the same conditions",
-    "warningBody": "Use the sources in the questions below to check recipient requirements and provider restrictions. The comparison estimates price; it does not verify every account, payment purpose or delivery option."
+    "warningTitle": "InstaPay is instant under ₱50,000; larger transfers use PESONet",
+    "warningBody": "The Philippines runs two domestic rails: InstaPay settles in seconds but caps each transaction at ₱50,000 (roughly $900), while PESONet handles larger amounts through scheduled same-day batches rather than real time. If your transfer is near that threshold, ask which rail your provider uses — it changes how fast the peso actually lands."
   },
   "uk-to-europe": {
     title: "What matters on the UK to Europe corridor",
