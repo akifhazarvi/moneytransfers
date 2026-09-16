@@ -926,7 +926,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>No SWIFT required — uses local payment rails, 0% markup</td></tr>
+<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>No SWIFT required — uses local payment rails, {{AVG_MARKUP:wise}}</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Handles all routing internally, Express option available</td></tr>
 <tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/xe">XE</a></td><td>No SWIFT needed, zero fees, strong currency tools</td></tr>
 </tbody>
@@ -967,6 +967,11 @@ const rawBlogPosts: BlogPost[] = [
 </ul>
 <p>For a European transfer (e.g., <a href="/send-money/usa-to-europe">UK to Europe</a>), you typically need both: the IBAN to identify the recipient's account and the SWIFT code to route the payment to the right bank. For transfers to the US, you use a routing number + account number instead of an IBAN.</p>
 <p>Not all countries use IBANs — the US, Canada, Australia, and many Asian countries don't. But virtually all countries use SWIFT codes for international transfers. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry covers 80+ countries. For IBAN validation rules, see <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer">ISO 13616</a>.</p>`,
+      },
+      {
+        heading: "Your SWIFT Code Is Just the Address — Here's What Happens After",
+        content: `<p>A SWIFT code only identifies where a payment is going; it says nothing about how fast it gets there, and that's the part most explanations of SWIFT codes skip. As of 22 November 2025, SWIFT completed its migration of cross-border payment messaging to <a href="https://www.iso20022.org/" target="_blank" rel="noopener noreferrer">ISO 20022</a>, retiring the older MT-format messages that had carried international wires for decades. The practical effect: a payment now travels with structured data — purpose, sender and recipient details in dedicated fields rather than free text — which is why some transfers that used to stall on a missing detail now get resolved automatically.</p>
+<p>Every SWIFT payment also carries a <strong>UETR</strong> (Unique End-to-end Transaction Reference), the reference number your bank can use to trace a payment through <a href="https://www.swift.com/products/swift-gpi" target="_blank" rel="noopener noreferrer">SWIFT gpi</a>, the tracking layer most large banks now participate in. Published gpi data shows close to 60% of payments credited to the recipient within 30 minutes and nearly all within 24 hours — a meaningfully different picture from the "SWIFT takes days" reputation the network carries, though it depends on both banks in the chain actually supporting gpi, which not every bank worldwide does yet. Ask your bank for the UETR if a wire seems delayed; it is the fastest way to get a real answer rather than a guess.</p>`,
       },
       {
         heading: "Do You Always Need a SWIFT Code?",
