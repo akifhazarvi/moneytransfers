@@ -2056,12 +2056,12 @@ export default async function CorridorPage({ params }: Props) {
         // Aggregate payment methods from providers serving this corridor
         const paymentMethodMap = new Map<string, { speed: string; costLevel: "low" | "medium" | "high"; note: string }>();
         const methodDefaults: Record<string, { speed: string; costLevel: "low" | "medium" | "high"; note: string }> = {
-          "Bank Transfer": { speed: "1–3 business days", costLevel: "low", note: "Usually the cheapest option — lowest fees and no card processing charges" },
-          "Debit Card": { speed: "Minutes to hours", costLevel: "medium", note: "Fast and convenient — small card processing fee applies" },
-          "Credit Card": { speed: "Minutes to hours", costLevel: "high", note: "Fastest option but highest fees — card issuer may charge cash advance fee" },
-          "Apple Pay": { speed: "Minutes to hours", costLevel: "medium", note: "Convenient mobile payment — linked card fees apply" },
-          "Google Pay": { speed: "Minutes to hours", costLevel: "medium", note: "Convenient mobile payment — linked card fees apply" },
-          "Cash": { speed: "Varies", costLevel: "medium", note: "Pay cash at an agent location — available at select providers" },
+          "Bank Transfer": { speed: "1–3 business days", costLevel: "low", note: "Usually cheapest — no card fee" },
+          "Debit Card": { speed: "Minutes to hours", costLevel: "medium", note: "Fast, small card fee" },
+          "Credit Card": { speed: "Minutes to hours", costLevel: "high", note: "Fast but priciest — issuer may add a cash-advance fee" },
+          "Apple Pay": { speed: "Minutes to hours", costLevel: "medium", note: "Linked card's fee applies" },
+          "Google Pay": { speed: "Minutes to hours", costLevel: "medium", note: "Linked card's fee applies" },
+          "Cash": { speed: "Varies", costLevel: "medium", note: "Pay at an agent location, where offered" },
         };
         quotes.forEach((q) => {
           const p = providers.find((pr) => pr.slug === q.providerSlug);
@@ -2084,7 +2084,7 @@ export default async function CorridorPage({ params }: Props) {
                 Ways to send money to {corridor.toCountry}
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                Choose how you want to pay for your transfer. Each payment method has different costs and speeds.
+                Cost and speed both vary by how you pay.
               </p>
               {countryDetails.receivingNote && (
                 <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4 leading-relaxed">{countryDetails.receivingNote}</p>

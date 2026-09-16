@@ -79,8 +79,8 @@ const currencyToCountryCode: Record<string, string> = {
 
 const countryDetailsMap: Record<string, CountryDetails> = {
   pakistan: {
-    editorialUpdatedAt: "2026-09-11",
-    sources: [{"label": "Wise PKR requirements", "url": "https://wise.com/help/articles/2932334/guide-to-pkr-transfers"}, {"label": "Western Union US-to-Pakistan options", "url": "https://www.westernunion.com/us/en/send-money-to-pakistan.html"}],
+    editorialUpdatedAt: "2026-09-16",
+    sources: [{"label": "Wise PKR requirements", "url": "https://wise.com/help/articles/2932334/guide-to-pkr-transfers"}, {"label": "Western Union US-to-Pakistan options", "url": "https://www.westernunion.com/us/en/send-money-to-pakistan.html"}, {"label": "SBP Home Remittance", "url": "https://www.sbp.org.pk/our-operations/home-remittance"}],
     countryName: "Pakistan",
     countryCode: "PK",
     currency: "PKR",
@@ -111,13 +111,14 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     ],
     receivingNote: "Choose a method the recipient can use and confirm the complete arrival estimate. Local payout speed does not include every funding or verification step.",
     regulations: {
-      "inboundLimit": "Confirm the limit for your amount, payment purpose and recipient account directly with the chosen provider.",
+      "regulatoryBody": "State Bank of Pakistan (SBP)",
+      "inboundLimit": "No cap — SBP does not restrict how much can be remitted into Pakistan, and actively promotes inward remittances through the Pakistan Remittance Initiative (PRI), a joint SBP/Finance Ministry program running since 2009 to move transfers through formal banking channels rather than informal ones.",
       "documentationNeeded": [
         "Recipient details for the selected receiving method",
         "Any identity, payment-purpose or source-of-funds documents requested by the provider"
       ],
       "importantNotes": [
-        "Check account restrictions before paying. A price estimate does not verify recipient eligibility.",
+        "PRI's cost and speed incentives apply to transfers routed through formal channels — banks and licensed money transfer operators — not informal ones.",
         "Keep the confirmation and transfer reference in case the recipient needs the provider to trace the payment."
       ]
     },
@@ -134,8 +135,8 @@ const countryDetailsMap: Record<string, CountryDetails> = {
   },
 
   india: {
-    editorialUpdatedAt: "2026-09-11",
-    sources: [{"label": "Wise INR requirements", "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"}, {"label": "Remitly UK-to-India options", "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-india"}],
+    editorialUpdatedAt: "2026-09-16",
+    sources: [{"label": "Wise INR requirements", "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"}, {"label": "Remitly UK-to-India options", "url": "https://www.remitly.com/gb/en/money-transfer/send-money-to-india"}, {"label": "RBI Master Direction — Money Transfer Service Scheme", "url": "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=10868"}],
     countryName: "India",
     countryCode: "IN",
     currency: "INR",
@@ -166,13 +167,14 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     ],
     receivingNote: "Choose a method the recipient can use and confirm the complete arrival estimate. Local payout speed does not include every funding or verification step.",
     regulations: {
-      "inboundLimit": "Confirm the limit for your amount, payment purpose and recipient account directly with the chosen provider.",
+      "regulatoryBody": "Reserve Bank of India (RBI), under FEMA",
+      "inboundLimit": "Personal remittances through the Money Transfer Service Scheme (MTSS) — the channel most cash-pickup and mobile-wallet providers use — are capped at USD 2,500 per transaction, with a maximum of 30 remittances to one beneficiary per calendar year. Amounts above ₹50,000 must be paid by bank credit, cheque or demand draft, not cash.",
       "documentationNeeded": [
         "Recipient details for the selected receiving method",
         "Any identity, payment-purpose or source-of-funds documents requested by the provider"
       ],
       "importantNotes": [
-        "Check account restrictions before paying. A price estimate does not verify recipient eligibility.",
+        "The USD 2,500/30-remittance cap applies to the MTSS channel specifically; direct bank-to-bank wire transfers aren't subject to it.",
         "Keep the confirmation and transfer reference in case the recipient needs the provider to trace the payment."
       ]
     },
@@ -189,7 +191,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
   },
 
   philippines: {
-    editorialUpdatedAt: "2026-09-11",
+    editorialUpdatedAt: "2026-09-16",
     sources: [{"label": "Wise PHP requirements", "url": "https://wise.com/help/articles/2932333/guide-to-php-transfers"}, {"label": "Remitly US-to-Philippines options", "url": "https://www.remitly.com/us/en/money-transfer/send-money-to-philippines"}],
     countryName: "Philippines",
     countryCode: "PH",
@@ -222,13 +224,14 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     ],
     receivingNote: "Choose a method the recipient can use and confirm the complete arrival estimate. Local payout speed does not include every funding or verification step.",
     regulations: {
-      "inboundLimit": "Confirm the limit for your amount, payment purpose and recipient account directly with the chosen provider.",
+      "regulatoryBody": "Bangko Sentral ng Pilipinas (BSP)",
+      "inboundLimit": "No cap on the foreign-currency amount inwardly remitted to the Philippines. Large cash transactions face separate BSP/AMLC reporting requirements aimed at money laundering — that's a check on the receiving institution, not a limit on your transfer.",
       "documentationNeeded": [
         "Recipient details for the selected receiving method",
         "Any identity, payment-purpose or source-of-funds documents requested by the provider"
       ],
       "importantNotes": [
-        "Check account restrictions before paying. A price estimate does not verify recipient eligibility.",
+        "The AMLC reporting requirement is the bank or remittance agent's obligation, not yours — it doesn't block or delay a normal transfer.",
         "Keep the confirmation and transfer reference in case the recipient needs the provider to trace the payment."
       ]
     },
