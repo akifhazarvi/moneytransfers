@@ -1712,7 +1712,8 @@ export default async function CorridorPage({ params }: Props) {
                   {editorialNote.warningBody}
                 </p>
                 <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
-                  For recurring transfers, it is worth checking live quotes each time rather than relying on one provider by habit. Competition on this corridor is strong enough that rankings can shift meaningfully with market moves.
+                  {rateInsight?.providerConsistency?.summary ??
+                    "For recurring transfers, it is worth checking live quotes each time rather than relying on one provider by habit."}
                 </p>
                 {corridorRelatedNews[slug] && (
                   <div className="pt-3 border-t border-[var(--color-outline)]">
@@ -2117,7 +2118,10 @@ export default async function CorridorPage({ params }: Props) {
               How can my recipient receive money in {corridor.toCountry}?
             </h2>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-              Check these receiving options with the provider. Availability depends on the sending country, recipient and transfer conditions.
+              {countryDetails.deliveryMethods.length > 1
+                ? `Recipients in ${corridor.toCountry} have ${countryDetails.deliveryMethods.length} ways to receive this transfer: ${countryDetails.deliveryMethods.map((dm) => dm.method.toLowerCase()).join("; ")}.`
+                : `Recipients in ${corridor.toCountry} typically receive this transfer via ${countryDetails.deliveryMethods[0].method.toLowerCase()}.`}{" "}
+              Availability still depends on the sending country and the specific transfer, so confirm with the provider before sending.
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
               {countryDetails.deliveryMethods.map((dm) => {
@@ -2459,7 +2463,7 @@ export default async function CorridorPage({ params }: Props) {
                 Popular banks in {corridor.toCountry}
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                These are the most commonly used banks for receiving international transfers in {corridor.toCountry}.
+                {countryDetails.popularBanks.length} banks commonly receive international transfers in {corridor.toCountry}, including {countryDetails.popularBanks[0].name}{countryDetails.popularBanks[1] ? ` and ${countryDetails.popularBanks[1].name}` : ""} — each has its own SWIFT/BIC code below for the receiving side of the transfer.
               </p>
               <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
                 {/* Table header */}
