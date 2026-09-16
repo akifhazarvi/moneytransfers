@@ -220,9 +220,28 @@ export function getBankCorridorQuotes(bankSlug: string): BankCorridorQuote[] {
 export interface BankAggregateStats {
   corridorCount: number;
   amountSizesCovered: number[];
+  /** @deprecated Skewed by outlier corridors (HSBC's mean is 2.20% against a
+   * 1.36% median because of one AUD->THB row at 31.5%). Kept for callers that
+   * have not migrated; new code should read medianLossPct — CLAUDE.md: "Report
+   * measured markups as medians — the mean is distorted by corridors where our
+   * own benchmark is unreliable." */
   averageLossPct: number;
+  /** Median loss %, robust to the single-corridor outliers a small quote set
+   * is prone to. This is the figure the page should quote. */
+  medianLossPct: number;
+  /** Corridors where this bank's quote beat every digital provider we compare
+   * it against — a bank is not uniformly worse, and stating that honestly is
+   * more credible than a blanket "banks are always more expensive" claim. */
+  winCount: number;
   largestLossExample: BankCorridorQuote | null;
   smallestLossExample: BankCorridorQuote | null;
+}
+
+function median(xs: number[]): number {
+  if (!xs.length) return 0;
+  const s = [...xs].sort((a, b) => a - b);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
 }
 
 export function getBankAggregateStats(bankSlug: string): BankAggregateStats {
@@ -232,6 +251,8 @@ export function getBankAggregateStats(bankSlug: string): BankAggregateStats {
       corridorCount: 0,
       amountSizesCovered: [],
       averageLossPct: 0,
+      medianLossPct: 0,
+      winCount: 0,
       largestLossExample: null,
       smallestLossExample: null,
     };
@@ -239,11 +260,14 @@ export function getBankAggregateStats(bankSlug: string): BankAggregateStats {
   const corridorPairs = new Set(quotes.map((q) => `${q.sendCurrency}-${q.receiveCurrency}`));
   const sizes = [...new Set(quotes.map((q) => q.sendAmount))].sort((a, b) => a - b);
   const avgPct = quotes.reduce((s, q) => s + q.lossPct, 0) / quotes.length;
+  const medPct = median(quotes.map((q) => q.lossPct));
   const sortedByLoss = [...quotes].sort((a, b) => b.lossPct - a.lossPct);
   return {
     corridorCount: corridorPairs.size,
     amountSizesCovered: sizes,
     averageLossPct: avgPct,
+    medianLossPct: medPct,
+    winCount: quotes.filter((q) => q.lossPct < 0).length,
     largestLossExample: sortedByLoss[0],
     smallestLossExample: sortedByLoss[sortedByLoss.length - 1],
   };

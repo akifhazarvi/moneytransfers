@@ -42,6 +42,8 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { providerLogo } from "@/lib/provider-logo";
+import { getBankEditorial } from "@/data/bank-editorial";
+import { renderDataTokens } from "@/lib/ratings-tokens";
 
 // Revalidate every 6 hours to match scraper cadence — these pages are
 // only valuable while the data is fresh.
@@ -106,6 +108,7 @@ export default async function BankPage({ params }: Props) {
 
   const quotes = getBankCorridorQuotes(slug);
   const stats = getBankAggregateStats(slug);
+  const editorial = getBankEditorial(slug);
   const recommendedProvider = providers.find((p) => p.slug === bank.recommendedAlternative.slug);
   const dataFreshness = getDataUpdatedISO();
 
@@ -243,9 +246,16 @@ export default async function BankPage({ params }: Props) {
             <h2 className="text-h3 font-normal text-[var(--color-on-surface)] mb-4">
               How {bank.name} charges for international transfers
             </h2>
-            <p className="text-md text-[var(--color-on-surface)] leading-relaxed">
-              {bank.productNote}
-            </p>
+            {editorial ? (
+              <p
+                className="text-md text-[var(--color-on-surface)] leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.theProduct) }}
+              />
+            ) : (
+              <p className="text-md text-[var(--color-on-surface)] leading-relaxed">
+                {bank.productNote}
+              </p>
+            )}
             {bank.sourcePage && (
               <p className="text-2sm text-[var(--color-on-surface-variant)] mt-4">
                 Source:{" "}
@@ -261,6 +271,32 @@ export default async function BankPage({ params }: Props) {
                 Quotes scraped via the Wise comparison feed (a regulated, public price-comparison
                 API).
               </p>
+            )}
+            {editorial && (
+              <div className="mt-8 space-y-6">
+                <p
+                  className="text-md text-[var(--color-on-surface-variant)] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.measuredRecord) }}
+                />
+                <div>
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                    When a {bank.name} wire genuinely makes sense
+                  </h3>
+                  <p
+                    className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.whenItMakesSense) }}
+                  />
+                </div>
+                <div>
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                    Before you send
+                  </h3>
+                  <p
+                    className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.watchOut) }}
+                  />
+                </div>
+              </div>
             )}
           </div>
         </Container>
@@ -367,11 +403,18 @@ export default async function BankPage({ params }: Props) {
               </Card>
             )}
 
-            {stats.averageLossPct > 0 && (
+            {stats.medianLossPct !== 0 && (
               <p className="text-sm text-[var(--color-on-surface-variant)] mt-6">
-                Across {stats.corridorCount} live corridors, {bank.name} customers receive an
-                average of <strong>{stats.averageLossPct.toFixed(2)}% less</strong> than the
-                cheapest digital provider on the same transfer.
+                {/* Median, not mean — CLAUDE.md: a single outlier corridor
+                    distorts an average across this few rows. HSBC's mean reads
+                    2.20% against a 1.36% median because one AUD->THB row sits at
+                    31.5%. */}
+                Across {stats.corridorCount} live corridors, the median {bank.name} customer
+                receives <strong>{stats.medianLossPct.toFixed(2)}% less</strong> than the
+                cheapest digital provider on the same transfer
+                {stats.winCount > 0
+                  ? ` — though on ${stats.winCount} of the corridors we compare, ${bank.name} matched or beat every digital provider we track.`
+                  : "."}
               </p>
             )}
           </div>

@@ -25,6 +25,7 @@ import { computeBusinessFxIndex, BUSINESS_FX_SLUGS, type BusinessFxIndex } from 
 import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 import CORRIDOR_LEADERS from "@/data/scraped/corridor-leaders.json";
+import { getBankAggregateStats } from "@/lib/bank-comparisons";
 
 export interface StoreRating {
   score: number | null;
@@ -652,6 +653,30 @@ export function renderDataTokens(html: string): string {
   if (out.includes("{{FOUR_WAY_COST_TABLE}}")) {
     out = out.split("{{FOUR_WAY_COST_TABLE}}").join(renderFourWayCostTable());
   }
+
+  // {{BANK_MEDIAN:chase}} -> "5.85%", {{BANK_CORRIDORS:chase}} -> "5",
+  // {{BANK_WORST:chase}} -> "USD\u2192PKR" (the corridor with the largest measured
+  // loss vs the best digital alternative), {{BANK_WINS:hsbc}} -> "0".
+  //
+  // Backs the /banks/* editorial in bank-comparisons-derived medians, per the
+  // same mean-trap rule as everywhere else on the site.
+  out = out.replace(/\{\{(BANK_MEDIAN|BANK_CORRIDORS|BANK_WORST|BANK_WINS):([a-z0-9-]+)\}\}/g, (match, kind: string, slug: string) => {
+    const stats = getBankAggregateStats(slug);
+    if (!stats.corridorCount) return match;
+    switch (kind) {
+      case "BANK_MEDIAN":
+        return `${stats.medianLossPct.toFixed(2)}%`;
+      case "BANK_CORRIDORS":
+        return String(stats.corridorCount);
+      case "BANK_WINS":
+        return String(stats.winCount);
+      case "BANK_WORST": {
+        const w = stats.largestLossExample;
+        return w ? `${w.sendCurrency}\u2192${w.receiveCurrency}` : match;
+      }
+    }
+    return match;
+  });
 
   // {{LEAD_PAIRS:wise}} -> "AED→INR, AED→KES, GBP→AUD, USD→PKR and 40 more"
   //
