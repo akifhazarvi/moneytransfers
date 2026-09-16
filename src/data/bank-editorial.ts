@@ -28,6 +28,11 @@ export interface BankEditorial {
   whenItMakesSense: string;
   /** The specific thing to check before wiring money through this bank. */
   watchOut: string;
+  /**
+   * The specific corridors this bank actually beat every digital provider
+   * on, via {{BANK_WIN_LIST}}. Optional — most banks have none.
+   */
+  namedWins?: string;
 }
 
 export const bankEditorial: Record<string, BankEditorial> = {
@@ -43,6 +48,7 @@ export const bankEditorial: Record<string, BankEditorial> = {
     measuredRecord: `Across {{BANK_CORRIDORS:hsbc}} corridors where we hold both a live HSBC quote and a digital-provider quote for the same amount, the median HSBC customer received {{BANK_MEDIAN:hsbc}} less than the best digital alternative. That is a real cost, and it is also the more honest number than a straight average, which is dragged upward by a small number of thin corridors — our worst measured case was {{BANK_WORST:hsbc}}. On {{BANK_WINS:hsbc}} of the corridors we compare, HSBC's quote matched or beat every digital provider we track, which is worth stating plainly rather than letting the median stand in for every route.`,
     whenItMakesSense: `If you hold Premier or Advance and Global Money covers your currency pair, use it before comparing anywhere else — it is genuinely one of the better-priced options available to you, not merely the most convenient. For a standard account holder, HSBC is worth checking specifically on the corridors where our data shows it competitive rather than assumed to be expensive across the board; the pattern is not uniform, and a blanket "avoid your bank" rule would be wrong here more often than on most banks we track.`,
     watchOut: `Confirm which HSBC product you are actually being offered — Global Money and a standard international payment are priced completely differently, and the branch or app screen does not always make that obvious. If you are quoted a standard international payment, ask for the exchange rate against the mid-market rate before confirming, the same check that applies to any bank transfer.`,
+    namedWins: `Named, since "matched or beat every digital provider" is a claim worth being specific about: {{BANK_WIN_LIST:hsbc}}. Both are small-value transfers, and the AUD→NZD case is a single corridor rather than a pattern — don't read either as HSBC being broadly competitive, read it as the exception the median above already accounts for.`,
   },
 };
 

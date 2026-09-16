@@ -147,6 +147,7 @@ export const companyEditorial: Record<string, CompanyEditorial> = {
       body: `On the corridors where several providers compete, Remitly led {{LEADS:remitly}} in 91 days. If your recipient can take a bank deposit and you are optimising on cost, you will usually find a better payout elsewhere — on average {{SHORTFALL:remitly}} better. Remitly publishes a $300,000 ceiling on transfers from the US, though an individual account's limit may be lower and depends on verification level, payment method and destination; coverage is 100 countries and roughly 40 currencies, narrower than the legacy cash networks. Its promotional first-transfer rates are excluded from our figures deliberately, because they apply once and the ongoing price applies every month after.`,
     },
     watchOut: `Compare the returning-customer price, not the welcome offer. For a realistic annual cost, price the first transfer plus eleven repeats at the same amount rather than treating an introductory rate as your ongoing cost — this is the single most common way a remittance app looks cheaper than it is. Also confirm the arrival estimate for your actual payment and payout method: an express quote assumes funding and verification are already done.`,
+    namedCorridors: `The three corridors it led over the 91-day window: {{LEAD_PAIRS:remitly}}. All three have EUR or GBP on one side — none are the diaspora routes (South Asia, the Philippines, East Africa) Remitly's own marketing leans on, which is worth knowing if you were assuming its lead corridors matched its brand positioning.`,
   },
 
   worldremit: {
@@ -205,6 +206,7 @@ export const companyEditorial: Record<string, CompanyEditorial> = {
       body: `At {{SHORTFALL:xoom}} average shortfall, Xoom gives up more than most providers when it is not leading, and it led {{LEADS:xoom}}. If the transfer is not urgent and the recipient can take a bank deposit, the specialists beat it clearly. Our own coverage is a limitation worth weighing: {{COSTCORRIDORS:xoom}} corridors is a thin base, so we are less confident about Xoom than about providers we price across hundreds.`,
     },
     watchOut: `Xoom prices cash pickup differently from bank deposit, and funding from a card costs more than funding from a bank account, so quote your exact combination. Because our measured coverage of Xoom is narrow, treat the figures above as indicative and get a live quote for your corridor and amount before relying on them.`,
+    namedCorridors: `All four corridors it led are Australia-originated: {{LEAD_PAIRS:xoom}}. That's not a coincidence worth reading much into given how thin the sample is — {{LED:xoom}} out of {{COSTCORRIDORS:xoom}} corridors we can price it on — but it is the whole list, and it tells you where to actually check a live quote rather than assume Xoom performs the same way on a US-originated transfer.`,
   },
 
   "ace-money-transfer": {

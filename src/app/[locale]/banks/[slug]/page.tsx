@@ -301,6 +301,12 @@ export default async function BankPage({ params }: Props) {
                     className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.watchOut) }}
                   />
+                  {editorial.namedWins && (
+                    <p
+                      className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mt-3 pt-3 border-t border-[var(--color-outline)]"
+                      dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.namedWins) }}
+                    />
+                  )}
                 </div>
               </div>
             )}

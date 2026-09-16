@@ -25,7 +25,7 @@ import { computeBusinessFxIndex, BUSINESS_FX_SLUGS, type BusinessFxIndex } from 
 import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 import CORRIDOR_LEADERS from "@/data/scraped/corridor-leaders.json";
-import { getBankAggregateStats } from "@/lib/bank-comparisons";
+import { getBankAggregateStats, getBankCorridorQuotes } from "@/lib/bank-comparisons";
 
 export interface StoreRating {
   score: number | null;
@@ -653,6 +653,17 @@ export function renderDataTokens(html: string): string {
   if (out.includes("{{FOUR_WAY_COST_TABLE}}")) {
     out = out.split("{{FOUR_WAY_COST_TABLE}}").join(renderFourWayCostTable());
   }
+
+  // {{BANK_WIN_LIST:hsbc}} -> "AUD\u2192NZD $100, GBP\u2192ZAR $100, GBP\u2192ZAR $1,000"
+  // Named corridors, not just a count — same differentiator as LEAD_PAIRS,
+  // applied to the bank-comparison data.
+  out = out.replace(/\{\{BANK_WIN_LIST:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
+    const wins = getBankCorridorQuotes(slug).filter((q) => q.lossPct < 0);
+    if (!wins.length) return match;
+    return wins
+      .map((w) => `${w.sendCurrency}\u2192${w.receiveCurrency} $${w.sendAmount.toLocaleString()}`)
+      .join(", ");
+  });
 
   // {{BANK_MEDIAN:chase}} -> "5.85%", {{BANK_CORRIDORS:chase}} -> "5",
   // {{BANK_WORST:chase}} -> "USD\u2192PKR" (the corridor with the largest measured
