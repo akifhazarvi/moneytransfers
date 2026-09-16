@@ -17,6 +17,7 @@ import { INDEXED_SWIFT_SLUGS as indexedSwiftCountries } from "@/lib/seo-indexing
 import type { Metadata } from "next";
 
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+import { renderDataTokens } from "@/lib/ratings-tokens";
 
 // Someone looking up a SWIFT/BIC code is mid-transfer. If the destination is
 // itself a USD country the USD→USD corridor is meaningless, so send from GBP —
@@ -555,16 +556,18 @@ export default async function SwiftCountryPage({ params }: Props) {
               <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 {editorialNote.title}
               </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
-                {editorialNote.intro}
-              </p>
+              <p
+                className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4"
+                dangerouslySetInnerHTML={{ __html: renderDataTokens(editorialNote.intro) }}
+              />
               <ul className="space-y-3">
                 {editorialNote.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-3">
                     <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                    <span className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                      {bullet}
-                    </span>
+                    <span
+                      className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: renderDataTokens(bullet) }}
+                    />
                   </li>
                 ))}
               </ul>
