@@ -18899,10 +18899,10 @@
         "receiveAmount": 4365.9
       },
       "moneygram": {
-        "rate": 44.95,
+        "rate": 44.7369,
         "fee": 3.49,
-        "markup": 0.6,
-        "receiveAmount": 4338.12
+        "markup": 0.64,
+        "receiveAmount": 4317.56
       },
       "western-union": {
         "rate": 44.4455,
@@ -18911,10 +18911,10 @@
         "receiveAmount": 4400.55
       },
       "worldremit": {
-        "rate": 44.6346,
+        "rate": 44.4541,
         "fee": 3.99,
-        "markup": 1.29,
-        "receiveAmount": 4285.36
+        "markup": 1.27,
+        "receiveAmount": 4268.04
       },
       "instarem": {
         "rate": 44.6589,
@@ -18923,34 +18923,34 @@
         "receiveAmount": 4465.89
       },
       "xe": {
-        "rate": 44.8321,
+        "rate": 44.6572,
         "fee": 5,
-        "markup": 0.86,
-        "receiveAmount": 4259.05
+        "markup": 0.82,
+        "receiveAmount": 4242.43
       },
       "paysend": {
-        "rate": 45.1152,
+        "rate": 44.9199,
         "fee": 3,
-        "markup": 0.23,
-        "receiveAmount": 4376.17
+        "markup": 0.24,
+        "receiveAmount": 4357.23
       },
       "koho": {
-        "rate": 45.17,
+        "rate": 44.97,
         "fee": 1.67,
-        "markup": 0.11,
-        "receiveAmount": 4441.57
+        "markup": 0.13,
+        "receiveAmount": 4421.9
       },
       "sendwave": {
-        "rate": 44.7476,
+        "rate": 44.5666,
         "fee": 0.99,
-        "markup": 1.04,
-        "receiveAmount": 4430.46
+        "markup": 1.02,
+        "receiveAmount": 4412.54
       },
       "remitly": {
-        "rate": 44.03,
+        "rate": 43.83,
         "fee": 0,
-        "markup": 2.63,
-        "receiveAmount": 4403
+        "markup": 2.66,
+        "receiveAmount": 4383
       },
       "wise": {
         "rate": 45.0482,
@@ -18959,10 +18959,10 @@
         "receiveAmount": 4391.75
       },
       "ria": {
-        "rate": 44.5155,
+        "rate": 44.3418,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 4587.26
+        "receiveAmount": 4564.87
       },
       "taptap-send": {
         "rate": 44.4,
@@ -18987,6 +18987,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4192.95
+      },
+      "dahabshiil": {
+        "rate": 44.7081,
+        "fee": 1.99,
+        "markup": 0.71,
+        "receiveAmount": 4381.84
       }
     }
   }

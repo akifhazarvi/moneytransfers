@@ -8299,14 +8299,14 @@
       "remitly": {
         "rate": 26.88,
         "fee": 5.34,
-        "markup": 0,
+        "markup": -0.01,
         "receiveAmount": 2544.46
       },
       "wise": {
-        "rate": 26.8942,
-        "fee": 16.2,
-        "markup": -0.06,
-        "receiveAmount": 2253.73
+        "rate": 26.8872,
+        "fee": 16.15,
+        "markup": -0.03,
+        "receiveAmount": 2254.49
       }
     }
   }
