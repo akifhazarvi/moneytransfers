@@ -23,6 +23,7 @@
  * Promote OUT of this set only if a slug starts earning real demand on Bing/AI.
  */
 import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
+import duplicateCorridors from "@/data/scraped/duplicate-corridors.json";
 
 const RETIRED_SLUGS = new Set<string>([
   "europe-to-india",
@@ -446,6 +447,26 @@ const RETIRED_SLUGS = new Set<string>([
  * retired while still ranking. Add a slug to RANKING_CORRIDOR_SLUGS and it
  * drops out of this set automatically, everywhere it is consumed.
  */
+export const RETIRED_CORRIDOR_SLUGS: ReadonlySet<string> = RETIRED_SLUGS;
+
+/**
+ * Corridor pages retired by the generation threshold rather than by hand.
+ *
+ * The Sep 2026 content brief (§4, §10-A) requires that a page only be generated
+ * when unique data exists for it. Every quote we hold is keyed on the CURRENCY
+ * pair and none carries a sending country, so two country corridors sharing a
+ * pair render the same table, leader, markup and answers — australia-to-croatia
+ * and australia-to-france are word-for-word identical bar the country name, 20
+ * unique words in 4,698. This file lists the pair-mates that restate a stronger
+ * twin; scripts/build-corridor-uniqueness.ts derives it and explains the
+ * priority order that decides which URL survives a collision.
+ */
+const DUPLICATE_PAIR_SLUGS: ReadonlySet<string> = new Set(
+  duplicateCorridors.surplus.map((s) => s.slug),
+);
+
 export const GONE_CORRIDOR_SLUGS: ReadonlySet<string> = new Set(
-  [...RETIRED_SLUGS].filter((slug) => !RANKING_CORRIDOR_SLUGS.has(slug)),
+  [...RETIRED_SLUGS, ...DUPLICATE_PAIR_SLUGS].filter(
+    (slug) => !RANKING_CORRIDOR_SLUGS.has(slug),
+  ),
 );

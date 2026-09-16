@@ -29,6 +29,7 @@ import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
 import SettlementRace from "@/components/SettlementRace";
 import { BUSINESS_FX_SLUGS } from "@/lib/business-fx-index";
 import { generateQuotes } from "@/lib/quotes-engine";
+import { corridorPageRenders } from "@/lib/route-map";
 
 interface InlineQuoteCorridor {
   from: string;
@@ -244,7 +245,15 @@ function getExploreLinks(tags: string[], category: string): { href: string; labe
     }
   }
 
-  return [...fixed, ...dynamic.slice(0, 5)];
+  // The generation threshold retires corridor pages whose currency pair is
+  // already covered by a stronger page. The content brief's rule for those:
+  // "do not generate them at all (404/410); remove from internal links and the
+  // sitemap." Both maps above are hand-written hrefs, so they cannot know that
+  // — ask route-map, which is the only thing that does.
+  const renders = (l: { href: string }) =>
+    !l.href.startsWith("/send-money/") || corridorPageRenders(l.href.replace("/send-money/", ""));
+
+  return [...fixed.filter(renders), ...dynamic.filter(renders).slice(0, 5)];
 }
 
 // SOFT-404 FIX. With ISR (`revalidate` above) and dynamicParams defaulting to

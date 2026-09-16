@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
-import { ibanPageRenders } from "@/lib/route-map";
+import { ibanPageRenders, corridorPageRenders } from "@/lib/route-map";
 import Card from "@/components/Card";
 import StatBox from "@/components/StatBox";
 import CircleFlag from "@/components/CircleFlag";
@@ -345,6 +345,15 @@ export default async function SwiftCountryPage({ params }: Props) {
     .sort((a, b) => b.branches.length - a.branches.length);
   const rotatable = ranked.slice(3);
   const offset = allCountries.findIndex((c) => c.slug === slug);
+  // The generation threshold retires corridor pages whose currency pair is
+  // already covered by a stronger page. The content brief's rule for those is
+  // "do not generate them at all (404/410); remove from internal links and the
+  // sitemap" — so ask route-map what still renders rather than shipping a link
+  // into a 410.
+  const swiftCorridorLinks = (swiftCorridors[slug] ?? []).filter((c) =>
+    corridorPageRenders(c.href.replace("/send-money/", "")),
+  );
+
   const related =
     rotatable.length < 3
       ? ranked.slice(0, 6)
@@ -597,13 +606,13 @@ export default async function SwiftCountryPage({ params }: Props) {
           </Card>
 
           {/* Popular money transfers */}
-          {swiftCorridors[slug] && (
+          {swiftCorridorLinks.length > 0 && (
             <Card>
               <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                 Popular transfers
               </h3>
               <div className="space-y-2">
-                {swiftCorridors[slug].map((c) => (
+                {swiftCorridorLinks.map((c) => (
                   <Link
                     key={c.href}
                     href={c.href}

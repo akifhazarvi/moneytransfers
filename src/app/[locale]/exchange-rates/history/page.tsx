@@ -16,6 +16,7 @@ import { currencies } from "@/data/providers";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
 import { COVERAGE } from "@/lib/site-stats";
+import { corridorPageRenders } from "@/lib/route-map";
 
 // ── Tier 1 corridors (highest search volume) ──────────────────
 const TIER1 = [
@@ -162,7 +163,10 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
                 </>
               );
 
-              return sendMoneySlug ? (
+              // The corridor may have been retired by the generation threshold;
+              // route-map is the only thing that knows. Render the card unlinked
+              // rather than linking into a 410.
+              return sendMoneySlug && corridorPageRenders(sendMoneySlug) ? (
                 <Link
                   key={insight.corridor}
                   href={`/send-money/${sendMoneySlug}`}
