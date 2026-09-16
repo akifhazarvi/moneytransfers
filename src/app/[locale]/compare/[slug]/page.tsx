@@ -27,6 +27,8 @@ import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { rateHistoryHref } from "@/lib/route-map";
 import { COVERAGE } from "@/lib/site-stats";
+import { getCompareEditorial } from "@/data/compare-editorial";
+import { renderDataTokens } from "@/lib/ratings-tokens";
 
 
 interface Props {
@@ -186,6 +188,10 @@ function DefaultComparison({
   a: (typeof providers)[number];
   b: (typeof providers)[number];
 }) {
+  // Editorial is keyed on the canonical pair order; try both so a reversed
+  // slug (wise-vs-remitly / remitly-vs-wise) resolves to the same entry.
+  const editorial =
+    getCompareEditorial(`${a.slug}-vs-${b.slug}`) ?? getCompareEditorial(`${b.slug}-vs-${a.slug}`);
   const content = generateComparisonContent(a, b);
   const { corridorData, verdict, faqs, whenToUseA, whenToUseB, keyDifferences } = content;
   const relatedComparisons = getRelatedComparisons(a, b);
@@ -377,10 +383,18 @@ function DefaultComparison({
             ))}
           </div>
 
-          {/* Introduction — unique per pair */}
-          <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-8">
-            {content.intro}
-          </p>
+          {/* Introduction. Where a pair has hand-written editorial, that is the
+              intro: the generated one is assembled from shared phrases ("this
+              comparison uses real transfer data collected from both providers
+              across 6 popular corridors") that recur on 51 other pages, which is
+              the boilerplate the content brief asks to remove rather than
+              supplement. */}
+          <p
+            className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-8"
+            {...(editorial
+              ? { dangerouslySetInnerHTML: { __html: renderDataTokens(editorial.theDecision) } }
+              : { children: content.intro })}
+          />
 
           {/* Table of Contents */}
           <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mb-8">
@@ -485,6 +499,73 @@ function DefaultComparison({
             </ComparisonTable>
           </section>
 
+          {/* Hand-written editorial for this pair — content brief §4.
+              Rendered INSTEAD of the generated pros/cons and "when to choose"
+              blocks, not alongside them: those read identically on every page
+              featuring the same provider, and the brief asks for boilerplate to
+              be removed rather than buried under more text. Pairs without an
+              entry keep the generated blocks. */}
+          {editorial ? (
+            <>
+              <section id="the-decision" className="mb-10">
+                <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                  What our measurements show for this pair
+                </h2>
+                <p
+                  className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.measuredRecord) }}
+                />
+              </section>
+
+              <section id="worked-example" className="mb-10">
+                <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                  {editorial.workedExample.heading}
+                </h2>
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                  <p
+                    className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.workedExample.body) }}
+                  />
+                </div>
+              </section>
+
+              <section id="when-to-use" className="mb-10">
+                <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                  When to choose {a.name} vs {b.name}
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {[
+                    { provider: a, section: editorial.pickA },
+                    { provider: b, section: editorial.pickB },
+                  ].map(({ provider, section }) => (
+                    <div key={provider.slug} className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
+                          <Image src={provider.logo} alt={provider.name} width={32} height={32} className="w-full h-full object-contain p-1" />
+                        </div>
+                        <h3 className="text-md font-medium text-[var(--color-on-surface)]">{section.heading}</h3>
+                      </div>
+                      <p
+                        className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: renderDataTokens(section.body) }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section id="limits" className="mb-10">
+                <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                  What this comparison does not settle
+                </h2>
+                <p
+                  className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.limits) }}
+                />
+              </section>
+            </>
+          ) : (
+            <>
           {/* Pros / Cons */}
           <section id="pros-cons" className="mb-10">
             <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
@@ -545,6 +626,8 @@ function DefaultComparison({
               </div>
             </div>
           </section>
+            </>
+          )}
 
           {/* Verdict */}
           <section id="verdict" className="mb-10">

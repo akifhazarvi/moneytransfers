@@ -652,6 +652,29 @@ export function renderDataTokens(html: string): string {
     out = out.split("{{FOUR_WAY_COST_TABLE}}").join(renderFourWayCostTable());
   }
 
+  // {{LED:wise}} -> "48 of 128", {{WINRATE:wise}} -> "32.4%",
+  // {{SHORTFALL:wise}} -> "2.75%".
+  //
+  // The comparison editorial quotes each provider's measured record, and a win
+  // rate without its denominator is the whole trap: OFX's 12.8% is measured on
+  // five corridors and Wise's 32.4% on 128, so the smaller number is the better
+  // one. LED renders the denominator with the figure so the two cannot be
+  // separated in prose, and all three read from the consistency index rather
+  // than being typed into copy that would go stale silently.
+  out = out.replace(/\{\{(LED|WINRATE|SHORTFALL):([a-z0-9-]+)\}\}/g, (match, kind: string, slug: string) => {
+    const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
+    if (!row) return match;
+    switch (kind) {
+      case "LED":
+        return `${row.corridorsLed} of ${row.corridorsQuoted}`;
+      case "WINRATE":
+        return `${row.winRate.toFixed(1)}%`;
+      case "SHORTFALL":
+        return `${row.avgShortfallPct.toFixed(2)}%`;
+    }
+    return match;
+  });
+
   // {{TRUSTPILOT:wise}} -> "4.3/5 (299K reviews)"
   out = out.replace(/\{\{TRUSTPILOT:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const rendered = renderTrustpilot(slug);
