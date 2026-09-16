@@ -192,7 +192,7 @@ export const providers: Provider[] = [
     paymentMethods: ["Bank Transfer"],
     deliveryMethods: ["Bank Deposit"],
     pros: [
-      "No transfer fees on any amount",
+      "No transfer fee on US-dollar transfers, regardless of amount",
       "Competitive rates for large transfers",
       "24/7 customer support",
       "Forward contracts available",
@@ -202,6 +202,7 @@ export const providers: Provider[] = [
       "Higher minimum transfer ($100+)",
       "Only bank transfer payments accepted",
       "Rates less competitive for small amounts",
+      "Outside the US, a flat fee applies below a currency-specific threshold (e.g. AU$/CA$15 under AU$/CA$10,000)",
     ],
     features: [
       "Forward contracts",
@@ -210,7 +211,7 @@ export const providers: Provider[] = [
       "Business payments",
       "API integration",
     ],
-    feeStructure: "No transfer fees",
+    feeStructure: "No fee on US-dollar transfers; elsewhere, fee-free above a threshold (e.g. AU$/CA$10,000), flat fee below it",
     exchangeRateMarkup: "0.5% - 1.5% above mid-market",
   },
   {

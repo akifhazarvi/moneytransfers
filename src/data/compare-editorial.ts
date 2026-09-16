@@ -221,7 +221,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick XE for breadth of currency and a self-serve transfer",
       body: `XE quotes 130 currencies against OFX's 55, which is the widest currency list in this comparison and the practical argument for anyone sending to a less common destination. It carries the higher Trustpilot rating of the two, adds FINTRAC to the regulatory set, and caps transfers at $500,000 — above almost any personal transfer. If you want to run the transfer yourself without a dealer relationship, and your currency is an unusual one, XE is the better fit.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and both brokers quote rates that improve with transfer size in a way a fixed-amount comparison cannot capture. Neither offers cash payout. Quotes are collected by currency pair, so confirm your corridor, amount band and account eligibility directly.`,
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and both brokers quote rates that improve with transfer size in a way a fixed-amount comparison cannot capture. Neither offers cash payout. Quotes are collected by currency pair, so confirm your corridor, amount band and account eligibility directly. OFX's "no transfer fee" is confirmed fee-free regardless of amount for US-dollar transfers specifically; outside the US it charges a flat fee (e.g. AU$/CA$15) below a country-specific threshold, so check the policy for your own country before sending.`,
   },
 
   "ofx-vs-xoom": {
@@ -243,7 +243,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Xoom for speed and non-bank payout",
       body: `Xoom is built for the transfer that has to land now. Cash pickup, mobile reload and bank deposit across 130 countries, settlement in minutes, and a familiar PayPal login and balance behind it. Transfers run to $50,000. You pay for the speed and the payout options through a 1–3% markup plus a fee, which on our measurements leaves it behind the cheapest digital routes — but "behind on price" and "the only option that arrives in time" are not competing claims.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. OFX's rates improve with transfer size in a way a $1,000 comparison cannot show, and Xoom prices cash pickup differently from bank deposit. Quotes are collected by currency pair — confirm corridor, payout method and speed with the provider before sending.`,
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. OFX's rates improve with transfer size in a way a $1,000 comparison cannot show, and Xoom prices cash pickup differently from bank deposit. Quotes are collected by currency pair — confirm corridor, payout method and speed with the provider before sending. OFX's "no fee" claim is confirmed fee-free regardless of amount for US-dollar transfers specifically; outside the US it charges a flat fee below a country-specific threshold, so check the policy for your own country before sending.`,
   },
 
   "moneygram-vs-xoom": {

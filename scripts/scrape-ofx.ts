@@ -6,6 +6,24 @@
  *
  * Returns: CustomerRate, CustomerAmount, Fee, InterbankRate, DeliveryTime
  * Min transfer: $150 USD equivalent
+ *
+ * THE `Fee` FIELD IS A GENERIC DEFAULT, NOT A REAL PER-MARKET CHARGE.
+ * The endpoint takes no country/account context, so `Fee` (or its
+ * `DefaultFee` fallback) is a flat value keyed only by send currency —
+ * confirmed by sampling every corridor: USD is always 5, GBP always 7, AUD
+ * and CAD always 15, regardless of destination or amount. Cross-checked
+ * against OFX's own published policy (ofx.com FAQ pages, fetched 2026-09-16):
+ * AUD and CAD match exactly ("no fee above AU$/CA$10,000, else a flat
+ * AU$/CA$15" — our two test amounts are both under the threshold, so the
+ * API's default is correct there). USD does not match: OFX's US FAQ states
+ * transfers are fee-free "regardless of the amount you send," with no
+ * threshold, yet the API's default for USD is 5. `receiveAmount` never nets
+ * the fee out (verified: sendAmount × exchangeRate matches receiveAmount to
+ * the cent on every sampled quote), so this only corrupts the standalone fee
+ * figure, not the cost/markup index. Overridden below for USD specifically,
+ * since that's the one currency with a verified mismatch; GBP/EUR/NZD/SGD/
+ * CHF/AED are left as the API reports them — unverified against a citable
+ * source, not shown to be wrong.
  */
 import * as fs from "fs";
 import * as path from "path";
@@ -81,7 +99,10 @@ async function fetchOFXQuote(
     const customerRate = data.CustomerRate;
     const customerAmount = data.CustomerAmount;
     const interbankRate = data.InterbankRate;
-    const fee = data.Fee ?? data.DefaultFee ?? 0;
+    // USD override: OFX's own FAQ (ofx.com/en-us/faqs/are-there-any-transfer-fees)
+    // states transfers are fee-free regardless of amount; the API's generic
+    // default (5) does not reflect that. See file header for the full check.
+    const fee = from === "USD" ? 0 : data.Fee ?? data.DefaultFee ?? 0;
     const deliveryDays = data.DeliveryTime;
 
     if (!customerRate || !customerAmount) return null;
