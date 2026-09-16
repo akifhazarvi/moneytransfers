@@ -46,12 +46,16 @@ see `siteliner-upload-review-2026-09-15.md`). The site owner then bought
 SiteLiner Premium and re-ran it: `siteliner-fresh-2026-09-16.csv` (850 rows,
 540 actually crawled — Premium isn't capped at the free tier's 250 URLs).
 This one is genuinely fresh: every one of the 37 target pages' word count and
-match % changed from the baseline, timestamps are 04:52-04:53 UTC 16 Sep
-(after all deploys), confirmed against `siteliner-fresh-vs-baseline.csv`.
+match % changed from the baseline. The export's Modified values span
+04:52–04:56 on September 16; its file name identifies the 0457 run. This scan
+does not cover subsequent content commits. Confirm deployment and a new scan
+before treating later edits as externally validated.
 
-**Site-wide average match, by SiteLiner's own metric: 28.7%** across 540
-pages — under the brief's 30% target, and a more honest number than the
-original "23%" (that was a 167-page sample; this is 540).
+**The arithmetic mean of the CSV's page match percentages is 28.7%** across
+540 processed pages. This is a derived average, not an exported SiteLiner
+site-wide summary or proof of acceptance. The brief requires each of the 37
+targets below 30%. The old free scan processed 173 pages (167 had matches);
+the larger comparison pool also limits before/after interpretation.
 
 **9 of the 37 target pages now measure under 30%** by SiteLiner itself:
 `news/revolut-africa-...` (9%), `swift-codes/mexico` (12%),
@@ -59,9 +63,13 @@ original "23%" (that was a 167-page sample; this is 540).
 (14%), `guides/exchange-rate-markup-explained` (19%), `companies/xe` (24%),
 `iban/czechia` (26%), `guides/swift-codes-explained` (29%).
 
-The other 28 moved substantially — every single one dropped, several by
-30-45 points (e.g. `wise-vs-remitly` 79%→41%, `companies/remitly` 60%→45%,
-`paypal-vs-revolut` 76%→31%) — but remain above 30%. Full before/after in
+Across all 37 targets, 25 have lower match percentages and 12 have higher
+ones. Nine pass; 28 remain at or above 30% (including wise-vs-worldremit at
+exactly 30%). Examples of lower scores are `wise-vs-remitly` 79%→41%,
+`companies/remitly` 60%→45%, and `paypal-vs-revolut` 76%→31%. Higher scores
+include `usa-to-india` 66%→69% and `companies/ace-money-transfer` 40%→49%.
+The corpus changed, so these movements do not isolate the effect of edits.
+Full before/after in
 `siteliner-fresh-vs-baseline.csv`. This repo's own `check:duplication` is
 stricter than SiteLiner (full 906-page corpus vs. SiteLiner's crawl, exact
 10-word shingling vs. SiteLiner's own algorithm) and reports 0/37 for the
@@ -69,10 +77,9 @@ same reason it reports a higher site-wide number — it is not the instrument
 this brief's acceptance criterion refers to; SiteLiner is, and the pages
 above pass it.
 
-If the remaining 28 need to cross the line, the brief's own remedy applies:
-more of the same per-page hand-writing (§4), not a template change — see
-"Finding worth carrying into Stage 2" below for why a template-level fix
-doesn't work here.
+For the remaining 28, inspect SiteLiner's highlighted passages. Condense
+unhelpful repeated template blocks and add useful page-specific evidence;
+neither synonym swaps nor more text alone establishes content quality.
 
 ## Link-building category destinations (§5.2/§5.3) — one correction
 
@@ -117,14 +124,12 @@ article. Implementation is not the same as factual review or acceptance.
 ## What is not code, and is still open
 
 - **§4 / Stage 2 — acceptance, by SiteLiner (2026-09-16 Premium crawl).**
-  9/37 targets now pass under 30%. The other 28 dropped substantially but
-  remain above it — see the §10-A step 7 section above for the full
-  breakdown and file. Factual review is done for the defects found across
-  two validation passes (Remitly limit, India NEFT/RTGS, duplicate hub/US
-  paragraphs, missing bylines, the WU/Wise mix-up, the b2b-transfers doc
-  error) — no further known claim-accuracy issues open as of this write-up.
-  Getting the remaining 28 under 30% needs more hand-written content per
-  page, not a template change (see "Finding worth carrying into Stage 2").
+  9/37 targets pass; the other 28 remain at or above 30%. Corrections exist
+  for the India timing, missing bylines and Remitly scope issues. Factual
+  review is still open: `compare-editorial.ts` now incorrectly says a
+  $300,000 ceiling is below $50,000. Further source review is needed before
+  claiming complete accuracy. Reduce repeated blocks and improve useful
+  page-specific evidence, then validate a deployed build.
 - **§5.2 / §5.3 — earning 1–2 links per category.** Outreach, by hand.
 - **Task B — vendor audit.** Disavow uploaded 2026-09-15. Auditing vendors/
   agencies for the seoexpress/link-baron/rank-forge style packages the spam
