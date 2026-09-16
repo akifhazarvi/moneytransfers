@@ -53,6 +53,14 @@ export interface CompanyEditorial {
   whereItLoses: CompanyEditorialSection;
   /** The specific thing a reader should check before committing. */
   watchOut: string;
+  /**
+   * Named corridors this provider actually led over the 91-day window, via
+   * {{LEAD_PAIRS}}. Optional — thin for providers that rarely lead. Genuinely
+   * new information, not padding: naming routes is the differentiator no
+   * competitor review makes (see the competitor research this file's header
+   * describes — Monito names continents, never corridors).
+   */
+  namedCorridors?: string;
 }
 
 export const companyEditorial: Record<string, CompanyEditorial> = {
@@ -68,6 +76,7 @@ export const companyEditorial: Record<string, CompanyEditorial> = {
       body: `At $100 Wise cost {{SMALLCOST:wise}} on our measurements — worse than most specialist remittance apps, several of which charge roughly the same in percentage terms at $100 as at $1,000. If you are sending small amounts regularly, this is the single most expensive habit on this page, and the providers built for that pattern beat it clearly. Wise also has no cash pickup, no mobile money and no home delivery, and reaches 80 countries against 100-200 for the remittance networks. For a recipient without a usable bank account, Wise is not a more expensive option — it is not an option.`,
     },
     watchOut: `Check the amount before you assume the recommendation holds: our figures show the ranking genuinely inverts between $100 and $1,000, so run your own number rather than carrying a general recommendation across. Wise's fee also varies by currency and by how you fund the transfer — a card-funded transfer costs more than one funded from a bank account. Safeguarded funds are not the same thing as FSCS or FDIC deposit insurance; confirm what protection applies to your balance if you intend to hold money rather than send it.`,
+    namedCorridors: `The corridors it actually led, by name rather than by count: {{LEAD_PAIRS:wise}}. Naming the routes matters because a win-rate percentage tells you nothing about whether YOUR corridor is one of them — check the list, or the live comparison for your currency pair, rather than assuming a high overall rate carries over.`,
   },
 
   instarem: {
@@ -96,6 +105,7 @@ export const companyEditorial: Record<string, CompanyEditorial> = {
       body: `Its whole cost advantage sits in the rate rather than a fee, so on corridors where a bank-rail specialist like Wise or InstaReM prices tightly it can be beaten, particularly at larger amounts where a 0% markup compounds in the other direction. It is a consumer remittance app rather than a business or high-value FX service: there is no multi-currency account, no forward contract, no dealer, and it is not the tool for a property purchase or a commercial payment. Coverage is destination-led — strong where the diaspora corridors are, thin elsewhere.`,
     },
     watchOut: `TapTap Send is a paid partner of SendMoneyCompare. That relationship pays for a highlighted placement; it does not change its position in any ranked table on this site, which is ordered by what the recipient receives. Treat the figures above as what we measured, and check a live quote for your own corridor, amount and payout method before sending — availability and final rates depend on your transfer.`,
+    namedCorridors: `The corridors it led outright over the 91-day window: {{LEAD_PAIRS:taptap-send}}. That list is second in length only to Wise's on this site, which is the concrete version of the "second most consistent leader" claim above — not an adjective, a route list you can check your own corridor against.`,
   },
 
   xe: {
@@ -151,6 +161,7 @@ export const companyEditorial: Record<string, CompanyEditorial> = {
       body: `WorldRemit led {{LEADS:worldremit}} over 91 days, so on a well-served bank corridor you will usually do better elsewhere. Transfers cap at $10,000, which rules out property, tuition instalments and most business payments, and there is no multi-currency account or dealer service. We could price it on {{COSTCORRIDORS:worldremit}} corridors — a narrower set than the leaders — so on an unusual route it may not quote at all.`,
     },
     watchOut: `Mobile money and airtime availability vary by country and by network, and pricing differs by payout method, so a good bank-deposit quote does not tell you what a wallet payout costs. Confirm the recipient's wallet provider is supported before relying on it. Our quotes are collected by currency pair rather than sending country, so check that WorldRemit accepts senders from your country.`,
+    namedCorridors: `The corridors it led over the 91-day window: {{LEAD_PAIRS:worldremit}}. That's a short list next to Wise's, which is consistent with WorldRemit's whole proposition — it competes on payout reach rather than being the cheapest, so leading outright on any corridor at all is the exception rather than the rule.`,
   },
 
   "western-union": {
@@ -165,6 +176,7 @@ export const companyEditorial: Record<string, CompanyEditorial> = {
       body: `At {{AVGCOST:western-union}} average all-in cost, Western Union is roughly double the digital leaders on the corridors we price, and it led only {{LEADS:western-union}}. If your recipient can take a bank deposit or a mobile wallet, you are very likely paying for a network you are not using. Pricing also varies sharply by payout method and by how you fund the transfer, so the figure above is an average across conditions rather than a quote.`,
     },
     watchOut: `Western Union prices cash pickup differently from bank deposit, and card-funded transfers cost more than bank-funded ones, so quote your exact combination rather than assuming the average applies. Agent-level pricing is not something we observe. Check the collection location and the identification your recipient will need before sending — a better rate at an agent two hours away is worth nothing.`,
+    namedCorridors: `The corridors it led over the 91-day window: {{LEAD_PAIRS:western-union}}. The pattern is oddly specific rather than random: exactly half are AUD-originated pairs and half are INR-outbound pairs — India as the sending currency, not the receiving one. That's a narrower footprint than the corridor count alone suggests, and a reminder to check the actual list rather than assume a lead count spreads evenly across the routes you might care about.`,
   },
 
   moneygram: {

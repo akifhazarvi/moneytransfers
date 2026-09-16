@@ -308,6 +308,12 @@ function DefaultReview({
                     className="text-md text-[var(--color-on-surface-variant)] leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.watchOut) }}
                   />
+                  {editorial.namedCorridors && (
+                    <p
+                      className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mt-4 pt-4 border-t border-[var(--color-outline)]"
+                      dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.namedCorridors) }}
+                    />
+                  )}
                 </Card>
               </>
             )}
