@@ -24,6 +24,7 @@ import { ibanPageRenders } from "@/lib/route-map";
 import { computeBusinessFxIndex, BUSINESS_FX_SLUGS, type BusinessFxIndex } from "@/lib/business-fx-index";
 import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
+import CORRIDOR_LEADERS from "@/data/scraped/corridor-leaders.json";
 
 export interface StoreRating {
   score: number | null;
@@ -651,6 +652,58 @@ export function renderDataTokens(html: string): string {
   if (out.includes("{{FOUR_WAY_COST_TABLE}}")) {
     out = out.split("{{FOUR_WAY_COST_TABLE}}").join(renderFourWayCostTable());
   }
+
+  // {{LEAD_PAIRS:wise}} -> "AED→INR, AED→KES, GBP→AUD, USD→PKR and 40 more"
+  //
+  // Distinct from the existing {{LEADS:slug}}, which renders the COUNT
+  // ("44 of the 212 corridors we can compare"). This one names them.
+  //
+  // The competitive gap this closes: Monito's Wise review says it is "less
+  // competitive on many remittance corridors — particularly parts of Latin
+  // America, Africa and Southeast Asia" and never names one. Naming the
+  // corridors a provider actually led, from corridor-leaders.json, is a claim
+  // no comparison site currently makes, and it links the evidence to the
+  // corridor pages that carry it.
+  out = out.replace(/\{\{LEAD_PAIRS:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
+    const pairs = Object.entries(CORRIDOR_LEADERS)
+      .filter(([, v]) => (v as { slug: string }).slug === slug)
+      .map(([pair]) => pair.replace("-", "\u2192"))
+      .sort();
+    if (!pairs.length) return match;
+    const shown = pairs.slice(0, 4).join(", ");
+    return pairs.length > 4 ? `${shown} and ${pairs.length - 4} more` : shown;
+  });
+
+  // {{AVGCOST:wise}} -> "1.75%", {{COSTCORRIDORS:wise}} -> "340",
+  // {{SMALLCOST:wise}} -> "7.77%", {{BIGCOST:wise}} -> "1.75%",
+  // {{SMALLPENALTY:wise}} -> "6.02pp".
+  //
+  // The amount-tier figures are the ones no competitor publishes: every review
+  // site recommends Wise flatly, and none of them tells a reader sending $100
+  // that it costs 7.77% there against 1.75% at $1,000. A provider below the
+  // tier index's 20-quote-per-tier minimum resolves nothing, so a small-transfer
+  // claim cannot be made about a provider we have not measured at both tiers.
+  out = out.replace(
+    /\{\{(AVGCOST|COSTCORRIDORS|SMALLCOST|BIGCOST|SMALLPENALTY):([a-z0-9-]+)\}\}/g,
+    (match, kind: string, slug: string) => {
+      if (kind === "AVGCOST" || kind === "COSTCORRIDORS") {
+        const row = REMITTANCE_INDEX.providers.find((p) => p.slug === slug);
+        if (!row) return match;
+        return kind === "AVGCOST" ? `${row.avgCostPct.toFixed(2)}%` : String(row.corridors);
+      }
+      const tier = AMOUNT_TIER_INDEX.rows.find((r) => r.slug === slug);
+      if (!tier) return match;
+      switch (kind) {
+        case "SMALLCOST":
+          return `${tier.costSmallPct.toFixed(2)}%`;
+        case "BIGCOST":
+          return `${tier.costHeadlinePct.toFixed(2)}%`;
+        case "SMALLPENALTY":
+          return `${tier.deltaPp.toFixed(2)}pp`;
+      }
+      return match;
+    },
+  );
 
   // {{LED:wise}} -> "48 of 128", {{WINRATE:wise}} -> "32.4%",
   // {{SHORTFALL:wise}} -> "2.75%".

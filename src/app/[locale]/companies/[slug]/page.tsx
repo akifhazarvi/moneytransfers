@@ -28,6 +28,8 @@ import { fitTitle } from "@/lib/seo-title";
 import { comparePageHref } from "@/lib/route-map";
 import { PageByline } from "@/components/PageByline";
 import { quoteDataDate } from "@/lib/unified-quotes";
+import { getCompanyEditorial } from "@/data/company-editorial";
+import { renderDataTokens } from "@/lib/ratings-tokens";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -163,6 +165,7 @@ function DefaultReview({
   providerNews: (typeof newsItems)[number][];
 }) {
   const tp = trustpilotIndex[slug];
+  const editorial = getCompanyEditorial(provider.slug);
   const profile = generateProviderProfile(provider, {
     score: tp?.score ?? undefined,
     reviews: tp?.totalReviews ?? undefined,
@@ -259,6 +262,55 @@ function DefaultReview({
                 ))}
               </div>
             </Card>
+
+            {/* Hand-written editorial — content brief §4. provider-profile.ts
+                already argued against solving this with more generation ("more
+                skeletons filled from the same fields is the same scaled-content
+                signal in a different costume"), and measurement agreed, so the
+                unique material on these pages is written per provider and
+                carries the longitudinal record no competitor publishes. */}
+            {editorial && (
+              <>
+                <Card>
+                  <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">
+                    Is {provider.name} the right choice?
+                  </h2>
+                  <p
+                    className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-5"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.theVerdict) }}
+                  />
+                  <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-2">
+                    What we measured over the last 91 days
+                  </h3>
+                  <p
+                    className="text-md text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.measuredRecord) }}
+                  />
+                </Card>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[editorial.whereItWins, editorial.whereItLoses].map((sec) => (
+                    <Card key={sec.heading}>
+                      <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">{sec.heading}</h3>
+                      <p
+                        className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: renderDataTokens(sec.body) }}
+                      />
+                    </Card>
+                  ))}
+                </div>
+
+                <Card>
+                  <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-3">
+                    Before you send with {provider.name}
+                  </h2>
+                  <p
+                    className="text-md text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.watchOut) }}
+                  />
+                </Card>
+              </>
+            )}
 
             {/* Pros and Cons */}
             <div className="grid md:grid-cols-2 gap-4">
