@@ -647,12 +647,12 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Provider</th><th>Regulated By</th><th>Trustpilot</th><th>Segregated Funds</th><th>2FA</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>FCA, FinCEN, ASIC, MAS</td><td>4.6/5 (284K reviews)</td><td>Yes</td><td>Yes</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>FCA, FinCEN</td><td>4.6/5 (108K reviews)</td><td>Yes</td><td>Yes</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut</a></strong></td><td>FCA, ECB (banking licence)</td><td>4.3/5 (180K reviews)</td><td>Yes</td><td>Yes</td></tr>
-<tr><td><strong><a href="/companies/xe">XE</a></strong></td><td>FCA, FinCEN, ASIC</td><td>4.5/5 (16K reviews)</td><td>Yes</td><td>Yes</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>FCA, ASIC, FinCEN</td><td>4.6/5 (5K reviews)</td><td>Yes</td><td>Yes</td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>FinCEN, FCA, 200+ licences</td><td>3.2/5 (35K reviews)</td><td>Yes</td><td>Yes</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>FCA, FinCEN, ASIC, MAS</td><td>{{TRUSTPILOT:wise}}</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>FCA, FinCEN</td><td>{{TRUSTPILOT:remitly}}</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong><a href="/companies/revolut">Revolut</a></strong></td><td>FCA, ECB (banking licence)</td><td>{{TRUSTPILOT:revolut}}</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong><a href="/companies/xe">XE</a></strong></td><td>FCA, FinCEN, ASIC</td><td>{{TRUSTPILOT:xe}}</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>FCA, ASIC, FinCEN</td><td>{{TRUSTPILOT:ofx}}</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>FinCEN, FCA, 200+ licences</td><td>{{TRUSTPILOT:western-union}}</td><td>Yes</td><td>Yes</td></tr>
 </tbody>
 </table>
 </div>
@@ -740,19 +740,19 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Are Specific Providers Safe? Wise, Remitly, Western Union, Revolut, MoneyGram, Xoom, OFX",
         content: `<p>The most-searched safety question is provider-specific: "Is X safe to use?" Here's the answer for the major regulated services we cover.</p>
 <h3>Is Wise safe?</h3>
-<p><strong>Yes.</strong> <a href="/companies/wise">Wise</a> (formerly TransferWise) is authorised by the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). It's a publicly listed company on the London Stock Exchange (WISE.L) since July 2021, which means quarterly financial disclosure and audited accounts. Wise holds customer funds in segregated accounts at major banks (JP Morgan, Barclays, Deutsche Bank). 16+ million customers, 4.6/5 Trustpilot from 284K+ reviews.</p>
+<p><strong>Yes.</strong> <a href="/companies/wise">Wise</a> (formerly TransferWise) is authorised by the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). It's a publicly listed company on the London Stock Exchange (WISE.L) since July 2021, which means quarterly financial disclosure and audited accounts. Wise holds customer funds in segregated accounts at major banks (JP Morgan, Barclays, Deutsche Bank). 16+ million customers, {{TRUSTPILOT:wise}} on Trustpilot.</p>
 <h3>Is Remitly safe?</h3>
-<p><strong>Yes.</strong> <a href="/companies/remitly">Remitly</a> is authorised by the FCA (UK) and registered with FinCEN (US) as an MSB. It's listed on NASDAQ (RELY) since September 2021. The Trustpilot score is 4.6/5 from over 108,000 reviews. Remitly's specialty is remittances to emerging markets — Philippines, Mexico, India, Pakistan — where it offers cash pickup networks alongside bank deposits.</p>
+<p><strong>Yes.</strong> <a href="/companies/remitly">Remitly</a> is authorised by the FCA (UK) and registered with FinCEN (US) as an MSB. It's listed on NASDAQ (RELY) since September 2021. The Trustpilot score is {{TRUSTPILOT:remitly}}. Remitly's specialty is remittances to emerging markets — Philippines, Mexico, India, Pakistan — where it offers cash pickup networks alongside bank deposits.</p>
 <h3>Is Western Union safe?</h3>
-<p><strong>Yes — and one of the most globally licensed.</strong> <a href="/companies/western-union">Western Union</a> holds 200+ regulatory licences worldwide (FinCEN, FCA, AUSTRAC, and dozens of national regulators). It's a NYSE-listed company (WU) founded in 1851. The Trustpilot score (3.2/5) is lower than digital-first competitors, mostly reflecting fee complaints rather than safety incidents. Cash pickup in 200+ countries and territories — useful for unbanked recipients but more expensive than bank-to-bank.</p>
+<p><strong>Yes — and one of the most globally licensed.</strong> <a href="/companies/western-union">Western Union</a> holds 200+ regulatory licences worldwide (FinCEN, FCA, AUSTRAC, and dozens of national regulators). It's a NYSE-listed company (WU) founded in 1851. The Trustpilot score ({{TRUSTPILOT:western-union}}) mostly reflects fee complaints rather than safety incidents. Cash pickup in 200+ countries and territories — useful for unbanked recipients but more expensive than bank-to-bank.</p>
 <h3>Is Revolut safe?</h3>
-<p><strong>Yes.</strong> <a href="/companies/revolut">Revolut</a> holds a full UK banking licence from the PRA (granted July 2024), which means UK customer deposits up to £85,000 are protected by the FSCS. In the EU, Revolut operates under a Lithuanian banking licence with €100,000 ECB deposit protection. The Trustpilot score is 4.3/5 from 180K+ reviews. Note: customer service complaints are common — for high-value or complex transfers, having a backup provider is wise.</p>
+<p><strong>Yes.</strong> <a href="/companies/revolut">Revolut</a> holds a full UK banking licence from the PRA (granted July 2024), which means UK customer deposits up to £85,000 are protected by the FSCS. In the EU, Revolut operates under a Lithuanian banking licence with €100,000 ECB deposit protection. The Trustpilot score is {{TRUSTPILOT:revolut}}. Note: customer service complaints are common — for high-value or complex transfers, having a backup provider is wise.</p>
 <h3>Is MoneyGram safe?</h3>
-<p><strong>Yes.</strong> <a href="/companies/moneygram">MoneyGram</a> is FinCEN-registered (US) and FCA-authorised (UK), with regulatory authorisation in 200+ countries. It was acquired by Madison Dearborn Partners in 2023 and remains a major cash-pickup remittance provider. The Trustpilot score (around 3.5/5) reflects price/UX complaints; safety record is solid.</p>
+<p><strong>Yes.</strong> <a href="/companies/moneygram">MoneyGram</a> is FinCEN-registered (US) and FCA-authorised (UK), with regulatory authorisation in 200+ countries. It was acquired by Madison Dearborn Partners in 2023 and remains a major cash-pickup remittance provider. The Trustpilot score ({{TRUSTPILOT:moneygram}}) reflects price/UX complaints; safety record is solid.</p>
 <h3>Is Xoom safe?</h3>
 <p><strong>Yes.</strong> <a href="/companies/xoom">Xoom</a> is owned by PayPal Holdings (NASDAQ: PYPL) and registered with FinCEN. It's regulated as a digital remittance service across multiple jurisdictions. As a PayPal subsidiary, it inherits PayPal's security infrastructure — strong fraud monitoring, but customer support follows PayPal's standard model.</p>
 <h3>Is OFX safe?</h3>
-<p><strong>Yes.</strong> <a href="/companies/ofx">OFX</a> (formerly OzForex) is FCA-authorised (UK), ASIC-licensed (Australia), and FinCEN-registered (US). It's listed on the Australian Stock Exchange (ASX: OFX) since 2013. OFX specialises in larger transfers (typically £1,000+) for property purchases, business payments, and emigration. The 4.6/5 Trustpilot from 5K+ reviews leans heavily positive on customer support quality.</p>
+<p><strong>Yes.</strong> <a href="/companies/ofx">OFX</a> (formerly OzForex) is FCA-authorised (UK), ASIC-licensed (Australia), and FinCEN-registered (US). It's listed on the Australian Stock Exchange (ASX: OFX) since 2013. OFX specialises in larger transfers (typically £1,000+) for property purchases, business payments, and emigration. The {{TRUSTPILOT:ofx}} Trustpilot record leans positive on customer support quality.</p>
 <h3>Is XE Money Transfer safe?</h3>
 <p><strong>Yes.</strong> <a href="/companies/xe">XE</a> is FCA-authorised (UK), FinCEN-registered (US), and ASIC-licensed (Australia). XE is owned by Euronet Worldwide (NASDAQ: EEFT). Its currency data feeds power 10,000+ partner sites and apps — the brand has been operating since 1993, one of the longest-running consumer FX services online.</p>
 <p><strong>Bottom line:</strong> All providers in our <a href="/send-money">comparison tool</a> are checked for current regulatory authorisation. Differences in Trustpilot scores almost always reflect customer service experience, not safety incidents. For a side-by-side comparison, see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a>, <a href="/compare/wise-vs-revolut">Wise vs Revolut</a>, or <a href="/compare/western-union-vs-moneygram">Western Union vs MoneyGram</a>.</p>`,
@@ -831,12 +831,12 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Is Wise safe to use?",
         answer:
-          "Yes. <a href=\"/companies/wise\">Wise</a> is authorized by the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). They hold customer funds in segregated accounts at major banks like JP Morgan and Barclays. Wise has a 4.6/5 Trustpilot rating from over 284,000 reviews and serves 16+ million customers worldwide.",
+          "Yes. <a href=\"/companies/wise\">Wise</a> is authorized by the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). They hold customer funds in segregated accounts at major banks like JP Morgan and Barclays. Wise has a {{TRUSTPILOT:wise}} Trustpilot rating and serves 16+ million customers worldwide.",
       },
       {
         question: "Is Remitly safe to use?",
         answer:
-          "Yes. <a href=\"/companies/remitly\">Remitly</a> is authorised by the FCA (UK) and registered with FinCEN (US). It has a 4.6/5 Trustpilot rating from over 108,000 reviews and is a NASDAQ-listed public company (RELY). Remitly uses bank-grade encryption and 2FA for all transactions.",
+          "Yes. <a href=\"/companies/remitly\">Remitly</a> is authorised by the FCA (UK) and registered with FinCEN (US). It has a {{TRUSTPILOT:remitly}} Trustpilot rating and is a NASDAQ-listed public company (RELY). Remitly uses bank-grade encryption and 2FA for all transactions.",
       },
       {
         question: "How do I check if a money transfer service is legitimate?",
