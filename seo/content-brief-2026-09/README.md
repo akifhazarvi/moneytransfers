@@ -87,10 +87,26 @@ article. Implementation is not the same as factual review or acceptance.
 - **§5.4 — verified contact details.** The owner supplied a Denver address and
   general email; these have now been added in local source with a map link.
   No phone number or separate press/partnership mailboxes were supplied.
-- **§10-D — deployment, URL inspections and outcome monitoring.** Not verified.
+- **§10-D — deployment, URL inspections and outcome monitoring.**
+  2026-09-15: all 37 pages deployed to production and re-verified live (not
+  just committed) after a second validation pass found 5 real defects, all
+  fixed — see the second-pass report. GSC URL Inspection run on 3 priority
+  pages (`/send-money/usa-to-india`, `/compare/wise-vs-remitly`,
+  `/companies/wise`): 2 of 3 were "URL is unknown to Google" (never crawled),
+  the third last crawled 26 May 2026. Sitemap resubmitted via API; IndexNow
+  pinged 533/533 URLs accepted (Bing/Yandex only — no Google equivalent
+  exists). "Request Indexing" clicked manually for all 3 priority URLs by the
+  site owner (no API for this — confirmed the public GSC API has no per-URL
+  indexing-request endpoint). **Recheck GSC ~2026-10-06** (2-3 weeks) for
+  crawl/coverage movement before deciding on backlink outreach — the
+  underlying issue is documented elsewhere in this codebase as algorithmic
+  scaled-content suppression (core-update-gated), not a link-based manual
+  action, so content fixes + waiting is the evidence-based first move, not
+  a backlink campaign.
 
-See the [detailed requirement checklist](REQUIREMENTS.md) and
-[validation report](../../reports/content-brief-validation-2026-09-15.md).
+See the [detailed requirement checklist](REQUIREMENTS.md),
+[validation report](../../reports/content-brief-validation-2026-09-15.md), and
+[second-pass report](../../reports/content-brief-second-pass-2026-09-15.md).
 
 ## Finding worth carrying into Stage 2
 
