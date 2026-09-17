@@ -199,6 +199,57 @@ tool from here.
 `check:links` (98,194 links) and `check:indexing` (530 submitted URLs) both
 still pass after this change; lint clean on both touched files.
 
+## §10-A step 7, continued a third time — competitor research, citations, second examples
+
+Direct competitor research (fetched Wise's own blog, BOSS Money and
+ExTravelMoney — not delegated, read the actual pages) found two real,
+non-padding gaps against the norm for this query category: **zero external
+citations on any `/compare/*` page** (2 of 3 competitors cite something), and
+**one worked example per pair** against BOSS Money's six real scenarios.
+WorldRemit's own India page turned out to be a single-provider marketing
+funnel with no independent data — confirms the competitive set for this
+query is aggregators, not provider-branded pages, so that finding doesn't
+change strategy.
+
+Piloted both fixes on `wise-vs-remitly` first: regulator (FCA/FinCEN) and
+Trustpilot citations, reusing already-verified URLs from
+`provider-reviews.ts` rather than guessing new ones, plus a second worked
+example ($1,000 USD→MXN — Mexico is a genuine Remitly strength, unlike India
+which favours Wise's bank-only model). Verified both providers had live
+MXN quotes before writing it. Local diagnostic dropped 26.0%→24.8%,
+confirming the addition was real content, not filler.
+
+Rolled the same pattern out to the other 9 pairs. Caught two real defects
+doing it, not assuming the pilot's approach would just work a second time:
+
+1. **A wording bug** (western-union-vs-moneygram's MXN example never named
+   which provider the first cost percentage belonged to — data was right,
+   attribution wasn't).
+2. **A real data bug**: copying the pilot's MXN corridor choice for
+   moneygram-vs-xoom without re-checking coverage put two unresolved
+   `{{TOKEN}}`s on a live page — Xoom has no current MXN quote, and
+   `check:assets` doesn't catch this class of failure (it validates token
+   *syntax*, not whether the referenced provider/corridor/amount actually
+   resolves against live data). Fixed by writing a small script against
+   `generateQuotes()` — the real engine, not the raw scraped JSON, which can
+   be stale post-merge — to verify coverage per pair before committing to a
+   corridor. Also surfaced a subtler issue this way: `USD→NGN` currently
+   produces a real-but-uninformative 0.00% cost for every provider, because
+   today's mid-market NGN benchmark sits below what providers are actually
+   quoting, flooring the markup calculation at zero for everyone (the floor
+   itself is intentional — `Math.max(0, ...)` stops a provider that beats
+   mid-market from showing negative cost — but it makes a percentage claim
+   on this specific corridor misleading right now). One example was moved to
+   Mexico; the other kept Nigeria but limited to the receive-amount figure,
+   which isn't affected by the benchmark issue, and says so on the page.
+
+Verified zero unresolved `{{` anywhere across every `/compare/*` page after
+the fix, not just the ones touched — `grep -l "{{" .next/server/app/en/compare/*.html`
+returned nothing. Local diagnostic dropped further on the 3 pairs that got
+second examples (35.6%→32.5%, 33.6%→31.2%, 32.3%→30.6%); still 4/37 passing
+sitewide (no regression), several others now within a point of the
+threshold. Build, `check:links`, `check:indexing` pass; lint clean.
+
 **Checked whether the remaining 6 (31-36%) have any further prose-level fix
 available: no.** Block analysis on the worst of them
 (`moneygram-vs-xoom`, 35.6%) shows the dominant remainder is a 161-word
@@ -211,6 +262,14 @@ chrome and live data, the same category already documented for the 18 pages
 above — not something more editorial writing moves. The prose lever on these
 10 pages is now exhausted; the only pages where the pair-specific content
 genuinely ran out are these 6, not a sign the rewrite was incomplete.
+
+**Partial correction, same day:** this was written before the citations/
+second-example pass above. Those weren't more of the same prose — real
+external citations and a second measured corridor are a different kind of
+addition than another paragraph of analysis — and moved 3 of these 6 to
+within a point of the threshold (30.6-32.5%). The block-analysis finding
+still holds (nav chrome and live table data dominate what's left), but
+"exhausted" overstated it at the time; there was one more lever, now used.
 
 ## Link-building category destinations (§5.2/§5.3) — one correction
 
