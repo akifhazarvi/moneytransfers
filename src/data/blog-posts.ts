@@ -3415,13 +3415,13 @@ const rawBlogPosts: BlogPost[] = [
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td><strong>Habib Bank (HBL)</strong></td><td>HABOROMM</td><td>Largest private bank. Widest branch network (1,700+ branches). Best for rural areas.</td></tr>
-<tr><td><strong>United Bank (UBL)</strong></td><td>UNABOROMM</td><td>Second-largest. Strong digital banking (UBL Digital App). Fast international processing.</td></tr>
-<tr><td><strong>MCB Bank</strong></td><td>MUCBORLA</td><td>Third-largest. Popular for salary accounts. Good urban coverage.</td></tr>
-<tr><td><strong>Meezan Bank</strong></td><td>MEABOROMM</td><td>Largest Islamic bank. Sharia-compliant. Fast-growing branch network.</td></tr>
-<tr><td><strong>Bank Alfalah</strong></td><td>ALFHBOML</td><td>Strong digital infrastructure. Alfalah Orbit mobile banking.</td></tr>
-<tr><td><strong>Allied Bank (ABL)</strong></td><td>ABPABOROMM</td><td>State-owned. Good coverage in Punjab and KPK.</td></tr>
-<tr><td><strong>National Bank (NBP)</strong></td><td>NBPABOROMM</td><td>Government bank. Widest rural reach. Handles government payments.</td></tr>
+<tr><td><strong>Habib Bank (HBL)</strong></td><td>HABBPKKA</td><td>Largest private bank. Widest branch network (1,700+ branches). Best for rural areas.</td></tr>
+<tr><td><strong>United Bank (UBL)</strong></td><td>UNILPKKA</td><td>Second-largest. Strong digital banking (UBL Digital App). Fast international processing.</td></tr>
+<tr><td><strong>MCB Bank</strong></td><td>MUCBPKKA</td><td>Third-largest. Popular for salary accounts. Good urban coverage.</td></tr>
+<tr><td><strong>Meezan Bank</strong></td><td>MEZNPKKA</td><td>Largest Islamic bank. Sharia-compliant. Fast-growing branch network.</td></tr>
+<tr><td><strong>Bank Alfalah</strong></td><td>ALFHPKKA</td><td>Strong digital infrastructure. Alfalah Orbit mobile banking.</td></tr>
+<tr><td><strong>Allied Bank (ABL)</strong></td><td>ABPAPKKA</td><td>State-owned. Good coverage in Punjab and KPK.</td></tr>
+<tr><td><strong>National Bank (NBP)</strong></td><td>NBPAPKKA</td><td>Government bank. Widest rural reach. Handles government payments.</td></tr>
 </tbody>
 </table>
 <p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Transfers to HBL, UBL, and MCB typically process faster than smaller banks. Pakistan uses <a href="/iban/pakistan">24-character IBANs</a> — your recipient can find theirs in their online banking app.</p>`,
@@ -3771,7 +3771,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Account number</strong> — typically 10–12 digits</li>
 <li><strong>Bank branch</strong> (sometimes required)</li>
 </ul>
-<p>The Philippines does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For international wire transfers, you may need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a> — for example, BDO's SWIFT code is BNORPHMM and BPI's is BABOROMM.</p>
+<p>The Philippines does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For international wire transfers, you may need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a> — for example, BDO's SWIFT code is BNORPHMM and BPI's is BOPIPHMM.</p>
 
 <h3>GCash (Mobile Wallet)</h3>
 <ul>
@@ -3794,8 +3794,8 @@ const rawBlogPosts: BlogPost[] = [
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
 <tr><td><strong>BDO Unibank</strong></td><td>BNORPHMM</td><td>Largest bank by assets. Widest ATM network.</td></tr>
-<tr><td><strong>BPI (Bank of the Philippine Islands)</strong></td><td>BABOROMM</td><td>Strong digital banking. Fast processing.</td></tr>
-<tr><td><strong>Metrobank</strong></td><td>MABOROMM</td><td>Large branch network. Accepts international wires.</td></tr>
+<tr><td><strong>BPI (Bank of the Philippine Islands)</strong></td><td>BOPIPHMM</td><td>Strong digital banking. Fast processing.</td></tr>
+<tr><td><strong>Metrobank</strong></td><td>MBTCPHMM</td><td>Large branch network. Accepts international wires.</td></tr>
 <tr><td><strong>Landbank</strong></td><td>TLBPPHMM</td><td>Government-owned. Popular in rural areas.</td></tr>
 <tr><td><strong>PNB (Philippine National Bank)</strong></td><td>PNBMPHMM</td><td>Extensive overseas branches for OFWs.</td></tr>
 <tr><td><strong>UnionBank</strong></td><td>UBPHPHMM</td><td>Digital-first. Fastest online processing.</td></tr>
@@ -4184,7 +4184,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Banorte</strong></td><td>MENOMXMT</td><td>Mexico's largest domestically-owned bank.</td></tr>
 <tr><td><strong>Santander México</strong></td><td>BMSXMXMM</td><td>Good international wire support.</td></tr>
 <tr><td><strong>Citibanamex</strong></td><td>BNMXMXMM</td><td>Strong US-Mexico corridor coverage.</td></tr>
-<tr><td><strong>HSBC México</strong></td><td>BABOROMM</td><td>Global bank with cross-border expertise.</td></tr>
+<tr><td><strong>HSBC México</strong></td><td>BIMEMXMM</td><td>Global bank with cross-border expertise.</td></tr>
 <tr><td><strong>Banco Azteca</strong></td><td>AZTEMXMM</td><td>Accessible in Elektra stores. Popular for cash pickup.</td></tr>
 </tbody>
 </table>
@@ -4562,12 +4562,12 @@ const rawBlogPosts: BlogPost[] = [
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td><strong>Access Bank</strong></td><td>ABOROMM</td><td>Largest bank by customer base after merger with Diamond Bank.</td></tr>
-<tr><td><strong>GTBank (Guaranty Trust)</strong></td><td>GTBIOMOM</td><td>Best digital banking experience. Fast transfer processing.</td></tr>
-<tr><td><strong>First Bank of Nigeria</strong></td><td>FBNIOMOM</td><td>Oldest bank. Widest branch network in the country.</td></tr>
-<tr><td><strong>Zenith Bank</strong></td><td>ZEBIOMOM</td><td>One of the largest by assets. Strong corporate banking.</td></tr>
-<tr><td><strong>UBA (United Bank for Africa)</strong></td><td>UNAFOMOM</td><td>Pan-African presence. Good for cross-border within Africa.</td></tr>
-<tr><td><strong>Fidelity Bank</strong></td><td>FIDTOMOM</td><td>Growing digital services. Competitive for SME banking.</td></tr>
+<tr><td><strong>Access Bank</strong></td><td>ABNGNGLA</td><td>Largest bank by customer base after merger with Diamond Bank.</td></tr>
+<tr><td><strong>GTBank (Guaranty Trust)</strong></td><td>GTBINGLA</td><td>Best digital banking experience. Fast transfer processing.</td></tr>
+<tr><td><strong>First Bank of Nigeria</strong></td><td>FBNINGLA</td><td>Oldest bank. Widest branch network in the country.</td></tr>
+<tr><td><strong>Zenith Bank</strong></td><td>ZEIBNGLA</td><td>One of the largest by assets. Strong corporate banking.</td></tr>
+<tr><td><strong>UBA (United Bank for Africa)</strong></td><td>UNAFNGLA</td><td>Pan-African presence. Good for cross-border within Africa.</td></tr>
+<tr><td><strong>Fidelity Bank</strong></td><td>FIDTNGLA</td><td>Growing digital services. Competitive for SME banking.</td></tr>
 </tbody>
 </table>
 <p>See our <a href="/guides/swift-codes-explained">SWIFT codes guide</a> for the complete reference.</p>`,
@@ -4730,11 +4730,11 @@ const rawBlogPosts: BlogPost[] = [
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td><strong>Sonali Bank</strong></td><td>BABOROMM</td><td>Largest state-owned bank. Widest branch network in rural areas.</td></tr>
+<tr><td><strong>Sonali Bank</strong></td><td>BSONBDDH</td><td>Largest state-owned bank. Widest branch network in rural areas.</td></tr>
 <tr><td><strong>Islami Bank Bangladesh</strong></td><td>IBBLBDDH</td><td>Largest private bank by deposits. Sharia-compliant banking.</td></tr>
 <tr><td><strong>Dutch-Bangla Bank (DBBL)</strong></td><td>DBBLBDDH</td><td>Pioneer in mobile banking. Strong digital infrastructure.</td></tr>
-<tr><td><strong>BRAC Bank</strong></td><td>BABOROMM</td><td>SME-focused. Operates bKash as a subsidiary.</td></tr>
-<tr><td><strong>Eastern Bank (EBL)</strong></td><td>EABOROMM</td><td>Strong corporate and retail banking.</td></tr>
+<tr><td><strong>BRAC Bank</strong></td><td>BRAKBDDH</td><td>SME-focused. Operates bKash as a subsidiary.</td></tr>
+<tr><td><strong>Eastern Bank (EBL)</strong></td><td>EBLDBDDH</td><td>Strong corporate and retail banking.</td></tr>
 <tr><td><strong>Agrani Bank</strong></td><td>AGBKBDDH</td><td>State-owned. Good coverage in smaller cities.</td></tr>
 </tbody>
 </table>
@@ -12277,8 +12277,8 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Sonali Bank</strong></td><td>BSONBDDH</td><td>Largest state-owned bank. Widest branch network in rural areas (1,200+ branches).</td></tr>
 <tr><td><strong>Islami Bank Bangladesh</strong></td><td>IBBLBDDH</td><td>Largest private bank by deposits. Sharia-compliant. 400+ branches.</td></tr>
 <tr><td><strong>Dutch-Bangla Bank (DBBL)</strong></td><td>DBBLBDDH</td><td>Pioneer in mobile banking. Strong digital infrastructure and ATM network.</td></tr>
-<tr><td><strong>BRAC Bank</strong></td><td>BABOROMM</td><td>Operates bKash as a subsidiary. Good SME banking services.</td></tr>
-<tr><td><strong>Eastern Bank (EBL)</strong></td><td>EABOROMM</td><td>Strong corporate and retail banking with online remittance tracking.</td></tr>
+<tr><td><strong>BRAC Bank</strong></td><td>BRAKBDDH</td><td>Operates bKash as a subsidiary. Good SME banking services.</td></tr>
+<tr><td><strong>Eastern Bank (EBL)</strong></td><td>EBLDBDDH</td><td>Strong corporate and retail banking with online remittance tracking.</td></tr>
 <tr><td><strong>Agrani Bank</strong></td><td>AGBKBDDH</td><td>State-owned. Good coverage in Sylhet and Chittagong divisions.</td></tr>
 <tr><td><strong>Janata Bank</strong></td><td>JANBBDDH</td><td>State-owned. Second-largest by branches. Active in remittance processing.</td></tr>
 </tbody>
@@ -12484,12 +12484,12 @@ const rawBlogPosts: BlogPost[] = [
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td><strong>Equity Bank</strong></td><td>EABOROMM</td><td>Largest bank by customers. Strong mobile banking (Equitel). Good M-Pesa integration.</td></tr>
-<tr><td><strong>KCB Bank</strong></td><td>KCABOROM</td><td>Largest by assets. KCB M-Pesa partnership for savings. Wide branch network.</td></tr>
+<tr><td><strong>Equity Bank</strong></td><td>EQBLKENA</td><td>Largest bank by customers. Strong mobile banking (Equitel). Good M-Pesa integration.</td></tr>
+<tr><td><strong>KCB Bank</strong></td><td>KCBLKENX</td><td>Largest by assets. KCB M-Pesa partnership for savings. Wide branch network.</td></tr>
 <tr><td><strong>Co-operative Bank</strong></td><td>KCOOKENA</td><td>Third-largest. Strong in Sacco (savings co-operative) banking. M-Co-op Cash mobile wallet.</td></tr>
 <tr><td><strong>Standard Chartered Kenya</strong></td><td>SCBLKENX</td><td>International bank. Good for large wire transfers and corporate banking.</td></tr>
-<tr><td><strong>Absa Bank Kenya</strong></td><td>BABOROMM</td><td>Formerly Barclays Kenya. Well-established with modern digital banking.</td></tr>
-<tr><td><strong>NCBA Bank</strong></td><td>CBABOROM</td><td>Merged NIC and CBA. Partner behind M-Shwari savings product.</td></tr>
+<tr><td><strong>Absa Bank Kenya</strong></td><td>BARCKENX</td><td>Formerly Barclays Kenya. Well-established with modern digital banking.</td></tr>
+<tr><td><strong>NCBA Bank</strong></td><td>CBAFKENX</td><td>Merged NIC and CBA. Partner behind M-Shwari savings product.</td></tr>
 <tr><td><strong>Stanbic Bank Kenya</strong></td><td>SBICKENX</td><td>Standard Bank subsidiary. Good for South Africa-Kenya corridor.</td></tr>
 </tbody>
 </table>
@@ -12667,11 +12667,11 @@ const rawBlogPosts: BlogPost[] = [
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td><strong>First Bank of Nigeria</strong></td><td>FBABOROM</td><td>Oldest and one of the largest. 750+ branches. Strong rural coverage.</td></tr>
-<tr><td><strong>Zenith Bank</strong></td><td>ZEABOROMM</td><td>Largest by market cap. Excellent digital banking (Zenith Internet Banking).</td></tr>
+<tr><td><strong>First Bank of Nigeria</strong></td><td>FBNINGLA</td><td>Oldest and one of the largest. 750+ branches. Strong rural coverage.</td></tr>
+<tr><td><strong>Zenith Bank</strong></td><td>ZEIBNGLA</td><td>Largest by market cap. Excellent digital banking (Zenith Internet Banking).</td></tr>
 <tr><td><strong>GTBank (Guaranty Trust)</strong></td><td>GTBINGLA</td><td>Known for fast digital processing. Popular with younger Nigerians.</td></tr>
-<tr><td><strong>Access Bank</strong></td><td>ABOROMNG</td><td>Largest by assets after Diamond Bank merger. Wide branch network.</td></tr>
-<tr><td><strong>UBA (United Bank for Africa)</strong></td><td>UNABOROM</td><td>Pan-African presence. Good for recipients who bank across Africa.</td></tr>
+<tr><td><strong>Access Bank</strong></td><td>ABNGNGLA</td><td>Largest by assets after Diamond Bank merger. Wide branch network.</td></tr>
+<tr><td><strong>UBA (United Bank for Africa)</strong></td><td>UNAFNGLA</td><td>Pan-African presence. Good for recipients who bank across Africa.</td></tr>
 <tr><td><strong>Stanbic IBTC</strong></td><td>SBICNGLX</td><td>Standard Bank subsidiary. Strong corporate banking.</td></tr>
 <tr><td><strong>Fidelity Bank</strong></td><td>FIDTNGLA</td><td>Growing digital banking. Competitive on international transfers.</td></tr>
 </tbody>
@@ -12842,11 +12842,11 @@ const rawBlogPosts: BlogPost[] = [
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Universal Branch Code</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td><strong>FNB (First National Bank)</strong></td><td>FIABOROMM</td><td>250655</td><td>eWallet for unbanked recipients. Strong digital banking.</td></tr>
+<tr><td><strong>FNB (First National Bank)</strong></td><td>FIRNZAJJ</td><td>250655</td><td>eWallet for unbanked recipients. Strong digital banking.</td></tr>
 <tr><td><strong>Standard Bank</strong></td><td>SBZAZAJJ</td><td>051001</td><td>Africa's largest bank by assets. Instant Money for cash transfers.</td></tr>
 <tr><td><strong>Absa Bank</strong></td><td>ABSAZAJJ</td><td>632005</td><td>Formerly Barclays South Africa. Well-established international transfers.</td></tr>
 <tr><td><strong>Nedbank</strong></td><td>NEDSZAJJ</td><td>198765</td><td>Strong in corporate banking. Send-iMali money transfer service.</td></tr>
-<tr><td><strong>Capitec Bank</strong></td><td>CABOROMM</td><td>470010</td><td>SA's largest bank by customers (22M+). Digital-first. Accepts international transfers from select providers only.</td></tr>
+<tr><td><strong>Capitec Bank</strong></td><td>CABLZAJJ</td><td>470010</td><td>SA's largest bank by customers (22M+). Digital-first. Accepts international transfers from select providers only.</td></tr>
 </tbody>
 </table>
 <p><strong>About Capitec:</strong> Capitec is South Africa's most popular bank with over 22 million clients — mostly younger, digitally savvy customers. However, not all international transfer providers can deliver directly to Capitec. Wise, WorldRemit, and Western Union support Capitec deposits. If your recipient banks with Capitec, confirm your chosen provider supports it before sending.</p>
@@ -13034,10 +13034,10 @@ const rawBlogPosts: BlogPost[] = [
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
 <tr><td><strong>Bancolombia</strong></td><td>COLOCOBJXXX</td><td>Largest private bank. Owns Nequi. 18M+ clients</td></tr>
-<tr><td><strong>Davivienda</strong></td><td>DAABORBBXXX</td><td>2nd largest. Owns Daviplata (16M+ users)</td></tr>
-<tr><td><strong>BBVA Colombia</strong></td><td>BBABORBBXXX</td><td>Spanish-owned. Strong for EUR transfers from Spain</td></tr>
-<tr><td><strong>Banco de Bogotá</strong></td><td>BABORBBKXXX</td><td>Oldest bank in Colombia (founded 1870)</td></tr>
-<tr><td><strong>Banco Popular</strong></td><td>BABORBBPXXX</td><td>Government-owned. 4M+ clients</td></tr>
+<tr><td><strong>Davivienda</strong></td><td>CAFECOBBXXX</td><td>2nd largest. Owns Daviplata (16M+ users)</td></tr>
+<tr><td><strong>BBVA Colombia</strong></td><td>GEROCOBBXXX</td><td>Spanish-owned. Strong for EUR transfers from Spain</td></tr>
+<tr><td><strong>Banco de Bogotá</strong></td><td>BBOGCOBBXXX</td><td>Oldest bank in Colombia (founded 1870)</td></tr>
+<tr><td><strong>Banco Popular</strong></td><td>BPOPCOBBXXX</td><td>Government-owned. 4M+ clients</td></tr>
 <tr><td><strong>Scotiabank Colpatria</strong></td><td>COLPCOBJXXX</td><td>Canadian-owned. Good for CAD transfers</td></tr>
 </tbody></table></div>
 <p><strong>Bank codes</strong> (used in domestic transfers): Bancolombia (007), Davivienda (051), BBVA Colombia (013), Banco de Bogotá (001).</p>`,
