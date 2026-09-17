@@ -1,10 +1,10 @@
 {
- "generated": "2026-09-17T02:50:23.993Z",
+ "generated": "2026-09-17T16:18:15.013Z",
  "rationale": "Corridor pages whose currency pair is already represented by a stronger page. Quotes are keyed on currency pair, not country pair, so these restate a twin verbatim. Content brief Sep 2026, §4 / §10-A generation threshold.",
- "renderedBefore": 818,
- "distinctCurrencyPairs": 386,
- "retiring": 394,
- "renderedAfter": 424,
+ "renderedBefore": 829,
+ "distinctCurrencyPairs": 387,
+ "retiring": 404,
+ "renderedAfter": 425,
  "keptPerPair": {
   "AED-ARS": "aed-to-ars",
   "AED-BDT": "uae-to-bangladesh",
@@ -28,7 +28,6 @@
   "AED-PKR": "uae-to-pakistan",
   "AED-THB": "aed-to-thb",
   "AED-TRY": "aed-to-try",
-  "AED-TWD": "aed-to-twd",
   "AED-UAH": "aed-to-uah",
   "AED-VND": "aed-to-vnd",
   "AED-ZAR": "aed-to-zar",
@@ -60,13 +59,13 @@
   "AUD-PHP": "australia-to-philippines",
   "AUD-PKR": "australia-to-pakistan",
   "AUD-PLN": "aud-to-pln",
-  "AUD-RWF": "aud-to-rwf",
   "AUD-SGD": "aud-to-sgd",
   "AUD-THB": "aud-to-thb",
   "AUD-TRY": "aud-to-try",
   "AUD-TWD": "aud-to-twd",
   "AUD-TZS": "aud-to-tzs",
   "AUD-UAH": "aud-to-uah",
+  "AUD-UGX": "aud-to-ugx",
   "AUD-USD": "aud-to-usd",
   "AUD-VND": "aud-to-vnd",
   "AUD-XAF": "aud-to-xaf",
@@ -105,7 +104,6 @@
   "CAD-SGD": "cad-to-sgd",
   "CAD-THB": "cad-to-thb",
   "CAD-TRY": "cad-to-try",
-  "CAD-TWD": "cad-to-twd",
   "CAD-TZS": "cad-to-tzs",
   "CAD-UAH": "cad-to-uah",
   "CAD-UGX": "cad-to-ugx",
@@ -158,6 +156,7 @@
   "CNY-KES": "cny-to-kes",
   "CNY-KRW": "cny-to-krw",
   "CNY-KWD": "cny-to-kwd",
+  "CNY-LKR": "cny-to-lkr",
   "CNY-MXN": "cny-to-mxn",
   "CNY-MYR": "cny-to-myr",
   "CNY-NGN": "cny-to-ngn",
@@ -202,6 +201,7 @@
   "EUR-JPY": "eur-to-jpy",
   "EUR-KES": "eur-to-kes",
   "EUR-KRW": "eur-to-krw",
+  "EUR-LKR": "austria-to-sri-lanka",
   "EUR-MAD": "belgium-to-morocco",
   "EUR-MXN": "belgium-to-mexico",
   "EUR-MYR": "germany-to-malaysia",
@@ -250,7 +250,6 @@
   "GBP-PHP": "uk-to-philippines",
   "GBP-PKR": "uk-to-pakistan",
   "GBP-PLN": "gbp-to-pln",
-  "GBP-RWF": "gbp-to-rwf",
   "GBP-SGD": "gbp-to-sgd",
   "GBP-THB": "gbp-to-thb",
   "GBP-TRY": "gbp-to-try",
@@ -291,11 +290,14 @@
   "INR-USD": "india-to-usa",
   "JPY-USD": "japan-to-ecuador",
   "KRW-ZAR": "south-korea-to-south-africa",
+  "KWD-INR": "kuwait-to-india",
+  "KWD-PKR": "kuwait-to-pakistan",
   "NOK-PHP": "norway-to-philippines",
   "NZD-AUD": "new-zealand-to-australia",
   "NZD-GBP": "new-zealand-to-uk",
   "OMR-INR": "oman-to-india",
   "OMR-PHP": "oman-to-philippines",
+  "OMR-PKR": "oman-to-pakistan",
   "SAR-BDT": "saudi-arabia-to-bangladesh",
   "SAR-EGP": "saudi-arabia-to-egypt",
   "SAR-INR": "saudi-arabia-to-india",
@@ -321,7 +323,6 @@
   "SGD-PLN": "sgd-to-pln",
   "SGD-THB": "sgd-to-thb",
   "SGD-TRY": "sgd-to-try",
-  "SGD-TWD": "sgd-to-twd",
   "SGD-UAH": "sgd-to-uah",
   "SGD-VND": "sgd-to-vnd",
   "SGD-ZAR": "sgd-to-zar",
@@ -569,12 +570,6 @@
    "redirectTo": "aud-to-pln"
   },
   {
-   "slug": "australia-to-rwanda",
-   "pair": "AUD-RWF",
-   "keptInstead": "aud-to-rwf",
-   "redirectTo": "aud-to-rwf"
-  },
-  {
    "slug": "australia-to-senegal",
    "pair": "AUD-XOF",
    "keptInstead": "aud-to-xof",
@@ -635,6 +630,12 @@
    "redirectTo": "aud-to-try"
   },
   {
+   "slug": "australia-to-uganda",
+   "pair": "AUD-UGX",
+   "keptInstead": "aud-to-ugx",
+   "redirectTo": "aud-to-ugx"
+  },
+  {
    "slug": "australia-to-ukraine",
    "pair": "AUD-UAH",
    "keptInstead": "aud-to-uah",
@@ -687,6 +688,12 @@
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
    "redirectTo": "austria-to-senegal"
+  },
+  {
+   "slug": "belgium-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
   },
   {
    "slug": "belgium-to-tanzania",
@@ -911,12 +918,6 @@
    "redirectTo": "cad-to-krw"
   },
   {
-   "slug": "canada-to-taiwan",
-   "pair": "CAD-TWD",
-   "keptInstead": "cad-to-twd",
-   "redirectTo": "cad-to-twd"
-  },
-  {
    "slug": "canada-to-tanzania",
    "pair": "CAD-TZS",
    "keptInstead": "cad-to-tzs",
@@ -983,6 +984,12 @@
    "redirectTo": "austria-to-ethiopia"
   },
   {
+   "slug": "eur-to-lkr",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
+  },
+  {
    "slug": "eur-to-mad",
    "pair": "EUR-MAD",
    "keptInstead": "belgium-to-morocco",
@@ -1043,6 +1050,12 @@
    "redirectTo": "austria-to-senegal"
   },
   {
+   "slug": "finland-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
+  },
+  {
    "slug": "finland-to-tanzania",
    "pair": "EUR-TZS",
    "keptInstead": "austria-to-tanzania",
@@ -1083,6 +1096,12 @@
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
    "redirectTo": "austria-to-senegal"
+  },
+  {
+   "slug": "france-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
   },
   {
    "slug": "france-to-tanzania",
@@ -1289,6 +1308,12 @@
    "redirectTo": "eur-to-krw"
   },
   {
+   "slug": "germany-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
+  },
+  {
    "slug": "germany-to-tanzania",
    "pair": "EUR-TZS",
    "keptInstead": "austria-to-tanzania",
@@ -1341,6 +1366,12 @@
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
    "redirectTo": "austria-to-senegal"
+  },
+  {
+   "slug": "greece-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
   },
   {
    "slug": "greece-to-tanzania",
@@ -1601,6 +1632,12 @@
    "redirectTo": "austria-to-senegal"
   },
   {
+   "slug": "ireland-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
+  },
+  {
    "slug": "ireland-to-tanzania",
    "pair": "EUR-TZS",
    "keptInstead": "austria-to-tanzania",
@@ -1637,6 +1674,12 @@
    "redirectTo": "austria-to-senegal"
   },
   {
+   "slug": "italy-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
+  },
+  {
    "slug": "italy-to-tanzania",
    "pair": "EUR-TZS",
    "keptInstead": "austria-to-tanzania",
@@ -1659,6 +1702,18 @@
    "pair": "JPY-USD",
    "keptInstead": "japan-to-ecuador",
    "redirectTo": "japan-to-ecuador"
+  },
+  {
+   "slug": "kwd-to-inr",
+   "pair": "KWD-INR",
+   "keptInstead": "kuwait-to-india",
+   "redirectTo": "kuwait-to-india"
+  },
+  {
+   "slug": "kwd-to-pkr",
+   "pair": "KWD-PKR",
+   "keptInstead": "kuwait-to-pakistan",
+   "redirectTo": "kuwait-to-pakistan"
   },
   {
    "slug": "netherlands-to-cameroon",
@@ -1689,6 +1744,12 @@
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
    "redirectTo": "austria-to-senegal"
+  },
+  {
+   "slug": "netherlands-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
   },
   {
    "slug": "netherlands-to-tanzania",
@@ -1727,6 +1788,12 @@
    "redirectTo": "oman-to-philippines"
   },
   {
+   "slug": "omr-to-pkr",
+   "pair": "OMR-PKR",
+   "keptInstead": "oman-to-pakistan",
+   "redirectTo": "oman-to-pakistan"
+  },
+  {
    "slug": "portugal-to-cameroon",
    "pair": "EUR-XAF",
    "keptInstead": "austria-to-cameroon",
@@ -1749,6 +1816,12 @@
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
    "redirectTo": "austria-to-senegal"
+  },
+  {
+   "slug": "portugal-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
   },
   {
    "slug": "portugal-to-tanzania",
@@ -1853,12 +1926,6 @@
    "redirectTo": "sgd-to-krw"
   },
   {
-   "slug": "singapore-to-taiwan",
-   "pair": "SGD-TWD",
-   "keptInstead": "sgd-to-twd",
-   "redirectTo": "sgd-to-twd"
-  },
-  {
    "slug": "singapore-to-thailand",
    "pair": "SGD-THB",
    "keptInstead": "sgd-to-thb",
@@ -1911,6 +1978,12 @@
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
    "redirectTo": "austria-to-senegal"
+  },
+  {
+   "slug": "spain-to-sri-lanka",
+   "pair": "EUR-LKR",
+   "keptInstead": "austria-to-sri-lanka",
+   "redirectTo": "austria-to-sri-lanka"
   },
   {
    "slug": "spain-to-tanzania",
@@ -2213,12 +2286,6 @@
    "redirectTo": "aed-to-lkr"
   },
   {
-   "slug": "uae-to-taiwan",
-   "pair": "AED-TWD",
-   "keptInstead": "aed-to-twd",
-   "redirectTo": "aed-to-twd"
-  },
-  {
    "slug": "uae-to-thailand",
    "pair": "AED-THB",
    "keptInstead": "aed-to-thb",
@@ -2373,12 +2440,6 @@
    "pair": "GBP-PLN",
    "keptInstead": "gbp-to-pln",
    "redirectTo": "gbp-to-pln"
-  },
-  {
-   "slug": "uk-to-rwanda",
-   "pair": "GBP-RWF",
-   "keptInstead": "gbp-to-rwf",
-   "redirectTo": "gbp-to-rwf"
   },
   {
    "slug": "uk-to-senegal",
