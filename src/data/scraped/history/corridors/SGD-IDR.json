@@ -4709,5 +4709,28 @@
         "receiveAmount": 1376183.68
       }
     }
+  },
+  {
+    "date": "2026-09-17",
+    "providers": {
+      "western-union": {
+        "rate": 13871.4699,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 1345532.58
+      },
+      "instarem": {
+        "rate": 13910.4129,
+        "fee": 0.62,
+        "markup": null,
+        "receiveAmount": 1382416.84
+      },
+      "hsbc-sg": {
+        "rate": 13789.2425,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1378924.25
+      }
+    }
   }
 ]
