@@ -12875,5 +12875,100 @@
         "receiveAmount": 4264.91
       }
     }
+  },
+  {
+    "date": "2026-09-17",
+    "providers": {
+      "moneygram": {
+        "rate": 55.2397,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5441.66
+      },
+      "taptap-send": {
+        "rate": 55.55,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5555
+      },
+      "deutsche-bank": {
+        "rate": 55.7455,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 3537.05
+      },
+      "xe": {
+        "rate": 55.1223,
+        "fee": 4,
+        "markup": 1.35,
+        "receiveAmount": 5291.74
+      },
+      "western-union": {
+        "rate": 55.0089,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 5446.43
+      },
+      "instarem": {
+        "rate": 55.4571,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5545.71
+      },
+      "paysend": {
+        "rate": 55.5341,
+        "fee": 0,
+        "markup": 0.61,
+        "receiveAmount": 5553.41
+      },
+      "remitly": {
+        "rate": 55.14,
+        "fee": 1.99,
+        "markup": 1.32,
+        "receiveAmount": 5404.27
+      },
+      "revolut": {
+        "rate": 55.529,
+        "fee": 1,
+        "markup": 0.62,
+        "receiveAmount": 5497.37
+      },
+      "wise": {
+        "rate": 55.833,
+        "fee": 2.96,
+        "markup": null,
+        "receiveAmount": 5418.03
+      },
+      "ria": {
+        "rate": 54.7334,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5653.93
+      },
+      "commerzbank": {
+        "rate": 54.2047,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4742.91
+      },
+      "sparkasse": {
+        "rate": 55.7994,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 5161.45
+      },
+      "ing-de": {
+        "rate": 54.7497,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 4270.48
+      },
+      "dahabshiil": {
+        "rate": 54.7403,
+        "fee": 1.99,
+        "markup": 2.03,
+        "receiveAmount": 5365.1
+      }
+    }
   }
 ]

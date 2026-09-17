@@ -4434,5 +4434,34 @@
         "receiveAmount": 37344.6
       }
     }
+  },
+  {
+    "date": "2026-09-17",
+    "providers": {
+      "paysend": {
+        "rate": 359.7043,
+        "fee": 0,
+        "markup": 0.74,
+        "receiveAmount": 35970.43
+      },
+      "remitly": {
+        "rate": 366.33,
+        "fee": 5,
+        "markup": -1.08,
+        "receiveAmount": 34801.35
+      },
+      "taptap-send": {
+        "rate": 375,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 37500
+      },
+      "wise": {
+        "rate": 373.436,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 37343.6
+      }
+    }
   }
 ]
