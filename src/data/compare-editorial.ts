@@ -955,6 +955,629 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       "TapTap Send settles in under three minutes for 95% of transfers, matching or beating Remitly's express tier on the corridors it serves.",
     ],
   },
+  "wise-vs-revolut": {
+    theDecision: `Both are digital-first and both price close to the mid-market rate on weekdays, which makes this one of the tighter cost comparisons on the site. Wise charges a variable fee from 0.41% with a flat 0% markup, every day. Revolut matches that 0% markup on weekdays but adds a 0.5-1% markup on weekends, when the underlying FX market is closed — and gives a free £1,000 monthly allowance before its 0.5% fee applies. The day of the week is a real lever here in a way it is on almost no other comparison on this site.`,
+    measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:revolut}} for Revolut. Revolut's average shortfall when it isn't cheapest is {{SHORTFALL:revolut}}, against {{SHORTFALL:wise}} for Wise — a tight gap consistent with both pricing close to the mid-market rate on weekdays.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:revolut:USD:INR:1000}}, with {{CHEAPER:wise:revolut:USD:INR:1000}} delivering more — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:revolut:USD:INR:1000}} for Revolut. This is a snapshot: Revolut's weekend markup means the same transfer sent on a Saturday costs more than shown here, a timing effect Wise doesn't have.`,
+    },
+    pickA: {
+      heading: "Pick Wise for consistent pricing any day of the week",
+      body: `Wise's 0% markup applies every day, which matters if you can't control when you send. It supports transfers to $1,000,000, holds balances in 50 currencies, and is regulated by the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC.`,
+    },
+    pickB: {
+      heading: "Pick Revolut for weekday transfers within the free allowance",
+      body: `Revolut is the better instrument on a weekday, within the £1,000 monthly free allowance — genuinely free, at the interbank rate. Revolut-to-Revolut transfers are instant and cost nothing. The constraint is the weekend markup and the requirement that the recipient hold a Revolut account for the fastest, free route.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Revolut's free allowance and weekend markup depend on your plan tier. Quotes are collected at a point in time — if timing matters to you, that's a real variable this page can't fully capture in a single snapshot.`,
+    verdict: {
+      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:revolut}} for Revolut, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:revolut}} — one of the tighter cost gaps on the site, since both price close to the mid-market rate on weekdays.`,
+      speedExplanation: `Revolut-to-Revolut transfers land instantly; Wise's instant-to-two-day window applies to any bank deposit regardless of whether the recipient holds a Wise account. Neither has a consistent speed edge once the recipient's account type is matched.`,
+      coverageExplanation: `Wise's $1,000,000 ceiling and 50 currencies suit a larger transfer; Revolut's free monthly allowance and no published upper limit suit smaller, more frequent sending between two Revolut users.`,
+      bottomLine: `Timing is the real variable on this page. A weekday Revolut transfer within the free allowance is hard to beat; the same transfer on a weekend, or above the allowance, moves the advantage toward Wise's flat 0% markup.`,
+    },
+    faqs: [
+      {
+        q: "Does Revolut's weekend markup apply to every transfer?",
+        a: "It applies whenever the underlying FX market is closed, typically Saturday and Sunday. If your transfer isn't urgent, waiting until Monday for the interbank weekday rate is the cheapest lever available on this comparison.",
+      },
+      {
+        q: "What happens after I use Revolut's free monthly allowance?",
+        a: "Transfers above £1,000 a month are charged at 0.5%, which is still competitive against Wise's fee-from-0.41% model — check both for your specific amount rather than assuming one is always cheaper.",
+      },
+      {
+        q: "Is Wise ever cheaper than Revolut on a weekday?",
+        a: "It can be — both price close to the mid-market rate on weekdays, so the actual leader varies by corridor and amount. This is one of the closer comparisons on the site precisely because neither has a structural pricing advantage during the week.",
+      },
+      {
+        q: "Do I need a Revolut account to receive money for free?",
+        a: "Yes — Revolut-to-Revolut transfers are the free, instant route. Sending to an external bank account still uses Revolut's weekday interbank rate or weekend markup, but loses the instant, zero-cost advantage of staying inside the app.",
+      },
+    ],
+    keyDifferences: [
+      "Wise's 0% markup applies every day; Revolut matches it on weekdays but adds a 0.5-1% markup on weekends when the FX market is closed.",
+      "Revolut gives a free £1,000 monthly allowance before its 0.5% fee applies; Wise charges a variable fee from 0.41% on every transfer regardless of amount.",
+      "Revolut-to-Revolut transfers are instant and free; Wise's instant-to-two-day window applies to any bank deposit.",
+      "Wise's $1,000,000 ceiling exceeds anything Revolut publishes for a standard transfer, though Revolut has no stated upper limit either.",
+    ],
+  },
+
+  "paypal-vs-moneygram": {
+    theDecision: `PayPal is a payments account with an FX feature; MoneyGram is a cash-agent network with digital and card funding options. The pricing models differ in structure: PayPal charges a percentage fee (5%, capped at $4.99) plus a 3-4% markup, while MoneyGram charges a flat fee from $1.99 plus a 1-3% markup. MoneyGram's model tends to be cheaper on smaller amounts where PayPal's percentage fee bites hardest; the gap narrows as the amount grows toward PayPal's $4.99 cap.`,
+    measuredRecord: `MoneyGram led on {{LED:moneygram}} of the corridors we price against {{LED:paypal}} for PayPal. PayPal's average shortfall when it isn't cheapest is {{SHORTFALL:paypal}} — the widest we record for any provider — against {{SHORTFALL:moneygram}} for MoneyGram.`,
+    workedExample: {
+      heading: "A worked example: £1,000 to euros",
+      body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:paypal:moneygram:GBP:EUR:1000}}, with {{CHEAPER:paypal:moneygram:GBP:EUR:1000}} delivering more — {{COST_PCT:paypal:GBP:EUR:1000}} all-in for PayPal against {{COST_PCT:moneygram:GBP:EUR:1000}} for MoneyGram. Notice the two components separately: PayPal's percentage fee shrinks in relative terms as the amount grows, capped at $4.99, but the uncapped 3-4% markup doesn't shrink with it — MoneyGram's narrower markup is the more meaningful lever on a larger send.`,
+    },
+    pickA: {
+      heading: "Pick MoneyGram for cash pickup and typically lower cost",
+      body: `MoneyGram is the better instrument for most standalone remittances — cash pickup across roughly 200 countries, a narrower markup than PayPal's, and no requirement that the recipient hold any particular account. It's regulated by <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> in the US and the <a href="https://register.fca.org.uk/s/firm?id=001b000000MgGNGAA3" target="_blank" rel="noopener noreferrer">FCA</a> in the UK.`,
+    },
+    pickB: {
+      heading: "Pick PayPal only where the payment already lives there",
+      body: `PayPal's case is the same as everywhere else on this site: an invoice, a refund, or a counterparty who won't accept anything else. Choosing it as a deliberate remittance route over MoneyGram is the more expensive option on the corridors we measure.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. MoneyGram's agent-level pricing varies by payout method and location; PayPal's consumer and business pricing differ. Confirm the quote and collection method before sending.`,
+    verdict: {
+      costExplanation: `MoneyGram led {{LED:moneygram}} of the corridors we price against {{LED:paypal}} for PayPal, with PayPal's average shortfall of {{SHORTFALL:paypal}} the widest we record for any provider on the site.`,
+      speedExplanation: `PayPal settles instantly to another PayPal balance; MoneyGram's express options settle in minutes at a staffed counter. Both are fast once the payout method is matched — the more meaningful difference is what happens after: a PayPal balance versus cash in hand.`,
+      coverageExplanation: `MoneyGram's roughly 200 countries and cash-pickup network beat PayPal's need for the recipient to hold or create a PayPal account. PayPal answers with instant balance-to-balance transfers where both sides already use it.`,
+      bottomLine: `For a standalone remittance, MoneyGram is both cheaper and more flexible on payout method. PayPal earns its place only when the payment is already moving through PayPal for reasons unrelated to price.`,
+    },
+    faqs: [
+      {
+        q: "Is MoneyGram always cheaper than PayPal?",
+        a: "Not on every corridor, but it leads clearly on the ones we price. PayPal's combined fee-and-markup model tends to cost more, especially on smaller transfers where its percentage fee is proportionally larger.",
+      },
+      {
+        q: "Can PayPal do cash pickup like MoneyGram?",
+        a: "No — PayPal delivers to a PayPal balance or a linked bank account only. If the recipient needs cash, MoneyGram's agent network is the option on this page, not PayPal.",
+      },
+      {
+        q: "Why would anyone choose PayPal for a remittance?",
+        a: "Usually only because the payment is already inside the PayPal ecosystem — an invoice, a refund, or a marketplace payout. For a transfer chosen from scratch, MoneyGram is the cheaper route on the corridors we measure.",
+      },
+      {
+        q: "Does MoneyGram charge more for card funding?",
+        a: "Yes, funding with a debit or credit card typically costs more than funding from a bank account, since card processing carries its own fee. Check the funding-method breakdown on your specific quote.",
+      },
+    ],
+    keyDifferences: [
+      "PayPal charges a percentage fee (5%, capped at $4.99) plus a 3-4% markup; MoneyGram charges a flat fee from $1.99 plus a narrower 1-3% markup.",
+      "MoneyGram offers cash pickup across roughly 200 countries; PayPal delivers to a PayPal balance or linked bank account only.",
+      "PayPal needs only an email address from the recipient; MoneyGram needs a collection point or bank account depending on payout method.",
+      "PayPal's average shortfall when it isn't cheapest is the widest of any provider tracked on this site.",
+    ],
+  },
+
+  "chase-vs-hsbc": {
+    theDecision: `Chase and HSBC don't overlap on any of the standard corridors we price side by side — Chase's quotes are concentrated in USD-denominated outbound transfers, HSBC's in GBP-denominated ones, so the two banks are rarely priced on the exact same currency pair and amount in our data. That's a genuine finding about how these two banks serve different sending markets, not a gap in our coverage. What's comparable is the model: both are full-service banks with wire-transfer pricing built around branch relationships rather than app-first cost competition, and both are meaningfully more expensive than a specialist on a like-for-like transfer.`,
+    measuredRecord: `Because Chase and HSBC don't share a priced corridor in our sample set, a head-to-head win/loss count isn't available for this pair the way it is for others on this site. Compared separately against the market: Chase's average shortfall against the corridor leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}}. Both trail specialists by a wide margin, consistent with bank wire pricing generally.`,
+    workedExample: {
+      heading: "Why there's no worked example for this pair",
+      body: `Chase quotes the USD-outbound corridors we track (USD→INR, USD→MXN); HSBC's quotes here are on GBP-outbound corridors (GBP→EUR, GBP→PKR). The two never land on the same currency pair and amount in our sample set, so we can't show a real side-by-side figure the way we can for pairs that do overlap. If you're choosing between an HSBC and a Chase wire for the same trip, get a live quote from each for your actual sending currency — this page's usefulness is in the model comparison below, not a number.`,
+    },
+    pickA: {
+      heading: "Pick Chase if you already bank there and send in USD",
+      body: `Chase's case is convenience for an existing customer: $5 for a domestic wire, $40-$50 for an international one, plus a 2-4% markup. It supports transfers to $250,000 and settles in 1-5 business days. The wire fee and markup are both higher than a specialist's, so this is a relationship-convenience choice, not a cost-competitive one.`,
+    },
+    pickB: {
+      heading: "Pick HSBC if you're a Premier customer or sending GBP",
+      body: `HSBC's case depends heavily on account tier: HSBC-to-HSBC transfers are free with no markup, and Premier customers get the mid-market rate on any transfer. Standard-tier customers pay £4-£9 plus up to 2.5% markup. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Chase and HSBC don't share a priced corridor in our sample, so figures for each are shown separately rather than head-to-head. Confirm your own account tier's actual rate with each bank directly.`,
+    verdict: {
+      costExplanation: `No shared corridor exists in our sample to compare these two directly. Chase's average shortfall against the leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}} — both a bank-wire premium over a specialist, measured separately rather than against each other.`,
+      speedExplanation: `Chase settles in 1-5 business days; HSBC in same-day to 3 business days. Neither offers an express, minutes-level option the way a digital remittance specialist does.`,
+      coverageExplanation: `Both reach around 200 countries through correspondent banking relationships. Chase supports 100 currencies against HSBC's 60; HSBC has no upper transfer limit against Chase's $250,000 cap.`,
+      bottomLine: `This page exists to compare two bank-wire models rather than to declare a winner — the two rarely serve the same sending currency in our data. If you're an existing customer of either, the relationship convenience may outweigh the cost; if you're choosing from scratch, both trail a digital specialist by a wide margin.`,
+    },
+    faqs: [
+      {
+        q: "Why isn't there a direct price comparison between Chase and HSBC?",
+        a: "Because they don't share a priced corridor in our sample — Chase's quotes are USD-outbound, HSBC's are GBP-outbound, and the two don't land on the same currency pair and amount. This is a real finding about how the two banks serve different markets, not missing data.",
+      },
+      {
+        q: "Is a bank wire ever cheaper than a specialist app?",
+        a: "Rarely, on the corridors we measure — both Chase and HSBC trail digital specialists by a wide margin on standard retail pricing. The exception is HSBC Premier customers, who pay no markup at all, or HSBC-to-HSBC transfers, which are free.",
+      },
+      {
+        q: "Which bank has the higher transfer limit?",
+        a: "HSBC has no published upper limit; Chase caps at $250,000. For a transfer near either figure, confirm the current policy with the bank directly, since large-transfer handling often involves additional verification.",
+      },
+      {
+        q: "Should I switch banks just to get a better transfer rate?",
+        a: "Usually not — a specialist provider (Wise, Remitly, or a broker like OFX depending on the amount) will typically beat either bank's standard rate without requiring you to open a new account at all.",
+      },
+    ],
+    keyDifferences: [
+      "Chase and HSBC don't share a priced corridor in our sample: Chase's quotes are USD-outbound, HSBC's are GBP-outbound.",
+      "HSBC-to-HSBC transfers are free with no markup, and Premier customers pay no markup on any transfer; Chase's pricing doesn't have an equivalent free tier.",
+      "HSBC has no published upper transfer limit; Chase caps at $250,000.",
+      "Chase settles in 1-5 business days; HSBC in same-day to 3 business days — neither offers a minutes-level express option.",
+    ],
+  },
+
+  "ofx-vs-moneygram": {
+    theDecision: `These two serve almost opposite use cases. OFX is a no-fee broker for large, planned bank-to-bank transfers, with no upper limit and a dealer for amounts above roughly $10,000. MoneyGram is a cash network built for smaller, faster remittances, with fees from $1.99 and a $10,000 cap. Anyone comparing them directly likely hasn't decided what kind of transfer this is — the overlap in what they're actually for is narrow.`,
+    measuredRecord: `OFX led {{LED:ofx}} of the corridors we price and MoneyGram {{LED:moneygram}}. OFX's win rate is measured on a small corridor sample and shouldn't be read against MoneyGram's larger one; average shortfall is the more comparable figure, at {{SHORTFALL:ofx}} for OFX and {{SHORTFALL:moneygram}} for MoneyGram.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:ofx:moneygram:USD:INR:1000}}, with {{CHEAPER:ofx:moneygram:USD:INR:1000}} delivering more — {{COST_PCT:ofx:USD:INR:1000}} all-in for OFX against {{COST_PCT:moneygram:USD:INR:1000}} for MoneyGram. $1,000 is well below the amount OFX is actually built for; its rate improves with size in a way this example doesn't capture, and MoneyGram doesn't offer cash pickup pricing that scales the same way.`,
+    },
+    pickA: {
+      heading: "Pick OFX for large, planned bank-to-bank transfers",
+      body: `OFX suits a transfer you can schedule: no fee, no upper limit, dealer support once the amount is substantial. Property deposits, emigration transfers and business payments are its natural cases. It pays to bank accounts only and settles in one to three business days — the wrong instrument for anything urgent or anything a recipient needs to collect in cash.`,
+    },
+    pickB: {
+      heading: "Pick MoneyGram for cash pickup and smaller, faster transfers",
+      body: `MoneyGram is built for the transfer that needs to land in cash, at a counter, sooner than a broker's business-day settlement allows. Its $10,000 cap and $1.99-plus fee structure suit remittance-sized amounts, not the large planned transfers OFX is built for.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. OFX's rate improves with transfer size in a way a $1,000 comparison cannot show, and MoneyGram's agent-level pricing varies by payout method. Confirm your corridor and amount band before sending.`,
+    verdict: {
+      costExplanation: `OFX led {{LED:ofx}} of the corridors we price against {{LED:moneygram}} for MoneyGram, though OFX's win rate is measured on a smaller sample. Average shortfalls of {{SHORTFALL:ofx}} and {{SHORTFALL:moneygram}} are the more comparable figures at this sample size.`,
+      speedExplanation: `MoneyGram settles in minutes to three days depending on the option chosen; OFX quotes one to three business days with no express tier. For an urgent, smaller transfer, MoneyGram is built for it in a way OFX isn't.`,
+      coverageExplanation: `MoneyGram's cash pickup across roughly 200 countries reaches recipients without a bank account; OFX's no-limit, bank-deposit-only model reaches a larger transfer size MoneyGram's $10,000 cap can't.`,
+      bottomLine: `These two barely overlap in what they're actually for. OFX is built for a large, scheduled, bank-to-bank transfer; MoneyGram for a smaller one that needs to land in cash. Anyone genuinely deciding between them should decide the transfer's shape first.`,
+    },
+    faqs: [
+      {
+        q: "Can OFX deliver cash the way MoneyGram does?",
+        a: "No — OFX pays to bank accounts only. If the recipient needs cash pickup, MoneyGram is the option here regardless of OFX's pricing on the corridors it does serve.",
+      },
+      {
+        q: "Is OFX cheaper than MoneyGram for a large transfer?",
+        a: "Likely, though our $1,000 sample corridors don't show it clearly — OFX's rate improves with transfer size in a way this comparison can't capture. Get a live quote from both at your actual amount, especially above $10,000 where MoneyGram's cap applies.",
+      },
+      {
+        q: "Does MoneyGram have a size limit OFX doesn't?",
+        a: "Yes — MoneyGram caps at $10,000; OFX has no published upper limit. For a transfer above $10,000, MoneyGram isn't an option regardless of price.",
+      },
+      {
+        q: "Why would anyone compare these two directly?",
+        a: "Usually because they're deciding between a bank-to-bank transfer and a cash pickup, and haven't settled which one the recipient actually needs. Once that's decided, the choice between OFX and MoneyGram tends to follow automatically.",
+      },
+    ],
+    keyDifferences: [
+      "OFX has no upper transfer limit and no fee; MoneyGram caps at $10,000 with fees from $1.99.",
+      "MoneyGram offers cash pickup across roughly 200 countries; OFX pays to bank accounts only.",
+      "MoneyGram settles in minutes on its express option; OFX has no express tier and quotes one to three business days.",
+      "OFX adds dealer support once a transfer is substantial — a service model MoneyGram's cash-network business doesn't offer.",
+    ],
+  },
+
+  "remitly-vs-moneygram": {
+    theDecision: `Both put cash or a mobile transfer in a recipient's hands, but they come from different eras of the same business. MoneyGram is an agent network dating to 1940; Remitly is an app built in 2011 around digital-first pricing for established remittance corridors. Remitly typically prices its core corridors — the US, UK, Canada and Australia into South Asia, the Philippines, Mexico and East Africa — sharper than MoneyGram's broader but older network.`,
+    measuredRecord: `Remitly led on {{LED:remitly}} of the corridors we price against {{LED:moneygram}} for MoneyGram, whose win rate of {{WINRATE:moneygram}} means it rarely takes the front against a digital-first competitor. Average shortfalls are {{SHORTFALL:remitly}} and {{SHORTFALL:moneygram}} respectively.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:remitly:moneygram:USD:INR:1000}}, with {{CHEAPER:remitly:moneygram:USD:INR:1000}} delivering more — {{COST_PCT:remitly:USD:INR:1000}} all-in for Remitly against {{COST_PCT:moneygram:USD:INR:1000}} for MoneyGram. Both price cash pickup differently from bank deposit, so quote your actual payout method before treating either figure as final.`,
+    },
+    pickA: {
+      heading: "Pick Remitly for its established remittance corridors",
+      body: `Remitly is the sharper instrument on the routes it actually specialises in, with express delivery in minutes and a Trustpilot rating meaningfully ahead of MoneyGram's. The constraint is its narrower, 100-country list against MoneyGram's roughly 200.`,
+    },
+    pickB: {
+      heading: "Pick MoneyGram for wider reach and an older agent network",
+      body: `MoneyGram's argument is coverage into destinations Remitly doesn't serve, through an agent network built over eight decades. Fees start at $1.99, roughly in line with Remitly's, but the network reaches further into markets a newer app hasn't yet built out.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and agent-level pricing is not something we observe. Confirm your corridor, payout method and MoneyGram's or Remitly's coverage of your destination before sending.`,
+    verdict: {
+      costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:moneygram}} for MoneyGram, a {{WINRATE:moneygram}} win rate for MoneyGram against a digital-first specialist. Average shortfalls of {{SHORTFALL:remitly}} and {{SHORTFALL:moneygram}} confirm the gap is real, not just a matter of who wins outright.`,
+      speedExplanation: `Remitly's express tier settles in minutes; MoneyGram's speed varies more by corridor and agent. For a corridor Remitly prices sharply, it's also typically the faster of the two.`,
+      coverageExplanation: `MoneyGram's roughly 200 countries beat Remitly's 100, built over eight decades of agent relationships. Remitly answers with sharper pricing and a higher Trustpilot rating on the corridors it does serve.`,
+      bottomLine: `On Remitly's core remittance corridors, it's usually the better-priced and faster option. Outside that list, MoneyGram's older, wider network is more likely to reach the destination at all.`,
+    },
+    faqs: [
+      {
+        q: "Does Remitly serve every country MoneyGram does?",
+        a: "No — Remitly's 100-country list is narrower than MoneyGram's roughly 200, concentrated on established remittance routes. Check Remitly's coverage for your specific destination before assuming it's available.",
+      },
+      {
+        q: "Why does MoneyGram still exist if Remitly is usually cheaper?",
+        a: "Reach. MoneyGram's decades-old agent network covers destinations and payout situations a newer, narrower app hasn't built out yet. Price and coverage are different trade-offs, and MoneyGram wins on the second one.",
+      },
+      {
+        q: "Which has the better Trustpilot rating?",
+        a: "Remitly, by a meaningful margin. That measures whether the transfer felt reliable and arrived as promised, which is a different question from which one is cheaper on a given corridor.",
+      },
+      {
+        q: "Is MoneyGram's fee actually lower than Remitly's?",
+        a: "The starting fees are similar (both from around $2-4), so the real difference tends to come from the exchange rate markup rather than the headline fee. Compare the all-in cost for your specific corridor rather than the fee alone.",
+      },
+    ],
+    keyDifferences: [
+      "Remitly typically prices its core remittance corridors (US/UK/Canada/Australia into South Asia, the Philippines, Mexico, East Africa) sharper than MoneyGram's broader network.",
+      "MoneyGram reaches roughly 200 countries through an agent network built since 1940; Remitly's list is narrower at 100 countries.",
+      "Remitly's express tier settles in minutes; MoneyGram's speed varies more by corridor and specific agent.",
+      "Remitly carries the meaningfully higher Trustpilot rating of the two.",
+    ],
+  },
+
+  "paypal-vs-xoom": {
+    theDecision: `PayPal and its own subsidiary Xoom don't share a priced corridor in our sample — PayPal's quotes land on GBP→EUR, USD→PHP and USD→MXN, while Xoom's land on USD→INR and USD→NGN. That's a real structural finding: PayPal's core payments product and Xoom's dedicated remittance product are priced and positioned for different corridors even within the same parent company. What's comparable is the model: Xoom was built specifically for remittances with cash pickup and mobile reload, while PayPal's cross-border feature is a payments-account add-on.`,
+    measuredRecord: `Because PayPal and Xoom don't share a priced corridor in our sample, a direct win/loss count isn't available. Measured separately: PayPal's average shortfall against the corridor leader is {{SHORTFALL:paypal}} — the widest we record for any provider — against {{SHORTFALL:xoom}} for Xoom, which is markedly tighter.`,
+    workedExample: {
+      heading: "Why there's no worked example for this pair",
+      body: `PayPal's quotes in our sample cluster on GBP→EUR, USD→PHP and USD→MXN; Xoom's cluster on USD→INR and USD→NGN. Even within the same parent company, the two products are priced on different corridors in our data, so we can't show a real side-by-side figure. If you're choosing between sending through your PayPal balance directly or through Xoom, get a live quote from both for your specific corridor — Xoom is generally the cheaper of the two on the corridors either one prices, per our other comparisons involving each.`,
+    },
+    pickA: {
+      heading: "Pick PayPal only where the payment already lives there",
+      body: `PayPal's case is the same as everywhere else it appears on this site: an invoice, a refund, or a marketplace payment that's already moving through a PayPal balance. Its 5% fee (capped at $4.99) plus 3-4% markup is not competitive as a deliberate remittance choice.`,
+    },
+    pickB: {
+      heading: "Pick Xoom for an actual remittance",
+      body: `Xoom is the dedicated remittance product in the PayPal family — cash pickup, mobile reload and bank deposit across 130 countries, with a fee up to $4.99 and a narrower 1-3% markup than PayPal's own cross-border pricing. If you already have a PayPal login, Xoom uses the same credentials with sharper pricing for an actual transfer abroad.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. PayPal and Xoom don't share a priced corridor in our sample, so figures for each are shown separately. Confirm your specific corridor and payout method with each product directly.`,
+    verdict: {
+      costExplanation: `No shared corridor exists in our sample. PayPal's average shortfall of {{SHORTFALL:paypal}} is the widest we record for any provider; Xoom's {{SHORTFALL:xoom}} is markedly tighter, consistent with Xoom's dedicated remittance pricing beating PayPal's payments-account FX feature.`,
+      speedExplanation: `PayPal settles instantly to another PayPal balance; Xoom settles in minutes for cash pickup or bank deposit across its network. Both are fast for what they're built for.`,
+      coverageExplanation: `Xoom reaches 130 countries with cash pickup and mobile reload; PayPal reaches 200 countries but delivers to a PayPal balance or bank account only, with no cash option.`,
+      bottomLine: `If you're already inside PayPal's ecosystem for an unrelated reason, use PayPal. If you're deliberately sending money abroad and happen to have a PayPal login, use Xoom instead — it's the same company's purpose-built product for exactly this, at sharper pricing.`,
+    },
+    faqs: [
+      {
+        q: "Why would PayPal and its own subsidiary Xoom not share pricing data?",
+        a: "They're different products aimed at different use cases — PayPal's core business is payments with a cross-border feature attached, while Xoom is a dedicated remittance app. In our sample they simply don't get quoted on the same corridors, which reflects how differently the two are positioned even within one company.",
+      },
+      {
+        q: "Is Xoom actually cheaper than PayPal?",
+        a: "Based on measuring each separately against the market, yes — Xoom's average shortfall from the leader is markedly tighter than PayPal's, which has the widest average shortfall of any provider we track.",
+      },
+      {
+        q: "Can I use my PayPal login for Xoom?",
+        a: "Yes — Xoom is part of the PayPal family and generally works with existing PayPal credentials, which removes the slowest part of signing up for a new remittance service.",
+      },
+      {
+        q: "Does Xoom offer anything PayPal doesn't?",
+        a: "Yes — cash pickup and mobile reload, neither of which PayPal itself offers. PayPal delivers only to a PayPal balance or a linked bank account.",
+      },
+    ],
+    keyDifferences: [
+      "PayPal and Xoom don't share a priced corridor in our sample: PayPal's quotes cluster on GBP/EUR-and-peso routes, Xoom's on USD->INR and USD->NGN.",
+      "Xoom offers cash pickup and mobile reload; PayPal delivers to a PayPal balance or bank account only.",
+      "PayPal's average shortfall from the leader is the widest of any provider tracked on this site; Xoom's is markedly tighter.",
+      "Xoom generally accepts existing PayPal login credentials, removing the signup friction of a separate account.",
+    ],
+  },
+
+  "remitly-vs-paypal": {
+    theDecision: `Remitly is a purpose-built remittance app; PayPal is a payments account with a cross-border feature. Remitly's fee structure ($0-$3.99 plus 0.5-2% markup) is built to compete on price for family remittances; PayPal's (5% capped at $4.99, plus 3-4% markup) is built around payments convenience, not remittance cost. The gap between them is one of the wider ones on the site.`,
+    measuredRecord: `Remitly led on {{LED:remitly}} of the corridors we price against {{LED:paypal}} for PayPal, whose average shortfall of {{SHORTFALL:paypal}} is the widest we record for any provider. Remitly's average shortfall is {{SHORTFALL:remitly}}.`,
+    workedExample: {
+      heading: "A worked example: £1,000 to euros",
+      body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:remitly:paypal:GBP:EUR:1000}}, with {{CHEAPER:remitly:paypal:GBP:EUR:1000}} delivering more — {{COST_PCT:remitly:GBP:EUR:1000}} all-in for Remitly against {{COST_PCT:paypal:GBP:EUR:1000}} for PayPal. PayPal's fee cap means the gap narrows on larger transfers, but its markup keeps scaling with the amount regardless.`,
+    },
+    pickA: {
+      heading: "Pick Remitly for essentially any deliberate remittance",
+      body: `Remitly is the cheaper, more flexible instrument on the corridors we measure — cash pickup, mobile money and home delivery are options PayPal doesn't have at all, and its pricing is built specifically to compete on remittance cost rather than payments convenience.`,
+    },
+    pickB: {
+      heading: "Pick PayPal only where the payment already lives there",
+      body: `PayPal's case is unchanged from its other comparisons on this site: an invoice, a refund, or a counterparty who insists on PayPal specifically. As a deliberate remittance choice against Remitly, it's consistently the more expensive option in our data.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. PayPal's consumer and business pricing differ, and Remitly's promotional first-transfer rates are excluded. Confirm the applicable schedule before sending.`,
+    verdict: {
+      costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:paypal}} for PayPal, with PayPal's {{SHORTFALL:paypal}} average shortfall the widest of any provider we track against Remitly's {{SHORTFALL:remitly}}.`,
+      speedExplanation: `Remitly's express tier settles in minutes; PayPal settles instantly to a PayPal balance but takes longer once the money needs to reach a bank account or cash pickup, which PayPal doesn't offer at all.`,
+      coverageExplanation: `Remitly's cash pickup, mobile money and home delivery reach recipients without a bank account or PayPal account; PayPal needs only an email address but delivers to a PayPal balance or linked bank account only.`,
+      bottomLine: `For an actual remittance, Remitly is both cheaper and more flexible on payout method in our data. PayPal's case is narrow: use it only when the payment is already moving through PayPal for reasons unrelated to price.`,
+    },
+    faqs: [
+      {
+        q: "Is PayPal ever competitive with Remitly on price?",
+        a: "Not on the corridors we measure — PayPal's average shortfall from the leader is the widest we record for any provider, consistently behind Remitly's remittance-focused pricing.",
+      },
+      {
+        q: "Can PayPal deliver cash the way Remitly can?",
+        a: "No — PayPal delivers to a PayPal balance or linked bank account only. Remitly's cash pickup, mobile money and home delivery options don't have a PayPal equivalent.",
+      },
+      {
+        q: "Does Remitly's fee cap out the way PayPal's does?",
+        a: "No — Remitly's fee is a flat $0-$3.99 regardless of amount, while PayPal charges a percentage that tops out at $4.99. That cap only applies to the fee line; the 3-4% markup underneath it has no equivalent ceiling and keeps growing with the transfer size.",
+      },
+      {
+        q: "Why compare these two at all if the gap is this wide?",
+        a: "Because PayPal is a common default for anyone who already has an account, and it's worth showing clearly how much that convenience costs against a purpose-built remittance app before assuming PayPal is a reasonable choice for sending money abroad.",
+      },
+    ],
+    keyDifferences: [
+      "Remitly's fee is $0-$3.99 flat; PayPal's is a 5% fee capped at $4.99 plus a 3-4% markup that isn't capped.",
+      "Remitly offers cash pickup, mobile money and home delivery; PayPal delivers to a PayPal balance or bank account only.",
+      "PayPal's average shortfall from the leader is the widest of any provider tracked on this site.",
+      "Remitly's express tier settles in minutes; PayPal is instant only between two PayPal balances.",
+    ],
+  },
+
+  "remitly-vs-xoom": {
+    theDecision: `Both are digital-first remittance specialists with cash pickup and mobile delivery options, which makes this one of the more direct like-for-like comparisons on the site. Remitly reaches 100 countries with home delivery as an extra option; Xoom reaches 130 countries with mobile reload as its differentiator, backed by PayPal's funding infrastructure for existing PayPal users.`,
+    measuredRecord: `{{LED:remitly}} of the corridors we price went to Remitly against {{LED:xoom}} for Xoom. Remitly's average shortfall when it isn't cheapest is {{SHORTFALL:remitly}}, against {{SHORTFALL:xoom}} for Xoom.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:remitly:xoom:USD:INR:1000}}, with {{CHEAPER:remitly:xoom:USD:INR:1000}} delivering more — {{COST_PCT:remitly:USD:INR:1000}} all-in for Remitly against {{COST_PCT:xoom:USD:INR:1000}} for Xoom. Both price cash pickup differently from bank deposit, and Xoom's funding is instant for existing PayPal users, which this figure doesn't capture.`,
+    },
+    pickA: {
+      heading: "Pick Remitly for wider country reach and home delivery",
+      body: `Remitly's narrower currency list (40 against Xoom's 50) is offset by home delivery, a payout option Xoom doesn't have. Its Trustpilot rating is the higher of the two, and its express tier settles in minutes on the corridors it prices sharply.`,
+    },
+    pickB: {
+      heading: "Pick Xoom if you already use PayPal, or need mobile reload",
+      body: `Xoom's advantages are account-shaped: if you already hold a PayPal balance, funding is immediate and identity checks are largely done. It supports transfers to $50,000 against Remitly's $300,000 US ceiling — Remitly's is higher, but Xoom's is still ample for most remittances — and offers mobile reload, which Remitly doesn't.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Both price cash pickup differently from bank deposit, and Remitly's promotional first-transfer rates are excluded. Confirm your corridor and payout method before sending.`,
+    verdict: {
+      costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:xoom}} for Xoom, with average shortfalls of {{SHORTFALL:remitly}} and {{SHORTFALL:xoom}}. Both are digital-first specialists priced closer to the leaders than a bank or a broad payments account.`,
+      speedExplanation: `Both settle in minutes on their express tiers. The more meaningful speed variable is funding: Xoom is instant for an existing PayPal user, while Remitly's funding speed depends on the payment method chosen.`,
+      coverageExplanation: `Xoom's 130 countries and mobile reload edge out Remitly's 100 countries; Remitly answers with home delivery, a payout method Xoom doesn't offer, and a meaningfully higher Trustpilot rating.`,
+      bottomLine: `This is a close, direct comparison between two purpose-built remittance apps. Xoom's edge is PayPal-account convenience and mobile reload; Remitly's is broader payout flexibility and a stronger trust record.`,
+    },
+    faqs: [
+      {
+        q: "Does having a PayPal account make Xoom cheaper?",
+        a: "It doesn't change Xoom's price, but it removes the slowest part of a first transfer — funding is immediate and identity checks are largely already done. Remitly has no equivalent shortcut for an existing-account holder.",
+      },
+      {
+        q: "Can Remitly top up a recipient's phone the way Xoom can?",
+        a: "No — mobile reload is specific to Xoom in this comparison. If that's the payout method needed, Xoom is the option here regardless of Remitly's pricing on the corridors it serves.",
+      },
+      {
+        q: "Which has the better Trustpilot rating?",
+        a: "Remitly, by a clear margin. That measures whether transfers felt reliable and arrived as promised, a different question from which is cheaper on a specific corridor.",
+      },
+      {
+        q: "Does Remitly offer home delivery everywhere?",
+        a: "No — home delivery availability depends on the specific destination country and network. Check coverage for your corridor rather than assuming it's universal.",
+      },
+    ],
+    keyDifferences: [
+      "Xoom reaches 130 countries against Remitly's 100; Remitly counters with home delivery, a payout method Xoom doesn't offer.",
+      "Xoom offers mobile reload, topping up a recipient's phone directly, which Remitly doesn't have.",
+      "Remitly's $300,000 US ceiling exceeds Xoom's $50,000, though both comfortably cover a typical remittance.",
+      "Remitly carries the meaningfully higher Trustpilot rating of the two.",
+    ],
+  },
+
+  "wise-vs-westpac": {
+    theDecision: `Westpac has no quotes on any of the six standard corridors we price side by side — it's an Australian bank whose international transfer pricing in our data is concentrated on AUD-denominated corridors outside our core USD/GBP sample set, so a direct figure against Wise isn't available here. What's comparable is the model: Wise is a digital specialist with a stated fee and 0% markup; Westpac is a full-service bank charging $8-$20 per transfer plus a 3-5% markup, pricing built around branch relationships rather than app-first cost competition.`,
+    measuredRecord: `Westpac doesn't appear in our priced sample for the corridors this comparison covers, so a head-to-head win/loss count isn't available. Wise's own average shortfall against the leader across all corridors we track is {{SHORTFALL:wise}} — among the tightest of any provider — which is the more useful reference point here than a direct comparison we can't run.`,
+    workedExample: {
+      heading: "Why there's no worked example for this pair",
+      body: `Westpac's transfer pricing in our data is concentrated on Australian-dollar corridors outside the USD/GBP sample set this site prices day to day, so we don't have a live quote to set against Wise's on the same currency pair and amount. If you're an Australian sender choosing between the two, Westpac's published 3-5% markup plus $8-$20 fee is a meaningful starting point against Wise's 0% markup and fee from 0.41% — get a live quote from both for your specific corridor before deciding.`,
+    },
+    pickA: {
+      heading: "Pick Wise for a stated fee and no markup",
+      body: `Wise's cost is entirely its fee, because its markup is 0% — a rate you can check against any published mid-market quote. It supports transfers to $1,000,000, holds balances in 50 currencies, and is regulated by the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC.`,
+    },
+    pickB: {
+      heading: "Pick Westpac only for an existing banking relationship",
+      body: `Westpac's case is the same as any full-service bank's: convenience for an existing customer, not cost competitiveness. Its $8-$20 fee plus 3-5% markup is meaningfully wider than a digital specialist's, regulated by APRA and ASIC, and has been operating since 1817.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Westpac doesn't appear in our priced sample for the corridors this comparison covers — its figures here are drawn from published rates rather than collected quotes. Confirm the current rate directly with Westpac before relying on it.`,
+    verdict: {
+      costExplanation: `No shared corridor exists in our sample. Wise's markup is a stated 0%, against Westpac's published 3-5% — a structural gap that our quote data, even without a direct comparison, is consistent with.`,
+      speedExplanation: `Wise settles instant to two days; Westpac's published range is two to five business days. Wise's window is faster on every corridor it serves.`,
+      coverageExplanation: `Both reach roughly 200 countries. Wise's $1,000,000 ceiling exceeds Westpac's $100,000; Westpac's 50 currencies trail Wise's 50 roughly evenly, though the two aren't measured on the same underlying corridors.`,
+      bottomLine: `Without a shared priced corridor, this page compares two pricing models rather than declaring a numeric winner. Wise's 0% markup and stated fee are a structural cost advantage over a full-service bank's published rates; an existing Westpac relationship is the only reason to expect otherwise.`,
+    },
+    faqs: [
+      {
+        q: "Why isn't there a live price comparison for this pair?",
+        a: "Westpac's international transfer pricing in our data is concentrated on Australian-dollar corridors we don't price day to day, so it doesn't appear in the same sample as Wise. This reflects a coverage gap in our specific corridor set, not a claim that Westpac has no international transfer product.",
+      },
+      {
+        q: "Is Wise cheaper than Westpac?",
+        a: "Based on published rates, almost certainly — Wise's 0% markup against Westpac's published 3-5% is a wide structural gap, though we don't have a live quote-to-quote comparison to confirm the exact figure for your corridor.",
+      },
+      {
+        q: "Does Westpac offer any fee-free option?",
+        a: "Not one reflected in the rates we've reviewed — Westpac's $8-$20 fee applies broadly. Confirm current terms directly with Westpac, since bank pricing structures change more often than this page is rescanned.",
+      },
+      {
+        q: "Should I open a Wise account just to avoid Westpac's fees?",
+        a: "For an international transfer specifically, it's usually worth comparing — Wise's stated 0% markup is a real, verifiable cost advantage over a full-service bank's published rate. Whether it's worth the switch depends on how often you send and whether Westpac serves other needs you'd keep using it for.",
+      },
+    ],
+    keyDifferences: [
+      "Westpac doesn't appear in our priced sample for the six standard corridors this site tracks — its figures here are drawn from published rates, not collected quotes.",
+      "Wise's markup is a stated 0%; Westpac's published range is 3-5%.",
+      "Wise's $1,000,000 ceiling exceeds Westpac's $100,000.",
+      "Wise settles instant to two days; Westpac's published range is two to five business days.",
+    ],
+  },
+
+  "remitly-vs-worldremit": {
+    theDecision: `Both are digital remittance specialists with cash pickup and mobile money, so this is one of the more direct comparisons on the site. Remitly is the larger, more general service; WorldRemit is built specifically for the last mile in emerging markets, adding airtime top-up as a payout option Remitly doesn't have.`,
+    measuredRecord: `Remitly led on {{LED:remitly}} of the corridors we price against {{LED:worldremit}} for WorldRemit. Remitly's average shortfall when it isn't cheapest is {{SHORTFALL:remitly}}, against {{SHORTFALL:worldremit}} for WorldRemit.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:remitly:worldremit:USD:INR:1000}}, with {{CHEAPER:remitly:worldremit:USD:INR:1000}} delivering more — {{COST_PCT:remitly:USD:INR:1000}} all-in for Remitly against {{COST_PCT:worldremit:USD:INR:1000}} for WorldRemit. India is a bank-deposit-heavy corridor for both; the comparison likely narrows on routes where mobile money is the normal way to receive money, which WorldRemit is built around.`,
+    },
+    pickA: {
+      heading: "Pick Remitly for broader coverage and home delivery",
+      body: `Remitly's 100-country list and home delivery option give it slightly broader reach than WorldRemit's 130 countries suggest at first glance, since WorldRemit's list leans heavily toward mobile-money markets. Remitly's Trustpilot rating is also the higher of the two.`,
+    },
+    pickB: {
+      heading: "Pick WorldRemit for mobile money and airtime",
+      body: `WorldRemit's case is the last mile: mobile money into wallets like M-Pesa and MTN, plus airtime top-up direct to a phone, are payout methods Remitly doesn't offer at all. It quotes 70 currencies against Remitly's 40, concentrated in markets where a bank account isn't the default.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Mobile money and airtime availability vary by country and network. Confirm your corridor and payout method are supported before sending.`,
+    verdict: {
+      costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:worldremit}} for WorldRemit, with average shortfalls of {{SHORTFALL:remitly}} and {{SHORTFALL:worldremit}}. Both are digital specialists priced closer to the leaders than a bank or broad payments account.`,
+      speedExplanation: `Remitly's express tier settles in minutes; WorldRemit quotes minutes to three days. Neither has a consistent edge once the payout method is matched.`,
+      coverageExplanation: `WorldRemit's 70 currencies and airtime top-up edge out Remitly's 40 currencies and lack of an airtime option; Remitly counters with home delivery and a higher Trustpilot rating.`,
+      bottomLine: `For a bank-deposit corridor, this is mostly a cost comparison and Remitly often wins it. For mobile money or airtime — the payout methods WorldRemit is built around — Remitly has nothing to offer at any price.`,
+    },
+    faqs: [
+      {
+        q: "Can Remitly send to a mobile money wallet like WorldRemit can?",
+        a: "Remitly does support mobile money on some corridors, but WorldRemit was built specifically around it and adds airtime top-up, which Remitly doesn't offer at all.",
+      },
+      {
+        q: "Which has the wider currency coverage?",
+        a: "WorldRemit, at 70 currencies against Remitly's 40, reflecting WorldRemit's focus on markets where mobile wallets and diverse local currencies are the norm.",
+      },
+      {
+        q: "Is WorldRemit's markup the same on every corridor?",
+        a: "No — it varies by payout method and destination, generally running tighter on the mobile-money corridors WorldRemit is built for than on bank-deposit routes like the one in our worked example.",
+      },
+      {
+        q: "Which has the better Trustpilot rating?",
+        a: "Remitly, by a moderate margin. Both are well-regarded relative to banks and broad payments accounts, but Remitly edges ahead in our data.",
+      },
+    ],
+    keyDifferences: [
+      "WorldRemit offers airtime top-up, a payout method Remitly doesn't have at all; Remitly counters with home delivery, which WorldRemit doesn't offer.",
+      "WorldRemit's 70 currencies exceed Remitly's 40, concentrated in mobile-money markets.",
+      "Remitly carries the higher Trustpilot rating of the two.",
+      "Both offer cash pickup and mobile money, but WorldRemit's model leans more heavily on mobile wallets as the primary payout method.",
+    ],
+  },
+
+  "revolut-vs-hsbc": {
+    theDecision: `Revolut is a digital-first account with a 0% weekday markup; HSBC is a full-service bank whose markup ranges from 0% for Premier customers to 2.5% for standard accounts. On a weekday, within Revolut's free allowance, it's hard for a standard-tier HSBC transfer to compete. The comparison narrows sharply for an HSBC Premier customer, or for an HSBC-to-HSBC transfer, which is free with no markup at all.`,
+    measuredRecord: `Revolut led on {{LED:revolut}} of the corridors we price against {{LED:hsbc}} for HSBC. HSBC's average shortfall when it isn't cheapest is {{SHORTFALL:hsbc}}, against {{SHORTFALL:revolut}} for Revolut — a gap that reflects standard-tier HSBC pricing rather than the Premier rate.`,
+    workedExample: {
+      heading: "A worked example: £1,000 to euros",
+      body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:revolut:hsbc:GBP:EUR:1000}}, with {{CHEAPER:revolut:hsbc:GBP:EUR:1000}} delivering more — {{COST_PCT:revolut:GBP:EUR:1000}} all-in for Revolut against {{COST_PCT:hsbc:GBP:EUR:1000}} for HSBC. This reflects Revolut's weekday rate and HSBC's standard tier; either variable moving — a weekend transfer, or an HSBC Premier account — changes the result.`,
+    },
+    pickA: {
+      heading: "Pick HSBC if you're a Premier customer or sending HSBC-to-HSBC",
+      body: `HSBC's case depends entirely on account tier: free and markup-free between two HSBC accounts, or the mid-market rate for Premier customers on any transfer. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA, and has operated since 1865.`,
+    },
+    pickB: {
+      heading: "Pick Revolut for weekday transfers and app-based convenience",
+      body: `Revolut is the better instrument for most standard-tier senders: free up to £1,000 a month at the interbank rate on weekdays, then 0.5%. Revolut-to-Revolut transfers are instant and free. The constraint is the weekend markup and the requirement that the recipient hold a Revolut account for the fastest route.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. HSBC's markup depends heavily on account tier in a way our quotes cannot fully capture, and Revolut's free allowance and weekend markup depend on plan tier. Confirm your own account terms before relying on either figure.`,
+    verdict: {
+      costExplanation: `Revolut led {{LED:revolut}} of the corridors we price against {{LED:hsbc}} for HSBC, with average shortfalls of {{SHORTFALL:revolut}} and {{SHORTFALL:hsbc}}. HSBC's result reflects standard retail pricing — Premier customers pay no markup at all.`,
+      speedExplanation: `Revolut-to-Revolut transfers are instant; HSBC settles same-day to three business days. For a transfer to an external account, both depend on the receiving bank's own processing time.`,
+      coverageExplanation: `HSBC's 200 countries and 60 currencies run through its own branch network; Revolut's 150 countries and 36 currencies run through the app, with no upper transfer limit against HSBC's similarly unlimited standard.`,
+      bottomLine: `Account tier and day of the week decide more of this page than either company's general reputation does. A weekday Revolut transfer within the free allowance is hard to beat for a standard-tier sender; an HSBC Premier customer, or an HSBC-to-HSBC transfer, changes the comparison entirely.`,
+    },
+    faqs: [
+      {
+        q: "Does HSBC Premier change this comparison?",
+        a: "Substantially — Premier customers pay no markup on any transfer, which would move HSBC from behind Revolut to competitive with it. Our figures reflect standard retail pricing, since that's what most senders actually pay.",
+      },
+      {
+        q: "Why does the day of the week matter for Revolut but not HSBC?",
+        a: "Revolut's markup is 0% on weekdays and 0.5-1% on weekends, because the underlying interbank FX market is closed then. HSBC's pricing doesn't have an equivalent weekend effect — its markup depends on account tier, not the day you send.",
+      },
+      {
+        q: "Is HSBC-to-HSBC really free?",
+        a: "Yes, with no markup, regardless of account tier. If both you and the recipient bank with HSBC, that's typically the cheapest route on this page, ahead of even Revolut's free weekday allowance.",
+      },
+      {
+        q: "What happens after Revolut's free monthly allowance?",
+        a: "Transfers above £1,000 a month are charged at 0.5%, still competitive against standard-tier HSBC pricing. Compare both for your specific amount rather than assuming the free-allowance figure applies indefinitely.",
+      },
+    ],
+    keyDifferences: [
+      "Revolut's markup is 0% on weekdays, 0.5-1% on weekends; HSBC's ranges from 0% (Premier or HSBC-to-HSBC) to 2.5% (standard tier), with no weekend effect.",
+      "Revolut gives a free £1,000 monthly allowance, then 0.5%; HSBC charges £4-£9 per transfer at standard tier, or nothing between two HSBC accounts.",
+      "Revolut-to-Revolut transfers are instant; HSBC settles same-day to three business days.",
+      "HSBC's 200-country branch network exceeds Revolut's 150-country app-based reach.",
+    ],
+  },
+
+  "moneygram-vs-wise": {
+    theDecision: `MoneyGram is a cash-agent network; Wise is a bank-deposit specialist with a stated fee and no markup. The two rarely compete on the same terms: MoneyGram sells reach into places without a bank account, while Wise sells a transparent rate for a recipient who has one. Wise's 0% markup makes it the cheaper option on the corridors we measure whenever a bank deposit works for the recipient.`,
+    measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:moneygram}} for MoneyGram, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:moneygram}} respectively. Wise is among the most consistent leaders in our data; MoneyGram trails by the cash-network premium.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:moneygram:USD:INR:1000}}, with {{CHEAPER:wise:moneygram:USD:INR:1000}} ahead — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:moneygram:USD:INR:1000}} for MoneyGram. Wise's cost is entirely its fee, since its markup is 0%; MoneyGram's includes a 1-3% markup that scales with the amount sent.`,
+    },
+    pickA: {
+      heading: "Pick Wise for bank-to-bank transfers of any size",
+      body: `If the recipient has an account that can receive a deposit, Wise is the cheaper route on the corridors we measure, scaling to $1,000,000 with balances in 50 currencies and regulation by the FCA, FinCEN and ASIC.`,
+    },
+    pickB: {
+      heading: "Pick MoneyGram when cash or coverage decides it",
+      body: `MoneyGram reaches recipients Wise structurally cannot: someone without a bank account, or a destination among the roughly 200 countries MoneyGram's agent network covers against Wise's 80. You pay for that reach through the rate, and the premium on our measurements is real.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. MoneyGram's agent-level pricing varies by payout method and location; Wise's fee varies by currency and funding method. Confirm your specific sending country and payout method before sending.`,
+    verdict: {
+      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:moneygram}} for MoneyGram — Wise's cost is entirely a stated fee with no markup, while MoneyGram recovers its agent-network cost through a 1-3% spread.`,
+      speedExplanation: `MoneyGram can put cash in a hand within minutes at a staffed counter, something Wise cannot do at any speed; Wise's instant-to-two-day window covers bank deposits only.`,
+      coverageExplanation: `MoneyGram's roughly 200-country agent network reaches destinations and payout situations Wise structurally cannot serve; Wise counters with a $1,000,000 ceiling for the bank-to-bank transfers it does handle.`,
+      bottomLine: `If the recipient banks, Wise's zero-markup rate wins clearly. If they don't, or need cash today, MoneyGram isn't competing on price — it's the only option that exists.`,
+    },
+    faqs: [
+      {
+        q: "Is MoneyGram ever cheaper than Wise in your data?",
+        a: "Not consistently on the corridors we price — Wise's zero-markup, fee-only model keeps it ahead in most cases. MoneyGram's case is reach: a recipient without a bank account, or a destination Wise doesn't serve.",
+      },
+      {
+        q: "Can MoneyGram deposit directly to a bank account like Wise does?",
+        a: "Yes, bank deposit is one of its payout options alongside cash pickup — but choosing bank deposit doesn't remove MoneyGram's rate markup, so Wise remains the cheaper route for a recipient who could use either.",
+      },
+      {
+        q: "Why compare a cash network against a bank-deposit specialist at all?",
+        a: "Because many senders don't know in advance whether their recipient has a bank account, and this page shows what that choice actually costs once it's made either way.",
+      },
+      {
+        q: "Does Wise offer any cash pickup option?",
+        a: "No — Wise pays out to bank accounts only, at any amount. If the recipient needs cash, MoneyGram is the option on this page, not Wise.",
+      },
+    ],
+    keyDifferences: [
+      "Wise's cost is a stated fee with 0% markup; MoneyGram recovers its agent-network cost through a 1-3% markup.",
+      "MoneyGram offers cash pickup across roughly 200 countries; Wise pays to a bank account only, in 80 countries.",
+      "Wise's $1,000,000 ceiling exceeds MoneyGram's $10,000 cap by a wide margin.",
+      "MoneyGram can settle in minutes at a staffed counter; Wise's fastest option is still a bank deposit, arriving instant to two days.",
+    ],
+  },
+
+  "chase-vs-wells-fargo": {
+    theDecision: `Both are large US retail banks with international wire pricing built around branch relationships rather than app-first cost competition. Chase charges $40-$50 for an international wire plus a 2-4% markup; Wells Fargo charges $30-$45 plus a wider 3-5% markup. Wells Fargo's fee is marginally lower; Chase's markup is narrower — the two roughly offset, and neither is competitive against a digital specialist.`,
+    measuredRecord: `Chase led on {{LED:chase}} of the corridors we price against {{LED:wells-fargo}} for Wells Fargo. Chase's average shortfall when it isn't cheapest is {{SHORTFALL:chase}}, against {{SHORTFALL:wells-fargo}} for Wells Fargo — both trail digital specialists by a wide margin, consistent with standard bank-wire pricing.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:chase:wells-fargo:USD:INR:1000}}, with {{CHEAPER:chase:wells-fargo:USD:INR:1000}} delivering more — {{COST_PCT:chase:USD:INR:1000}} all-in for Chase against {{COST_PCT:wells-fargo:USD:INR:1000}} for Wells Fargo. Both figures are well behind what a digital specialist would quote on the same corridor — this page is genuinely a comparison between two similarly-priced bank wires, not a search for the cheapest option on the site.`,
+    },
+    pickA: {
+      heading: "Pick Chase if you already bank there",
+      body: `Chase's $40-$50 international wire fee and 2-4% markup are the marginally narrower of the two on markup, offset by a slightly higher fee than Wells Fargo's. It supports transfers to $250,000 and settles in 1-5 business days.`,
+    },
+    pickB: {
+      heading: "Pick Wells Fargo if you already bank there",
+      body: `Wells Fargo's $30-$45 fee is marginally lower than Chase's, offset by a wider 3-5% markup. It caps transfers at $100,000, below Chase's $250,000, and settles in 2-5 business days.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Both banks' fees and markups vary by branch, account type and destination — confirm the current terms directly before sending. Neither is competitive against a digital specialist on the corridors we measure.`,
+    verdict: {
+      costExplanation: `Chase led {{LED:chase}} of the corridors we price against {{LED:wells-fargo}} for Wells Fargo, with average shortfalls of {{SHORTFALL:chase}} and {{SHORTFALL:wells-fargo}} — both a meaningful premium over a digital specialist, consistent with standard bank-wire pricing.`,
+      speedExplanation: `Chase quotes 1-5 business days; Wells Fargo 2-5 business days. Neither offers an express, minutes-level option — a digital remittance specialist would beat both on speed as well as cost.`,
+      coverageExplanation: `Both reach around 200 countries and 100 currencies through correspondent banking. Chase's $250,000 ceiling exceeds Wells Fargo's $100,000.`,
+      bottomLine: `This page compares two similarly expensive bank wires rather than identifying a clear winner — the fee and markup roughly offset between them. An existing relationship with either bank is the more relevant factor than which one is marginally cheaper on paper.`,
+    },
+    faqs: [
+      {
+        q: "Is either Chase or Wells Fargo competitive with a specialist app?",
+        a: "No — both trail digital specialists by a wide margin on the corridors we measure. This page is useful for comparing the two banks against each other, not for finding the cheapest option on the site.",
+      },
+      {
+        q: "Which has the lower fee?",
+        a: "Wells Fargo, at $30-$45 against Chase's $40-$50 — but Wells Fargo's markup (3-5%) is wider than Chase's (2-4%), so the lower fee doesn't necessarily mean the lower total cost.",
+      },
+      {
+        q: "Which has the higher transfer limit?",
+        a: "Chase, at $250,000 against Wells Fargo's $100,000. For a transfer near either limit, confirm the current policy directly with the bank, since large transfers often involve additional verification.",
+      },
+      {
+        q: "Why would I use either bank instead of a specialist?",
+        a: "Usually only convenience — an existing account, a branch relationship, or a preference to keep the transfer within a bank you already use. Neither is the cost-competitive choice on the corridors we measure.",
+      },
+    ],
+    keyDifferences: [
+      "Wells Fargo's fee ($30-$45) is marginally lower than Chase's ($40-$50), but its markup (3-5%) is wider than Chase's (2-4%) — the two roughly offset.",
+      "Chase caps transfers at $250,000; Wells Fargo at $100,000.",
+      "Both settle in multiple business days with no express option, and both trail digital specialists by a wide margin on cost.",
+      "Both reach around 200 countries and 100 currencies through correspondent banking relationships.",
+    ],
+  },
 };
 
 export function getCompareEditorial(slug: string): CompareEditorial | undefined {
