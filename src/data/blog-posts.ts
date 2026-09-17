@@ -9963,7 +9963,7 @@ const rawBlogPosts: BlogPost[] = [
     featuredImage: "/images/blog/stablecoin-international-transfers.svg",
     readTime: "10 min read",
     publishedAt: "2026-03-20",
-    updatedAt: "2026-03-20",
+    updatedAt: "2026-09-17",
     author: "Akif Hazarvi",
     tags: [
       "stablecoins",
@@ -10032,7 +10032,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>Stablecoin remittances are not risk-free. Here's what to consider:</p>
 <ul>
 <li><strong>Off-ramp availability:</strong> Converting stablecoins to local currency depends on local exchange infrastructure. In some countries, off-ramp options are limited, costly, or require in-person meetups.</li>
-<li><strong>Regulatory uncertainty:</strong> Crypto regulation varies dramatically by country. Some nations (like China and India) have restricted crypto trading, making off-ramping difficult or risky. Our <a href="/guides/crypto-banking-licenses-2026">crypto banking licences 2026</a> piece covers the evolving regulatory landscape.</li>
+<li><strong>Regulatory uncertainty:</strong> Crypto regulation varies dramatically by country, and it keeps changing. Some nations (like China and India) have restricted crypto trading, making off-ramping difficult or risky. Brazil went a different direction, and it's moving fast. Since February 2026, its central bank has treated stablecoin transactions used for cross-border payments as foreign exchange operations under <a href="https://www.mattosfilho.com.br/unico/normas-regulamentacao-ativos-virtuais/" target="_blank" rel="noopener noreferrer">BCB Resolution 521</a>, which brings them under the same 3.5% IOF tax that applies to a traditional wire — erasing most of the stablecoin cost advantage on that corridor without any change to the network fee itself. A follow-up rule, BCB Resolution 561, goes further: from 1 October 2026, licensed Brazilian FX providers are barred from using stablecoins or any other crypto asset to settle payments with counterparts abroad at all, closing off the regulated on-chain settlement route for cross-border payments into or out of Brazil rather than just taxing it. Confirm the current rules for your specific corridor before assuming a cost advantage holds — this is a fast-moving area. Our <a href="/guides/crypto-banking-licenses-2026">crypto banking licences 2026</a> piece covers the evolving regulatory landscape.</li>
 <li><strong>No consumer protection:</strong> If you send USDT to the wrong wallet address, the money is gone. Traditional providers like <a href="/companies/wise">Wise</a> and <a href="/companies/western-union">Western Union</a> offer refunds and dispute resolution. Blockchain transactions are irreversible.</li>
 <li><strong>Technical complexity:</strong> Your recipient needs a crypto wallet, understands how to convert to local currency, and must manage private keys. This is a significant barrier for non-technical users.</li>
 <li><strong>Counterparty risk:</strong> USDT (Tether) has faced ongoing questions about its reserve backing. USDC (Circle) is fully audited and regulated, making it the safer choice for larger amounts.</li>
