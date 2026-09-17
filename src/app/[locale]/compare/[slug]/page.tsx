@@ -297,7 +297,7 @@ function DefaultComparison({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: faqs.map((faq) => ({
+            mainEntity: (editorial ? editorial.faqs.map((f) => ({ q: f.q, a: renderDataTokens(f.a) })) : faqs).map((faq) => ({
               "@type": "Question",
               name: faq.q,
               acceptedAnswer: { "@type": "Answer", text: faq.a },
@@ -651,35 +651,55 @@ function DefaultComparison({
                 <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                   {verdict.costWinner === "tie" ? "Cost: Too close to call" : `Cost winner: ${verdict.costWinner === "a" ? a.name : b.name}`}
                 </h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  {verdict.costExplanation}
-                </p>
+                {editorial ? (
+                  <p
+                    className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.verdict.costExplanation) }}
+                  />
+                ) : (
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{verdict.costExplanation}</p>
+                )}
               </div>
               {/* Speed verdict */}
               <div className={`rounded-xl p-5 ${verdict.speedWinner === "tie" ? "bg-[var(--color-surface-dim)]" : "bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20"}`}>
                 <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                   {verdict.speedWinner === "tie" ? "Speed: Similar delivery times" : `Faster: ${verdict.speedWinner === "a" ? a.name : b.name}`}
                 </h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  {verdict.speedExplanation}
-                </p>
+                {editorial ? (
+                  <p
+                    className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.verdict.speedExplanation) }}
+                  />
+                ) : (
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{verdict.speedExplanation}</p>
+                )}
               </div>
               {/* Coverage verdict */}
               <div className={`rounded-xl p-5 ${verdict.coverageWinner === "tie" ? "bg-[var(--color-surface-dim)]" : "bg-[var(--color-surface-dim)]"}`}>
                 <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                   {verdict.coverageWinner === "tie" ? "Coverage: Comparable reach" : `Wider coverage: ${verdict.coverageWinner === "a" ? a.name : b.name}`}
                 </h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  {verdict.coverageExplanation}
-                </p>
+                {editorial ? (
+                  <p
+                    className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.verdict.coverageExplanation) }}
+                  />
+                ) : (
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{verdict.coverageExplanation}</p>
+                )}
               </div>
             </div>
             {/* Overall */}
             <div className="bg-gradient-to-r from-[var(--color-primary-surface)] to-[var(--color-surface-dim)] rounded-xl p-6">
               <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">Bottom line</h3>
-              <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">
-                {verdict.overallSummary}
-              </p>
+              {editorial ? (
+                <p
+                  className="text-md text-[var(--color-on-surface-variant)] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.verdict.bottomLine) }}
+                />
+              ) : (
+                <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">{verdict.overallSummary}</p>
+              )}
             </div>
           </section>
 
@@ -689,7 +709,7 @@ function DefaultComparison({
               Frequently asked questions
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
-              {faqs.map((faq) => (
+              {(editorial ? editorial.faqs : faqs).map((faq) => (
                 <details key={faq.q} className="group py-4">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                     {faq.q}
@@ -700,9 +720,16 @@ function DefaultComparison({
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
-                    {faq.a}
-                  </p>
+                  {editorial ? (
+                    <p
+                      className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8"
+                      dangerouslySetInnerHTML={{ __html: renderDataTokens(faq.a) }}
+                    />
+                  ) : (
+                    <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                      {faq.a}
+                    </p>
+                  )}
                 </details>
               ))}
             </div>

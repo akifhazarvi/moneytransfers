@@ -81,6 +81,85 @@ For the remaining 28, inspect SiteLiner's highlighted passages. Condense
 unhelpful repeated template blocks and add useful page-specific evidence;
 neither synonym swaps nor more text alone establishes content quality.
 
+## §10-A step 7, continued — the verdict/FAQ generator was the actual remainder
+
+The Sept 16 04:52 Premium re-scan left 28/37 targets at or above 30%. Splitting
+those 28 by what's actually duplicated (a per-page block analysis the existing
+`check:duplication --blocks` doesn't do — it only shows the sitewide top 40
+phrases, not what's shared *from* one specific page) found three different
+causes, not one:
+
+- **7 `/send-money/*` hub pages** (India/Philippines/Pakistan + US variants,
+  69-73%): dominated by a single ~1,700-word block — the SendScore widget,
+  delivery-times table and bank list — shared with **441 other corridor
+  pages**. This is why `usa-to-india` got *worse* (66%→69%) after the earlier
+  editorial-notes pass: it's a live-data component whose explanatory sentence
+  framing ("vs the 30-day average", "who is usually cheapest here", delivery
+  labels) is necessarily identical everywhere. No amount of added prose moves
+  this; only trimming the widget's own copy, site-wide, would.
+- **8 `/companies/*` + 2 `/banks/*` + 1 `/iban/*` pages**: dominated by shared
+  **navigation chrome** — the cross-sell rail and "recent news" sidebar (159
+  words shared with 405 pages; 72 words shared with 48). This is UI, not spun
+  content; the byline/pros-cons/regulator prose that IS genuinely editorial on
+  these pages is already mostly unique and comparatively small. More writing
+  here doesn't move the number much because the number isn't measuring prose.
+- **10 `/compare/*` pages**: the one group where the brief's original
+  diagnosis holds exactly. `compareEditorial` (this file's data) already
+  replaced the pros/cons and "when to choose" blocks per its own header
+  comment — but `generateComparisonContent`'s **Verdict boxes and FAQ
+  section render unconditionally regardless of whether an editorial entry
+  exists** (`src/app/[locale]/compare/[slug]/page.tsx`). Those are exactly
+  the mad-lib templates — "Overall, X edges ahead for most users thanks to
+  its ___", "Are X and Y safe to use? Yes, both are regulated..." — repeated
+  across every one of ~650 provider pairs the same generator renders, and
+  they were the majority of what was left duplicate on all 10 targets.
+
+**Fixed**: extended `CompareEditorial` with `verdict` (cost/speed/coverage
+explanations + bottom line) and `faqs` (4 bespoke, pair-specific questions,
+down from the generator's fixed 5-6) for all 10 target pairs, and wired
+`page.tsx` to use them instead of the generated verdict/FAQ text when an
+editorial entry exists. Scoped intentionally to these 10 — the shared
+generator itself (`comparison-content.ts`) was not touched, so the ~640 other
+comparison pairs it renders are unaffected, and there's no sitewide
+regression risk to test for.
+
+Measured effect (local diagnostic, same caveat as always — different
+algorithm/corpus from SiteLiner, not a substitute for it):
+
+| Page | Local before | Local after |
+|---|---:|---:|
+| wise-vs-remitly | 55.1% | 31.8% |
+| ofx-vs-xe | 56.4% | 33.4% |
+| wise-vs-paypal | 58.5% | 33.8% |
+| paypal-vs-revolut | 57.5% | 33.0% |
+| ofx-vs-xoom | 61.7% | 38.0% |
+| wise-vs-western-union | 64.0% | 38.6% |
+| remitly-vs-western-union | 64.4% | 37.9% |
+| western-union-vs-moneygram | 64.7% | 39.2% |
+| wise-vs-worldremit | 64.8% | 39.8% |
+| moneygram-vs-xoom | 64.6% | 41.2% |
+
+Every target dropped 20-31 local percentage points; none crosses the local
+checker's threshold yet (it was 0/37 before this change and stays 0/37 — it
+reads roughly double SiteLiner's number sitewide, per the existing note
+above, so this was never going to flip a pass/fail locally). **A fresh
+SiteLiner Premium re-scan is the actual test and hasn't been run against this
+change** — no access to the paid tool from here. Directionally, a drop of
+this size on the local metric is consistent with real duplication removed
+rather than a token-substitution artifact, since the changed sections
+(verdict + FAQ) were confirmed by the block analysis to be the dominant
+repeated material, but "consistent with" is not the same as a passing score.
+
+**Left alone, deliberately**: the 18 widget/nav-dominated pages above. A real
+fix for those is a code-level trim of the SendScore/delivery-widget copy and
+the cross-sell/news sidebar — high leverage (it would move 400+ pages, not
+just these 18) but a shared-component change with real blast radius, not
+attempted in this pass. `keyDifferences` on the compare pages (the
+"**Fee model**: X charges..., while Y charges..." bullet list) is the same
+kind of generator-template duplication as the verdict/FAQ fix above and
+wasn't covered here either — it's a smaller contributor than verdict+FAQ was,
+but worth revisiting if the next SiteLiner scan shows these 10 still failing.
+
 ## Link-building category destinations (§5.2/§5.3) — one correction
 
 The workbook's `Link_Building_Categories` tab gives one example URL per
