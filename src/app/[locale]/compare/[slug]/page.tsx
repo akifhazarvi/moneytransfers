@@ -471,9 +471,9 @@ function DefaultComparison({
               Key differences between {a.name} and {b.name}
             </h2>
             <div className="space-y-3">
-              {keyDifferences.map((diff, i) => (
+              {(editorial ? editorial.keyDifferences : keyDifferences).map((diff, i) => (
                 <div key={i} className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(diff) }}
+                  dangerouslySetInnerHTML={{ __html: editorial ? renderDataTokens(diff) : sanitizeHtml(diff) }}
                 />
               ))}
             </div>

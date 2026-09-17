@@ -154,11 +154,50 @@ repeated material, but "consistent with" is not the same as a passing score.
 fix for those is a code-level trim of the SendScore/delivery-widget copy and
 the cross-sell/news sidebar — high leverage (it would move 400+ pages, not
 just these 18) but a shared-component change with real blast radius, not
-attempted in this pass. `keyDifferences` on the compare pages (the
-"**Fee model**: X charges..., while Y charges..." bullet list) is the same
-kind of generator-template duplication as the verdict/FAQ fix above and
-wasn't covered here either — it's a smaller contributor than verdict+FAQ was,
-but worth revisiting if the next SiteLiner scan shows these 10 still failing.
+attempted in this pass.
+
+## §10-A step 7, continued again — `keyDifferences` was the last generator source
+
+Extended `CompareEditorial` with `keyDifferences` (4 bespoke bullets per pair)
+and wired `page.tsx` to use them, the same pattern as verdict/FAQ above. This
+closed the last remaining generator-template source on these 10 pages —
+`generateKeyDifferences`' fixed "**Fee model**: A charges X, while B charges
+Y" bullets, repeated with the same skeleton across every pair the shared
+generator renders.
+
+Bonus find while rewriting these: that markdown bold never actually
+rendered. The bullets go through `sanitizeHtml` (strips dangerous tags, does
+not parse markdown), so production was showing literal `**Fee model**:`
+asterisks on every `/compare/*` page that fell back to the generator — a
+plain, separate defect from the duplication work, fixed as a side effect of
+replacing the bullets with real prose instead of reintroducing the markdown.
+
+Result, local diagnostic, second measurement on top of the verdict/FAQ pass:
+
+| Page | After verdict/FAQ | After keyDifferences | Passes local? |
+|---|---:|---:|---|
+| wise-vs-remitly | 31.8% | 26.0% | ✓ |
+| ofx-vs-xe | 33.4% | 28.1% | ✓ |
+| paypal-vs-revolut | 33.0% | 28.3% | ✓ |
+| wise-vs-paypal | 33.8% | 28.5% | ✓ |
+| ofx-vs-xoom | 38.0% | 31.0% | close |
+| wise-vs-western-union | 38.6% | 31.4% | close |
+| remitly-vs-western-union | 37.9% | 32.3% | close |
+| wise-vs-worldremit | 39.8% | 33.3% | close |
+| western-union-vs-moneygram | 39.2% | 33.6% | close |
+| moneygram-vs-xoom | 41.2% | 35.6% | close |
+
+4 of the 10 now pass the *local* checker — the first time any `/compare/*`
+page has cleared it (site-wide brief-target count: 0/37 → 4/37). Still not
+the same claim as passing SiteLiner: that checker reads roughly double
+SiteLiner's number sitewide, so 4 clearing the stricter local bar is a
+reasonably strong signal for the real scan, not a substitute result. **A
+fresh SiteLiner Premium re-scan against current production is still the open
+item** — same caveat as the verdict/FAQ entry above, no access to the paid
+tool from here.
+
+`check:links` (98,194 links) and `check:indexing` (530 submitted URLs) both
+still pass after this change; lint clean on both touched files.
 
 ## Link-building category destinations (§5.2/§5.3) — one correction
 

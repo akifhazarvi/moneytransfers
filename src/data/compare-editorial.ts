@@ -81,6 +81,15 @@ export interface CompareEditorial {
    * than a fixed checklist, per the brief's "condense repeated blocks" ask.
    */
   faqs: { q: string; a: string }[];
+  /**
+   * Replaces generateKeyDifferences' fixed "**Label**: A does X, while B does
+   * Y" bullets — a second generator-template source, smaller than verdict/FAQ
+   * but the same pattern. (Its markdown bold never actually rendered: the
+   * page passes the string through sanitizeHtml, which strips dangerous tags
+   * but doesn't parse markdown, so "**Fee model**" showed as literal
+   * asterisks. Written as plain prose here instead of re-introducing that.)
+   */
+  keyDifferences: string[];
 }
 
 export const compareEditorial: Record<string, CompareEditorial> = {
@@ -123,6 +132,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         q: "Which is better for a first large transfer, like a house deposit?",
         a: "Wise, on the numbers we track: no cash-network markup to absorb, a rate you can check against the published mid-market quote independently, and a $1,000,000 ceiling with no promotional pricing that expires after the first transfer. Remitly's model is built around recurring remittances, not a one-off payment.",
       },
+    ],
+    keyDifferences: [
+      "Wise's fee is a visible 0.41%-and-up charge with zero markup; Remitly's fee looks smaller ($0-$3.99) but its 0.5-2% markup is where the real cost sits, which is why the total more often favours Wise despite the sticker fee looking similar.",
+      "Remitly settles in minutes on its express tier; Wise's window is instant to two days but applies uniformly, without an express upcharge.",
+      "Wise caps out at $1,000,000 against Remitly's $300,000 US ceiling — real headroom for a large one-off transfer that Remitly's remittance-sized limit doesn't match.",
+      "Cash pickup, mobile money and home delivery exist only on Remitly's side; Wise's only payout is a bank deposit.",
     ],
   },
 
@@ -170,6 +185,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         a: "No — Wise pays out to bank accounts only, so if the recipient can't or won't provide bank details, Wise isn't an option regardless of price. That's the one scenario on this page where PayPal's reach settles the question before cost does.",
       },
     ],
+    keyDifferences: [
+      "PayPal's cost is two separate charges stacked — a percentage fee capped at $4.99, then a 3-4% markup with no cap at all. Wise charges once, with no markup layered on top.",
+      "PayPal settles instantly between two PayPal balances; Wise's instant-to-two-day window is for an actual bank deposit, a different kind of speed.",
+      "Wise's $1,000,000 ceiling dwarfs anything PayPal publishes for a standard consumer transfer, and its rate holds regardless of amount.",
+      "PayPal reaches 200 countries against Wise's 80 and needs only an email address; Wise requires the recipient to hold a bank account that can receive the deposit.",
+    ],
   },
 
   "paypal-vs-revolut": {
@@ -216,6 +237,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         a: "Yes, for the free and fastest route — Revolut-to-Revolut transfers are instant and cost nothing. Revolut can also send to an external bank account, but that removes the main price advantage over a specialist transfer service.",
       },
     ],
+    keyDifferences: [
+      "Revolut's markup is 0% on weekdays up to £1,000 a month, then 0.5% — PayPal's 3-4% markup applies every day regardless of amount or plan.",
+      "Revolut-to-Revolut transfers are instant and free; sending to an external bank adds the destination bank's own processing time, which PayPal's balance transfer doesn't depend on.",
+      "PayPal reaches 200 countries against Revolut's 150, and needs nothing from the recipient beyond an email address — Revolut needs an account.",
+      "Revolut has no published upper transfer limit; PayPal's practical ceiling is set by its own risk and compliance policies rather than one published figure.",
+    ],
   },
 
   "western-union-vs-moneygram": {
@@ -258,6 +285,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         a: "Both frequently run first-transfer promotions that undercut their standing price, so a first transfer through either is a poor guide to what you'll pay on the second one. Compare the returning-customer rate, not the welcome offer, if this is a corridor you'll use more than once.",
       },
     ],
+    keyDifferences: [
+      "MoneyGram's opening fee is lower, from $1.99; Western Union's wider agent network and 130-currency list come with a correspondingly higher typical fee.",
+      "Western Union's $50,000 ceiling is five times MoneyGram's $10,000 — the gap that matters for anyone sending a genuinely large amount through a cash network.",
+      "Both settle same-day at a staffed counter; neither publishes a meaningfully faster standard window than the other.",
+      "Western Union has been building its agent network since 1851, nearly a century before MoneyGram (1940) — the age gap shows up in Western Union's wider currency and country reach.",
+    ],
   },
 
   "remitly-vs-western-union": {
@@ -299,6 +332,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         q: "Which is better for sending cash to a recipient with no bank account?",
         a: "Both support cash pickup, so the deciding factor is which network has a working agent location near the recipient — not the two providers' published country counts. Check the specific collection town in each provider's agent locator rather than assuming from national coverage.",
       },
+    ],
+    keyDifferences: [
+      "Remitly's narrower, digitally-optimised route list prices established corridors (US/UK/Canada/Australia into South Asia, the Philippines, Mexico, East Africa) sharper than Western Union's century-old agent network typically does.",
+      "Western Union's $50,000 ceiling and 200-country, 130-currency reach cover destinations and amounts Remitly's $300,000 US-only ceiling and 100-country list don't.",
+      "Remitly's express tier settles in minutes; Western Union's standard cash-counter window is same-day but not minutes-fast.",
+      "Remitly is a digital-first app with contracted payout partners; Western Union is a physical agent network that added an app on top — the two started from opposite ends of the same problem.",
     ],
   },
 
@@ -346,6 +385,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         a: "Because it isolates the price of physical reach for a recipient who could receive either way. For someone who genuinely has no other option but cash, the comparison is moot — Western Union is the only route on this page, not the cheaper one.",
       },
     ],
+    keyDifferences: [
+      "Wise's cost is a stated fee with 0% markup; Western Union recovers its network cost through a 1-4% markup that scales with the amount sent.",
+      "Western Union pays cash at a staffed counter; Wise pays out to a bank account only — neither can substitute for the other's payout method.",
+      "Wise's $1,000,000 ceiling and three regulators (FCA, FinCEN, ASIC) fit a large, audit-trail-conscious transfer; Western Union's $50,000 cap and agent network fit reach into places Wise doesn't operate.",
+      "Western Union quotes 130 currencies and roughly 200 countries against Wise's 50 currencies and 80 countries — the reach gap is the price of the counter.",
+    ],
   },
 
   "wise-vs-worldremit": {
@@ -391,6 +436,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         q: "Does WorldRemit's $10,000 limit apply to every transfer?",
         a: "It's WorldRemit's published ceiling; the practical limit on your account can be lower depending on verification level and payout method. For a transfer approaching either provider's limit, confirm the current figure directly rather than relying on the published number.",
       },
+    ],
+    keyDifferences: [
+      "WorldRemit's 0.5-3% markup buys mobile money, cash pickup and airtime top-up — payout methods Wise doesn't offer at any price; Wise's 0% markup only buys a bank deposit.",
+      "Wise's $1,000,000 ceiling is a hundred times WorldRemit's $10,000 — the gap that matters for a transfer well above remittance size.",
+      "Both quote similar delivery windows on a bank-deposit corridor (Wise instant to two days, WorldRemit minutes to three days); the real speed difference shows up on WorldRemit's mobile-money routes, which Wise can't serve at all.",
+      "WorldRemit's 130 countries and 70 currencies edge out Wise's 80 countries and 50 currencies, concentrated in markets where mobile money is the normal way to receive money.",
     ],
   },
 
@@ -438,6 +489,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         a: "OFX's dealer service and lack of an upper limit suit a large, one-off transfer like a property purchase, where a named contact can help split or time the payment. XE's wider currency list is the better fit if the destination currency itself is the constraint rather than the transfer size.",
       },
     ],
+    keyDifferences: [
+      "Both charge no transfer fee and recover cost through a similar 0.5-1.5% markup — the closest pricing match tracked on this site.",
+      "OFX has no upper transfer limit; XE caps at $500,000, still well above almost any personal transfer.",
+      "XE's 130 currencies is the widest list in this comparison, against OFX's 55 — the practical argument for an unusual destination currency.",
+      "XE adds FINTRAC to its regulator set alongside ASIC, FCA and FinCEN; OFX carries the same three without FINTRAC.",
+    ],
   },
 
   "ofx-vs-xoom": {
@@ -484,6 +541,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         a: "It's confirmed fee-free regardless of amount for US-dollar transfers specifically. Outside the US, OFX charges a flat fee below a country-specific threshold — check the policy for your sending country before assuming it applies to your transfer.",
       },
     ],
+    keyDifferences: [
+      "OFX charges no fee and settles in one to three business days; Xoom charges a fee up to $4.99 and settles in minutes — the two are optimised for opposite priorities.",
+      "Xoom pays out via cash pickup, mobile reload and bank deposit across 130 countries; OFX pays to a bank account only, with no upper limit against Xoom's $50,000 cap.",
+      "OFX adds dealer support once a transfer is substantial; Xoom's PayPal-linked balance makes funding instant for an existing PayPal user.",
+      "Xoom prices far more remittance-sized corridors than OFX, whose route list is built around larger, planned transfers rather than everyday sending pairs.",
+    ],
   },
 
   "moneygram-vs-xoom": {
@@ -525,6 +588,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         q: "Is MoneyGram's $10,000 limit fixed for every country?",
         a: "It's MoneyGram's general published ceiling; the practical limit can vary by country, verification level and payout method. For a transfer approaching either provider's limit — MoneyGram's $10,000 or Xoom's $50,000 — confirm the current figure for your specific corridor before sending.",
       },
+    ],
+    keyDifferences: [
+      "MoneyGram's fees start lower, from $1.99; Xoom's fee runs up to $4.99 but is funded instantly from an existing PayPal balance.",
+      "Xoom offers mobile reload — topping up a recipient's phone directly — which MoneyGram doesn't; MoneyGram's reach is wider at roughly 200 countries against Xoom's 130.",
+      "Xoom's $50,000 ceiling is five times MoneyGram's $10,000.",
+      "Both settle in minutes on their express options; the deciding factor is usually whose agent or partner is nearest the recipient, not the published speed.",
     ],
   },
 };
