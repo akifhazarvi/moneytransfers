@@ -15990,7 +15990,7 @@
       "lemfi": {
         "rate": 11.5,
         "fee": 0,
-        "markup": -0.01,
+        "markup": 0.01,
         "receiveAmount": 1150
       },
       "moneygram": {
@@ -16018,10 +16018,10 @@
         "receiveAmount": 1150
       },
       "western-union": {
-        "rate": 10.4307,
+        "rate": 10.4305,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 1032.74
+        "receiveAmount": 1032.72
       },
       "worldremit": {
         "rate": 11.5,
@@ -16030,10 +16030,10 @@
         "receiveAmount": 1150
       },
       "instarem": {
-        "rate": 11.3998,
+        "rate": 11.4195,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1139.98
+        "receiveAmount": 1141.95
       },
       "xe": {
         "rate": 11.4137,
@@ -16066,10 +16066,10 @@
         "receiveAmount": 1132.17
       },
       "wise": {
-        "rate": 11.4897,
-        "fee": 4.08,
+        "rate": 11.505,
+        "fee": 3.82,
         "markup": null,
-        "receiveAmount": 1102.09
+        "receiveAmount": 1106.55
       },
       "xoom": {
         "rate": 11.2526,
