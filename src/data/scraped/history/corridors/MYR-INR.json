@@ -3196,22 +3196,22 @@
     "date": "2026-09-17",
     "providers": {
       "western-union": {
-        "rate": 23.3328,
+        "rate": 23.2887,
         "fee": 5,
-        "markup": 1.6,
-        "receiveAmount": 2216.62
+        "markup": 0.48,
+        "receiveAmount": 2212.43
       },
       "worldremit": {
-        "rate": 22.9437,
+        "rate": 22.8128,
         "fee": 5,
-        "markup": 3.24,
-        "receiveAmount": 2179.65
+        "markup": 2.52,
+        "receiveAmount": 2167.21
       },
       "instarem": {
-        "rate": 23.4256,
+        "rate": 23.3646,
         "fee": 0.55,
-        "markup": 1.21,
-        "receiveAmount": 2329.68
+        "markup": 0.16,
+        "receiveAmount": 2323.61
       }
     }
   }

@@ -16361,10 +16361,10 @@
         "receiveAmount": 1238.45
       },
       "xe": {
-        "rate": 19.5624,
+        "rate": 19.4968,
         "fee": 4,
-        "markup": 1.14,
-        "receiveAmount": 1877.99
+        "markup": 1.31,
+        "receiveAmount": 1871.69
       },
       "western-union": {
         "rate": 19.5111,
@@ -16373,34 +16373,34 @@
         "receiveAmount": 1931.79
       },
       "worldremit": {
-        "rate": 19.5344,
+        "rate": 19.5041,
         "fee": 0.99,
-        "markup": 1.28,
-        "receiveAmount": 1934.1
+        "markup": 1.27,
+        "receiveAmount": 1931.1
       },
       "paysend": {
-        "rate": 19.6897,
+        "rate": 19.6603,
         "fee": 0,
-        "markup": 0.5,
-        "receiveAmount": 1968.97
+        "markup": 0.48,
+        "receiveAmount": 1966.03
       },
       "sendwave": {
-        "rate": 19.663,
+        "rate": 19.6325,
         "fee": 1.99,
-        "markup": 0.63,
-        "receiveAmount": 1927.17
+        "markup": 0.62,
+        "receiveAmount": 1924.18
       },
       "remitly": {
-        "rate": 19.65,
+        "rate": 19.63,
         "fee": 1.99,
-        "markup": 0.7,
-        "receiveAmount": 1925.9
+        "markup": 0.64,
+        "receiveAmount": 1923.94
       },
       "revolut": {
-        "rate": 19.6784,
+        "rate": 19.6491,
         "fee": 0.5,
-        "markup": 0.55,
-        "receiveAmount": 1958
+        "markup": 0.54,
+        "receiveAmount": 1955.08
       },
       "wise": {
         "rate": 19.7653,
@@ -16409,10 +16409,10 @@
         "receiveAmount": 1942.73
       },
       "ria": {
-        "rate": 19.24,
+        "rate": 19.12,
         "fee": 0.9,
         "markup": null,
-        "receiveAmount": 1924
+        "receiveAmount": 1912
       },
       "skrill": {
         "rate": 18.8255,
@@ -16437,6 +16437,12 @@
         "fee": 3,
         "markup": null,
         "receiveAmount": 1916.41
+      },
+      "currencyfair": {
+        "rate": 19.4639,
+        "fee": 3,
+        "markup": 1.48,
+        "receiveAmount": 1888
       }
     }
   }
