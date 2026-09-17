@@ -1469,7 +1469,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>For the sender</strong>: Sending money as a gift to family in India is generally not taxable for the sender (US, UK, Canada, Australia). The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> and <a href="https://www.cfpb.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> have reporting requirements for large transfers.</li>
 <li><strong>For the recipient in India</strong>: Money received from relatives abroad is tax-free under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
 <li><strong>FBAR/FATCA</strong>: US persons with Indian bank accounts holding over $10,000 may need to file FBAR. Consult a tax professional.</li>
-<li><strong>TCS (Tax Collected at Source)</strong>: When sending FROM India, a 5-20% TCS may apply on remittances over ₹7 lakh per year under the LRS scheme per the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>.</li>
+<li><strong>TCS (Tax Collected at Source)</strong>: When sending FROM India, TCS applies to remittances over ₹10 lakh per year under the LRS scheme — 20% for most purposes, 2% for education or medical remittances, per the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>. It's an advance tax credit, reclaimable when filing an income tax return, not an extra cost.</li>
 </ul>
 <p>This is general information — always consult a tax advisor for your specific situation. For more on safety and regulation, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
       },
@@ -4940,7 +4940,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments. Transfers are not reportable unless you're claiming tax relief.</li>
 <li><strong>For recipients in India:</strong> Money received from relatives abroad is <strong>tax-free</strong> under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
 <li><strong>Non-relative gifts:</strong> If the recipient is NOT a relative (as defined by the Income Tax Act), gifts over ₹50,000 in a financial year may be taxable as "income from other sources."</li>
-<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS of 5%–20% may apply under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹7 lakh per financial year.</li>
+<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS applies under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹10 lakh per financial year — 20% for most purposes, 2% for education or medical remittances, reclaimable via your income tax return.</li>
 <li><strong>FCA regulation:</strong> All UK-based transfer providers must be authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a>. Check the FCA register if you're unsure about a provider.</li>
 </ul>
 <p>This is general information — consult a tax professional for your specific situation.</p>
@@ -5127,7 +5127,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>FINTRAC reporting:</strong> Under <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a> regulations, international electronic funds transfers of C$10,000 or more must be reported by the financial institution. This is automatic and does not mean your transfer is suspicious — it's a standard anti-money-laundering measure.</li>
 <li><strong>For recipients in India:</strong> Money received from relatives abroad is <strong>tax-free</strong> under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
 <li><strong>Non-relative gifts:</strong> If the recipient is NOT a relative (as defined by the Income Tax Act), gifts over ₹50,000 in a financial year may be taxable as "income from other sources."</li>
-<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS of 5%–20% may apply under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹7 lakh per financial year.</li>
+<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS applies under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹10 lakh per financial year — 20% for most purposes, 2% for education or medical remittances, reclaimable via your income tax return.</li>
 </ul>
 <p>This is general information — consult a tax professional for your specific situation.</p>
 <p>For more guidance, read our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, India is the world's largest remittance recipient at over $125 billion annually. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database tracks average costs on the Canada-India corridor. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global remittance tracker confirms Canada as one of India's top source countries.</p>`,
@@ -14638,7 +14638,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Westpac, ANZ, and Commonwealth Bank typically add a 3–5% FX markup — see <a href="/compare/wise-vs-westpac">Wise vs Westpac</a> for the real numbers.</p>
 
 <h3>From India (INR → GBP)</h3>
-<p>The India→UK corridor is heavily regulated by RBI's Liberalised Remittance Scheme (LRS, US$250,000 annual limit per individual) and currently subject to the 5% TCS (Tax Collected at Source) on transfers above INR 7 lakh. Legal providers comply with both:</p>
+<p>The India→UK corridor is heavily regulated by RBI's Liberalised Remittance Scheme (LRS, US$250,000 annual limit per individual) and currently subject to TCS (Tax Collected at Source) — 20% for most purposes, 2% for education or medical remittances — on outbound transfers above INR 10 lakh. Legal providers comply with both:</p>
 <ul>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Strong on INR→GBP with Express delivery to UK bank in hours</li>
 <li><strong><a href="/companies/wise">Wise</a></strong>: 0% markup but UK delivery only (no card pickups). Best for senders with UK bank accounts on the receiving end</li>
@@ -14988,7 +14988,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>NZ bank wires (ANZ NZ, Westpac NZ, ASB) charge NZ $15–30 + 2–3% markup — comparable to a quick coffee in cost but a real loss on a NZ $5,000 transfer.</p>
 
 <h3>From India (INR → AUD)</h3>
-<p>Heavily regulated by RBI's Liberalised Remittance Scheme (LRS, US$250,000 annual limit per individual) and currently subject to the 5% TCS on transfers above INR 7 lakh. Legal providers comply with both:</p>
+<p>Heavily regulated by RBI's Liberalised Remittance Scheme (LRS, US$250,000 annual limit per individual) and currently subject to TCS (Tax Collected at Source) — 20% for most purposes, 2% for education or medical remittances — on outbound transfers above INR 10 lakh. Legal providers comply with both:</p>
 <ul>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Strong INR→AUD with Express delivery to AU bank in hours</li>
 <li><strong><a href="/companies/wise">Wise</a></strong>: 0% markup, AU bank delivery only (no card pickups). Best for senders with AU bank accounts on the receiving end</li>
