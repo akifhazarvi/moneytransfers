@@ -199,6 +199,19 @@ tool from here.
 `check:links` (98,194 links) and `check:indexing` (530 submitted URLs) both
 still pass after this change; lint clean on both touched files.
 
+**Checked whether the remaining 6 (31-36%) have any further prose-level fix
+available: no.** Block analysis on the worst of them
+(`moneygram-vs-xoom`, 35.6%) shows the dominant remainder is a 161-word
+page-header block (byline, methodology line, provider capsule descriptions,
+shared with 664 pages), an 87-word cross-sell rail (155 pages), a 97-word
+table-of-contents/live-table intro (51 pages), and a 67-word block of raw
+`ComparisonTable` spec values (39 pages, e.g. two providers that happen to
+both quote "1-3% above mid-market" and "minutes to 3 days"). That's nav
+chrome and live data, the same category already documented for the 18 pages
+above — not something more editorial writing moves. The prose lever on these
+10 pages is now exhausted; the only pages where the pair-specific content
+genuinely ran out are these 6, not a sign the rewrite was incomplete.
+
 ## Link-building category destinations (§5.2/§5.3) — one correction
 
 The workbook's `Link_Building_Categories` tab gives one example URL per
