@@ -612,6 +612,349 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       "Both settle in minutes on their express options; the deciding factor is usually whose agent or partner is nearest the recipient, not the published speed.",
     ],
   },
+  "moneygram-vs-worldremit": {
+    theDecision: `Both specialise in cash and mobile-money reach rather than bank-to-bank transfers, so this comparison turns on which network actually covers your corridor and what it charges to get there. MoneyGram is the older, wider agent network — 200 countries since 1940 — while WorldRemit was built specifically for mobile money and airtime in markets MoneyGram's agent model reaches less directly. Fees favour WorldRemit at the low end ($0.99 against MoneyGram's $1.99), but MoneyGram's markup can undercut WorldRemit's on some corridors, so the total matters more than either headline number.`,
+    measuredRecord: `WorldRemit led on {{LED:worldremit}} of the corridors we price against {{LED:moneygram}} for MoneyGram. When WorldRemit isn't the best-priced option it trails by {{SHORTFALL:worldremit}} on average, against {{SHORTFALL:moneygram}} for MoneyGram. Both sit behind the digital leaders on cost, consistent with two providers competing on payout reach rather than the lowest possible rate.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:moneygram:worldremit:USD:INR:1000}}, with {{CHEAPER:moneygram:worldremit:USD:INR:1000}} delivering more — {{COST_PCT:moneygram:USD:INR:1000}} all-in for MoneyGram against {{COST_PCT:worldremit:USD:INR:1000}} for WorldRemit. Both price cash pickup differently from bank deposit and mobile money differently again, so quote your actual payout method rather than assuming this ordering holds for yours.`,
+    },
+    secondExample: {
+      heading: "A second corridor: $1,000 to Mexico",
+      body: `Mexico is MoneyGram's original agent-network market; WorldRemit built its reputation on mobile-money corridors further afield, so this is a fairer test of MoneyGram's home turf than the India example. On $1,000 USD→MXN the gap is {{RECEIVE_DIFF:moneygram:worldremit:USD:MXN:1000}}, with {{CHEAPER:moneygram:worldremit:USD:MXN:1000}} ahead at {{COST_PCT:moneygram:USD:MXN:1000}} all-in against {{COST_PCT:worldremit:USD:MXN:1000}} for WorldRemit.`,
+    },
+    pickA: {
+      heading: "Pick MoneyGram for a physical agent counter",
+      body: `MoneyGram is the better instrument for reach into a staffed counter — 200 countries against WorldRemit's 130, with cash pickup at supermarkets, bank branches and post offices in places WorldRemit's mobile-money-first model doesn't prioritise. If the recipient's nearest reliable collection point is a MoneyGram agent, that settles it regardless of the rate. It's regulated by <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> in the US and the <a href="https://register.fca.org.uk/s/firm?id=001b000000MgGNGAA3" target="_blank" rel="noopener noreferrer">FCA</a> in the UK.`,
+    },
+    pickB: {
+      heading: "Pick WorldRemit for mobile money and airtime",
+      body: `WorldRemit is the better instrument when the payout is mobile money or airtime rather than cash or a bank account — M-Pesa, MTN Mobile Money and direct phone top-ups are payout methods MoneyGram doesn't offer at all. It quotes 70 currencies against MoneyGram's 50, and its lower starting fee matters most on smaller, frequent transfers. It's regulated by the <a href="https://register.fca.org.uk/s/firm?id=0010X00004D8FDGQA3" target="_blank" rel="noopener noreferrer">FCA</a> in the UK and FinCEN in the US.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and agent-level/mobile-money pricing is not something we observe directly. Both providers vary fees by corridor, payout method and funding method. Confirm the quote, the collection method and (for WorldRemit) network compatibility before sending.`,
+    verdict: {
+      costExplanation: `WorldRemit led {{LED:worldremit}} of the corridors we price against {{LED:moneygram}} for MoneyGram, with average shortfalls of {{SHORTFALL:worldremit}} and {{SHORTFALL:moneygram}} respectively. Neither dominates the way a digital specialist does — both are pricing around a reach-first model, not a lowest-cost one.`,
+      speedExplanation: `Both settle in minutes on their express tiers and up to three days on standard delivery — there's no meaningful speed edge between them on the corridors we track. The real timing variable is the payout method: mobile money and cash pickup typically land faster than a bank deposit on either network.`,
+      coverageExplanation: `MoneyGram's 200 countries and cash-agent network beat WorldRemit's 130 countries on raw reach; WorldRemit answers with mobile money, cash pickup and airtime top-up spanning 70 currencies against MoneyGram's 50, concentrated in markets where a bank account isn't the norm.`,
+      bottomLine: `This page is decided by payout method more than price. A recipient who needs an agent counter is better served by MoneyGram's wider footprint; a recipient who collects through a mobile wallet or needs airtime is better served by WorldRemit, which is built around exactly that.`,
+    },
+    faqs: [
+      {
+        q: "Which is cheaper, MoneyGram or WorldRemit?",
+        a: "It depends on the corridor — WorldRemit's starting fee is lower ($0.99 against MoneyGram's $1.99), but MoneyGram's markup can be tighter on some routes. Compare the all-in cost for your specific corridor and amount rather than the headline fee.",
+      },
+      {
+        q: "Can WorldRemit deliver to a mobile money wallet MoneyGram doesn't reach?",
+        a: "Yes — WorldRemit's mobile money and airtime top-up options cover markets, especially in Sub-Saharan Africa, where MoneyGram's agent network is thinner. If the recipient's payout method is a mobile wallet rather than cash or a bank account, WorldRemit is usually the only one of the two that can deliver it.",
+      },
+      {
+        q: "Is MoneyGram's larger country count a real advantage?",
+        a: "For cash pickup specifically, yes — MoneyGram's agent network has had since 1940 to build out physical locations. WorldRemit's narrower list is concentrated in the mobile-money and remittance corridors it was built for, so a wider network doesn't automatically mean better coverage for your specific destination.",
+      },
+      {
+        q: "Do both charge more for card-funded transfers?",
+        a: "Yes, funding with a debit or credit card typically costs more than a bank transfer on both, since card processing carries its own fee the provider passes through. Check the funding-method breakdown on your own quote rather than assuming the bank-transfer price applies.",
+      },
+    ],
+    keyDifferences: [
+      "MoneyGram's fee starts at $1.99 against WorldRemit's $0.99, but the difference narrows or reverses once the rate markup is counted — compare the all-in cost, not the headline fee.",
+      "MoneyGram reaches roughly 200 countries through physical agent counters; WorldRemit reaches 130 countries but adds mobile money and airtime top-up, payout methods MoneyGram doesn't offer at all.",
+      "WorldRemit's 70 currencies edge out MoneyGram's 50, concentrated in markets where mobile wallets are the normal way to receive money rather than a bank account or cash.",
+      "Both cap transfers at $10,000 — this pair has no meaningful size advantage either way, unlike comparisons involving a broker or a bank.",
+    ],
+  },
+
+  "hsbc-vs-paypal": {
+    theDecision: `These two serve completely different purposes that happen to overlap on "sending money abroad." HSBC is a full-service bank: free transfers between HSBC accounts, £4-£9 otherwise, with a markup that ranges from 0% for Premier customers down to 2.5% for standard accounts. PayPal is a payments account with an FX feature bolted on: a 5% fee (capped at $4.99) plus a 3-4% markup, every time, regardless of account tier. If you and the recipient both bank with HSBC, this isn't really a contest. If not, it's a question of how expensive convenience is.`,
+    measuredRecord: `PayPal led on {{LED:paypal}} of the corridors we price against {{LED:hsbc}} for HSBC. PayPal's average shortfall when it isn't cheapest is {{SHORTFALL:paypal}}; HSBC's is {{SHORTFALL:hsbc}}. Read this with the tier caveat in mind: our HSBC quotes reflect standard retail pricing, not the 0% Premier rate — a Premier customer's real result would sit meaningfully closer to the leaders than the figure here suggests.`,
+    workedExample: {
+      heading: "A worked example: £1,000 to euros",
+      body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:hsbc:paypal:GBP:EUR:1000}}, with {{CHEAPER:hsbc:paypal:GBP:EUR:1000}} delivering more — {{COST_PCT:hsbc:GBP:EUR:1000}} all-in for HSBC against {{COST_PCT:paypal:GBP:EUR:1000}} for PayPal. This is standard-tier HSBC pricing; an HSBC Premier account pays no markup at all, which would change this comparison more than any other variable on this page.`,
+    },
+    pickA: {
+      heading: "Pick HSBC if you're a Premier customer or sending HSBC-to-HSBC",
+      body: `HSBC's case depends entirely on your account tier and the recipient's bank. HSBC-to-HSBC transfers are free with no markup; Premier customers get the mid-market rate on any transfer. Outside those two conditions, standard HSBC pricing (£4-£9 plus up to 2.5% markup) is not obviously competitive with a specialist. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA, and has been operating since 1865.`,
+    },
+    pickB: {
+      heading: "Pick PayPal only where the payment already lives there",
+      body: `PayPal's case is the same as everywhere else it appears on this site: an invoice, a refund, or a counterparty who won't accept anything but a PayPal payment. It reaches 200 countries and needs only an email address, against HSBC's requirement that the recipient hold a bank account. Choosing PayPal as a deliberate remittance route, rather than because the payment already lives there, is the expensive option on this page for most standard-tier senders.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. HSBC's markup depends heavily on account tier (Premier vs standard) in a way our quotes cannot fully capture, and PayPal's consumer and business pricing differ. Confirm your own account tier's actual rate before relying on either figure.`,
+    verdict: {
+      costExplanation: `PayPal led {{LED:paypal}} of the corridors we price against {{LED:hsbc}} for HSBC, with average shortfalls of {{SHORTFALL:paypal}} and {{SHORTFALL:hsbc}}. HSBC's result reflects standard retail pricing; Premier customers pay no markup at all, a tier difference no other pair on this site has to account for.`,
+      speedExplanation: `HSBC quotes same-day to three business days; PayPal settles instantly to another PayPal balance but takes longer once the money needs to reach a bank account. Neither is reliably faster than the other once the payout method is matched.`,
+      coverageExplanation: `HSBC reaches 200 countries and 60 currencies through its own branch network; PayPal reaches 200 countries with just an email address needed from the recipient, though only 25 currencies. Neither has a transfer limit that binds a typical personal transfer.`,
+      bottomLine: `Account tier decides more of this page than either company's general pricing does. An HSBC Premier customer, or anyone sending HSBC-to-HSBC, should stop reading and use HSBC. Everyone else is choosing between a standard-tier bank markup and PayPal's flat combination of fee and markup, and neither is cheap next to a specialist.`,
+    },
+    faqs: [
+      {
+        q: "Is HSBC actually free to use?",
+        a: "Only between two HSBC accounts, or for Premier-tier customers on any transfer. Standard-tier customers sending to a non-HSBC account pay £4-£9 plus a markup of up to 2.5%, which is the pricing reflected in the figures on this page.",
+      },
+      {
+        q: "What does HSBC Premier change about this comparison?",
+        a: "Premier customers get the mid-market exchange rate with no markup, which would move HSBC from behind the leaders to among them. Our quotes reflect standard retail pricing since that's what most senders actually pay — check your own account tier before assuming either result applies to you.",
+      },
+      {
+        q: "Why would anyone use PayPal instead of a bank for a bank-to-bank transfer?",
+        a: "Usually they wouldn't, deliberately — PayPal's case is a payment that's already inside the PayPal ecosystem, like an invoice or a refund, not a planned remittance. For a transfer chosen from scratch, a standard bank markup and PayPal's fee-plus-markup model are both expensive next to a specialist service.",
+      },
+      {
+        q: "Does HSBC charge the same fee everywhere?",
+        a: "No — the £4-£9 range and the markup both vary by corridor, amount and account tier. Confirm the fee schedule for your specific account and destination in HSBC's own transfer tool before committing.",
+      },
+    ],
+    keyDifferences: [
+      "HSBC-to-HSBC transfers are free with no markup; standard-tier transfers to other banks cost £4-£9 plus up to 2.5% markup, while Premier customers pay no markup on any transfer.",
+      "PayPal charges a flat combination of fee (5%, capped at $4.99) and markup (3-4%) regardless of account tier or destination bank.",
+      "HSBC needs the recipient to hold a bank account; PayPal needs only an email address, which is the practical argument for PayPal's reach.",
+      "Neither has a transfer limit that binds a typical personal remittance — this pair is decided by rate and account tier, not by size.",
+    ],
+  },
+
+  "remitly-vs-xe": {
+    theDecision: `These two are built for different transfer shapes. Remitly is a remittance app: cash pickup, mobile money and home delivery alongside bank deposit, priced for smaller, more frequent sends to family. XE is a currency broker: bank deposit only, no transfer fee, and a pricing model that only gets genuinely competitive on larger amounts. A $200 remittance and a $20,000 property payment are different problems, and each provider is built for one of them.`,
+    measuredRecord: `Remitly led on {{LED:remitly}} of the corridors we price against {{LED:xe}} for XE. Remitly's average shortfall when it isn't cheapest is {{SHORTFALL:remitly}}, against {{SHORTFALL:xe}} for XE. XE's win rate is measured against a broker's typical use case — larger, less frequent transfers — which our $1,000 sample corridors understate.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:remitly:xe:USD:INR:1000}}, with {{CHEAPER:remitly:xe:USD:INR:1000}} delivering more — {{COST_PCT:remitly:USD:INR:1000}} all-in for Remitly against {{COST_PCT:xe:USD:INR:1000}} for XE. $1,000 sits below the amount at which XE's no-fee broker pricing typically overtakes a remittance specialist — the meaningful comparison for XE happens at higher amounts than our sample corridors reach.`,
+    },
+    secondExample: {
+      heading: "A second corridor: $1,000 to Mexico",
+      body: `The same pattern holds on $1,000 USD→MXN: {{CHEAPER:remitly:xe:USD:MXN:1000}} delivers {{RECEIVE_DIFF:remitly:xe:USD:MXN:1000}} more, at {{COST_PCT:remitly:USD:MXN:1000}} all-in for Remitly against {{COST_PCT:xe:USD:MXN:1000}} for XE. Two data points pointing the same way at this amount is weak evidence for what happens at $20,000 — get a live quote at your actual amount rather than assuming this pattern scales.`,
+    },
+    pickA: {
+      heading: "Pick Remitly for smaller, non-bank-account transfers",
+      body: `Remitly is the sharper instrument on typical remittance amounts and for recipients without a bank account — cash pickup, mobile money and home delivery are options XE doesn't offer at all. Its express tier settles in minutes where XE quotes one to four business days. The constraint is Remitly's $300,000 US ceiling against XE's $500,000, though most senders using Remitly are well under either.`,
+    },
+    pickB: {
+      heading: "Pick XE for larger transfers to a bank account",
+      body: `XE's no-fee model and 130-currency list — the widest on this site — make it the better fit for a large, planned bank-to-bank transfer: property, tuition, or moving a meaningful sum between your own accounts abroad. It has no upper limit issue at $500,000 and carries FINTRAC alongside the FCA, FinCEN and ASIC in its regulatory set. It doesn't offer cash pickup or mobile money at any amount.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. XE's rate improves with transfer size in a way our $1,000 sample cannot capture, and Remitly's promotional first-transfer rates are excluded. Quotes are collected by currency pair — confirm your corridor, amount and payout method before sending.`,
+    verdict: {
+      costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:xe}} for XE. XE's no-fee, markup-only model is built to reward larger amounts than the $1,000-$1,000 range this comparison prices — at real broker-scale amounts the gap narrows or reverses.`,
+      speedExplanation: `Remitly's express tier settles in minutes; XE quotes one to four business days with no express option. For anything time-sensitive, Remitly is the only one of the two built for it.`,
+      coverageExplanation: `Remitly's cash pickup, mobile money and home delivery reach recipients without a bank account; XE's bank-deposit-only model is narrower on payout method but wider on currency, quoting 130 against Remitly's 40.`,
+      bottomLine: `Transfer size decides this page more than either provider's general reputation does. Remitly is built for the remittance-sized transfer this comparison actually prices; XE is built for an amount well above it, where its no-fee model starts to show its advantage.`,
+    },
+    faqs: [
+      {
+        q: "Why does XE look more expensive here if it charges no fee?",
+        a: "XE's cost is entirely its rate markup, and that markup is priced to be most competitive on larger transfers than our $1,000 sample corridors test. At amounts XE is actually built for — well into five or six figures — the comparison typically looks different.",
+      },
+      {
+        q: "Can XE do cash pickup like Remitly?",
+        a: "No — XE pays out to bank accounts only, at any amount. If the recipient doesn't have a bank account, XE isn't an option regardless of price, and Remitly's cash pickup, mobile money or home delivery are the only routes on this page that work.",
+      },
+      {
+        q: "Is Remitly cheaper for a large one-off transfer?",
+        a: "Not necessarily — Remitly's model is built around frequent remittance-sized transfers, and its published $300,000 ceiling is well below what XE will quote. For a genuinely large transfer, get quotes from both rather than assuming Remitly's remittance pricing extends to broker-sized amounts.",
+      },
+      {
+        q: "Does XE offer any express or same-day option?",
+        a: "No — XE quotes one to four business days across the board, with no express tier. If the money needs to arrive within minutes, Remitly's express delivery is the only one of the two that can do it.",
+      },
+    ],
+    keyDifferences: [
+      "XE charges no transfer fee and recovers cost entirely through its markup, priced to reward larger amounts than Remitly's remittance-sized model targets.",
+      "Remitly offers cash pickup, mobile money and home delivery; XE pays to a bank account only, at any transfer size.",
+      "Remitly's express tier settles in minutes; XE has no express option and quotes one to four business days across the board.",
+      "XE's 130 currencies is the widest on this site, against Remitly's 40 — the practical argument for an unusual destination currency on a bank-deposit transfer.",
+    ],
+  },
+
+  "wise-vs-taptap-send": {
+    theDecision: `Both charge close to nothing and both use close to the mid-market rate, which makes this one of the tighter comparisons on the site rather than a clear-cut winner. Wise charges a variable fee from 0.41% with 0% markup; TapTap Send charges $0 on most corridors with roughly 0.7% built into the rate. The practical difference is reach and payout: Wise is bank deposit only across 80 countries, while TapTap Send adds mobile money across a smaller but more remittance-focused 80-country list, and settles in under three minutes on 95% of transfers.`,
+    measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:taptap-send}} for TapTap Send. TapTap Send's average shortfall when it isn't cheapest is {{SHORTFALL:taptap-send}}, against {{SHORTFALL:wise}} for Wise — a tight gap consistent with two providers both pricing close to the mid-market rate.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:taptap-send:USD:INR:1000}}, with {{CHEAPER:wise:taptap-send:USD:INR:1000}} delivering more — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:taptap-send:USD:INR:1000}} for TapTap Send. The margin here is one of the tightest on the site; a different corridor or amount can plausibly invert it, so check your own before assuming this ordering holds.`,
+    },
+    pickA: {
+      heading: "Pick Wise for bank deposits and larger amounts",
+      body: `Wise is the better instrument when the destination is a bank account and the amount is large enough that a rate you can independently verify matters — transfers run to $1,000,000 against TapTap Send's $10,000 ceiling. Wise holds balances in 50 currencies and is regulated by the FCA, FinCEN and ASIC.`,
+    },
+    pickB: {
+      heading: "Pick TapTap Send for speed and mobile money",
+      body: `TapTap Send's case is speed and payout flexibility on a remittance-sized transfer: under three minutes for 95% of transfers, and mobile money delivery Wise doesn't offer at all. It's built specifically for diaspora remittances to Africa and Asia, which shows up in a narrower but more purpose-fit corridor list than Wise's broader, bank-account-first coverage.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. TapTap Send's fee-free claim applies to most but not all corridors — some carry a small fee — and Wise's fee varies by currency and funding method. Confirm your specific corridor's terms before sending.`,
+    verdict: {
+      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:taptap-send}} for TapTap Send, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:taptap-send}} — one of the tightest cost gaps tracked on this site, since both price close to the mid-market rate rather than building in a wide spread.`,
+      speedExplanation: `TapTap Send settles in under three minutes for 95% of transfers, ahead of Wise's instant-to-two-day window. For a genuinely urgent transfer, TapTap Send's speed is the more consistent of the two.`,
+      coverageExplanation: `Wise's $1,000,000 ceiling and 50 currencies suit a larger, bank-account transfer; TapTap Send's $10,000 cap and mobile money delivery suit a smaller, faster remittance to a recipient who may not bank.`,
+      bottomLine: `This is one of the closer cost matches on the site, so the decision usually comes down to payout method and speed rather than price. TapTap Send wins on speed and mobile money reach; Wise wins on transfer size and the ability to verify the rate against a published mid-market quote.`,
+    },
+    faqs: [
+      {
+        q: "Is TapTap Send really free?",
+        a: "On most corridors, yes — no transfer fee, with roughly 0.7% built into the exchange rate instead. A small number of corridors carry a separate fee, so check the terms for your specific route rather than assuming every corridor is fee-free.",
+      },
+      {
+        q: "Why is this comparison closer than Wise's other pages?",
+        a: "Both providers price close to the mid-market rate — Wise at 0% markup, TapTap Send at roughly 0.7% — which is unusually tight for this site. Most of Wise's other comparisons involve a provider with a wider markup, and this one doesn't.",
+      },
+      {
+        q: "Can Wise deliver to a mobile money wallet like TapTap Send can?",
+        a: "No — Wise pays out to bank accounts only. TapTap Send's mobile money delivery is the option here for a recipient without a bank account, particularly on its core Africa and Asia corridors.",
+      },
+      {
+        q: "Which is better for a large, one-off transfer?",
+        a: "Wise, on the numbers we track — its $1,000,000 ceiling is a hundred times TapTap Send's $10,000 cap, and TapTap Send is built around remittance-sized amounts rather than large one-off payments.",
+      },
+    ],
+    keyDifferences: [
+      "Wise charges a variable fee from 0.41% with 0% markup; TapTap Send charges $0 on most corridors with roughly 0.7% built into the rate — one of the tightest cost gaps on the site either way.",
+      "TapTap Send settles in under three minutes for 95% of transfers; Wise's window is instant to two days.",
+      "TapTap Send offers mobile money delivery Wise doesn't have at all; Wise pays to a bank account only.",
+      "Wise's $1,000,000 ceiling is a hundred times TapTap Send's $10,000 cap — this pair has a real size mismatch despite the close pricing.",
+    ],
+  },
+
+  "moneygram-vs-taptap-send": {
+    theDecision: `MoneyGram is a century-old cash-agent network; TapTap Send is a five-year-old app built specifically for diaspora remittances to Africa, South Asia and the Caribbean. The overlap is real — both serve corridors where the recipient may not have a bank account — but the pricing models differ sharply: MoneyGram's fee starts at $1.99 with a 1-3% markup, against TapTap Send's $0 fee on most corridors with roughly 0.7% built into the rate. TapTap Send is usually the sharper price; MoneyGram is usually the wider reach.`,
+    measuredRecord: `TapTap Send led on {{LED:taptap-send}} of the corridors we price against {{LED:moneygram}} for MoneyGram, whose win rate of {{WINRATE:moneygram}} means it rarely takes the front against a specialist this focused. MoneyGram's average shortfall is {{SHORTFALL:moneygram}}, against {{SHORTFALL:taptap-send}} for TapTap Send.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:moneygram:taptap-send:USD:INR:1000}}, with {{CHEAPER:moneygram:taptap-send:USD:INR:1000}} delivering more — {{COST_PCT:moneygram:USD:INR:1000}} all-in for MoneyGram against {{COST_PCT:taptap-send:USD:INR:1000}} for TapTap Send. Both price cash pickup and mobile money differently from a bank deposit, so match your recipient's actual payout method to the quote.`,
+    },
+    pickA: {
+      heading: "Pick MoneyGram when its agent is the nearby one",
+      body: `MoneyGram's argument is the same as it is against any digital specialist: a physical counter in 200 countries, useful when the recipient's nearest reliable collection point is a MoneyGram location rather than a bank or mobile wallet. Its fees start higher than TapTap Send's, but the trade is a much larger cash footprint.`,
+    },
+    pickB: {
+      heading: "Pick TapTap Send for price and speed on its core corridors",
+      body: `TapTap Send is built specifically for the corridors it serves — Africa, South Asia and the Caribbean diaspora routes — and prices them sharper than a general-purpose cash network. Under three minutes for 95% of transfers, close to $0 fee on most routes, and mobile money delivery alongside bank deposit. The constraint is a narrower country list than MoneyGram's, so confirm TapTap Send actually serves your destination first.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and agent-level pricing is not something we observe. TapTap Send's fee-free claim doesn't apply to every corridor. Confirm the quote, payout method and TapTap Send's coverage of your destination before sending.`,
+    verdict: {
+      costExplanation: `TapTap Send led {{LED:taptap-send}} of the corridors we price against {{LED:moneygram}} for MoneyGram, a {{WINRATE:moneygram}} win rate for MoneyGram against a specialist priced close to the mid-market rate. Average shortfalls of {{SHORTFALL:taptap-send}} and {{SHORTFALL:moneygram}} confirm the gap isn't close.`,
+      speedExplanation: `TapTap Send settles in under three minutes for 95% of transfers; MoneyGram's express option is comparable on some corridors but not guaranteed across its wider, less digitally-optimised network.`,
+      coverageExplanation: `MoneyGram's 200 countries and century-old agent network beat TapTap Send's narrower, diaspora-focused corridor list on raw reach. TapTap Send answers with mobile money delivery and pricing built specifically for the routes it does serve.`,
+      bottomLine: `TapTap Send is the sharper price on the corridors it actually covers; MoneyGram is the fallback when the destination is somewhere TapTap Send's narrower network doesn't reach. Check TapTap Send's coverage for your specific corridor before assuming it's an option at all.`,
+    },
+    faqs: [
+      {
+        q: "Does TapTap Send serve every corridor MoneyGram does?",
+        a: "No — TapTap Send is built around specific diaspora corridors (Africa, South Asia, the Caribbean) rather than MoneyGram's near-global 200-country reach. Check TapTap Send's coverage list for your specific destination before assuming it's an option.",
+      },
+      {
+        q: "Why is TapTap Send usually cheaper than MoneyGram?",
+        a: "TapTap Send prices close to the mid-market rate (roughly 0.7% built in, $0 fee on most corridors) as its core proposition, while MoneyGram's pricing reflects the cost of maintaining a much larger physical agent network. The trade is reach for price.",
+      },
+      {
+        q: "Can MoneyGram deliver to a mobile money wallet?",
+        a: "Yes, on corridors where it offers mobile wallet delivery, though its core strength is cash pickup rather than mobile money specifically. TapTap Send is built around mobile money as a primary payout method on its core corridors, which is a difference in emphasis rather than a hard capability gap.",
+      },
+      {
+        q: "Is MoneyGram slower than TapTap Send?",
+        a: "Not necessarily — MoneyGram offers express options on many corridors that are comparable to TapTap Send's under-three-minutes standard. The more reliable general pattern is that TapTap Send's speed is consistent across its corridor list, while MoneyGram's varies more by route.",
+      },
+    ],
+    keyDifferences: [
+      "TapTap Send prices close to the mid-market rate (roughly 0.7% built in, $0 fee on most corridors); MoneyGram's fee starts at $1.99 with a 1-3% markup.",
+      "MoneyGram reaches roughly 200 countries through its agent network; TapTap Send's list is narrower, concentrated in the diaspora corridors it was built for.",
+      "TapTap Send settles in under three minutes for 95% of transfers; MoneyGram's speed varies more by corridor.",
+      "Both offer cash pickup and mobile money, but TapTap Send is built around mobile money as a primary method where MoneyGram treats it as one option among several.",
+    ],
+  },
+
+  "wise-vs-xe": {
+    theDecision: `Both are transparent, fee-based services with no cash pickup — the real question is transfer size and speed rather than trust or transparency. Wise charges a variable fee from 0.41% with 0% markup and settles instant to two days. XE charges no fee at all, recovers cost through a 0.5-1.5% markup, and settles in one to four business days, with pricing built to reward larger amounts. For a typical remittance-sized transfer, Wise's speed and flat 0% markup usually win; for a large planned transfer, XE's no-fee model closes the gap.`,
+    measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:xe}} for XE. Wise's average shortfall when it isn't cheapest is {{SHORTFALL:wise}}, against {{SHORTFALL:xe}} for XE — consistent with Wise's 0% markup outperforming XE's markup-only model at the transfer sizes we price.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:xe:USD:INR:1000}}, with {{CHEAPER:wise:xe:USD:INR:1000}} delivering more — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:xe:USD:INR:1000}} for XE. XE's rate improves with transfer size in a way this $1,000 example doesn't show; the two are closer, or invert, well above this amount.`,
+    },
+    pickA: {
+      heading: "Pick Wise for speed and remittance-sized transfers",
+      body: `Wise is the better instrument for a transfer you want to move quickly and verify against a published mid-market rate — instant to two days, against XE's one to four business days. Its 0% markup makes the fee the entire visible cost, which is easier to check than a broker's rate spread on a smaller amount.`,
+    },
+    pickB: {
+      heading: "Pick XE for large transfers and the widest currency list",
+      body: `XE's no-fee model and 130-currency list — the widest on this site — suit a large, planned bank-to-bank transfer, especially to a less common currency. It caps at $500,000, has no upper-limit issue for almost any personal transfer, and adds FINTRAC alongside the FCA, FinCEN and ASIC in its regulatory set.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. XE's rate improves with transfer size in a way a fixed $1,000 comparison cannot capture. Quotes are collected by currency pair — confirm your own amount band and account eligibility before sending.`,
+    verdict: {
+      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:xe}} for XE, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:xe}}. Wise's 0% markup is a structural advantage at remittance-sized amounts; XE's no-fee, markup-only model is built to close that gap as the transfer size grows.`,
+      speedExplanation: `Wise settles instant to two days; XE quotes one to four business days with no express option. For anything time-sensitive, Wise is the more consistent of the two.`,
+      coverageExplanation: `XE's 130 currencies is the widest list on this site, against Wise's 50; Wise counters with a $1,000,000 ceiling against XE's $500,000. Neither offers cash pickup or mobile money — both pay to a bank account only.`,
+      bottomLine: `At the transfer sizes we price, Wise's 0% markup wins clearly. The comparison narrows, and can invert, at the larger amounts XE's no-fee broker model is actually built for — get a live quote at your real amount rather than reading this page as settled at every size.`,
+    },
+    faqs: [
+      {
+        q: "At what amount does XE start beating Wise?",
+        a: "There's no fixed threshold we can state precisely — XE's rate improves with transfer size in a way our $1,000 sample corridors don't capture, generally becoming genuinely competitive well into five figures. Get live quotes from both at your actual amount rather than assuming this page's ordering holds.",
+      },
+      {
+        q: "Does XE ever offer express delivery?",
+        a: "No — XE quotes one to four business days across the board with no express tier. If speed matters, Wise's instant-to-two-day window is the more reliable option of the two.",
+      },
+      {
+        q: "Which has the wider currency coverage?",
+        a: "XE, by a wide margin — 130 currencies against Wise's 50. For a transfer to a less common currency, XE's list is the more likely one to actually support it.",
+      },
+      {
+        q: "Can either of these do cash pickup?",
+        a: "No — both pay out to a bank account only, at any transfer size. If the recipient needs cash or a mobile wallet, neither Wise nor XE is the right page; look at a remittance specialist instead.",
+      },
+    ],
+    keyDifferences: [
+      "Wise charges a variable fee from 0.41% with 0% markup; XE charges no fee at all but a 0.5-1.5% markup, priced to reward larger transfers.",
+      "Wise settles instant to two days; XE has no express option and quotes one to four business days.",
+      "XE's 130 currencies is the widest list on this site, against Wise's 50.",
+      "Wise's $1,000,000 ceiling exceeds XE's $500,000, though neither binds a typical personal transfer.",
+    ],
+  },
+
+  "remitly-vs-taptap-send": {
+    theDecision: `Both are digital-first remittance specialists built around cash pickup and mobile money rather than pure bank-to-bank transfers, which makes this one of the more direct like-for-like comparisons on the site. Remitly is the larger, more general service — 100 countries, 40 currencies, founded 2011. TapTap Send is narrower but sharper on the specific diaspora corridors it serves — Africa, South Asia and the Caribbean — with a fee-free model on most routes against Remitly's $0-$3.99 fee.`,
+    measuredRecord: `TapTap Send led on {{LED:taptap-send}} of the corridors we price against {{LED:remitly}} for Remitly. TapTap Send's average shortfall when it isn't cheapest is {{SHORTFALL:taptap-send}}, against {{SHORTFALL:remitly}} for Remitly — TapTap Send's close-to-mid-market pricing model tends to win where it competes.`,
+    workedExample: {
+      heading: "A worked example: $1,000 to India",
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:remitly:taptap-send:USD:INR:1000}}, with {{CHEAPER:remitly:taptap-send:USD:INR:1000}} delivering more — {{COST_PCT:remitly:USD:INR:1000}} all-in for Remitly against {{COST_PCT:taptap-send:USD:INR:1000}} for TapTap Send. Check TapTap Send's coverage for your specific corridor first — its list is narrower than Remitly's, so the price advantage only matters where it actually serves the route.`,
+    },
+    pickA: {
+      heading: "Pick Remitly for broader coverage and larger amounts",
+      body: `Remitly is the better instrument when the destination is outside TapTap Send's core corridor list, or the amount is large — Remitly's $300,000 US ceiling dwarfs TapTap Send's $10,000. It also offers home delivery, a payout method TapTap Send doesn't have.`,
+    },
+    pickB: {
+      heading: "Pick TapTap Send where it serves the corridor",
+      body: `TapTap Send is the sharper price on the specific routes it was built for — under three minutes for 95% of transfers, close to $0 fee on most corridors. If your corridor is one it actually serves, it typically beats Remitly's pricing; if it isn't, Remitly's broader network is the fallback.`,
+    },
+    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. TapTap Send's fee-free claim doesn't apply to every corridor, and Remitly's promotional first-transfer rates are excluded. Confirm coverage and payout method before sending.`,
+    verdict: {
+      costExplanation: `TapTap Send led {{LED:taptap-send}} of the corridors we price against {{LED:remitly}} for Remitly, with average shortfalls of {{SHORTFALL:taptap-send}} and {{SHORTFALL:remitly}}. TapTap Send's close-to-mid-market pricing model tends to win on the corridors both serve.`,
+      speedExplanation: `TapTap Send settles in under three minutes for 95% of transfers; Remitly's express tier is comparable on many corridors but not guaranteed as consistently across its wider network.`,
+      coverageExplanation: `Remitly's 100 countries and $300,000 ceiling beat TapTap Send's narrower, diaspora-focused list and $10,000 cap. TapTap Send answers with sharper pricing on the specific corridors it does serve.`,
+      bottomLine: `Where TapTap Send serves the corridor, it's usually the better price. Where it doesn't, or the amount is larger than its $10,000 ceiling, Remitly's broader network and higher limit are the practical fallback.`,
+    },
+    faqs: [
+      {
+        q: "Does TapTap Send serve every corridor Remitly does?",
+        a: "No — Remitly's 100-country list is broader than TapTap Send's, which is concentrated in specific diaspora corridors to Africa, South Asia and the Caribbean. Check TapTap Send's coverage for your destination before assuming it's available.",
+      },
+      {
+        q: "Is TapTap Send always cheaper than Remitly?",
+        a: "Not always, but it wins more often on the corridors both serve, consistent with its close-to-mid-market pricing model. Compare both for your specific corridor and amount rather than assuming the general pattern holds.",
+      },
+      {
+        q: "Which is better for a large family transfer, like a wedding or tuition payment?",
+        a: "Remitly, given TapTap Send's $10,000 ceiling — Remitly's $300,000 US limit is far higher, and it adds home delivery as a payout option TapTap Send doesn't offer.",
+      },
+      {
+        q: "Do both offer mobile money delivery?",
+        a: "Yes, both support mobile money on the corridors where it's the normal way to receive funds, alongside cash pickup and bank deposit. Availability varies by specific destination country and network on both providers.",
+      },
+    ],
+    keyDifferences: [
+      "TapTap Send prices close to the mid-market rate on most corridors; Remitly charges $0-$3.99 with a 0.5-2% markup.",
+      "Remitly's 100-country reach and $300,000 ceiling beat TapTap Send's narrower, diaspora-focused list and $10,000 cap.",
+      "Remitly offers home delivery, a payout method TapTap Send doesn't have; both offer cash pickup and mobile money.",
+      "TapTap Send settles in under three minutes for 95% of transfers, matching or beating Remitly's express tier on the corridors it serves.",
+    ],
+  },
 };
 
 export function getCompareEditorial(slug: string): CompareEditorial | undefined {
