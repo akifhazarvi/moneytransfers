@@ -432,3 +432,55 @@ that a six-corridor comparison table cannot avoid sharing with its 52 siblings.
 
 The brief's own §4 remedy is the one that applies — add unique blocks per page —
 and it is writing, not templating.
+
+## Beyond the 179 — the guides investigation and a real data-integrity find
+
+Investigating the 15 flagged `/guides` pages (see the section above) for the
+same kind of sibling-guide duplication that worked on `/compare` turned up
+something more important than the duplication metric: **24 fabricated
+SWIFT/BIC codes** across 17 banks in 8 countries (Pakistan, Philippines,
+Mexico, Nigeria, Bangladesh ×2, Kenya, South Africa, Colombia), reused from
+a placeholder pattern (`BABOROMM`, `EABOROMM` and variants) that was
+apparently never replaced with real data. Found via the same discipline as
+everywhere else in this pass: don't assume a duplicate-looking value is
+fine — two different banks (Sonali Bank and BRAC Bank, both Bangladesh)
+showing the *identical* code was the tell, since SWIFT codes are never
+shared. Verified every real code individually against independent sources
+before changing anything, then ran a systematic sitewide check (duplicate
+codes within a table; the ISO country indicator embedded in every code,
+cross-checked against the country each table describes) — clean afterward
+across every guide/blog data file. This is a correctness fix, not an SEO
+one: a wrong SWIFT code shown to someone sending an international wire is a
+direct, real-world harm, independent of any duplication percentage.
+
+The same accuracy pass also caught a stale figure: five guides stated
+India's Liberalised Remittance Scheme TCS threshold as ₹7 lakh — correct
+Oct 2023–Mar 2025, superseded by Budget 2025 (₹10 lakh) and Budget 2026's
+rate cut to 2% for education/medical, both already in force. Fixed with
+current figures verified against a live 2026 source. Checked two adjacent
+claims in the same sections and left them alone, confirmed correct: the
+Section 56(2) ₹50,000 gift threshold, and Bangladesh's 2.5% government
+remittance incentive. Also verified South Africa's 5 universal branch
+codes — all correct, ruling out a second numeric-data problem beyond the
+one SWIFT-code pattern.
+
+**Back to duplication**, with the accuracy work done: direct block analysis
+(not assumption from headings) across 10 of the 15 flagged guides found the
+"What You Need"/"Top Banks" sibling-guide mad-lib pattern — the thing that
+worked on `/compare` — is the exception, not the rule, here. Nigeria,
+Pakistan, Mexico, Kenya, Spain, Turkey, Vietnam and the generic India guide
+are all dominated by the same live-rate widget + cross-sell rail (250–360
+words per page) already established as structural elsewhere in this
+triage; any sibling "What You Need" overlap in those is a minor
+contributor by comparison. The one place the evidence actually supported a
+rewrite was `send-money-uk-to-india-guide` +
+`send-money-canada-to-india-guide` — byte-identical "What You Need for an
+India Transfer from X" and "Top Banks in India" sections. Rewrote both with
+real structural variation (different section order, different sentence
+construction) on the same re-verified facts. Local diagnostic dropped
+(uk-to-india 83.2%→71.1%) — real, but modest, not decisive, exactly as the
+block evidence predicted going in. The remaining 8 flagged guides were left
+alone rather than rewritten on a premise the evidence didn't support.
+
+Build, `check:links`, `check:indexing` pass on every commit in this
+sequence; lint clean.
