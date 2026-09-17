@@ -4,6 +4,7 @@ import GuideContents, { type GuideSection } from "@/components/GuideContents";
 import GuideReadingProgress from "@/components/GuideReadingProgress";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
 import ProviderCrossSell from "@/components/ProviderCrossSell";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -33,10 +34,15 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
     return cloneElement(child, { id });
   });
   const firstSection = content.findIndex((child) => isValidElement(child) && child.type === "h2");
-  // A currency outlook doesn't specify a receiving country. Feature the
-  // multi-currency account here, without treating a USD payout quote in a
-  // remittance destination as evidence of a UK-to-US transfer service.
-  const exclude = slug === "gbp-forecast-2026" ? "taptap-send" : undefined;
+  // Every research page below adds PartnerFeatureBlock (the measured
+  // consistency-index highlight) at the end of the article — so excluding
+  // taptap-send from the generic ProviderCrossSell card here isn't the
+  // gbp-forecast-2026 special case it used to be, it's universal: without it,
+  // a page would carry both the generic "Support family from your phone" spotlight
+  // AND the measured block, three TapTap mentions in the sidebar+inline+footer
+  // for a card that measured 2 clicks across 91 templated guides in 30 days.
+  // See [[project_taptap_earned_highlight_sep11]].
+  const exclude = "taptap-send";
 
   return (
     <Container className="guide-research-layout">
@@ -47,6 +53,11 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
           <ProviderCrossSell source={`guide:${slug}`} placement="inline" exclude={exclude} />
           <GuideContents sections={sections} mobile />
           {firstSection >= 0 && content.slice(firstSection)}
+          {/* Partner spotlight — after every comparison on the page, never
+              inside one. See [[project_taptap_earned_highlight_sep11]]. No
+              linkContext: these research pages don't carry one reliable
+              corridor the way a templated guide's inlineQuoteCorridor does. */}
+          <PartnerFeatureBlock source={`taptap_spotlight:guide:${slug}`} variant="inline" />
         </article>
         <aside className="guide-article-sidebar" aria-label="Guide navigation and tools">
           <div className="guide-sidebar-sticky">

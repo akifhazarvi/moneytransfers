@@ -24,6 +24,7 @@ import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import InlineQuotesImpression from "@/components/InlineQuotesImpression";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
 import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
 import SettlementRace from "@/components/SettlementRace";
@@ -547,6 +548,7 @@ export default async function BlogPostPage({ params }: Props) {
                       heading={inlineQuoteCorridor.heading}
                       source={`guide:${slug}`}
                       only={inlineQuoteCorridor.business ? BUSINESS_FX_SLUGS : undefined}
+                      crossSellExclude="taptap-send"
                     />
                   </InlineQuotesImpression>
                 )}
@@ -659,6 +661,19 @@ export default async function BlogPostPage({ params }: Props) {
               </section>
             )}
 
+            {/* Partner spotlight — after every ranked comparison on the page,
+                never inside one. Shared with the homepage via
+                PartnerFeatureBlock so the copy can't drift; see
+                [[project_taptap_earned_highlight_sep11]]. Unconditional
+                (the component itself renders nothing if the measured row is
+                missing) so it reaches every guide, not the 5 that used to
+                hand-author this in prose. */}
+            <PartnerFeatureBlock
+              source={`taptap_spotlight:guide:${slug}`}
+              variant="inline"
+              linkContext={{ from: inlineQuoteCorridor.from, to: inlineQuoteCorridor.to, amount: inlineQuoteCorridor.amount }}
+            />
+
           </article>
 
           {/* ── Sidebar ── */}
@@ -676,6 +691,7 @@ export default async function BlogPostPage({ params }: Props) {
                 to={inlineQuoteCorridor.to}
                 amount={inlineQuoteCorridor.amount}
                 business={inlineQuoteCorridor.business}
+                exclude="taptap-send"
               />
 
               <GuideContents sections={contents} />

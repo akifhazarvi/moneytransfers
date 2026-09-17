@@ -61,6 +61,7 @@ import type { ProviderBadge } from "@/lib/rate-history";
 import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
 import SendScoreCard from "@/components/SendScoreCard";
 import StickyBestCTA from "@/components/StickyBestCTA";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { providerLogo } from "@/lib/provider-logo";
 import CryptoRailSection from "@/components/CryptoRailSection";
 
@@ -2867,6 +2868,35 @@ export default async function CorridorPage({ params }: Props) {
 
         </div>
       </section>
+
+      {/* Partner spotlight — after every ranked comparison on this page,
+          never inside one. The corridorLead prop is only populated when
+          TapTap is this corridor's actual #1 by receive amount (`best` from
+          corridorComparisonSummary above), reusing the same numbers the table
+          and StickyBestCTA already show — so the per-corridor savings claim
+          can never contradict what the reader sees ranked above it. On the
+          ~176 of 216 corridors it doesn't lead, this still renders (for
+          site-wide visibility) but falls back to the site-wide facts only.
+          See [[project_taptap_earned_highlight_sep11]]. */}
+      <PartnerFeatureBlock
+        source={`taptap_spotlight:corridor:${slug}`}
+        variant="section"
+        linkContext={{ from: fromCurrency, to: toCurrency, amount: sampleAmount }}
+        corridorLead={
+          best?.providerSlug === "taptap-send" && worst && savings > 0
+            ? {
+                fromCurrency,
+                toCurrency,
+                sendSymbol,
+                sendAmount: sampleAmount,
+                receiveSymbol,
+                savingsAmount: savings,
+                worstProviderName: getProviderName(worst.providerSlug),
+                providerCount: quotes.length,
+              }
+            : undefined
+        }
+      />
 
       {/* FAQ structured data */}
       <script

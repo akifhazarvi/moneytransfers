@@ -17,7 +17,7 @@ import { COVERAGE } from "@/lib/site-stats";
 import ProviderLink from "@/components/ProviderLink";
 import { getGoUrl } from "@/lib/affiliate";
 import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
-import { unanimousLeads } from "@/lib/unanimous-leads";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 
 /**
  * What we can honestly say about Wise being "Best Rate".
@@ -73,22 +73,6 @@ const TOP_GUIDES = [
     cta: "Compare methods",
   },
 ];
-
-/**
- * TapTap Send is a paid partner. Everything the homepage block says about it is
- * measured and recomputed on each build from the consistency index and the
- * corridor-leader archive, so a scrape that reorders the table degrades the
- * sentence instead of falsifying it — the same rule the guide partner blocks
- * follow. The block sits below the FAQ, under every comparison on the page:
- * the partnership buys placement, never a position in a ranked table.
- */
-const taptapRank = CONSISTENCY_ROWS.findIndex((r) => r.providerSlug === "taptap-send") + 1;
-const taptapRow = CONSISTENCY_ROWS.find((r) => r.providerSlug === "taptap-send");
-const taptapSweep = unanimousLeads("taptap-send");
-const ordinal = (n: number) => {
-  const suffix = n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th";
-  return `${n}${suffix}`;
-};
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
 const featuredProviders = featuredProviderSlugs
@@ -694,55 +678,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       {/* ─── PARTNER — TapTap Send. Replaced the WhatsApp channel CTA on
            2026-09-12. Last position on the page, after the FAQ and every
-           comparison, and the only affiliate CTA outside the tables. ─── */}
-      {taptapRow && (
-        <section className="py-8 sm:py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
-          <Container>
-            <div className="max-w-3xl mx-auto rounded-2xl bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)]/60 p-6 sm:p-8">
-              <span className="inline-block text-2xs font-semibold uppercase tracking-[0.12em] text-[var(--color-on-surface-variant)]">
-                Partner
-              </span>
-              <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
-                TapTap Send
-              </h2>
-              <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                The partner we recommend first for everyday remittances, and the measurement behind that is ours:
-                it ranks {ordinal(taptapRank)} of {CONSISTENCY_ROWS.length} providers in our consistency index, is the most frequent winner on{" "}
-                {taptapRow.corridorsLed} of the {CONSISTENCY_INDEX.comparableCorridors} corridors we can compare
-                {taptapSweep.corridors >= 2 && (
-                  <>
-                    {" "}
-                    and delivered the most on <strong className="font-semibold text-[var(--color-on-surface)]">every one</strong> of the
-                    last {taptapSweep.days} comparable days on {taptapSweep.corridors} of them
-                  </>
-                )}
-                .
-              </p>
-              <p className="mt-3 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
-                We earn a commission if you send with TapTap Send. That is why it is featured here — it is not why it
-                sits where it does in the comparisons above, which are ordered on measured payout alone. Which provider
-                is cheapest changes with your route and amount, so compare yours before you send.
-              </p>
-              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-                <ProviderLink
-                  href={getGoUrl("taptap-send")}
-                  provider="taptap-send"
-                  source="home_partner_feature"
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-                >
-                  Send with TapTap Send
-                </ProviderLink>
-                <Link
-                  href="/companies/taptap-send"
-                  className="text-sm font-semibold text-[var(--color-primary)] hover:underline"
-                >
-                  Read our review &rarr;
-                </Link>
-              </div>
-            </div>
-          </Container>
-        </section>
-      )}
+           comparison, and the only affiliate CTA outside the tables.
+           Shared with the guide template via PartnerFeatureBlock (2026-09-17)
+           so the copy can't drift between the two surfaces. ─── */}
+      <PartnerFeatureBlock source="home_partner_feature" variant="section" />
 
       {/* Mobile back-to-top + section label */}
       <MobileScrollNav
