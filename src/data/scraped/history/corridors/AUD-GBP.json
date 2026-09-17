@@ -12424,76 +12424,76 @@
     "date": "2026-09-17",
     "providers": {
       "lemfi": {
-        "rate": 0.5296,
+        "rate": 0.5291,
         "fee": 0,
-        "markup": 0.61,
-        "receiveAmount": 52.96
+        "markup": 0.65,
+        "receiveAmount": 52.91
       },
       "taptap-send": {
-        "rate": 0.531,
+        "rate": 0.53,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 53.1
+        "receiveAmount": 53
       },
       "western-union": {
-        "rate": 0.521,
+        "rate": 0.5212,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 51.58
+        "receiveAmount": 51.6
       },
       "commonwealth-bank": {
+        "rate": 0.5139,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 51.39
+      },
+      "westpac": {
+        "rate": 0.5121,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 51.21
+      },
+      "anz": {
         "rate": 0.5144,
         "fee": 0,
         "markup": null,
         "receiveAmount": 51.44
       },
-      "westpac": {
-        "rate": 0.5127,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 51.27
-      },
-      "anz": {
-        "rate": 0.5146,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 51.46
-      },
       "worldremit": {
-        "rate": 0.5328,
+        "rate": 0.5322,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 52.22
+        "receiveAmount": 52.16
       },
       "hsbc": {
-        "rate": 0.5221,
+        "rate": 0.5214,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 52.21
+        "receiveAmount": 52.14
       },
       "instarem": {
-        "rate": 0.5326,
+        "rate": 0.5321,
         "fee": 0.5,
         "markup": null,
-        "receiveAmount": 52.99
+        "receiveAmount": 52.94
       },
       "nab": {
-        "rate": 0.5193,
+        "rate": 0.5189,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.93
+        "receiveAmount": 51.89
       },
       "remitly": {
-        "rate": 0.5312,
+        "rate": 0.5306,
         "fee": 0.89,
         "markup": null,
-        "receiveAmount": 52.64
+        "receiveAmount": 52.59
       },
       "paypal": {
         "rate": 0.5054,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 48.01
+        "receiveAmount": 48.02
       }
     }
   }
