@@ -4866,44 +4866,43 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "What You Need for an India Transfer from the UK",
-        content: `<h3>Bank Deposit (NEFT/IMPS/RTGS)</h3>
+        content: `<h3>UPI (Unified Payments Interface)</h3>
 <ul>
-<li><strong>Recipient's full name</strong> (as per bank records)</li>
-<li><strong>Bank name</strong> — SBI, HDFC Bank, ICICI Bank, Punjab National Bank, Bank of Baroda, Axis Bank, Kotak Mahindra Bank</li>
-<li><strong>Account number</strong> — typically 9–18 digits</li>
-<li><strong>IFSC code</strong> — An 11-character code (e.g., SBIN0001234) identifying the exact branch. The recipient can find it on their cheque book, passbook, or online banking.</li>
+<li><strong>Recipient's UPI ID</strong> (e.g., name@upi or number@paytm) or their registered mobile number</li>
+<li><strong>Recipient's full name</strong>, for verification</li>
 </ul>
-<p>India does not use <a href="/guides/iban-numbers-explained">IBANs</a>. The IFSC code serves the same purpose — routing the transfer to the right branch. For SWIFT wires from UK banks, you also need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</p>
+<p>UPI has become the default route for many UK senders — it settles around the clock, including weekends and Indian public holidays, and several providers now deliver straight to a UPI ID rather than routing through a full bank account. If the recipient already uses Google Pay, PhonePe or Paytm, this is typically the fastest method on this corridor.</p>
 
-<h3>UPI (Unified Payments Interface)</h3>
+<h3>Bank Deposit (NEFT/IMPS/RTGS)</h3>
 <ul>
-<li><strong>Recipient's UPI ID</strong> (e.g., name@upi or number@paytm)</li>
-<li><strong>Recipient's name</strong></li>
+<li><strong>Recipient's full name</strong>, exactly as it appears on their bank records</li>
+<li><strong>Bank name and account number</strong> (typically 9–18 digits)</li>
+<li><strong>IFSC code</strong> — an 11-character code (e.g., SBIN0001234) identifying the specific branch. India doesn't use <a href="/guides/iban-numbers-explained">IBANs</a>, so the IFSC code does the routing work an IBAN would handle elsewhere; it's printed on the recipient's cheque book and passbook, and visible in their net banking app.</li>
 </ul>
-<p>UPI enables instant transfers 24/7. Some providers like Remitly now support direct UPI delivery from the UK.</p>
+<p>Sending a SWIFT wire directly from a UK bank, rather than through a specialist provider, also requires the receiving bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a> — see the table below.</p>
 
 <h3>Cash Pickup</h3>
 <ul>
-<li><strong>Recipient's full name</strong> (must match Aadhaar card, PAN card, or passport)</li>
-<li><strong>City</strong> for collection</li>
+<li><strong>Recipient's full name</strong>, matching the ID they'll present — Aadhaar card, PAN card or passport</li>
+<li><strong>The collection city</strong></li>
 </ul>
-<p>Western Union and MoneyGram have agent locations across India, including in smaller towns.</p>`,
+<p>Western Union and MoneyGram both maintain agent networks reaching well beyond India's major cities — useful if the recipient is in a smaller town or doesn't hold a bank account at all.</p>`,
       },
       {
         heading: "Top Banks in India for Receiving Transfers",
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td><strong>State Bank of India (SBI)</strong></td><td>SBININBB</td><td>Largest bank. Widest branch network (22,000+ branches).</td></tr>
-<tr><td><strong>HDFC Bank</strong></td><td>HDFCINBB</td><td>Largest private bank. Excellent digital banking.</td></tr>
-<tr><td><strong>ICICI Bank</strong></td><td>ICICINBB</td><td>Strong NRI (Non-Resident Indian) services.</td></tr>
-<tr><td><strong>Punjab National Bank</strong></td><td>PUNBINBB</td><td>Second-largest state bank. Good rural coverage.</td></tr>
-<tr><td><strong>Bank of Baroda</strong></td><td>BARBINBB</td><td>Large branch network. Active in UK-India corridor.</td></tr>
-<tr><td><strong>Axis Bank</strong></td><td>AXISINBB</td><td>Fast digital processing. Popular with NRIs.</td></tr>
-<tr><td><strong>Kotak Mahindra Bank</strong></td><td>KKBKINBB</td><td>Growing NRI banking services.</td></tr>
+<tr><td><strong>State Bank of India (SBI)</strong></td><td>SBININBB</td><td>India's largest bank by branch count — over 22,000 nationwide, so it's rarely the wrong answer for coverage.</td></tr>
+<tr><td><strong>HDFC Bank</strong></td><td>HDFCINBB</td><td>The largest private bank; its net banking and app are generally considered the most polished of the group.</td></tr>
+<tr><td><strong>ICICI Bank</strong></td><td>ICICINBB</td><td>Built out dedicated NRI account services earlier than most competitors, which shows in how smoothly it handles inbound transfers.</td></tr>
+<tr><td><strong>Punjab National Bank</strong></td><td>PUNBINBB</td><td>India's second-largest state-owned bank, with particularly strong reach into rural Punjab and Uttar Pradesh.</td></tr>
+<tr><td><strong>Bank of Baroda</strong></td><td>BARBINBB</td><td>A large branch network with a long-standing UK presence of its own — several UK cities have a Bank of Baroda branch operating directly.</td></tr>
+<tr><td><strong>Axis Bank</strong></td><td>AXISINBB</td><td>Quick digital processing and a strong reputation among NRI customers specifically.</td></tr>
+<tr><td><strong>Kotak Mahindra Bank</strong></td><td>KKBKINBB</td><td>A newer but fast-growing NRI banking arm, worth checking if the recipient opened their account in the last few years.</td></tr>
 </tbody>
 </table>
-<p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Transfers to SBI, HDFC, and ICICI typically process faster than smaller banks.</p>`,
+<p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. SBI, HDFC and ICICI accounts tend to process inbound transfers fastest of the seven above.</p>`,
       },
       {
         heading: "Delivery Methods and Speed",
@@ -5043,26 +5042,25 @@ const rawBlogPosts: BlogPost[] = [
         heading: "What You Need for an India Transfer from Canada",
         content: `<h3>Bank Deposit (NEFT/IMPS/RTGS)</h3>
 <ul>
-<li><strong>Recipient's full name</strong> (as per bank records)</li>
-<li><strong>Bank name</strong> — SBI, HDFC Bank, ICICI Bank, Punjab National Bank, Bank of Baroda, Axis Bank, Kotak Mahindra Bank</li>
-<li><strong>Account number</strong> — typically 9–18 digits</li>
-<li><strong>IFSC code</strong> — An 11-character code (e.g., SBIN0001234) identifying the exact branch. The recipient can find it on their cheque book, passbook, or online banking.</li>
+<li><strong>Recipient's full name</strong>, exactly as their bank has it on file</li>
+<li><strong>Bank name and account number</strong> — usually 9 to 18 digits, depending on the bank</li>
+<li><strong>IFSC code</strong>, an 11-character branch identifier (e.g., SBIN0001234). India has no <a href="/guides/iban-numbers-explained">IBAN</a> system, so this code carries the routing information an IBAN would in Europe. It appears on the recipient's cheque book, passbook, or inside their online banking portal.</li>
 </ul>
-<p>India does not use <a href="/guides/iban-numbers-explained">IBANs</a>. The IFSC code serves the same purpose — routing the transfer to the right branch. For SWIFT wires from Canadian banks, you also need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</p>
+<p>If you're wiring directly from a Canadian bank rather than using a specialist app, you'll additionally need the receiving bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>, listed below.</p>
 
 <h3>UPI (Unified Payments Interface)</h3>
 <ul>
-<li><strong>Recipient's UPI ID</strong> (e.g., name@upi or number@paytm)</li>
-<li><strong>Recipient's name</strong></li>
+<li><strong>Recipient's UPI ID</strong> (e.g., name@upi) or their linked mobile number</li>
+<li><strong>Recipient's full name</strong></li>
 </ul>
-<p>UPI enables instant transfers 24/7. Some providers like Remitly now support direct UPI delivery from Canada.</p>
+<p>UPI runs 24/7, holidays included, and a growing number of providers — Remitly among them — now support sending straight to a UPI ID. For a recipient already comfortable with Google Pay or PhonePe, it's usually the quickest way to receive the money.</p>
 
 <h3>Cash Pickup</h3>
 <ul>
-<li><strong>Recipient's full name</strong> (must match Aadhaar card, PAN card, or passport)</li>
-<li><strong>City</strong> for collection</li>
+<li><strong>Recipient's full name</strong>, matching whichever ID they'll show — Aadhaar card, PAN card or passport</li>
+<li><strong>The city where they'll collect it</strong></li>
 </ul>
-<p>Western Union and MoneyGram have agent locations across India, including in smaller towns.</p>`,
+<p>Western Union and MoneyGram's agent networks extend into towns that don't have a bank branch nearby, which matters if the recipient lives outside a major city.</p>`,
       },
       {
         heading: "Funding Methods from Canada",
@@ -5080,16 +5078,16 @@ const rawBlogPosts: BlogPost[] = [
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td><strong>State Bank of India (SBI)</strong></td><td>SBININBB</td><td>Largest bank. Widest branch network (22,000+ branches).</td></tr>
-<tr><td><strong>HDFC Bank</strong></td><td>HDFCINBB</td><td>Largest private bank. Excellent digital banking.</td></tr>
-<tr><td><strong>ICICI Bank</strong></td><td>ICICINBB</td><td>Strong NRI (Non-Resident Indian) services.</td></tr>
-<tr><td><strong>Punjab National Bank</strong></td><td>PUNBINBB</td><td>Second-largest state bank. Good rural coverage.</td></tr>
-<tr><td><strong>Bank of Baroda</strong></td><td>BARBINBB</td><td>Large branch network. Active in Canada-India corridor.</td></tr>
-<tr><td><strong>Axis Bank</strong></td><td>AXISINBB</td><td>Fast digital processing. Popular with NRIs.</td></tr>
-<tr><td><strong>Kotak Mahindra Bank</strong></td><td>KKBKINBB</td><td>Growing NRI banking services.</td></tr>
+<tr><td><strong>State Bank of India (SBI)</strong></td><td>SBININBB</td><td>The default choice for reach alone — over 22,000 branches means almost any recipient, anywhere in India, banks somewhere SBI covers.</td></tr>
+<tr><td><strong>HDFC Bank</strong></td><td>HDFCINBB</td><td>India's largest private bank, generally the smoothest digital experience of the seven listed here.</td></tr>
+<tr><td><strong>ICICI Bank</strong></td><td>ICICINBB</td><td>One of the first Indian banks to build out a dedicated NRI account offering, and it still shows in how it handles transfers from abroad.</td></tr>
+<tr><td><strong>Punjab National Bank</strong></td><td>PUNBINBB</td><td>The second-largest state-owned bank, with a particularly strong footprint in Punjab — relevant given how much of Canada's Indian diaspora traces back there.</td></tr>
+<tr><td><strong>Bank of Baroda</strong></td><td>BARBINBB</td><td>A wide branch network with an active presence in the Canada-India corridor specifically.</td></tr>
+<tr><td><strong>Axis Bank</strong></td><td>AXISINBB</td><td>Fast processing and a solid reputation for handling NRI transfers well.</td></tr>
+<tr><td><strong>Kotak Mahindra Bank</strong></td><td>KKBKINBB</td><td>Smaller than the others here, but its NRI banking arm has expanded quickly over the past few years.</td></tr>
 </tbody>
 </table>
-<p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Transfers to SBI, HDFC, and ICICI typically process faster than smaller banks.</p>`,
+<p>Check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a> for the full national list. Of these seven, transfers to SBI, HDFC and ICICI accounts are generally the fastest to clear.</p>`,
       },
       {
         heading: "Delivery Methods and Speed",
