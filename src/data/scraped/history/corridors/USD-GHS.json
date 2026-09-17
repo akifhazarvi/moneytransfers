@@ -15990,7 +15990,7 @@
       "lemfi": {
         "rate": 11.5,
         "fee": 0,
-        "markup": 0.01,
+        "markup": 0.06,
         "receiveAmount": 1150
       },
       "moneygram": {
@@ -16056,7 +16056,7 @@
       "remitly": {
         "rate": 11.1205,
         "fee": 0,
-        "markup": 3.26,
+        "markup": null,
         "receiveAmount": 1112.05
       },
       "revolut": {
@@ -16066,10 +16066,10 @@
         "receiveAmount": 1132.17
       },
       "wise": {
-        "rate": 11.505,
-        "fee": 3.82,
+        "rate": 11.5087,
+        "fee": 3.76,
         "markup": null,
-        "receiveAmount": 1106.55
+        "receiveAmount": 1107.6
       },
       "xoom": {
         "rate": 11.2526,
