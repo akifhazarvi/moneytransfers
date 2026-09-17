@@ -271,6 +271,77 @@ within a point of the threshold (30.6-32.5%). The block-analysis finding
 still holds (nav chrome and live table data dominate what's left), but
 "exhausted" overstated it at the time; there was one more lever, now used.
 
+## Beyond the 37 — the 179-page triage queue, `/compare` group
+
+The Sept 16 Premium SiteLiner scan flagged 179 pages outside the original
+37-target list, also ≥30% duplicate (`siteliner-fresh-2026-09-16.csv`, the
+full 850-row/540-processed export, not the 37-row before/after CSV above).
+Triaged all 179 by section against the real SiteLiner percentages:
+
+| Section | Count | Verdict |
+|---|---:|---|
+| `/send-money` | 122 | Same SendScore/delivery-widget structural issue as the original 7 — not prose-fixable. **10 of these are in `RANKING_CORRIDOR_SLUGS`** (must never 404/410/noindex) and must stay live regardless, including `send-money-to-algeria` at 97% on just 1,065 words. |
+| `/compare` | 20 | No bespoke editorial at all — same profile as the 10 originally fixed. **Done, see below.** |
+| `/guides` | 15 | Different template, real existing prose (1,174–3,366w). Not investigated further this pass. |
+| `/exchange-rates` | 6 | 1 is `history/usd-to-hnl` — held **position 1 in Google** per its own code comment; same structural cause, must stay live. 5 are currency-pair pages, not investigated further. |
+| `/iban`, `/swift-codes` | 8 | Same nav-chrome pattern as the original IBAN targets. Not investigated further. |
+| `/news` | 5 | Not investigated further. |
+| `/companies/paypal` | 1 | Shorter than its 8 siblings (995w); not one of the original 37. Not investigated further. |
+
+Extended `compareEditorial` to all 20 `/compare` pairs (`moneygram-vs-worldremit`
+83%→35.7% local down to `chase-vs-wells-fargo` 31%), same full treatment as
+the original 10: theDecision, measuredRecord, worked example(s), pickA/pickB,
+limits, verdict, faqs, keyDifferences, citations where a verified URL exists.
+Real provider facts pulled from `providers.ts` throughout, not assumed.
+
+**Three pairs have zero corridor overlap** in the 6 standard corridors this
+site prices (`chase-vs-hsbc`, `paypal-vs-xoom`, `wise-vs-westpac`) — verified
+via `generateQuotes`, not assumed. Investigated why rather than leaving it
+unexplained: Chase quotes USD-outbound corridors, HSBC's are GBP-outbound;
+PayPal and its own subsidiary Xoom are priced on different corridors even
+within one company; Westpac has no quotes in this site's core USD/GBP sample
+at all (its data is AUD-outbound). Each page explains the mismatch instead
+of forcing a worked example the data can't support.
+
+**Real bug caught, not assumed away:** copying the corridor choice from an
+earlier pair without re-verifying coverage put two unresolved `{{TOKEN}}`s
+on `moneygram-vs-xoom` (documented above) — the same discipline was applied
+to all 20 new pairs this time, verifying coverage before writing, and
+grep-checking every rendered `/compare/*.html` for leftover `{{` after each
+batch, not just the pages touched.
+
+**Investigated an alarming reading, found it wasn't a bug:** `moneygram-vs-wise`
+measured 86.7% local duplicate — far higher than its siblings. Cause:
+`EDITORIAL_COMPARE_SLUGS` (`compare-canonical.ts`) lists both
+`moneygram-vs-wise` and `wise-vs-moneygram` as independently canonical, so
+both URLs render live with identical body content. Reading `page.tsx`'s own
+comments clarified this is deliberate: an earlier redirect between the two
+directions was buggy (Next.js App Router's `redirect()` sometimes served an
+empty "Loading..." shell instead of a real 30X, per the May 20 sitemap
+audit), so it was removed — both directions now serve real content, on the
+reasoning that GSC data shows almost no query overlap between the two
+directions anyway. Confirmed it's the only such reversed-pair collision in
+the 42-entry list. Not fixed, because it isn't broken.
+
+**Real regression, measured and partially fixed, not hidden:** adding 20
+`/compare` pages to the site's corpus (13 in the second batch) dropped the
+local diagnostic's brief-target pass count from 4/37 to 1/37
+(`paypal-vs-revolut` 28.3%→31.9%, `wise-vs-paypal` 28.5%→31.5%, `ofx-vs-xe`
+28.1%→30.0%) — the shared nav-chrome/feature-table block now matches against
+more pages, inflating the baseline for every shorter page in the category.
+This is the "corpus size affects before/after comparisons" caveat already
+cited throughout this brief, now observed directly. Checked for an actual
+content cause before blaming the corpus: found one real instance of a
+sentence repeating near-verbatim across `paypal-vs-moneygram` and an FAQ
+(PayPal's $4.99 fee cap, described almost identically in both places),
+fixed it, recovered part of the gap (`wise-vs-paypal` → 30.5%). Confirmed
+via block analysis that nav chrome, not prose, is the remaining driver on
+all three. `wise-vs-remitly`, the original pilot, is unaffected at 24.8%.
+
+Build, `check:links`, `check:indexing` pass after every batch; lint clean.
+Real SiteLiner re-scan against any of this — the pilot, the 9-pair rollout,
+or these 20 new pairs — is still the open item.
+
 ## Link-building category destinations (§5.2/§5.3) — one correction
 
 The workbook's `Link_Building_Categories` tab gives one example URL per
