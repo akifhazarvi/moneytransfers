@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { postalAddress } from "@/lib/postal-address";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -274,9 +275,7 @@ function DefaultComparison({
               // FinancialService is a LocalBusiness subclass, so validators
               // require an address. Same headquarters value the canonical node
               // on /companies/[slug] uses, keeping the two copies consistent.
-              ...(provider.headquarters && {
-                address: { "@type": "PostalAddress", addressLocality: provider.headquarters },
-              }),
+              ...(postalAddress(provider.headquarters) && { address: postalAddress(provider.headquarters) }),
               ...(provider.rating > 0 && trustpilotIndex[provider.slug]?.totalReviews && {
                 aggregateRating: {
                   "@type": "AggregateRating",

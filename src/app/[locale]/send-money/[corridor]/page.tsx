@@ -1819,24 +1819,10 @@ export default async function CorridorPage({ params }: Props) {
         ];
         return (
         <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
-          {/* HowTo structured data — matches the 3 visible steps. */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "HowTo",
-                name: `How to send money to ${corridor.toCountry}`,
-                description: `Send ${fromCurrency} to ${toCurrency} in 3 steps using a regulated money transfer provider.`,
-                step: howToSteps.map((s) => ({
-                  "@type": "HowToStep",
-                  position: s.step,
-                  name: s.title,
-                  text: s.description,
-                })),
-              }),
-            }}
-          />
+          {/* No HowTo structured data here. Google removed HowTo rich results
+              in September 2023, so the markup earns nothing and is one more
+              type a validator has to walk. The three steps below stay — they
+              are useful to a reader, which is the only reason they existed. */}
           <Container>
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
               How to send money to {corridor.toCountry}

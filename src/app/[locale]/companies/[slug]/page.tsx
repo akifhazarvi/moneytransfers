@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { postalAddress } from "@/lib/postal-address";
 import { GONE_COMPANY_SLUGS } from "@/lib/gone-companies";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -473,6 +474,11 @@ function DefaultReview({
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "FinancialService",
+        // Stable @id so /compare/[slug] can reference this node instead of
+        // re-declaring the provider. That page already points at this exact
+        // id; without it declared here the reference resolved to nothing and
+        // both pages shipped full duplicate entities.
+        "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
         name: provider.name, description: provider.description, url: provider.website,
         ...(trustpilotIndex[slug]?.totalReviews && trustpilotIndex[slug]?.score && {
           aggregateRating: {
@@ -482,7 +488,7 @@ function DefaultReview({
             ratingCount: trustpilotIndex[slug].totalReviews,
           },
         }),
-        address: { "@type": "PostalAddress", addressLocality: provider.headquarters },
+        ...(postalAddress(provider.headquarters) && { address: postalAddress(provider.headquarters) }),
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
