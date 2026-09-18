@@ -2,8 +2,35 @@ import { NextResponse } from "next/server";
 import { providers, currencies, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { COVERAGE } from "@/lib/site-stats";
+import { allCorridors } from "@/data/corridors";
+import { corridorPageRenders } from "@/lib/route-map";
 
 /** CORS origins allowed to call this API (ChatGPT Actions, etc.) */
+// The corridor list agents are pointed at. Currencies are read from the
+// corridor record and the slug is verified against route-map rather than
+// hand-typed next to a URL: the hand-maintained version shipped
+// { from: "GBP", to: "EUR" } pointing at /send-money/usa-to-europe — a USD→EUR
+// page — so an agent asking about a UK→Europe transfer was handed the wrong
+// corridor. A slug that stops rendering now drops out instead of 404ing.
+const POPULAR_CORRIDOR_SLUGS = [
+  "usa-to-india",
+  "usa-to-mexico",
+  "usa-to-philippines",
+  "usa-to-pakistan",
+  "usa-to-nigeria",
+  "uk-to-india",
+  "uk-to-france", // the only GBP→EUR corridor that renders
+  "canada-to-india",
+  "uae-to-india",
+  "uae-to-pakistan",
+] as const;
+
+const POPULAR_CORRIDORS = POPULAR_CORRIDOR_SLUGS.flatMap((slug) => {
+  const c = allCorridors.find((x) => x.slug === slug);
+  if (!c?.fromCurrency || !c.toCurrency || !corridorPageRenders(slug)) return [];
+  return [{ from: c.fromCurrency, to: c.toCurrency, url: `https://sendmoneycompare.com/send-money/${slug}` }];
+});
+
 const ALLOWED_ORIGINS = [
   "https://chat.openai.com",
   "https://chatgpt.com",
@@ -99,18 +126,7 @@ export async function GET(request: Request) {
     openApiSpec: "https://sendmoneycompare.com/openapi.json",
     apiUsage: "Add ?from=USD&to=INR&amount=1000 to get live quotes for any corridor. Rank by receiveAmount (highest = best value).",
     supportedCurrencies: currencies.map((c) => c.code),
-    popularCorridors: [
-      { from: "USD", to: "INR", url: "https://sendmoneycompare.com/send-money/usa-to-india" },
-      { from: "USD", to: "MXN", url: "https://sendmoneycompare.com/send-money/usa-to-mexico" },
-      { from: "USD", to: "PHP", url: "https://sendmoneycompare.com/send-money/usa-to-philippines" },
-      { from: "USD", to: "PKR", url: "https://sendmoneycompare.com/send-money/usa-to-pakistan" },
-      { from: "USD", to: "NGN", url: "https://sendmoneycompare.com/send-money/usa-to-nigeria" },
-      { from: "GBP", to: "INR", url: "https://sendmoneycompare.com/send-money/uk-to-india" },
-      { from: "GBP", to: "EUR", url: "https://sendmoneycompare.com/send-money/usa-to-europe" },
-      { from: "CAD", to: "INR", url: "https://sendmoneycompare.com/send-money/canada-to-india" },
-      { from: "AED", to: "INR", url: "https://sendmoneycompare.com/send-money/uae-to-india" },
-      { from: "AED", to: "PKR", url: "https://sendmoneycompare.com/send-money/uae-to-pakistan" },
-    ],
+    popularCorridors: POPULAR_CORRIDORS,
     providers: providerSummaries,
     keyFacts: [
       "Wise uses mid-market exchange rate with 0% markup — fee is the entire cost (0.41-0.71%)",

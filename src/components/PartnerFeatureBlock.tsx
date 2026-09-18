@@ -2,8 +2,7 @@ import Link from "next/link";
 import ProviderLink from "@/components/ProviderLink";
 import Container from "@/components/Container";
 import { getGoUrl } from "@/lib/affiliate";
-import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
-import { unanimousLeads } from "@/lib/unanimous-leads";
+import { CONSISTENCY_ROWS } from "@/lib/consistency-index";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 
 function ordinal(n: number): string {
@@ -85,7 +84,6 @@ export default function PartnerFeatureBlock({
   const slug = "taptap-send";
   const rank = CONSISTENCY_ROWS.findIndex((r) => r.providerSlug === slug) + 1;
   const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
-  const sweep = unanimousLeads(slug);
 
   if (!row || rank <= 0) return null;
 
@@ -158,18 +156,19 @@ export default function PartnerFeatureBlock({
     </p>
   );
 
+  // Deliberately short. These are sitewide facts about TapTap, not corridor
+  // facts, and this block renders on ~546 indexable pages — the long version
+  // ran ~45 identical words on every one of them and was the second-largest
+  // repeated text block on the site while Google was declining to index it.
+  // The claim is unchanged and still measured; the detail moves behind the
+  // link, which also gives the consistency index an inline entry point from
+  // every corridor and guide instead of only a footer mention.
+  // The live per-corridor rate, payout and savings lines below stay as they
+  // are — those genuinely vary by route and are the point of the block.
   const standingClaim = (
     <>
-      ranks {ordinal(rank)} of {CONSISTENCY_ROWS.length} providers in our consistency index and is the most
-      frequent winner on {row.corridorsLed} of the {CONSISTENCY_INDEX.comparableCorridors} corridors we can
-      compare
-      {sweep.corridors >= 2 && (
-        <>
-          {" "}
-          and delivered the most on <strong className="font-semibold text-[var(--color-on-surface)]">every one</strong>{" "}
-          of the last {sweep.days} comparable days on {sweep.corridors} of them
-        </>
-      )}
+      ranks {ordinal(rank)} of {CONSISTENCY_ROWS.length} providers in our{" "}
+      <Link href="/provider-consistency">consistency index</Link>, leading {row.corridorsLed} corridors
     </>
   );
 

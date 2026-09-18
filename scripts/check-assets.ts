@@ -25,6 +25,10 @@ import { MAX_TITLE, MAX_DESCRIPTION } from "../src/lib/seo-title";
 import { SITE_STATS } from "../src/lib/site-stats";
 import { blogPosts } from "../src/data/blog-posts";
 import { renderDataTokens } from "../src/lib/ratings-tokens";
+import { corridorDeepBlocks } from "../src/data/corridor-deep-content";
+import { corridorEditorialNotes } from "../src/data/corridor-editorial-notes";
+import { newsItems } from "../src/data/news";
+import { corridors } from "../src/data/corridors";
 
 const ROOT = join(__dirname, "..");
 const WRITE = process.argv.includes("--write");
@@ -193,7 +197,7 @@ for (const key of DESC_MUST_FIT) {
   }
 }
 
-// ── 5. every data token in guide copy resolves ────────────────────────────
+// ── 5. every data token in published copy resolves ────────────────────────
 // Guides quote live figures through {{RECEIVE:…}} / {{QUOTE_LIST:…}} tokens
 // (src/lib/ratings-tokens.ts) instead of numbers typed into prose. A token the
 // renderer cannot resolve — a corridor that lost coverage, a provider slug that
@@ -212,6 +216,41 @@ for (const post of blogPosts) {
     if (leftover) {
       failures.push(`guide /guides/${post.slug} ${where}: unresolved token(s) ${[...new Set(leftover)].join(", ")}`);
     }
+  }
+}
+
+// The sweep above only ever walked `blogPosts`, so the same tokens embedded in
+// corridor and news copy went unchecked — and one shipped: /send-money/china-to-uk
+// published a literal "{{CORRIDOR_LEADER:CNY:GBP}}" in body prose. These four
+// sources feed rendered pages exactly the same way, so they get the same gate.
+//
+// Only string fields that reach a reader are checked. Doc-comment placeholders
+// like a bare {{TOKEN}} live in *-editorial.ts files and are not data, so this
+// walks the exported objects rather than the file text.
+const tokenFields: Array<readonly [string, string]> = [
+  ...Object.entries(corridorDeepBlocks).flatMap(([slug, b]) => [
+    [`corridor deep /send-money/${slug} intro`, b.intro] as const,
+    ...b.faqs.map((f, i) => [`corridor deep /send-money/${slug} faq ${i + 1}`, f.a] as const),
+  ]),
+  ...Object.entries(corridorEditorialNotes).flatMap(([slug, n]) => [
+    [`corridor note /send-money/${slug} summary`, n.summary] as const,
+    [`corridor note /send-money/${slug} warning`, n.warningBody] as const,
+    ...n.bullets.map((b, i) => [`corridor note /send-money/${slug} bullet ${i + 1}`, b] as const),
+  ]),
+  ...corridors.flatMap((c) =>
+    (c.faqs ?? []).map((f, i) => [`corridor /send-money/${c.slug} faq ${i + 1}`, f.a] as const),
+  ),
+  ...newsItems.flatMap((n) => [
+    [`news /news/${n.slug} excerpt`, n.excerpt] as const,
+    [`news /news/${n.slug} content`, n.content] as const,
+  ]),
+];
+
+for (const [where, text] of tokenFields) {
+  if (!text || !text.includes("{{")) continue;
+  const leftover = renderDataTokens(text).match(/\{\{[A-Z_]+[^}]*\}\}/g);
+  if (leftover) {
+    failures.push(`${where}: unresolved token(s) ${[...new Set(leftover)].join(", ")}`);
   }
 }
 

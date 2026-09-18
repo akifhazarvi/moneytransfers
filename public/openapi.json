@@ -24,7 +24,7 @@
       "get": {
         "operationId": "getTransferQuotes",
         "summary": "Get live money transfer quotes or provider information",
-        "description": "When called with from, to, and amount parameters, returns live transfer quotes from 50+ apps ranked by best value (most money received). When called without parameters, returns provider summaries, supported currencies, and key facts about international money transfers.",
+        "description": "When called with from, to, and amount parameters, returns live transfer quotes from 90+ providers ranked by best value (most money received). When called without parameters, returns provider summaries, supported currencies, and key facts about international money transfers.",
         "parameters": [
           {
             "name": "from",
@@ -97,7 +97,7 @@
                       "website": "https://sendmoneycompare.com",
                       "supportedCurrencies": ["USD", "EUR", "GBP", "INR", "PHP", "MXN", "PKR", "NGN", "BDT", "AED", "KES", "CAD", "AUD"],
                       "keyFacts": [
-                        "Wise uses mid-market exchange rate with 0% markup",
+                        "Provider markups are measured against mid-market and reported as medians; see /llms.txt for current figures",
                         "Banks charge 3-5% in hidden exchange rate markup",
                         "Global remittance flows reached $860 billion in 2025"
                       ]

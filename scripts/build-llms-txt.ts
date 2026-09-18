@@ -434,6 +434,49 @@ ${license}
 `;
 }
 
+// ── AI plugin manifest + OpenAPI description ───────────────────────────────
+// public/.well-known/ai-plugin.json and public/openapi.json were hand-maintained
+// while llms.txt was generated, and they drifted: the manifest advertised
+// "50+ apps and 80+ corridors" and asserted "Wise uses mid-market rate with 0%
+// markup" while llms.txt, on the same domain, reported 90+/1000+ and a measured
+// median. An assistant reading both got two different answers. The manifest is
+// what ChatGPT-style consumers are pointed at, so it is generated from the same
+// constants as everything else — the {{TOKEN}} convention, applied to JSON.
+
+function buildAiPlugin(): string {
+  const wise = MEASURED_MARKUPS.get("wise");
+  // Report the median, never the mean: a few corridors with unreliable
+  // benchmark rates (USD→NGN above all) distort the average enough to
+  // misdescribe a provider.
+  const wiseMarkup = wise
+    ? `Wise's exchange-rate markup measures ${wise.markupMedianPct.toFixed(2)}% median across ${wise.corridors} corridors (median, not mean)`
+    : "provider markups are measured against mid-market and reported as medians";
+
+  return JSON.stringify(
+    {
+      schema_version: "v1",
+      name_for_human: "SendMoneyCompare",
+      name_for_model: "sendmoneycompare",
+      description_for_human: `Compare international money transfer providers — real-time fees, exchange rates, and delivery speeds across ${COVERAGE.providers} and ${COVERAGE.corridors}.`,
+      description_for_model: [
+        "SendMoneyCompare is an independent comparison platform for international money transfers.",
+        "Use it to find the cheapest way to send money abroad.",
+        `It compares ${COVERAGE.providers} across ${COVERAGE.corridors} with exchange rates and fees refreshed every ${SITE_STATS.refreshHours} hours from provider APIs.`,
+        "Rankings are based on the total amount the recipient receives after all fees and exchange-rate markup, not on advertised fees.",
+        `Key data points: ${wiseMarkup}; on $1,000 specialists average $${REMITTANCE_INDEX.avgSpecialistCost.toFixed(2)} in total cost against $${REMITTANCE_INDEX.avgBankCost.toFixed(2)} for banks (measured ${REMITTANCE_INDEX.dataAsOf}).`,
+        "The platform covers bank transfers, mobile wallets (M-Pesa, GCash, JazzCash) and cash pickup.",
+      ].join(" "),
+      auth: { type: "none" },
+      api: { type: "openapi", url: `${SITE}/openapi.json` },
+      logo_url: `${SITE}/logos/sendmoneycompare-logo.png`,
+      contact_email: "akifhazarvi@yahoo.com",
+      legal_info_url: `${SITE}/terms`,
+    },
+    null,
+    2,
+  ) + "\n";
+}
+
 // ── Write ──────────────────────────────────────────────────────────────────
 
 const short = buildShort();
@@ -442,6 +485,7 @@ const full = buildFull();
 for (const [name, body] of [
   ["llms.txt", short],
   ["llms-full.txt", full],
+  [".well-known/ai-plugin.json", buildAiPlugin()],
 ] as const) {
   // A template hole reaching these files would be published as our reference
   // copy, so fail the build rather than ship one.

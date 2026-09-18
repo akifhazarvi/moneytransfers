@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
 import { GTAG_INLINE, THEME_INLINE, CLARITY_INLINE } from "@/lib/inline-scripts";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -227,6 +228,20 @@ const comparisonServiceSchema = {
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
+
+  // SOFT-404 FIX. The middleware matcher deliberately skips any path containing
+  // a dot (`.*\..*`) so static assets bypass next-intl. A request for /foo.xml,
+  // /wp-login.php or /rsl.xml therefore never reaches middleware — it lands
+  // here with locale="foo.xml" and, unguarded, rendered the homepage at HTTP
+  // 200 with `index, follow`. An unbounded set of URLs answering 200 is exactly
+  // the low-quality signal we cannot afford while Google is already declining
+  // to index the site (533 submitted / 0 indexed on 2026-09-18).
+  //
+  // Note this is a runtime guard, NOT `dynamicParams = false`. That flag on the
+  // root locale segment 404s every child route — verified: /en/send-money died
+  // with it set — because the child pages carry their own generateStaticParams.
+  if (!hasLocale(routing.locales, locale)) notFound();
+
   setRequestLocale(locale);
 
   // CSP authorizes the two inline scripts below via SHA-256 hashes in
