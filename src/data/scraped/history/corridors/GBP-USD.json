@@ -20177,5 +20177,118 @@
         "receiveAmount": 127.36
       }
     }
+  },
+  {
+    "date": "2026-09-18",
+    "providers": {
+      "lemfi": {
+        "rate": 1.329,
+        "fee": 0,
+        "markup": 0.64,
+        "receiveAmount": 132.9
+      },
+      "taptap-send": {
+        "rate": 1.33,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 133
+      },
+      "western-union": {
+        "rate": 1.3074,
+        "fee": 2.49,
+        "markup": null,
+        "receiveAmount": 127.49
+      },
+      "paypal": {
+        "rate": 1.2812,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 124.29
+      },
+      "natwest": {
+        "rate": 1.3074,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 130.74
+      },
+      "rbs": {
+        "rate": 1.3074,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 130.74
+      },
+      "halifax": {
+        "rate": 1.2876,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 116.53
+      },
+      "hsbc": {
+        "rate": 1.3258,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 132.58
+      },
+      "santander": {
+        "rate": 1.2993,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 97.44
+      },
+      "moneygram": {
+        "rate": 1.3247,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 132.47
+      },
+      "nationwide": {
+        "rate": 1.307,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 111.1
+      },
+      "barclays": {
+        "rate": 1.3003,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 130.03
+      },
+      "monese": {
+        "rate": 1.3375,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 129.73
+      },
+      "instarem": {
+        "rate": 1.3298,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 132.98
+      },
+      "remitly": {
+        "rate": 1.3302,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 130.38
+      },
+      "lloyds": {
+        "rate": 1.2891,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 116.66
+      },
+      "skrill": {
+        "rate": 1.2742,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 127.42
+      },
+      "worldremit": {
+        "rate": 1.3197,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 129.34
+      }
+    }
   }
 ]
