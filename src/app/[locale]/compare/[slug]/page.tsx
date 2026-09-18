@@ -25,7 +25,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
-import { rateHistoryHref } from "@/lib/route-map";
+import { rateHistoryHref } from "@/lib/route-map-rates";
 import { COVERAGE } from "@/lib/site-stats";
 import { getCompareEditorial } from "@/data/compare-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";

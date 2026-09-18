@@ -1,5 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
-import { internalPathRenders } from "@/lib/route-map";
+import { internalPathRenders } from "@/lib/route-map-rates";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";

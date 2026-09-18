@@ -13,7 +13,7 @@ import RatingBadge from "./RatingBadge";
 import { useTranslations } from "next-intl";
 import { providerLogo } from "@/lib/provider-logo";
 import TiedNote from "@/components/TiedNote";
-import { companyPageRenders } from "@/lib/route-map";
+import { companyPageRenders } from "@/lib/company-route";
 
 interface Props {
   quote: TransferQuote;

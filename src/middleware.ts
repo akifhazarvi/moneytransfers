@@ -167,9 +167,26 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  // Block spam bots at the edge — return 403 before any processing
+  // Block spam bots at the edge — return 403 before any processing.
+  //
+  // The 403 MUST opt out of the shared cache. next.config.ts applies
+  // `public, max-age=3600, s-maxage=3600` to every non-asset path, and that
+  // catch-all lands on this response too — telling any shared cache it may
+  // store the refusal. Nothing here varies on User-Agent, so a proxy that
+  // stored it could hand the same 403 to Googlebot. Vercel does not do this
+  // today (verified 2026-09-18: a blocked UA 403s while Googlebot gets 200 in
+  // the same second), but a cacheable, unvaried refusal is one intermediary
+  // away from looking exactly like the sitewide outage a Sep 18 audit
+  // mistakenly reported. `no-store` + `Vary: User-Agent` removes the risk;
+  // neither costs anything on a response we never want reused.
   if (isSpamBot(request)) {
-    return new NextResponse("Forbidden", { status: 403 });
+    return new NextResponse("Forbidden", {
+      status: 403,
+      headers: {
+        "Cache-Control": "no-store, max-age=0",
+        Vary: "User-Agent",
+      },
+    });
   }
 
   const response = intlMiddleware(request);

@@ -17,7 +17,7 @@ import {
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked } from "@/lib/analytics";
 import HistoricalRateChart from "./HistoricalRateChart";
-import { rateHistoryHref } from "@/lib/route-map";
+import { rateHistoryHref } from "@/lib/route-map-rates";
 
 function getCurrencyInfo(code: string) {
   return currencies.find((c) => c.code === code);

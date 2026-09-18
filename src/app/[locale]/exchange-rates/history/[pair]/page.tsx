@@ -23,7 +23,7 @@ import ProviderLink from "@/components/ProviderLink";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { INDEXED_HISTORY_SLUGS } from "@/lib/seo-indexing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { rateHistoryPageRenders } from "@/lib/route-map";
+import { rateHistoryPageRenders } from "@/lib/route-map-rates";
 
 function getCurrencyInfo(code: string) {
   return currencies.find((c) => c.code === code);

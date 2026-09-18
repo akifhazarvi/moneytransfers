@@ -276,14 +276,36 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
             aria-label="All money transfer corridors"
             className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8"
           >
-            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
-              All corridors we compare
-            </h2>
-            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-5">
-              {corridorIndex.total} routes with live provider data. Open a group to see its corridors.
-            </p>
+            {/* The whole index is collapsed behind one <details> so the hub
+                leads with the top-10 corridors instead of a wall of 252 rows.
+                This is presentation only: <details> keeps its contents in the
+                server-rendered HTML whether open or closed, so all ~436
+                corridor links stay crawlable. That link block is the only
+                internal path to the ~362 Tier-1 corridors that are
+                `index, follow` but deliberately absent from the sitemap (see
+                shouldNoindex() in corridor-tiers.ts) — rendering it on expand
+                instead would strand every one of them. */}
+            <details className="group/all">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+                <span>
+                  <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
+                    All corridors we compare
+                  </h2>
+                  <span className="block text-2sm text-[var(--color-on-surface-variant)]">
+                    {corridorIndex.total} routes with live provider data.{" "}
+                    <span className="group-open/all:hidden">Show every corridor.</span>
+                    <span className="hidden group-open/all:inline">Open a group to see its corridors.</span>
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="mt-1 shrink-0 text-2sm text-[var(--color-primary)] transition-transform group-open/all:rotate-180"
+                >
+                  ▾
+                </span>
+              </summary>
 
-            <div>
+            <div className="mt-5">
               {corridorIndex.groups.map(([country, corridors]) => (
                 <details key={country} className="border-b border-[var(--color-outline)] last:border-b-0">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 py-2.5 text-sm font-medium text-[var(--color-on-surface)]">
@@ -344,6 +366,7 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
                 </details>
               )}
             </div>
+            </details>
           </nav>
 
           <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">

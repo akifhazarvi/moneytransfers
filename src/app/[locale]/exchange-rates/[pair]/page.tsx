@@ -16,7 +16,8 @@ import { setRequestLocale } from "next-intl/server";
 import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
-import { rateHistoryHref, corridorPageRenders } from "@/lib/route-map";
+import { corridorPageRenders } from "@/lib/route-map";
+import { rateHistoryHref } from "@/lib/route-map-rates";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 
 // Pair slug → most relevant news article for context-sensitive callouts
