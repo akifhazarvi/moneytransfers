@@ -13372,10 +13372,10 @@
     "date": "2026-09-18",
     "providers": {
       "lemfi": {
-        "rate": 141,
+        "rate": 140.7,
         "fee": 0,
-        "markup": -0.07,
-        "receiveAmount": 14100
+        "markup": 0.12,
+        "receiveAmount": 14070
       },
       "moneygram": {
         "rate": 138.2056,
@@ -13384,16 +13384,16 @@
         "receiveAmount": 13545.53
       },
       "taptap-send": {
-        "rate": 140.761,
+        "rate": 140.513,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14076.1
+        "receiveAmount": 14051.3
       },
       "western-union": {
-        "rate": 135.162,
+        "rate": 135.3223,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 13382.39
+        "receiveAmount": 13398.26
       },
       "dahabshiil": {
         "rate": 139.4396,
@@ -13408,10 +13408,10 @@
         "receiveAmount": 13464.72
       },
       "instarem": {
-        "rate": 139.5227,
+        "rate": 139.4442,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 13952.27
+        "receiveAmount": 13944.42
       },
       "xe": {
         "rate": 140.2314,
@@ -13432,10 +13432,10 @@
         "receiveAmount": 13874.3
       },
       "remitly": {
-        "rate": 140.81,
+        "rate": 140.59,
         "fee": 0.99,
-        "markup": 0.17,
-        "receiveAmount": 13941.6
+        "markup": null,
+        "receiveAmount": 13919.82
       },
       "revolut": {
         "rate": 140.786,
@@ -13444,10 +13444,10 @@
         "receiveAmount": 13754.79
       },
       "wise": {
-        "rate": 140.907,
+        "rate": 140.839,
         "fee": 3.62,
         "markup": null,
-        "receiveAmount": 13580.62
+        "receiveAmount": 13574.06
       },
       "ria": {
         "rate": 140.865,
@@ -13456,10 +13456,10 @@
         "receiveAmount": 14086
       },
       "skrill": {
-        "rate": 134.127,
+        "rate": 134.1013,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 13412.7
+        "receiveAmount": 13410.13
       }
     }
   }
