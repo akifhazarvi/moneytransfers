@@ -10526,10 +10526,10 @@
     "date": "2026-09-18",
     "providers": {
       "moneygram": {
-        "rate": 152.5795,
+        "rate": 152.191,
         "fee": 1.99,
-        "markup": 0.61,
-        "receiveAmount": 14954.32
+        "markup": 0.77,
+        "receiveAmount": 14916.24
       },
       "taptap-send": {
         "rate": 152.15,
@@ -10544,10 +10544,10 @@
         "receiveAmount": 14886.22
       },
       "worldremit": {
-        "rate": 151.5741,
+        "rate": 151.1983,
         "fee": 0.99,
-        "markup": 1.27,
-        "receiveAmount": 15007.36
+        "markup": 1.42,
+        "receiveAmount": 14970.15
       },
       "instarem": {
         "rate": 151.6838,
@@ -10556,22 +10556,22 @@
         "receiveAmount": 15168.38
       },
       "xe": {
-        "rate": 151.9572,
+        "rate": 151.5805,
         "fee": 4,
-        "markup": 1.02,
-        "receiveAmount": 14587.89
+        "markup": 1.17,
+        "receiveAmount": 14551.73
       },
       "paysend": {
         "rate": 150.5292,
         "fee": 1.99,
-        "markup": 1.95,
+        "markup": 1.86,
         "receiveAmount": 14753.37
       },
       "remitly": {
-        "rate": 151.42,
+        "rate": 151.27,
         "fee": 1.99,
         "markup": 1.37,
-        "receiveAmount": 14840.67
+        "receiveAmount": 14825.97
       },
       "wise": {
         "rate": 153.19,
@@ -10580,10 +10580,10 @@
         "receiveAmount": 14864
       },
       "ria": {
-        "rate": 151.8807,
+        "rate": 151.7036,
         "fee": 1.9,
         "markup": null,
-        "receiveAmount": 15249.38
+        "receiveAmount": 15211.56
       }
     }
   }

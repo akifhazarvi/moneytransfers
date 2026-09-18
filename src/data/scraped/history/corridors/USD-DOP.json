@@ -9464,10 +9464,10 @@
         "receiveAmount": 5850
       },
       "boss-money": {
-        "rate": 57.7806,
+        "rate": 57.8298,
         "fee": 2.49,
-        "markup": 1.39,
-        "receiveAmount": 5634.19
+        "markup": 1.24,
+        "receiveAmount": 5638.98
       },
       "western-union": {
         "rate": 57.4221,
@@ -9482,16 +9482,16 @@
         "receiveAmount": 5837.34
       },
       "paysend": {
-        "rate": 58.1643,
+        "rate": 57.9581,
         "fee": 1.99,
-        "markup": 0.73,
-        "receiveAmount": 5700.68
+        "markup": 1.02,
+        "receiveAmount": 5680.47
       },
       "remitly": {
-        "rate": 57.15,
+        "rate": 56.98,
         "fee": 4.99,
-        "markup": 2.46,
-        "receiveAmount": 5429.82
+        "markup": 2.69,
+        "receiveAmount": 5413.67
       },
       "wise": {
         "rate": 58.9075,
@@ -9500,10 +9500,16 @@
         "receiveAmount": 5301.09
       },
       "ria": {
-        "rate": 57.87,
+        "rate": 58,
         "fee": 2.9,
         "markup": null,
-        "receiveAmount": 5919.07
+        "receiveAmount": 5898
+      },
+      "moneygram": {
+        "rate": 57.9944,
+        "fee": 3,
+        "markup": 0.96,
+        "receiveAmount": 5625.46
       }
     }
   }
