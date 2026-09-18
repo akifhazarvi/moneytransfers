@@ -16450,22 +16450,22 @@
     "date": "2026-09-18",
     "providers": {
       "moneygram": {
-        "rate": 19.2236,
+        "rate": 19.2243,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 1884.1
+        "receiveAmount": 1884.17
       },
       "taptap-send": {
-        "rate": 19.53,
+        "rate": 19.51,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1953
+        "receiveAmount": 1951
       },
       "deutsche-bank": {
-        "rate": 19.4458,
+        "rate": 19.4465,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 1233.84
+        "receiveAmount": 1233.88
       },
       "xe": {
         "rate": 19.4357,
@@ -16474,10 +16474,10 @@
         "receiveAmount": 1865.83
       },
       "western-union": {
-        "rate": 19.435,
+        "rate": 19.4412,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 1924.25
+        "receiveAmount": 1924.87
       },
       "currencyfair": {
         "rate": 19.5826,
@@ -16504,10 +16504,10 @@
         "receiveAmount": 1917.97
       },
       "remitly": {
-        "rate": 19.56,
+        "rate": 19.57,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 1917.08
+        "markup": 0.63,
+        "receiveAmount": 1918.06
       },
       "revolut": {
         "rate": 19.5878,
@@ -16516,10 +16516,10 @@
         "receiveAmount": 1948.98
       },
       "wise": {
-        "rate": 19.6909,
+        "rate": 19.6932,
         "fee": 1.71,
         "markup": null,
-        "receiveAmount": 1935.42
+        "receiveAmount": 1935.64
       },
       "ria": {
         "rate": 19.19,
@@ -16528,28 +16528,28 @@
         "receiveAmount": 1919
       },
       "commerzbank": {
-        "rate": 19.0676,
+        "rate": 19.0683,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 1668.42
+        "receiveAmount": 1668.48
       },
       "monese": {
-        "rate": 19.6781,
+        "rate": 19.6869,
         "fee": 3,
         "markup": null,
-        "receiveAmount": 1908.78
+        "receiveAmount": 1909.63
       },
       "skrill": {
-        "rate": 18.7467,
+        "rate": 18.7562,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1874.67
+        "receiveAmount": 1875.62
       },
       "paypal": {
-        "rate": 18.8397,
+        "rate": 18.831,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 1808.8
+        "receiveAmount": 1807.97
       }
     }
   }

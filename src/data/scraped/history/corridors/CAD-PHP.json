@@ -19107,10 +19107,10 @@
     "date": "2026-09-18",
     "providers": {
       "lemfi": {
-        "rate": 44.6,
+        "rate": 44.2,
         "fee": 2,
-        "markup": 0.57,
-        "receiveAmount": 4370.8
+        "markup": 1.49,
+        "receiveAmount": 4331.6
       },
       "moneygram": {
         "rate": 44.5554,
@@ -19119,10 +19119,10 @@
         "receiveAmount": 4300.04
       },
       "western-union": {
-        "rate": 44.1303,
+        "rate": 44.2167,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 4369.34
+        "receiveAmount": 4377.9
       },
       "dahabshiil": {
         "rate": 44.5113,
@@ -19137,10 +19137,10 @@
         "receiveAmount": 4247.45
       },
       "instarem": {
-        "rate": 44.4571,
+        "rate": 44.4738,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4445.71
+        "receiveAmount": 4447.38
       },
       "xe": {
         "rate": 44.3189,
@@ -19167,16 +19167,16 @@
         "receiveAmount": 4391.25
       },
       "remitly": {
-        "rate": 44.54,
+        "rate": 43.65,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 4454
+        "markup": 2.69,
+        "receiveAmount": 4365
       },
       "wise": {
-        "rate": 44.8505,
+        "rate": 44.876,
         "fee": 2.51,
         "markup": null,
-        "receiveAmount": 4372.48
+        "receiveAmount": 4374.96
       },
       "ria": {
         "rate": 44.0059,
@@ -19191,22 +19191,22 @@
         "receiveAmount": 4420
       },
       "paypal": {
-        "rate": 42.9116,
+        "rate": 42.899,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 4077.03
+        "receiveAmount": 4075.83
       },
       "rbc": {
-        "rate": 43.6306,
+        "rate": 43.6524,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4363.06
+        "receiveAmount": 4365.24
       },
       "bmo": {
-        "rate": 41.7374,
+        "rate": 41.7582,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4173.74
+        "receiveAmount": 4175.82
       }
     }
   }
