@@ -15,7 +15,8 @@
 | P1.4 ChatGPT decline | Not started — needs `check:ai-citations` re-run |
 | P1.5 Web Vitals beacon | Not started |
 | P1.6 data-moat linking | Partly — `/provider-consistency` now linked from ~546 pages |
-| P2 alt text, compare verdicts, Wise reconciliation | Not started |
+| P2 alt text | **Withdrawn** — false positive, see below |
+| P2 compare verdicts, Wise reconciliation | Not started |
 
 **What the duplication work established.** Sitewide duplicate text moved 55.9% → 55.0% and
 `usa-to-china` 4,603 → 4,390 words, but its *unique* word count stayed at exactly 29. A generated
@@ -176,9 +177,10 @@ template where the cost claim is actually made.
 - **Split `PostalAddress`.** All 80 `FinancialService` nodes carry `addressLocality: "London, UK"`
   instead of split `addressLocality` + `addressCountry`. Fix at the `providers.ts` data layer
   without breaking other consumers of `headquarters`.
-- **Alt text:** 709 of 13,450 images (5.3%). Concentrated in templates — the `/news/*` template is a
-  consistent 5-of-29 per article, so one fix clears 14 pages. Then `/guides/*` (196), `/iban/*`
-  (132), `/swift-codes/*` (108).
+- ~~**Alt text:** 709 of 13,450 images (5.3%).~~ **Withdrawn — measurement error.** The crawler
+  counted `alt=""` as missing. All 709 are provider logos with the provider name in adjacent text,
+  where an empty `alt` is correct; adding alt text would make screen readers announce the provider
+  twice. No action.
 - **Contextual "Popular corridors" rail.** The footer rail is a hardcoded 5-link list identical on
   ~419 pages. Pull from `corridor-tiers.ts` filtered by shared sending or receiving country, with
   the static list as fallback. Improves both duplication and link relevance.

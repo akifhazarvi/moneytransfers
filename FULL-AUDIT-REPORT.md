@@ -17,7 +17,7 @@ physical address or service area, revenue via outbound affiliate redirects (`/go
 | Schema / Structured Data | 10% | 80 |
 | Performance (CWV) | 10% | 62 *(low confidence — no field data)* |
 | AI Search Readiness | 10% | 70 |
-| Images | 5% | 85 |
+| Images | 5% | 95 |
 
 ---
 
@@ -285,14 +285,25 @@ remains. Total prerendered weight is 367 MB across the site.
 
 ---
 
-## Images — 85
+## Images — 95
 
-13,450 images across 535 pages; **709 missing alt text (5.3%)**. All 535 pages have an `og:image`.
+13,450 images across 535 pages. All 535 pages have an `og:image`.
 
-The gap is concentrated and therefore cheap to fix — the `/news/*` template accounts for a large
-share at a consistent 5 missing of 29 images per article, which means one template fix clears 14
-pages at once. `/guides/*` (196), `/iban/*` (132) and `/swift-codes/*` (108) follow the same
-pattern.
+**Correction to an earlier figure in this audit.** This section first reported "709 images missing
+alt text (5.3%)". That was a measurement error, not a defect: the crawler counted `alt=""` as
+missing, because its regex required a non-empty value. Every one of the 709 was checked and all are
+provider logos rendered with `alt=""` beside the provider's name in text — in `/compare` they sit
+inside a control already carrying `aria-label="Provider: Wise. Change selection."` with the visible
+word "Wise" next to them.
+
+An empty `alt` is the **correct** choice for an image whose information is already in adjacent
+text. Adding `alt="Wise logo"` here would make a screen reader announce the provider twice, or
+three times where an aria-label is also present. No change was made, and none should be. Sampled
+across `/news`, `/iban`, `/swift-codes`, `/guides` and `/companies`: 100% of empty-alt images are
+logos, zero are content images.
+
+The score is raised from 85 to 95 to reflect that the only real finding here — that every page
+carries an `og:image` — is a pass.
 
 ---
 
