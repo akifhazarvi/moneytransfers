@@ -220,17 +220,19 @@ jobs:
       # workflows was committed and then silently never deployed: production
       # served an Aug-10 build while main had Aug-13 data. Each workflow that
       # commits data must trigger its own deploy so no single one is a chokepoint.
-      - name: Trigger Vercel deploy
-        run: |
-          if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
-            curl -s -X POST "$VERCEL_DEPLOY_HOOK"
-            echo "→ Deploy hook triggered"
-          else
-            echo "→ No deploy hook configured, skipping"
-          fi
-        env:
-          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
-        continue-on-error: true
+      # REMOVED 2026-09-18: the explicit deploy hook.
+      #
+      # `git push` above already triggers a Vercel Git deployment (the project
+      # has the GitHub integration enabled — those deploys carry githubDeployment
+      # and repoPushedAt). POSTing the hook fired a SECOND production deploy of
+      # the same commit seconds later, and the pair raced: across 48h of history
+      # every scraper commit produced two deployments and BOTH ended CANCELED,
+      # while every human-commit deployment reached READY. Net effect — scraped
+      # data only reached production when a human happened to commit afterwards,
+      # which quietly undermines the "updated every 6 hours" freshness claim.
+      #
+      # One deploy per commit has nothing to race with. If the Git integration is
+      # ever disconnected, restore a hook POST here — but never both at once.
 
       - name: Ping IndexNow (Bing)
         run: npx tsx scripts/ping-indexnow.ts
