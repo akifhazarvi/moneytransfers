@@ -58,6 +58,7 @@ for (const f of files) {
 }
 
 const broken = new Map<string, { count: number; sources: Set<string> }>();
+const unrendered = new Map<string, Set<string>>();
 let checked = 0;
 
 for (const f of files) {
@@ -70,6 +71,18 @@ for (const f of files) {
   }
 
   const html = readFileSync(f, "utf8");
+
+  // An unrendered data token in shipped HTML. check:assets proves every token
+  // CAN resolve; it cannot prove the page actually called renderDataTokens.
+  // /send-money/china-to-uk published a literal "{{CORRIDOR_LEADER:CNY:GBP}}"
+  // to readers with check:assets green, because the corridor deep-content block
+  // was interpolated as a raw React child. Only the built HTML shows that.
+  for (const t of new Set(html.match(/\{\{[A-Z_]+[^}<]*\}\}/g) ?? [])) {
+    const e = unrendered.get(t) ?? new Set<string>();
+    e.add(src);
+    unrendered.set(t, e);
+  }
+
   for (const m of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
     let href = m[1];
     if (href.startsWith("https://sendmoneycompare.com")) href = href.slice(28) || "/";
@@ -95,9 +108,25 @@ console.log(
     `${checked} internal links checked`,
 );
 
+if (unrendered.size) {
+  console.error(`\n  ✗ ${unrendered.size} data token(s) reached the published HTML unrendered:\n`);
+  for (const [token, pages] of unrendered) {
+    const where = [...pages].slice(0, 3).join(", ");
+    console.error(
+      `    ${token}\n` +
+        `           on ${where}${pages.size > 3 ? ` and ${pages.size - 3} more` : ""}`,
+    );
+  }
+  console.error(
+    "\n  The token resolves — the template never asked it to. Pass the field\n" +
+      "  through renderDataTokens() where it is rendered, as the sibling\n" +
+      "  corridorEditorial fields already do.\n",
+  );
+}
+
 if (!ranked.length) {
-  console.log("  ✓ every internal link points at a page this build rendered");
-  process.exit(0);
+  if (!unrendered.size) console.log("  ✓ every internal link points at a page this build rendered");
+  process.exit(unrendered.size && !REPORT_ONLY ? 1 : 0);
 }
 
 console.error(`\n  ✗ ${instances} internal link(s) point at ${ranked.length} URL(s) with no page:\n`);

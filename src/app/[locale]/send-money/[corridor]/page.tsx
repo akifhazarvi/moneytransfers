@@ -82,6 +82,10 @@ import { formatLocalDate } from "@/lib/format-date";
 import { getCorridorEditorial } from "@/data/corridor-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 
+// Resolve data tokens, then flatten to plain text for JSON-LD values.
+const plainTokens = (text: string): string =>
+  renderDataTokens(text).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+
 // ── Static generation ──
 // Only pre-render corridors with real data (Tier 1 & 2).
 // Tier 3 (zero quotes, non-editorial) returns 404 at runtime.
@@ -1153,9 +1157,12 @@ export default async function CorridorPage({ params }: Props) {
   const comparison = corridorComparisonSummary(quotes, sampleAmount, fromCurrency, toCurrency, getProviderName);
   const { best, lowest: worst, difference: savings } = comparison;
   const corridorEditorial = getCorridorEditorial(slug);
-  const resolvedFaqs = corridor.faqs.map((faq) => faq.answerFromComparison
-    ? { ...faq, a: `${comparison.answer} ${faq.a}` }
-    : faq);
+  // Resolve data tokens in the corridor FAQ answers. Without this a
+  // {{SPREAD:…}} token ships literally — it did, on /send-money/canada-to-pakistan.
+  const resolvedFaqs = corridor.faqs.map((faq) => {
+    const answer = faq.answerFromComparison ? `${comparison.answer} ${faq.a}` : faq.a;
+    return { ...faq, a: renderDataTokens(answer) };
+  });
   const editorialNote = corridorEditorialNotes[slug];
   const countryDetails = !isCurrencyCorridor ? getCountryDetails(corridor.toCountry, toCurrency) : null;
   const rateInsight = getRateInsight(fromCurrency, toCurrency);
@@ -2532,9 +2539,13 @@ export default async function CorridorPage({ params }: Props) {
               <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
                 {corridorDeepBlocks[slug].h2}
               </h2>
-              <p className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
-                {corridorDeepBlocks[slug].intro}
-              </p>
+              {/* Rendered through renderDataTokens like every other editorial
+                  field on this page. Without it a {{CORRIDOR_LEADER:…}} token
+                  shipped literally to readers — it did, on /send-money/china-to-uk. */}
+              <p
+                className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-6"
+                dangerouslySetInnerHTML={{ __html: renderDataTokens(corridorDeepBlocks[slug].intro) }}
+              />
               <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                 Frequently asked questions
               </h3>
@@ -2550,9 +2561,10 @@ export default async function CorridorPage({ params }: Props) {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                       </svg>
                     </summary>
-                    <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
-                      {faq.a}
-                    </p>
+                    <p
+                      className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8"
+                      dangerouslySetInnerHTML={{ __html: renderDataTokens(faq.a) }}
+                    />
                   </details>
                 ))}
               </div>
@@ -2921,7 +2933,10 @@ export default async function CorridorPage({ params }: Props) {
               ...(corridorDeepBlocks[slug]?.faqs ?? []).map((faq) => ({
                 "@type": "Question",
                 name: faq.q,
-                acceptedAnswer: { "@type": "Answer", text: faq.a },
+                // Tokens resolve here too, then any HTML a token emits is
+                // stripped — schema.org Answer.text must be plain text, and it
+                // has to say the same thing the visible answer above says.
+                acceptedAnswer: { "@type": "Answer", text: plainTokens(faq.a) },
               })),
             ],
           }),
