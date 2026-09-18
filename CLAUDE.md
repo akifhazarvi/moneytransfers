@@ -41,6 +41,7 @@ npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (
 npm run check:sources    # every external citation still resolves (403/unreachable ≠ dead)
 npm run check:rankings   # ranked providers exist in our data; no uncomputed "N/10" scores
 npm run check:weight     # heaviest prerendered pages; fails above 2 MB
+npm run check:bundle     # heaviest CLIENT JS per page; catches a dataset bundled into a client chunk
 npm run build:llms       # regenerate llms.txt + llms-full.txt (also runs in prebuild)
 ```
 
