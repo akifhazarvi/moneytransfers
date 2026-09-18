@@ -23,18 +23,6 @@ interface Props {
    * built to fix on the business pages. Omit for consumer corridors.
    */
   only?: readonly string[];
-  /**
-   * Exclude a slug from the ProviderCrossSell "Partner spotlight" card below
-   * the table (never from the ranked table itself). Guides pass "taptap-send"
-   * here because they already carry the measured PartnerFeatureBlock at the
-   * end of the article — without this, a guide stacked the generic spotlight
-   * card (inline + sidebar) on top of that, three TapTap mentions on one page
-   * for a card that measured 2 clicks across 91 guides in 30 days. Every
-   * other InlineProviderQuotes caller (business, iban, banks, swift-codes,
-   * news, tools, travel, exchange-rates) has no PartnerFeatureBlock and is
-   * unaffected by leaving this undefined.
-   */
-  crossSellExclude?: string;
 }
 
 function symbolFor(code: string): string {
@@ -53,7 +41,6 @@ export default function InlineProviderQuotes({
   heading,
   subheading,
   only,
-  crossSellExclude,
 }: Props) {
   const all = generateQuotes(amount, from, to);
   const scoped = only ? all.filter((q) => only.includes(q.providerSlug)) : all;
@@ -76,7 +63,6 @@ export default function InlineProviderQuotes({
       source={source} placement="inline" context={{ from, to, amount }}
       eligible={scoped.map((quote) => quote.providerSlug)}
       intent={only ? "business" : "personal"}
-      exclude={crossSellExclude}
     />
     <aside
       className="my-10 rounded-2xl overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)] border border-[var(--color-success-dark)]/20"

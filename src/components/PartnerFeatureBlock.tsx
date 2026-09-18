@@ -4,63 +4,81 @@ import Container from "@/components/Container";
 import { getGoUrl } from "@/lib/affiliate";
 import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
 import { unanimousLeads } from "@/lib/unanimous-leads";
+import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 
 function ordinal(n: number): string {
   const suffix = n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th";
   return `${n}${suffix}`;
 }
 
+function symbolFor(code: string): string {
+  return (
+    sendCurrencies.find((c) => c.code === code)?.symbol ||
+    currencies.find((c) => c.code === code)?.symbol ||
+    code
+  );
+}
+
+function money(n: number, dp = 0): string {
+  return n.toLocaleString(undefined, { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+
 /**
- * Corridor-specific proof that TapTap actually leads THIS route, computed by
- * the caller from the same ranked quotes the visible table renders — never
- * recomputed here — so the claim can't diverge from what the reader can see
- * above it. Pass this ONLY when the caller has confirmed TapTap is the
- * corridor's #1 by receive amount; omitting it (most corridors — TapTap leads
- * 40 of 216) falls back to the site-wide facts below, never a fabricated
- * per-corridor number. This is exactly the failure the Sep 11 2026 removal of
- * "TapTap is consistently at or near the top" from the USD→PKR page (0 of 91
- * days) was about — see [[project_taptap_earned_highlight_sep11]].
+ * The partner's own live quote for the corridor this block sits on.
+ *
+ * Every figure here comes from the SAME `generateQuotes()` row the ranked table
+ * on the page already renders, never a second calculation — so the panel cannot
+ * drift from the comparison above it. Callers pass it only when they actually
+ * hold a TapTap quote for the route; on corridors we have no quote for, the
+ * block falls back to the site-wide measured facts and shows no numbers rather
+ * than inventing any.
+ *
+ * `worstReceiveAmount` drives the savings line, which is the weaker but
+ * always-true claim ("more than the lowest-paying provider we quote").
+ * `isBest` unlocks the strong claim ("the most of all N providers"), and is set
+ * only where TapTap genuinely tops the corridor — the distinction that the
+ * Sep 11 2026 USD→PKR removal was about. See
+ * [[project_taptap_earned_highlight_sep11]].
  */
-interface CorridorLead {
+export interface PartnerQuote {
   fromCurrency: string;
   toCurrency: string;
-  sendSymbol: string;
   sendAmount: number;
-  receiveSymbol: string;
-  savingsAmount: number;
-  worstProviderName: string;
-  providerCount: number;
+  receiveAmount: number;
+  exchangeRate: number;
+  fee: number;
+  transferSpeed?: string;
+  worstReceiveAmount?: number;
+  providerCount?: number;
+  isBest?: boolean;
 }
 
 /**
  * The one paid-partner spotlight this site runs, wherever it appears. Shared
- * by the homepage and every guide so the copy cannot drift into two stories —
- * everything below is recomputed from the consistency index and
- * corridor-leader archive on each build, the same rule
- * [[project_taptap_earned_highlight_sep11]] set for the homepage version this
- * replaces. `variant="inline"` matches the `.smc-featured` aside style already
- * used by the few guides that hand-authored this block in prose; `"section"`
- * is the full-bleed homepage treatment. Both sit below/after any ranked
- * comparison on the page — the partnership buys placement, never a spot in
- * the ranked table.
+ * by the homepage, every guide and every corridor page so the copy cannot
+ * drift into two stories — the standing facts are recomputed from the
+ * consistency index and corridor-leader archive on each build, and the
+ * corridor numbers come from the page's own live quotes.
+ *
+ * `variant="inline"` matches the `.smc-featured` aside used inside article
+ * prose; `"section"` is the full-bleed treatment for the homepage and corridor
+ * pages. Both sit below/after any ranked comparison — the partnership buys
+ * placement, never a position in a ranked table.
  */
 export default function PartnerFeatureBlock({
   source,
   variant = "section",
-  corridorLead,
+  quote,
   linkContext,
 }: {
   source: string;
   variant?: "section" | "inline";
-  corridorLead?: CorridorLead;
+  quote?: PartnerQuote;
   /**
-   * The corridor this placement sits on, if any (a guide's inline-quote
-   * corridor, or the corridor page's own route). Threaded into the /go link
-   * exactly like every other CTA on the page (corridor_hero, results,
-   * sticky_cta) — omitting it doesn't just weaken the click event, it drops
-   * from/to/amount from the actual outbound affiliate URL, so the /go route
-   * can't forward them to getAffiliateUrl or the interstitial's corridor
-   * label. Homepage has no single corridor, so it's left undefined there.
+   * The corridor this placement sits on, if any. Threaded into the /go link
+   * exactly like every other CTA on the page — omitting it drops
+   * from/to/amount from the outbound affiliate URL, so the /go route can't
+   * forward them to getAffiliateUrl or the interstitial's corridor label.
    */
   linkContext?: { from: string; to: string; amount: number };
 }) {
@@ -69,72 +87,111 @@ export default function PartnerFeatureBlock({
   const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
   const sweep = unanimousLeads(slug);
 
-  // No measured row for the partner slug (e.g. a stale build) — say nothing
-  // rather than render an unsupported claim.
   if (!row || rank <= 0) return null;
 
-  // clickref carries `source` into the URL itself (Partnerize + /go's own
-  // server-side tracking read it from the querystring, not from the React
-  // event) so ProviderLink's href stays in lockstep with its onClick
-  // regardless of which surface rendered this block.
-  const href = linkContext
+  const context = linkContext ?? (quote
+    ? { from: quote.fromCurrency, to: quote.toCurrency, amount: quote.sendAmount }
+    : undefined);
+
+  const href = context
     ? getGoUrl(slug, {
-        sourceCurrency: linkContext.from,
-        targetCurrency: linkContext.to,
-        sourceAmount: linkContext.amount,
+        sourceCurrency: context.from,
+        targetCurrency: context.to,
+        sourceAmount: context.amount,
         clickref: source,
       })
     : getGoUrl(slug);
-  // Every other CTA on a corridor/guide page passes a real "USD-INR" string to
-  // trackProviderClicked; leaving this blank would make partner_inline clicks
-  // the one gap in that dimension across the whole site.
-  const corridorForTracking = linkContext ? `${linkContext.from}-${linkContext.to}` : "";
+  const corridorForTracking = context ? `${context.from}-${context.to}` : "";
 
-  const sweepClause = sweep.corridors >= 2 && (
-    <>
-      {" "}
-      and delivered the most on <strong className="font-semibold text-[var(--color-on-surface)]">every one</strong> of the last{" "}
-      {sweep.days} comparable days on {sweep.corridors} of them
-    </>
+  const sendSymbol = quote ? symbolFor(quote.fromCurrency) : "";
+  const recvSymbol = quote ? symbolFor(quote.toCurrency) : "";
+  const savings = quote?.worstReceiveAmount !== undefined
+    ? quote.receiveAmount - quote.worstReceiveAmount
+    : 0;
+
+  const inline = variant === "inline";
+
+  /** Send → receive panel. The concrete number a reader can act on. */
+  const ratePanel = quote && (
+    <div className="mt-4 rounded-xl border border-[var(--color-success-dark)]/30 bg-[var(--color-success-surface)]/50 p-4">
+      <div className="flex items-end justify-between gap-3 flex-wrap">
+        <div>
+          <p className="text-2xs font-semibold uppercase tracking-wider text-[var(--color-on-surface-variant)]">
+            You send
+          </p>
+          <p className="text-lg font-bold text-[var(--color-on-surface)] tabular-nums">
+            {sendSymbol}{money(quote.sendAmount)}
+          </p>
+        </div>
+        <span aria-hidden="true" className="text-xl text-[var(--color-success-dark)] pb-1">&rarr;</span>
+        <div className="text-right">
+          <p className="text-2xs font-semibold uppercase tracking-wider text-[var(--color-on-surface-variant)]">
+            They receive
+          </p>
+          <p className="text-lg font-bold text-[var(--color-success-dark)] tabular-nums">
+            {recvSymbol}{money(quote.receiveAmount, 2)}
+          </p>
+        </div>
+      </div>
+      <p className="mt-3 text-2xs text-[var(--color-on-surface-variant)]">
+        Rate {quote.exchangeRate.toFixed(4)} {quote.fromCurrency}/{quote.toCurrency}
+        {" · "}
+        {quote.fee === 0 ? "No transfer fee" : `${sendSymbol}${money(quote.fee, 2)} fee`}
+        {quote.transferSpeed ? ` · ${quote.transferSpeed}` : ""}
+        {" · quoted from our live comparison, refreshed every 6 hours"}
+      </p>
+    </div>
   );
 
-  // Only rendered when the caller confirmed TapTap is #1 on this exact
-  // corridor's live quotes — the one sentence in this component that names a
-  // dollar figure for a specific route rather than a site-wide count.
-  const corridorProof = corridorLead && corridorLead.savingsAmount > 0 && (
-    <p className={variant === "inline" ? "" : "mt-3 text-sm text-[var(--color-on-surface)] leading-relaxed"}>
-      <strong>
-        On {corridorLead.fromCurrency} → {corridorLead.toCurrency} today, it is the best of {corridorLead.providerCount}{" "}
-        providers we compare
-      </strong>{" "}
-      — sending {corridorLead.sendSymbol}
-      {corridorLead.sendAmount.toLocaleString()} gets your recipient{" "}
+  /** What the reader gains, in the currency they care about. */
+  const savingsLine = quote && savings > 0 && (
+    <p className={inline ? "" : "mt-3 text-sm text-[var(--color-on-surface)] leading-relaxed"}>
+      That is{" "}
       <strong className="text-[var(--color-success-dark)] tabular-nums">
-        {corridorLead.receiveSymbol}
-        {corridorLead.savingsAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+        {recvSymbol}{money(savings, 2)} more
       </strong>{" "}
-      more than {corridorLead.worstProviderName}, the lowest-paying provider we quote on this route right now.
+      in your recipient&rsquo;s hands than the lowest-paying provider we quote on this route right now
+      {quote.isBest && quote.providerCount
+        ? ` — and the most of all ${quote.providerCount} providers we compare today`
+        : ""}
+      .
     </p>
   );
 
-  if (variant === "inline") {
+  const standingClaim = (
+    <>
+      ranks {ordinal(rank)} of {CONSISTENCY_ROWS.length} providers in our consistency index and is the most
+      frequent winner on {row.corridorsLed} of the {CONSISTENCY_INDEX.comparableCorridors} corridors we can
+      compare
+      {sweep.corridors >= 2 && (
+        <>
+          {" "}
+          and delivered the most on <strong className="font-semibold text-[var(--color-on-surface)]">every one</strong>{" "}
+          of the last {sweep.days} comparable days on {sweep.corridors} of them
+        </>
+      )}
+    </>
+  );
+
+  const ctaLabel = quote
+    ? `Send ${sendSymbol}${money(quote.sendAmount)} with TapTap Send`
+    : "Send with TapTap Send";
+
+  const disclosure = "We earn a commission if you send with TapTap Send. That is why it is featured here — it is not why it sits where it does in the comparison, which is ordered on measured payout alone. Which provider is cheapest changes with your route and amount, so compare yours before you send.";
+
+  if (inline) {
     return (
       <aside className="smc-featured" data-badge="Partner">
         <p>
           <strong>
             <Link href="/companies/taptap-send">TapTap Send</Link>
           </strong>{" "}
-          is the partner we recommend first for everyday remittances, and the measurement behind that is ours: it
-          ranks {ordinal(rank)} of {CONSISTENCY_ROWS.length} providers in our consistency index and is the most
-          frequent winner on {row.corridorsLed} of the {CONSISTENCY_INDEX.comparableCorridors} corridors we can
-          compare{sweepClause}.
+          is the partner we recommend first for everyday remittances, and the measurement behind that is ours: it{" "}
+          {standingClaim}.
         </p>
-        {corridorProof}
-        <p>
-          We earn a commission if you send with TapTap Send. That is why it is featured here — it is not why it
-          sits where it does in the comparison above, which is ordered on measured payout alone. Which provider is
-          cheapest changes with your route and amount, so compare yours before you send.
-        </p>
+        {ratePanel}
+        {savingsLine}
+        <p>{disclosure}</p>
         <p>
           <ProviderLink
             href={href}
@@ -143,7 +200,7 @@ export default function PartnerFeatureBlock({
             corridor={corridorForTracking}
             className="smc-send"
           >
-            Send with TapTap Send
+            {ctaLabel}
           </ProviderLink>
         </p>
       </aside>
@@ -161,17 +218,12 @@ export default function PartnerFeatureBlock({
             TapTap Send
           </h2>
           <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-            The partner we recommend first for everyday remittances, and the measurement behind that is ours: it
-            ranks {ordinal(rank)} of {CONSISTENCY_ROWS.length} providers in our consistency index, is the most
-            frequent winner on {row.corridorsLed} of the {CONSISTENCY_INDEX.comparableCorridors} corridors we can
-            compare{sweepClause}.
+            The partner we recommend first for everyday remittances, and the measurement behind that is ours: it{" "}
+            {standingClaim}.
           </p>
-          {corridorProof}
-          <p className="mt-3 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
-            We earn a commission if you send with TapTap Send. That is why it is featured here — it is not why it
-            sits where it does in the comparisons above, which are ordered on measured payout alone. Which provider
-            is cheapest changes with your route and amount, so compare yours before you send.
-          </p>
+          {ratePanel}
+          {savingsLine}
+          <p className="mt-3 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">{disclosure}</p>
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
             <ProviderLink
               href={href}
@@ -180,7 +232,7 @@ export default function PartnerFeatureBlock({
               corridor={corridorForTracking}
               className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
             >
-              Send with TapTap Send
+              {ctaLabel}
             </ProviderLink>
             <Link href="/companies/taptap-send" className="text-sm font-semibold text-[var(--color-primary)] hover:underline">
               Read our review &rarr;

@@ -344,12 +344,36 @@ export default async function BlogPostPage({ params }: Props) {
   const inlineQuoteCorridor = getInlineQuoteCorridor(slug, post.tags, post.category);
   // Real count, so the denominator can separate "widget was thin" from "widget
   // was ignored". It was hard-coded to 0, which made the parameter useless.
-  const inlineQuoteProviderCount = (() => {
+  const inlineQuoteScoped = (() => {
     const all = generateQuotes(inlineQuoteCorridor.amount, inlineQuoteCorridor.from, inlineQuoteCorridor.to);
-    const scoped = inlineQuoteCorridor.business
+    return inlineQuoteCorridor.business
       ? all.filter((q) => (BUSINESS_FX_SLUGS as readonly string[]).includes(q.providerSlug))
       : all;
-    return Math.min(scoped.length, 5);
+  })();
+  const inlineQuoteProviderCount = Math.min(inlineQuoteScoped.length, 5);
+  /**
+   * The partner's own live quote for whatever corridor this guide's widget
+   * sells, so the spotlight at the end of the article can show a real rate and
+   * payout rather than adjectives. Same array the inline table ranks, so the
+   * two cannot disagree. Undefined on guides we hold no TapTap quote for —
+   * the block then shows the site-wide facts and no numbers.
+   */
+  const partnerQuote = (() => {
+    const tt = inlineQuoteScoped.find((q) => q.providerSlug === "taptap-send");
+    if (!tt) return undefined;
+    const worstQuote = inlineQuoteScoped[inlineQuoteScoped.length - 1];
+    return {
+      fromCurrency: inlineQuoteCorridor.from,
+      toCurrency: inlineQuoteCorridor.to,
+      sendAmount: tt.sendAmount,
+      receiveAmount: tt.receiveAmount,
+      exchangeRate: tt.exchangeRate,
+      fee: tt.fee,
+      transferSpeed: tt.transferSpeed,
+      worstReceiveAmount: worstQuote?.receiveAmount,
+      providerCount: inlineQuoteScoped.length,
+      isBest: inlineQuoteScoped[0]?.providerSlug === "taptap-send",
+    };
   })();
   const author = getAuthorByName(post.author);
   const reviewer = post.reviewedBy ? getAuthorByName(post.reviewedBy) : undefined;
@@ -548,7 +572,6 @@ export default async function BlogPostPage({ params }: Props) {
                       heading={inlineQuoteCorridor.heading}
                       source={`guide:${slug}`}
                       only={inlineQuoteCorridor.business ? BUSINESS_FX_SLUGS : undefined}
-                      crossSellExclude="taptap-send"
                     />
                   </InlineQuotesImpression>
                 )}
@@ -671,6 +694,7 @@ export default async function BlogPostPage({ params }: Props) {
             <PartnerFeatureBlock
               source={`taptap_spotlight:guide:${slug}`}
               variant="inline"
+              quote={partnerQuote}
               linkContext={{ from: inlineQuoteCorridor.from, to: inlineQuoteCorridor.to, amount: inlineQuoteCorridor.amount }}
             />
 
@@ -691,7 +715,6 @@ export default async function BlogPostPage({ params }: Props) {
                 to={inlineQuoteCorridor.to}
                 amount={inlineQuoteCorridor.amount}
                 business={inlineQuoteCorridor.business}
-                exclude="taptap-send"
               />
 
               <GuideContents sections={contents} />

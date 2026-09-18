@@ -2015,9 +2015,6 @@ export default async function CorridorPage({ params }: Props) {
               {rateStory && <p className="text-sm md:text-md">{rateStory}</p>}
               <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-5">
                 <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Understanding the total cost</h3>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
-                  The true cost of a money transfer has two components:
-                </p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   <div className="flex gap-3">
                     <div className="w-8 h-8 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] flex items-center justify-center shrink-0">
@@ -2028,7 +2025,7 @@ export default async function CorridorPage({ params }: Props) {
                     <div>
                       <p className="text-2sm font-medium text-[var(--color-on-surface)]">Transfer fee</p>
                       <p className="text-xs text-[var(--color-on-surface-variant)]">
-                        The upfront charge — typically {sendSymbol}0–{sendSymbol}10 with specialist providers.
+                        Upfront charge, usually {sendSymbol}0–{sendSymbol}10.
                       </p>
                     </div>
                   </div>
@@ -2041,11 +2038,14 @@ export default async function CorridorPage({ params }: Props) {
                     <div>
                       <p className="text-2sm font-medium text-[var(--color-on-surface)]">Exchange rate markup</p>
                       <p className="text-xs text-[var(--color-on-surface-variant)]">
-                        The hidden cost — the difference between the provider&apos;s rate and the mid-market rate ({midRate.toFixed(4)}).
+                        Gap between the provider&apos;s rate and mid-market ({midRate.toFixed(4)}).
                       </p>
                     </div>
                   </div>
                 </div>
+                <p className="text-2xs text-[var(--color-on-surface-variant)] mt-3">
+                  <Link href="/guides/exchange-rate-markup-explained" className="underline">How markup is calculated</Link>
+                </p>
               </div>
             </div>
           </div>
@@ -2081,12 +2081,9 @@ export default async function CorridorPage({ params }: Props) {
         return (
           <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
             <Container>
-              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
                 Ways to send money to {corridor.toCountry}
               </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                Cost and speed both vary by how you pay.
-              </p>
               {countryDetails.receivingNote && (
                 <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4 leading-relaxed">{countryDetails.receivingNote}</p>
               )}
@@ -2871,31 +2868,34 @@ export default async function CorridorPage({ params }: Props) {
 
       {/* Partner spotlight — after every ranked comparison on this page,
           never inside one. The corridorLead prop is only populated when
-          TapTap is this corridor's actual #1 by receive amount (`best` from
-          corridorComparisonSummary above), reusing the same numbers the table
-          and StickyBestCTA already show — so the per-corridor savings claim
-          can never contradict what the reader sees ranked above it. On the
-          ~176 of 216 corridors it doesn't lead, this still renders (for
-          site-wide visibility) but falls back to the site-wide facts only.
+          the partner's own row in `quotes` — the same array the ranked table
+          and StickyBestCTA render — so the rate, payout and savings shown can
+          never contradict what the reader sees ranked above. `isBest` gates
+          the strong "most of all N providers" claim to corridors it actually
+          tops; the savings line needs only that it beats the lowest-paying
+          quote. Where we hold no TapTap quote at all, the block still renders
+          for visibility and shows the site-wide facts with no numbers.
           See [[project_taptap_earned_highlight_sep11]]. */}
       <PartnerFeatureBlock
         source={`taptap_spotlight:corridor:${slug}`}
         variant="section"
         linkContext={{ from: fromCurrency, to: toCurrency, amount: sampleAmount }}
-        corridorLead={
-          best?.providerSlug === "taptap-send" && worst && savings > 0
-            ? {
-                fromCurrency,
-                toCurrency,
-                sendSymbol,
-                sendAmount: sampleAmount,
-                receiveSymbol,
-                savingsAmount: savings,
-                worstProviderName: getProviderName(worst.providerSlug),
-                providerCount: quotes.length,
-              }
-            : undefined
-        }
+        quote={(() => {
+          const tt = quotes.find((q) => q.providerSlug === "taptap-send");
+          if (!tt) return undefined;
+          return {
+            fromCurrency,
+            toCurrency,
+            sendAmount: tt.sendAmount,
+            receiveAmount: tt.receiveAmount,
+            exchangeRate: tt.exchangeRate,
+            fee: tt.fee,
+            transferSpeed: tt.transferSpeed,
+            worstReceiveAmount: worst?.receiveAmount,
+            providerCount: quotes.length,
+            isBest: best?.providerSlug === "taptap-send",
+          };
+        })()}
       />
 
       {/* FAQ structured data */}

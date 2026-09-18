@@ -36,13 +36,31 @@ const BUSINESS: readonly CrossSellPartner[] = [
   { slug: "currencies-direct", name: "Currencies Direct", logo: "/logos/currencies-direct.png", label: "Explore business currency services", description: "Review the business service and request a quote for your next international payment." },
 ];
 
+/**
+ * The paid partner is not gated on `eligible`.
+ *
+ * `eligible` is built from `generateQuotes()` — it lists providers we hold a
+ * live SCRAPED QUOTE for on this corridor, which is much narrower than the
+ * providers that actually serve it. TapTap Send covers 819 corridors, the
+ * widest footprint we measure, so gating its spotlight on our own scrape gaps
+ * hid it from guides whose route it serves perfectly well, and handed the slot
+ * to Wise instead. This card carries no corridor-specific claim — its copy is
+ * about delivery options generally — so showing it where we happen to lack a
+ * quote states nothing we can't stand behind. The measured, corridor-specific
+ * numbers live in PartnerFeatureBlock, which does check the real data.
+ *
+ * `exclude` still wins, so /companies/taptap-send never cross-sells itself.
+ */
+const UNGATED_PARTNER = "taptap-send";
+
 export function selectCrossSellPartners({ intent = "personal", eligible, exclude, limit = 3 }: {
   intent?: TransferIntent; eligible?: readonly string[]; exclude?: string; limit?: number;
 } = {}): CrossSellPartner[] {
   // An empty eligible set means no matching partner. Never fall back to a
   // different corridor or a consumer service on a business page.
   return (intent === "business" ? BUSINESS : PERSONAL)
-    .filter((partner) => partner.slug !== exclude && (!eligible || eligible.includes(partner.slug)))
+    .filter((partner) => partner.slug !== exclude
+      && (partner.slug === UNGATED_PARTNER || !eligible || eligible.includes(partner.slug)))
     .slice(0, limit);
 }
 

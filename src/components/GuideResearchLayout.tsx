@@ -34,15 +34,11 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
     return cloneElement(child, { id });
   });
   const firstSection = content.findIndex((child) => isValidElement(child) && child.type === "h2");
-  // Every research page below adds PartnerFeatureBlock (the measured
-  // consistency-index highlight) at the end of the article — so excluding
-  // taptap-send from the generic ProviderCrossSell card here isn't the
-  // gbp-forecast-2026 special case it used to be, it's universal: without it,
-  // a page would carry both the generic "Support family from your phone" spotlight
-  // AND the measured block, three TapTap mentions in the sidebar+inline+footer
-  // for a card that measured 2 clicks across 91 templated guides in 30 days.
-  // See [[project_taptap_earned_highlight_sep11]].
-  const exclude = "taptap-send";
+  // No page drops the partner from this card. The gbp-forecast-2026 exception
+  // that used to live here was removed 2026-09-18 on an explicit call: the
+  // partnership is worth more than the topical tidiness of keeping a
+  // remittance app off a currency-outlook page, and the card's own copy makes
+  // no corridor claim. See [[project_taptap_earned_highlight_sep11]].
 
   return (
     <Container className="guide-research-layout">
@@ -50,7 +46,7 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
       <div className="guide-reading-grid" id="guide-top">
         <article id="guide-article" className="guide-research-article">
           {content.slice(0, firstSection < 0 ? content.length : firstSection)}
-          <ProviderCrossSell source={`guide:${slug}`} placement="inline" exclude={exclude} />
+          <ProviderCrossSell source={`guide:${slug}`} placement="inline" />
           <GuideContents sections={sections} mobile />
           {firstSection >= 0 && content.slice(firstSection)}
           {/* Partner spotlight — after every comparison on the page, never
@@ -61,7 +57,7 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
         </article>
         <aside className="guide-article-sidebar" aria-label="Guide navigation and tools">
           <div className="guide-sidebar-sticky">
-            <GuideSidebarCTA slug={slug} exclude={exclude} />
+            <GuideSidebarCTA slug={slug} />
             <GuideContents sections={sections} />
             <Link href="/guides" className="guide-back-top"><ArrowLeft size={14} aria-hidden="true" />Explore all guides</Link>
           </div>
