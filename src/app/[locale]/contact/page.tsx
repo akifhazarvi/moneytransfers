@@ -59,6 +59,11 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               >
                 View address on Google Maps
               </a>
+              <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
+                <a href="tel:+447393367304" className="text-[var(--color-primary)] hover:underline">
+                  +44 7393 367304
+                </a>
+              </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">

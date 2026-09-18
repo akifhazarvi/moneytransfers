@@ -111,16 +111,18 @@ const organizationSchema = {
   employee: [
     { "@type": "Person", name: "Awais Imran", jobTitle: "Content Writer & Reviews Editor", url: `${SITE_URL}/about/awais-imran` },
   ],
+  telephone: "+44 7393 367304",
   contactPoint: [
     {
       "@type": "ContactPoint",
-      email: "akifhazarvi@yahoo.com",
+      email: "info@sendmoneycompare.com",
+      telephone: "+44 7393 367304",
       contactType: "customer service",
       availableLanguage: ["English"],
     },
     {
       "@type": "ContactPoint",
-      email: "akifhazarvi@yahoo.com",
+      email: "akif@sendmoneycompare.com",
       contactType: "editorial",
       availableLanguage: ["English"],
     },
@@ -153,14 +155,22 @@ const organizationSchema = {
     // into Google's Knowledge Graph (Q140310099, created 2026-06-21). Trustpilot
     // + Crunchbase outrank our own homepage for the branded query — declaring
     // them all here tells Google they describe the same entity.
+    //
+    // Every entry must be a profile that exists: a sameAs pointing at a 404
+    // asserts an identity we cannot back, on the one property whose whole job
+    // is identity. The vanity handles guessed here originally — x.com,
+    // twitter.com and github.com/sendmoneycompare, plus
+    // linkedin.com/company/sendmoneycompare — all 404, verified 2026-09-18
+    // against control accounts returning 200 on the same hosts in the same run
+    // (x.com answers 200 even for a nonsense handle, so its 404 is a real
+    // signal). Replaced with the accounts that actually exist.
     "https://www.wikidata.org/wiki/Q140310099",
     "https://www.trustpilot.com/review/sendmoneycompare.com",
     "https://www.crunchbase.com/organization/send-money-compare",
-    "https://www.linkedin.com/company/sendmoneycompare",
-    "https://x.com/sendmoneycompare",
-    "https://twitter.com/sendmoneycompare",
-    "https://www.facebook.com/sendmoneycompare",
-    "https://github.com/sendmoneycompare",
+    "https://www.linkedin.com/company/sendmoney-compare",
+    "https://x.com/money_send74620",
+    "https://www.facebook.com/profile.php?id=61591170073730",
+    "https://www.instagram.com/sendmoneycompare/",
   ],
   publishingPrinciples: `${SITE_URL}/editorial-policy`,
   correctionsPolicy: `${SITE_URL}/corrections`,
