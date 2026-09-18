@@ -86,6 +86,18 @@ import { renderDataTokens } from "@/lib/ratings-tokens";
 const plainTokens = (text: string): string =>
   renderDataTokens(text).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 
+// Rotate a list by a stable offset derived from the page slug, so each page
+// takes a different window of the same ordered list. Slicing the head instead
+// gives every page the identical five links and starves the tail of the list
+// of inbound links entirely.
+function rotate<T>(list: readonly T[], seed: string): T[] {
+  if (list.length === 0) return [];
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+  const off = h % list.length;
+  return [...list.slice(off), ...list.slice(0, off)];
+}
+
 // ── Static generation ──
 // Only pre-render corridors with real data (Tier 1 & 2).
 // Tier 3 (zero quotes, non-editorial) returns 404 at runtime.
@@ -1163,6 +1175,37 @@ export default async function CorridorPage({ params }: Props) {
     const answer = faq.answerFromComparison ? `${comparison.answer} ${faq.a}` : faq.a;
     return { ...faq, a: renderDataTokens(answer) };
   });
+  // The destination country page that canonically owns this country's receiving
+  // rules. Regulator, inbound limits and receiving banks do not change with the
+  // sending country, so they were byte-identical across every route into a
+  // destination — /send-money/usa-to-china and /send-money/uk-to-china shared
+  // 59 of 108 sentences, and usa-to-china carried 4,600 words of which 29
+  // appeared nowhere else on the site. The facts stay authoritative on the
+  // country page; the sender-variant pages summarise and link to it. Only set
+  // when this page is itself a route INTO that country, never on the country
+  // page itself (which would link to itself) or on currency-pair pages (which
+  // have no single destination country).
+  const destinationHubSlug =
+    !corridor.isCountryPage && !isCurrencyCorridor
+      ? allCorridors.find(
+          (c) => c.isCountryPage && c.toCountry === corridor.toCountry && c.slug !== slug && corridorPageRenders(c.slug),
+        )?.slug
+      : undefined;
+
+  // Corridors paying out in the same currency from a different sending
+  // country — the third cross-link axis, replacing a static global list.
+  const payoutSiblings = allCorridors
+    .filter(
+      (c) =>
+        c.toCurrency === toCurrency &&
+        c.slug !== slug &&
+        c.fromCountry !== corridor.fromCountry &&
+        !c.isCurrencyCorridor &&
+        !c.isCountryPage &&
+        corridorPageRenders(c.slug),
+    )
+    .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)));
+
   const editorialNote = corridorEditorialNotes[slug];
   const countryDetails = !isCurrencyCorridor ? getCountryDetails(corridor.toCountry, toCurrency) : null;
   const rateInsight = getRateInsight(fromCurrency, toCurrency);
@@ -2310,7 +2353,35 @@ export default async function CorridorPage({ params }: Props) {
       })()}
 
       {/* ─── Transfer Limits & Regulations ─── */}
-      {countryDetails && (
+      {countryDetails && destinationHubSlug && (
+        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
+                Receiving money in {corridor.toCountry}
+              </h2>
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
+                {countryDetails.regulations.regulatoryBody
+                  ? `${corridor.toCountry} transfers are supervised by ${countryDetails.regulations.regulatoryBody}`
+                  : `Inbound transfers to ${corridor.toCountry} carry their own limits and documentation rules`}
+                {countryDetails.popularBanks.length > 0
+                  ? `, and ${countryDetails.popularBanks.length} banks commonly receive international transfers there.`
+                  : "."}{" "}
+                These rules are the same whichever country you send from, so they live on one page rather than being
+                restated on every route into {corridor.toCountry}.
+              </p>
+              <Link
+                href={`/send-money/${destinationHubSlug}`}
+                className="text-sm font-medium text-[var(--color-primary)] hover:underline"
+              >
+                Limits, regulations and receiving banks for {corridor.toCountry} →
+              </Link>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {countryDetails && !destinationHubSlug && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
@@ -2447,7 +2518,7 @@ export default async function CorridorPage({ params }: Props) {
       </section>
 
       {/* ─── Popular Banks ─── */}
-      {countryDetails && countryDetails.popularBanks.length > 0 && (
+      {countryDetails && !destinationHubSlug && countryDetails.popularBanks.length > 0 && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
@@ -2756,19 +2827,38 @@ export default async function CorridorPage({ params }: Props) {
               })),
           },
           {
-            title: "Popular corridors",
-            links: popularCorridors
-              .filter((c) => c.from !== fromCurrency || c.to !== toCurrency)
-              .slice(0, 5)
-              .map((c) => {
-                const seoSlug = getCorridorSlug(c.from, c.to);
-                return {
-                  href: seoSlug && corridorPageRenders(seoSlug)
-                    ? `/send-money/${seoSlug}`
-                    : `/send-money?from=${c.from}&to=${c.to}&amount=1000`,
-                  label: c.label,
-                };
-              }),
+            // Third axis: same payout currency, different route. The country
+            // axes above are already contextual, but this slot used to be the
+            // global `popularCorridors` list filtered only to drop the current
+            // pair — the same five links on ~419 corridor pages, which is both
+            // duplicate text and a link graph that says nothing about the page
+            // it sits on. Falls back to the popular list only when the payout
+            // currency has too few rendering siblings.
+            //
+            // Window is rotated by slug rather than sliced from the head: a
+            // head slice starves the tail of an ordered list of sibling links,
+            // which is what left low-tier corridors with a single inbound link.
+            title: payoutSiblings.length >= 3
+              ? `Other routes paying out in ${toCurrency}`
+              : "Popular corridors",
+            links: (payoutSiblings.length >= 3
+              ? rotate(payoutSiblings, slug)
+                  .slice(0, 5)
+                  .map((c) => ({ href: `/send-money/${c.slug}`, label: `${c.fromCountry} to ${c.toCountry}` }))
+              : rotate(
+                  popularCorridors.filter((c) => c.from !== fromCurrency || c.to !== toCurrency),
+                  slug,
+                )
+                  .slice(0, 5)
+                  .map((c) => {
+                    const seoSlug = getCorridorSlug(c.from, c.to);
+                    return {
+                      href: seoSlug && corridorPageRenders(seoSlug)
+                        ? `/send-money/${seoSlug}`
+                        : `/send-money?from=${c.from}&to=${c.to}&amount=1000`,
+                      label: c.label,
+                    };
+                  })),
           },
           {
             title: "Top provider reviews",
