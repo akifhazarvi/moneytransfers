@@ -1,14 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import ProviderLink from "@/components/ProviderLink";
 import Container from "@/components/Container";
 import { getGoUrl } from "@/lib/affiliate";
-import { CONSISTENCY_ROWS } from "@/lib/consistency-index";
+import { providerLogo } from "@/lib/provider-logo";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
-
-function ordinal(n: number): string {
-  const suffix = n % 100 >= 11 && n % 100 <= 13 ? "th" : ["th", "st", "nd", "rd"][n % 10] ?? "th";
-  return `${n}${suffix}`;
-}
 
 function symbolFor(code: string): string {
   return (
@@ -29,15 +25,7 @@ function money(n: number, dp = 0): string {
  * on the page already renders, never a second calculation — so the panel cannot
  * drift from the comparison above it. Callers pass it only when they actually
  * hold a TapTap quote for the route; on corridors we have no quote for, the
- * block falls back to the site-wide measured facts and shows no numbers rather
- * than inventing any.
- *
- * `worstReceiveAmount` drives the savings line, which is the weaker but
- * always-true claim ("more than the lowest-paying provider we quote").
- * `isBest` unlocks the strong claim ("the most of all N providers"), and is set
- * only where TapTap genuinely tops the corridor — the distinction that the
- * Sep 11 2026 USD→PKR removal was about. See
- * [[project_taptap_earned_highlight_sep11]].
+ * block shows no numbers rather than inventing any.
  */
 export interface PartnerQuote {
   fromCurrency: string;
@@ -53,16 +41,14 @@ export interface PartnerQuote {
 }
 
 /**
- * The one paid-partner spotlight this site runs, wherever it appears. Shared
- * by the homepage, every guide and every corridor page so the copy cannot
- * drift into two stories — the standing facts are recomputed from the
- * consistency index and corridor-leader archive on each build, and the
- * corridor numbers come from the page's own live quotes.
+ * The one paid-partner ad this site runs, wherever it appears: a labelled ad
+ * unit showing TapTap Send's live rate and payout for the route the reader is
+ * on, and a button. It is an ad, so it says so and stops there — it makes no
+ * editorial claim and never takes a position in a ranked table.
  *
  * `variant="inline"` matches the `.smc-featured` aside used inside article
  * prose; `"section"` is the full-bleed treatment for the homepage and corridor
- * pages. Both sit below/after any ranked comparison — the partnership buys
- * placement, never a position in a ranked table.
+ * pages. Both sit below/after any ranked comparison.
  */
 export default function PartnerFeatureBlock({
   source,
@@ -82,10 +68,6 @@ export default function PartnerFeatureBlock({
   linkContext?: { from: string; to: string; amount: number };
 }) {
   const slug = "taptap-send";
-  const rank = CONSISTENCY_ROWS.findIndex((r) => r.providerSlug === slug) + 1;
-  const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
-
-  if (!row || rank <= 0) return null;
 
   const context = linkContext ?? (quote
     ? { from: quote.fromCurrency, to: quote.toCurrency, amount: quote.sendAmount }
@@ -103,15 +85,12 @@ export default function PartnerFeatureBlock({
 
   const sendSymbol = quote ? symbolFor(quote.fromCurrency) : "";
   const recvSymbol = quote ? symbolFor(quote.toCurrency) : "";
-  const savings = quote?.worstReceiveAmount !== undefined
-    ? quote.receiveAmount - quote.worstReceiveAmount
-    : 0;
 
   const inline = variant === "inline";
 
   /** Send → receive panel. The concrete number a reader can act on. */
   const ratePanel = quote && (
-    <div className="mt-4 rounded-xl border border-[var(--color-success-dark)]/30 bg-[var(--color-success-surface)]/50 p-4">
+    <div className={`${inline ? "" : "mt-4 "}rounded-xl border border-[var(--color-success-dark)]/30 bg-[var(--color-success-surface)]/50 p-4`}>
       <div className="flex items-end justify-between gap-3 flex-wrap">
         <div>
           <p className="text-2xs font-semibold uppercase tracking-wider text-[var(--color-on-surface-variant)]">
@@ -136,61 +115,58 @@ export default function PartnerFeatureBlock({
         {" · "}
         {quote.fee === 0 ? "No transfer fee" : `${sendSymbol}${money(quote.fee, 2)} fee`}
         {quote.transferSpeed ? ` · ${quote.transferSpeed}` : ""}
-        {" · quoted from our live comparison, refreshed every 6 hours"}
       </p>
     </div>
   );
 
-  /** What the reader gains, in the currency they care about. */
+  /**
+   * What the reader gains here, in the currency they care about.
+   *
+   * Restored 2026-09-19 after a de-duplication pass removed it with the
+   * standing editorial claim. That trim was right about the claim — ~45
+   * identical words on ~546 indexable pages — but this line is NOT that: it is
+   * computed per corridor and differs on every one, so it adds no repeated
+   * text, and it is the only part of the ad that answers "why tap". Gated the
+   * same way it always was: the always-true comparison against the
+   * lowest-paying quote, with the stronger "most of all N" appended only where
+   * TapTap actually tops the route.
+   */
+  const savings = quote?.worstReceiveAmount !== undefined
+    ? quote.receiveAmount - quote.worstReceiveAmount
+    : 0;
+
   const savingsLine = quote && savings > 0 && (
-    <p className={inline ? "" : "mt-3 text-sm text-[var(--color-on-surface)] leading-relaxed"}>
-      That is{" "}
+    <p className={`${inline ? "" : "mt-3 "}text-sm text-[var(--color-on-surface)]`}>
       <strong className="text-[var(--color-success-dark)] tabular-nums">
         {recvSymbol}{money(savings, 2)} more
       </strong>{" "}
-      in your recipient&rsquo;s hands than the lowest-paying provider we quote on this route right now
+      than the lowest-paying provider we quote on this route
       {quote.isBest && quote.providerCount
-        ? ` — and the most of all ${quote.providerCount} providers we compare today`
+        ? `, and the most of all ${quote.providerCount} we compare`
         : ""}
       .
     </p>
-  );
-
-  // Deliberately short. These are sitewide facts about TapTap, not corridor
-  // facts, and this block renders on ~546 indexable pages — the long version
-  // ran ~45 identical words on every one of them and was the second-largest
-  // repeated text block on the site while Google was declining to index it.
-  // The claim is unchanged and still measured; the detail moves behind the
-  // link, which also gives the consistency index an inline entry point from
-  // every corridor and guide instead of only a footer mention.
-  // The live per-corridor rate, payout and savings lines below stay as they
-  // are — those genuinely vary by route and are the point of the block.
-  const standingClaim = (
-    <>
-      ranks {ordinal(rank)} of {CONSISTENCY_ROWS.length} providers in our{" "}
-      <Link href="/provider-consistency">consistency index</Link>, leading {row.corridorsLed} corridors
-    </>
   );
 
   const ctaLabel = quote
     ? `Send ${sendSymbol}${money(quote.sendAmount)} with TapTap Send`
     : "Send with TapTap Send";
 
-  const disclosure = "We earn a commission if you send with TapTap Send. That is why it is featured here — it is not why it sits where it does in the comparison, which is ordered on measured payout alone. Which provider is cheapest changes with your route and amount, so compare yours before you send.";
+  // One short line, not a paragraph. An affiliate placement has to be
+  // identifiable as paid; the "Ad" badge plus this does that. The essay that
+  // used to sit here ran on ~546 indexable pages.
+  const disclosure = "We earn a commission on transfers made through this link.";
 
   if (inline) {
     return (
-      <aside className="smc-featured" data-badge="Partner">
+      <aside className="smc-featured" data-badge="Ad">
         <p>
           <strong>
             <Link href="/companies/taptap-send">TapTap Send</Link>
-          </strong>{" "}
-          is the partner we recommend first for everyday remittances, and the measurement behind that is ours: it{" "}
-          {standingClaim}.
+          </strong>
         </p>
         {ratePanel}
         {savingsLine}
-        <p>{disclosure}</p>
         <p>
           <ProviderLink
             href={href}
@@ -202,6 +178,7 @@ export default function PartnerFeatureBlock({
             {ctaLabel}
           </ProviderLink>
         </p>
+        <p className="text-2xs text-[var(--color-on-surface-variant)]">{disclosure}</p>
       </aside>
     );
   }
@@ -210,19 +187,25 @@ export default function PartnerFeatureBlock({
     <section className="py-8 sm:py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
       <Container>
         <div className="max-w-3xl mx-auto rounded-2xl bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)]/60 p-6 sm:p-8">
-          <span className="inline-block text-2xs font-semibold uppercase tracking-[0.12em] text-[var(--color-on-surface-variant)]">
-            Partner
-          </span>
-          <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
-            TapTap Send
-          </h2>
-          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-            The partner we recommend first for everyday remittances, and the measurement behind that is ours: it{" "}
-            {standingClaim}.
-          </p>
+          <div className="flex items-center gap-3">
+            <Image
+              src={providerLogo(slug)}
+              alt="TapTap Send"
+              width={40}
+              height={40}
+              className="rounded-lg object-contain"
+            />
+            <div>
+              <span className="block text-2xs font-semibold uppercase tracking-[0.12em] text-[var(--color-on-surface-variant)]">
+                Ad
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
+                TapTap Send
+              </h2>
+            </div>
+          </div>
           {ratePanel}
           {savingsLine}
-          <p className="mt-3 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">{disclosure}</p>
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
             <ProviderLink
               href={href}
@@ -237,6 +220,7 @@ export default function PartnerFeatureBlock({
               Read our review &rarr;
             </Link>
           </div>
+          <p className="mt-4 text-2xs text-[var(--color-on-surface-variant)]">{disclosure}</p>
         </div>
       </Container>
     </section>
