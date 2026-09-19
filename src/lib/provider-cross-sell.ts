@@ -78,13 +78,23 @@ export function siteCrossSellConfig(pathname: string) {
   const path = pathname.replace(/^\/en(?=\/|$)/, "").replace(/\/$/, "") || "/";
   const [, section, slug] = path.split("/");
   const surfaces = ["research", "provider-consistency", "remittance-cost-index", "sendscore", "transfer-cost-by-amount", "news", "tools", "companies", "banks", "iban", "swift-codes", "travel", "exchange-rates", "currency-converter", "compare-money-transfer", "business"];
-  if (path !== "/" && !surfaces.includes(section)) return null;
+  // The homepage runs PartnerFeatureBlock's ad, which shows the same partner
+  // with a live rate, payout and savings. The page-end card showed the partner
+  // again with none of that, so the homepage opts out here (2026-09-19).
+  if (path === "/") return null;
+  if (!surfaces.includes(section)) return null;
   if (path === "/business/compare") return null;
   const business = section === "business" || (section === "companies" && ["torfx", "currencies-direct", "ofx", "moneycorp", "regencyfx"].includes(slug));
+  // Sections whose inline comparison table now renders the paid partner's ad
+  // with a live rate and payout. The page-end module drops that partner there
+  // and shows the others instead, so the page carries two different units
+  // rather than the same provider twice — once with numbers, once without.
+  // Partner visibility is unchanged: the ad is the stronger placement.
+  const adOnPage = ["iban", "swift-codes", "banks", "travel", "news", "tools", "exchange-rates"].includes(section);
   return {
     source: path === "/" ? "home" : path.slice(1),
     intent: business ? "business" as const : "personal" as const,
-    exclude: section === "companies" ? slug : undefined,
+    exclude: section === "companies" ? slug : adOnPage ? "taptap-send" : undefined,
     title: section === "companies" && slug ? "Explore other transfer providers." : business ? "Put your next business payment in motion." : "Your next transfer starts here.",
   };
 }

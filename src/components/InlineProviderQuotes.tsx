@@ -6,6 +6,8 @@ import InlineQuoteCTA from "./InlineQuoteCTA";
 import SeeAllProvidersLink from "./SeeAllProvidersLink";
 import { providerLogo } from "@/lib/provider-logo";
 import ProviderCrossSell from "@/components/ProviderCrossSell";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
+import { partnerQuoteFrom } from "@/lib/partner-quote";
 import { crossSellComparisonHref } from "@/lib/provider-cross-sell";
 
 interface Props {
@@ -23,6 +25,13 @@ interface Props {
    * built to fix on the business pages. Omit for consumer corridors.
    */
   only?: readonly string[];
+  /**
+   * Whether to render a partner unit above the table. Default true — it is
+   * the only one on tools, IBAN, SWIFT, bank, travel and news pages. Guides
+   * pass false: they already carry PartnerFeatureBlock's ad further down, so
+   * this was a second, numberless copy of it on all 123 of them.
+   */
+  crossSell?: boolean;
 }
 
 function symbolFor(code: string): string {
@@ -41,6 +50,7 @@ export default function InlineProviderQuotes({
   heading,
   subheading,
   only,
+  crossSell = true,
 }: Props) {
   const all = generateQuotes(amount, from, to);
   const scoped = only ? all.filter((q) => only.includes(q.providerSlug)) : all;
@@ -59,11 +69,27 @@ export default function InlineProviderQuotes({
 
   return (
     <>
-    <ProviderCrossSell
-      source={source} placement="inline" context={{ from, to, amount }}
-      eligible={scoped.map((quote) => quote.providerSlug)}
-      intent={only ? "business" : "personal"}
-    />
+    {/* Partner unit above the table. Consumer corridors get the live-rate ad;
+        business pages keep the cross-sell card, because the ad's partner is a
+        consumer remittance app and `only` exists precisely to keep those off a
+        page about paying suppliers. */}
+    {crossSell && (only
+      ? (
+        <ProviderCrossSell
+          source={source} placement="inline" context={{ from, to, amount }}
+          eligible={scoped.map((quote) => quote.providerSlug)}
+          intent="business"
+        />
+      )
+      : (
+        <PartnerFeatureBlock
+          source={`partner_inline:${source}`}
+          variant="card"
+          quote={partnerQuoteFrom(all, from, to)}
+          linkContext={{ from, to, amount }}
+        />
+      )
+    )}
     <aside
       className="my-10 rounded-2xl overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)] border border-[var(--color-success-dark)]/20"
       aria-label="Live provider rate comparison"

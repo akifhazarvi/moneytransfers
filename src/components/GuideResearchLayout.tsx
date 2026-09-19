@@ -2,9 +2,8 @@ import { Children, cloneElement, isValidElement, type ReactNode } from "react";
 import Container from "@/components/Container";
 import GuideContents, { type GuideSection } from "@/components/GuideContents";
 import GuideReadingProgress from "@/components/GuideReadingProgress";
-import GuideSidebarCTA from "@/components/GuideSidebarCTA";
-import ProviderCrossSell from "@/components/ProviderCrossSell";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
+import { getPartnerQuote, DEFAULT_PARTNER_CORRIDOR } from "@/lib/partner-quote";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -46,18 +45,22 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
       <div className="guide-reading-grid" id="guide-top">
         <article id="guide-article" className="guide-research-article">
           {content.slice(0, firstSection < 0 ? content.length : firstSection)}
-          <ProviderCrossSell source={`guide:${slug}`} placement="inline" />
           <GuideContents sections={sections} mobile />
           {firstSection >= 0 && content.slice(firstSection)}
-          {/* Partner spotlight — after every comparison on the page, never
-              inside one. See [[project_taptap_earned_highlight_sep11]]. No
-              linkContext: these research pages don't carry one reliable
-              corridor the way a templated guide's inlineQuoteCorridor does. */}
-          <PartnerFeatureBlock source={`taptap_spotlight:guide:${slug}`} variant="inline" />
+          {/* Partner ad — after every comparison on the page, never inside
+              one. See [[project_taptap_earned_highlight_sep11]]. These research
+              pages carry no corridor of their own the way a templated guide's
+              inlineQuoteCorridor does, so the ad quotes the default corridor
+              and says which one it is, rather than showing a bare button. */}
+          <PartnerFeatureBlock
+            source={`taptap_spotlight:guide:${slug}`}
+            variant="inline"
+            quote={getPartnerQuote()}
+            linkContext={DEFAULT_PARTNER_CORRIDOR}
+          />
         </article>
         <aside className="guide-article-sidebar" aria-label="Guide navigation and tools">
           <div className="guide-sidebar-sticky">
-            <GuideSidebarCTA slug={slug} />
             <GuideContents sections={sections} />
             <Link href="/guides" className="guide-back-top"><ArrowLeft size={14} aria-hidden="true" />Explore all guides</Link>
           </div>

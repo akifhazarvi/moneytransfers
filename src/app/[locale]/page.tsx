@@ -18,6 +18,7 @@ import ProviderLink from "@/components/ProviderLink";
 import { getGoUrl } from "@/lib/affiliate";
 import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
+import { getPartnerQuote, DEFAULT_PARTNER_CORRIDOR } from "@/lib/partner-quote";
 
 /**
  * What we can honestly say about Wise being "Best Rate".
@@ -681,7 +682,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
            comparison, and the only affiliate CTA outside the tables.
            Shared with the guide template via PartnerFeatureBlock (2026-09-17)
            so the copy can't drift between the two surfaces. ─── */}
-      <PartnerFeatureBlock source="home_partner_feature" variant="section" />
+      <PartnerFeatureBlock
+        source="home_partner_feature"
+        variant="section"
+        quote={getPartnerQuote()}
+        linkContext={DEFAULT_PARTNER_CORRIDOR}
+      />
 
       {/* Mobile back-to-top + section label */}
       <MobileScrollNav

@@ -25,7 +25,6 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import InlineQuotesImpression from "@/components/InlineQuotesImpression";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
-import GuideSidebarCTA from "@/components/GuideSidebarCTA";
 import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
 import SettlementRace from "@/components/SettlementRace";
 import { BUSINESS_FX_SLUGS } from "@/lib/business-fx-index";
@@ -572,6 +571,7 @@ export default async function BlogPostPage({ params }: Props) {
                       heading={inlineQuoteCorridor.heading}
                       source={`guide:${slug}`}
                       only={inlineQuoteCorridor.business ? BUSINESS_FX_SLUGS : undefined}
+                      crossSell={false}
                     />
                   </InlineQuotesImpression>
                 )}
@@ -708,14 +708,10 @@ export default async function BlogPostPage({ params }: Props) {
                 visible after scrolling the entire article. */}
             <div className="guide-sidebar-sticky">
 
-              {/* Comparison CTA — tracked */}
-              <GuideSidebarCTA
-                slug={slug}
-                from={inlineQuoteCorridor.from}
-                to={inlineQuoteCorridor.to}
-                amount={inlineQuoteCorridor.amount}
-                business={inlineQuoteCorridor.business}
-              />
+              {/* Partner cross-sell card removed 2026-09-19: it was the third
+                  TapTap unit on every guide, after the inline card and
+                  PartnerFeatureBlock's ad. The ad carries a live rate and
+                  payout; this carried neither. */}
 
               <GuideContents sections={contents} />
 
