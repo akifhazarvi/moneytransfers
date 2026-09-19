@@ -12,11 +12,15 @@
 | P1.2 guard gap | **Done** — `check:assets` widened, `check:links` now fails on literal `{{` in built HTML |
 | P1.3 `/api/ai` + manifest drift | **Done** — corridor list self-validating, manifest generated |
 | P2 HowTo / `@id` / PostalAddress | **Done** |
-| P1.4 ChatGPT decline | Not started — needs `check:ai-citations` re-run |
-| P1.5 Web Vitals beacon | Not started |
-| P1.6 data-moat linking | Partly — `/provider-consistency` now linked from ~546 pages |
+| P2 Wise markup reconciliation | **Done** — measured median now sits beside the published 0% |
+| P2 overlong descriptions, title=H1 | **Done** — `/iban`, `/for-ai`, `/guides/wire-transfer-guide` |
+| P2 hardcoded corridor superlative | **Done** — 0 remain; guard now names them |
 | P2 alt text | **Withdrawn** — false positive, see below |
-| P2 compare verdicts, Wise reconciliation | Not started |
+| P1.4 ChatGPT decline | Not started — needs `check:ai-citations` re-run |
+| P1.5 Web Vitals beacon | Not started — needs app-side fix + `GOOGLE_API_KEY` |
+| P1.6 data-moat linking | Partly — `/provider-consistency` linked from ~546 pages; nav promotion not done |
+| P2 compare verdict boxes | Not started — see the note on `/compare` below |
+| P3 semantic tables on data hubs | Not started |
 
 **What the duplication work established.** Sitewide duplicate text moved 55.9% → 55.0% and
 `usa-to-china` 4,603 → 4,390 words, but its *unique* word count stayed at exactly 29. A generated
@@ -26,6 +30,16 @@ skeletons repeat across all 317 corridors that would have carried it. It would h
 words of fresh near-duplicate text to a site already suppressed for scaled content. Templated
 prose cannot fix a shingle-overlap metric — only fewer near-identical pages can, which is the
 open decision below.
+
+**What `/companies` and `/compare` duplication actually is.** Investigated and largely *not* a
+defect. 54 `/companies/*` pages build but only the 16 curated ones are indexable and submitted —
+the other 38 (banks: `chase`, `hsbc`, `barclays`, …) are already `noindex`, so most of the measured
+overlap is on pages Google is told to ignore. On the 16 that matter, only 14 of ~52 sentences
+repeat, and nearly all of those are global nav, footer, the cross-sell rail and the affiliate
+disclosure. The high ratio comes from the pages being *short* (500–700 unique words), not from
+unusual copying: ~368 words of unavoidable chrome against ~450–500 words of body. The fix is more
+substance per provider, not less boilerplate — and note the reverted experiment above before
+reaching for generated prose to supply it.
 
 **The page-reduction decision (needs a human call).** Of the 16 remaining pages under 50 unique
 words, **none is a ranking URL**, so none is protected by the never-404-a-ranking-URL rule — but
