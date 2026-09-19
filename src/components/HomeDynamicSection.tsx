@@ -12,7 +12,7 @@ import { tiedAboveLargerPayout } from "@/lib/rank-quotes";
 import TiedNote from "@/components/TiedNote";
 import { trackProviderClicked } from "@/lib/analytics";
 import { providerLogo } from "@/lib/provider-logo";
-import { COVERAGE } from "@/lib/site-stats";
+import { COVERAGE_TEXT as COVERAGE } from "@/lib/coverage";
 
 // Flag emoji (regional-indicator pairs) don't render on Windows/some Android —
 // they show as bare letters like "IN"/"EU". Decode the emoji to an ISO code so

@@ -9,7 +9,7 @@ import { getGoUrl } from "@/lib/affiliate";
 import { trackConverterProviderClicked, trackConverterCTAClicked } from "@/lib/analytics";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 import { providerLogo } from "@/lib/provider-logo";
-import { COVERAGE } from "@/lib/site-stats";
+import { COVERAGE_TEXT as COVERAGE } from "@/lib/coverage";
 
 function symbolFor(code: string): string {
   return (

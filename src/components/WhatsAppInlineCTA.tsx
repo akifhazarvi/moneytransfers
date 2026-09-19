@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { trackWhatsappImpression } from "@/lib/analytics";
 import { WhatsAppGlyph, WhatsAppTile } from "./WhatsAppMark";
 import WhatsAppFollowLink from "./WhatsAppFollowLink";
-import { COVERAGE } from "@/lib/site-stats";
+import { COVERAGE_TEXT as COVERAGE } from "@/lib/coverage";
 
 // Inline "follow the channel" card.
 //
