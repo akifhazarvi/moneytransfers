@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { postalAddress } from "@/lib/postal-address";
+import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
+import { CONSISTENCY_ROWS } from "@/lib/consistency-index";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -197,6 +199,19 @@ function DefaultComparison({
   const { corridorData, verdict, faqs, whenToUseA, whenToUseB, keyDifferences } = content;
   const relatedComparisons = getRelatedComparisons(a, b);
   const dataUpdatedDate = getDataFreshnessDate();
+
+  // Measured cost for both providers, when both are present in the datasets.
+  const mA = MEASURED_MARKUPS.get(a.slug);
+  const mB = MEASURED_MARKUPS.get(b.slug);
+  const measuredCost =
+    mA && mB
+      ? {
+          a: mA,
+          b: mB,
+          leadA: CONSISTENCY_ROWS.find((r) => r.providerSlug === a.slug),
+          leadB: CONSISTENCY_ROWS.find((r) => r.providerSlug === b.slug),
+        }
+      : null;
 
   const comparisonRows = [
     { label: "Overall rating", valueA: `${a.rating.toFixed(1)}/5 (${a.ratingLabel})`, valueB: `${b.rating.toFixed(1)}/5 (${b.ratingLabel})`, winner: a.rating > b.rating ? "a" : a.rating < b.rating ? "b" : "tie" },
@@ -657,6 +672,34 @@ function DefaultComparison({
                   />
                 ) : (
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{verdict.costExplanation}</p>
+                )}
+                {/* The verdict above is editorial. This is the measurement behind
+                    it, which the page did not previously show: each provider's
+                    own markup median and how often it actually leads a corridor.
+                    Rendered only when both providers are in both datasets, so
+                    nothing is asserted without data. Median, never mean — the
+                    mean is distorted by corridors whose benchmark rate is itself
+                    unreliable. */}
+                {measuredCost && (
+                  <p className="mt-3 pt-3 border-t border-[var(--color-outline)]/60 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <strong className="text-[var(--color-on-surface)]">Measured:</strong>{" "}
+                    {a.name} runs a {measuredCost.a.markupMedianPct.toFixed(2)}% median markup across{" "}
+                    {measuredCost.a.corridors} corridors, {b.name}{" "}
+                    {measuredCost.b.markupMedianPct.toFixed(2)}% across {measuredCost.b.corridors}.
+                    {measuredCost.leadA && measuredCost.leadB ? (
+                      <>
+                        {" "}
+                        On our consistency index {a.name} is the most frequent winner on{" "}
+                        {measuredCost.leadA.corridorsLed} corridors and {b.name} on{" "}
+                        {measuredCost.leadB.corridorsLed}.
+                      </>
+                    ) : null}{" "}
+                    Measured {REMITTANCE_INDEX.dataAsOf}.{" "}
+                    <Link href="/remittance-cost-index" className="text-[var(--color-primary)] hover:underline">
+                      How we measure cost
+                    </Link>
+                    .
+                  </p>
                 )}
               </div>
               {/* Speed verdict */}
