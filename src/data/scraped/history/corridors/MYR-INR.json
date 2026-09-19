@@ -3242,22 +3242,28 @@
     "date": "2026-09-19",
     "providers": {
       "western-union": {
-        "rate": 23.3036,
+        "rate": 23.3314,
         "fee": 5,
-        "markup": 0.86,
-        "receiveAmount": 2213.84
+        "markup": 0.77,
+        "receiveAmount": 2216.48
       },
       "worldremit": {
-        "rate": 22.8732,
+        "rate": 22.8976,
         "fee": 5,
-        "markup": 2.69,
-        "receiveAmount": 2172.95
+        "markup": 2.62,
+        "receiveAmount": 2175.27
       },
       "instarem": {
-        "rate": 23.4645,
+        "rate": 23.4595,
         "fee": 0.55,
-        "markup": 0.18,
-        "receiveAmount": 2333.54
+        "markup": 0.23,
+        "receiveAmount": 2333.05
+      },
+      "skrill": {
+        "rate": 22.3723,
+        "fee": 0,
+        "markup": 4.85,
+        "receiveAmount": 2237.23
       }
     }
   }

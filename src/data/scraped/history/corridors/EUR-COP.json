@@ -11510,10 +11510,10 @@
     "date": "2026-09-19",
     "providers": {
       "moneygram": {
-        "rate": 3579.82,
+        "rate": 3630.714,
         "fee": 0.99,
-        "markup": 1.52,
-        "receiveAmount": 354437.98
+        "markup": 0.65,
+        "receiveAmount": 359476.99
       },
       "taptap-send": {
         "rate": 3580,
@@ -11528,16 +11528,16 @@
         "receiveAmount": 348929.08
       },
       "dahabshiil": {
-        "rate": 3523.5487,
+        "rate": 3545.2226,
         "fee": 1.99,
-        "markup": 3.06,
-        "receiveAmount": 345343.01
+        "markup": 2.99,
+        "receiveAmount": 347467.27
       },
       "worldremit": {
-        "rate": 3583.0123,
+        "rate": 3584.1908,
         "fee": 0.99,
-        "markup": 1.43,
-        "receiveAmount": 354754.05
+        "markup": 1.92,
+        "receiveAmount": 354870.73
       },
       "instarem": {
         "rate": 3625.3444,
@@ -11546,16 +11546,16 @@
         "receiveAmount": 362534.44
       },
       "xe": {
-        "rate": 3570.255,
+        "rate": 3618.9855,
         "fee": 4,
-        "markup": 1.78,
-        "receiveAmount": 342744.48
+        "markup": 0.97,
+        "receiveAmount": 347422.61
       },
       "paysend": {
-        "rate": 3603.0642,
+        "rate": 3633.5393,
         "fee": 0,
-        "markup": 0.88,
-        "receiveAmount": 360306.42
+        "markup": 0.57,
+        "receiveAmount": 363353.93
       },
       "remitly": {
         "rate": 3594.04,
@@ -11564,10 +11564,10 @@
         "receiveAmount": 348657.82
       },
       "revolut": {
-        "rate": 3592.9251,
-        "fee": 1,
-        "markup": 1.16,
-        "receiveAmount": 355699.58
+        "rate": 3602.6646,
+        "fee": 2,
+        "markup": 1.42,
+        "receiveAmount": 353061.13
       },
       "wise": {
         "rate": 3655.93,
@@ -11576,10 +11576,10 @@
         "receiveAmount": 353674.67
       },
       "ria": {
-        "rate": 3585.8663,
+        "rate": 3634.1542,
         "fee": 0.9,
         "markup": null,
-        "receiveAmount": 376075.26
+        "receiveAmount": 381308.01
       }
     }
   }
