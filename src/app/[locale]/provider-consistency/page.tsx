@@ -153,45 +153,65 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
               lead.
             </p>
 
-            {/* Desktop */}
+            {/* Desktop.
+                A real <table>, not a div grid. This is the densest dataset on
+                the site — 126,149 observations ranked — and it was marked up as
+                divs, so retrieval systems that specifically chunk and lift
+                <table> elements saw an unstructured block. The grid classes are
+                applied to <tr>, whose `display: grid` overrides `table-row`, so
+                the rendered layout is byte-for-byte what it was. <caption> and
+                scope="col"/"row" also make it navigable in a screen reader,
+                which a div grid never was. */}
             <div className="hidden md:block bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl overflow-hidden shadow-[var(--shadow-sm)]">
-              <div
-                className={`grid ${GRID} gap-2 px-6 py-3 bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide`}
-              >
-                <span>#</span>
-                <span>Provider</span>
-                <span className="text-right">Leads</span>
-                <span className="text-right">Of which</span>
-                <span className="text-right">Days won</span>
-                <span className="text-right">Loses by</span>
-              </div>
-              {RANKED.map((r, i) => (
-                <div
-                  key={r.providerSlug}
-                  className={`grid ${GRID} gap-2 items-center px-6 py-3 border-t border-[var(--color-outline)] ${
-                    i < 3 ? "bg-[var(--color-primary-surface)]/30" : ""
-                  }`}
-                >
-                  <span
-                    className={`text-sm font-bold ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}
+              <table className="w-full border-collapse">
+                <caption className="sr-only">
+                  Money transfer providers ranked by the number of corridors where each is the most frequent
+                  winner, with win rate and average shortfall when not leading.
+                </caption>
+                <thead>
+                  <tr
+                    className={`grid ${GRID} gap-2 px-6 py-3 bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide text-left`}
                   >
-                    {i + 1}
-                  </span>
-                  <ProviderCell slug={r.providerSlug} name={r.providerName} />
-                  <span className="text-sm font-semibold text-[var(--color-on-surface)] text-right tabular-nums">
-                    {r.corridorsLed}
-                  </span>
-                  <span className="text-sm text-[var(--color-on-surface-variant)] text-right tabular-nums">
-                    {r.corridorsQuoted}
-                  </span>
-                  <span className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">
-                    {r.winRate.toFixed(1)}%
-                  </span>
-                  <span className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">
-                    {r.avgShortfallPct.toFixed(2)}%
-                  </span>
-                </div>
-              ))}
+                    <th scope="col" className="font-medium">#</th>
+                    <th scope="col" className="font-medium">Provider</th>
+                    <th scope="col" className="font-medium text-right">Leads</th>
+                    <th scope="col" className="font-medium text-right">Of which</th>
+                    <th scope="col" className="font-medium text-right">Days won</th>
+                    <th scope="col" className="font-medium text-right">Loses by</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {RANKED.map((r, i) => (
+                    <tr
+                      key={r.providerSlug}
+                      className={`grid ${GRID} gap-2 items-center px-6 py-3 border-t border-[var(--color-outline)] ${
+                        i < 3 ? "bg-[var(--color-primary-surface)]/30" : ""
+                      }`}
+                    >
+                      <td
+                        className={`text-sm font-bold ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}
+                      >
+                        {i + 1}
+                      </td>
+                      <th scope="row" className="font-normal text-left">
+                        <ProviderCell slug={r.providerSlug} name={r.providerName} />
+                      </th>
+                      <td className="text-sm font-semibold text-[var(--color-on-surface)] text-right tabular-nums">
+                        {r.corridorsLed}
+                      </td>
+                      <td className="text-sm text-[var(--color-on-surface-variant)] text-right tabular-nums">
+                        {r.corridorsQuoted}
+                      </td>
+                      <td className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">
+                        {r.winRate.toFixed(1)}%
+                      </td>
+                      <td className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">
+                        {r.avgShortfallPct.toFixed(2)}%
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
             {/* Mobile */}
