@@ -1,14 +1,15 @@
 {
- "generated": "2026-09-18T19:49:02.548Z",
+ "generated": "2026-09-19T16:12:55.885Z",
  "rationale": "Corridor pages whose currency pair is already represented by a stronger page. Quotes are keyed on currency pair, not country pair, so these restate a twin verbatim. Content brief Sep 2026, §4 / §10-A generation threshold.",
- "renderedBefore": 824,
- "distinctCurrencyPairs": 384,
- "retiring": 402,
- "renderedAfter": 422,
+ "renderedBefore": 830,
+ "distinctCurrencyPairs": 382,
+ "retiring": 410,
+ "renderedAfter": 420,
  "keptPerPair": {
+  "AED-ARS": "aed-to-ars",
   "AED-BDT": "uae-to-bangladesh",
   "AED-BRL": "aed-to-brl",
-  "AED-COP": "aed-to-cop",
+  "AED-CLP": "aed-to-clp",
   "AED-EUR": "aed-to-eur",
   "AED-GHS": "aed-to-ghs",
   "AED-IDR": "aed-to-idr",
@@ -18,11 +19,11 @@
   "AED-KRW": "aed-to-krw",
   "AED-LKR": "aed-to-lkr",
   "AED-MXN": "aed-to-mxn",
+  "AED-MYR": "aed-to-myr",
   "AED-NGN": "aed-to-ngn",
   "AED-PEN": "aed-to-pen",
   "AED-PHP": "uae-to-philippines",
   "AED-PKR": "uae-to-pakistan",
-  "AED-THB": "aed-to-thb",
   "AED-TRY": "aed-to-try",
   "AED-UAH": "aed-to-uah",
   "AED-VND": "aed-to-vnd",
@@ -207,6 +208,7 @@
   "EUR-PHP": "finland-to-philippines",
   "EUR-PKR": "france-to-pakistan",
   "EUR-PLN": "greece-to-poland",
+  "EUR-RWF": "austria-to-rwanda",
   "EUR-SGD": "eur-to-sgd",
   "EUR-THB": "eur-to-thb",
   "EUR-TRY": "germany-to-turkey, eur-to-try",
@@ -260,7 +262,6 @@
   "HKD-ARS": "hkd-to-ars",
   "HKD-BRL": "hkd-to-brl",
   "HKD-CLP": "hkd-to-clp",
-  "HKD-COP": "hkd-to-cop",
   "HKD-EUR": "hkd-to-eur",
   "HKD-GHS": "hkd-to-ghs",
   "HKD-IDR": "hkd-to-idr",
@@ -286,13 +287,10 @@
   "INR-USD": "india-to-usa",
   "JPY-USD": "japan-to-ecuador",
   "KRW-ZAR": "south-korea-to-south-africa",
-  "KWD-PHP": "kuwait-to-philippines",
-  "KWD-PKR": "kuwait-to-pakistan",
+  "KWD-INR": "kuwait-to-india",
   "NOK-PHP": "norway-to-philippines",
   "NZD-AUD": "new-zealand-to-australia",
   "NZD-GBP": "new-zealand-to-uk",
-  "OMR-BDT": "oman-to-bangladesh",
-  "OMR-INR": "oman-to-india",
   "OMR-PHP": "oman-to-philippines",
   "SAR-BDT": "saudi-arabia-to-bangladesh",
   "SAR-EGP": "saudi-arabia-to-egypt",
@@ -681,6 +679,12 @@
    "redirectTo": "france-to-pakistan"
   },
   {
+   "slug": "belgium-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
+  },
+  {
    "slug": "belgium-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -999,6 +1003,12 @@
    "redirectTo": "belgium-to-mexico"
   },
   {
+   "slug": "eur-to-rwf",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
+  },
+  {
    "slug": "eur-to-tzs",
    "pair": "EUR-TZS",
    "keptInstead": "austria-to-tanzania",
@@ -1039,6 +1049,12 @@
    "pair": "EUR-ETB",
    "keptInstead": "austria-to-ethiopia",
    "redirectTo": "austria-to-ethiopia"
+  },
+  {
+   "slug": "finland-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "finland-to-senegal",
@@ -1087,6 +1103,12 @@
    "pair": "EUR-GHS",
    "keptInstead": "eur-to-ghs",
    "redirectTo": "eur-to-ghs"
+  },
+  {
+   "slug": "france-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "france-to-senegal",
@@ -1281,6 +1303,12 @@
    "redirectTo": "greece-to-poland"
   },
   {
+   "slug": "germany-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
+  },
+  {
    "slug": "germany-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -1359,6 +1387,12 @@
    "redirectTo": "austria-to-ethiopia"
   },
   {
+   "slug": "greece-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
+  },
+  {
    "slug": "greece-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -1399,12 +1433,6 @@
    "pair": "HKD-CLP",
    "keptInstead": "hkd-to-clp",
    "redirectTo": "hkd-to-clp"
-  },
-  {
-   "slug": "hong-kong-to-colombia",
-   "pair": "HKD-COP",
-   "keptInstead": "hkd-to-cop",
-   "redirectTo": "hkd-to-cop"
   },
   {
    "slug": "hong-kong-to-croatia",
@@ -1623,6 +1651,12 @@
    "redirectTo": "austria-to-ethiopia"
   },
   {
+   "slug": "ireland-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
+  },
+  {
    "slug": "ireland-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -1665,6 +1699,12 @@
    "redirectTo": "austria-to-ethiopia"
   },
   {
+   "slug": "italy-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
+  },
+  {
    "slug": "italy-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -1701,16 +1741,10 @@
    "redirectTo": "japan-to-ecuador"
   },
   {
-   "slug": "kwd-to-php",
-   "pair": "KWD-PHP",
-   "keptInstead": "kuwait-to-philippines",
-   "redirectTo": "kuwait-to-philippines"
-  },
-  {
-   "slug": "kwd-to-pkr",
-   "pair": "KWD-PKR",
-   "keptInstead": "kuwait-to-pakistan",
-   "redirectTo": "kuwait-to-pakistan"
+   "slug": "kwd-to-inr",
+   "pair": "KWD-INR",
+   "keptInstead": "kuwait-to-india",
+   "redirectTo": "kuwait-to-india"
   },
   {
    "slug": "netherlands-to-cameroon",
@@ -1735,6 +1769,12 @@
    "pair": "EUR-PHP",
    "keptInstead": "finland-to-philippines",
    "redirectTo": "finland-to-philippines"
+  },
+  {
+   "slug": "netherlands-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "netherlands-to-senegal",
@@ -1773,18 +1813,6 @@
    "redirectTo": "new-zealand-to-uk"
   },
   {
-   "slug": "omr-to-bdt",
-   "pair": "OMR-BDT",
-   "keptInstead": "oman-to-bangladesh",
-   "redirectTo": "oman-to-bangladesh"
-  },
-  {
-   "slug": "omr-to-inr",
-   "pair": "OMR-INR",
-   "keptInstead": "oman-to-india",
-   "redirectTo": "oman-to-india"
-  },
-  {
    "slug": "omr-to-php",
    "pair": "OMR-PHP",
    "keptInstead": "oman-to-philippines",
@@ -1807,6 +1835,12 @@
    "pair": "EUR-ETB",
    "keptInstead": "austria-to-ethiopia",
    "redirectTo": "austria-to-ethiopia"
+  },
+  {
+   "slug": "portugal-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "portugal-to-senegal",
@@ -1969,6 +2003,12 @@
    "pair": "EUR-ETB",
    "keptInstead": "austria-to-ethiopia",
    "redirectTo": "austria-to-ethiopia"
+  },
+  {
+   "slug": "spain-to-rwanda",
+   "pair": "EUR-RWF",
+   "keptInstead": "austria-to-rwanda",
+   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "spain-to-senegal",
@@ -2157,16 +2197,22 @@
    "redirectTo": "chf-to-zar"
   },
   {
+   "slug": "uae-to-argentina",
+   "pair": "AED-ARS",
+   "keptInstead": "aed-to-ars",
+   "redirectTo": "aed-to-ars"
+  },
+  {
    "slug": "uae-to-brazil",
    "pair": "AED-BRL",
    "keptInstead": "aed-to-brl",
    "redirectTo": "aed-to-brl"
   },
   {
-   "slug": "uae-to-colombia",
-   "pair": "AED-COP",
-   "keptInstead": "aed-to-cop",
-   "redirectTo": "aed-to-cop"
+   "slug": "uae-to-chile",
+   "pair": "AED-CLP",
+   "keptInstead": "aed-to-clp",
+   "redirectTo": "aed-to-clp"
   },
   {
    "slug": "uae-to-croatia",
@@ -2217,6 +2263,12 @@
    "redirectTo": "aed-to-kes"
   },
   {
+   "slug": "uae-to-malaysia",
+   "pair": "AED-MYR",
+   "keptInstead": "aed-to-myr",
+   "redirectTo": "aed-to-myr"
+  },
+  {
    "slug": "uae-to-mexico",
    "pair": "AED-MXN",
    "keptInstead": "aed-to-mxn",
@@ -2257,12 +2309,6 @@
    "pair": "AED-LKR",
    "keptInstead": "aed-to-lkr",
    "redirectTo": "aed-to-lkr"
-  },
-  {
-   "slug": "uae-to-thailand",
-   "pair": "AED-THB",
-   "keptInstead": "aed-to-thb",
-   "redirectTo": "aed-to-thb"
   },
   {
    "slug": "uae-to-turkey",
