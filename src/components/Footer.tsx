@@ -57,6 +57,17 @@ export default function Footer() {
         // it is also the only crawlable path to the site-wide index, whose
         // per-corridor form is otherwise buried inside 212 corridor pages.
         { href: "/provider-consistency", labelKey: "providerConsistency", label: "Provider consistency index" },
+        // The three data pages had no link from the homepage at all. They are
+        // not orphans — /sendscore has 347 inbound and /remittance-cost-index 74
+        // — but neither was reachable from the one page on this domain Google
+        // has actually indexed, and /transfer-cost-by-amount had just 4 inbound
+        // sitewide. Same reasoning as the note above: anchored in the footer,
+        // which is sitewide and therefore also the homepage, until they earn
+        // their own organic inbound. These are the proprietary datasets the site
+        // is differentiated by, so they should not be the hardest things to find.
+        { href: "/sendscore", labelKey: "sendScore", label: "SendScore delivery speed index" },
+        { href: "/remittance-cost-index", labelKey: "remittanceCostIndex", label: "Remittance cost index" },
+        { href: "/transfer-cost-by-amount", labelKey: "transferCostByAmount", label: "Transfer cost by amount" },
         { href: "/cash-out", labelKey: "cashOutCrypto", label: "Cash out crypto by country" },
         { href: "/iban", labelKey: "ibanLink" },
         { href: "/swift-codes", labelKey: "swiftLink" },
