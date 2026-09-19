@@ -13641,5 +13641,82 @@
         "receiveAmount": 320022.67
       }
     }
+  },
+  {
+    "date": "2026-09-19",
+    "providers": {
+      "moneygram": {
+        "rate": 3112.3334,
+        "fee": 1.99,
+        "markup": 1.57,
+        "receiveAmount": 305039.8
+      },
+      "taptap-send": {
+        "rate": 3165,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 316500
+      },
+      "boss-money": {
+        "rate": 3105.2175,
+        "fee": 1.99,
+        "markup": 1.79,
+        "receiveAmount": 304342.37
+      },
+      "western-union": {
+        "rate": 3100.7418,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 303903.7
+      },
+      "worldremit": {
+        "rate": 3079.2402,
+        "fee": 1.99,
+        "markup": 2.62,
+        "receiveAmount": 301796.33
+      },
+      "instarem": {
+        "rate": 3158.733,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 315873.3
+      },
+      "xe": {
+        "rate": 3107.097,
+        "fee": 4,
+        "markup": 1.74,
+        "receiveAmount": 298281.31
+      },
+      "paysend": {
+        "rate": 3102.5871,
+        "fee": 0,
+        "markup": 1.88,
+        "receiveAmount": 310258.71
+      },
+      "remitly": {
+        "rate": 3074.78,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 295209.63
+      },
+      "wise": {
+        "rate": 3183.5,
+        "fee": 3.29,
+        "markup": null,
+        "receiveAmount": 307876.29
+      },
+      "ria": {
+        "rate": 3063.096,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 325101.6
+      },
+      "xoom": {
+        "rate": 3200.2267,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 320022.67
+      }
+    }
   }
 ]

@@ -16611,5 +16611,94 @@
         "receiveAmount": 181724.26
       }
     }
+  },
+  {
+    "date": "2026-09-19",
+    "providers": {
+      "lemfi": {
+        "rate": 1825,
+        "fee": 0,
+        "markup": -2.31,
+        "receiveAmount": 182500
+      },
+      "moneygram": {
+        "rate": 1832.53,
+        "fee": 0.99,
+        "markup": -2.93,
+        "receiveAmount": 181438.8
+      },
+      "taptap-send": {
+        "rate": 1829,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 182900
+      },
+      "western-union": {
+        "rate": 1786.8236,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 175126.58
+      },
+      "dahabshiil": {
+        "rate": 1807.9774,
+        "fee": 1.99,
+        "markup": -1.55,
+        "receiveAmount": 177199.86
+      },
+      "transfergo": {
+        "rate": 1816.7555,
+        "fee": 0,
+        "markup": -2.04,
+        "receiveAmount": 181675.55
+      },
+      "worldremit": {
+        "rate": 1820.4149,
+        "fee": 0.99,
+        "markup": -2.25,
+        "receiveAmount": 180239.28
+      },
+      "instarem": {
+        "rate": 1766.1196,
+        "fee": 0,
+        "markup": 0.8,
+        "receiveAmount": 176611.96
+      },
+      "mukuru": {
+        "rate": 1815.32,
+        "fee": 0,
+        "markup": -1.96,
+        "receiveAmount": 181532
+      },
+      "paysend": {
+        "rate": 1820.262,
+        "fee": 0,
+        "markup": -2.24,
+        "receiveAmount": 182026.2
+      },
+      "sendwave": {
+        "rate": 1820.4149,
+        "fee": 0.99,
+        "markup": -2.25,
+        "receiveAmount": 180239.28
+      },
+      "remitly": {
+        "rate": 1829.91,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 182991
+      },
+      "ria": {
+        "rate": 1832.5137,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 186439.33
+      },
+      "wise": {
+        "rate": 1838.64,
+        "fee": 1.16,
+        "markup": null,
+        "receiveAmount": 181731.18
+      }
+    }
   }
 ]
