@@ -19,7 +19,7 @@
 | P1.5 Web Vitals | **Done** — there was no instrumentation at all; now reports LCP/INP/CLS/FCP/TTFB to GA4 |
 | P1.6 data-moat linking | **Done** — `/sendscore`, `/remittance-cost-index`, `/transfer-cost-by-amount` go 0 → 902 inbound incl. homepage |
 | P3 semantic table on `/provider-consistency` | **Done** — 126k-observation index was div-grid markup |
-| P1.4 ChatGPT decline | Measurement re-run; harness verified working |
+| P1.4 ChatGPT decline | **Measured — not a citation problem.** Perplexity 48/100, best of 7 runs |
 | P2 compare verdict boxes | Not started — see the note on `/compare` below |
 
 **What the duplication work established.** Sitewide duplicate text moved 55.9% → 55.0% and
@@ -239,6 +239,14 @@ template where the cost claim is actually made.
   verified today. The refusal is a content and trust judgment.
 - **No gating or de-duplication of the TapTap partner block.** Visibility beats editorial tidiness;
   the slot falls through to Wise if suppressed.
+
+**The ChatGPT decline is not AI citation falling off.** A full 100-prompt Perplexity run on
+2026-09-19 returned 48/100 cited — the best of the seven recorded runs (47, 46, 46, 46, 45, 48),
+with 0 errors and 0 answers citing nothing. The GA4 drop was on `chatgpt.com` specifically, a
+different platform and a different arm of this harness, which was not run (it costs ~267k prompt
+tokens). Two separate findings from the breakdown, worth their own work: a provider outranks us on
+66 of 100 prompts, and 50 of 100 recommendations are unattributed — of the attributed half our
+share is 44%. Only 10 of 48 citations land on the page the prompt was written for.
 
 ## Found while implementing, not in the original audit
 
