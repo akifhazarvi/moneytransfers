@@ -2124,6 +2124,10 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "wire-transfer-guide",
     title: "Wire Transfer Fees 2026 and Three Cheaper Alternatives",
+    // <title> must differ from the <h1>; seoTitle() otherwise reuses the
+    // headline verbatim, which wastes the SERP line on text the reader has
+    // already clicked through to see.
+    metaTitle: "Wire Transfer Fees 2026: What Banks Charge vs Apps",
     metaDescription:
       "Banks charge $25–$50 per wire plus a hidden 3–5% exchange rate markup. SWIFT, ACH, SEPA compared. We tested 3 alternatives that save 80% on costs.",
     excerpt:

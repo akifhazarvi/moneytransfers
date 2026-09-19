@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { postalAddress } from "@/lib/postal-address";
+import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
 import { GONE_COMPANY_SLUGS } from "@/lib/gone-companies";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -166,6 +167,8 @@ function DefaultReview({
   providerNews: (typeof newsItems)[number][];
 }) {
   const tp = trustpilotIndex[slug];
+  // Our own measured markup for this provider, shown beside its published one.
+  const measuredMarkup = MEASURED_MARKUPS.get(slug);
   const editorial = getCompanyEditorial(provider.slug);
   const profile = generateProviderProfile(provider, {
     score: tp?.score ?? undefined,
@@ -374,6 +377,29 @@ function DefaultReview({
                 rather than measured by our price collection. Limits and available methods vary by
                 country and account, so confirm them with {provider.name} before you send.
               </p>
+              {/* The spec grid above prints the provider's OWN published markup. Our
+                  own measurement sits next to it rather than in a separate file,
+                  because the two genuinely differ and a reader — or an assistant
+                  reading this page and llms.txt — would otherwise find two numbers
+                  from one site with nothing reconciling them. Wise publishes 0%
+                  and measures at a 0.33% median across 324 corridors.
+                  Median, never mean: a few corridors where our mid-market
+                  benchmark is unreliable (USD→NGN above all) drag the mean far
+                  enough to misdescribe a provider. */}
+              {measuredMarkup && (
+                <p className="mt-2 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
+                  Measured against mid-market, our own price collection puts {provider.name} at{" "}
+                  <strong>{measuredMarkup.markupMedianPct.toFixed(2)}% median</strong> across{" "}
+                  {measuredMarkup.corridors} corridors ({REMITTANCE_INDEX.dataAsOf}). Where that differs
+                  from the published figure above, the gap is concentrated in thin corridors whose
+                  benchmark rate is itself unreliable — on the busiest routes the two agree closely. We
+                  report the median rather than the mean for that reason.{" "}
+                  <Link href="/remittance-cost-index" className="text-[var(--color-primary)] hover:underline">
+                    How we measure cost
+                  </Link>
+                  .
+                </p>
+              )}
             </Card>
           </div>
 

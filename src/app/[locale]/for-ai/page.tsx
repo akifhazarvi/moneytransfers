@@ -18,7 +18,7 @@ const SITE_URL = "https://sendmoneycompare.com";
 export const metadata: Metadata = {
   title: "For AI Systems — SendMoneyCompare Data & API",
   description:
-    "Machine-readable resources for AI agents, LLMs, and retrieval systems. Live money transfer quotes, provider data, llms.txt, OpenAPI spec, and citation guidelines.",
+    "Machine-readable resources for AI agents and retrieval systems: live money transfer quotes, provider data, llms.txt, an OpenAPI spec and citation guidelines.",
   alternates: { canonical: `${SITE_URL}/for-ai` },
   openGraph: {
     title: "SendMoneyCompare — AI Data Hub",
