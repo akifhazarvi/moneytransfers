@@ -12,6 +12,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LazyAnalytics from "@/components/LazyAnalytics";
 import GA4PageviewTracker from "@/components/GA4PageviewTracker";
+import WebVitalsReporter from "@/components/WebVitalsReporter";
 import ProviderClickDelegate from "@/components/ProviderClickDelegate";
 import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
@@ -337,6 +338,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LazyForexTicker />
           <LazyAnalytics />
           <GA4PageviewTracker />
+          <WebVitalsReporter />
           <ProviderClickDelegate />
           <AiSourceInjector />
           <CookieConsentBanner />
