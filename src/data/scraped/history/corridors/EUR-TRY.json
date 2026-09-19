@@ -13070,10 +13070,10 @@
     "date": "2026-09-19",
     "providers": {
       "moneygram": {
-        "rate": 55.5334,
+        "rate": 55.4446,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 5470.6
+        "receiveAmount": 5461.85
       },
       "taptap-send": {
         "rate": 55.55,
@@ -13120,7 +13120,7 @@
       "remitly": {
         "rate": 55.28,
         "fee": 1.99,
-        "markup": null,
+        "markup": 1.32,
         "receiveAmount": 5417.99
       },
       "revolut": {
