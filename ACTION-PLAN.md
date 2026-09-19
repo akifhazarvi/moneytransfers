@@ -16,11 +16,11 @@
 | P2 overlong descriptions, title=H1 | **Done** — `/iban`, `/for-ai`, `/guides/wire-transfer-guide` |
 | P2 hardcoded corridor superlative | **Done** — 0 remain; guard now names them |
 | P2 alt text | **Withdrawn** — false positive, see below |
-| P1.4 ChatGPT decline | Not started — needs `check:ai-citations` re-run |
-| P1.5 Web Vitals beacon | Not started — needs app-side fix + `GOOGLE_API_KEY` |
-| P1.6 data-moat linking | Partly — `/provider-consistency` linked from ~546 pages; nav promotion not done |
+| P1.5 Web Vitals | **Done** — there was no instrumentation at all; now reports LCP/INP/CLS/FCP/TTFB to GA4 |
+| P1.6 data-moat linking | **Done** — `/sendscore`, `/remittance-cost-index`, `/transfer-cost-by-amount` go 0 → 902 inbound incl. homepage |
+| P3 semantic table on `/provider-consistency` | **Done** — 126k-observation index was div-grid markup |
+| P1.4 ChatGPT decline | Measurement re-run; harness verified working |
 | P2 compare verdict boxes | Not started — see the note on `/compare` below |
-| P3 semantic tables on data hubs | Not started |
 
 **What the duplication work established.** Sitewide duplicate text moved 55.9% → 55.0% and
 `usa-to-china` 4,603 → 4,390 words, but its *unique* word count stayed at exactly 29. A generated
@@ -239,6 +239,18 @@ template where the cost claim is actually made.
   verified today. The refusal is a content and trust judgment.
 - **No gating or de-duplication of the TapTap partner block.** Visibility beats editorial tidiness;
   the slot falls through to Wise if suppressed.
+
+## Found while implementing, not in the original audit
+
+- **`check:bundle` fails on a pre-existing 6.8 MB chunk** attributed to `/currency-converter`,
+  carrying ~19,589 scraped quote records. It is not a build gate, so it was already failing.
+  Neither `providers.ts` nor the converter's client components import a quote engine directly, so
+  it is a deeper transitive path and needs its own investigation. This is the same class as the
+  September route-map leak and matters directly for Core Web Vitals.
+- **The Web Vitals "broken beacon" was never a beacon.** There was no instrumentation in the
+  codebase at all; the 5 stray LCP/FCP/CLS events came from somewhere else. Now implemented.
+- **`check:corridor-claims` counted a drifting claim without naming it** — two of its four
+  increment sites bumped the counter silently. Fixed, which surfaced and resolved the last one.
 
 ## Honest gaps in this audit
 
