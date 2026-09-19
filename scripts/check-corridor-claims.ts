@@ -216,7 +216,7 @@ for (const corridor of corridors as unknown as Record<string, never>[] as unknow
         problems.push({ slug: corridor.slug, field, claimed: named.join("/"), leader, basis: record.basis, sentence: sentence.trim().slice(0, 160) });
         continue;
       }
-      if (named.some((n) => n.toLowerCase() === leader.toLowerCase())) { matchingLeader++; continue; }
+      if (named.some((n) => n.toLowerCase() === leader.toLowerCase())) { matchingLeader++; noteAgreeing(`${corridor.slug} [${field}] (today's leader, no 90-day record)`, sentence); continue; }
       problems.push({ slug: corridor.slug, field, claimed: named.join("/"), leader, basis: `today's top estimate is ${leader} (no 90-day record for this pair)`, sentence: sentence.trim().slice(0, 160) });
     }
   }
@@ -253,7 +253,7 @@ function scanBlocks(
           problems.push({ slug: `${slug} (${label})`, field, claimed: named.join("/"), leader, basis: record.basis, sentence: sentence.trim().slice(0, 160) });
           continue;
         }
-        if (named.some((n) => n.toLowerCase() === leader.toLowerCase())) { matchingLeader++; continue; }
+        if (named.some((n) => n.toLowerCase() === leader.toLowerCase())) { matchingLeader++; noteAgreeing(`${slug} (${label}) [${field}] (today's leader, no 90-day record)`, sentence); continue; }
         problems.push({ slug: `${slug} (${label})`, field, claimed: named.join("/"), leader, basis: `today's top estimate is ${leader} (no 90-day record)`, sentence: sentence.trim().slice(0, 160) });
       }
     }
@@ -378,5 +378,6 @@ if (problems.length) {
 console.log(
   `check:corridor-claims ok — no corridor names a provider the live comparison contradicts.\n` +
   `${matchingLeader} claim(s) currently agree with the leader but are still hardcoded and will drift;\n` +
-  `prefer corridorComparisonSummary() for anything that changes with the day's rates.`,
+  `prefer corridorComparisonSummary() for anything that changes with the day's rates.` +
+  (matchingLeader && !LIST_AGREEING ? `\nRe-run with LIST_AGREEING=1 to see which.` : ""),
 );
