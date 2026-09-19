@@ -134,8 +134,38 @@ function classifyFeeModels(): Record<string, FeeModel> {
   return models;
 }
 
+/**
+ * Providers whose fee structure we have verified against their own published
+ * policy. A published rule beats an inferred one: the classifier above pools
+ * observations, and where a provider's real pricing is a step function it can
+ * read the step as a slope.
+ *
+ * OFX is the case that forced this. Its FAQ (every regional variant serves the
+ * same text, fetched 2026-09-19) states a flat "AU$15 when transferring under
+ * AU$10,000 (or foreign currency equivalent)", and the US FAQ states US-dollar
+ * transfers are fee-free regardless of amount. The scraped set only samples 500
+ * and 1000, so the classifier had no view of the step and inferred
+ * "proportional" — which scaled OFX's flat GBP£7 up to **£220.61 on a £20,000
+ * transfer**, an amount at which OFX in fact charges nothing. That is a
+ * fabricated figure on a YMYL comparison, and it is large enough to move
+ * rankings.
+ */
+const PUBLISHED_FEE_MODELS: Record<string, FeeModel> = {
+  ofx: "flat",
+};
+
+// KNOWN REMAINING GAP: OFX's flat charge applies only BELOW the threshold, so
+// above AU$10,000-equivalent the truthful fee is 0, not the flat value. We hold
+// the flat value there, which overstates OFX's cost slightly (£7 on £20,000 =
+// 0.035%) rather than understating it. Closing it properly needs a per-currency
+// threshold; only AU$10,000 and CA$10,000 are published as exact figures, and
+// USD is already 0 at every amount, so the rest would have to be derived by
+// converting AU$10,000 at mid-market rather than quoted from OFX.
+
 let feeModelCache: Record<string, FeeModel> | null = null;
 export function feeModelFor(providerSlug: string): FeeModel {
+  const published = PUBLISHED_FEE_MODELS[providerSlug];
+  if (published) return published;
   if (!feeModelCache) feeModelCache = classifyFeeModels();
   return feeModelCache[providerSlug] ?? "unknown";
 }
@@ -170,6 +200,26 @@ export function estimatePricing(
   const nearest = points.reduce((best, p) =>
     Math.abs(p.amount - target) < Math.abs(best.amount - target) ? p : best,
   );
+
+  // A flat fee does not vary with the send amount — that is what "flat" means —
+  // so neither interpolating nor slope-projecting it is meaningful. Take the
+  // fee from the most authoritative observation instead (sourcePriority: lower
+  // is better, 1 = the provider's own API), breaking ties on proximity.
+  //
+  // This matters because sources disagree about what "fee" means. OFX GBP->INR
+  // holds 7 at both 500 and 1000 from ofx-api, while exiap reports 132.30 at
+  // 5,000 and remitroutes 4.80 at 200 — i.e. ~2.5% of the send, which is OFX's
+  // total cost, not the flat charge OFX publishes. Fitting a slope through
+  // those made the fee grow without limit with the send amount.
+  const authoritative = model === "flat"
+    ? points.reduce((best, p) =>
+        p.sourcePriority < best.sourcePriority
+        || (p.sourcePriority === best.sourcePriority
+            && Math.abs(p.amount - target) < Math.abs(best.amount - target))
+          ? p
+          : best,
+      )
+    : null;
   const base = {
     dateCollected: oldestCollection(nearest.dateCollected),
     deliveryEstimate: nearest.deliveryEstimate,
@@ -177,10 +227,20 @@ export function estimatePricing(
     ...(nearest.promoNote ? { promoNote: nearest.promoNote } : {}),
   };
 
-  // Exact hit — nothing to estimate.
+  // Exact hit — nothing to estimate. The fee still defers to the authoritative
+  // observation for a flat-fee provider: an exact hit from a third-party
+  // aggregator that reports total cost in the fee field is not a better answer
+  // than the provider's own published flat charge (OFX at exactly 5,000 hit
+  // exiap's 132.30 while OFX itself charges 7).
   const exact = points.find((p) => p.amount === target);
   if (exact) {
-    return { ...base, fee: exact.fee, markup: exact.markup, confidence: "observed", anchorAmount: exact.amount };
+    return {
+      ...base,
+      fee: authoritative ? authoritative.fee : exact.fee,
+      markup: exact.markup,
+      confidence: "observed",
+      anchorAmount: exact.amount,
+    };
   }
 
   const lo = points[0];
@@ -200,7 +260,7 @@ export function estimatePricing(
     const t = span > 0 ? (target - left.amount) / span : 0;
     return {
       ...base,
-      fee: clampFee(left.fee + (right.fee - left.fee) * t, target),
+      fee: clampFee(authoritative ? authoritative.fee : left.fee + (right.fee - left.fee) * t, target),
       markup: left.markup + (right.markup - left.markup) * t,
       confidence: "interpolated",
       dateCollected: oldestCollection(left.dateCollected, right.dateCollected),
@@ -224,7 +284,7 @@ export function estimatePricing(
     const run = b.amount - a.amount;
     const slope = run > 0 ? (b.fee - a.fee) / run : 0;
     const projected = edge.fee + slope * (target - edge.amount);
-    return { ...base, dateCollected: oldestCollection(a.dateCollected, b.dateCollected), fee: clampFee(projected, target), markup, confidence: "extrapolated" };
+    return { ...base, dateCollected: oldestCollection(a.dateCollected, b.dateCollected), fee: clampFee(authoritative ? authoritative.fee : projected, target), markup, confidence: "extrapolated" };
   }
 
   // Single observation: fall back to the provider's cross-corridor fee model,
