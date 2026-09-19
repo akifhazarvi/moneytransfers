@@ -11516,10 +11516,10 @@
         "receiveAmount": 359476.99
       },
       "taptap-send": {
-        "rate": 3580,
+        "rate": 3600,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 358000
+        "receiveAmount": 360000
       },
       "western-union": {
         "rate": 3560.1376,
@@ -11560,7 +11560,7 @@
       "remitly": {
         "rate": 3594.04,
         "fee": 2.99,
-        "markup": null,
+        "markup": 1.65,
         "receiveAmount": 348657.82
       },
       "revolut": {
