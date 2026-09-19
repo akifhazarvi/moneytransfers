@@ -48,7 +48,9 @@ export interface PartnerQuote {
  *
  * `variant="inline"` matches the `.smc-featured` aside used inside article
  * prose; `"section"` is the full-bleed treatment for the homepage and corridor
- * pages. Both sit below/after any ranked comparison.
+ * pages; `"card"` is the same card with no section/Container wrapper, for
+ * slots that already sit inside a Container (the inline comparison tables).
+ * All three sit below/after any ranked comparison.
  */
 export default function PartnerFeatureBlock({
   source,
@@ -57,7 +59,7 @@ export default function PartnerFeatureBlock({
   linkContext,
 }: {
   source: string;
-  variant?: "section" | "inline";
+  variant?: "section" | "inline" | "card";
   quote?: PartnerQuote;
   /**
    * The corridor this placement sits on, if any. Threaded into the /go link
@@ -87,6 +89,7 @@ export default function PartnerFeatureBlock({
   const recvSymbol = quote ? symbolFor(quote.toCurrency) : "";
 
   const inline = variant === "inline";
+  const bare = variant === "card";
 
   /** Send → receive panel. The concrete number a reader can act on. */
   const ratePanel = quote && (
@@ -183,46 +186,50 @@ export default function PartnerFeatureBlock({
     );
   }
 
+  const card = (
+    <div className={`${bare ? "my-10 " : "max-w-3xl mx-auto "}rounded-2xl bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)]/60 p-6 sm:p-8`}>
+      <div className="flex items-center gap-3">
+        <Image
+          src={providerLogo(slug)}
+          alt="TapTap Send"
+          width={40}
+          height={40}
+          className="rounded-lg object-contain"
+        />
+        <div>
+          <span className="block text-2xs font-semibold uppercase tracking-[0.12em] text-[var(--color-on-surface-variant)]">
+            Ad
+          </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
+            TapTap Send
+          </h2>
+        </div>
+      </div>
+      {ratePanel}
+      {savingsLine}
+      <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <ProviderLink
+          href={href}
+          provider={slug}
+          source={source}
+          corridor={corridorForTracking}
+          className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+        >
+          {ctaLabel}
+        </ProviderLink>
+        <Link href="/companies/taptap-send" className="text-sm font-semibold text-[var(--color-primary)] hover:underline">
+          Read our review &rarr;
+        </Link>
+      </div>
+      <p className="mt-4 text-2xs text-[var(--color-on-surface-variant)]">{disclosure}</p>
+    </div>
+  );
+
+  if (bare) return card;
+
   return (
     <section className="py-8 sm:py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
-      <Container>
-        <div className="max-w-3xl mx-auto rounded-2xl bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)]/60 p-6 sm:p-8">
-          <div className="flex items-center gap-3">
-            <Image
-              src={providerLogo(slug)}
-              alt="TapTap Send"
-              width={40}
-              height={40}
-              className="rounded-lg object-contain"
-            />
-            <div>
-              <span className="block text-2xs font-semibold uppercase tracking-[0.12em] text-[var(--color-on-surface-variant)]">
-                Ad
-              </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
-                TapTap Send
-              </h2>
-            </div>
-          </div>
-          {ratePanel}
-          {savingsLine}
-          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-            <ProviderLink
-              href={href}
-              provider={slug}
-              source={source}
-              corridor={corridorForTracking}
-              className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-            >
-              {ctaLabel}
-            </ProviderLink>
-            <Link href="/companies/taptap-send" className="text-sm font-semibold text-[var(--color-primary)] hover:underline">
-              Read our review &rarr;
-            </Link>
-          </div>
-          <p className="mt-4 text-2xs text-[var(--color-on-surface-variant)]">{disclosure}</p>
-        </div>
-      </Container>
+      <Container>{card}</Container>
     </section>
   );
 }

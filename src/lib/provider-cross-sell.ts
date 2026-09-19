@@ -85,16 +85,17 @@ export function siteCrossSellConfig(pathname: string) {
   if (!surfaces.includes(section)) return null;
   if (path === "/business/compare") return null;
   const business = section === "business" || (section === "companies" && ["torfx", "currencies-direct", "ofx", "moneycorp", "regencyfx"].includes(slug));
-  // Sections whose inline comparison table now renders the paid partner's ad
-  // with a live rate and payout. The page-end module drops that partner there
-  // and shows the others instead, so the page carries two different units
-  // rather than the same provider twice — once with numbers, once without.
-  // Partner visibility is unchanged: the ad is the stronger placement.
-  const adOnPage = ["iban", "swift-codes", "banks", "travel", "news", "tools", "exchange-rates"].includes(section);
+  // Not excluded on the sections that now carry the live-rate ad inline.
+  // Tried on 2026-09-19 and reverted: the inline table is conditional on
+  // those pages, so excluding the partner here dropped it from 38 pages that
+  // render no ad — the page-end slot falls through to Wise, which is the
+  // visibility loss [[feedback_taptap_visibility_over_dedup]] is about. The
+  // ad and this module are different units (one live quote vs three partners
+  // to browse), so carrying both is not the duplication that was reported.
   return {
     source: path === "/" ? "home" : path.slice(1),
     intent: business ? "business" as const : "personal" as const,
-    exclude: section === "companies" ? slug : adOnPage ? "taptap-send" : undefined,
+    exclude: section === "companies" ? slug : undefined,
     title: section === "companies" && slug ? "Explore other transfer providers." : business ? "Put your next business payment in motion." : "Your next transfer starts here.",
   };
 }
