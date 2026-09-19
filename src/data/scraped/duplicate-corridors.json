@@ -1,15 +1,15 @@
 {
- "generated": "2026-09-19T16:12:55.885Z",
+ "generated": "2026-09-19T16:19:18.738Z",
  "rationale": "Corridor pages whose currency pair is already represented by a stronger page. Quotes are keyed on currency pair, not country pair, so these restate a twin verbatim. Content brief Sep 2026, §4 / §10-A generation threshold.",
- "renderedBefore": 830,
- "distinctCurrencyPairs": 382,
- "retiring": 410,
- "renderedAfter": 420,
+ "renderedBefore": 832,
+ "distinctCurrencyPairs": 383,
+ "retiring": 411,
+ "renderedAfter": 421,
  "keptPerPair": {
   "AED-ARS": "aed-to-ars",
   "AED-BDT": "uae-to-bangladesh",
   "AED-BRL": "aed-to-brl",
-  "AED-CLP": "aed-to-clp",
+  "AED-COP": "aed-to-cop",
   "AED-EUR": "aed-to-eur",
   "AED-GHS": "aed-to-ghs",
   "AED-IDR": "aed-to-idr",
@@ -24,6 +24,7 @@
   "AED-PEN": "aed-to-pen",
   "AED-PHP": "uae-to-philippines",
   "AED-PKR": "uae-to-pakistan",
+  "AED-THB": "aed-to-thb",
   "AED-TRY": "aed-to-try",
   "AED-UAH": "aed-to-uah",
   "AED-VND": "aed-to-vnd",
@@ -2209,10 +2210,10 @@
    "redirectTo": "aed-to-brl"
   },
   {
-   "slug": "uae-to-chile",
-   "pair": "AED-CLP",
-   "keptInstead": "aed-to-clp",
-   "redirectTo": "aed-to-clp"
+   "slug": "uae-to-colombia",
+   "pair": "AED-COP",
+   "keptInstead": "aed-to-cop",
+   "redirectTo": "aed-to-cop"
   },
   {
    "slug": "uae-to-croatia",
@@ -2309,6 +2310,12 @@
    "pair": "AED-LKR",
    "keptInstead": "aed-to-lkr",
    "redirectTo": "aed-to-lkr"
+  },
+  {
+   "slug": "uae-to-thailand",
+   "pair": "AED-THB",
+   "keptInstead": "aed-to-thb",
+   "redirectTo": "aed-to-thb"
   },
   {
    "slug": "uae-to-turkey",
