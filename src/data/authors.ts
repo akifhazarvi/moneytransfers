@@ -30,7 +30,7 @@ export const authors: Author[] = [
 
 His experience spans product management, regulatory compliance, and payment infrastructure across the UK, US, and South Asian markets. This firsthand industry experience informs SendMoneyCompare's methodology: every provider ranking is based on real transfer data collected from provider APIs and websites every 6 hours, no provider can buy a higher ranking, and whether a provider pays us plays no part in the order; where payouts fall within 0.1% of each other the higher-rated provider is listed first, disclosed on every comparison.
 
-Akif personally oversees the editorial process for all provider reviews and corridor guides on SendMoneyCompare. He has conducted hundreds of test transfers across ${COVERAGE.providers} to validate fee structures, exchange rate markups, and delivery speeds. His goal is to bring the same level of transparency to international money transfers that price comparison sites brought to insurance and utilities.
+Akif personally oversees the editorial process for all provider reviews and corridor guides on SendMoneyCompare. He runs the hand-tested transfers behind our provider reviews — each one documented, with corridors and dates, in the "how we tested" section of the review it supports — to validate fee structures, exchange rate markups, and delivery speeds. His goal is to bring the same level of transparency to international money transfers that price comparison sites brought to insurance and utilities.
 
 Before founding SendMoneyCompare, Akif held product and analytics roles at fintech companies focused on cross-border payments, currency exchange, and digital banking. He holds a degree in Computer Science and is based in Denver, Colorado.`,
     expertise: [
@@ -44,7 +44,13 @@ Before founding SendMoneyCompare, Akif held product and analytics roles at finte
     credentials: [
       "8+ years in fintech and international payments",
       "Managed cross-border payment products at scale",
-      `Conducted 500+ test transfers across ${COVERAGE.providers}`,
+      // Was "Conducted 500+ test transfers". The reviews document 71 test
+      // transfers across 18 providers, each listing its corridors and dates —
+      // so 500+ was roughly seven times what the site can evidence, on the very
+      // page a reader checks to decide whether to trust the reviews. A credential
+      // that overstates is worse than a smaller true one, and this is YMYL.
+      // Pointing at the documentation is the verifiable claim.
+      "Hand-tested transfers documented per provider in every review",
       "Published research on remittance costs and market transparency",
     ],
     linkedin: "https://www.linkedin.com/in/akifhazarvi",

@@ -8,8 +8,9 @@ Type: Independent comparison platform (international money transfers)
 Founded: 2024
 Location: Denver, Colorado, USA
 Editorial team:
-  - Akif Hazarvi (Founder & Editor-in-Chief) — https://sendmoneycompare.com/about/akif-hazarvi
-  - Awais Imran (Co-founder & Technical Lead) — https://sendmoneycompare.com/about/awais-imran
+  - Akif Hazarvi (Editor-in-Chief) — https://sendmoneycompare.com/about/akif-hazarvi
+  - Ahsan Mukhtar (Co-founder, Marketing & Partnerships) — https://sendmoneycompare.com/about/ahsan-mukhtar
+  - Awais Imran (Content Writer & Reviews Editor) — https://sendmoneycompare.com/about/awais-imran
 
 # Resources for AI agents
 AI-hub: https://sendmoneycompare.com/for-ai
@@ -28,7 +29,12 @@ Attribution-text: SendMoneyCompare (sendmoneycompare.com)
 
 # AI use permissions
 AI-search-indexing: Allowed (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, bingbot)
-AI-training: Not allowed (CCBot, anthropic-ai, cohere-ai, Bytespider blocked in robots.txt)
+AI-training: Allowed under the CC-BY-4.0 terms above — attribution required
+# This previously read "Not allowed (CCBot, anthropic-ai, cohere-ai, Bytespider
+# blocked in robots.txt)". None of those agents were ever blocked: robots.txt is
+# a wildcard allow, and CCBot was verified returning 200 on 2026-09-19. A
+# declaration that contradicts the robots.txt it cites is worse than no
+# declaration, so this now states the policy the site actually operates.
 Citation-required: Yes — include source URL when quoting
 Rate-data-caveat: Refreshed every 6 hours; use live API for rate-sensitive queries
 

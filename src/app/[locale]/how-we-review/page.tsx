@@ -40,7 +40,16 @@ export default async function HowWeReviewPage({ params }: Props) {
     {
       title: t("transferSpeed"),
       weight: t("transferSpeedWeight"),
-      desc: "How quickly does the money arrive? We measure delivery times across multiple corridors and payment methods, from instant transfers to standard bank deposits.",
+      // Scoped 2026-09-19. This read "We measure delivery times across multiple
+      // corridors and payment methods", which contradicted the disclosure every
+      // corridor page carries — "we do not measure when transfers actually
+      // arrive". Both were defensible in their own scope and neither said which:
+      // delivery time IS tracked on the hand-run test transfers documented per
+      // provider in provider-reviews.ts, and is NOT measured on the scraped
+      // quote set that ranks the corridor tables, where the speeds are what the
+      // provider advertises. Stating the scope keeps the stronger claim and
+      // removes the contradiction.
+      desc: "How quickly does the money arrive? We track delivery times on the test transfers we run ourselves, documented per provider. Speeds shown in corridor tables are the providers' own advertised estimates — we do not observe when those transfers land.",
     },
     {
       title: t("coverage"),

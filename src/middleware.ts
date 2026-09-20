@@ -28,6 +28,19 @@ const ALLOWED_BOTS = [
   "googlebot", "bingbot", "yandexbot", "duckduckbot", "baiduspider",
   "applebot", "chatgpt-user", "gptbot", "oai-searchbot",
   "perplexitybot", "claudebot", "anthropic-ai", "ccbot", "cohere-ai",
+  // Added 2026-09-19. These seven reached the site only by falling through the
+  // heuristics below — they were never named, so they took the human path and
+  // received the 5 geo/consent Set-Cookie headers, which forces
+  // `Cache-Control: private, max-age=0` on the HTML. That uncacheable variant
+  // is the same signal implicated in the May 2026 deindex, and these are the
+  // crawlers behind the site's best-converting channel.
+  //
+  // "applebot-extended" and "google-extended" are training-corpus opt-out
+  // agents rather than fetchers, but they are named here for the same reason:
+  // whatever arrives should be classified deliberately, not by fallback.
+  "claude-searchbot", "claude-user", "perplexity-user",
+  "google-extended", "applebot-extended", "duckassistbot",
+  "mistralai-user", "amazonbot",
   "semrushbot", "ahrefsbot",
   "bytespider", "facebookexternalhit", "facebookcatalog", "meta-externalagent",
   "twitterbot", "linkedinbot", "whatsapp", "telegrambot", "discordbot",
