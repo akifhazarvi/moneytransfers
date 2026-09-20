@@ -978,7 +978,7 @@ export const newsItems: NewsItem[] = [
 <tbody>
 <tr class="blog-row-highlight"><td><strong>Indian Rupee (INR)</strong></td><td>Record low 88.8 vs USD</td><td>More rupees per dollar — good time to send</td><td><a href="/send-money/usa-to-india">Rates →</a></td></tr>
 <tr><td><strong>Pakistani Rupee (PKR)</strong></td><td>Under pressure</td><td>Volatile — use rate alerts</td><td><a href="/send-money/usa-to-pakistan">Rates →</a></td></tr>
-<tr><td><strong>South African Rand (ZAR)</strong></td><td>Fell 0.5-1%</td><td>Slightly more ZAR per dollar</td><td><a href="/send-money/usa-to-south-africa">Rates →</a></td></tr>
+<tr><td><strong>South African Rand (ZAR)</strong></td><td>Fell 0.5-1%</td><td>Slightly more ZAR per dollar</td><td><a href="/send-money/send-money-to-south-africa">Rates →</a></td></tr>
 <tr><td><strong>Thai Baht (THB)</strong></td><td>Fell 0.5-1%</td><td>Better rates for senders to Thailand</td><td>—</td></tr>
 <tr><td><strong>Mexican Peso (MXN)</strong></td><td>Resilient</td><td>MXN held up better than most — trade integration</td><td><a href="/send-money/usa-to-mexico">Rates →</a></td></tr>
 </tbody>

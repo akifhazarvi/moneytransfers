@@ -12775,7 +12775,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "South Africa: Sub-Saharan Africa's Largest Economy",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup and a fee of ~$7 on $1,000. That does not make it automatically cheapest on this route — check the comparison above for the current leader. <a href="/companies/worldremit">WorldRemit</a> is excellent for FNB eWallet and cash pickup at Shoprite. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. On a typical $1,000 transfer, specialist providers deliver <strong>R500–R1,500 more</strong> than bank wires. South Africa's Big 5 banks (FNB, Standard Bank, Absa, Nedbank, Capitec) all accept international transfers. <a href="/send-money/usa-to-south-africa">Compare live USD to ZAR rates</a> from 10+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup and a fee of ~$7 on $1,000. That does not make it automatically cheapest on this route — check the comparison above for the current leader. <a href="/companies/worldremit">WorldRemit</a> is excellent for FNB eWallet and cash pickup at Shoprite. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. On a typical $1,000 transfer, specialist providers deliver <strong>R500–R1,500 more</strong> than bank wires. South Africa's Big 5 banks (FNB, Standard Bank, Absa, Nedbank, Capitec) all accept international transfers. <a href="/send-money/send-money-to-south-africa">Compare live USD to ZAR rates</a> from 10+ providers.</p></div>
 <div class="blog-callout-blue-sm"><p><strong>Key data:</strong> SendMoneyCompare data shows specialist providers deliver R500–R1,500 more than bank wires on a $1,000 transfer to South Africa. FNB eWallet enables instant delivery to any South African mobile phone without a bank account, accessible via 300,000+ FNB ATMs.</p></div>
 <p>South Africa is sub-Saharan Africa's most developed financial market, with a well-regulated banking system and growing digital payment infrastructure. The country receives remittances primarily from the <strong>USA, UK, Australia, Canada, and other African countries</strong>.</p>
 <p>What makes the South Africa corridor unique: the South African Rand (ZAR) is one of the most traded emerging market currencies, with deep liquidity and tight spreads. This means specialist providers can offer much better rates than banks — but the ZAR is also volatile, with 5–10% swings in a quarter being common. Timing your transfer and comparing providers on the day you send matters more here than on stable corridors.</p>`,
@@ -12793,7 +12793,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agents at Shoprite, Checkers, Pick n Pay, post offices across SA</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/usa-to-south-africa">Compare live rates →</a></p>
+<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/send-money-to-south-africa">Compare live rates →</a></p>
 </div>
 
 <h3>From the USA (USD → ZAR)</h3>
@@ -12824,7 +12824,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "Step-by-Step: How to Send Money to South Africa",
         content: `<ol>
-<li><strong>Choose a provider.</strong> Use our comparison tool (<a href="/send-money/usa-to-south-africa">USD to ZAR</a> or <a href="/send-money/usa-to-nigeria">GBP to ZAR</a>) to compare live rates. Focus on total Rand received.</li>
+<li><strong>Choose a provider.</strong> Use our comparison tool (<a href="/send-money/send-money-to-south-africa">USD to ZAR</a> or <a href="/send-money/usa-to-nigeria">GBP to ZAR</a>) to compare live rates. Focus on total Rand received.</li>
 <li><strong>Create an account.</strong> You'll need your government-issued ID, address, and basic personal details. Most providers verify within minutes.</li>
 <li><strong>Choose a delivery method:</strong>
 <ul>
@@ -12886,7 +12886,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Chase/Citi wire</strong></td><td>$25–$50</td><td>3–5%</td><td>R16,800 (example)</td></tr>
 </tbody>
 </table>
-<p><em>Rates are illustrative — <a href="/send-money/usa-to-south-africa">check live rates here</a>.</em></p>
+<p><em>Rates are illustrative — <a href="/send-money/send-money-to-south-africa">check live rates here</a>.</em></p>
 <p>Bank wires to South Africa are expensive in three ways: high upfront fees ($25–$50), a 3–5% exchange rate markup, AND the receiving South African bank may charge an incoming SWIFT fee of R100–R500. On $1,000, you lose <strong>R1,000–R1,500</strong> compared to a specialist provider. Over a year of monthly transfers, that's <strong>R12,000–R18,000</strong> (~$650–$1,000) in unnecessary costs.</p>
 <p>For a detailed breakdown of how markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
       },
@@ -14900,7 +14900,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Card funding adds 0.5–1% on top of the regular fee. For non-urgent transfers, ACH (US) or SEPA (EU) funding is cheaper. Save card funding for genuine emergencies.</p>
 
 <h3>5. Ignoring the KRW Mid-Market Rate</h3>
-<p>KRW is volatile — it can move 0.5–1% in a single day on US Federal Reserve news or Korean current account data. Always check the <a href="/send-money/usa-to-south-korea">live USD to KRW rate</a> before initiating, and avoid locking in a rate during periods of high volatility unless you're using OFX's rate-lock feature. For more on how providers mark up the rate, see <a href="/guides/exchange-rate-markup-explained">how exchange rate markup works</a>.</p>`,
+<p>KRW is volatile — it can move 0.5–1% in a single day on US Federal Reserve news or Korean current account data. Always check the <a href="/send-money/send-money-to-south-korea">live USD to KRW rate</a> before initiating, and avoid locking in a rate during periods of high volatility unless you're using OFX's rate-lock feature. For more on how providers mark up the rate, see <a href="/guides/exchange-rate-markup-explained">how exchange rate markup works</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",

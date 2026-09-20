@@ -32,6 +32,40 @@ const RETIRED_SLUGS = new Set<string>([
   "usa-to-china",
   "usa-to-egypt",
   "send-money-to-zimbabwe",
+  // Second wave, same audit: every corridor measuring >=95% repeated text with
+  // fewer than 110 word positions found nowhere else, out of 3,000-5,500 words
+  // of body. Measured on production HTML with 10-word shingles over <main>,
+  // React's $RC streaming splice replayed first (see FOLLOWUP.md). These carry
+  // a full corridor template and almost no route-specific fact, so there is no
+  // twin to consolidate into — 410, per this file's rule.
+  //
+  // Deliberately NOT extended to the >=90% band: those pages measure 318-582
+  // unique words, which is real content sharing a template rather than
+  // duplicate content. Retiring them would delete substance without touching
+  // the shared boilerplate that produces the ratio.
+  //
+  // uk-to-guatemala (96.6%) and gbp-to-gtq (95.3%) also cleared the threshold
+  // but are in RANKING_CORRIDOR_SLUGS, so GONE_CORRIDOR_SLUGS filters them out
+  // below and listing them here would be a silent no-op. They need
+  // differentiation instead.
+  //
+  // usa-to-canada (98.7%, 46 unique words) cleared the threshold too and is
+  // deliberately NOT retired: it is in HEAD_CORRIDOR_SLUGS, which exists to
+  // exempt high-demand routes from exactly this kind of sweep on the grounds
+  // that their zero traffic reflects post-2026-03-20 suppression rather than
+  // low demand. Retiring it would contradict that decision. It is a rewrite
+  // candidate, not a deletion candidate.
+  "usa-to-south-africa",
+  "canada-to-germany",
+  "send-money-to-croatia",
+  "canada-to-spain",
+  "usa-to-tanzania",
+  "usa-to-thailand",
+  "usa-to-poland",
+  "usa-to-peru",
+  "usa-to-south-korea",
+  "usa-to-argentina",
+  "usa-to-israel",
   "europe-to-india",
   "europe-to-nigeria",
   "europe-to-pakistan",
