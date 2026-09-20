@@ -1970,7 +1970,20 @@ export default async function CorridorPage({ params }: Props) {
       })()}
 
       {/* ─── What You Need (Recipient Requirements) ─── */}
-      {countryDetails && (
+      {countryDetails && destinationHubSlug && (
+        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">Recipient details for your transfer</h2>
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
+                Before sending from {corridor.fromCountry}, confirm these details with your recipient in {corridor.toCountry}: {countryDetails.recipientRequirements.filter((req) => req.required).map((req) => req.label).join(", ")}.
+              </p>
+              <Link href={`/send-money/${destinationHubSlug}`} className="text-sm text-[var(--color-primary)] underline">Receiving requirements and examples for {corridor.toCountry}</Link>
+            </div>
+          </Container>
+        </section>
+      )}
+      {countryDetails && !destinationHubSlug && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
@@ -2041,67 +2054,35 @@ export default async function CorridorPage({ params }: Props) {
                     </h3>
                     {exQuotes.length > 0 ? (
                       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
-                        {/* Mobile — 3-col condensed (Provider / Fee / Receives) */}
-                        <div className="sm:hidden">
-                          <div className="grid grid-cols-[1fr_70px_100px] gap-2 px-4 py-2.5 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-                            <span>Provider</span>
-                            <span className="text-right">Fee</span>
-                            <span className="text-right">Receives</span>
-                          </div>
-                          {exQuotes.map((q, i) => (
-                            <div
-                              key={q.providerSlug}
-                              className={`grid grid-cols-[1fr_70px_100px] gap-2 items-center px-4 py-2.5 border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}
-                            >
-                              <div className="min-w-0">
-                                <p className={`text-2sm font-medium truncate ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                                  {getProviderName(q.providerSlug)}
-                                </p>
-                                <p className="text-2xs text-[var(--color-on-surface-variant)] truncate">
-                                  {q.exchangeRate.toFixed(2)} · {q.transferSpeed}
-                                </p>
-                              </div>
-                              <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
-                                {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
-                              </span>
-                              <span className={`text-2sm font-medium text-right tabular-nums ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                                {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Desktop — full 5-col */}
-                        <div className="hidden sm:block">
-                          <div className="grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 px-5 py-2.5 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-                            <span>Provider</span>
-                            <span className="text-right">Fee</span>
-                            <span className="text-right">Rate</span>
-                            <span className="text-right">Receives</span>
-                            <span className="text-right">Speed</span>
-                          </div>
-                          {exQuotes.map((q, i) => (
-                            <div
-                              key={q.providerSlug}
-                              className={`grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 items-center px-5 py-2.5 border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}
-                            >
-                              <span className={`text-2sm font-medium truncate ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                                {getProviderName(q.providerSlug)}
-                              </span>
-                              <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
-                                {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
-                              </span>
-                              <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
-                                {q.exchangeRate.toFixed(2)}
-                              </span>
-                              <span className={`text-2sm font-medium text-right tabular-nums ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                                {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
-                              </span>
-                              <span className="text-2xs text-[var(--color-on-surface-variant)] text-right">
-                                {q.transferSpeed}
-                              </span>
-                            </div>
-                          ))}
+                        {/* One responsive table: avoid emitting every quote twice. */}
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-2sm text-left">
+                            <thead className="bg-[var(--color-surface-container)] text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                              <tr>
+                                <th scope="col" className="px-4 py-2.5 font-medium">Provider</th>
+                                <th scope="col" className="px-3 py-2.5 text-right font-medium">Fee</th>
+                                <th scope="col" className="hidden sm:table-cell px-3 py-2.5 text-right font-medium">Rate</th>
+                                <th scope="col" className="px-4 py-2.5 text-right font-medium">Receives</th>
+                                <th scope="col" className="hidden sm:table-cell px-4 py-2.5 text-right font-medium">Speed</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {exQuotes.map((q, i) => (
+                                <tr key={q.providerSlug} className={`border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}>
+                                  <th scope="row" className="px-4 py-2.5 font-medium">
+                                    <span className={i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}>{getProviderName(q.providerSlug)}</span>
+                                    <span className="block sm:hidden text-2xs font-normal text-[var(--color-on-surface-variant)]">{q.exchangeRate.toFixed(2)} · {q.transferSpeed}</span>
+                                  </th>
+                                  <td className="px-3 py-2.5 text-right tabular-nums whitespace-nowrap">{q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}</td>
+                                  <td className="hidden sm:table-cell px-3 py-2.5 text-right tabular-nums">{q.exchangeRate.toFixed(2)}</td>
+                                  <td className={`px-4 py-2.5 text-right tabular-nums whitespace-nowrap font-medium ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                                    {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                                  </td>
+                                  <td className="hidden sm:table-cell px-4 py-2.5 text-right text-2xs text-[var(--color-on-surface-variant)]">{q.transferSpeed}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                     ) : (
@@ -2442,8 +2423,7 @@ export default async function CorridorPage({ params }: Props) {
                 {countryDetails.popularBanks.length > 0
                   ? `, and ${countryDetails.popularBanks.length} banks commonly receive international transfers there.`
                   : "."}{" "}
-                These rules are the same whichever country you send from, so they live on one page rather than being
-                restated on every route into {corridor.toCountry}.
+                Check the receiving requirements below, then confirm any additional documentation your chosen provider requests for this transfer.
               </p>
               <Link
                 href={`/send-money/${destinationHubSlug}`}

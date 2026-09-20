@@ -11,7 +11,8 @@ import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
 import TrustBadges from "@/components/TrustBadges";
 import CurrencyPicker from "@/components/CurrencyPicker";
-import CryptoRailSection from "@/components/CryptoRailSection";
+import CryptoRailSectionClient from "@/components/CryptoRailSectionClient";
+import type { CryptoRailSectionData } from "@/lib/crypto-rail-section";
 import { currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
 import { fetchQuotes } from "@/lib/fetch-quotes";
 import type { RateInsight, ProviderInsight } from "@/lib/rate-history-types";
@@ -134,7 +135,7 @@ const allPaymentMethods = [
   "Cash",
 ];
 
-function SendMoneyContent() {
+function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRailSectionData }) {
   const searchParams = useSearchParams();
   const paramFrom = searchParams.get("from") || "USD";
   const paramTo = searchParams.get("to") || "INR";
@@ -754,7 +755,7 @@ function SendMoneyContent() {
           routes where a stablecoin rail is genuinely a cheaper option (USD→INR,
           →NGN, →PHP …). Kept in the client so the corridor tracks the live
           from/to selection without forcing the /send-money page dynamic. */}
-      <CryptoRailSection from={fromCurrency} to={toCurrency} amount={amount || 1000} />
+      <CryptoRailSectionClient from={fromCurrency} to={toCurrency} amount={amount || 1000} initialData={initialCryptoRails} />
 
       {/* Compare side-by-side panel */}
       {compareList.length === 2 && (() => {
@@ -932,10 +933,10 @@ function SendMoneyContent() {
   );
 }
 
-export default function SendMoneyClient() {
+export default function SendMoneyClient({ initialCryptoRails }: { initialCryptoRails: CryptoRailSectionData }) {
   return (
     <Suspense fallback={<Container className="py-8 text-sm text-[var(--color-on-surface-variant)]">Loading...</Container>}>
-      <SendMoneyContent />
+      <SendMoneyContent initialCryptoRails={initialCryptoRails} />
     </Suspense>
   );
 }

@@ -118,7 +118,9 @@ function isSpamBot(request: NextRequest): boolean {
 // URLs persisted. Switched to 301 — a definitive "URL moved" signal that
 // Google processes in 1–2 weeks and consolidates ranking equity onto the
 // English URL.
-const KILLED_LOCALE_PREFIXES = /^\/(es|fr|pt)(\/|$)/;
+// English is permanently unprefixed too. Consolidate old /en URLs with a
+// permanent redirect instead of next-intl's temporary prefix removal.
+const KILLED_LOCALE_PREFIXES = /^\/(en|es|fr|pt)(\/|$)/;
 
 export default function middleware(request: NextRequest) {
   // Redirect www to non-www (canonical domain)

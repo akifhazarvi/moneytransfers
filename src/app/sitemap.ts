@@ -74,7 +74,7 @@ const DATA_UPDATED = getDataUpdatedDate();
 // Each constant is the date that family's template or editorial content last
 // actually changed, per git history. Bump one when you change that family —
 // the same discipline STATIC_HUB_DATE already follows.
-const CORRIDOR_CONTENT_DATE = "2026-09-11";   // freshness stamp split from human review; reviewedBy dropped
+const CORRIDOR_CONTENT_DATE = "2026-09-19";   // consolidate receiving requirements and responsive transfer examples
 const COMPARISON_CONTENT_DATE = "2026-08-19"; // /compare, /banks, review fallback
 const RATE_PAGE_CONTENT_DATE = "2026-09-01";  // /exchange-rates/* — inline quotes added
 

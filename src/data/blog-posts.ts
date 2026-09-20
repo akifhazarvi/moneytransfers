@@ -1133,7 +1133,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Reviews",
     readTime: "11 min read",
     publishedAt: "2026-02-20",
-    updatedAt: "2026-09-07",
+    updatedAt: "2026-09-19",
     author: "Akif Hazarvi",
     tags: ["best apps", "comparison", "rankings", "reviews", "2026"],
     featuredImage: "/images/blog/best-money-transfer-apps.jpg",
@@ -1171,7 +1171,8 @@ const rawBlogPosts: BlogPost[] = [
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
-</div>`,
+</div>
+<p>Sending from the United States? See our <a href="/guides/best-apps-to-send-money-from-us-2026">guide to money transfer apps for US senders</a>. To compare the tools you use to research providers, read our <a href="/guides/monito-alternatives">comparison of Monito alternatives</a>.</p>`,
       },
       {
         heading: "1. Wise — Best Overall",
@@ -2131,7 +2132,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "16 min read",
     publishedAt: "2026-03-18",
-    updatedAt: "2026-09-07",
+    updatedAt: "2026-09-19",
     author: "Akif Hazarvi",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "ACH", "SEPA", "wire transfer alternatives", "bank wire", "wire transfer services"],
     featuredImage: "/images/blog/wire-transfer-guide.jpg",
@@ -2146,7 +2147,8 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>International wire transfers</strong> \u2014 Sent across borders, primarily using the <strong>SWIFT network</strong> (Society for Worldwide Interbank Financial Telecommunication). These take 1\u20135 business days and can cost $25\u2013$65 or more per transfer.</li>
 </ul>
 <p>Wire transfers are different from ACH transfers, which are slower but cheaper batch-processed transfers within the US. They\u2019re also distinct from modern fintech transfers offered by services like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>, which use their own networks to deliver funds at a fraction of the cost.</p>
-<p>Despite being expensive, wire transfers remain widely used for large transactions \u2014 property purchases, business payments, and situations where guaranteed, traceable delivery matters most.</p>`,
+<p>Despite being expensive, wire transfers remain widely used for large transactions \u2014 property purchases, business payments, and situations where guaranteed, traceable delivery matters most.</p>
+<p>For background on changes to payment infrastructure, read our <a href="/news/swift-75-percent-payments-ten-minutes-fsb-stablecoins-thunes-2026">coverage of SWIFT payment speeds and stablecoin settlement</a>. Distinguish the time a payment reaches the receiving bank from the time the recipient can use it.</p>`,
       },
       {
         heading: "How Wire Transfers Work: The SWIFT Network Explained",
@@ -7886,7 +7888,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "10 min read",
     publishedAt: "2026-03-16",
-    updatedAt: "2026-03-16",
+    updatedAt: "2026-09-19",
     author: "Akif Hazarvi",
     tags: [
       "crypto",
@@ -7905,7 +7907,8 @@ const rawBlogPosts: BlogPost[] = [
 <p>Between December 2025 and March 2026, <strong>11 companies filed for or received federal banking licenses</strong> from the Office of the Comptroller of the Currency (OCC). That's 11 applications in 83 days — more than the OCC typically processes in a full year.</p>
 <p>These aren't small startups. Circle, Ripple, Crypto.com, Fidelity Digital Assets, Stripe's Bridge subsidiary, Morgan Stanley, and <a href="/companies/revolut">Revolut</a> are all in the queue. According to <a href="https://www.fintechweekly.com/news/occ-national-trust-bank-charter-crypto-fintech-2026" target="_blank" rel="noopener noreferrer">FinTech Weekly's analysis</a>, this wave of applications is unprecedented in modern banking regulation.</p>
 <p>Why now? Two things changed. First, the OCC <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer">amended its regulations</a> on February 27, 2026, broadening what national trust banks can do beyond traditional fiduciary activities — effective April 1, 2026. Second, the GENIUS Act (signed July 2025) created a clear path for stablecoin issuers to operate as licensed payment institutions.</p>
-<p>For people who send money internationally, this matters. A lot. These companies aren't just getting licenses to hold crypto — they're building infrastructure that could fundamentally change how cross-border payments work and what they cost.</p>`,
+<p>For people who send money internationally, this matters. A lot. These companies aren't just getting licenses to hold crypto — they're building infrastructure that could fundamentally change how cross-border payments work and what they cost.</p>
+<p>For related regulatory coverage, read our reports on <a href="/news/revolut-files-us-bank-charter-2026">Revolut’s US bank charter application</a> and <a href="/news/embedded-finance-regulation-tightening-2026">regulatory scrutiny of embedded finance</a>. They examine how licensing and oversight affect the services payment companies can offer.</p>`,
       },
       {
         heading: "Who Got Licensed — and Why It Matters for Transfers",

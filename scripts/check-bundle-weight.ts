@@ -14,10 +14,10 @@
  * It shows up only when you map a built page's chunk references to their file
  * sizes on disk, which is what this does.
  *
- * WHAT IT DOES NOT DO
- * It does not enforce current sizes. It is a blowup detector: the limit sits
- * well above today's heaviest page so ordinary work does not trip it, the same
- * philosophy as check:weight. Tighten it when bundles actually shrink.
+ * After moving crypto-rail data out of the client in September 2026, the
+ * heaviest route is 0.94 MiB and largest chunk is 0.22 MiB. These limits leave
+ * room for normal changes but catch the previous 1.70 MiB route / 0.83 MiB
+ * dataset chunk if that import crosses the client boundary again.
  *
  * Run: npm run check:bundle       (--top N to list more)
  */
@@ -28,11 +28,11 @@ const APP_ROOT = join(process.cwd(), ".next", "server", "app");
 const STATIC_ROOT = join(process.cwd(), ".next", "static");
 
 /** Fail above this (parsed/uncompressed JS per page). Catches a blowup, not growth. */
-const HARD_LIMIT_MB = 6.0;
+const HARD_LIMIT_MB = 1.5;
 /** Flag for review above this, without failing. */
-const WARN_MB = 3.5;
+const WARN_MB = 1.25;
 /** A single chunk this large is a bundled dataset, whatever the page total says. */
-const SINGLE_CHUNK_LIMIT_MB = 2.5;
+const SINGLE_CHUNK_LIMIT_MB = 0.75;
 
 const topArg = process.argv.indexOf("--top");
 const TOP = topArg > -1 ? Number(process.argv[topArg + 1]) || 15 : 15;

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
 import SendMoneyClient from "@/components/SendMoneyClient";
+import { getCryptoRailSectionData } from "@/lib/crypto-rail-section";
 import CircleFlag from "@/components/CircleFlag";
 import { PageByline } from "@/components/PageByline";
 import { currencies, getProviderName } from "@/data/providers";
@@ -187,7 +188,7 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
       </Container>
 
       {/* Interactive client widget — replaces static table once JS loads */}
-      <SendMoneyClient />
+      <SendMoneyClient initialCryptoRails={getCryptoRailSectionData("USD", "INR", 1000)} />
 
       {/* Server-rendered default quotes table — always in the HTML for SEO */}
       <Container>
