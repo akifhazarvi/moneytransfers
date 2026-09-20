@@ -70,6 +70,10 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   "send-money-to-nepal-guide": { from: "USD", to: "NPR", amount: 1000, heading: "Top USD → NPR providers right now" },
   "send-money-to-south-africa-guide": { from: "USD", to: "ZAR", amount: 1000, heading: "Top USD → ZAR providers right now" },
   "send-money-to-south-korea-guide": { from: "USD", to: "KRW", amount: 1000, heading: "Top USD → KRW providers right now" },
+  // XE review: show where XE lands against the field on its strongest corridor
+  // in our data (USD→INR, ~0.4% median markup), rather than the USD→INR default
+  // with a generic heading.
+  "xe-money-transfer-review-rates": { from: "USD", to: "INR", amount: 1000, heading: "See where XE ranks — live USD → INR rates" },
   // GBP leads this guide's own excerpt and outnumbers USD in its body, and
   // GBP→AUD quotes 22 providers against USD→AUD's 8.
   "send-money-to-australia-guide": { from: "GBP", to: "AUD", amount: 1000, heading: "Top GBP → AUD providers right now" },
