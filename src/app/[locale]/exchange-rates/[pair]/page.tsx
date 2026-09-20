@@ -10,6 +10,7 @@ import { fetchExchangeRates } from "@/lib/exchange-rates";
 export const revalidate = 21600;
 import { providers, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
+import { KEPT_RATE_PAIR_SLUGS } from "@/lib/gone-rate-pairs";
 import CircleFlag from "@/components/CircleFlag";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
@@ -286,7 +287,9 @@ const editorialContent: Record<string, PairEditorial> = {
 
 /* ── Static params ────────────────────────────────────────── */
 export function generateStaticParams() {
-  return CURRENCY_PAIRS.map((p) => ({ pair: p.slug }));
+  // Only the pairs that keep a standalone page still build. The rest 301 to
+  // the hub in middleware — see src/lib/gone-rate-pairs.ts.
+  return CURRENCY_PAIRS.filter((p) => KEPT_RATE_PAIR_SLUGS.has(p.slug)).map((p) => ({ pair: p.slug }));
 }
 
 /* ── Metadata ─────────────────────────────────────────────── */
@@ -391,7 +394,11 @@ export default async function ExchangeRatePairPage({ params }: Props) {
   // Rotating the six-slot window by the pair's own position spreads the slots
   // across the whole sibling set and is deterministic, so a given pair renders
   // the same rail on every build.
-  const siblings = CURRENCY_PAIRS.filter((rp) => rp.slug !== pair && (rp.from === p.from || rp.to === p.to));
+  // Only pairs that still have a page — the rest 301 to the hub, and linking
+  // a redirect wastes the edge and trips check:links.
+  const siblings = CURRENCY_PAIRS.filter(
+    (rp) => rp.slug !== pair && KEPT_RATE_PAIR_SLUGS.has(rp.slug) && (rp.from === p.from || rp.to === p.to),
+  );
   const offset = CURRENCY_PAIRS.findIndex((cp) => cp.slug === pair);
   const relatedPairs =
     siblings.length <= 6
@@ -500,7 +507,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             amount={1000}
             source={`rate:${pair}`}
             heading={`Nobody gets the mid-market rate — here is what you actually get`}
-            subheading={`Live ${p.from}→${p.to} all-in costs from 15+ providers, updated every 6 hours.`}
+            subheading={`Live ${p.from}→${p.to} all-in costs, updated every 6 hours.`}
           />
 
           {/* In-context news callout — shown when pair has a related article */}

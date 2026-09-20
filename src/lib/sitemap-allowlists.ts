@@ -375,20 +375,19 @@ export const SITEMAP_NEWS_SLUGS = new Set<string>([
   "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
 ]); // 11 URLs
 
-// All 20 built /exchange-rates/[pair] pages. These render index:follow (en),
-// so leaving most OUT of the sitemap created the "sitemap=no / robots=index"
-// contradiction that fed the May deindex. Each page is genuinely editorial
-// (unique intro + bullets + send-timing tip + FAQ per pair; live quotes where
-// a corridor exists), not thin — so the right fix is to make the sitemap match
-// robots, not to noindex them. Known impression-earners: usd-to-brl (232i),
-// gbp-to-eur (69i). The rest had ~0 Bing/GSC at the May-25 prune but are
-// substantive pages; re-prune via Bing data if they stay at 0 by next review.
+// The /exchange-rates/[pair] deep-dives, reduced to the two that earn.
+//
+// The set was widened to all 20 on 2026-06-07 to clear a "sitemap=no /
+// robots=index" contradiction. That reconciliation was right, but it left 18
+// substantive-yet-unvisited pages submitted, and this file's own note asked to
+// "re-prune via Bing data if they stay at 0 by next review".
+//
+// 2026-09-20 is that review: the section was rebuilt as one hub showing every
+// pair, and the 18 now 301 there. Kept on recorded demand — usd-to-brl (232
+// impressions), gbp-to-eur (69). See src/lib/gone-rate-pairs.ts.
 export const SITEMAP_RATE_PAIR_SLUGS = new Set<string>([
-  "usd-to-inr", "usd-to-pkr", "usd-to-php", "usd-to-mxn", "usd-to-ngn",
-  "gbp-to-eur", "gbp-to-inr", "gbp-to-usd", "gbp-to-pkr", "eur-to-usd",
-  "eur-to-gbp", "cad-to-inr", "aud-to-inr", "usd-to-gbp", "usd-to-eur",
-  "usd-to-cad", "usd-to-aud", "usd-to-jpy", "usd-to-brl", "usd-to-cny",
-]); // 20 URLs (was 4) — reconciled index:yes/sitemap:no contradiction 2026-06-07
+  "usd-to-brl", "gbp-to-eur",
+]); // 2 URLs — the other 18 retired 2026-09-20, see gone-rate-pairs.ts
 
 // All 22 rate-history pages had 0 Bing + 0 GSC. Removed from sitemap.
 // Page route remains but is no longer actively submitted.

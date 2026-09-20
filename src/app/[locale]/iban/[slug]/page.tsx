@@ -241,7 +241,7 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "UK to India transfers", href: "/send-money/uk-to-india" },
-    { label: "EUR to USD exchange rate", href: "/exchange-rates/eur-to-usd" },
+    { label: "EUR to USD exchange rate", href: "/exchange-rates" },
     { label: "SEPA instant payments explained", href: "/news/eu-instant-payments-mandate-2026" },
     { label: "Wise vs Revolut for EUR", href: "/compare/wise-vs-revolut" },
   ],
@@ -284,7 +284,7 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   "switzerland": [
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
-    { label: "EUR to GBP exchange rate", href: "/exchange-rates/eur-to-gbp" },
+    { label: "EUR to GBP exchange rate", href: "/exchange-rates" },
     { label: "Wise vs Revolut comparison", href: "/compare/wise-vs-revolut" },
     { label: "Multi-currency accounts guide", href: "/guides/multi-currency-accounts-exchange-rates" },
   ],

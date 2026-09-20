@@ -325,12 +325,9 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
         {
           title: "Live exchange rates",
           links: [
-            { href: "/exchange-rates/usd-to-inr", label: "USD to INR" },
+            { href: "/exchange-rates", label: "All live rates" },
+            { href: "/exchange-rates/usd-to-brl", label: "USD to BRL" },
             { href: "/exchange-rates/gbp-to-eur", label: "GBP to EUR" },
-            { href: "/exchange-rates/usd-to-php", label: "USD to PHP" },
-            { href: "/exchange-rates/usd-to-eur", label: "USD to EUR" },
-            { href: "/exchange-rates/gbp-to-inr", label: "GBP to INR" },
-            { href: "/exchange-rates/usd-to-gbp", label: "USD to GBP" },
           ],
         },
         {

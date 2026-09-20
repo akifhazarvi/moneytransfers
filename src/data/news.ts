@@ -886,7 +886,7 @@ export const newsItems: NewsItem[] = [
 
 <h3>ECB (April 17) — EUR Senders</h3>
 <p>The ECB is the most likely to cut rates in April, with markets pricing in a ~65% probability. European inflation has been falling faster than expected. A cut would weaken the euro against GBP and USD — bad for European senders but good for anyone sending <em>to</em> Europe. The press conference language matters as much as the decision itself.</p>
-<p><strong>Corridors to watch:</strong> <a href="/send-money/usa-to-europe">GBP to EUR</a>, <a href="/send-money/uk-to-india">EUR to INR</a>, <a href="/exchange-rates/eur-to-usd">EUR to USD rate</a></p>
+<p><strong>Corridors to watch:</strong> <a href="/send-money/usa-to-europe">GBP to EUR</a>, <a href="/send-money/uk-to-india">EUR to INR</a>, <a href="/exchange-rates">EUR to USD rate</a></p>
 
 <h2>How to protect your transfer</h2>
 <p>The same strategies apply every time central banks meet:</p>
@@ -1541,8 +1541,7 @@ export const newsItems: NewsItem[] = [
 
 <h2>Live rates and tools</h2>
 <ul>
-<li><a href="/exchange-rates/usd-to-inr">USD to INR — live rate + history</a></li>
-<li><a href="/exchange-rates/gbp-to-inr">GBP to INR — live rate + history</a></li>
+<li><a href="/exchange-rates">Live USD/INR and GBP/INR rates + history</a></li>
 <li><a href="/send-money/usa-to-india">USA → India provider comparison</a></li>
 <li><a href="/send-money/uk-to-india">UK → India provider comparison</a></li>
 <li><a href="/send-money/send-money-to-india">All corridors into India</a></li>
@@ -1772,7 +1771,7 @@ export const newsItems: NewsItem[] = [
 <li><a href="/send-money/usa-to-philippines">USA → Philippines provider comparison</a></li>
 <li><a href="/send-money/usa-to-mexico">USA → Mexico provider comparison</a></li>
 <li><a href="/send-money/uk-to-pakistan">UK → Pakistan provider comparison</a></li>
-<li><a href="/exchange-rates/usd-to-inr">USD/INR live rate</a> · <a href="/exchange-rates/gbp-to-inr">GBP/INR live rate</a> · <a href="/exchange-rates/eur-to-usd">EUR/USD live rate</a></li>
+<li><a href="/exchange-rates">Live USD/INR, GBP/INR and EUR/USD rates</a></li>
 </ul>
 
 <p>For deeper background, our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a> covers the long-run picture — global remittances reached $860 billion in 2025 with 3.8% year-on-year growth, and India remains the world's largest recipient at over $125 billion annually. We'll publish the June 2026 outlook in the second week of June, after the central bank trio is behind us.</p>`,

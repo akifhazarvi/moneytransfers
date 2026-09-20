@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import LiveRatesBoard from "./LiveRatesBoard";
+import { KEPT_RATE_PAIR_SLUGS } from "@/lib/gone-rate-pairs";
 import TodayRates from "./TodayRates";
 import LazyHistoricalRateWidget from "@/components/LazyHistoricalRateWidget";
 import LiveTimestamp from "@/components/LiveTimestamp";
@@ -658,14 +659,27 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                 <Chevron />
               </summary>
               <div className="px-5 pb-5 pt-1 grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                {/* Every pair shows its live rate here. Only the two that keep a
+                    standalone page are links; the rest 301 to this hub, so
+                    linking them would point at a redirect. */}
                 {topRatePairs.map((pair) => {
                   const r = getPairRate(pair.from, pair.to);
-                  return (
-                    <Link key={pair.slug} href={`/exchange-rates/${pair.slug}`}
-                      className="flex flex-col gap-0.5 px-3.5 py-3 rounded-xl border border-[var(--color-outline)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all group/p">
+                  const body = (
+                    <>
                       <span className="text-sm font-medium text-[var(--color-on-surface)] group-hover/p:text-[var(--color-primary)]">{pair.label}</span>
                       {r && <span className="text-xs text-[var(--color-on-surface-variant)] tabular-nums">{formatRate(r.rate)}</span>}
+                    </>
+                  );
+                  return KEPT_RATE_PAIR_SLUGS.has(pair.slug) ? (
+                    <Link key={pair.slug} href={`/exchange-rates/${pair.slug}`}
+                      className="flex flex-col gap-0.5 px-3.5 py-3 rounded-xl border border-[var(--color-outline)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all group/p">
+                      {body}
                     </Link>
+                  ) : (
+                    <div key={pair.slug}
+                      className="flex flex-col gap-0.5 px-3.5 py-3 rounded-xl border border-[var(--color-outline)]">
+                      {body}
+                    </div>
                   );
                 })}
               </div>

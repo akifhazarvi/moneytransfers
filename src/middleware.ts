@@ -7,6 +7,7 @@ import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 import { getCompareCanonicalSlug } from "./lib/compare-canonical";
 import { GONE_CORRIDOR_SLUGS, DUPLICATE_CORRIDOR_REDIRECTS } from "./lib/gone-corridors";
 import { GONE_SWIFT_SLUGS } from "./lib/gone-swift";
+import { GONE_RATE_PAIR_SLUGS } from "./lib/gone-rate-pairs";
 import { GONE_COMPANY_SLUGS } from "./lib/gone-companies";
 
 const intlMiddleware = createMiddleware(routing);
@@ -168,6 +169,16 @@ export default function middleware(request: NextRequest) {
   const goneSwift = request.nextUrl.pathname.match(/^\/swift-codes\/([a-z0-9-]+)$/);
   if (goneSwift && GONE_SWIFT_SLUGS.has(goneSwift[1])) {
     return new NextResponse("Gone", { status: 410 });
+  }
+
+  // 301 retired /exchange-rates/[pair] deep-dives to the hub. 301 not 410:
+  // unlike a retired corridor, the hub carries the same rate for this pair, so
+  // there is a genuine equivalent to consolidate into. See gone-rate-pairs.ts.
+  const goneRate = request.nextUrl.pathname.match(/^\/exchange-rates\/([a-z0-9-]+)$/);
+  if (goneRate && GONE_RATE_PAIR_SLUGS.has(goneRate[1])) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/exchange-rates";
+    return NextResponse.redirect(url, 301);
   }
 
   // 410 Gone for retired provider review pages — same rationale and placement as
