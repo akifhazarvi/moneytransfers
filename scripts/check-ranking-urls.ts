@@ -67,6 +67,9 @@ const REDIRECT_PATHS = [
 
 type Result = { path: string; status: number; via?: string; ok: boolean; why: string };
 
+/** Ranking URLs the duplication rule deliberately noindexed — reported, not failed. */
+const deliberateNoindex: string[] = [];
+
 /** Shortest real page body we ship; below this the response is a shell. */
 const MIN_BODY_CHARS = 2000;
 
@@ -74,10 +77,27 @@ const MIN_BODY_CHARS = 2000;
  * A 200 is necessary but not sufficient. Assert the response actually contains
  * a page: an <h1>, enough text to not be chrome-only, and no noindex.
  */
-function inspectHtml(html: string): string | null {
+function inspectHtml(html: string, path: string): string | null {
   if (!/<h1[\s>]/i.test(html)) return "200 but no <h1> (soft 404 / shell response)";
   const robots = html.match(/<meta[^>]+name="robots"[^>]+content="([^"]+)"/i)?.[1] ?? "";
-  if (/noindex/i.test(robots)) return `200 but serves robots "${robots}"`;
+  // A deliberate noindex is no longer a failure here.
+  //
+  // Until 2026-09-20 indexability was a judgement this file could police:
+  // every URL below was meant to be indexable because it ranks. Indexability
+  // is now measured — scripts/build-indexable-routes.ts excludes any page over
+  // the duplication threshold — so a ranking URL that reads as templated is
+  // noindexed ON PURPOSE, and failing the build for it would mean the two
+  // policies could never both hold.
+  //
+  // What this guard still enforces is the part that caused real damage in
+  // September 2026: a ranking URL must never 404, 410, redirect into one, or
+  // answer 200 with an empty shell. Those are accidents. A noindex decided by
+  // the duplication rule is a decision, and it is reported below rather than
+  // failed, so the list stays visible.
+  if (/noindex/i.test(robots)) {
+    deliberateNoindex.push(path);
+    return null;
+  }
   const body = html
     .replace(/<(script|style|svg|noscript)[^>]*>[\s\S]*?<\/\1>/gi, " ")
     .replace(/<[^>]+>/g, " ")
@@ -105,7 +125,7 @@ async function hop(path: string): Promise<Result> {
         why: via ? `redirect target returns ${res.status}` : `returns ${res.status}`,
       };
     }
-    const contentIssue = inspectHtml(await res.text());
+    const contentIssue = inspectHtml(await res.text(), via || path);
     return {
       path, status: res.status, via,
       ok: !contentIssue,
@@ -137,11 +157,25 @@ async function main() {
   }
 
   console.log(`\n${results.length - failed.length}/${results.length} passed`);
+
+  if (deliberateNoindex.length) {
+    console.log(
+      `\n${deliberateNoindex.length} ranking URL(s) are noindexed by the duplication rule:\n` +
+        deliberateNoindex.map((p) => `    ${p}`).join("\n") +
+        `\n  These rank but measured at or above the duplication threshold, so\n` +
+        `  scripts/build-indexable-routes.ts left them out of the indexable set.\n` +
+        `  That is a decision, not a break — each still answers 200 with a real\n` +
+        `  page. The GSC evidence they were admitted on is in\n` +
+        `  src/lib/ranking-corridors.ts; to index one again, reduce what it\n` +
+        `  restates rather than exempting it.`,
+    );
+  }
+
   if (failed.length) {
     console.error(
       `\n${failed.length} URL(s) that search engines rank are broken.\n` +
-        `A ranking page must never 404, 410, redirect into one, serve noindex, or\n` +
-        `answer 200 with an empty shell — see src/lib/ranking-corridors.ts.`,
+        `A ranking page must never 404, 410, redirect into one, or answer 200\n` +
+        `with an empty shell — see src/lib/ranking-corridors.ts.`,
     );
     process.exit(1);
   }
