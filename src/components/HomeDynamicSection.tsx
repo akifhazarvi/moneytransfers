@@ -121,13 +121,24 @@ export default function HomeDynamicSection() {
       .filter((c) => c.providerName);
   }, [quotesByCorridor, topCorridors, fromCurrency]);
 
-  const liveQuotes = useMemo(
-    () => (quotesByCorridor?.[`${fromCurrency}_${toCurrency}`] || []).slice(0, 5),
+  // Every provider quoting this corridor. The headline savings figure and the
+  // "compared live" count are both derived from this, NOT from the five rows
+  // rendered below.
+  //
+  // Both used to read off the sliced array, which made the page understate its
+  // own product twice over: it claimed "5 compared live" on a corridor where 22
+  // providers were quoting, and it computed "save up to X" as the spread across
+  // the top five only — ₹451 where the real best-to-worst gap was ₹911. The
+  // savings number is the single strongest reason to use the site, and it was
+  // being halved.
+  const allQuotes = useMemo(
+    () => quotesByCorridor?.[`${fromCurrency}_${toCurrency}`] || [],
     [quotesByCorridor, fromCurrency, toCurrency]
   );
+  const liveQuotes = useMemo(() => allQuotes.slice(0, 5), [allQuotes]);
 
-  const best = liveQuotes[0];
-  const worst = liveQuotes[liveQuotes.length - 1];
+  const best = allQuotes[0];
+  const worst = allQuotes[allQuotes.length - 1];
   // Rows the materiality band placed above a visibly larger payout. The order
   // is measured and disclosed; on large-denomination corridors it just needs to
   // say so in the row rather than read as a sort bug.
@@ -155,17 +166,17 @@ export default function HomeDynamicSection() {
             Best app to send {amount.toLocaleString()} {fromCurrency} to {toCurrency}
           </h2>
           <p className="text-base text-[var(--color-on-surface-variant)] mt-4">
-            {liveQuotes.length > 1 && best && worst ? (
+            {allQuotes.length > 1 && best && worst ? (
               <>
                 Save up to{" "}
                 <span className="font-semibold text-[var(--color-on-surface)]">
                   {CURRENCY_SYMBOL[toCurrency] || toCurrency}
                   {(best.receiveAmount - worst.receiveAmount).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                 </span>{" "}
-                by choosing the right provider — {liveQuotes.length} compared live.
+                by choosing the right provider — {allQuotes.length} compared live.
               </>
             ) : (
-              <>Live rates from {liveQuotes.length}+ providers.</>
+              <>Live rates for {fromCurrency} → {toCurrency}.</>
             )}
           </p>
         </div>

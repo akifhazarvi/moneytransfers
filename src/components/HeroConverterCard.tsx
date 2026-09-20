@@ -173,8 +173,29 @@ export default function HeroConverterCard({
       {/* ── Teaser: how many compared, no number given away ── */}
       <div className="flex items-center gap-2.5 px-2 mt-3.5 mb-3">
         <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        {/*
+          The count is asserted only once it is known.
+
+          This used to render "50+" while loading and fall back to `|| 50` when
+          the fetch returned nothing — so the server HTML said "50+ providers
+          compared live for USD → INR" on a corridor where 22 were quoting, and
+          any failed fetch silently published a made-up 50. Most AI crawlers do
+          not execute JS, so "50+" was the figure they ingested, and the
+          homepage is the site's only indexed page.
+        */}
         <p className="text-2sm text-[var(--color-on-surface-variant)]">
-          <span className="font-semibold text-[var(--color-on-surface)]">{loading ? "50+" : `${quotes?.length || 50}`} providers</span> compared live for {fromCurrency} → {toCurrency}
+          {quotes?.length ? (
+            <>
+              <span className="font-semibold text-[var(--color-on-surface)]">
+                {quotes.length} providers
+              </span>{" "}
+              compared live for {fromCurrency} → {toCurrency}
+            </>
+          ) : (
+            <>
+              Comparing live rates for {fromCurrency} → {toCurrency}
+            </>
+          )}
         </p>
       </div>
 
