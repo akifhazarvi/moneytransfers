@@ -1,10 +1,10 @@
 {
- "generated": "2026-09-20T15:44:56.608Z",
+ "generated": "2026-09-20T15:54:46.280Z",
  "rationale": "Corridor pages whose currency pair is already represented by a stronger page. Quotes are keyed on currency pair, not country pair, so these restate a twin verbatim. Content brief Sep 2026, §4 / §10-A generation threshold.",
- "renderedBefore": 818,
- "distinctCurrencyPairs": 383,
- "retiring": 414,
- "renderedAfter": 404,
+ "renderedBefore": 809,
+ "distinctCurrencyPairs": 375,
+ "retiring": 413,
+ "renderedAfter": 396,
  "keptPerPair": {
   "AED-ARS": "aed-to-ars",
   "AED-BDT": "uae-to-bangladesh",
@@ -176,7 +176,6 @@
   "CNY-VND": "cny-to-vnd",
   "CNY-ZAR": "cny-to-zar",
   "CZK-EUR": "czech-republic-to-germany",
-  "DKK-BRL": "denmark-to-brazil",
   "DKK-COP": "denmark-to-colombia",
   "DKK-EUR": "denmark-to-france",
   "DKK-MYR": "denmark-to-malaysia",
@@ -184,7 +183,6 @@
   "EUR-ARS": "eur-to-ars",
   "EUR-BDT": "ireland-to-bangladesh, portugal-to-bangladesh",
   "EUR-BRL": "italy-to-brazil",
-  "EUR-CAD": "eur-to-cad",
   "EUR-CLP": "eur-to-clp",
   "EUR-CNY": "germany-to-china",
   "EUR-COP": "eur-to-cop",
@@ -202,10 +200,9 @@
   "EUR-KRW": "eur-to-krw",
   "EUR-LKR": "austria-to-sri-lanka",
   "EUR-MAD": "belgium-to-morocco",
-  "EUR-MXN": "belgium-to-mexico",
+  "EUR-MXN": "eur-to-mxn",
   "EUR-MYR": "germany-to-malaysia",
   "EUR-NGN": "germany-to-nigeria",
-  "EUR-NOK": "eur-to-nok",
   "EUR-PEN": "eur-to-pen",
   "EUR-PHP": "finland-to-philippines",
   "EUR-PKR": "france-to-pakistan",
@@ -287,7 +284,6 @@
   "INR-SGD": "india-to-singapore",
   "INR-USD": "india-to-usa",
   "JPY-USD": "japan-to-ecuador",
-  "KRW-ZAR": "south-korea-to-south-africa",
   "KWD-INR": "kuwait-to-india",
   "NOK-PHP": "norway-to-philippines",
   "NZD-AUD": "new-zealand-to-australia",
@@ -299,8 +295,6 @@
   "SAR-INR": "saudi-arabia-to-india",
   "SAR-PHP": "saudi-arabia-to-philippines",
   "SAR-PKR": "saudi-arabia-to-pakistan",
-  "SAR-VND": "saudi-arabia-to-vietnam",
-  "SEK-VND": "sweden-to-vietnam",
   "SGD-ARS": "sgd-to-ars",
   "SGD-BRL": "sgd-to-brl",
   "SGD-CLP": "sgd-to-clp",
@@ -372,7 +366,6 @@
   "USD-PLN": "send-money-to-poland",
   "USD-PYG": "send-money-to-paraguay",
   "USD-RON": "send-money-to-romania",
-  "USD-RSD": "send-money-to-serbia",
   "USD-RWF": "send-money-to-rwanda",
   "USD-SGD": "send-money-to-singapore",
   "USD-THB": "send-money-to-thailand",
@@ -387,8 +380,7 @@
   "USD-XAF": "send-money-to-cameroon",
   "USD-XOF": "send-money-to-senegal",
   "USD-ZAR": "send-money-to-south-africa",
-  "USD-ZMW": "send-money-to-zambia",
-  "ZAR-NGN": "south-africa-to-nigeria"
+  "USD-ZMW": "send-money-to-zambia"
  },
  "surplus": [
   {
@@ -992,12 +984,6 @@
    "redirectTo": "belgium-to-morocco"
   },
   {
-   "slug": "eur-to-mxn",
-   "pair": "EUR-MXN",
-   "keptInstead": "belgium-to-mexico",
-   "redirectTo": "belgium-to-mexico"
-  },
-  {
    "slug": "eur-to-rwf",
    "pair": "EUR-RWF",
    "keptInstead": "austria-to-rwanda",
@@ -1264,8 +1250,8 @@
   {
    "slug": "germany-to-mexico",
    "pair": "EUR-MXN",
-   "keptInstead": "belgium-to-mexico",
-   "redirectTo": "belgium-to-mexico"
+   "keptInstead": "eur-to-mxn",
+   "redirectTo": "eur-to-mxn"
   },
   {
    "slug": "germany-to-morocco",

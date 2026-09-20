@@ -105,6 +105,7 @@ export const INDEXED_HISTORY_SLUGS = SITEMAP_RATE_HISTORY_SLUGS;
  *   static/legal/data pages about, methodology, editorial-policy, research, …
  */
 import indexableRoutes from "@/data/scraped/indexable-routes.json";
+import { RANKING_CORRIDOR_SLUGS } from "./ranking-corridors";
 
 /**
  * Routes measured under the duplication threshold, plus the exempt families.
@@ -158,6 +159,15 @@ function alwaysIndexable(pathname: string): boolean {
 export function routeIsIndexable(pathname: string): boolean {
   const clean = "/" + pathname.replace(/^\/+/, "").replace(/\/$/, "");
   const path = clean === "/" ? "/" : clean;
+
+  // A corridor with a verified click in the trailing 90 days stays indexable
+  // whatever it measures. Noindexing a page that demonstrably earns clicks to
+  // improve a duplication ratio is the wrong trade, and after the 2026-09-20
+  // re-verification this is a very short list — two URLs, both re-checked
+  // against live GSC rather than inherited. See ranking-corridors.ts.
+  const corridor = path.startsWith("/send-money/") ? path.slice("/send-money/".length) : "";
+  if (corridor && RANKING_CORRIDOR_SLUGS.has(corridor)) return true;
+
   return alwaysIndexable(path) || INDEXABLE.has(path);
 }
 
