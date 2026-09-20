@@ -1,10 +1,10 @@
 {
- "generated": "2026-09-20T02:38:46.684Z",
+ "generated": "2026-09-20T14:52:16.689Z",
  "rationale": "Corridor pages whose currency pair is already represented by a stronger page. Quotes are keyed on currency pair, not country pair, so these restate a twin verbatim. Content brief Sep 2026, §4 / §10-A generation threshold.",
- "renderedBefore": 832,
+ "renderedBefore": 818,
  "distinctCurrencyPairs": 383,
- "retiring": 413,
- "renderedAfter": 419,
+ "retiring": 414,
+ "renderedAfter": 404,
  "keptPerPair": {
   "AED-ARS": "aed-to-ars",
   "AED-BDT": "uae-to-bangladesh",
@@ -20,6 +20,7 @@
   "AED-KRW": "aed-to-krw",
   "AED-LKR": "aed-to-lkr",
   "AED-MXN": "aed-to-mxn",
+  "AED-MYR": "aed-to-myr",
   "AED-NGN": "aed-to-ngn",
   "AED-PEN": "aed-to-pen",
   "AED-PHP": "uae-to-philippines",
@@ -81,7 +82,7 @@
   "CAD-COP": "cad-to-cop",
   "CAD-EGP": "cad-to-egp",
   "CAD-ETB": "cad-to-etb",
-  "CAD-EUR": "canada-to-germany, canada-to-spain",
+  "CAD-EUR": "cad-to-eur",
   "CAD-GBP": "cad-to-gbp",
   "CAD-GHS": "cad-to-ghs",
   "CAD-HKD": "cad-to-hkd",
@@ -233,7 +234,6 @@
   "GBP-EGP": "uk-to-egypt",
   "GBP-ETB": "gbp-to-etb",
   "GBP-EUR": "uk-to-france",
-  "GBP-GTQ": "uk-to-guatemala, gbp-to-gtq",
   "GBP-HKD": "gbp-to-hkd",
   "GBP-IDR": "gbp-to-idr",
   "GBP-INR": "uk-to-india",
@@ -293,6 +293,7 @@
   "NZD-AUD": "new-zealand-to-australia",
   "NZD-GBP": "new-zealand-to-uk",
   "OMR-PHP": "oman-to-philippines",
+  "OMR-PKR": "oman-to-pakistan",
   "SAR-BDT": "saudi-arabia-to-bangladesh",
   "SAR-EGP": "saudi-arabia-to-egypt",
   "SAR-INR": "saudi-arabia-to-india",
@@ -322,22 +323,22 @@
   "SGD-VND": "sgd-to-vnd",
   "SGD-ZAR": "sgd-to-zar",
   "USD-AED": "usa-to-uae, send-money-to-uae",
-  "USD-ARS": "usa-to-argentina, send-money-to-argentina",
+  "USD-ARS": "send-money-to-argentina",
   "USD-AUD": "send-money-to-australia",
   "USD-BDT": "usa-to-bangladesh, send-money-to-bangladesh",
   "USD-BOB": "send-money-to-bolivia",
   "USD-BRL": "send-money-to-brazil",
-  "USD-CAD": "usa-to-canada, send-money-to-canada",
+  "USD-CAD": "send-money-to-canada",
   "USD-CLP": "send-money-to-chile",
-  "USD-CNY": "usa-to-china, send-money-to-china",
+  "USD-CNY": "send-money-to-china",
   "USD-COP": "send-money-to-colombia",
   "USD-CRC": "send-money-to-costa-rica",
   "USD-CZK": "send-money-to-czech-republic",
   "USD-DOP": "send-money-to-dominican-republic",
   "USD-DZD": "send-money-to-algeria",
-  "USD-EGP": "usa-to-egypt, usd-to-egp, send-money-to-egypt",
+  "USD-EGP": "usd-to-egp, send-money-to-egypt",
   "USD-ETB": "usa-to-ethiopia, send-money-to-ethiopia",
-  "USD-EUR": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain, send-money-to-croatia",
+  "USD-EUR": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain",
   "USD-FJD": "send-money-to-fiji",
   "USD-GBP": "usa-to-uk, send-money-to-uk",
   "USD-GEL": "send-money-to-georgia",
@@ -349,36 +350,35 @@
   "USD-HTG": "send-money-to-haiti",
   "USD-HUF": "send-money-to-hungary",
   "USD-IDR": "send-money-to-indonesia",
-  "USD-ILS": "usa-to-israel, send-money-to-israel",
+  "USD-ILS": "send-money-to-israel",
   "USD-INR": "usa-to-india, send-money-to-india",
   "USD-JMD": "send-money-to-jamaica",
   "USD-JOD": "send-money-to-jordan",
   "USD-JPY": "send-money-to-japan",
   "USD-KES": "usa-to-kenya, send-money-to-kenya",
-  "USD-KRW": "usa-to-south-korea, send-money-to-south-korea",
+  "USD-KRW": "send-money-to-south-korea",
   "USD-KZT": "send-money-to-kazakhstan",
   "USD-LKR": "usa-to-sri-lanka, send-money-to-sri-lanka",
   "USD-MAD": "send-money-to-morocco",
   "USD-MGA": "send-money-to-madagascar",
   "USD-MXN": "usa-to-mexico, send-money-to-mexico",
   "USD-MYR": "send-money-to-malaysia",
-  "USD-MZN": "send-money-to-mozambique",
   "USD-NGN": "usa-to-nigeria, send-money-to-nigeria",
   "USD-NPR": "send-money-to-nepal",
   "USD-NZD": "send-money-to-new-zealand",
-  "USD-PEN": "usa-to-peru, send-money-to-peru",
+  "USD-PEN": "send-money-to-peru",
   "USD-PHP": "usa-to-philippines, send-money-to-philippines",
   "USD-PKR": "usa-to-pakistan, send-money-to-pakistan",
-  "USD-PLN": "usa-to-poland, send-money-to-poland",
+  "USD-PLN": "send-money-to-poland",
   "USD-PYG": "send-money-to-paraguay",
   "USD-RON": "send-money-to-romania",
   "USD-RSD": "send-money-to-serbia",
   "USD-RWF": "send-money-to-rwanda",
   "USD-SGD": "send-money-to-singapore",
-  "USD-THB": "usa-to-thailand, send-money-to-thailand",
+  "USD-THB": "send-money-to-thailand",
   "USD-TRY": "send-money-to-turkey",
   "USD-TWD": "send-money-to-taiwan",
-  "USD-TZS": "usa-to-tanzania, send-money-to-tanzania",
+  "USD-TZS": "send-money-to-tanzania",
   "USD-UAH": "send-money-to-ukraine",
   "USD-UGX": "send-money-to-uganda",
   "USD-UYU": "send-money-to-uruguay",
@@ -386,7 +386,7 @@
   "USD-VND": "usa-to-vietnam, send-money-to-vietnam",
   "USD-XAF": "send-money-to-cameroon",
   "USD-XOF": "send-money-to-senegal",
-  "USD-ZAR": "usa-to-south-africa, send-money-to-south-africa, send-money-to-zimbabwe",
+  "USD-ZAR": "send-money-to-south-africa",
   "USD-ZMW": "send-money-to-zambia",
   "ZAR-NGN": "south-africa-to-nigeria"
  },
@@ -734,12 +734,6 @@
    "redirectTo": "bahrain-to-pakistan"
   },
   {
-   "slug": "cad-to-eur",
-   "pair": "CAD-EUR",
-   "keptInstead": "canada-to-germany, canada-to-spain",
-   "redirectTo": "canada-to-germany"
-  },
-  {
    "slug": "canada-to-argentina",
    "pair": "CAD-ARS",
    "keptInstead": "cad-to-ars",
@@ -784,8 +778,8 @@
   {
    "slug": "canada-to-croatia",
    "pair": "CAD-EUR",
-   "keptInstead": "canada-to-germany, canada-to-spain",
-   "redirectTo": "canada-to-germany"
+   "keptInstead": "cad-to-eur",
+   "redirectTo": "cad-to-eur"
   },
   {
    "slug": "canada-to-ecuador",
@@ -814,14 +808,14 @@
   {
    "slug": "canada-to-europe",
    "pair": "CAD-EUR",
-   "keptInstead": "canada-to-germany, canada-to-spain",
-   "redirectTo": "canada-to-germany"
+   "keptInstead": "cad-to-eur",
+   "redirectTo": "cad-to-eur"
   },
   {
    "slug": "canada-to-france",
    "pair": "CAD-EUR",
-   "keptInstead": "canada-to-germany, canada-to-spain",
-   "redirectTo": "canada-to-germany"
+   "keptInstead": "cad-to-eur",
+   "redirectTo": "cad-to-eur"
   },
   {
    "slug": "canada-to-ghana",
@@ -1826,6 +1820,12 @@
    "redirectTo": "oman-to-philippines"
   },
   {
+   "slug": "omr-to-pkr",
+   "pair": "OMR-PKR",
+   "keptInstead": "oman-to-pakistan",
+   "redirectTo": "oman-to-pakistan"
+  },
+  {
    "slug": "portugal-to-cameroon",
    "pair": "EUR-XAF",
    "keptInstead": "austria-to-cameroon",
@@ -2276,6 +2276,12 @@
    "redirectTo": "aed-to-kes"
   },
   {
+   "slug": "uae-to-malaysia",
+   "pair": "AED-MYR",
+   "keptInstead": "aed-to-myr",
+   "redirectTo": "aed-to-myr"
+  },
+  {
    "slug": "uae-to-mexico",
    "pair": "AED-MXN",
    "keptInstead": "aed-to-mxn",
@@ -2560,7 +2566,7 @@
   {
    "slug": "usa-to-croatia",
    "pair": "USD-EUR",
-   "keptInstead": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain, send-money-to-croatia",
+   "keptInstead": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain",
    "redirectTo": "usa-to-europe"
   },
   {
@@ -2578,13 +2584,13 @@
   {
    "slug": "usa-to-france",
    "pair": "USD-EUR",
-   "keptInstead": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain, send-money-to-croatia",
+   "keptInstead": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain",
    "redirectTo": "usa-to-europe"
   },
   {
    "slug": "usa-to-germany",
    "pair": "USD-EUR",
-   "keptInstead": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain, send-money-to-croatia",
+   "keptInstead": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain",
    "redirectTo": "usa-to-europe"
   },
   {
@@ -2650,7 +2656,7 @@
   {
    "slug": "usa-to-spain",
    "pair": "USD-EUR",
-   "keptInstead": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain, send-money-to-croatia",
+   "keptInstead": "usa-to-europe, send-money-to-europe, send-money-to-germany, send-money-to-france, send-money-to-spain",
    "redirectTo": "usa-to-europe"
   },
   {
@@ -2680,8 +2686,8 @@
   {
    "slug": "usa-to-zimbabwe",
    "pair": "USD-ZAR",
-   "keptInstead": "usa-to-south-africa, send-money-to-south-africa, send-money-to-zimbabwe",
-   "redirectTo": "usa-to-south-africa"
+   "keptInstead": "send-money-to-south-africa",
+   "redirectTo": "send-money-to-south-africa"
   },
   {
    "slug": "usd-to-aed",
@@ -2692,8 +2698,8 @@
   {
    "slug": "usd-to-ars",
    "pair": "USD-ARS",
-   "keptInstead": "usa-to-argentina, send-money-to-argentina",
-   "redirectTo": "usa-to-argentina"
+   "keptInstead": "send-money-to-argentina",
+   "redirectTo": "send-money-to-argentina"
   },
   {
    "slug": "usd-to-aud",
@@ -2704,8 +2710,8 @@
   {
    "slug": "usd-to-cad",
    "pair": "USD-CAD",
-   "keptInstead": "usa-to-canada, send-money-to-canada",
-   "redirectTo": "usa-to-canada"
+   "keptInstead": "send-money-to-canada",
+   "redirectTo": "send-money-to-canada"
   },
   {
    "slug": "usd-to-clp",
@@ -2716,8 +2722,8 @@
   {
    "slug": "usd-to-cny",
    "pair": "USD-CNY",
-   "keptInstead": "usa-to-china, send-money-to-china",
-   "redirectTo": "usa-to-china"
+   "keptInstead": "send-money-to-china",
+   "redirectTo": "send-money-to-china"
   },
   {
    "slug": "usd-to-crc",
@@ -2752,8 +2758,8 @@
   {
    "slug": "usd-to-ils",
    "pair": "USD-ILS",
-   "keptInstead": "usa-to-israel, send-money-to-israel",
-   "redirectTo": "usa-to-israel"
+   "keptInstead": "send-money-to-israel",
+   "redirectTo": "send-money-to-israel"
   },
   {
    "slug": "usd-to-jpy",
@@ -2764,8 +2770,8 @@
   {
    "slug": "usd-to-krw",
    "pair": "USD-KRW",
-   "keptInstead": "usa-to-south-korea, send-money-to-south-korea",
-   "redirectTo": "usa-to-south-korea"
+   "keptInstead": "send-money-to-south-korea",
+   "redirectTo": "send-money-to-south-korea"
   },
   {
    "slug": "usd-to-mad",
@@ -2788,14 +2794,14 @@
   {
    "slug": "usd-to-pen",
    "pair": "USD-PEN",
-   "keptInstead": "usa-to-peru, send-money-to-peru",
-   "redirectTo": "usa-to-peru"
+   "keptInstead": "send-money-to-peru",
+   "redirectTo": "send-money-to-peru"
   },
   {
    "slug": "usd-to-pln",
    "pair": "USD-PLN",
-   "keptInstead": "usa-to-poland, send-money-to-poland",
-   "redirectTo": "usa-to-poland"
+   "keptInstead": "send-money-to-poland",
+   "redirectTo": "send-money-to-poland"
   },
   {
    "slug": "usd-to-ron",
@@ -2818,8 +2824,8 @@
   {
    "slug": "usd-to-thb",
    "pair": "USD-THB",
-   "keptInstead": "usa-to-thailand, send-money-to-thailand",
-   "redirectTo": "usa-to-thailand"
+   "keptInstead": "send-money-to-thailand",
+   "redirectTo": "send-money-to-thailand"
   },
   {
    "slug": "usd-to-try",
@@ -2836,8 +2842,8 @@
   {
    "slug": "usd-to-tzs",
    "pair": "USD-TZS",
-   "keptInstead": "usa-to-tanzania, send-money-to-tanzania",
-   "redirectTo": "usa-to-tanzania"
+   "keptInstead": "send-money-to-tanzania",
+   "redirectTo": "send-money-to-tanzania"
   },
   {
    "slug": "usd-to-ugx",
@@ -2860,8 +2866,8 @@
   {
    "slug": "usd-to-zar",
    "pair": "USD-ZAR",
-   "keptInstead": "usa-to-south-africa, send-money-to-south-africa, send-money-to-zimbabwe",
-   "redirectTo": "usa-to-south-africa"
+   "keptInstead": "send-money-to-south-africa",
+   "redirectTo": "send-money-to-south-africa"
   },
   {
    "slug": "usd-to-zmw",

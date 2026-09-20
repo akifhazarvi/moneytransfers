@@ -47,3 +47,12 @@ next-env.d.ts
 /claude-seo-main/
 /claude-ads-main/.seo-cleanup/
 duplication-report.json
+
+# Audit scratch output — crawl dumps, screenshots, Lighthouse runs.
+# Regenerable, tens of MB, and would sit in git history forever.
+# The written reports under reports/*/ *.md are tracked; their evidence is not.
+sendmoneycompare.com-audit/
+reports/**/*.json
+reports/**/*.html
+reports/**/*.xml
+reports/**/*.txt

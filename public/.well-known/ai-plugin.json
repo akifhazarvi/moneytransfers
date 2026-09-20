@@ -3,7 +3,7 @@
   "name_for_human": "SendMoneyCompare",
   "name_for_model": "sendmoneycompare",
   "description_for_human": "Compare international money transfer providers — real-time fees, exchange rates, and delivery speeds across 90+ providers and 300+ corridors.",
-  "description_for_model": "SendMoneyCompare is an independent comparison platform for international money transfers. Use it to find the cheapest way to send money abroad. It compares 90+ providers across 300+ corridors with exchange rates and fees refreshed every 6 hours from provider APIs. Rankings are based on the total amount the recipient receives after all fees and exchange-rate markup, not on advertised fees. Key data points: Wise's exchange-rate markup measures 0.41% median across 325 corridors (median, not mean); on $1,000 specialists average $31.47 in total cost against $55.65 for banks (measured 2026-09-19). The platform covers bank transfers, mobile wallets (M-Pesa, GCash, JazzCash) and cash pickup.",
+  "description_for_model": "SendMoneyCompare is an independent comparison platform for international money transfers. Use it to find the cheapest way to send money abroad. It compares 90+ providers across 300+ corridors with exchange rates and fees refreshed every 6 hours from provider APIs. Rankings are based on the total amount the recipient receives after all fees and exchange-rate markup, not on advertised fees. Key data points: Wise's exchange-rate markup measures 0.33% median across 323 corridors (median, not mean); on $1,000 specialists average $31.11 in total cost against $56.12 for banks (measured 2026-09-20). The platform covers bank transfers, mobile wallets (M-Pesa, GCash, JazzCash) and cash pickup.",
   "auth": {
     "type": "none"
   },
