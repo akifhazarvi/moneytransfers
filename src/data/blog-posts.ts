@@ -14016,7 +14016,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money to Turkey?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup. That does not make it automatically cheapest on this route — check the comparison above for the current leader. <a href="/companies/remitly">Remitly</a> offers fast delivery to Turkish bank accounts. The Turkish Lira (TRY) is one of the most volatile major currencies — it lost over 50% of its value against the euro between 2023 and 2025. This makes <strong>timing and provider choice critical</strong>. On a €1,000 transfer, the difference between the best and worst provider can be ₺500–₺2,000. <a href="/send-money/eur-to-try">Compare live EUR to TRY rates</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup. That does not make it automatically cheapest on this route — check the comparison above for the current leader. <a href="/companies/remitly">Remitly</a> offers fast delivery to Turkish bank accounts. The Turkish Lira (TRY) is one of the most volatile major currencies — it lost over 50% of its value against the euro between 2023 and 2025. This makes <strong>timing and provider choice critical</strong>. On a €1,000 transfer, the difference between the best and worst provider can be ₺500–₺2,000. <a href="/send-money/germany-to-turkey">Compare live EUR to TRY rates</a>.</p></div>
 <div class="blog-callout-blue-sm"><p><strong>Key data:</strong> Turkey received over $5 billion in remittances in 2025. The Turkish lira lost 50%+ against EUR/USD between 2023-2025, making provider exchange rate markup differences even more impactful. SendMoneyCompare data shows specialist providers deliver ₺500–₺2,000 more than bank wires per €1,000.</p></div>
 <p>Turkey sits at the crossroads of Europe and Asia, with a large diaspora across Germany (~3 million), France, the Netherlands, Austria, and the UK. The EUR-to-TRY corridor is the highest-volume, but USD and GBP transfers are also common.</p>`,
       },
@@ -14033,7 +14033,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Wide agent network across Turkey</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote"><a href="/send-money/eur-to-try">Compare live EUR to TRY rates →</a></p>
+<p class="blog-footnote"><a href="/send-money/germany-to-turkey">Compare live EUR to TRY rates →</a></p>
 </div>
 
 <p>For a €1,000 transfer to Turkey:</p>
@@ -14082,7 +14082,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>German bank wire</strong></td><td>€15–€30</td><td>2–4%</td><td>₺36,500 (example)</td></tr>
 </tbody>
 </table>
-<p><em>Rates are illustrative — <a href="/send-money/eur-to-try">check live rates here</a>.</em></p>
+<p><em>Rates are illustrative — <a href="/send-money/germany-to-turkey">check live rates here</a>.</em></p>
 <p>Over 12 monthly transfers of €1,000, using Wise instead of a bank saves approximately <strong>₺20,000+</strong> (~€530).</p>`,
       },
       {
@@ -14897,7 +14897,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Card funding adds 0.5–1% on top of the regular fee. For non-urgent transfers, ACH (US) or SEPA (EU) funding is cheaper. Save card funding for genuine emergencies.</p>
 
 <h3>5. Ignoring the KRW Mid-Market Rate</h3>
-<p>KRW is volatile — it can move 0.5–1% in a single day on US Federal Reserve news or Korean current account data. Always check the <a href="/send-money/usd-to-krw">live USD to KRW rate</a> before initiating, and avoid locking in a rate during periods of high volatility unless you're using OFX's rate-lock feature. For more on how providers mark up the rate, see <a href="/guides/exchange-rate-markup-explained">how exchange rate markup works</a>.</p>`,
+<p>KRW is volatile — it can move 0.5–1% in a single day on US Federal Reserve news or Korean current account data. Always check the <a href="/send-money/usa-to-south-korea">live USD to KRW rate</a> before initiating, and avoid locking in a rate during periods of high volatility unless you're using OFX's rate-lock feature. For more on how providers mark up the rate, see <a href="/guides/exchange-rate-markup-explained">how exchange rate markup works</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",

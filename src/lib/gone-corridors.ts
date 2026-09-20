@@ -23,6 +23,8 @@
  * Promote OUT of this set only if a slug starts earning real demand on Bing/AI.
  */
 import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
+import { allCorridors } from "@/data/corridors";
+import { getCorridorTier } from "@/lib/corridor-tiers";
 import duplicateCorridors from "@/data/scraped/duplicate-corridors.json";
 
 const RETIRED_SLUGS = new Set<string>([
@@ -465,8 +467,55 @@ const DUPLICATE_PAIR_SLUGS: ReadonlySet<string> = new Set(
   duplicateCorridors.surplus.map((s) => s.slug),
 );
 
+/**
+ * Auto-generated currency-pair corridors (usd-to-inr), retired 2026-09-19.
+ *
+ * Two independent measurements agreed that this whole bucket is scaled content
+ * that no channel wants:
+ *
+ * 1. DUPLICATION. Over 84 live pages (trafilatura prose, 5-gram shingle
+ *    overlap) the currency-pair bucket runs 87.1% duplicate against its
+ *    siblings raw and 99.1% once providers, countries, currencies and numbers
+ *    are masked — best-pair containment 0.98 — on a median of 729 prose words
+ *    carrying a median of TWO sentences unique to the page. The country-pair
+ *    bucket, same template and same measurement, runs 50.7% with a median of 43
+ *    unique sentences and beats the competitor benchmark (Monito's own corridor
+ *    pages measure ~65.8%). Tier classification cannot separate them: provider
+ *    count calls these pages rich, prose shows one page printed 233 times.
+ *
+ * 2. DEMAND. Bing Webmaster Page Traffic, 90 days to 2026-09-20: the entire
+ *    /send-money/* family earned 1,011 of 308,906 site impressions (0.33%) and
+ *    11 clicks, while being 47.7% of the sitemap. Of the currency-pair pages
+ *    specifically, FOUR earned any impressions at all — sgd-to-krw (110/1
+ *    click), aed-to-lkr (78/1), hkd-to-zar (13/0), cad-to-usd (12/1) — for 213
+ *    impressions and 3 clicks in a quarter. By comparison /guides earned
+ *    181,066 impressions and 1,237 clicks off 66 pages.
+ *
+ * 410, not noindex: these have no sensible redirect target (only 6 of 233 even
+ * share a currency pair with a country corridor) and 410 is what deindexes
+ * cleanly for scaled-content remediation — the same reasoning as RETIRED_SLUGS
+ * above.
+ *
+ * Only slugs that currently RENDER are listed. The rest of the ~4,282 generated
+ * currency pairs are already outside the tier allowlist and hard-404 via
+ * `dynamicParams = false`, so adding them here would change nothing.
+ *
+ * As with every other set in this file, RANKING_CORRIDOR_SLUGS is subtracted
+ * below — so a currency pair that genuinely earns impressions (gbp-to-gtq,
+ * eur-to-cad, eur-to-nok today) keeps rendering and stays indexable.
+ */
+const CURRENCY_PAIR_SLUGS: ReadonlySet<string> = new Set(
+  allCorridors
+    .filter((c) => c.isCurrencyCorridor)
+    .filter(
+      (c) =>
+        getCorridorTier(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage) <= 2,
+    )
+    .map((c) => c.slug),
+);
+
 export const GONE_CORRIDOR_SLUGS: ReadonlySet<string> = new Set(
-  [...RETIRED_SLUGS, ...DUPLICATE_PAIR_SLUGS].filter(
+  [...RETIRED_SLUGS, ...DUPLICATE_PAIR_SLUGS, ...CURRENCY_PAIR_SLUGS].filter(
     (slug) => !RANKING_CORRIDOR_SLUGS.has(slug),
   ),
 );
