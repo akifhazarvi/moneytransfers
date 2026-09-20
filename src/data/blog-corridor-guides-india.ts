@@ -377,7 +377,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 
 <li><strong>Switch from a bank to a specialist.</strong> This is the single most impactful change you can make. A UK bank charging £25 wire fee + 2% markup on a monthly £600 transfer costs you roughly £1,800 extra per year compared to Wise or Remitly. That's ₹190,000 your family never sees.</li>
 
-<li><strong>Watch the USD/GBP/AED to INR rate.</strong> The rupee fluctuates against major currencies. If you have flexibility on timing, a favourable rate can give you an extra 1–2% on your transfer. See our <a href="/exchange-rates/usd-to-inr">USD to INR rate history</a> and consider setting a rate alert.</li>
+<li><strong>Watch the USD/GBP/AED to INR rate.</strong> The rupee fluctuates against major currencies. If you have flexibility on timing, a favourable rate can give you an extra 1–2% on your transfer. See our <a href="/exchange-rates">USD to INR rate history</a> and consider setting a rate alert.</li>
 
 <li><strong>Take advantage of first-transfer promotions.</strong> Remitly, WorldRemit, and others frequently offer boosted exchange rates on your first transfer — typically worth 1–3% of the send amount. Use these, but always verify the ongoing rate before becoming a regular customer.</li>
 
@@ -842,7 +842,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <li><strong>Fund via ACH, not card:</strong> Bank transfer funding saves $3–$15 per transfer compared to debit/credit card. Worth the 1-day delay.</li>
 <li><strong>Watch the markup, not the fee:</strong> A "$0 fee" transfer with a 2% exchange rate markup costs you $20 on a $1,000 transfer. The <a href="/guides/exchange-rate-markup-explained">exchange rate markup</a> is where most providers hide their profit.</li>
 <li><strong>Avoid banks for remittances:</strong> US bank wires cost 3–5x more than specialist providers. The ₹3,000–₹5,000 difference on $1,000 adds up to lakhs over years of regular sending.</li>
-<li><strong>Time your transfer (if flexible):</strong> The USD/INR rate fluctuates daily. If your transfer isn't urgent, watch the rate on our <a href="/exchange-rates/usd-to-inr">USD to INR exchange rate</a> page and send when the rate spikes.</li>
+<li><strong>Time your transfer (if flexible):</strong> The USD/INR rate fluctuates daily. If your transfer isn't urgent, watch the rate on our <a href="/exchange-rates">USD to INR exchange rate</a> page and send when the rate spikes.</li>
 <li><strong>Use loyalty programs:</strong> <a href="/companies/remitly">Remitly</a> offers better rates for repeat customers. Wise's pricing improves with volume. <a href="/companies/instarem">Instarem's</a> InstaPoints program gives cashback on transfers.</li>
 <li><strong>Beware first-transfer promotions:</strong> Providers like Remitly offer boosted rates on your first transfer — great for trying them out, but check what the standard rate is before committing long-term.</li>
 </ol>

@@ -3008,7 +3008,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td><a href="/companies/wise">Wise</a></td><td>0.920</td><td>0%</td><td>€920 (after ~$5 fee → €915 net)</td></tr>
 </table>
 
-<p><em>Rates are illustrative based on typical market conditions. Verify the current rate at <a href="/exchange-rates/usd-to-eur">live USD/EUR comparison</a> before sending.</em></p>
+<p><em>Rates are illustrative based on typical market conditions. Verify the current rate at <a href="/exchange-rates">live USD/EUR comparison</a> before sending.</em></p>
 
 <p><strong>Wise delivers €113 more than Chase, €95 more than HSBC standard, and €50 more than HSBC Premier on a $1,000 transfer.</strong> Compounded across 12 monthly transfers, that's $600–1,400 a year saved by avoiding both banks. See our deeper analysis in <a href="/guides/exchange-rate-markup-explained">how exchange rate markup works</a>.</p>`,
       },
