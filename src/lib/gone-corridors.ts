@@ -28,6 +28,10 @@ import { getCorridorTier } from "@/lib/corridor-tiers";
 import duplicateCorridors from "@/data/scraped/duplicate-corridors.json";
 
 const RETIRED_SLUGS = new Set<string>([
+  // Explicitly retired by the site owner after the September 20 SEO audit.
+  "usa-to-china",
+  "usa-to-egypt",
+  "send-money-to-zimbabwe",
   "europe-to-india",
   "europe-to-nigeria",
   "europe-to-pakistan",

@@ -10315,7 +10315,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3>Middle East to India</h3>
 <p>With over 9 million Indians in the Gulf states, this is one of the highest-volume Ramadan corridors. <a href="/companies/wise">Wise</a> offers the best exchange rate (0% markup), while <a href="/companies/remitly">Remitly</a> offers faster delivery. Compare on our <a href="/send-money/uae-to-india">UAE to India</a> page.</p>
 <h3>US/UK to Egypt</h3>
-<p><a href="/companies/worldremit">WorldRemit</a> is running zero-fee promotions for mobile wallet delivery to Egypt. <a href="/companies/western-union">Western Union</a> has reduced agent pickup fees. See our <a href="/send-money/usa-to-egypt">USA to Egypt</a> corridor page.</p>
+<p><a href="/companies/worldremit">WorldRemit</a> is running zero-fee promotions for mobile wallet delivery to Egypt. <a href="/companies/western-union">Western Union</a> has reduced agent pickup fees. See our <a href="/send-money/send-money-to-egypt">sending money to Egypt</a> comparison page.</p>
 <h3>Middle East to Philippines</h3>
 <p>GCash recently dropped all fees for Filipino transfers from the Middle East. Combined with <a href="/companies/remitly">Remitly's</a> zero-fee express delivery, this is one of the cheapest corridors this Ramadan. Compare on our <a href="/send-money/send-money-to-philippines">send money to the Philippines</a> page.</p>`,
       },
@@ -13493,7 +13493,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money to China from the USA?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market USD to CNY rate with 0% markup and a fee of ~$7 on $1,000, but the provider that actually delivered the most on USD to CNY was {{CORRIDOR_LEADER:USD:CNY}}. <a href="/companies/remitly">Remitly</a> offers delivery to Alipay and WeChat Pay wallets in minutes. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. China's <strong>SAFE capital controls</strong> limit individual recipients to the equivalent of $50,000/year in foreign exchange — you can send more, but your recipient may need documentation. <a href="/send-money/usa-to-china">Compare live USD to CNY rates</a> from 8+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market USD to CNY rate with 0% markup and a fee of ~$7 on $1,000, but the provider that actually delivered the most on USD to CNY was {{CORRIDOR_LEADER:USD:CNY}}. <a href="/companies/remitly">Remitly</a> offers delivery to Alipay and WeChat Pay wallets in minutes. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. China's <strong>SAFE capital controls</strong> limit individual recipients to the equivalent of $50,000/year in foreign exchange — you can send more, but your recipient may need documentation. <a href="/send-money/send-money-to-china">Compare live USD to CNY rates</a> from 8+ providers.</p></div>
 <div class="blog-callout-blue-sm"><p><strong>Key data:</strong> China's SAFE capital controls limit individual recipients to $50,000/year in foreign exchange conversion. SendMoneyCompare data shows using Wise instead of a US bank wire saves approximately ¥300–¥350 on a $1,000 transfer. Alipay delivery arrives in minutes to over 1 billion registered accounts.</p></div>
 <p>China is the world's <strong>second-largest remittance recipient</strong>, with ~5.4 million Chinese diaspora in the US alone. But sending money to China is more complex than most corridors due to capital controls, the dual exchange rate system (CNY vs CNH), and China's unique payment infrastructure (Alipay, WeChat Pay, UnionPay).</p>
 <p>This guide covers the cheapest providers, Alipay/WeChat delivery, SAFE regulations, CIPS vs SWIFT, and common mistakes that delay transfers.</p>`,
@@ -13522,7 +13522,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations in major Chinese cities via partner banks</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/usa-to-china">Compare live rates →</a></p>
+<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/send-money-to-china">Compare live rates →</a></p>
 </div>
 
 <p>For a $1,000 transfer to China:</p>
@@ -13533,7 +13533,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong><a href="/companies/ofx">OFX</a></strong>: No fees on $1,000+. Forward contracts for tuition payments. Best for $10K+</li>
 <li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but cash pickup available in Chinese cities</li>
 </ul>
-<p><a href="/send-money/usa-to-china">Compare live USD to CNY rates</a> for your exact amount.</p>`,
+<p><a href="/send-money/send-money-to-china">Compare live USD to CNY rates</a> for your exact amount.</p>`,
       },
       {
         heading: "How Do You Send Money to Alipay or WeChat Pay?",
@@ -13582,7 +13582,7 @@ const rawBlogPosts: BlogPost[] = [
 </tbody>
 </table>
 <p><strong>Which one do providers use?</strong> Most specialist providers (Wise, Remitly) use their own internal networks and local Chinese bank partnerships — they don't route through SWIFT or CIPS directly. Traditional bank wires use SWIFT. Some Chinese banks increasingly route through CIPS for CNY-denominated payments.</p>
-<p>From a sender's perspective, you don't choose the network — your provider handles the routing. What matters is the total cost and delivery time, which our <a href="/send-money/usa-to-china">comparison tool</a> shows.</p>`,
+<p>From a sender's perspective, you don't choose the network — your provider handles the routing. What matters is the total cost and delivery time, which our <a href="/send-money/send-money-to-china">comparison tool</a> shows.</p>`,
       },
       {
         heading: "How Much Does It Cost to Send $1,000 to China?",
@@ -13596,7 +13596,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Bank of America wire</strong></td><td>$35–$45</td><td>2–3%</td><td>¥6,900 (example)</td></tr>
 </tbody>
 </table>
-<p><em>Rates are illustrative — <a href="/send-money/usa-to-china">check live rates here</a>.</em></p>
+<p><em>Rates are illustrative — <a href="/send-money/send-money-to-china">check live rates here</a>.</em></p>
 <p>On a $1,000 transfer, using Wise instead of a bank wire saves approximately <strong>¥300–¥350</strong>. On a $10,000 tuition payment, that's ¥3,000–¥3,500 — a meaningful difference. For a detailed explanation of how markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
       },
       {
