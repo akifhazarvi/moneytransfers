@@ -306,19 +306,21 @@ export default async function AlternativesPage({
                 websites every six hours; these are the ones at ${INDEX_AMOUNT.toLocaleString("en-US")} in the send
                 currency, collected {asOf}.
               </p>
+              {/* Condensed 2026-09-20. The three paragraphs that stood here
+                  restated the same generic reasoning on all eight pages — 266
+                  words each, 40% of the family's text — while /methodology
+                  already carries it in full. What stays is the part that
+                  changes per page (the shared-corridor floor against THIS
+                  provider) plus the disclosure check:rankings requires, which
+                  must be inline rather than only linked. */}
               <p>
-                <strong>Comparisons are restricted to shared corridors.</strong> Ranking providers by their site-wide
-                average would compare corridor mixes rather than prices — one provider in our index is measured on 793
-                corridors and another on 13. A provider sharing fewer than {MIN_SHARED_CORRIDORS} corridors with{" "}
-                {e.name} is left out entirely rather than given a row built on a handful of routes.
+                Figures are <strong>medians on shared corridors only</strong>: a provider quoting fewer than{" "}
+                {MIN_SHARED_CORRIDORS} of the same routes as {e.name} is left out rather than given a row built on a
+                handful of them. Ranking on site-wide averages would compare corridor mixes rather than prices.
               </p>
               <p>
-                <strong>All figures are medians.</strong> The mean is distorted by corridors where our own mid-market
-                benchmark is unreliable, which is enough to invert the order of two close providers.
-              </p>
-              <p>
-                Providers are ranked only on what we measure — fee and FX cost. Account features, cash-pickup networks
-                and delivery speed are not in this ranking. See the{" "}
+                Providers are ranked only on fee and FX cost — account features, cash-pickup networks and delivery
+                speed are not in this ranking. See the{" "}
                 <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">full methodology</Link>{" "}
                 and the{" "}
                 <Link href="/remittance-cost-index" className="text-[var(--color-primary)] hover:underline">

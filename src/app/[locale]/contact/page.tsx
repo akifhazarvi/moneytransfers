@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import Link from "next/link";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -9,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "contact" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     alternates: getAlternates("contact", locale),
     openGraph: {
       title: t("metaTitle"),
