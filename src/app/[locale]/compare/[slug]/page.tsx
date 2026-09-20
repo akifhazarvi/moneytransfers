@@ -17,7 +17,6 @@ import ComparisonTable from "@/components/ComparisonTable";
 import RatingBadge from "@/components/RatingBadge";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { sanitizeHtml } from "@/lib/sanitize";
-import { trustpilotIndex } from "@/lib/unified-quotes";
 import { corridorToSlug } from "@/lib/rate-history";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getCompareCanonicalSlug, EDITORIAL_COMPARE_SLUGS } from "@/lib/compare-canonical";
@@ -259,7 +258,7 @@ function DefaultComparison({
           }),
         }}
       />
-      {/* FinancialService schema with AggregateRating for each provider */}
+      {/* Provider entities. Third-party ratings stay in visible content only. */}
       {[a, b].map((provider) => (
         <script
           key={`fs-${provider.slug}`}
@@ -276,15 +275,6 @@ function DefaultComparison({
               // require an address. Same headquarters value the canonical node
               // on /companies/[slug] uses, keeping the two copies consistent.
               ...(postalAddress(provider.headquarters) && { address: postalAddress(provider.headquarters) }),
-              ...(provider.rating > 0 && trustpilotIndex[provider.slug]?.totalReviews && {
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: Number(provider.rating.toFixed(1)),
-                  bestRating: 5,
-                  worstRating: 1,
-                  ratingCount: trustpilotIndex[provider.slug].totalReviews,
-                },
-              }),
             }),
           }}
         />

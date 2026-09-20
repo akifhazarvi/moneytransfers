@@ -209,8 +209,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // sitemap, and no submitted URL that serves noindex.
   //
   // Previously this AND-ed the allowlist on top, which submitted 44 of 1,176
-  // indexable corridors. A sitemap that omits pages you want indexed is a signal
-  // you do not want them indexed; listing them is how you ask.
+  // indexable corridors. Listing the full eligible set helps discovery;
+  // omission is not a noindex directive, and inclusion cannot guarantee indexing.
   const corridorPages: MetadataRoute.Sitemap = allCorridors
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
     .filter((c) => !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))

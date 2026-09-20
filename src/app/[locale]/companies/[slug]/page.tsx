@@ -480,14 +480,8 @@ function DefaultReview({
         // both pages shipped full duplicate entities.
         "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
         name: provider.name, description: provider.description, url: provider.website,
-        ...(trustpilotIndex[slug]?.totalReviews && trustpilotIndex[slug]?.score && {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: Number(trustpilotIndex[slug].score!.toFixed(1)),
-            bestRating: 5, worstRating: 1,
-            ratingCount: trustpilotIndex[slug].totalReviews,
-          },
-        }),
+        // Trustpilot ratings remain attributed in the visible review. Google's
+        // review-snippet guidelines exclude ratings sourced from other sites.
         ...(postalAddress(provider.headquarters) && { address: postalAddress(provider.headquarters) }),
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
