@@ -29,7 +29,6 @@ export const RANKING_CORRIDOR_SLUGS = new Set<string>([
   "switzerland-to-egypt",         // 24 impr, pos 2.0, 1 click
   "south-korea-to-south-africa",  // 24 impr, pos 3.2
   "eur-to-cad",                   // 20 impr, pos 2.5
-  "gbp-to-gtq",                   // 20 impr, pos 2.6
   "eur-to-nok",                   //  9 impr, pos 24.0
   "sweden-to-vietnam",            //  8 impr, pos 2.1
   "send-money-to-serbia",         //  6 impr, pos 3.0
@@ -38,7 +37,6 @@ export const RANKING_CORRIDOR_SLUGS = new Set<string>([
   // Reached via /fr/ locale URLs that 301 here; the target had been deleted,
   // so the redirect chained into a 404 and the impressions went nowhere.
   "send-money-to-algeria",        // 43 impr, pos 8.8, 1 click (via /fr/)
-  "uk-to-guatemala",              // 28 impr, pos 3.5 (via /fr/)
 
   // ── Was in GONE_CORRIDOR_SLUGS → 410. ──
   "south-africa-to-nigeria",      //  9 impr, pos 6.2 — retired in the Jun 25 cleanup

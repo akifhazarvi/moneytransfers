@@ -711,7 +711,7 @@ export default async function BestAppsFromUSPage({
                 corridor: "USA → Canada (USD/CAD)",
                 winner: "Wise / OFX",
                 note: "Competitive on large amounts",
-                slug: "usa-to-canada",
+                slug: "send-money-to-canada",
                 winnerSlug: "wise",
               },
             ].map((c) => (

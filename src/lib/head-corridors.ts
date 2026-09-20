@@ -18,7 +18,6 @@ export const HEAD_CORRIDOR_SLUGS = new Set<string>([
   "usa-to-pakistan",
   "usa-to-mexico",
   "usa-to-uk",
-  "usa-to-canada",
   "uk-to-india",
   "uk-to-pakistan",
   "uk-to-nigeria",

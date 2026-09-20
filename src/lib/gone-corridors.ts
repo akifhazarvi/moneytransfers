@@ -44,17 +44,26 @@ const RETIRED_SLUGS = new Set<string>([
   // duplicate content. Retiring them would delete substance without touching
   // the shared boilerplate that produces the ratio.
   //
-  // uk-to-guatemala (96.6%) and gbp-to-gtq (95.3%) also cleared the threshold
-  // but are in RANKING_CORRIDOR_SLUGS, so GONE_CORRIDOR_SLUGS filters them out
-  // below and listing them here would be a silent no-op. They need
-  // differentiation instead.
+  // Three more cleared the same threshold and were initially exempted by
+  // RANKING_CORRIDOR_SLUGS and HEAD_CORRIDOR_SLUGS. The site owner decided on
+  // 2026-09-20 that near-empty text is a quality problem regardless of what a
+  // page ranks for. They were removed from both protection lists in the same
+  // commit, because GONE_CORRIDOR_SLUGS subtracts RANKING_CORRIDOR_SLUGS and
+  // listing them here alone would have been a silent no-op.
   //
-  // usa-to-canada (98.7%, 46 unique words) cleared the threshold too and is
-  // deliberately NOT retired: it is in HEAD_CORRIDOR_SLUGS, which exists to
-  // exempt high-demand routes from exactly this kind of sweep on the grounds
-  // that their zero traffic reflects post-2026-03-20 suppression rather than
-  // low demand. Retiring it would contradict that decision. It is a rewrite
-  // candidate, not a deletion candidate.
+  // What that forfeits, recorded so it is not rediscovered as a mystery:
+  //   gbp-to-gtq       20 impressions, avg position 2.6 (GSC Jun 2 - Aug 30)
+  //   uk-to-guatemala  28 impressions, avg position 3.5, via /fr/
+  //   usa-to-canada    head-term route whose zero traffic was attributed to
+  //                    the 2026-03-20 suppression rather than to low demand
+  //
+  // Both GSC figures come from the 2026-09-01 pull recorded in
+  // ranking-corridors.ts. No fresh pull was available to re-verify them, which
+  // that file asks for before any removal. If these are restored, restore
+  // their ranking-list and head-list entries too.
+  "gbp-to-gtq",
+  "uk-to-guatemala",
+  "usa-to-canada",
   "usa-to-south-africa",
   "canada-to-germany",
   "send-money-to-croatia",
