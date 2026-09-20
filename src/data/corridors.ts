@@ -4791,7 +4791,10 @@ function generateCurrencyCorridors(): Corridor[] {
         toFlag: toCurr.flag,
         sampleAmount: 1000,
         isCurrencyCorridor: true,
-        intro: `Looking for the best ${fromCode} to ${toCurr.code} exchange rate? Compare real-time rates, fees, and delivery times from 15+ money transfer providers to find the cheapest way to convert ${fromCurr.name} to ${toCurr.name}.`,
+        // No provider count asserted here: this string is generated for every
+        // pair, and 151 of the 191 rendering corridors hold fewer than 15
+        // providers, so "15+" was false far more often than it was true.
+        intro: `Looking for the best ${fromCode} to ${toCurr.code} exchange rate? Compare real-time rates, fees and delivery times across every provider quoting this pair to find the cheapest way to convert ${fromCurr.name} to ${toCurr.name}.`,
         context: `The ${fromCode}/${toCurr.code} exchange rate fluctuates throughout the day. Specialist money transfer providers typically offer rates 1–4% better than banks, which can mean significant savings on every transfer. Our comparison shows you the exact ${toCurr.code} amount you'll receive from each provider after all fees and exchange rate markups.`,
         feesNote: `Fees for ${fromCode} to ${toCurr.code} transfers vary by provider — from free to ${fromSym}5–10 with specialist services. Banks typically charge ${fromSym}25–50 per wire plus a 2–5% exchange rate markup. The bigger cost factor is usually the exchange rate markup, not the fee. Always compare the total ${toCurr.code} received.`,
         deliveryNote: `Delivery times for ${fromCode} to ${toCurr.code} transfers range from minutes (with express options) to 3–5 business days for standard bank wires. Most specialist providers deliver within 1–2 business days.`,
@@ -4801,8 +4804,16 @@ function generateCurrencyCorridors(): Corridor[] {
             a: `Exchange rates change constantly. Use our comparison table above to see real-time ${fromCode} to ${toCurr.code} rates from every provider. The mid-market rate is shown for reference — look for providers offering rates closest to it.`,
           },
           {
+            // Named no provider here from 2026-09-19. This answer used to assert
+            // that "Wise, Remitly, and OFX typically offer the best total value",
+            // which our own measurements contradict: the remittance cost index
+            // puts OFX at 6.44% all-in and 4.05% off mid-market. The ranking on
+            // the page is computed per corridor and per amount, so no static
+            // sentence can name the winner without eventually being wrong — and
+            // this one is served as FAQPage schema, which is what AI assistants
+            // lift verbatim.
             q: `What is the cheapest way to convert ${fromCode} to ${toCurr.code}?`,
-            a: `Specialist transfer providers like Wise, Remitly, and OFX typically offer the best total value. Compare the total ${toCurr.code} received (after fees and rate markup) rather than just the fee or rate alone.`,
+            a: `Compare the total ${toCurr.code} your recipient receives after both the transfer fee and the exchange rate markup — not the fee or the advertised rate alone. The comparison table above ranks every provider quoting this pair by that figure, and the leader changes by corridor and by amount.`,
           },
           {
             q: `How long does a ${fromCode} to ${toCurr.code} transfer take?`,
@@ -4810,7 +4821,13 @@ function generateCurrencyCorridors(): Corridor[] {
           },
           {
             q: `Is it cheaper to use a bank or a specialist provider for ${fromCode} to ${toCurr.code}?`,
-            a: `Specialist providers are almost always cheaper. Banks typically charge ${fromSym}25–50 per transfer plus a 2–5% exchange rate markup. Specialist providers like Wise, Revolut, and Remitly charge ${fromSym}0–10 with markups under 1%, saving you significantly on every transfer.`,
+            // The "markups under 1%" claim was removed 2026-09-19: it was
+            // asserted for a named set of providers on every generated pair,
+            // and our measured markups do not support it as a blanket figure
+            // (OFX measures 4.05% off mid-market, PayPal ~4.6%). The bank/
+            // specialist gap is real and worth stating; the specific sub-1%
+            // number is not ours to promise on an arbitrary currency pair.
+            a: `Specialist providers are usually cheaper than banks. Banks typically charge ${fromSym}25–50 per transfer plus an exchange rate markup of several percent, while specialists compete on both. How much cheaper depends on the pair — check the ranked comparison above for what each provider actually delivers on this route today.`,
           },
         ],
       });

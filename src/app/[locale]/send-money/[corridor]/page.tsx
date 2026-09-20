@@ -72,6 +72,7 @@ interface Props {
 import { corridorEditorialNotes } from "@/data/corridor-editorial-notes";
 
 import { shouldNoindex, getCorridorTier } from "@/lib/corridor-tiers";
+import { quotesByCorridor } from "@/lib/unified-quotes";
 import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { corridorPageRenders, companyPageRenders } from "@/lib/route-map";
 import { rateHistoryHref } from "@/lib/route-map-rates";
@@ -906,6 +907,44 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   },
 };
 
+/**
+ * Replace a hand-typed "15+ providers" claim with the number of providers
+ * actually quoting this corridor at build time.
+ *
+ * The overrides above were written by hand and have drifted from the data:
+ * a 2026-09-19 check found send-money-to-romania claiming "10+" against 5 live
+ * providers, -peru "10+" against 8, -poland and usa-to-poland "10+" against 9,
+ * and send-money-to-morocco "10+" against 7. 151 of the 191 rendering corridors
+ * hold fewer than 15 providers, so the "15+" phrasing cannot be globally true
+ * whatever it says.
+ *
+ * Resolving here rather than correcting the strings is the point: provider
+ * coverage moves with every 6-hourly scrape, so any number typed into a literal
+ * is wrong again within a day. This is the same rule the prose already follows —
+ * never hand-type a figure the dataset knows.
+ *
+ * Below two providers there is no comparison to claim, so the clause is dropped
+ * rather than rendered as "from 1 providers".
+ */
+function resolveProviderClaim(text: string, count: number): string {
+  if (count < 2) {
+    // No comparison to claim — drop the clause rather than say "1 providers".
+    return text
+      .replace(/\s*(?:from\s+)?&?\s*\b\d+\+\s+providers\b/gi, "")
+      .replace(/\s{2,}/g, " ")
+      .replace(/\s+([.,])/g, "$1")
+      .trim();
+  }
+  return (
+    text
+      // "from Wise, Remitly, ACE & 10+ providers" — here the count is the TOTAL,
+      // which includes the names already listed, so "& 14 providers" would read
+      // as fourteen *more* than the three named.
+      .replace(/\s*&\s*\b\d+\+\s+providers\b/gi, ` — ${count} compared`)
+      .replace(/\b\d+\+(\s+providers\b)/gi, `${count}$1`)
+  );
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { corridor: slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "corridor" });
@@ -971,9 +1010,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ]);
   // seoDescription caps the hand-written overrides too — one of them
   // (singapore-to-philippines) ran to 177 characters.
-  const description = seoDescription(override?.description ?? t(`fallbackDescription${variant}`, tplParams));
+  // Provider count for this corridor, measured not asserted — see
+  // resolveProviderClaim above.
+  const corridorQuotes = quotesByCorridor[`${corridor.fromCurrency}_${corridor.toCurrency}`];
+  const liveProviderCount = corridorQuotes
+    ? new Set(corridorQuotes.map((q) => q.providerSlug)).size
+    : 0;
+
+  const description = seoDescription(
+    resolveProviderClaim(
+      override?.description ?? t(`fallbackDescription${variant}`, tplParams),
+      liveProviderCount,
+    ),
+  );
   const ogTitle = override?.ogTitle ?? t(`fallbackOgTitle${variant}`, tplParams);
-  const ogDescription = override?.ogDescription ?? description;
+  const ogDescription = override?.ogDescription
+    ? resolveProviderClaim(override.ogDescription, liveProviderCount)
+    : description;
   const keywords = override?.keywords ?? t(`fallbackKeywords${variant}`, tplParams);
 
   return {
@@ -1278,6 +1331,28 @@ export default async function CorridorPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
+      {/*
+        One <article> around the whole corridor body.
+
+        Boilerplate-removal algorithms (trafilatura, Readability and the
+        extractors most AI crawlers run) pick a dominant content container and
+        discard everything outside it. This template offered none: 27 flat
+        <section> siblings, no <article>, no <main>. Measured 2026-09-19, that
+        cost the page 41 of its 44 headings — 7% survived extraction, against
+        80% on /compare/wise-vs-remitly and 67% on a guide using the same
+        extractor and settings. Every question-shaped H2 ("What is the cheapest
+        way to send GBP to INR?", "How long does it take…") was destroyed, along
+        with the FCA/FSCS safety material that answers the questions we are
+        measurably never cited on.
+
+        The corridor family is the largest on the site and AI assistants are its
+        best-converting channel, so this is the single highest-leverage
+        structural change available. Re-measure heading survival after deploy —
+        container structure was the strongest remaining hypothesis after the
+        React comment-separator one was tested and disproved, but it is a
+        hypothesis, not a diagnosed repair.
+      */}
+      <article>
       {/* ─── Premium Corridor Hero — best-provider-as-hero, editorial below ─── */}
       <CorridorHero
         headingFrom={headingFrom}
@@ -3111,6 +3186,7 @@ export default async function CorridorPage({ params }: Props) {
           toCurrency={toCurrency}
         />
       )}
+      </article>
     </>
   );
 }
