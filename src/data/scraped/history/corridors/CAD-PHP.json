@@ -19323,7 +19323,7 @@
       "lemfi": {
         "rate": 44.2,
         "fee": 2,
-        "markup": 1.59,
+        "markup": 1.53,
         "receiveAmount": 4331.6
       },
       "moneygram": {
@@ -19381,10 +19381,10 @@
         "receiveAmount": 4392.36
       },
       "remitly": {
-        "rate": 43.76,
+        "rate": 44.63,
         "fee": 0,
-        "markup": 2.61,
-        "receiveAmount": 4376
+        "markup": null,
+        "receiveAmount": 4463
       },
       "wise": {
         "rate": 44.9939,
@@ -19399,10 +19399,10 @@
         "receiveAmount": 4541.26
       },
       "taptap-send": {
-        "rate": 44.2,
+        "rate": 44.1,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4420
+        "receiveAmount": 4410
       },
       "bmo": {
         "rate": 41.7613,
