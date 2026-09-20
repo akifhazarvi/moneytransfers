@@ -123,9 +123,42 @@ const INDEXABLE = new Set<string>(indexableRoutes.routes as string[]);
  * the safe direction: a new page joins the index on the next regeneration
  * rather than by default.
  */
+const ALWAYS_INDEXABLE_TOP = new Set<string>([
+  "", "guides", "research", "news",
+  "sendscore", "provider-consistency", "remittance-cost-index",
+  "transfer-cost-by-amount", "tools",
+  "send-money", "compare", "companies", "exchange-rates", "business",
+  "about", "contact", "methodology", "how-we-review", "editorial-policy",
+  "privacy-policy", "terms", "cookies", "disclaimer", "corrections", "for-ai",
+  "currency-converter",
+]);
+const HUB_ONLY = new Set<string>([
+  "send-money", "compare", "companies", "exchange-rates", "business",
+]);
+
+/**
+ * The exempt families, evaluated at RUNTIME rather than read from the
+ * generated list.
+ *
+ * This matters for pages that did not exist when the list was last built. A
+ * guide merged after the last regeneration is absent from
+ * indexable-routes.json, and without this check it would publish as noindex
+ * and stay that way until someone re-ran the generator — the opposite of what
+ * exempting guides was for. Mirrors alwaysIndexable() in
+ * scripts/build-indexable-routes.ts; change both together.
+ */
+function alwaysIndexable(pathname: string): boolean {
+  const parts = pathname.replace(/^\/+/, "").replace(/\/$/, "").split("/").filter(Boolean);
+  const top = parts[0] ?? "";
+  if (!ALWAYS_INDEXABLE_TOP.has(top)) return false;
+  if (parts.length > 1 && HUB_ONLY.has(top)) return false;
+  return true;
+}
+
 export function routeIsIndexable(pathname: string): boolean {
   const clean = "/" + pathname.replace(/^\/+/, "").replace(/\/$/, "");
-  return INDEXABLE.has(clean === "/" ? "/" : clean);
+  const path = clean === "/" ? "/" : clean;
+  return alwaysIndexable(path) || INDEXABLE.has(path);
 }
 
 /** Metadata `robots` value for a path: undefined when indexable. */
