@@ -943,6 +943,33 @@ function resolveProviderClaim(text: string, count: number): string {
   );
 }
 
+/**
+ * The same rule as resolveProviderClaim, for `<title>` and `og:title`.
+ *
+ * Titles need their own handler because the claim sits inside a clause rather
+ * than a sentence: "Cheapest GBP to GTQ Rates — Compare 15+ Providers (2026)".
+ * Deleting just the number and the word leaves "— Compare (2026)" dangling, so
+ * below two providers the whole clause goes.
+ *
+ * This existed only for descriptions until 2026-09-20, which is how three
+ * ranking corridors shipped a title reading "Compare 15+ Providers" while the
+ * very same response carried a description with the clause already stripped
+ * for having fewer than two. A page contradicting itself in one response is
+ * worse than either version alone.
+ */
+function resolveProviderClaimInTitle(text: string | undefined, count: number): string | undefined {
+  if (!text) return text;
+  if (count >= 2) return text.replace(/\b\d+\+(\s+[Pp]roviders?\b)/g, `${count}$1`);
+  return text
+    // "… — Compare 15+ Providers (2026)" and "… (2026) — Compare 15+ Providers"
+    .replace(/\s*[—–-]\s*Compare\s+\d+\+\s+[Pp]roviders?\b/g, "")
+    // bare "Compare 15+ Providers" with no dash in front of it
+    .replace(/\s*\bCompare\s+\d+\+\s+[Pp]roviders?\b/g, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([.,])/g, "$1")
+    .trim();
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { corridor: slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "corridor" });
@@ -996,24 +1023,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // United Kingdom to New Zealand — GBP→NZD (2026)" = 73), so search engines
   // truncated the currency pair the title existed to carry. fitTitle keeps the
   // richest variant that actually renders, including hand-written overrides.
-  const title = fitTitle([
-    override?.title,
-    t(`fallbackTitle${variant}`, tplParams),
-    variant === "Corridor"
-      ? t("fallbackTitleCorridorShort", tplParams)
-      : variant === "Country"
-        ? t("fallbackTitleCountryShort", tplParams)
-        : undefined,
-    variant === "Corridor" ? t("fallbackTitleCorridorMin", tplParams) : undefined,
-  ]);
-  // seoDescription caps the hand-written overrides too — one of them
-  // (singapore-to-philippines) ran to 177 characters.
   // Provider count for this corridor, measured not asserted — see
-  // resolveProviderClaim above.
+  // resolveProviderClaim above. Computed BEFORE the title, because the title
+  // carries the same claim and must be resolved against the same number.
   const corridorQuotes = quotesByCorridor[`${corridor.fromCurrency}_${corridor.toCurrency}`];
   const liveProviderCount = corridorQuotes
     ? new Set(corridorQuotes.map((q) => q.providerSlug)).size
     : 0;
+
+  // Resolve each candidate first, then fit: the resolved string is what ships,
+  // so the 70-character cap has to be applied to that rather than to the
+  // template it came from.
+  const title = fitTitle(
+    [
+      override?.title,
+      t(`fallbackTitle${variant}`, tplParams),
+      variant === "Corridor"
+        ? t("fallbackTitleCorridorShort", tplParams)
+        : variant === "Country"
+          ? t("fallbackTitleCountryShort", tplParams)
+          : undefined,
+      variant === "Corridor" ? t("fallbackTitleCorridorMin", tplParams) : undefined,
+    ].map((c) => resolveProviderClaimInTitle(c, liveProviderCount)),
+  );
+  // seoDescription caps the hand-written overrides too — one of them
+  // (singapore-to-philippines) ran to 177 characters.
 
   const description = seoDescription(
     resolveProviderClaim(
@@ -1021,7 +1055,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       liveProviderCount,
     ),
   );
-  const ogTitle = override?.ogTitle ?? t(`fallbackOgTitle${variant}`, tplParams);
+  const ogTitle =
+    resolveProviderClaimInTitle(
+      override?.ogTitle ?? t(`fallbackOgTitle${variant}`, tplParams),
+      liveProviderCount,
+    ) ?? "";
   const ogDescription = override?.ogDescription
     ? resolveProviderClaim(override.ogDescription, liveProviderCount)
     : description;

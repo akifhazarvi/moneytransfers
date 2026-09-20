@@ -1,10 +1,10 @@
 {
- "generated": "2026-09-20T15:26:25.972Z",
- "measuredFrom": "2026-09-20T15:25:00.744Z",
+ "generated": "2026-09-20T15:43:35.637Z",
+ "measuredFrom": "2026-09-20T15:42:55.974Z",
  "threshold": 30,
  "note": "Routes whose measured duplicate share is under the threshold. Drives sitemap membership and robots via routeIsIndexable() in src/lib/seo-indexing.ts.",
- "consideredRoutes": 645,
- "indexableRoutes": 228,
+ "consideredRoutes": 646,
+ "indexableRoutes": 229,
  "exemptOverThreshold": 113,
  "indexedSetDuplicatePct": 30.7,
  "routes": [
@@ -161,6 +161,7 @@
   "/guides/wise-vs-remitly-comparison",
   "/guides/wise-vs-remitly-vs-xoom-vs-xe",
   "/guides/xe-business-payments-review",
+  "/guides/xe-money-transfer-review-rates",
   "/guides/xe-tax-season-cross-border-money-2026",
   "/how-we-review",
   "/iban",
