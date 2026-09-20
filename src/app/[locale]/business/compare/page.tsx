@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import { robotsFor } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
@@ -46,6 +47,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: { absolute: title },
     description: seoDescription(description),
     alternates: getAlternates(PATH, locale),
+    // 2026-09-20: indexability is measured — robotsFor() consults the
+    // duplication-derived allowlist. See scripts/build-indexable-routes.ts.
+    robots: robotsFor("/business/compare"),
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
     openGraph: { title, description, url: URL, type: "website",
       images: DEFAULT_OG_IMAGES,

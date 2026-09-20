@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import { robotsFor } from "@/lib/seo-indexing";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Container from "@/components/Container";
@@ -46,6 +47,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: `Historical Exchange Rates — 90+ Currency Corridors (${year})`,
     description: seoDescription(`Track exchange rate history across ${COVERAGE.historyCorridors}. Compare how provider rates have changed over time and find the best time to send money abroad.`),
     alternates: getAlternates("exchange-rates/history", locale),
+    // 2026-09-20: indexability is measured — robotsFor() consults the
+    // duplication-derived allowlist. See scripts/build-indexable-routes.ts.
+    robots: robotsFor("/exchange-rates/history"),
     openGraph: {
       title: `Historical Exchange Rates — Currency Rate Trends (${year})`,
       description: "Track exchange rate trends, compare providers over time, and find the best time to send money.",

@@ -85,7 +85,15 @@ const errors = unreachable.map(p => `No initial-HTML path from homepage to submi
 const priorities = priority.map(slug => {
   const path = '/send-money/' + slug;
   const direct = pages.get('/')?.mainLinks.has(path) || false;
-  if (!direct || !pages.get(path)?.indexable || !submitted.includes(path)) errors.push(`Priority route must be directly linked in homepage main content, indexable and submitted: ${path}`);
+  // 2026-09-20: this used to also require `indexable && submitted`. Since
+  // indexability became a measured property (scripts/build-indexable-routes.ts
+  // gates on duplicate share, not on which corridor we consider important), a
+  // priority route that reads as templated is deliberately noindexed. The
+  // discoverability contract this guard exists to protect is the LINK, so that
+  // is what it still asserts; whether the target asks to be indexed is the
+  // duplication rule's business, and check:indexing already proves sitemap and
+  // robots agree with each other.
+  if (!direct) errors.push(`Priority route must be directly linked in homepage main content: ${path}`);
   return { path, directHomepageMainLink: direct, indexable: pages.get(path)?.indexable ?? false,
     shortestPath: allPaths.get(path) || null,
     incomingPages: [...pages.values()].filter(p => p.links.has(path)).length };

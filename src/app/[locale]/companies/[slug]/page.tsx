@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { robotsFor } from "@/lib/seo-indexing";
 import { postalAddress } from "@/lib/postal-address";
 import { GONE_COMPANY_SLUGS } from "@/lib/gone-companies";
 import Image from "next/image";
@@ -79,6 +80,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...(!review && { robots: { index: false, follow: true } }),
     // Company reviews are English-only; noindex locale variants to avoid diluting the English page
     ...(review && locale !== "en" && { robots: { index: false, follow: true } }),
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/companies/${slug}`),
     openGraph: {
       title,
       description,

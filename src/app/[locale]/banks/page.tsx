@@ -5,6 +5,7 @@
  * leaves that earn the long-tail branded queries.
  */
 import { seoDescription } from "@/lib/seo-title";
+import { robotsFor } from "@/lib/seo-indexing";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -38,6 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `Bank International Transfer Fees Compared (${year}) | SendMoneyCompare`,
     description: seoDescription(`How much do major banks really charge for international transfers? Live data showing what HSBC, Wells Fargo, Chase, Lloyds and Barclays customers pay vs Wise, Remitly and specialist providers on the same corridor and amount.`),
     alternates: getAlternates("banks", locale),
+    // 2026-09-20: indexability is measured — robotsFor() consults the
+    // duplication-derived allowlist. See scripts/build-indexable-routes.ts.
+    robots: robotsFor("/banks"),
   };
 }
 

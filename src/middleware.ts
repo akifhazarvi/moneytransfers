@@ -12,19 +12,42 @@ import { GONE_COMPANY_SLUGS } from "./lib/gone-companies";
 
 const intlMiddleware = createMiddleware(routing);
 
-// Known spam bot user-agent fragments (NOT legitimate crawlers)
-const SPAM_UA_PATTERNS = [
-  // semrushbot + ahrefsbot intentionally allowed (own SEO tooling / chose to
-  // open them). The rest stay blocked: low-value scrapers and data brokers.
-  "dotbot", "mj12bot", "blexbot",
-  "megaindex", "serpstatbot", "zoominfobot", "dataforseo",
-  "bomborabot", "clickagy", "neevabot",
-  "headlesschrome", "phantomjs", "selenium", "puppeteer", "playwright",
-  "python-requests", "python-urllib", "go-http-client", "java/",
-  "wget/", "curl/", "libwww-perl",
-];
+// UA-BASED ACCESS BLOCKING REMOVED 2026-09-20, deliberately.
+//
+// A SPAM_UA_PATTERNS list stood here and returned 403 at the edge for
+// dataforseo, zoominfo, dotbot, mj12bot, headless browsers and script clients
+// (curl/, wget/, python-requests). It is gone: the site now serves 200 to
+// every user agent.
+//
+// WHY IT WENT
+// The list only ever stopped clients that self-identify honestly. Verified
+// 2026-09-20: a request with the invented UA "MyCustomAuditCrawler/1.0" and
+// one identifying as Screaming Frog both returned 200, while `curl` and
+// `dataforseo` got 403 — so anyone scraping with intent walked through by
+// setting one flag, and what the list actually caught was our own debugging
+// and third-party auditors. It produced two phantom "sitewide 403 on core
+// navigation" P0 reports in three days (Sep 18 and Sep 20), each costing a
+// real investigation, because `curl -I` is the first command in every audit
+// runbook.
+//
+// WHAT REPLACED IT
+// Nothing at the edge. Bot exclusion stays where it does not risk a false
+// 403 on a crawler: the GA4 client-side guard in lib/inline-scripts.ts, which
+// disables tracking on the headless fingerprint, plus the offline scoring in
+// the analytics pipeline. Access and measurement are separate concerns, and
+// only measurement needed the filter — `provider_clicked` integrity was the
+// original motivation (see 721fd0c4a).
+//
+// THE TRADE ACCEPTED: data brokers that did identify honestly (DataForSEO,
+// ZoomInfo) can now crawl freely. That is bandwidth and resale we no longer
+// refuse. Re-adding a narrow list for those specific brokers is the change to
+// make if that becomes a problem — not a blanket UA filter.
 
 // Legitimate bots to ALLOW (search engines + AI crawlers + social preview crawlers)
+// STILL LOAD-BEARING after the block removal: isLegitBot() below gates
+// geo-cookie setting, because a Set-Cookie forces `Cache-Control: private,
+// max-age=0` on the HTML — the uncacheable response that contributed to the
+// May 2026 deindex. Do not delete this list with the blocking code.
 const ALLOWED_BOTS = [
   "googlebot", "bingbot", "yandexbot", "duckduckbot", "baiduspider",
   "applebot", "chatgpt-user", "gptbot", "oai-searchbot",
@@ -65,46 +88,18 @@ function isLegitBot(request: NextRequest): boolean {
   return !!ua && ALLOWED_BOTS.some((bot) => ua.includes(bot));
 }
 
-function isSpamBot(request: NextRequest): boolean {
-  const ua = (request.headers.get("user-agent") || "").toLowerCase();
-
-  // Allow known legitimate bots FIRST — before any length/heuristic check.
-  // Short UAs like "WhatsApp/2.x" would otherwise be blocked as "too short".
-  if (ua && ALLOWED_BOTS.some((bot) => ua.includes(bot))) return false;
-
-  // Empty or suspiciously short user agent = bot
-  if (!ua || ua.length < 10) return true;
-
-  // Block known spam bots
-  if (SPAM_UA_PATTERNS.some((pattern) => ua.includes(pattern))) return true;
-
-  // NOTE: geography/IP-based blocking removed deliberately. We do NOT filter by
-  // country, city, or data-center IP. A request that reaches us via one of our
-  // /go affiliate links is legitimate referral value regardless of origin — the
-  // cost of GA4 noise is accepted in exchange for never dropping a real
-  // referral. Only self-identifying scraper user agents (above) are blocked.
-
-  // Hard-signal bot detection ONLY. Earlier we used soft heuristics (missing
-  // sec-ch-ua, missing accept-language, etc) and false-positive-blocked EU
-  // privacy users (Brave/Firefox/Chrome with strict shields) — Vercel logs
-  // showed steady EU traffic that GA4 never recorded because middleware
-  // returned 403 before the HTML rendered.
-  //
-  // Now we only block on:
-  //  (a) UA strings that are obviously forged (e.g. Chrome without Safari
-  //      fragment — no real Chrome ships without that), AND
-  //  (b) the request lacks ANY Accept header pointing at HTML (real browsers
-  //      always send one).
-  // Both must be true together. A privacy browser stripping sec-ch-ua is
-  // not enough to block.
-  const acceptHeader = request.headers.get("accept") || "";
-  const isForgedChrome = ua.includes("chrome/") && !ua.includes("safari/");
-  const noHtmlIntent = !acceptHeader.includes("text/html") && !acceptHeader.includes("*/*");
-
-  if (isForgedChrome && noHtmlIntent) return true;
-
-  return false;
-}
+// isSpamBot() removed 2026-09-20 with the blocking rule it fed — see the note
+// at the top of this file. Two of its checks are worth recording, because they
+// are the ones a future re-add would most likely reintroduce as bugs:
+//
+//  - `ua.length < 10` blocked empty and short UAs. Legitimate short ones exist
+//    ("WhatsApp/2.x"), which is why the allow list had to be consulted first.
+//  - A forged-Chrome heuristic (chrome/ without safari/) combined with a
+//    missing HTML Accept header. An earlier, softer version of this one
+//    false-positive-blocked EU privacy browsers, and Vercel logs showed steady
+//    EU traffic GA4 never recorded because middleware 403'd before render.
+//
+// Any future filtering belongs in measurement, not access.
 
 // Locale prefixes we used to support but have since killed. 90 days of GSC
 // data (Jan 28 → Apr 24, 2026) showed 0 clicks across /es/ + /pt/ and 2 clicks
@@ -205,27 +200,17 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  // Block spam bots at the edge — return 403 before any processing.
+  // No UA-based 403 here any more (removed 2026-09-20 — see the note at the
+  // top of this file). Every user agent now gets the same response.
   //
-  // The 403 MUST opt out of the shared cache. next.config.ts applies
+  // Worth keeping in mind if blocking is ever reinstated: the refusal must send
+  // `Cache-Control: no-store` and `Vary: User-Agent`. next.config.ts applies
   // `public, max-age=3600, s-maxage=3600` to every non-asset path, and that
-  // catch-all lands on this response too — telling any shared cache it may
-  // store the refusal. Nothing here varies on User-Agent, so a proxy that
-  // stored it could hand the same 403 to Googlebot. Vercel does not do this
-  // today (verified 2026-09-18: a blocked UA 403s while Googlebot gets 200 in
-  // the same second), but a cacheable, unvaried refusal is one intermediary
-  // away from looking exactly like the sitewide outage a Sep 18 audit
-  // mistakenly reported. `no-store` + `Vary: User-Agent` removes the risk;
-  // neither costs anything on a response we never want reused.
-  if (isSpamBot(request)) {
-    return new NextResponse("Forbidden", {
-      status: 403,
-      headers: {
-        "Cache-Control": "no-store, max-age=0",
-        Vary: "User-Agent",
-      },
-    });
-  }
+  // catch-all landed on the 403 too, telling shared caches they could store a
+  // refusal that varied on nothing. Vercel never did (verified 2026-09-18:
+  // blocked UA 403s while Googlebot got 200 in the same second), but one
+  // intermediary behaving differently would have served Googlebot a sitewide
+  // 403 — the outage that audit thought it had found.
 
   const response = intlMiddleware(request);
 

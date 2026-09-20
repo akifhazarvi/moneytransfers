@@ -16,6 +16,7 @@ import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
+import { routeIsIndexable } from "@/lib/seo-indexing";
 import {
   SITEMAP_IBAN_SLUGS,
   SITEMAP_COMPARISON_SLUGS,
@@ -221,9 +222,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Previously this AND-ed the allowlist on top, which submitted 44 of 1,176
   // indexable corridors. Listing the full eligible set helps discovery;
   // omission is not a noindex directive, and inclusion cannot guarantee indexing.
+  // The tier-based shouldNoindex() pre-filter is gone: indexability is decided
+  // once, by routeIsIndexable() at the bottom of this file, on measured
+  // duplication rather than on provider count. Retired slugs still drop out —
+  // those are 410s and must never be submitted.
   const corridorPages: MetadataRoute.Sitemap = allCorridors
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
-    .filter((c) => !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
     .map((c) => entry(`send-money/${c.slug}`,
       [CORRIDOR_CONTENT_DATE, c.editorialUpdatedAt, !c.isCurrencyCorridor ? getCountryDetails(c.toCountry, c.toCurrency)?.editorialUpdatedAt : undefined]
         .filter((date): date is string => !!date).sort().at(-1)!));
@@ -274,8 +278,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((c) => entry(`swift-codes/${c.slug}`, STATIC_HUB_DATE));
 
   // ── B2B/business landing pages ──
+  // Same as corridors: the demand allowlist no longer gates submission —
+  // routeIsIndexable() does, on measured duplication.
   const businessHubPages: MetadataRoute.Sitemap = businessPages
-    .filter((p) => SITEMAP_BUSINESS_SLUGS.has(p.slug))
     .map((p) => entry(`business/${p.slug}`, BUSINESS_CONTENT_DATE));
 
   // ── Bank international-transfer-cost pages (pilot set: 5 banks) ──
@@ -291,6 +296,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...[...INDEXED_BANK_SLUGS].map((slug) => entry(`banks/${slug}`, COMPARISON_CONTENT_DATE)),
   ];
 
+  // 2026-09-20 — the submitted set IS the indexable set, and both are the
+  // measured set. Every family is assembled as before, then filtered through
+  // routeIsIndexable(), which reads the duplication-derived allowlist that
+  // scripts/build-indexable-routes.ts generates. A page is submitted when it
+  // came in under the duplication threshold on the last build, or when it is
+  // in an exempt family (guides, research, the nav hubs, legal pages).
+  //
+  // Assembling then filtering — rather than dropping families here — is what
+  // keeps sitemap membership, robots and canonical from disagreeing, which is
+  // what the May 8 2026 deindex was traced to. The same predicate drives the
+  // page-level `robots` via robotsFor().
   return [
     ...staticPages,
     ...corridorPages,
@@ -305,5 +321,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...swiftPages,
     ...businessHubPages,
     ...bankPages,
-  ];
+  ].filter((e) => routeIsIndexable(new URL(e.url).pathname));
 }

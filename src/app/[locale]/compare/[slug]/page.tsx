@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { robotsFor } from "@/lib/seo-indexing";
 import { postalAddress } from "@/lib/postal-address";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import Image from "next/image";
@@ -131,6 +132,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
     // Non-allowlisted pages: noindex to match sitemap absence
     ...(locale === "en" && shouldNoindexThin && { robots: { index: false, follow: true } }),
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/compare/${slug}`),
     openGraph: {
       title: `${a.name} vs ${b.name}: Which Gives You More Money?`,
       description: `We tested ${a.name} and ${b.name} side by side across 6 corridors. See which delivers more in ${year}.`,

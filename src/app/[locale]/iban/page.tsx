@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { robotsFor } from "@/lib/seo-indexing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
@@ -18,6 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: t("metaDescription"),
     keywords: t("metaKeywords"),
     alternates: getAlternates("iban", locale),
+    // 2026-09-20: indexability is measured — robotsFor() consults the
+    // duplication-derived allowlist. See scripts/build-indexable-routes.ts.
+    robots: robotsFor("/iban"),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),

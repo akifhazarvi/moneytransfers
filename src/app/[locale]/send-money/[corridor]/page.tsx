@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { robotsFor } from "@/lib/seo-indexing";
 import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
 import { quoteFreshness } from "@/lib/quote-freshness";
 import Image from "next/image";
@@ -1042,7 +1043,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: ogDescription,
     },
     alternates: getAlternates(`send-money/${slug}`, locale),
-    robots: shouldNoindex(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) ? { index: false, follow: true } : undefined,
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/send-money/${slug}`),
   };
 }
 

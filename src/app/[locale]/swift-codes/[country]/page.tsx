@@ -13,7 +13,7 @@ import { getSwiftCountries, getSwiftCountryBySlug } from "@/data/swift-codes";
 import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { getSwiftEditorial, getSwiftFaqs } from "@/data/swift-content";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
-import { INDEXED_SWIFT_SLUGS as indexedSwiftCountries } from "@/lib/seo-indexing";
+import { INDEXED_SWIFT_SLUGS as indexedSwiftCountries, robotsFor } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
@@ -219,7 +219,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://sendmoneycompare.com/swift-codes/${slug}`,
       images: DEFAULT_OG_IMAGES,
     },
-    robots: indexedSwiftCountries.has(slug) ? undefined : { index: false, follow: true },
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/swift-codes/${slug}`),
   };
 }
 

@@ -87,6 +87,10 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
     // apply. English only: other locales are noindexed below regardless.
     ...(locale === "en" && !INDEXED_HISTORY_SLUGS.has(pair) && { robots: { index: false, follow: true } }),
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
+    // 2026-09-20: templated child page — noindex by policy. The submitted
+    // set is the editorial + hub surface only; see routeIsIndexable() in
+    // src/lib/seo-indexing.ts, which noindexes the same paths in the header.
+    robots: { index: false, follow: true },
   };
 }
 

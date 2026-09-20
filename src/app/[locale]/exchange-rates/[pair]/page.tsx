@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import { robotsFor } from "@/lib/seo-indexing";
 import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
@@ -345,6 +346,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: getAlternates(`exchange-rates/${pair}`, locale),
     // Exchange rate content is English-only; noindex locale variants to avoid duplicate content
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/exchange-rates/${pair}`),
     openGraph: {
       title: override?.ogTitle ?? `${p.from}→${p.to}: Real Rate vs. What Providers Offer`,
       description: override?.ogDesc ?? `Live ${p.from}/${p.to} mid-market rate vs. what transfer providers charge. See the markup each provider adds.`,

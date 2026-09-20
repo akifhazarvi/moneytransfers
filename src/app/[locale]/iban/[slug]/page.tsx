@@ -18,7 +18,7 @@ import {
 import { getCountryByAlpha2 } from "@/data/countries";
 import { getIbanEditorial, getIbanFaqs } from "@/data/iban-content";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
-import { INDEXED_IBAN_SLUGS as indexedIbanCountries } from "@/lib/seo-indexing";
+import { INDEXED_IBAN_SLUGS as indexedIbanCountries, robotsFor } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 import { PageByline } from "@/components/PageByline";
 import { quoteDataDate } from "@/lib/unified-quotes";
@@ -217,7 +217,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://sendmoneycompare.com/iban/${slug}`,
       images: DEFAULT_OG_IMAGES,
     },
-    robots: indexedIbanCountries.has(slug) ? undefined : { index: false, follow: true },
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/iban/${slug}`),
   };
 }
 

@@ -59,7 +59,8 @@
     "check:crawl-paths": "node scripts/check-crawl-paths.mjs",
     "build:corridor-leaders": "npx tsx scripts/build-corridor-leaders.ts",
     "check:duplication": "npx tsx scripts/check-duplication.ts",
-    "build:coverage": "npx tsx scripts/build-site-coverage.ts"
+    "build:coverage": "npx tsx scripts/build-site-coverage.ts",
+    "build:indexable": "npx tsx scripts/build-indexable-routes.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import { robotsFor } from "@/lib/seo-indexing";
 import Breadcrumb from "@/components/Breadcrumb";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -55,6 +56,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // surface is guides/business-international-payments-guide (88 Bing impr).
     // In-sitemap slugs (vendor-payments) stay indexable; page still renders.
     ...(locale === "en" && !SITEMAP_BUSINESS_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/business/${slug}`),
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,

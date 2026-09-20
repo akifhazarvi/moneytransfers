@@ -14,6 +14,7 @@
  * Google rewards.
  */
 import Image from "next/image";
+import { robotsFor } from "@/lib/seo-indexing";
 import { getDataUpdatedISO, getDataUpdatedInstant } from "@/lib/data-freshness";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -99,6 +100,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // Noindex zero-traction pilots (off-sitemap) to match the sitemap and
     // avoid the index:yes/sitemap:no contradiction. Page still renders.
     ...(locale === "en" && !INDEXED_BANK_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/banks/${slug}`),
   };
 }
 

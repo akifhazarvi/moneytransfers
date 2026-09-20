@@ -12,6 +12,7 @@
  * Nothing on this page is hand-typed.
  */
 import type { Metadata } from "next";
+import { robotsFor } from "@/lib/seo-indexing";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -77,6 +78,10 @@ export async function generateMetadata({
     title,
     description: seoDescription(description),
     alternates: getAlternates(`alternatives/${slug}`, locale),
+    // 2026-09-20: indexability is measured, not assumed — robotsFor()
+    // consults the duplication-derived allowlist. See
+    // scripts/build-indexable-routes.ts.
+    robots: robotsFor(`/alternatives/${slug}`),
     openGraph: {
       title,
       description: seoDescription(description),

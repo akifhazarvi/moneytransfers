@@ -8,6 +8,7 @@
  * drift apart.
  */
 import type { Metadata } from "next";
+import { robotsFor } from "@/lib/seo-indexing";
 import Link from "next/link";
 import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
@@ -35,6 +36,9 @@ export async function generateMetadata({
     title: TITLE,
     description: seoDescription(description),
     alternates: getAlternates("alternatives", locale),
+    // 2026-09-20: indexability is measured — robotsFor() consults the
+    // duplication-derived allowlist. See scripts/build-indexable-routes.ts.
+    robots: robotsFor("/alternatives"),
     openGraph: {
       title: TITLE,
       description: seoDescription(description),
