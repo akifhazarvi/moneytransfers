@@ -17242,6 +17242,181 @@ const rawBlogPosts: BlogPost[] = [
       "how-to-send-money-abroad",
     ],
   },
+  // ============================
+  // XE Money Transfer Review
+  // ============================
+  {
+    slug: "xe-money-transfer-review-rates",
+    title: "XE Money Transfer Review 2026: Rates, Fees, and Verdict",
+    metaTitle: "XE Money Transfer Review 2026: Fees, Rates & Real Markup Data",
+    metaDescription:
+      "Our XE Money Transfer review uses SendMoneyCompare rate data: XE's median markup ran ~0.9% across major corridors in 2026. Fees, speed, and the verdict.",
+    excerpt:
+      "XE is one of the most recognized names in international transfers — but is it actually cheap? We tracked XE's live rates for six months. Here's what the exchange-rate markup really costs, what fees apply, how fast transfers arrive, and where XE falls short.",
+    category: "Reviews",
+    readTime: "9 min read",
+    publishedAt: "2026-09-20",
+    updatedAt: "2026-09-20",
+    author: "Akif Hazarvi",
+    contentStatus: "published",
+    tags: [
+      "XE",
+      "XE Money Transfer",
+      "XE review",
+      "exchange rate markup",
+      "money transfer review",
+      "international money transfer",
+      "send money abroad",
+      "Wise",
+      "Remitly",
+    ],
+    featuredImage: "/images/blog/xe-tax-season-2026.jpg",
+    sections: [
+      {
+        heading: "XE Money Transfer Review: The Short Version",
+        content: `<div class="blog-answer-box"><p><strong>Quick verdict:</strong> XE Money Transfer is a trustworthy, multi-jurisdiction-regulated service with broad currency coverage, a polished app, and mostly $0 headline fees — but the real cost sits inside the exchange rate. Our own tracking of XE's live quotes across major corridors (March–September 2026, 1,302 daily observations) put XE's <strong>median exchange-rate markup at about 0.9%</strong>, ranging from roughly <strong>0.3% on USD → PKR and USD → INR</strong> to around <strong>2% on USD → EUR and USD → GBP</strong>. XE is worth including in your comparison for larger transfers and its South Asian remittance corridors, but it is rarely the single cheapest option — always <a href="/send-money">run a live comparison</a> for your exact amount and corridor first.</p></div>
+<p>XE Money Transfer is one of the most recognized names in international transfers. This XE money transfer review covers what you actually need to know before sending: how the exchange rate markup works, what fees apply, how fast transfers arrive, and where XE falls short. If you're deciding whether XE is the right fit for your corridor and amount, read this first — and note that, unlike most reviews, the markup figures below come from our own six-month record of XE's live quotes rather than the provider's marketing.</p>`,
+      },
+      {
+        heading: "What Is XE Money Transfer?",
+        content: `<p>XE started as a currency-data company and has been publishing live exchange rates since the early 1990s. Its money transfer service runs on that same infrastructure, letting individuals and businesses send funds to over 130 currencies across a wide range of countries.</p>
+<p>XE processes a reported $115 billion in annual transfer volume (per internationalmoneytransfer.com's 2025 report). That scale signals institutional-grade liquidity and the ability to offer competitive rates on major corridors.</p>
+<p>XE is regulated by the Financial Conduct Authority (FCA) in the UK, FinCEN in the United States, ASIC in Australia, and equivalent bodies in other jurisdictions. That breadth of regulatory coverage is a meaningful trust signal, particularly for larger transfers. For how it stacks up on business payments specifically, see our <a href="/guides/xe-business-payments-review">XE business payments review</a>.</p>`,
+      },
+      {
+        heading: "XE Exchange Rate Markup: The Number That Matters Most",
+        content: `<p>The headline fee on most XE transfers is zero. But the real cost sits inside the exchange rate — and that's where you need to pay attention.</p>
+<p><strong>Our research:</strong> SendMoneyCompare records live provider quotes every 6 hours. We isolated XE's quotes on eight major corridors between <strong>March and September 2026</strong> — <strong>1,302 daily observations</strong> — and measured the gap between XE's rate and the mid-market rate. The median markup XE built into the exchange rate was <strong>0.92% overall</strong>, but it varied sharply by corridor:</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">XE exchange-rate markup by corridor (SendMoneyCompare data, Mar–Sep 2026)</h3>
+<table>
+<thead><tr><th>Corridor</th><th>Median markup</th><th>Range observed</th></tr></thead>
+<tbody>
+<tr><td><strong>USD → PKR</strong></td><td>0.30%</td><td>−0.1% to 0.9%</td></tr>
+<tr><td><strong>USD → INR</strong></td><td>0.39%</td><td>−0.4% to 1.0%</td></tr>
+<tr><td><strong>GBP → INR</strong></td><td>0.74%</td><td>0.0% to 1.0%</td></tr>
+<tr><td><strong>GBP → EUR</strong></td><td>0.75%</td><td>0.5% to 2.1%</td></tr>
+<tr><td><strong>USD → PHP</strong></td><td>0.89%</td><td>−0.5% to 1.5%</td></tr>
+<tr><td><strong>USD → MXN</strong></td><td>1.10%</td><td>0.1% to 1.9%</td></tr>
+<tr><td><strong>USD → GBP</strong></td><td>1.71%</td><td>1.0% to 2.7%</td></tr>
+<tr><td class="blog-row-highlight"><strong>USD → EUR</strong></td><td>2.03%</td><td>1.5% to 2.7%</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">SendMoneyCompare research: 1,302 daily XE quotes across eight corridors, March–September 2026. Markup = gap between XE's rate and the mid-market rate; medians shown because a handful of benchmark outliers distort the mean. <a href="/send-money/usa-to-india">Compare XE live →</a></p>
+</div>
+<p>Two findings stand out. First, XE's markup is <strong>lowest on South Asian remittance corridors</strong> — around 0.3–0.4% on USD → PKR and USD → INR — where it is genuinely competitive. Second, and contrary to XE's reputation on "major" pairs, its markup was <strong>highest on USD → EUR (about 2%) and USD → GBP (about 1.7%)</strong> — well above what digital-first rivals like <a href="/companies/wise">Wise</a> charge on the same routes. On a $1,000 transfer, a 2% markup is roughly $20 the recipient never sees; on $5,000 it's about $100.</p>
+<p>The markup isn't fixed — it moves with the currency pair, the amount, and the day. XE doesn't publish its exact spread per corridor, which is why a live quote is the only way to know your true cost. This is the core limitation of reviewing any single provider in isolation: the rate you see depends on when you look, which corridor you're sending to, and how much you're sending. See our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explained</a> guide for how to spot it on any quote screen.</p>`,
+      },
+      {
+        heading: "XE Transfer Fees",
+        content: `<p>For most personal transfers, XE charges no flat transfer fee. The exchange-rate margin is the only cost you pay.</p>
+<p>There is one notable exception. Fee-free bank-transfer funding via ACH requires a minimum transaction of $3,000 (per moneytransferreviews.com's 2026 data). Transfers below that threshold funded by bank transfer may incur a fee, and transfers funded by debit or credit card typically carry an additional charge on top of the exchange-rate markup.</p>
+<p>If you're sending smaller amounts regularly, that structure matters. A $200 monthly remittance sits well below the $3,000 ACH threshold, which means you may end up paying more per transfer than the zero-fee headline implies — on top of the markup our data recorded above.</p>`,
+      },
+      {
+        heading: "Transfer Speed",
+        content: `<p>Delivery timelines vary by corridor and payment method. Bank-to-bank transfers to major destinations typically arrive within one to two business days, and some corridors — like US-to-Europe — can settle same-day.</p>
+<p>Debit-card-funded transfers tend to process faster than ACH-funded ones, which require a verification window before funds are released. Cash pickup is available in select corridors, though XE isn't primarily positioned as a cash-out service. If that's your recipient's preferred method, providers built specifically around cash delivery will likely offer better coverage.</p>`,
+      },
+      {
+        heading: "Mobile App Experience",
+        content: `<p>XE's mobile app is well-regarded — businessexpert.co.uk's 2024 review recorded a rating of 4.8 out of 5 on both iOS and Android. The app lets you set rate alerts, track live exchange rates, and initiate transfers from your phone. For users who already rely on XE's free currency tools, the transfer functionality integrates naturally into the same experience.</p>
+<p>The rate-alert feature is genuinely useful if you're not in a rush — it lets you wait for a favorable rate before committing rather than taking whatever's available at the moment.</p>`,
+      },
+      {
+        heading: "Currency and Country Coverage",
+        content: `<p>XE supports transfers to over 130 currencies, putting it among the broader-coverage providers in the market. For most personal remittance corridors — USD to PHP, GBP to INR, EUR to MXN, and similar high-volume routes — XE will have coverage.</p>
+<p>Where things get thinner is in less common corridors. Rate competitiveness on exotic currency pairs is harder to predict, and intermediary bank fees on the receiving end can reduce what the recipient actually collects. XE doesn't absorb those fees, so the amount shown at checkout may not be the amount that arrives.</p>`,
+      },
+      {
+        heading: "Business Transfers",
+        content: `<p>XE offers a business tier with forward contracts, limit orders, and dedicated account management. Forward contracts let businesses lock in an exchange rate for a future transfer — useful for managing currency risk on international invoices or payroll.</p>
+<p>For businesses sending internationally at scale, that's a meaningful differentiator over consumer-focused apps. Specific fee structures for business-tier features aren't publicly listed, so you'd need to contact XE directly for a quote. Our <a href="/guides/xe-business-payments-review">XE business payments review</a> digs into how those features compare to specialist business-FX providers.</p>`,
+      },
+      {
+        heading: "Where XE Competes Well",
+        content: `<p>Based on our six-month data and feature review, XE tends to be competitive on:</p>
+<ul>
+<li><strong>South Asian remittance corridors.</strong> Our tracking put XE's median markup at roughly 0.3–0.4% on USD → PKR and USD → INR — genuinely competitive routes for the large diaspora sending home.</li>
+<li><strong>Business use cases.</strong> Forward contracts and limit orders aren't available on most consumer-grade transfer apps.</li>
+<li><strong>Brand trust.</strong> Decades of currency-data publishing and multi-jurisdiction regulation give XE credibility that newer fintechs haven't yet earned.</li>
+<li><strong>App experience.</strong> A 4.8 rating across both platforms reflects a product users find reliable and easy to use, with live rate alerts baked in.</li>
+</ul>`,
+      },
+      {
+        heading: "Where XE Falls Short",
+        content: `<p>XE is less competitive on:</p>
+<ul>
+<li><strong>Major European corridors.</strong> Contrary to its "strong on major pairs" reputation, our data recorded XE's highest markups on USD → EUR (~2%) and USD → GBP (~1.7%) — routes where digital-first rivals routinely undercut it.</li>
+<li><strong>Small transfers.</strong> The $3,000 ACH minimum for fee-free transfers penalizes the regular remittance sender moving $200–$500 per month.</li>
+<li><strong>Exotic corridors.</strong> The markup range widens on less liquid currency pairs, and XE isn't transparent about per-corridor spreads.</li>
+<li><strong>Cash pickup.</strong> If your recipient needs cash in hand rather than a bank deposit, XE isn't the strongest option.</li>
+<li><strong>Rate transparency.</strong> XE's quote screen shows a final converted rate — not a breakdown of the mid-market rate and the markup separately.</li>
+</ul>`,
+      },
+      {
+        heading: "How XE Compares to Alternatives",
+        content: `<p>XE is a solid provider, but it's rarely the cheapest option across all corridors. <a href="/companies/wise">Wise</a>, for example, publishes its fee and exchange-rate markup as separate line items, making the true cost easier to verify at a glance (see our <a href="/compare/wise-vs-xe">Wise vs XE comparison</a>). <a href="/companies/remitly">Remitly</a> often wins on delivery speed and cash pickup for corridors like USD to PHP or USD to INR (<a href="/compare/remitly-vs-xe">Remitly vs XE</a>). <a href="/companies/worldremit">WorldRemit</a> and similar providers can undercut XE's markup on specific routes.</p>
+<p>The honest answer is that which provider wins depends on your specific send amount, origin, and destination. A provider that's cheapest for a $2,000 USD-to-EUR transfer may be expensive for a $300 USD-to-PHP transfer. That's why running a live comparison before every transfer is worth the two minutes it takes.</p>
+<p>SendMoneyCompare compares {{PROVIDER_COUNT}} providers side by side, ranked by how much the recipient actually receives — factoring in both fees and exchange-rate markups. No signup required, and rates are refreshed every six hours from live provider data. <a href="/send-money">Run a comparison for your exact corridor and amount</a> to see where XE lands against the full market on any given day.</p>`,
+      },
+      {
+        heading: "The Verdict",
+        content: `<p>XE Money Transfer is a trustworthy, well-regulated service with strong coverage, a polished app, and — on the right corridors — competitive rates. But our six months of data reframe the usual pitch: XE is at its best on South Asian remittance routes (0.3–0.4% median markup on USD → INR and USD → PKR), not on the USD → EUR and USD → GBP pairs where its markup ran closer to 2%. Its other weaknesses are the $3,000 ACH threshold for fee-free transfers and limited rate transparency.</p>
+<p>For large, infrequent transfers where XE happens to price well, and for USD → INR/PKR remittances, XE is worth including in your comparison. For regular smaller remittances — or the major European corridors many assume it wins — check whether a specialist provider beats XE's rate before committing.</p>
+<p>No single provider wins every corridor. Running a <a href="/send-money">side-by-side comparison</a> before each transfer is the only reliable way to know your recipient is getting the best deal. For the broader field, see our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Markup figures in this review are SendMoneyCompare's own research: XE's live quotes are collected every 6 hours by our automated engine and stored per corridor. For this review we analysed 1,302 daily XE observations across eight major corridors between March and September 2026, measuring the gap between XE's offered rate and the mid-market rate. We report medians rather than means because a small number of benchmark outliers on thin corridors distort the average. Figures on transfer volume, the $3,000 ACH minimum, and the app rating are attributed inline to their published sources (internationalmoneytransfer.com, moneytransferreviews.com, businessexpert.co.uk) and reflect those reports rather than our own measurement. Exchange rates and fees change constantly, so confirm the current cost with a <a href="/send-money">live comparison</a> before you send.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What exchange rate markup does XE charge?",
+        answer:
+          "Based on SendMoneyCompare's own tracking of 1,302 daily XE quotes across eight major corridors from March to September 2026, XE's median exchange-rate markup was about 0.9%. It varied widely: roughly 0.3–0.4% on USD → PKR and USD → INR, but around 1.7–2.0% on USD → GBP and USD → EUR. XE doesn't publish its per-corridor spread, so the only way to know your exact cost is to run a live quote.",
+      },
+      {
+        question: "Does XE charge a transfer fee?",
+        answer:
+          "For most personal transfers, XE charges no flat fee — the cost is built into the exchange rate. However, fee-free ACH bank-transfer funding requires a minimum of $3,000 (per moneytransferreviews.com's 2026 data). Smaller transfers, or transfers funded by debit or credit card, may incur additional charges on top of the exchange-rate markup.",
+      },
+      {
+        question: "How long does an XE transfer take?",
+        answer:
+          "Most bank-to-bank transfers on major corridors arrive within one to two business days, and some routes settle same-day. ACH-funded transfers take longer than debit-card-funded transfers because of the verification window before funds are released.",
+      },
+      {
+        question: "Is XE regulated and safe to use?",
+        answer:
+          "Yes. XE is regulated by the FCA in the UK, FinCEN in the US, and ASIC in Australia, among other regulatory bodies. It's a well-established provider with a long track record in currency markets dating back to the early 1990s.",
+      },
+      {
+        question: "Does XE support cash pickup?",
+        answer:
+          "Cash pickup is available in select corridors, but XE isn't primarily built around that delivery method. If your recipient needs cash in hand, a provider that specializes in cash-payout networks will likely offer better coverage and more pickup locations.",
+      },
+      {
+        question: "How does XE compare to Wise?",
+        answer:
+          "Both are strong on major corridors, but they price differently. Wise shows its fee and exchange-rate markup as separate line items, making the true cost transparent; XE shows a single converted rate without breaking out the spread. Our data recorded XE's markup on USD → EUR at around 2%, where Wise is typically far lower — so on European corridors Wise usually wins on cost. For business features like forward contracts, XE is stronger. See our Wise vs XE comparison for a live head-to-head.",
+      },
+      {
+        question: "How can I find out if XE is the cheapest option for my transfer?",
+        answer:
+          "The only reliable way is to run a live comparison for your exact send amount and corridor. SendMoneyCompare ranks 90+ providers by recipient payout — factoring in both fees and exchange-rate markups — with rates refreshed every six hours. Check where XE ranks for your specific transfer on our best money transfer apps comparison.",
+      },
+    ],
+    relatedSlugs: [
+      "xe-business-payments-review",
+      "xe-tax-season-cross-border-money-2026",
+      "wise-vs-remitly-comparison",
+      "best-money-transfer-apps",
+      "exchange-rate-markup-explained",
+      "cheapest-way-to-send-money-internationally",
+    ],
+  },
 ];
 
 /**
