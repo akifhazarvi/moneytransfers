@@ -5,7 +5,7 @@ import { getGeoDefaults } from "./data/geo-corridors";
 import { shouldNoindexPath } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 import { getCompareCanonicalSlug } from "./lib/compare-canonical";
-import { GONE_CORRIDOR_SLUGS } from "./lib/gone-corridors";
+import { GONE_CORRIDOR_SLUGS, DUPLICATE_CORRIDOR_REDIRECTS } from "./lib/gone-corridors";
 import { GONE_SWIFT_SLUGS } from "./lib/gone-swift";
 import { GONE_COMPANY_SLUGS } from "./lib/gone-companies";
 
@@ -146,6 +146,18 @@ export default function middleware(request: NextRequest) {
   // cleanest signal that these thin pages are intentionally retired. See
   // src/lib/gone-corridors.ts for why these 53 were chosen.
   const goneMatch = request.nextUrl.pathname.match(/^\/send-money\/([a-z0-9-]+)$/);
+  // A duplicate pair-mate consolidates into its surviving twin rather than
+  // dying — 301 beats 410 whenever an equivalent page exists, and these are
+  // equivalent by construction (same currency pair, same table). Checked before
+  // the 410 so the redirect wins. See DUPLICATE_CORRIDOR_REDIRECTS.
+  if (goneMatch) {
+    const consolidatesTo = DUPLICATE_CORRIDOR_REDIRECTS.get(goneMatch[1]);
+    if (consolidatesTo) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/send-money/${consolidatesTo}`;
+      return NextResponse.redirect(url, 301);
+    }
+  }
   if (goneMatch && GONE_CORRIDOR_SLUGS.has(goneMatch[1])) {
     return new NextResponse("Gone", { status: 410 });
   }

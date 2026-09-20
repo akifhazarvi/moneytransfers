@@ -504,6 +504,8 @@ const DUPLICATE_PAIR_SLUGS: ReadonlySet<string> = new Set(
  * below — so a currency pair that genuinely earns impressions (gbp-to-gtq,
  * eur-to-cad, eur-to-nok today) keeps rendering and stays indexable.
  */
+const CORRIDOR_BY_SLUG = new Map(allCorridors.map((c) => [c.slug, c]));
+
 const CURRENCY_PAIR_SLUGS: ReadonlySet<string> = new Set(
   allCorridors
     .filter((c) => c.isCurrencyCorridor)
@@ -518,4 +520,68 @@ export const GONE_CORRIDOR_SLUGS: ReadonlySet<string> = new Set(
   [...RETIRED_SLUGS, ...DUPLICATE_PAIR_SLUGS, ...CURRENCY_PAIR_SLUGS].filter(
     (slug) => !RANKING_CORRIDOR_SLUGS.has(slug),
   ),
+);
+
+/**
+ * Duplicate pair-mates that should 301 to their surviving twin, not 410.
+ *
+ * build-corridor-uniqueness.ts has always emitted a `redirectTo` for every
+ * surplus corridor — the stronger page on the same currency pair — but nothing
+ * ever read it, so all 413 were folded into the 410 set. That contradicts this
+ * file's own rule: 410 is for pages with "no sensible live equivalent to
+ * redirect to", and a duplicate pair-mate has one by definition. It also
+ * discards whatever signal the retired URL held instead of consolidating it.
+ *
+ * Found via check:ranking, which had /fr/send-money/germany-to-pakistan and
+ * /fr/send-money/usa-to-japan failing as "redirect target returns 410" — two
+ * URLs the ranking list names, answering 410 while their twins
+ * (france-to-pakistan, send-money-to-japan) serve 200.
+ *
+ * Only targets that actually render are used, so a redirect can never point at
+ * another retired page. Anything left over stays in the 410 set above.
+ *
+ * RETIRED_SLUGS and CURRENCY_PAIR_SLUGS are deliberately NOT here: those have
+ * no equivalent twin, which is exactly why they are 410.
+ */
+export const DUPLICATE_CORRIDOR_REDIRECTS: ReadonlyMap<string, string> = new Map(
+  duplicateCorridors.surplus
+    .filter(
+      (s): s is typeof s & { redirectTo: string } =>
+        typeof (s as { redirectTo?: string }).redirectTo === "string" &&
+        !!(s as { redirectTo?: string }).redirectTo,
+    )
+    .filter((s) => !RANKING_CORRIDOR_SLUGS.has(s.slug))
+    // A hand-retired slug stays 410 even if the generator also names it a
+    // duplicate. The 2026-08-31 Eurozone block above decided that deliberately —
+    // "301 reads as 'content moved', which contradicts scaled-content
+    // remediation" — and that decision outranks the generator. Currently a
+    // no-op (zero overlap), asserted so it cannot quietly stop being one.
+    .filter((s) => !RETIRED_SLUGS.has(s.slug))
+    // The target must survive every retirement rule AND still render, or we
+    // would 301 into a 410 or a 404. The tier check mirrors
+    // route-map.corridorPageRenders — asserted here rather than imported,
+    // because route-map imports this module. uae-to-malaysia pointed at
+    // aed-to-myr, which is retired by tier rather than by any of the sets
+    // below, and only the tier check catches it.
+    .filter((s) => {
+      if (
+        RETIRED_SLUGS.has(s.redirectTo) ||
+        DUPLICATE_PAIR_SLUGS.has(s.redirectTo) ||
+        CURRENCY_PAIR_SLUGS.has(s.redirectTo)
+      ) {
+        return false;
+      }
+      const target = CORRIDOR_BY_SLUG.get(s.redirectTo);
+      if (!target) return false;
+      if (RANKING_CORRIDOR_SLUGS.has(target.slug)) return true;
+      return (
+        getCorridorTier(
+          target.slug,
+          target.fromCurrency,
+          target.toCurrency,
+          target.isCountryPage,
+        ) <= 2
+      );
+    })
+    .map((s) => [s.slug, s.redirectTo] as const),
 );
