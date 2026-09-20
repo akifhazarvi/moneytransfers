@@ -437,9 +437,22 @@ export default function CompareShowdown({
                   win ? "border-[var(--color-success)]/50 bg-[var(--color-success-surface)]/40" : "border-[var(--color-outline)] bg-[var(--color-surface-dim)]/40"
                 }`}
               >
-                <div className="flex items-center gap-2.5 mb-3">
+                {/*
+                  flex-wrap + a floor on the name column, rather than min-w-0.
+
+                  These two cards sit in a 2-up grid, so at 390px each is ~170px
+                  wide. A 36px avatar and the "Wins" pill left the name column —
+                  which was min-w-0 and truncate — squeezed to a few pixels, so
+                  the winning provider rendered as a single sliver of its first
+                  letter ("I" for Remitly) with the rating clipped behind the
+                  pill. It only reproduced on the winning card, because only that
+                  card carries the badge, and it sits directly beside the
+                  affiliate CTA. Now the badge wraps to its own line when the
+                  name cannot keep its minimum.
+                */}
+                <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2 mb-3">
                   <Avatar p={p} size={36} />
-                  <div className="min-w-0">
+                  <div className="min-w-[5.5rem] flex-1">
                     <p className="text-sm font-semibold text-[var(--color-on-surface)] truncate">{p.name}</p>
                     <RatingBadge rating={p.rating} label={p.ratingLabel} />
                   </div>
@@ -458,7 +471,12 @@ export default function CompareShowdown({
                   provider={p.slug}
                   source={src}
                   corridor={`${fromCurrency}_${toCurrency}`}
-                  className="mt-3 inline-flex items-center justify-center gap-1.5 w-full bg-[var(--color-cta)] hover:bg-[var(--color-cta-hover)] text-[var(--color-cta-text)] font-semibold text-sm px-4 py-2.5 rounded-full transition-colors"
+                  // min-h-11 (44px): py-2.5 over text-sm resolved to exactly
+                  // 40px, under the 44px WCAG 2.5.5 / iOS minimum. This is the
+                  // affiliate click — the site's north-star conversion — so an
+                  // undersized tap target costs revenue directly. Height floor
+                  // only; padding, colour and placement are unchanged.
+                  className="mt-3 inline-flex min-h-11 items-center justify-center gap-1.5 w-full bg-[var(--color-cta)] hover:bg-[var(--color-cta-hover)] text-[var(--color-cta-text)] font-semibold text-sm px-4 py-2.5 rounded-full transition-colors"
                 >
                   Send with {p.name}
                   <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.25} />
