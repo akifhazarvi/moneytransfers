@@ -728,7 +728,28 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
         </Container>
       </section>
 
-      {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
+      {/* FAQPage. Google restricted FAQ RICH RESULTS to government/health in
+          Aug 2023, which is why this was left off — but a rich result was never
+          the reason to mark up an FAQ. The markup states, in a form a retrieval
+          system can read without parsing <details> elements, which question each
+          answer belongs to. Built from the same `faqs` array the section above
+          renders, so the markup and the visible text cannot diverge — the
+          condition Google actually enforces on FAQPage. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://sendmoneycompare.com/remittance-cost-index#faq",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
       {/* Dataset JSON-LD */}
       <script
         type="application/ld+json"

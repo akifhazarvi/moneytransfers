@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import "./provider-cross-sell.css";
 import AdSenseLoader from "@/components/AdSenseLoader";
 
 const inter = Inter({

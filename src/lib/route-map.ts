@@ -85,6 +85,10 @@ const BUSINESS_SLUGS = new Set(businessPages.map((p) => p.slug));
 // Lives in ./company-route so client components can ask it without this
 // module's data graph; re-exported here so server callers keep one entry point.
 export { companyPageRenders } from "./company-route";
+/* ── /alternatives/[slug] ───────────────────────────────────────────────── */
+// dynamicParams = false; the gate is the curated ALTERNATIVES_SLUGS allowlist,
+// narrowed to those with enough shared-corridor data to build a page.
+export { alternativesPageRenders } from "./provider-alternatives";
 export const guidePageRenders = (slug?: string | null) => Boolean(slug && GUIDE_SLUGS.has(slug));
 export const newsPageRenders = (slug?: string | null) => Boolean(slug && NEWS_SLUGS.has(slug));
 export const ibanPageRenders = (slug?: string | null) => Boolean(slug && IBAN_SLUGS.has(slug));

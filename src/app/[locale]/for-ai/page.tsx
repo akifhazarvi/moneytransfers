@@ -12,6 +12,7 @@ import { generateQuotes } from "@/lib/quotes-engine";
 import { corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE } from "@/lib/site-stats";
 import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
+import { getDataUpdatedDate } from "@/lib/data-freshness";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -126,6 +127,12 @@ export default function ForAIPage() {
     publisher: { "@id": `${SITE_URL}/#organization` },
     license: "https://creativecommons.org/licenses/by/4.0/",
     isAccessibleForFree: true,
+    // An AI system deciding whether to cite a dataset asks how current it is.
+    // This node declared a refresh cadence in prose ("every 6 hours") but no
+    // machine-readable date, so the one page addressed to retrieval systems
+    // was the only Dataset on the site they could not date. /sendscore and
+    // /remittance-cost-index already carry this.
+    dateModified: getDataUpdatedDate(),
     keywords: [
       "international money transfer",
       "remittance rates",

@@ -15,6 +15,7 @@ import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { guideIsIndexable } from "@/lib/guide-status";
+import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import {
   SITEMAP_IBAN_SLUGS,
   SITEMAP_COMPARISON_SLUGS,
@@ -132,6 +133,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 965 corridor pages and defined nowhere — /methodology did not mention it,
     // and nothing could cite "SendScore" because no URL said what it was.
     entry("sendscore", DATA_UPDATED),
+    // Provider alternatives (added Sep 20 2026). Eight curated pages, each
+    // pricing one provider against the services quoting the SAME corridors —
+    // the comparison the site could already make from its own data and had no
+    // URL for. Submitted rather than held back on Bing demand data because the
+    // demand gate is for combinatorial families that already exist in bulk;
+    // these are eight editorial pages with a crawlable hub, closer to the
+    // static entries above. DATA_UPDATED: every figure is rebuilt per scrape.
+    entry("alternatives", DATA_UPDATED),
+    ...ALTERNATIVES_RENDERED_SLUGS.map((slug) => entry(`alternatives/${slug}`, DATA_UPDATED)),
     // Research hub (added Sep 6 2026). Six datasets existed with no page
     // asserting that this site publishes original research, and no crawlable
     // path between them. Every headline on it is read from the dataset it

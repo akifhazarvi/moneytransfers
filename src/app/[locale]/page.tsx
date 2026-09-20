@@ -11,6 +11,7 @@ import { HomeSelectionProvider } from "@/components/HomeSelectionContext";
 import MobileDetailsRail from "@/components/MobileDetailsRail";
 import { providers } from "@/data/providers";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { COVERAGE } from "@/lib/site-stats";
@@ -119,7 +120,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   return {
     title: { absolute: t("title") },
-    description: t("description"),
+    description: seoDescription(t("description")),
     keywords: t("keywords"),
     openGraph: {
       title: t("title"),

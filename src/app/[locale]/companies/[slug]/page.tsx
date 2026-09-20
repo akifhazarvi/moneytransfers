@@ -26,7 +26,7 @@ import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { fitTitle } from "@/lib/seo-title";
-import { comparePageHref } from "@/lib/route-map";
+import { comparePageHref, alternativesPageRenders } from "@/lib/route-map";
 import { PageByline } from "@/components/PageByline";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import { getCompanyEditorial } from "@/data/company-editorial";
@@ -124,10 +124,18 @@ export default async function CompanyPage({ params }: Props) {
         },
         {
           title: "Comparisons",
-          links: otherProviders.slice(0, 4).map((other) => ({
-            href: comparePageHref(`${provider.slug}-vs-${other.slug}`) as string,
-            label: `${provider.name} vs ${other.name}`,
-          })),
+          links: [
+            // Gated on the allowlist, not interpolated: /alternatives/[slug]
+            // sets dynamicParams = false, so a link for a provider without a
+            // page is a hard 404. Only eight providers have one.
+            ...(alternativesPageRenders(provider.slug)
+              ? [{ href: `/alternatives/${provider.slug}`, label: `${provider.name} alternatives` }]
+              : []),
+            ...otherProviders.slice(0, 4).map((other) => ({
+              href: comparePageHref(`${provider.slug}-vs-${other.slug}`) as string,
+              label: `${provider.name} vs ${other.name}`,
+            })),
+          ],
         },
         {
           title: "Guides & tools",

@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 import { CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import { SENDSCORE_SUMMARY } from "@/lib/sendscore-summary";
+import { getDataUpdatedDate } from "@/lib/data-freshness";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -72,7 +73,13 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               url: "https://sendmoneycompare.com",
             },
             datePublished: "2024-06-01",
-            dateModified: "2026-03-14",
+            // Tracks the live dataset, not a hand-edited date. This page
+            // renders SITE_STATS / SENDSCORE_SUMMARY / CONSISTENCY_INDEX
+            // figures throughout, so its visible content changes on every
+            // scrape; the hardcoded "2026-03-14" that stood here claimed the
+            // page had been static for six months while those numbers moved
+            // every six hours. Same fix, same reason, as the WebSite node.
+            dateModified: getDataUpdatedDate(),
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": "https://sendmoneycompare.com/methodology",

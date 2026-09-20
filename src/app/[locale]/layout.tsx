@@ -17,6 +17,7 @@ import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import SiteProviderCrossSell from "@/components/SiteProviderCrossSell";
 import { COVERAGE } from "@/lib/site-stats";
+import { seoDescription } from "@/lib/seo-title";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -52,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       // Identity template — Next requires `template` alongside `default`.
       template: "%s",
     },
-    description: t("description"),
+    description: seoDescription(t("description")),
     keywords: t("keywords"),
     other: {
       "citation_title": "SendMoneyCompare — International Money Transfer Comparison",
