@@ -13,9 +13,6 @@ import {
   Home,
   Radio,
   Send,
-  ClipboardList,
-  UserPlus,
-  Rocket,
   BadgeCheck,
   BarChart3,
   FileText,
@@ -1928,46 +1925,11 @@ export default async function CorridorPage({ params }: Props) {
         );
       })()}
 
-      {/* ─── How to Send Money ─── */}
-      {countryDetails && (() => {
-        const howToSteps: { step: number; Icon: LucideIcon; title: string; description: string }[] = [
-          { step: 1, Icon: ClipboardList, title: "Enter your transfer details", description: `Choose how much ${fromCurrency} you want to send, compare providers above, and pick the one offering the best ${toCurrency} amount for your transfer to ${corridor.toCountry}.` },
-          { step: 2, Icon: UserPlus, title: "Add your recipient", description: `Enter your recipient's details in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` — you'll need their ${countryDetails.recipientRequirements[1].label.toLowerCase()}` : ""}. Complete the provider’s verification before expecting delivery.` },
-          { step: 3, Icon: Rocket, title: "Send & track your transfer", description: "Choose an available funding method, confirm the final payout and arrival estimate, then keep your tracking reference." },
-        ];
-        return (
-        <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
-          {/* No HowTo structured data here. Google removed HowTo rich results
-              in September 2023, so the markup earns nothing and is one more
-              type a validator has to walk. The three steps below stay — they
-              are useful to a reader, which is the only reason they existed. */}
-          <Container>
-            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
-              How to send money to {corridor.toCountry}
-            </h2>
-            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-              {countryDetails.recipientRequirements[1]
-                ? `Sending to ${corridor.toCountry} takes 3 steps — the one detail worth having ready in advance is your recipient's ${countryDetails.recipientRequirements[1].label.toLowerCase()}.`
-                : `Sending money to ${corridor.toCountry} is straightforward with the right provider — here's how it works in 3 steps.`}
-            </p>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {howToSteps.map(({ step, Icon, title, description }) => (
-                <div key={step} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-2xl bg-[var(--color-primary-surface)] flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-[var(--color-primary)]" strokeWidth={1.75} />
-                    </div>
-                    <span className="text-[11px] font-semibold text-[var(--color-on-surface-muted)] uppercase tracking-wider tabular-nums">Step {step}</span>
-                  </div>
-                  <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">{title}</h3>
-                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{description}</p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </section>
-        );
-      })()}
+      {/* The generic three-step "how to send" block was removed on 2026-09-20.
+          Measured at 94-100% repeated text across the corridor family: it
+          restated the same instructions with the currency name swapped and
+          carried no route-specific fact. See
+          reports/seo-audit-2026-09-20/FOLLOWUP.md. */}
 
       {/* ─── What You Need (Recipient Requirements) ─── */}
       {countryDetails && destinationHubSlug && (
@@ -2106,40 +2068,6 @@ export default async function CorridorPage({ params }: Props) {
             <div className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
               <p>{corridor.feesNote}</p>
               {rateStory && <p className="text-sm md:text-md">{rateStory}</p>}
-              <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-5">
-                <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Understanding the total cost</h3>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V7m0 10v1" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-2sm font-medium text-[var(--color-on-surface)]">Transfer fee</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">
-                        Upfront charge, usually {sendSymbol}0–{sendSymbol}10.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-2sm font-medium text-[var(--color-on-surface)]">Exchange rate markup</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">
-                        Gap between the provider&apos;s rate and mid-market ({midRate.toFixed(4)}).
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-2xs text-[var(--color-on-surface-variant)] mt-3">
-                  <Link href="/guides/exchange-rate-markup-explained" className="underline">How markup is calculated</Link>
-                </p>
-              </div>
             </div>
           </div>
         </Container>

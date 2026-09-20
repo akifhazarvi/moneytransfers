@@ -53,7 +53,11 @@ const RANKING_PATHS = [
 /** Redirects whose targets must resolve — locale prefixes are the risky ones. */
 const REDIRECT_PATHS = [
   "/fr/send-money/send-money-to-algeria",
-  "/fr/send-money/uk-to-guatemala",
+  // "/fr/send-money/uk-to-guatemala" — removed 2026-09-20. uk-to-guatemala was
+  // retired with the near-empty corridors (96.6% repeated, 94 unique words) by
+  // owner decision that quality outranks the ranking exemption, so this
+  // redirect now lands on a 410 by design. The forfeited GSC evidence (28
+  // impressions, avg position 3.5) is recorded in gone-corridors.ts.
   "/fr/send-money/germany-to-pakistan",
   "/fr/send-money/usa-to-japan",
   "/es/exchange-rates/history/usd-to-hnl",
