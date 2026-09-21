@@ -365,19 +365,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3>3. Cash Transfer Services</h3>
 <p><strong>Best for:</strong> Sending to recipients without bank accounts. <a href="/companies/western-union">Western Union</a> and <a href="/companies/moneygram">MoneyGram</a> offer cash pickup at thousands of agent locations worldwide. Fees are higher but the recipient doesn't need a bank account.</p>
 <h3>4. Mobile Payment Apps</h3>
-<p><strong>Best for:</strong> Small, quick transfers. PayPal, Venmo (limited international), and local apps offer convenience but usually at a higher cost for international transfers. PayPal was the most expensive route in our September 2026 sample at 6.7% of the transfer — about $67 on $1,000, or nine times what Instarem charges.</p>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Sending Money Abroad</h3>
-<table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 70+ countries</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivers in minutes to 100+ countries</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>Zero fees and very low markup across most corridors</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
-</div>`,
+<p><strong>Best for:</strong> Small, quick transfers. PayPal, Venmo (limited international), and local apps offer convenience but usually at a higher cost for international transfers. PayPal was the most expensive route in our September 2026 sample at 6.7% of the transfer — about $67 on $1,000, or nine times what Instarem charges.</p>`,
       },
       {
         heading: "Step-by-Step: How to Send an International Transfer",
