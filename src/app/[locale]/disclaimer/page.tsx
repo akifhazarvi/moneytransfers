@@ -33,9 +33,6 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
             <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
-            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
-              {t("lastUpdated")}
-            </p>
           </div>
         </Container>
       </section>
@@ -50,11 +47,8 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  The information provided on{" "}
-                  <Link href="/" className="text-[var(--color-primary)] hover:underline">
-                    sendmoneycompare.com
-                  </Link>{" "}
-                  is for general informational purposes only. SendMoneyCompare is an
+                  The information provided on sendmoneycompare.com is for general
+                  informational purposes only. SendMoneyCompare is an
                   independent comparison platform — we are not a bank, money transfer
                   operator, payment institution, or financial adviser.
                 </p>
@@ -203,13 +197,6 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 If you have questions about this disclaimer or spot any inaccurate
                 information on our website, please contact us at{" "}
-                <a
-                  href="mailto:info@sendmoneycompare.com"
-                  className="text-[var(--color-primary)] hover:underline"
-                >
-                  info@sendmoneycompare.com
-                </a>{" "}
-                or{" "}
                 <a
                   href="mailto:info@sendmoneycompare.com"
                   className="text-[var(--color-primary)] hover:underline"
