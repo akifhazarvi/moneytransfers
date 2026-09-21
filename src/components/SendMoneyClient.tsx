@@ -24,6 +24,7 @@ import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
 import RatingBadge from "@/components/RatingBadge";
 import { providerLogo } from "@/lib/provider-logo";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 
 type SortBy = "receiveAmount" | "fee" | "rating" | "deals";
 type SpeedFilter = "" | "instant" | "same-day" | "1-2-days" | "3-plus-days";
@@ -882,6 +883,11 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
           </div>
         </div>
       )}
+
+      {/* Affiliate disclosure — at the bottom so it doesn't interrupt the comparison flow */}
+      <div className="mt-2 mb-6">
+        <AffiliateDisclosure />
+      </div>
     </Container>
   );
 }
