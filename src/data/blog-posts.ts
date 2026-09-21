@@ -17422,7 +17422,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-09-21",
     updatedAt: "2026-09-21",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     contentStatus: "published",
     tags: [
       "Remitly",
