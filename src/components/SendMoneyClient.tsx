@@ -24,7 +24,6 @@ import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
 import RatingBadge from "@/components/RatingBadge";
 import { providerLogo } from "@/lib/provider-logo";
-import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 
 type SortBy = "receiveAmount" | "fee" | "rating" | "deals";
 type SpeedFilter = "" | "instant" | "same-day" | "1-2-days" | "3-plus-days";
@@ -578,18 +577,6 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
         </span>
       </div>
 
-      {/* Ranked surfaces carry the disclosure; this one did not. /compare,
-          /compare/[slug], /send-money/[corridor], /guides/[slug], /banks and
-          /travel all render <AffiliateDisclosure /> beside their table, and
-          this page — the one where most /go clicks start — was the only
-          ranked list relying on the partner spotlight's own footnote for it.
-          That made the disclosure conditional on a block we now suppress when
-          the partner ranks first, i.e. absent exactly where a paid partner
-          sits at the top of the order. It belongs here regardless. */}
-      <div className="mb-4">
-        <AffiliateDisclosure />
-      </div>
-
       {/* Results list */}
       <div className="mb-12">
         {quotesLoading ? (
@@ -644,7 +631,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
                     rate, fee or rating that floats the partner to #1
                     suppresses it too — the duplication is visual and does not
                     care how the list got ordered. Paid placement stays
-                    disclosed by <AffiliateDisclosure /> above the list, which
+                    disclosed by <AffiliateDisclosure /> below the list, which
                     is why dropping the block here does not drop the
                     disclosure with it. */}
                 {index === 0 && partnerQuote && quote.providerSlug !== "taptap-send" && (
@@ -884,7 +871,16 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
         </div>
       )}
 
-      {/* Affiliate disclosure — at the bottom so it doesn't interrupt the comparison flow */}
+      {/* Ranked surfaces carry the disclosure; this one did not. /compare,
+          /compare/[slug], /send-money/[corridor], /guides/[slug], /banks and
+          /travel all render <AffiliateDisclosure /> beside their table, and
+          this page — the one where most /go clicks start — was the only
+          ranked list relying on the partner spotlight's own footnote for it.
+          That made the disclosure conditional on a block we now suppress when
+          the partner ranks first, i.e. absent exactly where a paid partner
+          sits at the top of the order. It belongs on the page regardless, and
+          sits below the results so it never comes between a reader and a Send
+          button. */}
       <div className="mt-2 mb-6">
         <AffiliateDisclosure />
       </div>
