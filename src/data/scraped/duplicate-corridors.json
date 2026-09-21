@@ -1,10 +1,10 @@
 {
- "generated": "2026-09-21T02:52:13.661Z",
+ "generated": "2026-09-21T21:28:21.787Z",
  "rationale": "Corridor pages whose currency pair is already represented by a stronger page. Quotes are keyed on currency pair, not country pair, so these restate a twin verbatim. Content brief Sep 2026, §4 / §10-A generation threshold.",
- "renderedBefore": 797,
- "distinctCurrencyPairs": 369,
- "retiring": 407,
- "renderedAfter": 390,
+ "renderedBefore": 785,
+ "distinctCurrencyPairs": 368,
+ "retiring": 396,
+ "renderedAfter": 389,
  "keptPerPair": {
   "AED-BDT": "uae-to-bangladesh",
   "AED-BRL": "aed-to-brl",
@@ -201,7 +201,6 @@
   "EUR-PHP": "finland-to-philippines",
   "EUR-PKR": "france-to-pakistan",
   "EUR-PLN": "greece-to-poland",
-  "EUR-RWF": "austria-to-rwanda",
   "EUR-SGD": "eur-to-sgd",
   "EUR-THB": "eur-to-thb",
   "EUR-TRY": "germany-to-turkey",
@@ -282,8 +281,8 @@
   "NOK-PHP": "norway-to-philippines",
   "NZD-AUD": "new-zealand-to-australia",
   "NZD-GBP": "new-zealand-to-uk",
+  "OMR-INR": "oman-to-india",
   "OMR-PHP": "oman-to-philippines",
-  "OMR-PKR": "oman-to-pakistan",
   "SAR-BDT": "saudi-arabia-to-bangladesh",
   "SAR-EGP": "saudi-arabia-to-egypt",
   "SAR-INR": "saudi-arabia-to-india",
@@ -666,12 +665,6 @@
    "redirectTo": "france-to-pakistan"
   },
   {
-   "slug": "belgium-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
-  },
-  {
    "slug": "belgium-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -978,12 +971,6 @@
    "redirectTo": "belgium-to-morocco"
   },
   {
-   "slug": "eur-to-rwf",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
-  },
-  {
    "slug": "eur-to-try",
    "pair": "EUR-TRY",
    "keptInstead": "germany-to-turkey",
@@ -1032,12 +1019,6 @@
    "redirectTo": "austria-to-ethiopia"
   },
   {
-   "slug": "finland-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
-  },
-  {
    "slug": "finland-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -1084,12 +1065,6 @@
    "pair": "EUR-GHS",
    "keptInstead": "eur-to-ghs",
    "redirectTo": "eur-to-ghs"
-  },
-  {
-   "slug": "france-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "france-to-senegal",
@@ -1284,12 +1259,6 @@
    "redirectTo": "greece-to-poland"
   },
   {
-   "slug": "germany-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
-  },
-  {
    "slug": "germany-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -1366,12 +1335,6 @@
    "pair": "EUR-ETB",
    "keptInstead": "austria-to-ethiopia",
    "redirectTo": "austria-to-ethiopia"
-  },
-  {
-   "slug": "greece-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "greece-to-senegal",
@@ -1632,12 +1595,6 @@
    "redirectTo": "austria-to-ethiopia"
   },
   {
-   "slug": "ireland-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
-  },
-  {
    "slug": "ireland-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -1678,12 +1635,6 @@
    "pair": "EUR-ETB",
    "keptInstead": "austria-to-ethiopia",
    "redirectTo": "austria-to-ethiopia"
-  },
-  {
-   "slug": "italy-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "italy-to-senegal",
@@ -1752,12 +1703,6 @@
    "redirectTo": "finland-to-philippines"
   },
   {
-   "slug": "netherlands-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
-  },
-  {
    "slug": "netherlands-to-senegal",
    "pair": "EUR-XOF",
    "keptInstead": "austria-to-senegal",
@@ -1794,16 +1739,16 @@
    "redirectTo": "new-zealand-to-uk"
   },
   {
+   "slug": "omr-to-inr",
+   "pair": "OMR-INR",
+   "keptInstead": "oman-to-india",
+   "redirectTo": "oman-to-india"
+  },
+  {
    "slug": "omr-to-php",
    "pair": "OMR-PHP",
    "keptInstead": "oman-to-philippines",
    "redirectTo": "oman-to-philippines"
-  },
-  {
-   "slug": "omr-to-pkr",
-   "pair": "OMR-PKR",
-   "keptInstead": "oman-to-pakistan",
-   "redirectTo": "oman-to-pakistan"
   },
   {
    "slug": "portugal-to-cameroon",
@@ -1822,12 +1767,6 @@
    "pair": "EUR-ETB",
    "keptInstead": "austria-to-ethiopia",
    "redirectTo": "austria-to-ethiopia"
-  },
-  {
-   "slug": "portugal-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "portugal-to-senegal",
@@ -1990,12 +1929,6 @@
    "pair": "EUR-ETB",
    "keptInstead": "austria-to-ethiopia",
    "redirectTo": "austria-to-ethiopia"
-  },
-  {
-   "slug": "spain-to-rwanda",
-   "pair": "EUR-RWF",
-   "keptInstead": "austria-to-rwanda",
-   "redirectTo": "austria-to-rwanda"
   },
   {
    "slug": "spain-to-senegal",

@@ -74,9 +74,11 @@ import { bingKeywordArticlesJul2026 } from "./blog-bing-jul2026";
 import { safetyGuides } from "./blog-safety-guides";
 import { dataComparisonGuides } from "./blog-data-comparisons";
 import { freelanceGuides } from "./blog-freelance-guides";
+import { costTransparencyGuides } from "./blog-cost-transparency";
 import { SITE_STATS, atLeast } from "@/lib/site-stats";
 
 const rawBlogPosts: BlogPost[] = [
+  ...costTransparencyGuides,
   ...freelanceGuides,
   ...dataComparisonGuides,
   ...safetyGuides,
