@@ -484,7 +484,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {getAuthorByName(post.author)?.photo ? (
                   <Image src={getAuthorByName(post.author)!.photo!} alt={post.author} width={32} height={32} className="w-8 h-8 rounded-full object-cover" />
                 ) : (
-                  <span className="w-8 h-8 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-xs">{getAuthorByName(post.author)?.initials || "AH"}</span>
+                  <span className="w-8 h-8 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-xs">{getAuthorByName(post.author)?.initials || "AI"}</span>
                 )}
                 {post.author}
               </Link>
