@@ -6012,15 +6012,15 @@
     "date": "2026-09-21",
     "providers": {
       "paysend": {
-        "rate": 73.8391,
+        "rate": 73.7357,
         "fee": 9,
-        "markup": 2.21,
-        "receiveAmount": 6719.36
+        "markup": 2.22,
+        "receiveAmount": 6709.95
       },
       "remitly": {
         "rate": 75.43,
         "fee": 7,
-        "markup": 0.1,
+        "markup": -0.03,
         "receiveAmount": 7014.99
       },
       "taptap-send": {
