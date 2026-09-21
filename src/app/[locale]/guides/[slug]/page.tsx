@@ -74,6 +74,9 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   // in our data (USD→INR, ~0.4% median markup), rather than the USD→INR default
   // with a generic heading.
   "xe-money-transfer-review-rates": { from: "USD", to: "INR", amount: 1000, heading: "See where XE ranks — live USD → INR rates" },
+  // Remitly review: surface the corridor our 6-month data flags (USD→PHP, where
+  // Remitly's markup ran ~3%) so the widget lets readers check it live.
+  "remitly-performance-to-send-money-internationally": { from: "USD", to: "PHP", amount: 500, heading: "See where Remitly ranks — live USD → PHP rates" },
   // GBP leads this guide's own excerpt and outnumbers USD in its body, and
   // GBP→AUD quotes 22 providers against USD→AUD's 8.
   "send-money-to-australia-guide": { from: "GBP", to: "AUD", amount: 1000, heading: "Top GBP → AUD providers right now" },

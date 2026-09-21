@@ -17407,6 +17407,135 @@ const rawBlogPosts: BlogPost[] = [
       "cheapest-way-to-send-money-internationally",
     ],
   },
+  // ============================
+  // Remitly 6-Month Performance Review
+  // ============================
+  {
+    slug: "remitly-performance-to-send-money-internationally",
+    title: "Remitly performance in last 6 months to send money internationally",
+    metaTitle: "Remitly Review 2026: 6-Month Rate & Fee Performance",
+    metaDescription:
+      "Remitly grew fast in H1 2026 — but our 6-month rate tracking shows its markup ran ~3% on USD to PHP. See where Remitly actually wins, and where it doesn't.",
+    excerpt:
+      "Remitly's H1 2026 earnings were strong — 20% revenue growth, 10 million active customers. But growth doesn't set your exchange rate. We tracked Remitly's live rates for six months to see where it actually delivers for senders, and where it falls behind.",
+    category: "Reviews",
+    readTime: "8 min read",
+    publishedAt: "2026-09-21",
+    updatedAt: "2026-09-21",
+    author: "Akif Hazarvi",
+    contentStatus: "published",
+    tags: [
+      "Remitly",
+      "Remitly review",
+      "Remitly rates",
+      "send money internationally",
+      "exchange rate markup",
+      "money transfer review",
+      "remittance",
+      "Wise",
+    ],
+    featuredImage: "/images/blog/wise-vs-remitly.jpg",
+    sections: [
+      {
+        heading: "Remitly in H1 2026: The Short Version",
+        content: `<div class="blog-answer-box"><p><strong>Quick take:</strong> Remitly had a strong first half of 2026 as a business — $495.2M Q2 revenue (+20% YoY), send volume up 27%, and more than 10 million active customers. But business growth doesn't set the rate on your corridor. Our own six-month tracking of Remitly's live quotes (March–September 2026) shows the gap plainly: Remitly's markup was tight on India routes (~0.3% on USD → INR and GBP → INR) yet among the widest of any tracked provider on some big consumer corridors — around <strong>3.1% on USD → PHP</strong> and <strong>3.9% on USD → MXN</strong>. Remitly is financially healthy and widely available, but it is not automatically the best payout on your route — <a href="/send-money">compare live before every transfer</a>.</p></div>
+<p>Remitly has been one of the most closely watched names in international money transfer for years. But if you're deciding whether to use it for your next transfer, quarterly earnings and stock moves only tell part of the story. What actually matters is whether Remitly delivers competitive exchange rates and fees on the specific corridor you're sending through, on the day you're sending.</p>
+<p>This review pairs Remitly's H1 2026 business performance with SendMoneyCompare's own six-month record of its live rates — the business growth on one side, what senders actually received at the destination on the other.</p>`,
+      },
+      {
+        heading: "Remitly's Business Performance: H1 2026",
+        content: `<p>By almost every measure, Remitly had a strong first half of 2026. The numbers reported through Q2 2026 earnings paint a clear picture of a company growing quickly across customers, volume, and revenue.</p>
+<h3>Revenue and send volume</h3>
+<p>Q2 2026 revenue came in at <strong>$495.2 million, up 20% year over year</strong>. Send volume grew even faster, rising <strong>27% year over year</strong>. That gap — volume outpacing revenue — suggests Remitly is processing more money per dollar of revenue, which can reflect competitive pricing pressure or a shift toward higher-value transfers.</p>
+<h3>Crossing 10 million active customers</h3>
+<p>A headline figure from Q2 2026 was Remitly crossing <strong>10 million quarterly active customers</strong> (+20% YoY). That scale matters for senders because it signals Remitly can maintain wide corridor coverage and keep investing in reliability.</p>
+<h3>High-value senders and business receivers</h3>
+<p>Two segments stood out. <strong>High Value Senders</strong> — customers sending $5,000+ per transaction — saw volume grow 37% YoY, a meaningfully different profile from the typical $200 monthly remittance. <strong>Business Receivers</strong> also surpassed 25,000 active businesses, reflecting Remitly's push into small-business payments.</p>
+<h3>Leadership, stock, and network scale</h3>
+<p>February 2026 brought a leadership transition: <strong>Sebastian Gunningham became CEO</strong>, with a growth framework built around artificial intelligence and stablecoins. Remitly's stock (RELY) rose roughly <strong>79%</strong> over the six months leading into August 2026. And the network now reaches <strong>more than 175 countries across more than 5,700 corridors</strong> — genuine breadth for less common destinations. (Figures per Remitly's Q2 2026 earnings and investor disclosures.)</p>`,
+      },
+      {
+        heading: "SendMoneyCompare's 6-Month Rate Data: How Remitly Actually Performed",
+        content: `<p>The earnings above reflect Remitly's business. This section reflects what senders actually received — from our own tracking, not the company's marketing.</p>
+<p><strong>Our research:</strong> SendMoneyCompare records live provider quotes every 6 hours. We isolated Remitly's quotes on our most-tracked consumer corridors from <strong>March to September 2026</strong> and measured the gap between Remitly's rate and the mid-market rate. The story is not "cheap" or "expensive" — it's <em>corridor-specific</em>:</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Remitly median exchange-rate markup by corridor (SendMoneyCompare data, Mar–Sep 2026)</h3>
+<table>
+<thead><tr><th>Corridor</th><th>Remitly median markup</th><th>Read</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>GBP → INR</strong></td><td>0.25%</td><td>Very competitive</td></tr>
+<tr class="blog-row-highlight"><td><strong>USD → INR</strong></td><td>0.30%</td><td>Very competitive</td></tr>
+<tr><td><strong>USD → PHP</strong></td><td>3.07%</td><td>Among the widest we tracked</td></tr>
+<tr><td><strong>USD → MXN</strong></td><td>3.85%</td><td>Among the widest we tracked</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">SendMoneyCompare research: medians of Remitly's live quotes on the days it appeared in our tracking, March–September 2026. Corridors where our mid-market benchmark is unreliable are excluded. Markup = gap between Remitly's rate and the mid-market rate. <a href="/send-money/usa-to-philippines">Compare Remitly live →</a></p>
+</div>
+<p>Two things stand out. First, on the India corridors Remitly was excellent — roughly a quarter of a percent off mid-market, hard to beat. Second, on two of the largest remittance routes in the world it was not: our data put Remitly's markup near <strong>3.1% on USD → PHP</strong> and <strong>3.9% on USD → MXN</strong>. Our 184-day corridor tracking agrees with our live rate snapshot, which currently flags Remitly as carrying the <em>highest</em> markup among tracked providers on USD → PHP. Over the same period, the best rates on the India, Philippines and Mexico corridors most often came from providers like <a href="/companies/ria">Ria</a>, <a href="/companies/worldremit">WorldRemit</a>, and Panda Remit — not Remitly.</p>
+<p>The takeaway isn't that Remitly is a poor provider — it's that a single company's rate swings enormously by route. That's the gap between reading an earnings report and checking a live quote.</p>`,
+      },
+      {
+        heading: "What Fast Growth Actually Means for Senders",
+        content: `<p>Remitly's growth is real, but it's worth being precise about what it does and doesn't do for someone sending $300 to the Philippines or $500 to Mexico.</p>
+<p><strong>Scale can keep rates competitive.</strong> A larger customer base and higher volume give Remitly more leverage with banking partners and payout networks, which should help hold markups down. Volume growing 27% against 20% revenue growth suggests Remitly may be passing some efficiency to customers — a reasonable interpretation, though not the only one.</p>
+<p><strong>Scale doesn't guarantee the best rate on your corridor.</strong> Our data is the proof: the same company was ~0.3% off mid-market on USD → INR and ~3% on USD → PHP in the same period. Pricing is highly corridor-specific and moves within a single day on interbank shifts. Remitly may price aggressively for the High Value Sender segment (up 37% YoY) while keeping wider margins on smaller consumer routes — the aggregate numbers can't tell you which applies to your transfer.</p>`,
+      },
+      {
+        heading: "How to Check If Remitly Is the Best Deal for Your Transfer Today",
+        content: `<p>If you're sending money this week, the question isn't whether Remitly grew 20% year over year — it's whether Remitly will put more money in your recipient's hands than the alternatives.</p>
+<p><strong>Watch the payout, not the fee.</strong> The exchange-rate markup is often larger than the transfer fee itself, so a "zero fee" quote can still cost more than one charging $4. The only number that captures both is the <strong>recipient payout</strong> — how much actually arrives in local currency. (See our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explained</a> guide.)</p>
+<p><strong>Compare without the guesswork.</strong> <a href="/send-money">SendMoneyCompare</a> ranks {{PROVIDER_COUNT}} providers by recipient payout — not headline fee — with both markup and fees factored in. Rates refresh every six hours from live data, and no signup is required. Remitly appears alongside <a href="/companies/wise">Wise</a>, <a href="/companies/western-union">Western Union</a>, <a href="/companies/worldremit">WorldRemit</a>, <a href="/companies/xe">Xe</a> and dozens more. On some corridors and some days Remitly ranks near the top; on others — as our USD → PHP data shows — a different provider offers a meaningfully better payout. Running the comparison at the moment you send is the only way to know which applies. Our <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a> is a good starting point for the two most common picks.</p>`,
+      },
+      {
+        heading: "The Verdict",
+        content: `<p>Remitly's first half of 2026 was strong by any business measure: 20% revenue growth, 27% volume growth, 10 million active customers, and a stock price reflecting real investor confidence. The move to CEO Sebastian Gunningham and a focus on AI and stablecoins point to continued platform investment.</p>
+<p>For senders, that's useful background — it tells you Remitly is financially healthy, widely available, and growing. What it doesn't tell you is whether Remitly will offer the best payout on your corridor today. Our six-month data shows exactly why that distinction matters: excellent on India routes, but well off the pace on USD → PHP and USD → MXN. Run a <a href="/send-money">live comparison</a> before every transfer and check where Remitly lands on the amount and route you're actually sending.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Rate figures in this review are SendMoneyCompare's own research: Remitly's live quotes are collected every 6 hours by our automated engine and stored per corridor. For this review we analysed Remitly's quotes on our most-tracked consumer corridors between March and September 2026, measuring the gap between Remitly's offered rate and the mid-market rate, and reporting medians on the days Remitly appeared in our data. Corridors where our mid-market benchmark is unreliable are excluded. Business figures (revenue, send volume, active customers, High Value Sender growth, leadership, stock performance, and network coverage) are drawn from Remitly's Q2 2026 earnings and investor disclosures and reflect those reports rather than our own measurement. Rates change constantly — confirm the current cost with a <a href="/send-money">live comparison</a> before you send.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "How did Remitly perform financially in the first half of 2026?",
+        answer:
+          "Remitly reported Q2 2026 revenue of $495.2 million, up 20% year over year, with send volume growing 27% year over year. The company also crossed 10 million quarterly active customers in Q2 2026, up 20% year over year (per Remitly's Q2 2026 earnings).",
+      },
+      {
+        question: "Did Remitly offer the best exchange rate over the last 6 months?",
+        answer:
+          "Not consistently — it depends entirely on the corridor. SendMoneyCompare's own tracking from March to September 2026 found Remitly very competitive on India routes (around 0.25–0.30% markup on GBP → INR and USD → INR) but among the widest of any tracked provider on USD → PHP (about 3.1%) and USD → MXN (about 3.9%). Over that period the best rates on those big consumer corridors more often came from providers like Ria and WorldRemit. Always compare live before sending.",
+      },
+      {
+        question: "What is Remitly's High Value Sender segment?",
+        answer:
+          "High Value Senders are customers who send $5,000 or more per transaction. This segment saw volume grow 37% year over year in Q2 2026, indicating Remitly is attracting larger transfers alongside its traditional remittance base. Remitly may price this segment differently from smaller consumer transfers.",
+      },
+      {
+        question: "Does Remitly's growth mean it offers the best exchange rates?",
+        answer:
+          "No. Business growth reflects customer acquisition and volume, not pricing on any given corridor. Markups and fees vary by route and change through the day — our own data shows Remitly ranging from ~0.3% off mid-market on USD → INR to ~3% on USD → PHP in the same period. Compare recipient payouts across providers at the time you send.",
+      },
+      {
+        question: "How many countries and corridors does Remitly cover?",
+        answer:
+          "As of 2026, Remitly serves more than 175 countries across more than 5,700 corridors, making it one of the broader-coverage digital remittance providers available.",
+      },
+      {
+        question: "What is the best way to compare Remitly against other providers?",
+        answer:
+          "Enter your send amount, origin, and destination on SendMoneyCompare to see how Remitly ranks against 90+ providers by recipient payout. The comparison factors in both exchange-rate markups and fees, with rates refreshed every six hours. No account is needed.",
+      },
+    ],
+    relatedSlugs: [
+      "wise-vs-remitly-comparison",
+      "xe-money-transfer-review-rates",
+      "best-money-transfer-apps",
+      "send-money-to-philippines-guide",
+      "cheapest-way-to-send-money-internationally",
+    ],
+  },
 ];
 
 /**
