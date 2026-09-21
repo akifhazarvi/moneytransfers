@@ -72,7 +72,7 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
               <ProviderLink
                 href={getGoUrl(partner.slug, { sourceCurrency: context?.from, targetCurrency: context?.to, sourceAmount: context?.amount, clickref: attribution })}
                 provider={partner.slug} source={attribution} corridor={corridor} className="partner-primary"
-              >Check {partner.name} rates <ArrowUpRight size={16} aria-hidden="true" /></ProviderLink>
+              >{partner.slug === "taptap-send" ? "See your TapTap Send rate" : `Check ${partner.name} rates`} <ArrowUpRight size={16} aria-hidden="true" /></ProviderLink>
               <Link className="partner-review" href={`/companies/${partner.slug}`} onClick={() => trackCrossSellNavigation("review", source, placement, partner.slug, corridor)}>
                 Read {partner.name} review <ArrowRight size={14} aria-hidden="true" />
               </Link>

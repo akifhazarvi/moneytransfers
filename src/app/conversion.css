@@ -74,3 +74,25 @@
 .provider-cross-sell .partner-card { border-radius: 24px; }
 .provider-cross-sell .partner-primary { font-size: 14px; background: #166344; color: #fff; }
 .conversion-results .conversion-spotlight { margin: 0; }
+
+/* Persistent, dismissible reading action. It never covers an active form or consent dialog. */
+.taptap-reading-cta { position: fixed; z-index: 60; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); right: 24px; display: flex; align-items: center; gap: 14px; max-width: calc(100vw - 32px); padding: 16px 12px 16px 18px; border: 1px solid var(--color-outline); border-radius: 20px; background: var(--color-surface); color: var(--color-on-surface); box-shadow: 0 8px 40px #0002; }
+.taptap-reading-cta[hidden] { display: none; }
+.taptap-reading-cta--ticker { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+.taptap-reading-cta > img { border-radius: 10px; background: #fff; flex-shrink: 0; }
+.taptap-reading-copy { display: grid; gap: 3px; }
+.taptap-reading-copy span { font-size: 10px; color: var(--color-on-surface-variant); }
+.taptap-reading-copy strong { font-size: 15px; font-weight: 600; letter-spacing: -.02em; }
+.taptap-reading-copy small { font-size: 11px; color: var(--color-on-surface-variant); }
+.taptap-reading-dismiss { width: 44px; height: 44px; flex-shrink: 0; cursor: pointer; font-size: 24px; color: var(--color-on-surface-variant); border-radius: 12px; }
+.taptap-reading-dismiss:focus-visible { outline: 2px solid var(--color-on-surface); outline-offset: 2px; }
+.taptap-reading-reserve { height: 120px; }
+.provider-cross-sell .partner-card[data-partner="taptap-send"] { border-color: #328362; }
+.provider-cross-sell .partner-card[data-partner="taptap-send"] .partner-name::before { content: "Paid spotlight"; display: block; font-size: 10px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 5px; color: var(--color-on-surface-variant); }
+@media (max-width: 600px) {
+ .taptap-reading-cta { left: 12px; right: 12px; max-width: none; gap: 10px; padding: 12px; flex-wrap: wrap; }
+ .taptap-reading-copy { flex: 1; }
+ .taptap-reading-copy small { display: none; }
+ .taptap-reading-cta > .conversion-button { order: 4; width: 100%; min-height: 44px; }
+ .taptap-reading-reserve { height: 152px; }
+}

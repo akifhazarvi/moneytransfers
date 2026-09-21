@@ -15,6 +15,7 @@ import GA4PageviewTracker from "@/components/GA4PageviewTracker";
 import ProviderClickDelegate from "@/components/ProviderClickDelegate";
 import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import TapTapReadingCTA from "@/components/TapTapReadingCTA";
 import SiteProviderCrossSell from "@/components/SiteProviderCrossSell";
 import { COVERAGE } from "@/lib/site-stats";
 import { seoDescription } from "@/lib/seo-title";
@@ -341,6 +342,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <ProviderClickDelegate />
           <AiSourceInjector />
           <CookieConsentBanner />
+          <TapTapReadingCTA />
         </ThemeProvider>
       </NextIntlClientProvider>
     </>

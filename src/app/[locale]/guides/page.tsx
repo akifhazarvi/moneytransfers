@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck } from "lucide-react";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import ProviderCrossSell from "@/components/ProviderCrossSell";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
 import { guideIsIndexable } from "@/lib/guide-status";
@@ -120,6 +121,8 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           </div>
         </header>
 
+        <PartnerFeatureBlock source="taptap_spotlight:guides-hub" variant="card" />
+
         <GuidesClientPage posts={[...guideCards.filter((post) => !researchCards.some((research) => research.slug === post.slug)), ...researchCards]} categories={blogCategories} featured={
           <section key="featured-guides" className="guide-featured-grid" aria-label="Featured guides and research">
             <Link href="/guides/best-apps-to-send-money-from-us-2026" className="guide-featured-story">
@@ -150,7 +153,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           </section>
         } />
 
-        <ProviderCrossSell source="guides" placement="library" title="Put your next transfer in motion." />
+        <ProviderCrossSell source="guides" exclude="taptap-send" placement="library" title="Put your next transfer in motion." />
 
       {/*
         Crawlable index of every submitted guide.
