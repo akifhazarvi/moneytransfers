@@ -29,6 +29,8 @@ import { businessPages } from "../src/data/business-pages";
 import { newsItems } from "../src/data/news";
 import { corridors } from "../src/data/corridors";
 import { getCountryDetails } from "../src/data/corridor-details";
+import { readdirSync, readFileSync, statSync } from "node:fs";
+import { join } from "node:path";
 
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
@@ -69,6 +71,31 @@ for (const n of newsItems as { slug: string; content?: string; sections?: { cont
   scan(n.content, `news:${n.slug}`);
   (n.sections ?? []).forEach((s) => scan(s.content, `news:${n.slug}`));
 }
+
+// Page components, not just the content data files. Added 2026-09-20 with the
+// regulator citations on /methodology, /how-we-review and /compare: until then
+// this guard scanned blog posts, business pages, news and corridors only, so
+// every outbound link hand-written in a page.tsx was unchecked — including the
+// three registry links that are the entire evidence for "we verify regulatory
+// status independently". Source files rather than built HTML on purpose: a
+// dead citation should be findable without a build, and the built output would
+// also drag in every provider and affiliate URL, which are not citations.
+function scanAppSources(dir: string) {
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) {
+      scanAppSources(full);
+    } else if (/\.tsx?$/.test(entry)) {
+      // <link rel="preconnect"> and dns-prefetch carry an href to an origin
+      // we never cite — layout.tsx alone produced two "dead citations" that
+      // were resource hints to googletagmanager and a flag-icon CDN. A guard
+      // that reports those teaches you to skim past its output.
+      const source = readFileSync(full, "utf8").replace(/<link\b[^>]*>/g, "");
+      scan(source, `page:${full.replace(/^src\/app\//, "").replace(/\/page\.tsx$/, "")}`);
+    }
+  }
+}
+scanAppSources("src/app");
 
 type Result = { url: string; status: number | string; where: string[] };
 

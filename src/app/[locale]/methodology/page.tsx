@@ -62,10 +62,9 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               "A detailed explanation of how SendMoneyCompare collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
             author: {
               "@type": "Person",
-              name: "Akif Hazarvi",
-              url: "https://sendmoneycompare.com/about/akif-hazarvi",
-              jobTitle:
-                "Product Manager – Fintech & International Payments",
+              name: "Ahsan Mukhtar",
+              url: "https://sendmoneycompare.com/about/ahsan-mukhtar",
+              jobTitle: "Co-founder & Editor-in-Chief",
             },
             publisher: {
               "@type": "Organization",
@@ -432,6 +431,86 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                     zero effect on its ranking position.
                   </li>
                 </ul>
+              </div>
+            </div>
+
+            {/* The disclosure standard we rank against — added 2026-09-20.
+                This page explained our formula but never named the standard it
+                implements, so the ranking read as a house rule rather than as
+                the figure two regulators already require a provider to state.
+                The AI-citation trial on the same date showed the engines citing
+                CFPB alongside every ranking question while we held 0% share of
+                that topic: we had the method and none of the grounding. Both
+                citations were verified by GET and each substantiates the
+                specific sentence it sits next to. */}
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                The disclosure standard we rank against
+              </h2>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  The receive amount is not a metric we invented. Two regulators
+                  already define the cost of a transfer the same way, and our
+                  tables compute what they require each provider to state.
+                </p>
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 space-y-4">
+                  <div>
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                      United States — CFPB Remittance Transfer Rule
+                    </h3>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                      Regulation E requires a provider to disclose, before you
+                      pay, the exchange rate it will apply (
+                      <a
+                        href="https://www.consumerfinance.gov/rules-policy/regulations/1005/31/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--color-primary)] hover:underline"
+                      >
+                        &sect;&nbsp;1005.31(b)(1)(iv)
+                      </a>
+                      ), each fee, and the amount that will be received
+                      (&sect;&nbsp;1005.31(b)(1)(vii)). That last figure &mdash;
+                      the amount received &mdash; is the one our tables sort on.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                      European Union &mdash; Regulation (EU) 2019/518
+                    </h3>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                      EU law is explicit about the markup in particular. It
+                      requires currency conversion charges to be expressed{" "}
+                      <a
+                        href="https://eur-lex.europa.eu/eli/reg/2019/518/oj"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--color-primary)] hover:underline"
+                      >
+                        &quot;as a percentage mark-up over the latest available
+                        euro foreign exchange reference rates issued by the
+                        European Central Bank&quot;
+                      </a>
+                      , disclosed before the payment is initiated. That is the
+                      same calculation behind every markup percentage on this
+                      site: provider rate measured against the ECB reference
+                      rate, never against another provider&apos;s rate.
+                    </p>
+                  </div>
+                </div>
+                <p>
+                  <strong className="text-[var(--color-on-surface)]">
+                    Where those rules stop.
+                  </strong>{" "}
+                  Both govern what a provider must tell you about its own quote.
+                  Neither requires anyone to show you what a competitor would
+                  have delivered on the same transfer, so a fully compliant
+                  disclosure can still be the most expensive option on the
+                  corridor. Closing that gap is the whole job of this site: we
+                  take the figure the law already makes each provider state, and
+                  compute it across {atLeast(SITE_STATS.liveProviders)} providers
+                  on the same corridor, at the same amount, at the same moment.
+                </p>
               </div>
             </div>
 

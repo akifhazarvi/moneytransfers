@@ -109,11 +109,48 @@ export default async function HowWeReviewPage({ params }: Props) {
                     the end-to-end user experience — from sign-up to delivery
                     confirmation.
                   </li>
+                  {/* The three registries were named here in prose but never
+                      linked, so the strongest claim on the page &mdash; that we
+                      check the regulator rather than the provider&apos;s own
+                      about-page &mdash; was unverifiable by a reader or a
+                      crawler. Each URL verified by GET on 2026-09-20. Followed,
+                      not nofollowed: these are regulators. */}
                   <li>
                     <strong>Regulatory verification:</strong> We independently
                     verify each provider&apos;s regulatory status by checking
-                    registration numbers against public registries maintained by
-                    the FCA, FinCEN, ASIC, and other financial authorities.
+                    registration numbers against the public registries
+                    themselves &mdash; the{" "}
+                    <a
+                      href="https://register.fca.org.uk/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-primary)] hover:underline"
+                    >
+                      FCA Financial Services Register
+                    </a>{" "}
+                    in the UK, the{" "}
+                    <a
+                      href="https://www.fincen.gov/msb-registrant-search"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-primary)] hover:underline"
+                    >
+                      FinCEN MSB registrant search
+                    </a>{" "}
+                    in the US, and{" "}
+                    <a
+                      href="https://asic.gov.au/online-services/search-asics-registers/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-primary)] hover:underline"
+                    >
+                      ASIC&apos;s registers
+                    </a>{" "}
+                    in Australia &mdash; rather than taking a provider&apos;s
+                    own licence page at its word. A licence proves a provider is
+                    supervised; it says nothing about whether the transfer is
+                    cheap, which is why regulatory status is a gate in this
+                    process and not a scoring criterion below.
                   </li>
                   <li>
                     <strong>Scoring:</strong> Each provider is scored across six
@@ -255,7 +292,9 @@ export default async function HowWeReviewPage({ params }: Props) {
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 For a deeper look at how we calculate the total cost of a
-                transfer and rank providers in our comparison tables, see our{" "}
+                transfer and rank providers in our comparison tables &mdash;
+                including the CFPB and EU disclosure rules that define the
+                figure we rank on &mdash; see our{" "}
                 <Link
                   href="/methodology"
                   className="text-[var(--color-primary)] hover:underline"

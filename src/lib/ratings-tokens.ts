@@ -216,6 +216,10 @@ ${body}
 //        provider with a quote, best payout first, linked where a review exists
 //   {{QUOTE_TABLE:USD:INR:1000}}           a full <tr> league table for the
 //        corridor — every provider quoting it, most received first
+//   {{MARKUP_BY_CORRIDOR}}                 fee + markup per major corridor —
+//        cheapest provider, its fee and markup, the median across everyone
+//        quoting the route, and the worst. Takes an optional amount
+//        ({{MARKUP_BY_CORRIDOR:5000}}); defaults to 1000 of the send currency.
 //   {{BEST_PROVIDER:USD:INR:1000}}         TapTap Send
 //   {{BEST_RECEIVE:USD:INR:1000}}          ₹94,411
 //   {{WORST_PROVIDER|WORST_RECEIVE:…}}     the other end of the same table
@@ -528,6 +532,76 @@ function renderQuoteTokens(html: string): string {
       return `<div class="overflow-x-auto"><table><thead><tr><th>Provider</th><th>Fee</th><th>Rate</th><th>They receive</th><th><span class="sr-only">Send</span></th></tr></thead><tbody>${body}</tbody></table></div>`;
     },
   );
+
+  // ── {{MARKUP_BY_CORRIDOR}} ───────────────────────────────────────────────
+  // A markup figure only means something next to the route it was measured on.
+  // /guides/exchange-rate-markup-explained taught the concept well and then
+  // showed a single per-provider table, so it answered "who is cheap" and never
+  // "cheap where" — while the whole argument of the page is that the markup is
+  // route-specific. The 2026-09-20 AI-citation trial put that topic at 0% share
+  // with Wise's own per-corridor pricing pages taking it three times over.
+  //
+  // Every cell is computed, so the table cannot drift from the quotes. Two
+  // guards keep it honest rather than merely full:
+  //   * a route needs 3+ providers quoting it, or the median is noise;
+  //   * a route whose median markup is negative is dropped, not printed. That
+  //     means our mid-market benchmark for the pair is unreliable, not that the
+  //     market pays you to send money — USD→NGN reads -3.16% for exactly this
+  //     reason and would otherwise head the table as the "cheapest" corridor.
+  //
+  // The cheapest provider's OWN markup is deliberately not a column: it read
+  // "below mid-market" on 8 of 10 routes, which is true (a provider can beat
+  // our rate snapshot at a given minute) but says nothing and reads as broken.
+  // Provider count, median and worst are the informative three — they give the
+  // denominator, the typical cost and the penalty for choosing badly.
+  const MARKUP_CORRIDORS: [string, string][] = [
+    ["USD", "INR"],
+    ["USD", "PHP"],
+    ["USD", "MXN"],
+    ["USD", "PKR"],
+    ["GBP", "INR"],
+    ["GBP", "PKR"],
+    ["EUR", "INR"],
+    ["AED", "INR"],
+    ["CAD", "INR"],
+    ["AUD", "INR"],
+  ];
+  out = out.replace(/\{\{MARKUP_BY_CORRIDOR(?::(\d+))?\}\}/g, (match, amt: string | undefined) => {
+    const amount = Number(amt ?? 1000);
+    const rows: string[] = [];
+    for (const [from, to] of MARKUP_CORRIDORS) {
+      const quotes = byPayout(from, to, amount);
+      if (quotes.length < 3) continue;
+      const markups = quotes.map((q) => markupPctOf(q, from, to)).sort((a, b) => a - b);
+      const mid = markups.length % 2
+        ? markups[(markups.length - 1) / 2]
+        : (markups[markups.length / 2 - 1] + markups[markups.length / 2]) / 2;
+      if (mid <= 0) continue;
+      const best = quotes[0];
+      const worst = quotes[quotes.length - 1];
+      rows.push(
+        `<tr><td><strong>${from} &rarr; ${to}</strong></td>` +
+          `<td>${quotes.length}</td>` +
+          `<td>${fmtMarkup(mid)}</td>` +
+          `<td>${fmtMarkup(markupPctOf(worst, from, to))}</td>` +
+          `<td>${providerLink(best.providerSlug)}</td>` +
+          `<td>${fmtMoney(from, best.fee)}</td></tr>`,
+      );
+    }
+    // Fewer than three usable routes is a data outage, not a story. Leaving the
+    // token unresolved fails check:assets, which is the correct loud failure.
+    if (rows.length < 3) return match;
+    return (
+      `<div class="overflow-x-auto"><table><thead><tr>` +
+      `<th>Corridor</th><th>Providers compared</th><th>Median markup</th>` +
+      `<th>Worst markup</th><th>Cheapest today</th><th>Its fee</th>` +
+      `</tr></thead><tbody>${rows.join("\n")}</tbody></table></div>` +
+      `<p class="blog-footnote">Measured on ${amount.toLocaleString("en-US")} of the send currency ` +
+      `from our own quote data, ${renderQuoteDate()}. Markup is the provider's rate against the ` +
+      `mid-market reference rate; the median is taken across every provider quoting that route, ` +
+      `so it moves with the field and not with one provider's promotion.</p>`
+    );
+  });
 
   out = out.replace(
     /\{\{(BEST_PROVIDER|BEST_RECEIVE|WORST_PROVIDER|WORST_RECEIVE|SPREAD|PROVIDER_TALLY):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,

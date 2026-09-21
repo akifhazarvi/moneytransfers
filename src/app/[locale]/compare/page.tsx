@@ -11,6 +11,8 @@ import { SITEMAP_COMPARISON_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { generateQuotes } from "@/lib/quotes-engine";
+import { MATERIALITY_BAND_PCT } from "@/lib/rank-quotes";
+import { SITE_STATS, atLeast } from "@/lib/site-stats";
 
 // Revalidate every 6 hours — matches scraper cadence (parity with /compare/[slug]).
 export const revalidate = 21600;
@@ -235,6 +237,79 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
               <p>
                 That&apos;s why a &quot;zero-fee&quot; transfer can cost more than one with a visible fee. On a $1,000 transfer, $0 fee with a 3% markup costs you <strong className="text-[var(--color-on-surface)]">$30</strong> — worse than a $10 fee on a near-mid-market rate, which costs just <strong className="text-[var(--color-on-surface)]">$15</strong>. And because the markup scales with size, 3% on a $10,000 transfer is $300. The only honest comparison is the <strong className="text-[var(--color-on-surface)]">amount the recipient actually receives</strong>, which already nets out both — the same all-in logic the World Bank uses, where the global average transfer still costs around 6.4% of the amount sent.
               </p>
+              {/* The ranking rule stated on the page, not linked away to
+                  /methodology — added 2026-09-20. The 2026-09-20 AI-citation
+                  trial found the engines citing wise.com/compare and CFPB on
+                  every "how do I compare" question while this page held 1.9%:
+                  the prose above explains the *concept* of markup well, but
+                  nothing here stated the rule this table actually applies, so
+                  there was no passage to lift. Every figure is rendered from
+                  its source of truth (MATERIALITY_BAND_PCT, SITE_STATS) so it
+                  cannot drift from the code that ranks. */}
+              <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] p-5 sm:p-6 not-prose">
+                <h3 className="text-md font-semibold text-[var(--color-on-surface)] mb-3">
+                  How this table ranks providers
+                </h3>
+                <dl className="space-y-2.5 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <div>
+                    <dt className="inline font-medium text-[var(--color-on-surface)]">Sort key. </dt>
+                    <dd className="inline">
+                      Amount received in the destination currency, computed as
+                      (send amount &minus; fee) &times; the provider&apos;s
+                      quoted rate. Highest payout ranks first.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="inline font-medium text-[var(--color-on-surface)]">Tie-break. </dt>
+                    <dd className="inline">
+                      Payouts within {MATERIALITY_BAND_PCT}% of each other move
+                      by more than that between refreshes, so we treat them as
+                      tied and list the higher-rated provider first. Anything
+                      outside that band keeps strict payout order.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="inline font-medium text-[var(--color-on-surface)]">Refresh. </dt>
+                    <dd className="inline">
+                      Every {SITE_STATS.refreshHours} hours, from provider APIs
+                      and calculators, merged by source priority (direct API,
+                      then aggregator, then fallback). Providers without fresh
+                      data for your pair are flagged rather than silently
+                      dropped.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="inline font-medium text-[var(--color-on-surface)]">Not a factor. </dt>
+                    <dd className="inline">
+                      Commercial relationships. A partner cannot buy a higher
+                      position, and the partner tie-break that once existed was
+                      removed after it changed no ordering in 72 measured runs.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="inline font-medium text-[var(--color-on-surface)]">Standard. </dt>
+                    <dd className="inline">
+                      The amount received is the same figure US law already
+                      requires a provider to disclose before you pay (
+                      <a
+                        href="https://www.consumerfinance.gov/rules-policy/regulations/1005/31/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--color-primary)] hover:underline"
+                      >
+                        CFPB Regulation E &sect;&nbsp;1005.31
+                      </a>
+                      ) &mdash; we compute it across{" "}
+                      {atLeast(SITE_STATS.liveProviders)} providers at once, which
+                      no disclosure rule requires anyone to do. Full detail in our{" "}
+                      <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">
+                        methodology
+                      </Link>
+                      .
+                    </dd>
+                  </div>
+                </dl>
+              </div>
               <p>
                 Markups vary sharply by provider type. Specialist apps like Wise pass on the mid-market rate and charge a small transparent fee (often ~0.4–0.6%); remittance apps such as Remitly typically add ~1–3% to the rate but win on instant cash pickup, mobile wallets and first-transfer promotions to corridors like India, the Philippines and Mexico. Banks run ~2–4.5%, and PayPal/Xoom sit higher still. Our tool above runs your exact amount and currency pair through current scraped rates so you don&apos;t have to do the arithmetic.
               </p>
