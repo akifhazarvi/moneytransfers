@@ -252,10 +252,10 @@ export default async function CookiePolicyPage({ params }: Props) {
                 If you have any questions about our use of cookies, please contact us
                 at{" "}
                 <a
-                  href="mailto:akif@sendmoneycompare.com"
+                  href="mailto:info@sendmoneycompare.com"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  akif@sendmoneycompare.com
+                  info@sendmoneycompare.com
                 </a>
                 {" "}or see our{" "}
                 <Link

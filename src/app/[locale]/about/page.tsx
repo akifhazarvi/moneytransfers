@@ -28,21 +28,10 @@ const teamSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": `${SITE_URL}/about/akif-hazarvi#person`,
-    name: "Akif Hazarvi",
-    url: `${SITE_URL}/about/akif-hazarvi`,
-    jobTitle: "Founder",
-    worksFor: { "@id": `${SITE_URL}/#organization` },
-    knowsAbout: ["International money transfers", "Fintech", "Cross-border payments", "FCA compliance", "FinCEN regulations"],
-    sameAs: ["https://www.linkedin.com/in/akifhazarvi"],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
     "@id": `${SITE_URL}/about/ahsan-mukhtar#person`,
     name: "Ahsan Mukhtar",
     url: `${SITE_URL}/about/ahsan-mukhtar`,
-    jobTitle: "Co-founder & Editor-in-Chief",
+    jobTitle: "Founder & CEO",
     worksFor: { "@id": `${SITE_URL}/#organization` },
     sameAs: ["https://www.linkedin.com/in/ahsan-mukhtar/"],
   },
@@ -52,7 +41,7 @@ const teamSchema = [
     "@id": `${SITE_URL}/about/awais-imran#person`,
     name: "Awais Imran",
     url: `${SITE_URL}/about/awais-imran`,
-    jobTitle: "Senior Writer & Reviews Editor",
+    jobTitle: "Editor-in-Chief",
     worksFor: { "@id": `${SITE_URL}/#organization` },
     sameAs: ["https://www.linkedin.com/in/awais-imran-smc"],
   },
@@ -190,25 +179,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                 <Link
-                  href="/about/akif-hazarvi"
-                  className="group bg-[var(--color-surface-dim)] rounded-xl p-5 hover:bg-[var(--color-primary-surface)] transition-colors block"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AH</div>
-                    <div>
-                      <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Akif Hazarvi</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">Founder</p>
-                    </div>
-                  </div>
-                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Product manager with 8+ years in fintech and international payments.
-                    Previously worked on cross-border payment products handling millions in
-                    monthly volume. Builds and runs the quote-collection pipeline behind
-                    every comparison, and handles provider and affiliate relationships.
-                    Holds no editorial role.
-                  </p>
-                </Link>
-                <Link
                   href="/about/ahsan-mukhtar"
                   className="group bg-[var(--color-surface-dim)] rounded-xl p-5 hover:bg-[var(--color-primary-surface)] transition-colors block"
                 >
@@ -216,12 +186,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AM</div>
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Ahsan Mukhtar</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">Co-founder &amp; Editor-in-Chief</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Founder &amp; CEO</p>
                     </div>
                   </div>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     Sets editorial standards and the ranking methodology at SendMoneyCompare,
-                    and fact-checks every provider review against the platform's own
+                    and fact-checks every provider review against the platform&apos;s own
                     scraped quote history before it is published.
                   </p>
                 </Link>
@@ -233,7 +203,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AI</div>
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Awais Imran</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">Senior Writer &amp; Reviews Editor</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Editor-in-Chief</p>
                     </div>
                   </div>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
@@ -272,11 +242,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     </div>
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Contact</dt>
-                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">akif@sendmoneycompare.com</dd>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">info@sendmoneycompare.com</dd>
                     </div>
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Corrections</dt>
-                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">akif@sendmoneycompare.com</dd>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">info@sendmoneycompare.com</dd>
                     </div>
                   </dl>
                 </div>

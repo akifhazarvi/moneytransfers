@@ -64,7 +64,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               "@type": "Person",
               name: "Ahsan Mukhtar",
               url: "https://sendmoneycompare.com/about/ahsan-mukhtar",
-              jobTitle: "Co-founder & Editor-in-Chief",
+              jobTitle: "Founder & CEO",
             },
             publisher: {
               "@type": "Organization",

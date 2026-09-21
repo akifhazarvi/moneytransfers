@@ -113,6 +113,15 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // The founder's author page was retired when bylines moved to the
+      // editorial team. /about/akif-hazarvi was a sitemapped, indexed URL
+      // generated from authors[], so removing the entry alone would have
+      // turned it into a hard 404 with live inbound links.
+      {
+        source: "/about/akif-hazarvi",
+        destination: "/about/ahsan-mukhtar",
+        permanent: true,
+      },
       {
         source: "/comparison",
         destination: "/compare",

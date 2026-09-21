@@ -469,7 +469,7 @@ function buildAiPlugin(): string {
       auth: { type: "none" },
       api: { type: "openapi", url: `${SITE}/openapi.json` },
       logo_url: `${SITE}/logos/sendmoneycompare-logo.png`,
-      contact_email: "akifhazarvi@yahoo.com",
+      contact_email: "info@sendmoneycompare.com",
       legal_info_url: `${SITE}/terms`,
     },
     null,

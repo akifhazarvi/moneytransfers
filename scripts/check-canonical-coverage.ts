@@ -19,7 +19,7 @@
 
 const SITE_URL = process.env.SITE_URL || "https://sendmoneycompare.com";
 const SAMPLE_SIZE = 30;
-const UA = "SMC-Canonical-Checker/1.0 (+akifhazarvi@yahoo.com)";
+const UA = "SMC-Canonical-Checker/1.0 (+info@sendmoneycompare.com)";
 
 interface Finding {
   url: string;

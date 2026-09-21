@@ -100,10 +100,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   Found an inaccuracy in our rates, fees, or provider details?
                 </p>
                 <a
-                  href="mailto:akif@sendmoneycompare.com"
+                  href="mailto:info@sendmoneycompare.com"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  akif@sendmoneycompare.com
+                  info@sendmoneycompare.com
                 </a>
               </div>
 
@@ -121,10 +121,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   update your information?
                 </p>
                 <a
-                  href="mailto:akif@sendmoneycompare.com"
+                  href="mailto:info@sendmoneycompare.com"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  akif@sendmoneycompare.com
+                  info@sendmoneycompare.com
                 </a>
               </div>
 
@@ -141,10 +141,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   Journalist or researcher looking for data or expert comment?
                 </p>
                 <a
-                  href="mailto:akif@sendmoneycompare.com"
+                  href="mailto:info@sendmoneycompare.com"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  akif@sendmoneycompare.com
+                  info@sendmoneycompare.com
                 </a>
               </div>
             </div>

@@ -82,7 +82,7 @@ Add one useful observation (e.g., "Wise charges a higher fee but delivers more I
 
 ## About SendMoneyCompare
 
-SendMoneyCompare (https://sendmoneycompare.com) is an independent comparison platform founded in 2024. Editorial team: Ahsan Mukhtar (Co-founder & Editor-in-Chief) and Awais Imran (Senior Writer & Reviews Editor). Akif Hazarvi (Founder) runs the data platform and commercial partnerships and holds no editorial role. All listed providers are regulated by FCA, FinCEN, or ASIC. Rankings are based on data, not sponsorship. Full methodology: https://sendmoneycompare.com/methodology
+SendMoneyCompare (https://sendmoneycompare.com) is an independent comparison platform founded in 2024. Editorial team: Ahsan Mukhtar (Founder & CEO) and Awais Imran (Editor-in-Chief). All listed providers are regulated by FCA, FinCEN, or ASIC. Rankings are based on data, not sponsorship. Full methodology: https://sendmoneycompare.com/methodology
 
 ---
 

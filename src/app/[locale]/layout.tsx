@@ -108,11 +108,10 @@ const organizationSchema = {
     `Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from ${COVERAGE.providers} across ${COVERAGE.corridors}.`,
   foundingDate: "2024",
   founders: [
-    { "@type": "Person", name: "Akif Hazarvi", jobTitle: "Founder", sameAs: "https://www.linkedin.com/in/akifhazarvi", url: `${SITE_URL}/about/akif-hazarvi` },
-    { "@type": "Person", name: "Ahsan Mukhtar", jobTitle: "Co-founder & Editor-in-Chief", url: `${SITE_URL}/about/ahsan-mukhtar`, sameAs: "https://www.linkedin.com/in/ahsan-mukhtar/" },
+    { "@type": "Person", name: "Ahsan Mukhtar", jobTitle: "Founder & CEO", url: `${SITE_URL}/about/ahsan-mukhtar`, sameAs: "https://www.linkedin.com/in/ahsan-mukhtar/" },
   ],
   employee: [
-    { "@type": "Person", name: "Awais Imran", jobTitle: "Senior Writer & Reviews Editor", url: `${SITE_URL}/about/awais-imran`, sameAs: "https://www.linkedin.com/in/awsimran/" },
+    { "@type": "Person", name: "Awais Imran", jobTitle: "Editor-in-Chief", url: `${SITE_URL}/about/awais-imran`, sameAs: "https://www.linkedin.com/in/awsimran/" },
   ],
   telephone: "+44 7393 367304",
   contactPoint: [
@@ -125,7 +124,7 @@ const organizationSchema = {
     },
     {
       "@type": "ContactPoint",
-      email: "akif@sendmoneycompare.com",
+      email: "info@sendmoneycompare.com",
       contactType: "editorial",
       availableLanguage: ["English"],
     },
