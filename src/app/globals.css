@@ -746,7 +746,10 @@ h1 { letter-spacing: -0.028em; }
   min-height: 44px;
   padding: 0 0.6rem;
   font-size: 0.6875rem;
-  margin-left: 0.4rem;
+  /* The pill is appended INSIDE the provider-name cell, next to whatever that
+     cell already had (usually a link to the review). 0.4rem read as crowding
+     against the link's underline, so the two looked like one control. */
+  margin-left: 0.75rem;
   vertical-align: middle;
 }
 @media (max-width: 640px) {
@@ -821,13 +824,18 @@ h1 { letter-spacing: -0.028em; }
   color: #fff;
   text-decoration: none;
 }
-/* The top row is the recommendation, so it is filled rather than outlined. */
-tbody tr:first-child .smc-send {
+/* The top row is the recommendation, so it is filled rather than outlined.
+   Scoped to the GENERATED tables ({{QUOTE_TABLE}} and friends), where row 1 is
+   the cheapest quote and the fill is earned. Authored tables get .smc-send-sm
+   and are excluded: their first row is a category ("Best Overall"), not a rank,
+   and it usually also carries .blog-row-highlight — so filling the pill green
+   put a green button on a green row and the action disappeared. */
+tbody tr:first-child .smc-send:not(.smc-send-sm) {
   background: var(--color-success-dark);
   color: #fff;
 }
-tbody tr:first-child .smc-send:hover,
-tbody tr:first-child .smc-send:focus-visible { opacity: 0.9; }
+tbody tr:first-child .smc-send:not(.smc-send-sm):hover,
+tbody tr:first-child .smc-send:not(.smc-send-sm):focus-visible { opacity: 0.9; }
 
 .blog-answer-box {
   font-family: var(--font-inter), system-ui, sans-serif;

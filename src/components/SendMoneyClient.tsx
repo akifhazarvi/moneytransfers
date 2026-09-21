@@ -11,6 +11,7 @@ import { trackCompareSearch, trackQuotesViewed, trackFilterApplied, trackSortCha
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import CryptoRailSectionClient from "@/components/CryptoRailSectionClient";
 import type { CryptoRailSectionData } from "@/lib/crypto-rail-section";
@@ -576,6 +577,18 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
         </span>
       </div>
 
+      {/* Ranked surfaces carry the disclosure; this one did not. /compare,
+          /compare/[slug], /send-money/[corridor], /guides/[slug], /banks and
+          /travel all render <AffiliateDisclosure /> beside their table, and
+          this page — the one where most /go clicks start — was the only
+          ranked list relying on the partner spotlight's own footnote for it.
+          That made the disclosure conditional on a block we now suppress when
+          the partner ranks first, i.e. absent exactly where a paid partner
+          sits at the top of the order. It belongs here regardless. */}
+      <div className="mb-4">
+        <AffiliateDisclosure />
+      </div>
+
       {/* Results list */}
       <div className="mb-12">
         {quotesLoading ? (
@@ -618,7 +631,22 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
                   tiedAhead={tiedMarks.has(quote.providerSlug)}
                   badge={insight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug)}
                 />
-                {index === 0 && partnerQuote && (
+                {/* Partner spotlight, slotted under the top card — but never
+                    when the partner IS the top card. Ranked #1 already shows
+                    the logo, the payout, the rate, the fee and a /go button,
+                    and the spotlight repeats all five verbatim, so the reader
+                    meets one provider twice before meeting a second one on a
+                    surface headed "N providers". Suppressing it costs no
+                    visibility: the partner is right there at the top, with the
+                    stronger CTA. Keyed off the rendered top card rather than
+                    the default "Best value" order, so an explicit sort by
+                    rate, fee or rating that floats the partner to #1
+                    suppresses it too — the duplication is visual and does not
+                    care how the list got ordered. Paid placement stays
+                    disclosed by <AffiliateDisclosure /> above the list, which
+                    is why dropping the block here does not drop the
+                    disclosure with it. */}
+                {index === 0 && partnerQuote && quote.providerSlug !== "taptap-send" && (
                   <PartnerFeatureBlock
                     source="taptap_spotlight:send-money"
                     variant="card"

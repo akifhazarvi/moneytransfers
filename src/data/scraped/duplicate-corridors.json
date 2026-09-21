@@ -1,33 +1,27 @@
 {
- "generated": "2026-09-21T01:56:06.360Z",
+ "generated": "2026-09-21T02:52:13.661Z",
  "rationale": "Corridor pages whose currency pair is already represented by a stronger page. Quotes are keyed on currency pair, not country pair, so these restate a twin verbatim. Content brief Sep 2026, §4 / §10-A generation threshold.",
- "renderedBefore": 809,
- "distinctCurrencyPairs": 375,
- "retiring": 413,
- "renderedAfter": 396,
+ "renderedBefore": 797,
+ "distinctCurrencyPairs": 369,
+ "retiring": 407,
+ "renderedAfter": 390,
  "keptPerPair": {
-  "AED-ARS": "aed-to-ars",
   "AED-BDT": "uae-to-bangladesh",
   "AED-BRL": "aed-to-brl",
   "AED-CLP": "aed-to-clp",
   "AED-COP": "aed-to-cop",
   "AED-EUR": "aed-to-eur",
-  "AED-GHS": "aed-to-ghs",
   "AED-IDR": "aed-to-idr",
   "AED-INR": "uae-to-india",
   "AED-JPY": "aed-to-jpy",
   "AED-KES": "aed-to-kes",
   "AED-KRW": "aed-to-krw",
   "AED-LKR": "aed-to-lkr",
-  "AED-MXN": "aed-to-mxn",
-  "AED-MYR": "aed-to-myr",
   "AED-NGN": "aed-to-ngn",
   "AED-PEN": "aed-to-pen",
   "AED-PHP": "uae-to-philippines",
   "AED-PKR": "uae-to-pakistan",
-  "AED-THB": "aed-to-thb",
   "AED-TRY": "aed-to-try",
-  "AED-UAH": "aed-to-uah",
   "AED-VND": "aed-to-vnd",
   "AED-ZAR": "aed-to-zar",
   "AUD-ARS": "aud-to-ars",
@@ -2190,12 +2184,6 @@
    "redirectTo": "chf-to-zar"
   },
   {
-   "slug": "uae-to-argentina",
-   "pair": "AED-ARS",
-   "keptInstead": "aed-to-ars",
-   "redirectTo": "aed-to-ars"
-  },
-  {
    "slug": "uae-to-brazil",
    "pair": "AED-BRL",
    "keptInstead": "aed-to-brl",
@@ -2238,12 +2226,6 @@
    "redirectTo": "aed-to-eur"
   },
   {
-   "slug": "uae-to-ghana",
-   "pair": "AED-GHS",
-   "keptInstead": "aed-to-ghs",
-   "redirectTo": "aed-to-ghs"
-  },
-  {
    "slug": "uae-to-indonesia",
    "pair": "AED-IDR",
    "keptInstead": "aed-to-idr",
@@ -2260,18 +2242,6 @@
    "pair": "AED-KES",
    "keptInstead": "aed-to-kes",
    "redirectTo": "aed-to-kes"
-  },
-  {
-   "slug": "uae-to-malaysia",
-   "pair": "AED-MYR",
-   "keptInstead": "aed-to-myr",
-   "redirectTo": "aed-to-myr"
-  },
-  {
-   "slug": "uae-to-mexico",
-   "pair": "AED-MXN",
-   "keptInstead": "aed-to-mxn",
-   "redirectTo": "aed-to-mxn"
   },
   {
    "slug": "uae-to-nigeria",
@@ -2310,22 +2280,10 @@
    "redirectTo": "aed-to-lkr"
   },
   {
-   "slug": "uae-to-thailand",
-   "pair": "AED-THB",
-   "keptInstead": "aed-to-thb",
-   "redirectTo": "aed-to-thb"
-  },
-  {
    "slug": "uae-to-turkey",
    "pair": "AED-TRY",
    "keptInstead": "aed-to-try",
    "redirectTo": "aed-to-try"
-  },
-  {
-   "slug": "uae-to-ukraine",
-   "pair": "AED-UAH",
-   "keptInstead": "aed-to-uah",
-   "redirectTo": "aed-to-uah"
   },
   {
    "slug": "uae-to-vietnam",
