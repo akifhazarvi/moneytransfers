@@ -11,6 +11,7 @@ export const revalidate = 21600;
 import { getProviderReview } from "@/data/provider-reviews";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import StatBox from "@/components/StatBox";
 import ProsConsList from "@/components/ProsConsList";
 import ProviderLink from "@/components/ProviderLink";
@@ -482,6 +483,15 @@ function DefaultReview({
           </div>
         </div>
       </Container>
+
+      {/* Paid partner spotlight. Missed by the Sep 18 rollout, which covered
+          guides and corridors only. Suppressed on TapTap's own review, where a
+          paid card beside our editorial verdict on the same provider would
+          read as the review being bought. No corridor is in scope here, so the
+          no-quote variant renders: site-wide measured facts, no numbers. */}
+      {slug !== "taptap-send" && (
+        <PartnerFeatureBlock source="taptap_spotlight:company-review" variant="section" />
+      )}
 
       {crossLinks}
 

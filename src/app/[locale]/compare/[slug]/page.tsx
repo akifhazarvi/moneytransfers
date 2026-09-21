@@ -26,6 +26,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { rateHistoryHref } from "@/lib/route-map-rates";
 import { COVERAGE } from "@/lib/site-stats";
 import { getCompareEditorial } from "@/data/compare-editorial";
@@ -842,6 +843,16 @@ function DefaultComparison({
         </aside>
       </div>
 
+
+      {/* Paid partner spotlight. Missed by the Sep 18 rollout, which covered
+          guides and corridors only. Suppressed where TapTap is one of the two
+          providers under comparison: there the page is already about them, and
+          a paid card beside an editorial head-to-head on the same name would
+          read as the comparison being bought. No corridor is in scope, so the
+          no-quote variant renders. */}
+      {a.slug !== "taptap-send" && b.slug !== "taptap-send" && (
+        <PartnerFeatureBlock source="taptap_spotlight:compare-slug" variant="card" />
+      )}
     </Container>
     </>
   );

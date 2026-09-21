@@ -23,6 +23,7 @@ import Card from "@/components/Card";
 import RatingBadge from "@/components/RatingBadge";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { providers, listableProviders } from "@/data/providers";
 import { trustpilotIndex } from "@/lib/unified-quotes";
@@ -421,6 +422,12 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* Paid partner spotlight. This page ranks providers and was missed by the
+          Sep 18 rollout, which covered guides and corridors only. No single
+          corridor is in scope here, so the block renders its no-quote variant:
+          site-wide measured facts, no per-route numbers it cannot stand behind. */}
+      <PartnerFeatureBlock source="taptap_spotlight:compare-money-transfer" variant="section" />
 
       {/* ── Best For… editorial picks ── */}
       <section className="py-10 bg-[var(--color-surface-dim)] border-y border-[var(--color-outline)]">

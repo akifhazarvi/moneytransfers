@@ -1,6 +1,7 @@
 import { seoDescription } from "@/lib/seo-title";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -205,6 +206,10 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
           </p>
         </div>
       </Container>
+      {/* Paid partner spotlight. Missed by the Sep 18 rollout, which covered
+          guides and corridors only. No single corridor is in scope, so this
+          renders the no-quote variant: site-wide measured facts, no numbers. */}
+      <PartnerFeatureBlock source="taptap_spotlight:currency-converter" variant="section" />
     </>
   );
 }

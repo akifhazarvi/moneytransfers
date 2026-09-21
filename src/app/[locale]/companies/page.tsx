@@ -4,6 +4,7 @@ import Image from "next/image";
 import { listableProviders } from "@/data/providers";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import RatingBadge from "@/components/RatingBadge";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -156,6 +157,12 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
           </div>
         </div>
       </div>
+
+      {/* Paid partner spotlight. This page ranks providers by a blended
+          editorial score and was missed by the Sep 18 rollout, which covered
+          guides and corridors only. No corridor is in scope, so the no-quote
+          variant renders: site-wide measured facts, no per-route numbers. */}
+      <PartnerFeatureBlock source="taptap_spotlight:companies" variant="card" />
     </Container>
   );
 }

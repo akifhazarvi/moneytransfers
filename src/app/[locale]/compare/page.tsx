@@ -9,6 +9,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { SITEMAP_COMPARISON_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { MATERIALITY_BAND_PCT } from "@/lib/rank-quotes";
@@ -349,6 +350,11 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
           </div>
         </Container>
       </section>
+
+      {/* Paid partner spotlight. Missed by the Sep 18 rollout, which covered
+          guides and corridors only. No single corridor is in scope, so this
+          renders the no-quote variant: site-wide measured facts, no numbers. */}
+      <PartnerFeatureBlock source="taptap_spotlight:compare" variant="section" />
 
       {/* ─── FAQ — question-format (Bing high-CTR pattern), deduped vs [slug] article FAQs ─── */}
       <section className="py-10 sm:py-14">
