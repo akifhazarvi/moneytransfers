@@ -11923,10 +11923,10 @@
     "date": "2026-09-21",
     "providers": {
       "lemfi": {
-        "rate": 0.5304,
+        "rate": 0.53,
         "fee": 0,
-        "markup": 0.61,
-        "receiveAmount": 53.04
+        "markup": 0.6,
+        "receiveAmount": 53
       },
       "taptap-send": {
         "rate": 0.53,
@@ -11935,28 +11935,28 @@
         "receiveAmount": 53
       },
       "worldremit": {
-        "rate": 0.5203,
+        "rate": 0.5198,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 49.95
+        "receiveAmount": 49.9
       },
       "bnc": {
-        "rate": 0.5241,
+        "rate": 0.5236,
         "fee": 5.95,
         "markup": null,
-        "receiveAmount": 49.29
+        "receiveAmount": 49.25
       },
       "td-bank": {
-        "rate": 0.5187,
+        "rate": 0.5182,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.87
+        "receiveAmount": 51.82
       },
       "instarem": {
-        "rate": 0.5308,
+        "rate": 0.5303,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 53.08
+        "receiveAmount": 53.03
       },
       "paypal": {
         "rate": 0.511,
@@ -11965,28 +11965,28 @@
         "receiveAmount": 49.57
       },
       "bmo": {
-        "rate": 0.5098,
+        "rate": 0.5093,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 50.98
-      },
-      "western-union": {
-        "rate": 0.5196,
-        "fee": 1.99,
         "markup": null,
         "receiveAmount": 50.93
       },
+      "western-union": {
+        "rate": 0.5189,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 50.86
+      },
       "remitly": {
-        "rate": 0.5309,
+        "rate": 0.5305,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 53.09
+        "receiveAmount": 53.05
       },
       "rbc": {
-        "rate": 0.5173,
+        "rate": 0.5168,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.73
+        "receiveAmount": 51.68
       }
     }
   }

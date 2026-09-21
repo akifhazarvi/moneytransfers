@@ -12734,44 +12734,44 @@
       "lemfi": {
         "rate": 0.5295,
         "fee": 0,
-        "markup": 0.61,
+        "markup": 0.63,
         "receiveAmount": 52.95
       },
       "taptap-send": {
-        "rate": 0.53,
+        "rate": 0.531,
         "fee": 0,
+        "markup": null,
+        "receiveAmount": 53.1
+      },
+      "remitly": {
+        "rate": 0.531,
+        "fee": 0.89,
+        "markup": null,
+        "receiveAmount": 52.62
+      },
+      "instarem": {
+        "rate": 0.5327,
+        "fee": 0.5,
         "markup": null,
         "receiveAmount": 53
       },
-      "remitly": {
-        "rate": 0.5313,
-        "fee": 0.89,
-        "markup": null,
-        "receiveAmount": 52.65
-      },
-      "instarem": {
-        "rate": 0.5328,
-        "fee": 0.5,
-        "markup": null,
-        "receiveAmount": 53.01
-      },
       "nab": {
-        "rate": 0.5194,
+        "rate": 0.5192,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.94
+        "receiveAmount": 51.92
       },
       "worldremit": {
-        "rate": 0.5327,
+        "rate": 0.5328,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 52.21
+        "receiveAmount": 52.22
       },
       "paypal": {
-        "rate": 0.5096,
+        "rate": 0.5093,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 48.41
+        "receiveAmount": 48.38
       },
       "westpac": {
         "rate": 0.5126,
@@ -12780,22 +12780,22 @@
         "receiveAmount": 51.26
       },
       "western-union": {
-        "rate": 0.5223,
+        "rate": 0.5229,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 51.71
+        "receiveAmount": 51.77
       },
       "anz": {
+        "rate": 0.5145,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 51.45
+      },
+      "commonwealth-bank": {
         "rate": 0.5144,
         "fee": 0,
         "markup": null,
         "receiveAmount": 51.44
-      },
-      "commonwealth-bank": {
-        "rate": 0.5154,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 51.54
       },
       "hsbc": {
         "rate": 0.5202,
