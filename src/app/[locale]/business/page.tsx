@@ -153,7 +153,7 @@ export default async function BusinessHubPage({
     description: "Compare the cheapest ways to make international business payments. Wise Business, OFX, and Revolut Business compared for SME transfers, bulk payments, vendor payouts, and B2B cross-border payments.",
     datePublished: "2026-02-01",
     dateModified: "2026-03-18",
-    author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
+    author: { "@type": "Person", name: "Ahsan Mukhtar", url: "https://sendmoneycompare.com/about/ahsan-mukhtar" },
     publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization", logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 } },
     mainEntityOfPage: "https://sendmoneycompare.com/business",
   };

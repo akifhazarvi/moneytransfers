@@ -13,7 +13,7 @@ const URL = `${SITE_URL}/${PATH}`;
 const PUBLISHED = "2026-06-30";
 const MODIFIED = "2026-06-30";
 
-const author = getAuthor("akif-hazarvi");
+const author = getAuthor("awais-imran");
 
 // ─── Data tables (compiled from live scraped data, June 2026) ────────────────
 
@@ -187,8 +187,8 @@ const articleSchema = {
   dateModified: MODIFIED,
   author: {
     "@type": "Person",
-    name: "Akif Hazarvi",
-    url: `${SITE_URL}/about/akif-hazarvi`,
+    name: "Awais Imran",
+    url: `${SITE_URL}/about/awais-imran`,
     jobTitle: "Editor-in-Chief",
     knowsAbout: [
       "International money transfers",
@@ -287,7 +287,7 @@ export async function generateMetadata({
       type: "article",
       publishedTime: PUBLISHED,
       modifiedTime: MODIFIED,
-      authors: ["Akif Hazarvi"],
+      authors: ["Awais Imran"],
       tags: ["money transfer", "remittance", "international payments", "fintech"],
       images: DEFAULT_OG_IMAGES,
     },
@@ -455,8 +455,8 @@ export default async function BestAppsFromUSPage({
             )}
             <span>
               By{" "}
-              <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline font-medium">
-                {author?.name ?? "Akif Hazarvi"}
+              <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline font-medium">
+                {author?.name ?? "Awais Imran"}
               </Link>
               , {author?.role ?? "Editor-in-Chief"}
             </span>
@@ -936,8 +936,8 @@ export default async function BestAppsFromUSPage({
               <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)] mb-1">
                 About the author
               </p>
-              <Link href="/about/akif-hazarvi" className="font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] hover:underline">
-                {author?.name ?? "Akif Hazarvi"}
+              <Link href="/about/awais-imran" className="font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] hover:underline">
+                {author?.name ?? "Awais Imran"}
               </Link>
               <p className="text-xs text-[var(--color-on-surface-variant)] mb-1">{author?.role}</p>
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">

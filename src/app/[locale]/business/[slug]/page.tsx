@@ -116,8 +116,8 @@ export default async function BusinessSubPage({ params }: Props) {
     description: page.metaDescription,
     author: {
       "@type": "Person",
-      name: "Akif Hazarvi",
-      url: "https://sendmoneycompare.com/about/akif-hazarvi",
+      name: "Ahsan Mukhtar",
+      url: "https://sendmoneycompare.com/about/ahsan-mukhtar",
     },
     publisher: {
       "@type": "Organization",
@@ -157,10 +157,10 @@ export default async function BusinessSubPage({ params }: Props) {
               <span>
                 By{" "}
                 <Link
-                  href="/about/akif-hazarvi"
+                  href="/about/ahsan-mukhtar"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  Akif Hazarvi
+                  Ahsan Mukhtar
                 </Link>
               </span>
               {/* BusinessPage carries no revision date, so this said "Updated

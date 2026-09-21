@@ -40,7 +40,7 @@ export const safetyGuides: BlogPost[] = [
     readTime: "9 min",
     publishedAt: "2026-09-07",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["money transfer safety", "transfer mistakes", "consumer rights", "APP fraud", "refunds"],
     sections: [
       {

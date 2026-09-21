@@ -16,7 +16,7 @@ const URL = `${SITE_URL}/${PATH}`;
 // page below cites `idx` figures directly so the published numbers never drift
 // from the underlying data. See src/lib/bank-vs-app-index.ts for methodology.
 const idx = computeBankVsAppIndex(HEADLINE_AMOUNT);
-const author = getAuthor("akif-hazarvi");
+const author = getAuthor("ahsan-mukhtar");
 
 // Human-readable "21 June 2026" from the YYYY-MM-DD data date.
 const asOfLong = new Date(idx.dataAsOf + "T00:00:00Z").toLocaleDateString("en-GB", {
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: "article",
       publishedTime: "2026-06-21",
       modifiedTime: idx.dataAsOf,
-      authors: ["Akif Hazarvi"],
+      authors: ["Ahsan Mukhtar"],
       images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title, description },
@@ -60,7 +60,7 @@ const articleSchema = {
   description: `Live measurement of the cost gap between traditional banks and specialist money-transfer apps across ${idx.corridorCount} corridors.`,
   datePublished: "2026-06-21",
   dateModified: idx.dataAsOf,
-  author: { "@type": "Person", name: "Akif Hazarvi", url: `${SITE_URL}/about/akif-hazarvi` },
+  author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about/ahsan-mukhtar` },
   publisher: { "@id": `${SITE_URL}/#organization` },
   mainEntityOfPage: URL,
   isBasedOn: `${SITE_URL}/api/data/bank-vs-app-cost`,
@@ -116,7 +116,7 @@ export default async function BankVsAppCostPage({ params }: { params: Promise<{ 
             Banks cost {idx.bankVsAppMultiple}× more than apps to send money abroad
           </h1>
           <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
-            By {author?.name ?? "Akif Hazarvi"} · Data as of {asOfLong} · Updated every 6 hours from live provider quotes
+            By {author?.name ?? "Ahsan Mukhtar"} · Data as of {asOfLong} · Updated every 6 hours from live provider quotes
           </p>
 
           {/* Citable answer box */}

@@ -359,13 +359,13 @@ export default function ForAIPage() {
             <h2 className="text-2xl font-bold mb-4">Editorial team</h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)]">Akif Hazarvi</Link> — Founder &amp; Editor-in-Chief. 8+ years in fintech and cross-border payments.
+                <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)]">Akif Hazarvi</Link> — Founder. Runs the data platform and commercial partnerships; holds no editorial role.
               </li>
               <li>
-                <Link href="/about/ahsan-mukhtar" className="text-[var(--color-primary)]">Ahsan Mukhtar</Link> — Co-founder, Marketing &amp; Partnerships. Leads provider partnerships and growth.
+                <Link href="/about/ahsan-mukhtar" className="text-[var(--color-primary)]">Ahsan Mukhtar</Link> — Co-founder &amp; Editor-in-Chief. Sets editorial standards and fact-checks provider reviews.
               </li>
               <li>
-                <Link href="/about/awais-imran" className="text-[var(--color-primary)]">Awais Imran</Link> — Content Writer &amp; Reviews Editor. Provider reviews and corridor guides.
+                <Link href="/about/awais-imran" className="text-[var(--color-primary)]">Awais Imran</Link> — Senior Writer &amp; Reviews Editor. Provider reviews and corridor guides.
               </li>
             </ul>
           </section>

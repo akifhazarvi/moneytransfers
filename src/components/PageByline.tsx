@@ -17,7 +17,7 @@ import { authors } from "@/data/authors";
  * cannot drift apart across the four templates that render it.
  */
 export function PageByline({
-  authorSlug = "akif-hazarvi",
+  authorSlug = "awais-imran",
   reviewerSlug,
   updated,
   cadence = "Data updated every 6 hours",

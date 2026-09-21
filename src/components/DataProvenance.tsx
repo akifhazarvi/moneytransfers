@@ -50,7 +50,7 @@ export default function DataProvenance({
   computedFrom,
   csvHref,
   sources,
-  authorSlug = "akif-hazarvi",
+  authorSlug = "ahsan-mukhtar",
 }: Props) {
   const author = getAuthor(authorSlug);
 

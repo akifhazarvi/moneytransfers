@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     keywords: t("keywords"),
     other: {
       "citation_title": "SendMoneyCompare — International Money Transfer Comparison",
-      "citation_author": "Akif Hazarvi",
+      "citation_author": "Ahsan Mukhtar",
       "citation_date": new Date().toISOString().slice(0, 10),
       "citation_journal_title": "SendMoneyCompare",
       "ai-content-declaration": "human-written, data-verified",
@@ -108,11 +108,11 @@ const organizationSchema = {
     `Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from ${COVERAGE.providers} across ${COVERAGE.corridors}.`,
   foundingDate: "2024",
   founders: [
-    { "@type": "Person", name: "Akif Hazarvi", jobTitle: "Founder & Editor-in-Chief", url: `${SITE_URL}/about/akif-hazarvi` },
-    { "@type": "Person", name: "Ahsan Mukhtar", jobTitle: "Co-founder, Marketing & Partnerships", url: `${SITE_URL}/about/ahsan-mukhtar`, sameAs: "https://www.linkedin.com/in/ahsan-mukhtar/" },
+    { "@type": "Person", name: "Akif Hazarvi", jobTitle: "Founder", sameAs: "https://www.linkedin.com/in/akifhazarvi", url: `${SITE_URL}/about/akif-hazarvi` },
+    { "@type": "Person", name: "Ahsan Mukhtar", jobTitle: "Co-founder & Editor-in-Chief", url: `${SITE_URL}/about/ahsan-mukhtar`, sameAs: "https://www.linkedin.com/in/ahsan-mukhtar/" },
   ],
   employee: [
-    { "@type": "Person", name: "Awais Imran", jobTitle: "Content Writer & Reviews Editor", url: `${SITE_URL}/about/awais-imran` },
+    { "@type": "Person", name: "Awais Imran", jobTitle: "Senior Writer & Reviews Editor", url: `${SITE_URL}/about/awais-imran`, sameAs: "https://www.linkedin.com/in/awsimran/" },
   ],
   telephone: "+44 7393 367304",
   contactPoint: [

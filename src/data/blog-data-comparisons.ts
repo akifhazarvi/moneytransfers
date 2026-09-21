@@ -24,7 +24,7 @@ export const dataComparisonGuides: BlogPost[] = [
     readTime: "8 min",
     publishedAt: "2026-09-07",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["Wise", "Remitly", "Xoom", "XE", "provider comparison", "transfer costs"],
     sections: [
       {

@@ -121,7 +121,7 @@ export default async function NewsArticlePage({ params }: Props) {
             dateModified: item.updatedAt || item.publishedAt,
             mainEntityOfPage: { "@type": "WebPage", "@id": `https://sendmoneycompare.com/news/${item.slug}` },
             ...(item.image && { image: `https://sendmoneycompare.com${item.image}` }),
-            author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
+            author: { "@type": "Person", name: "Ahsan Mukhtar", url: "https://sendmoneycompare.com/about/ahsan-mukhtar" },
             reviewedBy: { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
             isPartOf: { "@type": "WebPage", "@id": "https://sendmoneycompare.com/news" },
             about: { "@type": "Thing", name: "International Money Transfer" },
@@ -179,8 +179,8 @@ export default async function NewsArticlePage({ params }: Props) {
             <div className="mb-8">
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <CategoryBadge category={item.category} />
-                <Link href="/about/akif-hazarvi" className="text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
-                  Akif Hazarvi
+                <Link href="/about/ahsan-mukhtar" className="text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                  Ahsan Mukhtar
                 </Link>
                 <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
                 <time className="text-2sm text-[var(--color-on-surface-variant)]" dateTime={item.publishedAt}>

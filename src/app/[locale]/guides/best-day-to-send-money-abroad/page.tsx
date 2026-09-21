@@ -18,7 +18,7 @@ const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/best-day-to-send-money-abroad";
 const URL = `${SITE_URL}/${PATH}`;
 
-const author = getAuthor("akif-hazarvi");
+const author = getAuthor("ahsan-mukhtar");
 
 // Every figure below is read from weekend-markup.json (built by
 // scripts/build-weekend-markup.ts) rather than typed into the copy, so the
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: "article",
       publishedTime: "2026-08-14",
       modifiedTime: wm.generatedAt,
-      authors: ["Akif Hazarvi"],
+      authors: ["Ahsan Mukhtar"],
       images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title, description },
@@ -68,7 +68,7 @@ const articleSchema = {
   headline: `Is It Cheaper to Send Money on a Weekday? We Checked ${obs} Quotes`,
   datePublished: "2026-08-14",
   dateModified: wm.generatedAt,
-  author: { "@type": "Person", name: "Akif Hazarvi", url: `${SITE_URL}/about` },
+  author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about` },
   publisher: {
     "@type": "Organization",
     name: "SendMoneyCompare",
@@ -169,7 +169,7 @@ export default async function BestDayToSendMoneyPage({ params }: { params: Promi
           </h1>
 
           <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
-            By {author?.name ?? "Akif Hazarvi"} · Data {fromLong} – {toLong} · Updated {longDate(wm.generatedAt)}
+            By {author?.name ?? "Ahsan Mukhtar"} · Data {fromLong} – {toLong} · Updated {longDate(wm.generatedAt)}
           </p>
 
           {/* Direct answer first — this is the passage assistants lift. */}

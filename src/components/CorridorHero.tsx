@@ -139,8 +139,8 @@ export default function CorridorHero({
                 <span className="text-white/25 hidden sm:inline">|</span>
                 <span className="hidden sm:inline">
                   Edited by{" "}
-                  <Link href="/about/akif-hazarvi" className="text-white/90 underline underline-offset-2 hover:text-white">
-                    Akif Hazarvi
+                  <Link href="/about/ahsan-mukhtar" className="text-white/90 underline underline-offset-2 hover:text-white">
+                    Ahsan Mukhtar
                   </Link>
                 </span>
               </div>

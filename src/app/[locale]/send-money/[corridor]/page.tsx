@@ -1700,7 +1700,7 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[var(--color-on-surface-muted)] mb-5">
-              <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">Akif Hazarvi</Link></span>
+              <span>By <Link href="/about/awais-imran" className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">Awais Imran</Link></span>
               <span className="text-[var(--color-outline)]">·</span>
               <span>Pricing collected from provider APIs and comparison sources</span>
             </div>

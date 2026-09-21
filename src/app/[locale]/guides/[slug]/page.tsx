@@ -480,7 +480,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Author row */}
             <div className="guide-article-byline">
-              <Link href={`/about/${getAuthorByName(post.author)?.slug || "akif-hazarvi"}`} className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+              <Link href={`/about/${getAuthorByName(post.author)?.slug || "awais-imran"}`} className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                 {getAuthorByName(post.author)?.photo ? (
                   <Image src={getAuthorByName(post.author)!.photo!} alt={post.author} width={32} height={32} className="w-8 h-8 rounded-full object-cover" />
                 ) : (

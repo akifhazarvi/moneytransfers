@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: seoDescription(t("metaDescription")),
     keywords: t("metaKeywords"),
-    authors: [{ name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" }],
+    authors: [{ name: "Ahsan Mukhtar", url: "https://sendmoneycompare.com/about/ahsan-mukhtar" }],
     alternates: getAlternates("research", locale),
     openGraph: {
       title: t("metaTitle"),

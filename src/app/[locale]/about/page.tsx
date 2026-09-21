@@ -31,7 +31,7 @@ const teamSchema = [
     "@id": `${SITE_URL}/about/akif-hazarvi#person`,
     name: "Akif Hazarvi",
     url: `${SITE_URL}/about/akif-hazarvi`,
-    jobTitle: "Founder & Editor-in-Chief",
+    jobTitle: "Founder",
     worksFor: { "@id": `${SITE_URL}/#organization` },
     knowsAbout: ["International money transfers", "Fintech", "Cross-border payments", "FCA compliance", "FinCEN regulations"],
     sameAs: ["https://www.linkedin.com/in/akifhazarvi"],
@@ -42,7 +42,7 @@ const teamSchema = [
     "@id": `${SITE_URL}/about/ahsan-mukhtar#person`,
     name: "Ahsan Mukhtar",
     url: `${SITE_URL}/about/ahsan-mukhtar`,
-    jobTitle: "Co-founder, Marketing & Partnerships",
+    jobTitle: "Co-founder & Editor-in-Chief",
     worksFor: { "@id": `${SITE_URL}/#organization` },
     sameAs: ["https://www.linkedin.com/in/ahsan-mukhtar/"],
   },
@@ -52,7 +52,7 @@ const teamSchema = [
     "@id": `${SITE_URL}/about/awais-imran#person`,
     name: "Awais Imran",
     url: `${SITE_URL}/about/awais-imran`,
-    jobTitle: "Content Writer & Reviews Editor",
+    jobTitle: "Senior Writer & Reviews Editor",
     worksFor: { "@id": `${SITE_URL}/#organization` },
     sameAs: ["https://www.linkedin.com/in/awais-imran-smc"],
   },
@@ -197,14 +197,15 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AH</div>
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Akif Hazarvi</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">Founder &amp; Editor</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Founder</p>
                     </div>
                   </div>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     Product manager with 8+ years in fintech and international payments.
                     Previously worked on cross-border payment products handling millions in
-                    monthly volume. Oversees data methodology, provider reviews, and
-                    editorial standards.
+                    monthly volume. Builds and runs the quote-collection pipeline behind
+                    every comparison, and handles provider and affiliate relationships.
+                    Holds no editorial role.
                   </p>
                 </Link>
                 <Link
@@ -215,14 +216,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AM</div>
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Ahsan Mukhtar</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">Co-founder, Marketing &amp; Partnerships</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Co-founder &amp; Editor-in-Chief</p>
                     </div>
                   </div>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Leads marketing, partnerships, and growth at SendMoneyCompare. Works
-                    directly with money transfer providers, banks, and affiliate networks
-                    to onboard new providers and maintain fair, transparent comparison
-                    coverage.
+                    Sets editorial standards and the ranking methodology at SendMoneyCompare,
+                    and fact-checks every provider review against the platform's own
+                    scraped quote history before it is published.
                   </p>
                 </Link>
                 <Link
@@ -233,7 +233,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AI</div>
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Awais Imran</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">Content Writer &amp; Reviews Editor</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Senior Writer &amp; Reviews Editor</p>
                     </div>
                   </div>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">

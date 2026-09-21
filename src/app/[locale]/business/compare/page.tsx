@@ -22,7 +22,7 @@ const URL = `${SITE_URL}/${PATH}`;
 // 6h. Cited directly so published numbers never drift from the data. See
 // src/lib/business-fx-index.ts for methodology.
 const idx = computeBusinessFxIndex(BUSINESS_AMOUNT);
-const author = getAuthor("akif-hazarvi");
+const author = getAuthor("ahsan-mukhtar");
 
 // Revalidate hourly so figures stay fresh while the page stays fully prerendered
 // (no per-request no-store — the May 2026 deindex root cause).
@@ -67,7 +67,7 @@ const articleSchema = {
   // the latter, so the Article item failed validation.
   datePublished: "2026-06-22",
   dateModified: idx.dataAsOf,
-  author: { "@type": "Person", name: "Akif Hazarvi", url: `${SITE_URL}/about/akif-hazarvi` },
+  author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about/ahsan-mukhtar` },
   publisher: { "@id": `${SITE_URL}/#organization` },
   mainEntityOfPage: URL,
   isBasedOn: `${SITE_URL}/api/data/business-fx-cost`,
@@ -150,7 +150,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
                   {PROVIDER_COUNT} providers live by fit and current FX cost. Verified features, real quotes.
                 </p>
                 <p className="mt-3 text-2sm text-[var(--color-on-surface-muted)]">
-                  By {author?.name ?? "Akif Hazarvi"} · cost data {asOfLong} · features verified June 2026
+                  By {author?.name ?? "Ahsan Mukhtar"} · cost data {asOfLong} · features verified June 2026
                 </p>
               </div>
 

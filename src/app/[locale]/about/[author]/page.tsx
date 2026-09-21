@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const tplParams = { name: author.name, role: author.role };
   return {
-    // "Ahsan Mukhtar — Co-founder, Marketing & Partnerships at SendMoneyCompare"
+    // "Ahsan Mukhtar — Co-founder & Editor-in-Chief at SendMoneyCompare"
     // was 72 chars; the brand was the part that got cut.
     title: fitTitle([
       t("fallbackTitle", tplParams),

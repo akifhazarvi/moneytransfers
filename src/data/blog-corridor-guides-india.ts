@@ -33,7 +33,7 @@ export const corridorGuidesIndia: BlogPost[] = [
     readTime: "18 min read",
     publishedAt: "2026-06-03",
     updatedAt: "2026-06-03",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "india",
       "INR",
@@ -533,7 +533,7 @@ export const corridorGuidesIndia: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-22",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "india",
       "INR",

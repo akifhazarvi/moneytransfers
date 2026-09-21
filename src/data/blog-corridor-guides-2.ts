@@ -25,7 +25,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "15 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-05-14",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["UAE", "Pakistan", "AED to PKR", "remittance", "corridor guide", "send money from UAE to Pakistan", "uae to pakistan money transfer", "JazzCash", "Easypaisa", "RDA", "Roshan Digital Account", "RAAST", "Buna", "2026"],
     featuredImage: "/images/blog/send-money-to-pakistan.jpg",
     sections: [
@@ -257,7 +257,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Kenya", "KES", "remittance", "USD to KES", "M-Pesa", "corridor guide", "send money to Kenya"],
     featuredImage: "/images/blog/send-money-to-kenya.jpg",
     sections: [
@@ -374,7 +374,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-05-14",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Egypt", "EGP", "remittance", "USD to EGP", "corridor guide", "send money to Egypt", "InstaPay", "Vodafone Cash", "IMF Egypt", "2026"],
     featuredImage: "/images/blog/send-money-to-egypt.svg",
     sections: [
@@ -586,7 +586,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Jamaica", "JMD", "remittance", "USD to JMD", "corridor guide", "send money to Jamaica", "cash pickup"],
     featuredImage: "/images/blog/send-money-to-jamaica.svg",
     sections: [
@@ -667,7 +667,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Sri Lanka", "LKR", "remittance", "USD to LKR", "corridor guide", "send money to Sri Lanka"],
     featuredImage: "/images/blog/send-money-to-sri-lanka.svg",
     sections: [

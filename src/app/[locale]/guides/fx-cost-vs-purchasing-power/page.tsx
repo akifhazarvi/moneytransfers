@@ -16,7 +16,7 @@ const SALARY = 60000;
 const HOME = "US";
 const CURRENCY = "USD";
 
-const author = getAuthor("akif-hazarvi");
+const author = getAuthor("ahsan-mukhtar");
 const { best, worst } = markupBounds();
 
 // Every number below is derived here and passed down — nothing is typed into
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title, description, url: URL, type: "article",
       publishedTime: "2026-08-15", modifiedTime: pppIndex.generatedAt,
-      authors: ["Akif Hazarvi"],
+      authors: ["Ahsan Mukhtar"],
       images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title, description },
@@ -80,7 +80,7 @@ const articleSchema = {
   headline: "The Cheaper the Move, the More Your Transfer Fee Costs You",
   datePublished: "2026-08-15",
   dateModified: pppIndex.generatedAt,
-  author: { "@type": "Person", name: "Akif Hazarvi", url: `${SITE_URL}/about` },
+  author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about` },
   publisher: { "@type": "Organization", name: "SendMoneyCompare", url: SITE_URL },
   mainEntityOfPage: URL,
 };
@@ -128,7 +128,7 @@ export default async function FxCostVsPurchasingPowerPage({ params }: { params: 
             The cheaper the move, the less your transfer fee matters
           </h1>
           <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
-            By {author?.name ?? "Akif Hazarvi"} · World Bank PPP {pppIndex.pppYears.from}–{pppIndex.pppYears.to} ·
+            By {author?.name ?? "Ahsan Mukhtar"} · World Bank PPP {pppIndex.pppYears.from}–{pppIndex.pppYears.to} ·
             Updated {asOf}
           </p>
 

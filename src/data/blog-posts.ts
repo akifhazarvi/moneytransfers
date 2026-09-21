@@ -99,7 +99,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-06-06",
     updatedAt: "2026-09-02",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["fastest transfer", "instant transfer", "money transfer apps", "speed", "international transfers"],
     featuredImage: "/images/blog/fastest-way-to-send-money.jpg",
     sections: [
@@ -226,7 +226,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-01-15",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["cheap transfers", "fees", "comparison", "best rates", "international transfers"],
     featuredImage: "/images/blog/cheapest-way-to-send-money.jpg",
     sections: [
@@ -350,7 +350,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-01-10",
     updatedAt: "2026-09-05",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["how to", "international transfer", "guide", "beginners", "send money"],
     featuredImage: "/images/blog/how-to-send-money-abroad.jpg",
     sections: [
@@ -497,7 +497,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-01-20",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["exchange rates", "markup", "mid-market rate", "hidden fees", "education"],
     featuredImage: "/images/blog/exchange-rate-markup.jpg",
     sections: [
@@ -608,7 +608,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "22 min read",
     publishedAt: "2026-02-01",
     updatedAt: "2026-05-04",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["security", "safety", "scams", "regulation", "fraud protection", "FCA", "FinCEN"],
     featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
@@ -913,7 +913,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-10",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["SWIFT code", "BIC code", "bank transfer", "international transfer", "how to"],
     featuredImage: "/images/blog/swift-codes-explained.jpg",
     sections: [
@@ -1015,7 +1015,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-15",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["IBAN", "bank account", "international transfer", "Europe", "validation"],
     featuredImage: "/images/blog/iban-numbers-explained.jpg",
     sections: [
@@ -1136,7 +1136,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-02-20",
     updatedAt: "2026-09-19",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["best apps", "comparison", "rankings", "reviews", "2026"],
     featuredImage: "/images/blog/best-money-transfer-apps.jpg",
     sections: [
@@ -1285,7 +1285,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-02-25",
     updatedAt: "2026-09-02",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Wise", "Remitly", "comparison", "vs", "fees", "exchange rates"],
     featuredImage: "/images/blog/wise-vs-remitly.jpg",
     sections: [
@@ -1399,7 +1399,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-01",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["India", "INR", "remittance", "USD to INR", "GBP to INR", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
@@ -1526,7 +1526,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-06-20",
     updatedAt: "2026-06-20",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "pay freelancers",
       "international contractors",
@@ -1547,7 +1547,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Worried a "freelancer" is really an employee?</strong> That's the one case where you should pay for an Employer of Record. More on that below.</li>
 </ul>
 <p>Whatever you do, stop sending separate bank wires. <a href="/business">Compare live rates for your route →</a></p></div>
-<p class="blog-footnote">Last reviewed: June 2026 by Akif Hazarvi, founder of SendMoneyCompare. Fees and 2026 US tax figures are current as of that date.</p>
+<p class="blog-footnote">Last reviewed: June 2026 by Ahsan Mukhtar, editor-in-chief of SendMoneyCompare. Fees and 2026 US tax figures are current as of that date.</p>
 <p>Here's the trap most businesses fall into. You've got a designer in Poland, a developer in the Philippines, a writer in Argentina, and a VA in Kenya. Four invoices come in. You log into your bank, send four separate wires, and pay a £15–£30 fee on each. The money takes a few days to land, and your bank quietly gives you an exchange rate that's 2–4% worse than the real one. Then your freelancer's own bank takes a cut on the way in, so they get less than you agreed. Next month, you do it all again.</p>
 <p>It's slow, it's expensive, and it annoys the people you're trying to keep happy. The good news: you don't have to do it this way. This guide walks through what actually works, what each option really costs, and how to set it up once so payday becomes a five-minute job.</p>
 <p>One thing up front: most "how to pay contractors" articles are written by the company selling the tool they recommend. We don't sell payroll software. We compare {{PROVIDER_COUNT}} money-transfer providers and update the rates every {{REFRESH_HOURS}} hours, so we can just tell you what's cheapest for your situation, even when that means "you don't need a fancy platform yet."</p>`,
@@ -1745,7 +1745,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "16 min read",
     publishedAt: "2026-03-05",
     updatedAt: "2026-03-29",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "B2B payments", "invoicing", "FX management", "batch payments", "SWIFT", "SEPA", "international payments"],
     featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
@@ -1975,7 +1975,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-10",
     updatedAt: "2026-03-17",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["remittance", "statistics", "trends", "2026", "global", "research"],
     featuredImage: "/images/blog/global-remittance-trends.jpg",
     sections: [
@@ -2135,7 +2135,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "16 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-09-19",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "ACH", "SEPA", "wire transfer alternatives", "bank wire", "wire transfer services"],
     featuredImage: "/images/blog/wire-transfer-guide.jpg",
     sections: [
@@ -2456,7 +2456,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "best transfer services",
       "provider rankings",
@@ -2665,7 +2665,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "promo codes",
       "referral programs",
@@ -3035,7 +3035,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Ramadan", "Eid", "remittances", "send money home", "cheap transfers"],
     featuredImage: "/images/blog/ramadan-eid-send-money.jpg",
     sections: [
@@ -3199,7 +3199,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-09-06",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "data",
       "comparison",
@@ -3328,7 +3328,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-29",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Pakistan", "PKR", "remittance", "USD to PKR", "GBP to PKR", "corridor guide", "send money to Pakistan"],
     featuredImage: "/images/blog/send-money-to-pakistan.jpg",
     sections: [
@@ -3529,7 +3529,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["multi-currency account", "exchange rates", "Wise", "Revolut", "Xe", "forex"],
     featuredImage: "/images/blog/multi-currency-accounts-v3.jpg",
     sections: [
@@ -3727,7 +3727,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Philippines", "PHP", "remittance", "USD to PHP", "GCash", "corridor guide", "send money to Philippines"],
     featuredImage: "/images/blog/send-money-to-philippines.jpg",
     sections: [
@@ -3919,7 +3919,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Brazil", "BRL", "Brazilian real", "PIX", "IOF", "remittance", "USD to BRL", "corridor guide", "send money to Brazil"],
     featuredImage: "/images/blog/send-money-to-brazil.jpg",
     sections: [
@@ -4117,7 +4117,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Mexico", "MXN", "remittance", "USD to MXN", "SPEI", "OXXO", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-mexico.jpg",
     sections: [
@@ -4501,7 +4501,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Nigeria", "NGN", "remittance", "USD to NGN", "naira", "corridor guide", "send money to Nigeria"],
     featuredImage: "/images/blog/send-money-to-nigeria.jpg",
     sections: [
@@ -4662,7 +4662,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Bangladesh", "BDT", "remittance", "USD to BDT", "bKash", "Nagad", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-bangladesh.jpg",
     sections: [
@@ -4831,7 +4831,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["India", "INR", "GBP to INR", "UK", "remittance", "UPI", "corridor guide", "send money to India"],
     featuredImage: "/images/blog/send-money-uk-to-india.jpg",
     sections: [
@@ -5005,7 +5005,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["India", "INR", "CAD to INR", "Canada", "remittance", "Interac", "corridor guide", "send money to India"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
@@ -5189,7 +5189,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "B2B payments", "Wise Business", "OFX", "Revolut Business", "provider review", "batch payments", "FX management"],
     featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
@@ -5501,7 +5501,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Ria", "cash pickup", "India", "INR", "remittance", "expat", "money transfer", "USD to INR"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
@@ -5722,7 +5722,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "business",
       "B2B payments",
@@ -5852,7 +5852,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "business",
       "international payroll",
@@ -5988,7 +5988,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "business",
       "FX hedging",
@@ -6122,7 +6122,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "business",
       "invoicing",
@@ -6258,7 +6258,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "business",
       "USA to Canada",
@@ -6389,7 +6389,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "USA to UK", "USD to GBP", "B2B payments", "cross-border payments"],
     featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
@@ -6504,7 +6504,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "USA to India", "USD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
@@ -6635,7 +6635,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "USA to Mexico", "USD to MXN", "B2B payments", "nearshoring", "CUSMA"],
     featuredImage: "/images/blog/send-money-to-mexico.jpg",
     sections: [
@@ -6752,7 +6752,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "USA to Europe", "USD to EUR", "B2B payments", "SEPA", "cross-border payments"],
     featuredImage: "/images/blog/eu-instant-payments-2026.jpg",
     sections: [
@@ -6868,7 +6868,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "UK to Europe", "GBP to EUR", "B2B payments", "SEPA", "post-Brexit"],
     featuredImage: "/images/blog/eu-instant-payments-2026.jpg",
     sections: [
@@ -6983,7 +6983,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "UK to India", "GBP to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     featuredImage: "/images/blog/send-money-uk-to-india.jpg",
     sections: [
@@ -7099,7 +7099,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "USA to Philippines", "USD to PHP", "B2B payments", "BPO", "outsourcing"],
     featuredImage: "/images/blog/send-money-to-philippines.jpg",
     sections: [
@@ -7216,7 +7216,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "USA to Australia", "USD to AUD", "B2B payments", "cross-border payments"],
     featuredImage: "/images/blog/send-money-to-australia.jpg",
     sections: [
@@ -7330,7 +7330,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "USA to China", "USD to CNY", "B2B payments", "manufacturing", "supply chain"],
     featuredImage: "/images/blog/china-business-transfers.jpg",
     sections: [
@@ -7466,7 +7466,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "Canada to USA", "CAD to USD", "B2B payments", "cross-border payments", "CUSMA"],
     featuredImage: "/images/blog/business-fx-comparison-chart.jpg",
     sections: [
@@ -7581,7 +7581,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business", "Australia to India", "AUD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     featuredImage: "/images/blog/send-money-uae-to-india.jpg",
     sections: [
@@ -7696,7 +7696,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "remittance tax",
       "US tax",
@@ -7891,7 +7891,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-09-19",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "crypto",
       "banking license",
@@ -8080,7 +8080,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "Revolut",
       "banking license",
@@ -8226,7 +8226,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "EU payments",
       "instant payments",
@@ -8372,7 +8372,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "multi-currency",
       "Wise",
@@ -8532,7 +8532,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "euribor",
       "euro transfers",
@@ -8712,7 +8712,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["business payments", "FX fees", "international transfers", "B2B payments", "exchange rate markup"],
     featuredImage: "/images/blog/lowest-fx-fees-business-2026.jpg",
     sections: [
@@ -9030,7 +9030,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-17",
     updatedAt: "2026-03-17",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Eid 2026", "Holi 2026", "festival transfers", "money transfer rates", "comparison", "remittance", "send money home"],
     featuredImage: "/images/blog/eid-holi-money-transfer-2026.jpg",
     sections: [
@@ -9323,7 +9323,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["large transfers", "XE", "OFX", "forward contracts", "exchange rates", "property purchase", "business transfers", "comparison"],
     featuredImage: "/images/blog/large-transfers-internationally.jpg",
     sections: [
@@ -9613,7 +9613,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-06-12",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "US dollar forecast",
       "dollar prediction 2026",
@@ -9824,7 +9824,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "hidden fees",
       "bank transfers",
@@ -9969,7 +9969,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-09-17",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "stablecoins",
       "USDT",
@@ -10122,7 +10122,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "comparison",
       "bank transfer",
@@ -10269,7 +10269,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "Ramadan",
       "Eid",
@@ -10387,7 +10387,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-23",
     updatedAt: "2026-03-23",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "pound to pakistani rupee rate today",
       "gbp to pkr",
@@ -10732,7 +10732,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-23",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "bulk international payments",
       "b2b international payments",
@@ -11126,7 +11126,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-23",
     updatedAt: "2026-03-23",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "xe business",
       "xe business payments",
@@ -11382,7 +11382,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Nepal", "NPR", "remittance", "send money to Nepal", "eSewa", "Khalti", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-nepal.jpg",
     sections: [
@@ -11673,7 +11673,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Morocco", "MAD", "Dirham", "remittance", "send money to Morocco", "CashPlus", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-morocco.jpg",
     sections: [
@@ -11922,7 +11922,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Romania", "RON", "EUR", "SEPA", "remittance", "send money to Romania", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-romania.jpg",
     sections: [
@@ -12180,7 +12180,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Bangladesh", "BDT", "GBP to BDT", "UK", "remittance", "bKash", "Nagad", "corridor guide", "send money to Bangladesh"],
     featuredImage: "/images/blog/send-money-uk-to-bangladesh.jpg",
     sections: [
@@ -12395,7 +12395,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Kenya", "KES", "remittance", "M-Pesa", "Safaricom", "corridor guide", "send money to Kenya", "Africa"],
     featuredImage: "/images/blog/send-money-to-kenya.jpg",
     sections: [
@@ -12592,7 +12592,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-29",
     updatedAt: "2026-03-29",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Nigeria", "NGN", "GBP to NGN", "UK", "remittance", "corridor guide", "send money to Nigeria", "Naira"],
     featuredImage: "/images/blog/send-money-uk-to-nigeria.jpg",
     sections: [
@@ -12771,7 +12771,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-03-31",
     updatedAt: "2026-03-31",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["South Africa", "ZAR", "remittance", "USD to ZAR", "GBP to ZAR", "AUD to ZAR", "corridor guide", "FNB", "Capitec", "Mukuru"],
     featuredImage: "/images/blog/send-money-to-south-africa.jpg",
     sections: [
@@ -12980,7 +12980,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-04-10",
     updatedAt: "2026-04-10",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Colombia", "COP", "USD to COP", "remittance", "Nequi", "corridor guide", "send money to Colombia", "Daviplata"],
     featuredImage: "/images/blog/send-money-to-colombia.jpg",
     sections: [
@@ -13141,7 +13141,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-04-10",
     updatedAt: "2026-04-10",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Poland", "PLN", "GBP to PLN", "EUR to PLN", "remittance", "corridor guide", "send money to Poland", "SEPA"],
     featuredImage: "/images/blog/send-money-to-poland.jpg",
     sections: [
@@ -13298,7 +13298,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-04-04",
     updatedAt: "2026-04-04",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["UAE", "India", "AED to INR", "remittance", "NRI", "corridor guide", "send money to India", "Dubai"],
     featuredImage: "/images/blog/send-money-uae-to-india.jpg",
     sections: [
@@ -13489,7 +13489,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "15 min read",
     publishedAt: "2026-04-07",
     updatedAt: "2026-04-07",
-    author: "Daniel Rowe",
+    author: "Awais Imran",
     tags: ["China", "CNY", "USD to CNY", "Alipay", "WeChat Pay", "capital controls", "SAFE", "CIPS", "remittance", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-china.jpg",
     sections: [
@@ -13693,7 +13693,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "16 min read",
     publishedAt: "2026-04-07",
     updatedAt: "2026-04-07",
-    author: "Daniel Rowe",
+    author: "Awais Imran",
     tags: ["large transfers", "property purchase", "inheritance", "relocation", "forward contract", "OFX", "Wise", "FX broker"],
     featuredImage: "/images/blog/large-transfers-internationally.jpg",
     sections: [
@@ -13897,7 +13897,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-04-08",
     updatedAt: "2026-04-08",
-    author: "Daniel Rowe",
+    author: "Awais Imran",
     tags: ["Vietnam", "VND", "remittance", "USD to VND", "AUD to VND", "corridor guide", "send money to Vietnam"],
     featuredImage: "/images/blog/send-money-to-vietnam.jpg",
     sections: [
@@ -14015,7 +14015,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-04-08",
     updatedAt: "2026-04-08",
-    author: "Daniel Rowe",
+    author: "Awais Imran",
     tags: ["Turkey", "TRY", "Turkish Lira", "EUR to TRY", "USD to TRY", "corridor guide", "volatility"],
     featuredImage: "/images/blog/send-money-to-turkey.jpg",
     sections: [
@@ -14128,7 +14128,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-06-21",
     updatedAt: "2026-06-21",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["stablecoin", "USDC", "settlement", "authorization", "cross-border payments", "wire transfer"],
     featuredImage: "/images/blog/stablecoin-vs-wire.jpg",
     sections: [
@@ -14230,7 +14230,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-04-11",
     updatedAt: "2026-04-11",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["stablecoin", "USDC", "wire transfer", "Wise", "comparison", "cryptocurrency", "remittance"],
     featuredImage: "/images/blog/stablecoin-vs-wire.jpg",
     sections: [
@@ -14322,7 +14322,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-04-11",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["transfer limits", "how much can I send", "money transfer", "KYC", "compliance", "sending limits"],
     featuredImage: "/images/blog/transfer-limits.jpg",
     sections: [
@@ -14432,7 +14432,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-04-11",
     updatedAt: "2026-04-11",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["expat", "money transfer app", "multi-currency", "digital nomad", "best app", "send money abroad"],
     featuredImage: "/images/blog/expat-money-transfer.jpg",
     sections: [
@@ -14515,7 +14515,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-04-11",
     updatedAt: "2026-04-11",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Spain", "EUR", "SEPA", "remittance", "corridor guide", "send money to Spain"],
     featuredImage: "/images/blog/send-money-to-spain.jpg",
     sections: [
@@ -14583,7 +14583,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-04-11",
     updatedAt: "2026-04-30",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["UK", "GBP", "Faster Payments", "remittance", "corridor guide", "send money to UK", "USD to GBP", "EUR to GBP"],
     featuredImage: "/images/blog/send-money-to-uk.jpg",
     sections: [
@@ -14758,7 +14758,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-04-11",
     updatedAt: "2026-04-30",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["South Korea", "KRW", "Korean won", "remittance", "corridor guide", "send money to South Korea", "USD to KRW", "Toss", "KakaoBank"],
     featuredImage: "/images/blog/send-money-to-south-korea.jpg",
     sections: [
@@ -14933,7 +14933,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-04-11",
     updatedAt: "2026-04-30",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Australia", "AUD", "NPP", "PayID", "Osko", "remittance", "corridor guide", "send money to Australia", "GBP to AUD", "USD to AUD"],
     featuredImage: "/images/blog/send-money-to-australia.jpg",
     sections: [
@@ -15132,7 +15132,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-04-11",
     updatedAt: "2026-04-11",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Ethiopia", "ETB", "remittance", "corridor guide", "send money to Ethiopia", "telebirr"],
     featuredImage: "/images/blog/send-money-to-ethiopia.jpg",
     sections: [
@@ -15212,7 +15212,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-04-16",
     updatedAt: "2026-05-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["euro forecast", "EUR/USD", "ECB", "exchange rates", "currency forecast", "SEPA", "remittances"],
     featuredImage: "/images/blog/euro-forecast-2026.jpg",
     sections: [
@@ -15329,7 +15329,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-04-16",
     updatedAt: "2026-04-16",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["GBP forecast", "pound forecast", "GBP/USD", "Bank of England", "exchange rates", "UK economy", "remittances"],
     featuredImage: "/images/blog/gbp-forecast-2026.jpg",
     sections: [
@@ -15455,7 +15455,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-04-16",
     updatedAt: "2026-04-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Revolut", "foreign transaction fees", "currency exchange", "travel money", "card fees"],
     featuredImage: "/images/blog/revolut-fx-fees.jpg",
     sections: [
@@ -15576,7 +15576,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-04-16",
     updatedAt: "2026-04-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["XE", "tax season", "expat", "multi-currency account", "forward contract", "large transfer", "same currency", "FBAR", "FATCA"],
     featuredImage: "/images/blog/xe-tax-season-2026.jpg",
     sections: [
@@ -15817,7 +15817,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-05-14",
     updatedAt: "2026-05-14",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "Pakistan",
       "PKR",
@@ -16053,7 +16053,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-05-17",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["pakistan", "pkr", "taptap send", "wise", "remitly", "usd", "review"],
     featuredImage: "/images/blog/send-money-to-pakistan.jpg",
     sections: [
@@ -16206,7 +16206,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-05-19",
     updatedAt: "2026-05-19",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["China", "CNY", "send from China", "CNY outbound", "SAFE quota", "expats in China", "SkyRemit", "WeChat Pay", "yuan transfer", "remittance from China"],
     featuredImage: "/images/blog/send-money-from-china.jpg",
     sections: [
@@ -16421,7 +16421,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-05-19",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["China", "CNY", "best apps", "SkyRemit", "Panda Remit", "Wise China", "WeChat Pay international", "Alipay cross-border", "money transfer apps", "yuan outbound"],
     featuredImage: "/images/blog/china-money-transfer-apps.jpg",
     sections: [
@@ -16598,7 +16598,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-05-19",
     updatedAt: "2026-05-19",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["China", "CNY", "large transfers", "business payments", "CIPS", "SAFE", "SWIFT", "withholding tax", "corporate China", "CNY business transfer"],
     featuredImage: "/images/blog/china-business-transfers.jpg",
     sections: [
@@ -16765,7 +16765,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-06-12",
     updatedAt: "2026-06-12",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Revolut", "Cash App", "M1 Finance", "SpaceX IPO", "Nvidia stock", "buy stocks online", "Anthropic IPO", "OpenAI IPO", "investing apps 2026", "stock trading apps"],
     featuredImage: "/images/blog/revolut-buy-spacex-nvidia-stocks.svg",
     sections: [
@@ -16936,7 +16936,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-06-16",
     updatedAt: "2026-06-16",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["India", "INR", "USD to INR", "money transfer apps", "Remitly", "Wise", "Instarem", "Xoom", "send money to India", "UPI", "best apps 2026"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
@@ -17101,7 +17101,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-09-17",
     updatedAt: "2026-09-17",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     contentStatus: "published",
     tags: [
       "Monito alternatives",
@@ -17259,7 +17259,7 @@ const rawBlogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-09-20",
     updatedAt: "2026-09-20",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     contentStatus: "published",
     tags: [
       "XE",

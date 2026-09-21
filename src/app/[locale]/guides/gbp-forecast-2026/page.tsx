@@ -16,7 +16,7 @@ const URL = `${SITE_URL}/${PATH}`;
 // Provider spread computed live from the same wise-comparison scrape that
 // refreshes every 6h, so the headline "5.4% gap" never drifts from the data.
 const idx = computeGbpOutlookIndex();
-const author = getAuthor("akif-hazarvi");
+const author = getAuthor("ahsan-mukhtar");
 
 const PUBLISHED = "2026-07-03";
 const MODIFIED = "2026-07-03";
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: "article",
       publishedTime: PUBLISHED,
       modifiedTime: MODIFIED,
-      authors: ["Akif Hazarvi"],
+      authors: ["Ahsan Mukhtar"],
       images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title, description },
@@ -82,7 +82,7 @@ const articleSchema = {
     "A data-led GBP outlook covering sterling's 2026 fluctuation range, the Labour leadership contest, and why provider choice beats market timing for money transfers.",
   datePublished: PUBLISHED,
   dateModified: MODIFIED,
-  author: { "@type": "Person", name: "Akif Hazarvi", url: `${SITE_URL}/about/akif-hazarvi` },
+  author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about/ahsan-mukhtar` },
   publisher: { "@id": `${SITE_URL}/#organization` },
   mainEntityOfPage: URL,
   about: [
@@ -178,7 +178,7 @@ export default async function GbpForecastPage({ params }: { params: Promise<{ lo
             How much can the pound move before your transfer clears?
           </h1>
           <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
-            By {author?.name ?? "Akif Hazarvi"} · Published {asOfLong} · Provider figures update every 6 hours from live
+            By {author?.name ?? "Ahsan Mukhtar"} · Published {asOfLong} · Provider figures update every 6 hours from live
             quotes
           </p>
 

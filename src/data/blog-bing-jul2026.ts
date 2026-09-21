@@ -24,7 +24,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-07-01",
     updatedAt: "2026-07-01",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "bank wire transfer fees",
       "wire transfer comparison",
@@ -250,7 +250,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-07-01",
     updatedAt: "2026-07-01",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: [
       "OFX review",
       "OFX fees",

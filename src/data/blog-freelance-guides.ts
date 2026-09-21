@@ -34,7 +34,7 @@ export const freelanceGuides: BlogPost[] = [
     readTime: "9 min",
     publishedAt: "2026-09-07",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["freelancers", "receiving payments", "multi-currency accounts", "invoicing", "business"],
     sections: [
       {

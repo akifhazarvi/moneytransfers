@@ -24,7 +24,7 @@ export const newGuidesJul2026: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-07-01",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["UK to Nigeria", "GBP to NGN", "Nigerian transfer", "Lemfi", "TapTap Send", "Remitly", "best rates"],
     featuredImage: "/images/blog/send-money-uk-to-nigeria.jpg",
     sections: [
@@ -183,7 +183,7 @@ export const newGuidesJul2026: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-07-01",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["B2B payments", "international wire transfer", "business payments", "Wise Business", "Airwallex", "SWIFT alternative"],
     featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
@@ -333,7 +333,7 @@ export const newGuidesJul2026: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-07-01",
     updatedAt: "2026-07-01",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["wire transfer safety", "scam protection", "money transfer fraud", "are transfers safe", "FTC scams"],
     featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
@@ -478,7 +478,7 @@ export const newGuidesJul2026: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-07-01",
     updatedAt: "2026-09-07",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["Australia to India", "AUD to INR", "send money to India", "Wise Australia", "Remitly Australia", "Indian remittance"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
@@ -601,7 +601,7 @@ export const newGuidesJul2026: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-07-01",
     updatedAt: "2026-07-01",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: ["remittance fees", "World Bank data", "average transfer cost", "2026 statistics", "cost comparison", "G20 SDG"],
     featuredImage: "/images/blog/global-remittance-trends.jpg",
     sections: [
@@ -735,7 +735,7 @@ export const newGuidesJul2026: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-07-01",
     updatedAt: "2026-07-01",
-    author: "Akif Hazarvi",
+    author: "Awais Imran",
     tags: ["best money transfer to Nigeria", "NGN rate", "Nigerian remittance", "Lemfi", "TapTap Send", "USA to Nigeria", "UK to Nigeria"],
     featuredImage: "/images/blog/send-money-to-nigeria.jpg",
     sections: [

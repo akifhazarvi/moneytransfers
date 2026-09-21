@@ -136,7 +136,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "Thailand uses the Thai Baht (฿, THB) — as of April 2026, 1 USD is worth roughly 36 THB. Most major source currencies (USD, GBP, EUR) are easily exchanged at SuperRich and Value Plus booths in Bangkok, which offer the best rates. Cash is king outside tourist zones; cards work in hotels, malls, and upscale restaurants. An eSIM (AIS, dtac, or Airalo) costs $5–15 for 7–15 days of 4G/5G data — far cheaper than roaming.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-04-23",
     updatedDate: "2026-04-23",
 
@@ -366,7 +366,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "France uses the Euro (€, EUR) — as of June 2026, 1 EUR is worth roughly $1.15 USD. Contactless card payment is near-universal, even at bakeries and market stalls, so most visitors barely touch cash. Skip airport bureaux de change entirely: pay by a no-FX-fee card and withdraw small amounts of cash from bank-attached ATMs (never standalone Euronet machines). Restaurant service is included in the bill by law — tipping is a small round-up, not 20%.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -562,7 +562,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "Spain uses the Euro (€, EUR) — as of June 2026, 1 EUR is worth roughly $1.15 USD. Cards are accepted almost everywhere, though small tapas bars and market stalls still appreciate cash. Tipping is minimal — round up or leave a euro or two. The biggest money traps are airport exchange counters, standalone Euronet ATMs, and tourist-strip paella; the biggest practical adjustment is the schedule — lunch at 2pm, dinner after 9pm.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -758,7 +758,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "Italy uses the Euro (€, EUR) — as of June 2026, 1 EUR is worth roughly $1.15 USD. Cards are accepted nearly everywhere by law, but Italy is still more cash-friendly than France or Spain: small trattorias, coffee bars, and southern towns appreciate euros in hand. Expect a €1–3 'coperto' cover charge on restaurant bills — it's legal and normal, not a scam. Tipping beyond that is not expected. Drink your espresso standing at the bar: it's often a third of the table price.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -959,7 +959,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "Turkey uses the Turkish Lira (₺, TRY) — as of June 2026, 1 USD is worth roughly 44 TRY, and with the lira's steady depreciation you should always check a live rate before you fly. Exchange cash at city-center döviz offices (not the airport, not hotels) — Istanbul's exchange bureaus offer some of the tightest spreads in the world. Cards work widely in cities, but bazaars, dolmuş minibuses, and small lokantas want cash. High inflation means menu prices change often; think in dollars or euros, not memorized lira prices.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -1158,7 +1158,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "The UK uses the British Pound (£, GBP) — as of June 2026, £1 is worth roughly $1.33 USD. Britain is effectively cashless: contactless card or phone tap covers everything from the London Tube (which auto-caps your daily fare) to market stalls and pubs, and many visitors never touch a banknote. Don't buy pounds before you travel — just bring a no-foreign-fee card. One new admin item: visa-exempt visitors (including Americans and Europeans) now need an ETA (£16, online) before boarding their flight.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -1352,7 +1352,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "India uses the Indian Rupee (₹, INR) — as of June 2026, 1 USD is worth roughly 89 INR. The rupee is a closed currency: you exchange after arrival, not before. Daily payments run on a three-layer system — UPI QR codes dominate for locals (tourists can join via prepaid UPI wallets issued at major airports), cards work in cities and hotels, and cash remains king for rickshaws, street food, and small towns. Carry small notes: nobody can ever change a ₹500.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -1548,7 +1548,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "Mexico uses the Mexican Peso ($, MXN) — as of June 2026, 1 USD is worth roughly 19 MXN. Watch the symbol: prices marked '$' are pesos, not dollars. Cards work in cities and resorts, but markets, street tacos, tips, and small towns run on cash — withdraw from bank ATMs inside branches (BBVA, Banorte, Santander), never standalone machines, and always choose to be charged in MXN. Tipping 10–15% in restaurants is genuinely expected, unlike much of Latin America.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -1743,7 +1743,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "Japan uses the Japanese Yen (¥, JPY) — as of June 2026, 1 USD is worth roughly 150 JPY, and the weak yen has made Japan better value than it's been in decades. The old 'cash-only Japan' is fading: cards and tap-to-pay IC cards (Suica/Pasmo, loadable on iPhones) now cover cities, but shrines, ramen ticket machines, and rural areas still want cash — which you pull fee-transparent from 7-Eleven or Japan Post ATMs. One rule above all: don't tip. It's not done, anywhere.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -1937,7 +1937,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "The UAE uses the Dirham (د.إ, AED), pegged to the US dollar at exactly 3.6725 AED per USD since 1997 — so for Americans there's zero exchange-rate risk, ever. Dubai and Abu Dhabi are near-cashless: tap a card or phone for everything from the metro to mall food courts, keeping a little cash for souk haggling and tips. The money traps here aren't scams but premiums — alcohol markups, beach-club minimums, and dynamic currency conversion. Always pay in dirhams, never your home currency.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
@@ -2133,7 +2133,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     tldr:
       "Saudi Arabia uses the Saudi Riyal (﷼, SAR), pegged to the US dollar at 3.75 SAR per USD since 1986 — the rate never moves. The kingdom only opened to tourism in 2019, and it's modernizing fast: cards and contactless ('mada') work nearly everywhere, women can travel independently, and tourist dress codes are modest-but-practical (no abaya required). Alcohol remains completely unavailable to visitors. The headline draw is AlUla's Nabataean tombs — Petra's sister city, without Petra's crowds.",
-    authorSlug: "akif-hazarvi",
+    authorSlug: "awais-imran",
     publishedDate: "2026-06-11",
     updatedDate: "2026-06-11",
 
