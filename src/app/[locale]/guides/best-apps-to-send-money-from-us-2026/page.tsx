@@ -282,7 +282,7 @@ export async function generateMetadata({
     openGraph: {
       title: "Best Apps to Send Money Internationally from the US (2026)",
       description:
-        `Independent ranking of the 8 best money transfer apps from the US — based on live rate data across ${COVERAGE.providers}. No paid placements.`,
+        `Independent ranking of the 8 best money transfer apps from the US — based on live rate data across ${COVERAGE.providers}. Paid placements are disclosed.`,
       url: URL,
       type: "article",
       publishedTime: PUBLISHED,
@@ -295,7 +295,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: "Best Apps to Send Money from US Internationally (2026)",
       description:
-        "8 apps ranked by real transfer cost — Wise, Remitly, TorFX, OFX, TapTap Send and more. Live data, no paid placements.",
+        "8 apps ranked by real transfer cost — Wise, Remitly, TorFX, OFX, TapTap Send and more. Independent rankings; paid placements disclosed.",
     },
   };
 }
@@ -468,7 +468,7 @@ export default async function BestAppsFromUSPage({
 
           {/* Trust signals */}
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-[var(--color-on-surface-variant)]">
-            <Badge color="green">✓ No paid placements</Badge>
+            <Badge color="green">✓ Independent rankings</Badge>
             <Badge color="blue">Live rate data · Every 6h</Badge>
             <Badge color="blue">{COVERAGE.providers} compared</Badge>
           </div>

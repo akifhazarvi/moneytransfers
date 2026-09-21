@@ -46,18 +46,14 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
         <article id="guide-article" className="guide-research-article">
           {content.slice(0, firstSection < 0 ? content.length : firstSection)}
           <GuideContents sections={sections} mobile />
-          {firstSection >= 0 && content.slice(firstSection)}
-          {/* Partner ad — after every comparison on the page, never inside
-              one. See [[project_taptap_earned_highlight_sep11]]. These research
-              pages carry no corridor of their own the way a templated guide's
-              inlineQuoteCorridor does, so the ad quotes the default corridor
-              and says which one it is, rather than showing a bare button. */}
           <PartnerFeatureBlock
             source={`taptap_spotlight:guide:${slug}`}
             variant="inline"
             quote={getPartnerQuote()}
             linkContext={DEFAULT_PARTNER_CORRIDOR}
           />
+          {firstSection >= 0 && content.slice(firstSection)}
+
         </article>
         <aside className="guide-article-sidebar" aria-label="Guide navigation and tools">
           <div className="guide-sidebar-sticky">

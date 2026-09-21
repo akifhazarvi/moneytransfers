@@ -5,13 +5,11 @@ import Container from "@/components/Container";
 import SendMoneyClient from "@/components/SendMoneyClient";
 import { getCryptoRailSectionData } from "@/lib/crypto-rail-section";
 import CircleFlag from "@/components/CircleFlag";
-import { PageByline } from "@/components/PageByline";
 import { currencies, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { getRateInsight, rateLevelConfig, getRateOfTheMonth } from "@/lib/rate-history";
-import { SITEMAP_RATE_PAIR_SLUGS } from "@/lib/sitemap-allowlists";
+import { getRateInsight, rateLevelConfig } from "@/lib/rate-history";
 import { allCorridors } from "@/data/corridors";
 import { shouldNoindex } from "@/lib/corridor-tiers";
 import { corridorPageRenders } from "@/lib/route-map";
@@ -93,9 +91,6 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
   const defaultQuotes = generateQuotes(1000, "USD", "INR");
   const inrInfo = currencies.find((c) => c.code === "INR")!;
 
-  // ── Rate of the Month — feature the strongest sitemap-safe corridor right now ──
-  const rotm = getRateOfTheMonth([...SITEMAP_RATE_PAIR_SLUGS], "good");
-  const rotmLevel = rotm ? rateLevelConfig(rotm.insight.level) : null;
 
   // ── Top 10 corridors by proven demand (Bing-validated + remittance volume) ──
   // Only these are surfaced as visible links. Each resolves to a real
@@ -136,55 +131,11 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
       />
       {/* Server-rendered SEO content — visible to crawlers */}
       <Container>
-        {/* ── Rate of the Month — minimalist, links to the rate page ── */}
-        {rotm && rotmLevel && (
-          <Link
-            href={`/exchange-rates/${rotm.pairSlug}`}
-            className="group mt-4 flex items-center gap-3 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] pl-4 pr-3 py-2 w-fit max-w-full hover:border-[var(--color-primary)] transition-colors"
-          >
-            <span className="relative flex h-2 w-2 shrink-0" aria-hidden>
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60" style={{ background: rotmLevel.color }} />
-              <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: rotmLevel.color }} />
-            </span>
-            <span className="text-2xs font-semibold uppercase tracking-widest" style={{ color: rotmLevel.color }}>
-              Rate of the month
-            </span>
-            <span className="hidden sm:inline text-2sm text-[var(--color-on-surface-variant)] truncate">
-              <span className="inline-flex items-center gap-1 font-medium text-[var(--color-on-surface)]">
-                <CircleFlag code={rotm.from} size={16} /> {rotm.from}
-                <span className="text-[var(--color-on-surface-muted)]">→</span>
-                <CircleFlag code={rotm.to} size={16} /> {rotm.to}
-              </span>{" "}
-              is at its best level this month
-            </span>
-            <span className="ml-auto shrink-0 text-2sm font-semibold text-[var(--color-primary)] group-hover:underline whitespace-nowrap">
-              See rates →
-            </span>
-          </Link>
-        )}
-
-        <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] pt-6 mb-2">
-          {heading}
-        </h1>
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-6">
-          <p className="text-sm text-[var(--color-on-surface-variant)] max-w-2xl">
-            {subheading}
-          </p>
-          <a
-            href="https://www.trustpilot.com/review/sendmoneycompare.com"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            className="shrink-0 inline-flex items-center gap-1.5 text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface)] rounded-full px-3 py-1.5 border border-[var(--color-outline)] hover:border-[var(--color-primary)] transition-colors w-fit"
-          >
-            <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00B67A"/>
-            </svg>
-            Reviewed on Trustpilot
-          </a>
-        </div>
-        <div className="mb-6">
-          <PageByline updated="2026-09-15" cadence={null} />
-        </div>
+        <header className="conversion-hero">
+          <p className="conversion-eyebrow">Compare international money transfers</p>
+          <h1>{locale === "en" ? "Make more of your money." : heading}</h1>
+          <p>{locale === "en" ? "Compare international transfers by what arrives, with fees and delivery times in view." : subheading}</p>
+        </header>
       </Container>
 
       {/* Interactive client widget — replaces static table once JS loads */}

@@ -529,6 +529,12 @@ export default async function BlogPostPage({ params }: Props) {
                 <p>{post.excerpt}</p>
               </section>
             )}
+            <PartnerFeatureBlock
+              source={`taptap_spotlight:guide:${slug}`}
+              variant="inline"
+              quote={partnerQuote}
+              linkContext={{ from: inlineQuoteCorridor.from, to: inlineQuoteCorridor.to, amount: inlineQuoteCorridor.amount }}
+            />
             {post.featuredImage && (
               <div className="guide-article-image">
                 <Image src={post.featuredImage} alt={post.title} fill sizes="(max-width: 1023px) 100vw, 760px" className="object-cover" priority />
@@ -688,19 +694,7 @@ export default async function BlogPostPage({ params }: Props) {
               </section>
             )}
 
-            {/* Partner spotlight — after every ranked comparison on the page,
-                never inside one. Shared with the homepage via
-                PartnerFeatureBlock so the copy can't drift; see
-                [[project_taptap_earned_highlight_sep11]]. Unconditional
-                (the component itself renders nothing if the measured row is
-                missing) so it reaches every guide, not the 5 that used to
-                hand-author this in prose. */}
-            <PartnerFeatureBlock
-              source={`taptap_spotlight:guide:${slug}`}
-              variant="inline"
-              quote={partnerQuote}
-              linkContext={{ from: inlineQuoteCorridor.from, to: inlineQuoteCorridor.to, amount: inlineQuoteCorridor.amount }}
-            />
+
 
           </article>
 

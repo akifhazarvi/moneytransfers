@@ -125,7 +125,7 @@ export default async function Image() {
               marginTop: 6,
             }}
           >
-            Ranked by real transfer cost across every major provider · 190+ countries · No paid placements
+            Ranked by real transfer cost across every major provider · 190+ countries · Independent rankings
           </span>
         </div>
 

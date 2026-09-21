@@ -4,12 +4,13 @@ import { useState, useMemo, useRef, useEffect, useCallback, useLayoutEffect } fr
 import { rankQuotes, tiedAboveLargerPayout } from "@/lib/rank-quotes";
 import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import Link from "next/link";
+import { Fragment, Suspense } from "react";
 import { useTranslations } from "next-intl";
-import { trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
+import { trackCompareSearch, trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
-import TrustBadges from "@/components/TrustBadges";
+import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import CryptoRailSectionClient from "@/components/CryptoRailSectionClient";
 import type { CryptoRailSectionData } from "@/lib/crypto-rail-section";
@@ -357,10 +358,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
     if (!fromUsd || !toUsd) return null;
     return toUsd / fromUsd;
   }, [rates, fromCurrency, toCurrency]);
-  const cheapestQuote = [...quotes].sort((a, b) => a.fee - b.fee)[0];
-  const bestQuote = filteredQuotes[0];
-  const worstQuote = filteredQuotes[filteredQuotes.length - 1];
-  const savings = bestQuote && worstQuote ? bestQuote.receiveAmount - worstQuote.receiveAmount : 0;
+  const partnerQuote = quotes.find(q => q.providerSlug === "taptap-send" && q.sendCurrency === fromCurrency && q.receiveCurrency === toCurrency && q.sendAmount === amount);
 
   const activeFilterCount = [speedFilter, feeFilter, ratingFilter, paymentMethod, referralFilter].filter(Boolean).length + (selectedProviders.length > 0 ? 1 : 0);
 
@@ -387,103 +385,22 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
 
   return (
     <Container>
-      {/* Search bar — compact on mobile, Google Flights-inspired */}
-      {/* Mobile: compact 2-row layout */}
-      <div className="sm:hidden mt-2 mb-3">
-        <div className="rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_4px_rgba(32,33,36,0.08)]">
-          {/* Row 1: From currency + Amount */}
-          <div className="flex items-center border-b border-[var(--color-outline)] px-3 py-2">
-            <div className="flex-1 min-w-0">
-              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="compact" />
-            </div>
-            <div className="flex items-baseline gap-0.5 shrink-0 ml-2 border-l border-[var(--color-outline)] pl-3">
-              <span className="text-lg font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
-              <input
-                type="text"
-                inputMode="decimal"
-                value={amountStr}
-                onChange={(e) => {
-                  const v = e.target.value;
-                  if (v === "" || /^\d*\.?\d*$/.test(v)) setAmountStr(v);
-                }}
-                onBlur={() => {
-                  if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
-                }}
-                className="bg-transparent text-lg font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[80px] tabular-nums"
-                placeholder="1,000"
-              />
-            </div>
-          </div>
-          {/* Row 2: Swap + To currency */}
-          <div className="flex items-center px-3 py-2">
-            <button
-              onClick={swap}
-              className="w-7 h-7 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shrink-0 mr-2"
-              aria-label="Swap currencies"
-            >
-              <svg className="w-3.5 h-3.5 text-[var(--color-on-surface-variant)] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-              </svg>
-            </button>
-            <div className="flex-1 min-w-0">
-              <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
-            </div>
-          </div>
+      <form className="conversion-search" onSubmit={(event) => {
+        event.preventDefault();
+        trackCompareSearch(fromCurrency, toCurrency, amount);
+        document.getElementById("comparison-results")?.focus({ preventScroll: true });
+        document.getElementById("comparison-results")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+      }}>
+        <div className="conversion-search-field">
+          <label htmlFor="transfer-amount">You send</label>
+          <div className="conversion-amount"><span aria-hidden="true">{sendCurrency?.symbol}</span><input id="transfer-amount" type="text" inputMode="decimal" value={amountStr} required pattern="[0-9]*[.]?[0-9]+" onChange={event => { if (/^\d*\.?\d*$/.test(event.target.value)) setAmountStr(event.target.value); }} onBlur={() => { if (!amountStr || Number(amountStr) <= 0) setAmountStr("1"); }} /></div>
         </div>
-      </div>
-
-      {/* Desktop: original wide search bar */}
-      <div className="hidden sm:block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-3">
-        <div className="flex flex-col lg:flex-row">
-          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-5 lg:pr-8 py-4 min-w-0">
-            <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
-            <div className="flex items-center gap-4 mt-1.5">
-              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" />
-              <div className="flex items-baseline gap-1 shrink-0 ml-auto border-l border-[var(--color-outline)] pl-4">
-                <span className="text-h4 font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
-                <input
-                  type="text"
-                  inputMode="decimal"
-                  value={amountStr}
-                  onChange={(e) => {
-                    const v = e.target.value;
-                    if (v === "" || /^\d*\.?\d*$/.test(v)) setAmountStr(v);
-                  }}
-                  onBlur={() => {
-                    if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
-                  }}
-                  className="bg-transparent text-h4 font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[100px] tabular-nums"
-                  placeholder="1,000"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="hidden lg:flex items-center -mx-5 z-10">
-            <button
-              onClick={swap}
-              className="w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm"
-              aria-label="Swap currencies"
-            >
-              <svg className="w-[18px] h-[18px] text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-              </svg>
-            </button>
-          </div>
-
-          <div className="flex-1 px-5 lg:pl-8 py-4 min-w-0">
-            <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("theyReceiveIn")}</label>
-            <div className="mt-1.5">
-              <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="large" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Trust indicators — hidden on mobile, shown on desktop */}
-      <div className="hidden sm:block mb-6">
-        <TrustBadges />
-      </div>
+        <div className="conversion-search-field"><span className="conversion-field-label">From currency</span><CurrencyPicker label={`From currency: ${fromCurrency}`} value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" /></div>
+        <button type="button" className="conversion-swap" onClick={swap} aria-label="Swap currencies">⇄</button>
+        <div className="conversion-search-field"><span className="conversion-field-label">To currency</span><CurrencyPicker label={`To currency: ${toCurrency}`} value={toCurrency} onChange={setToCurrency} size="large" /></div>
+        <button type="submit" className="conversion-button conversion-button--accent">Compare transfers <span aria-hidden="true">→</span></button>
+      </form>
+      <p className="conversion-search-note">Free to compare · Rates and fees together · <Link href="/how-we-review">How we compare</Link></p>
 
       {/* Filter + sort pills — single horizontal scroll row, Google Flights-style */}
       <div className="flex items-center gap-1.5 sm:gap-2 mb-4 sm:mb-5 overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 scrollbar-hide" style={{ WebkitOverflowScrolling: "touch" }}>
@@ -642,7 +559,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
       </div>
 
       {/* Results header — minimal, Google Flights "About these results" style */}
-      <div className="flex items-center justify-between mb-2">
+      <div id="comparison-results" tabIndex={-1} className="flex items-center justify-between mb-2 scroll-mt-24" aria-live="polite">
         <div className="flex items-center gap-2">
           <span className="text-xs text-[var(--color-on-surface-variant)]">
             {filteredQuotes.length} providers
@@ -677,7 +594,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
             ))}
           </div>
         ) : filteredQuotes.length > 0 ? (
-          <div className="rounded-xl sm:border sm:border-[var(--color-outline)] sm:shadow-[var(--shadow-sm)] bg-[var(--color-surface)]">
+          <div className="conversion-results">
             {(() => {
               const worstReceive = filteredQuotes[filteredQuotes.length - 1]?.receiveAmount ?? 0;
               // Only meaningful under the default "Best value" order, which is
@@ -685,12 +602,12 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
               // legitimately puts smaller payouts higher and needs no excuse.
               const tiedMarks = sortBy === "receiveAmount" ? tiedAboveLargerPayout(filteredQuotes) : new Set<string>();
               return filteredQuotes.map((quote, index) => (
-                <ProviderCard
-                  key={quote.providerSlug}
+                <Fragment key={quote.providerSlug}><ProviderCard
                   quote={quote}
                   sendCurrencySymbol={sendCurrency?.symbol || "$"}
                   receiveCurrencySymbol={receiveCurrency?.symbol || ""}
                   rank={index + 1}
+                  isBestValue={sortBy === "receiveAmount" && index === 0}
                   compareSelected={compareList.includes(quote.providerSlug)}
                   onCompareToggle={toggleCompare}
                   compareDisabled={compareList.length >= 2}
@@ -701,6 +618,14 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
                   tiedAhead={tiedMarks.has(quote.providerSlug)}
                   badge={insight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug)}
                 />
+                {index === 0 && partnerQuote && (
+                  <PartnerFeatureBlock
+                    source="taptap_spotlight:send-money"
+                    variant="card"
+                    quote={{ fromCurrency, toCurrency, sendAmount: amount, receiveAmount: partnerQuote.receiveAmount, exchangeRate: partnerQuote.exchangeRate, fee: partnerQuote.fee }}
+                  />
+                )}
+                </Fragment>
               ));
             })()}
           </div>
@@ -813,13 +738,13 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
 
         return (
           <div id="compare-panel" className="mb-12 scroll-mt-4">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)]">
                 {nameA} vs {nameB}
               </h2>
               <button
                 onClick={() => setCompareList([])}
-                className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors"
+                className="min-h-11 shrink-0 text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors"
               >
                 Clear comparison
               </button>
