@@ -7,6 +7,7 @@ import SeeAllProvidersLink from "./SeeAllProvidersLink";
 import { providerLogo } from "@/lib/provider-logo";
 import ProviderCrossSell from "@/components/ProviderCrossSell";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { partnerQuoteFrom } from "@/lib/partner-quote";
 import { crossSellComparisonHref } from "@/lib/provider-cross-sell";
 
@@ -72,7 +73,16 @@ export default function InlineProviderQuotes({
     {/* Partner unit above the table. Consumer corridors get the live-rate ad;
         business pages keep the cross-sell card, because the ad's partner is a
         consumer remittance app and `only` exists precisely to keep those off a
-        page about paying suppliers. */}
+        page about paying suppliers.
+
+        When the partner already ranks #1 in the table directly below, the ad
+        is replaced by the bare disclosure rather than dropped. It cannot just
+        be omitted: 7 of the 11 pages embedding this component — /iban,
+        /swift-codes, /news, the three /tools and /exchange-rates — carry no
+        <AffiliateDisclosure /> of their own, so this block's footnote is the
+        only commercial disclosure on them, and removing it would strip the
+        disclosure from a ranked table of affiliate links. Swapping keeps the
+        page honest while still showing the partner once instead of twice. */}
     {crossSell && (only
       ? (
         <ProviderCrossSell
@@ -80,6 +90,10 @@ export default function InlineProviderQuotes({
           eligible={scoped.map((quote) => quote.providerSlug)}
           intent="business"
         />
+      )
+      : best.providerSlug === "taptap-send"
+      ? (
+        <div className="my-10"><AffiliateDisclosure /></div>
       )
       : (
         <PartnerFeatureBlock

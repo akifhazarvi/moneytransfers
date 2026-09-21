@@ -2989,7 +2989,15 @@ export default async function CorridorPage({ params }: Props) {
           tops; the savings line needs only that it beats the lowest-paying
           quote. Where we hold no TapTap quote at all, the block still renders
           for visibility and shows the site-wide facts with no numbers.
-          See [[project_taptap_earned_highlight_sep11]]. */}
+          See [[project_taptap_earned_highlight_sep11]].
+
+          Suppressed outright on the corridors the partner already tops: there
+          the ranked table has it at #1 with its rate, payout, fee and /go
+          button, so the spotlight is a second copy of the same provider on one
+          page rather than a pointer to one the reader has not met. Visibility
+          is unaffected — it is at the top of the table — and paid placement
+          stays disclosed by the <AffiliateDisclosure /> beside that table. */}
+      {best?.providerSlug !== "taptap-send" && (
       <PartnerFeatureBlock
         source={`taptap_spotlight:corridor:${slug}`}
         variant="section"
@@ -3011,6 +3019,7 @@ export default async function CorridorPage({ params }: Props) {
           };
         })()}
       />
+      )}
 
       {/* FAQ structured data */}
       <script
