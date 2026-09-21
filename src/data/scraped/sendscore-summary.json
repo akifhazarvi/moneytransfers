@@ -1,29 +1,29 @@
 {
-  "dataAsOf": "2026-09-20",
-  "corridorsScored": 199,
+  "dataAsOf": "2026-09-21",
+  "corridorsScored": 198,
   "corridorsWithAnyScore": 1020,
-  "singleProviderReadings": 821,
+  "singleProviderReadings": 822,
   "bands": {
     "exceptional": 6,
-    "great": 50,
-    "good": 82,
-    "typical": 33,
-    "poor": 28
+    "great": 49,
+    "good": 80,
+    "typical": 39,
+    "poor": 24
   },
-  "goodOrBetterPct": 69,
+  "goodOrBetterPct": 68,
   "confidence": {
-    "high": 199,
+    "high": 198,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 177,
+  "medianDaysObserved": 178,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 74,
+      "score": 73,
       "band": "good",
       "headline": "Good time to send",
-      "explanation": "Today's best rate is +0.57% vs the 30-day average, 70% of the way up the 90-day range. Rates are improving — +0.82% week on week. Today's best beats the median provider by +2.59%.",
+      "explanation": "Today's best rate is +0.56% vs the 30-day average, 70% of the way up the 90-day range. Rates are improving — +0.70% week on week. Today's best beats the median provider by +2.59%.",
       "components": [
         {
           "key": "range",
@@ -36,8 +36,8 @@
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 59.46252366050966,
-          "detail": "+0.57% vs the 30-day average"
+          "score": 59.34633911325897,
+          "detail": "+0.56% vs the 30-day average"
         },
         {
           "key": "competitiveness",
@@ -50,11 +50,11 @@
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 70.40028680191551,
-          "detail": "improving — +0.82% week on week"
+          "score": 67.55143399536806,
+          "detail": "improving — +0.70% week on week"
         }
       ],
-      "daysObserved": 183,
+      "daysObserved": 184,
       "rangeWindowDays": 90,
       "confidence": "high"
     }

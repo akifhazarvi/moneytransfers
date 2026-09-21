@@ -16789,5 +16789,94 @@
         "receiveAmount": 181676.82
       }
     }
+  },
+  {
+    "date": "2026-09-21",
+    "providers": {
+      "lemfi": {
+        "rate": 1820,
+        "fee": 0,
+        "markup": -2.21,
+        "receiveAmount": 182000
+      },
+      "moneygram": {
+        "rate": 1826.582,
+        "fee": 0.99,
+        "markup": -2.38,
+        "receiveAmount": 180849.88
+      },
+      "taptap-send": {
+        "rate": 1825,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 182500
+      },
+      "western-union": {
+        "rate": 1786.7555,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 175119.9
+      },
+      "dahabshiil": {
+        "rate": 1810.5796,
+        "fee": 1.99,
+        "markup": -1.48,
+        "receiveAmount": 177454.91
+      },
+      "transfergo": {
+        "rate": 1813.8655,
+        "fee": 0,
+        "markup": -1.67,
+        "receiveAmount": 181386.55
+      },
+      "worldremit": {
+        "rate": 1819.363,
+        "fee": 0.99,
+        "markup": -1.98,
+        "receiveAmount": 180135.13
+      },
+      "instarem": {
+        "rate": 1770.1268,
+        "fee": 0,
+        "markup": 0.78,
+        "receiveAmount": 177012.68
+      },
+      "mukuru": {
+        "rate": 1822.04,
+        "fee": 0,
+        "markup": -2.13,
+        "receiveAmount": 182204
+      },
+      "paysend": {
+        "rate": 1822.7784,
+        "fee": 0,
+        "markup": -2.17,
+        "receiveAmount": 182277.84
+      },
+      "sendwave": {
+        "rate": 1819.363,
+        "fee": 0.99,
+        "markup": -1.98,
+        "receiveAmount": 180135.13
+      },
+      "remitly": {
+        "rate": 1825.91,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 182591
+      },
+      "ria": {
+        "rate": 1828,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 186149.35
+      },
+      "wise": {
+        "rate": 1836.92,
+        "fee": 1.16,
+        "markup": null,
+        "receiveAmount": 181561.17
+      }
+    }
   }
 ]

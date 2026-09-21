@@ -13255,5 +13255,100 @@
         "receiveAmount": 5175.29
       }
     }
+  },
+  {
+    "date": "2026-09-21",
+    "providers": {
+      "moneygram": {
+        "rate": 55.4398,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5461.38
+      },
+      "taptap-send": {
+        "rate": 55.65,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5565
+      },
+      "deutsche-bank": {
+        "rate": 55.7993,
+        "fee": 28.96,
+        "markup": 0.39,
+        "receiveAmount": 3963.85
+      },
+      "xe": {
+        "rate": 55.4082,
+        "fee": 4,
+        "markup": 1.08,
+        "receiveAmount": 5319.19
+      },
+      "western-union": {
+        "rate": 55.135,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 5458.92
+      },
+      "dahabshiil": {
+        "rate": 54.4777,
+        "fee": 1.99,
+        "markup": 2.74,
+        "receiveAmount": 5339.36
+      },
+      "instarem": {
+        "rate": 55.6127,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5561.27
+      },
+      "paysend": {
+        "rate": 55.6609,
+        "fee": 0,
+        "markup": 0.63,
+        "receiveAmount": 5566.09
+      },
+      "remitly": {
+        "rate": 55.28,
+        "fee": 1.99,
+        "markup": 1.31,
+        "receiveAmount": 5417.99
+      },
+      "revolut": {
+        "rate": 55.6054,
+        "fee": 2,
+        "markup": 0.73,
+        "receiveAmount": 5449.33
+      },
+      "wise": {
+        "rate": 56.0066,
+        "fee": 2.95,
+        "markup": null,
+        "receiveAmount": 5435.44
+      },
+      "ria": {
+        "rate": 55.0172,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5683.25
+      },
+      "sparkasse": {
+        "rate": 55.9318,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 5173.7
+      },
+      "ing-de": {
+        "rate": 54.8816,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 4280.77
+      },
+      "commerzbank": {
+        "rate": 54.3182,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4752.84
+      }
+    }
   }
 ]
