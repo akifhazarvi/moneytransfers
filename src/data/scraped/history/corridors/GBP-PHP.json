@@ -29310,5 +29310,166 @@
         "receiveAmount": 6095.46
       }
     }
+  },
+  {
+    "date": "2026-09-22",
+    "providers": {
+      "lemfi": {
+        "rate": 83,
+        "fee": 1,
+        "markup": 1.06,
+        "receiveAmount": 8217
+      },
+      "moneygram": {
+        "rate": 83.0929,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 8185.49
+      },
+      "hsbc": {
+        "rate": 81.713,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 8171.3
+      },
+      "taptap-send": {
+        "rate": 83,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 8300
+      },
+      "western-union": {
+        "rate": 82.3302,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 8069.19
+      },
+      "dahabshiil": {
+        "rate": 83.4967,
+        "fee": 1.99,
+        "markup": 0.66,
+        "receiveAmount": 8183.51
+      },
+      "ofx": {
+        "rate": 78.3271,
+        "fee": 0,
+        "markup": 6.81,
+        "receiveAmount": 7832.71
+      },
+      "currencyfair": {
+        "rate": 83.57,
+        "fee": 0.96,
+        "markup": 0.58,
+        "receiveAmount": 8276.77
+      },
+      "transfergo": {
+        "rate": 83.276,
+        "fee": 0,
+        "markup": 0.92,
+        "receiveAmount": 8327.6
+      },
+      "pnb-europe": {
+        "rate": 66.85,
+        "fee": 11,
+        "markup": 20.47,
+        "receiveAmount": 5949.65
+      },
+      "worldremit": {
+        "rate": 83.3667,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 8170.77
+      },
+      "instarem": {
+        "rate": 83.4168,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 8341.68
+      },
+      "xe": {
+        "rate": 83.4627,
+        "fee": 3,
+        "markup": 0.7,
+        "receiveAmount": 8095.88
+      },
+      "mukuru": {
+        "rate": 81.1109,
+        "fee": 2,
+        "markup": 3.5,
+        "receiveAmount": 7948.87
+      },
+      "paysend": {
+        "rate": 83.8625,
+        "fee": 1,
+        "markup": 0.23,
+        "receiveAmount": 8302.39
+      },
+      "sendwave": {
+        "rate": 83.7051,
+        "fee": 0.99,
+        "markup": 0.41,
+        "receiveAmount": 8287.64
+      },
+      "remitly": {
+        "rate": 83.1082,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 8310.82
+      },
+      "revolut": {
+        "rate": 83.5344,
+        "fee": 0.7,
+        "markup": 0.62,
+        "receiveAmount": 8294.96
+      },
+      "wise": {
+        "rate": 83.8798,
+        "fee": 1.06,
+        "markup": null,
+        "receiveAmount": 8299.07
+      },
+      "ria": {
+        "rate": 83.7946,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 8648.4
+      },
+      "skrill": {
+        "rate": 79.9455,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 7994.55
+      },
+      "monese": {
+        "rate": 83.6288,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 8112
+      },
+      "barclays": {
+        "rate": 81.4261,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 8142.61
+      },
+      "nationwide": {
+        "rate": 81.7956,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 6952.63
+      },
+      "santander": {
+        "rate": 81.2398,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 6092.99
+      },
+      "paypal": {
+        "rate": 80.4475,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 7804.22
+      }
+    }
   }
 ]

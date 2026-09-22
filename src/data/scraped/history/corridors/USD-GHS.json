@@ -16458,5 +16458,100 @@
         "receiveAmount": 1125.36
       }
     }
+  },
+  {
+    "date": "2026-09-22",
+    "providers": {
+      "lemfi": {
+        "rate": 11.52,
+        "fee": 0,
+        "markup": -0.04,
+        "receiveAmount": 1152
+      },
+      "moneygram": {
+        "rate": 11.52,
+        "fee": 0.99,
+        "markup": -0.04,
+        "receiveAmount": 1140.6
+      },
+      "ria": {
+        "rate": 11.3645,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 1152
+      },
+      "taptap-send": {
+        "rate": 11.54,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1154
+      },
+      "boss-money": {
+        "rate": 11.51,
+        "fee": 0,
+        "markup": 0.04,
+        "receiveAmount": 1151
+      },
+      "western-union": {
+        "rate": 10.4486,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1034.52
+      },
+      "worldremit": {
+        "rate": 11.54,
+        "fee": 0,
+        "markup": -0.22,
+        "receiveAmount": 1154
+      },
+      "instarem": {
+        "rate": 11.4195,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1141.95
+      },
+      "xe": {
+        "rate": 11.4336,
+        "fee": 4,
+        "markup": 0.71,
+        "receiveAmount": 1097.63
+      },
+      "paysend": {
+        "rate": 11.5885,
+        "fee": 1.99,
+        "markup": -0.64,
+        "receiveAmount": 1135.79
+      },
+      "sendwave": {
+        "rate": 11.54,
+        "fee": 0,
+        "markup": -0.22,
+        "receiveAmount": 1154
+      },
+      "remitly": {
+        "rate": 11.1592,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1115.92
+      },
+      "revolut": {
+        "rate": 11.4271,
+        "fee": 0.75,
+        "markup": 0.76,
+        "receiveAmount": 1134.14
+      },
+      "wise": {
+        "rate": 11.5133,
+        "fee": 4.4,
+        "markup": null,
+        "receiveAmount": 1100.67
+      },
+      "xoom": {
+        "rate": 11.2536,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1125.36
+      }
+    }
   }
 ]
