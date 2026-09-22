@@ -26,3 +26,12 @@ Paid placement is separate from measured results. The Best value badge is reserv
 [Apple layout guidance](https://developer.apple.com/design/human-interface-guidelines/layout) informed alignment, hierarchy, and consistency—not a copied Apple interface. [TapTap's fee guidance](https://taptapsend.zendesk.com/hc/en-gb/articles/45247485548051-Fees-you-pay-sending-with-Taptap-Send) supports route-specific fee wording. [Google link guidance](https://developers.google.com/search/blog/2021/07/link-tagging-and-link-spam-update) supports sponsored affiliate links.
 
 Use existing `compare_search`, provider-click, and cross-sell events to evaluate the funnel. Spotlight impressions fire once when half of the unit is visible; compare their clicks and review visits by placement and route. Measure outbound clicks per comparison session and paid-spotlight clicks per visible impression. Search Console impressions and clicks are a separate acquisition measure: internal links and useful content can support discovery, but placement changes do not establish ranking or conversion gains. Provider-side completed transfers require affiliate reporting.
+
+## Editorial tables and reading layouts
+
+- Research tables describe evidence; provider names link to reviews. Do not automatically append outbound buttons to provider mentions. Live quote tables can include explicit provider actions.
+- Label send currency, receive currency, rate direction, observation date, and whether figures are quotes or completed transfers. A payout difference uses the receive currency.
+- Keep numeric columns right-aligned, unbroken, and set in tabular numerals. Allow descriptive text to wrap at words. Use a keyboard-focusable horizontal scroll region when a table cannot fit; never split a number to force it into the viewport.
+- Use normal-case column headings, quiet alternating surfaces, and no hover color that implies an evidence row is selected or recommended.
+- Keep the contents rail secondary to article data. Sponsored placements belong in document flow; floating reading ads must not obscure text, tables, or navigation.
+- Check shared changes at 320, 390, 768, 1024, and 1440px in both themes. Confirm explicit live quote actions still work and historical tables do not gain sales buttons.

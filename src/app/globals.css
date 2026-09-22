@@ -632,89 +632,76 @@ h1 { letter-spacing: -0.028em; }
   color: var(--color-on-surface-variant);
 }
 
-/* ─── Tables — premium rounded style, sans-serif for data clarity ─── */
+/* Editorial data: preserve values; scroll the region, never squeeze digits. */
+.editorial-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  border: 1px solid var(--color-outline);
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+.editorial-table-scroll:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
 :is(.prose-content, .prose-custom) table {
   font-family: var(--font-inter), system-ui, sans-serif;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  margin: 1.75rem 0;
-  font-size: 0.8125rem;           /* 13px — compact data */
+  font-size: 0.875rem;
   line-height: 1.5;
-  border: 1px solid var(--color-outline);
-  border-radius: 12px;
-  /* Mobile: allow horizontal scroll so wide tables don't break page layout.
-     `display: block` + `overflow-x: auto` on the table itself (rather than a
-     wrapper) is used because the HTML comes from a trusted string and we
-     can't inject a wrapper without touching every review entry. */
+  font-variant-numeric: tabular-nums;
+  word-break: normal;
+  overflow-wrap: normal;
+  /* Fallback for JSX tables without the shared HTML formatter. */
   display: block;
   overflow-x: auto;
   max-width: 100%;
-  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
 }
-:is(.prose-content, .prose-custom) table tbody,
-:is(.prose-content, .prose-custom) table thead,
-:is(.prose-content, .prose-custom) table tr {
-  /* Keep table semantics while table is `display: block` for scroll */
+:is(.prose-content, .prose-custom) .editorial-table-scroll > table {
+  display: table;
+  margin: 0;
 }
-@media (min-width: 640px) {
-  :is(.prose-content, .prose-custom) table {
-    display: table;
-    overflow-x: visible;
-  }
+:is(.prose-content, .prose-custom) :is(th, td) {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-outline);
+  color: var(--color-on-surface);
+  min-width: 7rem;
 }
 :is(.prose-content, .prose-custom) th {
   background: var(--color-surface-container);
   font-weight: 600;
-  font-size: 0.75rem;             /* 12px — smaller header */
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--color-on-surface-muted);
-  padding: 0.625rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid var(--color-outline);
-  /* Headers must never wrap letter-by-letter: keep each header on one line so
-     the table grows wider than the viewport and triggers horizontal scroll. */
+  font-size: 0.8125rem;
+  text-transform: none;
   white-space: nowrap;
-  min-width: 7rem;
 }
-:is(.prose-content, .prose-custom) td {
-  padding: 0.625rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid var(--color-outline);
-  color: var(--color-on-surface-variant);
-  min-width: 7rem;
+:is(.prose-content, .prose-custom) :is(th, td):first-child { min-width: 9rem; }
+:is(.prose-content, .prose-custom) [data-numeric="true"] {
+  text-align: right;
+  white-space: nowrap;
 }
-/* The first column (usually a name/label) gets more room and may wrap normally. */
-:is(.prose-content, .prose-custom) th:first-child,
-:is(.prose-content, .prose-custom) td:first-child {
-  min-width: 9rem;
-  white-space: normal;
-}
-/* Desktop: no forced widths — let the table size naturally. */
-@media (min-width: 640px) {
-  :is(.prose-content, .prose-custom) th,
-  :is(.prose-content, .prose-custom) td,
-  :is(.prose-content, .prose-custom) th:first-child,
-  :is(.prose-content, .prose-custom) td:first-child {
-    min-width: 0;
-  }
-  :is(.prose-content, .prose-custom) th {
-    white-space: normal;
-  }
-}
-:is(.prose-content, .prose-custom) td strong {
-  font-weight: 600;
-  color: var(--color-on-surface);
-}
-:is(.prose-content, .prose-custom) tr:last-child td {
-  border-bottom: none;
-}
+:is(.prose-content, .prose-custom) td:not([data-numeric]) { min-width: 10rem; }
+:is(.prose-content, .prose-custom) td strong { font-weight: 600; }
+:is(.prose-content, .prose-custom) tr:last-child > * { border-bottom: 0; }
+:is(.prose-content, .prose-custom) tbody tr { background: var(--color-surface); }
 :is(.prose-content, .prose-custom) tbody tr:nth-child(even) {
-  background: var(--color-surface-dim);
+  background: color-mix(in srgb, var(--color-surface-container) 40%, var(--color-surface));
 }
-:is(.prose-content, .prose-custom) tbody tr:hover {
-  background: var(--color-primary-surface);
+:is(.prose-content, .prose-custom) tbody tr.blog-row-highlight {
+  background: var(--color-success-surface-dim);
+}
+:is(.prose-content, .prose-custom) caption {
+  text-align: left;
+  padding: 1rem;
+  font-size: 0.8125rem;
+  color: var(--color-on-surface-variant);
+  background: var(--color-surface);
 }
 
 /* ─── Legacy prose class (for backward compat) ─── */
@@ -881,7 +868,8 @@ tbody tr:first-child .smc-send:not(.smc-send-sm):focus-visible { opacity: 0.9; }
 }
 
 .blog-table-box {
-  background: var(--color-surface-container);
+  background: transparent;
+  border: 1px solid var(--color-outline);
   border-radius: 16px;
   padding: 12px;
   margin: 24px 0;
@@ -889,8 +877,10 @@ tbody tr:first-child .smc-send:not(.smc-send-sm):focus-visible { opacity: 0.9; }
   -webkit-overflow-scrolling: touch;
 }
 @media (min-width: 640px) {
-  .blog-table-box { padding: 24px; }
+  .blog-table-box { padding: 20px; }
 }
+.blog-table-box > h3 { font-family: var(--font-inter), system-ui, sans-serif; }
+.blog-table-box > .blog-footnote { font-family: var(--font-inter), system-ui, sans-serif; line-height: 1.6; }
 .blog-row-highlight  { background: var(--color-success-surface-dim); }
 .blog-footnote       { font-size: 0.875rem; color: var(--color-on-surface-variant); margin-bottom: 0; }
 .blog-callout-blue   { background: var(--color-primary-surface); border-radius: 16px; padding: 24px; margin: 24px 0; }
@@ -1051,4 +1041,16 @@ tbody tr:first-child .smc-send:not(.smc-send-sm):focus-visible { opacity: 0.9; }
   .provider-cross-sell--inline .partner-card { display: flex; }
   .provider-cross-sell--inline .partner-actions { align-self: stretch; margin-top: 4px; }
   .site-provider-cross-sell { padding: 0 20px 20px; }
+}
+
+/* Prose link styling must not override explicit transfer actions. */
+:is(.prose-content, .prose-custom) a.smc-send { color: var(--color-success-dark); text-decoration: none; }
+:is(.prose-content, .prose-custom) a.smc-send:is(:hover, :focus-visible),
+:is(.prose-content, .prose-custom) tr:first-child a.smc-send:not(.smc-send-sm),
+:is(.prose-content, .prose-custom) .smc-featured a.smc-send { color: #fff; }
+
+.editorial-table-hint { display: none; }
+@media (max-width: 767px) {
+  :is(.prose-content, .prose-custom) .editorial-table-hint { display: block; font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.75rem; color: var(--color-on-surface-variant); margin: 1rem 0 0.5rem; }
+  .editorial-table-hint + .editorial-table-scroll { margin-top: 0; }
 }

@@ -79,21 +79,22 @@ export const costTransparencyGuides: BlogPost[] = [
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Testing the model: (send &minus; fee) &times; rate = receive</h3>
 <table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Rate</th><th>Model predicts</th><th>Actually received</th><th>Error</th></tr></thead>
+<caption>USD 100 → INR · Quotes collected 13 March 2026</caption>
+<thead><tr><th>Provider</th><th>Fee (USD)</th><th>Rate (INR/USD)</th><th>Predicted (INR)</th><th>Quoted (INR)</th><th>Difference (INR)</th></tr></thead>
 <tbody>
-<tr><td><a href="/companies/wise">Wise</a></td><td>$7.66</td><td>92.5551</td><td>8,546.54</td><td>8,546.54</td><td>$0.00</td></tr>
-<tr><td><a href="/companies/remitly">Remitly</a></td><td>$3.99</td><td>92.2800</td><td>8,859.80</td><td>8,859.80</td><td>$0.00</td></tr>
-<tr><td><a href="/companies/moneygram">MoneyGram</a></td><td>$1.99</td><td>92.2802</td><td>9,044.38</td><td>9,044.39</td><td>$0.01</td></tr>
-<tr><td><a href="/companies/xoom">Xoom</a></td><td>$0.00</td><td>92.1900</td><td>9,219.00</td><td>9,219.00</td><td>$0.00</td></tr>
-<tr><td><a href="/companies/instarem">Instarem</a></td><td>$0.00</td><td>92.1400</td><td>9,214.00</td><td>9,214.00</td><td>$0.00</td></tr>
-<tr><td><a href="/companies/chase">Chase</a></td><td>$5.00</td><td>89.7117</td><td>8,522.61</td><td>8,522.61</td><td>$0.00</td></tr>
-<tr><td><a href="/companies/wells-fargo">Wells Fargo</a></td><td>$0.00</td><td>89.6329</td><td>8,963.29</td><td>8,963.29</td><td>$0.00</td></tr>
+<tr><td><a href="/companies/wise">Wise</a></td><td>$7.66</td><td>92.5551</td><td>8,546.54</td><td>8,546.54</td><td>0.00</td></tr>
+<tr><td><a href="/companies/remitly">Remitly</a></td><td>$3.99</td><td>92.2800</td><td>8,859.80</td><td>8,859.80</td><td>0.00</td></tr>
+<tr><td><a href="/companies/moneygram">MoneyGram</a></td><td>$1.99</td><td>92.2802</td><td>9,044.38</td><td>9,044.39</td><td>0.01</td></tr>
+<tr><td><a href="/companies/xoom">Xoom</a></td><td>$0.00</td><td>92.1900</td><td>9,219.00</td><td>9,219.00</td><td>0.00</td></tr>
+<tr><td><a href="/companies/instarem">Instarem</a></td><td>$0.00</td><td>92.1400</td><td>9,214.00</td><td>9,214.00</td><td>0.00</td></tr>
+<tr><td><a href="/companies/chase">Chase</a></td><td>$5.00</td><td>89.7117</td><td>8,522.61</td><td>8,522.61</td><td>0.00</td></tr>
+<tr><td><a href="/companies/wells-fargo">Wells Fargo</a></td><td>$0.00</td><td>89.6329</td><td>8,963.29</td><td>8,963.29</td><td>0.00</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Sending $100 USD to INR, 13 March 2026. Rounding to the cent aside, the identity holds exactly — across a neobank, three MTOs, a card processor and two retail banks.</p>
+<p class="blog-footnote">Predicted payout = (USD 100 − fee in USD) × rate in INR per USD. Difference is the absolute gap between the predicted and quoted payouts, in INR. These are archived quotes, not completed transfers or current offers.</p>
 </div>
 
-<p>The model reproduces reality to the cent. So we can run it backwards. If <code>receive = (send &minus; fee) &times; rate</code>, and we independently know the mid-market rate on that day, then every quote splits cleanly into a part the sender was shown and a part they were not:</p>
+<p>The model reproduces these quoted payouts to within INR 0.01. So we can run it backwards. If <code>receive = (send &minus; fee) &times; rate</code>, and we independently know the mid-market rate on that day, then every quote splits cleanly into a part the sender was shown and a part they were not:</p>
 
 <ul>
 <li><strong>True cost</strong> = 1 &minus; (received &divide; what mid-market would have delivered)</li>

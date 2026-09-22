@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import { formatEditorialTables } from '../src/lib/editorial-tables.ts';
+
+const input = '<table><caption>Archived USD → INR quotes</caption><thead><tr><th>Provider</th><th>Fee</th><th>Notes</th></tr></thead><tbody><tr><td><a href="/companies/wise">Wise</a></td><td>$0.00</td><td>1–2 business days</td></tr><tr><td>Remitly</td><td>$3.99</td><td>Delivery varies</td></tr></tbody></table>';
+const result = formatEditorialTables(input);
+assert.match(result, /role="region" aria-label="Archived USD → INR quotes" tabindex="0"/);
+assert.match(result, /<th data-numeric="true" scope="col">Fee/);
+assert.match(result, /<td data-numeric="true">\$0\.00<\/td>/);
+assert.match(result, /<td>1–2 business days<\/td>/);
+assert.match(result, /href="\/companies\/wise"/);
+assert.equal(formatEditorialTables(result), result, 'repeated formatting does not duplicate scroll containers');
+const spanning = formatEditorialTables('<table><tr><th colspan="2">Overview</th></tr><tr><td>1</td><td>2</td></tr></table>');
+assert.ok(!spanning.includes('data-numeric'), 'spanning tables do not get guessed column alignment');
+const prose = '<p>Send $100 with <a href="/companies/wise">Wise</a>.</p>';
+assert.equal(formatEditorialTables(prose), prose);
+console.log('Editorial table regression checks passed.');
+const shopping = '<table><tr><th>Provider</th><th>Action</th></tr><tr><td>Wise</td><td><a class="smc-send" href="/go/wise" rel="sponsored">Send</a></td></tr></table>';
+assert.match(formatEditorialTables(shopping), /<a class="smc-send" href="\/go\/wise" rel="sponsored">Send<\/a>/, 'explicit quote actions survive formatting');
+const rowHeader = formatEditorialTables('<table><tr><th>Wise</th><td>$3.00</td></tr></table>');
+assert.match(rowHeader, /<th scope="row">Wise/);

@@ -663,30 +663,9 @@ function renderQuoteTokens(html: string): string {
   return out;
 }
 
-/**
- * Makes provider names inside hand-authored comparison tables clickable.
- *
- * WHY THIS EXISTS
- * 94 guides carry comparison tables typed in by hand, holding 647 rows between
- * them, and not one row contained a /go link — on pages taking 13,474 search
- * impressions. Migrating all of them to {{QUOTE_TABLE}} would be the ideal fix
- * but is not safe in bulk: only some are corridor price tables, and the rest
- * (World Bank fee data, mid-market explainers, delivery-method matrices) would
- * lose their content if swapped for a live quote table.
- *
- * So this adds the action without touching the content. It rewrites only a <td>
- * whose text is exactly a provider name, and leaves the table otherwise intact.
- *
- * DELIBERATE LIMITS
- * - Specialists only. Banks are in providers.ts and have /go URLs, but a guide
- *   arguing that bank wires are expensive should not sprout a "Send with Chase"
- *   button; that undercuts its own argument and reads as arbitrage.
- * - Exact cell match only. Substring matching would link the word "Wise" inside
- *   prose cells and inside other provider names.
- * - Cells that already contain a link are skipped, so tables that already point
- *   at a review or a /go keep whatever they have.
- * - Table cells only. Prose mentions are left alone: a guide may discuss a
- *   provider without recommending it.
+/** Add review links to exact provider-name cells, never implied recommendations.
+ * Authored tables can contain historical research or methodology. Outbound
+ * actions belong only to explicitly authored or generated shopping tables.
  */
 const LINKABLE = new Map<string, string>(
   REMITTANCE_INDEX.providers
@@ -705,11 +684,8 @@ function linkifyTableProviders(html: string): string {
     const text = inner.replace(/<[^>]+>/g, "").trim();
     const slug = LINKABLE.get(text.toLowerCase());
     if (!slug || !companyPageRenders(slug)) return match;
-    const send = `<a href="${getGoUrl(slug, {
-      clickref: "guide_static_table",
-    })}" target="_blank" rel="noopener noreferrer nofollow sponsored" class="smc-send smc-send-sm">Send</a>`;
-    // Keep whatever the cell already had — including a review link — and append.
-    return `<td${attrs}>${inner}${send}</td>`;
+    if (/<a\b/i.test(inner)) return match;
+    return `<td${attrs}><a href="/companies/${slug}">${inner}</a></td>`;
   });
 }
 
