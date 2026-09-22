@@ -11994,10 +11994,10 @@
     "date": "2026-09-22",
     "providers": {
       "lemfi": {
-        "rate": 0.5301,
+        "rate": 0.5299,
         "fee": 0,
-        "markup": 0.6,
-        "receiveAmount": 53.01
+        "markup": 0.63,
+        "receiveAmount": 52.99
       },
       "taptap-send": {
         "rate": 0.53,
@@ -12006,58 +12006,58 @@
         "receiveAmount": 53
       },
       "western-union": {
-        "rate": 0.5193,
+        "rate": 0.5192,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 50.9
+        "receiveAmount": 50.89
       },
       "bnc": {
-        "rate": 0.5233,
+        "rate": 0.5234,
         "fee": 5.95,
         "markup": null,
-        "receiveAmount": 49.21
+        "receiveAmount": 49.23
       },
       "td-bank": {
-        "rate": 0.5182,
+        "rate": 0.5183,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.82
+        "receiveAmount": 51.83
       },
       "instarem": {
+        "rate": 0.5307,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 53.07
+      },
+      "remitly": {
         "rate": 0.5304,
         "fee": 0,
         "markup": null,
         "receiveAmount": 53.04
       },
-      "remitly": {
-        "rate": 0.5303,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 53.03
-      },
       "worldremit": {
-        "rate": 0.5198,
+        "rate": 0.5199,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 49.9
+        "receiveAmount": 49.92
       },
       "bmo": {
-        "rate": 0.5099,
+        "rate": 0.51,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 50.99
+        "receiveAmount": 51
       },
       "paypal": {
-        "rate": 0.5101,
+        "rate": 0.5105,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 49.48
+        "receiveAmount": 49.52
       },
       "rbc": {
-        "rate": 0.5169,
+        "rate": 0.5164,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.69
+        "receiveAmount": 51.64
       }
     }
   }

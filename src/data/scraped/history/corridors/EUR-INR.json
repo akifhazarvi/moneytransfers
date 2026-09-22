@@ -20225,16 +20225,16 @@
     "date": "2026-09-22",
     "providers": {
       "lemfi": {
-        "rate": 109.58,
+        "rate": 109.28,
         "fee": 1.99,
-        "markup": -0.01,
-        "receiveAmount": 10739.94
+        "markup": 0.06,
+        "receiveAmount": 10710.53
       },
       "taptap-send": {
-        "rate": 110,
+        "rate": 109.65,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 11000
+        "receiveAmount": 10965
       },
       "deutsche-bank": {
         "rate": 108.2571,
@@ -20249,10 +20249,10 @@
         "receiveAmount": 10601.05
       },
       "western-union": {
-        "rate": 105.8153,
+        "rate": 105.8336,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 10476.78
+        "receiveAmount": 10478.59
       },
       "profee": {
         "rate": 110.648,
@@ -20273,10 +20273,10 @@
         "receiveAmount": 10706.85
       },
       "instarem": {
-        "rate": 108.821,
+        "rate": 108.536,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 10882.1
+        "receiveAmount": 10853.6
       },
       "paysend": {
         "rate": 109.3754,
@@ -20303,28 +20303,28 @@
         "receiveAmount": 11413.6
       },
       "sparkasse": {
-        "rate": 108.453,
+        "rate": 108.2492,
         "fee": 7.5,
         "markup": null,
-        "receiveAmount": 10031.91
+        "receiveAmount": 10013.05
       },
       "skrill": {
-        "rate": 108.905,
+        "rate": 108.7443,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 10890.5
+        "receiveAmount": 10874.43
       },
       "monese": {
-        "rate": 109.1526,
+        "rate": 109.0072,
         "fee": 3,
         "markup": null,
-        "receiveAmount": 10587.8
+        "receiveAmount": 10573.7
       },
       "wise": {
-        "rate": 109.587,
+        "rate": 109.378,
         "fee": 1.58,
         "markup": null,
-        "receiveAmount": 10785.55
+        "receiveAmount": 10764.98
       },
       "moneygram": {
         "rate": 107.6164,

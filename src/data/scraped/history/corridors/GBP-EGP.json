@@ -2725,14 +2725,14 @@
       "lemfi": {
         "rate": 68.75,
         "fee": 0,
-        "markup": 0.24,
+        "markup": -0.06,
         "receiveAmount": 6875
       },
       "taptap-send": {
-        "rate": 69.2,
+        "rate": 68.75,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6920
+        "receiveAmount": 6875
       }
     }
   }
