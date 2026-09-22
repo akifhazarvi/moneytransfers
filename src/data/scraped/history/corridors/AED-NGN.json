@@ -4584,16 +4584,16 @@
     "date": "2026-09-22",
     "providers": {
       "paysend": {
-        "rate": 359.6945,
+        "rate": 359.6651,
         "fee": 0,
-        "markup": 0.73,
-        "receiveAmount": 35969.45
+        "markup": 0.5,
+        "receiveAmount": 35966.51
       },
       "remitly": {
-        "rate": 366.09,
+        "rate": 366.17,
         "fee": 5,
-        "markup": -1.04,
-        "receiveAmount": 34778.55
+        "markup": -1.3,
+        "receiveAmount": 34786.15
       },
       "taptap-send": {
         "rate": 375,

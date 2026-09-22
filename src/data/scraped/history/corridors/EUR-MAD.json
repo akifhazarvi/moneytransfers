@@ -14807,10 +14807,10 @@
         "receiveAmount": 1074
       },
       "moneygram": {
-        "rate": 10.7573,
+        "rate": 10.7793,
         "fee": 0.8,
-        "markup": 1.55,
-        "receiveAmount": 1067.12
+        "markup": 1.45,
+        "receiveAmount": 1069.31
       },
       "taptap-send": {
         "rate": 10.81,
@@ -14819,16 +14819,16 @@
         "receiveAmount": 1081
       },
       "deutsche-bank": {
-        "rate": 10.6645,
-        "fee": 28.97,
-        "markup": 2.39,
-        "receiveAmount": 757.54
+        "rate": 10.692,
+        "fee": 29.01,
+        "markup": 2.25,
+        "receiveAmount": 759.03
       },
       "xe": {
-        "rate": 10.774,
+        "rate": 10.799,
         "fee": 4,
-        "markup": 1.39,
-        "receiveAmount": 1034.3
+        "markup": 1.27,
+        "receiveAmount": 1036.7
       },
       "western-union": {
         "rate": 10.675,
@@ -14837,40 +14837,40 @@
         "receiveAmount": 1056.93
       },
       "dahabshiil": {
-        "rate": 10.7869,
+        "rate": 10.7739,
         "fee": 1.99,
-        "markup": 1.27,
-        "receiveAmount": 1057.22
+        "markup": 1.5,
+        "receiveAmount": 1055.95
       },
       "worldremit": {
-        "rate": 10.6247,
+        "rate": 10.6422,
         "fee": 1.99,
-        "markup": 2.76,
-        "receiveAmount": 1041.33
+        "markup": 2.71,
+        "receiveAmount": 1043.04
       },
       "paysend": {
-        "rate": 10.8573,
+        "rate": 10.879,
         "fee": 0,
-        "markup": 0.63,
-        "receiveAmount": 1085.73
+        "markup": 0.54,
+        "receiveAmount": 1087.9
       },
       "sendwave": {
-        "rate": 10.8288,
+        "rate": 10.8467,
         "fee": 1.99,
-        "markup": 0.89,
-        "receiveAmount": 1061.33
+        "markup": 0.84,
+        "receiveAmount": 1063.08
       },
       "remitly": {
-        "rate": 10.69,
+        "rate": 10.71,
         "fee": 2.49,
-        "markup": 2.16,
-        "receiveAmount": 1042.38
+        "markup": 2.09,
+        "receiveAmount": 1044.33
       },
       "revolut": {
-        "rate": 10.8052,
+        "rate": 10.8184,
         "fee": 1.75,
-        "markup": 1.11,
-        "receiveAmount": 1061.61
+        "markup": 1.1,
+        "receiveAmount": 1062.91
       },
       "wise": {
         "rate": 10.9359,
@@ -14879,16 +14879,22 @@
         "receiveAmount": 1027.97
       },
       "ria": {
-        "rate": 10.7605,
+        "rate": 10.7793,
         "fee": 0.49,
         "markup": null,
-        "receiveAmount": 1131.06
+        "receiveAmount": 1133.03
       },
       "commerzbank": {
         "rate": 10.5865,
         "fee": 12.5,
         "markup": null,
         "receiveAmount": 926.32
+      },
+      "skrill": {
+        "rate": 10.6158,
+        "fee": 0,
+        "markup": 2.95,
+        "receiveAmount": 1061.58
       }
     }
   }

@@ -6041,16 +6041,16 @@
     "date": "2026-09-22",
     "providers": {
       "paysend": {
-        "rate": 73.7357,
+        "rate": 73.7297,
         "fee": 9,
-        "markup": 2.22,
-        "receiveAmount": 6709.95
+        "markup": 2.3,
+        "receiveAmount": 6709.4
       },
       "remitly": {
-        "rate": 75.43,
+        "rate": 75.45,
         "fee": 7,
-        "markup": -0.03,
-        "receiveAmount": 7014.99
+        "markup": 0.02,
+        "receiveAmount": 7016.85
       },
       "taptap-send": {
         "rate": 75.62,

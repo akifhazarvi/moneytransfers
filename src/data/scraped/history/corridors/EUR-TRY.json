@@ -13367,16 +13367,16 @@
         "receiveAmount": 5565
       },
       "deutsche-bank": {
-        "rate": 55.7993,
-        "fee": 28.97,
-        "markup": 0.4,
-        "receiveAmount": 3963.59
+        "rate": 55.8394,
+        "fee": 29,
+        "markup": 0.16,
+        "receiveAmount": 3964.51
       },
       "xe": {
-        "rate": 55.4082,
+        "rate": 55.3182,
         "fee": 4,
         "markup": 1.1,
-        "receiveAmount": 5319.19
+        "receiveAmount": 5310.55
       },
       "western-union": {
         "rate": 55.189,
@@ -13391,22 +13391,22 @@
         "receiveAmount": 5566.38
       },
       "paysend": {
-        "rate": 55.6984,
+        "rate": 55.6168,
         "fee": 0,
-        "markup": 0.58,
-        "receiveAmount": 5569.84
+        "markup": 0.56,
+        "receiveAmount": 5561.68
       },
       "remitly": {
-        "rate": 55.28,
+        "rate": 55.23,
         "fee": 1.99,
-        "markup": 1.33,
-        "receiveAmount": 5417.99
+        "markup": 1.25,
+        "receiveAmount": 5413.09
       },
       "revolut": {
-        "rate": 55.6873,
+        "rate": 55.591,
         "fee": 1,
-        "markup": 0.6,
-        "receiveAmount": 5513.04
+        "markup": 0.61,
+        "receiveAmount": 5503.5
       },
       "wise": {
         "rate": 56.01,
@@ -13415,10 +13415,10 @@
         "receiveAmount": 5435.77
       },
       "ria": {
-        "rate": 55.0172,
+        "rate": 54.9279,
         "fee": 0.9,
         "markup": null,
-        "receiveAmount": 5683.25
+        "receiveAmount": 5679.6
       },
       "ing-de": {
         "rate": 54.894,
@@ -13437,6 +13437,12 @@
         "fee": 7.5,
         "markup": null,
         "receiveAmount": 5174.86
+      },
+      "dahabshiil": {
+        "rate": 54.4077,
+        "fee": 1.99,
+        "markup": 2.72,
+        "receiveAmount": 5332.5
       }
     }
   }
