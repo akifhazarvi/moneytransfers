@@ -4445,10 +4445,10 @@
     "date": "2026-09-22",
     "providers": {
       "lemfi": {
-        "rate": 555.5,
+        "rate": 562.5,
         "fee": 0,
-        "markup": 2.83,
-        "receiveAmount": 55550
+        "markup": 1.71,
+        "receiveAmount": 56250
       },
       "ria": {
         "rate": 559.806,
@@ -4463,16 +4463,16 @@
         "receiveAmount": 56000
       },
       "western-union": {
-        "rate": 485.5555,
+        "rate": 486.4725,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 46618
+        "receiveAmount": 46706
       },
       "wise": {
-        "rate": 571.643,
+        "rate": 572.373,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 57164.3
+        "receiveAmount": 57237.3
       }
     }
   }
