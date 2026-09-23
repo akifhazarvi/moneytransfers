@@ -17441,10 +17441,10 @@
     "date": "2026-09-23",
     "providers": {
       "lemfi": {
-        "rate": 1.855,
+        "rate": 1.857,
         "fee": 0,
-        "markup": 0.64,
-        "receiveAmount": 185.5
+        "markup": 0.57,
+        "receiveAmount": 185.7
       },
       "taptap-send": {
         "rate": 1.85,
@@ -17453,28 +17453,28 @@
         "receiveAmount": 185
       },
       "remitly": {
-        "rate": 1.8626,
+        "rate": 1.8623,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 182.55
+        "receiveAmount": 182.53
       },
       "instarem": {
-        "rate": 1.8569,
+        "rate": 1.8568,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 185.69
+        "receiveAmount": 185.68
       },
       "monese": {
-        "rate": 1.8671,
+        "rate": 1.8662,
         "fee": 3,
         "markup": null,
-        "receiveAmount": 181.11
+        "receiveAmount": 181.02
       },
       "santander": {
-        "rate": 1.8131,
+        "rate": 1.8132,
         "fee": 25,
         "markup": null,
-        "receiveAmount": 135.98
+        "receiveAmount": 135.99
       },
       "barclays": {
         "rate": 1.8147,
@@ -17486,19 +17486,19 @@
         "rate": 1.8197,
         "fee": 15,
         "markup": null,
-        "receiveAmount": 154.67
+        "receiveAmount": 154.68
       },
       "lloyds": {
-        "rate": 1.8004,
+        "rate": 1.8005,
         "fee": 9.5,
         "markup": null,
         "receiveAmount": 162.94
       },
       "halifax": {
-        "rate": 1.8014,
+        "rate": 1.8015,
         "fee": 9.5,
         "markup": null,
-        "receiveAmount": 163.03
+        "receiveAmount": 163.04
       },
       "rbs": {
         "rate": 1.8252,
@@ -17507,16 +17507,16 @@
         "receiveAmount": 182.52
       },
       "paypal": {
-        "rate": 1.7925,
+        "rate": 1.7935,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 173.89
+        "receiveAmount": 173.99
       },
       "western-union": {
-        "rate": 1.821,
+        "rate": 1.8244,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 178.47
+        "receiveAmount": 178.81
       },
       "worldremit": {
         "rate": 1.8707,
@@ -17531,10 +17531,10 @@
         "receiveAmount": 182.52
       },
       "hsbc": {
-        "rate": 1.8478,
+        "rate": 1.8479,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 184.78
+        "receiveAmount": 184.79
       }
     }
   }

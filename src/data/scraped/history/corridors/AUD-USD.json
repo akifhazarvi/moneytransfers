@@ -12762,10 +12762,10 @@
     "date": "2026-09-23",
     "providers": {
       "lemfi": {
-        "rate": 0.6986,
+        "rate": 0.6999,
         "fee": 0,
-        "markup": 0.73,
-        "receiveAmount": 69.86
+        "markup": 0.6,
+        "receiveAmount": 69.99
       },
       "taptap-send": {
         "rate": 0.7,
@@ -12774,22 +12774,22 @@
         "receiveAmount": 70
       },
       "anz": {
-        "rate": 0.6801,
+        "rate": 0.6812,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 68.01
+        "receiveAmount": 68.12
       },
       "western-union": {
-        "rate": 0.7023,
+        "rate": 0.6976,
         "fee": 2.9,
         "markup": null,
-        "receiveAmount": 68.2
+        "receiveAmount": 67.73
       },
       "paypal": {
-        "rate": 0.6807,
+        "rate": 0.6811,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 64.67
+        "receiveAmount": 64.71
       },
       "westpac": {
         "rate": 0.6766,
@@ -12798,40 +12798,40 @@
         "receiveAmount": 67.66
       },
       "nab": {
-        "rate": 0.686,
+        "rate": 0.6866,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 68.6
+        "receiveAmount": 68.66
       },
       "remitly": {
-        "rate": 0.702,
+        "rate": 0.7025,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 69.15
+        "receiveAmount": 69.2
       },
       "instarem": {
-        "rate": 0.7038,
+        "rate": 0.7042,
         "fee": 0.5,
         "markup": null,
-        "receiveAmount": 70.03
+        "receiveAmount": 70.07
       },
       "worldremit": {
-        "rate": 0.6951,
+        "rate": 0.696,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 69.51
+        "receiveAmount": 69.6
       },
       "commonwealth-bank": {
-        "rate": 0.6842,
+        "rate": 0.6856,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 68.42
+        "receiveAmount": 68.56
       },
       "hsbc": {
-        "rate": 0.6892,
+        "rate": 0.69,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 68.92
+        "receiveAmount": 69
       }
     }
   }
