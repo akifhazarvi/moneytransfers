@@ -12065,70 +12065,70 @@
     "date": "2026-09-23",
     "providers": {
       "lemfi": {
-        "rate": 0.5311,
+        "rate": 0.5325,
         "fee": 0,
-        "markup": 0.54,
-        "receiveAmount": 53.11
+        "markup": 0.58,
+        "receiveAmount": 53.25
       },
       "taptap-send": {
-        "rate": 0.531,
+        "rate": 0.532,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 53.1
+        "receiveAmount": 53.2
       },
       "paypal": {
-        "rate": 0.5085,
+        "rate": 0.5091,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 49.33
+        "receiveAmount": 49.39
       },
       "bmo": {
-        "rate": 0.5108,
+        "rate": 0.5121,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.08
+        "receiveAmount": 51.21
       },
       "worldremit": {
-        "rate": 0.5207,
+        "rate": 0.522,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 49.99
+        "receiveAmount": 50.12
       },
       "remitly": {
-        "rate": 0.5313,
+        "rate": 0.5328,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 53.13
+        "receiveAmount": 53.28
       },
       "rbc": {
-        "rate": 0.5157,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 51.57
-      },
-      "bnc": {
-        "rate": 0.5242,
-        "fee": 5.95,
-        "markup": null,
-        "receiveAmount": 49.3
-      },
-      "instarem": {
-        "rate": 0.5312,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 53.12
-      },
-      "western-union": {
-        "rate": 0.5197,
-        "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 50.94
-      },
-      "td-bank": {
         "rate": 0.5193,
         "fee": 0,
         "markup": null,
         "receiveAmount": 51.93
+      },
+      "bnc": {
+        "rate": 0.5256,
+        "fee": 5.95,
+        "markup": null,
+        "receiveAmount": 49.43
+      },
+      "instarem": {
+        "rate": 0.533,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 53.3
+      },
+      "western-union": {
+        "rate": 0.5208,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 51.05
+      },
+      "td-bank": {
+        "rate": 0.5208,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 52.08
       }
     }
   }
