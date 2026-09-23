@@ -1,9 +1,9 @@
 {
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "comparableCorridors": 216,
   "pairsTracked": 1026,
-  "contestedCorridorDays": 18285,
-  "providerDayObservations": 126063,
+  "contestedCorridorDays": 18289,
+  "providerDayObservations": 126031,
   "maxWindowDays": 91,
   "rows": [
     {
@@ -11,22 +11,22 @@
       "providerName": "Wise",
       "corridorsLed": 49,
       "corridorsQuoted": 128,
-      "wins": 3412,
-      "quotedDays": 10770,
-      "winRate": 31.68,
-      "avgShortfallPct": 2.78,
+      "wins": 3407,
+      "quotedDays": 10773,
+      "winRate": 31.63,
+      "avgShortfallPct": 2.79,
       "leadRate": 38.28
     },
     {
       "providerSlug": "ria",
       "providerName": "Ria Money Transfer",
-      "corridorsLed": 42,
+      "corridorsLed": 43,
       "corridorsQuoted": 66,
-      "wins": 3022,
-      "quotedDays": 4533,
-      "winRate": 66.67,
+      "wins": 3054,
+      "quotedDays": 4564,
+      "winRate": 66.91,
       "avgShortfallPct": 0.48,
-      "leadRate": 63.64
+      "leadRate": 65.15
     },
     {
       "providerSlug": "taptap-send",
@@ -34,8 +34,8 @@
       "corridorsLed": 39,
       "corridorsQuoted": 153,
       "wins": 4055,
-      "quotedDays": 13352,
-      "winRate": 30.37,
+      "quotedDays": 13360,
+      "winRate": 30.35,
       "avgShortfallPct": 1,
       "leadRate": 25.49
     },
@@ -44,9 +44,9 @@
       "providerName": "LemFi",
       "corridorsLed": 32,
       "corridorsQuoted": 87,
-      "wins": 2779,
-      "quotedDays": 7814,
-      "winRate": 35.56,
+      "wins": 2780,
+      "quotedDays": 7816,
+      "winRate": 35.57,
       "avgShortfallPct": 1.05,
       "leadRate": 36.78
     },
@@ -55,44 +55,33 @@
       "providerName": "InstaReM",
       "corridorsLed": 20,
       "corridorsQuoted": 80,
-      "wins": 1841,
-      "quotedDays": 7163,
-      "winRate": 25.7,
+      "wins": 1838,
+      "quotedDays": 7164,
+      "winRate": 25.66,
       "avgShortfallPct": 1.17,
       "leadRate": 25
     },
     {
       "providerSlug": "western-union",
       "providerName": "Western Union",
-      "corridorsLed": 10,
+      "corridorsLed": 9,
       "corridorsQuoted": 109,
-      "wins": 485,
-      "quotedDays": 8197,
-      "winRate": 5.92,
+      "wins": 479,
+      "quotedDays": 8214,
+      "winRate": 5.83,
       "avgShortfallPct": 4.25,
-      "leadRate": 9.17
+      "leadRate": 8.26
     },
     {
       "providerSlug": "paysend",
       "providerName": "Paysend",
       "corridorsLed": 6,
       "corridorsQuoted": 55,
-      "wins": 610,
+      "wins": 604,
       "quotedDays": 4984,
-      "winRate": 12.24,
-      "avgShortfallPct": 2.98,
+      "winRate": 12.12,
+      "avgShortfallPct": 2.99,
       "leadRate": 10.91
-    },
-    {
-      "providerSlug": "xoom",
-      "providerName": "Xoom (PayPal)",
-      "corridorsLed": 4,
-      "corridorsQuoted": 75,
-      "wins": 300,
-      "quotedDays": 5826,
-      "winRate": 5.15,
-      "avgShortfallPct": 5.73,
-      "leadRate": 5.33
     },
     {
       "providerSlug": "bank-of-new-zealand-nz",
@@ -111,31 +100,53 @@
       "corridorsLed": 3,
       "corridorsQuoted": 50,
       "wins": 248,
-      "quotedDays": 4194,
-      "winRate": 5.91,
+      "quotedDays": 4190,
+      "winRate": 5.92,
       "avgShortfallPct": 3.45,
       "leadRate": 6
+    },
+    {
+      "providerSlug": "xoom",
+      "providerName": "Xoom (PayPal)",
+      "corridorsLed": 3,
+      "corridorsQuoted": 75,
+      "wins": 295,
+      "quotedDays": 5767,
+      "winRate": 5.12,
+      "avgShortfallPct": 5.74,
+      "leadRate": 4
     },
     {
       "providerSlug": "remitly",
       "providerName": "Remitly",
       "corridorsLed": 3,
       "corridorsQuoted": 101,
-      "wins": 356,
-      "quotedDays": 8683,
-      "winRate": 4.1,
-      "avgShortfallPct": 3.49,
+      "wins": 357,
+      "quotedDays": 8675,
+      "winRate": 4.12,
+      "avgShortfallPct": 3.5,
       "leadRate": 2.97
+    },
+    {
+      "providerSlug": "skrill",
+      "providerName": "Skrill",
+      "corridorsLed": 2,
+      "corridorsQuoted": 65,
+      "wins": 278,
+      "quotedDays": 2931,
+      "winRate": 9.48,
+      "avgShortfallPct": 2.47,
+      "leadRate": 3.08
     },
     {
       "providerSlug": "hsbc-sg",
       "providerName": "HSBC Singapore",
       "corridorsLed": 1,
       "corridorsQuoted": 4,
-      "wins": 122,
+      "wins": 121,
       "quotedDays": 364,
-      "winRate": 33.52,
-      "avgShortfallPct": 0.57,
+      "winRate": 33.24,
+      "avgShortfallPct": 0.58,
       "leadRate": 25
     },
     {
@@ -144,9 +155,9 @@
       "corridorsLed": 1,
       "corridorsQuoted": 3,
       "wins": 48,
-      "quotedDays": 232,
-      "winRate": 20.69,
-      "avgShortfallPct": 16.66,
+      "quotedDays": 231,
+      "winRate": 20.78,
+      "avgShortfallPct": 16.7,
       "leadRate": 33.33
     },
     {
@@ -161,25 +172,14 @@
       "leadRate": 20
     },
     {
-      "providerSlug": "skrill",
-      "providerName": "Skrill",
-      "corridorsLed": 1,
-      "corridorsQuoted": 65,
-      "wins": 282,
-      "quotedDays": 2949,
-      "winRate": 9.56,
-      "avgShortfallPct": 2.45,
-      "leadRate": 1.54
-    },
-    {
       "providerSlug": "dahabshiil",
       "providerName": "Dahabshiil",
       "corridorsLed": 1,
       "corridorsQuoted": 21,
-      "wins": 163,
+      "wins": 162,
       "quotedDays": 1838,
-      "winRate": 8.87,
-      "avgShortfallPct": 3.47,
+      "winRate": 8.81,
+      "avgShortfallPct": 3.51,
       "leadRate": 4.76
     },
     {
@@ -209,10 +209,10 @@
       "providerName": "Revolut",
       "corridorsLed": 0,
       "corridorsQuoted": 41,
-      "wins": 143,
+      "wins": 145,
       "quotedDays": 3457,
-      "winRate": 4.14,
-      "avgShortfallPct": 2.82,
+      "winRate": 4.19,
+      "avgShortfallPct": 2.83,
       "leadRate": 0
     },
     {
@@ -223,7 +223,7 @@
       "wins": 18,
       "quotedDays": 816,
       "winRate": 2.21,
-      "avgShortfallPct": 2.41,
+      "avgShortfallPct": 2.4,
       "leadRate": 0
     },
     {
@@ -231,9 +231,9 @@
       "providerName": "Monese",
       "corridorsLed": 0,
       "corridorsQuoted": 14,
-      "wins": 25,
+      "wins": 26,
       "quotedDays": 1274,
-      "winRate": 1.96,
+      "winRate": 2.04,
       "avgShortfallPct": 3.39,
       "leadRate": 0
     },
@@ -242,9 +242,9 @@
       "providerName": "BOSS Money",
       "corridorsLed": 0,
       "corridorsQuoted": 17,
-      "wins": 25,
+      "wins": 26,
       "quotedDays": 1541,
-      "winRate": 1.62,
+      "winRate": 1.69,
       "avgShortfallPct": 4.24,
       "leadRate": 0
     },
@@ -256,7 +256,7 @@
       "wins": 2,
       "quotedDays": 182,
       "winRate": 1.1,
-      "avgShortfallPct": 2.62,
+      "avgShortfallPct": 2.65,
       "leadRate": 0
     },
     {
@@ -264,9 +264,9 @@
       "providerName": "Profee",
       "corridorsLed": 0,
       "corridorsQuoted": 16,
-      "wins": 8,
-      "quotedDays": 1017,
-      "winRate": 0.79,
+      "wins": 7,
+      "quotedDays": 1009,
+      "winRate": 0.69,
       "avgShortfallPct": 2.42,
       "leadRate": 0
     },
@@ -286,10 +286,10 @@
       "providerName": "Mukuru",
       "corridorsLed": 0,
       "corridorsQuoted": 8,
-      "wins": 4,
+      "wins": 3,
       "quotedDays": 727,
-      "winRate": 0.55,
-      "avgShortfallPct": 12.87,
+      "winRate": 0.41,
+      "avgShortfallPct": 12.91,
       "leadRate": 0
     },
     {
@@ -297,10 +297,10 @@
       "providerName": "CurrencyFair",
       "corridorsLed": 0,
       "corridorsQuoted": 21,
-      "wins": 8,
-      "quotedDays": 1876,
-      "winRate": 0.43,
-      "avgShortfallPct": 6.78,
+      "wins": 7,
+      "quotedDays": 1875,
+      "winRate": 0.37,
+      "avgShortfallPct": 6.79,
       "leadRate": 0
     },
     {
@@ -311,7 +311,7 @@
       "wins": 8,
       "quotedDays": 2269,
       "winRate": 0.35,
-      "avgShortfallPct": 2.86,
+      "avgShortfallPct": 2.85,
       "leadRate": 0
     },
     {
@@ -319,9 +319,9 @@
       "providerName": "XE Money Transfer",
       "corridorsLed": 0,
       "corridorsQuoted": 41,
-      "wins": 8,
-      "quotedDays": 2986,
-      "winRate": 0.27,
+      "wins": 9,
+      "quotedDays": 2991,
+      "winRate": 0.3,
       "avgShortfallPct": 5.12,
       "leadRate": 0
     },
@@ -331,20 +331,9 @@
       "corridorsLed": 0,
       "corridorsQuoted": 10,
       "wins": 1,
-      "quotedDays": 510,
+      "quotedDays": 500,
       "winRate": 0.2,
-      "avgShortfallPct": 3.32,
-      "leadRate": 0
-    },
-    {
-      "providerSlug": "moneygram",
-      "providerName": "MoneyGram",
-      "corridorsLed": 0,
-      "corridorsQuoted": 60,
-      "wins": 9,
-      "quotedDays": 5358,
-      "winRate": 0.17,
-      "avgShortfallPct": 3.8,
+      "avgShortfallPct": 3.33,
       "leadRate": 0
     },
     {
@@ -355,7 +344,18 @@
       "wins": 1,
       "quotedDays": 637,
       "winRate": 0.16,
-      "avgShortfallPct": 3.97,
+      "avgShortfallPct": 3.96,
+      "leadRate": 0
+    },
+    {
+      "providerSlug": "moneygram",
+      "providerName": "MoneyGram",
+      "corridorsLed": 0,
+      "corridorsQuoted": 60,
+      "wins": 8,
+      "quotedDays": 5356,
+      "winRate": 0.15,
+      "avgShortfallPct": 3.81,
       "leadRate": 0
     },
     {
@@ -366,7 +366,7 @@
       "wins": 1,
       "quotedDays": 711,
       "winRate": 0.14,
-      "avgShortfallPct": 3.11,
+      "avgShortfallPct": 3.1,
       "leadRate": 0
     },
     {
@@ -388,7 +388,7 @@
       "wins": 0,
       "quotedDays": 819,
       "winRate": 0,
-      "avgShortfallPct": 4.15,
+      "avgShortfallPct": 4.14,
       "leadRate": 0
     },
     {
@@ -397,7 +397,7 @@
       "corridorsLed": 0,
       "corridorsQuoted": 7,
       "wins": 0,
-      "quotedDays": 245,
+      "quotedDays": 252,
       "winRate": 0,
       "avgShortfallPct": 4.5,
       "leadRate": 0
@@ -408,7 +408,7 @@
       "corridorsLed": 0,
       "corridorsQuoted": 43,
       "wins": 0,
-      "quotedDays": 3813,
+      "quotedDays": 3815,
       "winRate": 0,
       "avgShortfallPct": 9.3,
       "leadRate": 0
@@ -432,7 +432,7 @@
       "wins": 0,
       "quotedDays": 364,
       "winRate": 0,
-      "avgShortfallPct": 2.97,
+      "avgShortfallPct": 2.98,
       "leadRate": 0
     },
     {
@@ -443,7 +443,7 @@
       "wins": 0,
       "quotedDays": 282,
       "winRate": 0,
-      "avgShortfallPct": 3.29,
+      "avgShortfallPct": 3.32,
       "leadRate": 0
     },
     {
@@ -454,7 +454,7 @@
       "wins": 0,
       "quotedDays": 230,
       "winRate": 0,
-      "avgShortfallPct": 4.63,
+      "avgShortfallPct": 4.66,
       "leadRate": 0
     },
     {
@@ -496,7 +496,7 @@
       "corridorsLed": 0,
       "corridorsQuoted": 2,
       "wins": 0,
-      "quotedDays": 100,
+      "quotedDays": 98,
       "winRate": 0,
       "avgShortfallPct": 5.56,
       "leadRate": 0
@@ -507,9 +507,9 @@
       "corridorsLed": 0,
       "corridorsQuoted": 6,
       "wins": 0,
-      "quotedDays": 246,
+      "quotedDays": 252,
       "winRate": 0,
-      "avgShortfallPct": 9.61,
+      "avgShortfallPct": 9.62,
       "leadRate": 0
     },
     {
@@ -520,7 +520,7 @@
       "wins": 0,
       "quotedDays": 546,
       "winRate": 0,
-      "avgShortfallPct": 14.07,
+      "avgShortfallPct": 14.08,
       "leadRate": 0
     },
     {
@@ -529,9 +529,9 @@
       "corridorsLed": 0,
       "corridorsQuoted": 3,
       "wins": 0,
-      "quotedDays": 123,
+      "quotedDays": 126,
       "winRate": 0,
-      "avgShortfallPct": 23.28,
+      "avgShortfallPct": 23.29,
       "leadRate": 0
     },
     {
@@ -540,9 +540,9 @@
       "corridorsLed": 0,
       "corridorsQuoted": 9,
       "wins": 0,
-      "quotedDays": 807,
+      "quotedDays": 804,
       "winRate": 0,
-      "avgShortfallPct": 37.11,
+      "avgShortfallPct": 37.07,
       "leadRate": 0
     },
     {
@@ -553,7 +553,7 @@
       "wins": 0,
       "quotedDays": 181,
       "winRate": 0,
-      "avgShortfallPct": 29.23,
+      "avgShortfallPct": 29.27,
       "leadRate": 0
     },
     {
@@ -584,7 +584,7 @@
       "corridorsLed": 0,
       "corridorsQuoted": 12,
       "wins": 0,
-      "quotedDays": 1085,
+      "quotedDays": 1086,
       "winRate": 0,
       "avgShortfallPct": 2.64,
       "leadRate": 0
@@ -606,7 +606,7 @@
       "corridorsLed": 0,
       "corridorsQuoted": 10,
       "wins": 0,
-      "quotedDays": 810,
+      "quotedDays": 812,
       "winRate": 0,
       "avgShortfallPct": 24.5,
       "leadRate": 0
@@ -650,9 +650,9 @@
       "corridorsLed": 0,
       "corridorsQuoted": 1,
       "wins": 0,
-      "quotedDays": 71,
+      "quotedDays": 70,
       "winRate": 0,
-      "avgShortfallPct": 3.17,
+      "avgShortfallPct": 3.18,
       "leadRate": 0
     },
     {
@@ -696,7 +696,7 @@
       "wins": 0,
       "quotedDays": 279,
       "winRate": 0,
-      "avgShortfallPct": 20.65,
+      "avgShortfallPct": 20.66,
       "leadRate": 0
     },
     {
@@ -705,9 +705,9 @@
       "corridorsLed": 0,
       "corridorsQuoted": 3,
       "wins": 0,
-      "quotedDays": 153,
+      "quotedDays": 150,
       "winRate": 0,
-      "avgShortfallPct": 31.95,
+      "avgShortfallPct": 31.96,
       "leadRate": 0
     },
     {
@@ -718,7 +718,7 @@
       "wins": 0,
       "quotedDays": 637,
       "winRate": 0,
-      "avgShortfallPct": 3.39,
+      "avgShortfallPct": 3.4,
       "leadRate": 0
     },
     {
@@ -733,6 +733,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 55,
-  "stableCorridors": 161
+  "rotatingCorridors": 54,
+  "stableCorridors": 162
 }

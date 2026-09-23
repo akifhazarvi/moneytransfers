@@ -1,29 +1,29 @@
 {
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "corridorsScored": 198,
   "corridorsWithAnyScore": 1020,
   "singleProviderReadings": 822,
   "bands": {
     "exceptional": 4,
-    "great": 40,
-    "good": 86,
-    "typical": 38,
-    "poor": 30
+    "great": 43,
+    "good": 80,
+    "typical": 40,
+    "poor": 31
   },
-  "goodOrBetterPct": 66,
+  "goodOrBetterPct": 64,
   "confidence": {
     "high": 198,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 179,
+  "medianDaysObserved": 180,
   "example": {
     "pair": "USD-INR",
     "score": {
       "score": 70,
       "band": "good",
       "headline": "Good time to send",
-      "explanation": "Today's best rate is +0.46% vs the 30-day average, 66% of the way up the 90-day range. Rates are improving — +0.56% week on week. Today's best beats the median provider by +2.50%.",
+      "explanation": "Today's best rate is +0.46% vs the 30-day average, 66% of the way up the 90-day range. Rates are improving — +0.41% week on week. Today's best beats the median provider by +2.47%.",
       "components": [
         {
           "key": "range",
@@ -36,7 +36,7 @@
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 57.65106185153169,
+          "score": 57.60690117813254,
           "detail": "+0.46% vs the 30-day average"
         },
         {
@@ -44,17 +44,17 @@
           "label": "Best provider versus the field",
           "weight": 20,
           "score": 100,
-          "detail": "today's best beats the median provider by +2.50%"
+          "detail": "today's best beats the median provider by +2.47%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 64.00262428521948,
-          "detail": "improving — +0.56% week on week"
+          "score": 60.195971428061405,
+          "detail": "improving — +0.41% week on week"
         }
       ],
-      "daysObserved": 185,
+      "daysObserved": 186,
       "rangeWindowDays": 90,
       "confidence": "high"
     }
