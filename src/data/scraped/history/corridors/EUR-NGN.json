@@ -14848,5 +14848,82 @@
         "receiveAmount": 153781.66
       }
     }
+  },
+  {
+    "date": "2026-09-24",
+    "providers": {
+      "lemfi": {
+        "rate": 1563,
+        "fee": 0,
+        "markup": -3.57,
+        "receiveAmount": 156300
+      },
+      "taptap-send": {
+        "rate": 1565,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 156500
+      },
+      "western-union": {
+        "rate": 1547.7679,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 153244.5
+      },
+      "dahabshiil": {
+        "rate": 1544.8605,
+        "fee": 1.99,
+        "markup": -2.18,
+        "receiveAmount": 151411.78
+      },
+      "profee": {
+        "rate": 1565.0409,
+        "fee": 2,
+        "markup": -3.52,
+        "receiveAmount": 153374.01
+      },
+      "worldremit": {
+        "rate": 1552.8173,
+        "fee": 0.99,
+        "markup": -2.71,
+        "receiveAmount": 153744.44
+      },
+      "instarem": {
+        "rate": 1497.582,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 149758.2
+      },
+      "paysend": {
+        "rate": 1554.0611,
+        "fee": 0,
+        "markup": -2.79,
+        "receiveAmount": 155406.11
+      },
+      "sendwave": {
+        "rate": 1552.8173,
+        "fee": 0.99,
+        "markup": -2.71,
+        "receiveAmount": 153744.44
+      },
+      "remitly": {
+        "rate": 1562.06,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 156206
+      },
+      "ria": {
+        "rate": 1536.608,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 153660.8
+      },
+      "wise": {
+        "rate": 1564.04,
+        "fee": 1.72,
+        "markup": null,
+        "receiveAmount": 153713.85
+      }
+    }
   }
 ]

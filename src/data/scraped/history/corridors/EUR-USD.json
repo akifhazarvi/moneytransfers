@@ -12682,5 +12682,70 @@
         "receiveAmount": 110.37
       }
     }
+  },
+  {
+    "date": "2026-09-24",
+    "providers": {
+      "lemfi": {
+        "rate": 1.144,
+        "fee": 0,
+        "markup": -0.55,
+        "receiveAmount": 114.4
+      },
+      "taptap-send": {
+        "rate": 1.12,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112
+      },
+      "skrill": {
+        "rate": 1.0833,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 108.33
+      },
+      "instarem": {
+        "rate": 1.1289,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.89
+      },
+      "ing-de": {
+        "rate": 1.1274,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 87.94
+      },
+      "paypal": {
+        "rate": 1.0906,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 104.71
+      },
+      "western-union": {
+        "rate": 1.1094,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 109.84
+      },
+      "moneygram": {
+        "rate": 1.1214,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 109.9
+      },
+      "commerzbank": {
+        "rate": 1.1274,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 98.65
+      },
+      "monese": {
+        "rate": 1.1374,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 110.33
+      }
+    }
   }
 ]
