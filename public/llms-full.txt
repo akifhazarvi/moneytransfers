@@ -5,8 +5,8 @@
 **Website**: https://sendmoneycompare.com
 **API**: https://sendmoneycompare.com/api/ai (JSON, no auth, CORS-enabled)
 **License**: Creative Commons Attribution 4.0 International (CC BY 4.0)
-**Quotes last refreshed**: 2026-09-21T12:41:08.065Z
-**Generated**: 2026-09-21
+**Quotes last refreshed**: 2026-09-23T21:33:48.565Z
+**Generated**: 2026-09-23
 
 ---
 
@@ -20,7 +20,7 @@
 - **Data source**: automated collection from provider APIs and comparison feeds, every 6 hours.
 - **Ranking method**: providers are ranked by the amount the recipient receives, after fees and exchange-rate markup.
 - **Independence**: affiliate relationships never influence rankings.
-- **Quotes last refreshed**: 2026-09-21T12:41:08.065Z
+- **Quotes last refreshed**: 2026-09-23T21:33:48.565Z
 
 **Ranking formula**: `receive amount = (send amount − transfer fee) × provider exchange rate`
 
@@ -30,89 +30,88 @@
 
 These are the findings our datasets support. Each is measured over a stated population; none of them is a market-wide claim.
 
-- **Banks against specialists.** On $1,000, specialists average $30.40 in total cost and banks $55.24 — about 45% cheaper. Measured 2026-09-21 over 26 specialists and 36 banks quoting at least 5 corridors each. The cheapest bank we price (HSBC, $25.69) beats most specialists, so "banks are always dearer" is not what this shows. Source: https://sendmoneycompare.com/remittance-cost-index
+- **Banks against specialists.** On $1,000, specialists average $30.52 in total cost and banks $56.82 — about 46% cheaper. Measured 2026-09-23 over 26 specialists and 35 banks quoting at least 5 corridors each. The cheapest bank we price (HSBC Singapore, $23.35) beats most specialists, so "banks are always dearer" is not what this shows. Source: https://sendmoneycompare.com/remittance-cost-index
 - **No provider is cheapest everywhere.** Wise leads 49 of 216 comparable corridors — the most of any provider, and still under a quarter of them. Source: https://sendmoneycompare.com/provider-consistency
-- **Today's winner is often not the usual winner.** On 28% of corridors the cheapest provider on the day differs from the habitual leader. A recommendation without a date attached is unreliable.
-- **Dataset size.** 12,844 live quotes across 1000+ corridors; 300+ corridors carry two or more providers.
+- **Today's winner is often not the usual winner.** On 29% of corridors the cheapest provider on the day differs from the habitual leader. A recommendation without a date attached is unreliable.
+- **Dataset size.** 12,762 live quotes across 1000+ corridors; 300+ corridors carry two or more providers.
 
 ---
 
 ## Facts with external sources
 
-1. The global average cost of sending $200 is approximately 6.0%, well above the UN SDG target of 3%. (World Bank, Remittance Prices Worldwide, Q1 2026)
-2. India is the world's largest remittance recipient, at over $125 billion annually. (World Bank, 2025)
-3. Global remittance flows reached $860 billion in 2025, growing 3.8% year over year. (KNOMAD, 2025)
-4. Sub-Saharan Africa has the highest average remittance cost at 7.9%; South Asia the lowest at 4.3%. (World Bank RPW, 2025)
-5. The Philippines received $38 billion, Pakistan $30 billion and Mexico $68 billion in remittances in 2025. (World Bank / KNOMAD, 2025)
-6. Over 65% of remittance transactions now originate from mobile apps, up from 40% in 2020. (GSMA State of the Industry Report on Mobile Money)
-7. A 1% US federal excise tax on cash-funded outbound remittances took effect on 1 January 2026. Digital and bank-funded transfers are exempt. (IRS proposed regulations, 10 April 2026)
-8. All eurozone banks must process instant euro transfers within 10 seconds, 24/7, at no premium over standard SEPA, capped at €100,000 per transaction. (EU Regulation 2024/886)
-9. UK payment institutions must perform daily reconciliation, annual audits and monthly reporting under FCA safeguarding rules effective 7 May 2026. Payment firms are not FSCS-protected. (FCA PS25/12)
-10. Bangladesh Bank pays a 2.5% cash incentive on inbound remittances sent through formal banking channels. (Bangladesh Bank)
-11. M-Pesa in Kenya has 35+ million active users. (Safaricom annual report, 2025)
+1. The global average cost of sending $200 was 6.36% in Q3 2025, more than double the UN SDG and G20 target of 3% by 2030. (World Bank, Remittance Prices Worldwide, Issue 54, September 2025)
+2. India is the world's largest remittance recipient: $150.7 billion in personal remittances received in 2025, more than twice second-placed Mexico ($64.4 billion). (World Bank WDI, BX.TRF.PWKR.CD.DT, updated July 2026)
+3. The World Bank estimates worldwide remittances reached $905 billion in 2024, up 4.2%; $685 billion went to low- and middle-income countries. (World Bank / KNOMAD, People Move, December 18, 2024)
+4. Sub-Saharan Africa is the most expensive region to send money to, at an average cost of 8.46%; Middle East, North Africa, Afghanistan & Pakistan overtook South Asia as the cheapest, at 5.11%. (World Bank, Remittance Prices Worldwide, Issue 54, September 2025)
+5. After India, the largest recipients of personal remittances in 2025 were Mexico ($64.4 billion), the Philippines ($41.6 billion) and Pakistan ($40.5 billion). (World Bank WDI, BX.TRF.PWKR.CD.DT, updated July 2026)
+6. Since 1 January 2026 the US imposes a 1% federal excise tax on remittance transfers funded with cash, a money order, a cashier's check or a similar physical instrument; transfers funded from a US financial-institution account or a US-issued debit or credit card are exempt. (26 U.S.C. §4475, added by Pub. L. 119-21 §70604)
+7. Eurozone payment providers that offer euro credit transfers must receive instant euro payments (since 9 January 2025) and send them (since 9 October 2025), 24 hours a day on every calendar day, with funds available within 10 seconds, at a charge no higher than a regular credit transfer. (Regulation (EU) 2024/886, Articles 5a-5b)
+8. UK payment institutions must perform daily reconciliation, annual audits and monthly reporting under FCA safeguarding rules effective 7 May 2026. Payment firms are not FSCS-protected. (FCA PS25/12)
+9. Bangladesh Bank pays a 2.5% cash incentive on inbound remittances sent through formal banking channels. (Bangladesh Bank)
+10. M-Pesa in Kenya has 35+ million active users. (Safaricom annual report, 2025)
 
 ---
 
 ## Provider summaries
 
 ### Wise
-- Exchange-rate markup vs mid-market: 0.34% median across 327 corridors (2026-09-21). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
-- Total cost on $1,000: 2.29% average (1.69% fee + 0.62% markup) over 308 corridors.
-- Cheapest on 49 of the 128 corridors it quotes; wins 31.7% of the provider-days we observe.
+- Exchange-rate markup vs mid-market: 0.32% median across 318 corridors (2026-09-23). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
+- Total cost on $1,000: 2.36% average (1.73% fee + 0.65% markup) over 303 corridors.
+- Cheapest on 49 of the 128 corridors it quotes; wins 31.6% of the provider-days we observe.
 - Best for: Large transfers, transparency, business payments.
 - Multi-currency account holding 40+ currency balances
 - Regulated by the FCA (UK), FinCEN (US) and ASIC (Australia)
-- Trustpilot: 4.3/5 from 301,136 reviews (scraped 2026-09-21).
+- Trustpilot: 4.3/5 from 301,253 reviews (scraped 2026-09-23).
 - Send with Wise: https://sendmoneycompare.com/go/wise?src=llms
 - Review: https://sendmoneycompare.com/companies/wise
 
 ### Remitly
-- Exchange-rate markup vs mid-market: 0.99% median across 212 corridors (2026-09-21). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
-- Total cost on $1,000: 2.15% average (0.98% fee + 1.19% markup) over 199 corridors.
+- Exchange-rate markup vs mid-market: 1.04% median across 217 corridors (2026-09-23). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
+- Total cost on $1,000: 2.25% average (1.02% fee + 1.26% markup) over 205 corridors.
 - Cheapest on 3 of the 101 corridors it quotes; wins 4.1% of the provider-days we observe.
 - Best for: Urgent transfers, small remittances, mobile wallet delivery.
 - Express (minutes) and Economy (1–3 days) tiers
 - Supports M-Pesa, GCash, bKash, JazzCash, bank deposit and cash pickup
 - Regulated by FinCEN (US) and the FCA (UK)
-- Trustpilot: 4.6/5 from 120,847 reviews (scraped 2026-09-21).
+- Trustpilot: 4.6/5 from 120,972 reviews (scraped 2026-09-23).
 - Send with Remitly: https://sendmoneycompare.com/go/remitly?src=llms
 - Review: https://sendmoneycompare.com/companies/remitly
 
 ### Western Union
-- Exchange-rate markup vs mid-market: 1.69% median across 236 corridors (2026-09-21). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
-- Total cost on $1,000: 3.55% average (1.59% fee + 2.00% markup) over 236 corridors.
-- Cheapest on 10 of the 109 corridors it quotes; wins 6.0% of the provider-days we observe.
+- Exchange-rate markup vs mid-market: 1.63% median across 234 corridors (2026-09-23). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
+- Total cost on $1,000: 3.39% average (1.52% fee + 1.91% markup) over 233 corridors.
+- Cheapest on 9 of the 109 corridors it quotes; wins 5.8% of the provider-days we observe.
 - Best for: Cash pickup in remote areas, recipients without a bank account.
-- 550,000+ agent locations across 200+ countries
-- Higher cost, unmatched physical reach
-- Trustpilot: 4.3/5 from 169,747 reviews (scraped 2026-09-21).
+- Agent locations in 200+ countries; ~360,000 active in 2025 (FY2025 10-K)
+- Higher cost, large physical cash network
+- Trustpilot: 4.3/5 from 169,838 reviews (scraped 2026-09-23).
 - Send with Western Union: https://sendmoneycompare.com/go/western-union?src=llms
 - Review: https://sendmoneycompare.com/companies/western-union
 
 ### OFX
-- Exchange-rate markup vs mid-market: 3.73% median across 177 corridors (2026-09-21). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
-- Total cost on $1,000: 6.42% average (2.52% fee + 3.97% markup) over 170 corridors.
-- Cheapest on 1 of the 5 corridors it quotes; wins 12.3% of the provider-days we observe.
+- Exchange-rate markup vs mid-market: 3.04% median across 178 corridors (2026-09-23). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
+- Total cost on $1,000: 5.54% average (2.04% fee + 3.52% markup) over 171 corridors.
+- Cheapest on 1 of the 5 corridors it quotes; wins 12.6% of the provider-days we observe.
 - Best for: Large transfers, recurring payments, business.
 - Forward contracts, limit orders and rate alerts for regular senders
-- Trustpilot: 4.3/5 from 11,471 reviews (scraped 2026-09-21).
+- Trustpilot: 4.3/5 from 11,478 reviews (scraped 2026-09-23).
 - Send with OFX: https://sendmoneycompare.com/go/ofx?src=llms
 - Review: https://sendmoneycompare.com/companies/ofx
 
 ### InstaReM
-- Exchange-rate markup vs mid-market: 0.73% median across 163 corridors (2026-09-21). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
-- Total cost on $1,000: 1.39% average (0.61% fee + 0.79% markup) over 163 corridors.
-- Cheapest on 20 of the 80 corridors it quotes; wins 25.8% of the provider-days we observe.
+- Exchange-rate markup vs mid-market: 0.75% median across 161 corridors (2026-09-23). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
+- Total cost on $1,000: 1.39% average (0.60% fee + 0.80% markup) over 161 corridors.
+- Cheapest on 20 of the 80 corridors it quotes; wins 25.7% of the provider-days we observe.
 - Best for: Regular senders to India, the Philippines, Singapore and Malaysia.
 - Strongest across Asia-Pacific corridors
-- Trustpilot: 4/5 from 8,940 reviews (scraped 2026-09-21).
+- Trustpilot: 4/5 from 8,942 reviews (scraped 2026-09-23).
 - Send with InstaReM: https://sendmoneycompare.com/go/instarem?src=llms
 - Review: https://sendmoneycompare.com/companies/instarem
 
 ### TapTap Send
-- Exchange-rate markup vs mid-market: 1.00% median across 791 corridors (2026-09-21). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
-- Total cost on $1,000: 1.49% average (0.00% fee + 1.49% markup) over 791 corridors.
-- Cheapest on 39 of the 153 corridors it quotes; wins 30.3% of the provider-days we observe.
+- Exchange-rate markup vs mid-market: 0.95% median across 786 corridors (2026-09-23). Median rather than mean, because a few corridors with unreliable benchmark rates distort the average.
+- Total cost on $1,000: 1.51% average (0.00% fee + 1.51% markup) over 786 corridors.
+- Cheapest on 39 of the 153 corridors it quotes; wins 30.4% of the provider-days we observe.
 - Best for: UK and EU senders to Africa and South Asia.
 - Free mobile wallet delivery
 - Send with TapTap Send: https://sendmoneycompare.com/go/taptap-send?src=llms
@@ -123,66 +122,66 @@ These are the findings our datasets support. Each is measured over a stated popu
 ## Popular corridor quick answers
 
 ### USA to India (USD → INR)
-- **Cheapest on 2026-09-21**: TapTap Send — 96,104.28 INR on 1,000 USD, fee zero
-- **Providers compared**: 21. Gap between best and worst: 6,988.18 INR
+- **Cheapest on 2026-09-23**: TapTap Send — 95,807.73 INR on 1,000 USD, fee zero
+- **Providers compared**: 21. Gap between best and worst: 9,769.93 INR
 - **Delivery**: IMPS (instant), UPI, NEFT, bank deposit, cash pickup. IFSC code required for bank deposits.
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/usa-to-india
 
 ### USA to Mexico (USD → MXN)
-- **Cheapest on 2026-09-21**: TapTap Send — 17,199.58 MXN on 1,000 USD, fee zero
-- **Providers compared**: 20. Gap between best and worst: 851.99 MXN
+- **Cheapest on 2026-09-23**: Xoom (PayPal) — 17,483.71 MXN on 1,000 USD, fee 4.99 USD
+- **Providers compared**: 21. Gap between best and worst: 1,045.78 MXN
 - **Delivery**: SPEI (instant), bank deposit, cash pickup via OXXO.
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/usa-to-mexico
 
 ### USA to Philippines (USD → PHP)
-- **Cheapest on 2026-09-21**: Xoom (PayPal) — 62,983.94 PHP on 1,000 USD, fee zero
-- **Providers compared**: 20. Gap between best and worst: 3,225.96 PHP
+- **Cheapest on 2026-09-23**: Xoom (PayPal) — 62,840.84 PHP on 1,000 USD, fee zero
+- **Providers compared**: 20. Gap between best and worst: 3,295.23 PHP
 - **Delivery**: GCash wallet (seconds), bank deposit, cash pickup. GCash caps incoming transfers by MONTH, not per transaction, and by verification tier: PHP 5,000/month on an unverified profile, PHP 100,000/month once Fully Verified (help.gcash.com, checked September 2026).
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/usa-to-philippines
 
 ### USA to Pakistan (USD → PKR)
-- **Cheapest on 2026-09-21**: WorldRemit — 277,128.3 PKR on 1,000 USD, fee zero
-- **Providers compared**: 17. Gap between best and worst: 21,935.34 PKR
+- **Cheapest on 2026-09-23**: Remitly — 278,102.33 PKR on 1,000 USD, fee zero
+- **Providers compared**: 17. Gap between best and worst: 19,774.32 PKR
 - **Delivery**: JazzCash, Easypaisa, bank deposit. JazzCash caps inbound by ACCOUNT LEVEL: Level 0 takes PKR 25,000/day and 50,000/month, Level 1 PKR 100,000/day — both below a typical remittance. An Asaan Digital Remittance Account (PKR 1,000,000/day) is usually required (jazzcash.com.pk/tc, checked September 2026).
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/usa-to-pakistan
 
 ### USA to Nigeria (USD → NGN)
-- **Cheapest on 2026-09-21**: LemFi — 1,364,007.44 NGN on 1,000 USD, fee zero
-- **Providers compared**: 13. Gap between best and worst: 37,789.3 NGN
+- **Cheapest on 2026-09-23**: TapTap Send — 1,365,020.27 NGN on 1,000 USD, fee zero
+- **Providers compared**: 13. Gap between best and worst: 40,845.84 NGN
 - **Delivery**: Bank deposit and mobile money.
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/usa-to-nigeria
 
 ### UK to India (GBP → INR)
-- **Cheapest on 2026-09-21**: Remitly — 128,734.1 INR on 1,000 GBP, fee zero
-- **Providers compared**: 30. Gap between best and worst: 8,032.31 INR
+- **Cheapest on 2026-09-23**: MoneyGram — 127,131.43 INR on 1,000 GBP, fee 1.49 GBP
+- **Providers compared**: 30. Gap between best and worst: 6,581.82 INR
 - **Delivery**: IMPS (instant), NEFT, bank deposit.
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/uk-to-india
 
 ### Canada to India (CAD → INR)
-- **Cheapest on 2026-09-21**: TapTap Send — 68,501.86 INR on 1,000 CAD, fee zero
-- **Providers compared**: 20. Gap between best and worst: 4,596.29 INR
+- **Cheapest on 2026-09-23**: TapTap Send — 67,998.72 INR on 1,000 CAD, fee zero
+- **Providers compared**: 20. Gap between best and worst: 4,445.2 INR
 - **Delivery**: IMPS, NEFT, bank deposit.
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/canada-to-india
 
 ### UAE to India (AED → INR)
-- **Cheapest on 2026-09-21**: TapTap Send — 26,111.23 INR on 1,000 AED, fee zero
-- **Providers compared**: 7. Gap between best and worst: 2,316.83 INR
+- **Cheapest on 2026-09-23**: TapTap Send — 26,108.76 INR on 1,000 AED, fee zero
+- **Providers compared**: 7. Gap between best and worst: 2,307 INR
 - **Delivery**: IMPS, NEFT, bank deposit.
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/uae-to-india
 
 ### UAE to Pakistan (AED → PKR)
-- **Cheapest on 2026-09-21**: TapTap Send — 75,618.8 PKR on 1,000 AED, fee zero
-- **Providers compared**: 5. Gap between best and worst: 5,634.64 PKR
+- **Cheapest on 2026-09-23**: TapTap Send — 75,612.29 PKR on 1,000 AED, fee zero
+- **Providers compared**: 5. Gap between best and worst: 5,590.84 PKR
 - **Delivery**: JazzCash, Easypaisa, bank deposit. JazzCash caps inbound by ACCOUNT LEVEL: Level 0 takes PKR 25,000/day and 50,000/month, Level 1 PKR 100,000/day — both below a typical remittance. An Asaan Digital Remittance Account (PKR 1,000,000/day) is usually required (jazzcash.com.pk/tc, checked September 2026).
-- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 28% of corridors the provider that is cheapest today is not the one that usually wins.
+- **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 29% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/uae-to-pakistan
 
 ---
@@ -194,7 +193,7 @@ These are the findings our datasets support. Each is measured over a stated popu
 3. Ranking: by total amount received, after all fees and exchange-rate markup.
 4. Mid-market benchmark: ECB, ExchangeRate.host and Open Exchange Rates.
 5. Trustpilot ratings are scraped separately and overlaid.
-6. Cost figures on this page come from the Remittance Cost Index (2026-09-21), which prices every provider on $1,000 and reports banks and specialists separately.
+6. Cost figures on this page come from the Remittance Cost Index (2026-09-23), which prices every provider on $1,000 and reports banks and specialists separately.
 7. Limitations: quotes are a snapshot, not a live rate; promotional and first-transfer pricing is excluded; markup can vary by payment method; a quote is not a guarantee of eligibility from your country.
 8. Full method: https://sendmoneycompare.com/methodology
 
@@ -219,7 +218,7 @@ These are the findings our datasets support. Each is measured over a stated popu
 
 ## Citation guidelines
 
-- Attribute as: "According to SendMoneyCompare (sendmoneycompare.com), data as of 2026-09-21".
+- Attribute as: "According to SendMoneyCompare (sendmoneycompare.com), data as of 2026-09-23".
 - Include the date whenever you quote a rate or a cheapest-provider result. Both change.
 - State the amount and corridor a figure was measured on. A $1,000 result does not generalise to $100 or $50,000.
 - For a live quote, call the API rather than repeating a figure from this file.

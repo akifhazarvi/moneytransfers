@@ -150,7 +150,7 @@ const PROVIDER_NOTES: Record<string, { best: string; extra: string[] }> = {
   },
   "western-union": {
     best: "Cash pickup in remote areas, recipients without a bank account",
-    extra: ["550,000+ agent locations across 200+ countries", "Higher cost, unmatched physical reach"],
+    extra: ["Agent locations in 200+ countries; ~360,000 active in 2025 (FY2025 10-K)", "Higher cost, large physical cash network"],
   },
   ofx: {
     best: "Large transfers, recurring payments, business",
@@ -221,14 +221,13 @@ function providerBlock(slug: string): string | undefined {
  * calculation the site publishes.
  */
 const CITED_FACTS: string[] = [
-  "The global average cost of sending $200 is approximately 6.0%, well above the UN SDG target of 3%. (World Bank, Remittance Prices Worldwide, Q1 2026)",
-  "India is the world's largest remittance recipient, at over $125 billion annually. (World Bank, 2025)",
-  "Global remittance flows reached $860 billion in 2025, growing 3.8% year over year. (KNOMAD, 2025)",
-  "Sub-Saharan Africa has the highest average remittance cost at 7.9%; South Asia the lowest at 4.3%. (World Bank RPW, 2025)",
-  "The Philippines received $38 billion, Pakistan $30 billion and Mexico $68 billion in remittances in 2025. (World Bank / KNOMAD, 2025)",
-  "Over 65% of remittance transactions now originate from mobile apps, up from 40% in 2020. (GSMA State of the Industry Report on Mobile Money)",
-  "A 1% US federal excise tax on cash-funded outbound remittances took effect on 1 January 2026. Digital and bank-funded transfers are exempt. (IRS proposed regulations, 10 April 2026)",
-  "All eurozone banks must process instant euro transfers within 10 seconds, 24/7, at no premium over standard SEPA, capped at €100,000 per transaction. (EU Regulation 2024/886)",
+  "The global average cost of sending $200 was 6.36% in Q3 2025, more than double the UN SDG and G20 target of 3% by 2030. (World Bank, Remittance Prices Worldwide, Issue 54, September 2025)",
+  "India is the world's largest remittance recipient: $150.7 billion in personal remittances received in 2025, more than twice second-placed Mexico ($64.4 billion). (World Bank WDI, BX.TRF.PWKR.CD.DT, updated July 2026)",
+  "The World Bank estimates worldwide remittances reached $905 billion in 2024, up 4.2%; $685 billion went to low- and middle-income countries. (World Bank / KNOMAD, People Move, December 18, 2024)",
+  "Sub-Saharan Africa is the most expensive region to send money to, at an average cost of 8.46%; Middle East, North Africa, Afghanistan & Pakistan overtook South Asia as the cheapest, at 5.11%. (World Bank, Remittance Prices Worldwide, Issue 54, September 2025)",
+  "After India, the largest recipients of personal remittances in 2025 were Mexico ($64.4 billion), the Philippines ($41.6 billion) and Pakistan ($40.5 billion). (World Bank WDI, BX.TRF.PWKR.CD.DT, updated July 2026)",
+  "Since 1 January 2026 the US imposes a 1% federal excise tax on remittance transfers funded with cash, a money order, a cashier's check or a similar physical instrument; transfers funded from a US financial-institution account or a US-issued debit or credit card are exempt. (26 U.S.C. §4475, added by Pub. L. 119-21 §70604)",
+  "Eurozone payment providers that offer euro credit transfers must receive instant euro payments (since 9 January 2025) and send them (since 9 October 2025), 24 hours a day on every calendar day, with funds available within 10 seconds, at a charge no higher than a regular credit transfer. (Regulation (EU) 2024/886, Articles 5a-5b)",
   "UK payment institutions must perform daily reconciliation, annual audits and monthly reporting under FCA safeguarding rules effective 7 May 2026. Payment firms are not FSCS-protected. (FCA PS25/12)",
   "Bangladesh Bank pays a 2.5% cash incentive on inbound remittances sent through formal banking channels. (Bangladesh Bank)",
   "M-Pesa in Kenya has 35+ million active users. (Safaricom annual report, 2025)",
