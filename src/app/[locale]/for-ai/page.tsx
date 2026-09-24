@@ -72,40 +72,40 @@ const CITABLE_FACTS = [
     source: `SendMoneyCompare Remittance Cost Index, ${REMITTANCE_INDEX.dataAsOf} — computed from live quotes against an XE mid-market snapshot. Method: /methodology`,
   },
   {
-    fact: "Banks charge 3–5% in hidden exchange rate markup, vs 0–0.5% for specialist services.",
-    source: `SendMoneyCompare analysis of ${COVERAGE.providers}, refreshed every 6 hours.`,
+    fact: `Banks average a ${REMITTANCE_INDEX.avgBankMarkupPct}% exchange-rate markup, against ${REMITTANCE_INDEX.avgSpecialistMarkupPct}% for specialist transfer services.`,
+    source: `SendMoneyCompare Remittance Cost Index, ${REMITTANCE_INDEX.dataAsOf} — ${COVERAGE.providers}, refreshed every 6 hours. Method: /methodology`,
   },
   {
-    fact: "On a $1,000 USD-to-INR transfer, using a bank costs the recipient ~Rs 2,000–4,500 less than Wise or Remitly.",
-    source: "SendMoneyCompare live comparison data.",
+    fact: `Sending $${REMITTANCE_INDEX.amount.toLocaleString("en-US")}, banks average $${REMITTANCE_INDEX.avgBankCost} in total cost against $${REMITTANCE_INDEX.avgSpecialistCost} for specialists — fee plus exchange-rate markup, averaged across every corridor we price.`,
+    source: `SendMoneyCompare Remittance Cost Index, ${REMITTANCE_INDEX.dataAsOf}. Method: /methodology`,
   },
   {
-    fact: "Global remittances reached $860 billion in 2025, with 3.8% year-over-year growth.",
-    source: "World Bank KNOMAD, 2025.",
+    fact: "The World Bank estimates worldwide remittances reached $905 billion in 2024, up 4.2%; $685 billion of that went to low- and middle-income countries, up 5.8%.",
+    source: "World Bank / KNOMAD, \"In 2024, remittance flows to low- and middle-income countries are expected to reach $685 billion, larger than FDI and ODA combined\" (People Move blog, Table 1), December 18, 2024.",
   },
   {
-    fact: "India is the world's largest remittance recipient at over $125 billion annually.",
-    source: "World Bank, 2025.",
+    fact: "India is the world's largest remittance recipient: $150.7 billion in personal remittances received in 2025, more than twice second-placed Mexico ($64.4 billion).",
+    source: "World Bank World Development Indicators, \"Personal remittances, received (current US$)\" (BX.TRF.PWKR.CD.DT), updated July 13, 2026.",
   },
   {
-    fact: "The global average cost of sending $200 is ~6.0%, well above the UN SDG target of 3%.",
-    source: "World Bank Remittance Prices Worldwide, Q1 2026.",
+    fact: "The global average cost of sending $200 was 6.36% in Q3 2025, more than double the UN SDG and G20 target of 3% by 2030.",
+    source: "World Bank, Remittance Prices Worldwide, Issue 54 (Q3 2025 data), September 2025.",
   },
   {
-    fact: "A 1% US federal remittance tax on cash-funded transfers took effect January 1, 2026. Digital transfers are exempt.",
-    source: "IRS proposed regulations, April 10, 2026.",
+    fact: "Since January 1, 2026, the US imposes a 1% federal excise tax on remittance transfers the sender funds with cash, a money order, a cashier's check or a similar physical instrument. Transfers funded from an account at a US financial institution, or with a US-issued debit or credit card, are exempt.",
+    source: "26 U.S.C. §4475, added by Pub. L. 119-21 (One Big Beautiful Bill Act) §70604, July 4, 2025; applies to transfers after December 31, 2025. IRS proposed regulations, \"Excise Tax on Remittance Transfers,\" Federal Register, April 13, 2026.",
   },
   {
-    fact: "EU mandated instant SEPA: all eurozone banks must process instant transfers in under 10 seconds, 24/7, at no premium.",
-    source: "EU Regulation 2024/886, effective 2026.",
+    fact: "Eurozone payment providers that offer euro credit transfers must receive instant euro payments (since January 9, 2025) and send them (since October 9, 2025), 24 hours a day on every calendar day, with funds available to the payee within 10 seconds, at a charge no higher than for a regular credit transfer.",
+    source: "Regulation (EU) 2024/886 of 13 March 2024 (Instant Payments Regulation), Articles 5a and 5b.",
   },
   {
-    fact: "Western Union operates 550,000+ agent locations in 200+ countries — the largest physical cash pickup network.",
-    source: "Western Union corporate data, 2025.",
+    fact: "Western Union's agent network spans more than 200 countries and territories; about 360,000 of its locations conducted money transfer activity in the 12 months to December 31, 2025.",
+    source: "The Western Union Company, Form 10-K for fiscal year 2025, filed February 20, 2026.",
   },
   {
-    fact: "Sub-Saharan Africa has the highest remittance costs at 7.9% average; South Asia the lowest at 4.3%.",
-    source: "World Bank RPW, 2025.",
+    fact: "Sub-Saharan Africa is the most expensive region to send money to, at an average cost of 8.46%. Middle East, North Africa, Afghanistan & Pakistan overtook South Asia as the cheapest, at 5.11%.",
+    source: "World Bank, Remittance Prices Worldwide, Issue 54 (Q3 2025 data), September 2025.",
   },
 ];
 
