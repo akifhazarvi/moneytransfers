@@ -1,0 +1,37 @@
+name: Check Production URLs
+
+# Weekly availability guard for the URLs that matter most: ranking corridors,
+# redirect chains, and the core navigation hubs (added after the Sep 2026
+# phantom-403 audit reports — see scripts/check-ranking-urls.ts). The script
+# asserts each URL answers 200 WITH a real page body (an <h1>, enough text,
+# no accidental noindex) — status alone passes soft-404 shells.
+#
+# This runs against production, so it catches classes of breakage the build
+# guards cannot: edge middleware rules, CDN/WAF misconfiguration, and
+# deploy-time route gating. A red run here means real users and crawlers are
+# affected right now.
+
+on:
+  schedule:
+    # Weekly, Mondays 07:00 UTC — after the 06:00 scrape run's deploy settles.
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-urls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+        timeout-minutes: 5
+      - name: Check ranking and core navigation URLs against production
+        run: npm run check:ranking
+        timeout-minutes: 8
