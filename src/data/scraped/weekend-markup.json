@@ -4,9 +4,9 @@
     "from": "2026-03-10",
     "to": "2026-09-24"
   },
-  "observations": 4772795,
-  "skipped": 400674,
-  "snapshots": 410,
+  "observations": 4790607,
+  "skipped": 402387,
+  "snapshots": 411,
   "byDayOfWeek": [
     {
       "day": "Sun",
@@ -28,19 +28,19 @@
     },
     {
       "day": "Wed",
-      "n": 583998,
-      "mean": 1.531,
-      "median": 1.035
+      "n": 588279,
+      "mean": 1.536,
+      "median": 1.036
     },
     {
       "day": "Thu",
-      "n": 546501,
-      "mean": 1.546,
+      "n": 560023,
+      "mean": 1.539,
       "median": 1.037
     },
     {
       "day": "Fri",
-      "n": 1253402,
+      "n": 1253411,
       "mean": 1.665,
       "median": 1.11
     },
@@ -62,105 +62,105 @@
       "weekday": 1.73,
       "weekend": 2.96,
       "premiumPp": 1.23,
-      "n": 3477
+      "n": 3485
     },
     {
       "slug": "national-australia-bank",
       "weekday": 2.69,
       "weekend": 3.62,
       "premiumPp": 0.93,
-      "n": 6286
+      "n": 6319
     },
     {
       "slug": "nab",
       "weekday": 2.66,
       "weekend": 3.4,
       "premiumPp": 0.74,
-      "n": 6401
+      "n": 6419
     },
     {
       "slug": "santander-uk",
-      "weekday": 4.94,
+      "weekday": 4.95,
       "weekend": 5.65,
-      "premiumPp": 0.72,
-      "n": 5115
+      "premiumPp": 0.7,
+      "n": 5142
     },
     {
       "slug": "hsbc-australia",
       "weekday": 2.88,
       "weekend": 3.49,
       "premiumPp": 0.61,
-      "n": 2694
+      "n": 2706
     },
     {
       "slug": "unicredit",
-      "weekday": 5.19,
+      "weekday": 5.17,
       "weekend": 5.76,
-      "premiumPp": 0.57,
-      "n": 1734
+      "premiumPp": 0.59,
+      "n": 1746
     },
     {
       "slug": "ofx",
-      "weekday": 3.29,
+      "weekday": 3.28,
       "weekend": 3.82,
       "premiumPp": 0.53,
-      "n": 158631
+      "n": 159238
     },
     {
       "slug": "bbva",
-      "weekday": 3.64,
+      "weekday": 3.63,
       "weekend": 4.13,
-      "premiumPp": 0.49,
-      "n": 1572
+      "premiumPp": 0.5,
+      "n": 1584
     },
     {
       "slug": "scotiabank",
       "weekday": 3.31,
       "weekend": 3.78,
       "premiumPp": 0.47,
-      "n": 1161
+      "n": 1162
     },
     {
       "slug": "china-construction-bank-hk",
       "weekday": 1.89,
       "weekend": 2.36,
       "premiumPp": 0.47,
-      "n": 2856
+      "n": 2871
     },
     {
       "slug": "hsbc-hk",
-      "weekday": 2.03,
+      "weekday": 2.04,
       "weekend": 2.48,
-      "premiumPp": 0.45,
-      "n": 4747
+      "premiumPp": 0.44,
+      "n": 4770
     },
     {
       "slug": "hang-seng",
-      "weekday": 2.21,
+      "weekday": 2.22,
       "weekend": 2.62,
       "premiumPp": 0.41,
-      "n": 3413
+      "n": 3431
     },
     {
       "slug": "ing-germany",
-      "weekday": 4.96,
+      "weekday": 4.98,
       "weekend": 5.31,
-      "premiumPp": 0.35,
-      "n": 1566
+      "premiumPp": 0.33,
+      "n": 1575
     },
     {
       "slug": "pandaremit",
       "weekday": 0.59,
       "weekend": 0.88,
       "premiumPp": 0.29,
-      "n": 11764
+      "n": 11809
     },
     {
       "slug": "xe-money-transfer-fx",
       "weekday": 1.05,
       "weekend": 1.33,
       "premiumPp": 0.28,
-      "n": 8054
+      "n": 8076
     },
     {
       "slug": "starling",
@@ -174,147 +174,147 @@
       "weekday": 1.95,
       "weekend": 2.19,
       "premiumPp": 0.23,
-      "n": 25466
+      "n": 25559
     },
     {
       "slug": "rbc",
       "weekday": 2.93,
       "weekend": 3.16,
       "premiumPp": 0.23,
-      "n": 4160
+      "n": 4171
     },
     {
       "slug": "monese",
       "weekday": 1.06,
       "weekend": 1.28,
       "premiumPp": 0.22,
-      "n": 23691
+      "n": 23777
     },
     {
       "slug": "paysend",
       "weekday": 0.74,
       "weekend": 0.94,
       "premiumPp": 0.2,
-      "n": 36103
+      "n": 36213
     },
     {
       "slug": "hsbc-singapore",
       "weekday": 1.13,
       "weekend": 1.33,
       "premiumPp": 0.2,
-      "n": 4914
+      "n": 4938
     },
     {
       "slug": "state-bank-of-india",
       "weekday": 1.24,
       "weekend": 1.43,
       "premiumPp": 0.19,
-      "n": 5116
+      "n": 5148
     },
     {
       "slug": "kiwibank",
       "weekday": 2.04,
       "weekend": 2.21,
       "premiumPp": 0.17,
-      "n": 2483
+      "n": 2489
     },
     {
       "slug": "commonwealth-bank-of-australia",
-      "weekday": 4.18,
+      "weekday": 4.19,
       "weekend": 4.34,
       "premiumPp": 0.15,
-      "n": 7667
+      "n": 7703
     },
     {
       "slug": "hdfc-bank",
       "weekday": 2.42,
       "weekend": 2.57,
       "premiumPp": 0.15,
-      "n": 3990
-    },
-    {
-      "slug": "migros",
-      "weekday": 3.96,
-      "weekend": 4.08,
-      "premiumPp": 0.12,
-      "n": 5011
+      "n": 4020
     },
     {
       "slug": "ocbc-wing-hang-bank",
-      "weekday": 2.04,
+      "weekday": 2.03,
       "weekend": 2.16,
-      "premiumPp": 0.12,
-      "n": 2856
+      "premiumPp": 0.13,
+      "n": 2871
+    },
+    {
+      "slug": "rabobank",
+      "weekday": 2.81,
+      "weekend": 2.92,
+      "premiumPp": 0.11,
+      "n": 6300
     },
     {
       "slug": "chase",
       "weekday": 3.07,
       "weekend": 3.17,
       "premiumPp": 0.1,
-      "n": 3747
-    },
-    {
-      "slug": "rabobank",
-      "weekday": 2.82,
-      "weekend": 2.92,
-      "premiumPp": 0.1,
-      "n": 6264
+      "n": 3757
     },
     {
       "slug": "koho",
       "weekday": 0.09,
       "weekend": 0.18,
       "premiumPp": 0.09,
-      "n": 1550
+      "n": 1554
     },
     {
       "slug": "singx",
       "weekday": 0.23,
       "weekend": 0.31,
       "premiumPp": 0.09,
-      "n": 2082
+      "n": 2088
+    },
+    {
+      "slug": "migros",
+      "weekday": 3.98,
+      "weekend": 4.08,
+      "premiumPp": 0.09,
+      "n": 5037
     },
     {
       "slug": "z-rcher-kantonalbank",
-      "weekday": 4.3,
+      "weekday": 4.31,
       "weekend": 4.39,
-      "premiumPp": 0.09,
-      "n": 3900
+      "premiumPp": 0.08,
+      "n": 3921
     },
     {
       "slug": "commonwealth-bank",
       "weekday": 3.86,
       "weekend": 3.93,
       "premiumPp": 0.07,
-      "n": 13130
+      "n": 13164
     },
     {
       "slug": "halifax",
       "weekday": 3.8,
       "weekend": 3.86,
       "premiumPp": 0.06,
-      "n": 7921
+      "n": 7950
     },
     {
       "slug": "mukuru",
       "weekday": 2.58,
       "weekend": 2.64,
       "premiumPp": 0.06,
-      "n": 5479
+      "n": 5495
     },
     {
       "slug": "bnp-paribas",
       "weekday": 2.2,
       "weekend": 2.24,
       "premiumPp": 0.04,
-      "n": 13449
+      "n": 13527
     },
     {
       "slug": "wells-fargo-expresssend",
       "weekday": 0.99,
       "weekend": 1.03,
       "premiumPp": 0.04,
-      "n": 1587
+      "n": 1599
     },
     {
       "slug": "bank-of-america",
@@ -328,56 +328,63 @@
       "weekday": 1.02,
       "weekend": 1.05,
       "premiumPp": 0.03,
-      "n": 98868
+      "n": 99246
     },
     {
       "slug": "chase-us",
       "weekday": 3.54,
       "weekend": 3.58,
       "premiumPp": 0.03,
-      "n": 3501
+      "n": 3519
+    },
+    {
+      "slug": "worldremit",
+      "weekday": 1.11,
+      "weekend": 1.12,
+      "premiumPp": 0.02,
+      "n": 80171
     },
     {
       "slug": "xe-money-transfer",
       "weekday": 0.89,
       "weekend": 0.91,
       "premiumPp": 0.02,
-      "n": 21149
-    },
-    {
-      "slug": "worldremit",
-      "weekday": 1.11,
-      "weekend": 1.12,
-      "premiumPp": 0.01,
-      "n": 79841
+      "n": 21217
     },
     {
       "slug": "revolut-money-transfer",
       "weekday": 0.58,
       "weekend": 0.59,
       "premiumPp": 0.01,
-      "n": 24847
+      "n": 24923
     },
     {
       "slug": "united-overseas-bank",
       "weekday": 2.51,
       "weekend": 2.52,
       "premiumPp": 0.01,
-      "n": 769
+      "n": 771
     },
     {
       "slug": "unplex",
       "weekday": -1.36,
       "weekend": -1.35,
       "premiumPp": 0.01,
-      "n": 1732
+      "n": 1740
+    },
+    {
+      "slug": "abn-amro-bank",
+      "weekday": 3.14,
+      "weekend": 3.15,
+      "premiumPp": 0.01,
+      "n": 6300
     },
     {
       "slug": "wells-fargo",
       "weekday": 3.15,
       "weekend": 3.15,
       "premiumPp": 0,
-      "n": 9598
+      "n": 9633
     },
     {
       "slug": "uob",
@@ -387,291 +394,284 @@
       "n": 1338
     },
     {
-      "slug": "abn-amro-bank",
-      "weekday": 3.15,
-      "weekend": 3.15,
-      "premiumPp": 0,
-      "n": 6264
-    },
-    {
       "slug": "lacaixa",
       "weekday": 5.2,
       "weekend": 5.2,
       "premiumPp": 0,
-      "n": 5619
+      "n": 5652
     },
     {
       "slug": "xoom",
       "weekday": 2.9,
       "weekend": 2.89,
       "premiumPp": -0.01,
-      "n": 102192
+      "n": 102224
     },
     {
       "slug": "hsbc-sg",
       "weekday": 0.8,
       "weekend": 0.79,
       "premiumPp": -0.01,
-      "n": 3335
+      "n": 3343
     },
     {
       "slug": "auckland-savings-bank-nz",
       "weekday": 1.73,
       "weekend": 1.73,
       "premiumPp": -0.01,
-      "n": 3349
+      "n": 3357
     },
     {
       "slug": "xe",
       "weekday": 0.62,
       "weekend": 0.61,
       "premiumPp": -0.01,
-      "n": 27723
+      "n": 27794
     },
     {
       "slug": "dahabshiil",
       "weekday": 0.43,
       "weekend": 0.42,
       "premiumPp": -0.01,
-      "n": 13093
+      "n": 13131
     },
     {
       "slug": "rbs",
       "weekday": 2.35,
       "weekend": 2.33,
       "premiumPp": -0.02,
-      "n": 16597
+      "n": 16661
     },
     {
       "slug": "westpac",
       "weekday": 4.02,
       "weekend": 4,
       "premiumPp": -0.02,
-      "n": 8541
+      "n": 8568
     },
     {
       "slug": "currencyfair",
       "weekday": 0.72,
       "weekend": 0.69,
       "premiumPp": -0.02,
-      "n": 32710
+      "n": 32795
     },
     {
       "slug": "torfx",
       "weekday": 0.8,
       "weekend": 0.78,
       "premiumPp": -0.02,
-      "n": 7802
+      "n": 7822
     },
     {
       "slug": "chase-bank",
       "weekday": 3.26,
       "weekend": 3.24,
       "premiumPp": -0.02,
-      "n": 1346
+      "n": 1350
+    },
+    {
+      "slug": "taptap-send",
+      "weekday": 1.47,
+      "weekend": 1.44,
+      "premiumPp": -0.02,
+      "n": 2470461
     },
     {
       "slug": "instarem",
       "weekday": 0.76,
       "weekend": 0.74,
       "premiumPp": -0.03,
-      "n": 172082
+      "n": 172759
     },
     {
       "slug": "natwest",
       "weekday": 2.35,
       "weekend": 2.33,
       "premiumPp": -0.03,
-      "n": 16597
+      "n": 16661
     },
     {
       "slug": "paypal",
       "weekday": 4.75,
       "weekend": 4.72,
       "premiumPp": -0.03,
-      "n": 75350
+      "n": 75669
     },
     {
       "slug": "nationwide",
       "weekday": 3.09,
       "weekend": 3.06,
       "premiumPp": -0.03,
-      "n": 17625
+      "n": 17691
     },
     {
       "slug": "lloyds",
       "weekday": 3.83,
       "weekend": 3.8,
       "premiumPp": -0.03,
-      "n": 13679
-    },
-    {
-      "slug": "taptap-send",
-      "weekday": 1.47,
-      "weekend": 1.44,
-      "premiumPp": -0.03,
-      "n": 2460948
+      "n": 13726
     },
     {
       "slug": "lemfi",
       "weekday": 0.63,
       "weekend": 0.61,
       "premiumPp": -0.03,
-      "n": 45950
+      "n": 46129
     },
     {
       "slug": "western-union",
       "weekday": 1.67,
       "weekend": 1.63,
       "premiumPp": -0.04,
-      "n": 170445
+      "n": 171353
     },
     {
       "slug": "sabadell",
-      "weekday": 5.26,
+      "weekday": 5.25,
       "weekend": 5.22,
       "premiumPp": -0.04,
-      "n": 4176
+      "n": 4200
     },
     {
       "slug": "wise",
       "weekday": 0.42,
       "weekend": 0.37,
       "premiumPp": -0.05,
-      "n": 316996
+      "n": 318103
+    },
+    {
+      "slug": "royal-bank-of-canada",
+      "weekday": 2.84,
+      "weekend": 2.79,
+      "premiumPp": -0.05,
+      "n": 3317
+    },
+    {
+      "slug": "td-bank",
+      "weekday": 3.37,
+      "weekend": 3.31,
+      "premiumPp": -0.06,
+      "n": 8878
     },
     {
       "slug": "santander",
       "weekday": 3,
       "weekend": 2.95,
       "premiumPp": -0.06,
-      "n": 6680
-    },
-    {
-      "slug": "royal-bank-of-canada",
-      "weekday": 2.85,
-      "weekend": 2.79,
-      "premiumPp": -0.06,
-      "n": 3293
-    },
-    {
-      "slug": "td-bank",
-      "weekday": 3.37,
-      "weekend": 3.31,
-      "premiumPp": -0.07,
-      "n": 8843
+      "n": 6700
     },
     {
       "slug": "bmo",
       "weekday": 4.39,
       "weekend": 4.32,
       "premiumPp": -0.07,
-      "n": 9936
+      "n": 9979
     },
     {
       "slug": "ria",
       "weekday": 1.08,
       "weekend": 1.02,
       "premiumPp": -0.07,
-      "n": 47117
+      "n": 47277
     },
     {
       "slug": "barclays",
       "weekday": 2.74,
       "weekend": 2.66,
       "premiumPp": -0.08,
-      "n": 17467
+      "n": 17536
     },
     {
       "slug": "anz",
       "weekday": 3.63,
       "weekend": 3.55,
       "premiumPp": -0.08,
-      "n": 14593
+      "n": 14648
     },
     {
       "slug": "moneycorp",
-      "weekday": 2.56,
+      "weekday": 2.55,
       "weekend": 2.47,
       "premiumPp": -0.08,
-      "n": 3669
+      "n": 3680
     },
     {
       "slug": "skrill",
       "weekday": 2.53,
       "weekend": 2.41,
       "premiumPp": -0.12,
-      "n": 38738
+      "n": 38873
     },
     {
       "slug": "bnc",
       "weekday": 2.97,
       "weekend": 2.84,
-      "premiumPp": -0.13,
-      "n": 6425
+      "premiumPp": -0.12,
+      "n": 6449
     },
     {
       "slug": "currencies-direct",
       "weekday": 2.04,
       "weekend": 1.91,
       "premiumPp": -0.13,
-      "n": 8136
+      "n": 8157
     },
     {
       "slug": "boss-money",
       "weekday": 1.15,
       "weekend": 1.01,
       "premiumPp": -0.14,
-      "n": 11322
+      "n": 11354
     },
     {
       "slug": "commerzbank",
       "weekday": 2.89,
       "weekend": 2.73,
       "premiumPp": -0.16,
-      "n": 9647
+      "n": 9686
+    },
+    {
+      "slug": "citibank-singapore",
+      "weekday": 3.09,
+      "weekend": 2.93,
+      "premiumPp": -0.16,
+      "n": 2313
     },
     {
       "slug": "sendwave",
       "weekday": 0.82,
       "weekend": 0.65,
       "premiumPp": -0.17,
-      "n": 16209
-    },
-    {
-      "slug": "citibank-singapore",
-      "weekday": 3.09,
-      "weekend": 2.93,
-      "premiumPp": -0.17,
-      "n": 2304
+      "n": 16257
     },
     {
       "slug": "westpac-nz",
       "weekday": 2.3,
       "weekend": 2.12,
       "premiumPp": -0.18,
-      "n": 3125
+      "n": 3133
     },
     {
       "slug": "taptapsend",
       "weekday": 0.37,
       "weekend": 0.18,
       "premiumPp": -0.19,
-      "n": 24986
+      "n": 25062
     },
     {
       "slug": "moneygram",
       "weekday": 1.11,
       "weekend": 0.91,
       "premiumPp": -0.2,
-      "n": 56277
+      "n": 56445
     },
     {
       "slug": "profee",
       "weekday": 0.05,
       "weekend": -0.16,
-      "premiumPp": -0.22,
-      "n": 8150
+      "premiumPp": -0.21,
+      "n": 8166
     },
     {
       "slug": "sparkasse",
@@ -684,43 +684,43 @@
       "slug": "the-royal-bank-of-scotland",
       "weekday": 2.34,
       "weekend": 2.04,
-      "premiumPp": -0.3,
-      "n": 1157
+      "premiumPp": -0.29,
+      "n": 1160
     },
     {
       "slug": "deutsche-bank",
       "weekday": 2.62,
       "weekend": 2.29,
       "premiumPp": -0.33,
-      "n": 14369
+      "n": 14381
     },
     {
       "slug": "remitly",
       "weekday": 1.18,
       "weekend": 0.79,
       "premiumPp": -0.38,
-      "n": 244908
+      "n": 245805
     },
     {
       "slug": "transfergo",
-      "weekday": 1.45,
+      "weekday": 1.44,
       "weekend": 1.06,
       "premiumPp": -0.39,
-      "n": 6024
+      "n": 6042
     },
     {
       "slug": "bank-of-east-asia",
-      "weekday": 3.7,
+      "weekday": 3.73,
       "weekend": 3.32,
-      "premiumPp": -0.39,
-      "n": 2856
+      "premiumPp": -0.41,
+      "n": 2871
     },
     {
       "slug": "postfinance",
       "weekday": 3.85,
       "weekend": 3.25,
       "premiumPp": -0.61,
-      "n": 4260
+      "n": 4264
     },
     {
       "slug": "ocbc",
@@ -733,17 +733,17 @@
   "quarantined": [
     {
       "slug": "la-banque-postale",
-      "weekday": 9,
+      "weekday": 8.99,
       "weekend": 8.69,
-      "premiumPp": -0.31,
-      "n": 3075
+      "premiumPp": -0.3,
+      "n": 3093
     },
     {
       "slug": "pnb-europe",
       "weekday": 20.25,
       "weekend": 18.47,
       "premiumPp": -1.78,
-      "n": 1556
+      "n": 1560
     }
   ]
 }

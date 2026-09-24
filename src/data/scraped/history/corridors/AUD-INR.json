@@ -19409,7 +19409,7 @@
       "lemfi": {
         "rate": 67.38,
         "fee": 0,
-        "markup": -0.02,
+        "markup": 0.11,
         "receiveAmount": 6738
       },
       "moneygram": {
@@ -19419,10 +19419,10 @@
         "receiveAmount": 6604.8
       },
       "western-union": {
-        "rate": 66.7344,
+        "rate": 66.9101,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 6540.64
+        "receiveAmount": 6557.86
       },
       "currencyfair": {
         "rate": 66.981,
@@ -19431,10 +19431,10 @@
         "receiveAmount": 6578.2
       },
       "instarem": {
-        "rate": 67.3728,
+        "rate": 67.414,
         "fee": 0.6,
         "markup": null,
-        "receiveAmount": 6696.86
+        "receiveAmount": 6700.95
       },
       "paysend": {
         "rate": 65.2901,
@@ -19443,10 +19443,10 @@
         "receiveAmount": 6529.01
       },
       "remitly": {
-        "rate": 67.2466,
+        "rate": 67.406,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 6658.09
+        "receiveAmount": 6673.87
       },
       "revolut": {
         "rate": 67.1918,
@@ -19467,34 +19467,34 @@
         "receiveAmount": 6750
       },
       "nab": {
-        "rate": 65.4343,
+        "rate": 65.6918,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6543.43
+        "receiveAmount": 6569.18
       },
       "commonwealth-bank": {
-        "rate": 65.7831,
+        "rate": 65.6523,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6578.31
+        "receiveAmount": 6565.23
       },
       "anz": {
-        "rate": 64.7769,
+        "rate": 64.8554,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6477.69
+        "receiveAmount": 6485.54
       },
       "hsbc": {
-        "rate": 65.5731,
+        "rate": 65.6526,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6557.31
+        "receiveAmount": 6565.26
       },
       "wise": {
-        "rate": 67.3686,
+        "rate": 67.4607,
         "fee": 1.38,
         "markup": null,
-        "receiveAmount": 6643.89
+        "receiveAmount": 6652.97
       },
       "skrill": {
         "rate": 65.5118,
