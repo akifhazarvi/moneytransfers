@@ -13503,16 +13503,16 @@
     "date": "2026-09-24",
     "providers": {
       "remitly": {
-        "rate": 0.8476,
+        "rate": 0.8528,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 83.07
+        "receiveAmount": 83.58
       },
       "taptap-send": {
-        "rate": 0.86,
+        "rate": 0.861,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 86
+        "receiveAmount": 86.1
       },
       "monese": {
         "rate": 0.8598,
@@ -13527,46 +13527,46 @@
         "receiveAmount": 85.38
       },
       "western-union": {
-        "rate": 0.834,
+        "rate": 0.8336,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 80.91
+        "receiveAmount": 80.87
       },
       "commerzbank": {
-        "rate": 0.852,
+        "rate": 0.8524,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 74.55
+        "receiveAmount": 74.59
       },
       "skrill": {
-        "rate": 0.8189,
+        "rate": 0.8188,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 81.89
+        "receiveAmount": 81.88
       },
       "paypal": {
-        "rate": 0.8221,
+        "rate": 0.8217,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 78.93
+        "receiveAmount": 78.9
       },
       "ing-de": {
-        "rate": 0.8512,
+        "rate": 0.8516,
         "fee": 22,
         "markup": null,
-        "receiveAmount": 66.39
+        "receiveAmount": 66.42
       },
       "moneygram": {
-        "rate": 0.8424,
+        "rate": 0.8432,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 82.56
+        "receiveAmount": 82.64
       },
       "wise": {
-        "rate": 0.8599,
+        "rate": 0.8602,
         "fee": 1.45,
         "markup": null,
-        "receiveAmount": 84.74
+        "receiveAmount": 84.77
       }
     }
   }

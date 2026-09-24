@@ -15731,14 +15731,14 @@
       "lemfi": {
         "rate": 5.9,
         "fee": 0,
-        "markup": -0.36,
+        "markup": 0.1,
         "receiveAmount": 590
       },
       "moneygram": {
-        "rate": 5.7164,
+        "rate": 5.7137,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 560.27
+        "receiveAmount": 560
       },
       "taptap-send": {
         "rate": 5.9,
@@ -15747,10 +15747,10 @@
         "receiveAmount": 584.16
       },
       "western-union": {
-        "rate": 5.3587,
+        "rate": 5.3658,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 530.57
+        "receiveAmount": 531.27
       },
       "profee": {
         "rate": 5.9036,
@@ -15765,10 +15765,10 @@
         "receiveAmount": 568.47
       },
       "instarem": {
-        "rate": 5.8285,
+        "rate": 5.838,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 582.85
+        "receiveAmount": 583.8
       },
       "paysend": {
         "rate": 5.8634,
@@ -15783,10 +15783,10 @@
         "receiveAmount": 571.36
       },
       "remitly": {
-        "rate": 5.8408,
+        "rate": 5.8534,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 572.45
+        "receiveAmount": 573.69
       },
       "revolut": {
         "rate": 5.8369,
@@ -15801,22 +15801,22 @@
         "receiveAmount": 564
       },
       "paypal": {
-        "rate": 5.561,
+        "rate": 5.552,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 533.91
+        "receiveAmount": 533.05
       },
       "skrill": {
-        "rate": 5.6846,
+        "rate": 5.702,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 568.46
+        "receiveAmount": 570.2
       },
       "wise": {
-        "rate": 5.8784,
+        "rate": 5.9027,
         "fee": 1.86,
         "markup": null,
-        "receiveAmount": 576.9
+        "receiveAmount": 579.29
       }
     }
   }

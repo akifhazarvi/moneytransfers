@@ -11,9 +11,9 @@
       "providerName": "Wise",
       "corridorsLed": 49,
       "corridorsQuoted": 128,
-      "wins": 3403,
+      "wins": 3402,
       "quotedDays": 10773,
-      "winRate": 31.59,
+      "winRate": 31.58,
       "avgShortfallPct": 2.79,
       "leadRate": 38.28
     },
@@ -22,42 +22,42 @@
       "providerName": "Ria Money Transfer",
       "corridorsLed": 44,
       "corridorsQuoted": 66,
-      "wins": 3077,
+      "wins": 3078,
       "quotedDays": 4589,
-      "winRate": 67.05,
+      "winRate": 67.07,
       "avgShortfallPct": 0.47,
       "leadRate": 66.67
     },
     {
       "providerSlug": "taptap-send",
       "providerName": "TapTap Send",
-      "corridorsLed": 38,
+      "corridorsLed": 39,
       "corridorsQuoted": 153,
-      "wins": 4065,
+      "wins": 4061,
       "quotedDays": 13364,
-      "winRate": 30.42,
+      "winRate": 30.39,
       "avgShortfallPct": 1,
-      "leadRate": 24.84
+      "leadRate": 25.49
     },
     {
       "providerSlug": "lemfi",
       "providerName": "LemFi",
-      "corridorsLed": 32,
+      "corridorsLed": 31,
       "corridorsQuoted": 87,
-      "wins": 2777,
+      "wins": 2781,
       "quotedDays": 7818,
-      "winRate": 35.52,
+      "winRate": 35.57,
       "avgShortfallPct": 1.06,
-      "leadRate": 36.78
+      "leadRate": 35.63
     },
     {
       "providerSlug": "instarem",
       "providerName": "InstaReM",
       "corridorsLed": 20,
       "corridorsQuoted": 80,
-      "wins": 1833,
+      "wins": 1834,
       "quotedDays": 7165,
-      "winRate": 25.58,
+      "winRate": 25.6,
       "avgShortfallPct": 1.17,
       "leadRate": 25
     },
@@ -69,7 +69,7 @@
       "wins": 475,
       "quotedDays": 8240,
       "winRate": 5.76,
-      "avgShortfallPct": 4.26,
+      "avgShortfallPct": 4.25,
       "leadRate": 8.26
     },
     {
@@ -121,9 +121,9 @@
       "providerName": "Remitly",
       "corridorsLed": 3,
       "corridorsQuoted": 101,
-      "wins": 358,
+      "wins": 357,
       "quotedDays": 8668,
-      "winRate": 4.13,
+      "winRate": 4.12,
       "avgShortfallPct": 3.5,
       "leadRate": 2.97
     },
@@ -443,7 +443,7 @@
       "wins": 0,
       "quotedDays": 282,
       "winRate": 0,
-      "avgShortfallPct": 3.33,
+      "avgShortfallPct": 3.34,
       "leadRate": 0
     },
     {
@@ -733,6 +733,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 54,
-  "stableCorridors": 162
+  "rotatingCorridors": 57,
+  "stableCorridors": 159
 }
