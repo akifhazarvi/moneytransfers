@@ -591,33 +591,33 @@ const rawBlogPosts: BlogPost[] = [
     slug: "money-transfer-safety-guide",
     title: "Are Money Transfer Companies Safe? 2026 Safety Guide",
     metaDescription:
-      "Are money transfer companies safe? Regulated FCA/FinCEN-licensed providers have fraud rates below 0.1%. Scams to avoid and what to do if things go wrong.",
+      "Are money transfer companies safe? How UK, US and EU rules protect your money, where they stop, the scams to avoid and what to do if things go wrong.",
     excerpt:
-      "Are money transfer companies safe? Regulated ones are — fraud rates run below 0.1% at FCA/FinCEN-licensed providers. Here's exactly how to verify safety before you send.",
+      "Are money transfer companies safe? Regulated ones are generally safe — but the protections differ by country. Here's how to verify a provider and what rights you have if something goes wrong.",
     category: "Education",
     readTime: "22 min read",
     publishedAt: "2026-02-01",
-    updatedAt: "2026-05-04",
+    updatedAt: "2026-09-23",
     author: "Awais Imran",
     tags: ["security", "safety", "scams", "regulation", "fraud protection", "FCA", "FinCEN"],
     featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
       {
         heading: "Are Money Transfer Companies Safe?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Yes — money transfer companies are safe when they are regulated. Fraud rates run below 0.1% by value at FCA/FinCEN-licensed providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/revolut">Revolut</a>, <a href="/companies/ofx">OFX</a>, <a href="/companies/xe">XE</a>, <a href="/companies/western-union">Western Union</a>, and <a href="/companies/moneygram">MoneyGram</a>. Regulated providers must hold customer money in segregated accounts (ring-fenced even if the company fails), use 256-bit bank-grade encryption, run two-factor authentication, and verify every customer's identity. They are at least as safe as a bank transfer — and on several dimensions (recipient name-matching, recall ability, transparent tracking) safer than traditional SWIFT wires. The key is to <strong>always verify the provider's regulatory authorisation</strong> before sending money. Every provider we review lists its regulators on its <a href="/companies">review page</a> — check them before you send.</p></div>
-<p>If you're asking "are money transfer companies safe?", "is it safe to transfer money to another bank account?", or "how safe is transferring money online?" — the answer is the same: <strong>yes, if the provider is regulated</strong>. The global money transfer industry processes over <strong>$800 billion annually</strong> in cross-border remittances. UK Finance reports online transfer fraud rates around 0.04% by value — roughly 10× safer than paper cheques.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Yes — money transfer companies are generally safe when they are regulated in the country you send from, as providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/revolut">Revolut</a>, <a href="/companies/ofx">OFX</a>, <a href="/companies/xe">XE</a>, <a href="/companies/western-union">Western Union</a>, and <a href="/companies/moneygram">MoneyGram</a> are. What "regulated" guarantees depends on where you are. In the UK and EU, payment and e-money firms must <a href="https://www.fca.org.uk/firms/emi-payment-institutions-safeguarding-requirements" target="_blank" rel="noopener noreferrer">safeguard customer money</a> and apply strong customer authentication; in the US, money transmitters are instead licensed state by state, and state rules typically require a surety bond and liquid investments backing what they owe customers. All of them must verify customers' identity under anti-money-laundering rules. One thing money held with a transfer company usually lacks is deposit insurance: e-money and payment balances are <a href="https://www.fscs.org.uk/news/protection/e-money-and-fscs-protection/" target="_blank" rel="noopener noreferrer">not FSCS-protected</a> the way a UK bank deposit is. The key is to <strong>always verify the provider's regulatory authorisation</strong> before sending money. Every provider we review lists its regulators on its <a href="/companies">review page</a> — check them before you send.</p></div>
+<p>If you're asking "are money transfer companies safe?", "is it safe to transfer money to another bank account?", or "how safe is transferring money online?" — the answer is the same: <strong>generally yes, if the provider is regulated where you live</strong>. Cross-border money transfer is a mainstream, heavily supervised activity: the World Bank expected remittances to low- and middle-income countries alone to reach <a href="https://blogs.worldbank.org/en/peoplemove/in-2024--remittance-flows-to-low--and-middle-income-countries-ar" target="_blank" rel="noopener noreferrer"><strong>$685 billion in 2024</strong></a>. The bigger risk for most people is not the provider failing or being hacked — it is being tricked into sending money to a scammer.</p>
 <p>This guide covers how regulation actually protects your money, how to verify any provider in 2 minutes, what the fraud numbers look like across payment methods, provider-by-provider safety details (Wise, Remitly, Western Union, Revolut, MoneyGram, Xoom, OFX, XE), card vs bank funding trade-offs, the 7 most common scams to watch for, and exactly what to do if something goes wrong.</p>`,
       },
       {
         heading: "How Regulation Protects Your Money",
-        content: `<p>Licensed money transfer services are subject to strict financial regulation. Here's what that means in practice:</p>
+        content: `<p>Licensed money transfer services are subject to financial regulation, but the rules differ by country. Here's what that means in practice:</p>
 <h3>Regulatory Bodies by Country</h3>
 <table>
 <thead><tr><th>Country</th><th>Regulator</th><th>What They Require</th><th>How to Check</th></tr></thead>
 <tbody>
-<tr><td><strong>UK</strong></td><td><a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a></td><td>Segregated accounts, capital adequacy, AML compliance</td><td><a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a></td></tr>
-<tr><td><strong>US</strong></td><td><a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></td><td>MSB registration, SAR filing, BSA compliance</td><td><a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">MSB Registrant Search</a></td></tr>
-<tr><td><strong>EU</strong></td><td>National regulators + ECB</td><td>PSD2 compliance, SCA (Strong Customer Authentication)</td><td>National central bank registers</td></tr>
+<tr><td><strong>UK</strong></td><td><a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a></td><td><a href="https://www.fca.org.uk/firms/emi-payment-institutions-safeguarding-requirements" target="_blank" rel="noopener noreferrer">Safeguarding</a> of customer funds (segregation, or cover by insurance or a guarantee), capital requirements, AML compliance</td><td><a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a></td></tr>
+<tr><td><strong>US</strong></td><td><a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> (federal) + state regulators</td><td>Federal: MSB registration, SAR filing, BSA compliance. State: money transmitter licence, <a href="https://www.csbs.org/csbs-money-transmission-modernization-act-mtma" target="_blank" rel="noopener noreferrer">net worth, surety bond and permissible-investment rules</a> that vary by state</td><td><a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">MSB Registrant Search</a>, plus your state regulator</td></tr>
+<tr><td><strong>EU</strong></td><td>National competent authorities (central banks or financial regulators)</td><td><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32015L2366" target="_blank" rel="noopener noreferrer">PSD2</a> authorisation, safeguarding of customer funds, SCA (Strong Customer Authentication)</td><td><a href="https://www.eba.europa.eu/risk-and-data-analysis/data/registers/payment-institutions-register" target="_blank" rel="noopener noreferrer">EBA payment institutions register</a> or national registers</td></tr>
 <tr><td><strong>Australia</strong></td><td><a href="https://www.austrac.gov.au/" target="_blank" rel="noopener noreferrer">AUSTRAC</a></td><td>AML/CTF compliance, remittance registration</td><td>AUSTRAC register</td></tr>
 <tr><td><strong>Canada</strong></td><td>FINTRAC</td><td>MSB registration, AML compliance</td><td>FINTRAC MSB registry</td></tr>
 </tbody>
@@ -625,11 +625,11 @@ const rawBlogPosts: BlogPost[] = [
 
 <h3>5 Layers of Security at Regulated Providers</h3>
 <ol>
-<li><strong>Segregated accounts</strong> — Your money is held in accounts separate from the company's operating funds. Even if the company goes bankrupt, your funds are ring-fenced and returned to you. This is legally required by the FCA and similar regulators.</li>
-<li><strong>256-bit encryption</strong> — All data transmission uses the same SSL/TLS encryption standard as major banks. Your personal and financial data is encrypted in transit and at rest.</li>
-<li><strong>Two-factor authentication (2FA)</strong> — Login and high-risk actions (like adding a new recipient) require a second verification factor — typically an SMS code, authenticator app, or biometric confirmation.</li>
-<li><strong>Anti-fraud monitoring</strong> — Machine learning systems analyse every transfer for suspicious patterns. Unusual amounts, new recipients in high-risk countries, or rapid successive transfers may trigger a manual review pause.</li>
-<li><strong>Identity verification (KYC)</strong> — Before you can send money, you must verify your identity with a government-issued ID and proof of address. This prevents impersonation and protects both sender and recipient.</li>
+<li><strong>Safeguarded or backed customer funds</strong> — In the UK and EU, payment and e-money firms must safeguard customer money: keep it segregated from the company's own funds, or cover it with an insurance policy or bank guarantee, so that it can be returned if the firm fails. It is not deposit insurance, though — the FSCS <a href="https://www.fscs.org.uk/news/protection/e-money-and-fscs-protection/" target="_blank" rel="noopener noreferrer">warns</a> that money can be tied up for a while during an insolvency. In the US, protection works differently: state licensing rules typically require money transmitters to hold a surety bond and permissible investments backing what they owe customers, rather than a UK-style safeguarding regime.</li>
+<li><strong>Encryption</strong> — Reputable providers encrypt data in transit using TLS (the padlock in your browser), the same technology banks use. There is no single legal standard that specifies a key length, so "256-bit" claims describe a provider's own set-up rather than a regulatory requirement.</li>
+<li><strong>Two-factor authentication (2FA)</strong> — In the UK and EU, <a href="https://www.fca.org.uk/firms/strong-customer-authentication" target="_blank" rel="noopener noreferrer">strong customer authentication</a> rules apply when you log in or make most electronic payments, subject to exemptions. <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32015L2366" target="_blank" rel="noopener noreferrer">PSD2</a> defines this as two or more independent factors — something you know, something you have, something you are (for example a password plus your phone or a fingerprint). The US has no equivalent blanket rule, but the major providers offer or require 2FA — turn it on.</li>
+<li><strong>Anti-fraud monitoring</strong> — Providers screen transfers for suspicious patterns. Unusual amounts, new recipients, or rapid successive transfers may trigger a manual review pause.</li>
+<li><strong>Identity verification (KYC)</strong> — Anti-money-laundering rules require providers to verify who their customers are, typically with a government-issued ID and sometimes proof of address. Exactly when checks are triggered varies by country, provider and transfer size.</li>
 </ol>`,
       },
       {
@@ -637,7 +637,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<div class="blog-table-box">
 <h3 style="margin-top: 0;">Safety Comparison: Top Regulated Providers</h3>
 <table>
-<thead><tr><th>Provider</th><th>Regulated By</th><th>Trustpilot</th><th>Segregated Funds</th><th>2FA</th></tr></thead>
+<thead><tr><th>Provider</th><th>Regulated By</th><th>Trustpilot</th><th>Safeguarded Funds (UK/EU)</th><th>2FA</th></tr></thead>
 <tbody>
 <tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>FCA, FinCEN, ASIC, MAS</td><td>{{TRUSTPILOT:wise}}</td><td>Yes</td><td>Yes</td></tr>
 <tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>FCA, FinCEN</td><td>{{TRUSTPILOT:remitly}}</td><td>Yes</td><td>Yes</td></tr>
@@ -648,14 +648,14 @@ const rawBlogPosts: BlogPost[] = [
 </tbody>
 </table>
 </div>
-<p><strong>Key insight:</strong> All major providers we list are regulated and use segregated accounts. The main safety difference between providers is customer service quality — how quickly they resolve issues and how responsive they are when something goes wrong. Trustpilot scores reflect this.</p>
+<p><strong>Key insight:</strong> All major providers we list are regulated. "Safeguarded funds" refers to the UK/EU safeguarding regime; for US customers the equivalent protection comes from state money transmitter licensing (surety bonds and permissible investments), and money held in a bank account — such as a Revolut account once it is with Revolut's bank — is covered by deposit insurance instead. Beyond that, the main practical difference between providers is customer service quality — how quickly they resolve issues and how responsive they are when something goes wrong. Trustpilot scores reflect this.</p>
 <p><a href="/send-money">Compare all regulated providers</a> using our comparison tool, which only includes licensed services.</p>`,
       },
       {
         heading: "How to Verify Any Provider Is Legitimate",
         content: `<p>Before using any money transfer service for the first time, run through this 5-point checklist:</p>
 <ol>
-<li><strong>Check the regulatory register</strong> — Search for the provider on the <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a> (UK) or <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN MSB Search</a> (US). If they're not listed, don't use them. Period.</li>
+<li><strong>Check the regulatory register</strong> — Search for the provider on the register for the country you're sending from: the <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a> (UK), <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN MSB Search</a> plus your state's licensing regulator (US — FinCEN registration is <a href="https://www.fincen.gov/msb-registration-web-site" target="_blank" rel="noopener noreferrer">not an endorsement</a> or a licence), or the <a href="https://www.eba.europa.eu/risk-and-data-analysis/data/registers/payment-institutions-register" target="_blank" rel="noopener noreferrer">EBA register</a> (EU). If they're not listed where you live, don't use them. Period.</li>
 <li><strong>Check the URL carefully</strong> — Scam sites mimic legitimate providers with similar domain names. Always type the URL directly or use bookmarks. Look for HTTPS (padlock icon). Never click links in unsolicited emails claiming to be from a transfer provider.</li>
 <li><strong>Read recent Trustpilot reviews</strong> — Check for patterns in negative reviews. Occasional complaints are normal; systematic issues (delayed refunds, frozen accounts, unreachable support) are red flags. Be wary of scores below 3.5 or providers with very few reviews.</li>
 <li><strong>Verify transparent pricing</strong> — Legitimate providers show the exact fee and exchange rate <em>before</em> you commit. If you can't see the total cost upfront, that's a red flag. Read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> to understand how hidden costs work.</li>
@@ -667,64 +667,63 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>Yes — receiving a bank transfer is safe. When someone sends you money via bank transfer (SWIFT, SEPA, ACH, or Faster Payments), the funds are deposited directly into your bank account through the regulated banking system.</p>
 <p><strong>Key points about receiving transfers:</strong></p>
 <ul>
-<li><strong>You cannot be scammed by receiving money.</strong> Unlike cheques or PayPal payments, bank transfers cannot be "reversed" by the sender once they've settled. There's no chargeback risk for the recipient.</li>
+<li><strong>Settled transfers are hard for the sender to claw back.</strong> Unlike a cheque that can bounce, a settled bank transfer generally can't be pulled back by the sender on their own. It isn't absolute, though: US ACH payments can be returned in limited cases (for example if sent in error or without authorisation), and banks can freeze or return money they believe came from fraud — which is exactly how "overpayment" and money-mule scams catch recipients out.</li>
 <li><strong>SWIFT transfers are traceable.</strong> Every SWIFT transfer has a unique reference number (UETR) that can be tracked through the banking system.</li>
-<li><strong>Your bank details are safe to share.</strong> Sharing your account number, sort code (UK), routing number (US), or <a href="/guides/iban-numbers-explained">IBAN</a> (Europe) does not put your money at risk. These details can only be used to <em>send</em> money to you, not take money from you.</li>
+<li><strong>Your bank details are low-risk to share.</strong> Sharing your account number, sort code (UK), routing number (US), or <a href="/guides/iban-numbers-explained">IBAN</a> (Europe) is how people pay you, and on its own it doesn't let someone move money out. Account details can, however, be misused to set up fraudulent direct debits or US ACH debits — so check your statements, and report unauthorised debits quickly (in the US, within <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/6/" target="_blank" rel="noopener noreferrer">60 days of the statement</a> to limit your liability under Regulation E).</li>
 </ul>
-<p><strong>The exception:</strong> If someone sends you money and then asks you to forward some of it elsewhere — that's likely a money laundering scheme. Never forward money you've received from an unknown source.</p>`,
+<p><strong>The exception:</strong> If someone sends you money and then asks you to forward some of it elsewhere — that's likely a <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-money-mule-en-2108/" target="_blank" rel="noopener noreferrer">money mule</a> scheme. Never forward money you've received from an unknown source.</p>`,
       },
       {
         heading: "Is It Safe to Transfer Money to Another Bank Account?",
-        content: `<p>Yes — transferring money from your bank account to another bank account is one of the safest ways to move money, whether the destination account belongs to you, a family member, a business, or a stranger you've verified. Bank-to-bank transfers settle through regulated payment rails (Faster Payments in the UK, ACH and FedWire in the US, SEPA across Europe, NPP in Australia) where every transaction is logged, traceable, and supervised by the central bank.</p>
+        content: `<p>Yes — transferring money from your bank account to another bank account is one of the safest ways to move money, whether the destination account belongs to you, a family member, a business, or a stranger you've verified. Bank-to-bank transfers settle through regulated payment rails (Faster Payments in the UK, ACH and FedWire in the US, SEPA across Europe, NPP in Australia) where every transaction is logged and traceable, and the payment systems themselves are overseen by central banks and payment regulators.</p>
 <p><strong>What makes account-to-account transfers safe:</strong></p>
 <ul>
-<li><strong>You cannot lose money simply by sending to the "wrong" account number</strong> — banks reject transfers that don't match valid account details. If a transfer does go to a wrong but valid account (a typo on a digit), most jurisdictions have a recall process. UK banks must attempt recovery within 2 working days under the <a href="https://www.psr.org.uk/" target="_blank" rel="noopener noreferrer">Payment Systems Regulator's</a> rules.</li>
-<li><strong>Confirmation of Payee (UK) and similar checks (EU, AU)</strong> — when you set up a new payee, your bank now compares the name you typed against the actual account holder's name and warns you of mismatches. This catches most "wrong account" mistakes before money moves.</li>
-<li><strong>Push payments are deliberate</strong> — unlike a direct debit (which pulls money from your account), a transfer requires you to initiate it. No one can drain your account just because they have your account number.</li>
-<li><strong>Reversibility for fraud</strong> — if you're tricked into authorising a transfer (Authorised Push Payment fraud), UK banks signed up to the <a href="https://www.psr.org.uk/our-work/app-scams/" target="_blank" rel="noopener noreferrer">CRM Code</a> reimburse most victims. The new mandatory PSR rules from October 2024 made reimbursement mandatory across all UK banks for APP scam losses up to £415,000.</li>
+<li><strong>Invalid account details are usually rejected</strong> — a payment to an account number or IBAN that doesn't exist will normally be rejected or returned. The real risk is a typo that happens to hit a <em>valid</em> account: then the money arrives, and recovery depends on the rules where you are. In the UK, your payment provider must <a href="https://www.legislation.gov.uk/uksi/2017/752/regulation/90" target="_blank" rel="noopener noreferrer">make reasonable efforts to recover the funds</a> and the receiving bank must co-operate, but recovery isn't guaranteed if the recipient won't return them.</li>
+<li><strong>Name checks before you pay (UK and euro area)</strong> — in the UK, <a href="https://www.psr.org.uk/our-work/app-scams/confirmation-of-payee/" target="_blank" rel="noopener noreferrer">Confirmation of Payee</a> compares the name you typed against the account holder's name and warns you of a mismatch. Since 9 October 2025, euro-area payment providers must offer a free <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer">Verification of Payee</a> check on euro credit transfers. These checks catch many "wrong account" mistakes before money moves — but they only warn you, and a scammer can open an account in the name they give you.</li>
+<li><strong>Push payments are deliberate</strong> — unlike a direct debit (which pulls money from your account), a transfer requires you to initiate it. Knowing your account number alone doesn't let someone send money out of your account.</li>
+<li><strong>Reimbursement for fraud (UK domestic payments)</strong> — if you're tricked into authorising a transfer (Authorised Push Payment fraud), the <a href="https://www.psr.org.uk/information-for-consumers/app-fraud-reimbursement-protections/" target="_blank" rel="noopener noreferrer">PSR's reimbursement rules</a> have, since 7 October 2024, required UK payment firms — banks, building societies and e-money firms — to reimburse victims up to £85,000, subject to an optional £100 excess and exceptions for fraud or gross negligence. They cover Faster Payments and CHAPS transfers between UK accounts, not international payments. The PSR reports that in the first nine months, <a href="https://www.psr.org.uk/news-and-updates/latest-news/news/one-year-on-impact-of-app-reimbursement-on-victims/" target="_blank" rel="noopener noreferrer">88% of the money lost to APP scams and claimed back was returned</a> to victims. Other countries have no equivalent blanket right — in the US and most of the EU, a payment you authorised yourself is generally not reimbursable as fraud.</li>
 </ul>
 <p><strong>When account-to-account transfers carry more risk:</strong></p>
 <ul>
-<li><strong>International wires to unfamiliar accounts</strong> — once a SWIFT wire arrives at the beneficiary bank in a country with weak consumer protection, recovery becomes difficult. Always verify the recipient through a second channel (a phone call to a number you already have, not one provided in the same email asking for the transfer).</li>
-<li><strong>Transfers to crypto exchanges</strong> — the bank-to-bank leg is safe, but once funds convert to crypto and move on-chain, they're effectively unrecoverable. Verify the exchange is regulated in your country (FCA register UK, FinCEN MSB US) before sending.</li>
+<li><strong>International wires to unfamiliar accounts</strong> — once a SWIFT wire arrives at the beneficiary bank, recovery depends on that bank's cooperation and local law, and domestic protections like UK APP reimbursement don't apply. Always verify the recipient through a second channel (a phone call to a number you already have, not one provided in the same email asking for the transfer).</li>
+<li><strong>Transfers to crypto exchanges</strong> — the bank-to-bank leg is safe, but once funds convert to crypto and move on-chain, they're effectively unrecoverable. Verify the exchange is registered or licensed in your country (FCA register UK; FinCEN MSB registration plus state licensing US) before sending.</li>
 <li><strong>Business email compromise</strong> — fraudsters intercept invoice emails and substitute their own bank details. Always verify a new supplier's account details by calling a known phone number before paying any new invoice.</li>
 </ul>
 <p><strong>Practical safety checklist for any account transfer:</strong></p>
 <ol>
 <li>Confirm the recipient's name on the Confirmation of Payee check matches what you expect.</li>
 <li>For first-time payees, send a small test (£1 or equivalent) and verify the recipient received it before sending the full amount.</li>
-<li>Keep records — transaction reference, screenshots, and confirmation emails. Most banks let you raise a dispute up to 13 months later.</li>
+<li>Keep records — transaction reference, screenshots, and confirmation emails. Deadlines vary: in the UK you have up to <a href="https://www.legislation.gov.uk/uksi/2017/752/regulation/74" target="_blank" rel="noopener noreferrer">13 months</a> to report an unauthorised or incorrectly executed payment (and 13 months to claim APP reimbursement); in the US, unauthorised electronic transfers should be reported within 60 days of the statement. Report as soon as you notice.</li>
 <li>Never authorise a transfer because you received an unexpected email, text, or phone call telling you to. Real banks never call asking you to move money to a "safe account."</li>
 </ol>
-<p>For sending money <em>across borders</em> to another account, regulated international transfer providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/ofx">OFX</a> are typically safer (and cheaper) than direct bank wires because they handle currency conversion at fair rates and provide better recipient verification. Compare options in our <a href="/send-money">comparison tool</a>.</p>`,
+<p>For sending money <em>across borders</em> to another account, regulated international transfer providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/ofx">OFX</a> are a sound alternative to a direct bank wire: they are often cheaper, show you the exchange rate and fee up front, and some run their own checks on recipient details. Compare options in our <a href="/send-money">comparison tool</a>.</p>`,
       },
       {
         heading: "How Safe Is Transferring Money Online — By the Numbers",
-        content: `<p>Online money transfers are statistically safer than the alternatives most people imagine — cash, cheques, or in-person remittance. Here's the data.</p>
-<h3>Fraud rates across payment methods</h3>
+        content: `<p>There is no reliable published figure for "the fraud rate" of online money transfers as a whole, and we won't invent one. What official data does show is where the money is actually lost — and it's mostly to scams, not to providers failing or being hacked.</p>
+<h3>What the official fraud data shows</h3>
 <table>
-<thead><tr><th>Payment method</th><th>Fraud rate</th><th>Source</th></tr></thead>
+<thead><tr><th>Measure</th><th>Figure</th><th>Source</th></tr></thead>
 <tbody>
-<tr><td>Online bank transfers (UK)</td><td>0.04% by value</td><td><a href="https://www.ukfinance.org.uk/" target="_blank" rel="noopener noreferrer">UK Finance Annual Fraud Report 2024</a></td></tr>
-<tr><td>Regulated remittance providers</td><td>Below 0.1% by value (industry-reported)</td><td>Provider disclosures (Wise, Remitly annual reports)</td></tr>
-<tr><td>Credit card transactions</td><td>~0.07% (US average)</td><td><a href="https://www.federalreserve.gov/" target="_blank" rel="noopener noreferrer">Federal Reserve Payments Study</a></td></tr>
-<tr><td>Cheques</td><td>~0.4% (10× higher than wires)</td><td>Federal Reserve Payments Study</td></tr>
-<tr><td>Cash (estimated loss/theft)</td><td>1-2%+ (varies)</td><td>Industry estimates</td></tr>
+<tr><td>Fraud losses reported by US consumers, 2024</td><td>More than $12.5 billion (up 25% on 2023)</td><td><a href="https://www.ftc.gov/news-events/news/press-releases/2025/03/new-ftc-data-show-big-jump-reported-losses-fraud-125-billion-2024" target="_blank" rel="noopener noreferrer">FTC Consumer Sentinel, March 2025</a></td></tr>
+<tr><td>Largest US loss category, 2024</td><td>Investment scams — $5.7 billion</td><td><a href="https://www.ftc.gov/news-events/news/press-releases/2025/03/new-ftc-data-show-big-jump-reported-losses-fraud-125-billion-2024" target="_blank" rel="noopener noreferrer">FTC Consumer Sentinel, March 2025</a></td></tr>
+<tr><td>How US scam victims paid, 2024</td><td>More lost via bank transfers or cryptocurrency than all other payment methods combined</td><td><a href="https://www.ftc.gov/news-events/news/press-releases/2025/03/new-ftc-data-show-big-jump-reported-losses-fraud-125-billion-2024" target="_blank" rel="noopener noreferrer">FTC Consumer Sentinel, March 2025</a></td></tr>
+<tr><td>UK APP scam losses claimed back and reimbursed, Oct 2024–Jun 2025</td><td>88% (up from 66% a year earlier)</td><td><a href="https://www.psr.org.uk/news-and-updates/latest-news/news/one-year-on-impact-of-app-reimbursement-on-victims/" target="_blank" rel="noopener noreferrer">Payment Systems Regulator, October 2025</a></td></tr>
 </tbody>
 </table>
 <h3>What the numbers mean</h3>
 <ul>
-<li><strong>For every £1,000 you transfer online with a regulated provider, the statistically expected loss is under £1.</strong> By contrast, every £1,000 you send by cheque has roughly £4 of expected fraud loss, and cash carries even higher risk through theft and loss.</li>
-<li><strong>Most online transfer fraud is "Authorised Push Payment" fraud</strong> — the victim is tricked into authorising a real transfer to a fraudster (romance scams, investment scams, impersonation). Pure system intrusion (someone hacking into the provider) is vanishingly rare at major regulated firms — <a href="https://wise.com/help/articles/2932693/is-wise-safe" target="_blank" rel="noopener noreferrer nofollow">Wise's 2024 security report</a> noted zero successful systemic breaches.</li>
-<li><strong>Card-funded transfers add chargeback protection.</strong> If you fund an international transfer with a debit or credit card and something goes wrong, you have up to 120 days to dispute via Section 75 (UK credit cards) or Reg E (US debit cards). Bank-funded transfers don't have this safety net but cost less.</li>
-<li><strong>Transfer size matters.</strong> Fraud rates are higher for high-value first-time transfers to new recipients. For transfers above £5,000 / $10,000, providers add extra verification steps and most run additional manual review — this is friction by design.</li>
+<li><strong>The main risk is being tricked, not being hacked.</strong> Much of the money lost on transfers is "Authorised Push Payment" fraud — the victim is tricked into authorising a real transfer to a fraudster (romance scams, investment scams, impersonation). Checking who you're paying matters more than which regulated provider you use.</li>
+<li><strong>Your rights after a scam depend on where you are.</strong> UK domestic bank transfers now carry mandatory APP reimbursement; US and most EU payments you authorised yourself generally do not, and international transfers are outside the UK scheme too.</li>
+<li><strong>Card-funded transfers can add a dispute route.</strong> If you fund a transfer with a debit or credit card and the service isn't delivered, you can ask your card issuer for a chargeback — the Financial Ombudsman says you <a href="https://www.financial-ombudsman.org.uk/consumers/complaints-can-help/credit-borrowing-money/goods-services-bought-credit" target="_blank" rel="noopener noreferrer">usually have around 120 days</a>. UK credit cards may also carry Section 75 protection, which covers goods or services costing over £100 and up to £30,000. Neither is designed to refund a transfer you willingly sent to a scammer. Bank-funded transfers don't have this safety net but usually cost less.</li>
+<li><strong>Transfer size matters.</strong> Large and first-time transfers to new recipients are where providers commonly add extra verification steps and manual review — this is friction by design.</li>
 </ul>
 <h3>How online transfers compare to bank wires</h3>
-<p>Traditional bank wires (SWIFT) are extremely safe at the systemic level — the SWIFT network has a near-flawless settlement record. But bank wires lose on three safety dimensions where specialist providers win:</p>
+<p>Traditional bank wires (SWIFT) are a mature, heavily supervised system, and most fraud involving them comes from the sender being deceived rather than the network failing. Where specialist providers can offer an edge is in the customer experience around a transfer:</p>
 <ol>
-<li><strong>Recipient verification</strong> — banks send wires using the account number you provide without name-matching. Specialist providers like Wise verify recipient names against account records and refuse mismatches.</li>
-<li><strong>Recall ability</strong> — once a SWIFT wire arrives at the beneficiary bank, recall requires the receiving bank's cooperation, which often fails. Specialist providers can hold and refund transfers up to the moment of payout.</li>
-<li><strong>Transparent tracking</strong> — modern providers show real-time status (received, converting, paying out, paid). Banks often only confirm the wire was sent, not whether it landed.</li>
+<li><strong>Recipient verification</strong> — name checks such as UK Confirmation of Payee and euro-area Verification of Payee apply to domestic payments; for cross-border SWIFT wires, name-matching is not universal. Some specialist providers run their own checks on recipient details, but no check stops a scammer who opened the account in the name they gave you.</li>
+<li><strong>Cancellation and recall</strong> — once a SWIFT wire arrives at the beneficiary bank, recall requires the receiving bank's cooperation, which often fails. Many providers let you cancel until the money is paid out, and in the US the Remittance Transfer Rule gives you a right to <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/34/" target="_blank" rel="noopener noreferrer">cancel within 30 minutes</a> of paying (if the money hasn't been collected or deposited) and <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/33/" target="_blank" rel="noopener noreferrer">180 days to report an error</a> — rights that apply to most banks' consumer remittances too.</li>
+<li><strong>Transparent tracking</strong> — modern providers show step-by-step status (received, converting, paying out, paid). SWIFT gpi lets banks track wires end to end using the UETR, but not every bank shows that to customers.</li>
 </ol>
 <p>For a deeper provider-by-provider safety comparison, see our <a href="/guides/best-money-transfer-apps">best money transfer apps ranking</a> or <a href="/guides/wise-vs-remitly-comparison">Wise vs Remitly comparison</a>.</p>`,
       },
@@ -732,22 +731,22 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Are Specific Providers Safe? Wise, Remitly, Western Union, Revolut, MoneyGram, Xoom, OFX",
         content: `<p>The most-searched safety question is provider-specific: "Is X safe to use?" Here's the answer for the major regulated services we cover.</p>
 <h3>Is Wise safe?</h3>
-<p><strong>Yes.</strong> <a href="/companies/wise">Wise</a> (formerly TransferWise) is authorised by the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). It's a publicly listed company on the London Stock Exchange (WISE.L) since July 2021, which means quarterly financial disclosure and audited accounts. Wise holds customer funds in segregated accounts at major banks (JP Morgan, Barclays, Deutsche Bank). 16+ million customers, {{TRUSTPILOT:wise}} on Trustpilot.</p>
+<p><strong>Yes.</strong> <a href="/companies/wise">Wise</a> (formerly TransferWise) is authorised by the FCA (UK), registered with FinCEN and state-licensed (US), and regulated by ASIC (Australia) and MAS (Singapore). It's been a publicly listed company on the London Stock Exchange (WISE.L) since July 2021, which means regular financial disclosure and audited accounts. In the UK and EU, Wise safeguards customer funds as an e-money institution — held separately from its own money, but not covered by the FSCS. 16+ million customers, {{TRUSTPILOT:wise}} on Trustpilot.</p>
 <h3>Is Remitly safe?</h3>
 <p><strong>Yes.</strong> <a href="/companies/remitly">Remitly</a> is authorised by the FCA (UK) and registered with FinCEN (US) as an MSB. It's listed on NASDAQ (RELY) since September 2021. The Trustpilot score is {{TRUSTPILOT:remitly}}. Remitly's specialty is remittances to emerging markets — Philippines, Mexico, India, Pakistan — where it offers cash pickup networks alongside bank deposits.</p>
 <h3>Is Western Union safe?</h3>
-<p><strong>Yes — and one of the most globally licensed.</strong> <a href="/companies/western-union">Western Union</a> holds 200+ regulatory licences worldwide (FinCEN, FCA, AUSTRAC, and dozens of national regulators). It's a NYSE-listed company (WU) founded in 1851. The Trustpilot score ({{TRUSTPILOT:western-union}}) mostly reflects fee complaints rather than safety incidents. Cash pickup in 200+ countries and territories — useful for unbanked recipients but more expensive than bank-to-bank.</p>
+<p><strong>Yes — and one of the most globally licensed.</strong> <a href="/companies/western-union">Western Union</a> is licensed or registered in each market it serves (including FinCEN and US state licences, the FCA, AUSTRAC, and dozens of national regulators). It's a NYSE-listed company (WU) founded in 1851. The Trustpilot score ({{TRUSTPILOT:western-union}}) mostly reflects fee complaints rather than safety incidents. Cash pickup in 200+ countries and territories — useful for unbanked recipients but more expensive than bank-to-bank.</p>
 <h3>Is Revolut safe?</h3>
-<p><strong>Yes.</strong> <a href="/companies/revolut">Revolut</a> holds a full UK banking licence from the PRA (granted July 2024), which means UK customer deposits up to £85,000 are protected by the FSCS. In the EU, Revolut operates under a Lithuanian banking licence with €100,000 ECB deposit protection. The Trustpilot score is {{TRUSTPILOT:revolut}}. Note: customer service complaints are common — for high-value or complex transfers, having a backup provider is wise.</p>
+<p><strong>Yes.</strong> <a href="/companies/revolut">Revolut</a> was granted a UK banking licence with restrictions in July 2024 and <a href="https://tech.eu/2026/03/11/revolut-wins-full-uk-banking-licence-as-finally-exits-mobilisation-phase/" target="_blank" rel="noopener noreferrer">left that "mobilisation" stage in March 2026</a>. Money held in a Revolut UK bank account is protected by the FSCS up to <a href="https://www.bankofengland.co.uk/prudential-regulation/authorisations/financial-services-compensation-scheme" target="_blank" rel="noopener noreferrer">£120,000</a>, but Revolut said <a href="https://www.intelligentfin.tech/2026/03/26/revolut-launches-as-a-uk-bank/" target="_blank" rel="noopener noreferrer">existing customers would be migrated to the bank over several months</a> — until your account has moved, your balance is e-money that is safeguarded rather than FSCS-protected, so check in the app which entity your account is with. In the EU, Revolut Bank UAB holds a Lithuanian banking licence, and eligible deposits are covered up to <a href="https://finance.ec.europa.eu/banking/banking-regulation/deposit-guarantee-schemes_en" target="_blank" rel="noopener noreferrer">€100,000</a> by Lithuania's national deposit guarantee scheme. The Trustpilot score is {{TRUSTPILOT:revolut}}. Note: customer service complaints are common — for high-value or complex transfers, having a backup provider is wise.</p>
 <h3>Is MoneyGram safe?</h3>
-<p><strong>Yes.</strong> <a href="/companies/moneygram">MoneyGram</a> is FinCEN-registered (US) and FCA-authorised (UK), with regulatory authorisation in 200+ countries. It was acquired by Madison Dearborn Partners in 2023 and remains a major cash-pickup remittance provider. The Trustpilot score ({{TRUSTPILOT:moneygram}}) reflects price/UX complaints; safety record is solid.</p>
+<p><strong>Yes.</strong> <a href="/companies/moneygram">MoneyGram</a> is FinCEN-registered and state-licensed (US) and FCA-authorised (UK), and is licensed or registered in the other markets it serves. It was acquired by Madison Dearborn Partners in 2023 and remains a major cash-pickup remittance provider. The Trustpilot score ({{TRUSTPILOT:moneygram}}) reflects price/UX complaints; safety record is solid.</p>
 <h3>Is Xoom safe?</h3>
 <p><strong>Yes.</strong> <a href="/companies/xoom">Xoom</a> is owned by PayPal Holdings (NASDAQ: PYPL) and registered with FinCEN. It's regulated as a digital remittance service across multiple jurisdictions. As a PayPal subsidiary, it inherits PayPal's security infrastructure — strong fraud monitoring, but customer support follows PayPal's standard model.</p>
 <h3>Is OFX safe?</h3>
 <p><strong>Yes.</strong> <a href="/companies/ofx">OFX</a> (formerly OzForex) is FCA-authorised (UK), ASIC-licensed (Australia), and FinCEN-registered (US). It's listed on the Australian Stock Exchange (ASX: OFX) since 2013. OFX specialises in larger transfers (typically £1,000+) for property purchases, business payments, and emigration. The {{TRUSTPILOT:ofx}} Trustpilot record leans positive on customer support quality.</p>
 <h3>Is XE Money Transfer safe?</h3>
 <p><strong>Yes.</strong> <a href="/companies/xe">XE</a> is FCA-authorised (UK), FinCEN-registered (US), and ASIC-licensed (Australia). XE is owned by Euronet Worldwide (NASDAQ: EEFT). Its currency data feeds power 10,000+ partner sites and apps — the brand has been operating since 1993, one of the longest-running consumer FX services online.</p>
-<p><strong>Bottom line:</strong> All providers in our <a href="/send-money">comparison tool</a> are checked for current regulatory authorisation. Differences in Trustpilot scores almost always reflect customer service experience, not safety incidents. For a side-by-side comparison, see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a>, <a href="/compare/wise-vs-revolut">Wise vs Revolut</a>, or <a href="/compare/western-union-vs-moneygram">Western Union vs MoneyGram</a>.</p>`,
+<p><strong>Bottom line:</strong> All providers in our <a href="/send-money">comparison tool</a> are checked for current regulatory authorisation. Differences in Trustpilot scores mostly reflect customer service experience rather than safety incidents. For a side-by-side comparison, see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a>, <a href="/compare/wise-vs-revolut">Wise vs Revolut</a>, or <a href="/compare/western-union-vs-moneygram">Western Union vs MoneyGram</a>.</p>`,
       },
       {
         heading: "Card vs Bank vs Wallet — Which Funding Method Is Safest?",
@@ -756,14 +755,14 @@ const rawBlogPosts: BlogPost[] = [
 <thead><tr><th>Funding method</th><th>Speed</th><th>Cost</th><th>Chargeback protection</th><th>Best for</th></tr></thead>
 <tbody>
 <tr><td><strong>Bank transfer (ACH, Faster Payments, SEPA)</strong></td><td>Same-day to 1 working day</td><td>Cheapest (often free funding)</td><td>Limited — depends on jurisdiction and APP scam rules</td><td>Repeat transfers, established relationships</td></tr>
-<tr><td><strong>Debit card</strong></td><td>Instant</td><td>Small fee (0.5-2% typical)</td><td>Strong (Reg E in US, similar in UK/EU)</td><td>First transfer with new provider</td></tr>
-<tr><td><strong>Credit card</strong></td><td>Instant</td><td>Higher fee (1.5-4%) plus possible cash advance fee</td><td>Strongest (Section 75 in UK; FCBA in US for amounts over $50)</td><td>Transfers above £100/$100 where you want maximum protection — but check for cash advance treatment</td></tr>
+<tr><td><strong>Debit card</strong></td><td>Instant</td><td>Small fee (0.5-2% typical)</td><td>Card-scheme chargeback (usually around 120 days); unauthorised use covered by Reg E in the US and PSRs in the UK</td><td>First transfer with new provider</td></tr>
+<tr><td><strong>Credit card</strong></td><td>Instant</td><td>Higher fee (1.5-4%) plus possible cash advance fee</td><td>Chargeback, plus possible Section 75 claim in the UK (£100–£30,000); Fair Credit Billing Act billing-error rights in the US</td><td>Transfers above £100/$100 where you want maximum protection — but check for cash advance treatment</td></tr>
 <tr><td><strong>Apple Pay / Google Pay</strong></td><td>Instant</td><td>Same as underlying card</td><td>Same as underlying card</td><td>Mobile-first transfers; tokenisation hides card number from provider</td></tr>
 <tr><td><strong>Provider wallet balance</strong></td><td>Instant</td><td>Free (already in the system)</td><td>Limited — provider's own dispute process</td><td>Internal transfers between same-provider accounts</td></tr>
 </tbody>
 </table>
-<p><strong>Card funding is safer for first-time use of any provider.</strong> If something goes wrong — provider goes under, transfer never arrives, recipient details were spoofed — you have a chargeback path. Once you've successfully completed 2-3 transfers with a provider and verified they're legitimate, switching to bank funding saves money on fees.</p>
-<p><strong>Watch out for credit card cash advance treatment.</strong> Some banks classify money transfer providers as "cash-like" merchants and charge a cash advance fee plus higher interest from day one. Check your card's terms before funding a large transfer with a credit card. Wise, Remitly, and OFX are usually treated as standard purchases on most major UK and US cards.</p>
+<p><strong>Card funding can be the safer choice for first-time use of a provider.</strong> If the provider fails to deliver — it goes under, or the transfer never arrives — you may have a chargeback path. It won't help if you knowingly sent money to a scammer and the provider delivered it as instructed. Once you've successfully completed 2-3 transfers with a provider and verified they're legitimate, switching to bank funding saves money on fees.</p>
+<p><strong>Watch out for credit card cash advance treatment.</strong> Some banks classify money transfer providers as "cash-like" merchants and charge a cash advance fee plus higher interest from day one. Check your card's terms before funding a large transfer with a credit card — treatment varies by card issuer, not just by provider.</p>
 <p><strong>Tokenised mobile wallets (Apple Pay, Google Pay) add a privacy layer.</strong> Your real card number isn't shared with the transfer provider — they only receive a one-time token. If the provider's database is ever breached, your card number isn't exposed. This is purely a privacy/security upgrade with no cost.</p>`,
       },
       {
@@ -777,16 +776,16 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Impersonation scams</strong> — Emails or calls claiming to be from your bank, HMRC, IRS, or a transfer provider asking you to "verify" a transfer by sending money to a new account. Real institutions will never ask you to do this.</li>
 <li><strong>Job scams</strong> — Fake job offers that require you to send "training fees" or "equipment deposits" via international transfer. Legitimate employers never ask you to pay to start a job.</li>
 </ol>
-<p>The <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-money-transfer-scam-en-2133/" target="_blank" rel="noopener noreferrer">CFPB provides comprehensive guidance on money transfer scams</a>. In the UK, <a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener noreferrer">Action Fraud</a> is the national reporting centre for fraud and cybercrime.</p>`,
+<p>The <a href="https://www.consumerfinance.gov/consumer-tools/money-transfers/" target="_blank" rel="noopener noreferrer">CFPB provides guidance on money transfers, including how to protect yourself from money transfer scams</a>. In England, Wales and Northern Ireland, <a href="https://www.reportfraud.police.uk/" target="_blank" rel="noopener noreferrer">Report Fraud</a> (which replaced Action Fraud in December 2025) is the national reporting centre for fraud and cybercrime.</p>`,
       },
       {
         heading: "What to Do If Something Goes Wrong",
         content: `<p>If you suspect fraud or a transfer doesn't arrive, act quickly:</p>
 <h3>Step 1: Contact the provider (within minutes)</h3>
-<p>Most transfers can be cancelled within a short window before they're fully processed. Call the provider's support line immediately — don't wait for email responses. Every hour matters.</p>
+<p>Many transfers can be cancelled until they're paid out. In the US, consumer remittance transfers come with a legal right to <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/34/" target="_blank" rel="noopener noreferrer">cancel within 30 minutes</a> of paying, as long as the money hasn't been picked up or deposited. Call the provider's support line immediately — don't wait for email responses. Every hour matters.</p>
 
 <h3>Step 2: Contact your bank or card issuer</h3>
-<p>If you paid by debit or credit card, you may be able to initiate a <strong>chargeback</strong> — a forced reversal of the payment. Card issuers generally give you 120 days to dispute a transaction. For bank transfers, the window is shorter and recovery is harder.</p>
+<p>If you paid by debit or credit card, you may be able to request a <strong>chargeback</strong> — a reversal of the card payment. You <a href="https://www.financial-ombudsman.org.uk/consumers/complaints-can-help/credit-borrowing-money/goods-services-bought-credit" target="_blank" rel="noopener noreferrer">usually have around 120 days</a> to raise one. For bank transfers, what you can recover depends on where you are: UK victims of APP scams on domestic Faster Payments or CHAPS transfers can claim <a href="https://www.psr.org.uk/information-for-consumers/app-fraud-reimbursement-protections/" target="_blank" rel="noopener noreferrer">reimbursement up to £85,000</a> within 13 months; elsewhere, and for international transfers, recovery is harder and not guaranteed.</p>
 
 <h3>Step 3: File a complaint with the regulator</h3>
 <ul>
@@ -797,7 +796,7 @@ const rawBlogPosts: BlogPost[] = [
 
 <h3>Step 4: Report the scam</h3>
 <ul>
-<li><strong>UK:</strong> <a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener noreferrer">Action Fraud</a> (0300 123 2040)</li>
+<li><strong>UK:</strong> <a href="https://www.reportfraud.police.uk/" target="_blank" rel="noopener noreferrer">Report Fraud</a>, formerly Action Fraud (0300 123 2040)</li>
 <li><strong>US:</strong> <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noopener noreferrer">FTC ReportFraud.ftc.gov</a> and local FBI field office for large amounts</li>
 <li><strong>International:</strong> <a href="https://www.econsumer.gov/" target="_blank" rel="noopener noreferrer">econsumer.gov</a> for cross-border scams</li>
 </ul>
@@ -805,7 +804,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Safety information in this guide is based on publicly available regulatory frameworks and provider documentation. We verify provider regulatory status directly on the <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a> and <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN MSB Search</a>. Trustpilot ratings are collected via our automated scraping system every 24 hours.</p>
+        content: `<p>Safety information in this guide is based on publicly available regulatory frameworks and provider documentation. We verify provider regulatory status directly on the <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a> and <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN MSB Search</a>. Legal protections described here are cited to the relevant regulator, statute or scheme rules; they differ by country and change over time, so check the rules where you live before relying on them. Trustpilot ratings are collected via our automated scraping system every 24 hours.</p>
 <p>For more guidance, read our <a href="/guides/how-to-send-money-abroad">how to send money abroad</a> guide, <a href="/guides/best-money-transfer-apps">best money transfer apps</a> ranking, <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, and <a href="/guides/wire-transfer-guide">wire transfer guide</a>.</p>`,
       },
     ],
@@ -813,52 +812,52 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Are money transfers safe?",
         answer:
-          "Yes, online money transfers through regulated providers are safe. Services like <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/remitly\">Remitly</a>, and <a href=\"/companies/revolut\">Revolut</a> are authorised by the FCA (UK) and FinCEN (US), hold your money in segregated accounts, use 256-bit encryption, and require two-factor authentication. The key is to always verify the provider is regulated before sending money.",
+          "Yes, online money transfers through regulated providers are generally safe. Services like <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/remitly\">Remitly</a>, and <a href=\"/companies/revolut\">Revolut</a> are authorised by the FCA in the UK, where customer money must be safeguarded and strong customer authentication is required; in the US, money transmitters are registered with FinCEN and licensed by the states, which typically require surety bonds and reserves. Money held with a payment or e-money firm is usually not covered by deposit insurance like the FSCS. The key is to always verify the provider is regulated where you live before sending money.",
       },
       {
         question: "Are bank transfers safe to receive money?",
         answer:
-          "Yes. Receiving a bank transfer (SWIFT, SEPA, ACH, or Faster Payments) is safe. Funds are deposited directly into your bank account through the regulated banking system. Unlike cheques or PayPal, bank transfers cannot be reversed once settled. Your bank details (account number, sort code, IBAN) can only be used to send money to you, not take money from you.",
+          "Yes. Receiving a bank transfer (SWIFT, SEPA, ACH, or Faster Payments) is safe. Funds are deposited directly into your bank account through the regulated banking system, and once settled the sender generally can't pull them back on their own — though banks can freeze or return money they believe came from fraud, and US ACH payments can be returned in limited cases. Sharing your bank details (account number, sort code, IBAN) is low-risk, but watch your statements for unauthorised direct debits. Never forward money that an unknown sender asks you to pass on.",
       },
       {
         question: "Is Wise safe to use?",
         answer:
-          "Yes. <a href=\"/companies/wise\">Wise</a> is authorized by the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). They hold customer funds in segregated accounts at major banks like JP Morgan and Barclays. Wise has a {{TRUSTPILOT:wise}} Trustpilot rating and serves 16+ million customers worldwide.",
+          "Yes. <a href=\"/companies/wise\">Wise</a> is authorised by the FCA (UK), registered with FinCEN and state-licensed (US), and regulated by ASIC (Australia) and MAS (Singapore). In the UK and EU it safeguards customer funds separately from its own money, though as an e-money institution those balances aren't FSCS-protected. Wise has a {{TRUSTPILOT:wise}} Trustpilot rating and serves 16+ million customers worldwide.",
       },
       {
         question: "Is Remitly safe to use?",
         answer:
-          "Yes. <a href=\"/companies/remitly\">Remitly</a> is authorised by the FCA (UK) and registered with FinCEN (US). It has a {{TRUSTPILOT:remitly}} Trustpilot rating and is a NASDAQ-listed public company (RELY). Remitly uses bank-grade encryption and 2FA for all transactions.",
+          "Yes. <a href=\"/companies/remitly\">Remitly</a> is authorised by the FCA (UK) and registered with FinCEN (US). It has a {{TRUSTPILOT:remitly}} Trustpilot rating and is a NASDAQ-listed public company (RELY). As an FCA-authorised firm, Remitly must safeguard UK customers' funds and apply strong customer authentication.",
       },
       {
         question: "How do I check if a money transfer service is legitimate?",
         answer:
-          "Search for the provider on the FCA Register (register.fca.org.uk) or FinCEN MSB Search (fincen.gov/msb-registrant-search). If they're not listed, don't use them. Also check their Trustpilot score (be wary below 3.5), verify they show transparent pricing before you commit, and confirm they have a physical address and phone support.",
+          "Search for the provider on the register for the country you send from: the FCA Register (register.fca.org.uk) in the UK, the EBA register in the EU, or FinCEN MSB Search (fincen.gov/msb-registrant-search) plus your state regulator in the US — FinCEN registration on its own is not an endorsement. If they're not listed where you live, don't use them. Also check their Trustpilot score (be wary below 3.5), verify they show transparent pricing before you commit, and confirm they have a physical address and phone support.",
       },
       {
         question: "Can I get my money back if a transfer goes wrong?",
         answer:
-          "It depends on the situation. If the transfer hasn't been processed yet, most providers can cancel and refund it. If you paid by card, you may be able to initiate a chargeback (up to 120 days). If the transfer was sent to the wrong account, the provider will attempt to recover funds but this isn't guaranteed. For scams, report to Action Fraud (UK) or FTC (US) and contact your bank immediately.",
+          "It depends on the situation and where you are. If the transfer hasn't been paid out yet, most providers can cancel and refund it — and in the US you have a legal right to cancel a remittance within 30 minutes of paying (if it hasn't been collected or deposited) and 180 days to report an error. If you paid by card, you may be able to request a chargeback (usually within around 120 days). If the transfer was sent to the wrong account, the provider will attempt to recover funds but this isn't guaranteed. For scams on UK domestic bank transfers, you can claim APP reimbursement up to £85,000; international transfers aren't covered. Report scams to Report Fraud, formerly Action Fraud (UK), or the FTC (US), and contact your bank immediately.",
       },
       {
         question: "What is the safest way to send money internationally?",
         answer:
-          "Use a regulated provider (check the FCA or FinCEN register), enable two-factor authentication, verify recipient details carefully before sending, fund via bank transfer or debit card (not credit card to a new provider), and start with a small test transfer before sending large amounts. Our <a href=\"/send-money\">comparison tool</a> only lists regulated providers.",
+          "Use a provider regulated where you live (check the FCA register, EBA register, or FinCEN plus your state regulator), enable two-factor authentication, verify recipient details carefully before sending, fund via bank transfer or debit card (not credit card to a new provider), and start with a small test transfer before sending large amounts. Our <a href=\"/send-money\">comparison tool</a> only lists regulated providers.",
       },
       {
         question: "Are money transfer companies safe?",
         answer:
-          "Yes — regulated money transfer companies are safe. Fraud rates run below 0.1% by value at major FCA/FinCEN-licensed providers. The industry processes over $800 billion annually with strict capital, segregated-account, and identity-verification rules. Always check the provider's regulatory authorisation before sending — the FCA Register (UK) and FinCEN MSB Search (US) are public and free.",
+          "Yes — regulated money transfer companies are generally safe, though the protections differ by country. UK and EU payment firms must safeguard customer money; US money transmitters are state-licensed, and states typically require surety bonds and reserves; all must verify customers' identity under anti-money-laundering rules. Money held with a transfer company is usually not covered by deposit insurance, and the biggest practical risk is being tricked into paying a scammer. Always check the provider's regulatory authorisation before sending — the FCA Register (UK) and FinCEN MSB Search (US) are public and free.",
       },
       {
         question: "Is it safe to transfer money to another bank account?",
         answer:
-          "Yes — bank-to-bank transfers are one of the safest ways to move money. They settle through regulated payment rails (Faster Payments UK, ACH/FedWire US, SEPA EU, NPP Australia) where every transaction is logged and traceable. Confirmation of Payee checks catch most wrong-account mistakes. For first-time transfers, send a small test amount first and verify the recipient before sending the full amount.",
+          "Yes — bank-to-bank transfers are one of the safest ways to move money. They settle through regulated payment rails (Faster Payments UK, ACH/FedWire US, SEPA EU, NPP Australia) where every transaction is logged and traceable. Name checks — Confirmation of Payee in the UK, Verification of Payee for euro payments — catch many wrong-account mistakes, though they only warn you. For first-time transfers, send a small test amount first and verify the recipient before sending the full amount.",
       },
       {
         question: "How safe is transferring money online?",
         answer:
-          "Online money transfers are statistically safer than cash, cheques, or in-person remittance. UK Finance reports online transfer fraud rates around 0.04% by value — about 10× safer than cheques. The main risk isn't the system being hacked (extremely rare at regulated firms); it's being tricked into authorising a transfer to a fraudster. Use 2FA, verify recipients through a second channel, and start with small amounts when using a new provider.",
+          "Transferring money online through a regulated provider is generally safe. The main risk isn't the system being hacked; it's being tricked into authorising a transfer to a fraudster — US consumers reported losing more than $12.5 billion to fraud in 2024, according to the FTC, with more lost via bank transfers or cryptocurrency than all other payment methods combined. Use 2FA, verify recipients through a second channel, and start with small amounts when using a new provider.",
       },
       {
         question: "Is it safe to send money to a stranger online?",
@@ -868,17 +867,17 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What happens if I send money to the wrong account?",
         answer:
-          "Contact the provider immediately. If the transfer hasn't been processed, most providers can cancel and refund. If money has reached a wrong but valid account, your bank or provider will attempt to recover it — UK banks must try within 2 working days under PSR rules. Recovery isn't guaranteed if the recipient refuses to return the funds, but reporting quickly maximises your chances. For international wires, recovery is harder once funds reach an overseas bank.",
+          "Contact the provider immediately. If the transfer hasn't been processed, most providers can cancel and refund. If money has reached a wrong but valid account, your bank or provider will attempt to recover it — in the UK, payment providers must make reasonable efforts to recover the funds, and the receiving bank must co-operate. Recovery isn't guaranteed if the recipient refuses to return the funds, but reporting quickly maximises your chances. For international wires, recovery is harder once funds reach an overseas bank.",
       },
       {
         question: "Are international wire transfers safe?",
         answer:
-          "Yes, international wire transfers via SWIFT are safe at the system level — the SWIFT network has a near-flawless settlement record. The risks come from sending to unfamiliar accounts (recovery is hard once funds arrive overseas), business email compromise (fraudsters substituting their own bank details on invoices), and lack of name-matching at most banks. Specialist providers like Wise, OFX, and XE add recipient verification and modern tracking that traditional bank wires lack.",
+          "Yes, international wire transfers via SWIFT are generally safe at the system level — most wire fraud comes from the sender being deceived, not the network failing. The risks come from sending to unfamiliar accounts (recovery is hard once funds arrive overseas, and domestic protections like UK APP reimbursement don't cover international payments), business email compromise (fraudsters substituting their own bank details on invoices), and the fact that name-matching is not universal on cross-border wires. Specialist providers like Wise, OFX, and XE often offer clearer tracking and cancellation before payout; in the US, consumer remittances from banks and providers alike come with a 30-minute cancellation right.",
       },
       {
         question: "Is it safer to use a credit card or bank transfer to fund an international transfer?",
         answer:
-          "Credit cards offer stronger chargeback protection (Section 75 in UK, FCBA in US) for first-time use of a provider. Bank transfers are cheaper but have weaker recovery rights if something goes wrong. The safest pattern: use a debit or credit card for your first 2-3 transfers with a new provider to verify they're legitimate and the recipient details work, then switch to bank funding to save on fees. Watch out for credit card cash advance treatment on some networks.",
+          "Cards give you a chargeback route if the provider fails to deliver, and UK credit cards may add a Section 75 claim (£100–£30,000); in the US, credit cards carry Fair Credit Billing Act billing-error rights. None of these is designed to refund a transfer you knowingly sent to a scammer. Bank transfers are cheaper but have weaker recovery rights if something goes wrong. The safest pattern: use a debit or credit card for your first 2-3 transfers with a new provider to verify they're legitimate and the recipient details work, then switch to bank funding to save on fees. Watch out for credit card cash advance treatment on some networks.",
       },
     ],
     relatedSlugs: [
