@@ -24,8 +24,10 @@ import { RANKING_CORRIDOR_SLUGS } from "../src/lib/ranking-corridors";
 
 const BASE = process.argv[2]?.replace(/\/$/, "") || "https://sendmoneycompare.com";
 
-// The site's bot scorer 403s clients that omit these; a bare fetch looks
-// automated and the check would fail for the wrong reason.
+// Browser-shaped headers so the check measures what a real user sees. The
+// UA-based 403 rule these once worked around was removed from middleware on
+// 2026-09-20 (every user agent now gets 200), but keeping the realistic
+// header set costs nothing and stays valid if edge rules ever change.
 const HEADERS: Record<string, string> = {
   "User-Agent":
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
@@ -48,6 +50,19 @@ const RANKING_PATHS = [
   "/",
   "/exchange-rates/history/usd-to-hnl",
   "/guides/send-money-to-bangladesh-guide",
+  // Core navigation hubs, added 2026-09-24 after a third-party audit reported
+  // "sitewide 403 on core navigation" from the /disclaimer page. The report
+  // was a phantom — its crawler's UA was on the middleware blocklist removed
+  // 2026-09-20, while Googlebot and browsers got 200 throughout — but the
+  // hubs it named are the pages every header/footer links to, so they belong
+  // in this guard: any regression that 403s, empties, or redirects one of
+  // them should fail the check, not wait for the next external audit.
+  "/exchange-rates",
+  "/send-money",
+  "/companies",
+  "/compare",
+  "/guides",
+  "/disclaimer",
 ];
 
 /** Redirects whose targets must resolve — locale prefixes are the risky ones. */
