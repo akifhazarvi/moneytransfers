@@ -19751,7 +19751,7 @@
       "lemfi": {
         "rate": 43.9,
         "fee": 2,
-        "markup": 1.1,
+        "markup": 1.03,
         "receiveAmount": 4302.2
       },
       "moneygram": {
@@ -19761,10 +19761,10 @@
         "receiveAmount": 4270.91
       },
       "western-union": {
-        "rate": 43.8218,
+        "rate": 43.6898,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 4338.8
+        "receiveAmount": 4325.73
       },
       "dahabshiil": {
         "rate": 44.2516,
@@ -19779,10 +19779,10 @@
         "receiveAmount": 4218.01
       },
       "instarem": {
-        "rate": 43.9537,
+        "rate": 43.8951,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4395.37
+        "receiveAmount": 4389.51
       },
       "xe": {
         "rate": 44.1132,
@@ -19809,16 +19809,16 @@
         "receiveAmount": 4360.82
       },
       "remitly": {
-        "rate": 44.07,
+        "rate": 43.35,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 4407
+        "markup": 2.6,
+        "receiveAmount": 4335
       },
       "wise": {
-        "rate": 44.3894,
+        "rate": 44.3283,
         "fee": 2.51,
         "markup": null,
-        "receiveAmount": 4327.52
+        "receiveAmount": 4321.57
       },
       "ria": {
         "rate": 43.8016,
@@ -19833,22 +19833,22 @@
         "receiveAmount": 4390
       },
       "bmo": {
-        "rate": 41.3897,
+        "rate": 41.3328,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4138.97
+        "receiveAmount": 4133.28
       },
       "paypal": {
-        "rate": 42.4236,
+        "rate": 42.3765,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 4030.67
+        "receiveAmount": 4026.2
       },
       "rbc": {
-        "rate": 43.1558,
+        "rate": 42.9719,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4315.58
+        "receiveAmount": 4297.19
       }
     }
   }
