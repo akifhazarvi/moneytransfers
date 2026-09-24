@@ -5,15 +5,29 @@ import { setRequestLocale } from "next-intl/server";
 import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
-import { COVERAGE } from "@/lib/site-stats";
+import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
+import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/best-apps-to-send-money-from-us-2026";
 const URL = `${SITE_URL}/${PATH}`;
 const PUBLISHED = "2026-06-30";
-const MODIFIED = "2026-06-30";
+const MODIFIED = "2026-09-23";
 
 const author = getAuthor("awais-imran");
+
+// Measured 91-day leaders on US-sending corridors, read from the scrape so the
+// "who is cheapest" claims below cannot drift into a superlative the data no
+// longer supports (Wise leading "most corridors" was never true from the US).
+const US_LEADERS = (() => {
+  const rows = Object.entries(corridorLeaders as Record<string, { name: string; slug: string }>)
+    .filter(([pair]) => pair.startsWith("USD-"))
+    .map(([, row]) => row);
+  const counts = new Map<string, { name: string; led: number }>();
+  for (const r of rows) counts.set(r.slug, { name: r.name, led: (counts.get(r.slug)?.led ?? 0) + 1 });
+  const ranked = [...counts.values()].sort((a, b) => b.led - a.led);
+  return { total: rows.length, wise: counts.get("wise")?.led ?? 0, top: ranked[0] };
+})();
 
 // ─── Data tables (compiled from live scraped data, June 2026) ────────────────
 
@@ -143,11 +157,11 @@ const TOP_PICKS = [
 const COMPARISON_FAQS = [
   {
     q: "What is the best app to send money internationally from the US in 2026?",
-    a: "Wise is the best overall app for sending money internationally from the US in 2026. It uses the real mid-market exchange rate with zero markup and charges a transparent fee from 0.41%, making it the cheapest option for most corridors. Remitly is the best alternative if you need cash pickup or faster delivery to emerging markets. For the highest Trustpilot rating, TorFX (4.9/5) leads the field. Compare live rates for your exact amount and destination at SendMoneyCompare.",
+    a: `Wise is the best overall app for sending money internationally from the US in 2026. It uses the real mid-market exchange rate with zero markup and charges a transparent fee from 0.41%, so the price you see is the price you pay. It is not the cheapest everywhere: over the last 91 days it led ${US_LEADERS.wise} of the ${US_LEADERS.total} US-sending corridors we can compare, while ${US_LEADERS.top.name} led ${US_LEADERS.top.led}. Remitly is the best alternative if you need cash pickup or faster delivery to emerging markets. For the highest Trustpilot rating, TorFX (4.9/5) leads the field. Compare live rates for your exact amount and destination at SendMoneyCompare.`,
   },
   {
     q: "Which money transfer app has the lowest fees from the US?",
-    a: "TapTap Send charges $0 fees on most corridors from the US and applies only a ~0.7% exchange rate margin. XE Money Transfer and TorFX also charge no transfer fees. Wise charges a variable fee (from 0.41%) but applies 0% markup on the exchange rate — making it the lowest total cost for most large transfers. PayPal and Xoom typically cost the most, with 3–4% exchange rate margins on top of transfer fees.",
+    a: "TapTap Send charges $0 fees on most corridors from the US and applies only a ~0.7% exchange rate margin. XE Money Transfer and TorFX also charge no transfer fees. Wise charges a variable fee (from 0.41%) but applies 0% markup on the exchange rate, so its percentage cost falls as the amount rises. PayPal and Xoom typically cost the most, with 3–4% exchange rate margins on top of transfer fees.",
   },
   {
     q: "Is it safe to use apps like Wise or Remitly to send money abroad?",
@@ -159,7 +173,7 @@ const COMPARISON_FAQS = [
   },
   {
     q: "What is the cheapest way to send $1,000 from the US internationally?",
-    a: "For a $1,000 transfer, Wise typically wins on total cost because it uses the mid-market rate with a fee of roughly $5–8 for most major corridors. TapTap Send is often the cheapest for Africa and South/Southeast Asia. Always compare at the exact amount and destination because the cheapest provider shifts by corridor — Remitly often has promotional zero-fee rates for new users that beat Wise on the first transfer.",
+    a: `For a $1,000 transfer there is no single answer: over the last 91 days ${US_LEADERS.top.name} was cheapest on ${US_LEADERS.top.led} of the ${US_LEADERS.total} US-sending corridors we can compare and Wise on ${US_LEADERS.wise}. TapTap Send is often the cheapest for Africa and South/Southeast Asia. Always compare at the exact amount and destination because the cheapest provider shifts by corridor — Remitly often has promotional zero-fee rates for new users that beat Wise on the first transfer.`,
   },
   {
     q: "Can I send money abroad from the US without a bank account?",
@@ -481,7 +495,7 @@ export default async function BestAppsFromUSPage({
             <p className="citable-passage text-[var(--color-on-surface)] leading-relaxed">
               <strong>Wise</strong> is the best overall app to send money internationally from the US in 2026. It
               uses the real mid-market exchange rate with 0% markup and charges a transparent variable fee from
-              0.41% — the lowest all-in cost on most major corridors. <strong>Remitly</strong> is the best
+              0.41%, so what you see is what you pay — though it led only {US_LEADERS.wise} of the {US_LEADERS.total} US-sending corridors we can compare over the last 91 days, where <strong>{US_LEADERS.top.name}</strong> led {US_LEADERS.top.led}. <strong>Remitly</strong> is the best
               alternative for speed and emerging-market coverage (175+ country network, Express delivery in minutes on major corridors).{" "}
               <strong>TorFX</strong> holds the highest Trustpilot rating (4.9 /&nbsp;5) and is best for
               transfers above $10,000. All eight providers below are licensed money service businesses,
@@ -515,7 +529,7 @@ export default async function BestAppsFromUSPage({
 
           {/* Stats row */}
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <StatBox value="60+" label="Providers compared" />
+            <StatBox value={atLeast(SITE_STATS.liveProviders)} label="Providers compared" />
             <StatBox value="190+" label="Countries covered" />
             <StatBox value="Every 6h" label="Data refresh rate" />
             <StatBox value="$0" label="Paid placements" />
@@ -624,7 +638,7 @@ export default async function BestAppsFromUSPage({
               </thead>
               <tbody className="divide-y divide-[var(--color-outline)]">
                 {[
-                  ["Lowest cost, most corridors", "Wise", "0% FX markup, transparent fee from 0.41%"],
+                  ["Transparent pricing", "Wise", "0% FX markup, transparent fee from 0.41%"],
                   ["Fastest delivery", "Remitly Express / TapTap Send", "Minutes to bank, wallet or cash pickup"],
                   ["Transfers above $10,000", "TorFX or OFX", "No fees, dedicated dealer, rate-lock tools"],
                   ["Cash pickup globally", "Western Union / Xoom", "200+ countries, thousands of agent locations"],

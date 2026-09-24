@@ -172,7 +172,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
   const faqs = [
     {
       q: "What is the cheapest way to compare money transfer services?",
-      a: `The cheapest way to compare money transfer services in ${month} ${year} is to look at the total amount your recipient receives — not just the advertised fee. Compare the mid-market rate (what you see on Google or Reuters) against each provider's quoted rate, then add the fee. Wise consistently delivers the most money per dollar sent because it uses the real mid-market exchange rate with a transparent 0.33–0.7% fee. Remitly and WorldRemit often offer promotional first-transfer rates that beat Wise temporarily. Banks typically cost 3–5% more than specialist providers due to hidden FX markup.`,
+      a: `The cheapest way to compare money transfer services in ${month} ${year} is to look at the total amount your recipient receives — not just the advertised fee. Compare the mid-market rate (what you see on Google or Reuters) against each provider's quoted rate, then add the fee. No provider wins everywhere: over the last 91 days ${TOP_LEADER.providerName} was cheapest on ${TOP_LEADER.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare (${TOP_LEADER_SHARE}%) — more than any other provider, but far from most. Remitly and WorldRemit often offer promotional first-transfer rates that beat the usual leader temporarily. Banks cost more mainly through exchange-rate markup: ${REMITTANCE_INDEX.avgBankMarkupPct}% on average in our index, against ${REMITTANCE_INDEX.avgSpecialistMarkupPct}% for specialists.`,
     },
     {
       q: "How do you compare money transfer rates accurately?",
@@ -180,7 +180,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
     },
     {
       q: "Which money transfer service has the best exchange rate?",
-      a: `Wise consistently offers the best exchange rate on most corridors because it uses the real mid-market rate (the same rate shown on Google and Reuters) with no hidden markup. Remitly, WorldRemit, and Instarem are typically within 0.5–1.5% of the mid-market rate, depending on the corridor and promotional status. Western Union and MoneyGram typically apply 1.5–3% exchange rate markups in exchange for their cash pickup networks. Banks (Chase, Wells Fargo, Barclays, HSBC, NatWest) typically apply 3–5% markups and are almost never the cheapest option for specialist international transfers.`,
+      a: `No single provider has the best rate on most corridors. ${TOP_LEADER.providerName} is the most frequent winner — cheapest on ${TOP_LEADER.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare over the last 91 days (${TOP_LEADER_SHARE}%). Wise uses the real mid-market rate (the same rate shown on Google and Reuters) and charges a separate fee instead of a markup. Remitly, WorldRemit, and Instarem are typically within 0.5–1.5% of the mid-market rate, depending on the corridor and promotional status. Western Union and MoneyGram typically apply 1.5–3% exchange rate markups in exchange for their cash pickup networks. Banks (Chase, Wells Fargo, Barclays, HSBC, NatWest) average a ${REMITTANCE_INDEX.avgBankMarkupPct}% markup in our index and are almost never the cheapest option for specialist international transfers.`,
     },
     {
       q: "How long does a money transfer take?",
