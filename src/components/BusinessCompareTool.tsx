@@ -182,6 +182,7 @@ export default function BusinessCompareTool({ liveCosts, amountLabel }: { liveCo
                   href={`/go/${p.slug}`}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
+                  data-pc="1"
                   onClick={() => trackProviderClicked(p.slug, "business_compare", i + 1, "business_tool")}
                   className="rounded-full bg-[var(--color-cta)] px-4 py-1.5 text-sm font-semibold text-[var(--color-cta-text)] shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)] transition-all"
                 >

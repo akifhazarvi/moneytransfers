@@ -165,6 +165,7 @@ export default function GuidePageNudge({ from, to, amount, slug, only }: Props) 
               href={sendUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-pc="1"
               onClick={() => {
                 trackProviderClicked(best.providerSlug, corridor, 1, `guide_nudge`);
                 trackStickyCtaClicked(best.providerSlug, corridor, savings > 0 ? savings : undefined);

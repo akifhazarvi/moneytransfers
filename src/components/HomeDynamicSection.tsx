@@ -316,6 +316,7 @@ export default function HomeDynamicSection() {
                           href={sendUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          data-pc="1"
                           onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, i + 1, "home_live_example")}
                           className={`flex items-center justify-center gap-1.5 w-full h-10 text-sm font-bold rounded-full transition-all active:scale-95 ${
                             isBest
@@ -358,6 +359,7 @@ export default function HomeDynamicSection() {
                           href={sendUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          data-pc="1"
                           onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, i + 1, "home_live_example")}
                           className={`inline-flex items-center gap-1.5 h-10 px-4 text-xs font-bold rounded-full transition-all active:scale-95 whitespace-nowrap ${
                             isBest

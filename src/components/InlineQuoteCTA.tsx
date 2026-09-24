@@ -39,6 +39,7 @@ export default function InlineQuoteCTA({
       href={href}
       target="_blank"
       rel="noopener noreferrer nofollow sponsored"
+      data-pc="1"
       onClick={() => trackProviderClicked(providerSlug, corridor, rank, source)}
       className={`conversion-button inline-quotes-action ${isBest ? "conversion-button--accent" : "inline-quotes-action--secondary"}${fullWidth ? " inline-quotes-action--full" : ""}`}
       aria-label={`View offer from ${providerName} (opens in a new tab)`}
