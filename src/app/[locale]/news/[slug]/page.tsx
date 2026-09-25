@@ -102,19 +102,6 @@ export default async function NewsArticlePage({ params }: Props) {
   const item = getNewsItem(slug);
   if (!item) notFound();
 
-  // The articles published either side of this one, not the latest three:
-  // "latest" put the same three titles in the sidebar of every article, a
-  // shared block the round-2 SEO audit counted on each news page.
-  const related = (() => {
-    const byDate = [...newsItems].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
-    const at = byDate.findIndex((n) => n.slug === slug);
-    const out: typeof newsItems = [];
-    for (let d = 1; out.length < 3 && d < byDate.length; d++) {
-      for (const j of [at - d, at + d]) if (out.length < 3 && byDate[j]) out.push(byDate[j]);
-    }
-    return out;
-  })();
-
   return (
     <div className="bg-[var(--color-surface)] min-h-screen">
       <ScrollTracker slug={slug} contentType="news" />
@@ -265,43 +252,9 @@ export default async function NewsArticlePage({ params }: Props) {
                 scroll, so a long sidebar doesn't wait for the article to
                 scroll to the bottom before its lower content is reachable. */}
             <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto space-y-6">
-              {/* Latest news */}
-              {related.length > 0 && (
-                <div>
-                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-4">More from the news desk</h3>
-                  <div className="space-y-3">
-                    {related.map((n) => (
-                      <Link key={n.slug} href={`/news/${n.slug}`} className="block group">
-                        <div className="border border-[var(--color-outline)] rounded-xl overflow-hidden hover:shadow-sm transition-shadow">
-                          {n.image && (
-                            <div
-                              className={`relative w-full h-[100px] ${
-                                n.image.endsWith(".svg") ? "bg-[#05101f]" : ""
-                              }`}
-                            >
-                              <Image
-                                src={n.image}
-                                alt={n.imageAlt || n.title}
-                                fill
-                                className={n.image.endsWith(".svg") ? "object-contain" : "object-cover"}
-                              />
-                            </div>
-                          )}
-                          <div className="p-4">
-                            <CategoryBadge category={n.category} />
-                            <h4 className="text-sm font-medium text-[var(--color-on-surface)] mt-2 leading-snug group-hover:text-[var(--color-primary)] transition-colors">
-                              {n.title}
-                            </h4>
-                            <time className="text-2xs text-[var(--color-on-surface-variant)] mt-1 block" dateTime={n.publishedAt}>
-                              {formatLocalDate(n.publishedAt, { month: "short", day: "numeric" })}
-                            </time>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <Link href="/news" className="block text-sm font-semibold text-[var(--color-primary)] hover:underline">
+                More money transfer news →
+              </Link>
 
               <Link
                 href="/send-money"
