@@ -486,7 +486,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "7 min read",
     publishedAt: "2026-01-20",
-    updatedAt: "2026-03-13",
+    updatedAt: "2026-09-24",
     author: "Awais Imran",
     tags: ["exchange rates", "markup", "mid-market rate", "hidden fees", "education"],
     featuredImage: "/images/blog/exchange-rate-markup.jpg",
@@ -496,18 +496,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An exchange rate markup is the difference between the mid-market rate (the real rate on Google) and the rate a provider gives you — typically 0.5-4% for banks. On a $1,000 transfer, a 3% bank markup costs you ~$30 in hidden fees. <a href="/companies/wise">Wise</a> charges {{AVG_MARKUP:wise}}, while <a href="/companies/remitly">Remitly</a> averages {{AVG_MARKUP:remitly}}. <a href="/send-money">Compare real rates</a> across {{PROVIDER_COUNT}} providers to see the true cost.</p></div>
 <p>The <strong>mid-market rate</strong> (also called the interbank rate or real exchange rate) is the midpoint between the buy and sell price of a currency on the global market. It's the rate banks use when trading with each other — and it's the fairest rate available. The mid-market rate is published by sources like <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer">the European Central Bank</a> and the <a href="https://www.federalreserve.gov/releases/h10/" target="_blank" rel="noopener noreferrer">US Federal Reserve's H.10 release</a>.</p>
 <p>When you Google "USD to INR," the rate shown is the mid-market rate. No individual consumer gets this exact rate, but some providers come very close. Understanding this is key to finding <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest way to send money internationally</a>.</p>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Low Exchange Rate Markup</h3>
-<table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup — always uses the real mid-market rate</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>{{AVG_MARKUP:remitly}} with Express delivery option</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>{{AVG_MARKUP:instarem}} with zero fees</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
-</div>`,
+`,
       },
       {
         heading: "How Do Exchange Rate Markups Work?",
@@ -523,13 +512,27 @@ const rawBlogPosts: BlogPost[] = [
 <p>The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database tracks these costs globally and shows the global average remains well above the 3% SDG target.</p>`,
       },
       {
-        heading: "How Do You Calculate the Markup?",
-        content: `<p>The formula is simple:</p>
-<p><strong>Markup % = ((Mid-market rate − Provider rate) / Mid-market rate) × 100</strong></p>
-<p>For example, if the mid-market rate for USD/INR is 92.30 and your provider offers 89.53:</p>
-<p>Markup = ((92.30 − 89.53) / 92.30) × 100 = <strong>3.0%</strong></p>
-<p>To find the cost in dollars: $1,000 × 3% = <strong>$30 in hidden costs</strong></p>
-<p>Our comparison tool automatically calculates this for every provider, showing you the total cost including both fees and markup.</p>`,
+        heading: "Calculate the rate margin, then the all-in cost",
+        content: `<p>Use rates expressed in the same direction: destination currency received for one unit of sending currency. Let <strong>M</strong> be the reference rate, <strong>R</strong> the quoted rate, <strong>B</strong> your total sending budget and <strong>F</strong> the fee deducted from that budget.</p>
+<p><strong>Rate margin = (M − R) ÷ M × 100.</strong> This measures the exchange-rate difference only. It does not include the separate fee.</p>
+<p><strong>Recipient payout = (B − F) × R.</strong> To express the entire shortfall in the sending currency, calculate <strong>B − payout ÷ M</strong>. Dividing that shortfall by B gives the all-in percentage cost relative to the reference, assuming no other deductions.</p>
+<table><caption>Hypothetical $1,000 budget with a reference of ₹90 per dollar</caption><thead><tr><th>Calculation</th><th>Offer A</th><th>Offer B</th></tr></thead><tbody>
+<tr><td>Fee deducted from budget</td><td>$0</td><td>$6</td></tr>
+<tr><td>Rate offered</td><td>₹88.20</td><td>₹89.55</td></tr>
+<tr><td>Rate margin</td><td>2.00%</td><td>0.50%</td></tr>
+<tr><td>Amount converted</td><td>$1,000</td><td>$994</td></tr>
+<tr><td>Recipient payout</td><td>₹88,200.00</td><td>₹89,012.70</td></tr>
+<tr><td>Total cost in dollars</td><td>$20.00</td><td>$10.97</td></tr>
+<tr><td>All-in cost as share of budget</td><td>2.00%</td><td>1.097%</td></tr>
+</tbody></table>
+<p>For B, $994 × 89.55 = ₹89,012.70; converting that payout back at the hypothetical reference gives $989.03. The $10.97 shortfall consists of the $6 fee plus a $4.97 rate loss on the amount actually converted. Simply adding 0.6% and 0.5% would give 1.1%, a close approximation, but not the exact result.</p>
+<p>Neither offer represents a named company's current pricing. The example isolates the arithmetic so you can repeat it with the numbers on your own confirmation screen. If the fee is charged on top, B must include it: a $1,000 principal plus a $6 fee is a $1,006 budget, not a like-for-like comparison with A.</p>`,
+      },
+      {
+        heading: "Find the amount where two fee structures cross over",
+        content: `<p>A low fixed fee and a narrow rate margin do not win at every amount. Suppose offer C charges no fee and converts at 98% of a shared reference. Offer D deducts $6 and converts at 99.5% of that reference. The reference cancels when comparing their payouts:</p>
+<p><strong>0.98 × B = 0.995 × (B − 6)</strong>, so <strong>0.015 × B = 5.97</strong> and the break-even budget is <strong>$398</strong>.</p>
+<p>Below $398, C produces the larger payout; above $398, D does. At exactly $398 their payouts match before rounding. This is why a “cheapest provider” result for $1,000 cannot answer a question about sending $100. This constructed example assumes constant prices; real fees and rate margins may change at amount thresholds.</p>`,
       },
       {
         heading: "Which Providers Have the Lowest Markup?",
@@ -561,9 +564,9 @@ const rawBlogPosts: BlogPost[] = [
 <p>The practical takeaway: use the provider medians earlier on this page to shortlist two or three candidates, then check the live rate for your actual corridor and amount in the <a href="/send-money">comparison table</a> before sending. The medians tell you who to check, not what you'll get.</p>`,
       },
       {
-        heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+        heading: "What the benchmark can and cannot establish",
+        content: `<p>The arithmetic examples use deliberately fixed, hypothetical reference rates. In a real comparison, record the reference's timestamp and rate direction alongside the provider's quote. A later market movement should not be counted as a provider margin, and a daily reference rate is not necessarily a price available for immediate execution.</p>
+<p>Provider medians and the corridor table come from our collected offers; the <a href="/methodology">comparison methodology</a> describes coverage and limitations. Those aggregates answer different questions from a calculation for one transaction. Use the <a href="/tools/fx-markup-checker">FX markup checker</a> for your own rate pair, and include any known recipient or intermediary deductions when judging the final amount delivered.</p>`,
       },
     ],
     faqs: [
