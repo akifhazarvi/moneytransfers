@@ -13,7 +13,6 @@ import type { Metadata } from "next";
 import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
-import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { COVERAGE } from "@/lib/site-stats";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 
@@ -227,46 +226,11 @@ export default async function NewsArticlePage({ params }: Props) {
               </div>
             )}
 
-            {/* Content — split at midpoint with live quotes injected in the middle */}
-            {(() => {
-              const clean = sanitizeHtml(renderDataTokens(item.content));
-              // Split on </p> boundaries so we never cut mid-tag
-              const parts = clean.split(/(?<=<\/p>)/);
-              const mid = Math.ceil(parts.length / 2);
-              const firstHalf = parts.slice(0, mid).join("");
-              const secondHalf = parts.slice(mid).join("");
-              return (
-                <>
-                  <div
-                    className="prose-custom text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
-                    dangerouslySetInnerHTML={{ __html: firstHalf }}
-                  />
-                  <InlineProviderQuotes
-                    from="USD"
-                    to="INR"
-                    amount={1000}
-                    source={`news:${slug}:mid`}
-                    heading="Don't overpay on your next transfer"
-                    subheading={`Live rates from ${COVERAGE.providers} — see who's cheapest right now`}
-                  />
-                  {secondHalf && (
-                    <div
-                      className="prose-custom text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
-                      dangerouslySetInnerHTML={{ __html: secondHalf }}
-                    />
-                  )}
-                </>
-              );
-            })()}
-
-            {/* Live provider quotes — at the end */}
-            <InlineProviderQuotes
-              from="USD"
-              to="INR"
-              amount={1000}
-              source={`news:${slug}:end`}
-              heading="Ready to send? Here's the cheapest provider today"
-              subheading={`Compare ${COVERAGE.providers} — free, no signup required`}
+            {/* Keep the reporting contiguous. Generic USD/INR tables previously
+                appeared twice on every story, including unrelated corridors. */}
+            <div
+              className="prose-custom text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(renderDataTokens(item.content)) }}
             />
 
             {/* Source */}
