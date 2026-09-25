@@ -15009,7 +15009,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Corridors",
     readTime: "10 min read",
     publishedAt: "2026-04-11",
-    updatedAt: "2026-04-11",
+    updatedAt: "2026-09-24",
     author: "Awais Imran",
     tags: ["Ethiopia", "ETB", "remittance", "corridor guide", "send money to Ethiopia", "telebirr"],
     featuredImage: "/images/blog/send-money-to-ethiopia.jpg",
@@ -15062,6 +15062,19 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Provider rates vary:</strong> Different providers access different ETB rates. The spread between best and worst can be 2-5% on a given day.</li>
 <li><strong>NBE monitoring:</strong> The National Bank of Ethiopia still monitors the exchange rate and intervenes to prevent excessive volatility.</li>
 </ul>`,
+      },
+      {
+        heading: "Work backwards from an Ethiopian household's birr budget",
+        content: `<p>Suppose a recipient needs exactly ETB 15,000 for a planned expense. In this invented example, service A offers ETB 150 per dollar and adds a $4 fee; service B offers ETB 148 per dollar and adds a $1 fee. These are teaching assumptions, not current Ethiopian exchange rates or offers from named companies.</p>
+<table><thead><tr><th>For an ETB 15,000 payout</th><th>Service A</th><th>Service B</th></tr></thead><tbody>
+<tr><td>Dollars converted</td><td>15,000 ÷ 150 = $100.00</td><td>15,000 ÷ 148 ≈ $101.35</td></tr>
+<tr><td>Fee added</td><td>$4.00</td><td>$1.00</td></tr>
+<tr><td>Approximate total charged</td><td>$104.00</td><td>$102.35</td></tr>
+</tbody></table>
+<p>B is about $1.65 cheaper for that obligation even though its birr exchange rate is less favourable. The outcome reverses at a larger amount: for ETB 60,000, A costs $404.00 while B costs about $406.41. The recipient's budget, rather than a single rate screenshot, decides which fee structure is more useful. Provider rounding and other charges are excluded from this illustration.</p>
+<p>Next check what “ETB 15,000 received” means in the selected offer. Is it a bank credit, a wallet balance or cash available for collection? If the recipient must withdraw the credit, ask whether a separate withdrawal cost leaves enough for the expense. If paying a bill digitally avoids that withdrawal, record that different cost path instead of deducting a fee they will never incur.</p>
+<p>For a collection outside Addis Ababa, confirm the actual pickup point with the recipient before purchasing the transfer. The practical questions are its opening time, the identification it accepts for this transaction and whether the recipient can reach it. A transfer marked ready is useful only when the intended person can collect it.</p>
+<p>Keep a simple receipt record: your total dollar debit, the ETB amount promised, the delivery method and the amount actually credited or paid out. If a quote changes while you are entering the details, compare the new confirmation rather than relying on the first search result. A dated record also makes a shortfall easier to discuss with support.</p>`,
       },
       {
         heading: "Sources & Methodology",
