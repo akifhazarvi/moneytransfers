@@ -5167,8 +5167,12 @@ function generateCountryPages(): Corridor[] {
       intro,
       context,
       highlights: curated?.highlights,
-      feesNote: `Transfer fees to ${to.name} vary by provider and how you pay. Specialist services charge ${toCurr?.symbol || "$"}0–10 per transfer, while banks charge $25–50 plus a 2–5% exchange rate markup. The exchange rate markup is usually the bigger cost — always compare the total ${to.currency} your recipient receives.`,
-      deliveryNote: `Most transfers to ${to.name} arrive within 1–2 business days with specialist providers. Mobile wallet and cash pickup options are often available within minutes. Bank deposits typically take 1–3 business days.`,
+      feesNote: to.slug === "algeria"
+        ? "For an Algerian dinar payout, compare the total amount debited with the DZD available to collect or credit. Ask whether a receiving charge reduces that amount. A euro-denominated fee and a dinar-denominated deduction belong on opposite sides of the calculation; do not add their numerical values as if they were the same currency."
+        : `Transfer fees to ${to.name} vary by provider and how you pay. Specialist services charge ${toCurr?.symbol || "$"}0–10 per transfer, while banks charge $25–50 plus a 2–5% exchange rate markup. The exchange rate markup is usually the bigger cost — always compare the total ${to.currency} your recipient receives.`,
+      deliveryNote: to.slug === "algeria"
+        ? "For cash collection in Algeria, distinguish the provider marking a transfer ready from the recipient actually collecting it. Check the selected office’s opening hours and payout availability before arranging the journey. For a DZD account credit, ask for the expected credit date for that account; a cash-pickup estimate does not describe a bank deposit."
+        : `Most transfers to ${to.name} arrive within 1–2 business days with specialist providers. Mobile wallet and cash pickup options are often available within minutes. Bank deposits typically take 1–3 business days.`,
       faqs,
     };
   });
