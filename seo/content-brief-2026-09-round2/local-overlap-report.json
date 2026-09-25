@@ -1,0 +1,305 @@
+{
+  "generatedAt": "2026-09-25T18:17:46.004Z",
+  "method": "Maximum pairwise share of main-text words covered by shared 10-word shingles; not SiteLiner and not the sitewide union-overlap checker",
+  "expectedCorpusPages": 157,
+  "measuredCorpusPages": 157,
+  "expectedTargets": 42,
+  "passingTargets": 42,
+  "failures": [],
+  "results": [
+    {
+      "path": "/send-money/switzerland-to-egypt",
+      "words": 1126,
+      "localMaxPairwiseOverlap": 26.8,
+      "match": "/send-money/greece-to-poland",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-uk-to-nigeria-guide",
+      "words": 2493,
+      "localMaxPairwiseOverlap": 24.1,
+      "match": "/guides/send-money-uk-to-bangladesh-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/business-payments-usa-to-india",
+      "words": 2115,
+      "localMaxPairwiseOverlap": 22.8,
+      "match": "/guides/business-payments-usa-to-china",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-uk-to-bangladesh-guide",
+      "words": 2695,
+      "localMaxPairwiseOverlap": 22.3,
+      "match": "/guides/send-money-uk-to-nigeria-guide",
+      "passes": true
+    },
+    {
+      "path": "/send-money/send-money-to-algeria",
+      "words": 1102,
+      "localMaxPairwiseOverlap": 21.7,
+      "match": "/send-money/send-money-to-brazil",
+      "passes": true
+    },
+    {
+      "path": "/news/fca-safeguarding-rules-money-transfer-2026",
+      "words": 580,
+      "localMaxPairwiseOverlap": 19.3,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/guides/cheapest-way-to-send-money-internationally",
+      "words": 1773,
+      "localMaxPairwiseOverlap": 19,
+      "match": "/guides/wise-vs-remitly-comparison",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-kenya-from-usa-guide",
+      "words": 1573,
+      "localMaxPairwiseOverlap": 18.9,
+      "match": "/guides/send-money-to-kenya-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-south-africa-guide",
+      "words": 2517,
+      "localMaxPairwiseOverlap": 18.9,
+      "match": "/guides/send-money-to-kenya-guide",
+      "passes": true
+    },
+    {
+      "path": "/news/eu-instant-payments-mandatory-2026",
+      "words": 576,
+      "localMaxPairwiseOverlap": 18.8,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-sri-lanka-guide",
+      "words": 1180,
+      "localMaxPairwiseOverlap": 18.3,
+      "match": "/guides/send-money-to-jamaica-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-spain-guide",
+      "words": 1347,
+      "localMaxPairwiseOverlap": 18.3,
+      "match": "/guides/euro-forecast-2026",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-mexico-guide",
+      "words": 1801,
+      "localMaxPairwiseOverlap": 18.1,
+      "match": "/guides/send-money-to-philippines-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/how-to-pay-international-suppliers",
+      "words": 1593,
+      "localMaxPairwiseOverlap": 17.9,
+      "match": "/guides/business-international-payments-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-india-guide",
+      "words": 1608,
+      "localMaxPairwiseOverlap": 17.2,
+      "match": "/guides/send-money-to-india-cash-pickup-ria",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-jamaica-guide",
+      "words": 1327,
+      "localMaxPairwiseOverlap": 17,
+      "match": "/guides/send-money-to-colombia-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-ethiopia-guide",
+      "words": 1461,
+      "localMaxPairwiseOverlap": 16.9,
+      "match": "/guides/send-money-to-south-africa-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/swift-codes-explained",
+      "words": 1536,
+      "localMaxPairwiseOverlap": 16.9,
+      "match": "/guides/wire-transfer-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-canada-to-india-guide",
+      "words": 2242,
+      "localMaxPairwiseOverlap": 16.8,
+      "match": "/guides/send-money-uae-to-india-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-uae-to-india-guide",
+      "words": 2256,
+      "localMaxPairwiseOverlap": 16.3,
+      "match": "/guides/send-money-canada-to-india-guide",
+      "passes": true
+    },
+    {
+      "path": "/news/china-digital-yuan-interest-bearing-cbdc",
+      "words": 451,
+      "localMaxPairwiseOverlap": 15.1,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-bangladesh-guide",
+      "words": 2016,
+      "localMaxPairwiseOverlap": 15.1,
+      "match": "/guides/send-money-uk-to-bangladesh-guide",
+      "passes": true
+    },
+    {
+      "path": "/news/april-2026-central-bank-calendar",
+      "words": 658,
+      "localMaxPairwiseOverlap": 14.6,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/guides/best-money-transfer-services",
+      "words": 2173,
+      "localMaxPairwiseOverlap": 14.6,
+      "match": "/guides/best-money-transfer-apps",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-nigeria-guide",
+      "words": 1948,
+      "localMaxPairwiseOverlap": 13.6,
+      "match": "/guides/send-money-to-south-africa-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/global-remittance-trends-2026",
+      "words": 2042,
+      "localMaxPairwiseOverlap": 13.5,
+      "match": "/guides/wise-vs-remitly-comparison",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-philippines-guide",
+      "words": 2471,
+      "localMaxPairwiseOverlap": 13.2,
+      "match": "/guides/send-money-to-mexico-guide",
+      "passes": true
+    },
+    {
+      "path": "/news/eu-instant-payments-mandate-2026",
+      "words": 542,
+      "localMaxPairwiseOverlap": 12.9,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/news/stablecoins-cross-border-payments-2026",
+      "words": 458,
+      "localMaxPairwiseOverlap": 11.6,
+      "match": "/news/china-digital-yuan-interest-bearing-cbdc",
+      "passes": true
+    },
+    {
+      "path": "/news/embedded-finance-regulation-tightening-2026",
+      "words": 579,
+      "localMaxPairwiseOverlap": 11.4,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/news/revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+      "words": 954,
+      "localMaxPairwiseOverlap": 11.1,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/guides/exchange-rate-markup-explained",
+      "words": 2358,
+      "localMaxPairwiseOverlap": 11,
+      "match": "/guides/best-money-transfer-apps",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-uk-to-india-guide",
+      "words": 2064,
+      "localMaxPairwiseOverlap": 10.9,
+      "match": "/guides/send-money-canada-to-india-guide",
+      "passes": true
+    },
+    {
+      "path": "/news/revolut-files-us-bank-charter-2026",
+      "words": 624,
+      "localMaxPairwiseOverlap": 10.6,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/guides/top-money-transfer-apps-usa-to-india-2026",
+      "words": 2933,
+      "localMaxPairwiseOverlap": 9.9,
+      "match": "/guides/send-money-to-india-from-usa-guide",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-poland-guide",
+      "words": 2338,
+      "localMaxPairwiseOverlap": 9.8,
+      "match": "/guides/send-money-to-colombia-guide",
+      "passes": true
+    },
+    {
+      "path": "/news/us-remittance-excise-tax-takes-effect-2026",
+      "words": 550,
+      "localMaxPairwiseOverlap": 9.6,
+      "match": "/news/china-digital-yuan-interest-bearing-cbdc",
+      "passes": true
+    },
+    {
+      "path": "/guides/send-money-to-india-from-usa-guide",
+      "words": 5056,
+      "localMaxPairwiseOverlap": 9,
+      "match": "/guides/how-to-send-money-to-india-2026",
+      "passes": true
+    },
+    {
+      "path": "/guides/business-money-transfers-provider-review",
+      "words": 2963,
+      "localMaxPairwiseOverlap": 9,
+      "match": "/guides/business-international-payments-guide",
+      "passes": true
+    },
+    {
+      "path": "/news/wise-nasdaq-dual-listing-may-2026",
+      "words": 1127,
+      "localMaxPairwiseOverlap": 7.7,
+      "match": "/news",
+      "passes": true
+    },
+    {
+      "path": "/news/central-bank-super-week-march-2026",
+      "words": 725,
+      "localMaxPairwiseOverlap": 7.6,
+      "match": "/news/fed-holds-rates-march-2026-one-cut-dot-plot",
+      "passes": true
+    },
+    {
+      "path": "/compare/wise-vs-remitly",
+      "words": 1855,
+      "localMaxPairwiseOverlap": 5.6,
+      "match": "/compare",
+      "passes": true
+    }
+  ]
+}
