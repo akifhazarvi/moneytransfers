@@ -904,41 +904,26 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "6 min read",
     publishedAt: "2026-02-10",
-    updatedAt: "2026-03-13",
+    updatedAt: "2026-09-24",
     author: "Awais Imran",
     tags: ["SWIFT code", "BIC code", "bank transfer", "international transfer", "how to"],
     featuredImage: "/images/blog/swift-codes-explained.jpg",
     sections: [
       {
-        heading: "What Is a SWIFT Code?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A SWIFT code (also called a BIC code) is an 8-11 character code that identifies a specific bank or branch for international wire transfers. The format is: 4-letter bank code + 2-letter country code + 2-character location code + optional 3-character branch code. Modern transfer services like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> handle SWIFT routing automatically, so you often don't need one. Learn more in our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a>.</p></div>
-<p>A <strong>SWIFT code</strong> (also called a BIC — Bank Identifier Code) is a unique 8 or 11 character code that identifies a specific bank or branch worldwide. It's used to route international bank transfers to the correct destination.</p>
-<p>SWIFT, formally the Society for Worldwide Interbank Financial Telecommunication, connects over 11,000 institutions. Learn more about the network at <a href="https://www.swift.com/about-us" target="_blank" rel="noopener noreferrer">swift.com</a>. The standard is governed by <a href="https://www.iso.org/standard/60390.html" target="_blank" rel="noopener noreferrer">ISO 9362</a>.</p>
-<p>You'll need a SWIFT code when sending money via a bank wire transfer. However, modern services like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> handle SWIFT routing internally. Learn more in our guide to <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>.</p>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for International Transfers</h3>
-<table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>No SWIFT required — uses local payment rails, {{AVG_MARKUP:wise}}</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Handles all routing internally, Express option available</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/xe">XE</a></td><td>No SWIFT needed, zero fees, strong currency tools</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
-</div>`,
+        heading: "A BIC identifies the institution, not your recipient’s account",
+        content: `<div class="blog-answer-box"><p><strong>Start with the receiving bank's instructions.</strong> A SWIFT/BIC identifies a business party; it does not identify the individual beneficiary's account. A correctly formatted code therefore cannot, by itself, confirm that your payment details are complete.</p></div>
+<p><a href="https://www.swift.com/standards/data-standards/bic-business-identifier-code" target="_blank" rel="noopener noreferrer">Swift defines the BIC as a Business Identifier Code</a>. Its core has eight characters, and an optional three-character extension can identify a location, department, service or unit. The extension is not always a physical bank branch.</p>
+<p>When someone sends you wire instructions, distinguish the receiving institution's BIC from the beneficiary account identifier and any intermediary-bank details. Those are separate fields with separate jobs. Copying an intermediary's code into the beneficiary-bank field can change the intended route even though the code itself is valid.</p>`,
       },
       {
-        heading: "How to Read a SWIFT Code",
-        content: `<p>A SWIFT code has 4 parts:</p>
-<ul>
-<li><strong>Characters 1–4</strong>: Bank code (e.g., CHAS = Chase)</li>
-<li><strong>Characters 5–6</strong>: Country code (e.g., US = United States)</li>
-<li><strong>Characters 7–8</strong>: Location code (e.g., 33 = New York)</li>
-<li><strong>Characters 9–11</strong> (optional): Branch code (e.g., XXX = head office)</li>
-</ul>
-<p><strong>Example:</strong> CHASUS33 = Chase Bank, United States, New York (head office)</p>
-<p>If you have an 8-character code, it refers to the bank's head office. An 11-character code identifies a specific branch.</p>`,
+        heading: "Read the structure without guessing the routing instructions",
+        content: `<table><thead><tr><th>Position</th><th>What it identifies</th><th>What not to infer</th></tr></thead><tbody>
+<tr><td>1–4</td><td>The business party</td><td>A recognisable name fragment is not proof that an email request is genuine.</td></tr>
+<tr><td>5–6</td><td>The country code</td><td>The country does not tell you which currencies an account accepts.</td></tr>
+<tr><td>7–8</td><td>The location element</td><td>Do not turn these characters into a guessed street address.</td></tr>
+<tr><td>9–11, when supplied</td><td>An optional branch identifier</td><td>Do not invent an extension because a form has eleven boxes.</td></tr>
+</tbody></table>
+<p>The <a href="https://www.swift.com/standards/data-standards/bic-business-identifier-code" target="_blank" rel="noopener noreferrer">BIC definition</a> is the reference for that structure. It is a format explanation, not a lookup of a particular bank's current payment instructions.</p>`,
       },
       {
         heading: "How to Find Your Bank's SWIFT Code",
@@ -963,9 +948,17 @@ const rawBlogPosts: BlogPost[] = [
 <p>Not all countries use IBANs — the US, Canada, Australia, and many Asian countries don't. But virtually all countries use SWIFT codes for international transfers. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry covers 80+ countries. For IBAN validation rules, see <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer">ISO 13616</a>.</p>`,
       },
       {
-        heading: "Your SWIFT Code Is Just the Address — Here's What Happens After",
-        content: `<p>A SWIFT code only identifies where a payment is going; it says nothing about how fast it gets there, and that's the part most explanations of SWIFT codes skip. As of 22 November 2025, SWIFT completed its migration of cross-border payment messaging to <a href="https://www.iso20022.org/" target="_blank" rel="noopener noreferrer">ISO 20022</a>, retiring the older MT-format messages that had carried international wires for decades. The practical effect: a payment now travels with structured data — purpose, sender and recipient details in dedicated fields rather than free text — which is why some transfers that used to stall on a missing detail now get resolved automatically.</p>
-<p>Every SWIFT payment also carries a <strong>UETR</strong> (Unique End-to-end Transaction Reference), the reference number your bank can use to trace a payment through <a href="https://www.swift.com/products/swift-gpi" target="_blank" rel="noopener noreferrer">SWIFT gpi</a>, the tracking layer most large banks now participate in. Published gpi data shows close to 60% of payments credited to the recipient within 30 minutes and nearly all within 24 hours — a meaningfully different picture from the "SWIFT takes days" reputation the network carries, though it depends on both banks in the chain actually supporting gpi, which not every bank worldwide does yet. Ask your bank for the UETR if a wire seems delayed; it is the fastest way to get a real answer rather than a guess.</p>`,
+        heading: "Three checks when two plausible codes disagree",
+        content: `<p>Suppose an invoice gives an eleven-character BIC while a bank's public website lists eight characters. Neither the longer code nor the shorter one automatically wins. Resolve the discrepancy before sending:</p>
+<ol>
+<li><strong>Establish whose instructions you have.</strong> Is the invoice naming the beneficiary bank, while the website is describing a correspondent? Compare the field labels as well as the codes. A screenshot cropped to a single code can lose that context.</li>
+<li><strong>Confirm the payment currency and account.</strong> Ask the recipient to obtain instructions for that specific account and currency from their bank. Do not reuse the instructions for a previous currency just because the beneficiary's name is unchanged.</li>
+<li><strong>Verify through an independent channel.</strong> If the instructions changed during an email conversation, call a contact you already know or obtain the details through authenticated banking. Replying to the same message only confirms that its sender can reply.</li>
+</ol>
+<p>A lookup result can identify the institution associated with a BIC. It cannot establish that the person who gave you the account number is entitled to your money. Treat those as two separate checks. Keep the bank's confirmed instructions alongside your transfer receipt so a later investigation can compare what you supplied with what was sent.</p>
+<h3>After sending: ask for the payment reference, not another BIC search</h3>
+<p>Swift's <a href="https://www.swift.com/ru/node/310011" target="_blank" rel="noopener noreferrer">UETR explanation</a> describes a 36-character reference used to track a payment through the chain. If a wire is delayed, ask the sending bank for its UETR and the latest tracked status. The BIC identifies a party; the UETR identifies the particular payment being investigated.</p>
+<p>Give support the sending date, currency, amount and beneficiary details from your receipt. Ask whether the payment has reached the beneficiary bank or is still with an intermediary. Searching the BIC again will not answer that status question, and initiating a second wire before resolving the first could pay the recipient twice.</p>`,
       },
       {
         heading: "Do You Always Need a SWIFT Code?",
@@ -982,7 +975,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Is a SWIFT code the same as a BIC code?",
         answer:
-          "Yes. SWIFT code and BIC (Bank Identifier Code) are the same thing — both refer to the 8 or 11 character code that identifies a bank internationally. The terms are used interchangeably.",
+          "Yes. SWIFT code and BIC (Business Identifier Code) are the same thing — both refer to the 8 or 11 character code that identifies a bank internationally. The terms are used interchangeably.",
       },
       {
         question: "Can I use the wrong SWIFT code?",
