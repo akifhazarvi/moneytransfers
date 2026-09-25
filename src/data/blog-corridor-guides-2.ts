@@ -585,7 +585,7 @@ export const corridorGuides2: BlogPost[] = [
     category: "Corridors",
     readTime: "9 min read",
     publishedAt: "2026-03-18",
-    updatedAt: "2026-03-18",
+    updatedAt: "2026-09-24",
     author: "Awais Imran",
     tags: ["Jamaica", "JMD", "remittance", "USD to JMD", "corridor guide", "send money to Jamaica", "cash pickup"],
     featuredImage: "/images/blog/send-money-to-jamaica.svg",
@@ -624,6 +624,14 @@ export const corridorGuides2: BlogPost[] = [
 <li><strong>Remitly & WorldRemit:</strong> Partners with local agents in major towns</li>
 </ul>
 <p><strong>Tip:</strong> If your recipient has a bank account (NCB, ScotiaBank, JN Bank), bank deposit via Wise saves 1–2%. If they need cash, Remitly offers the best price for pickup.</p>`,
+      },
+      {
+        heading: "One $400 payment or two $200 payments?",
+        content: `<p>For a household receiving support in Jamaica, payment frequency can matter as much as the provider's rate. Consider an illustrative offer with a $4 fee deducted from each payment and a fixed rate of J$150 per US dollar. These are assumed numbers, not a live JMD quote.</p>
+<p>A single $400 debit converts $396 and delivers <strong>J$59,400</strong>. Two separate $200 debits convert $196 each and deliver J$29,400 twice, or <strong>J$58,800</strong> in total. The same $400 budget produces J$600 less when the fixed fee is paid twice.</p>
+<p>That arithmetic does not mean the recipient should always wait. If they need money for an expense this week, an earlier partial payment may be worth the extra cost. Discuss the cash-flow requirement rather than delaying an essential payment purely to minimise a fee. Recalculate if either transfer has a different rate or qualifies for a promotion.</p>
+<p>For cash collection, two payments may also mean two trips. Confirm the pickup location, accepted identification and collection hours with the recipient. If they normally collect in Spanish Town but will be in another parish, check that the selected transfer can be collected at the intended location before paying. A network's national presence is not a promise about every counter.</p>
+<p>For a bank deposit, save the JMD amount promised and ask the recipient to confirm the actual credit. This separates a provider's quoted payout from any account-side charge. The useful comparison is the money the household can use when it needs it, alongside the total amount you spend.</p>`,
       },
       {
         heading: "Tips for Sending Money to Jamaica",
