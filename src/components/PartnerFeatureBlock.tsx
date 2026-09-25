@@ -38,20 +38,19 @@ export default function PartnerFeatureBlock({ source, variant = "section", quote
           text and styling, no outline entry. */}
       <div><span className="conversion-eyebrow">Paid partner spotlight</span><p className="conversion-spotlight-title">Meet TapTap Send.</p></div>
     </div>
-    {/* The live quote below says more than this sentence, which was the same
-        on every page; it now stands in only when there is no quote. */}
-    {!quote && <p>A money transfer app for sending to family and friends. Check your destination, delivery options, and final price before you send.</p>}
+    {/* No generic description: the same 21-word sentence on 100+ pages was
+        repeated text, and the live quote (where there is one) says more. */}
     {quote && <div className="conversion-spotlight-quote">
       <div><span>You send</span><strong>{money(quote.sendAmount)} {quote.fromCurrency}</strong></div>
       <span aria-hidden="true">→</span>
       <div><span>Recipient gets</span><strong>{money(quote.receiveAmount)} {quote.toCurrency}</strong></div>
-      <small>Transfer fee: {money(quote.fee)} {quote.fromCurrency} · Exchange rate: {quote.exchangeRate.toFixed(4)}. Confirm the latest quote in the app.</small>
+      <small>Transfer fee: {money(quote.fee)} {quote.fromCurrency} · Exchange rate: {quote.exchangeRate.toFixed(4)}.</small>
     </div>}
     <div className="conversion-spotlight-actions">
       <ProviderLink href={href} provider="taptap-send" source={source} corridor={corridor} className="conversion-button conversion-button--accent">Check TapTap Send <span aria-hidden="true">↗</span></ProviderLink>
       <Link href="/companies/taptap-send" className="conversion-text-link">Read our TapTap Send review →</Link>
     </div>
-    <p className="conversion-disclosure">Paid placement — we earn a commission through this link. It does not affect our rankings.</p>
+    <p className="conversion-disclosure">Paid placement — we earn a commission.</p>
   </aside>;
   return variant === "section" ? <section className="py-8"><Container>{card}</Container></section> : card;
 }

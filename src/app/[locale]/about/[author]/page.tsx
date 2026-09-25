@@ -50,8 +50,11 @@ export default async function AuthorPage({ params }: Props) {
   const author = getAuthor(slug);
   if (!author) notFound();
 
+  // Newest first: the declaration order this used to follow is the /guides
+  // directory's order too, so the list repeated a stretch of that page.
   const authorPosts = blogPosts
     .filter((p) => p.author === author.name)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
     .slice(0, 10);
 
   const personSchema = {
@@ -188,14 +191,11 @@ export default async function AuthorPage({ params }: Props) {
                 <div className="space-y-3">
                   {authorPosts.map((post) => (
                     <Card key={post.slug} href={`/guides/${post.slug}`} className="!p-4">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-2xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
-                          {post.category}
-                        </span>
-                        <span className="text-2xs text-[var(--color-on-surface-variant)]">{post.readTime}</span>
-                      </div>
+                      {/* Title only, without its year suffix: the category and
+                          read-time labels plus full titles made this list a copy
+                          of the guides' own headers (2026-09-25). */}
                       <h3 className="text-sm font-medium text-[var(--color-on-surface)] leading-snug">
-                        {post.title}
+                        {post.title.replace(/\s*\((?:in\s+)?20\d\d\)\s*$/i, "").replace(/\s+(?:in\s+)?20\d\d\s*$/i, "")}
                       </h3>
                     </Card>
                   ))}

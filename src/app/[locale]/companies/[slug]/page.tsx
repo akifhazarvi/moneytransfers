@@ -28,7 +28,7 @@ import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { fitTitle } from "@/lib/seo-title";
-import { comparePageHref, alternativesPageRenders } from "@/lib/route-map";
+import { comparePageHref, alternativesPageRenders, companyPageRenders } from "@/lib/route-map";
 import { PageByline } from "@/components/PageByline";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import { getCompanyEditorial } from "@/data/company-editorial";
@@ -113,7 +113,9 @@ export default async function CompanyPage({ params }: Props) {
   const providerNews = newsItems
     .filter((n) => n.providerSlugs?.includes(slug))
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-    .slice(0, 4);
+    // Two, not four: the same headlines listed on every provider they mention
+    // were repeated text across nine profiles (2026-09-25).
+    .slice(0, 2);
 
   const crossLinks = (
     <CrossLinks
@@ -173,6 +175,15 @@ function DefaultReview({
 }) {
   const tp = trustpilotIndex[slug];
   const editorial = getCompanyEditorial(provider.slug);
+  // The hand-written review (verdict, how we tested, who it suits,
+  // alternatives) retired from the page in June for length and left on disk.
+  // Restored in part 2026-09-25 for the round-2 SEO brief: it is the one text
+  // on these pages written for this provider alone, where the generated
+  // profile below is built from fields many providers share (a 1-3% markup,
+  // a $1 minimum) and so printed the same sentences on 50 pages. The review's
+  // long sections are NOT rendered — they carry hand-typed fee tables our
+  // quote data could contradict.
+  const review = getProviderReview(provider.slug);
   const profile = generateProviderProfile(provider, {
     score: tp?.score ?? undefined,
     reviews: tp?.totalReviews ?? undefined,
@@ -256,7 +267,19 @@ function DefaultReview({
             </div>
 
             {/* Overview — ~300-500 word data-driven profile, kept current from
-                the provider's maintained fields (fees, markup, speed, coverage). */}
+                the provider's maintained fields (fees, markup, speed, coverage).
+                Reviewed providers show the editor's verdict instead: the facts
+                the profile restates are in the Transfer Details card below. */}
+            {review ? (
+              <Card>
+                <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">
+                  Our verdict on {provider.name}
+                </h2>
+                <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">{review.editorVerdict}</p>
+                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mt-5 mb-2">How we tested {provider.name}</h3>
+                <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">{review.howWeTested}</p>
+              </Card>
+            ) : (
             <Card>
               <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">
                 {provider.name} overview
@@ -269,6 +292,7 @@ function DefaultReview({
                 ))}
               </div>
             </Card>
+            )}
 
             {/* Hand-written editorial — content brief §4. provider-profile.ts
                 already argued against solving this with more generation ("more
@@ -323,6 +347,41 @@ function DefaultReview({
                   )}
                 </Card>
               </>
+            )}
+
+            {review && review.whoShouldUse.length > 0 && (
+              <div className="grid md:grid-cols-2 gap-4">
+                {review.whoShouldUse.map((group) => (
+                  <Card key={group.heading}>
+                    <h2 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">{group.heading}</h2>
+                    <ul className="space-y-2 list-disc pl-5 text-md text-[var(--color-on-surface-variant)] leading-relaxed">
+                      {group.items.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </Card>
+                ))}
+              </div>
+            )}
+
+            {review && review.alternatives.length > 0 && (
+              <Card>
+                <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-3">
+                  When to look past {provider.name}
+                </h2>
+                <ul className="space-y-2 text-md text-[var(--color-on-surface-variant)] leading-relaxed">
+                  {review.alternatives.map((alt) => {
+                    const name = providers.find((p) => p.slug === alt.slug)?.name ?? alt.slug;
+                    return (
+                      <li key={alt.slug}>
+                        {/* Linked only where the page renders — see route-map. */}
+                        {companyPageRenders(alt.slug)
+                          ? <Link href={`/companies/${alt.slug}`} className="font-medium text-[var(--color-primary)] hover:underline">{name}</Link>
+                          : <strong className="font-medium text-[var(--color-on-surface)]">{name}</strong>}
+                        {": "}{alt.reason}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </Card>
             )}
 
             {/* Pros and Cons */}

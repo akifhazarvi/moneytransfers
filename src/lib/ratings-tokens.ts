@@ -789,39 +789,21 @@ export function renderDataTokens(html: string): string {
     const since = longDate(dateRange.from);
     const gapStr = gap.toFixed(1);
 
+    // Fixed wording kept to a few words (2026-09-25): these sentences render
+    // on hundreds of corridor pages, and their long fixed tails ("the bigger
+    // lever here is which provider you pick…") were repeated text. The data —
+    // days, dates, providers, spread, tier — is what each page contributes.
+    const record = `over ${totalDays} days since ${since}, best payout day ${bestProv} (${bestDate}), worst ${worstProv} (${worstDate})`;
     if (volatile && favourable) {
-      return (
-        `This corridor moves more than most we track — across the ${totalDays} days since ${since}, ` +
-        `the best and worst payout days sat ${gapStr} percentage points apart relative to the period ` +
-        `average. Today happens to fall in the "${level}" tier of that range, which is the better half ` +
-        `of it. ${bestProv} had the standout day, ${bestDate}; the low point came from ${worstProv} ` +
-        `on ${worstDate}. On a corridor that swings this much, checking before you send is worth more ` +
-        `than it would be on a calmer one.`
-      );
+      return `A volatile pair: ${record}, ${gapStr} points apart. Today is "${level}", the better half of that range.`;
     }
     if (volatile && !favourable) {
-      return (
-        `Across the ${totalDays} days we've watched this pair since ${since}, the gap between the best ` +
-        `and worst payout day has run to ${gapStr} percentage points against the average — a genuinely ` +
-        `volatile corridor. Today isn't on the good side of that range; it sits in the "${level}" tier. ` +
-        `${bestProv} delivered the best day on record (${bestDate}), ${worstProv} the worst (${worstDate}), ` +
-        `which is the kind of spread that makes waiting a day or two, if you can, worth considering here.`
-      );
+      return `A volatile pair: ${record}, ${gapStr} points apart. Today is only "${level}"; waiting a day may pay.`;
     }
     if (!volatile && favourable) {
-      return (
-        `${bestProv}'s best day for this pair, ${bestDate}, and ${worstProv}'s worst, ${worstDate}, sat only ` +
-        `${gapStr} percentage points apart over the ${totalDays} days since ${since} — this corridor doesn't ` +
-        `move much. That also means today's "${level}" reading is close to what you'd get most days here, ` +
-        `so there's little upside to timing a transfer on this route beyond picking the right provider.`
-      );
+      return `A steady pair: ${record}, just ${gapStr} points apart. Today's "${level}" is typical; pick the provider, not the day.`;
     }
-    return (
-      `This is a stable corridor: over ${totalDays} days since ${since}, the best payout day (${bestProv}, ` +
-      `${bestDate}) and the worst (${worstProv}, ${worstDate}) differed by only ${gapStr} percentage points ` +
-      `against the average. Today reads "${level}", but on a corridor this flat that's unlikely to change ` +
-      `much if you wait — the bigger lever here is which provider you pick, not when you send.`
-    );
+    return `A steady pair: ${record}, just ${gapStr} points apart. Today reads "${level}"; the provider matters more than timing.`;
   });
 
 

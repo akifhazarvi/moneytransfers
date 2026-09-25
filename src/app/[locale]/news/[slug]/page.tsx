@@ -14,6 +14,81 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import { newsIsIndexable } from "@/lib/seo-indexing";
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+import { generateQuotes } from "@/lib/quotes-engine";
+
+/**
+ * The corridor a story is about, for its one live-quote table.
+ *
+ * Owner call 2026-09-25: news keeps ONE table. Before 2026-09-24 every story
+ * printed the same USD → INR table twice (a China CBDC piece included), which
+ * was most of the news family's duplicate share. An explicit pair in the
+ * title or excerpt wins; else the most specific destination named; else a
+ * topic with an obvious corridor; else USD → INR. A corridor with fewer than
+ * three quoting providers falls through rather than render a thin table.
+ */
+const NEWS_DESTINATIONS: [RegExp, string, string][] = [
+  [/south africa|\bzar\b/i, "GBP", "ZAR"],
+  [/rwanda|\brwf\b/i, "USD", "RWF"],
+  [/\bmtn\b|airtel|orange money|\bafrica/i, "GBP", "KES"],
+  [/\bindia|\binr\b|rupee/i, "USD", "INR"],
+  [/pakistan|\bpkr\b/i, "GBP", "PKR"],
+  [/philippin|\bofw|\bphp\b|gcash/i, "USD", "PHP"],
+  [/mexic|\bmxn\b/i, "USD", "MXN"],
+  [/nigeria|naira|\bngn\b/i, "GBP", "NGN"],
+  [/bangladesh|\bbdt\b/i, "GBP", "BDT"],
+  [/kenya|\bkes\b|m-pesa/i, "USD", "KES"],
+  [/ghana|\bghs\b/i, "GBP", "GHS"],
+  [/china|yuan|\bcny\b/i, "USD", "CNY"],
+  [/vietnam|\bvnd\b/i, "USD", "VND"],
+  // The US remittance excise falls hardest on USD → MXN, the largest US
+  // outbound route; Fed and FedNow stories are dollar stories.
+  [/remittance tax|excise|\birs\b/i, "USD", "MXN"],
+  [/\bfed\b|fednow|federal reserve/i, "USD", "EUR"],
+  [/\beu\b|euro|sepa|\beur\b/i, "GBP", "EUR"],
+  [/\buk\b|britain|sterling|\bgbp\b|\bfca\b/i, "GBP", "EUR"],
+];
+
+function topicalCorridor(item: { title: string; excerpt: string }): { from: string; to: string } | null {
+  const text = `${item.title} ${item.excerpt}`;
+  const ok = (from: string, to: string) => from !== to && generateQuotes(500, from, to).length >= 3;
+  const pair = text.match(/\b([A-Z]{3})\s*(?:to|→|->|\/)\s*([A-Z]{3})\b/);
+  if (pair && ok(pair[1], pair[2])) return { from: pair[1], to: pair[2] };
+  for (const [re, from, to] of NEWS_DESTINATIONS) if (re.test(text) && ok(from, to)) return { from, to };
+  return null;
+}
+
+/**
+ * Stories with no corridor of their own (a listing, an acquisition) rotate
+ * through busy routes, and stories that share a corridor get different
+ * amounts, so no two news tables print the same figures. Assigned once, in
+ * publication order, so an article's table is stable between builds.
+ */
+const FALLBACK_CORRIDORS: [string, string][] = [
+  ["USD", "INR"], ["USD", "PHP"], ["GBP", "INR"], ["USD", "MXN"], ["GBP", "NGN"], ["EUR", "INR"],
+  ["USD", "PKR"], ["GBP", "PHP"], ["CAD", "INR"], ["AUD", "INR"], ["USD", "NGN"], ["GBP", "PKR"],
+];
+// Disjoint from the guides' amounts (src/lib/guide-quote-corridor.ts), so a
+// news table never repeats a guide's table either.
+const NEWS_AMOUNTS = [450, 650, 1100, 1300, 1600, 1800, 2200, 2800];
+const NEWS_TABLES: Map<string, { from: string; to: string; amount: number }> = (() => {
+  const out = new Map<string, { from: string; to: string; amount: number }>();
+  const used = new Map<string, number>();
+  let fallback = 0;
+  for (const item of [...newsItems].sort((a, b) => a.publishedAt.localeCompare(b.publishedAt))) {
+    const c = topicalCorridor(item) ?? (() => {
+      const [from, to] = FALLBACK_CORRIDORS[fallback++ % FALLBACK_CORRIDORS.length];
+      return { from, to };
+    })();
+    const key = `${c.from}-${c.to}`;
+    let n = used.get(key) ?? 0;
+    // Skip an amount the route cannot fill with three quotes.
+    while (n < NEWS_AMOUNTS.length - 1 && generateQuotes(NEWS_AMOUNTS[n], c.from, c.to).length < 3) n++;
+    out.set(item.slug, { ...c, amount: NEWS_AMOUNTS[n % NEWS_AMOUNTS.length] });
+    used.set(key, n + 1);
+  }
+  return out;
+})();
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -203,9 +278,9 @@ export default async function NewsArticlePage({ params }: Props) {
               <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] leading-tight mb-4">
                 {item.title}
               </h1>
-              <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">
-                {item.excerpt}
-              </p>
+              {/* No standfirst: it was the /news listing excerpt verbatim, so every
+                  article repeated its own hub entry (round-2 audit, 2026-09-25).
+                  The excerpt still serves as the meta description. */}
             </div>
 
             {/* Related providers */}
@@ -230,6 +305,28 @@ export default async function NewsArticlePage({ params }: Props) {
               className="prose-custom text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(renderDataTokens(item.content)) }}
             />
+
+            {/* One table, after the reporting rather than inside it, on the
+                corridor this story is about. The heading is the story's own,
+                so the block is not a copy of every other article's; see
+                NEWS_TABLES for how corridor and amount are kept distinct. Three
+                rows rather than the guides' five; no inline partner card (TapTap
+                stays in the page-end partner module on every news page). */}
+            {(() => {
+              const c = NEWS_TABLES.get(slug) ?? { from: "USD", to: "INR", amount: 500 };
+              const lead = item.title.split(/[:—–(|]/)[0].trim();
+              return (
+                <InlineProviderQuotes
+                  from={c.from}
+                  to={c.to}
+                  amount={c.amount}
+                  source={`news:${slug}`}
+                  heading={`${lead}: live ${c.from} → ${c.to} quotes`}
+                  limit={3}
+                  crossSell={false}
+                />
+              );
+            })()}
 
             {/* Source */}
             {item.source && (

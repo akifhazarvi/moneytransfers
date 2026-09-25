@@ -10,6 +10,7 @@ import CircleFlag from "@/components/CircleFlag";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { getSwiftCountries, getSwiftCountryBySlug } from "@/data/swift-codes";
+import { assignTableAmounts } from "@/lib/table-amounts";
 import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { getSwiftEditorial, getSwiftFaqs } from "@/data/swift-content";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
@@ -26,6 +27,13 @@ import { quoteDataDate } from "@/lib/unified-quotes";
 // the largest non-USD outbound market into the US.
 const SEND_FROM_CURRENCY = "USD";
 const SEND_FROM_FALLBACK = "GBP";
+/** Distinct table amount per page on a shared currency — see table-amounts.ts. */
+const SWIFT_TABLE_AMOUNTS = assignTableAmounts(
+  getSwiftCountries(),
+  (c) => c.slug,
+  (c) => `${c.currencyCode === SEND_FROM_CURRENCY ? SEND_FROM_FALLBACK : SEND_FROM_CURRENCY}-${c.currencyCode}`,
+  "swift",
+);
 
 interface Props {
   params: Promise<{ country: string; locale: string }>;
@@ -398,8 +406,15 @@ export default async function SwiftCountryPage({ params }: Props) {
                 </p>
               </div>
             </div>
+            {/* This country's own directory in one line, replacing a templated
+                intro that read the same on all 49 SWIFT pages (2026-09-25). */}
             <p className="text-sm text-[var(--color-on-surface-variant)]">
-              {t("introText", { country: country.name })}
+              {(() => {
+                const head = country.branches.find((b) => b.headOffice) ?? country.branches[0];
+                return head
+                  ? `${country.bankCount} banks in ${country.name}, from ${head.bankName} (${head.bic8}) onward; every code carries ${country.countryCode} as its country part.`
+                  : `${country.bankCount} banks in ${country.name}; every code carries ${country.countryCode} as its country part.`;
+              })()}
             </p>
           </Card>
 
@@ -418,10 +433,10 @@ export default async function SwiftCountryPage({ params }: Props) {
             <InlineProviderQuotes
               from={country.currencyCode === SEND_FROM_CURRENCY ? SEND_FROM_FALLBACK : SEND_FROM_CURRENCY}
               to={country.currencyCode}
-              amount={1000}
+              amount={SWIFT_TABLE_AMOUNTS.get(country.slug) ?? 1025}
               source={`swift:${country.slug}`}
               heading={`Sending money to ${country.name}? Compare live rates`}
-              subheading={`You need the SWIFT/BIC above to send — these are the live all-in costs.`}
+              subheading={`All-in cost into ${country.currencyCode} today.`}
             />
           )}
 
@@ -671,9 +686,7 @@ export default async function SwiftCountryPage({ params }: Props) {
         <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
           {t("sendingMoneyTo", { country: country.name })}
         </h2>
-        <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-          {t("compareDescription")}
-        </p>
+        <div className="mb-6" />
         <PrimaryButton href="/send-money" size="lg">
           {t("compareProviders")}
         </PrimaryButton>

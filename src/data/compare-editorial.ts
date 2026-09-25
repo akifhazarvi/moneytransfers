@@ -216,7 +216,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Revolut when both sides hold the app and it is a weekday",
       body: `Revolut is the better instrument for anyone moving money regularly between countries they live and work in, rather than sending remittances to a third party. Free allowance to £1,000 a month, the interbank rate on weekdays, balances in 36 currencies, no upper transfer limit, and regulation by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a> and ECB. Revolut-to-Revolut transfers land instantly and cost nothing. The constraint is that this only works when the recipient is willing to hold an account too — which is precisely the constraint PayPal does not have.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Revolut's free allowance and weekend markup depend on your plan tier, PayPal's pricing differs between personal and business accounts, and card funding adds a further charge on both. Quotes are collected by currency pair, so confirm your own eligibility and the applicable schedule before sending.`,
+    limits: `Revolut's free allowance and weekend markup depend on your plan tier, PayPal's pricing differs between personal and business accounts, and card funding adds a further charge on both. Quotes are collected by currency pair, so confirm your own eligibility and the applicable schedule before sending.`,
     verdict: {
       costExplanation: `Revolut's weekday rate is the interbank rate with no markup up to £1,000 a month, then 0.5% — the tightest margin tracked on this site. PayPal charges 5% plus a 3-4% markup regardless of day or amount, which is why its average shortfall of {{SHORTFALL:paypal}} is the widest we record for any provider on the site.`,
       speedExplanation: `Revolut-to-Revolut transfers land instantly, matching PayPal's balance-to-balance speed, but only when both sides hold the app. Where the recipient doesn't have Revolut, delivery depends on the destination bank's own processing time; PayPal's instant settlement has no such condition attached.`,
@@ -268,7 +268,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "A second corridor: $1,000 to Mexico",
       body: `Mexico is the corridor both networks built their US agent presence around, long before either one priced a digital-first route like India, so it's a fairer test of the core cash-network model than an unfamiliar destination. On $1,000 USD→MXN the gap is {{RECEIVE_DIFF:western-union:moneygram:USD:MXN:1000}}, with {{CHEAPER:western-union:moneygram:USD:MXN:1000}} ahead at {{COST_PCT:western-union:USD:MXN:1000}} all-in for Western Union against {{COST_PCT:moneygram:USD:MXN:1000}} for MoneyGram. As with the India example, get a quote for your specific payout method — agent pricing isn't something either network publishes as a flat rate.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and agent-level pricing is not something we observe. Both networks vary fees by corridor, payout method and funding method, and cash pickup availability depends on the specific agent. Confirm the quote, the collection location and the identification the recipient will need before sending.`,
+    limits: `Agent-level pricing is not something we observe. Both networks vary fees by corridor, payout method and funding method, and cash pickup availability depends on the specific agent. Confirm the quote, the collection location and the identification the recipient will need before sending.`,
     verdict: {
       costExplanation: `MoneyGram's fees start lower, at $1.99 against Western Union's typically higher opening fee, but Western Union wins outright on {{LED:western-union}} of the corridors we price against just {{LED:moneygram}} for MoneyGram — a {{WINRATE:moneygram}} win rate. Average shortfall tells a gentler story for MoneyGram, at {{SHORTFALL:moneygram}} against {{SHORTFALL:western-union}}, so it's rarely first but rarely far off either.`,
       speedExplanation: `Both are cash networks built for same-day collection, and neither is meaningfully faster than the other on the corridors we track — the real speed variable is which network's nearest agent is actually staffed and open, not a published delivery window.`,
@@ -320,7 +320,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "A second corridor: $1,000 to Mexico",
       body: `Mexico is where both companies compete most directly — a well-established remittance corridor for Western Union's agent network and one of Remitly's core priced routes, unlike India where the two start from more different footing. On $1,000 USD→MXN the gap is {{RECEIVE_DIFF:remitly:western-union:USD:MXN:1000}}, with {{CHEAPER:remitly:western-union:USD:MXN:1000}} delivering more, at {{COST_PCT:remitly:USD:MXN:1000}} all-in for Remitly against {{COST_PCT:western-union:USD:MXN:1000}} for Western Union. Confirm your own payout method before relying on either figure — cash pickup and bank deposit are not priced the same by either provider.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Promotional first-transfer rates are excluded from the comparison but may change what you actually pay once. Quotes are collected by currency pair, so confirm that your corridor, payout method and amount are supported before relying on either figure.`,
+    limits: `Promotional first-transfer rates are excluded from the comparison but may change what you actually pay once. Quotes are collected by currency pair, so confirm that your corridor, payout method and amount are supported before relying on either figure.`,
     verdict: {
       costExplanation: `Western Union takes the front more often across the corridors we price — {{LED:western-union}} against {{LED:remitly}} for Remitly — but Remitly trails the leader by less when it isn't first, {{SHORTFALL:remitly}} against {{SHORTFALL:western-union}}. Read together: Remitly is consistently near the front on its supported routes, Western Union more often takes the front outright across a much wider set.`,
       speedExplanation: `Remitly's express tier settles in minutes on the corridors it serves, ahead of anything Western Union publishes as a standard window. That speed is specific to Remitly's narrower, digitally-optimised route list — it doesn't extend to destinations only Western Union's older agent network reaches.`,
@@ -365,19 +365,19 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       body: `On $1,000 USD→MXN the gap narrows to {{RECEIVE_DIFF:wise:western-union:USD:MXN:1000}}, with {{CHEAPER:wise:western-union:USD:MXN:1000}} ahead at {{COST_PCT:wise:USD:MXN:1000}} against {{COST_PCT:western-union:USD:MXN:1000}} for Western Union. That's a noticeably tighter margin than the India example — Western Union's markup isn't flat across corridors, and Mexico is one of the routes where its agent network keeps it closer to competitive.`,
     },
     pickA: {
-      heading: "Pick Wise for bank-to-bank transfers of any size",
-      body: `If the recipient has an account that can receive a deposit, Wise is the cheaper route on the corridors we measure, and it scales: transfers to $1,000,000, balances in 50 currencies, regulation by the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC. For tuition, property, payroll, contractors or your own accounts abroad, the audit trail matters as much as the price — you can check the rate you were given against any published mid-market quote, which is not true of a marked-up rate.`,
+      heading: "Choose Wise when the money is going into a bank account",
+      body: `When the recipient can take a bank deposit, Wise leaves them with more than Western Union on every route we measure, and the ceiling is high: transfers to $1,000,000, balances in 50 currencies, regulation by the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC. For tuition, property, payroll, contractors or your own accounts abroad, the audit trail matters as much as the price — you can check the rate you were given against any published mid-market quote, which is not true of a marked-up rate.`,
     },
     pickB: {
       heading: "Pick Western Union when cash or coverage decides it",
       body: `Western Union reaches destinations and recipients Wise structurally cannot: someone without a bank account, a country outside Wise's 80, a recipient who needs money within minutes at a counter, or a payout in one of the 130 currencies it quotes. Add mobile wallet delivery and a $50,000 ceiling. When any of those apply, the comparison is not close, because the alternative is not a worse price — it is no transfer at all.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Western Union's pricing varies by payout method, funding method and agent; Wise's fee varies by currency and funding method. Quotes are collected by currency pair, so we cannot confirm either serves your specific sending country — check before you commit.`,
+    limits: `Western Union's pricing varies by payout method, funding method and agent; Wise's fee varies by currency and funding method. Quotes are collected by currency pair, so we cannot confirm either serves your specific sending country — check before you commit.`,
     verdict: {
       costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:western-union}} for Western Union — the cleanest lead margin tracked on the site, because Wise's cost is entirely a stated fee with no markup, while Western Union recovers its network cost through a 1-4% spread that scales with the amount sent.`,
-      speedExplanation: `Wise's instant-to-two-day window covers bank deposits only; Western Union can put cash in a hand within minutes at a staffed counter, something Wise cannot do at any speed. Neither is faster in an absolute sense — they're fast at different things.`,
+      speedExplanation: `Wise's instant-to-two-day window covers bank deposits only; Western Union can have cash waiting at an agent counter within minutes — a payout Wise does not offer at all. Neither is faster in an absolute sense — they're fast at different things.`,
       coverageExplanation: `Western Union's 200-country, 130-currency agent network reaches destinations and payout situations Wise structurally cannot serve — no bank account, no address to deposit into, nothing but a name and an ID at a counter. Wise counters with a $1,000,000 ceiling and a third regulator (FCA, FinCEN and ASIC) for the bank-to-bank transfers it does handle.`,
-      bottomLine: `This pair is close to the cleanest read on this site of what a physical cash network actually costs: Wise's zero-markup rate against Western Union's agent-funded spread, on a recipient who could use either. If the recipient banks, that gap is the whole decision. If they don't, Western Union isn't competing on price — it's the only option that exists.`,
+      bottomLine: `This pair is close to the cleanest read on this site of what a physical cash network actually costs: Wise's zero-markup rate against Western Union's agent-funded spread, on a recipient who could use either. If the recipient banks, that gap is the whole decision. If they don't, price stops being the question: Western Union is the one of the two that can reach them.`,
     },
     faqs: [
       {
@@ -390,7 +390,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Can Western Union deposit directly to a bank account like Wise does?",
-        a: "Yes, bank deposit is one of its payout options alongside cash pickup and mobile wallet — but choosing bank deposit doesn't remove Western Union's rate markup, so on that specific payout method Wise remains the cheaper route for a recipient who could use either.",
+        a: "Yes. Western Union pays into bank accounts as well as to cash counters and wallets, but its rate margin applies whichever payout you pick, so on that specific payout method Wise remains the cheaper route for a recipient who could use either.",
       },
       {
         q: "Why does this comparison matter if Wise doesn't offer cash pickup at all?",
@@ -417,14 +417,14 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       body: `The pattern holds outside India: on $1,000 USD→MXN, {{CHEAPER:wise:worldremit:USD:MXN:1000}} delivers {{RECEIVE_DIFF:wise:worldremit:USD:MXN:1000}} more, at an all-in cost of {{COST_PCT:wise:USD:MXN:1000}} against {{COST_PCT:worldremit:USD:MXN:1000}} for WorldRemit. WorldRemit's markup runs wider on a bank-deposit corridor like this one than on the mobile-money routes it's built for — the gap you saw on India isn't a one-off.`,
     },
     pickA: {
-      heading: "Pick Wise for bank deposits and larger amounts",
-      body: `Wise is the better instrument when the destination is a bank account and you want the rate to be checkable. The 0% markup means cost does not scale with the amount the way a percentage markup does, which matters above a few thousand: transfers run to $1,000,000 against WorldRemit's $10,000 ceiling. Balances in 50 currencies and <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC regulation round it out.`,
+      heading: "Choose Wise when the money lands in a bank account",
+      body: `Against WorldRemit, Wise wins where the recipient banks and you want a rate you can check against mid-market. The 0% markup means cost does not scale with the amount the way a percentage markup does, which matters above a few thousand: transfers run to $1,000,000 against WorldRemit's $10,000 ceiling. Balances in 50 currencies and <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC regulation round it out.`,
     },
     pickB: {
       heading: "Pick WorldRemit for mobile money, cash and airtime",
       body: `WorldRemit's case is the last mile. Mobile money into wallets like M-Pesa and MTN, cash pickup, and airtime top-up direct to a recipient's phone are payout methods Wise does not offer at all, and in much of sub-Saharan Africa and parts of South and Southeast Asia they are how money is actually received. It quotes 70 currencies against Wise's 50 and reaches 130 countries against 80. Fees start at $0.99, and delivery is typically minutes to three days.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Mobile money and airtime availability vary by country and network, and WorldRemit's pricing differs by payout method. Quotes are collected by currency pair, so confirm that your corridor and chosen payout method are supported before sending.`,
+    limits: `Mobile money and airtime availability vary by country and network, and WorldRemit's pricing differs by payout method. Quotes are collected by currency pair, so confirm that your corridor and chosen payout method are supported before sending.`,
     verdict: {
       costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:worldremit}} for WorldRemit, but WorldRemit's average shortfall of {{SHORTFALL:worldremit}} is tighter than most cash-and-mobile-money providers we track against Wise's {{SHORTFALL:wise}} — competitive without often finishing first, consistent with a service selling payout reach rather than the lowest possible rate.`,
       speedExplanation: `Both quote similar delivery windows on bank deposit corridors — Wise instant to two days, WorldRemit minutes to three days — so speed rarely separates them on a route both can serve. The real speed question is how fast the recipient can use the money once it lands, which depends on the payout method more than the provider.`,
@@ -476,7 +476,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick XE for breadth of currency and a self-serve transfer",
       body: `XE quotes 130 currencies against OFX's 55, which is the widest currency list in this comparison and the practical argument for anyone sending to a less common destination. It carries the higher <a href="https://www.trustpilot.com/review/xe.com" target="_blank" rel="noopener noreferrer nofollow">Trustpilot rating</a> of the two, adds FINTRAC to the regulatory set, and caps transfers at $500,000 — above almost any personal transfer. If you want to run the transfer yourself without a dealer relationship, and your currency is an unusual one, XE is the better fit.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and both brokers quote rates that improve with transfer size in a way a fixed-amount comparison cannot capture. Neither offers cash payout. Quotes are collected by currency pair, so confirm your corridor, amount band and account eligibility directly. OFX's "no transfer fee" is confirmed fee-free regardless of amount for US-dollar transfers specifically; outside the US it charges a flat fee (e.g. AU$/CA$15) below a country-specific threshold, so check the policy for your own country before sending.`,
+    limits: `Both brokers quote rates that improve with transfer size in a way a fixed-amount comparison cannot capture. Neither offers cash payout. Quotes are collected by currency pair, so confirm your corridor, amount band and account eligibility directly. OFX's "no transfer fee" is confirmed fee-free regardless of amount for US-dollar transfers specifically; outside the US it charges a flat fee (e.g. AU$/CA$15) below a country-specific threshold, so check the policy for your own country before sending.`,
     verdict: {
       costExplanation: `Both charge no transfer fee and recover cost through a similar 0.5-1.5% rate markup, so the win-rate gap between them ({{WINRATE:ofx}} for OFX against {{WINRATE:xe}} for XE) is measured on very different sample sizes and shouldn't be read as a real cost verdict — average shortfall, {{SHORTFALL:ofx}} against {{SHORTFALL:xe}}, is the fairer comparison at this scale.`,
       speedExplanation: `Neither is faster than the other in any meaningful sense — both quote one to four business days and neither offers same-day or cash delivery. Speed simply isn't the variable this pair is decided on.`,
@@ -528,12 +528,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Xoom for speed and non-bank payout",
       body: `Xoom is built for the transfer that has to land now. Cash pickup, mobile reload and bank deposit across 130 countries, settlement in minutes, and a familiar PayPal login and balance behind it. Transfers run to $50,000. You pay for the speed and the payout options through a 1–3% markup plus a fee, which on our measurements leaves it behind the cheapest digital routes — but "behind on price" and "the only option that arrives in time" are not competing claims.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. OFX's rates improve with transfer size in a way a $1,000 comparison cannot show, and Xoom prices cash pickup differently from bank deposit. Quotes are collected by currency pair — confirm corridor, payout method and speed with the provider before sending. OFX's "no fee" claim is confirmed fee-free regardless of amount for US-dollar transfers specifically; outside the US it charges a flat fee below a country-specific threshold, so check the policy for your own country before sending.`,
+    limits: `OFX's rates improve with transfer size in a way a $1,000 comparison cannot show, and Xoom prices cash pickup differently from bank deposit. Quotes are collected by currency pair — confirm corridor, payout method and speed with the provider before sending. OFX's "no fee" claim holds at any amount for US-dollar sends; senders elsewhere pay a flat fee under a local threshold that differs by country, so look up your own before setting it against Xoom's fee.`,
     verdict: {
       costExplanation: `OFX charges no fee at all and recovers cost through its markup alone; Xoom adds a fee up to $4.99 on top of a similar 1-3% markup. OFX's win rate is measured on a small corridor sample and shouldn't be compared directly against Xoom's much larger one — {{SHORTFALL:ofx}} against {{SHORTFALL:xoom}} average shortfall is the more comparable figure.`,
       speedExplanation: `This is the widest speed gap tracked on the site: OFX settles in one to three business days, Xoom in minutes. That difference alone decides the comparison for anyone who needs the money to arrive today, regardless of which one is nominally cheaper.`,
       coverageExplanation: `Xoom pays out via cash pickup, mobile reload and bank deposit across 130 countries; OFX pays to bank accounts only but has no upper transfer limit against Xoom's $50,000 cap, and adds dealer support once the amount is substantial.`,
-      bottomLine: `These two barely overlap in what they're actually for. OFX is built for a transfer you can schedule — large, planned, bank-to-bank. Xoom is built for the transfer that has to land today, in cash or a mobile wallet if needed. Anyone genuinely torn between them likely hasn't decided yet what kind of transfer this is.`,
+      bottomLine: `OFX and Xoom solve different problems. OFX is built for a transfer you can schedule — large, planned, bank-to-bank. Xoom is built for the transfer that has to land today, in cash or a mobile wallet if needed. Anyone genuinely torn between them likely hasn't decided yet what kind of transfer this is.`,
     },
     faqs: [
       {
@@ -574,13 +574,13 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickB: {
       heading: "Pick Xoom if you already use PayPal, or need mobile reload",
-      body: `Xoom's advantages are account-shaped rather than network-shaped. If you already hold a PayPal balance, funding is immediate and the identity checks are largely done, which removes the slowest part of a first transfer. It led more of our priced corridors than MoneyGram, carries the higher <a href="https://www.trustpilot.com/review/xoom.com" target="_blank" rel="noopener noreferrer nofollow">Trustpilot rating</a>, supports transfers to $50,000 against MoneyGram's $10,000, and offers mobile reload — topping up a recipient's phone directly — which MoneyGram does not.`,
+      body: `Where MoneyGram's case rests on counters, Xoom's rests on the PayPal account behind it: a sender who already has one can fund straight from the balance with most identity checks on file, so the first transfer is the quick one. It led more of our priced corridors than MoneyGram, carries the higher <a href="https://www.trustpilot.com/review/xoom.com" target="_blank" rel="noopener noreferrer nofollow">Trustpilot rating</a>, supports transfers to $50,000 against MoneyGram's $10,000, and offers mobile reload — topping up a recipient's phone directly — which MoneyGram does not.`,
     },
     secondExample: {
       heading: "A second corridor: $200 to Nigeria",
       body: `Nigeria is one of the few corridors outside India where both networks actually quote at the same amount — Xoom's route list is narrower than MoneyGram's agent network, so overlapping pairs are the exception rather than the rule. On $200 USD→NGN the gap is {{RECEIVE_DIFF:moneygram:xoom:USD:NGN:200}}, with {{CHEAPER:moneygram:xoom:USD:NGN:200}} delivering more. Both providers happen to be quoting above the day's mid-market reference rate for naira, which floors their computed markup at zero — the receive-amount gap above is the reliable number here, not a percentage. Confirm your own corridor is one Xoom actually serves before assuming this pattern holds.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and agent-level pricing is not something we observe. Both vary fees by corridor, payout method and funding method; cash pickup depends on the specific agent. Confirm the quote, the collection point and the identification required before sending.`,
+    limits: `Agent-level pricing is not something we observe. Both vary fees by corridor, payout method and funding method; cash pickup depends on the specific agent. Confirm the quote, the collection point and the identification required before sending.`,
     verdict: {
       costExplanation: `Xoom took the lead more often across the corridors we price — {{LED:xoom}} against {{LED:moneygram}} for MoneyGram, whose {{WINRATE:moneygram}} win rate means it effectively never finishes first — but MoneyGram's average shortfall of {{SHORTFALL:moneygram}} is tighter than Xoom's {{SHORTFALL:xoom}}, so it loses more often but by less each time.`,
       speedExplanation: `Both settle in minutes on their express options, and neither has a meaningful speed edge over the other in the corridors we track. The variable that actually matters is whether a convenient agent or partner location belongs to one network or the other.`,
@@ -590,7 +590,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     faqs: [
       {
         q: "Does already having a PayPal account make Xoom cheaper?",
-        a: "It doesn't change Xoom's price, but it removes the slowest part of a first transfer — funding is immediate and identity checks are largely already done through your existing PayPal account. MoneyGram has no equivalent shortcut for a first-time sender.",
+        a: "No — Xoom quotes the same rate either way. What a PayPal login saves is time on a first send: the money can come from a PayPal balance and verification is mostly already done. A first MoneyGram transfer starts without that head start.",
       },
       {
         q: "Which is more consistent, MoneyGram or Xoom?",
@@ -598,7 +598,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Can MoneyGram top up a recipient's phone the way Xoom can?",
-        a: "No — mobile reload is specific to Xoom in this comparison. If that's the payout method you need, MoneyGram isn't an option regardless of its pricing on the corridors it does serve.",
+        a: "No. Of these two only Xoom offers mobile reload, so if airtime is what the recipient needs, the choice is made before price comes into it.",
       },
       {
         q: "Is MoneyGram's $10,000 limit fixed for every country?",
@@ -631,7 +631,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick WorldRemit for mobile money and airtime",
       body: `WorldRemit is the better instrument when the payout is mobile money or airtime rather than cash or a bank account — M-Pesa, MTN Mobile Money and direct phone top-ups are payout methods MoneyGram doesn't offer at all. It quotes 70 currencies against MoneyGram's 50, and its lower starting fee matters most on smaller, frequent transfers. It's regulated by the <a href="https://register.fca.org.uk/s/firm?id=0010X00004D8FDGQA3" target="_blank" rel="noopener noreferrer">FCA</a> in the UK and FinCEN in the US.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and agent-level/mobile-money pricing is not something we observe directly. Both providers vary fees by corridor, payout method and funding method. Confirm the quote, the collection method and (for WorldRemit) network compatibility before sending.`,
+    limits: `Agent-level/mobile-money pricing is not something we observe directly. Both providers vary fees by corridor, payout method and funding method. Confirm the quote, the collection method and (for WorldRemit) network compatibility before sending.`,
     verdict: {
       costExplanation: `WorldRemit led {{LED:worldremit}} of the corridors we price against {{LED:moneygram}} for MoneyGram, with average shortfalls of {{SHORTFALL:worldremit}} and {{SHORTFALL:moneygram}} respectively. Neither dominates the way a digital specialist does — both are pricing around a reach-first model, not a lowest-cost one.`,
       speedExplanation: `Both settle in minutes on their express tiers and up to three days on standard delivery — there's no meaningful speed edge between them on the corridors we track. The real timing variable is the payout method: mobile money and cash pickup typically land faster than a bank deposit on either network.`,
@@ -679,7 +679,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick PayPal only where the payment already lives there",
       body: `PayPal's case is the same as everywhere else it appears on this site: an invoice, a refund, or a counterparty who won't accept anything but a PayPal payment. It reaches 200 countries and needs only an email address, against HSBC's requirement that the recipient hold a bank account. Choosing PayPal as a deliberate remittance route, rather than because the payment already lives there, is the expensive option on this page for most standard-tier senders.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. HSBC's markup depends heavily on account tier (Premier vs standard) in a way our quotes cannot fully capture, and PayPal's consumer and business pricing differ. Confirm your own account tier's actual rate before relying on either figure.`,
+    limits: `HSBC's markup depends heavily on account tier (Premier vs standard) in a way our quotes cannot fully capture, and PayPal's consumer and business pricing differ. Confirm your own account tier's actual rate before relying on either figure.`,
     verdict: {
       costExplanation: `PayPal led {{LED:paypal}} of the corridors we price against {{LED:hsbc}} for HSBC, with average shortfalls of {{SHORTFALL:paypal}} and {{SHORTFALL:hsbc}}. HSBC's result reflects standard retail pricing; Premier customers pay no markup at all, a tier difference no other pair on this site has to account for.`,
       speedExplanation: `HSBC quotes same-day to three business days; PayPal settles instantly to another PayPal balance but takes longer once the money needs to reach a bank account. Neither is reliably faster than the other once the payout method is matched.`,
@@ -731,7 +731,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick XE for larger transfers to a bank account",
       body: `XE's no-fee model and 130-currency list — the widest on this site — make it the better fit for a large, planned bank-to-bank transfer: property, tuition, or moving a meaningful sum between your own accounts abroad. It has no upper limit issue at $500,000 and carries FINTRAC alongside the FCA, FinCEN and ASIC in its regulatory set. It doesn't offer cash pickup or mobile money at any amount.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. XE's rate improves with transfer size in a way our $1,000 sample cannot capture, and Remitly's promotional first-transfer rates are excluded. Quotes are collected by currency pair — confirm your corridor, amount and payout method before sending.`,
+    limits: `XE's rate improves with transfer size in a way our $1,000 sample cannot capture, and Remitly's promotional first-transfer rates are excluded. Quotes are collected by currency pair — confirm your corridor, amount and payout method before sending.`,
     verdict: {
       costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:xe}} for XE. XE's no-fee, markup-only model is built to reward larger amounts than the $1,000-$1,000 range this comparison prices — at real broker-scale amounts the gap narrows or reverses.`,
       speedExplanation: `Remitly's express tier settles in minutes; XE quotes one to four business days with no express option. For anything time-sensitive, Remitly is the only one of the two built for it.`,
@@ -779,7 +779,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick TapTap Send for speed and mobile money",
       body: `TapTap Send's case is speed and payout flexibility on a remittance-sized transfer: under three minutes for 95% of transfers, and mobile money delivery Wise doesn't offer at all. It's built specifically for diaspora remittances to Africa and Asia, which shows up in a narrower but more purpose-fit corridor list than Wise's broader, bank-account-first coverage.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. TapTap Send's fee-free claim applies to most but not all corridors — some carry a small fee — and Wise's fee varies by currency and funding method. Confirm your specific corridor's terms before sending.`,
+    limits: `TapTap Send's fee-free claim applies to most but not all corridors — some carry a small fee — and Wise's fee varies by currency and funding method. Confirm your specific corridor's terms before sending.`,
     verdict: {
       costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:taptap-send}} for TapTap Send, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:taptap-send}} — one of the tightest cost gaps tracked on this site, since both price close to the mid-market rate rather than building in a wide spread.`,
       speedExplanation: `TapTap Send settles in under three minutes for 95% of transfers, ahead of Wise's instant-to-two-day window. For a genuinely urgent transfer, TapTap Send's speed is the more consistent of the two.`,
@@ -827,7 +827,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick TapTap Send for price and speed on its core corridors",
       body: `TapTap Send is built specifically for the corridors it serves — Africa, South Asia and the Caribbean diaspora routes — and prices them sharper than a general-purpose cash network. Under three minutes for 95% of transfers, close to $0 fee on most routes, and mobile money delivery alongside bank deposit. The constraint is a narrower country list than MoneyGram's, so confirm TapTap Send actually serves your destination first.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and agent-level pricing is not something we observe. TapTap Send's fee-free claim doesn't apply to every corridor. Confirm the quote, payout method and TapTap Send's coverage of your destination before sending.`,
+    limits: `Agent-level pricing is not something we observe. TapTap Send's fee-free claim doesn't apply to every corridor. Confirm the quote, payout method and TapTap Send's coverage of your destination before sending.`,
     verdict: {
       costExplanation: `TapTap Send led {{LED:taptap-send}} of the corridors we price against {{LED:moneygram}} for MoneyGram, a {{WINRATE:moneygram}} win rate for MoneyGram against a specialist priced close to the mid-market rate. Average shortfalls of {{SHORTFALL:taptap-send}} and {{SHORTFALL:moneygram}} confirm the gap isn't close.`,
       speedExplanation: `TapTap Send settles in under three minutes for 95% of transfers; MoneyGram's express option is comparable on some corridors but not guaranteed across its wider, less digitally-optimised network.`,
@@ -875,7 +875,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick XE for large transfers and the widest currency list",
       body: `XE's no-fee model and 130-currency list — the widest on this site — suit a large, planned bank-to-bank transfer, especially to a less common currency. It caps at $500,000, has no upper-limit issue for almost any personal transfer, and adds FINTRAC alongside the FCA, FinCEN and ASIC in its regulatory set.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. XE's rate improves with transfer size in a way a fixed $1,000 comparison cannot capture. Quotes are collected by currency pair — confirm your own amount band and account eligibility before sending.`,
+    limits: `XE's rate improves with transfer size in a way a fixed $1,000 comparison cannot capture. Quotes are collected by currency pair — confirm your own amount band and account eligibility before sending.`,
     verdict: {
       costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:xe}} for XE, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:xe}}. Wise's 0% markup is a structural advantage at remittance-sized amounts; XE's no-fee, markup-only model is built to close that gap as the transfer size grows.`,
       speedExplanation: `Wise settles instant to two days; XE quotes one to four business days with no express option. For anything time-sensitive, Wise is the more consistent of the two.`,
@@ -923,7 +923,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick TapTap Send where it serves the corridor",
       body: `TapTap Send is the sharper price on the specific routes it was built for — under three minutes for 95% of transfers, close to $0 fee on most corridors. If your corridor is one it actually serves, it typically beats Remitly's pricing; if it isn't, Remitly's broader network is the fallback.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. TapTap Send's fee-free claim doesn't apply to every corridor, and Remitly's promotional first-transfer rates are excluded. Confirm coverage and payout method before sending.`,
+    limits: `TapTap Send's fee-free claim doesn't apply to every corridor, and Remitly's promotional first-transfer rates are excluded. Confirm coverage and payout method before sending.`,
     verdict: {
       costExplanation: `TapTap Send led {{LED:taptap-send}} of the corridors we price against {{LED:remitly}} for Remitly, with average shortfalls of {{SHORTFALL:taptap-send}} and {{SHORTFALL:remitly}}. TapTap Send's close-to-mid-market pricing model tends to win on the corridors both serve.`,
       speedExplanation: `TapTap Send settles in under three minutes for 95% of transfers; Remitly's express tier is comparable on many corridors but not guaranteed as consistently across its wider network.`,
@@ -970,7 +970,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Revolut for weekday transfers within the free allowance",
       body: `Revolut is the better instrument on a weekday, within the £1,000 monthly free allowance — genuinely free, at the interbank rate. Revolut-to-Revolut transfers are instant and cost nothing. The constraint is the weekend markup and the requirement that the recipient hold a Revolut account for the fastest, free route.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Revolut's free allowance and weekend markup depend on your plan tier. Quotes are collected at a point in time — if timing matters to you, that's a real variable this page can't fully capture in a single snapshot.`,
+    limits: `Revolut's free allowance and weekend markup depend on your plan tier. Quotes are collected at a point in time — if timing matters to you, that's a real variable this page can't fully capture in a single snapshot.`,
     verdict: {
       costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:revolut}} for Revolut, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:revolut}} — one of the tighter cost gaps on the site, since both price close to the mid-market rate on weekdays.`,
       speedExplanation: `Revolut-to-Revolut transfers land instantly; Wise's instant-to-two-day window applies to any bank deposit regardless of whether the recipient holds a Wise account. Neither has a consistent speed edge once the recipient's account type is matched.`,
@@ -1018,7 +1018,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick PayPal only where the payment already lives there",
       body: `PayPal's case is the same as everywhere else on this site: an invoice, a refund, or a counterparty who won't accept anything else. Choosing it as a deliberate remittance route over MoneyGram is the more expensive option on the corridors we measure.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. MoneyGram's agent-level pricing varies by payout method and location; PayPal's consumer and business pricing differ. Confirm the quote and collection method before sending.`,
+    limits: `MoneyGram's agent-level pricing varies by payout method and location; PayPal's consumer and business pricing differ. Confirm the quote and collection method before sending.`,
     verdict: {
       costExplanation: `MoneyGram led {{LED:moneygram}} of the corridors we price against {{LED:paypal}} for PayPal, with PayPal's average shortfall of {{SHORTFALL:paypal}} the widest we record for any provider on the site.`,
       speedExplanation: `PayPal settles instantly to another PayPal balance; MoneyGram's express options settle in minutes at a staffed counter. Both are fast once the payout method is matched — the more meaningful difference is what happens after: a PayPal balance versus cash in hand.`,
@@ -1066,7 +1066,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick HSBC if you're a Premier customer or sending GBP",
       body: `HSBC's case depends heavily on account tier: HSBC-to-HSBC transfers are free with no markup, and Premier customers get the mid-market rate on any transfer. Standard-tier customers pay £4-£9 plus up to 2.5% markup. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Chase and HSBC don't share a priced corridor in our sample, so figures for each are shown separately rather than head-to-head. Confirm your own account tier's actual rate with each bank directly.`,
+    limits: `Chase and HSBC don't share a priced corridor in our sample, so figures for each are shown separately rather than head-to-head. Confirm your own account tier's actual rate with each bank directly.`,
     verdict: {
       costExplanation: `No shared corridor exists in our sample to compare these two directly. Chase's average shortfall against the leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}} — both a bank-wire premium over a specialist, measured separately rather than against each other.`,
       speedExplanation: `Chase settles in 1-5 business days; HSBC in same-day to 3 business days. Neither offers an express, minutes-level option the way a digital remittance specialist does.`,
@@ -1114,7 +1114,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick MoneyGram for cash pickup and smaller, faster transfers",
       body: `MoneyGram is built for the transfer that needs to land in cash, at a counter, sooner than a broker's business-day settlement allows. Its $10,000 cap and $1.99-plus fee structure suit remittance-sized amounts, not the large planned transfers OFX is built for.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. OFX's rate improves with transfer size in a way a $1,000 comparison cannot show, and MoneyGram's agent-level pricing varies by payout method. Confirm your corridor and amount band before sending.`,
+    limits: `OFX's rate improves with transfer size in a way a $1,000 comparison cannot show, and MoneyGram's agent-level pricing varies by payout method. Confirm your corridor and amount band before sending.`,
     verdict: {
       costExplanation: `OFX led {{LED:ofx}} of the corridors we price against {{LED:moneygram}} for MoneyGram, though OFX's win rate is measured on a smaller sample. Average shortfalls of {{SHORTFALL:ofx}} and {{SHORTFALL:moneygram}} are the more comparable figures at this sample size.`,
       speedExplanation: `MoneyGram settles in minutes to three days depending on the option chosen; OFX quotes one to three business days with no express tier. For an urgent, smaller transfer, MoneyGram is built for it in a way OFX isn't.`,
@@ -1162,7 +1162,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick MoneyGram for wider reach and an older agent network",
       body: `MoneyGram's argument is coverage into destinations Remitly doesn't serve, through an agent network built over eight decades. Fees start at $1.99, roughly in line with Remitly's, but the network reaches further into markets a newer app hasn't yet built out.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes, and agent-level pricing is not something we observe. Confirm your corridor, payout method and MoneyGram's or Remitly's coverage of your destination before sending.`,
+    limits: `Agent-level pricing is not something we observe. Confirm your corridor, payout method and MoneyGram's or Remitly's coverage of your destination before sending.`,
     verdict: {
       costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:moneygram}} for MoneyGram, a {{WINRATE:moneygram}} win rate for MoneyGram against a digital-first specialist. Average shortfalls of {{SHORTFALL:remitly}} and {{SHORTFALL:moneygram}} confirm the gap is real, not just a matter of who wins outright.`,
       speedExplanation: `Remitly's express tier settles in minutes; MoneyGram's speed varies more by corridor and agent. For a corridor Remitly prices sharply, it's also typically the faster of the two.`,
@@ -1210,7 +1210,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Xoom for an actual remittance",
       body: `Xoom is the dedicated remittance product in the PayPal family — cash pickup, mobile reload and bank deposit across 130 countries, with a fee up to $4.99 and a narrower 1-3% markup than PayPal's own cross-border pricing. If you already have a PayPal login, Xoom uses the same credentials with sharper pricing for an actual transfer abroad.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. PayPal and Xoom don't share a priced corridor in our sample, so figures for each are shown separately. Confirm your specific corridor and payout method with each product directly.`,
+    limits: `PayPal and Xoom don't share a priced corridor in our sample, so figures for each are shown separately. Confirm your specific corridor and payout method with each product directly.`,
     verdict: {
       costExplanation: `No shared corridor exists in our sample. PayPal's average shortfall of {{SHORTFALL:paypal}} is the widest we record for any provider; Xoom's {{SHORTFALL:xoom}} is markedly tighter, consistent with Xoom's dedicated remittance pricing beating PayPal's payments-account FX feature.`,
       speedExplanation: `PayPal settles instantly to another PayPal balance; Xoom settles in minutes for cash pickup or bank deposit across its network. Both are fast for what they're built for.`,
@@ -1258,7 +1258,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick PayPal only where the payment already lives there",
       body: `PayPal's case is unchanged from its other comparisons on this site: an invoice, a refund, or a counterparty who insists on PayPal specifically. As a deliberate remittance choice against Remitly, it's consistently the more expensive option in our data.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. PayPal's consumer and business pricing differ, and Remitly's promotional first-transfer rates are excluded. Confirm the applicable schedule before sending.`,
+    limits: `PayPal's consumer and business pricing differ, and Remitly's promotional first-transfer rates are excluded. Confirm the applicable schedule before sending.`,
     verdict: {
       costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:paypal}} for PayPal, with PayPal's {{SHORTFALL:paypal}} average shortfall the widest of any provider we track against Remitly's {{SHORTFALL:remitly}}.`,
       speedExplanation: `Remitly's express tier settles in minutes; PayPal settles instantly to a PayPal balance but takes longer once the money needs to reach a bank account or cash pickup, which PayPal doesn't offer at all.`,
@@ -1306,7 +1306,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Xoom if you already use PayPal, or need mobile reload",
       body: `Xoom's advantages are account-shaped: if you already hold a PayPal balance, funding is immediate and identity checks are largely done. It supports transfers to $50,000 against Remitly's $300,000 US ceiling — Remitly's is higher, but Xoom's is still ample for most remittances — and offers mobile reload, which Remitly doesn't.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Both price cash pickup differently from bank deposit, and Remitly's promotional first-transfer rates are excluded. Confirm your corridor and payout method before sending.`,
+    limits: `Both price cash pickup differently from bank deposit, and Remitly's promotional first-transfer rates are excluded. Confirm your corridor and payout method before sending.`,
     verdict: {
       costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:xoom}} for Xoom, with average shortfalls of {{SHORTFALL:remitly}} and {{SHORTFALL:xoom}}. Both are digital-first specialists priced closer to the leaders than a bank or a broad payments account.`,
       speedExplanation: `Both settle in minutes on their express tiers. The more meaningful speed variable is funding: Xoom is instant for an existing PayPal user, while Remitly's funding speed depends on the payment method chosen.`,
@@ -1354,7 +1354,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Westpac only for an existing banking relationship",
       body: `Westpac's case is the same as any full-service bank's: convenience for an existing customer, not cost competitiveness. Its $8-$20 fee plus 3-5% markup is meaningfully wider than a digital specialist's, regulated by APRA and ASIC, and has been operating since 1817.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Westpac doesn't appear in our priced sample for the corridors this comparison covers — its figures here are drawn from published rates rather than collected quotes. Confirm the current rate directly with Westpac before relying on it.`,
+    limits: `Westpac doesn't appear in our priced sample for the corridors this comparison covers — its figures here are drawn from published rates rather than collected quotes. Confirm the current rate directly with Westpac before relying on it.`,
     verdict: {
       costExplanation: `No shared corridor exists in our sample. Wise's markup is a stated 0%, against Westpac's published 3-5% — a structural gap that our quote data, even without a direct comparison, is consistent with.`,
       speedExplanation: `Wise settles instant to two days; Westpac's published range is two to five business days. Wise's window is faster on every corridor it serves.`,
@@ -1402,7 +1402,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick WorldRemit for mobile money and airtime",
       body: `WorldRemit's case is the last mile: mobile money into wallets like M-Pesa and MTN, plus airtime top-up direct to a phone, are payout methods Remitly doesn't offer at all. It quotes 70 currencies against Remitly's 40, concentrated in markets where a bank account isn't the default.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Mobile money and airtime availability vary by country and network. Confirm your corridor and payout method are supported before sending.`,
+    limits: `Mobile money and airtime availability vary by country and network. Confirm your corridor and payout method are supported before sending.`,
     verdict: {
       costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:worldremit}} for WorldRemit, with average shortfalls of {{SHORTFALL:remitly}} and {{SHORTFALL:worldremit}}. Both are digital specialists priced closer to the leaders than a bank or broad payments account.`,
       speedExplanation: `Remitly's express tier settles in minutes; WorldRemit quotes minutes to three days. Neither has a consistent edge once the payout method is matched.`,
@@ -1450,7 +1450,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Revolut for weekday transfers and app-based convenience",
       body: `Revolut is the better instrument for most standard-tier senders: free up to £1,000 a month at the interbank rate on weekdays, then 0.5%. Revolut-to-Revolut transfers are instant and free. The constraint is the weekend markup and the requirement that the recipient hold a Revolut account for the fastest route.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. HSBC's markup depends heavily on account tier in a way our quotes cannot fully capture, and Revolut's free allowance and weekend markup depend on plan tier. Confirm your own account terms before relying on either figure.`,
+    limits: `HSBC's markup depends heavily on account tier in a way our quotes cannot fully capture, and Revolut's free allowance and weekend markup depend on plan tier. Confirm your own account terms before relying on either figure.`,
     verdict: {
       costExplanation: `Revolut led {{LED:revolut}} of the corridors we price against {{LED:hsbc}} for HSBC, with average shortfalls of {{SHORTFALL:revolut}} and {{SHORTFALL:hsbc}}. HSBC's result reflects standard retail pricing — Premier customers pay no markup at all.`,
       speedExplanation: `Revolut-to-Revolut transfers are instant; HSBC settles same-day to three business days. For a transfer to an external account, both depend on the receiving bank's own processing time.`,
@@ -1498,7 +1498,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick MoneyGram when cash or coverage decides it",
       body: `MoneyGram reaches recipients Wise structurally cannot: someone without a bank account, or a destination among the roughly 200 countries MoneyGram's agent network covers against Wise's 80. You pay for that reach through the rate, and the premium on our measurements is real.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. MoneyGram's agent-level pricing varies by payout method and location; Wise's fee varies by currency and funding method. Confirm your specific sending country and payout method before sending.`,
+    limits: `MoneyGram's agent-level pricing varies by payout method and location; Wise's fee varies by currency and funding method. Confirm your specific sending country and payout method before sending.`,
     verdict: {
       costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:moneygram}} for MoneyGram — Wise's cost is entirely a stated fee with no markup, while MoneyGram recovers its agent-network cost through a 1-3% spread.`,
       speedExplanation: `MoneyGram can put cash in a hand within minutes at a staffed counter, something Wise cannot do at any speed; Wise's instant-to-two-day window covers bank deposits only.`,
@@ -1546,7 +1546,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "Pick Wells Fargo if you already bank there",
       body: `Wells Fargo's $30-$45 fee is marginally lower than Chase's, offset by a wider 3-5% markup. It caps transfers at $100,000, below Chase's $250,000, and settles in 2-5 business days.`,
     },
-    limits: `Estimates from collected pricing against a mid-market reference, not guaranteed quotes. Both banks' fees and markups vary by branch, account type and destination — confirm the current terms directly before sending. Neither is competitive against a digital specialist on the corridors we measure.`,
+    limits: `Both banks' fees and markups vary by branch, account type and destination — confirm the current terms directly before sending. Neither is competitive against a digital specialist on the corridors we measure.`,
     verdict: {
       costExplanation: `Chase led {{LED:chase}} of the corridors we price against {{LED:wells-fargo}} for Wells Fargo, with average shortfalls of {{SHORTFALL:chase}} and {{SHORTFALL:wells-fargo}} — both a meaningful premium over a digital specialist, consistent with standard bank-wire pricing.`,
       speedExplanation: `Chase quotes 1-5 business days; Wells Fargo 2-5 business days. Neither offers an express, minutes-level option — a digital remittance specialist would beat both on speed as well as cost.`,

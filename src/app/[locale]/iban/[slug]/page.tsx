@@ -10,10 +10,10 @@ import CircleFlag from "@/components/CircleFlag";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+import { assignTableAmounts } from "@/lib/table-amounts";
 import {
   wiseCountries,
   getWiseCountryBySlug,
-  getWiseCountryPage,
 } from "@/data/wise-iban";
 import { getCountryByAlpha2 } from "@/data/countries";
 import { getIbanEditorial, getIbanFaqs } from "@/data/iban-content";
@@ -27,6 +27,13 @@ import { quoteDataDate } from "@/lib/unified-quotes";
 // outbound remittance market and the site's default quote currency; the widget
 // is skipped entirely when it would produce a same-currency corridor.
 const SEND_FROM_CURRENCY = "USD";
+/** Distinct table amount per page on a shared currency — see table-amounts.ts. */
+const IBAN_TABLE_AMOUNTS = assignTableAmounts(
+  wiseCountries.filter((c) => c.slug),
+  (c) => c.slug!,
+  (c) => `${SEND_FROM_CURRENCY}-${c.currency}`,
+  "iban",
+);
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -388,7 +395,6 @@ export default async function IbanCountryPage({ params }: Props) {
 
   const name = getCountryName(country.countryCode, slug);
   const countryCode = country.countryCode;
-  const page = getWiseCountryPage(slug);
   const editorialNote = getIbanEditorial(locale, slug);
   const countryFaqsList = getIbanFaqs(locale, slug);
 
@@ -423,15 +429,7 @@ export default async function IbanCountryPage({ params }: Props) {
     });
   }
 
-  // Extract useful page sections (filter out Wise promotional content)
-  const usefulSections = (page?.sections || []).filter(
-    (s) =>
-      !s.heading.toLowerCase().includes("trustpilot") &&
-      !s.heading.toLowerCase().includes("cheaper") &&
-      !s.heading.toLowerCase().includes("compare prices") &&
-      !s.heading.toLowerCase().includes("most searched") &&
-      s.content.length > 50
-  );
+
 
   return (
     <>
@@ -481,11 +479,9 @@ export default async function IbanCountryPage({ params }: Props) {
               />
             </div>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
-              The International Bank Account Number (IBAN) for {name} is <strong className="font-medium text-[var(--color-on-surface)]">{country.ibanLength} characters</strong> long
-              and is used to identify bank accounts for international transactions
-              {country.sepa
-                ? ", within the SEPA network for euro transfers and via SWIFT for non-euro currencies."
-                : " via the SWIFT network."}
+              {/* Template clauses shared by all 66 IBAN pages were cut 2026-09-25;
+                  what remains is this country's own structure. */}
+              A {name} IBAN is <strong className="font-medium text-[var(--color-on-surface)]">{country.ibanLength} characters</strong> long{country.sepa ? ` and ${name} is in SEPA` : ""}.
             </p>
             <p className="text-sm text-[var(--color-on-surface-variant)]">
               A {name} IBAN begins with the country code <strong className="font-medium text-[var(--color-on-surface)]">{country.countryCode}</strong>{" "}
@@ -496,10 +492,7 @@ export default async function IbanCountryPage({ params }: Props) {
                     return `a ${f.length}-character ${label}`;
                   }).join(", followed by ")}.`
                 : ""}
-              {" "}{country.sepa
-                ? `As a SEPA member, ${name} supports low-cost euro transfers across 36+ European countries using the ${country.currency} currency.`
-                : `International transfers to ${name} are processed in ${country.currency} via SWIFT, typically taking 1–3 business days.`}
-              {" "}Always include the full {country.ibanLength}-character IBAN together with the bank&rsquo;s BIC/SWIFT code when making or receiving international payments.
+              {!country.sepa && ` Transfers into ${name} arrive in ${country.currency} over SWIFT.`}
             </p>
           </Card>
 
@@ -544,7 +537,7 @@ export default async function IbanCountryPage({ params }: Props) {
             <InlineProviderQuotes
               from={SEND_FROM_CURRENCY}
               to={country.currency}
-              amount={1000}
+              amount={IBAN_TABLE_AMOUNTS.get(slug) ?? 1050}
               source={`iban:${slug}`}
               heading={`Sending money to ${name}? Compare live rates`}
               subheading={`Live ${SEND_FROM_CURRENCY}→${country.currency} quotes, updated every 6 hours.`}
@@ -609,8 +602,7 @@ export default async function IbanCountryPage({ params }: Props) {
                 BBAN format details
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
-                The Basic Bank Account Number (BBAN) is the domestic part of the IBAN, following the country code
-                and check digits. Here is the BBAN validation format for {name}:
+                Validation format for the {name} BBAN:
               </p>
               <div className="space-y-3">
                 {country.bbanFields.map((field, i) => (
@@ -660,30 +652,12 @@ export default async function IbanCountryPage({ params }: Props) {
             </Card>
           )}
 
-          {/* Content sections from scraped data — rewritten for SEO */}
-          {usefulSections.length > 0 && (
-            <Card>
-              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
-                Understanding IBAN in {name}
-              </h2>
-              <div className="space-y-6">
-                {usefulSections.map((section, i) => (
-                  <div key={i}>
-                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
-                      {section.heading.replace(/\?$/, "").trim()}
-                    </h3>
-                    <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed whitespace-pre-line">
-                      {section.content
-                        .replace(/Calculate IBAN|Check IBAN|Already have an IBAN code\?/g, "")
-                        .replace(/[ \t]*\n[ \t]*/g, "\n")
-                        .replace(/\n{2,}/g, "\n")
-                        .trim()}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          )}
+          {/* The "Understanding IBAN in …" card was removed 2026-09-25. It
+              printed sections scraped from Wise's own country pages verbatim
+              (src/data/scraped/wise-country-pages.json): third-party copy on
+              our page, repeated across all 66 IBAN pages, and the largest
+              block the round-2 duplication audit found on them. The IBAN
+              structure breakdown, bank list and FAQs above and below are ours. */}
 
           {/* FAQ Schema content */}
           <Card>
@@ -869,9 +843,7 @@ export default async function IbanCountryPage({ params }: Props) {
         <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
           Sending money to {name}?
         </h2>
-        <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-          Compare exchange rates and fees to find the cheapest way to transfer.
-        </p>
+        <div className="mb-6" />
         <PrimaryButton href="/send-money" size="lg">
           Compare providers
         </PrimaryButton>

@@ -14,6 +14,18 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { COVERAGE } from "@/lib/site-stats";
+import { renderDataTokens } from "@/lib/ratings-tokens";
+
+/** Directory link text: the title without its "(2026)" / "in 2026" suffix,
+ *  which the guide's own heading already carries (2026-09-25). */
+function hubLabel(title: string): string {
+  // Directory label: the title's main clause, without a year anywhere in it.
+  // The full title is the guide's own heading; repeating it here (and in the
+  // same order as other guides' related lists) made this page 38% duplicate.
+  const noYear = title.replace(/\s*\((?:in\s+)?20\d\d\)/gi, "").replace(/\s+(?:in\s+)?20\d\d\b/gi, "").trim();
+  const main = noYear.split(/\s+[—–]\s+|:\s+/)[0].trim();
+  return main.split(/\s+/).length >= 3 ? main : noYear;
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -62,7 +74,11 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
   const guideCards = blogPosts.map((post) => ({
     slug: post.slug,
     title: post.title,
-    excerpt: post.excerpt,
+    // The card shows the meta description, not the excerpt: the excerpt also
+    // opens the guide itself, so a hub of excerpts measured 60% duplicate of
+    // the pages it lists (2026-09-25). The meta description appears nowhere
+    // else in page text.
+    excerpt: renderDataTokens(post.metaDescription || post.excerpt),
     category: post.category,
     readTime: post.readTime,
     publishedAt: post.publishedAt,
@@ -191,7 +207,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
                       href={`/guides/${post.slug}`}
                       className="text-sm text-[var(--color-primary)] hover:underline"
                     >
-                      {post.title}
+                      {hubLabel(post.title)}
                     </Link>
                   </li>
                 ))}

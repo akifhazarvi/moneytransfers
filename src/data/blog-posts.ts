@@ -304,8 +304,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -1225,8 +1224,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>Trustpilot scores and app-store ratings are refreshed by our own scrapers and injected into this page at build time, so the figures above are never hand-typed. App-store data comes from the Apple iTunes lookup API and the Google Play listing for each provider's app, US storefront.</p>
+        content: `<p>Trustpilot scores and app-store ratings are refreshed by our own scrapers and injected into this page at build time, so the figures above are never hand-typed. App-store data comes from the Apple iTunes lookup API and the Google Play listing for each provider's app, US storefront.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
@@ -1348,8 +1346,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -1861,8 +1858,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a> B2B payments forecasts, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. The <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements (BIS)</a> provides data on cross-border payment flows and SWIFT transaction volumes.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a> B2B payments forecasts, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. The <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements (BIS)</a> provides data on cross-border payment flows and SWIFT transaction volumes.</p>`,
       },
     ],
     faqs: [
@@ -2019,8 +2015,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD Migration and Development Brief</a>, <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, and the <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a> World Economic Outlook. Regulatory context provided by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD Migration and Development Brief</a>, <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, and the <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a> World Economic Outlook. Regulatory context provided by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -2561,8 +2556,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. Provider scores are editorial judgments based on our own testing and data analysis. The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> offers additional consumer guidance on choosing international money transfer services.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. Provider scores are editorial judgments based on our own testing and data analysis. The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> offers additional consumer guidance on choosing international money transfer services.</p>`,
       },
     ],
     faqs: [
@@ -2910,8 +2904,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>Offer terms verified directly from provider websites as of March 2026. The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> and <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> provide additional consumer protection guidance. Provider fee schedules sourced from official sites and cross-referenced with <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices data</a>.</p>`,
+        content: `<p>Offer terms verified directly from provider websites as of March 2026. The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> and <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> provide additional consumer protection guidance. Provider fee schedules sourced from official sites and cross-referenced with <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices data</a>.</p>`,
       },
     ],
     faqs: [
@@ -3097,8 +3090,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> report, and the <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> brief on remittance seasonality. Provider-published fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> were also consulted.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> report, and the <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> brief on remittance seasonality. Provider-published fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> were also consulted.</p>`,
       },
     ],
     faqs: [
@@ -3419,8 +3411,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan (SBP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global remittance data.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan (SBP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global remittance data.</p>`,
       },
     ],
     faqs: [
@@ -3816,8 +3807,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">Bangko Sentral ng Pilipinas (BSP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">Bangko Sentral ng Pilipinas (BSP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -4181,8 +4171,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -4976,8 +4965,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> remittance data, <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a> reporting guidelines, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> remittance data, <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a> reporting guidelines, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics.</p>`,
       },
     ],
     faqs: [
@@ -5649,8 +5637,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+        content: `<p>External sources include the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -5785,8 +5772,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer">McKinsey</a>, provider-published fee schedules, <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a> and <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC</a> guidance on international employment, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+        content: `<p>External sources include <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer">McKinsey</a>, provider-published fee schedules, <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a> and <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC</a> guidance on international employment, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -6122,9 +6108,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → CAD business transfers on 5,000 USD</h3>
-<p>Live pricing on a USD CAD business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>USD → CAD on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:CAD:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live USD to CAD rates →</a></p>
 </div>
 
@@ -6245,9 +6231,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → GBP business transfers on 5,000 USD</h3>
-<p>Live pricing on a USD GBP business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>USD → GBP on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:GBP:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-uk">Compare live USD to GBP rates →</a></p>
 </div>
 
@@ -6360,9 +6346,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → INR business transfers on 5,000 USD</h3>
-<p>Live pricing on a USD INR business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>USD → INR on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:INR:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
 </div>
 
@@ -6491,9 +6477,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → MXN business transfers on 5,000 USD</h3>
-<p>Live pricing on a USD MXN business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>USD → MXN on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:MXN:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates →</a></p>
 </div>
 
@@ -6608,9 +6594,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → EUR business transfers on 5,000 USD</h3>
-<p>Live pricing on a USD EUR business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>USD → EUR on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:EUR:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live USD to EUR rates →</a></p>
 </div>
 
@@ -6724,9 +6710,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: GBP → EUR Business Transfers (£10,000)</h3>
-<p>Live pricing on a GBP EUR business payment of 5,000 GBP, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>GBP → EUR on a 5,000 GBP supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:GBP:EUR:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live GBP to EUR rates →</a></p>
 </div>
 
@@ -6839,9 +6825,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: GBP → INR Business Transfers (£10,000)</h3>
-<p>Live pricing on a GBP INR business payment of 5,000 GBP, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>GBP → INR on a 5,000 GBP supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:GBP:INR:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/uk-to-india">Compare live GBP to INR rates →</a></p>
 </div>
 
@@ -6955,9 +6941,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → PHP business transfers on 5,000 USD</h3>
-<p>Live pricing on a USD PHP business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>USD → PHP on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:PHP:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates →</a></p>
 </div>
 
@@ -7072,9 +7058,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → AUD business transfers on 5,000 USD</h3>
-<p>Live pricing on a USD AUD business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>USD → AUD on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:AUD:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live USD to AUD rates →</a></p>
 </div>
 
@@ -7186,9 +7172,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → CNY business transfers on 5,000 USD</h3>
-<p>Live pricing on a USD CNY business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>USD → CNY on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:CNY:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live rates →</a></p>
 </div>
 
@@ -7322,9 +7308,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: CAD → USD Business Transfers (C$10,000)</h3>
-<p>Live pricing on a CAD USD business payment of 5,000 CAD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>CAD → USD on a 5,000 CAD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:CAD:USD:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live CAD to USD rates →</a></p>
 </div>
 
@@ -7437,9 +7423,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: AUD → INR Business Transfers (A$10,000)</h3>
-<p>Live pricing on a AUD INR business payment of 5,000 AUD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+<p>AUD → INR on a 5,000 AUD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:AUD:INR:5000}}
-<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
+<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/australia-to-india">Compare live AUD to INR rates →</a></p>
 </div>
 
@@ -12026,7 +12012,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "UK to Bangladesh: A Major Remittance Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market GBP to BDT rate with 0% markup and a fee of approximately £5 on a £1,000 transfer, but the provider that actually delivered the most on GBP to BDT was {{CORRIDOR_LEADER:GBP:BDT}}. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering money in seconds via bKash to over 60 million accounts. For cash pickup in smaller towns, <a href="/companies/western-union">Western Union</a> has the widest agent network. On a typical £1,000 transfer, specialist providers deliver ৳3,000–৳7,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Recipients also get a <strong>2.5% government incentive</strong> on remittances through formal channels — worth an extra ৳3,500+ on a £1,000 transfer. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates</a> from 8+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On £1,000 today, {{BEST_PROVIDER:GBP:BDT:1000}} pays the most taka ({{BEST_RECEIVE:GBP:BDT:1000}}), and over the last three months the most frequent leader on GBP to BDT was {{CORRIDOR_LEADER:GBP:BDT}}. <a href="/companies/wise">Wise</a> charges {{FEE:wise:GBP:BDT:1000}} with a {{MARKUP:wise:GBP:BDT:1000}} margin over mid-market on the same amount. <a href="/companies/remitly">Remitly</a>'s bKash Express is the quickest way to put taka in a wallet. For cash pickup in smaller towns, <a href="/companies/western-union">Western Union</a> has the widest agent network. On a typical £1,000 transfer, specialist providers deliver ৳3,000–৳7,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Recipients also get a <strong>2.5% government incentive</strong> on remittances through formal channels — worth an extra ৳3,500+ on a £1,000 transfer. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates</a> from 8+ providers.</p></div>
 <p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025 according to <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>, and the UK is the <strong>second-largest source</strong> after Saudi Arabia. Over 600,000 British Bangladeshis — concentrated in London, Birmingham, and Luton — send money home regularly to support families, fund education, and invest in property.</p>
 <p>The GBP to BDT corridor is well-served by specialist providers who undercut high-street banks by a wide margin. On a £1,000 transfer, the difference between the best specialist provider and a typical UK bank can be <strong>৳3,000–৳7,000</strong>. Combined with the 2.5% government incentive, formal channels deliver significantly more value than either bank transfers or informal hawala networks.</p>`,
       },
@@ -12039,7 +12025,7 @@ const rawBlogPosts: BlogPost[] = [
 <tbody>
 <tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee — consistently cheapest for £500+</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to bKash — near-instant delivery to 60M+ accounts, 24/7</td></tr>
-<tr><td><strong>Best Zero-Fee Option</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, ~0.7% markup — 95% of transfers under 3 minutes. 4.7/5 Trustpilot</td></tr>
+<tr><td><strong>Low-Fee App</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>{{FEE:taptap-send:GBP:BDT:1000}} fee, {{MARKUP:taptap-send:GBP:BDT:1000}} over mid-market on £1,000</td></tr>
 <tr><td><strong>Best for bKash</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Supports bKash, Nagad, and bank deposit with competitive GBP rates</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations across Bangladesh including rural districts</td></tr>
 </tbody>
@@ -12074,7 +12060,7 @@ const rawBlogPosts: BlogPost[] = [
 </ul>
 </li>
 <li><strong>Enter recipient details.</strong> For bKash/Nagad: their registered mobile number (11 digits starting with 01). For bank deposit: account number, routing number, and bank name. For cash pickup: full name matching their NID.</li>
-<li><strong>Fund the transfer.</strong> Pay via UK bank transfer (Faster Payments — free and instant), debit card, or credit card. <strong>Avoid credit cards</strong> — most providers add 1.5–3% surcharge, and your card issuer may treat it as a cash advance.</li>
+<li><strong>Pay from your UK account.</strong> A Faster Payments transfer usually clears in minutes and most providers take it free; a debit card is quicker to set up on a first transfer. Leave the credit card out: a card surcharge plus a possible cash-advance fee can cost more than the whole taka gain from picking the better provider.</li>
 <li><strong>Confirm and track.</strong> You'll receive a confirmation email and tracking link. bKash transfers typically show as completed within seconds.</li>
 </ol>
 <p><strong>Pro tip:</strong> Fund via <strong>UK Faster Payments</strong> (bank transfer). It's free, instant during banking hours, and avoids the credit card surcharges that can wipe out savings from a competitive exchange rate.</p>`,
@@ -12167,26 +12153,25 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Tax Rules for UK Senders and Bangladeshi Recipients",
         content: `<p>Important rules for UK to Bangladesh transfers:</p>
 <ul>
-<li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments. Transfers are not reportable unless you're claiming tax relief.</li>
+<li><strong>UK tax:</strong> sending your own taxed income to family in Bangladesh is not a taxable event for HMRC, and there is nothing to report unless you are claiming a relief on it.</li>
 <li><strong>For recipients in Bangladesh:</strong> Remittances from abroad are <strong>not subject to income tax</strong> in Bangladesh. The 2.5% incentive is also tax-free.</li>
 <li><strong>NID requirement:</strong> Recipients may need to provide their National Identity Card (NID) number for bank deposits and cash pickups above certain thresholds set by Bangladesh Bank.</li>
-<li><strong>FCA regulation:</strong> All UK-based transfer providers must be authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a>. Check the FCA register if you're unsure about a provider.</li>
+<li><strong>Licensing at both ends:</strong> on the UK side, look the provider up on the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> register before a first transfer; on the Bangladesh side, bKash and Nagad operate as mobile financial services supervised by Bangladesh Bank.</li>
 <li><strong>Formal channels encouraged:</strong> The Bangladeshi government actively promotes formal remittance channels over informal hawala/hundi networks, supported by the 2.5% incentive scheme. Using informal channels means losing the incentive and having no consumer protection.</li>
 </ul>
 <p>This is general information — consult a tax professional for your specific situation.</p>
-<p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, Bangladesh is among the world's top ten remittance recipients at over $23 billion annually. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database tracks average costs on the UK-Bangladesh corridor.</p>`,
+`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> remittance statistics and incentive policy documents, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> remittance statistics and incentive policy documents, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
       {
         question: "What is the cheapest way to send money from UK to Bangladesh?",
         answer:
-          "The provider that actually delivered the most on GBP to BDT was {{CORRIDOR_LEADER:GBP:BDT}}. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with bKash Express delivery in seconds. TapTap Send charges zero fees with a ~0.7% markup and delivers 95% of transfers in under 3 minutes. For amounts over £5,000, XE offers no-fee transfers with competitive rates. Always compare the total taka received, not just the headline fee.",
+          "Across the last three months the provider that paid the most taka most often was {{CORRIDOR_LEADER:GBP:BDT}}; on today's £1,000 quote it is {{BEST_PROVIDER:GBP:BDT:1000}}. Best and worst quotes on that amount are {{SPREAD:GBP:BDT:1000}} apart, which is why the ranking above is worth checking before each transfer rather than sticking with one app. For amounts over £5,000, XE offers no-fee transfers with competitive rates. Always compare the total taka received, not just the headline fee.",
       },
       {
         question: "How long does it take to send money from UK to Bangladesh?",
@@ -12369,8 +12354,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya (CBK)</a> remittance statistics, <a href="https://www.safaricom.co.ke/" target="_blank" rel="noopener noreferrer nofollow">Safaricom</a> M-Pesa data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya (CBK)</a> remittance statistics, <a href="https://www.safaricom.co.ke/" target="_blank" rel="noopener noreferrer nofollow">Safaricom</a> M-Pesa data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -12759,8 +12743,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.resbank.co.za/" target="_blank" rel="noopener noreferrer">South African Reserve Bank (SARB)</a> exchange control regulations, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.resbank.co.za/" target="_blank" rel="noopener noreferrer">South African Reserve Bank (SARB)</a> exchange control regulations, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -13274,8 +13257,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> NRI account guidelines, <a href="https://www.centralbank.ae/" target="_blank" rel="noopener noreferrer">Central Bank of the UAE (CBUAE)</a> licensed exchange house register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> bilateral remittance data.</p>`,
+        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> NRI account guidelines, <a href="https://www.centralbank.ae/" target="_blank" rel="noopener noreferrer">Central Bank of the UAE (CBUAE)</a> licensed exchange house register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> bilateral remittance data.</p>`,
       },
     ],
     faqs: [
@@ -13745,7 +13727,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money to Vietnam?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market USD to VND rate with 0% markup and a fee of ~$7 on $1,000, but the provider that actually delivered the most on USD to VND was {{CORRIDOR_LEADER:USD:VND}}. <a href="/companies/remitly">Remitly</a> offers fast delivery to Vietnamese bank accounts. For cash pickup, <a href="/companies/western-union">Western Union</a> has agent locations across Vietnam. On a typical $1,000 transfer, specialist providers deliver <strong>₫500,000–₫1,500,000 more</strong> than bank wires. <a href="/send-money/usa-to-vietnam">Compare live USD to VND rates</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> charges a {{FEE:wise:USD:VND:1000}} fee on $1,000 to Vietnam today, while the provider that paid the most dong most often over the last three months was {{CORRIDOR_LEADER:USD:VND}}. <a href="/companies/remitly">Remitly</a> offers fast delivery to Vietnamese bank accounts. For cash pickup, <a href="/companies/western-union">Western Union</a> has agent locations across Vietnam. On a typical $1,000 transfer, specialist providers deliver <strong>₫500,000–₫1,500,000 more</strong> than bank wires. <a href="/send-money/usa-to-vietnam">Compare live USD to VND rates</a>.</p></div>
 <div class="blog-callout-blue-sm"><p><strong>Key data:</strong> Vietnam received over $18 billion in remittances in 2025 (World Bank), primarily from the US, Australia, South Korea, Japan, and Canada. SendMoneyCompare data shows specialist providers deliver ₫500,000–₫1,500,000 more per $1,000 than bank wires.</p></div>
 <p>Vietnam is one of Asia's top remittance destinations, with a large diaspora in the US (~2.2 million Vietnamese-Americans), Australia (~300,000), South Korea, Japan, and Canada. The VND is a managed currency with limited convertibility, which means not all providers can deliver to Vietnam.</p>`,
       },
@@ -13820,7 +13802,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>On $1,000, using Wise instead of a bank saves approximately <strong>₫1,300,000</strong> (~$50). Over 12 monthly transfers, that's ₫15,600,000 (~$600).</p>`,
       },
       {
-        heading: "What Are the Tax and Regulatory Rules?",
+        heading: "Tax and Remittance Rules in Vietnam",
         content: `<ul>
 <li><strong>For US senders:</strong> No tax on personal remittances. Transfers over $10,000 reported to FinCEN.</li>
 <li><strong>For Australian senders:</strong> No tax on outbound personal transfers. AUSTRAC reports transfers over AUD 10,000.</li>
@@ -13831,7 +13813,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. <a href="/send-money">Use our comparison tool</a> for latest rates. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener noreferrer">State Bank of Vietnam</a>.</p>`,
+        content: `<p>Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener noreferrer">State Bank of Vietnam</a>.</p>`,
       },
     ],
     faqs: [
@@ -13944,7 +13926,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. <a href="/send-money">Use our comparison tool</a> for latest rates. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.tcmb.gov.tr/" target="_blank" rel="noopener noreferrer">Central Bank of Turkey (TCMB)</a>.</p>`,
+        content: `<p>Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.tcmb.gov.tr/" target="_blank" rel="noopener noreferrer">Central Bank of Turkey (TCMB)</a>.</p>`,
       },
     ],
     faqs: [

@@ -10,7 +10,6 @@ import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { partnerQuoteFrom } from "@/lib/partner-quote";
 import { crossSellComparisonHref } from "@/lib/provider-cross-sell";
-import { MATERIALITY_BAND_PCT } from "@/lib/rank-quotes";
 import { quoteFreshness } from "@/lib/quote-freshness";
 
 interface Props {
@@ -35,6 +34,8 @@ interface Props {
    * this was a second, numberless copy of it on all 123 of them.
    */
   crossSell?: boolean;
+  /** Rows to show (default 5). News shows 3: a short live check under a story. */
+  limit?: number;
 }
 
 function symbolFor(code: string): string {
@@ -54,10 +55,11 @@ export default function InlineProviderQuotes({
   subheading,
   only,
   crossSell = true,
+  limit = 5,
 }: Props) {
   const all = generateQuotes(amount, from, to);
   const scoped = only ? all.filter((q) => only.includes(q.providerSlug)) : all;
-  const quotes: TransferQuote[] = scoped.slice(0, 5);
+  const quotes: TransferQuote[] = scoped.slice(0, limit);
   if (quotes.length === 0) return null;
 
   const sendSymbol = symbolFor(from);
@@ -150,13 +152,15 @@ export default function InlineProviderQuotes({
       </ol>
 
       <footer className="inline-quotes-footer">
-        {savings > 0 && <p>Payouts differ by <strong>{recvSymbol}{formatAmount(savings)} {to}</strong> among the priced options shown.</p>}
-        {/* Same facts as before, fewer words: this caption renders under every
-            inline table, and its 45 words were repeated verbatim site-wide. */}
-        <p>Ranked by payout; ratings break ties within {MATERIALITY_BAND_PCT}%, estimates listed last. {freshness.oldest && !freshness.undated
-          ? <>Priced <time dateTime={freshness.oldest}>{new Date(freshness.oldest).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}</time> or later — </>
-          : "Some options are undated — "}
-          confirm with the provider. Commissions never affect the order.</p>
+        {/* One line: this caption renders under every inline table, so each
+            word here is repeated site-wide. The tie-break rule it used to
+            spell out is on /editorial-policy. */}
+        <p>
+          {savings > 0 && <>Spread <strong>{recvSymbol}{formatAmount(savings)}</strong>. </>}
+          Ranked by payout{freshness.oldest && !freshness.undated
+            ? <>, priced <time dateTime={freshness.oldest}>{new Date(freshness.oldest).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" })}</time></>
+            : ""}.
+        </p>
       </footer>
     </aside>
     </>

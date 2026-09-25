@@ -68,7 +68,7 @@ He also leads outreach with publishers, diaspora communities and financial educa
     initials: "AI",
     bio: `Awais Imran is the editor-in-chief of SendMoneyCompare, responsible for the editorial side of the platform: provider reviews, comparison articles, corridor guides, and the blog.
 
-Awais writes and maintains the site's in-depth provider reviews, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. He runs the hand-tested transfers behind those reviews — each one documented, with its corridors and dates, in the "how we tested" section of the review it supports — to verify fee structures, exchange rate markups and delivery speeds against what providers advertise. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
+Awais writes and maintains the site's in-depth provider reviews, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. Where a review rests on test transfers he made, they are documented with their corridors and dates in that review's "how we tested" section, and used to verify fee structures, exchange rate markups and delivery speeds against what providers advertise. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
 
 His editorial process involves running real test quotes against provider calculators, cross-referencing the platform's live scraped data, and updating reviews when providers change pricing, expand coverage, or launch new features. Every review is fact-checked against the platform's own data before publication.
 
@@ -88,7 +88,7 @@ Awais holds a degree in English and Communications and is based in London, Unite
       // quotes / provider profiles / full reviews); a credential need not
       // restate one.
       `Writes and maintains the site's full provider reviews and the comparison data behind ${COVERAGE.providers} tracked`,
-      "Hand-tested transfers documented per provider in every review",
+      "Test transfers documented, with corridors and dates, in the reviews that used them",
       "Produces corridor guides and explainers across SendMoneyCompare",
       "Editorial background with focus on financial services content",
     ],

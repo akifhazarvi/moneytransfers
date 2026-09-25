@@ -36,6 +36,7 @@ import {
   getAllPilotBankSlugs,
   INDEXED_BANK_SLUGS,
 } from "@/lib/bank-comparisons";
+import { assignTableAmounts } from "@/lib/table-amounts";
 import { getCorridorSlug } from "@/data/corridors";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { providers, getProviderName, currencies } from "@/data/providers";
@@ -46,6 +47,9 @@ import { providerLogo } from "@/lib/provider-logo";
 import { getBankEditorial } from "@/data/bank-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import { PageByline } from "@/components/PageByline";
+
+/** Distinct table amount per bank page — see table-amounts.ts. */
+const BANK_TABLE_AMOUNTS = assignTableAmounts(getAllPilotBankSlugs(), (b) => b, () => "bank", "banks");
 
 // Revalidate every 6 hours to match scraper cadence — these pages are
 // only valuable while the data is fresh.
@@ -216,8 +220,7 @@ export default async function BankPage({ params }: Props) {
                       ({heroExample.lossPct.toFixed(2)}%)
                     </p>
                     <p className="text-sm text-[var(--color-on-surface-variant)] mt-2">
-                      vs {heroExample.bestDigitalProvider}, the cheapest digital provider on this
-                      corridor on a like-for-like quote.
+                      vs {heroExample.bestDigitalProvider}, the cheapest app on the same quote.
                     </p>
                   </div>
                 </div>
@@ -234,8 +237,10 @@ export default async function BankPage({ params }: Props) {
                   Try {recommendedProvider.name} instead{" "}
                   <ArrowRight className="inline w-4 h-4 ml-1" />
                 </PrimaryButton>
+                {/* Was the hand-typed "typically saves $25-80" label; the measured
+                    median below is ours, per bank, and cannot drift. */}
                 <p className="text-2sm text-[var(--color-on-surface-variant)]">
-                  {bank.recommendedAlternative.label}
+                  {bank.name}&rsquo;s median all-in cost in our data: {renderDataTokens(`{{BANK_MEDIAN:${bank.slug}}}`)} of the amount sent.
                 </p>
               </div>
             )}
@@ -279,8 +284,7 @@ export default async function BankPage({ params }: Props) {
                   {bank.name}&rsquo;s own international transfer page
                 </a>
                 {" · "}
-                Quotes scraped via the Wise comparison feed (a regulated, public price-comparison
-                API).
+                Quotes via the Wise comparison feed.
               </p>
             )}
             {editorial && (
@@ -327,9 +331,7 @@ export default async function BankPage({ params }: Props) {
               {bank.name} vs cheapest digital provider — by corridor
             </h2>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
-              Each row is a real, comparable quote. {bank.name} delivery amount on the left, best
-              digital provider on the right, dollar-and-cents difference in the middle. Updated
-              every 6 hours.
+              {bank.name}&rsquo;s own payout against the cheapest digital provider on each corridor.
             </p>
 
             {corridorRows.length === 0 ? (
@@ -451,9 +453,12 @@ export default async function BankPage({ params }: Props) {
               <InlineProviderQuotes
                 from={corridorRows[0].sendCurrency}
                 to={corridorRows[0].receiveCurrency}
-                amount={1000}
+                amount={BANK_TABLE_AMOUNTS.get(bank.slug) ?? 1075}
                 heading={`Live ${corridorRows[0].sendCurrency} → ${corridorRows[0].receiveCurrency} rates — what ${bank.name} is costing you`}
                 source={`bank:${slug}`}
+                // The page already carries the partner card; a second one here
+                // repeated it (2026-09-25).
+                crossSell={false}
               />
             </div>
           </Container>
@@ -468,31 +473,31 @@ export default async function BankPage({ params }: Props) {
               Common questions about {bank.name} international transfers
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
+              {/* Answered from this bank's own measured quotes (2026-09-25). The
+                  five fixed answers these replaced read the same on every bank
+                  page bar the name, and carried hand-typed fee and margin
+                  ranges we did not measure. */}
               {[
                 {
                   q: `How much does ${bank.name} actually charge for an international transfer?`,
-                  a: `${bank.name}'s total cost has two parts: a visible transfer fee, and an exchange-rate margin that is rarely disclosed up front. The transfer fee is whatever the bank publishes (£9–£40 typical for UK banks; $30–$50 for US banks). The exchange-rate margin is the hidden cost — typically 1.5–4% above the mid-market rate, which on a ${bank.primaryCurrency === "GBP" ? "£1,000" : "$1,000"} transfer can mean ${bank.primaryCurrency === "GBP" ? "£15–£45" : "$15–$45"} more in real-world cost than the headline fee suggests. The live comparison table above shows the actual end-to-end delivery amount, which is the only number that matters.`,
+                  a: renderDataTokens(`{{BANK_MEDIAN:${bank.slug}}} of the amount sent is ${bank.name}'s median all-in cost, fee and margin together, over {{BANK_CORRIDORS:${bank.slug}}} priced corridors; {{BANK_WORST:${bank.slug}}} is where it trails the best app by most.`),
                 },
                 {
                   q: `Is ${bank.name} ever the cheapest option for international transfers?`,
-                  a: bank.slug === "hsbc"
-                    ? `Yes, in one specific case: Premier or Advance account holders using Global Money, where HSBC's own pricing on many currency pairs is genuinely competitive with specialist apps — not merely convenient. Outside that product, on a standard account, it's rarely the cheapest on a like-for-like basis: the destination currency needs to be one HSBC holds in its own treasury, or the saving from a specialist provider needs to be small enough that convenience wins. The live table above shows the actual gap for your corridor.`
-                    : `Rarely on a like-for-like basis. ${bank.name} is competitive when the transfer moves between two of its own branches in different countries, or the destination currency is one the bank holds directly in its own treasury (typically USD, EUR, GBP) — narrow cases that don't apply to most personal transfers. For most retail customers sending money abroad, a specialist provider like ${bank.recommendedAlternative.label.split(" — ")[0]} will deliver a meaningfully larger receive amount — the live table above shows the exact difference per corridor.`,
+                  a: (() => {
+                    const wins = renderDataTokens(`{{BANK_WINS:${bank.slug}}}`);
+                    const record = wins === "0"
+                      ? renderDataTokens(`Not in our data. Across the {{BANK_CORRIDORS:${bank.slug}}} corridors where we price ${bank.name}, it never beat every digital provider; its widest shortfall is on {{BANK_WORST:${bank.slug}}}.`)
+                      : renderDataTokens(`In ${wins} of the corridor-and-amount combinations we price, ${bank.name} beat every digital provider: {{BANK_WIN_LIST:${bank.slug}}}.`);
+                    return bank.slug === "hsbc"
+                      ? `${record} HSBC Premier and Advance customers should also price Global Money, which HSBC offers without a transfer fee on many currency pairs.`
+                      : record;
+                  })(),
                 },
-                {
+                ...(bank.slug === "hsbc" ? [{
                   q: `Why don't ${bank.name} customers just switch?`,
-                  a: bank.slug === "hsbc"
-                    ? `For Premier and Advance account holders, staying isn't just inertia — Global Money genuinely offers free transfers on many currency pairs, competitive with specialist pricing. For a standard HSBC account, the reasons are the same as at most banks: the FX margin is baked into the rate rather than shown as a fee, transfers are bundled with an existing relationship, and recipient-side requirements historically meant the sender's own bank was the path of least resistance. Specialist providers have closed that last gap — most now deliver to bank accounts, wallets or cash pickup without requiring an account with them.`
-                    : `Three reasons account for most retention: most customers never see the FX margin because it's baked into the rate, so the fee looks smaller than it is; international transfers get bundled with an existing checking or payroll relationship; and recipient-side requirements historically meant the sender's own bank was the path of least resistance. Specialist providers like Wise, Remitly and OFX have closed that last gap — most now deliver to bank accounts, mobile wallets or cash pickup without requiring an account with them, which is the main thing that's actually changed.`,
-                },
-                {
-                  q: `Is the data on this page real?`,
-                  a: `Yes. The quotes shown here are scraped continuously from the Wise comparison feed (a public, regulated price-comparison API that Wise publishes alongside its competitors), plus our own direct provider scrapes. Bank quotes are sourced from the same feed and represent live published rates at the time of scrape — the timestamp above the comparison table shows freshness. We do not edit, smooth, or selectively present the numbers. If a corridor isn't shown, it's because we don't have a live bank quote for that pair yet.`,
-                },
-                {
-                  q: `What's the best alternative to ${bank.name} for sending money abroad?`,
-                  a: `It depends on the corridor, amount, and delivery method. ${bank.recommendedAlternative.label.split(" — ")[0]} is the most consistent generalist — mid-market exchange rate, 0% markup, transparent fees, 70+ currencies supported. For amounts above ${bank.primaryCurrency === "GBP" ? "£10,000" : "$10,000"} OFX and CurrenciesDirect offer dedicated dealers and forward contracts. For cash pickup or mobile-wallet delivery to developing markets, Remitly, WorldRemit, and TapTap Send beat the banks on both price and delivery speed. The live comparison above shows the cheapest digital provider per corridor against ${bank.name}'s quote.`,
-                },
+                  a: `For Premier and Advance account holders, staying isn't just inertia — Global Money genuinely offers free transfers on many currency pairs, competitive with specialist pricing. For a standard HSBC account, the reasons are the same as at most banks: the FX margin is baked into the rate rather than shown as a fee, transfers are bundled with an existing relationship, and recipient-side requirements historically meant the sender's own bank was the path of least resistance.`,
+                }] : []),
               ].map((faq) => (
                 <details key={faq.q} className="group py-4">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
@@ -540,38 +545,15 @@ export default async function BankPage({ params }: Props) {
               };
             }),
           },
-          {
-            title: "Better alternatives",
-            links: [
-              ...(recommendedProvider
-                ? [{ href: `/companies/${recommendedProvider.slug}`, label: `${recommendedProvider.name} review` }]
-                : []),
-              { href: "/companies/remitly", label: "Remitly review" },
-              { href: "/companies/ofx", label: "OFX review (for large transfers)" },
-              { href: "/guides/cheapest-way-to-send-money-internationally", label: "Cheapest way to send money" },
-              { href: "/guides/exchange-rate-markup-explained", label: "Exchange rate markup explained" },
-            ],
-          },
+          // "Better alternatives" was a fixed five-link list (the same three
+          // reviews and two guides on every bank page); removed 2026-09-25. The
+          // table names the provider that beats this bank on each corridor.
         ]}
       />
 
-      {/* ─── CTA ─── */}
-      <section className="py-14 bg-[var(--color-surface-dim)]">
-        <Container>
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-h3 font-normal text-[var(--color-on-surface)] mb-3">
-              Compare {bank.name} against every provider for your exact transfer
-            </h2>
-            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-              Enter your amount and destination to see live quotes from {bank.name}, Wise, Remitly,
-              OFX, and 30+ others — sorted by what your recipient actually gets.
-            </p>
-            <PrimaryButton href="/send-money" size="lg">
-              Compare live quotes
-            </PrimaryButton>
-          </div>
-        </Container>
-      </section>
+      {/* The closing "Compare {bank} against every provider" box linked to
+          /send-money and read the same on every bank page; removed 2026-09-25.
+          The page-end partner module and the table's own links remain. */}
     </>
   );
 }

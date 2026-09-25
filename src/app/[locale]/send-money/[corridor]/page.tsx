@@ -61,6 +61,7 @@ import SendScoreCard from "@/components/SendScoreCard";
 import StickyBestCTA from "@/components/StickyBestCTA";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { providerLogo } from "@/lib/provider-logo";
+import { getPartnerQuote } from "@/lib/partner-quote";
 import CryptoRailSection from "@/components/CryptoRailSection";
 
 interface Props {
@@ -1272,14 +1273,13 @@ export default async function CorridorPage({ params }: Props) {
     : `(${fromCurrency} → ${toCurrency})`;
 
   const comparison = corridorComparisonSummary(quotes, sampleAmount, fromCurrency, toCurrency, getProviderName);
+  // Fewer than two comparable offers: nothing to compare, so the sections
+  // whose job is comparing ("best provider for…", amount examples, speed and
+  // payment-method breakdowns) print a one-row template instead. They are
+  // hidden, and the round-2 brief's threshold rule (§2.1) is honoured in copy.
+  const thin = comparison.compared.length < 2;
   const { best, lowest: worst, difference: savings } = comparison;
   const corridorEditorial = getCorridorEditorial(slug);
-  // Resolve data tokens in the corridor FAQ answers. Without this a
-  // {{SPREAD:…}} token ships literally — it did, on /send-money/canada-to-pakistan.
-  const resolvedFaqs = corridor.faqs.map((faq) => {
-    const answer = faq.answerFromComparison ? `${comparison.answer} ${faq.a}` : faq.a;
-    return { ...faq, a: renderDataTokens(answer) };
-  });
   // The destination country page that canonically owns this country's receiving
   // rules. Regulator, inbound limits and receiving banks do not change with the
   // sending country, so they were byte-identical across every route into a
@@ -1296,6 +1296,54 @@ export default async function CorridorPage({ params }: Props) {
           (c) => c.isCountryPage && c.toCountry === corridor.toCountry && c.slug !== slug && corridorPageRenders(c.slug),
         )?.slug
       : undefined;
+
+  // Country pages borrow the US sender's currency pair, so where a US route
+  // into the same country also renders (usa-to-india beside send-money-to-
+  // india), the two printed the same USD table, SendScore and 188-day rate
+  // log — 2,300+ identical words, measured at 76-85% duplicate by the round-2
+  // audit. The brief rules out merging or re-canonicalising them because they
+  // answer different queries. So the country page answers its own one: "send
+  // money to X" from anywhere. It ranks the best estimate on every sending
+  // route we price into the country, and leaves the full USD ranking to the
+  // US page. Every row keeps a Send button (provider_clicked is the KPI).
+  const usdTwinSlug = isCountryPage
+    ? allCorridors.find(
+        (c) => !c.isCountryPage && !c.isCurrencyCorridor && c.toCountry === corridor.toCountry &&
+          c.fromCurrency === fromCurrency && c.toCurrency === toCurrency && corridorPageRenders(c.slug),
+      )?.slug
+    : undefined;
+  const hubMode = !!usdTwinSlug;
+  const originRows = (() => {
+    if (!hubMode) return [];
+    const groups = new Map<string, { from: string; amount: number; routes: { slug: string; country: string }[] }>();
+    for (const c of allCorridors) {
+      if (c.isCountryPage || c.isCurrencyCorridor || c.toCountry !== corridor.toCountry || !corridorPageRenders(c.slug)) continue;
+      const g = groups.get(c.fromCurrency) ?? groups.set(c.fromCurrency, { from: c.fromCurrency, amount: c.sampleAmount, routes: [] }).get(c.fromCurrency)!;
+      g.routes.push({ slug: c.slug, country: c.fromCountry });
+    }
+    return [...groups.values()].flatMap((g) => {
+      const summary = corridorComparisonSummary(generateQuotes(g.amount, g.from, toCurrency), g.amount, g.from, toCurrency, getProviderName);
+      if (!summary.best) return [];
+      const mid = getExchangeRate(g.from, toCurrency);
+      return [{
+        ...g,
+        best: summary.best,
+        count: summary.compared.length,
+        spread: summary.difference,
+        markupPct: mid > 0 ? Math.max(0, ((mid - summary.best.exchangeRate) / mid) * 100) : null,
+        symbol: getCurrencySymbol(g.from),
+      }];
+    }).sort((a, b) => (a.from === fromCurrency ? -1 : b.from === fromCurrency ? 1 : b.count - a.count));
+  })();
+  const hubPartnerRow = hubMode
+    ? originRows.find((r) => r.from !== fromCurrency && generateQuotes(r.amount, r.from, toCurrency).some((q) => q.providerSlug === "taptap-send"))
+    : undefined;
+  const hubAnswer = originRows.length
+    ? `Where you send from decides the cheapest option to ${corridor.toCountry}. Across the ${originRows.length} sending ${originRows.length === 1 ? "route" : "routes"} we price, the top-ranked estimates right now are ` +
+      originRows.slice(0, 4).map((r) =>
+        `${getProviderName(r.best.providerSlug)} from ${r.routes[0].country}${r.routes.length > 1 ? " and other " + r.from + " senders" : ""} (${r.best.receiveAmount.toLocaleString("en-US", { maximumFractionDigits: 0 })} ${toCurrency} for ${r.symbol}${r.amount.toLocaleString("en-US")})`,
+      ).join("; ") + "."
+    : null;
 
   // Corridors paying out in the same currency from a different sending
   // country — the third cross-link axis, replacing a static global list.
@@ -1332,6 +1380,56 @@ export default async function CorridorPage({ params }: Props) {
   const standardProviders = quotes.filter(
     (q) => !q.transferSpeed.toLowerCase().includes("minute") && !q.transferSpeed.toLowerCase().includes("instant")
   );
+
+  // Measured replacements for the generators' fixed fee and delivery copy
+  // (Corridor.generatedNotes / faq.dataAnswer). Every figure here is read from
+  // this page's own quotes, so no two corridors print the same sentence. On
+  // country hub pages they summarise the sending routes instead, so they do
+  // not repeat the US page's USD figures.
+  const pct = (n: number) => `${n.toFixed(2)}%`;
+  const costSentence = (() => {
+    if (hubMode) {
+      const rows = originRows.filter((r) => r.markupPct !== null);
+      if (rows.length < 2) return null;
+      const byMk = [...rows].sort((a, b) => a.markupPct! - b.markupPct!);
+      return `The top-ranked estimate on each sending route into ${corridor.toCountry} sits between ${pct(byMk[0].markupPct!)} and ${pct(byMk.at(-1)!.markupPct!)} above the mid-market rate: tightest from ${byMk[0].routes[0].country} (${getProviderName(byMk[0].best.providerSlug)}), widest from ${byMk.at(-1)!.routes[0].country} (${getProviderName(byMk.at(-1)!.best.providerSlug)}).`;
+    }
+    const priced = comparison.compared;
+    if (priced.length < 2) return null;
+    const money = (n: number) => `${sendSymbol}${n.toFixed(2)}`;
+    const paid = priced.map((q) => q.fee).filter((f) => f > 0).sort((a, b) => a - b);
+    const free = priced.length - paid.length;
+    let out = `Of the ${priced.length} estimates we hold for ${sendSymbol}${sampleAmount.toLocaleString()} ${fromCurrency} to ${toCurrency}, ` +
+      (paid.length === 0 ? "none charges a transfer fee."
+        : free === 0 ? `all charge a fee, from ${money(paid[0])} to ${money(paid.at(-1)!)}.`
+        : `${free} charge no transfer fee and ${paid.length} charge between ${money(paid[0])} and ${money(paid.at(-1)!)}.`);
+    if (midRate > 0) {
+      const mk = priced.map((q) => Math.max(0, ((midRate - q.exchangeRate) / midRate) * 100)).sort((a, b) => a - b);
+      const med = mk[Math.floor(mk.length / 2)];
+      const gap = (sampleAmount * midRate * (mk.at(-1)! - mk[0])) / 100;
+      out += ` Their exchange rates sit ${pct(mk[0])} to ${pct(mk.at(-1)!)} above the mid-market rate (median ${pct(med)}), a spread worth ${gap.toLocaleString("en-US", { maximumFractionDigits: 0 })} ${toCurrency} on this amount.`;
+    }
+    return out;
+  })();
+  const deliverySentence = (() => {
+    if (hubMode) {
+      if (!originRows.length) return null;
+      return `Top-ranked providers advertise ${originRows.slice(0, 4).map((r) => `${r.best.transferSpeed.toLowerCase()} from ${r.routes[0].country} (${getProviderName(r.best.providerSlug)})`).join(", ")}.`;
+    }
+    if (thin || !quotes.length) return null;
+    const names = (list: typeof quotes) => list.slice(0, 3).map((q) => getProviderName(q.providerSlug)).join(", ");
+    return `${fastProviders.length} of the ${quotes.length} providers quoting ${fromCurrency} to ${toCurrency} advertise delivery within minutes${fastProviders.length ? ` (${names(fastProviders)})` : ""}` +
+      (standardProviders.length ? `; ${standardProviders.length} quote longer, such as ${getProviderName(standardProviders[0].providerSlug)} at ${standardProviders[0].transferSpeed.toLowerCase()} on ${fromCurrency} to ${toCurrency}.` : ".");
+  })();
+
+  // Resolve data tokens in the corridor FAQ answers. Without this a
+  // {{SPREAD:…}} token ships literally — it did, on /send-money/canada-to-pakistan.
+  const resolvedFaqs = corridor.faqs.flatMap((faq) => {
+    const data = faq.dataAnswer === "cost" ? costSentence : faq.dataAnswer === "delivery" ? deliverySentence : undefined;
+    if (faq.dataAnswer && !data) return [];
+    const answer = data ?? (faq.answerFromComparison ? `${hubMode && hubAnswer ? hubAnswer : comparison.answer} ${faq.a}`.trim() : faq.a);
+    return [{ ...faq, a: renderDataTokens(answer) }];
+  });
 
   const breadcrumbName = isCountryPage ? `Send Money to ${corridor.toCountry}` : `${corridor.fromCountry} to ${corridor.toCountry}`;
   const breadcrumbSchema = {
@@ -1417,9 +1515,11 @@ export default async function CorridorPage({ params }: Props) {
         sendSymbol={sendSymbol}
         receiveSymbol={receiveSymbol}
         midRate={midRate}
-        best={best}
-        worst={worst}
-        quotes={comparison.compared}
+        // Hub pages drop the hero's USD best-provider card: it repeated the US
+        // page's, and the by-origin table directly below names each route's.
+        best={hubMode ? undefined : best}
+        worst={hubMode ? undefined : worst}
+        quotes={hubMode ? [] : comparison.compared}
         dataUpdatedISO={freshness.latest}
         isCountryPage={isCountryPage}
         headingPrefix={headingPrefix}
@@ -1434,14 +1534,14 @@ export default async function CorridorPage({ params }: Props) {
             <div className="max-w-3xl text-sm text-[var(--color-on-surface)] leading-relaxed">
               <p>
                 <strong>Quick answer:</strong>{" "}
-                {comparison.answer}
+                {hubMode && hubAnswer ? hubAnswer : comparison.answer}
               </p>
               <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
                 {freshness.latest ? <>Latest pricing observation: <time dateTime={freshness.latest}>{formatLocalDate(freshness.latest.slice(0, 10))}</time>.
                   {freshness.oldest && freshness.oldest.slice(0, 10) !== freshness.latest.slice(0, 10) && <> Oldest observation used: <time dateTime={freshness.oldest}>{formatLocalDate(freshness.oldest.slice(0, 10))}</time>.</>}
                 </> : "Pricing collection dates are unavailable."}
                 {freshness.undated > 0 && " Some estimates have no recorded collection date."}
-                {" "}Payouts are estimated from collected fees and markups with a mid-market reference. Collection schedules vary by source.{" "}
+                {" "}
                 {/* Says WHY eligibility needs confirming, rather than only that
                     it does. Quotes are keyed by currency pair and nothing else:
                     a field census over all 19,787 scraped rows found no sending
@@ -1452,7 +1552,7 @@ export default async function CorridorPage({ params }: Props) {
                     EUR pair. See reports/content-quality-2026-09-11/ELIGIBILITY.md.
                     Do not soften this to imply we verified country coverage
                     until something in the pipeline records it. */}
-                Quotes are collected by currency pair, so we cannot confirm that every provider serves {corridor.fromCountry} specifically — check availability, funding method and delivery method with the provider before you commit. <Link href="/methodology" className="hover:underline">How we collect and rank quotes</Link>.
+                We record quotes by currency pair, so confirm the provider serves {corridor.fromCountry} before you commit. <Link href="/methodology" className="hover:underline">Methodology</Link>.
               </p>
             </div>
           </Container>
@@ -1464,7 +1564,7 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-[860px] mx-auto">
             <ComparisonWidget
-              defaultFrom={fromCurrency}
+              defaultFrom={hubMode ? (originRows.find((r) => r.from !== fromCurrency)?.from ?? fromCurrency) : fromCurrency}
               defaultTo={toCurrency}
               defaultAmount={sampleAmount}
             />
@@ -1472,22 +1572,81 @@ export default async function CorridorPage({ params }: Props) {
         </Container>
       </section>
 
+      {/* ─── By sending country (country pages with a US twin) ─── */}
+      {hubMode && (
+        <section id="compare-providers" className="py-10">
+          <Container>
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
+              Cheapest way to send money to {corridor.toCountry}, by sending country
+            </h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
+              The top-ranked estimate on each route we price into {corridor.toCountry}, from our own collected quotes. Choose your country for the full provider ranking.
+            </p>
+            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl divide-y divide-[var(--color-outline)] overflow-hidden">
+              {originRows.map((r) => (
+                <div key={r.from} className="flex flex-col lg:flex-row lg:items-center gap-4 px-5 py-4">
+                  <div className="flex items-center gap-3 lg:w-[30%] min-w-0">
+                    <CircleFlag code={r.from} size={28} />
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium text-[var(--color-on-surface)]">
+                        {r.routes.map((route, i) => (
+                          <span key={route.slug}>{i > 0 && ", "}<Link href={`/send-money/${route.slug}`} className="hover:text-[var(--color-primary)] hover:underline">{route.country}</Link></span>
+                        ))}
+                      </p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)] tabular-nums">{r.from} → {toCurrency} · {r.count} {r.count === 1 ? "estimate" : "estimates"}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 lg:flex-1 min-w-0">
+                    <Image src={providerLogo(r.best.providerSlug, providers.find((pr) => pr.slug === r.best.providerSlug)?.logo)} alt="" width={32} height={32} className="w-8 h-8 rounded-lg object-contain bg-white border border-[var(--color-outline)] p-0.5 shrink-0" />
+                    <p className="text-sm text-[var(--color-on-surface-variant)] tabular-nums">
+                      <span className="font-medium text-[var(--color-on-surface)]">{getProviderName(r.best.providerSlug)}</span>: {r.symbol}{r.amount.toLocaleString("en-US")} becomes{" "}
+                      <strong className="text-[var(--color-success-dark)]">{r.best.receiveAmount.toLocaleString("en-US", { maximumFractionDigits: 2 })} {toCurrency}</strong>
+                      {r.markupPct !== null && <> · {r.markupPct.toFixed(2)}% over mid-market</>}
+                      {r.count > 1 && r.spread > 0 && <> · {r.spread.toLocaleString("en-US", { maximumFractionDigits: 0 })} {toCurrency} ahead of the lowest</>}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <ProviderLink
+                      href={getGoUrl(r.best.providerSlug, { sourceCurrency: r.from, targetCurrency: toCurrency, sourceAmount: r.amount, clickref: `country_hub:${slug}` })}
+                      provider={r.best.providerSlug}
+                      source={`country_hub:${slug}`}
+                      corridor={`${r.from}-${toCurrency}`}
+                      className="inline-flex items-center justify-center h-10 px-5 rounded-full bg-[var(--color-success-dark)] text-white text-sm font-semibold hover:opacity-90 whitespace-nowrap"
+                    >
+                      Send with {getProviderName(r.best.providerSlug)}
+                    </ProviderLink>
+                    <Link href={`/send-money/${r.routes[0].slug}`} className="text-sm text-[var(--color-primary)] hover:underline whitespace-nowrap">
+                      All {r.count} →
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* ─── Comparison Table ─── */}
+      {!hubMode && (
       <section id="compare-providers" className="py-10">
         <Container>
           <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
             What is the cheapest way to send {fromCurrency} to {toCurrency}?
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mb-2">
-            Sending {sendSymbol}{sampleAmount.toLocaleString()} from {headingFrom} to {headingTo}. Ranked by estimated payout, with customer ratings used for closely matched results.
+            {thin
+              ? `Sending ${sendSymbol}${sampleAmount.toLocaleString()} from ${headingFrom} to ${headingTo}: ${quotes.length} ${fromCurrency} → ${toCurrency} ${quotes.length === 1 ? "quote" : "quotes"} so far.`
+              : `Sending ${sendSymbol}${sampleAmount.toLocaleString()} from ${headingFrom} to ${headingTo}, ranked by estimated payout.`}
           </p>
+          {!thin && (
           <p className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-variant)] mb-6">
             <span className="relative flex h-1.5 w-1.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
             </span>
-            Source: SendMoneyCompare · Estimated payouts from collected pricing and mid-market rates
+            Source: our collected quotes
           </p>
+          )}
 
           {quotes.length > 0 ? (
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
@@ -1705,6 +1864,7 @@ export default async function CorridorPage({ params }: Props) {
           )}
         </Container>
       </section>
+      )}
 
       {/* ─── Editorial Intro — moved below the comparison table.
            Answer first, context second: the user came to compare; once they
@@ -1721,11 +1881,14 @@ export default async function CorridorPage({ params }: Props) {
               <AffiliateDisclosure />
             </div>
             <div className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
+              {/* Template intros/contexts (Corridor.genericIntro/genericContext)
+                  are skipped: the quick answer above already says what they
+                  gestured at, with this route's numbers. */}
               {corridorEditorial ? (
                 <p dangerouslySetInnerHTML={{ __html: renderDataTokens(corridorEditorial.theRoute) }} />
-              ) : (
+              ) : !corridor.genericIntro ? (
                 <p>{corridor.intro}</p>
-              )}
+              ) : null}
               {corridor.highlights && corridor.highlights.length > 0 ? (
                 <ul className="space-y-2.5 mt-4">
                   {corridor.highlights.map((h, i) => (
@@ -1737,9 +1900,9 @@ export default async function CorridorPage({ params }: Props) {
                 </ul>
               ) : corridorEditorial ? (
                 <p dangerouslySetInnerHTML={{ __html: renderDataTokens(corridorEditorial.measuredRecord) }} />
-              ) : (
+              ) : !corridor.genericContext ? (
                 <p>{corridor.context}</p>
-              )}
+              ) : null}
             </div>
           </div>
         </Container>
@@ -1777,7 +1940,7 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {/* ─── Best Provider Summary ─── */}
-      {best && (
+      {!hubMode && best && (
         <section className="py-10 bg-[var(--color-surface-dim)]">
           <Container>
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
@@ -1850,11 +2013,15 @@ export default async function CorridorPage({ params }: Props) {
            comparison. Renders only when we have rail data for this corridor;
            its CTA is a "how it works" path, not an affiliate link, so it never
            competes with provider_clicked. ─── */}
+      {/* Crypto rails are properties of the payout currency, so sender pages
+          with a destination page leave them to it (2026-09-25). */}
+      {!hubMode && !destinationHubSlug && (
       <section className="py-2 bg-[var(--color-surface-dim)]">
         <Container>
           <CryptoRailSection from={fromCurrency} to={toCurrency} amount={sampleAmount} />
         </Container>
       </section>
+      )}
 
       {/* ─── Guides, fees & details — collapsed on mobile so live results stay near the fold.
            All content remains in the DOM for AI citation, FAQ schema, and link equity. ─── */}
@@ -1891,7 +2058,7 @@ export default async function CorridorPage({ params }: Props) {
                   {editorialNote.warningBody}
                 </p>
                 <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
-                  {rateInsight?.providerConsistency?.summary ??
+                  {(!hubMode && rateInsight?.providerConsistency?.summary) ||
                     "For recurring transfers, it is worth checking live quotes each time rather than relying on one provider by habit."}
                 </p>
                 {corridorRelatedNews[slug] && (
@@ -1914,7 +2081,7 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {/* ─── Best Provider For ─── */}
-      {quotes.length > 0 && (() => {
+      {!hubMode && !thin && quotes.length > 0 && (() => {
         const cheapest = quotes[0]; // already sorted by best value
         const fastest = [...quotes].sort((a, b) => {
           const speedOrder = (s: string) => {
@@ -1950,7 +2117,7 @@ export default async function CorridorPage({ params }: Props) {
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 {cheapest.providerSlug === fastest.providerSlug
-                  ? `${getProviderName(cheapest.providerSlug)} currently leads on both cost and speed for ${headingFrom} to ${headingTo} — check the categories below if cash pickup or a specific payout method matters more to you than either.`
+                  ? `${getProviderName(cheapest.providerSlug)} currently leads on both cost and speed for ${headingFrom} to ${headingTo}.`
                   : `${getProviderName(cheapest.providerSlug)} currently delivers the most ${toCurrency} on this route, while ${getProviderName(fastest.providerSlug)} is the fastest. The cheapest option and the fastest one aren't always the same provider, so match the pick below to what this transfer actually needs.`}
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -2047,7 +2214,7 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {/* ─── Transfer Examples ─── */}
-      {(() => {
+      {!hubMode && !thin && (() => {
         const exampleAmounts = [500, 1000, 5000];
         const exampleData = exampleAmounts.map((amt) => ({
           amount: amt,
@@ -2114,6 +2281,7 @@ export default async function CorridorPage({ params }: Props) {
       })()}
 
       {/* ─── Fees Explanation ─── */}
+      {((corridor.generatedNotes ? costSentence : corridor.feesNote) || (rateStory && !hubMode)) && (
       <section className="py-10">
         <Container>
           <div className="max-w-3xl">
@@ -2121,71 +2289,38 @@ export default async function CorridorPage({ params }: Props) {
               {isCurrencyCorridor ? `How much does it cost to convert ${fromCurrency} to ${toCurrency}?` : `How much does it cost to send money from ${corridor.fromCountry} to ${corridor.toCountry}?`}
             </h2>
             <div className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
-              <p>{corridor.feesNote}</p>
-              {rateStory && <p className="text-sm md:text-md">{rateStory}</p>}
+              {/* Generated corridors never fall back to the generic fee note. */}
+              {(corridor.generatedNotes ? costSentence : corridor.feesNote) && (
+                <p>{corridor.generatedNotes ? costSentence : corridor.feesNote}</p>
+              )}
+              {rateStory && !hubMode && <p className="text-sm md:text-md">{rateStory}</p>}
             </div>
           </div>
         </Container>
       </section>
+      )}
 
-      {/* ─── Ways to Send Money ─── */}
-      {countryDetails && (() => {
-        // Aggregate payment methods from providers serving this corridor
-        const paymentMethodMap = new Map<string, { speed: string; costLevel: "low" | "medium" | "high"; note: string }>();
-        const methodDefaults: Record<string, { speed: string; costLevel: "low" | "medium" | "high"; note: string }> = {
-          "Bank Transfer": { speed: "1–3 business days", costLevel: "low", note: "Usually cheapest — no card fee" },
-          "Debit Card": { speed: "Minutes to hours", costLevel: "medium", note: "Fast, small card fee" },
-          "Credit Card": { speed: "Minutes to hours", costLevel: "high", note: "Fast but priciest — issuer may add a cash-advance fee" },
-          "Apple Pay": { speed: "Minutes to hours", costLevel: "medium", note: "Linked card's fee applies" },
-          "Google Pay": { speed: "Minutes to hours", costLevel: "medium", note: "Linked card's fee applies" },
-          "Cash": { speed: "Varies", costLevel: "medium", note: "Pay at an agent location, where offered" },
-        };
-        quotes.forEach((q) => {
-          const p = providers.find((pr) => pr.slug === q.providerSlug);
-          p?.paymentMethods.forEach((m) => {
-            if (!paymentMethodMap.has(m) && methodDefaults[m]) {
-              paymentMethodMap.set(m, methodDefaults[m]);
-            }
-          });
-        });
-        const paymentMethods = Array.from(paymentMethodMap.entries());
-        if (paymentMethods.length === 0) return null;
+      {/* ─── Ways to Send Money ───
+           A count of how the providers quoting THIS route can be paid. It
+           replaced a grid of generic method cards ("Bank Transfer — usually
+           cheapest, 1–3 business days") that printed the same six blurbs on
+           every corridor (2026-09-25). */}
+      {countryDetails?.receivingNote && !destinationHubSlug && (
+        <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
+          <Container>
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
+              Ways to send money to {corridor.toCountry}
+            </h2>
+            {/* The payment-method count line that sat here read the same on
+                every corridor quoted by the same providers (2026-09-25). */}
+            <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{countryDetails.receivingNote}</p>
+          </Container>
+        </section>
+      )}
 
-        const costColors = { low: "text-[var(--color-success-dark)] bg-[var(--color-success-surface)]", medium: "text-[var(--color-warning-dark)] bg-[var(--color-warning-surface)]", high: "text-[var(--color-danger)] bg-[var(--color-danger-surface)]" };
-        const costLabels = { low: "Low cost", medium: "Medium cost", high: "Higher cost" };
-
-        return (
-          <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
-            <Container>
-              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
-                Ways to send money to {corridor.toCountry}
-              </h2>
-              {countryDetails.receivingNote && (
-                <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4 leading-relaxed">{countryDetails.receivingNote}</p>
-              )}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {paymentMethods.map(([method, info]) => (
-                  <div key={method} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-md font-medium text-[var(--color-on-surface)]">{method}</h3>
-                      <span className={`text-2xs font-medium px-2 py-0.5 rounded-full ${costColors[info.costLevel]}`}>
-                        {costLabels[info.costLevel]}
-                      </span>
-                    </div>
-                    <p className="text-xs text-[var(--color-on-surface-variant)] mb-2">
-                      <span className="font-medium text-[var(--color-on-surface)]">Speed:</span> {info.speed}
-                    </p>
-                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{info.note}</p>
-                  </div>
-                ))}
-              </div>
-            </Container>
-          </section>
-        );
-      })()}
-
-      {/* ─── How to Receive Money ─── */}
-      {countryDetails && countryDetails.deliveryMethods.length > 0 && (
+      {/* ─── How to Receive Money ─── (destination pages only: sender pages
+           link to it from the recipient-details block above, 2026-09-25) */}
+      {countryDetails && !destinationHubSlug && countryDetails.deliveryMethods.length > 0 && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
@@ -2195,8 +2330,17 @@ export default async function CorridorPage({ params }: Props) {
               {countryDetails.deliveryMethods.length > 1
                 ? `Recipients in ${corridor.toCountry} have ${countryDetails.deliveryMethods.length} ways to receive this transfer: ${countryDetails.deliveryMethods.map((dm) => dm.method.toLowerCase()).join("; ")}.`
                 : `Recipients in ${corridor.toCountry} typically receive this transfer via ${countryDetails.deliveryMethods[0].method.toLowerCase()}.`}{" "}
-              Availability still depends on the sending country and the specific transfer, so confirm with the provider before sending.
+
             </p>
+            {/* Sender-variant pages stop at the summary line above and link to
+                the destination page, which owns these cards: payout methods do
+                not change with the sending country, so the cards were identical
+                on every route into the destination (2026-09-25). */}
+            {destinationHubSlug ? (
+              <Link href={`/send-money/${destinationHubSlug}`} className="text-sm font-medium text-[var(--color-primary)] hover:underline">
+                Payout methods and speeds in {corridor.toCountry} →
+              </Link>
+            ) : (
             <div className="grid sm:grid-cols-2 gap-4">
               {countryDetails.deliveryMethods.map((dm) => {
                 const m = dm.method.toLowerCase();
@@ -2236,12 +2380,13 @@ export default async function CorridorPage({ params }: Props) {
                 );
               })}
             </div>
+            )}
           </Container>
         </section>
       )}
 
       {/* ─── Bank & Broker Rates ─── */}
-      {hasBankRates(fromCurrency, toCurrency) && (() => {
+      {!hubMode && hasBankRates(fromCurrency, toCurrency) && (() => {
         const bankRates = getBankRates(fromCurrency, toCurrency, sampleAmount);
         const sourceUrl = getBankRatesSourceUrl(fromCurrency, toCurrency, sampleAmount);
         if (bankRates.length === 0) return null;
@@ -2391,33 +2536,10 @@ export default async function CorridorPage({ params }: Props) {
         );
       })()}
 
-      {/* ─── Transfer Limits & Regulations ─── */}
-      {countryDetails && destinationHubSlug && (
-        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
-          <Container>
-            <div className="max-w-3xl">
-              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
-                Receiving money in {corridor.toCountry}
-              </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
-                {countryDetails.regulations.regulatoryBody
-                  ? `${corridor.toCountry} transfers are supervised by ${countryDetails.regulations.regulatoryBody}`
-                  : `Inbound transfers to ${corridor.toCountry} carry their own limits and documentation rules`}
-                {countryDetails.popularBanks.length > 0
-                  ? `, and ${countryDetails.popularBanks.length} banks commonly receive international transfers there.`
-                  : "."}{" "}
-                Check the receiving requirements below, then confirm any additional documentation your chosen provider requests for this transfer.
-              </p>
-              <Link
-                href={`/send-money/${destinationHubSlug}`}
-                className="text-sm font-medium text-[var(--color-primary)] hover:underline"
-              >
-                Limits, regulations and receiving banks for {corridor.toCountry} →
-              </Link>
-            </div>
-          </Container>
-        </section>
-      )}
+      {/* ─── Transfer Limits & Regulations ───
+           The sender-page summary of this block ("Receiving money in X…") was
+           removed 2026-09-25: it read the same on every route into X, and the
+           recipient-details block already links to the destination page. */}
 
       {countryDetails && !destinationHubSlug && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
@@ -2490,6 +2612,7 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {/* ─── Delivery Times ─── */}
+      {!thin && (
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl">
@@ -2497,7 +2620,7 @@ export default async function CorridorPage({ params }: Props) {
               {isCurrencyCorridor ? `How long does a ${fromCurrency} to ${toCurrency} transfer take?` : `How long does it take to send money to ${corridor.toCountry}?`}
             </h2>
             <p className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
-              {corridor.deliveryNote}
+              {corridor.generatedNotes && deliverySentence ? deliverySentence : corridor.deliveryNote}
             </p>
             {/* Delivery times on this page are ADVERTISED, not measured.
                 The 2026-09-06 census found speed data exists across ~4,200
@@ -2511,12 +2634,10 @@ export default async function CorridorPage({ params }: Props) {
                 invent precision. Do not upgrade this wording to imply we
                 verified arrival times until something in the pipeline does. */}
             <p className="text-2xs text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
-              Delivery times shown here are published by the providers and payment schemes. We
-              do not measure when transfers actually arrive, so treat them as estimates and
-              confirm the time with your provider before you send.
+              Speeds are the providers&rsquo; own estimates; we do not measure arrival times.
             </p>
 
-            {(fastProviders.length > 0 || standardProviders.length > 0) && (
+            {!hubMode && !thin && (fastProviders.length > 0 || standardProviders.length > 0) && (
               <div className="grid sm:grid-cols-2 gap-4">
                 {fastProviders.length > 0 && (
                   <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-5">
@@ -2554,6 +2675,7 @@ export default async function CorridorPage({ params }: Props) {
           </div>
         </Container>
       </section>
+      )}
 
       {/* ─── Popular Banks ─── */}
       {countryDetails && !destinationHubSlug && countryDetails.popularBanks.length > 0 && (
@@ -2587,7 +2709,7 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {/* ─── Rate History ─── */}
-      {rateInsight && rateInsight.totalDays >= 3 && (
+      {!hubMode && rateInsight && rateInsight.totalDays >= 3 && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             {/* SendScore leads the history section: the timing answer first,
@@ -2752,8 +2874,8 @@ export default async function CorridorPage({ params }: Props) {
       {/* ─── Related: country sender list + country guide banner — collapsed on mobile ─── */}
       <MobileDetailsRail label="More for this corridor">
 
-      {/* ─── Send from Specific Countries (country pages only) ─── */}
-      {isCountryPage && (() => {
+      {/* ─── Send from Specific Countries (country pages only; hub mode has the table) ─── */}
+      {isCountryPage && !hubMode && (() => {
         const relatedCorridors = allCorridors
           .filter((c) => !c.isCurrencyCorridor && !c.isCountryPage && c.toCountry === corridor.toCountry)
           // corridorPageRenders, not just !GONE: Tier 3 corridors are outside
@@ -2792,8 +2914,9 @@ export default async function CorridorPage({ params }: Props) {
         );
       })()}
 
-      {/* ─── Country guide banner (shown on corridor pages, links to country hub) ─── */}
-      {!isCountryPage && !isCurrencyCorridor && (() => {
+      {/* ─── Country guide banner ─── only where no destination page is linked
+           already (sender pages carry that link in the recipient block). */}
+      {!isCountryPage && !isCurrencyCorridor && !destinationHubSlug && (() => {
         const countrySlug = corridor.toCountry
           .toLowerCase()
           .replace(/\s+/g, "-")
@@ -2903,7 +3026,8 @@ export default async function CorridorPage({ params }: Props) {
             // Scraped providerSlugs include banks with no review page; the
             // route renders them on demand, which is how 1,340 links pointed at
             // pages for slugs like "z-rcher-kantonalbank".
-            links: quotes.filter((q) => companyPageRenders(q.providerSlug)).slice(0, 5).map((q) => ({
+            links: (hubMode ? [...new Map(originRows.map((r) => [r.best.providerSlug, r.best])).values()] : quotes)
+              .filter((q) => companyPageRenders(q.providerSlug)).slice(0, 5).map((q) => ({
               href: `/companies/${q.providerSlug}`,
               label: `${getProviderName(q.providerSlug)} review`,
             })),
@@ -2921,9 +3045,8 @@ export default async function CorridorPage({ params }: Props) {
                 const best = getBestGuideLink(corridor.fromCountry, corridor.toCountry);
                 return best ? [best] : [];
               })(),
-              { href: "/guides/cheapest-way-to-send-money-internationally", label: "Cheapest way to send money" },
-              { href: "/guides/exchange-rate-markup-explained", label: "Exchange rate markup explained" },
-              { href: "/guides/money-transfer-safety-guide", label: "Are money transfer companies safe?" },
+              // The three fixed guide links that followed were the same on all
+              // 163 corridor pages (2026-09-25); they are in the site footer.
             ],
           },
           {
@@ -2931,10 +3054,8 @@ export default async function CorridorPage({ params }: Props) {
             links: [
               { href: `/swift-codes/${swiftSlugForCountry(corridor.toCountry)}`, label: `${corridor.toCountry} SWIFT/BIC codes` },
               ...(ibanSlugForCountry(corridor.toCountry) ? [{ href: `/iban/${ibanSlugForCountry(corridor.toCountry)}`, label: `${corridor.toCountry} IBAN format` }] : []),
-              { href: "/swift-codes", label: "SWIFT code lookup" },
-              { href: "/iban", label: "IBAN number checker" },
-              { href: "/guides/swift-codes-explained", label: "SWIFT codes explained" },
-              { href: "/guides/iban-numbers-explained", label: "IBAN numbers explained" },
+              // Destination-specific only; the four fixed hub and explainer
+              // links repeated on every corridor were dropped 2026-09-25.
             ].filter((l) => !l.href.includes("undefined")),
           },
           {
@@ -2965,18 +3086,23 @@ export default async function CorridorPage({ params }: Props) {
               ];
             })(),
           },
-        ]}
+        ].filter((section, idx) =>
+          // Thin routes keep the two route-specific columns only: the payout-
+          // currency fallback, reviews, guides, tools and bank links read the
+          // same across every route into the destination (2026-09-25).
+          !thin || idx < 2)}
       />
 
       {/* ─── CTA ─── */}
+      {/* Nothing to compare on a thin route, so no "compare all" box. */}
+      {!thin && (
       <section className="py-12 bg-[var(--color-surface-dim)]">
         <div className="max-w-lg mx-auto px-6 text-center">
           <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
             Compare all providers for {headingFrom} to {headingTo}
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-            Enter your exact amount in the comparison tool above to see personalised quotes from every
-            provider on this route.
+            Put in your own amount above.
           </p>
           {/* Anchors to the ComparisonWidget already on this page rather than
               navigating to /send-money?from=..&to=.. — a generic copy of the tool
@@ -2992,6 +3118,7 @@ export default async function CorridorPage({ params }: Props) {
 
         </div>
       </section>
+      )}
 
       {/* Partner spotlight — after every ranked comparison on this page,
           never inside one. The corridorLead prop is only populated when
@@ -3014,8 +3141,11 @@ export default async function CorridorPage({ params }: Props) {
       <PartnerFeatureBlock
         source={`taptap_spotlight:corridor:${slug}`}
         variant="section"
-        linkContext={{ from: fromCurrency, to: toCurrency, amount: sampleAmount }}
+        linkContext={hubPartnerRow ? { from: hubPartnerRow.from, to: toCurrency, amount: hubPartnerRow.amount } : { from: fromCurrency, to: toCurrency, amount: sampleAmount }}
         quote={(() => {
+          // Hub pages price the partner on a sending route of their own rather
+          // than repeating the US page's USD quote (2026-09-25).
+          if (hubMode) return hubPartnerRow ? getPartnerQuote(hubPartnerRow.from, toCurrency, hubPartnerRow.amount) : undefined;
           const tt = quotes.find((q) => q.providerSlug === "taptap-send");
           if (!tt) return undefined;
           return {

@@ -133,7 +133,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
                     </time>
                   </div>
                   <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2 leading-snug group-hover:text-[var(--color-primary)] transition-colors">
-                    {item.title}
+                    {item.title.replace(/\s*\((?:[A-Za-z]+\s+)?20\d\d\)\s*$/, "").replace(/\s+20\d\d\s*$/, "")}
                   </h3>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed flex-1">
                     {item.excerpt}
@@ -179,7 +179,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
                     href={`/news/${item.slug}`}
                     className="text-sm text-[var(--color-primary)] hover:underline"
                   >
-                    {item.title}
+                    {item.title.replace(/\s*\((?:[A-Za-z]+\s+)?20\d\d\)\s*$/, "").replace(/\s+20\d\d\s*$/, "")}
                   </Link>
                 </li>
               ))}

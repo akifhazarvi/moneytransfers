@@ -7,8 +7,7 @@ export default function AffiliateDisclosure() {
           71-word version was repeated verbatim across hundreds of pages. The
           tie-break rule it used to spell out now lives on /editorial-policy
           and in the caption under each quote table. */}
-      Some links are affiliate links — we may earn a commission at no extra cost to you. It never
-      affects the order, which is set by what your recipient receives.{" "}
+      Some links earn us a commission, at no cost to you. It never changes the ranking.{" "}
       <Link href="/editorial-policy" className="text-[var(--color-primary)] hover:underline">
         Editorial policy
       </Link>

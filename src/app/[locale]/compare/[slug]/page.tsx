@@ -13,12 +13,10 @@ import ProviderLink from "@/components/ProviderLink";
 import { generateComparisonContent } from "@/lib/comparison-content";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
-import ProsConsList from "@/components/ProsConsList";
 import ComparisonTable from "@/components/ComparisonTable";
 import RatingBadge from "@/components/RatingBadge";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { sanitizeHtml } from "@/lib/sanitize";
-import { corridorToSlug } from "@/lib/rate-history";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getCompareCanonicalSlug, EDITORIAL_COMPARE_SLUGS } from "@/lib/compare-canonical";
 import { SITEMAP_COMPARISON_SLUGS } from "@/lib/sitemap-allowlists";
@@ -27,8 +25,6 @@ import { setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
-import { rateHistoryHref } from "@/lib/route-map-rates";
-import { COVERAGE } from "@/lib/site-stats";
 import { getCompareEditorial } from "@/data/compare-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 
@@ -322,17 +318,29 @@ function DefaultComparison({
             <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-[1.18] tracking-tight text-[var(--color-on-surface)] mb-4">
               {a.name} vs {b.name}: Fees, Rates &amp; Speed Compared
             </h1>
+            {/* The measured result, stated up front. Specific to the pair, so it
+                also breaks the header this template otherwise shares with
+                every comparison of the same provider (2026-09-25). */}
+            {(() => {
+              const priced = corridorData.filter((c) => c.winner === "a" || c.winner === "b" || c.winner === "tie");
+              if (priced.length === 0) return null;
+              const winsA = priced.filter((c) => c.winner === "a").length;
+              const winsB = priced.filter((c) => c.winner === "b").length;
+              return (
+                <p className="text-md text-[var(--color-on-surface-variant)] mb-4">
+                  On the {priced.length} routes we price for both, {a.name} paid the recipient more on {winsA} and {b.name} on {winsB}{priced.length - winsA - winsB > 0 ? `, with ${priced.length - winsA - winsB} tied` : ""}.
+                </p>
+              );
+            })()}
             <div className="flex flex-wrap items-center gap-4 text-2sm text-[var(--color-on-surface-variant)]">
               <span>
-                SendMoneyCompare Editorial · Reviewed by{" "}
+                Reviewed by{" "}
                 <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">Awais Imran</Link>
               </span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <time dateTime={dataUpdatedDate}>
                 Updated {new Date(dataUpdatedDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
               </time>
-              <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <span>Data updated every 6 hours</span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">Our methodology</Link>
             </div>
@@ -355,7 +363,8 @@ function DefaultComparison({
                     <RatingBadge rating={provider.rating} label={provider.ratingLabel} />
                   </div>
                 </div>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] line-clamp-2 mb-3">{provider.description}</p>
+                {/* No stock description: the same sentence printed on the /companies
+                    hub, the provider's profile and every one of its comparisons. */}
                 <div className="flex gap-4 text-xs text-[var(--color-on-surface-variant)] mb-3">
                   <span>{provider.supportedCountries}+ countries</span>
                   <span>{provider.supportedCurrencies}+ currencies</span>
@@ -391,19 +400,9 @@ function DefaultComparison({
               : { children: content.intro })}
           />
 
-          {/* Table of Contents */}
-          <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mb-8">
-            <h2 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">In this comparison</h2>
-            <ol className="space-y-1.5">
-              <li><a href="#live-rates" className="text-2sm text-[var(--color-primary)] hover:underline">Live rate comparison across {corridorData.length} corridors</a></li>
-              <li><a href="#key-differences" className="text-2sm text-[var(--color-primary)] hover:underline">Key differences</a></li>
-              <li><a href="#feature-table" className="text-2sm text-[var(--color-primary)] hover:underline">Feature-by-feature comparison</a></li>
-              <li><a href="#pros-cons" className="text-2sm text-[var(--color-primary)] hover:underline">Pros and cons</a></li>
-              <li><a href="#when-to-use" className="text-2sm text-[var(--color-primary)] hover:underline">When to choose each provider</a></li>
-              <li><a href="#verdict" className="text-2sm text-[var(--color-primary)] hover:underline">Verdict</a></li>
-              <li><a href="#faqs" className="text-2sm text-[var(--color-primary)] hover:underline">Frequently asked questions</a></li>
-            </ol>
-          </div>
+          {/* The "In this comparison" contents list was removed 2026-09-25:
+              the same seven entries on all 52 comparisons, and the sections it
+              listed sit directly below it. */}
 
           {/* Live rate comparison across corridors */}
           <section id="live-rates" className="mb-10">
@@ -411,7 +410,7 @@ function DefaultComparison({
               Live comparison: {a.name} vs {b.name} across popular corridors
             </h2>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
-              The table below shows how much the recipient receives when sending through {a.name} vs {b.name} on {corridorData.length} popular corridors. Data is refreshed every 6 hours from provider APIs and websites.
+              What the recipient receives through {a.name} and through {b.name} on the {corridorData.length} routes we price for both.
             </p>
             <div className="bg-[var(--color-primary-surface)] rounded-xl p-6">
               <div className="bg-[var(--color-surface)] rounded-lg overflow-hidden border border-[var(--color-outline)]">
@@ -454,9 +453,6 @@ function DefaultComparison({
                   </tbody>
                 </table>
               </div>
-              <p className="text-2xs text-[var(--color-on-surface-variant)] mt-2">
-                Amounts shown are what the recipient receives. Based on current scraped data, updated every 6 hours.
-              </p>
             </div>
           </section>
 
@@ -572,20 +568,23 @@ function DefaultComparison({
             </>
           ) : (
             <>
-          {/* Pros / Cons */}
+          {/* Pros / Cons — linked, not reprinted (2026-09-25). The lists are
+              each provider's own, word for word, so printing them here
+              repeated the profile and every other comparison of that provider. */}
           <section id="pros-cons" className="mb-10">
-            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-2">
               Pros and cons
             </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {[a, b].map((provider) => (
-                <div key={provider.slug} className="space-y-4">
-                  <h3 className="text-base font-medium text-[var(--color-on-surface)]">{provider.name}</h3>
-                  <ProsConsList type="pros" items={provider.pros} />
-                  <ProsConsList type="cons" items={provider.cons} />
-                </div>
+            <p className="text-sm text-[var(--color-on-surface-variant)]">
+              {[a, b].map((provider, i) => (
+                <span key={provider.slug}>
+                  {i > 0 && " · "}
+                  <Link href={`/companies/${provider.slug}`} className="text-[var(--color-primary)] hover:underline">
+                    {provider.name}: {provider.pros.length} pros, {provider.cons.length} cons
+                  </Link>
+                </span>
               ))}
-            </div>
+            </p>
           </section>
 
           {/* When to choose each */}
@@ -772,47 +771,12 @@ function DefaultComparison({
               </Card>
             ))}
 
-            {/* CTA */}
-            <div className="bg-gradient-to-br from-[var(--color-primary)] to-[#3a5ba6] rounded-xl p-5 text-white">
-              <h3 className="text-md font-medium mb-2">Compare All Providers</h3>
-              <p className="text-2sm text-white/80 mb-4">
-                See how {a.name} and {b.name} stack up against 50+ other providers on your corridor.
-              </p>
-              <Link
-                href="/send-money"
-                className="block text-center bg-[var(--color-surface)] text-[var(--color-primary)] px-4 py-2.5 rounded-full text-2sm font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
-              >
-                Compare Rates
-              </Link>
-            </div>
+            {/* The "Compare All Providers" box (a link to /send-money, not a
+                provider click) was removed 2026-09-25: the same three lines on
+                all 52 comparisons. */}
 
-            {/* Rate History */}
-            <Card className="!p-4">
-              <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Rate history</h3>
-              <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
-                See how {a.name} and {b.name} rates have changed over time on popular corridors.
-              </p>
-              <ul className="space-y-2">
-                {[
-                  { corridor: "USD-INR", label: "USD → INR history" },
-                  { corridor: "GBP-EUR", label: "GBP → EUR history" },
-                  { corridor: "USD-PHP", label: "USD → PHP history" },
-                  { corridor: "USD-MXN", label: "USD → MXN history" },
-                  { corridor: "GBP-PKR", label: "GBP → PKR history" },
-                ].map((c) => (
-                  <li key={c.corridor}>
-                    <Link href={rateHistoryHref(corridorToSlug(c.corridor)) ?? "/exchange-rates/history"} className="text-2sm text-[var(--color-primary)] hover:underline">
-                      {c.label}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href="/exchange-rates/history" className="text-2sm font-medium text-[var(--color-primary)] hover:underline">
-                    All {COVERAGE.historyCorridors} →
-                  </Link>
-                </li>
-              </ul>
-            </Card>
+            {/* The "Rate history" card listed the same five corridors on all 52
+                comparisons (removed 2026-09-25); /exchange-rates/history has them. */}
 
             {/* Related Comparisons */}
             <Card className="!p-4">

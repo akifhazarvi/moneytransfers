@@ -7,6 +7,7 @@ import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 import { CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import { SENDSCORE_SUMMARY } from "@/lib/sendscore-summary";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
+import { providerReviews } from "@/data/provider-reviews";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -129,11 +130,19 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
             <dl className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-xs text-[var(--color-on-surface-variant)]">
               <div>
                 <dt className="font-semibold text-[var(--color-on-surface)]">Providers with live quotes — {SITE_STATS.liveProviders}</dt>
-                <dd>Distinct providers appearing in our current quote data, including banks quoted through comparison feeds.</dd>
+                <dd>Distinct providers appearing in our current quote data, including banks quoted through comparison feeds. Elsewhere on the site this is rounded down to {atLeast(SITE_STATS.liveProviders)}, so the claim survives a provider dropping out between scrapes.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Providers reviewed — {SITE_STATS.curatedProviders}</dt>
-                <dd>Providers with a full editorial review at /companies, checked for regulation and features by hand.</dd>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Provider profiles — {SITE_STATS.curatedProviders}</dt>
+                <dd>Providers with a profile page at /companies: regulation, fees, limits and features, recorded by our editors from each provider&rsquo;s published terms.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Full editorial reviews — {providerReviews.length}</dt>
+                <dd>Profiles that also carry a written verdict, who the service suits and the alternatives worth comparing.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Providers we sent test transfers with — {providerReviews.filter((r) => /\b(sent|conducted)\b[^.]*\btest transfers\b/i.test(r.howWeTested)).length}</dt>
+                <dd>Reviewed providers whose review documents our own test transfers: corridors, dates and funding methods. The other reviews are based on collected quotes and, for LemFi and Unplex, the providers&rsquo; public rate APIs.</dd>
               </div>
               <div>
                 <dt className="font-semibold text-[var(--color-on-surface)]">Corridors compared — {SITE_STATS.comparableCorridors}</dt>

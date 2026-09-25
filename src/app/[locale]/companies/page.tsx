@@ -83,13 +83,13 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
               </div>
             </div>
 
-            <p className="text-2sm text-[var(--color-on-surface-variant)] line-clamp-2 mb-4">{provider.description}</p>
+            {/* No summary sentence, speed or fee line (2026-09-25): each was the
+                profile's own text, so this hub measured 68% duplicate of the 55
+                pages it lists. The profile is one click away. */}
 
             <div className="grid grid-cols-2 gap-3 text-xs">
               {[
                 { label: "Countries", value: `${provider.supportedCountries}+` },
-                { label: "Speed", value: provider.transferSpeed },
-                { label: "Fees", value: provider.feeStructure },
                 { label: "Founded", value: String(provider.founded) },
               ].map((stat) => (
                 <div key={stat.label} className="bg-[var(--color-surface-dim)] rounded-lg p-2">

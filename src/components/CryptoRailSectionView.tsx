@@ -43,8 +43,7 @@ export default function CryptoRailSectionView({
           Crypto &amp; stablecoin routes for {from} → {to}
         </h2>
         <p className="mt-0.5 text-sm text-[var(--color-on-surface-variant)]">
-          For a tech-comfortable sender, stablecoin rails can beat every bank and app. These aren&apos;t one-tap
-          services — each is a fiat on-ramp → blockchain → local cash-out. Here&apos;s the all-in cost and how each works.
+          Each is a fiat on-ramp → blockchain → local cash-out, not a one-tap transfer. All-in cost below.
         </p>
       </header>
 

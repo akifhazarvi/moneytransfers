@@ -55,8 +55,10 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
   return (
     <aside ref={ref} className={`provider-cross-sell provider-cross-sell--${placement}`} aria-label="Transfer partner options" data-provider-cross-sell={placement}>
       <div className="partner-section-heading" data-partner-heading>
-        <p className="partner-eyebrow">{compact ? "Partner spotlight" : "Explore our transfer partners"}</p>
-        {!compact && <h2>{title || "Ready for your next transfer?"}</h2>}
+        {compact && <p className="partner-eyebrow">Partner spotlight</p>}
+        {/* The page-end module keeps its heading for screen readers only: the
+            same visible line closed 200+ pages (2026-09-25). */}
+        {!compact && <h2 className={placement === "page-end" ? "sr-only" : undefined}>{title || "Ready for your next transfer?"}</h2>}
         {context && <p className="partner-corridor">For {context.amount.toLocaleString("en-US")} {context.from} → {context.to}</p>}
       </div>
       <div className={`partner-grid${partners.length === 2 ? " partner-grid--two" : ""}`}>
@@ -64,7 +66,7 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
           <div className={`partner-card${index === 0 ? " partner-card--featured" : ""}`} key={partner.slug} data-partner={partner.slug}>
             <div className="partner-identity">
               <span className="partner-logo"><Image src={partner.logo} alt="" width={44} height={44} unoptimized /></span>
-              <div><p className="partner-name">{partner.name}</p><p className="partner-label">{partner.label}</p></div>
+              <div><p className="partner-name">{partner.name}</p>{placement !== "page-end" && <p className="partner-label">{partner.label}</p>}</div>
             </div>
             {/* No per-partner description: the label above already says what
                 the service is for, and the same three sentences under the same
@@ -75,9 +77,13 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
                 href={getGoUrl(partner.slug, { sourceCurrency: context?.from, targetCurrency: context?.to, sourceAmount: context?.amount, clickref: attribution })}
                 provider={partner.slug} source={attribution} corridor={corridor} className="partner-primary"
               >{partner.slug === "taptap-send" ? "See your TapTap Send rate" : `Check ${partner.name} rates`} <ArrowUpRight size={16} aria-hidden="true" /></ProviderLink>
+              {/* Not on the page-end module: that one closes 118+ pages, and
+                  three identical review links were most of its words. */}
+              {placement !== "page-end" && (
               <Link className="partner-review" href={`/companies/${partner.slug}`} onClick={() => trackCrossSellNavigation("review", source, placement, partner.slug, corridor)}>
                 Read {partner.name} review <ArrowRight size={14} aria-hidden="true" />
               </Link>
+              )}
             </div>
           </div>
         ))}

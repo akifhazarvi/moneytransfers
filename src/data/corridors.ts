@@ -27,7 +27,24 @@ export interface Corridor {
   /** Typical delivery times for this route */
   deliveryNote: string;
   /** Corridor-specific FAQ entries */
-  faqs: { q: string; a: string; answerFromComparison?: boolean; sources?: { label: string; url: string }[] }[];
+  /**
+   * `dataAnswer` marks an FAQ the page answers from this corridor's own quotes
+   * ("cost": fee and markup spread; "delivery": advertised speeds). Set by the
+   * generators below, whose fixed answers used to repeat across every
+   * generated page with only the country name changed.
+   */
+  faqs: { q: string; a: string; answerFromComparison?: boolean; dataAnswer?: "cost" | "delivery"; sources?: { label: string; url: string }[] }[];
+  /**
+   * feesNote/deliveryNote are generated boilerplate (not hand-written for this
+   * corridor), so the page states the corridor's measured fee and speed spread
+   * instead. Their fixed figures ("banks charge 25–50 plus 2–5%") were never
+   * ours and appeared, country name swapped, on every generated page.
+   */
+  generatedNotes?: boolean;
+  /** intro / context come from the rotating templates, not written for this
+   *  corridor; the page shows the measured quick answer instead of them. */
+  genericIntro?: boolean;
+  genericContext?: boolean;
   /** Date of a substantive editorial change, independent of quote collection. */
   editorialUpdatedAt?: string;
   /** True for auto-generated currency-pair pages (usd-to-inr) vs editorial country pages (usa-to-india) */
@@ -4798,37 +4815,16 @@ function generateCurrencyCorridors(): Corridor[] {
         context: `The ${fromCode}/${toCurr.code} exchange rate fluctuates throughout the day. Specialist money transfer providers typically offer rates 1–4% better than banks, which can mean significant savings on every transfer. Our comparison shows you the exact ${toCurr.code} amount you'll receive from each provider after all fees and exchange rate markups.`,
         feesNote: `Fees for ${fromCode} to ${toCurr.code} transfers vary by provider — from free to ${fromSym}5–10 with specialist services. Banks typically charge ${fromSym}25–50 per wire plus a 2–5% exchange rate markup. The bigger cost factor is usually the exchange rate markup, not the fee. Always compare the total ${toCurr.code} received.`,
         deliveryNote: `Delivery times for ${fromCode} to ${toCurr.code} transfers range from minutes (with express options) to 3–5 business days for standard bank wires. Most specialist providers deliver within 1–2 business days.`,
+        generatedNotes: true,
+        genericIntro: true,
+        genericContext: true,
         faqs: [
-          {
-            q: `What is the best ${fromCode} to ${toCurr.code} exchange rate today?`,
-            a: `Exchange rates change constantly. Use our comparison table above to see real-time ${fromCode} to ${toCurr.code} rates from every provider. The mid-market rate is shown for reference — look for providers offering rates closest to it.`,
-          },
-          {
-            // Named no provider here from 2026-09-19. This answer used to assert
-            // that "Wise, Remitly, and OFX typically offer the best total value",
-            // which our own measurements contradict: the remittance cost index
-            // puts OFX at 6.44% all-in and 4.05% off mid-market. The ranking on
-            // the page is computed per corridor and per amount, so no static
-            // sentence can name the winner without eventually being wrong — and
-            // this one is served as FAQPage schema, which is what AI assistants
-            // lift verbatim.
-            q: `What is the cheapest way to convert ${fromCode} to ${toCurr.code}?`,
-            a: `Compare the total ${toCurr.code} your recipient receives after both the transfer fee and the exchange rate markup — not the fee or the advertised rate alone. The comparison table above ranks every provider quoting this pair by that figure, and the leader changes by corridor and by amount.`,
-          },
-          {
-            q: `How long does a ${fromCode} to ${toCurr.code} transfer take?`,
-            a: `Transfer speeds vary by provider: some deliver within minutes, while standard bank wires take 2–5 business days. Express options are available from most specialist providers for a small additional fee.`,
-          },
-          {
-            q: `Is it cheaper to use a bank or a specialist provider for ${fromCode} to ${toCurr.code}?`,
-            // The "markups under 1%" claim was removed 2026-09-19: it was
-            // asserted for a named set of providers on every generated pair,
-            // and our measured markups do not support it as a blanket figure
-            // (OFX measures 4.05% off mid-market, PayPal ~4.6%). The bank/
-            // specialist gap is real and worth stating; the specific sub-1%
-            // number is not ours to promise on an arbitrary currency pair.
-            a: `Specialist providers are usually cheaper than banks. Banks typically charge ${fromSym}25–50 per transfer plus an exchange rate markup of several percent, while specialists compete on both. How much cheaper depends on the pair — check the ranked comparison above for what each provider actually delivers on this route today.`,
-          },
+          // Answered from this pair's own quotes on the page (2026-09-25). The
+          // fixed answers these replaced repeated on every generated pair, and
+          // the bank-vs-specialist one asserted figures we do not measure.
+          { q: `What is the best ${fromCode} to ${toCurr.code} exchange rate today?`, a: "", answerFromComparison: true },
+          { q: `How much does it cost to convert ${fromCode} to ${toCurr.code}?`, a: "", dataAnswer: "cost" },
+          { q: `How long does a ${fromCode} to ${toCurr.code} transfer take?`, a: "", dataAnswer: "delivery" },
         ],
       });
     }
@@ -5079,27 +5075,16 @@ function generateCountryCorridors(): Corridor[] {
         context,
         feesNote: `Transfer fees from ${from.name} to ${to.name} vary by provider. Specialist services charge ${fromSym}0–10 per transfer, while banks charge ${fromSym}25–50 plus a 2–5% exchange rate markup. The exchange rate markup is usually the bigger cost — always compare the total ${to.currency} your recipient receives, not just the advertised fee.`,
         deliveryNote: `Most transfers from ${from.name} to ${to.name} arrive within 1–2 business days with specialist providers. Bank wires take 3–5 business days. Some providers offer instant or same-day delivery to ${to.name} for a small premium.`,
+        generatedNotes: true,
+        genericIntro: true,
+        genericContext: true,
+        // Answered from this corridor's own quotes on the page (2026-09-25):
+        // the five fixed answers these replaced were identical on every
+        // generated route bar the country names.
         faqs: [
-          {
-            q: `What is the cheapest way to send money from ${from.name} to ${to.name}?`,
-            a: `The cheapest option changes daily based on exchange rates. Use our comparison table above to see today's rates from every provider. Specialist services like Wise, Remitly, and OFX consistently offer better value than banks.`,
-          },
-          {
-            q: `How long does it take to send money from ${from.name} to ${to.name}?`,
-            a: `Most specialist providers deliver to ${to.name} within 1–2 business days. Some offer instant delivery for certain payment methods. Bank wires typically take 3–5 business days.`,
-          },
-          {
-            q: `How much does it cost to send ${fromSym}${from.sampleAmount.toLocaleString()} from ${from.name} to ${to.name}?`,
-            a: `Costs depend on the provider's fee and exchange rate markup. Compare all providers in our table above to see exactly how much ${to.currency} your recipient would receive from a ${fromSym}${from.sampleAmount.toLocaleString()} transfer today.`,
-          },
-          {
-            q: `Can I send money from ${from.name} to ${to.name} online?`,
-            a: `Yes, all the providers we compare support online transfers from ${from.name} to ${to.name}. Most also offer mobile apps. You can typically pay by bank transfer, debit card, or credit card.`,
-          },
-          {
-            q: `Is it better to use a bank or a money transfer service to send money to ${to.name}?`,
-            a: `Money transfer services are almost always cheaper. Banks typically charge ${fromSym}25–50 per wire plus a 2–5% exchange rate markup. Specialist providers charge ${fromSym}0–10 with markups under 1%, saving you significantly on every transfer to ${to.name}.`,
-          },
+          { q: `What is the cheapest way to send money from ${from.name} to ${to.name}?`, a: "", answerFromComparison: true },
+          { q: `How much does it cost to send ${fromSym}${from.sampleAmount.toLocaleString()} from ${from.name} to ${to.name}?`, a: "", dataAnswer: "cost" },
+          { q: `How long does it take to send money from ${from.name} to ${to.name}?`, a: "", dataAnswer: "delivery" },
         ],
       });
     }
@@ -5129,29 +5114,13 @@ function generateCountryPages(): Corridor[] {
       ? `${to.name} is a major remittance destination. Use our comparison to find the best ${to.currency} rate today.`
       : `${to.name} is a major remittance destination. Whether you're supporting family, paying for services, or sending a gift, choosing the right provider can save you significantly. Banks typically charge 3–5% in hidden exchange rate markups, while specialist services offer rates much closer to the mid-market rate. Use our comparison to find the best deal today.`;
 
-    const faqs = curated
+    const faqs: Corridor["faqs"] = curated
       ? curated.faqs.map((f) => ({ q: f.question, a: f.answer }))
       : [
-          {
-            q: `What is the cheapest way to send money to ${to.name}?`,
-            a: `The cheapest option depends on how much you're sending and where from. Specialist services like Wise, Remitly, and WorldRemit consistently offer rates 2–5% better than banks. Use our comparison tool to see today's best rates from all providers.`,
-          },
-          {
-            q: `How long does it take to send money to ${to.name}?`,
-            a: `Delivery times depend on the provider and method. Mobile wallets and cash pickup are often available within minutes. Bank deposits typically take 1–2 business days. Express options are available from most providers for a small premium.`,
-          },
-          {
-            q: `Is it safe to send money to ${to.name} online?`,
-            a: `Yes, all providers we compare are regulated by financial authorities (FCA, FinCEN, ASIC, etc.). Always use licensed providers and verify your recipient's details before sending.`,
-          },
-          {
-            q: `Can I send money to ${to.name} from my bank?`,
-            a: `Yes, but banks typically charge 3–5% in hidden exchange rate markups plus $25–50 wire fees. Specialist money transfer services almost always deliver more ${to.currency} for the same amount sent.`,
-          },
-          {
-            q: `What are the cheapest providers for sending money to ${to.name}?`,
-            a: `The best provider changes based on transfer amount and exchange rate fluctuations. Wise, Remitly, and WorldRemit are consistently competitive. Compare all providers above for today's best rate.`,
-          },
+          // Uncurated country pages answer from their quotes (2026-09-25).
+          { q: `What is the cheapest way to send money to ${to.name}?`, a: "", answerFromComparison: true },
+          { q: `How much does it cost to send money to ${to.name}?`, a: "", dataAnswer: "cost" },
+          { q: `How long does it take to send money to ${to.name}?`, a: "", dataAnswer: "delivery" },
         ];
 
     return {
@@ -5173,6 +5142,11 @@ function generateCountryPages(): Corridor[] {
       deliveryNote: to.slug === "algeria"
         ? "For cash collection in Algeria, distinguish the provider marking a transfer ready from the recipient actually collecting it. Check the selected office’s opening hours and payout availability before arranging the journey. For a DZD account credit, ask for the expected credit date for that account; a cash-pickup estimate does not describe a bank deposit."
         : `Most transfers to ${to.name} arrive within 1–2 business days with specialist providers. Mobile wallet and cash pickup options are often available within minutes. Bank deposits typically take 1–3 business days.`,
+      // Algeria's notes are hand-written (above), so only the other
+      // destinations' template notes are replaced by measured copy.
+      generatedNotes: to.slug !== "algeria",
+      genericIntro: !curated,
+      genericContext: true,
       faqs,
     };
   });
