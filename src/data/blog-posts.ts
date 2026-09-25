@@ -4456,7 +4456,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Corridors",
     readTime: "10 min read",
     publishedAt: "2026-03-15",
-    updatedAt: "2026-03-15",
+    updatedAt: "2026-09-25",
     author: "Awais Imran",
     tags: ["Nigeria", "NGN", "remittance", "USD to NGN", "naira", "corridor guide", "send money to Nigeria"],
     featuredImage: "/images/blog/send-money-to-nigeria.jpg",
@@ -4553,20 +4553,17 @@ const rawBlogPosts: BlogPost[] = [
 <p>For more on how exchange rates affect your transfer cost, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
       },
       {
-        heading: "Regulations and Tax Considerations",
-        content: `<p>Key rules for sending money to Nigeria:</p>
-<ul>
-<li><strong>CBN regulations:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria</a> requires that inbound remittances be processed through authorised dealer banks. All providers on our comparison are fully licensed.</li>
-<li><strong>Tax-free for recipients:</strong> Diaspora remittances are not subject to income tax in Nigeria. The government actively encourages formal remittance channels to boost foreign exchange reserves.</li>
-<li><strong>BVN requirement:</strong> Recipients may need a Bank Verification Number (BVN) for large bank deposits. BVN is an 11-digit biometric identifier linked to all Nigerian bank accounts.</li>
-<li><strong>US sender reporting:</strong> Transfers over $10,000 are reported under the Bank Secrecy Act. Personal gifts to family are not taxable for the sender. The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> enforces these rules for US money transmitters.</li>
-</ul>
-<p>For more guidance on safe and cheap transfers, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, Nigeria is Africa's largest remittance market, with the <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> database tracking $20+ billion annually.</p>`,
+        heading: "Reconcile the naira credit with the quote you accepted",
+        content: `<p>For a recipient paying expenses in naira, write down the promised NGN credit before authorising the transfer. Do not compare that promise with an unrelated dollar-account offer unless you also know how those dollars would become spendable naira and what that conversion would cost.</p>
+<p>Here is an invented receipt check. A sender's total debit is $500, with a $3 fee deducted before conversion. At an assumed ₦1,500 per dollar, the $497 principal should produce <strong>₦745,500</strong>. If the account is credited only ₦744,000, the difference to investigate is <strong>₦1,500</strong>. It is not the $3 sending fee again: that fee was already removed in calculating the expected credit.</p>
+<p>Ask support to identify the cause of the difference using the accepted quote and transaction reference. Was there a stated recipient charge, a different rate on the final confirmation, or a payout error? Comparing the credit with a new market rate after the transfer does not answer those questions. The example is arithmetic only and does not represent an available NGN quote.</p>
+<p>For an NGN bank deposit, check the bank name as well as the beneficiary number on the confirmation. If the recipient gives you several accounts, ask which one should receive this payment rather than selecting an old saved record. A successful transfer to a different account can still miss the intended bill or household arrangement.</p>
+<p>Keep the payment's purpose in your records. Family support and payment for work should not share a blanket tax assumption, and a provider's request for documents is not itself a determination that tax is due. For questions about either person's obligations, obtain advice for the actual payment and their circumstances.</p>`,
       },
       {
-        heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a> data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration and remittances data.</p>`,
+        heading: "How to read the NGN comparison on this page",
+        content: `<p>The comparison shows the offers in our dataset for the chosen sending currency and amount. Its order is based on quoted payout; it does not establish that a service supports every funding method, recipient account or purpose. Follow through to confirm the same NGN delivery option with the provider.</p>
+<p>The receipt example above uses a fixed hypothetical rate to explain a shortfall. It is independent of market forecasts and is not a provider performance claim. The <a href="/methodology">collection methodology</a> explains our timestamps and comparison limits; retain your own final confirmation as the record of what you agreed to buy.</p>`,
       },
     ],
     faqs: [
