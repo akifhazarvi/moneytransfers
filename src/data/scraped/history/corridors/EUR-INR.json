@@ -20578,7 +20578,7 @@
       "lemfi": {
         "rate": 109.15,
         "fee": 1.99,
-        "markup": 0.12,
+        "markup": -0.01,
         "receiveAmount": 10697.79
       },
       "moneygram": {
@@ -20588,10 +20588,10 @@
         "receiveAmount": 10472.48
       },
       "taptap-send": {
-        "rate": 109.15,
+        "rate": 108.7,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 10915
+        "receiveAmount": 10870
       },
       "deutsche-bank": {
         "rate": 107.5146,
@@ -20606,10 +20606,10 @@
         "receiveAmount": 10543.89
       },
       "western-union": {
-        "rate": 105.3348,
+        "rate": 105.273,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 10429.2
+        "receiveAmount": 10423.08
       },
       "dahabshiil": {
         "rate": 108.2081,
@@ -20636,10 +20636,10 @@
         "receiveAmount": 10643.35
       },
       "instarem": {
-        "rate": 108.5637,
+        "rate": 108.4147,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 10856.37
+        "receiveAmount": 10841.47
       },
       "paysend": {
         "rate": 108.7609,
@@ -20666,22 +20666,22 @@
         "receiveAmount": 11351.88
       },
       "skrill": {
-        "rate": 108.6792,
+        "rate": 108.5166,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 10867.92
+        "receiveAmount": 10851.66
       },
       "monese": {
-        "rate": 108.8733,
-        "fee": 3,
+        "rate": 108.928,
+        "fee": 4,
         "markup": null,
-        "receiveAmount": 10560.71
+        "receiveAmount": 10457.09
       },
       "wise": {
-        "rate": 109.207,
+        "rate": 109.103,
         "fee": 1.58,
         "markup": null,
-        "receiveAmount": 10748.15
+        "receiveAmount": 10737.92
       }
     }
   }
