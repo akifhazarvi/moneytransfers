@@ -17145,5 +17145,94 @@
         "receiveAmount": 179446.99
       }
     }
+  },
+  {
+    "date": "2026-09-25",
+    "providers": {
+      "lemfi": {
+        "rate": 1800,
+        "fee": 0,
+        "markup": -2.68,
+        "receiveAmount": 180000
+      },
+      "moneygram": {
+        "rate": 1825.0336,
+        "fee": 0.99,
+        "markup": -3.8,
+        "receiveAmount": 180696.58
+      },
+      "taptap-send": {
+        "rate": 1810,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 181000
+      },
+      "western-union": {
+        "rate": 1765.9809,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 173083.79
+      },
+      "dahabshiil": {
+        "rate": 1792.4727,
+        "fee": 1.99,
+        "markup": -1.94,
+        "receiveAmount": 175680.25
+      },
+      "transfergo": {
+        "rate": 1803.9605,
+        "fee": 0,
+        "markup": -2.6,
+        "receiveAmount": 180396.05
+      },
+      "worldremit": {
+        "rate": 1802.9677,
+        "fee": 0.99,
+        "markup": -2.54,
+        "receiveAmount": 178511.83
+      },
+      "instarem": {
+        "rate": 1746.14,
+        "fee": 0,
+        "markup": 0.69,
+        "receiveAmount": 174614
+      },
+      "mukuru": {
+        "rate": 1802.8,
+        "fee": 0,
+        "markup": -2.53,
+        "receiveAmount": 180280
+      },
+      "paysend": {
+        "rate": 1803.1416,
+        "fee": 0,
+        "markup": -2.55,
+        "receiveAmount": 180314.16
+      },
+      "sendwave": {
+        "rate": 1802.9677,
+        "fee": 0.99,
+        "markup": -2.54,
+        "receiveAmount": 178511.83
+      },
+      "remitly": {
+        "rate": 1807.9,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 180790
+      },
+      "ria": {
+        "rate": 1825,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 184360.3
+      },
+      "wise": {
+        "rate": 1814.77,
+        "fee": 1.16,
+        "markup": null,
+        "receiveAmount": 179371.87
+      }
+    }
   }
 ]
