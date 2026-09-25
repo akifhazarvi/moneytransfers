@@ -13,7 +13,6 @@ import type { Metadata } from "next";
 import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
-import { COVERAGE } from "@/lib/site-stats";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 
 interface Props {
@@ -292,44 +291,12 @@ export default async function NewsArticlePage({ params }: Props) {
                 </div>
               )}
 
-              {/* Live rates CTA */}
-              <div className="overflow-hidden rounded-2xl border border-[var(--color-success-dark)]/20">
-                <div className="bg-[var(--color-success-dark)] px-5 py-4">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
-                    </span>
-                    <p className="text-xs font-bold text-white uppercase tracking-wide">Live rates</p>
-                  </div>
-                  <p className="text-md font-semibold text-white">Find the cheapest provider today</p>
-                  <p className="text-2sm text-white/75 mt-0.5">{COVERAGE.providers} compared in real time</p>
-                </div>
-                <div className="bg-[var(--color-surface)] px-5 py-4 space-y-3">
-                  <Link
-                    href="/send-money"
-                    className="flex items-center justify-center w-full h-11 bg-[var(--color-success-dark)] text-white text-sm font-bold rounded-full hover:bg-[var(--color-success-hover)] transition-colors shadow-[var(--shadow-success)]"
-                  >
-                    Compare Rates Now →
-                  </Link>
-                  <p className="text-center text-2xs text-[var(--color-on-surface-muted)]">
-                    Free · No signup · Updated every 6h
-                  </p>
-                </div>
-              </div>
-
-              {/* Guides link */}
-              <div>
-                <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-4">Explore</h3>
-                <ul className="space-y-2">
-                  <li><Link href="/guides" className="text-2sm text-[var(--color-primary)] hover:underline">Guides & tutorials</Link></li>
-                  <li><Link href="/companies" className="text-2sm text-[var(--color-primary)] hover:underline">Provider reviews</Link></li>
-                  <li><Link href="/compare" className="text-2sm text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
-                  <li><Link href="/send-money/uk-to-india" className="text-2sm text-[var(--color-primary)] hover:underline">UK to India transfers</Link></li>
-                  <li><Link href="/send-money/usa-to-india" className="text-2sm text-[var(--color-primary)] hover:underline">USA to India transfers</Link></li>
-                  <li><Link href="/send-money/usa-to-mexico" className="text-2sm text-[var(--color-primary)] hover:underline">USA to Mexico transfers</Link></li>
-                </ul>
-              </div>
+              <Link
+                href="/send-money"
+                className="flex items-center justify-center rounded-full bg-[var(--color-success-dark)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--color-success-hover)]"
+              >
+                Compare transfer rates →
+              </Link>
             </div>
           </aside>
         </div>
