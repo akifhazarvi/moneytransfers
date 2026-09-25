@@ -304,7 +304,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
@@ -1225,7 +1225,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>Trustpilot scores and app-store ratings are refreshed by our own scrapers and injected into this page at build time, so the figures above are never hand-typed. App-store data comes from the Apple iTunes lookup API and the Google Play listing for each provider's app, US storefront.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
@@ -1348,7 +1348,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
@@ -1867,7 +1867,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a> B2B payments forecasts, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. The <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements (BIS)</a> provides data on cross-border payment flows and SWIFT transaction volumes.</p>`,
       },
     ],
@@ -2025,7 +2025,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD Migration and Development Brief</a>, <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, and the <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a> World Economic Outlook. Regulatory context provided by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
@@ -2567,7 +2567,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. Provider scores are editorial judgments based on our own testing and data analysis. The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> offers additional consumer guidance on choosing international money transfer services.</p>`,
       },
     ],
@@ -2916,7 +2916,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>Offer terms verified directly from provider websites as of March 2026. The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> and <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> provide additional consumer protection guidance. Provider fee schedules sourced from official sites and cross-referenced with <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices data</a>.</p>`,
       },
     ],
@@ -3103,7 +3103,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> report, and the <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> brief on remittance seasonality. Provider-published fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> were also consulted.</p>`,
       },
     ],
@@ -3425,7 +3425,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan (SBP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global remittance data.</p>`,
       },
     ],
@@ -3822,7 +3822,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">Bangko Sentral ng Pilipinas (BSP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
@@ -4187,7 +4187,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
@@ -4670,7 +4670,7 @@ const rawBlogPosts: BlogPost[] = [
 <p><a href="https://www.bkash.com/en/products-services/money-transfer-service" target="_blank" rel="noopener noreferrer">bKash publishes its remittance receiving and designated-ATM cash-out terms</a>. Check those terms at the time of withdrawal. An agent cash-out price and an ATM price should not be treated as interchangeable, and temporary cashback is not the same as a permanently lower fee.</p>`,
       },
       {
-        heading: "Delivery Methods and Speed",
+        heading: "bKash, Nagad or Bank Deposit: Delivery Speed",
         content: `<ul>
 <li><strong>bKash</strong>: Near-instant delivery. The recipient gets an SMS notification and can withdraw cash from any of 350,000+ bKash agents or spend directly using the app. This is the fastest and most accessible method, especially for rural recipients.</li>
 <li><strong>Nagad</strong>: Similar to bKash — instant or near-instant delivery to the Nagad wallet. Growing agent network.</li>
@@ -4933,7 +4933,7 @@ const rawBlogPosts: BlogPost[] = [
 <p><strong>Bottom line:</strong> Interac e-Transfer is free or low-cost and instant — use it whenever possible. Credit cards add 2–3% extra cost, which can wipe out any savings from a competitive exchange rate.</p>`,
       },
       {
-        heading: "Top Banks in India for Receiving Transfers",
+        heading: "Top Indian Banks for Canadian Senders",
         content: `<table>
 <thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
 <tbody>
@@ -4949,16 +4949,9 @@ const rawBlogPosts: BlogPost[] = [
 <p>Check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a> for the full national list. Of these seven, transfers to SBI, HDFC and ICICI accounts are generally the fastest to clear.</p>`,
       },
       {
-        heading: "Delivery Methods and Speed",
-        content: `<ul>
-<li><strong>IMPS (Immediate Payment Service)</strong>: Near-instant delivery to any Indian bank account, 24/7 including holidays. Supported by Remitly and several other providers. This is the fastest bank deposit method.</li>
-<li><strong>UPI</strong>: Instant delivery to a UPI ID. Growing in popularity for international remittances. Currently supported by select providers.</li>
-<li><strong>NEFT (National Electronic Funds Transfer)</strong>: Settled in hourly batches during banking hours. Typically same-day or next-day.</li>
-<li><strong>RTGS (Real Time Gross Settlement)</strong>: For transfers over ₹2 lakh (~C$3,200). Real-time settlement during banking hours.</li>
-<li><strong>Cash pickup</strong>: Available within minutes through Western Union and MoneyGram agents across India.</li>
-<li><strong>Mobile wallets</strong>: Paytm, PhonePe, and Google Pay — supported by some providers for instant delivery.</li>
-</ul>
-<p><strong>Fastest option:</strong> IMPS or UPI — both deliver in seconds/minutes, 24/7.</p>`,
+        heading: "Delivery Speed on the Indian Side",
+        content: `<p>Once your Canadian dollars are converted, the provider pays out over India's domestic rails, so delivery speed depends on the rail rather than on anything in Canada. IMPS and UPI credit a bank account or UPI ID within minutes, 24/7; NEFT settles in batches; RTGS handles amounts over ₹2 lakh (~C$3,200). Cash pickup and mobile wallets are also available through some providers. Which rails each provider supports is covered in our <a href="/guides/send-money-to-india-guide">India guide</a>.</p>
+<p>The step that is specific to this corridor is the Canadian end: how you fund the transfer (see <em>Funding Methods from Canada</em> above) decides when the clock starts. An online bill payment or EFT can take 1–2 business days to clear before any Indian rail is involved; an Interac e-Transfer does not add that wait.</p>`,
       },
       {
         heading: "Canadian Banks vs Specialist Providers",
@@ -4977,21 +4970,19 @@ const rawBlogPosts: BlogPost[] = [
 <p>For a detailed breakdown, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
       },
       {
-        heading: "Tax and Regulatory Considerations",
+        heading: "Tax Rules: CRA, FINTRAC and Indian Recipients",
         content: `<p>Important rules for Canada to India transfers:</p>
 <ul>
 <li><strong>For Canadian senders:</strong> No CRA (Canada Revenue Agency) tax on personal remittances to family. There is no tax on outgoing gifts or family support payments.</li>
 <li><strong>FINTRAC reporting:</strong> Under <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a> regulations, international electronic funds transfers of C$10,000 or more must be reported by the financial institution. This is automatic and does not mean your transfer is suspicious — it's a standard anti-money-laundering measure.</li>
-<li><strong>For recipients in India:</strong> Money received from relatives abroad is <strong>tax-free</strong> under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
-<li><strong>Non-relative gifts:</strong> If the recipient is NOT a relative (as defined by the Income Tax Act), gifts over ₹50,000 in a financial year may be taxable as "income from other sources."</li>
-<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS applies under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹10 lakh per financial year — 20% for most purposes, 2% for education or medical remittances, reclaimable via your income tax return.</li>
+<li><strong>For recipients in India:</strong> money from relatives abroad is tax-free under Section 56(2) of the Income Tax Act; gifts from non-relatives above ₹50,000 a year can be taxable. The definitions are in our <a href="/guides/send-money-to-india-guide">India guide</a>.</li>
 </ul>
 <p>This is general information — consult a tax professional for your specific situation.</p>
 <p>For more guidance, read our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, India is the world's largest remittance recipient at over $125 billion annually. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database tracks average costs on the Canada-India corridor. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global remittance tracker confirms Canada as one of India's top source countries.</p>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> remittance data, <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a> reporting guidelines, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics.</p>`,
       },
     ],
@@ -5664,7 +5655,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
@@ -5800,7 +5791,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer">McKinsey</a>, provider-published fee schedules, <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a> and <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC</a> guidance on international employment, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
@@ -12144,7 +12135,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Transfers to DBBL, Islami Bank, and BRAC Bank typically process faster than smaller or state-owned banks.</p>`,
       },
       {
-        heading: "UK High-Street Banks vs Specialist Providers",
+        heading: "UK High-Street Banks vs Specialists on GBP to BDT",
         content: `<p>If you're still using your UK bank for Bangladesh transfers, you're almost certainly overpaying. Here's a typical comparison on a £1,000 transfer:</p>
 <table>
 <thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ৳ Received</th></tr></thead>
@@ -12179,7 +12170,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Over 12 monthly transfers of £1,000, the incentive adds up to approximately <strong>৳42,000</strong> — essentially a free month's transfer.</p>`,
       },
       {
-        heading: "Tax and Regulatory Considerations",
+        heading: "Tax Rules for UK Senders and Bangladeshi Recipients",
         content: `<p>Important rules for UK to Bangladesh transfers:</p>
 <ul>
 <li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments. Transfers are not reportable unless you're claiming tax relief.</li>
@@ -12193,7 +12184,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> remittance statistics and incentive policy documents, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
@@ -12384,7 +12375,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya (CBK)</a> remittance statistics, <a href="https://www.safaricom.co.ke/" target="_blank" rel="noopener noreferrer nofollow">Safaricom</a> M-Pesa data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
@@ -12537,7 +12528,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Nigeria uses <strong>NUBAN (Nigeria Uniform Bank Account Number)</strong> — a 10-digit format. Your recipient can find their NUBAN in their banking app or on their bank statement. Nigeria does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For SWIFT wire transfers, you also need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</p>`,
       },
       {
-        heading: "UK High-Street Banks vs Specialist Providers",
+        heading: "UK High-Street Banks vs Specialists on GBP to NGN",
         content: `<p>Here's a typical comparison on a £1,000 transfer to Nigeria:</p>
 <table>
 <thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ₦ Received</th></tr></thead>
@@ -12554,7 +12545,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>UK banks charge £15–£30 in fees PLUS a 3–5% exchange rate markup. On £1,000, your family receives <strong>₦100,000–₦160,000 less</strong>. Over 12 monthly transfers, that's <strong>₦1.2M–₦1.9M lost</strong> to bank charges. The Naira's volatility makes this gap even worse — banks often use rates that are hours or days old.</p>`,
       },
       {
-        heading: "Tax and Regulatory Considerations",
+        heading: "Tax and Regulation for UK to Nigeria Transfers",
         content: `<p>Important rules for UK to Nigeria transfers:</p>
 <ul>
 <li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments.</li>
@@ -12774,7 +12765,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.resbank.co.za/" target="_blank" rel="noopener noreferrer">South African Reserve Bank (SARB)</a> exchange control regulations, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
@@ -13289,7 +13280,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+        content: `<p>Figures come from live provider quotes refreshed every {{REFRESH_HOURS}} hours (<a href="/methodology">how we collect them</a>); check the <a href="/send-money">comparison tool</a> before you send.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> NRI account guidelines, <a href="https://www.centralbank.ae/" target="_blank" rel="noopener noreferrer">Central Bank of the UAE (CBUAE)</a> licensed exchange house register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> bilateral remittance data.</p>`,
       },
     ],
@@ -16978,7 +16969,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why Look for a Monito Alternative?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Monito is a Geneva-based comparison site that ranks international money transfer providers by real-time cost. It's a solid tool, but it isn't the only one — and no single comparison site covers every provider or corridor. The best Monito alternatives in 2026 are <strong><a href="/">SendMoneyCompare</a></strong> (60+ providers, 64+ corridors, live quotes refreshed every 6 hours), <strong>Exiap</strong>, <strong>MoneyTransfers.com</strong>, <strong>NerdWallet</strong>, and <strong>Finder</strong> — plus going direct to a provider like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. The smartest approach is to cross-check two comparison sites before every large transfer, because provider rankings shift daily. <a href="/send-money">Compare live rates now →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Monito is a Geneva-based comparison site that ranks international money transfer providers by real-time cost. It's a solid tool, but it isn't the only one — and no single comparison site covers every provider or corridor. The best Monito alternatives in 2026 are <strong><a href="/">SendMoneyCompare</a></strong> ({{PROVIDER_COUNT}} providers, {{CORRIDOR_COUNT}} corridors, live quotes refreshed every 6 hours), <strong>Exiap</strong>, <strong>MoneyTransfers.com</strong>, <strong>NerdWallet</strong>, and <strong>Finder</strong> — plus going direct to a provider like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. The smartest approach is to cross-check two comparison sites before every large transfer, because provider rankings shift daily. <a href="/send-money">Compare live rates now →</a></p></div>
 <p>A money transfer comparison site pulls live quotes from multiple providers so you can see, in one place, who delivers the most money to your recipient after fees and exchange-rate markup. <a href="https://www.monito.com/" target="_blank" rel="noopener noreferrer nofollow">Monito</a> pioneered this model and remains popular, but people look for alternatives for a few practical reasons:</p>
 <ul>
 <li><strong>Provider coverage gaps.</strong> No comparison site tracks every provider. A site that lists 15 providers can miss the one that's cheapest on your specific route.</li>
@@ -16995,7 +16986,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Tool</th><th>Best for</th><th>Coverage</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/">SendMoneyCompare</a></strong></td><td>Live corridor-by-corridor comparison, refreshed every 6 hours</td><td>60+ providers, 64+ corridors</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/">SendMoneyCompare</a></strong></td><td>Live corridor-by-corridor comparison, refreshed every 6 hours</td><td>{{PROVIDER_COUNT}} providers, {{CORRIDOR_COUNT}} corridors</td></tr>
 <tr><td><strong>Exiap</strong></td><td>Clean corridor guides, strong on AU/NZ and Asia-Pacific</td><td>Broad, corridor-focused</td></tr>
 <tr><td><strong>MoneyTransfers.com</strong></td><td>UK-first users, editorial provider reviews</td><td>Wide, UK/EU-weighted</td></tr>
 <tr><td><strong>NerdWallet</strong></td><td>US users who want personal-finance context</td><td>Curated US shortlist</td></tr>
@@ -17008,7 +16999,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "1. SendMoneyCompare — Live, Corridor-First Comparison",
-        content: `<p><strong>SendMoneyCompare</strong> (this site) is a direct Monito alternative built around live, corridor-specific comparison. It pulls real quotes from <strong>60+ providers across 64+ currency corridors</strong>, refreshed every 6 hours, and ranks them by the amount your recipient actually receives — fees and exchange-rate markup included, not just the headline fee.</p>
+        content: `<p><strong>SendMoneyCompare</strong> (this site) is a direct Monito alternative built around live, corridor-specific comparison. It pulls real quotes from <strong>{{PROVIDER_COUNT}} providers across {{CORRIDOR_COUNT}} currency corridors</strong>, refreshed every 6 hours, and ranks them by the amount your recipient actually receives — fees and exchange-rate markup included, not just the headline fee.</p>
 <p>What makes it a strong alternative:</p>
 <ul>
 <li><strong>Deep corridor coverage</strong>, including high-volume remittance routes like <a href="/send-money/usa-to-india">USA to India</a>, <a href="/send-money/usa-to-philippines">USA to the Philippines</a>, and <a href="/send-money/usa-to-mexico">USA to Mexico</a>, where markups vary most between providers.</li>
@@ -17069,7 +17060,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the best alternative to Monito?",
         answer:
-          "SendMoneyCompare is a strong direct alternative to Monito — it compares 60+ money transfer providers across 64+ corridors with live quotes refreshed every 6 hours and ranks them by the amount your recipient actually receives. Other good alternatives include Exiap, MoneyTransfers.com, NerdWallet, and Finder. Because no single comparison site covers every provider or corridor, the best approach is to cross-check two independent tools before a large transfer.",
+          "SendMoneyCompare is a strong direct alternative to Monito — it compares {{PROVIDER_COUNT}} money transfer providers across {{CORRIDOR_COUNT}} corridors with live quotes refreshed every 6 hours and ranks them by the amount your recipient actually receives. Other good alternatives include Exiap, MoneyTransfers.com, NerdWallet, and Finder. Because no single comparison site covers every provider or corridor, the best approach is to cross-check two independent tools before a large transfer.",
       },
       {
         question: "Is Monito free to use?",
@@ -17268,7 +17259,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "How can I find out if XE is the cheapest option for my transfer?",
         answer:
-          "The only reliable way is to run a live comparison for your exact send amount and corridor. SendMoneyCompare ranks 90+ providers by recipient payout — factoring in both fees and exchange-rate markups — with rates refreshed every six hours. Check where XE ranks for your specific transfer on our best money transfer apps comparison.",
+          "The only reliable way is to run a live comparison for your exact send amount and corridor. SendMoneyCompare ranks {{PROVIDER_COUNT}} providers by recipient payout — factoring in both fees and exchange-rate markups — with rates refreshed every six hours. Check where XE ranks for your specific transfer on our best money transfer apps comparison.",
       },
     ],
     relatedSlugs: [
@@ -17398,7 +17389,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the best way to compare Remitly against other providers?",
         answer:
-          "Enter your send amount, origin, and destination on SendMoneyCompare to see how Remitly ranks against 90+ providers by recipient payout. The comparison factors in both exchange-rate markups and fees, with rates refreshed every six hours. No account is needed.",
+          "Enter your send amount, origin, and destination on SendMoneyCompare to see how Remitly ranks against {{PROVIDER_COUNT}} providers by recipient payout. The comparison factors in both exchange-rate markups and fees, with rates refreshed every six hours. No account is needed.",
       },
     ],
     relatedSlugs: [

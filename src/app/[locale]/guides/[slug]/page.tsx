@@ -130,6 +130,11 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   "how-to-buy-spacex-nvidia-stock-using-revolut": { from: "USD", to: "GBP", amount: 1000, heading: "Fund your Revolut account — top USD → GBP providers" },
   "how-to-pay-international-freelancers-contractors": { from: "USD", to: "PHP", amount: 1000, heading: "Live cost of a $1,000 freelancer payment (USD → PHP)" },
   "top-money-transfer-apps-usa-to-india-2026": { from: "USD", to: "INR", amount: 1000, heading: "Live USD → INR rates — which app sends the most rupees today?" },
+  // The destination-level guide, as distinct from send-money-uk-to-bangladesh-
+  // guide: both fell through to the tag default (GBP → BDT) and rendered the
+  // same table (round-2 audit: 53% duplicate pair). USD → BDT quotes 14
+  // providers to GBP's 8.
+  "send-money-to-bangladesh-guide": { from: "USD", to: "BDT", amount: 500, heading: "Top USD → BDT providers right now" },
 };
 
 const TAG_TO_CORRIDOR: Record<string, InlineQuoteCorridor> = {
@@ -154,13 +159,53 @@ const TAG_TO_CORRIDOR: Record<string, InlineQuoteCorridor> = {
   china: { from: "USD", to: "CNY", amount: 1000 },
 };
 
+/**
+ * Sending country named in the slug. The tag map only knows destinations, so
+ * "send-money-uk-to-india-guide" and "send-money-canada-to-india-guide" both
+ * rendered a USD → INR table — the wrong corridor for either reader, and the
+ * same numbers on both pages (the round-2 audit measured the pair at 66%
+ * duplicate). The slug is the one place the source is stated.
+ */
+const SLUG_SOURCE_CURRENCY: [RegExp, string][] = [
+  [/(^|-)uk-to-|-from-uk(-|$)/, "GBP"],
+  [/(^|-)canada-to-|-from-canada(-|$)/, "CAD"],
+  [/(^|-)australia-to-|-from-australia(-|$)/, "AUD"],
+  [/(^|-)uae-to-|-from-uae(-|$)/, "AED"],
+  [/(^|-)(usa|us)-to-|-from-(usa|us)(-|$)/, "USD"],
+];
+
+function withSlugSource(slug: string, c: InlineQuoteCorridor): InlineQuoteCorridor {
+  const from = SLUG_SOURCE_CURRENCY.find(([re]) => re.test(slug))?.[1];
+  if (!from || from === c.from || from === c.to) return c;
+  // Only switch when the named corridor has enough quotes to rank; a
+  // two-row table would be worse than the destination-level default.
+  if (generateQuotes(c.amount, from, c.to).length < 3) return c;
+  return { ...c, from, heading: undefined };
+}
+
 function getInlineQuoteCorridor(slug: string, tags: string[], category: string): InlineQuoteCorridor {
   const scope = category === "Business" ? { business: true as const } : {};
   if (SLUG_CORRIDOR_OVERRIDES[slug]) return { ...SLUG_CORRIDOR_OVERRIDES[slug], ...scope };
+  const deep = (from: string, to: string, amount: number) => generateQuotes(amount, from, to).length >= 3;
+  // 1. An explicit pair tag ("GBP to PLN") says exactly what the guide is
+  //    about. Without this step the word scan below read "EUR to PLN" as
+  //    "eur" and rendered USD → EUR on the Poland guide — and on Turkey.
+  for (const tag of tags) {
+    const pair = tag.match(/^([A-Z]{3}) to ([A-Z]{3})$/);
+    if (pair && deep(pair[1], pair[2], 1000)) return { ...withSlugSource(slug, { from: pair[1], to: pair[2], amount: 1000 }), ...scope };
+  }
+  // 2. A destination word the map knows.
   for (const tag of tags) {
     const words = tag.toLowerCase().split(/[\s,/-]+/);
     for (const word of words) {
-      if (TAG_TO_CORRIDOR[word]) return { ...TAG_TO_CORRIDOR[word], ...scope };
+      if (TAG_TO_CORRIDOR[word]) return { ...withSlugSource(slug, TAG_TO_CORRIDOR[word]), ...scope };
+    }
+  }
+  // 3. A bare currency tag ("GBP", "KRW") — priced from USD. The send-money-
+  //    to-uk guide had no mapped word and fell to the USD → INR default.
+  for (const tag of tags) {
+    if (/^[A-Z]{3}$/.test(tag) && tag !== "USD" && deep("USD", tag, 1000)) {
+      return { ...withSlugSource(slug, { from: "USD", to: tag, amount: 1000 }), ...scope };
     }
   }
   return category === "Business"
@@ -532,12 +577,6 @@ export default async function BlogPostPage({ params }: Props) {
                 <p>{post.excerpt}</p>
               </section>
             )}
-            <PartnerFeatureBlock
-              source={`taptap_spotlight:guide:${slug}`}
-              variant="inline"
-              quote={partnerQuote}
-              linkContext={{ from: inlineQuoteCorridor.from, to: inlineQuoteCorridor.to, amount: inlineQuoteCorridor.amount }}
-            />
             {post.featuredImage && (
               <div className="guide-article-image">
                 <Image src={post.featuredImage} alt={post.title} fill sizes="(max-width: 1023px) 100vw, 760px" className="object-cover" priority />
@@ -587,6 +626,17 @@ export default async function BlogPostPage({ params }: Props) {
                       crossSell={false}
                     />
                   </InlineQuotesImpression>
+                )}
+                {/* Partner spotlight sits AFTER the price comparison, not above
+                    it: the comparison is what readers come for, and the round-2
+                    SEO brief (2026-09-24) asked for it to lead. */}
+                {i === Math.min(1, post.sections.length - 1) && (
+                  <PartnerFeatureBlock
+                    source={`taptap_spotlight:guide:${slug}`}
+                    variant="inline"
+                    quote={partnerQuote}
+                    linkContext={{ from: inlineQuoteCorridor.from, to: inlineQuoteCorridor.to, amount: inlineQuoteCorridor.amount }}
+                  />
                 )}
               </section>
             ))}
@@ -673,15 +723,9 @@ export default async function BlogPostPage({ params }: Props) {
                     </Link>
                     <p className="text-2sm text-[var(--color-on-surface-variant)]">{author.role}</p>
                     <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mt-2">{author.byline}</p>
-                    {author.credentials?.length ? (
-                      <ul className="mt-3 flex flex-wrap gap-2">
-                        {author.credentials.slice(0, 3).map((cred) => (
-                          <li key={cred} className="text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface)] border border-[var(--color-outline)] px-2.5 py-1 rounded-full">
-                            {cred}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
+                    {/* Credentials chips live on the author's profile, not here:
+                        the same three lines on every guide were shared text
+                        in each near-duplicate pair of the round-2 audit. */}
                     <div className="mt-3 flex items-center gap-4 text-2sm">
                       <Link href={`/about/${author.slug}`} className="text-[var(--color-primary)] font-medium hover:underline">
                         Full profile ›
@@ -740,7 +784,7 @@ export default async function BlogPostPage({ params }: Props) {
       {relatedPosts.length > 0 && (
         <Container className="guide-related">
           <div className="guide-related-heading"><div><p className="guide-eyebrow">Keep learning</p><h2>Your next good read</h2></div><Link href="/guides"><ArrowLeft size={15} aria-hidden="true" />All guides</Link></div>
-          <div className="guide-preview-grid">{relatedPosts.map((related) => <GuidePreview key={related.slug} post={related} />)}</div>
+          <div className="guide-preview-grid">{relatedPosts.map((related) => <GuidePreview key={related.slug} post={related} showExcerpt={false} />)}</div>
         </Container>
       )}
       {/* Sticky nudge removed 2026-09-12. Measured over 30 days: 1,000

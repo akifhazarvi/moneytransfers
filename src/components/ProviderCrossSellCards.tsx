@@ -58,7 +58,6 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
         <p className="partner-eyebrow">{compact ? "Partner spotlight" : "Explore our transfer partners"}</p>
         {!compact && <h2>{title || "Ready for your next transfer?"}</h2>}
         {context && <p className="partner-corridor">For {context.amount.toLocaleString("en-US")} {context.from} → {context.to}</p>}
-        {!compact && <p className="partner-intro">Find a service that fits, check your rate, and send when you’re ready.</p>}
       </div>
       <div className={`partner-grid${partners.length === 2 ? " partner-grid--two" : ""}`}>
         {partners.map((partner, index) => (
@@ -67,7 +66,10 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
               <span className="partner-logo"><Image src={partner.logo} alt="" width={44} height={44} unoptimized /></span>
               <div><p className="partner-name">{partner.name}</p><p className="partner-label">{partner.label}</p></div>
             </div>
-            <p className="partner-description">{partner.description}</p>
+            {/* No per-partner description: the label above already says what
+                the service is for, and the same three sentences under the same
+                three cards on every page were the single most repeated block in
+                the round-2 duplication audit (2026-09-24). */}
             <div className="partner-actions">
               <ProviderLink
                 href={getGoUrl(partner.slug, { sourceCurrency: context?.from, targetCurrency: context?.to, sourceAmount: context?.amount, clickref: attribution })}
@@ -81,7 +83,7 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
         ))}
       </div>
       <div className="partner-section-footer">
-        <p>Paid partner placement. We may earn a commission. Availability and final rates depend on your transfer.</p>
+        <p>Paid placement — we may earn a commission.</p>
         <Link href={compareHref} onClick={() => {
           trackCrossSellNavigation("compare", source, placement, "", corridor);
           if (placement === "sidebar" && source.startsWith("guide:")) trackGuideSidebarCTA(source.slice(6));

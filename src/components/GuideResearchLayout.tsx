@@ -33,6 +33,10 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
     return cloneElement(child, { id });
   });
   const firstSection = content.findIndex((child) => isValidElement(child) && child.type === "h2");
+  const secondSection = firstSection < 0 ? -1
+    : content.findIndex((child, i) => i > firstSection && isValidElement(child) && child.type === "h2");
+  // Where the partner unit goes: before the second section, else at the end.
+  const partnerAt = secondSection < 0 ? content.length : secondSection;
   // No page drops the partner from this card. The gbp-forecast-2026 exception
   // that used to live here was removed 2026-09-18 on an explicit call: the
   // partnership is worth more than the topical tidiness of keeping a
@@ -46,13 +50,17 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
         <article id="guide-article" className="guide-research-article">
           {content.slice(0, firstSection < 0 ? content.length : firstSection)}
           <GuideContents sections={sections} mobile />
+          {firstSection >= 0 && content.slice(firstSection, partnerAt)}
+          {/* After the first full section rather than above it: the round-2
+              SEO brief (2026-09-24) asked for the article's own data to lead
+              and the partner unit to follow. */}
           <PartnerFeatureBlock
             source={`taptap_spotlight:guide:${slug}`}
             variant="inline"
             quote={getPartnerQuote()}
             linkContext={DEFAULT_PARTNER_CORRIDOR}
           />
-          {firstSection >= 0 && content.slice(firstSection)}
+          {firstSection >= 0 && content.slice(partnerAt)}
 
         </article>
         <aside className="guide-article-sidebar" aria-label="Guide navigation and tools">

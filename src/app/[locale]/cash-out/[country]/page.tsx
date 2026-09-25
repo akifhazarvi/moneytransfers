@@ -9,6 +9,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { CASHOUT_COUNTRIES, getCashoutCountry } from "@/data/cashout-countries";
 import { getCountryOfframps, getBeatsMidMarket, isBitcoinRail } from "@/lib/crypto-rails";
+import { robotsFor } from "@/lib/seo-indexing";
 
 // Live rail figures refresh with each scrape (6h); editorial is stable.
 export const revalidate = 21600;
@@ -40,14 +41,10 @@ export async function generateMetadata({
       `crypto off-ramp ${c.country.toLowerCase()}`,
       `cheapest way to convert crypto to ${c.currency.toLowerCase()}`,
     ],
-    // noindex 2026-09-01: the cluster is genuinely unique (12.2% intra-family
-    // 8-gram similarity — hand-authored, not templated) but thin at ~550 body
-    // words, and a live 90-day pull shows 15 GA4 sessions, 1 key event and ZERO
-    // Google impressions across all 7 pages. Thin plus no demand is exactly the
-    // profile that fed the Mar 20 scaled-content suppression. Pages stay live
-    // and internally linked so the existing traffic and AI citations continue —
-    // they simply leave the index. Promote back if a page earns real demand.
-    robots: { index: false, follow: true },
+    // 2026-09-24: opened by the round-2 freelance brief (owner decision) —
+    // robots now comes from routeIsIndexable(), the same predicate that drives
+    // the X-Robots-Tag header and sitemap membership.
+    robots: locale === "en" ? robotsFor(`/cash-out/${slug}`) : { index: false, follow: true },
     alternates: getAlternates(`cash-out/${slug}`, locale),
     openGraph: { title, description, url: `${SITE_URL}/cash-out/${slug}`, type: "article",
       images: DEFAULT_OG_IMAGES,

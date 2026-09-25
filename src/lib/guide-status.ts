@@ -22,6 +22,7 @@
  */
 import type { BlogPost } from "@/data/blog-posts";
 import { SITEMAP_GUIDE_SLUGS } from "@/lib/sitemap-allowlists";
+import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 
 /**
  * True when the guide should carry `index, follow` AND appear in sitemap.xml.
@@ -31,6 +32,9 @@ import { SITEMAP_GUIDE_SLUGS } from "@/lib/sitemap-allowlists";
  * guide indexable is to make it submitted at the same time.
  */
 export function guideIsIndexable(post: Pick<BlogPost, "slug" | "contentStatus">): boolean {
+  // 2026-09-24: the round-2 freelance brief opened these regardless of status
+  // (owner decision). See src/data/reviewed-indexable-routes.ts.
+  if (REVIEWED_INDEXABLE_ROUTES.has(`/guides/${post.slug}`)) return true;
   switch (post.contentStatus) {
     case "published":
       return true;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { robotsFor } from "@/lib/seo-indexing";
+import { robotsFor, routeIsIndexable } from "@/lib/seo-indexing";
 import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
 import { quoteFreshness } from "@/lib/quote-freshness";
 import Image from "next/image";
@@ -961,6 +961,16 @@ function resolveProviderClaimInTitle(text: string | undefined, count: number): s
   if (!text) return text;
   if (count >= 2) return text.replace(/\b\d+\+(\s+[Pp]roviders?\b)/g, `${count}$1`);
   return text
+    // With fewer than two priced providers the page itself says "one estimate
+    // is not enough to establish the cheapest option", so the title may not
+    // promise one (round-2 SEO brief, 2026-09-24: /send-money/aud-to-bdt).
+    .replace(/^Cheapest Way to Send Money to (.+?)(?= [—–-] | \(|$)/, "Send Money to $1: Transfer Estimate")
+    .replace(/^Cheapest Way to Send Money (.+?)(?= [—–-] | \(|$)/, "$1 Transfer Estimate")
+    .replace(/^Cheapest (\S+) to (\S+) Rates\b/, "$1 to $2 Transfer Estimate")
+    .replace(/: Cheapest Way to Send Money\b/, ": Transfer Estimate")
+    .replace(/Who's Cheapest Right Now\?/, "Transfer Estimate")
+    .replace(/\s*[—–-]\s*Compare\s+[A-Z]{3}\s+Rates\b/g, "")
+    .replace(/\b(Cheapest|Best[- ]Value)\s+/gi, "")
     // "… — Compare 15+ Providers (2026)" and "… (2026) — Compare 15+ Providers"
     .replace(/\s*[—–-]\s*Compare\s+\d+\+\s+[Pp]roviders?\b/g, "")
     // bare "Compare 15+ Providers" with no dash in front of it
@@ -995,7 +1005,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // shouldNoindex is the single source of truth for this decision.
   if (
     getCorridorTier(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) === 3 &&
-    shouldNoindex(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage)
+    shouldNoindex(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) &&
+    // 2026-09-24: a corridor the round-2 freelance brief opened falls through
+    // to the full metadata, whose robotsFor() admits it.
+    !(locale === "en" && routeIsIndexable(`/send-money/${slug}`))
   ) {
     return {
       alternates: getAlternates(`send-money/${slug}`, locale),

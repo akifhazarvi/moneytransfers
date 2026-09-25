@@ -16,12 +16,12 @@ import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
-import { routeIsIndexable } from "@/lib/seo-indexing";
+import { routeIsIndexable, newsIsIndexable } from "@/lib/seo-indexing";
+import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 import {
   SITEMAP_IBAN_SLUGS,
   SITEMAP_COMPARISON_SLUGS,
   SITEMAP_PROVIDER_SLUGS,
-  SITEMAP_NEWS_SLUGS,
   SITEMAP_RATE_PAIR_SLUGS,
   SITEMAP_RATE_HISTORY_SLUGS,
   SITEMAP_SWIFT_SLUGS,
@@ -49,6 +49,7 @@ const STATIC_CONTENT_DATE = "2026-03-01";
 // Same discipline as the corridor/comparison/rate constants below: one date per
 // family, bumped when that family's content actually changes.
 const BUSINESS_CONTENT_DATE = "2026-09-07"; // measured cost figures + live tokens
+const REVIEWED_ROUTES_DATE = "2026-09-24"; // round-2 freelance brief opened these
 const GUIDES_HUB_DATE = "2026-09-07";       // hub listing now driven by guideIsIndexable()
 
 // Derived from the most recently modified scraped quotes file (shared with
@@ -253,7 +254,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── News articles ──
   const newsPages: MetadataRoute.Sitemap = newsItems
-    .filter((item) => SITEMAP_NEWS_SLUGS.has(item.slug))
+    .filter((item) => newsIsIndexable(item.slug))
     .map((item) => entry(`news/${item.slug}`, item.publishedAt));
 
   // ── Exchange-rate pages ──
@@ -307,6 +308,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // keeps sitemap membership, robots and canonical from disagreeing, which is
   // what the May 8 2026 deindex was traced to. The same predicate drives the
   // page-level `robots` via robotsFor().
+  // ── Routes opened by the round-2 freelance brief (2026-09-24) ──
+  // Families above already cover most of these once routeIsIndexable() admits
+  // them; this catches the ones no family assembles (travel, cash-out, rate
+  // history outside the demand allowlist, unreviewed companies). Duplicates
+  // are dropped below, first occurrence wins, so a family's own lastmod stands.
+  const reviewedPages: MetadataRoute.Sitemap = [...REVIEWED_INDEXABLE_ROUTES].map((path) =>
+    entry(path.replace(/^\//, ""), REVIEWED_ROUTES_DATE),
+  );
+
+  const seen = new Set<string>();
   return [
     ...staticPages,
     ...corridorPages,
@@ -321,5 +332,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...swiftPages,
     ...businessHubPages,
     ...bankPages,
-  ].filter((e) => routeIsIndexable(new URL(e.url).pathname));
+    ...reviewedPages,
+  ]
+    .filter((e) => routeIsIndexable(new URL(e.url).pathname))
+    .filter((e) => !seen.has(e.url) && !!seen.add(e.url));
 }

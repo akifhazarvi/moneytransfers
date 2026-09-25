@@ -68,7 +68,7 @@ He also leads outreach with publishers, diaspora communities and financial educa
     initials: "AI",
     bio: `Awais Imran is the editor-in-chief of SendMoneyCompare, responsible for the editorial side of the platform: provider reviews, comparison articles, corridor guides, and the blog.
 
-Awais writes and maintains the in-depth reviews of the ${COVERAGE.providers} featured on the site, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. He runs the hand-tested transfers behind those reviews — each one documented, with its corridors and dates, in the "how we tested" section of the review it supports — to verify fee structures, exchange rate markups and delivery speeds against what providers advertise. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
+Awais writes and maintains the site's in-depth provider reviews, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. He runs the hand-tested transfers behind those reviews — each one documented, with its corridors and dates, in the "how we tested" section of the review it supports — to verify fee structures, exchange rate markups and delivery speeds against what providers advertise. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
 
 His editorial process involves running real test quotes against provider calculators, cross-referencing the platform's live scraped data, and updating reviews when providers change pricing, expand coverage, or launch new features. Every review is fact-checked against the platform's own data before publication.
 
@@ -81,12 +81,13 @@ Awais holds a degree in English and Communications and is based in London, Unite
       "Blog and SEO content production",
     ],
     credentials: [
-      // Deliberately hand-typed, not SITE_STATS: authors.ts is imported by
-      // about/[author]/opengraph-image, which runs on the edge, and site-stats
-      // pulls in unified-quotes. That import is what blew the 2 MB edge bundle
-      // cap and failed six production deploys. "50+" is true at 55 curated
-      // reviews; check it by hand if that count ever drops.
-      "Writes and maintains reviews for 50+ money transfer providers",
+      // No count here. The round-2 SEO brief (2026-09-24) found four provider
+      // counts across the site; this line said "reviews for 50+ providers"
+      // while the site holds 55 provider profiles and 17 full editorial
+      // reviews. The defined terms live in site-stats.ts (providers with live
+      // quotes / provider profiles / full reviews); a credential need not
+      // restate one.
+      `Writes and maintains the site's full provider reviews and the comparison data behind ${COVERAGE.providers} tracked`,
       "Hand-tested transfers documented per provider in every review",
       "Produces corridor guides and explainers across SendMoneyCompare",
       "Editorial background with focus on financial services content",

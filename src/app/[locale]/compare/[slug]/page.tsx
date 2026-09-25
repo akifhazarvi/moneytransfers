@@ -825,18 +825,10 @@ function DefaultComparison({
                     </Link>
                   </li>
                 ))}
-              </ul>
-            </Card>
-
-            {/* Explore more */}
-            <Card className="!p-4">
-              <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Explore</h3>
-              <ul className="space-y-2">
-                <li><Link href="/send-money/usa-to-india" className="text-2sm text-[var(--color-primary)] hover:underline">USA to India transfers</Link></li>
-                <li><Link href="/send-money/usa-to-pakistan" className="text-2sm text-[var(--color-primary)] hover:underline">USA to Pakistan transfers</Link></li>
-                <li><Link href="/guides/cheapest-way-to-send-money-internationally" className="text-2sm text-[var(--color-primary)] hover:underline">Cheapest way to send money</Link></li>
-                <li><Link href="/guides/exchange-rate-markup-explained" className="text-2sm text-[var(--color-primary)] hover:underline">Exchange rates explained</Link></li>
-                <li><Link href="/compare" className="text-2sm text-[var(--color-primary)] hover:underline">All comparisons</Link></li>
+                {/* The fixed "Explore" card that followed (five links, the
+                    same on all 52 comparisons) was removed 2026-09-24 as
+                    repeated furniture; its hub link lives on here. */}
+                <li><Link href="/compare" className="text-2sm font-medium text-[var(--color-primary)] hover:underline">All comparisons →</Link></li>
               </ul>
             </Card>
           </div>

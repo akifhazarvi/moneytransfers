@@ -85,6 +85,12 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
                   above an affiliate partner if it offers a better deal.
                 </p>
                 <p>
+                  Comparison tables are ordered by what your recipient receives.
+                  Where two payouts land within 0.1% of each other — less than
+                  rates typically move between our updates — the provider with
+                  the higher customer rating is listed first.
+                </p>
+                <p>
                   Affiliate commissions fund our operations — including data
                   collection, engineering, editorial research, and server costs —
                   so we can continue offering the comparison service for free.

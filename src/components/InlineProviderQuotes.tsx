@@ -151,11 +151,12 @@ export default function InlineProviderQuotes({
 
       <footer className="inline-quotes-footer">
         {savings > 0 && <p>Payouts differ by <strong>{recvSymbol}{formatAmount(savings)} {to}</strong> among the priced options shown.</p>}
-        <p>Ranked by payout, with customer ratings breaking ties within {MATERIALITY_BAND_PCT}%. Indicative estimates are listed last.</p>
-        <p>{freshness.oldest && !freshness.undated
-          ? <>Oldest pricing observation: <time dateTime={freshness.oldest}>{new Date(freshness.oldest).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}</time>. </>
-          : "Pricing dates are not available for every option. "}
-          Rates and fees may change; confirm with the provider. We may earn a commission from provider links; this does not affect rankings.</p>
+        {/* Same facts as before, fewer words: this caption renders under every
+            inline table, and its 45 words were repeated verbatim site-wide. */}
+        <p>Ranked by payout; ratings break ties within {MATERIALITY_BAND_PCT}%, estimates listed last. {freshness.oldest && !freshness.undated
+          ? <>Priced <time dateTime={freshness.oldest}>{new Date(freshness.oldest).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}</time> or later — </>
+          : "Some options are undated — "}
+          confirm with the provider. Commissions never affect the order.</p>
       </footer>
     </aside>
     </>

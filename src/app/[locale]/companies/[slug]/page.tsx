@@ -143,17 +143,9 @@ export default async function CompanyPage({ params }: Props) {
             })),
           ],
         },
-        {
-          title: "Guides & tools",
-          links: [
-            { href: "/compare-money-transfer", label: "Compare money transfer services" },
-            { href: "/send-money", label: "Compare all providers" },
-            { href: "/guides/how-to-send-money-abroad", label: "How to send money abroad" },
-            { href: "/guides/cheapest-way-to-send-money-internationally", label: "Cheapest way to send money" },
-            { href: "/guides/money-transfer-safety-guide", label: "Are money transfer companies safe?" },
-            { href: "/guides/exchange-rate-markup-explained", label: "Exchange rates explained" },
-          ],
-        },
+        // The "Guides & tools" column was removed 2026-09-24: six identical
+        // links on every provider page, all already in the site footer, and
+        // one of the most repeated blocks in the round-2 duplication audit.
       ]}
     />
   );
@@ -384,9 +376,8 @@ function DefaultReview({
                   measured. Say whose figures they are instead. Cost IS measured
                   and is stated separately in the comparison. */}
               <p className="mt-4 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
-                These details are {provider.name}&rsquo;s own published terms, recorded by our editors
-                rather than measured by our price collection. Limits and available methods vary by
-                country and account, so confirm them with {provider.name} before you send.
+                Published by {provider.name}, not measured by us — limits and methods vary by
+                country, so confirm before you send.
               </p>
             </Card>
           </div>
@@ -462,7 +453,7 @@ function DefaultReview({
               Ready to send with {provider.name}?
             </p>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
-              Rates move between providers and between days. Check your own corridor and amount before you commit.
+              Check today&rsquo;s price on your own route first.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">

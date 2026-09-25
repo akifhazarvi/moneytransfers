@@ -1,10 +1,9 @@
 import Breadcrumb from "@/components/Breadcrumb";
-import { SITEMAP_NEWS_SLUGS } from "@/lib/sitemap-allowlists";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
-import { newsItems, getNewsItem, getLatestNews } from "@/data/news";
+import { newsItems, getNewsItem } from "@/data/news";
 import { getProviderName } from "@/data/providers";
 import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";
@@ -14,6 +13,7 @@ import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import { renderDataTokens } from "@/lib/ratings-tokens";
+import { newsIsIndexable } from "@/lib/seo-indexing";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -76,7 +76,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // `index, follow` while the sitemap carried a subset — the contradictory
     // signal implicated in the May 8 deindex. Pages stay built and internally
     // linked; promote into SITEMAP_NEWS_SLUGS to make one indexable.
-    ...(locale === "en" && !SITEMAP_NEWS_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
+    // 2026-09-24: plus the articles the round-2 freelance brief opened.
+    ...(locale === "en" && !newsIsIndexable(slug) && { robots: { index: false, follow: true } }),
   };
 }
 
@@ -101,7 +102,18 @@ export default async function NewsArticlePage({ params }: Props) {
   const item = getNewsItem(slug);
   if (!item) notFound();
 
-  const related = getLatestNews(4).filter((n) => n.slug !== slug).slice(0, 3);
+  // The articles published either side of this one, not the latest three:
+  // "latest" put the same three titles in the sidebar of every article, a
+  // shared block the round-2 SEO audit counted on each news page.
+  const related = (() => {
+    const byDate = [...newsItems].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+    const at = byDate.findIndex((n) => n.slug === slug);
+    const out: typeof newsItems = [];
+    for (let d = 1; out.length < 3 && d < byDate.length; d++) {
+      for (const j of [at - d, at + d]) if (out.length < 3 && byDate[j]) out.push(byDate[j]);
+    }
+    return out;
+  })();
 
   return (
     <div className="bg-[var(--color-surface)] min-h-screen">
@@ -256,7 +268,7 @@ export default async function NewsArticlePage({ params }: Props) {
               {/* Latest news */}
               {related.length > 0 && (
                 <div>
-                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-4">Latest News</h3>
+                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-4">More from the news desk</h3>
                   <div className="space-y-3">
                     {related.map((n) => (
                       <Link key={n.slug} href={`/news/${n.slug}`} className="block group">

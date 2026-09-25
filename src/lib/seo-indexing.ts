@@ -19,7 +19,7 @@
  * answer different questions.
  */
 
-import { SITEMAP_RATE_HISTORY_SLUGS } from "./sitemap-allowlists";
+import { SITEMAP_RATE_HISTORY_SLUGS, SITEMAP_NEWS_SLUGS } from "./sitemap-allowlists";
 
 /** IBAN country pages that should NOT be noindexed (broader than sitemap). */
 export const INDEXED_IBAN_SLUGS = new Set<string>([
@@ -106,6 +106,7 @@ export const INDEXED_HISTORY_SLUGS = SITEMAP_RATE_HISTORY_SLUGS;
  */
 import indexableRoutes from "@/data/scraped/indexable-routes.json";
 import { RANKING_CORRIDOR_SLUGS } from "./ranking-corridors";
+import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 
 /**
  * Routes measured under the duplication threshold, plus the exempt families.
@@ -168,7 +169,21 @@ export function routeIsIndexable(pathname: string): boolean {
   const corridor = path.startsWith("/send-money/") ? path.slice("/send-money/".length) : "";
   if (corridor && RANKING_CORRIDOR_SLUGS.has(corridor)) return true;
 
+  // 2026-09-24: routes the round-2 freelance brief opened for indexing. Owner
+  // decision that the brief outranks the duplication measure for these paths.
+  // See src/data/reviewed-indexable-routes.ts.
+  if (REVIEWED_INDEXABLE_ROUTES.has(path)) return true;
+
   return alwaysIndexable(path) || INDEXABLE.has(path);
+}
+
+/**
+ * News articles: indexable when the demand allowlist carries them or the
+ * round-2 freelance brief opened them. Shared by the article route and
+ * sitemap.ts so the two cannot disagree.
+ */
+export function newsIsIndexable(slug: string): boolean {
+  return SITEMAP_NEWS_SLUGS.has(slug) || REVIEWED_INDEXABLE_ROUTES.has(`/news/${slug}`);
 }
 
 /** Metadata `robots` value for a path: undefined when indexable. */
@@ -177,42 +192,14 @@ export function robotsFor(pathname: string): { index: false; follow: true } | un
 }
 
 export function shouldNoindexPath(pathname: string): boolean {
-  // Policy first: anything outside the indexable surface gets the header.
-  if (!routeIsIndexable(pathname)) return true;
-
-  const parts = pathname.replace(/^\/+/, "").split("/");
-  const top = parts[0];
-  if (!top) return false;
-
-  // Currency converter: RESTORED Jun 22 2026 after the Bing/AI export showed
-  // 1,410 Bing impr + 1,389 AI citations landing on it post-retirement. Now
-  // promoted + indexed again, so no noindex rule here.
-
-  // Crypto cash-out cluster — noindexed 2026-09-01 (thin + zero demand).
-  // Mirrors the page metadata so crawlers get the signal in the header without
-  // rendering the HTML. See src/app/[locale]/cash-out/page.tsx for the data.
-  if (top === "cash-out") return true;
-
-  if (top === "iban" && parts[1] && !INDEXED_IBAN_SLUGS.has(parts[1])) {
-    return true;
-  }
-
-  if (top === "swift-codes" && parts[1] && !INDEXED_SWIFT_SLUGS.has(parts[1])) {
-    return true;
-  }
-
-  if (
-    top === "exchange-rates" &&
-    parts[1] === "history" &&
-    parts[2] &&
-    !INDEXED_HISTORY_SLUGS.has(parts[2])
-  ) {
-    return true;
-  }
-
-  // Tier-3 / single-provider corridor pages can't be detected from the
-  // pathname alone (needs scraped quote data). The corridor page metadata
-  // handles those; middleware would only short-circuit the easy cases.
-
-  return false;
+  // The header mirrors the page-level robots exactly — it is the same predicate
+  // robotsFor() uses. It used to add its own family rules on top (cash-out,
+  // non-allowlisted IBAN/SWIFT, rate history) on the theory that over-flagging
+  // was harmless because "page metadata determines real index/noindex". It is
+  // not harmless: Google honours an X-Robots-Tag noindex as binding, so a page
+  // whose meta said `index` while the header said `noindex` was simply
+  // noindexed. The 2026-09-24 re-check found three /swift-codes pages in
+  // exactly that state. Family rules now live in routeIsIndexable() or in the
+  // page metadata, never here alone.
+  return !routeIsIndexable(pathname);
 }

@@ -39,7 +39,7 @@
 .conversion-result-details p { margin-bottom: 12px; }
 .conversion-text-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; min-height: 44px; }
 .conversion-spotlight { margin: 24px 0; padding: 28px; border-radius: 24px; border: 1px solid var(--color-outline); background: var(--color-surface); color: var(--color-on-surface); }
-.conversion-spotlight h2 { font-size: 24px !important; font-weight: 600; letter-spacing: -.035em; line-height: 1.2; margin: 5px 0 0 !important; }
+.conversion-spotlight h2, .conversion-spotlight .conversion-spotlight-title { font-size: 24px !important; font-weight: 600; letter-spacing: -.035em; line-height: 1.2; margin: 5px 0 0 !important; }
 .conversion-spotlight > p { font-size: 14px; line-height: 1.7; color: var(--color-on-surface-variant); margin: 16px 0; max-width: 760px; }
 .conversion-spotlight-quote { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 20px; background: var(--color-surface-dim); border-radius: 16px; margin: 20px 0; }
 .conversion-spotlight-quote div:last-of-type { text-align: right; }

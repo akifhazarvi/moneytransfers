@@ -21,7 +21,7 @@ import { currencies, getProviderName } from "@/data/providers";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
-import { INDEXED_HISTORY_SLUGS } from "@/lib/seo-indexing";
+import { robotsFor } from "@/lib/seo-indexing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { rateHistoryPageRenders } from "@/lib/route-map-rates";
 
@@ -79,18 +79,10 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
       images: DEFAULT_OG_IMAGES,
     },
     keywords: t("fallbackKeywords", tplParams),
-    // seo-indexing.ts declares "rate history pages: noindex set IS the sitemap
-    // set", but this route never consulted it — so all 12 prerendered history
-    // pages served `index` while the sitemap submitted none of them. That
-    // index:yes / sitemap:no contradiction is what the May 8 2026 deindex was
-    // traced to, and it is the one indexing rule the repo states and did not
-    // apply. English only: other locales are noindexed below regardless.
-    ...(locale === "en" && !INDEXED_HISTORY_SLUGS.has(pair) && { robots: { index: false, follow: true } }),
-    ...(locale !== "en" && { robots: { index: false, follow: true } }),
-    // 2026-09-20: templated child page — noindex by policy. The submitted
-    // set is the editorial + hub surface only; see routeIsIndexable() in
-    // src/lib/seo-indexing.ts, which noindexes the same paths in the header.
-    robots: { index: false, follow: true },
+    // 2026-09-24: opened by the round-2 freelance brief (owner decision) —
+    // robots now comes from routeIsIndexable(), the same predicate that drives
+    // the X-Robots-Tag header and sitemap membership.
+    robots: locale === "en" ? robotsFor(`/exchange-rates/history/${pair}`) : { index: false, follow: true },
   };
 }
 
@@ -301,7 +293,16 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
                   </svg>
                 </summary>
                 <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  Based on our {insight.totalDays}-day tracking, {insight.providerBadges.find((b) => b.type === "best-rate")?.detail || `${getProviderName(insight.today.bestProvider)} frequently offers the best rate`}. Today, {getProviderName(insight.today.bestProvider)} leads with a rate of {insight.today.bestRate.toFixed(4)} {to}.
+                  Based on our {insight.totalDays}-day tracking, {(() => {
+                    // The badge detail is a predicate with no subject ("Had the
+                    // best receive amount on 98 out of…"), written for display
+                    // under a provider logo. Spliced into prose it read "…tracking,
+                    // Had the best…" on every history page. Name the provider.
+                    const best = insight.providerBadges.find((b) => b.type === "best-rate");
+                    return best
+                      ? `${getProviderName(best.providerSlug)} ${best.detail.charAt(0).toLowerCase()}${best.detail.slice(1)}`
+                      : `${getProviderName(insight.today.bestProvider)} frequently offers the best rate`;
+                  })()}. Today, {getProviderName(insight.today.bestProvider)} leads with a rate of {insight.today.bestRate.toFixed(4)} {to}.
                 </p>
               </details>
               <details className="group py-4">

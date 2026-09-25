@@ -153,7 +153,7 @@ export default async function HowWeReviewPage({ params }: Props) {
                     process and not a scoring criterion below.
                   </li>
                   <li>
-                    <strong>Scoring:</strong> Each provider is scored across six
+                    <strong>Scoring:</strong> Each provider is scored across five
                     weighted criteria (detailed below) to produce an overall
                     rating from 1.0 to 5.0.
                   </li>

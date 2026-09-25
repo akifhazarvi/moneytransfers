@@ -33,6 +33,7 @@ import { getAuthor } from "@/data/authors";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { fitTitle, seoDescription } from "@/lib/seo-title";
 import { COVERAGE } from "@/lib/site-stats";
+import { robotsFor } from "@/lib/seo-indexing";
 
 export const revalidate = 86400; // 24h — content is editorial, not live
 
@@ -73,13 +74,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description: seoDescription(description),
     alternates: getAlternates(`travel/${country}`, locale),
-    // Noindex 2026-06-21: the entire /travel/* family (11 pages) ships
-    // index:yes but is NOT in the sitemap and earns 0 Bing + 0 GSC impressions
-    // — the same "sitemap=no / robots=index" contradiction that contributed to
-    // the May 8 deindex. Pages still render and stay crawlable via internal
-    // links (follow:true); they're just no longer offered to the index.
-    // Promote out of noindex (and into sitemap) if any earns ≥5 impressions.
-    robots: { index: false, follow: true },
+    // 2026-09-24: opened by the round-2 freelance brief (owner decision) —
+    // robots now comes from routeIsIndexable(), the same predicate that drives
+    // the X-Robots-Tag header and sitemap membership.
+    robots: locale === "en" ? robotsFor(`/travel/${country}`) : { index: false, follow: true },
     openGraph: {
       title,
       description,

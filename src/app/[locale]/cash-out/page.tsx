@@ -8,6 +8,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { CASHOUT_COUNTRIES } from "@/data/cashout-countries";
 import { getCountryOfframps } from "@/lib/crypto-rails";
+import { robotsFor } from "@/lib/seo-indexing";
 
 export const revalidate = 21600;
 
@@ -25,14 +26,10 @@ export async function generateMetadata({
   return {
     title: TITLE,
     description: DESCRIPTION,
-    // noindex 2026-09-01: the cluster is genuinely unique (12.2% intra-family
-    // 8-gram similarity — hand-authored, not templated) but thin at ~550 body
-    // words, and a live 90-day pull shows 15 GA4 sessions, 1 key event and ZERO
-    // Google impressions across all 7 pages. Thin plus no demand is exactly the
-    // profile that fed the Mar 20 scaled-content suppression. Pages stay live
-    // and internally linked so the existing traffic and AI citations continue —
-    // they simply leave the index. Promote back if a page earns real demand.
-    robots: { index: false, follow: true },
+    // 2026-09-24: opened by the round-2 freelance brief (owner decision) —
+    // robots now comes from routeIsIndexable(), the same predicate that drives
+    // the X-Robots-Tag header and sitemap membership.
+    robots: locale === "en" ? robotsFor("/cash-out") : { index: false, follow: true },
     alternates: getAlternates("cash-out", locale),
     openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/cash-out`, type: "website",
       images: DEFAULT_OG_IMAGES,

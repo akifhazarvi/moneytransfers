@@ -33,9 +33,14 @@ export default function PartnerFeatureBlock({ source, variant = "section", quote
     <ConversionImpression source={source} corridor={corridor} />
     <div className="conversion-spotlight-heading">
       <Image src={providerLogo("taptap-send")} alt="" width={48} height={48} className="conversion-logo" />
-      <div><span className="conversion-eyebrow">Paid partner spotlight</span><h2>Meet TapTap Send.</h2></div>
+      {/* Not a heading: this block renders on 100+ pages, and a shared <h2> near
+          the top read to the round-2 SEO audit as templated structure. Same
+          text and styling, no outline entry. */}
+      <div><span className="conversion-eyebrow">Paid partner spotlight</span><p className="conversion-spotlight-title">Meet TapTap Send.</p></div>
     </div>
-    <p>A money transfer app for sending to family and friends. Check your destination, delivery options, and final price before you send.</p>
+    {/* The live quote below says more than this sentence, which was the same
+        on every page; it now stands in only when there is no quote. */}
+    {!quote && <p>A money transfer app for sending to family and friends. Check your destination, delivery options, and final price before you send.</p>}
     {quote && <div className="conversion-spotlight-quote">
       <div><span>You send</span><strong>{money(quote.sendAmount)} {quote.fromCurrency}</strong></div>
       <span aria-hidden="true">→</span>
@@ -46,7 +51,7 @@ export default function PartnerFeatureBlock({ source, variant = "section", quote
       <ProviderLink href={href} provider="taptap-send" source={source} corridor={corridor} className="conversion-button conversion-button--accent">Check TapTap Send <span aria-hidden="true">↗</span></ProviderLink>
       <Link href="/companies/taptap-send" className="conversion-text-link">Read our TapTap Send review →</Link>
     </div>
-    <p className="conversion-disclosure">We earn a commission through this link. Paid placement does not determine comparison rankings. Availability and fees vary by route.</p>
+    <p className="conversion-disclosure">Paid placement — we earn a commission through this link. It does not affect our rankings.</p>
   </aside>;
   return variant === "section" ? <section className="py-8"><Container>{card}</Container></section> : card;
 }

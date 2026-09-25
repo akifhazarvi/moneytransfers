@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { getLatestNews, newsItems } from "@/data/news";
-import { SITEMAP_NEWS_SLUGS } from "@/lib/sitemap-allowlists";
+import { newsIsIndexable } from "@/lib/seo-indexing";
 import { formatLocalDate } from "@/lib/format-date";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -42,7 +42,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
   // than raising the cap and keeps the visual hierarchy of the hub intact.
   const shownSlugs = new Set(latest.map((i) => i.slug));
   const archive = newsItems
-    .filter((i) => SITEMAP_NEWS_SLUGS.has(i.slug) && !shownSlugs.has(i.slug))
+    .filter((i) => newsIsIndexable(i.slug) && !shownSlugs.has(i.slug))
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
   return (

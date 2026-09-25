@@ -142,6 +142,14 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   already having been found. Read `shouldNoindex()` in `corridor-tiers.ts` before
   concluding the hub link block or those pages are a bug; the reasoning is there,
   and it is the same chicken-and-egg argument that governs guide promotion.
+- **Reviewed routes override the duplication gate (2026-09-24).**
+  `src/data/reviewed-indexable-routes.ts` holds the 234 URLs the round-2
+  freelance technical-SEO brief opened; owner decision that the brief outranks
+  the 2026-09-20 measured-duplication gate for these paths.
+  `routeIsIndexable()` admits them, so robots meta, `X-Robots-Tag` (which now
+  mirrors `routeIsIndexable()` exactly — no extra family rules in middleware)
+  and sitemap membership agree. URLs in the brief that are 301/404/410 were
+  deliberately left out.
 - **Sitemap membership is gated on demand data, not judgement** — Bing
   Webmaster Tools (≥5 impressions/90d) post-deindex, since the site wins on
   Bing/AI assistants and Google is the failing channel. Allowlists live in

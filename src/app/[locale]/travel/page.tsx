@@ -7,6 +7,7 @@ import Card from "@/components/Card";
 import CircleFlag from "@/components/CircleFlag";
 import { travelGuides } from "@/data/travel-guides";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { robotsFor } from "@/lib/seo-indexing";
 
 export const revalidate = 86400;
 
@@ -21,11 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description:
       seoDescription("Country travel guides from SendMoneyCompare — currency basics, the best way to exchange money, eSIM picks, cash vs card norms, culture dos and don'ts, and practical travel info. Built for travelers who care about not overpaying."),
     alternates: getAlternates("travel", locale),
-    // Every /travel/[country] page is deliberately noindexed and the cluster is
-    // off the sitemap, but this hub served `index` and was unsubmitted — the
-    // same contradiction, one level up. A hub whose entire subtree is noindexed
-    // has nothing indexable to point at, so it matches its children.
-    robots: { index: false, follow: true },
+    // 2026-09-24: opened by the round-2 freelance brief (owner decision) —
+    // robots now comes from routeIsIndexable(), the same predicate that drives
+    // the X-Robots-Tag header and sitemap membership.
+    robots: locale === "en" ? robotsFor("/travel") : { index: false, follow: true },
   };
 }
 
