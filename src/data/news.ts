@@ -289,7 +289,7 @@ export const newsItems: NewsItem[] = [
     slug: "embedded-finance-regulation-tightening-2026",
     title: "US Regulators Turn Their Attention to Embedded Finance as Transaction Volumes Soar",
     excerpt:
-      "With embedded finance transactions projected to exceed $7 trillion in 2026, regulators are scrutinising the sector — but most firms say tighter rules will actually help.",
+      "Embedded finance puts an app between customers and financial institutions. A marketplace payout example explains why regulation focuses on who holds funds and handles failures.",
     image: "/images/news/embedded-finance-regulation.jpg",
     imageAlt: "A statue beside the European Union flag, symbolising regulatory oversight of embedded finance",
     content: `<p>The embedded finance sector — companies that weave financial services like payments, lending, and insurance into non-financial apps and platforms — is bracing for increased regulatory oversight in the United States. And somewhat counterintuitively, most players in the space say they welcome it.</p>
@@ -297,15 +297,21 @@ export const newsItems: NewsItem[] = [
 <h2>The scale demands attention</h2>
 <p>Transaction volumes flowing through embedded finance platforms are projected to exceed $7 trillion in 2026, according to industry estimates. That's roughly the GDP of Japan passing through technology layers that sit between consumers and regulated financial institutions. For regulators accustomed to direct oversight of banks and licensed money transmitters, the intermediary layer presents novel challenges around consumer protection, data privacy, and operational resilience.</p>
 
-<h2>Why the industry isn't fighting it</h2>
-<p>A survey of embedded finance firms published by PYMNTS found that a majority view additional regulation positively. The reasoning is pragmatic: clearer rules reduce uncertainty, make it easier to form partnerships with banks, and create barriers to entry that benefit established players. "We'd rather have rules we can plan around than ambiguity that makes banks nervous about working with us," one fintech executive noted.</p>
+<h2>The supervisory issue predates this year's market forecasts</h2>
+<p>On 25 July 2024, the FDIC, Federal Reserve and OCC issued a <a href="https://www.fdic.gov/news/financial-institution-letters/2024/agencies-issue-statement-bank-arrangements-third-parties" target="_blank" rel="noopener noreferrer">joint statement about banks using third parties to deliver deposit products</a>. It describes potential risks and risk-management practices. The statement itself says it does not create new requirements or supervisory expectations. It should not be described as a new 2026 rule simply because embedded finance remains in the news.</p>
+
+<h2>A marketplace payout shows why the division of responsibility matters</h2>
+<p>Consider a hypothetical contractor who sees a $1,200 balance in a marketplace app and requests payment to an overseas bank account. That screen alone does not tell the contractor whether the amount is available for withdrawal, whether a currency conversion has been booked, or whether the bank has received a payment instruction.</p>
+<p>Our practical reading is to ask three separate questions. Which legal entity owes the displayed balance? Which company supplies the exchange-rate quote? Which support team can trace or reverse the payout instruction? A single app can present all three steps while different organisations perform them behind the scenes.</p>
+<p>If the withdrawal fails, save the marketplace balance entry, the conversion confirmation and the payout reference. Ask support which step failed and whether the money returned in the original currency. The point of this example is responsibility and reconciliation, not an allegation about any named platform or a claim that every app uses the same structure.</p>
 
 <h2>Connections to cross-border payments</h2>
 <p>Embedded finance intersects directly with international money transfers. Services like <a href="/companies/wise">Wise</a> Platform and <a href="/companies/paypal">PayPal</a>'s Braintree allow non-financial companies to embed cross-border payment capabilities into their own products — think freelance marketplaces paying contractors abroad, or e-commerce platforms handling cross-border seller payouts. Regulatory clarity in this space could accelerate adoption of embedded remittance solutions, bringing competition and lower costs to corridors that traditional providers have long dominated. Our <a href="/guides/business-international-payments-guide">guide to international business payments</a> explains the practical options available to companies today, while our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> covers what regulatory protections to look for when choosing a provider.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-07",
-    source: "PYMNTS",
-    sourceUrl: "https://www.pymnts.com/",
+    updatedAt: "2026-09-24",
+    source: "FDIC, Federal Reserve and OCC joint statement; industry context",
+    sourceUrl: "https://www.fdic.gov/news/financial-institution-letters/2024/agencies-issue-statement-bank-arrangements-third-parties",
     providerSlugs: ["wise", "paypal"],
   },
   {
