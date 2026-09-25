@@ -16586,16 +16586,16 @@
     "date": "2026-09-25",
     "providers": {
       "moneygram": {
-        "rate": 315.2984,
+        "rate": 316.3391,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 31217.7
+        "receiveAmount": 31320.74
       },
       "skrill": {
-        "rate": 300.3395,
+        "rate": 301.5168,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 30033.95
+        "receiveAmount": 30151.68
       },
       "taptap-send": {
         "rate": 315.2,
@@ -16610,10 +16610,10 @@
         "receiveAmount": 22091.46
       },
       "western-union": {
-        "rate": 309.7126,
+        "rate": 310.4675,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 30664.65
+        "receiveAmount": 30739.39
       },
       "dahabshiil": {
         "rate": 316.6109,
@@ -16634,10 +16634,10 @@
         "receiveAmount": 30405.25
       },
       "instarem": {
-        "rate": 313.0032,
+        "rate": 314.6151,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 31300.32
+        "receiveAmount": 31461.51
       },
       "xe": {
         "rate": 313.0859,
@@ -16658,10 +16658,10 @@
         "receiveAmount": 30966.98
       },
       "remitly": {
-        "rate": 313.76,
+        "rate": 314.41,
         "fee": 1.99,
-        "markup": 0.5,
-        "receiveAmount": 30751.62
+        "markup": null,
+        "receiveAmount": 30815.32
       },
       "revolut": {
         "rate": 313.6275,
@@ -16676,10 +16676,10 @@
         "receiveAmount": 32581
       },
       "wise": {
-        "rate": 315.077,
+        "rate": 316.006,
         "fee": 1.9,
         "markup": null,
-        "receiveAmount": 30909.05
+        "receiveAmount": 31000.19
       }
     }
   }
