@@ -1406,16 +1406,10 @@ const rawBlogPosts: BlogPost[] = [
 <p>When both transfers arrive, reconcile the two credits to the agreed ₹30,000 obligation. If one service deducted a fee from the amount converted instead of adding it to the debit, that sender may have purchased a smaller payout than intended. Using the exact recipient-amount field, where available, makes this difference visible before payment.</p>`,
       },
       {
-        heading: "What You Need for an India Transfer",
-        content: `<p>To send money to a bank account in India, you need:</p>
-<ul>
-<li><strong>Recipient's full name</strong> (as per their bank account)</li>
-<li><strong>Bank name</strong></li>
-<li><strong>Account number</strong> (typically 9–18 digits)</li>
-<li><strong>IFSC code</strong> — An 11-character code (e.g., SBIN0001234) that identifies the specific bank branch. Your recipient can find this on their cheque book or bank statement.</li>
-</ul>
-<p>India does not use IBANs. The IFSC code is the Indian equivalent for routing transfers. For transfers involving bank account numbers in other countries, see our <a href="/guides/iban-numbers-explained">IBAN numbers guide</a>.</p>
-<p>For more on how to compare providers and avoid common mistakes, read our <a href="/guides/how-to-send-money-abroad">complete guide to sending money abroad</a>.</p>`,
+        heading: "Build a beneficiary record for the account you intend to pay",
+        content: `<p>Ask the recipient for their current bank-issued account details before creating a saved beneficiary. Enter the account holder's name, account number and IFSC in the separate fields the provider requests. Do not paste an account number into the branch-code field or assume a code saved for another family member belongs to this account.</p>
+<p><a href="https://www.npci.org.in/what-we-do/imps/fir-through-imps" target="_blank" rel="noopener noreferrer">NPCI's description of IMPS inward remittances</a> identifies the account number and IFSC as the routing details for that domestic payout leg. Those details should come from the receiving account's instructions. A sample code in an explanatory article is not a payment instruction for your beneficiary.</p>
+<p>If a parent changes branches or asks you to use a different account, confirm the new record before sending a recurring allowance. Label saved beneficiaries so you can distinguish, for example, a parent's household account from the account used for a tuition invoice. Review the displayed recipient once more on the final confirmation; selecting a familiar bank name alone does not identify the intended account.</p>`,
       },
       {
         heading: "Delivery Options and Speed",
