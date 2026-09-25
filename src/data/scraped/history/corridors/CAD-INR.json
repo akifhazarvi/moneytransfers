@@ -18158,10 +18158,10 @@
     "date": "2026-09-25",
     "providers": {
       "moneygram": {
-        "rate": 67.193,
+        "rate": 67.1337,
         "fee": 3.99,
-        "markup": 1.19,
-        "receiveAmount": 6451.2
+        "markup": 0.91,
+        "receiveAmount": 6445.51
       },
       "western-union": {
         "rate": 67.6773,
@@ -18182,16 +18182,16 @@
         "receiveAmount": 6728.49
       },
       "paysend": {
-        "rate": 67.8101,
+        "rate": 67.5672,
         "fee": 0,
-        "markup": 0.28,
-        "receiveAmount": 6781.01
+        "markup": 0.27,
+        "receiveAmount": 6756.72
       },
       "koho": {
-        "rate": 67.9893,
+        "rate": 67.7433,
         "fee": 1.26,
-        "markup": 0.02,
-        "receiveAmount": 6713.26
+        "markup": 0.01,
+        "receiveAmount": 6688.97
       },
       "remitly": {
         "rate": 67.4685,
@@ -18200,10 +18200,10 @@
         "receiveAmount": 6612.59
       },
       "ria": {
-        "rate": 67.5495,
+        "rate": 67.3977,
         "fee": 1.9,
         "markup": null,
-        "receiveAmount": 6908.3
+        "receiveAmount": 6923.48
       },
       "taptap-send": {
         "rate": 68,
@@ -18234,6 +18234,12 @@
         "fee": 2.57,
         "markup": null,
         "receiveAmount": 6605.5
+      },
+      "dahabshiil": {
+        "rate": 67.1321,
+        "fee": 2.99,
+        "markup": 0.91,
+        "receiveAmount": 6512.49
       }
     }
   }

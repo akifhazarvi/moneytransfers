@@ -14222,10 +14222,10 @@
     "date": "2026-09-25",
     "providers": {
       "moneygram": {
-        "rate": 48.4285,
+        "rate": 48.3721,
         "fee": 6,
-        "markup": 1.29,
-        "receiveAmount": 4552.28
+        "markup": 1.03,
+        "receiveAmount": 4546.98
       },
       "skrill": {
         "rate": 46.7188,
@@ -14240,10 +14240,10 @@
         "receiveAmount": 4712.93
       },
       "currencyfair": {
-        "rate": 48.725,
-        "fee": 1.64,
-        "markup": 0.68,
-        "receiveAmount": 4792.59
+        "rate": 48.525,
+        "fee": 1.65,
+        "markup": 0.72,
+        "receiveAmount": 4772.43
       },
       "instarem": {
         "rate": 48.8624,
@@ -14252,22 +14252,22 @@
         "receiveAmount": 4854.48
       },
       "singx": {
-        "rate": 48.9018,
+        "rate": 48.7258,
         "fee": 3.5,
-        "markup": 0.32,
-        "receiveAmount": 4719.02
+        "markup": 0.31,
+        "receiveAmount": 4702.04
       },
       "remitly": {
-        "rate": 45.53,
+        "rate": 47.92,
         "fee": 3.99,
-        "markup": 7.2,
-        "receiveAmount": 4371.34
+        "markup": 1.96,
+        "receiveAmount": 4600.8
       },
       "revolut": {
-        "rate": 49.0628,
+        "rate": 48.8489,
         "fee": 1.2,
-        "markup": 0,
-        "receiveAmount": 4847.41
+        "markup": 0.06,
+        "receiveAmount": 4826.27
       },
       "wise": {
         "rate": 48.9167,
@@ -14276,10 +14276,10 @@
         "receiveAmount": 4840.31
       },
       "ria": {
-        "rate": 48.8416,
+        "rate": 48.6696,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4884.16
+        "receiveAmount": 4866.96
       },
       "paypal": {
         "rate": 46.8064,

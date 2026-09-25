@@ -3404,22 +3404,22 @@
     "date": "2026-09-25",
     "providers": {
       "western-union": {
-        "rate": 23.2871,
+        "rate": 23.4105,
         "fee": 5,
-        "markup": 1.02,
-        "receiveAmount": 2212.27
+        "markup": 0.46,
+        "receiveAmount": 2224
       },
       "worldremit": {
-        "rate": 22.9472,
+        "rate": 22.9523,
         "fee": 5,
-        "markup": 2.46,
-        "receiveAmount": 2179.98
+        "markup": 2.41,
+        "receiveAmount": 2180.47
       },
       "instarem": {
-        "rate": 23.4827,
+        "rate": 23.4628,
         "fee": 0.55,
-        "markup": 0.19,
-        "receiveAmount": 2335.35
+        "markup": 0.24,
+        "receiveAmount": 2333.38
       }
     }
   }
