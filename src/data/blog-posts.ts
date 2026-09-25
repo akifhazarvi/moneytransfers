@@ -1379,55 +1379,31 @@ const rawBlogPosts: BlogPost[] = [
     metaDescription:
       "Compare the cheapest ways to send money to India in 2026. Real INR rates from 10+ providers — UPI, IMPS, bank deposit. USD, GBP, EUR, and AUD corridors.",
     excerpt:
-      "India receives more remittances than any other country. We compared 8 providers across 5 source currencies to find the best way to send money to India.",
+      "Plan an INR payment from the US, UK, Canada or elsewhere: compare the right source currency, agree the rupee payout and reconcile what reaches the recipient.",
     category: "Corridors",
     readTime: "9 min read",
     publishedAt: "2026-03-01",
-    updatedAt: "2026-03-13",
+    updatedAt: "2026-09-25",
     author: "Awais Imran",
     tags: ["India", "INR", "remittance", "USD to INR", "GBP to INR", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
       {
-        heading: "India: The World's Largest Remittance Market",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Specialist apps price this corridor far better than banks — <a href="/companies/wise">Wise</a> (0% markup, ~$7 fee) and <a href="/companies/remitly">Remitly</a> ($0 fee, 0.45% markup). On a $1,000 USD to INR transfer, these providers deliver ₹91,500-91,900 vs ₹89,300 from a typical bank. You'll need the recipient's IFSC code for bank delivery. <a href="/send-money/usa-to-india">Compare live USD to INR rates</a> across 8+ providers.</p></div>
-<p>India is the world's top remittance-receiving country, with over $125 billion in inflows in 2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank's Migration and Remittances data</a>. Millions of people in the US, UK, Canada, Australia, and the Gulf states send money to family in India regularly.</p>
-<p>The Reserve Bank of India (RBI) oversees inbound remittance regulations through its <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Liberalised Remittance Scheme (LRS)</a> framework. The good news: because it's the most competitive corridor, you have more provider options and lower costs than almost any other destination.</p>`,
+        heading: "Begin with the sending country and the rupee obligation",
+        content: `<div class="blog-answer-box"><p><strong>There is no single India price.</strong> An offer to a sender in Canada is a different product from an offer to someone in Britain, even if both payments reach the same Indian account. Select your origin, funding method and amount before using a provider ranking.</p></div>
+<p>This destination guide helps you organise an INR payment. The individual <a href="/guides/send-money-uk-to-india-guide">UK</a>, <a href="/guides/send-money-canada-to-india-guide">Canada</a> and <a href="/guides/send-money-to-india-from-usa-guide">US</a> guides cover their sending-side choices. Decide whether your aim is to spend a fixed local budget or deliver an exact rupee amount: the inputs differ.</p>
+<p>For family support, agree the amount and expected credit date with the recipient. For an invoice, obtain the payee's formal bank instructions and payment reference. The fact that two transfers both go to India does not make their purpose, eligibility or required documentation identical.</p>`,
       },
       {
-        heading: "Best Providers for Sending to India",
-        content: `<h3>From the US (USD → INR)</h3>
-<p>For a $1,000 transfer on the <a href="/send-money/usa-to-india">USA to India corridor</a>, ranked by what the recipient gets (live quotes, {{QUOTE_DATE}}):</p>
-<ul>
-{{QUOTE_LIST:USD:INR:1000:xoom,instarem,remitly,wise}}
-</ul>
-
-<h3>From the UK (GBP → INR)</h3>
-<p>For a £1,000 transfer on the <a href="/send-money/uk-to-india">UK to India corridor</a>:</p>
-<ul>
-<li><strong>Instarem</strong> and <strong>Remitly</strong> compete closely for the top spot</li>
-<li><strong>Wise</strong> offers 0% markup with a small fee</li>
-<li>UK banks like HSBC and Barclays charge 2–3% markup</li>
-</ul>
-
-<h3>From Canada (CAD → INR)</h3>
-<p>The <a href="/send-money/canada-to-india">Canada to India corridor</a> has 9 providers competing. Wise and Instarem are typically cheapest.</p>
-
-<h3>From Australia (AUD → INR)</h3>
-<p>9 providers available. Strong competition keeps costs low — Instarem and Wise lead.</p>
-
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Sending Money to India</h3>
-<table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% exchange rate markup, transparent fee, works across all source currencies</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery in minutes via mobile money or cash pickup</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/xoom">Xoom</a></td><td>$0 fees with among the lowest markups for USD → INR transfers</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
-</div>`,
+        heading: "Compare an offer in its own source currency",
+        content: `<h3>A current USD example</h3>
+<p>Our collected offers for $1,000 on the <a href="/send-money/usa-to-india">US-to-India route</a>, dated {{QUOTE_DATE}}, include:</p>
+<ul>{{QUOTE_LIST:USD:INR:1000:xoom,instarem,remitly,wise}}</ul>
+<p>That list does not rank GBP, CAD or AUD transfers. Start a separate quote on the <a href="/send-money/uk-to-india">GBP→INR</a> or <a href="/send-money/canada-to-india">CAD→INR</a> route if that is the currency you fund with.</p>
+<h3>Two siblings sharing a ₹30,000 expense</h3>
+<p>Imagine each sibling agrees to deliver ₹15,000, one from Canada and one from the US. Using invented rates of ₹60 per CAD and ₹90 per USD, the principals would be C$250 and US$166.67 before fees and provider rounding. Those dollar figures cannot be compared directly: they are different currencies.</p>
+<p>The Canadian sender should compare the total Canadian-dollar cost of delivering ₹15,000 across eligible CAD offers. The US sender should independently compare the US-dollar cost for the same rupee target. Neither should choose a company simply because the other sibling's number looks smaller.</p>
+<p>When both transfers arrive, reconcile the two credits to the agreed ₹30,000 obligation. If one service deducted a fee from the amount converted instead of adding it to the debit, that sender may have purchased a smaller payout than intended. Using the exact recipient-amount field, where available, makes this difference visible before payment.</p>`,
       },
       {
         heading: "What You Need for an India Transfer",
@@ -1451,20 +1427,15 @@ const rawBlogPosts: BlogPost[] = [
 <p>Bank deposits to major banks (SBI, HDFC, ICICI, Axis) are processed faster than smaller regional banks.</p>`,
       },
       {
-        heading: "Tax Implications",
-        content: `<p>Important tax rules for India transfers:</p>
-<ul>
-<li><strong>For the sender</strong>: Sending money as a gift to family in India is generally not taxable for the sender (US, UK, Canada, Australia). The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> and <a href="https://www.cfpb.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> have reporting requirements for large transfers.</li>
-<li><strong>For the recipient in India</strong>: Money received from relatives abroad is tax-free under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
-<li><strong>FBAR/FATCA</strong>: US persons with Indian bank accounts holding over $10,000 may need to file FBAR. Consult a tax professional.</li>
-<li><strong>TCS (Tax Collected at Source)</strong>: When sending FROM India, TCS applies to remittances over ₹10 lakh per year under the LRS scheme — 20% for most purposes, 2% for education or medical remittances, per the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>. It's an advance tax credit, reclaimable when filing an income tax return, not an extra cost.</li>
-</ul>
-<p>This is general information — always consult a tax advisor for your specific situation. For more on safety and regulation, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+        heading: "Document the purpose rather than borrowing another sender’s tax answer",
+        content: `<p>A destination guide cannot settle the tax treatment for a sender in every country and a recipient in every circumstance. Before making a substantial payment, record what it is: a family gift, repayment, payment for services or a movement between your own accounts. Keep the relevant invoice, agreement or explanation with the receipt.</p>
+<p>If you seek tax advice, give the adviser the relationship between sender and recipient, where each is resident, the payment purpose and any related transfers. A rule discussed in a US sending guide should not automatically be carried into a Canadian or UK payment. Likewise, information about taking money out of India is not an explanation of receiving it there.</p>
+<p>Bank and provider checks are another question. Supply the requested purpose and source-of-funds information accurately through the official service. If a transfer is held for review, use its reference when contacting support; changing the description to obtain a faster payout can make the record harder to explain.</p>`,
       },
       {
-        heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> report, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. India-specific data is cross-referenced with the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a>.</p>`,
+        heading: "What this destination guide measures",
+        content: `<p>The USD list above is generated from our quote records for that exact currency pair and amount. It is a snapshot of the providers shown, with collection and ranking limits described in <a href="/methodology">our methodology</a>. It is not evidence that the same ordering holds in another sending country.</p>
+<p>The siblings' shared-expense calculation is hypothetical. Its purpose is to keep CAD, USD and INR amounts separate and show how to reconcile a fixed rupee obligation. For Indian bank payout details, <a href="https://www.npci.org.in/what-we-do/imps/fir-through-imps" target="_blank" rel="noopener noreferrer">NPCI's inward-remittance explanation</a> describes using an account number and IFSC through an authorised provider for the IMPS domestic leg.</p>`,
       },
     ],
     faqs: [
