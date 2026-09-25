@@ -4646,7 +4646,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Corridors",
     readTime: "9 min read",
     publishedAt: "2026-03-15",
-    updatedAt: "2026-03-15",
+    updatedAt: "2026-09-24",
     author: "Awais Imran",
     tags: ["Bangladesh", "BDT", "remittance", "USD to BDT", "bKash", "Nagad", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-bangladesh.jpg",
@@ -4684,50 +4684,22 @@ const rawBlogPosts: BlogPost[] = [
 <p><a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a> to find the best deal on the day you send. Also see <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> for a detailed head-to-head.</p>`,
       },
       {
-        heading: "What You Need for a Bangladesh Transfer",
-        content: `<h3>Bank Deposit</h3>
-<ul>
-<li><strong>Recipient's full name</strong> (as registered with the bank)</li>
-<li><strong>Bank name</strong> — Sonali Bank, Islami Bank Bangladesh, Dutch-Bangla Bank (DBBL), BRAC Bank, Eastern Bank (EBL), or Agrani Bank</li>
-<li><strong>Account number</strong> — typically 13–16 digits depending on the bank</li>
-<li><strong>Branch name and routing number</strong> — Bangladesh uses a 9-digit routing number format</li>
-</ul>
-<p>Bangladesh does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For international wire transfers, you need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a> and the branch routing number.</p>
-
-<h3>bKash (Mobile Financial Service)</h3>
-<ul>
-<li><strong>Recipient's bKash-registered mobile number</strong> (11 digits, starting with 01)</li>
-<li><strong>Recipient's full name</strong></li>
-</ul>
-<p>bKash has over 60 million registered accounts, making it the dominant mobile money platform in Bangladesh.</p>
-
-<h3>Nagad</h3>
-<ul>
-<li><strong>Recipient's Nagad-registered mobile number</strong></li>
-<li><strong>Recipient's full name</strong></li>
-</ul>
-<p>Nagad is Bangladesh's second-largest mobile financial service with rapid growth.</p>
-
-<h3>Cash Pickup</h3>
-<ul>
-<li><strong>Recipient's full name</strong> (must match NID — National Identity Card)</li>
-<li><strong>NID number</strong></li>
-</ul>`,
+        heading: "Choose the receiving account before collecting the details",
+        content: `<p>Ask the recipient where the money needs to end up: a bank balance, a bKash balance, another supported wallet, or cash in hand. Start there rather than choosing a provider and discovering at checkout that it cannot pay the account your family uses.</p>
+<table><thead><tr><th>Recipient's choice</th><th>What to confirm together</th><th>Common mismatch to avoid</th></tr></thead><tbody>
+<tr><td>Bank account</td><td>The account holder's recorded name, account number, bank and branch details requested by the sending service.</td><td>A bank's international BIC and a domestic branch routing number are different fields; do not substitute one for the other.</td></tr>
+<tr><td>bKash</td><td>The receiving bKash account and the mobile number registered to it.</td><td>A working phone number is not proof that the corresponding wallet is ready to receive this remittance.</td></tr>
+<tr><td>Another mobile wallet</td><td>That the exact wallet brand appears among this provider's payout options.</td><td>A provider advertising mobile money may support bKash without supporting every other wallet.</td></tr>
+<tr><td>Cash collection</td><td>The recipient name, accepted identification and a collection location they can reach.</td><td>A nearby agent sign does not establish that the location can pay this particular transfer.</td></tr>
+</tbody></table>
+<p>Read the recipient details back before submitting. If a saved beneficiary changes banks or mobile numbers, update the record rather than assuming the old details will redirect. Keep account numbers out of public support comments and share them only through the provider's secure channel.</p>`,
       },
       {
-        heading: "Top Banks in Bangladesh for Receiving Transfers",
-        content: `<table>
-<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
-<tbody>
-<tr><td><strong>Sonali Bank</strong></td><td>BSONBDDH</td><td>Largest state-owned bank. Widest branch network in rural areas.</td></tr>
-<tr><td><strong>Islami Bank Bangladesh</strong></td><td>IBBLBDDH</td><td>Largest private bank by deposits. Sharia-compliant banking.</td></tr>
-<tr><td><strong>Dutch-Bangla Bank (DBBL)</strong></td><td>DBBLBDDH</td><td>Pioneer in mobile banking. Strong digital infrastructure.</td></tr>
-<tr><td><strong>BRAC Bank</strong></td><td>BRAKBDDH</td><td>SME-focused. Operates bKash as a subsidiary.</td></tr>
-<tr><td><strong>Eastern Bank (EBL)</strong></td><td>EBLDBDDH</td><td>Strong corporate and retail banking.</td></tr>
-<tr><td><strong>Agrani Bank</strong></td><td>AGBKBDDH</td><td>State-owned. Good coverage in smaller cities.</td></tr>
-</tbody>
-</table>
-<p>Find the SWIFT code for any bank in our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>.</p>`,
+        heading: "Bank credit or wallet cash-out: compare the last step too",
+        content: `<p>The BDT amount credited is not always the cash the family can spend after withdrawal. Someone who pays bills from a wallet has a different cost path from someone who withdraws the entire remittance at an agent. Ask how the recipient will use the money before comparing delivery methods.</p>
+<p>For a deliberately simplified example, suppose two offers spend the same amount of your sending currency. One credits ৳50,000 to a wallet; the other leaves ৳49,800 available after all stated collection charges. If withdrawing the wallet amount costs an additional ৳350, the wallet route leaves ৳49,650 for spending. Its higher headline credit therefore produces ৳150 less usable cash.</p>
+<p>The ৳350 is an assumed cost for this comparison, not a published tariff or a claim about all bKash withdrawals. The arithmetic is 50,000 − 350 = 49,650, then 49,800 − 49,650 = 150. If the recipient spends directly from the wallet and that withdrawal never occurs, the result changes. Include any charges for the actual way they will use the balance.</p>
+<p><a href="https://www.bkash.com/en/products-services/money-transfer-service" target="_blank" rel="noopener noreferrer">bKash publishes its remittance receiving and designated-ATM cash-out terms</a>. Check those terms at the time of withdrawal. An agent cash-out price and an ATM price should not be treated as interchangeable, and temporary cashback is not the same as a permanently lower fee.</p>`,
       },
       {
         heading: "Delivery Methods and Speed",
@@ -4751,21 +4723,16 @@ const rawBlogPosts: BlogPost[] = [
 <p>Learn how exchange rate markups affect your total cost in our <a href="/guides/exchange-rate-markup-explained">markup guide</a>.</p>`,
       },
       {
-        heading: "Regulations and Tax Considerations",
-        content: `<p>Key rules for sending money to Bangladesh:</p>
-<ul>
-<li><strong>2.5% government incentive:</strong> The <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> provides a 2.5% cash incentive on inbound remittances received through authorised banking channels. This incentive goes directly to the recipient and is a compelling reason to use formal channels.</li>
-<li><strong>Tax-free for recipients:</strong> Remittances from abroad are not subject to income tax in Bangladesh.</li>
-<li><strong>NID requirement:</strong> Recipients may need to provide their National Identity Card (NID) number for bank deposits and cash pickups above certain thresholds.</li>
-<li><strong>US sender reporting:</strong> Transfers over $10,000 are reported under the Bank Secrecy Act. Personal gifts are not taxable for the sender. The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> oversees AML compliance for US money transmitters.</li>
-<li><strong>Formal channels encouraged:</strong> The Bangladeshi government actively promotes formal remittance channels over informal hawala/hundi networks, supported by the 2.5% incentive scheme.</li>
-</ul>
-<p>For broader guidance on safe and cheap transfers, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/best-money-transfer-apps">best money transfer apps</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, Bangladesh consistently ranks among the top ten global remittance recipients. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> database tracks over $23 billion in annual inflows. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database monitors average transfer costs on this corridor.</p>`,
+        heading: "Separate the remittance amount from any incentive",
+        content: `<p>A recipient should be able to reconcile the transferred principal, any incentive credit and any withdrawal charge as separate amounts. A quote that already includes an incentive must not have the same percentage added a second time in your comparison.</p>
+<p><a href="https://help.xe.com/hc/en-gb/articles/20923082500753-The-Bangladesh-government-s-Cash-Incentive-for-Inward-Wage-Remittances" target="_blank" rel="noopener noreferrer">Xe describes Bangladesh's 2.5% incentive in the context of inward wage remittances from Bangladeshi nationals working abroad</a>. Eligibility is not established merely because the destination currency is BDT. Ask the provider how it classifies your payment and whether the displayed payout includes an eligible incentive.</p>
+<p>On an eligible principal of ৳40,000, a separately credited 2.5% incentive would be ৳1,000, for ৳41,000 before other deductions. If the confirmation already promises ৳41,000 including that incentive, adding another ৳1,025 would overstate what is due. This is an arithmetic example, not a guarantee of eligibility or a credit date.</p>
+<p>Payment purpose also matters for tax and recordkeeping. Overseas wages, a family gift and payment for work performed in Bangladesh are not interchangeable descriptions. Save the provider receipt and the recipient statement; ask a qualified adviser about the actual circumstances rather than treating every foreign payment as automatically tax-free.</p>`,
       },
       {
-        heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        heading: "Evidence behind the payout checks",
+        content: `<p>This guide uses the linked bKash service page for wallet receiving and cash-out conditions, and Xe's explanation for the scope of the wage-remittance incentive. Neither source establishes the cheapest provider for every sending country.</p>
+<p>The ৳50,000 withdrawal comparison and ৳40,000 incentive calculation are hypothetical examples designed to distinguish account credit from usable proceeds. For current offers, select your origin currency in the <a href="/send-money">transfer comparison</a>; a USD quote should not be used to estimate the cost of sending pounds or dirhams. Read <a href="/methodology">how we collect and rank quotes</a> for the dataset's limitations.</p>`,
       },
     ],
     faqs: [
@@ -4792,7 +4759,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Does the Bangladesh government incentivise remittances?",
         answer:
-          "Yes. Bangladesh Bank provides a 2.5% cash incentive on all inbound remittances received through formal banking channels. This goes directly to the recipient, effectively giving them a bonus on top of the transferred amount.",
+          "An eligible inward wage remittance may receive a 2.5% incentive. Confirm eligibility, the payment classification and whether the advertised payout already includes it; do not add the incentive twice.",
       },
     ],
     relatedSlugs: [
