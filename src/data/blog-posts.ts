@@ -12446,7 +12446,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-03-29",
-    updatedAt: "2026-03-29",
+    updatedAt: "2026-09-25",
     author: "Awais Imran",
     tags: ["Nigeria", "NGN", "GBP to NGN", "UK", "remittance", "corridor guide", "send money to Nigeria", "Naira"],
     featuredImage: "/images/blog/send-money-uk-to-nigeria.jpg",
@@ -12567,9 +12567,11 @@ const rawBlogPosts: BlogPost[] = [
 <p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>.</p>`,
       },
       {
-        heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a> exchange rate data and remittance statistics, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        heading: "A close GBP quote needs the complete naira calculation",
+        content: `<p>Two UK offers can look almost identical and still reverse order once the fee is included. Assume a fixed £500 debit. Offer A deducts £3 and converts the remaining £497 at ₦1,600 per pound, producing <strong>₦795,200</strong>. Offer B has no fee but offers ₦1,590 per pound, producing <strong>₦795,000</strong>.</p>
+<p>A's apparent ten-naira rate advantage produces only ₦200 more in the recipient's account after its fee. All of these figures are invented to demonstrate the arithmetic. They are not current sterling-to-naira rates or quotes from any named provider.</p>
+<p>With such a narrow payout difference, also check the arrival estimate and the funding method each offer requires. A quote funded by a UK bank payment and one requiring a card may involve different steps for you. Choose using the complete confirmation rather than assuming the rate difference alone is decisive.</p>
+<p>The provider comparison on this guide uses our collected offers, separately from that example. <a href="/methodology">Our methodology</a> explains the observations and their limits. Save the accepted GBP debit and NGN payout together so a subsequent market movement is not confused with a change in what the provider promised.</p>`,
       },
     ],
     faqs: [
