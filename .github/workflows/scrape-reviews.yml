@@ -13,13 +13,17 @@ permissions:
 
 jobs:
   scrape-reviews:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # ubuntu-24.04 pinned: `ubuntu-latest` becomes Ubuntu 26 from 2026-10-19 and
+    # `playwright install --with-deps` is image-specific.
+    runs-on: ubuntu-24.04
+    # Must exceed the step budgets (10 + 5 + commit 3) plus checkout, npm ci and
+    # the Playwright install (~1.5m) — it used to equal the scraper budgets alone.
+    timeout-minutes: 21
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -30,25 +34,26 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Scrape Trustpilot reviews
-        run: npx tsx scripts/scrape-reviews.ts
+        run: timeout -k 15s 570s npx tsx scripts/scrape-reviews.ts
         timeout-minutes: 10
         continue-on-error: true
 
       # App-store ratings are keyless API/JSON-LD reads, no browser needed, so
       # they ride along with the daily ratings run rather than a separate job.
       - name: Scrape app store ratings
-        run: npx tsx scripts/scrape-app-ratings.ts
+        run: timeout -k 15s 270s npx tsx scripts/scrape-app-ratings.ts
         timeout-minutes: 5
         continue-on-error: true
 
       - name: Commit review data
+        timeout-minutes: 3
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/scraped/trustpilot-ratings.json src/data/scraped/app-store-ratings.json
           git diff --staged --quiet || git commit -m "chore: update provider ratings [$(date -u +%Y-%m-%d)]"
           # Trustpilot scrape is source of truth — prefer our version on conflict.
-          git pull --rebase -X theirs
+          git pull --rebase --autostash -X theirs
           git push
 
       # See the matching note in scrape-browsers.yml: vercel-ignore.sh cancels

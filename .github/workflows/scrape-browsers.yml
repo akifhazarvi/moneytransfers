@@ -10,11 +10,14 @@ permissions:
   contents: write
 
 jobs:
+  # All jobs pin ubuntu-24.04: `ubuntu-latest` becomes Ubuntu 26 from
+  # 2026-10-19, and `playwright install --with-deps` installs an apt package
+  # list tied to the image. Move deliberately after a manual test run.
   scrape-monito:
     # Monito has ~103 corridors. We shard across 4 parallel jobs (round-robin)
     # so wallclock drops from ~34 min serial to ~10 min per shard. Each shard
     # writes monito-quotes.shard-N.json; commit-data merges them.
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -22,9 +25,9 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -35,12 +38,12 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Scrape Monito comparison (shard ${{ matrix.shard }}/4)
-        run: npx tsx scripts/scrape-monito.ts --shard ${{ matrix.shard }} --total 4
+        run: timeout -k 15s 870s npx tsx scripts/scrape-monito.ts --shard ${{ matrix.shard }} --total 4
         timeout-minutes: 15
         continue-on-error: true
 
       - name: Upload shard output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: scraped-monito-shard-${{ matrix.shard }}
           path: src/data/scraped/monito-quotes.shard-${{ matrix.shard }}.json
@@ -48,13 +51,13 @@ jobs:
           if-no-files-found: warn
 
   scrape-xoom:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -65,12 +68,12 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Scrape Xoom/PayPal (browser)
-        run: npx tsx scripts/scrape-xoom.ts
+        run: timeout -k 15s 1170s npx tsx scripts/scrape-xoom.ts
         timeout-minutes: 20
         continue-on-error: true
 
       - name: Upload scraped data
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: scraped-xoom
           path: src/data/scraped/xoom-quotes.json
@@ -78,13 +81,13 @@ jobs:
           if-no-files-found: error
 
   scrape-ria:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -95,59 +98,38 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Scrape Ria (browser auth + API)
-        run: npx tsx scripts/scrape-ria.ts
+        run: timeout -k 15s 1050s npx tsx scripts/scrape-ria.ts
         timeout-minutes: 18
         continue-on-error: true
 
       - name: Upload scraped data
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: scraped-ria
           path: src/data/scraped/ria-quotes.json
           retention-days: 1
           if-no-files-found: error
 
-  scrape-compareremit:
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-
-      - run: npm ci
-
-      - name: Install Playwright browsers
-        run: npx playwright install chromium --with-deps
-
-      - name: Scrape CompareRemit (Playwright)
-        run: npx tsx scripts/scrape-compareremit.ts
-        timeout-minutes: 18
-        continue-on-error: true
-
-      - name: Upload scraped data
-        uses: actions/upload-artifact@v4
-        with:
-          name: scraped-compareremit
-          path: src/data/scraped/compareremit-quotes.json
-          retention-days: 1
-          if-no-files-found: error
+  # CompareRemit REMOVED 2026-09-26. It is a comparison site, yet it sat in
+  # Tier 1 ("direct") and only ever yielded Remitly rows — at Remitly's
+  # promotional rate (USD→MXN 17.95 vs the 17.43 base rate Remitly's own API
+  # returns), which our Remitly scraper deliberately does not use. 8 of its 16
+  # rows beat mid-market. Remitly is covered first-party by scrape-remitly.ts.
 
   commit-data:
-    runs-on: ubuntu-latest
-    needs: [scrape-monito, scrape-xoom, scrape-ria, scrape-compareremit]
+    runs-on: ubuntu-24.04
+    needs: [scrape-monito, scrape-xoom, scrape-ria]
     if: always()
-    timeout-minutes: 10
+    # Must exceed the sum of the step budgets below (~24m) or a slow step can
+    # cancel the job before "Commit scraped data" — see the INVARIANT in
+    # scrape.yml. Normally finishes in ~3m.
+    timeout-minutes: 26
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Download Monito shard outputs
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           pattern: scraped-monito-shard-*
           merge-multiple: true
@@ -155,27 +137,20 @@ jobs:
         continue-on-error: true
 
       - name: Download Xoom scraper results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: scraped-xoom
           path: src/data/scraped/
         continue-on-error: true
 
       - name: Download Ria scraper results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: scraped-ria
           path: src/data/scraped/
         continue-on-error: true
 
-      - name: Download CompareRemit scraper results
-        uses: actions/download-artifact@v4
-        with:
-          name: scraped-compareremit
-          path: src/data/scraped/
-        continue-on-error: true
-
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -184,12 +159,24 @@ jobs:
 
       - name: Merge Monito shards into monito-quotes.json
         run: npx tsx scripts/merge-monito-shards.ts
+        timeout-minutes: 1
+
+      # Judges scrapers by their output — a killed scraper still uploads the
+      # stale file from its checkout. Never blocks the commit; a failure turns
+      # the run red at the very end.
+      - name: Scrape health
+        id: health
+        run: npx tsx scripts/check-scrape-health.ts monito-quotes.json xoom-quotes.json ria-quotes.json
+        timeout-minutes: 1
+        continue-on-error: true
 
       - name: Aggregate historical data
         run: npx tsx scripts/aggregate-history.ts
+        timeout-minutes: 3
 
       - name: Build rate insights
         run: npx tsx scripts/build-rate-insights.ts
+        timeout-minutes: 3
 
       - name: Build weekend-markup dataset
         run: npx tsx scripts/build-weekend-markup.ts
@@ -201,6 +188,7 @@ jobs:
         continue-on-error: true
 
       - name: Commit scraped data
+        timeout-minutes: 3
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -208,8 +196,9 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: update browser-scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
           # Scraper output is the source of truth — if main diverged on the same
           # JSON files (e.g. a manual local scrape), prefer our freshly-scraped
-          # version to avoid blocking the workflow on merge conflicts.
-          git pull --rebase -X theirs
+          # version to avoid blocking the workflow on merge conflicts. Autostash:
+          # an unstaged change must never abort the rebase and drop the run.
+          git pull --rebase --autostash -X theirs
           git push
 
       # REQUIRED for this data to actually reach production. vercel-ignore.sh
@@ -238,4 +227,12 @@ jobs:
         run: npx tsx scripts/ping-indexnow.ts
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        timeout-minutes: 2
         continue-on-error: true
+
+      # Data is committed by now; this only makes a broken scraper visible.
+      - name: Fail run if a scraper is unhealthy
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "::error::One or more scrapers failed the health check — see the Scrape health step summary."
+          exit 1

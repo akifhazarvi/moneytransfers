@@ -28,6 +28,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { execFile } from "child_process";
 import { promisify } from "util";
+import { carryForward, createDeadline } from "./lib/scrape-budget";
 
 const execFileAsync = promisify(execFile);
 
@@ -37,6 +38,17 @@ const UA = "Mozilla/5.0 (compatible; SendMoneyCompare/1.0)";
 const SEND_AMOUNTS = [200, 1000, 5000];
 const DELAY_MS = 250;
 const MAX_RETRIES = 3;
+// Requests in flight at once. Serially the 825 corridor-amounts took 10m+ on CI
+// once the upstream slowed to ~0.9s/request, so the step hit its timeout on
+// every run from 2026-09-25 and nothing was committed.
+const CONCURRENCY = 3;
+// Stop starting requests here and write what we have; CI's hard timeout is above.
+const deadline = createDeadline("REMITROUTES_BUDGET_SEC", 480);
+// `meta.scrapedAt` is THEIR scrape time, and some corridors come back days old
+// (up to 213h seen). A bridge row older than this is not a current quote.
+const MAX_UPSTREAM_AGE_HOURS = 72;
+// Corridor-amounts not refreshed this run keep their previous rows this long.
+const CARRY_FORWARD_HOURS = 72;
 
 // Only ingest corridors whose send currency we actually build pages for.
 // (RemitRoutes tracks 14 send currencies; we mirror the ones our site uses.)
@@ -90,7 +102,10 @@ interface TraditionalQuote {
   sendCurrency: string;
   receiveCurrency: string;
   sendAmount: number;
+  /** Always 0: the cost is inside the all-in `exchangeRate` (see worker()). */
   fee: number;
+  /** RemitRoutes' total cost vs mid-market, in percent. Informational only. */
+  totalCostPct: number;
   exchangeRate: number;
   midMarketRate: number;
   markup: number;
@@ -204,14 +219,37 @@ async function main() {
   );
   console.log(`  ✓ ${corridors.length} corridors in scope\n`);
 
+  // The catalog lists some pairs several times (GBP-EUR three times — one per
+  // destination country); /api/compare is keyed by currency only, so those
+  // repeats fetched identical data and wrote 201 duplicate rows.
+  const seenPairs = new Set<string>();
+  const uniqueCorridors = corridors.filter((c) => {
+    const k = `${c.fromCurrency}-${c.toCurrency}`;
+    if (seenPairs.has(k)) return false;
+    seenPairs.add(k);
+    return true;
+  });
+  const tasks = uniqueCorridors.flatMap((c) =>
+    SEND_AMOUNTS.map((amount) => ({ from: c.fromCurrency, to: c.toCurrency, amount }))
+  );
+  console.log(`  ✓ ${uniqueCorridors.length} unique pairs → ${tasks.length} requests · concurrency ${CONCURRENCY} · budget ${deadline.budgetSec}s\n`);
+
   const traditional: TraditionalQuote[] = [];
   const crypto: CryptoRailQuote[] = [];
   let ok = 0;
   let empty = 0;
+  let stale = 0;
+  let notAttempted = 0;
+  let next = 0;
+  const upstreamCutoff = Date.now() - MAX_UPSTREAM_AGE_HOURS * 3600_000;
 
-  for (const corridor of corridors) {
-    const { fromCurrency: from, toCurrency: to } = corridor;
-    for (const amount of SEND_AMOUNTS) {
+  async function worker() {
+    while (next < tasks.length) {
+      const { from, to, amount } = tasks[next++];
+      if (deadline.expired()) {
+        notAttempted++;
+        continue;
+      }
       const url = `${API_BASE}/api/compare?from=${from}&to=${to}&amount=${amount}`;
       const data = await fetchJson<RRCompareResponse>(url);
       await sleep(DELAY_MS);
@@ -220,9 +258,13 @@ async function main() {
         empty++;
         continue;
       }
+      const scrapedAt = data.meta.scrapedAt || new Date().toISOString();
+      if (Date.parse(scrapedAt) < upstreamCutoff) {
+        stale++;
+        continue;
+      }
       ok++;
       const midMarket = num(data.meta.fxRate);
-      const scrapedAt = data.meta.scrapedAt || new Date().toISOString();
 
       for (const p of data.providers) {
         const receiveAmount = num(p.recipientGets);
@@ -257,14 +299,19 @@ async function main() {
             source: "remitroutes-bridge",
           });
         } else {
-          // Traditional: convert their signed fee-% into an absolute fee in send
-          // currency. Negative % means recipient beats mid-market (a rebate);
-          // we keep the sign so the merge layer computes markup consistently.
-          const feePercent = num(p.totalFeePercent);
-          const fee = Math.round((feePercent / 100) * amount * 100) / 100;
+          // Traditional rows: `exchangeRate` is an ALL-IN effective rate
+          // (recipientGets / sendAmount — true of all 4,263 rows checked
+          // 2026-09-26) and `totalFeePercent` is that same cost measured against
+          // mid-market (it equals the markup to the basis point). It is not a
+          // separate transfer fee. We used to store it as `fee`, and the merge
+          // layer then deducted it from the send amount AND priced at the
+          // already-discounted rate — showing every bank and provider on this
+          // feed at roughly twice its real cost. The cost lives in the rate, so
+          // fee is 0; the percentage is kept as `totalCostPct` for reference.
+          const totalCostPct = num(p.totalFeePercent);
           const markup = midMarket > 0 && exchangeRate > 0
             ? Math.round(((midMarket - exchangeRate) / midMarket) * 10000) / 100
-            : feePercent;
+            : totalCostPct;
           traditional.push({
             provider: p.name,
             providerSlug: p.slug,
@@ -272,7 +319,8 @@ async function main() {
             sendCurrency: from,
             receiveCurrency: to,
             sendAmount: amount,
-            fee,
+            fee: 0,
+            totalCostPct,
             exchangeRate,
             midMarketRate: midMarket,
             markup,
@@ -283,25 +331,44 @@ async function main() {
           });
         }
       }
+      process.stdout.write(`\r  ${ok} OK · ${empty} empty · ${stale} stale · ${traditional.length} trad · ${crypto.length} crypto · ${deadline.elapsedSec()}s`);
     }
-    process.stdout.write(`\r  ${ok} corridor-amounts OK · ${empty} empty · ${traditional.length} trad · ${crypto.length} crypto`);
   }
 
+  await Promise.all(Array.from({ length: CONCURRENCY }, () => worker()));
+
   console.log("\n");
+  if (notAttempted > 0) {
+    console.log(`⏱ Budget of ${deadline.budgetSec}s reached — ${notAttempted} corridor-amounts not attempted.`);
+  }
+  if (stale > 0) {
+    console.log(`Skipped ${stale} corridor-amounts whose upstream data was older than ${MAX_UPSTREAM_AGE_HOURS}h.`);
+  }
+
+  const keyOf = (r: { sendCurrency: string; receiveCurrency: string; sendAmount: number }) =>
+    `${r.sendCurrency}_${r.receiveCurrency}_${r.sendAmount}`;
+  const tradOut = carryForward<TraditionalQuote>(path.join(OUTPUT_DIR, "remitroutes-quotes.json"), traditional, keyOf, CARRY_FORWARD_HOURS);
+  const cryptoOut = carryForward<CryptoRailQuote>(path.join(OUTPUT_DIR, "remitroutes-crypto.json"), crypto, keyOf, CARRY_FORWARD_HOURS);
+  // Carried rows written before 2026-09-26 still hold the old cost-as-fee.
+  for (const r of tradOut.rows) r.fee = 0;
+  if (tradOut.carried || cryptoOut.carried) {
+    console.log(`Carried forward ${tradOut.carried} trad + ${cryptoOut.carried} crypto rows (< ${CARRY_FORWARD_HOURS}h old) not refreshed this run.`);
+  }
+
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(
     path.join(OUTPUT_DIR, "remitroutes-quotes.json"),
-    JSON.stringify(traditional, null, 2)
+    JSON.stringify(tradOut.rows, null, 2)
   );
   fs.writeFileSync(
     path.join(OUTPUT_DIR, "remitroutes-crypto.json"),
-    JSON.stringify(crypto, null, 2)
+    JSON.stringify(cryptoOut.rows, null, 2)
   );
 
-  const cryptoProviders = [...new Set(crypto.map((c) => c.provider))];
-  const tradProviders = [...new Set(traditional.map((t) => t.provider))];
-  console.log(`✓ Wrote remitroutes-quotes.json  (${traditional.length} rows, ${tradProviders.length} providers)`);
-  console.log(`✓ Wrote remitroutes-crypto.json  (${crypto.length} rows, ${cryptoProviders.length} rails)`);
+  const cryptoProviders = [...new Set(cryptoOut.rows.map((c) => c.provider))];
+  const tradProviders = [...new Set(tradOut.rows.map((t) => t.provider))];
+  console.log(`✓ Wrote remitroutes-quotes.json  (${tradOut.rows.length} rows, ${tradProviders.length} providers)`);
+  console.log(`✓ Wrote remitroutes-crypto.json  (${cryptoOut.rows.length} rows, ${cryptoProviders.length} rails)`);
   console.log(`  Crypto rails: ${cryptoProviders.join(", ")}`);
 }
 

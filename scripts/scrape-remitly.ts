@@ -10,13 +10,29 @@
  * Response includes: exchange_rate (base + promotional), fee, receive_amount,
  * pay_in_method, pay_out_method, and promo disclaimer.
  */
+import * as path from "path";
 import {
+  OUTPUT_DIR,
   SEND_AMOUNTS,
   writeOutput,
   type ProviderQuote,
 } from "./lib/browser";
+import { carryForward, createDeadline, roundRate } from "./lib/scrape-budget";
 
-const DELAY_MS = 1000;
+// Remitly's calculator answers a share of requests with HTTP 429
+// {"error_key":"NOT_ALLOWED"} and no Retry-After header — ~25-40% of them,
+// largely regardless of pacing (measured 2026-09-26: ~30% at 1.5s spacing, and
+// widening the gap adaptively only slowed the run without reducing 429s). The
+// same request succeeds moments later. The old code waited 5s and gave up,
+// losing USD→PHP, USD→MXN, GBP→INR and ~20 other corridors per run. Now a
+// 429'd request goes to the back of the queue and the run keeps its pace; each
+// corridor-amount gets up to MAX_ATTEMPTS tries.
+const DELAY_MS = 1200;
+const MAX_ATTEMPTS = 4;
+// Stop fetching here and write what we have. CI's hard timeout sits above it.
+const deadline = createDeadline("REMITLY_BUDGET_SEC", 400);
+// A corridor-amount lost this run keeps its previous quote for up to this long.
+const CARRY_FORWARD_HOURS = 30;
 
 const CORRIDORS = [
   { from: "USD", to: "INR", conduit: "USA:USD-IND:INR" },
@@ -65,23 +81,9 @@ const CORRIDORS = [
   { from: "AED", to: "NGN", conduit: "ARE:AED-NGA:NGN" },
   { from: "AED", to: "EGP", conduit: "ARE:AED-EGY:EGP" },
   { from: "AED", to: "LKR", conduit: "ARE:AED-LKA:LKR" },
-  // From SAR
-  { from: "SAR", to: "INR", conduit: "SAU:SAR-IND:INR" },
-  { from: "SAR", to: "PKR", conduit: "SAU:SAR-PAK:PKR" },
-  { from: "SAR", to: "PHP", conduit: "SAU:SAR-PHL:PHP" },
-  { from: "SAR", to: "BDT", conduit: "SAU:SAR-BGD:BDT" },
-  { from: "SAR", to: "NGN", conduit: "SAU:SAR-NGA:NGN" },
-  { from: "SAR", to: "EGP", conduit: "SAU:SAR-EGY:EGP" },
-  // From OMR
-  { from: "OMR", to: "INR", conduit: "OMN:OMR-IND:INR" },
-  { from: "OMR", to: "PKR", conduit: "OMN:OMR-PAK:PKR" },
-  { from: "OMR", to: "PHP", conduit: "OMN:OMR-PHL:PHP" },
-  { from: "OMR", to: "BDT", conduit: "OMN:OMR-BGD:BDT" },
-  // From KWD
-  { from: "KWD", to: "INR", conduit: "KWT:KWD-IND:INR" },
-  { from: "KWD", to: "PKR", conduit: "KWT:KWD-PAK:PKR" },
-  { from: "KWD", to: "PHP", conduit: "KWT:KWD-PHL:PHP" },
-  { from: "KWD", to: "BDT", conduit: "KWT:KWD-BGD:BDT" },
+  // SAR, OMR and KWD send corridors removed 2026-09-26: the calculator answers
+  // all 14 with HTTP 400 "unsupported corridor" — zero quotes across every run
+  // checked — while costing ~40s of requests per run.
 ];
 
 const HEADERS = {
@@ -93,12 +95,16 @@ function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+type FetchResult =
+  | { quote: ProviderQuote; reason?: undefined }
+  | { quote: null; reason: "rate-limited" | "unsupported" | "error" };
+
 async function fetchRemitlyQuote(
   from: string,
   to: string,
   conduit: string,
   amount: number
-): Promise<ProviderQuote | null> {
+): Promise<FetchResult> {
   const url = `https://api.remitly.io/v3/calculator/estimate?conduit=${encodeURIComponent(conduit)}&anchor=SEND&amount=${amount}&purpose=OTHER&customer_segment=NON_CUSTOMER`;
 
   try {
@@ -107,18 +113,13 @@ async function fetchRemitlyQuote(
       signal: AbortSignal.timeout(15000),
     });
 
-    if (!res.ok) {
-      if (res.status === 429) {
-        // Rate limited — wait and return null (will be retried)
-        console.log(`    ⚠ Rate limited (429), backing off...`);
-        await delay(5000);
-      }
-      return null;
-    }
+    if (res.status === 429) return { quote: null, reason: "rate-limited" };
+    if (res.status === 400) return { quote: null, reason: "unsupported" };
+    if (!res.ok) return { quote: null, reason: "error" };
 
     const json = await res.json();
     const estimate = json?.estimate;
-    if (!estimate) return null;
+    if (!estimate) return { quote: null, reason: "error" };
 
     // Prefer base_rate over promotional_exchange_rate: the promo is typically
     // "new customers only, capped at first $1,000" — using it as the headline
@@ -131,67 +132,96 @@ async function fetchRemitlyQuote(
     const payInMethod = estimate.pay_in_method || null;
     const payOutMethod = estimate.pay_out_method || null;
 
-    if (!rate) return null;
+    if (!rate) return { quote: null, reason: "error" };
     // Compute receive from base rate (Remitly's `receive_amount` field uses
     // the promo rate when present, so we can't reuse it here).
     const receiveAmount = (sendAmount - fee) * rate;
 
     return {
-      provider: "Remitly",
-      providerSlug: "remitly",
-      providerType: "moneyTransferProvider",
-      sendCurrency: from,
-      receiveCurrency: to,
-      sendAmount,
-      fee: Math.round(fee * 100) / 100,
-      exchangeRate: Math.round(rate * 10000) / 10000,
-      receiveAmount: Math.round(receiveAmount * 100) / 100,
-      paymentMethod: payInMethod === "BANK" ? "Bank Transfer" : payInMethod,
-      deliveryMethod: payOutMethod || null,
-      deliveryEstimate: null,
-      dateCollected: new Date().toISOString(),
-      source: "remitly-api",
+      quote: {
+        provider: "Remitly",
+        providerSlug: "remitly",
+        providerType: "moneyTransferProvider",
+        sendCurrency: from,
+        receiveCurrency: to,
+        sendAmount,
+        fee: Math.round(fee * 100) / 100,
+        exchangeRate: roundRate(rate),
+        receiveAmount: Math.round(receiveAmount * 100) / 100,
+        paymentMethod: payInMethod === "BANK" ? "Bank Transfer" : payInMethod,
+        deliveryMethod: payOutMethod || null,
+        deliveryEstimate: null,
+        dateCollected: new Date().toISOString(),
+        source: "remitly-api",
+      },
     };
   } catch (err) {
     console.log(`    ⚠ Failed: ${(err as Error).message?.slice(0, 60)}`);
-    return null;
+    return { quote: null, reason: "error" };
   }
 }
 
 async function main() {
   console.log("=== Remitly Direct API Scraper ===\n");
   console.log(`Corridors: ${CORRIDORS.length}`);
-  console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}\n`);
+  console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}`);
+  console.log(`Budget: ${deadline.budgetSec}s\n`);
 
   const allQuotes: ProviderQuote[] = [];
   let successCount = 0;
   let failCount = 0;
+  const failures: Record<string, number> = {};
   const startTime = Date.now();
 
-  for (const corridor of CORRIDORS) {
-    console.log(`\n📍 ${corridor.from} → ${corridor.to}`);
+  // Corridors are listed in priority order (USD, GBP, EUR first), so if the
+  // budget runs out it is the long tail that waits for the next run.
+  const queue = CORRIDORS.flatMap((corridor) =>
+    SEND_AMOUNTS.map((amount) => ({ corridor, amount, attempts: 0 }))
+  );
+  let deferred = 0;
 
-    for (const amount of SEND_AMOUNTS) {
-      console.log(`  Fetching: ${corridor.from} → ${corridor.to} ($${amount})...`);
+  while (queue.length > 0 && !deadline.expired()) {
+    const task = queue.shift()!;
+    const { corridor, amount } = task;
+    task.attempts++;
+    const result = await fetchRemitlyQuote(corridor.from, corridor.to, corridor.conduit, amount);
 
-      const quote = await fetchRemitlyQuote(corridor.from, corridor.to, corridor.conduit, amount);
-
-      if (quote) {
-        allQuotes.push(quote);
-        successCount++;
-        console.log(`    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount}`);
-      } else {
-        failCount++;
-        console.log(`    ✗ No data`);
-      }
-
-      await delay(DELAY_MS);
+    if (result.quote) {
+      const quote = result.quote;
+      allQuotes.push(quote);
+      successCount++;
+      console.log(`  ✓ ${corridor.from} → ${corridor.to} ($${amount}) Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount}${task.attempts > 1 ? ` [attempt ${task.attempts}]` : ""}`);
+    } else if (result.reason === "rate-limited" && task.attempts < MAX_ATTEMPTS) {
+      deferred++;
+      queue.push(task);
+      console.log(`  ⚠ ${corridor.from} → ${corridor.to} ($${amount}) rate limited (429) — requeued, attempt ${task.attempts}/${MAX_ATTEMPTS}`);
+    } else {
+      const reason = result.reason ?? "error";
+      failCount++;
+      failures[reason] = (failures[reason] ?? 0) + 1;
+      console.log(`  ✗ ${corridor.from} → ${corridor.to} ($${amount}) no data (${reason})`);
     }
+
+    await delay(DELAY_MS);
   }
 
-  writeOutput("Remitly", "remitly", allQuotes, startTime, successCount, failCount);
+  if (queue.length > 0) {
+    console.log(`\n⏱ Budget of ${deadline.budgetSec}s reached — ${queue.length} corridor-amounts not fetched.`);
+  }
+  console.log(`\n429s requeued: ${deferred}. Final failures by reason: ${JSON.stringify(failures)}`);
+
+  const { rows, carried } = carryForward(
+    path.join(OUTPUT_DIR, "remitly-quotes.json"),
+    allQuotes,
+    (q) => `${q.sendCurrency}_${q.receiveCurrency}_${q.sendAmount}`,
+    CARRY_FORWARD_HOURS
+  );
+  if (carried > 0) console.log(`Carried forward ${carried} quotes (< ${CARRY_FORWARD_HOURS}h old) not refreshed this run.`);
+
+  writeOutput("Remitly", "remitly", rows, startTime, successCount, failCount);
 }
 
 main().catch((err) => {
   console.error("Remitly scraper failed:", err);
+  process.exit(1);
 });

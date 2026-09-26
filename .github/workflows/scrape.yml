@@ -32,7 +32,8 @@ jobs:
     # job, so remaining steps are skipped regardless of their conditions. The
     # only real protection is keeping the budget sum below the cap.
     #
-    # Current budget: 61 (scrapers) + 30 (tail) + ~1 (npm ci) = ~92 < 105.
+    # Current budget: 64 (scrapers) + 30 (tail) + 6 (orphan sweep, health,
+    # IndexNow, final gate) + ~1 (checkout/npm ci) = ~101 < 105.
     timeout-minutes: 105
 
     env:
@@ -42,7 +43,7 @@ jobs:
       COMMIT_PATHS: src/data/scraped/ public/llms.txt
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # INVARIANT: every path in COMMIT_PATHS must exist in the repo. `git add`
       # on a missing pathspec is fatal, and under `bash -e` that aborts the
@@ -66,7 +67,7 @@ jobs:
             fi
           done
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -78,45 +79,50 @@ jobs:
       # leave room for the commit. Observed times are noted per step.
 
       - name: Scrape OFX (direct API)
-        run: npx tsx scripts/scrape-ofx.ts
+        run: timeout -k 15s 270s npx tsx scripts/scrape-ofx.ts
         timeout-minutes: 5 # observed ~2m10s
         continue-on-error: true
 
       - name: Scrape Instarem (direct API)
-        run: npx tsx scripts/scrape-instarem.ts
+        run: timeout -k 15s 210s npx tsx scripts/scrape-instarem.ts
         timeout-minutes: 4 # observed ~1m49s
         continue-on-error: true
 
       - name: Scrape XE mid-market rates
-        run: npx tsx scripts/scrape-xe.ts
+        run: timeout -k 15s 90s npx tsx scripts/scrape-xe.ts
         timeout-minutes: 2 # observed ~1s
         continue-on-error: true
 
       - name: Scrape TapTap Send (Partner API)
-        run: npx tsx scripts/scrape-taptapsend.ts
+        run: timeout -k 15s 90s npx tsx scripts/scrape-taptapsend.ts
         env:
           TAPTAP_PARTNER_API_KEY: ${{ secrets.TAPTAP_PARTNER_API_KEY }}
         timeout-minutes: 2 # observed ~2s
         continue-on-error: true
 
       - name: Scrape Wise Direct (API)
-        run: npx tsx scripts/scrape-wise-direct.ts
+        run: timeout -k 15s 450s npx tsx scripts/scrape-wise-direct.ts
         timeout-minutes: 8 # observed ~5m45s
         continue-on-error: true
 
       - name: Scrape Wise Comparison — all providers (API)
-        run: npx tsx scripts/scrape-wise-comparison.ts
+        run: timeout -k 15s 390s npx tsx scripts/scrape-wise-comparison.ts
         timeout-minutes: 7 # observed ~4m05s
         continue-on-error: true
 
       - name: Scrape Exiap / TheCurrencyShop (Cheerio JSON-LD)
-        run: npx tsx scripts/scrape-exiap.ts
+        run: timeout -k 15s 210s npx tsx scripts/scrape-exiap.ts
         timeout-minutes: 4 # observed ~1m40s
         continue-on-error: true
 
+      # Was 5 and killed at the cap on 7 of 8 runs (Sep 2026) — the 429 storm
+      # plus no retry. Now retries with adaptive pacing, stops itself at
+      # REMITLY_BUDGET_SEC and writes what it has; `timeout` is the backstop.
       - name: Scrape Remitly (direct API)
-        run: npx tsx scripts/scrape-remitly.ts
-        timeout-minutes: 5 # observed ~2m46s
+        run: timeout -k 15s 450s npx tsx scripts/scrape-remitly.ts
+        env:
+          REMITLY_BUDGET_SEC: 400
+        timeout-minutes: 8
         continue-on-error: true
 
       # ACE REMOVED 2026-08-15. acemoneytransfer.com returns HTTP 403 to
@@ -133,30 +139,59 @@ jobs:
       # Re-enable only behind a residential proxy.
 
       - name: Scrape PandaRemit (CNY corridors API)
-        run: npx tsx scripts/scrape-pandaremit.ts
+        run: timeout -k 15s 150s npx tsx scripts/scrape-pandaremit.ts
         timeout-minutes: 3 # observed ~56s
         continue-on-error: true
 
       # Was 5 and observed at 4m17s — close enough to its own cap that a slow
       # day would silently truncate the CNY corridor set. Raised to 6.
       - name: Scrape SkyRemit (CNY corridors API)
-        run: npx tsx scripts/scrape-skyremit.ts
+        run: timeout -k 15s 330s npx tsx scripts/scrape-skyremit.ts
         timeout-minutes: 6 # observed ~4m17s
         continue-on-error: true
 
       - name: Scrape LemFi (direct API)
-        run: npx tsx scripts/scrape-lemfi.ts
+        run: timeout -k 15s 150s npx tsx scripts/scrape-lemfi.ts
         timeout-minutes: 3 # observed ~1m20s
         continue-on-error: true
 
       - name: Scrape Unplex (direct API)
-        run: npx tsx scripts/scrape-unplex.ts
+        run: timeout -k 15s 90s npx tsx scripts/scrape-unplex.ts
         timeout-minutes: 2 # observed ~15s
         continue-on-error: true
 
+      # Hit its 10m cap on every run from Sep 25 2026 (825 serial requests to a
+      # slowing upstream). Now concurrent (~3.5m locally), with a soft budget so
+      # it writes partial results + carries forward instead of being killed.
       - name: Scrape RemitRoutes bridge (extra banks + crypto/Bitcoin rails)
-        run: npx tsx scripts/scrape-remitroutes.ts
-        timeout-minutes: 10 # the step the old 30m cap always died inside
+        run: timeout -k 15s 570s npx tsx scripts/scrape-remitroutes.ts
+        env:
+          REMITROUTES_BUDGET_SEC: 480
+        timeout-minutes: 10
+        continue-on-error: true
+
+      # Belt and braces for the `timeout` wrappers above. GitHub's step
+      # `timeout-minutes` kills the bash wrapper but NOT the npx → tsx → node
+      # child: on 2026-09-26 the RemitRoutes process, "timed out" at 21:30:10,
+      # kept running and rewrote remitroutes-*.json at ~21:31:43 — after
+      # `git add`, during `git pull` — and the commit step died on "cannot
+      # rebase: You have unstaged changes". Nothing may write after this line.
+      - name: Stop any scraper still running
+        run: pkill -f "scripts/scrape-" || true
+        timeout-minutes: 1
+
+      # Judges scrapers by their output (see the script header). Never blocks
+      # the commit; a failure turns the run red at the very end instead.
+      - name: Scrape health
+        id: health
+        run: >-
+          npx tsx scripts/check-scrape-health.ts
+          ofx-quotes.json instarem-quotes.json xe-midmarket-rates.json
+          taptapsend-quotes.json wise-direct-quotes.json wise-comparison-quotes.json
+          exiap-quotes.json remitly-quotes.json pandaremit-quotes.json
+          skyremit-quotes.json lemfi-quotes.json unplex-quotes.json
+          remitroutes-quotes.json
+        timeout-minutes: 2
         continue-on-error: true
 
       # The tail steps were previously unbounded. A hang in any of them would
@@ -206,8 +241,15 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add $COMMIT_PATHS
           git diff --staged --quiet || git commit -m "chore: update scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
+          # Anything still dirty here was written outside COMMIT_PATHS or after
+          # `git add` — name it in the log, and autostash it so it cannot abort
+          # the rebase and discard the whole run (as on 2026-09-26).
+          if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+            echo "::warning::Unstaged changes after commit (not shipped this run):"
+            git status --short --untracked-files=no
+          fi
           # Prefer freshly-scraped output over divergent main (e.g. manual scrapes).
-          git pull --rebase -X theirs
+          git pull --rebase --autostash -X theirs
           git push
 
       # REMOVED 2026-09-18: the explicit deploy hook.
@@ -228,7 +270,16 @@ jobs:
         run: npx tsx scripts/ping-indexnow.ts
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        timeout-minutes: 2
         continue-on-error: true
+
+      # Data is committed by now; this only makes a broken scraper visible.
+      - name: Fail run if a scraper is unhealthy
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "::error::One or more scrapers failed the health check — see the Scrape health step summary."
+          exit 1
+        timeout-minutes: 1
 
   # Trustpilot moved to its own workflow (.github/workflows/scrape-reviews.yml)
   # at 06:00 UTC — it needs Playwright (AWS WAF JS challenge) and we want to
