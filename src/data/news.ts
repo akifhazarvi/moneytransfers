@@ -118,19 +118,19 @@ export const newsItems: NewsItem[] = [
 <h2>The $500 million commitment</h2>
 <p>Alongside the charter filing, <a href="/companies/revolut">Revolut</a> appointed fintech veteran Cetin Duransoy as US CEO and pledged half a billion dollars in US investment. The funds will go toward hiring, infrastructure build-out, and customer acquisition — areas where Revolut has lagged behind US-native competitors like Cash App and Venmo.</p>
 
-<h2>A long road ahead</h2>
-<p>Securing a de novo bank charter is notoriously slow. The OCC approval process alone typically takes 12–18 months, and Revolut's application will face scrutiny given the size and complexity of its global operations. The company's UK banking licence, finally granted in mid-2024 after a three-year wait, offers both precedent and a cautionary tale about regulatory timelines.</p>
+<h2>September update: conditional approval, further steps pending</h2>
+<p>In its <a href="https://www.revolut.com/en-AU/news/revolut_receives_conditional_approval_from_u_s_office_of_the_comptroller_of_the_currency_to_form_a_national_bank/" target="_blank" rel="noopener noreferrer">3 September announcement</a>, Revolut reported conditional OCC approval. The company said it still needed to complete FDIC and Federal Reserve processes and obtain final OCC approval, with a proposed bank launch planned for 2027. This updates the March application covered here; it is not an announcement that the proposed US bank has opened.</p>
 
-<h2>Why this matters for cross-border pricing</h2>
-<p>If Revolut succeeds, the strategic prize is not just prestige. A charter could improve unit economics on US-originated transfers by reducing dependence on partner banks for payment initiation, settlement, and account infrastructure. That would not automatically make Revolut the cheapest provider on every corridor, but it could narrow one of the operational gaps between Revolut and domestic US incumbents.</p>
-
-<p>For consumers, the important distinction is between a product story and a pricing story. A bank charter may improve reliability, funding options, and deposit features long before it translates into materially cheaper international transfers. The real question is whether Revolut uses that regulatory leverage to lower spreads and fees, or to broaden its banking relationship with US customers first.</p>
+<h2>Separate the bank launch from the transfer quote</h2>
+<p>A sender evaluating Revolut has two decisions to make: whether a future banking product fits their needs, and whether the transfer offered today delivers the required amount abroad. An approval milestone answers neither question on its own. For the payment, record the dollars debited, the destination-currency payout and the promised arrival date on the confirmation screen.</p>
+<p>Revisit the banking decision when Revolut publishes the new account terms and migration instructions. Revisit the transfer decision whenever the fee, conversion rate or receiving method changes. Keeping those decisions separate avoids treating a corporate expansion announcement as evidence of a cheaper remittance.</p>
 
 <p>Still, if approved, a chartered Revolut would become one of the largest digital-only banks in the US — and a formidable competitor in cross-border payments. Revolut is part of a broader wave — see our analysis of <a href="/guides/crypto-banking-licenses-2026">crypto banking licenses and what they mean for money transfers</a>. Our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide already covers Revolut's current offering, and our explainer on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates</a> is worth reading if you're considering switching. We'll be tracking the application's progress and updating our <a href="/companies/revolut">Revolut review</a> as details emerge.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-13",
-    source: "American Banker",
-    sourceUrl: "https://www.americanbanker.com/",
+    updatedAt: "2026-09-26",
+    source: "Revolut announcements and US customer help",
+    sourceUrl: "https://www.revolut.com/en-AU/news/revolut_files_u_s_bank_charter_application_names_new_u_s_ceo/",
     providerSlugs: ["revolut"],
   },
   {
