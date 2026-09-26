@@ -6235,15 +6235,15 @@
     "date": "2026-09-26",
     "providers": {
       "paysend": {
-        "rate": 32.456,
+        "rate": 32.4552,
         "fee": 9,
-        "markup": 3.23,
-        "receiveAmount": 2953.5
+        "markup": 3.09,
+        "receiveAmount": 2953.42
       },
       "remitly": {
         "rate": 33.48,
         "fee": 9,
-        "markup": 0.17,
+        "markup": 0.03,
         "receiveAmount": 3046.68
       },
       "taptap-send": {

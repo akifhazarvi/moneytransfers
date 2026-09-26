@@ -4214,26 +4214,32 @@
       "western-union": {
         "rate": 4377.0964,
         "fee": 10,
-        "markup": 0.37,
+        "markup": 0.43,
         "receiveAmount": 393938.68
       },
       "worldremit": {
-        "rate": 4328.9386,
+        "rate": 4326.3913,
         "fee": 7.5,
-        "markup": 1.46,
-        "receiveAmount": 400426.82
+        "markup": 1.58,
+        "receiveAmount": 400191.2
       },
       "instarem": {
-        "rate": 4379.0466,
+        "rate": 4380.1155,
         "fee": 0.65,
-        "markup": 0.32,
-        "receiveAmount": 435058.28
+        "markup": 0.36,
+        "receiveAmount": 435164.47
       },
       "wise": {
-        "rate": 4394.5822,
+        "rate": 4397.6158,
         "fee": 6.05,
-        "markup": -0.03,
-        "receiveAmount": 412871
+        "markup": -0.04,
+        "receiveAmount": 413156
+      },
+      "skrill": {
+        "rate": 4185.4747,
+        "fee": 0,
+        "markup": 4.79,
+        "receiveAmount": 418547.47
       }
     }
   }

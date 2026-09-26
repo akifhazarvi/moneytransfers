@@ -11060,7 +11060,7 @@
       "worldremit": {
         "rate": 151.3664,
         "fee": 0.99,
-        "markup": 1.36,
+        "markup": 1.31,
         "receiveAmount": 14986.79
       },
       "instarem": {
@@ -11072,20 +11072,20 @@
       "xe": {
         "rate": 151.7887,
         "fee": 4,
-        "markup": 1.08,
+        "markup": 1.04,
         "receiveAmount": 14571.72
       },
       "paysend": {
         "rate": 150.4506,
         "fee": 1.99,
-        "markup": 1.95,
+        "markup": 1.91,
         "receiveAmount": 14745.66
       },
       "remitly": {
-        "rate": 151.27,
+        "rate": 151.26,
         "fee": 1.99,
-        "markup": 1.42,
-        "receiveAmount": 14825.97
+        "markup": 1.38,
+        "receiveAmount": 14824.99
       },
       "wise": {
         "rate": 153.305,
@@ -11098,6 +11098,12 @@
         "fee": 1.9,
         "markup": null,
         "receiveAmount": 15232.46
+      },
+      "moneygram": {
+        "rate": 152.23,
+        "fee": 1.99,
+        "markup": 0.75,
+        "receiveAmount": 14920.06
       }
     }
   }

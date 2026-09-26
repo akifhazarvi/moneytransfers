@@ -16849,16 +16849,16 @@
         "receiveAmount": 1162
       },
       "moneygram": {
-        "rate": 11.595,
+        "rate": 11.62,
         "fee": 0.99,
-        "markup": 0.08,
-        "receiveAmount": 1148.02
+        "markup": -0.12,
+        "receiveAmount": 1150.5
       },
       "ria": {
-        "rate": 11.4631,
+        "rate": 11.473,
         "fee": 3,
         "markup": null,
-        "receiveAmount": 1162
+        "receiveAmount": 1163
       },
       "taptap-send": {
         "rate": 11.62,
@@ -16869,7 +16869,7 @@
       "boss-money": {
         "rate": 11.65,
         "fee": 0,
-        "markup": -0.39,
+        "markup": -0.37,
         "receiveAmount": 1165
       },
       "western-union": {
@@ -16881,7 +16881,7 @@
       "worldremit": {
         "rate": 11.62,
         "fee": 0,
-        "markup": -0.14,
+        "markup": -0.12,
         "receiveAmount": 1162
       },
       "instarem": {
@@ -16891,21 +16891,21 @@
         "receiveAmount": 1153.87
       },
       "xe": {
-        "rate": 11.5328,
+        "rate": 11.5427,
         "fee": 4,
-        "markup": 0.62,
-        "receiveAmount": 1107.15
+        "markup": 0.55,
+        "receiveAmount": 1108.1
       },
       "paysend": {
-        "rate": 11.618,
+        "rate": 11.6475,
         "fee": 1.99,
-        "markup": -0.12,
-        "receiveAmount": 1138.68
+        "markup": -0.35,
+        "receiveAmount": 1141.57
       },
       "sendwave": {
         "rate": 11.62,
         "fee": 0,
-        "markup": -0.14,
+        "markup": -0.12,
         "receiveAmount": 1162
       },
       "remitly": {
@@ -16915,10 +16915,10 @@
         "receiveAmount": 1123.65
       },
       "revolut": {
-        "rate": 11.5165,
-        "fee": 0.75,
-        "markup": 0.76,
-        "receiveAmount": 1143.01
+        "rate": 11.537,
+        "fee": 1.75,
+        "markup": 0.6,
+        "receiveAmount": 1133.51
       },
       "wise": {
         "rate": 11.6295,
@@ -16927,10 +16927,10 @@
         "receiveAmount": 1117.48
       },
       "xoom": {
-        "rate": 11.2586,
+        "rate": 11.259,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1125.86
+        "receiveAmount": 1125.9
       }
     }
   }
