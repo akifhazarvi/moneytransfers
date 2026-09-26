@@ -292,10 +292,7 @@ export const newsItems: NewsItem[] = [
       "Embedded finance puts an app between customers and financial institutions. A marketplace payout example explains why regulation focuses on who holds funds and handles failures.",
     image: "/images/news/embedded-finance-regulation.jpg",
     imageAlt: "A statue beside the European Union flag, symbolising regulatory oversight of embedded finance",
-    content: `<p>The embedded finance sector — companies that weave financial services like payments, lending, and insurance into non-financial apps and platforms — is bracing for increased regulatory oversight in the United States. And somewhat counterintuitively, most players in the space say they welcome it.</p>
-
-<h2>The scale demands attention</h2>
-<p>Transaction volumes flowing through embedded finance platforms are projected to exceed $7 trillion in 2026, according to industry estimates. That's roughly the GDP of Japan passing through technology layers that sit between consumers and regulated financial institutions. For regulators accustomed to direct oversight of banks and licensed money transmitters, the intermediary layer presents novel challenges around consumer protection, data privacy, and operational resilience.</p>
+    content: `<p>A marketplace can show one balance while several businesses handle the underlying money. That separation is the central issue in embedded finance: the customer sees the platform, but the deposit relationship and payment processing may sit elsewhere.</p>
 
 <h2>The supervisory issue predates this year's market forecasts</h2>
 <p>On 25 July 2024, the FDIC, Federal Reserve and OCC issued a <a href="https://www.fdic.gov/news/financial-institution-letters/2024/agencies-issue-statement-bank-arrangements-third-parties" target="_blank" rel="noopener noreferrer">joint statement about banks using third parties to deliver deposit products</a>. It describes potential risks and risk-management practices. The statement itself says it does not create new requirements or supervisory expectations. It should not be described as a new 2026 rule simply because embedded finance remains in the news.</p>
@@ -305,11 +302,12 @@ export const newsItems: NewsItem[] = [
 <p>Our practical reading is to ask three separate questions. Which legal entity owes the displayed balance? Which company supplies the exchange-rate quote? Which support team can trace or reverse the payout instruction? A single app can present all three steps while different organisations perform them behind the scenes.</p>
 <p>If the withdrawal fails, save the marketplace balance entry, the conversion confirmation and the payout reference. Ask support which step failed and whether the money returned in the original currency. The point of this example is responsibility and reconciliation, not an allegation about any named platform or a claim that every app uses the same structure.</p>
 
-<h2>Connections to cross-border payments</h2>
-<p>Embedded finance intersects directly with international money transfers. Services like <a href="/companies/wise">Wise</a> Platform and <a href="/companies/paypal">PayPal</a>'s Braintree allow non-financial companies to embed cross-border payment capabilities into their own products — think freelance marketplaces paying contractors abroad, or e-commerce platforms handling cross-border seller payouts. Regulatory clarity in this space could accelerate adoption of embedded remittance solutions, bringing competition and lower costs to corridors that traditional providers have long dominated. Our <a href="/guides/business-international-payments-guide">guide to international business payments</a> explains the practical options available to companies today, while our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> covers what regulatory protections to look for when choosing a provider.</p>`,
+<h2>Keep the sale, conversion and payout records separate</h2>
+<p>In the contractor example, a completed job, a booked currency exchange and a delivered bank payment are three different events. A marketplace marking the job paid does not, by itself, identify which of the later events has occurred. Reconcile the job or invoice identifier to the withdrawal request, then use the payout reference when asking about the receiving account.</p>
+<p>For a business choosing a platform, this suggests a practical demonstration to request: show how a failed overseas withdrawal appears in the transaction history and which support team owns the case. That is a more useful operational question than whether the platform advertises an all-in-one experience. Our <a href="/guides/business-international-payments-guide">business payments guide</a> covers the separate task of choosing how to fund a supplier payment.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-07",
-    updatedAt: "2026-09-24",
+    updatedAt: "2026-09-26",
     source: "FDIC, Federal Reserve and OCC joint statement; industry context",
     sourceUrl: "https://www.fdic.gov/news/financial-institution-letters/2024/agencies-issue-statement-bank-arrangements-third-parties",
     providerSlugs: ["wise", "paypal"],
