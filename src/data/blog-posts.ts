@@ -4068,31 +4068,10 @@ const rawBlogPosts: BlogPost[] = [
 <p>The sheer volume means intense competition between providers. Fees are among the lowest of any corridor, and exchange rate spreads are tight. But even small differences matter at scale — a 0.5% rate markup on $1,000 costs roughly MXN 85. If you send monthly, that's MXN 1,000+ per year your family doesn't receive.</p>`,
       },
       {
-        heading: "Best Providers for Sending Money to Mexico",
-        content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for USD to MXN</h3>
-<table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~$7 fee — best total value for $1,000+</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express SPEI delivery in minutes — real-time 24/7</td></tr>
-<tr><td><strong>Cheapest for Small Amounts</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee with competitive MXN rates on amounts under $500</td></tr>
-<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>50,000+ locations including OXXO, Elektra, and bank branches</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/usa-to-mexico">Compare live rates →</a></p>
-</div>
-
-<p>For a $1,000 USD to MXN transfer:</p>
-<ul>
-<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup (mid-market rate) — best total value for medium to large amounts</li>
-<li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–$3.99 fee, competitive rate — Express delivery in minutes via SPEI</li>
-<li><strong><a href="/companies/xoom">Xoom</a> (PayPal)</strong>: $0 fee promotions, strong OXXO cash pickup network</li>
-<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Low fees, bank deposit and mobile wallet options</li>
-<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher fees but 50,000+ cash pickup locations across Mexico</li>
-<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide OXXO and Elektra pickup network</li>
-</ul>
-<p><a href="/send-money/usa-to-mexico">Compare live USD to MXN rates</a> — rankings shift throughout the day as the peso moves. See <a href="/compare/wise-vs-remitly">Wise vs Remitly</a> for a detailed side-by-side breakdown.</p>`,
+        heading: "Compare pesos for the same dollar budget",
+        content: `<p>Start with the household expense in Mexico and the amount you can debit from your sending account. Comparing a bank-deposit price with a cash-collection price can give a misleading winner if the recipient can only use one of them. Select the receiving method before opening the <a href="/send-money/usa-to-mexico">USD to MXN comparison</a>.</p>
+<p>Here is a hypothetical $400 budget, using invented rates rather than live offers. Service A deducts a $4 fee and exchanges $396 at MXN 17.20 per dollar: the payout is <strong>MXN 6,811.20</strong>. Service B charges no separate fee and exchanges all $400 at MXN 16.95: the payout is <strong>MXN 6,780</strong>. A leaves the recipient MXN 31.20 more despite its visible fee.</p>
+<p>If the household needs MXN 6,800, only A covers that expense in this example, before any receiving charge. If A instead adds its fee on top of the principal, the debit changes and the two offers must be compared again at an equal total budget. Save the final peso amount and delivery method with the receipt so the recipient can reconcile what arrives.</p>`,
       },
       {
         heading: "What You Need for a Mexico Transfer",
