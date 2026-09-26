@@ -221,8 +221,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 Company details
               </h2>
               <div className="space-y-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                {/* Operator statement — round-2 SEO brief §2.5: with no registered
+                    legal entity, say plainly who operates the site. */}
                 <p>
-                  SendMoneyCompare is operated from Denver, Colorado, United States. We are an
+                  SendMoneyCompare is not a registered company. It is operated by{" "}
+                  <Link href="/about/ahsan-mukhtar" className="text-[var(--color-primary)] hover:underline">Ahsan Mukhtar</Link>,
+                  its founder and CEO, from Denver, Colorado, United States. We are an
                   independent comparison platform — we are not a money transfer service
                   and do not hold or transmit funds.
                 </p>
@@ -239,6 +243,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Type</dt>
                       <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">Independent comparison platform</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[var(--color-on-surface-variant)]">Legal status</dt>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">Not a registered company</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[var(--color-on-surface-variant)]">Operated by</dt>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">Ahsan Mukhtar, Founder &amp; CEO</dd>
                     </div>
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Contact</dt>

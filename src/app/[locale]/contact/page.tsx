@@ -47,6 +47,12 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 SendMoneyCompare
               </h2>
+              {/* Round-2 SEO brief §2.5: no registered legal entity, so name the operator. */}
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
+                Operated by{" "}
+                <Link href="/about/ahsan-mukhtar" className="text-[var(--color-primary)] hover:underline">Ahsan Mukhtar</Link>,
+                Founder &amp; CEO. SendMoneyCompare is not a registered company.
+              </p>
               <address className="not-italic text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 370 W 12th Ave<br />
                 Denver, CO 80204<br />

@@ -32,11 +32,11 @@ Status key:
 | 2.2 | "Based on our 184-day tracking, Had the best…" | **Done** | Build: 0 rate-history pages with the subjectless sentence. |
 | 2.3 | "Six weighted criteria" with five listed | **Done** | /how-we-review says five. |
 | 2.4 | Inconsistent provider counts | **Done** | /methodology defines four counts (live quotes 92, profiles 55, editorial reviews 17, test transfers), all computed. It explains that "90+" elsewhere is the live count rounded down. The last hand-typed "50+" strings now come from the data. |
-| 2.5 | Legal entity details | **Owner** | Needs the legal name, registration number and jurisdiction, or, if unregistered, who operates the site. Nothing on the site states it today. |
+| 2.5 | Legal entity details | **Done** | No registered legal entity exists, so the brief's fallback applies. About (paragraph plus "Legal status" and "Operated by" rows) and Contact now state that SendMoneyCompare is not a registered company and is operated by Ahsan Mukhtar, Founder & CEO, linking his author page. The Organization structured data already lists him as founder and carries no `legalName`. |
 | 0 | Author photo, /about/awais-imran | **Owner** | Needs the photo file. |
 | 3.1 | Remove noindex from the 378 URLs | **Done** | Live, all 378 are resolved: 206 answer 200 and are indexable; 102 are retired (83 × 410, 19 × 404), listed with reasons in `round2-urls-not-reopened.tsv`; 69 answer 301. Three follow-ups ship in this change: Bolivia is opened; 9 redirect targets are opened, so 19 of the 24 redirecting URLs that previously ended on a noindex page now end on an indexable one; the 5 EUR→Cameroon URLs are kept on a noindex target on purpose (see Decisions). |
 | 3.2 | Sitemap: missing pages and the two Singapore URLs | **Done** | aud-to-bdt, boss-money, cash-out/brazil and history/aud-to-usd are all in sitemap.xml. singapore-to-colombia answers 404 and singapore-to-nigeria 410, both with real status codes, so the "Loading…" soft-404 risk is gone. `check:indexing` enforces the brief's rule for every submitted URL: 200, indexable, self-canonical. |
-| 4.1 | Disavow upload; header says 440 | **Done** | Uploaded about a week before Sep 26 (owner). The header now reads 439, matching the list. A screenshot of the GSC Disavow page is the owner's to send. |
+| 4.1 | Disavow upload; header says 440 | **Done** | The owner confirmed the upload (done about a week before Sep 26). The header now reads 439, matching the list. The brief needs no further confirmation; a screenshot of the GSC Disavow page is optional. |
 | 4.2 | Backlink report per category | **Owner** | Only the owner holds this data. |
 | 5 | Re-upload the sitemap; Validate Fix in GSC | **Owner, after deploy** | Validate Fix runs only in the GSC interface. |
 
