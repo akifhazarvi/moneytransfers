@@ -17,6 +17,7 @@ import {
   writeOutput,
   type ProviderQuote,
 } from "./lib/browser";
+import { roundRate } from "./lib/scrape-budget";
 
 const DELAY_MS = 800;
 
@@ -156,7 +157,7 @@ function makeQuote(
     receiveCurrency: to,
     sendAmount,
     fee: Math.round(fee * 100) / 100,
-    exchangeRate: Math.round(rate * 10000) / 10000,
+    exchangeRate: roundRate(rate),
     receiveAmount: Math.round(receiveAmount * 100) / 100,
     paymentMethod: null,
     deliveryEstimate,

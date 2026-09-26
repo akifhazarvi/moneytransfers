@@ -13,6 +13,7 @@
  */
 import * as cheerio from "cheerio";
 import { writeOutput, type ProviderQuote } from "./lib/browser";
+import { roundRate } from "./lib/scrape-budget";
 
 const DELAY_MS = 800;
 
@@ -307,7 +308,7 @@ function extractQuotes(
       receiveCurrency,
       sendAmount,
       fee: Math.round(fee * 100) / 100,
-      exchangeRate: Math.round(exchangeRate * 10000) / 10000,
+      exchangeRate: roundRate(exchangeRate),
       receiveAmount: Math.round(receiveAmount * 100) / 100,
       paymentMethod: null,
       deliveryMethod: null,

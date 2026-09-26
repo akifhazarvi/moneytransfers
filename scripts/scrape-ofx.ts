@@ -31,24 +31,24 @@ import * as path from "path";
 const OUTPUT_DIR = path.join(__dirname, "..", "src", "data", "scraped");
 const DELAY_MS = 1500;
 
+// Removed 2026-09-26 — no quote in any run checked, both amounts: USD/GBP/EUR →
+// NGN, USD → COP, USD → KES, SAR → INR, SAR → PKR (14 requests, ~40s per run).
 const CORRIDORS = [
   { from: "USD", to: "INR" }, { from: "USD", to: "PHP" },
   { from: "USD", to: "IDR" }, { from: "USD", to: "THB" }, { from: "USD", to: "MYR" },
   { from: "USD", to: "TRY" }, { from: "USD", to: "MXN" }, { from: "USD", to: "EUR" },
-  { from: "USD", to: "GBP" }, { from: "USD", to: "NGN" },
+  { from: "USD", to: "GBP" },
   { from: "USD", to: "PKR" }, { from: "USD", to: "BRL" },
-  { from: "USD", to: "COP" }, { from: "USD", to: "KES" },
   { from: "GBP", to: "INR" }, { from: "GBP", to: "EUR" },
-  { from: "GBP", to: "USD" }, { from: "GBP", to: "NGN" },
+  { from: "GBP", to: "USD" },
   { from: "EUR", to: "INR" }, { from: "EUR", to: "GBP" },
-  { from: "EUR", to: "USD" }, { from: "EUR", to: "NGN" },
+  { from: "EUR", to: "USD" },
   { from: "CAD", to: "INR" }, { from: "CAD", to: "USD" },
   { from: "AUD", to: "INR" }, { from: "AUD", to: "USD" },
   { from: "AED", to: "INR" },
   { from: "SGD", to: "INR" }, { from: "SGD", to: "PHP" },
   { from: "NZD", to: "INR" }, { from: "NZD", to: "AUD" },
   { from: "CHF", to: "INR" }, { from: "CHF", to: "EUR" },
-  { from: "SAR", to: "INR" }, { from: "SAR", to: "PKR" },
 ];
 
 // OFX has a minimum of ~150 USD equivalent

@@ -16,6 +16,7 @@ import {
   writeOutput,
   type ProviderQuote,
 } from "./lib/browser";
+import { roundRate } from "./lib/scrape-budget";
 
 const DELAY_MS = 600;
 
@@ -312,7 +313,7 @@ function extractAllQuotes(
       receiveCurrency: to,
       sendAmount: amount,
       fee: Math.round(fee * 100) / 100,
-      exchangeRate: Math.round(rate * 10000) / 10000,
+      exchangeRate: roundRate(rate),
       receiveAmount: Math.round(receiveAmount * 100) / 100,
       paymentMethod: null,
       deliveryMethod: null,

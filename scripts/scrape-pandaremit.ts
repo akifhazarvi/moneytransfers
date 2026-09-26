@@ -25,6 +25,7 @@ import {
   delay,
   type ProviderQuote,
 } from "./lib/browser";
+import { roundRate } from "./lib/scrape-budget";
 
 // Disable TLS verification only when behind a corporate MITM proxy (Zscaler).
 // On CI / production runners this env var is not set and TLS is verified normally.
@@ -204,7 +205,7 @@ async function main() {
         receiveCurrency: to,
         sendAmount: amount,
         fee: Math.round(fee * 100) / 100,
-        exchangeRate: Math.round(rateData.sellRate * 10000) / 10000,
+        exchangeRate: roundRate(rateData.sellRate),
         receiveAmount: Math.round(receiveAmount * 100) / 100,
         paymentMethod: null,
         deliveryMethod: "Bank Deposit",
