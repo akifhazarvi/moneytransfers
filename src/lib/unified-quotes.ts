@@ -27,7 +27,6 @@ import wiseDirectQuotes from "@/data/scraped/wise-direct-quotes.json";
 import aceQuotes from "@/data/scraped/ace-money-transfer-quotes.json";
 import riaQuotes from "@/data/scraped/ria-quotes.json";
 import remitlyQuotes from "@/data/scraped/remitly-quotes.json";
-import compareremitQuotes from "@/data/scraped/compareremit-quotes.json";
 import pandaremitQuotes from "@/data/scraped/pandaremit-quotes.json";
 import skyremitQuotes from "@/data/scraped/skyremit-quotes.json";
 import lemfiQuotes from "@/data/scraped/lemfi-quotes.json";
@@ -148,6 +147,12 @@ function normalizeQuote(
 ): NormalizedQuote {
   const sendAmount = (raw.sendAmount as number) || 0;
   let fee = (raw.fee as number) || 0;
+  // RemitRoutes' exchangeRate is ALL-IN (recipientGets / sendAmount) and its
+  // "fee" was that same cost re-expressed against mid-market — fee% equalled
+  // markup% on all 4,263 rows (2026-09-26). Treating it as a separate fee
+  // deducted it twice and showed every bank on the feed at ~2x its real cost.
+  // The scraper now writes fee 0; this covers files written before that.
+  if (raw.source === "remitroutes-bridge") fee = 0;
   // A negative fee is never real pricing. 42 remitroutes-bridge rows (all ARS
   // corridors) carried values like -55.80, which through (sendAmount - fee) would
   // INFLATE the payout and could hand the provider a "cheapest" badge it has not
@@ -178,10 +183,10 @@ function normalizeQuote(
 
   // --- Normalize the fee convention so every row means the same thing. ---
   // Sources disagree about whether the transfer fee comes OUT of the send amount
-  // or is charged ON TOP of it. All 4,716 remitroutes rows satisfy
-  // receiveAmount == sendAmount * exchangeRate exactly, i.e. the sender pays
-  // (sendAmount + fee) and the recipient gets the full sendAmount converted.
-  // Other sources deduct the fee first.
+  // or is charged ON TOP of it (OFX, and Ria/Xoom's raw APIs: the sender pays
+  // sendAmount + fee and the recipient gets the full sendAmount converted).
+  // Other sources deduct the fee first. (RemitRoutes, once cited here as the
+  // fee-on-top case, is not: its rate already contains the cost — see above.)
   //
   // The site asks "you send X", so the comparable answer is what the recipient
   // gets for a total outlay of X — which is (X - fee) * rate under EITHER
@@ -289,6 +294,16 @@ function addQuotes(
     if (!q.sendCurrency || !q.receiveCurrency || !q.providerSlug) continue;
     if (q.receiveAmount <= 0 && q.exchangeRate <= 0) continue;
 
+    // A row far older than the rest of the dataset is a scraper that stopped,
+    // not a current quote — RemitRoutes shipped rows 213h old. Measured against
+    // the FRESHEST row we hold rather than the wall clock, so a site-wide scrape
+    // outage leaves the last good dataset in place instead of emptying every
+    // comparison table.
+    if (q.dateCollected && freshestCollectedMs - Date.parse(q.dateCollected) > STALE_AFTER_MS) {
+      quarantineCounts.stale = (quarantineCounts.stale ?? 0) + 1;
+      continue;
+    }
+
     // Quarantine rows that cannot be true (a rate beating interbank on a freely
     // floating currency, an absurd markup or fee). See quote-integrity.ts for
     // why self-inconsistent rows are deliberately NOT dropped here.
@@ -318,9 +333,27 @@ function addQuotes(
   }
 }
 
+const ALL_SOURCE_ROWS: unknown[][] = [
+  ofxQuotes, instaremQuotes, xoomQuotes, taptapsendQuotes, wiseDirectQuotes,
+  aceQuotes, riaQuotes, remitlyQuotes, pandaremitQuotes, skyremitQuotes,
+  lemfiQuotes, unplexQuotes, wiseComparisonQuotes, monitoQuotes, exiapQuotes,
+  remitroutesQuotes,
+] as unknown[][];
+const STALE_AFTER_MS = 72 * 3600_000;
+let freshestCollectedMs = 0;
+for (const rows of ALL_SOURCE_ROWS) {
+  for (const raw of rows) {
+    const t = Date.parse(String((raw as Record<string, unknown>).dateCollected ?? ""));
+    if (t > freshestCollectedMs) freshestCollectedMs = t;
+  }
+}
+// A row stamped in the future (clock skew, a malformed date) must not become
+// the reference and mark every real row stale.
+freshestCollectedMs = Math.min(freshestCollectedMs, Date.now());
+
 // Load sources in priority order (lower priority number = preferred).
-// Four tiers, most-trusted first — a quote from a better tier always wins the
-// dedup for the same provider+corridor+amount:
+// Four tiers, most-trusted first — a quote from a better tier wins the dedup for
+// the same provider+corridor+amount unless the other is >24h fresher (outranks()):
 //
 //   1. Direct  — first-party scrapes (the provider's own API / calculator)
 //   2. Wise    — Wise Comparison API (Wise's own REST aggregator)
@@ -336,7 +369,6 @@ addQuotes(wiseDirectQuotes as unknown[], 1, "wise-direct-api");
 addQuotes(aceQuotes as unknown[], 1, "ace-direct");
 addQuotes(riaQuotes as unknown[], 1, "ria-browser");
 addQuotes(remitlyQuotes as unknown[], 1, "remitly-browser");
-addQuotes(compareremitQuotes as unknown[], 1, "compareremit-browser");
 addQuotes(pandaremitQuotes as unknown[], 1, "pandaremit-api");
 addQuotes(skyremitQuotes as unknown[], 1, "skyremit-api");
 addQuotes(lemfiQuotes as unknown[], 1, "lemfi-api");
@@ -364,21 +396,33 @@ addQuotes(exiapQuotes as unknown[], 4, "exiap");
 addQuotes(remitroutesQuotes as unknown[], 5, "remitroutes-bridge");
 
 // --- Deduplicate: for the same provider+corridor+amount, keep highest priority ---
+// A better tier wins UNLESS the other row is more than a day fresher. Tier order
+// encodes how much we trust a source's parsing, not how current it is, and a
+// first-party scraper that has quietly stopped (the Aug 2026 41-day freeze, the
+// Sep 2026 Remitly/RemitRoutes timeouts) must not keep outranking the same
+// provider's live quote from an aggregator. A day's margin keeps daily browser
+// scrapes (Ria, Xoom) from flapping against 6-hourly API tiers.
+const FRESHER_WINS_MS = 24 * 3600_000;
+
+function outranks(q: NormalizedQuote, existing: NormalizedQuote): boolean {
+  const qt = q.dateCollected ? Date.parse(q.dateCollected) : NaN;
+  const et = existing.dateCollected ? Date.parse(existing.dateCollected) : NaN;
+  if (Number.isFinite(qt) && Number.isFinite(et) && Math.abs(qt - et) > FRESHER_WINS_MS) {
+    return qt > et;
+  }
+  if (q.sourcePriority !== existing.sourcePriority) {
+    return q.sourcePriority < existing.sourcePriority;
+  }
+  // Same tier: prefer the row whose own fee/rate/receive figures reconcile.
+  return isSelfConsistent(q) && !isSelfConsistent(existing);
+}
+
 function deduplicateQuotes(quotes: NormalizedQuote[]): NormalizedQuote[] {
   const best = new Map<string, NormalizedQuote>();
   for (const q of quotes) {
     const key = `${q.providerSlug}_${q.sendAmount}`;
     const existing = best.get(key);
-    if (!existing || q.sourcePriority < existing.sourcePriority) {
-      best.set(key, q);
-    } else if (
-      q.sourcePriority === existing.sourcePriority &&
-      isSelfConsistent(q) &&
-      !isSelfConsistent(existing)
-    ) {
-      // Same tier: prefer the row whose own fee/rate/receive figures reconcile.
-      best.set(key, q);
-    }
+    if (!existing || outranks(q, existing)) best.set(key, q);
   }
   return Array.from(best.values());
 }

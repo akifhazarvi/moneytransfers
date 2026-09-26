@@ -25,7 +25,6 @@ const SOURCE_FILES: { file: string; priority: number }[] = [
   { file: "ace-money-transfer-quotes.json", priority: 1 },
   { file: "ria-quotes.json", priority: 1 },
   { file: "remitly-quotes.json", priority: 1 },
-  { file: "compareremit-quotes.json", priority: 1 },
   { file: "wise-comparison-quotes.json", priority: 2 },
   { file: "exiap-quotes.json", priority: 2 },
   { file: "monito-quotes.json", priority: 2 },
