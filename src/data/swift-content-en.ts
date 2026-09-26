@@ -2,6 +2,10 @@ import type { SwiftContent } from "./swift-content";
 
 export const swiftContentEn: SwiftContent = {
   editorial: {
+    "moldova": {"title": "Moldovan euro payments after SEPA connection", "intro": "Moldova became operationally connected to SEPA on 6 October 2025, according to the National Bank of Moldova. A request for a Moldovan BIC should therefore be considered alongside the sending bank’s available payment route, rather than assuming every euro payment must use correspondent banking.", "bullets": ["Ask whether the specific receiving bank can accept the proposed SEPA euro payment. Country participation does not make a non-euro payment a SEPA transfer.", "For a payment that does require SWIFT instructions, obtain the beneficiary bank’s currency-specific details. Keep any intermediary-bank instruction distinct from the Moldovan beneficiary bank’s BIC.", "Source: <a href=\"https://bnm.md/en/content/today-republic-moldova-connected-sepa-fast-secure-and-low-cost-euro-payments-just-european\" target=\"_blank\" rel=\"noopener noreferrer\">National Bank of Moldova: operational SEPA connection</a>."]},
+    "slovenia": {"title": "Match the Slovenian institution before selecting a branch", "intro": "Banka Slovenije publishes national account identifiers alongside BICs. Use the institution named on the recipient’s account instructions to narrow this directory before inspecting any optional branch suffix.", "bullets": ["A Slovenian account identifier and a BIC serve different purposes. Do not paste the SI-prefixed account into the bank-code field or replace the account with a BIC.", "For a SEPA payment, follow the fields requested by the sending bank. Banka Slovenije explains that users of SEPA transfers within scope provide the IBAN rather than being required to supply a BIC.", "Sources: <a href=\"https://www.bsi.si/sl/placilni-sistemi/placilni-in-transakcijski-racun\" target=\"_blank\" rel=\"noopener noreferrer\">Banka Slovenije account identifiers</a> and <a href=\"https://www.bsi.si/sl/placilni-sistemi/pogosta-vprasanja-in-odgovori\" target=\"_blank\" rel=\"noopener noreferrer\">payment FAQs</a>."]},
+    "czech-republic": {"title": "Distinguish a Czech domestic account from its BIC", "intro": "A Czech domestic account can contain a prefix, an account number and a bank code. Those components do not form a SWIFT code. The Czech National Bank provides IBAN conversion guidance for turning the domestic account representation into an international account identifier.", "bullets": ["If a Czech invoice shows an account separated by a slash, ask for its bank-confirmed IBAN and any required BIC instead of entering the domestic bank code in a SWIFT field.", "Keep the payment reference separate from the account identifier. A correct bank code can route a payment while a missing reference still makes reconciliation difficult for the recipient.", "Source: <a href=\"https://www.cnb.cz/en/payments/iban/iban-and-bic-use-in-payment-systems/\" target=\"_blank\" rel=\"noopener noreferrer\">Czech National Bank: IBAN and BIC</a>."]},
+
   "united-kingdom": {
     title: "How SWIFT works in the United Kingdom",
     intro:
@@ -62,16 +66,7 @@ export const swiftContentEn: SwiftContent = {
       "SBP requires that foreign currency received via SWIFT is converted to PKR at the bank's prevailing rate on the day of credit. The recipient cannot hold the funds in foreign currency in a standard PKR account. For better rates on the conversion, compare the receiving bank's posted rate against the interbank rate.",
     ],
   },
-  germany: {
-    title: "How SWIFT works in Germany",
-    intro:
-      "Germany is part of the SEPA zone, so euro-denominated transfers from other SEPA countries typically use IBAN alone and travel via SEPA Credit Transfer rather than SWIFT. SWIFT becomes relevant when the payment originates outside SEPA or involves a non-EUR currency. Deutsche Bank, Commerzbank, and the Sparkassen network are among the most commonly used SWIFT participants for inbound international transfers.",
-    bullets: [
-      "For EUR payments from within SEPA (EU, EEA, Switzerland, UK for some schemes), you usually only need the German IBAN. The BIC/SWIFT code is optional for SEPA transfers and most banks will route the payment correctly with just the IBAN.",
-      "Non-EUR inbound transfers (such as USD or GBP) to a German bank account will travel via SWIFT and may involve correspondent bank charges that reduce the received amount. If the recipient holds a multi-currency account, sending in the original currency avoids an automatic conversion at the receiving bank's rate.",
-      "German Sparkassen (savings banks) and Volksbanken (cooperative banks) each have their own SWIFT codes distinct from the large commercial banks. Do not assume a generic Deutsche Bank SWIFT code will work for a Sparkasse account — each institution requires its own BIC.",
-    ],
-  },
+  germany: {"title": "Verify the German institution behind the BIC", "intro": "Germany’s bank sort-code directory provides a way to cross-check the institution associated with a BIC. This is useful when the recipient banks with a local Sparkasse or cooperative bank whose name differs from a national banking brand.", "bullets": ["Keep the beneficiary’s DE account number and the bank identifier in their separate fields. A BIC lookup identifies an institution, not the owner of an individual account.", "Do not substitute the code of a better-known German bank when a local bank name is unfamiliar. Ask the recipient for its current international receiving instructions.", "Reference: <a href=\"https://www.bundesbank.de/de/startseite/suche/bankleitzahlen-suche\" target=\"_blank\" rel=\"noopener noreferrer\">Bundesbank bank sort-code and BIC search</a>."]},
   france: {
     title: "How SWIFT works in France",
     intro:
@@ -359,6 +354,10 @@ export const swiftContentEn: SwiftContent = {
   },
   },
   faqs: {
+    "moldova": [{"q": "Does Moldova’s SEPA connection remove every need for a BIC?", "a": "No. It creates a euro-payment option for participating institutions. The actual route, currency and sending provider determine which instructions are needed."}, {"q": "Which code belongs in the beneficiary-bank field for Moldova?", "a": "Use the receiving bank’s BIC from its instructions. If those instructions also name a correspondent, enter it only in the separate intermediary field requested by the sender."}],
+    "slovenia": [{"q": "Should I choose a Slovenian BIC just because its city matches?", "a": "No. Match the bank and the recipient’s official instructions first. The city listing does not establish that a branch serves that account."}, {"q": "Why does my Slovenian SEPA payment form only ask for an IBAN?", "a": "The account identifier can supply the routing information for that payment. Do not add a guessed BIC to a form that does not require one."}],
+    "czech-republic": [{"q": "Is the bank code after a slash on a Czech invoice a SWIFT code?", "a": "No. That belongs to the domestic account representation. Obtain the international account details and BIC from the beneficiary’s bank."}, {"q": "Does the BIC include the invoice reference for a Czech payment?", "a": "No. The bank identifier, beneficiary account and payment reference occupy different fields. Preserve the reference requested by the recipient for reconciliation."}],
+
   // ─── Country-specific FAQ overrides for remittance corridor countries ───
 
   "united-kingdom": [
@@ -536,41 +535,7 @@ export const swiftContentEn: SwiftContent = {
     },
   ],
 
-  germany: [
-    {
-      q: "What is a SWIFT code for Germany?",
-      a: "A SWIFT code (also called a BIC) is an 8 or 11-character identifier used by German banks for international wire transfers. The country code portion is DE. For example, DEUTDEFF is the SWIFT code for Deutsche Bank Frankfurt. The structure is: 4 characters for the bank, 2 for country (DE), 2 for the city, and optionally 3 for the branch.",
-    },
-    {
-      q: "What are the SWIFT codes for major German banks?",
-      a: "Key German bank SWIFT codes include: Deutsche Bank — DEUTDEFF, Commerzbank — COBADEFF, DZ Bank — GENODEFF, HypoVereinsbank (UniCredit) — HYVEDEMMXXX, N26 — NTSBDEB1, and ING Germany — INGBDEFF. Sparkassen and Volksbanken each have their own SWIFT codes — do not assume a generic code works for all institutions.",
-    },
-    {
-      q: "Do I need a SWIFT code or just an IBAN for transfers to Germany?",
-      a: "For EUR transfers from within the SEPA zone, the German IBAN (starting with DE, 22 characters) is usually sufficient — no SWIFT code is needed. For transfers from outside SEPA or in a non-EUR currency, you will need the bank's SWIFT/BIC code alongside the IBAN. SEPA transfers are typically faster and cheaper than SWIFT.",
-    },
-    {
-      q: "How do I find the SWIFT code for my German bank?",
-      a: "You can find your German bank's SWIFT code on your bank statement, in your online banking portal, by contacting your bank, or by searching on this page. Note that Sparkassen (savings banks) and Volksbanken (cooperative banks) each have their own distinct SWIFT codes — you cannot use a generic Deutsche Bank or Commerzbank code for these institutions.",
-    },
-    {
-      q: "How long does a SWIFT transfer to Germany take?",
-      a: "SEPA EUR transfers from within Europe typically arrive within one business day (often same-day with SEPA Instant). SWIFT transfers from outside SEPA usually take one to three business days. Transfers in non-EUR currencies may take slightly longer due to correspondent bank routing and currency conversion at the receiving bank.",
-    },
-    {
-      q: "Are there fees for receiving a SWIFT transfer in Germany?",
-      a: "SEPA transfers in EUR are typically free or very low cost at German banks. Non-SEPA SWIFT transfers may incur an inbound wire fee, typically EUR 5–15. If the transfer arrives in a non-EUR currency (such as USD or GBP), the bank will convert at their own exchange rate, which includes a margin. Check your bank's Preisverzeichnis (fee schedule) for details.",
-    },
-    {
-      q: "What is the difference between a Sparkasse SWIFT code and a commercial bank SWIFT code?",
-      a: "German Sparkassen (savings banks) and Volksbanken (cooperative banks) are independent institutions with their own SWIFT codes, separate from commercial banks like Deutsche Bank and Commerzbank. There are hundreds of Sparkassen across Germany, each with a unique BIC. You must use the specific SWIFT code for the recipient's Sparkasse — a Deutsche Bank SWIFT code will not work for a Sparkasse account.",
-    },
-    {
-      q: "Can I receive non-EUR currencies directly in a German bank account?",
-      a: "Some German banks (particularly Deutsche Bank, Commerzbank, and international banks like HSBC Germany) offer multi-currency accounts that can hold USD, GBP, and other currencies. Standard EUR accounts will have non-EUR transfers automatically converted at the bank's exchange rate. For regular foreign currency receipts, a multi-currency account avoids this automatic conversion.",
-    },
-  ],
-
+  germany: [{"q": "Can I use one BIC for every German Sparkasse?", "a": "No. Match the specific institution on the beneficiary’s account record. The Sparkassen name describes a group of institutions, not a single receiving bank identifier."}, {"q": "How can a German bank sort code help verify a BIC?", "a": "The Bundesbank’s bank sort-code directory includes BIC records. Use the bank’s current account instructions as the payment instruction, and the directory as a cross-check of the institution rather than proof that an individual account exists."}],
   france: [
     {
       q: "What is a SWIFT code for France?",

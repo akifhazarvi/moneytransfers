@@ -659,6 +659,10 @@ export default async function IbanCountryPage({ params }: Props) {
               block the round-2 duplication audit found on them. The IBAN
               structure breakdown, bank list and FAQs above and below are ours. */}
 
+          <p className="text-xs text-[var(--color-on-surface-variant)]">
+            Format reference: <a href="https://www.swift.com/standards/data-standards/iban-international-bank-account-number" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">SWIFT IBAN Registry</a>.
+          </p>
+
           {/* FAQ Schema content */}
           <Card>
             <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
