@@ -22275,14 +22275,14 @@
       "lemfi": {
         "rate": 70.55,
         "fee": 0,
-        "markup": 0.66,
+        "markup": 0.74,
         "receiveAmount": 7055
       },
       "taptap-send": {
-        "rate": 70.3,
+        "rate": 70.2,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 7030
+        "receiveAmount": 7020
       },
       "western-union": {
         "rate": 69.9978,
@@ -22347,7 +22347,7 @@
       "remitly": {
         "rate": 70.27,
         "fee": 2.99,
-        "markup": 1.06,
+        "markup": null,
         "receiveAmount": 6816.89
       },
       "revolut": {
@@ -22381,10 +22381,10 @@
         "receiveAmount": 6795.97
       },
       "moneygram": {
-        "rate": 70.679,
+        "rate": 70.7626,
         "fee": 0.9,
         "markup": null,
-        "receiveAmount": 7004.29
+        "receiveAmount": 7012.57
       }
     }
   }

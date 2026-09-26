@@ -16687,10 +16687,10 @@
     "date": "2026-09-26",
     "providers": {
       "moneygram": {
-        "rate": 315.3542,
+        "rate": 315.6596,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 31223.22
+        "receiveAmount": 31253.46
       },
       "skrill": {
         "rate": 300.8986,
@@ -16761,7 +16761,7 @@
       "remitly": {
         "rate": 313.94,
         "fee": 1.99,
-        "markup": null,
+        "markup": 0.58,
         "receiveAmount": 30769.26
       },
       "revolut": {
