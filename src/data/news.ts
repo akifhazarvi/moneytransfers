@@ -316,26 +316,25 @@ export const newsItems: NewsItem[] = [
     slug: "rwanda-launches-national-fintech-centre-2026",
     title: "Analysis: Rwanda's Ambitions as Africa's Fintech Hub and What It Means for Remittances",
     excerpt:
-      "Rwanda is reportedly building a national FinTech Centre and digital innovation platform. We analyse what a growing East African fintech ecosystem could mean for remittance costs.",
+      "What Rwanda's documented fintech innovation work could mean for receiving remittances—and what evidence would demonstrate a better RWF payout.",
     image: "/images/news/rwanda-fintech-centre.jpg",
-    imageAlt: "Aerial view of Kigali's modern skyline, where Rwanda launched its new national FinTech Centre",
-    content: `<p><em>Editor's note: This article is analysis based on limited public reporting. Specific launch details could not be fully verified from primary sources at the time of publication.</em></p>
-
-<p>Rwanda, already one of Africa's most digitally connected economies, is reportedly making an explicit bid to become the continent's fintech capital. At the Inclusive FinTech Forum 2026, held in Kigali during the week of March 10–14, the government is said to have launched a national FinTech Centre alongside "Innovate Rwanda" — a digital platform connecting startups with funding, mentorship, and incubation programmes.</p>
-
-<h2>Why Rwanda?</h2>
-<p>The East African nation punches above its weight in digital infrastructure. Mobile money penetration exceeds 80% of the adult population, the government has invested heavily in 4G coverage (reaching 96% of the population), and Rwanda's regulatory sandbox — which allows fintechs to test products under lighter-touch supervision — has attracted dozens of early-stage companies since launching in 2021.</p>
-
-<p>The new FinTech Centre will serve as a physical and institutional hub, offering co-working space, regulatory guidance, and connections to regional and international investors. I&M Bank, one of East Africa's largest banking groups, was a headline sponsor and has committed to partnering with Centre graduates on product launches.</p>
-
-<h2>Implications for remittances</h2>
-<p>Inbound remittances are a lifeline for Rwanda's economy, accounting for roughly 3% of GDP. The country has been a pioneer in mobile money-based remittance delivery — services like <a href="/companies/taptap-send">TapTap Send</a> and <a href="/companies/worldremit">WorldRemit</a> already support mobile wallet payouts to Rwanda's major networks. A thriving local fintech ecosystem could produce homegrown competitors that further drive down costs on corridors like UK-to-Rwanda and US-to-Rwanda, which currently average 6–8% in total transfer costs.</p>
-
-<p>More broadly, Rwanda's initiative reflects a continent-wide trend documented in our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. Nigeria, Kenya, and South Africa have all launched or expanded fintech regulatory sandboxes in the past two years, creating a competitive landscape for African fintech talent and investment. If you're already sending to Africa, our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide highlights which providers offer the widest mobile wallet coverage across the continent. See our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a> for tips on finding the cheapest options.</p>`,
+    imageAlt: "Aerial view of Kigali's skyline in Rwanda",
+    content: `<p><em>Updated 26 September: earlier versions repeated unverified details about a FinTech Centre launch. This analysis now uses the National Bank of Rwanda's published account of its innovation work; it does not treat those launch details as established facts.</em></p>
+<p>Rwanda's fintech ambitions matter to remittance users when they improve the actual path between an overseas sender and a local recipient. A new organisation, event or startup programme is an input to that process. Its existence alone does not show that a family receives more francs or can resolve a failed payment faster.</p>
+<h2>What the central bank has documented</h2>
+<p>The National Bank of Rwanda's <a href="https://www.bnr.rw/documents/MPFSS_Report_March_2025.pdf" target="_blank" rel="noopener noreferrer">March 2025 monetary policy and financial stability report</a> describes a regulatory sandbox and an open-finance framework. It discusses support for innovative financial services, including payment and reconciliation tools. This provides a documented basis for discussing Rwanda's fintech ecosystem without assuming that every experimental product is a widely available remittance service.</p>
+<h2>Measure the receiving experience</h2>
+<p>Consider a hypothetical family in Kigali expecting RWF for a household bill. A useful new service would make the amount due, the wallet or account receiving it and the time of availability clear. If the payment fails, the sender and recipient also need to know which institution can investigate it. A lower advertised fee addresses only one part of that experience.</p>
+<p>For a meaningful comparison, hold the sending amount and receiving method constant. Record the francs credited, any extra charge to access those francs and whether the recipient could actually use them by the required date. A cash collection and a wallet credit may have different final costs even when their quoted exchange rates match.</p>
+<h2>What would support a claim of progress?</h2>
+<p>Our analysis would look for an available product with published eligibility, a supported receiving partner, transparent pricing and a clear complaint route. Testing or investment announcements can be followed as developments, but they should not be counted as evidence that remittance prices have already fallen.</p>
+<p>A recipient trial should reconcile the sending receipt with the final RWF credit and distinguish provider processing from a subsequent withdrawal. We have not performed that trial for the initiatives discussed here. Until such evidence is available, the useful question for a sender is which supported payment meets today's obligation—not which announcement sounds most ambitious.</p>
+<p>For the current payment, compare the receiving options offered on your route and retain the confirmation. For broader context, our <a href="/guides/global-remittance-trends-2026">remittance trends guide</a> explains how market-level developments differ from the price of an individual transfer.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-14",
-    source: "The New Times (Rwanda) / Inclusive FinTech Forum",
-    sourceUrl: "https://www.newtimes.co.rw/article/22683/news/technology/",
+    updatedAt: "2026-09-26",
+    source: "National Bank of Rwanda: March 2025 report; SendMoneyCompare analysis",
+    sourceUrl: "https://www.bnr.rw/documents/MPFSS_Report_March_2025.pdf",
     providerSlugs: ["worldremit", "taptap-send"],
   },
   {
