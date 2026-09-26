@@ -645,6 +645,16 @@ function renderQuoteTokens(html: string): string {
     },
   );
 
+  // {{AVG_MARKUP_PCT:xe}} -> "0.62%": the same median, figure only. The full
+  // token's fixed tail ("median across the N corridors we quote it on") is
+  // repeated wording wherever it appears, so a page quoting a margin several
+  // times, or in its own phrasing, uses this.
+  out = out.replace(/\{\{AVG_MARKUP_PCT:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
+    const m = MEASURED_MARKUPS.get(slug);
+    if (!m || m.corridors < 3) return match;
+    return `${m.markupMedianPct.toFixed(2)}%`;
+  });
+
   out = out.replace(/\{\{AVG_MARKUP:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const m = MEASURED_MARKUPS.get(slug);
     if (!m || m.corridors < 3) return match;
@@ -977,6 +987,14 @@ export function renderDataTokens(html: string): string {
   // provider but a fifth of them. This renders the denominator with the
   // numerator so the sentence cannot be read as "cheapest everywhere".
   // {{LEADS:wise}} -> "44 of the 212 corridors we can compare"
+  // {{LEADS_SHORT:wise}} -> "49 of 216": numerator and denominator without the
+  // shared tail, for pages that phrase the claim themselves.
+  out = out.replace(/\{\{LEADS_SHORT:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
+    const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
+    if (!row) return match;
+    return `${row.corridorsLed} of ${CONSISTENCY_INDEX.comparableCorridors}`;
+  });
+
   out = out.replace(/\{\{LEADS:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
     if (!row) return match;

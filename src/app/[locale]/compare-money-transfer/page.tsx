@@ -34,6 +34,7 @@ import { corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 import { CONSISTENCY_INDEX, CONSISTENCY_ROWS, TOP_LEADER, TOP_LEADER_SHARE } from "@/lib/consistency-index";
 import { REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
+import { getMeasuredMarkup } from "@/lib/provider-measured";
 
 /**
  * The second-most-frequent winner. Named alongside the leader because the point
@@ -91,6 +92,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function getScore(slug: string): number {
   return trustpilotIndex[slug]?.score ?? 0;
 }
+
+/**
+ * Measured exchange-rate margins, not advertised ranges. The FAQ used to say
+ * Remitly, WorldRemit and Instarem were "typically within 0.5–1.5%" and
+ * Western Union and MoneyGram "typically apply 1.5–3%" — hand-typed figures
+ * our own data contradicted (MoneyGram measures ~1%). Medians, per the
+ * site-wide rule: a single corridor with an unreliable benchmark moves a mean.
+ * Fee excluded: `markupMedianPct` is the rate margin alone.
+ */
+const MARKUP_SLUGS: readonly [string, string][] = [
+  ["wise", "Wise"], ["instarem", "Instarem"], ["remitly", "Remitly"],
+  ["worldremit", "WorldRemit"], ["moneygram", "MoneyGram"], ["western-union", "Western Union"],
+];
+const MEASURED_MARKUP_SENTENCE = (() => {
+  const parts = MARKUP_SLUGS.flatMap(([slug, name]) => {
+    const m = getMeasuredMarkup(slug);
+    return m ? [`${name} ${m.markupMedianPct.toFixed(2)}% (${m.corridors} corridors)`] : [];
+  });
+  if (parts.length < 2) return "";
+  const list = `${parts.slice(0, -1).join(", ")} and ${parts[parts.length - 1]}`;
+  return `Measured rate margins in our data — the median distance from the mid-market rate, fee excluded — are ${list}.`;
+})();
 
 export default async function CompareMoneyTransferPage({ params }: Props) {
   const { locale } = await params;
@@ -180,7 +203,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
     },
     {
       q: "Which money transfer service has the best exchange rate?",
-      a: `No single provider has the best rate on most corridors. ${TOP_LEADER.providerName} is the most frequent winner — cheapest on ${TOP_LEADER.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare over the last 91 days (${TOP_LEADER_SHARE}%). Wise uses the real mid-market rate (the same rate shown on Google and Reuters) and charges a separate fee instead of a markup. Remitly, WorldRemit, and Instarem are typically within 0.5–1.5% of the mid-market rate, depending on the corridor and promotional status. Western Union and MoneyGram typically apply 1.5–3% exchange rate markups in exchange for their cash pickup networks. Banks (Chase, Wells Fargo, Barclays, HSBC, NatWest) average a ${REMITTANCE_INDEX.avgBankMarkupPct}% markup in our index and are almost never the cheapest option for specialist international transfers.`,
+      a: `No single provider has the best rate on most corridors. ${TOP_LEADER.providerName} is the most frequent winner — cheapest on ${TOP_LEADER.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare over the last 91 days (${TOP_LEADER_SHARE}%). ${MEASURED_MARKUP_SENTENCE} Banks (Chase, Wells Fargo, Barclays, HSBC, NatWest) average a ${REMITTANCE_INDEX.avgBankMarkupPct}% markup in our index and are almost never the cheapest option for specialist international transfers.`,
     },
     {
       q: "How long does a money transfer take?",
