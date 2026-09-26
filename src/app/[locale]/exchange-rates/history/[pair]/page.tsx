@@ -14,7 +14,6 @@ import {
   getAllInsights,
   getInsightBySlug,
   corridorToSlug,
-  rateLevelConfig,
   KEEP_HISTORY_PAIRS,
 } from "@/lib/rate-history";
 import { currencies, getProviderName } from "@/data/providers";
@@ -97,7 +96,6 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
   const fromInfo = getCurrencyInfo(from);
   const toInfo = getCurrencyInfo(to);
   const receiveSymbol = toInfo?.symbol || "";
-  const lvl = rateLevelConfig(insight.level);
 
   const bestProviderUrl = getGoUrl(insight.today.bestProvider, {
     sourceCurrency: from,
@@ -130,35 +128,32 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
     ],
   };
 
+  const historyFaqs = from === "EUR" && to === "JPY" ? [
+    {
+      question: "How can I use this series for a yen-denominated expense?",
+      answer: `For an illustrative JPY 100,000 obligation, dividing by the latest recorded rate of ${insight.today.bestRate.toFixed(4)} gives about EUR ${(100000 / insight.today.bestRate).toFixed(2)} before fees. The calculation translates a fixed yen expense into euros; it is not a bookable transfer offer. Check the final EUR debit for a guaranteed JPY payout with the provider.`,
+    },
+    {
+      question: "Does a higher EUR/JPY observation help someone buying yen?",
+      answer: "A higher yen-per-euro figure buys more yen with the same euro amount. The reverse payment has the opposite objective, so do not read this chart as a JPY-to-EUR recommendation. Historical highs show what was observed, not a rate you can reserve or a forecast of the next movement.",
+    },
+  ] : [
+    {
+      question: `What range did we record for ${from}/${to}?`,
+      answer: `${insight.stats.worstRate.toFixed(4)} to ${insight.stats.bestRate.toFixed(4)} ${to} per ${from}, across ${insight.totalDays} observed days. The mean was ${insight.stats.avgRate.toFixed(4)}. These are recorded provider rates, not a guaranteed quote for your payment.`,
+    },
+    {
+      question: `What does the ${from}/${to} percentile tell me?`,
+      answer: `The latest observation sits at percentile ${insight.levelPct} within this series. It describes the past sample; it does not predict the next rate or establish that delaying a payment will save money.`,
+    },
+  ];
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: `What is the average ${from} to ${to} exchange rate?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `The average ${from} to ${to} exchange rate over the last ${insight.totalDays} days is ${insight.stats.avgRate.toFixed(4)} ${to}. The best rate recorded was ${insight.stats.bestRate.toFixed(4)} on ${insight.stats.bestRateDate} via ${getProviderName(insight.stats.bestRateProvider)}.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `Which provider gives the best ${from} to ${to} rate?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Today, ${getProviderName(insight.today.bestProvider)} offers the best ${from} to ${to} rate at ${insight.today.bestRate.toFixed(4)}. Over the last ${insight.totalDays} days, ${insight.providerBadges.find((b) => b.type === "best-rate")?.label || "providers have varied"}.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `Is it a good time to send ${from} to ${to}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `${from} to ${to} rates are currently ${lvl.label.toLowerCase()} — in the ${insight.levelPct}th percentile compared to the last ${insight.totalDays} days. ${insight.level === "great" || insight.level === "good" ? "This is a favorable time to send." : "You may want to monitor rates for improvement."}`,
-        },
-      },
-    ],
+    mainEntity: historyFaqs.map(({ question, answer }) => ({
+      "@type": "Question", name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
   };
 
   return (
@@ -274,48 +269,12 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
               Frequently asked questions
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
-              <details className="group py-4" open>
-                <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)]">
-                  What is the average {from} to {to} exchange rate?
-                  <svg className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  Over the last {insight.totalDays} days, the average best exchange rate for {from} to {to} has been {insight.stats.avgRate.toFixed(4)} {to} per 1 {from}. The highest rate recorded was {insight.stats.bestRate.toFixed(4)} on {insight.stats.bestRateDate} via {getProviderName(insight.stats.bestRateProvider)}, while the lowest was {insight.stats.worstRate.toFixed(4)} on {insight.stats.worstRateDate}.
-                </p>
-              </details>
-              <details className="group py-4">
-                <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)]">
-                  Which provider consistently has the best {from} to {to} rate?
-                  <svg className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  Based on our {insight.totalDays}-day tracking, {(() => {
-                    // The badge detail is a predicate with no subject ("Had the
-                    // best receive amount on 98 out of…"), written for display
-                    // under a provider logo. Spliced into prose it read "…tracking,
-                    // Had the best…" on every history page. Name the provider.
-                    const best = insight.providerBadges.find((b) => b.type === "best-rate");
-                    return best
-                      ? `${getProviderName(best.providerSlug)} ${best.detail.charAt(0).toLowerCase()}${best.detail.slice(1)}`
-                      : `${getProviderName(insight.today.bestProvider)} frequently offers the best rate`;
-                  })()}. Today, {getProviderName(insight.today.bestProvider)} leads with a rate of {insight.today.bestRate.toFixed(4)} {to}.
-                </p>
-              </details>
-              <details className="group py-4">
-                <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)]">
-                  Is it a good time to send {from} to {to}?
-                  <svg className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  Current {from} to {to} rates are {lvl.label.toLowerCase()} — sitting in the {insight.levelPct}th percentile over the last {insight.totalDays} days. {insight.level === "great" ? "This is an excellent time to send money." : insight.level === "good" ? "Rates are above average — a good time to transfer." : insight.level === "typical" ? "Rates are near average. Consider setting a rate alert for improvements." : "Rates are below average. You may want to wait for improvement or lock in a forward contract."}
-                </p>
-              </details>
+              {historyFaqs.map(({ question, answer }) => (
+                <details key={question} className="group py-4">
+                  <summary className="cursor-pointer text-md font-medium text-[var(--color-on-surface)]">{question}</summary>
+                  <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{answer}</p>
+                </details>
+              ))}
             </div>
           </div>
         </Container>
