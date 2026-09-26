@@ -55,6 +55,11 @@ export default async function TravelHubPage({ params }: Props) {
 
       <section className="py-10">
         <Container>
+          <div className="max-w-3xl mb-8 space-y-3 text-sm text-[var(--color-on-surface-variant)]">
+            <h2 className="text-h4 text-[var(--color-on-surface)]">Choose a guide for each stop on your itinerary</h2>
+            <p>Start with the country where you will spend, even if your flight connects elsewhere. Each destination guide brings its currency, payment access and connectivity information together so you can plan the first day before departure.</p>
+            <p>For a trip spanning several countries, make a separate cash and card plan for each stop. Keep arrival transport and a backup payment method on the checklist; a useful card abroad is not a reason to assume every small purchase can be paid electronically. Open the country guide for the details that apply to that leg of the journey.</p>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {guides.map((g) => (
               <Card key={g.slug} href={`/travel/${g.slug}`}>
@@ -67,7 +72,6 @@ export default async function TravelHubPage({ params }: Props) {
                     </p>
                   </div>
                 </div>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] line-clamp-3">{g.tldr}</p>
                 <p className="text-2sm text-[var(--color-primary)] mt-3 font-medium">Read guide &rarr;</p>
               </Card>
             ))}
