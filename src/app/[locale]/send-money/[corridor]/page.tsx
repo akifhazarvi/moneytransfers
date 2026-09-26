@@ -1424,7 +1424,7 @@ export default async function CorridorPage({ params }: Props) {
 
   // Resolve data tokens in the corridor FAQ answers. Without this a
   // {{SPREAD:…}} token ships literally — it did, on /send-money/canada-to-pakistan.
-  const resolvedFaqs = corridor.faqs.flatMap((faq) => {
+  const resolvedFaqs = (corridorEditorial?.faqs ?? corridor.faqs).flatMap((faq) => {
     const data = faq.dataAnswer === "cost" ? costSentence : faq.dataAnswer === "delivery" ? deliverySentence : undefined;
     if (faq.dataAnswer && !data) return [];
     const answer = data ?? (faq.answerFromComparison ? `${hubMode && hubAnswer ? hubAnswer : comparison.answer} ${faq.a}`.trim() : faq.a);
