@@ -66,6 +66,7 @@ He also leads outreach with publishers, diaspora communities and financial educa
     name: "Awais Imran",
     role: "Editor-in-Chief",
     initials: "AI",
+    photo: "/images/authors/awais-imran.jpeg",
     bio: `Awais Imran is the editor-in-chief of SendMoneyCompare, responsible for the editorial side of the platform: provider reviews, comparison articles, corridor guides, and the blog.
 
 Awais writes and maintains the site's in-depth provider reviews, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. Where a review rests on test transfers he made, they are documented with their corridors and dates in that review's "how we tested" section, and used to verify fee structures, exchange rate markups and delivery speeds against what providers advertise. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
