@@ -279,7 +279,7 @@ function DefaultReview({
                 <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mt-5 mb-2">How we tested {provider.name}</h3>
                 <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">{review.howWeTested}</p>
               </Card>
-            ) : (
+            ) : !editorial ? (
             <Card>
               <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">
                 {provider.name} overview
@@ -292,7 +292,7 @@ function DefaultReview({
                 ))}
               </div>
             </Card>
-            )}
+            ) : null}
 
             {/* Hand-written editorial — content brief §4. provider-profile.ts
                 already argued against solving this with more generation ("more

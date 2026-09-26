@@ -479,8 +479,8 @@ export default async function BankPage({ params }: Props) {
                   ranges we did not measure. */}
               {[
                 {
-                  q: `How much does ${bank.name} actually charge for an international transfer?`,
-                  a: renderDataTokens(`{{BANK_MEDIAN:${bank.slug}}} of the amount sent is ${bank.name}'s median all-in cost, fee and margin together, over {{BANK_CORRIDORS:${bank.slug}}} priced corridors; {{BANK_WORST:${bank.slug}}} is where it trails the best app by most.`),
+                  q: `How does ${bank.name} compare with the best digital quote?`,
+                  a: renderDataTokens(`{{BANK_MEDIAN:${bank.slug}}} is ${bank.name}'s median payout shortfall against the best digital alternative over {{BANK_CORRIDORS:${bank.slug}}} priced corridors; {{BANK_WORST:${bank.slug}}} is where it trails the best app by most.`),
                 },
                 {
                   q: `Is ${bank.name} ever the cheapest option for international transfers?`,
