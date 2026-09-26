@@ -214,6 +214,10 @@ function DefaultComparison({
       n ? `Won ${slug === a.slug ? m.winsA.length : m.winsB.length} of ${n} routes here` : null;
   })();
   const hasFaqs = (editorial ? editorial.faqs : faqs).length > 0;
+  // A decision note replaces the generated blocks outright, but sits beside
+  // hand-written editorial rather than over it: on wise-vs-western-union and
+  // wise-vs-moneygram the note replaced ~1,000 words written for that pair.
+  const noteReplaces = Boolean(decisionNote) && !editorial;
 
   const comparisonRows = [
     { label: "Overall rating", valueA: `${a.rating.toFixed(1)}/5 (${a.ratingLabel})`, valueB: `${b.rating.toFixed(1)}/5 (${b.ratingLabel})`, winner: a.rating > b.rating ? "a" : a.rating < b.rating ? "b" : "tie" },
@@ -296,7 +300,7 @@ function DefaultComparison({
         />
       ))}
       {/* FAQ schema only for the questions actually rendered below. */}
-      {!decisionNote && hasFaqs && <script
+      {!noteReplaces && hasFaqs && <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -408,10 +412,10 @@ function DefaultComparison({
               supplement. */}
           <p
             className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-8"
-            {...(decisionNote
-              ? { children: decisionNote.decision }
-              : editorial
+            {...(editorial
               ? { dangerouslySetInnerHTML: { __html: renderDataTokens(editorial.theDecision) } }
+              : decisionNote
+              ? { children: decisionNote.decision }
               : { children: content.intro })}
           />
 
@@ -472,7 +476,7 @@ function DefaultComparison({
           </section>
 
           {/* Key Differences */}
-          {!decisionNote && <section id="key-differences" className="mb-10">
+          {!noteReplaces && <section id="key-differences" className="mb-10">
             <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
               Key differences between {a.name} and {b.name}
             </h2>
@@ -505,17 +509,19 @@ function DefaultComparison({
             </ComparisonTable>
           </section>
 
-          {decisionNote ? (
+          {decisionNote && (
             <section className="mb-10">
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">{decisionNote.heading}</h2>
+              {editorial && <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">{decisionNote.decision}</p>}
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{decisionNote.check}</p>
-              <p className="mt-4 text-sm"><a href={decisionNote.source} target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">Provider receiving and transfer information</a></p>
+              <p className="mt-4 text-sm"><a href={decisionNote.source} target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">Provider receiving and transfer information</a></p>
               <div className="flex gap-4 mt-4 text-sm">
                 <Link href={`/companies/${a.slug}`} className="text-[var(--color-primary)] hover:underline">{a.name} fees and features</Link>
                 <Link href={`/companies/${b.slug}`} className="text-[var(--color-primary)] hover:underline">{b.name} fees and features</Link>
               </div>
             </section>
-          ) : <>
+          )}
+          {!noteReplaces && <>
           {/* Hand-written editorial for this pair — content brief §4.
               Rendered INSTEAD of the generated pros/cons and "when to choose"
               blocks, not alongside them: those read identically on every page

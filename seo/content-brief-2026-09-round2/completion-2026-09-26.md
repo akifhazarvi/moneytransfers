@@ -48,7 +48,7 @@ on 300 or more pages (header and footer).
 
 | Family | Before → after (proxy) | What was removed |
 |---|---|---|
-| Generic compare pairs (17) | 64–79 → 39–54 | Provider fee, markup, speed, limits and regulators restated in five sections; generated "when to choose", bottom line and speed/coverage cards; each FAQ now data-only. |
+| Generic compare pairs (15) | 64–79 → 32–43 | Provider fee, markup, speed, limits and regulators restated in five sections; generated "when to choose", bottom line and speed/coverage cards; each FAQ now data-only. |
 | IBAN (4, plus 17 footer pages) | 51–55 → 21–34 | Template FAQ replaced with country data; stat boxes, quick-reference card and BBAN card that repeated the structure card removed. |
 | SWIFT (4, plus 5 footer pages) | 19–31 → 12–30 | Template FAQ replaced with each country's directory data; fixed "other countries" anchors removed; converter opens on the country's currency; IBAN format stated. |
 | Companies (ria, sendwave) | 43–49 → 26–34 | Profile paragraphs that restated the stat boxes, details card and pros/cons. |
@@ -78,7 +78,12 @@ The owner's other session shipped focused rewrites of flagged pages in parallel:
 - `b1ef444a9`: Rwanda news, now grounded in the National Bank of Rwanda's report.
 
 Where both sessions edited the same page, the parallel session's rewrite was
-kept and this change's template fixes apply around it.
+kept and this change's template fixes apply around it. The one adjustment:
+on the two editorial pairs (wise-vs-western-union, wise-vs-moneygram), the
+decision note now sits beside the hand-written analysis instead of replacing
+it. Replacing it had cut those pages to 684 words and raised
+wise-vs-western-union from 17 to 36 on the proxy. The decision note's provider
+link also gained `nofollow`, per the site's link policy.
 
 ## Decisions recorded
 
