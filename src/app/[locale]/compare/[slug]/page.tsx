@@ -1,3 +1,4 @@
+import { comparisonDecisionNotes } from "@/data/comparison-decision-notes";
 import Link from "next/link";
 import { robotsFor } from "@/lib/seo-indexing";
 import { postalAddress } from "@/lib/postal-address";
@@ -194,6 +195,7 @@ function DefaultComparison({
   // slug (wise-vs-remitly / remitly-vs-wise) resolves to the same entry.
   const editorial =
     getCompareEditorial(`${a.slug}-vs-${b.slug}`) ?? getCompareEditorial(`${b.slug}-vs-${a.slug}`);
+  const decisionNote = comparisonDecisionNotes[`${a.slug}-vs-${b.slug}`] ?? comparisonDecisionNotes[`${b.slug}-vs-${a.slug}`];
   const content = generateComparisonContent(a, b);
   const { corridorData, verdict, faqs, whenToUseA, whenToUseB, keyDifferences } = content;
   const relatedComparisons = getRelatedComparisons(a, b);
@@ -281,8 +283,8 @@ function DefaultComparison({
           }}
         />
       ))}
-      {/* FAQPage schema */}
-      <script
+      {/* FAQ schema only for the questions actually rendered below. */}
+      {!decisionNote && <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -295,7 +297,7 @@ function DefaultComparison({
             })),
           }),
         }}
-      />
+      />}
 
     <Container className="py-8">
       {/* Breadcrumb */}
@@ -395,7 +397,9 @@ function DefaultComparison({
               supplement. */}
           <p
             className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-8"
-            {...(editorial
+            {...(decisionNote
+              ? { children: decisionNote.decision }
+              : editorial
               ? { dangerouslySetInnerHTML: { __html: renderDataTokens(editorial.theDecision) } }
               : { children: content.intro })}
           />
@@ -457,7 +461,7 @@ function DefaultComparison({
           </section>
 
           {/* Key Differences */}
-          <section id="key-differences" className="mb-10">
+          {!decisionNote && <section id="key-differences" className="mb-10">
             <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
               Key differences between {a.name} and {b.name}
             </h2>
@@ -468,7 +472,7 @@ function DefaultComparison({
                 />
               ))}
             </div>
-          </section>
+          </section>}
 
           {/* Feature-by-feature comparison table */}
           <section id="feature-table" className="mb-10">
@@ -490,6 +494,17 @@ function DefaultComparison({
             </ComparisonTable>
           </section>
 
+          {decisionNote ? (
+            <section className="mb-10">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">{decisionNote.heading}</h2>
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{decisionNote.check}</p>
+              <p className="mt-4 text-sm"><a href={decisionNote.source} target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">Provider receiving and transfer information</a></p>
+              <div className="flex gap-4 mt-4 text-sm">
+                <Link href={`/companies/${a.slug}`} className="text-[var(--color-primary)] hover:underline">{a.name} fees and features</Link>
+                <Link href={`/companies/${b.slug}`} className="text-[var(--color-primary)] hover:underline">{b.name} fees and features</Link>
+              </div>
+            </section>
+          ) : <>
           {/* Hand-written editorial for this pair — content brief §4.
               Rendered INSTEAD of the generated pros/cons and "when to choose"
               blocks, not alongside them: those read identically on every page
@@ -728,6 +743,8 @@ function DefaultComparison({
               ))}
             </div>
           </section>
+
+          </>}
 
           {/* CTA */}
           <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
