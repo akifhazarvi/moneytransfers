@@ -32,6 +32,8 @@ export interface CashoutCountry {
   watchOut: string;
   /** Primary send corridors into this country (source currencies). */
   topSourceCurrencies: string[];
+  faqs?: { question: string; answer: string }[];
+  sources?: { label: string; url: string }[];
 }
 
 // Ordered by remittance-market importance. Each has distinct editorial.
@@ -42,16 +44,14 @@ export const CASHOUT_COUNTRIES: CashoutCountry[] = [
     currency: "INR",
     demonym: "Indian",
     flag: "🇮🇳",
-    cashoutMethod:
-      "Sell USDT/USDC on a rupee exchange (CoinDCX, WazirX, CoinDCX-listed pairs) and withdraw to the recipient's bank account by IMPS/UPI — usually within minutes once KYC is cleared.",
-    localExchanges: ["CoinDCX", "Coinbase (INR off-ramp)", "WazirX"],
-    regulatoryNote:
-      "Crypto is legal to hold and trade in India but heavily taxed: a flat 30% tax on gains plus 1% TDS on each sale above the threshold. The recipient — not the sender — bears this on the cash-out, so it materially changes the real receive amount for larger transfers. Exchanges must be FIU-registered.",
-    whoAndWhy:
-      "India is the world's largest remittance recipient (~$120B/yr). Tech-comfortable NRIs in the US, UK and Gulf increasingly route larger transfers over stablecoins to dodge the 2–4% bank FX markup on USD→INR — the single most-quoted corridor on this site.",
-    watchOut:
-      "The 1% TDS + 30% gains tax on the recipient side can wipe out the FX saving on small amounts. Crypto only wins clearly on larger, less-frequent transfers where the mid-market gain outweighs the tax.",
+    cashoutMethod: "An INR cash-out has separate stages: credit the supported token and network to the chosen platform, sell into rupees, then withdraw the INR balance to the verified bank account. Check that deposits and INR withdrawals are enabled for your account before moving tokens. A successful blockchain transaction does not establish that rupees have reached the bank.",
+    localExchanges: ["CoinDCX", "WazirX"],
+    regulatoryNote: "India’s Income Tax Department describes special taxation of income from virtual digital asset transfers, including a 30% rate on qualifying income plus applicable surcharge and cess. Withholding and final income tax are different calculations. Record the acquisition cost, disposal proceeds and any tax deducted; the gross token value alone does not establish your final liability.",
+    whoAndWhy: "Someone who already holds a stablecoin and needs INR must compare a sale-and-withdrawal route with other available ways to fund the expense. A sender starting with ordinary bank money faces extra acquisition and network steps. Those two starting positions should not be presented as the same remittance cost.",
+    watchOut: "Reconcile the token sale, INR ledger balance and bank credit separately. A displayed exchange price can exclude withdrawal charges or tax withholding. A deducted tax amount should be matched to the corresponding tax record rather than automatically treated as a permanent transfer fee.",
     topSourceCurrencies: ["USD", "GBP", "AED", "SGD", "CAD"],
+    faqs: [{"question": "Does a completed token deposit mean INR is ready to spend?", "answer": "No. Check the exchange account credit, the executed INR sale and the bank withdrawal individually. Keep each transaction identifier so support can locate the step that is still pending."}, {"question": "Why can the INR bank credit be smaller than the sale proceeds?", "answer": "Look for withdrawal fees, withheld tax and any balance retained on the platform. Compare those entries against the sale confirmation instead of attributing the whole difference to the exchange rate."}, {"question": "Which records should I keep for an Indian cash-out?", "answer": "Preserve the original acquisition record, network transaction, sale execution, INR withdrawal and any withholding certificate. They answer different reconciliation and reporting questions."}],
+    sources: [{"label": "Income Tax Department: virtual digital asset taxation", "url": "https://www.incometax.gov.in/iec/foportal/help/FileITR-2Online-FAQ?mobile-app=1"}, {"label": "Income Tax Department: TDS compliance", "url": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/tds-compliance?mobile-app=1"}],
   },
   {
     slug: "philippines",

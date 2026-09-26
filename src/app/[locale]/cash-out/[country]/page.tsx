@@ -72,7 +72,7 @@ export default async function CashOutCountryPage({
     ? `${Math.abs(best.feePercent).toFixed(2)}% above mid-market (a rebate)`
     : `${best.feePercent.toFixed(2)}% all-in`;
 
-  const faqs = [
+  const faqs = c.faqs ?? [
     {
       question: `What's the cheapest way to cash out USDT in ${c.country}?`,
       answer: `Based on live data, the lowest-cost off-ramp to ${c.currency} right now is ${best.offRamp} at ${bestFmt} on a $1,000-equivalent transfer, using the ${best.chainName} network. ${c.cashoutMethod}`,
@@ -216,7 +216,7 @@ export default async function CashOutCountryPage({
               <h2 className="text-xl font-bold text-[var(--color-on-surface)]">How cashing out works in {c.country}</h2>
               <p className="mt-2 text-[var(--color-on-surface-variant)]">{c.cashoutMethod}</p>
               <p className="mt-2 text-sm text-[var(--color-on-surface-muted)]">
-                Exchanges {c.demonym} recipients actually use: {c.localExchanges.join(", ")}.
+                Exchange names to check for current {c.currency} withdrawal availability: {c.localExchanges.join(", ")}.
               </p>
             </div>
 
@@ -233,6 +233,7 @@ export default async function CashOutCountryPage({
             <div>
               <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Is it legal &amp; taxed?</h2>
               <p className="mt-2 text-[var(--color-on-surface-variant)]">{c.regulatoryNote}</p>
+              {c.sources && <ul className="mt-3 space-y-1 text-sm">{c.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className="underline">{source.label}</a></li>)}</ul>}
             </div>
 
             <div>
