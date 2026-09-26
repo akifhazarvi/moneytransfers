@@ -107,6 +107,19 @@ export const INDEXED_HISTORY_SLUGS = SITEMAP_RATE_HISTORY_SLUGS;
 import indexableRoutes from "@/data/scraped/indexable-routes.json";
 import { RANKING_CORRIDOR_SLUGS } from "./ranking-corridors";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
+import { FOOTER_IBAN_LINKS, FOOTER_SWIFT_LINKS } from "@/data/footer-reference-links";
+
+/**
+ * 2026-09-26: the IBAN and SWIFT pages the footer links on every page.
+ * Owner decision after the September 26 SiteLiner recheck: reopened as Bing
+ * earners once their templates were de-duplicated (data FAQs, no repeated
+ * quick-reference card, no fixed "other countries" rail). Not submitted in the
+ * sitemap — IBAN and SWIFT are the documented "indexable but unsubmitted"
+ * families (see BROADER_THAN_SITEMAP in scripts/check-indexing.ts).
+ */
+const FOOTER_REFERENCE_ROUTES = new Set<string>(
+  [...FOOTER_IBAN_LINKS, ...FOOTER_SWIFT_LINKS].map((link) => link.href),
+);
 
 /**
  * Routes measured under the duplication threshold, plus the exempt families.
@@ -173,6 +186,7 @@ export function routeIsIndexable(pathname: string): boolean {
   // decision that the brief outranks the duplication measure for these paths.
   // See src/data/reviewed-indexable-routes.ts.
   if (REVIEWED_INDEXABLE_ROUTES.has(path)) return true;
+  if (FOOTER_REFERENCE_ROUTES.has(path)) return true;
 
   return alwaysIndexable(path) || INDEXABLE.has(path);
 }

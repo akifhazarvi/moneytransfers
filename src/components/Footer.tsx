@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
 import LazyTrustpilot from "@/components/LazyTrustpilot";
+import { FOOTER_IBAN_LINKS, FOOTER_SWIFT_LINKS } from "@/data/footer-reference-links";
 
 type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean; label?: string };
 type StaticLink = { href: string; label: string };
@@ -89,40 +90,11 @@ export default function Footer() {
     },
   ];
 
-  // ── IBAN country pages (Bing data, May 26): 17 highest-impression IBANs ──
-  // Each earns 100-723 Bing impr. The /iban/* pattern accounts for ~6,000
-  // Bing impressions across 32 tracked pages — concentrating footer link
-  // equity here drives the proven-traffic surface.
-  const ibanCountries: StaticLink[] = [
-    { href: "/iban/italy", label: "Italy IBAN" },
-    { href: "/iban/germany", label: "Germany IBAN" },
-    { href: "/iban/spain", label: "Spain IBAN" },
-    { href: "/iban/poland", label: "Poland IBAN" },
-    { href: "/iban/united-arab-emirates", label: "UAE IBAN" },
-    { href: "/iban/ireland", label: "Ireland IBAN" },
-    { href: "/iban/belgium", label: "Belgium IBAN" },
-    { href: "/iban/france", label: "France IBAN" },
-    { href: "/iban/sweden", label: "Sweden IBAN" },
-    { href: "/iban/netherlands", label: "Netherlands IBAN" },
-    { href: "/iban/switzerland", label: "Switzerland IBAN" },
-    { href: "/iban/luxembourg", label: "Luxembourg IBAN" },
-    { href: "/iban/egypt", label: "Egypt IBAN" },
-    { href: "/iban/saudi-arabia", label: "Saudi Arabia IBAN" },
-    { href: "/iban/pakistan", label: "Pakistan IBAN" },
-    { href: "/iban/portugal", label: "Portugal IBAN" },
-    { href: "/iban/romania", label: "Romania IBAN" },
-  ];
-
-  // ── SWIFT country pages (Bing data, May 26): 5 highest-impression SWIFTs ─
-  // Each earns 140-273 Bing impr. The /swift-codes/* pattern was barely
-  // present in footer (1 sitemap entry only) but earns 1,291 total Bing impr.
-  const swiftCountries: StaticLink[] = [
-    { href: "/swift-codes/ghana", label: "Ghana SWIFT codes" },
-    { href: "/swift-codes/philippines", label: "Philippines SWIFT codes" },
-    { href: "/swift-codes/kenya", label: "Kenya SWIFT codes" },
-    { href: "/swift-codes/united-kingdom", label: "UK SWIFT codes" },
-    { href: "/swift-codes/sri-lanka", label: "Sri Lanka SWIFT codes" },
-  ];
+  // ── IBAN and SWIFT country pages (Bing data, May 26) ─────────────────
+  // Listed in src/data/footer-reference-links.ts, which seo-indexing.ts also
+  // reads: a page in the footer is an index candidate.
+  const ibanCountries: StaticLink[] = [...FOOTER_IBAN_LINKS];
+  const swiftCountries: StaticLink[] = [...FOOTER_SWIFT_LINKS];
 
   // ── Provider reviews (Bing-validated): drop revolut + xe (0 Bing impr) ───
   const providerReviews: StaticLink[] = [

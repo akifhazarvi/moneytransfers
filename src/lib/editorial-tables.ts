@@ -31,7 +31,9 @@ export function formatEditorialTables(html: string): string {
     const caption = body.match(/<caption\b[^>]*>([\s\S]*?)<\/caption>/i)?.[1];
     const heading = caption ? plain(caption) : "Data table";
     const label = heading.replace(/"/g, "&quot;").replace(/</g, "&lt;");
-    const hint = columns.size > 3 ? '<p class="editorial-table-hint">Scroll horizontally to see all columns →</p>' : "";
+    // The hint's words live in CSS (::before), not the HTML: the same sentence
+    // above every wide table was counted as duplicate text on each guide.
+    const hint = columns.size > 3 ? '<p class="editorial-table-hint" aria-hidden="true"></p>' : "";
     return `<div class="editorial-table-container">${hint}<div class="editorial-table-scroll" role="region" aria-label="${label}" tabindex="0"><table${attrs} data-editorial-table="true">${formatted}</table></div></div>`;
   });
 }

@@ -228,7 +228,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
                 Best rate today: {insight.today.bestRate.toFixed(4)} {to} via {getProviderName(insight.today.bestProvider)}
               </p>
               <p className="text-2sm text-[var(--color-on-surface-variant)] mt-0.5">
-                Send {receiveSymbol}{insight.today.bestReceiveAmount.toLocaleString(undefined, { maximumFractionDigits: 0 })} on a $100 transfer
+                {receiveSymbol}{insight.today.bestReceiveAmount.toLocaleString(undefined, { maximumFractionDigits: 0 })} received per 100 {from} sent
               </p>
             </div>
             <div className="flex items-center gap-3 shrink-0">

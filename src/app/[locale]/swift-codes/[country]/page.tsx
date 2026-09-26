@@ -10,6 +10,7 @@ import CircleFlag from "@/components/CircleFlag";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { getSwiftCountries, getSwiftCountryBySlug } from "@/data/swift-codes";
+import { getWiseCountryBySlug } from "@/data/wise-iban";
 import { assignTableAmounts } from "@/lib/table-amounts";
 import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { getSwiftEditorial, getSwiftFaqs } from "@/data/swift-content";
@@ -357,7 +358,7 @@ export default async function SwiftCountryPage({ params }: Props) {
   const ranked = allCountries
     .filter((c) => c.slug !== slug)
     .sort((a, b) => b.branches.length - a.branches.length);
-  const rotatable = ranked.slice(3);
+  const rotatable = ranked;
   const offset = allCountries.findIndex((c) => c.slug === slug);
   // The generation threshold retires corridor pages whose currency pair is
   // already covered by a stronger page. The content brief's rule for those is
@@ -368,15 +369,54 @@ export default async function SwiftCountryPage({ params }: Props) {
     corridorPageRenders(c.href.replace("/send-money/", "")),
   );
 
+  // No fixed anchors: the three largest networks headed every page's rail,
+  // the same "Luxembourg 491 banks, Bangladesh 80 banks…" on all of them. A
+  // six-wide window stepping six per country still reaches the whole set.
   const related =
-    rotatable.length < 3
-      ? ranked.slice(0, 6)
-      : [
-          ...ranked.slice(0, 3),
-          ...Array.from({ length: 3 }, (_, i) => rotatable[(offset * 3 + i) % rotatable.length]),
-        ];
+    rotatable.length <= 6
+      ? rotatable
+      : Array.from({ length: 6 }, (_, i) => rotatable[(offset * 6 + i) % rotatable.length]);
   const editorialNote = getSwiftEditorial(locale, slug);
   const swiftFaqsList = getSwiftFaqs(locale, slug);
+
+  // Answers drawn from this country's directory. The generic three they
+  // replace ("an 8 or 11 character code that identifies a specific bank…",
+  // "on your bank statement, in your online banking portal…") were the same
+  // on every SWIFT page — SiteLiner scored /swift-codes/moldova 56% on
+  // 2026-09-26, almost all of it that block plus the page furniture.
+  const dataFaqs: { q: string; a: string }[] = [];
+  {
+    const sample = country.branches.find((b) => b.headOffice) ?? country.branches[0];
+    if (sample) {
+      dataFaqs.push({
+        q: `What does a ${country.name} SWIFT code look like?`,
+        a: `${sample.bic11} (${sample.bankName}): bank ${sample.bankCode}, country ${sample.countryCode}, location ${sample.locationCode}, branch ${sample.branchCode || "XXX"}. ${sample.branchCode && sample.branchCode !== "XXX" ? "" : "XXX marks a head office; the eight-character form drops it."}`.trim(),
+      });
+    }
+    const topBank = sortedBankEntries.reduce<(typeof sortedBankEntries)[number] | null>(
+      (best, entry) => (!best || entry[1].length > best[1].length ? entry : best),
+      null,
+    );
+    if (topBank && topBank[1].length > 1) {
+      dataFaqs.push({
+        q: `Which ${country.name} bank lists the most branch codes?`,
+        a: `${topBank[1][0].bankName}, with ${topBank[1].length} — its head office is ${topBank[1][0].bic8}.`,
+      });
+    }
+    const cityCounts = new Map<string, number>();
+    for (const b of country.branches) {
+      const city = (b.city || "").trim();
+      if (city) cityCounts.set(city, (cityCounts.get(city) ?? 0) + 1);
+    }
+    const cities = [...cityCounts.entries()].sort((x, y) => y[1] - x[1]);
+    if (cities.length > 0) {
+      dataFaqs.push({
+        q: `Which cities do ${country.name} SWIFT codes cover?`,
+        a: `${cities.slice(0, 3).map(([c, n]) => `${c.toLowerCase().replace(/(^|[\s-])\S/g, (ch) => ch.toUpperCase())} (${n})`).join(", ")}${cities.length > 3 ? `, plus ${cities.length - 3} other ${cities.length - 3 === 1 ? "city" : "cities"}` : ""}.`,
+      });
+    }
+  }
+  const faqItems = swiftFaqsList ?? dataFaqs;
 
   return (
     <>
@@ -436,7 +476,6 @@ export default async function SwiftCountryPage({ params }: Props) {
               amount={SWIFT_TABLE_AMOUNTS.get(country.slug) ?? 1025}
               source={`swift:${country.slug}`}
               heading={`Sending money to ${country.name}? Compare live rates`}
-              subheading={`All-in cost into ${country.currencyCode} today.`}
             />
           )}
 
@@ -448,9 +487,6 @@ export default async function SwiftCountryPage({ params }: Props) {
               </h2>
               {useAlphaGroups ? (
                 <>
-                  <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4">
-                    {t("groupedHint", { banks: sortedBankEntries.length })}
-                  </p>
                   <div className="space-y-2">
                     {Array.from(alphaGroups.entries()).map(([letter, entries]) => {
                       const codeCount = entries.reduce((s, [, br]) => s + br.length, 0);
@@ -541,32 +577,16 @@ export default async function SwiftCountryPage({ params }: Props) {
                   </div>
                 ))
               ) : (
-                <>
-                  <div className="py-4">
+                dataFaqs.map((faq) => (
+                  <div key={faq.q} className="py-4">
                     <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
-                      {t("faqWhatIs", { country: country.name })}
+                      {faq.q}
                     </h3>
                     <p className="text-sm text-[var(--color-on-surface-variant)]">
-                      {t("faqWhatIsAnswer", { country: country.name, countryCode: country.countryCode })}
+                      {faq.a}
                     </p>
                   </div>
-                  <div className="py-4">
-                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
-                      {t("faqHowToFind", { country: country.name })}
-                    </h3>
-                    <p className="text-sm text-[var(--color-on-surface-variant)]">
-                      {t("faqHowToFindAnswer", { country: country.name, countryCode: country.countryCode })}
-                    </p>
-                  </div>
-                  <div className="py-4">
-                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
-                      {t("faqDoINeed", { country: country.name })}
-                    </h3>
-                    <p className="text-sm text-[var(--color-on-surface-variant)]">
-                      {t("faqDoINeedAnswer", { country: country.name })}
-                    </p>
-                  </div>
-                </>
+                ))
               )}
             </div>
           </Card>
@@ -609,7 +629,11 @@ export default async function SwiftCountryPage({ params }: Props) {
             <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
               {t("sendMoneyTo", { country: country.name })}
             </h3>
-            <ComparisonWidget compact />
+            <ComparisonWidget
+              compact
+              defaultFrom={country.currencyCode === SEND_FROM_CURRENCY ? SEND_FROM_FALLBACK : SEND_FROM_CURRENCY}
+              defaultTo={country.currencyCode || undefined}
+            />
           </Card>
 
           {/* Related countries */}
@@ -669,7 +693,15 @@ export default async function SwiftCountryPage({ params }: Props) {
               {t("needIban")}
             </h3>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
-              {t("ibanDescription", { country: country.name })}
+              {/* The country's own IBAN format where we hold it — the generic
+                  "you may also need the recipient's IBAN" line was the same on
+                  every SWIFT page. */}
+              {(() => {
+                const iban = getWiseCountryBySlug(swiftToIbanSlug[slug] ?? slug);
+                return iban?.ibanLength && iban.exampleIban
+                  ? `${country.name} IBANs run ${iban.ibanLength} characters, e.g. ${iban.exampleIban.replace(/(.{4})/g, "$1 ").trim()}.`
+                  : t("ibanDescription", { country: country.name });
+              })()}
             </p>
             <Link
               href={ibanPageRenders(swiftToIbanSlug[slug]) ? `/iban/${swiftToIbanSlug[slug]}` : "/iban"}
@@ -734,14 +766,14 @@ export default async function SwiftCountryPage({ params }: Props) {
     )}
 
     {/* FAQ JSON-LD Schema */}
-    {swiftFaqsList && (
+    {faqItems.length > 0 && (
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: swiftFaqsList.map((f) => ({
+            mainEntity: faqItems.map((f) => ({
               "@type": "Question",
               name: f.q,
               acceptedAnswer: { "@type": "Answer", text: f.a },

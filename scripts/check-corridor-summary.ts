@@ -15,14 +15,14 @@ const result = summarize(rows);
 assert.equal(result.compared.length, 3);
 assert.equal(result.lowest?.providerSlug, "lowest");
 assert.equal(result.difference, 99.5);
-assert.match(result.answer, /highest-payout has a higher estimated payout by 0.5 INR/);
+assert.match(result.answer, /highest-payout pays 0.5 INR more yet ranks below/);
 assert.doesNotMatch(result.answer, /broker|cheapest|today/);
 assert.equal(rows[0].providerSlug, "ranked-first", "Summarizing must not reorder the table");
 
 // Merit ordering within a band means the final measured row need not be the
 // lowest payout either. Locate the actual minimum, not the last array element.
 assert.equal(summarize([quote("first", 1000), quote("lowest", 900), quote("last", 900.5)]).difference, 100);
-assert.match(summarize([quote("only", 1000)]).answer, /not enough to establish the cheapest/);
+assert.match(summarize([quote("only", 1000)]).answer, /cannot establish the cheapest/);
 assert.equal(summarize([quote("broker", 1500, { isIndicative: true })]).best, undefined);
 assert.match(summarize([]).answer, /do not currently have a comparable provider estimate/);
 assert.equal(summarize([quote("wrong-currency", 1000, { receiveCurrency: "PKR" }), quote("wrong-amount", 2000, { sendAmount: 2000 }), quote("invalid", NaN)]).compared.length, 0);

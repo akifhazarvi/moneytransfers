@@ -18,6 +18,9 @@ function resolveCoverage(value: unknown): unknown {
     if (!value.includes("%")) return value;
     return value
       .split("%PROVIDER_COUNT%").join(atLeast(SITE_STATS.liveProviders))
+      // Provider profiles at /companies — a different, smaller set than the
+      // providers with live quotes (methodology defines both). Exact.
+      .split("%PROFILE_COUNT%").join(String(SITE_STATS.curatedProviders))
       .split("%CORRIDOR_COUNT%").join(atLeast(SITE_STATS.comparableCorridors))
       // Exact, not atLeast(): a quote count is cited verbatim, and rounding
       // "13,366 live quotes" to "13,000+" throws away the specificity that

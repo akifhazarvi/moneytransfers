@@ -11,7 +11,7 @@ import { providers } from "@/data/providers";
 export const revalidate = 21600;
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
-import { generateComparisonContent } from "@/lib/comparison-content";
+import { generateComparisonContent, measurePair } from "@/lib/comparison-content";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import ComparisonTable from "@/components/ComparisonTable";
@@ -197,9 +197,23 @@ function DefaultComparison({
     getCompareEditorial(`${a.slug}-vs-${b.slug}`) ?? getCompareEditorial(`${b.slug}-vs-${a.slug}`);
   const decisionNote = comparisonDecisionNotes[`${a.slug}-vs-${b.slug}`] ?? comparisonDecisionNotes[`${b.slug}-vs-${a.slug}`];
   const content = generateComparisonContent(a, b);
-  const { corridorData, verdict, faqs, whenToUseA, whenToUseB, keyDifferences } = content;
+  const { corridorData, verdict, faqs, keyDifferences } = content;
   const relatedComparisons = getRelatedComparisons(a, b);
   const dataUpdatedDate = getDataFreshnessDate();
+  // The closing calculator opens on the route where this pair differs most,
+  // not USD→INR on every comparison: more useful, and it stops the widget's
+  // text being identical across all 52 pages.
+  const ctaCorridor = measurePair(corridorData).widest ?? corridorData[0];
+  // This pair's record, shown under each provider's name. The cards were the
+  // provider's name, rating and "Full review · Visit site" — identical on
+  // every comparison that provider appears in; the record is this page's own.
+  const pairRecord = (() => {
+    const m = measurePair(corridorData);
+    const n = m.priced.length;
+    return (slug: string) =>
+      n ? `Won ${slug === a.slug ? m.winsA.length : m.winsB.length} of ${n} routes here` : null;
+  })();
+  const hasFaqs = (editorial ? editorial.faqs : faqs).length > 0;
 
   const comparisonRows = [
     { label: "Overall rating", valueA: `${a.rating.toFixed(1)}/5 (${a.ratingLabel})`, valueB: `${b.rating.toFixed(1)}/5 (${b.ratingLabel})`, winner: a.rating > b.rating ? "a" : a.rating < b.rating ? "b" : "tie" },
@@ -209,10 +223,8 @@ function DefaultComparison({
     { label: "Supported countries", valueA: `${a.supportedCountries}+`, valueB: `${b.supportedCountries}+`, winner: a.supportedCountries > b.supportedCountries ? "a" : a.supportedCountries < b.supportedCountries ? "b" : "tie" },
     { label: "Supported currencies", valueA: `${a.supportedCurrencies}+`, valueB: `${b.supportedCurrencies}+`, winner: a.supportedCurrencies > b.supportedCurrencies ? "a" : a.supportedCurrencies < b.supportedCurrencies ? "b" : "tie" },
     { label: "Max transfer", valueA: a.maxTransfer ? `$${a.maxTransfer.toLocaleString()}` : "No limit", valueB: b.maxTransfer ? `$${b.maxTransfer.toLocaleString()}` : "No limit", winner: (a.maxTransfer || Infinity) > (b.maxTransfer || Infinity) ? "a" : (b.maxTransfer || Infinity) > (a.maxTransfer || Infinity) ? "b" : "tie" },
-    { label: "Payment methods", valueA: a.paymentMethods.join(", "), valueB: b.paymentMethods.join(", "), winner: a.paymentMethods.length > b.paymentMethods.length ? "a" : a.paymentMethods.length < b.paymentMethods.length ? "b" : "tie" },
     { label: "Delivery methods", valueA: a.deliveryMethods.join(", "), valueB: b.deliveryMethods.join(", "), winner: a.deliveryMethods.length > b.deliveryMethods.length ? "a" : a.deliveryMethods.length < b.deliveryMethods.length ? "b" : "tie" },
     { label: "Regulators", valueA: a.regulators.join(", "), valueB: b.regulators.join(", "), winner: "tie" as const },
-    { label: "Founded", valueA: String(a.founded), valueB: String(b.founded), winner: "tie" as const },
   ];
 
   // Middleware 301s any non-canonical /compare/X-vs-Y to the canonical
@@ -284,7 +296,7 @@ function DefaultComparison({
         />
       ))}
       {/* FAQ schema only for the questions actually rendered below. */}
-      {!decisionNote && <script
+      {!decisionNote && hasFaqs && <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -330,7 +342,7 @@ function DefaultComparison({
               const winsB = priced.filter((c) => c.winner === "b").length;
               return (
                 <p className="text-md text-[var(--color-on-surface-variant)] mb-4">
-                  On the {priced.length} routes we price for both, {a.name} paid the recipient more on {winsA} and {b.name} on {winsB}{priced.length - winsA - winsB > 0 ? `, with ${priced.length - winsA - winsB} tied` : ""}.
+                  {a.name} paid the recipient more on {winsA} of {priced.length} shared routes, {b.name} on {winsB}{priced.length - winsA - winsB > 0 ? `, ${priced.length - winsA - winsB} tied` : ""}.
                 </p>
               );
             })()}
@@ -362,16 +374,15 @@ function DefaultComparison({
                   </div>
                   <div>
                     <h2 className="text-md font-medium text-[var(--color-on-surface)]">{provider.name}</h2>
+                    {pairRecord(provider.slug) && (
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">{pairRecord(provider.slug)}</p>
+                    )}
                     <RatingBadge rating={provider.rating} label={provider.ratingLabel} />
                   </div>
                 </div>
-                {/* No stock description: the same sentence printed on the /companies
-                    hub, the provider's profile and every one of its comparisons. */}
-                <div className="flex gap-4 text-xs text-[var(--color-on-surface-variant)] mb-3">
-                  <span>{provider.supportedCountries}+ countries</span>
-                  <span>{provider.supportedCurrencies}+ currencies</span>
-                  <span>Since {provider.founded}</span>
-                </div>
+                {/* No stock description, and no countries/currencies/founded
+                    line: the feature table below carries those, and the card
+                    copy repeated them on every comparison of the provider. */}
                 <div className="flex gap-3">
                   <Link href={`/companies/${provider.slug}`} className="text-2sm text-[var(--color-primary)] font-medium hover:underline">
                     Full review
@@ -414,7 +425,7 @@ function DefaultComparison({
               Live comparison: {a.name} vs {b.name} across popular corridors
             </h2>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
-              What the recipient receives through {a.name} and through {b.name} on the {corridorData.length} routes we price for both.
+              Recipient payout route by route, {a.name} against {b.name}, from collected quotes (not guaranteed).
             </p>
             <div className="bg-[var(--color-primary-surface)] rounded-xl p-6">
               <div className="bg-[var(--color-surface)] rounded-lg overflow-hidden border border-[var(--color-outline)]">
@@ -602,50 +613,9 @@ function DefaultComparison({
             </p>
           </section>
 
-          {/* When to choose each */}
-          <section id="when-to-use" className="mb-10">
-            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
-              When to choose {a.name} vs {b.name}
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                    <Image src={a.logo} alt={a.name} width={32} height={32} className="w-full h-full object-contain p-1" />
-                  </div>
-                  <h3 className="text-md font-medium text-[var(--color-on-surface)]">Choose {a.name} if:</h3>
-                </div>
-                <ul className="space-y-2">
-                  {whenToUseA.map((reason, i) => (
-                    <li key={i} className="flex items-start gap-2 text-2sm text-[var(--color-on-surface-variant)]">
-                      <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {reason}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                    <Image src={b.logo} alt={b.name} width={32} height={32} className="w-full h-full object-contain p-1" />
-                  </div>
-                  <h3 className="text-md font-medium text-[var(--color-on-surface)]">Choose {b.name} if:</h3>
-                </div>
-                <ul className="space-y-2">
-                  {whenToUseB.map((reason, i) => (
-                    <li key={i} className="flex items-start gap-2 text-2sm text-[var(--color-on-surface-variant)]">
-                      <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {reason}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
+          {/* The generated "When to choose" blocks were removed 2026-09-26: they
+              restated which routes each provider won, already listed under
+              key differences, in a skeleton shared by every comparison. */}
             </>
           )}
 
@@ -669,6 +639,10 @@ function DefaultComparison({
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{verdict.costExplanation}</p>
                 )}
               </div>
+              {/* Speed and coverage cards only where editorial wrote them: the
+                  generated versions restated the feature table's speed,
+                  country and currency rows on every comparison. */}
+              {editorial && (<>
               {/* Speed verdict */}
               <div className={`rounded-xl p-5 ${verdict.speedWinner === "tie" ? "bg-[var(--color-surface-dim)]" : "bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20"}`}>
                 <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
@@ -697,23 +671,23 @@ function DefaultComparison({
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{verdict.coverageExplanation}</p>
                 )}
               </div>
+              </>)}
             </div>
-            {/* Overall */}
-            <div className="bg-gradient-to-r from-[var(--color-primary-surface)] to-[var(--color-surface-dim)] rounded-xl p-6">
-              <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">Bottom line</h3>
-              {editorial ? (
+            {/* Overall — editorial pairs only; the generated summary was a
+                sixth restatement of the win count. */}
+            {editorial && (
+              <div className="bg-gradient-to-r from-[var(--color-primary-surface)] to-[var(--color-surface-dim)] rounded-xl p-6">
+                <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">Bottom line</h3>
                 <p
                   className="text-md text-[var(--color-on-surface-variant)] leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.verdict.bottomLine) }}
                 />
-              ) : (
-                <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">{verdict.overallSummary}</p>
-              )}
-            </div>
+              </div>
+            )}
           </section>
 
           {/* FAQs */}
-          <section id="faqs" className="mb-10">
+          {hasFaqs && <section id="faqs" className="mb-10">
             <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-6">
               Frequently asked questions
             </h2>
@@ -742,14 +716,14 @@ function DefaultComparison({
                 </details>
               ))}
             </div>
-          </section>
+          </section>}
 
           </>}
 
           {/* CTA */}
           <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
-            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">Compare rates for your transfer</h3>
-            <ComparisonWidget compact />
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">Check {a.name} and {b.name} on your route</h3>
+            <ComparisonWidget compact defaultFrom={ctaCorridor.from} defaultTo={ctaCorridor.to} />
           </div>
         </article>
 
@@ -765,6 +739,9 @@ function DefaultComparison({
                   </div>
                   <div>
                     <p className="text-sm font-medium text-[var(--color-on-surface)]">{provider.name}</p>
+                    {pairRecord(provider.slug) && (
+                      <p className="text-2xs text-[var(--color-on-surface-variant)]">{pairRecord(provider.slug)}</p>
+                    )}
                     <RatingBadge rating={provider.rating} label={provider.ratingLabel} />
                   </div>
                 </div>
@@ -799,7 +776,7 @@ function DefaultComparison({
             <Card className="!p-4">
               <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Related comparisons</h3>
               <ul className="space-y-2">
-                {relatedComparisons.slice(0, 6).map((rc) => (
+                {relatedComparisons.slice(0, 3).map((rc) => (
                   <li key={rc.slug}>
                     <Link href={`/compare/${rc.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
                       {rc.label}

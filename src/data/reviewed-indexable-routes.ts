@@ -7,7 +7,7 @@
  * `noindex` (meta and/or X-Robots-Tag) when re-checked live on 2026-09-24, and
  * the brief asks for each to be `index, follow` and submitted in sitemap.xml.
  *
- * The brief's lists also named 174 URLs that no longer render (301 into a
+ * The brief's lists also named 173 URLs that no longer render (301 into a
  * consolidated corridor, 404 outside the corridor allowlist, or 410 retired).
  * They are deliberately NOT here: the brief's own sitemap rule admits only
  * URLs that return 200, and reviving them would reopen the combinatorial
@@ -262,4 +262,24 @@ export const REVIEWED_INDEXABLE_ROUTES: ReadonlySet<string> = new Set<string>([
   "/travel/turkey",
   "/travel/uae",
   "/travel/united-kingdom",
+  // 2026-09-26 follow-up (live re-check of every brief URL):
+  // - send-money-to-bolivia is on the brief's 378 list and now renders (it
+  //   was a 404 when the list above was built), so it opens like the rest.
+  "/send-money/send-money-to-bolivia",
+  // - Where a brief URL 301s into the page that represents its currency pair,
+  //   that target must itself be indexable, or the brief's URL still ends on a
+  //   noindex page. Each of these was measured under the duplication target
+  //   before opening. Not here: /send-money/austria-to-cameroon (EUR→XAF),
+  //   whose quotes are identical to austria-to-senegal's because XAF and XOF
+  //   share the euro peg — opening it would create the duplicate pair the
+  //   brief's first priority asks us to remove.
+  "/send-money/australia-to-zimbabwe",
+  "/send-money/finland-to-philippines",
+  "/send-money/france-to-pakistan",
+  "/send-money/germany-to-china",
+  "/send-money/germany-to-turkey",
+  "/send-money/india-to-usa",
+  "/send-money/send-money-to-cameroon",
+  "/send-money/send-money-to-fiji",
+  "/send-money/send-money-to-taiwan",
 ]);

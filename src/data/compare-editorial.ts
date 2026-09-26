@@ -357,16 +357,16 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     theDecision: `This is the clearest statement of the trade-off the whole category runs on: transparent pricing against physical reach. Wise publishes the mid-market rate, adds no markup, and charges a fee you can read — but it pays out to bank accounts only, in 80 countries. Western Union pays cash across roughly 200 countries through an agent network it has been building since 1851, and recovers its cost through a 1–4% rate markup. Neither is a better product in the abstract. The decision is made by the recipient: if they bank, Wise is cheaper by a clear margin; if they collect cash, Wise is not in the running.`,
     measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:western-union}} for Western Union, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:western-union}}. Wise is the most consistent leader in our data and Western Union the strongest of the legacy cash networks — which makes this pair the cleanest measure available of what the cash option costs. The gap is the price of the counter, not evidence that Western Union is mispriced.`,
     workedExample: {
-      heading: "A worked example: $1,000 to India",
-      body: `On $1,000 USD→INR the difference is {{RECEIVE_DIFF:wise:western-union:USD:INR:1000}}, with {{CHEAPER:wise:western-union:USD:INR:1000}} ahead. Wise's all-in cost is {{COST_PCT:wise:USD:INR:1000}} against {{COST_PCT:western-union:USD:INR:1000}} for Western Union. Worth isolating: Wise's cost is entirely its fee, because its markup is 0% — so on a larger transfer Wise's cost grows slowly while a percentage markup grows in step with the amount. On recurring transfers that difference compounds monthly.`,
+      heading: "India at $1,000: what the counter costs",
+      body: `Sending $1,000 from the US to India, the payouts differ by {{RECEIVE_DIFF:wise:western-union:USD:INR:1000}}, with {{CHEAPER:wise:western-union:USD:INR:1000}} ahead. Wise's all-in cost is {{COST_PCT:wise:USD:INR:1000}} against {{COST_PCT:western-union:USD:INR:1000}} for Western Union. Worth isolating: Wise's cost is entirely its fee, because its markup is 0% — so on a larger transfer Wise's cost grows slowly while a percentage markup grows in step with the amount. On recurring transfers that difference compounds monthly.`,
     },
     secondExample: {
-      heading: "A second corridor: $1,000 to Mexico",
-      body: `On $1,000 USD→MXN the gap narrows to {{RECEIVE_DIFF:wise:western-union:USD:MXN:1000}}, with {{CHEAPER:wise:western-union:USD:MXN:1000}} ahead at {{COST_PCT:wise:USD:MXN:1000}} against {{COST_PCT:western-union:USD:MXN:1000}} for Western Union. That's a noticeably tighter margin than the India example — Western Union's markup isn't flat across corridors, and Mexico is one of the routes where its agent network keeps it closer to competitive.`,
+      heading: "Mexico, where the margin tightens",
+      body: `For $1,000 into pesos the gap narrows to {{RECEIVE_DIFF:wise:western-union:USD:MXN:1000}}, with {{CHEAPER:wise:western-union:USD:MXN:1000}} ahead at {{COST_PCT:wise:USD:MXN:1000}} against {{COST_PCT:western-union:USD:MXN:1000}} for Western Union. That's a noticeably tighter margin than the India example — Western Union's markup isn't flat across corridors, and Mexico is one of the routes where its agent network keeps it closer to competitive.`,
     },
     pickA: {
       heading: "Choose Wise when the money is going into a bank account",
-      body: `When the recipient can take a bank deposit, Wise leaves them with more than Western Union on every route we measure, and the ceiling is high: transfers to $1,000,000, balances in 50 currencies, regulation by the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC. For tuition, property, payroll, contractors or your own accounts abroad, the audit trail matters as much as the price — you can check the rate you were given against any published mid-market quote, which is not true of a marked-up rate.`,
+      body: `When the recipient can take a bank deposit, Wise leaves them with more than Western Union on every route we measure, and the ceiling is high: transfers to $1,000,000, balances in 50 currencies, regulation by the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC. For tuition, property, payroll, contractors or your own accounts abroad, the audit trail matters as much as the price — you can check the rate you were given against any published mid-market quote, a check a marked-up rate never passes.`,
     },
     pickB: {
       heading: "Pick Western Union when cash or coverage decides it",
@@ -1487,8 +1487,8 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     theDecision: `MoneyGram is a cash-agent network; Wise is a bank-deposit specialist with a stated fee and no markup. The two rarely compete on the same terms: MoneyGram sells reach into places without a bank account, while Wise sells a transparent rate for a recipient who has one. Wise's 0% markup makes it the cheaper option on the corridors we measure whenever a bank deposit works for the recipient.`,
     measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:moneygram}} for MoneyGram, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:moneygram}} respectively. Wise is among the most consistent leaders in our data; MoneyGram trails by the cash-network premium.`,
     workedExample: {
-      heading: "A worked example: $1,000 to India",
-      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:moneygram:USD:INR:1000}}, with {{CHEAPER:wise:moneygram:USD:INR:1000}} ahead — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:moneygram:USD:INR:1000}} for MoneyGram. Wise's cost is entirely its fee, since its markup is 0%; MoneyGram's includes a 1-3% markup that scales with the amount sent.`,
+      heading: "India at $1,000: the MoneyGram premium in rupees",
+      body: `Send $1,000 from the US to India and the recipient's payout differs by {{RECEIVE_DIFF:wise:moneygram:USD:INR:1000}}, {{CHEAPER:wise:moneygram:USD:INR:1000}} ahead. All-in, Wise costs {{COST_PCT:wise:USD:INR:1000}} of the transfer and MoneyGram {{COST_PCT:moneygram:USD:INR:1000}}. MoneyGram's figure carries a 1-3% rate margin that rises with the amount; Wise has no margin to rise, so its share falls as the transfer grows.`,
     },
     pickA: {
       heading: "Pick Wise for bank-to-bank transfers of any size",
@@ -1496,23 +1496,23 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickB: {
       heading: "Pick MoneyGram when cash or coverage decides it",
-      body: `MoneyGram reaches recipients Wise structurally cannot: someone without a bank account, or a destination among the roughly 200 countries MoneyGram's agent network covers against Wise's 80. You pay for that reach through the rate, and the premium on our measurements is real.`,
+      body: `A recipient with no account, or one in a country beyond Wise's 80, is a MoneyGram customer by default — its agents cover roughly 200. That reach is paid for in the rate, and our measurements put a real number on the premium.`,
     },
-    limits: `MoneyGram's agent-level pricing varies by payout method and location; Wise's fee varies by currency and funding method. Confirm your specific sending country and payout method before sending.`,
+    limits: `MoneyGram prices by agent, payout method and location, and Wise's charge moves with the currency pair and how you pay. Confirm your specific sending country and payout method before sending.`,
     verdict: {
-      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:moneygram}} for MoneyGram — Wise's cost is entirely a stated fee with no markup, while MoneyGram recovers its agent-network cost through a 1-3% spread.`,
-      speedExplanation: `MoneyGram can put cash in a hand within minutes at a staffed counter, something Wise cannot do at any speed; Wise's instant-to-two-day window covers bank deposits only.`,
-      coverageExplanation: `MoneyGram's roughly 200-country agent network reaches destinations and payout situations Wise structurally cannot serve; Wise counters with a $1,000,000 ceiling for the bank-to-bank transfers it does handle.`,
+      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:moneygram}} for MoneyGram. Everything Wise charges shows up as its fee; MoneyGram funds its counters with a 1-3% spread inside the rate.`,
+      speedExplanation: `MoneyGram can put cash in a hand within minutes at a staffed counter, something Wise cannot do at any speed. Wise's fastest deposits land instantly, its slowest in about two days.`,
+      coverageExplanation: `Around 200 countries of MoneyGram agents against Wise's 80 of bank payouts. Wise answers with size: a $1,000,000 ceiling where MoneyGram stops at $10,000.`,
       bottomLine: `If the recipient banks, Wise's zero-markup rate wins clearly. If they don't, or need cash today, MoneyGram isn't competing on price — it's the only option that exists.`,
     },
     faqs: [
       {
         q: "Is MoneyGram ever cheaper than Wise in your data?",
-        a: "Not consistently on the corridors we price — Wise's zero-markup, fee-only model keeps it ahead in most cases. MoneyGram's case is reach: a recipient without a bank account, or a destination Wise doesn't serve.",
+        a: "Rarely, on our measurements — with no margin in its rate, Wise stays in front on most routes. MoneyGram earns its place through reach: a recipient without a bank account, or a destination Wise doesn't serve.",
       },
       {
-        q: "Can MoneyGram deposit directly to a bank account like Wise does?",
-        a: "Yes, bank deposit is one of its payout options alongside cash pickup — but choosing bank deposit doesn't remove MoneyGram's rate markup, so Wise remains the cheaper route for a recipient who could use either.",
+        q: "If my recipient has a bank account, is MoneyGram's deposit option any cheaper?",
+        a: "MoneyGram does pay into bank accounts, but the 1-3% margin comes with that payout too. For a banked recipient, the saving sits with Wise.",
       },
       {
         q: "Why compare a cash network against a bank-deposit specialist at all?",
@@ -1520,11 +1520,11 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Does Wise offer any cash pickup option?",
-        a: "No — Wise pays out to bank accounts only, at any amount. If the recipient needs cash, MoneyGram is the option on this page, not Wise.",
+        a: "None. Every Wise transfer ends in an account, whatever the amount. A cash recipient needs MoneyGram.",
       },
     ],
     keyDifferences: [
-      "Wise's cost is a stated fee with 0% markup; MoneyGram recovers its agent-network cost through a 1-3% markup.",
+      "Wise shows its whole charge as a fee at 0% markup; MoneyGram's 1-3% sits inside the exchange rate.",
       "MoneyGram offers cash pickup across roughly 200 countries; Wise pays to a bank account only, in 80 countries.",
       "Wise's $1,000,000 ceiling exceeds MoneyGram's $10,000 cap by a wide margin.",
       "MoneyGram can settle in minutes at a staffed counter; Wise's fastest option is still a bank deposit, arriving instant to two days.",

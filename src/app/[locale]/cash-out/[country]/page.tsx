@@ -10,6 +10,8 @@ import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { CASHOUT_COUNTRIES, getCashoutCountry } from "@/data/cashout-countries";
 import { getCountryOfframps, getBeatsMidMarket, isBitcoinRail } from "@/lib/crypto-rails";
 import { robotsFor } from "@/lib/seo-indexing";
+import { getCorridorSlug } from "@/data/corridors";
+import { corridorPageRenders } from "@/lib/route-map";
 
 // Live rail figures refresh with each scrape (6h); editorial is stable.
 export const revalidate = 21600;
@@ -75,7 +77,7 @@ export default async function CashOutCountryPage({
   const faqs = c.faqs ?? [
     {
       question: `What's the cheapest way to cash out USDT in ${c.country}?`,
-      answer: `Based on live data, the lowest-cost off-ramp to ${c.currency} right now is ${best.offRamp} at ${bestFmt} on a $1,000-equivalent transfer, using the ${best.chainName} network. ${c.cashoutMethod}`,
+      answer: `${best.offRamp}, at ${bestFmt} on a $1,000-equivalent transfer into ${c.currency} over ${best.chainName}. ${c.cashoutMethod}`,
     },
     {
       question: `How do I convert stablecoins to ${c.currency}?`,
@@ -89,8 +91,8 @@ export default async function CashOutCountryPage({
       question: `Is crypto actually cheaper than a bank transfer to ${c.country}?`,
       answer:
         beats.length > 0
-          ? `On ${beats.length} of the source currencies we track, the crypto rail into ${c.country} beats the mid-market rate outright — meaning the recipient gets more ${c.currency} than a perfect bank rate would give, before the bank even adds its markup. ${c.watchOut}`
-          : `Sometimes. Crypto rails to ${c.country} are competitive but don't always beat the best fintech. ${c.watchOut} Compare the live numbers below against a normal transfer before deciding.`,
+          ? `On ${beats.length} of our source currencies, yes: the ${c.country} rail pays above mid-market, so more ${c.currency} than even a perfect bank rate. ${c.watchOut}`
+          : `Sometimes: rails into ${c.country} compete but don't always beat the best app. ${c.watchOut}`,
     },
   ];
 
@@ -123,8 +125,8 @@ export default async function CashOutCountryPage({
               {c.flag} Cash out crypto in {c.country}
             </h1>
             <p className="mt-3 text-lg text-[var(--color-on-surface-variant)]">
-              The cheapest way to turn USDT, USDC{isBitcoinRail(best) ? " and Bitcoin" : ""} into {c.currency} right
-              now — with the real all-in cost, how the cash-out actually works, and the tax reality most guides skip.
+              USDT, USDC{isBitcoinRail(best) ? " and Bitcoin" : ""} into {c.currency}: live all-in cost, how {c.demonym}{" "}
+              recipients cash out, and {c.country}&apos;s tax position.
             </p>
           </div>
         </Container>
@@ -139,9 +141,8 @@ export default async function CashOutCountryPage({
                 The recipient can earn a premium
               </p>
               <p className="mt-1 text-[var(--color-on-surface)]">
-                On <strong>{beats.length}</strong> corridor{beats.length > 1 ? "s" : ""} into {c.country}, the best
-                crypto rail beats the mid-market rate — the recipient gets <strong>more {c.currency}</strong> than a
-                flawless bank rate would deliver. Best right now:{" "}
+                On <strong>{beats.length}</strong> corridor{beats.length > 1 ? "s" : ""} into {c.country}, crypto pays
+                above mid-market: <strong>more {c.currency}</strong> than a flawless bank rate. Best now:{" "}
                 <strong>
                   {beats[0].sendCurrency} → {c.currency} via {beats[0].offRamp}, {Math.abs(beats[0].feePercent).toFixed(2)}% above mid-market
                 </strong>
@@ -157,11 +158,11 @@ export default async function CashOutCountryPage({
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-xl font-bold text-[var(--color-on-surface)]">
-              Cheapest {c.currency} off-ramps right now
+              {c.currency} off-ramps, cheapest first
             </h2>
             <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
-              All-in cost on a $1,000-equivalent transfer — the on-ramp fee, network fee and the exchange&apos;s sell
-              spread, combined. Lower is better; negative means the recipient beats mid-market.
+              Per $1,000 equivalent into {c.currency}, on-ramp fee, network fee and sell spread combined; below
+              zero beats mid-market.
             </p>
             <div className="mt-4 overflow-x-auto rounded-2xl ring-1 ring-[var(--color-outline)]/60">
               <table className="w-full text-sm min-w-[520px]">
@@ -202,7 +203,7 @@ export default async function CashOutCountryPage({
               </table>
             </div>
             <p className="mt-2 text-2xs text-[var(--color-on-surface-muted)]">
-              Costs estimated from live exchange order books and network fees, refreshed every 6 hours. Not financial advice.
+              Live order books and network fees; {c.country}, not financial advice.
             </p>
           </div>
         </Container>
@@ -239,15 +240,18 @@ export default async function CashOutCountryPage({
             <div>
               <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Prefer a normal transfer?</h2>
               <p className="mt-2 text-[var(--color-on-surface-variant)]">
-                Crypto isn&apos;t for everyone. If you&apos;d rather send through a licensed money-transfer provider, compare
-                the cheapest {c.topSourceCurrencies[0]} → {c.currency} options — banks, apps and fintechs — with live
-                rates on our main comparison.
+                Or skip crypto: {c.topSourceCurrencies[0]} → {c.currency} through a licensed provider, live rates below.
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {c.topSourceCurrencies.map((src) => (
                   <Link
                     key={src}
-                    href={`/send-money?from=${src}&to=${c.currency}&amount=1000`}
+                    // The corridor's own page where one renders, not a
+                    // /send-money parameter URL that canonicalises away.
+                    href={(() => {
+                      const cs = getCorridorSlug(src, c.currency);
+                      return cs && corridorPageRenders(cs) ? `/send-money/${cs}` : `/send-money?from=${src}&to=${c.currency}`;
+                    })()}
                     className="inline-flex items-center h-9 px-4 rounded-full bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] text-sm font-medium text-[var(--color-on-surface)] hover:ring-[var(--color-primary-light)] transition-colors"
                   >
                     Compare {src} → {c.currency} →

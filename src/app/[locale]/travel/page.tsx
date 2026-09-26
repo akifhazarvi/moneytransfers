@@ -72,6 +72,13 @@ export default async function TravelHubPage({ params }: Props) {
                     </p>
                   </div>
                 </div>
+                {/* Practical facts, not the guide's TL;DR: the card printed each
+                    country page's quick answer verbatim, so SiteLiner scored this
+                    hub 39% duplicate (70% of it shared) on 2026-09-26 and counted
+                    the same text against every guide it listed. */}
+                <p className="text-2sm text-[var(--color-on-surface-variant)]">
+                  Capital {g.capital} · {g.languages.join(", ")} · plug {g.plugTypes.join("/")} · {g.voltage}
+                </p>
                 <p className="text-2sm text-[var(--color-primary)] mt-3 font-medium">Read guide &rarr;</p>
               </Card>
             ))}

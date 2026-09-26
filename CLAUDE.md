@@ -144,12 +144,19 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   and it is the same chicken-and-egg argument that governs guide promotion.
 - **Reviewed routes override the duplication gate (2026-09-24).**
   `src/data/reviewed-indexable-routes.ts` holds the 234 URLs the round-2
-  freelance technical-SEO brief opened; owner decision that the brief outranks
+  freelance technical-SEO brief opened, plus (2026-09-26) Bolivia and the
+  indexable targets of brief URLs that 301 into a same-pair page — a brief URL
+  must not end on a noindex page; owner decision that the brief outranks
   the 2026-09-20 measured-duplication gate for these paths.
   `routeIsIndexable()` admits them, so robots meta, `X-Robots-Tag` (which now
   mirrors `routeIsIndexable()` exactly — no extra family rules in middleware)
   and sitemap membership agree. URLs in the brief that are 301/404/410 were
   deliberately left out.
+- **Footer IBAN/SWIFT pages are indexable, unsubmitted (2026-09-26).** The
+  17 IBAN and 5 SWIFT pages in `src/data/footer-reference-links.ts` (read by
+  both `Footer.tsx` and `routeIsIndexable()`) were reopened as Bing earners
+  after their templates were de-duplicated. They stay out of the sitemap —
+  IBAN/SWIFT are the documented broader-than-sitemap families.
 - **Sitemap membership is gated on demand data, not judgement** — Bing
   Webmaster Tools (≥5 impressions/90d) post-deindex, since the site wins on
   Bing/AI assistants and Google is the failing channel. Allowlists live in

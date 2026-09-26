@@ -47,7 +47,9 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "methodology" });
 
-  const lastUpdated = "March 2026";
+  // Revision date of this page's text (the four provider counts were defined
+  // here on 2026-09-25), not of the data, which the header states separately.
+  const lastUpdated = "September 2026";
 
   return (
     <>

@@ -68,7 +68,10 @@ export function crossSellComparisonHref(intent: TransferIntent, context?: Transf
   const path = intent === "business" ? "/business/compare" : "/send-money";
   // The business comparison is a feature matrix, not a corridor search.
   if (!context || intent === "business") return path;
-  return `${path}?${new URLSearchParams({ from: context.from, to: context.to, amount: String(context.amount) })}`;
+  // No amount (2026-09-25): tables now price at page-specific amounts, and an
+  // amount in this link minted one parameter URL per page — SiteLiner found
+  // 254 of them, every one canonicalising to /send-money. One URL per pair.
+  return `${path}?${new URLSearchParams({ from: context.from, to: context.to })}`;
 }
 
 /** Closing prompts on discovery/editorial pages. Results and guide templates

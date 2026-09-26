@@ -20,6 +20,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import CrossLinks from "@/components/CrossLinks";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import { getGoUrl } from "@/lib/affiliate";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { generateProviderProfile } from "@/lib/provider-profile";
@@ -94,6 +95,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: getAlternates(`companies/${slug}`, locale),
   };
 }
+
+const WIDGET_ROUTES: readonly (readonly [string, string])[] = [
+  ["USD", "INR"], ["USD", "MXN"], ["USD", "PHP"], ["GBP", "INR"],
+  ["USD", "PKR"], ["GBP", "EUR"], ["USD", "NGN"], ["EUR", "INR"],
+];
 
 export default async function CompanyPage({ params }: Props) {
   const { slug, locale } = await params;
@@ -183,6 +189,13 @@ function DefaultReview({
   // a $1 minimum) and so printed the same sentences on 50 pages. The review's
   // long sections are NOT rendered — they carry hand-typed fee tables our
   // quote data could contradict.
+  // The sidebar calculator opens on a route this provider actually quotes —
+  // where it ranks first if there is one — instead of USD→INR on all 55
+  // profiles, which was also the same widget text on every one of them.
+  const widgetRoute =
+    WIDGET_ROUTES.find(([from, to]) => generateQuotes(1000, from, to)[0]?.providerSlug === provider.slug) ??
+    WIDGET_ROUTES.find(([from, to]) => generateQuotes(1000, from, to).some((q) => q.providerSlug === provider.slug)) ??
+    WIDGET_ROUTES[0];
   const review = getProviderReview(provider.slug);
   const profile = generateProviderProfile(provider, {
     score: tp?.score ?? undefined,
@@ -435,8 +448,10 @@ function DefaultReview({
                   measured. Say whose figures they are instead. Cost IS measured
                   and is stated separately in the comparison. */}
               <p className="mt-4 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
-                Published by {provider.name}, not measured by us — limits and methods vary by
-                country, so confirm before you send.
+                {/* Name every few words: the fixed tail of this line was the
+                    same fifteen words on every profile. */}
+                Published by {provider.name}. Not measured by us; {provider.name}&rsquo;s limits
+                and methods vary by country.
               </p>
             </Card>
           </div>
@@ -445,10 +460,10 @@ function DefaultReview({
           <div className="space-y-5">
             <Card className="lg:sticky lg:top-20">
               <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
-              <ComparisonWidget compact />
+              <ComparisonWidget compact defaultFrom={widgetRoute[0]} defaultTo={widgetRoute[1]} />
             </Card>
             <Card>
-              <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">Compare With</h3>
+              <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">{provider.name} head-to-heads</h3>
               <div className="space-y-2">
                 {otherProviders.map((other) => (
                   <Link
@@ -512,7 +527,7 @@ function DefaultReview({
               Ready to send with {provider.name}?
             </p>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
-              Check today&rsquo;s price on your own route first.
+              Price {provider.name} on your own route first.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">

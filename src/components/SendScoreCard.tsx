@@ -120,9 +120,11 @@ export default function SendScoreCard({ score, fromCurrency, toCurrency, compact
                     style={{ width: `${c.score}%`, background: style.ring }}
                   />
                 </span>
-                <span className="min-w-0" style={{ color: "var(--color-on-surface-variant)" }}>
-                  <span style={{ color: "var(--color-on-surface)" }}>{c.label}</span>
-                  {" — "}
+                {/* Detail only: each detail already names its measure ("…of the
+                    90-day range", "…vs the 30-day average"), so the label in
+                    front of it doubled a fixed phrase on every corridor. The
+                    label stays as the row's accessible name. */}
+                <span className="min-w-0" style={{ color: "var(--color-on-surface-variant)" }} title={c.label}>
                   {c.detail}
                 </span>
               </li>
@@ -172,8 +174,8 @@ export default function SendScoreCard({ score, fromCurrency, toCurrency, compact
                 ))}
               </ul>
               <p className="mt-2 text-[11px]" style={{ color: "var(--color-on-surface-variant)" }}>
-                {consistency.contestedDays} days where two or more providers quoted, over {consistency.windowDays} days.
-                Days with a single quote are excluded — winning unopposed is not evidence.{" "}
+                {consistency.contestedDays} contested days of {consistency.windowDays}; single-quote days
+                excluded for {fromCurrency}→{toCurrency}.{" "}
                 <Link href="/provider-consistency" className="underline" style={{ color: "var(--color-primary)" }}>
                   See every corridor
                 </Link>
@@ -183,8 +185,7 @@ export default function SendScoreCard({ score, fromCurrency, toCurrency, compact
           )}
 
           <p className="mt-3 text-[11px]" style={{ color: "var(--color-on-surface-variant)" }}>
-            Measured from {score.daysObserved} days of our own recorded provider rates for{" "}
-            {fromCurrency}→{toCurrency}
+            {fromCurrency}→{toCurrency}: {score.daysObserved} days of our recorded provider rates
             {score.confidence === "low" && " · limited history, treat as indicative"}
           </p>
         </div>

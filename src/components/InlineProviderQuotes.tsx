@@ -10,6 +10,8 @@ import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { partnerQuoteFrom } from "@/lib/partner-quote";
 import { crossSellComparisonHref } from "@/lib/provider-cross-sell";
+import { getCorridorSlug } from "@/data/corridors";
+import { corridorPageRenders } from "@/lib/route-map";
 import { quoteFreshness } from "@/lib/quote-freshness";
 
 interface Props {
@@ -64,7 +66,12 @@ export default function InlineProviderQuotes({
 
   const sendSymbol = symbolFor(from);
   const recvSymbol = symbolFor(to);
-  const seeAllHref = crossSellComparisonHref(only ? "business" : "personal", { from, to, amount });
+  // The route's own page where one renders — an indexable, self-canonical
+  // URL — rather than a /send-money parameter URL that canonicalises away.
+  const corridorSlug = only ? null : getCorridorSlug(from, to);
+  const seeAllHref = corridorSlug && corridorPageRenders(corridorSlug)
+    ? `/send-money/${corridorSlug}`
+    : crossSellComparisonHref(only ? "business" : "personal", { from, to, amount });
   const corridor = `${from}-${to}`;
   // source is "guide:<slug>" or a plain surface name — extract slug if present
   const pageSlug = source.startsWith("guide:") ? source.slice(6) : source;
@@ -77,7 +84,65 @@ export default function InlineProviderQuotes({
 
   return (
     <>
-    {/* Partner unit above the table. Consumer corridors get the live-rate ad;
+    <aside className="inline-quotes" aria-label="Provider rate comparison">
+      <header className="inline-quotes-header">
+        <div>
+          <p className="conversion-eyebrow">Provider comparison · {from} → {to}</p>
+          <h3>{heading || `Compare providers for ${sendSymbol}${amount.toLocaleString("en-US")} ${from}`}</h3>
+          {subheading && <p className="inline-quotes-subheading">{subheading}</p>}
+        </div>
+        <SeeAllProvidersLink href={seeAllHref} corridor={corridor} source="header" slug={pageSlug} className="conversion-text-link">
+          Compare all <span aria-hidden="true">→</span>
+        </SeeAllProvidersLink>
+      </header>
+
+      <ol className="inline-quotes-list">
+        {quotes.map((q, i) => {
+          const name = getProviderName(q.providerSlug);
+          const provider = providers.find((p) => p.slug === q.providerSlug);
+          const logo = providerLogo(q.providerSlug, provider?.logo);
+          const isBest = i === 0 && !q.isIndicative;
+          return (
+            <li key={q.providerSlug} className="inline-quotes-row">
+              <div className="inline-quotes-brand">
+                <Image src={logo} alt="" width={40} height={40} className="conversion-logo" unoptimized={logo.endsWith(".svg")} />
+                <div>
+                  <div className="inline-quotes-name"><strong>{name}</strong>{isBest && <span className="conversion-tag">Best value</span>}</div>
+                  {/* Fee only. The advertised speed and a per-row "Recipient
+                      gets" label were the same words on every page quoting
+                      this pair — SiteLiner counted each row as duplicate
+                      text on 40–135 pages. Speed is the provider's own claim
+                      and lives on its profile; the column is labelled once. */}
+                  <p>{q.isIndicative ? "Fee confirmed by provider" : `Fee ${sendSymbol}${formatAmount(q.fee)}`}</p>
+                </div>
+              </div>
+              <div className="inline-quotes-payout">
+                {(q.isIndicative || i === 0) && <span>{q.isIndicative ? "Indicative payout" : "Recipient gets"}</span>}
+                <strong>{recvSymbol}{formatAmount(q.receiveAmount)}</strong>
+                <small>{to}</small>
+              </div>
+              <InlineQuoteCTA providerSlug={q.providerSlug} providerName={name} sendCurrency={q.sendCurrency}
+                receiveCurrency={q.receiveCurrency} sendAmount={q.sendAmount} rank={i + 1}
+                isBest={isBest} source={source} />
+            </li>
+          );
+        })}
+      </ol>
+
+      <footer className="inline-quotes-footer">
+        {/* One line: this caption renders under every inline table, so each
+            word here is repeated site-wide. The tie-break rule it used to
+            spell out is on /editorial-policy. */}
+        <p>
+          {savings > 0 && <>Spread <strong>{recvSymbol}{formatAmount(savings)}</strong>. </>}
+          Ranked by payout{freshness.oldest && !freshness.undated
+            ? <>, priced <time dateTime={freshness.oldest}>{new Date(freshness.oldest).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" })}</time></>
+            : ""}.
+        </p>
+      </footer>
+    </aside>
+    {/* Partner unit, rendered after the table (round-2 brief §1.5: the price
+        comparison sits above the TapTap block). Consumer corridors get the live-rate ad;
         business pages keep the cross-sell card, because the ad's partner is a
         consumer remittance app and `only` exists precisely to keep those off a
         page about paying suppliers.
@@ -111,58 +176,6 @@ export default function InlineProviderQuotes({
         />
       )
     )}
-    <aside className="inline-quotes" aria-label="Provider rate comparison">
-      <header className="inline-quotes-header">
-        <div>
-          <p className="conversion-eyebrow">Provider comparison · {from} → {to}</p>
-          <h3>{heading || `Compare providers for ${sendSymbol}${amount.toLocaleString("en-US")} ${from}`}</h3>
-          {subheading && <p className="inline-quotes-subheading">{subheading}</p>}
-        </div>
-        <SeeAllProvidersLink href={seeAllHref} corridor={corridor} source="header" slug={pageSlug} className="conversion-text-link">
-          Compare all <span aria-hidden="true">→</span>
-        </SeeAllProvidersLink>
-      </header>
-
-      <ol className="inline-quotes-list">
-        {quotes.map((q, i) => {
-          const name = getProviderName(q.providerSlug);
-          const provider = providers.find((p) => p.slug === q.providerSlug);
-          const logo = providerLogo(q.providerSlug, provider?.logo);
-          const isBest = i === 0 && !q.isIndicative;
-          return (
-            <li key={q.providerSlug} className="inline-quotes-row">
-              <div className="inline-quotes-brand">
-                <Image src={logo} alt="" width={40} height={40} className="conversion-logo" unoptimized={logo.endsWith(".svg")} />
-                <div>
-                  <div className="inline-quotes-name"><strong>{name}</strong>{isBest && <span className="conversion-tag">Best value</span>}</div>
-                  <p>{q.isIndicative ? "Fee confirmed by provider" : `Fee: ${sendSymbol}${formatAmount(q.fee)} ${from}`} · {q.transferSpeed}</p>
-                </div>
-              </div>
-              <div className="inline-quotes-payout">
-                <span>{q.isIndicative ? "Indicative payout" : "Recipient gets"}</span>
-                <strong>{recvSymbol}{formatAmount(q.receiveAmount)}</strong>
-                <small>{to}</small>
-              </div>
-              <InlineQuoteCTA providerSlug={q.providerSlug} providerName={name} sendCurrency={q.sendCurrency}
-                receiveCurrency={q.receiveCurrency} sendAmount={q.sendAmount} rank={i + 1}
-                isBest={isBest} source={source} />
-            </li>
-          );
-        })}
-      </ol>
-
-      <footer className="inline-quotes-footer">
-        {/* One line: this caption renders under every inline table, so each
-            word here is repeated site-wide. The tie-break rule it used to
-            spell out is on /editorial-policy. */}
-        <p>
-          {savings > 0 && <>Spread <strong>{recvSymbol}{formatAmount(savings)}</strong>. </>}
-          Ranked by payout{freshness.oldest && !freshness.undated
-            ? <>, priced <time dateTime={freshness.oldest}>{new Date(freshness.oldest).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" })}</time></>
-            : ""}.
-        </p>
-      </footer>
-    </aside>
     </>
   );
 }

@@ -6,7 +6,6 @@
 
 import { type Provider, type TransferQuote } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
-import { renderTrustpilot } from "@/lib/ratings-tokens";
 
 // ── Types ──
 
@@ -44,8 +43,6 @@ export interface ComparisonContent {
   corridorData: CorridorComparison[];
   verdict: ComparisonVerdict;
   faqs: ComparisonFAQ[];
-  whenToUseA: string[];
-  whenToUseB: string[];
   keyDifferences: string[];
 }
 
@@ -87,65 +84,78 @@ export function usesMidMarketRate(p: Provider): boolean {
   return /^0(\.0+)?%/.test(s) && (s.match(/%/g) ?? []).length === 1;
 }
 
-function hasLowUpfrontFees(p: Provider): boolean {
-  const f = p.feeStructure.toLowerCase();
-  return f.includes("no fee") || f.includes("$0") || f.includes("free");
-}
-
-function describeStrength(p: Provider): string {
-  if (usesMidMarketRate(p)) {
-    return "transparent pricing with the real mid-market exchange rate";
-  }
-  if (hasFeature(p, "cash pickup")) {
-    return "extensive cash pickup network and multiple delivery options";
-  }
-  if (hasFeature(p, "mobile money")) {
-    return "mobile money delivery for underbanked recipients";
-  }
-  if (hasFeature(p, "forward contract")) {
-    return "tools for locking in exchange rates with forward contracts";
-  }
-  if (hasLowUpfrontFees(p)) {
-    return "low or zero upfront transfer fees";
-  }
-  if (p.supportedCountries >= 150) {
-    return `global reach across ${p.supportedCountries}+ countries`;
-  }
-  if (hasFeature(p, "multi-currency")) {
-    return "multi-currency accounts for holding and converting balances";
-  }
-  return `competitive rates and a ${p.ratingLabel.toLowerCase()}-rated service`;
-}
-
-function bestForLabel(p: Provider): string {
-  if (usesMidMarketRate(p)) return "transparent, low-cost transfers";
-  if (hasFeature(p, "cash pickup") && p.supportedCountries >= 100) return "cash pickup and global coverage";
-  if (hasFeature(p, "mobile money")) return "remittances and mobile money";
-  if (!p.maxTransfer || p.maxTransfer >= 100000) return "large transfers and business payments";
-  if (p.transferSpeed.toLowerCase().includes("minute")) return "fast, small remittances";
-  if (hasLowUpfrontFees(p)) return "low-fee transfers";
-  return "international money transfers";
-}
+// ── Measured helpers ──
+//
+// Everything below states what THIS pair did on the routes we price. The
+// generator used to restate each provider's published fee, markup, speed,
+// limits and regulators in the intro, key differences, "when to choose", the
+// verdict and five FAQs — the same sentences on every comparison featuring
+// that provider, which is why SiteLiner (2026-09-26) scored 17 generated
+// comparisons at 32–58% duplicate with 90–99% including common content. The
+// feature table states those specifications once; prose here carries only the
+// pair's own numbers.
 
 /**
- * Why the cost winner won, stated from the two pricing fields the page itself
- * prints, so the verdict can never contradict the comparison table above it.
- * The old sentence borrowed describeStrength(), which is a general
- * positioning line ("cash pickup network") and, before the mid-market fix,
- * credited every winner with the mid-market rate.
+ * Median of a list. Medians, not means, throughout this file: a single corridor
+ * where our own mid-market benchmark is unreliable (USD->NGN reads -3.16%) is
+ * enough to move a mean far enough to misdescribe a provider.
  */
-function describeCostEdge(winner: Provider, loser: Provider): string {
-  const lc = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
-  const rate = usesMidMarketRate(winner)
-    ? "at mid-market with no markup"
-    : winner.exchangeRateMarkup;
-  return `${winner.name} wins on the total, not on any one line: fee ${lc(winner.feeStructure)}, exchange rate ${rate}. ${loser.name} — fee ${lc(loser.feeStructure)}, rate ${loser.exchangeRateMarkup} — delivered less on these corridors once both were counted.`;
+function median(xs: number[]): number | null {
+  if (!xs.length) return null;
+  const s = [...xs].sort((x, y) => x - y);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+
+function gapPct(c: CorridorComparison): number {
+  return Math.abs((c.quoteA!.receiveAmount - c.quoteB!.receiveAmount) / c.quoteB!.receiveAmount) * 100;
+}
+
+function money(c: CorridorComparison, value: number): string {
+  return `${c.symbol}${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+function sent(c: CorridorComparison): string {
+  return `${c.currencySymbol}${c.amount.toLocaleString("en-US")}`;
+}
+
+function labels(cs: CorridorComparison[]): string {
+  return cs.map((c) => c.label).join(", ");
+}
+
+/** What this pair measured, shared by every block that quotes it. */
+export function measurePair(corridorData: CorridorComparison[]) {
+  const priced = corridorData.filter((c) => c.quoteA && c.quoteB);
+  const winsA = priced.filter((c) => c.winner === "a");
+  const winsB = priced.filter((c) => c.winner === "b");
+  const byGap = [...priced].sort((x, y) => gapPct(y) - gapPct(x));
+  const widest = byGap[0];
+  const closest = byGap.length > 1 ? byGap[byGap.length - 1] : undefined;
+  const medGap = median(priced.map(gapPct));
+  const zeroFeeA = priced.filter((c) => c.quoteA!.fee === 0).length;
+  const zeroFeeB = priced.filter((c) => c.quoteB!.fee === 0).length;
+  return { priced, winsA, winsB, widest, closest, medGap, zeroFeeA, zeroFeeB };
+}
+
+/** Delivery features one provider has and the other lacks. */
+function onlyFeatures(primary: Provider, other: Provider): string[] {
+  const out: string[] = [];
+  const checks: [string, string][] = [
+    ["cash pickup", "cash pickup"],
+    ["mobile money", "mobile money"],
+    ["multi-currency", "a multi-currency account"],
+    ["forward contract", "forward contracts"],
+    ["business", "a business account"],
+  ];
+  for (const [kw, label] of checks) {
+    if (hasFeature(primary, kw) && !hasFeature(other, kw)) out.push(label);
+  }
+  return out;
 }
 
 // ── Main generator ──
 
 export function generateComparisonContent(a: Provider, b: Provider): ComparisonContent {
-  // Generate corridor quotes
   const corridorData: CorridorComparison[] = COMPARISON_CORRIDORS.map((c) => {
     const quotes = generateQuotes(c.amount, c.from, c.to);
     const quoteA = quotes.find((q) => q.providerSlug === a.slug);
@@ -168,64 +178,52 @@ export function generateComparisonContent(a: Provider, b: Provider): ComparisonC
     return { ...c, quoteA, quoteB, winner, savings };
   });
 
-  // Tally wins across corridors
-  const winsA = corridorData.filter((c) => c.winner === "a").length;
-  const winsB = corridorData.filter((c) => c.winner === "b").length;
-  const costWinner: "a" | "b" | "tie" = winsA > winsB ? "a" : winsB > winsA ? "b" : "tie";
+  const m = measurePair(corridorData);
+  const costWinner: "a" | "b" | "tie" =
+    m.winsA.length > m.winsB.length ? "a" : m.winsB.length > m.winsA.length ? "b" : "tie";
 
-  // Speed comparison
   const aHasExpress = a.transferSpeed.toLowerCase().includes("minute") || a.transferSpeed.toLowerCase().includes("instant");
   const bHasExpress = b.transferSpeed.toLowerCase().includes("minute") || b.transferSpeed.toLowerCase().includes("instant");
   const speedWinner: "a" | "b" | "tie" =
     aHasExpress && !bHasExpress ? "a" : bHasExpress && !aHasExpress ? "b" : "tie";
 
-  // Coverage comparison
   const aCoverage = a.supportedCountries + a.supportedCurrencies + a.deliveryMethods.length;
   const bCoverage = b.supportedCountries + b.supportedCurrencies + b.deliveryMethods.length;
   const coverageWinner: "a" | "b" | "tie" =
     aCoverage > bCoverage * 1.1 ? "a" : bCoverage > aCoverage * 1.1 ? "b" : "tie";
 
-  // Overall
   const scoreA = (costWinner === "a" ? 2 : 0) + (speedWinner === "a" ? 1 : 0) + (coverageWinner === "a" ? 1 : 0) + (a.rating > b.rating ? 1 : 0);
   const scoreB = (costWinner === "b" ? 2 : 0) + (speedWinner === "b" ? 1 : 0) + (coverageWinner === "b" ? 1 : 0) + (b.rating > a.rating ? 1 : 0);
   const overallWinner: "a" | "b" | "tie" = scoreA > scoreB ? "a" : scoreB > scoreA ? "b" : "tie";
 
-  const winnerName = overallWinner === "a" ? a.name : overallWinner === "b" ? b.name : null;
-  const loserName = overallWinner === "a" ? b.name : overallWinner === "b" ? a.name : null;
+  const n = m.priced.length;
+  const W = costWinner === "a" ? a : b;
+  const L = costWinner === "a" ? b : a;
+  const wWins = costWinner === "a" ? m.winsA : m.winsB;
+  const lWins = costWinner === "a" ? m.winsB : m.winsA;
+  const bestWin = [...wWins].sort((x, y) => (y.savings ?? 0) - (x.savings ?? 0))[0];
 
-  // Cost explanation with real data
-  const bestCorridor = corridorData.find((c) => c.savings && c.savings > 0 && c.winner === costWinner);
-  const costExplanation = costWinner === "tie"
-    ? `${a.name} and ${b.name} are closely matched on cost. Across our ${corridorData.length} sample corridors, neither provider consistently delivers more to the recipient. The best choice depends on your specific corridor.`
-    : `${costWinner === "a" ? a.name : b.name} wins on cost in ${Math.max(winsA, winsB)} of ${corridorData.length} corridors we tested.${bestCorridor ? ` For example, on ${bestCorridor.label} (${bestCorridor.currencySymbol}${bestCorridor.amount.toLocaleString()}), the recipient gets ${bestCorridor.symbol}${bestCorridor.savings!.toFixed(2)} more with ${costWinner === "a" ? a.name : b.name}.` : ""} ${costWinner === "a" ? describeCostEdge(a, b) : describeCostEdge(b, a)}`;
+  const costExplanation = !n
+    ? `No route in our sample has quotes from both ${a.name} and ${b.name} yet.`
+    : costWinner === "tie"
+    ? `Split ${m.winsA.length}–${m.winsB.length} across ${n} routes${m.medGap !== null ? `, median gap ${m.medGap.toFixed(2)}%` : ""}. ${a.name} led on ${labels(m.winsA) || "none"}; ${b.name} on ${labels(m.winsB) || "none"}.`
+    : `${bestWin?.savings ? `Largest margin ${money(bestWin, bestWin.savings)}, ${bestWin.label} at ${sent(bestWin)}` : `${W.name} ahead`}${m.medGap !== null ? `; median ${m.medGap.toFixed(2)}%` : ""}.`;
 
-  const speedExplanation = speedWinner === "tie"
-    ? `Both providers offer similar transfer speeds. ${a.name} typically delivers in ${a.transferSpeed}, while ${b.name} takes ${b.transferSpeed}. The actual speed depends on the corridor and delivery method.`
-    : `${speedWinner === "a" ? a.name : b.name} is generally faster, with transfers arriving in ${speedWinner === "a" ? a.transferSpeed : b.transferSpeed}, compared to ${speedWinner === "a" ? b.transferSpeed : a.transferSpeed} for ${speedWinner === "a" ? b.name : a.name}.`;
+  const speedExplanation = `Advertised, not measured: ${a.name} ${a.transferSpeed}; ${b.name} ${b.transferSpeed}.`;
 
-  const coverageExplanation = coverageWinner === "tie"
-    ? `Both providers have comparable coverage. ${a.name} supports ${a.supportedCountries}+ countries and ${a.supportedCurrencies}+ currencies, while ${b.name} covers ${b.supportedCountries}+ countries with ${b.supportedCurrencies}+ currencies.`
-    : `${coverageWinner === "a" ? a.name : b.name} has broader coverage with ${coverageWinner === "a" ? a.supportedCountries : b.supportedCountries}+ countries and ${coverageWinner === "a" ? a.supportedCurrencies : b.supportedCurrencies}+ currencies. ${coverageWinner === "a" ? a.name : b.name} also offers ${coverageWinner === "a" ? a.deliveryMethods.join(", ") : b.deliveryMethods.join(", ")}.`;
+  const coverageExplanation = `${a.name} lists ${a.supportedCountries}+ countries and ${a.supportedCurrencies}+ currencies; ${b.name}, ${b.supportedCountries}+ and ${b.supportedCurrencies}+.`;
 
-  const overallSummary = overallWinner === "tie"
-    ? `${a.name} and ${b.name} serve different needs well. ${a.name} is best for ${bestForLabel(a)}, while ${b.name} excels at ${bestForLabel(b)}. Your best choice depends on what matters most: cost, speed, coverage, or delivery options.`
-    : `Overall, ${winnerName} edges ahead for most users thanks to its ${overallWinner === "a" ? describeStrength(a) : describeStrength(b)}. That said, ${loserName} is the better pick if you need ${overallWinner === "a" ? bestForLabel(b) : bestForLabel(a)}.`;
-
-  // Dynamic intro
-  const intro = generateIntro(a, b, costWinner, corridorData);
-
-  // When to use each
-  const whenToUseA = generateWhenToUse(a, b, corridorData, "a");
-  const whenToUseB = generateWhenToUse(b, a, corridorData, "b");
-
-  // Key differences
-  const keyDifferences = generateKeyDifferences(a, b, corridorData);
-
-  // FAQs
-  const faqs = generateFAQs(a, b, corridorData, costWinner, overallWinner);
+  const lOnly = onlyFeatures(L, W);
+  const overallSummary = !n
+    ? `Without a shared route to price, choose on the terms in the table: ${a.name} or ${b.name} by fee model, delivery method and limit.`
+    : costWinner === "tie"
+    ? `Pick by route: ${a.name} on ${labels(m.winsA) || "none of ours"}, ${b.name} on ${labels(m.winsB) || "none of ours"}.`
+    : lWins.length
+    ? `On price, ${W.name} (${wWins.length}/${n}); ${L.name} for ${labels(lWins)}.`
+    : `On price, ${W.name} on all ${n}${lOnly.length ? `; ${L.name} only for what it alone offers` : ""}.`;
 
   return {
-    intro,
+    intro: generateIntro(a, b, corridorData),
     corridorData,
     verdict: {
       costWinner,
@@ -237,272 +235,89 @@ export function generateComparisonContent(a: Provider, b: Provider): ComparisonC
       coverageExplanation,
       overallSummary,
     },
-    faqs,
-    whenToUseA,
-    whenToUseB,
-    keyDifferences,
+    faqs: generateFAQs(a, b, corridorData, costWinner),
+    keyDifferences: generateKeyDifferences(a, b, corridorData),
   };
 }
 
-// ── Intro generator ──
+// ── Intro ──
 
-function generateIntro(
-  a: Provider,
-  b: Provider,
-  costWinner: "a" | "b" | "tie",
-  corridorData: CorridorComparison[]
-): string {
-  const aBestFor = bestForLabel(a);
-  const bBestFor = bestForLabel(b);
-
-  // Find the corridor with the biggest savings to lead with a concrete number
-  const biggestSaving = corridorData
-    .filter((c) => c.savings && c.savings > 0)
-    .sort((x, y) => (y.savings || 0) - (x.savings || 0))[0];
-
-  let dataSentence = "";
-  if (biggestSaving) {
-    const winner = biggestSaving.winner === "a" ? a.name : b.name;
-    dataSentence = ` Our data shows the difference can be significant — on a ${biggestSaving.currencySymbol}${biggestSaving.amount.toLocaleString()} ${biggestSaving.label} transfer, ${winner} delivers ${biggestSaving.symbol}${biggestSaving.savings!.toFixed(2)} more to the recipient.`;
+function generateIntro(a: Provider, b: Provider, corridorData: CorridorComparison[]): string {
+  const m = measurePair(corridorData);
+  if (!m.priced.length) {
+    return `We hold no route where both ${a.name} and ${b.name} quote, so this page sets their published terms side by side.`;
   }
-
-  return `${a.name} and ${b.name} are both popular choices for international money transfers, but they take different approaches. ${a.name}, founded in ${a.founded} and headquartered in ${a.headquarters}, is best known for ${aBestFor}. ${b.name}, operating since ${b.founded} from ${b.headquarters}, focuses on ${bBestFor}. This comparison uses real transfer data collected from both providers across ${corridorData.length} popular corridors to show you exactly which one offers better value for your specific needs.${dataSentence}`;
-}
-
-// ── When to use generator ──
-
-/**
- * Median of a list. Medians, not means, throughout this file: a single corridor
- * where our own mid-market benchmark is unreliable (USD->NGN reads -3.16%) is
- * enough to move a mean far enough to misdescribe a provider.
- */
-function median(xs: number[]): number | null {
-  if (!xs.length) return null;
-  const s = [...xs].sort((x, y) => x - y);
-  const m = s.length >> 1;
-  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
-}
-
-/** What this pair actually did on the corridors we price, for this page only. */
-function measuredEdge(corridorData: CorridorComparison[], side: "a" | "b") {
-  const priced = corridorData.filter((c) => c.quoteA && c.quoteB);
-  const won = priced.filter((c) => c.winner === side);
-  const best = [...won].sort((x, y) => (y.savings ?? 0) - (x.savings ?? 0))[0];
-  const feeSide = side === "a" ? "quoteA" : "quoteB";
-  const medianFee = median(priced.map((c) => c[feeSide]!.fee));
-  return { priced, won, best, medianFee };
-}
-
-function generateWhenToUse(
-  primary: Provider,
-  other: Provider,
-  corridorData: CorridorComparison[],
-  side: "a" | "b",
-): string[] {
-  const reasons: string[] = [];
-
-  // Lead with what this pair measured on this page, not a claim that would read
-  // the same on every comparison featuring this provider. The content brief
-  // (§10-A) asks for blocks that "depend on that page's own data"; a canned
-  // "you want the real mid-market rate" line is the opposite of that, and it is
-  // why /compare/* measured 74-79% duplicate against its own siblings.
-  const { priced, won, best, medianFee } = measuredEdge(corridorData, side);
-  if (priced.length && won.length) {
-    reasons.push(
-      `You send on the routes where it actually won: ${primary.name} delivered more than ${other.name} ` +
-        `on ${won.length} of the ${priced.length} corridors we price (${won.map((c) => c.label).join(", ")})` +
-        (best?.savings
-          ? `, by as much as ${best.symbol}${best.savings.toFixed(2)} on ${best.label} for ${best.currencySymbol}${best.amount.toLocaleString()}`
-          : "") +
-        ".",
-    );
-  }
-  if (medianFee !== null) {
-    reasons.push(
-      medianFee === 0
-        ? `You want no upfront fee on these routes — ${primary.name} quoted a zero transfer fee across the corridors we price, so its cost sits entirely in the exchange rate.`
-        : `You are comparing total cost, not headline fee — ${primary.name}'s median transfer fee across the corridors we price was ${best?.currencySymbol ?? "$"}${medianFee.toFixed(2)}.`,
-    );
-  }
-
-  if (usesMidMarketRate(primary)) {
-    reasons.push("You want the real mid-market exchange rate with no hidden markup");
-  } else if (hasLowUpfrontFees(primary) && !hasLowUpfrontFees(other)) {
-    reasons.push(`You prefer low or zero upfront transfer fees (${primary.feeStructure}) and are comparing the total received, not the rate alone`);
-  }
-  if (primary.maxTransfer && other.maxTransfer && primary.maxTransfer > other.maxTransfer * 2) {
-    reasons.push(`You're sending large amounts (${primary.name} supports up to $${primary.maxTransfer.toLocaleString()})`);
-  }
-  if (!primary.maxTransfer && other.maxTransfer) {
-    reasons.push(`You need to transfer large sums (${primary.name} has no upper limit)`);
-  }
-  if (hasFeature(primary, "cash pickup") && !hasFeature(other, "cash pickup")) {
-    reasons.push("Your recipient needs cash pickup instead of bank deposit");
-  }
-  if (hasFeature(primary, "mobile money") && !hasFeature(other, "mobile money")) {
-    reasons.push("You want to send to a mobile money wallet (M-Pesa, GCash, etc.)");
-  }
-  if (hasFeature(primary, "multi-currency") && !hasFeature(other, "multi-currency")) {
-    reasons.push("You need a multi-currency account to hold and convert balances");
-  }
-  if (hasFeature(primary, "forward contract") && !hasFeature(other, "forward contract")) {
-    reasons.push("You want to lock in an exchange rate with a forward contract");
-  }
-  if (hasFeature(primary, "business") && !hasFeature(other, "business")) {
-    reasons.push("You need a business account for commercial payments");
-  }
-  if (primary.supportedCountries > other.supportedCountries * 1.3) {
-    reasons.push(`You need wider country coverage (${primary.supportedCountries}+ vs ${other.supportedCountries}+ countries)`);
-  }
-  if (hasLowUpfrontFees(primary) && hasLowUpfrontFees(other)) {
-    reasons.push(`You want low upfront fees (${primary.feeStructure})`);
-  }
-  if (primary.transferSpeed.toLowerCase().includes("minute") && !other.transferSpeed.toLowerCase().includes("minute")) {
-    reasons.push("Speed is your top priority — transfers can arrive in minutes");
-  }
-
-  // Always have at least 3 reasons
-  if (reasons.length < 3) {
-    if (primary.rating > other.rating) {
-      reasons.push(`You value user experience — ${primary.name} is rated ${primary.rating.toFixed(1)}/5 on Trustpilot`);
-    }
-    reasons.push(`${primary.name}'s strengths (${primary.deliveryMethods.slice(0, 2).join(", ")}) match your needs`);
-  }
-
-  return reasons.slice(0, 5);
+  const w = m.widest!;
+  const wName = w.winner === "a" ? a.name : b.name;
+  const parts = [
+    `${a.name} and ${b.name} both quote ${m.priced.length} of our sample routes.`,
+    w.savings ? `Widest: ${w.label} at ${sent(w)}, where ${wName} pays ${money(w, w.savings)} more (${gapPct(w).toFixed(2)}%).` : "",
+    m.closest ? `Closest: ${m.closest.label}, ${gapPct(m.closest).toFixed(2)}% apart.` : "",
+  ];
+  return parts.filter(Boolean).join(" ");
 }
 
 // ── Key differences ──
 
-function generateKeyDifferences(
-  a: Provider,
-  b: Provider,
-  corridorData: CorridorComparison[],
-): string[] {
+function generateKeyDifferences(a: Provider, b: Provider, corridorData: CorridorComparison[]): string[] {
+  const m = measurePair(corridorData);
   const diffs: string[] = [];
-
-  // Measured first. Everything below this is a specification both providers
-  // publish, so it reads identically on every page either one appears on; this
-  // row is the only one that belongs to this pair.
-  const priced = corridorData.filter((c) => c.quoteA && c.quoteB);
-  if (priced.length) {
-    const winsA = priced.filter((c) => c.winner === "a");
-    const winsB = priced.filter((c) => c.winner === "b");
-    const gaps = priced.map((c) => Math.abs((c.quoteA!.receiveAmount - c.quoteB!.receiveAmount) / c.quoteB!.receiveAmount) * 100);
-    const medGap = median(gaps);
+  if (m.priced.length) {
     diffs.push(
-      `**Measured cost on our sample corridors**: across ${priced.length} corridors priced from collected quotes, ` +
-        `${a.name} delivered more on ${winsA.length} (${winsA.map((c) => c.label).join(", ") || "none"}) and ` +
-        `${b.name} on ${winsB.length} (${winsB.map((c) => c.label).join(", ") || "none"})` +
-        (medGap !== null ? `. The median gap between them was ${medGap.toFixed(2)}% of the amount received` : "") +
-        `. These are estimates from collected pricing, not guaranteed quotes.`,
+      `**Measured on ${m.priced.length} routes**: ${a.name} paid more on ${labels(m.winsA) || "none"}; ` +
+        `${b.name} on ${labels(m.winsB) || "none"}` +
+        (m.medGap !== null ? `. Median gap ${m.medGap.toFixed(2)}%` : "") +
+        ".",
     );
   }
-
-  // Fee model
-  diffs.push(`**Fee model**: ${a.name} charges ${a.feeStructure}, while ${b.name} charges ${b.feeStructure}.`);
-
-  // Exchange rate
-  diffs.push(`**Exchange rate**: ${a.name} uses a ${a.exchangeRateMarkup} markup, compared to ${b.exchangeRateMarkup} for ${b.name}.`);
-
-  // Speed
-  if (a.transferSpeed !== b.transferSpeed) {
-    diffs.push(`**Speed**: ${a.name} delivers in ${a.transferSpeed} vs ${b.transferSpeed} for ${b.name}.`);
+  const aOnly = onlyFeatures(a, b);
+  const bOnly = onlyFeatures(b, a);
+  if (aOnly.length || bOnly.length) {
+    diffs.push(
+      `**Only one offers**: ${[
+        aOnly.length ? `${a.name} — ${aOnly.join(", ")}` : "",
+        bOnly.length ? `${b.name} — ${bOnly.join(", ")}` : "",
+      ].filter(Boolean).join("; ")}.`,
+    );
   }
-
-  // Transfer limits
-  const aMax = a.maxTransfer ? `$${a.maxTransfer.toLocaleString()}` : "no limit";
-  const bMax = b.maxTransfer ? `$${b.maxTransfer.toLocaleString()}` : "no limit";
-  if (aMax !== bMax) {
-    diffs.push(`**Transfer limits**: ${a.name} allows up to ${aMax}, ${b.name} up to ${bMax}.`);
-  }
-
-  // Delivery methods
-  const aOnly = a.deliveryMethods.filter((m) => !b.deliveryMethods.includes(m));
-  const bOnly = b.deliveryMethods.filter((m) => !a.deliveryMethods.includes(m));
-  if (aOnly.length > 0 || bOnly.length > 0) {
-    const parts: string[] = [];
-    if (aOnly.length > 0) parts.push(`${a.name} uniquely offers ${aOnly.join(", ")}`);
-    if (bOnly.length > 0) parts.push(`${b.name} uniquely offers ${bOnly.join(", ")}`);
-    diffs.push(`**Delivery options**: ${parts.join(", while ")}.`);
-  }
-
-  // Regulation
-  const aRegs = a.regulators.join(", ");
-  const bRegs = b.regulators.join(", ");
-  if (aRegs !== bRegs) {
-    diffs.push(`**Regulation**: ${a.name} is regulated by ${aRegs}; ${b.name} by ${bRegs}.`);
-  }
-
   return diffs;
 }
 
-// ── FAQ generator ──
+// ── FAQs ──
 
 function generateFAQs(
   a: Provider,
   b: Provider,
   corridorData: CorridorComparison[],
   costWinner: "a" | "b" | "tie",
-  overallWinner: "a" | "b" | "tie"
 ): ComparisonFAQ[] {
+  const m = measurePair(corridorData);
+  const n = m.priced.length;
+  if (!n) return [];
   const faqs: ComparisonFAQ[] = [];
+  const W = costWinner === "b" ? b : a;
+  const L = costWinner === "b" ? a : b;
+  const wWins = costWinner === "b" ? m.winsB : m.winsA;
+  const lWins = costWinner === "b" ? m.winsA : m.winsB;
+  const bestWin = [...wWins].sort((x, y) => (y.savings ?? 0) - (x.savings ?? 0))[0];
 
-  // 1. Which is cheaper?
-  const bestCorridor = corridorData.find((c) => c.winner !== "tie" && c.winner !== "na" && c.savings);
-  if (costWinner === "tie") {
-    faqs.push({
-      q: `Is ${a.name} or ${b.name} cheaper for international transfers?`,
-      a: `It depends on the corridor. Our data across ${corridorData.length} routes shows ${a.name} and ${b.name} are closely matched on total cost. ${a.name} charges ${a.feeStructure} with a ${a.exchangeRateMarkup} exchange rate markup, while ${b.name} charges ${b.feeStructure} with a ${b.exchangeRateMarkup} markup. We recommend comparing rates for your specific transfer using our calculator.`,
-    });
-  } else {
-    const cheaper = costWinner === "a" ? a : b;
-    const other = costWinner === "a" ? b : a;
-    faqs.push({
-      q: `Is ${a.name} or ${b.name} cheaper for international transfers?`,
-      a: `Based on our data, ${cheaper.name} is generally cheaper across most corridors. ${cheaper.name} charges ${cheaper.feeStructure} with a ${cheaper.exchangeRateMarkup} exchange rate markup, while ${other.name} charges ${other.feeStructure} with a ${other.exchangeRateMarkup} markup.${bestCorridor ? ` For example, on a ${bestCorridor.currencySymbol}${bestCorridor.amount.toLocaleString()} ${bestCorridor.label} transfer, ${costWinner === "a" ? a.name : b.name} delivers ${bestCorridor.symbol}${bestCorridor.savings!.toFixed(2)} more.` : ""} However, costs vary by corridor, so always compare for your specific route.`,
-    });
-  }
-
-  // 2. Which is faster?
   faqs.push({
-    q: `Which is faster, ${a.name} or ${b.name}?`,
-    a: `${a.name} typically completes transfers in ${a.transferSpeed}, while ${b.name} takes ${b.transferSpeed}. Actual speed depends on the corridor, payment method, and delivery option you choose.`,
+    q: `Is ${a.name} or ${b.name} cheaper for international transfers?`,
+    a: costWinner === "tie"
+      ? `Neither overall: ${a.name} ${m.winsA.length}, ${b.name} ${m.winsB.length} of ${n} routes. It turns on the corridor.`
+      : `${W.name}, on ${wWins.length} of ${n} routes${bestWin?.savings ? ` — ${money(bestWin, bestWin.savings)} more on a ${sent(bestWin)} ${bestWin.label} transfer` : ""}. ${L.name} led on ${labels(lWins) || "none"}.`,
   });
 
-  // 3. Safety/regulation
-  const aTrustpilot = renderTrustpilot(a.slug);
-  const bTrustpilot = renderTrustpilot(b.slug);
-  faqs.push({
-    q: `Are ${a.name} and ${b.name} safe to use?`,
-    a: `Yes, both are regulated money transfer services. ${a.name} is regulated by ${a.regulators.join(", ")}${aTrustpilot ? ` and has a ${aTrustpilot} Trustpilot rating` : ""}. ${b.name} is regulated by ${b.regulators.join(", ")}${bTrustpilot ? ` with a ${bTrustpilot} Trustpilot rating` : ""}.`,
-  });
-
-  // 4. Transfer limits
-  const aMax = a.maxTransfer ? `$${a.maxTransfer.toLocaleString()}` : "no published upper limit";
-  const bMax = b.maxTransfer ? `$${b.maxTransfer.toLocaleString()}` : "no published upper limit";
-  faqs.push({
-    q: `What are the transfer limits for ${a.name} vs ${b.name}?`,
-    a: `${a.name} has a maximum transfer of ${aMax} (minimum $${a.minTransfer}), while ${b.name} allows up to ${bMax} (minimum $${b.minTransfer}).`,
-  });
-
-  // 5. Delivery methods (if they differ)
-  const aOnlyDelivery = a.deliveryMethods.filter((m) => !b.deliveryMethods.includes(m));
-  const bOnlyDelivery = b.deliveryMethods.filter((m) => !a.deliveryMethods.includes(m));
-  if (aOnlyDelivery.length > 0 || bOnlyDelivery.length > 0) {
+  if (m.widest && m.closest) {
     faqs.push({
-      q: `Can I get cash pickup with ${a.name} or ${b.name}?`,
-      a: `${a.name} offers ${a.deliveryMethods.join(", ")}. ${b.name} offers ${b.deliveryMethods.join(", ")}. ${hasFeature(a, "cash pickup") ? `${a.name} supports cash pickup, which is useful when recipients don't have a bank account.` : ""} ${hasFeature(b, "cash pickup") ? `${b.name} supports cash pickup for recipients without bank access.` : ""} ${!hasFeature(a, "cash pickup") && !hasFeature(b, "cash pickup") ? "Neither provider offers cash pickup — both deliver to bank accounts only." : ""}`.trim(),
+      q: `Where do ${a.name} and ${b.name} differ most?`,
+      a: `${m.widest.label}: ${gapPct(m.widest).toFixed(2)}% apart. The narrowest is ${m.closest.label} at ${gapPct(m.closest).toFixed(2)}%.`,
     });
   }
 
-  // 6. Which should I choose (overall)
-  const overallProvider = overallWinner === "a" ? a : overallWinner === "b" ? b : null;
   faqs.push({
-    q: `Should I use ${a.name} or ${b.name} to send money internationally?`,
-    a: overallProvider
-      ? `For most users, ${overallProvider.name} offers better overall value thanks to ${describeStrength(overallProvider)}. However, ${overallWinner === "a" ? b.name : a.name} is the better choice if you need ${overallWinner === "a" ? bestForLabel(b) : bestForLabel(a)}. The best provider for you depends on your corridor, transfer size, and whether you need features like ${a.deliveryMethods.length > b.deliveryMethods.length ? a.deliveryMethods.slice(-1)[0] : b.deliveryMethods.slice(-1)[0]}.`
-      : `It depends on your priorities. Choose ${a.name} for ${bestForLabel(a)}, or ${b.name} for ${bestForLabel(b)}. We recommend comparing rates for your specific transfer amount and corridor using our calculator above.`,
+    q: `Does ${a.name} or ${b.name} charge a transfer fee?`,
+    a: `Margins aside, ${a.name} quoted no fee on ${m.zeroFeeA} of ${n} routes and ${b.name} on ${m.zeroFeeB}.`,
   });
 
   return faqs;

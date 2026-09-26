@@ -240,7 +240,9 @@ export default async function BankPage({ params }: Props) {
                 {/* Was the hand-typed "typically saves $25-80" label; the measured
                     median below is ours, per bank, and cannot drift. */}
                 <p className="text-2sm text-[var(--color-on-surface-variant)]">
-                  {bank.name}&rsquo;s median all-in cost in our data: {renderDataTokens(`{{BANK_MEDIAN:${bank.slug}}}`)} of the amount sent.
+                  {/* BANK_MEDIAN is the median payout shortfall against the best
+                      digital quote (medianLossPct), not an all-in cost. */}
+                  {bank.name}&rsquo;s median shortfall against the best app in our data: {renderDataTokens(`{{BANK_MEDIAN:${bank.slug}}}`)}.
                 </p>
               </div>
             )}
@@ -281,10 +283,10 @@ export default async function BankPage({ params }: Props) {
                   rel="noopener noreferrer nofollow"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  {bank.name}&rsquo;s own international transfer page
+                  {bank.name} international transfers
                 </a>
                 {" · "}
-                Quotes via the Wise comparison feed.
+                quotes: Wise comparison feed.
               </p>
             )}
             {editorial && (
@@ -330,9 +332,7 @@ export default async function BankPage({ params }: Props) {
             <h2 className="text-h3 font-normal text-[var(--color-on-surface)] mb-2">
               {bank.name} vs cheapest digital provider — by corridor
             </h2>
-            <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
-              {bank.name}&rsquo;s own payout against the cheapest digital provider on each corridor.
-            </p>
+            <div className="mb-8" />
 
             {corridorRows.length === 0 ? (
               <p className="text-sm text-[var(--color-on-surface-variant)]">
@@ -428,9 +428,8 @@ export default async function BankPage({ params }: Props) {
                     distorts an average across this few rows. HSBC's mean reads
                     2.20% against a 1.36% median because one AUD->THB row sits at
                     31.5%. */}
-                Across {stats.corridorCount} live corridors, the median {bank.name} customer
-                receives <strong>{stats.medianLossPct.toFixed(2)}% less</strong> than the
-                cheapest digital provider on the same transfer
+                Median {bank.name} shortfall across {stats.corridorCount} live corridors:{" "}
+                <strong>{stats.medianLossPct.toFixed(2)}% less</strong> than the best app on each
                 {stats.winCount > 0
                   ? ` — though on ${stats.winCount} of the corridors we compare, ${bank.name} matched or beat every digital provider we track.`
                   : "."}
@@ -480,14 +479,14 @@ export default async function BankPage({ params }: Props) {
               {[
                 {
                   q: `How does ${bank.name} compare with the best digital quote?`,
-                  a: renderDataTokens(`{{BANK_MEDIAN:${bank.slug}}} is ${bank.name}'s median payout shortfall against the best digital alternative over {{BANK_CORRIDORS:${bank.slug}}} priced corridors; {{BANK_WORST:${bank.slug}}} is where it trails the best app by most.`),
+                  a: renderDataTokens(`{{BANK_MEDIAN:${bank.slug}}}: ${bank.name}'s median payout shortfall against the best digital alternative, over {{BANK_CORRIDORS:${bank.slug}}} priced corridors. Its worst: {{BANK_WORST:${bank.slug}}}.`),
                 },
                 {
                   q: `Is ${bank.name} ever the cheapest option for international transfers?`,
                   a: (() => {
                     const wins = renderDataTokens(`{{BANK_WINS:${bank.slug}}}`);
                     const record = wins === "0"
-                      ? renderDataTokens(`Not in our data. Across the {{BANK_CORRIDORS:${bank.slug}}} corridors where we price ${bank.name}, it never beat every digital provider; its widest shortfall is on {{BANK_WORST:${bank.slug}}}.`)
+                      ? renderDataTokens(`Not once in {{BANK_CORRIDORS:${bank.slug}}} priced corridors did ${bank.name} beat every app; {{BANK_WORST:${bank.slug}}} is its widest gap.`)
                       : renderDataTokens(`In ${wins} of the corridor-and-amount combinations we price, ${bank.name} beat every digital provider: {{BANK_WIN_LIST:${bank.slug}}}.`);
                     return bank.slug === "hsbc"
                       ? `${record} HSBC Premier and Advance customers should also price Global Money, which HSBC offers without a transfer fee on many currency pairs.`
@@ -533,15 +532,17 @@ export default async function BankPage({ params }: Props) {
             title: "Other banks compared",
             links: Object.values(PILOT_BANKS)
               .filter((b) => b.slug !== bank.slug)
-              .map((b) => ({ href: `/banks/${b.slug}`, label: `${b.name} international transfers` })),
+              // Names only: the same four "<bank> international transfers"
+              // labels, in the same order, closed every bank page.
+              .map((b) => ({ href: `/banks/${b.slug}`, label: b.name })),
           },
           {
-            title: "Top corridors for this bank",
+            title: `${bank.name}'s widest gaps`,
             links: corridorRows.slice(0, 5).map((q) => {
               const cs = getCorridorSlug(q.sendCurrency, q.receiveCurrency);
               return {
                 href: corridorPageRenders(cs) ? `/send-money/${cs}` : "/send-money",
-                label: `${q.sendCurrency} → ${q.receiveCurrency} compared`,
+                label: `${q.sendCurrency} → ${q.receiveCurrency}`,
               };
             }),
           },

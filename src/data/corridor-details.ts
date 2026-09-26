@@ -1967,20 +1967,18 @@ export function getCountryDetails(
     countryCode,
     currency: toCurrency,
     recipientRequirements,
-    requirementsNote: ibanData
-      ? `${toCountryName} uses the IBAN system. Your recipient can find their IBAN on their bank statement or by contacting their bank.`
-      : `You need the recipient's bank account number and bank name. Contact the recipient's bank for their SWIFT/BIC code if required.`,
+    // 2026-09-26: no generic prose in the fallback. The note, receiving
+    // line, ID list and "check your provider's limits" reminders were the same
+    // sentences on every uncurated destination (SiteLiner counted them on
+    // /send-money/send-money-to-jordan among ~40 others), and the requirement
+    // rows above already carry this country's own IBAN length and example.
+    // An empty regulations block is not rendered.
+    requirementsNote: "",
     deliveryMethods,
-    receivingNote: `Bank deposit is the standard delivery method for transfers to ${toCountryName}. Cash pickup is available through international providers like Western Union and MoneyGram.`,
+    receivingNote: "",
     regulations: {
-      documentationNeeded: [
-        "Government-issued photo ID (passport, driver's license, or state ID)",
-        "Proof of address may be required for first-time transfers",
-      ],
-      importantNotes: [
-        `Check your provider's specific limits and requirements for transfers to ${toCountryName}.`,
-        "Transfers over $10,000 (or equivalent) may trigger reporting requirements in your sending country.",
-      ],
+      documentationNeeded: [],
+      importantNotes: [],
     },
     popularBanks,
   };

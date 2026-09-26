@@ -147,7 +147,7 @@ export function computeSendScore(input: SendScoreInput): SendScore | null {
           ? `near the ${rangeWindowDays}-day high`
           : posn <= 10
             ? `near the ${rangeWindowDays}-day low`
-            : `${Math.round(posn)}% of the way up the ${rangeWindowDays}-day range`,
+            : `${Math.round(posn)}% up the ${rangeWindowDays}-day range`,
     });
   }
 
@@ -233,7 +233,7 @@ export function computeSendScore(input: SendScoreInput): SendScore | null {
     headline,
     explanation:
       buildExplanation(comps, rangeWindowDays, daysObserved, confidence) +
-      (thin ? " Only one provider quotes this corridor, so this is a single-provider reading rather than a comparison." : ""),
+      (thin ? " One provider only, so no comparison." : ""),
     components: comps,
     daysObserved,
     rangeWindowDays,
@@ -258,9 +258,9 @@ function buildExplanation(
 
   const avg = get("average");
   const range = get("range");
-  if (avg && range) parts.push(`Today's best rate is ${avg.detail}, ${range.detail}`);
-  else if (avg) parts.push(`Today's best rate is ${avg.detail}`);
-  else if (range) parts.push(`Today's best rate is ${range.detail}`);
+  if (avg && range) parts.push(`Best rate ${avg.detail}, ${range.detail}`);
+  else if (avg) parts.push(`Best rate ${avg.detail}`);
+  else if (range) parts.push(`Best rate ${range.detail}`);
 
   const trend = get("trend");
   if (trend) parts.push(`Rates are ${trend.detail}`);

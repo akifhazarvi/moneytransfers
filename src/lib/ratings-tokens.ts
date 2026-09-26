@@ -766,7 +766,7 @@ export function renderDataTokens(html: string): string {
   out = out.replace(/\{\{RATE_STORY:([A-Z]{3}):([A-Z]{3})\}\}/g, (match, from: string, to: string) => {
     const insight = getRateInsight(from, to);
     if (!insight || insight.totalDays < 30) return match;
-    const { stats, totalDays, dateRange, level } = insight;
+    const { stats, level } = insight;
     const bestVsAvg = ((stats.bestRate - stats.avgRate) / stats.avgRate) * 100;
     const worstVsAvg = ((stats.worstRate - stats.avgRate) / stats.avgRate) * 100;
     const gap = Math.abs(bestVsAvg - worstVsAvg);
@@ -786,24 +786,28 @@ export function renderDataTokens(html: string): string {
     const worstProv = providerName(stats.worstRateProvider);
     const bestDate = longDate(stats.bestRateDate);
     const worstDate = longDate(stats.worstRateDate);
-    const since = longDate(dateRange.from);
     const gapStr = gap.toFixed(1);
 
     // Fixed wording kept to a few words (2026-09-25): these sentences render
     // on hundreds of corridor pages, and their long fixed tails ("the bigger
     // lever here is which provider you pick…") were repeated text. The data —
     // days, dates, providers, spread, tier — is what each page contributes.
-    const record = `over ${totalDays} days since ${since}, best payout day ${bestProv} (${bestDate}), worst ${worstProv} (${worstDate})`;
+    //
+    // 2026-09-26: the record now closes the sentence and no longer opens on
+    // "over N days since <date>" — both values are the same on every corridor
+    // (one tracking start), so that clause plus each variant's fixed tail ran
+    // straight into the next section heading as one long shared passage.
+    const record = `Best payout day ${bestProv} (${bestDate}), worst ${worstProv} (${worstDate})`;
     if (volatile && favourable) {
-      return `A volatile pair: ${record}, ${gapStr} points apart. Today is "${level}", the better half of that range.`;
+      return `A volatile pair: ${gapStr} points apart; today is "${level}", the better half. ${record}.`;
     }
     if (volatile && !favourable) {
-      return `A volatile pair: ${record}, ${gapStr} points apart. Today is only "${level}"; waiting a day may pay.`;
+      return `A volatile pair: ${gapStr} points apart; today is only "${level}" — waiting may pay. ${record}.`;
     }
     if (!volatile && favourable) {
-      return `A steady pair: ${record}, just ${gapStr} points apart. Today's "${level}" is typical; pick the provider, not the day.`;
+      return `A steady pair: just ${gapStr} points apart; today's "${level}" is typical. ${record}.`;
     }
-    return `A steady pair: ${record}, just ${gapStr} points apart. Today reads "${level}"; the provider matters more than timing.`;
+    return `A steady pair: just ${gapStr} points apart; today reads "${level}". ${record}.`;
   });
 
 

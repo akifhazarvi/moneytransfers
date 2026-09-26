@@ -239,8 +239,9 @@ export function RateHistorySection({
         {fromCurrency} to {toCurrency} Exchange Rate History
       </h2>
       <p className="mb-4 text-2sm text-[var(--color-on-surface-variant)]">
-        Daily best exchange rates from top providers over the last{" "}
-        {insight.totalDays} days. Rates shown are for sending $100.
+        {/* Kept short: this caption sits under the same heading on every
+            corridor and rate-history page. */}
+        Per 100 {fromCurrency} sent, {insight.totalDays} days.
       </p>
 
       <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)]">

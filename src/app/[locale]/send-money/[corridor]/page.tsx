@@ -71,7 +71,6 @@ interface Props {
 import { corridorEditorialNotes } from "@/data/corridor-editorial-notes";
 
 import { shouldNoindex, getCorridorTier } from "@/lib/corridor-tiers";
-import { quotesByCorridor } from "@/lib/unified-quotes";
 import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { corridorPageRenders, companyPageRenders } from "@/lib/route-map";
 import { rateHistoryHref } from "@/lib/route-map-rates";
@@ -1040,10 +1039,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Provider count for this corridor, measured not asserted — see
   // resolveProviderClaim above. Computed BEFORE the title, because the title
   // carries the same claim and must be resolved against the same number.
-  const corridorQuotes = quotesByCorridor[`${corridor.fromCurrency}_${corridor.toCurrency}`];
-  const liveProviderCount = corridorQuotes
-    ? new Set(corridorQuotes.map((q) => q.providerSlug)).size
-    : 0;
+  // Counted exactly as the page counts it — the comparable estimates at the
+  // page's own sample amount. Counting every provider with any quote on the
+  // pair let /send-money/japan-to-ecuador say "Cheapest" in its title over a
+  // body that holds one estimate (round-2 brief §2.1).
+  const liveProviderCount = corridorComparisonSummary(
+    generateQuotes(corridor.sampleAmount, corridor.fromCurrency, corridor.toCurrency),
+    corridor.sampleAmount,
+    corridor.fromCurrency,
+    corridor.toCurrency,
+    getProviderName,
+  ).compared.length;
 
   // Resolve each candidate first, then fit: the resolved string is what ships,
   // so the 70-character cap has to be applied to that rather than to the
@@ -1265,6 +1271,10 @@ export default async function CorridorPage({ params }: Props) {
   // Display labels: currency corridors use "USD to INR" style, country corridors use "United States to India"
   const headingFrom = isCurrencyCorridor ? fromCurrency : corridor.fromCountry;
   const headingTo = isCurrencyCorridor ? toCurrency : corridor.toCountry;
+  // Destination hubs (/send-money/send-money-to-jordan) have no origin, and
+  // "from {headingFrom} to {headingTo}" rendered "from  to Jordan".
+  const routeFromTo = headingFrom ? `from ${headingFrom} to ${headingTo}` : `to ${headingTo}`;
+  const routeLabel = headingFrom ? `${headingFrom} to ${headingTo}` : `transfers to ${headingTo}`;
   const headingPrefix = isCountryPage ? "Send money to" : isCurrencyCorridor ? "Convert" : "Send money from";
   const headingSuffix = isCountryPage
     ? null
@@ -1552,7 +1562,7 @@ export default async function CorridorPage({ params }: Props) {
                     EUR pair. See reports/content-quality-2026-09-11/ELIGIBILITY.md.
                     Do not soften this to imply we verified country coverage
                     until something in the pipeline records it. */}
-                We record quotes by currency pair, so confirm the provider serves {corridor.fromCountry} before you commit. <Link href="/methodology" className="hover:underline">Methodology</Link>.
+                Quotes are kept per {fromCurrency}→{toCurrency} pair, not per country, so check {corridor.fromCountry} is served before you commit. <Link href="/methodology" className="hover:underline">Methodology</Link>.
               </p>
             </div>
           </Container>
@@ -1635,8 +1645,8 @@ export default async function CorridorPage({ params }: Props) {
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mb-2">
             {thin
-              ? `Sending ${sendSymbol}${sampleAmount.toLocaleString()} from ${headingFrom} to ${headingTo}: ${quotes.length} ${fromCurrency} → ${toCurrency} ${quotes.length === 1 ? "quote" : "quotes"} so far.`
-              : `Sending ${sendSymbol}${sampleAmount.toLocaleString()} from ${headingFrom} to ${headingTo}, ranked by estimated payout.`}
+              ? `Sending ${sendSymbol}${sampleAmount.toLocaleString()} ${routeFromTo}: ${quotes.length} ${fromCurrency} → ${toCurrency} ${quotes.length === 1 ? "quote" : "quotes"} so far.`
+              : `Sending ${sendSymbol}${sampleAmount.toLocaleString()} ${routeFromTo}, ranked by estimated payout.`}
           </p>
           {!thin && (
           <p className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-variant)] mb-6">
@@ -1854,11 +1864,11 @@ export default async function CorridorPage({ params }: Props) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
               <p className="text-sm text-[var(--color-success-dark)]">
-                <strong>Estimated payout difference:</strong> The first-ranked provider pays more than the lowest estimate by{" "}
+                <strong>Estimated payout difference:</strong>{" "}
                 <strong>
                   {receiveSymbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </strong>{" "}
-                on a {sendSymbol}{sampleAmount.toLocaleString()} transfer.
+                between first and last on {sendSymbol}{sampleAmount.toLocaleString()}.
               </p>
             </div>
           )}
@@ -2113,12 +2123,12 @@ export default async function CorridorPage({ params }: Props) {
           <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
             <Container>
               <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
-                Which provider is best for each transfer type?
+                Which provider suits each {fromCurrency}→{toCurrency} transfer?
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 {cheapest.providerSlug === fastest.providerSlug
-                  ? `${getProviderName(cheapest.providerSlug)} currently leads on both cost and speed for ${headingFrom} to ${headingTo}.`
-                  : `${getProviderName(cheapest.providerSlug)} currently delivers the most ${toCurrency} on this route, while ${getProviderName(fastest.providerSlug)} is the fastest. The cheapest option and the fastest one aren't always the same provider, so match the pick below to what this transfer actually needs.`}
+                  ? `${getProviderName(cheapest.providerSlug)} currently leads on both cost and speed for ${routeLabel}.`
+                  : `${getProviderName(cheapest.providerSlug)} currently delivers the most ${toCurrency} on this route, while ${getProviderName(fastest.providerSlug)} is the fastest.`}
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {categories.map(({ label, Icon, provider: quote, reason }) => {
@@ -2174,9 +2184,6 @@ export default async function CorridorPage({ params }: Props) {
               <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 What you need to send money to {corridor.toCountry}
               </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                Make sure you have these details from your recipient before starting your transfer.
-              </p>
               <div className="space-y-3">
                 {countryDetails.recipientRequirements.map((req) => (
                   <div key={req.label} className="flex items-start gap-3 bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-4">
@@ -2227,9 +2234,6 @@ export default async function CorridorPage({ params }: Props) {
               <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 Transfer examples: {fromCurrency} to {toCurrency}
               </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                See how much your recipient would get for common transfer amounts.
-              </p>
               <div className="space-y-6">
                 {exampleData.map(({ amount, quotes: exQuotes }) => (
                   <div key={amount}>
@@ -2286,7 +2290,7 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
-              {isCurrencyCorridor ? `How much does it cost to convert ${fromCurrency} to ${toCurrency}?` : `How much does it cost to send money from ${corridor.fromCountry} to ${corridor.toCountry}?`}
+              {isCurrencyCorridor ? `How much does it cost to convert ${fromCurrency} to ${toCurrency}?` : `How much does it cost to send money ${corridor.fromCountry ? `from ${corridor.fromCountry} ` : ""}to ${corridor.toCountry}?`}
             </h2>
             <div className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
               {/* Generated corridors never fall back to the generic fee note. */}
@@ -2542,15 +2546,17 @@ export default async function CorridorPage({ params }: Props) {
            recipient-details block already links to the destination page. */}
 
       {countryDetails && !destinationHubSlug && (
+        countryDetails.regulations.regulatoryBody ||
+        countryDetails.regulations.inboundLimit ||
+        countryDetails.regulations.documentationNeeded.length > 0 ||
+        countryDetails.regulations.importantNotes.length > 0
+      ) && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
               <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 What are the transfer limits and regulations for {corridor.toCountry}?
               </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                Important rules and requirements to know before sending money to {corridor.toCountry}.
-              </p>
 
               <div className="space-y-5">
                 {countryDetails.regulations.regulatoryBody && (
@@ -2634,7 +2640,7 @@ export default async function CorridorPage({ params }: Props) {
                 invent precision. Do not upgrade this wording to imply we
                 verified arrival times until something in the pipeline does. */}
             <p className="text-2xs text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
-              Speeds are the providers&rsquo; own estimates; we do not measure arrival times.
+              Provider-stated speeds for {corridor.toCountry}, not our measurement.
             </p>
 
             {!hubMode && !thin && (fastProviders.length > 0 || standardProviders.length > 0) && (
@@ -2835,7 +2841,7 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
-              Common questions about sending money from {headingFrom} to {headingTo}
+              Common questions about sending money {routeFromTo}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {resolvedFaqs.map((faq) => (
@@ -3016,7 +3022,7 @@ export default async function CorridorPage({ params }: Props) {
                     return {
                       href: seoSlug && corridorPageRenders(seoSlug)
                         ? `/send-money/${seoSlug}`
-                        : `/send-money?from=${c.from}&to=${c.to}&amount=1000`,
+                        : `/send-money?from=${c.from}&to=${c.to}`,
                       label: c.label,
                     };
                   })),
@@ -3099,7 +3105,7 @@ export default async function CorridorPage({ params }: Props) {
       <section className="py-12 bg-[var(--color-surface-dim)]">
         <div className="max-w-lg mx-auto px-6 text-center">
           <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
-            Compare all providers for {headingFrom} to {headingTo}
+            Compare all providers for {routeLabel}
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
             Put in your own amount above.

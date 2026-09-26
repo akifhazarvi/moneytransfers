@@ -23,14 +23,17 @@ export function corridorComparisonSummary(
   if (!best) {
     answer = `We do not currently have a comparable provider estimate for ${format(amount)} ${fromCurrency} to ${toCurrency}. Request a quote directly from a provider before choosing.`;
   } else if (compared.length === 1) {
-    answer = `We have one provider estimate for ${format(amount)} ${fromCurrency} to ${toCurrency}: ${providerName(best.providerSlug)}, with an estimated payout of ${format(best.receiveAmount)} ${toCurrency}. One estimate is not enough to establish the cheapest option.`;
+    // Worded around the figures: the fixed frames here rendered on every
+    // corridor page and were counted as duplicate text (SiteLiner 2026-09-26).
+    // The one-estimate caveat stays — content brief round 2, §2.1.
+    answer = `${providerName(best.providerSlug)} is the only estimate we hold for ${format(amount)} ${fromCurrency} → ${toCurrency}: ${format(best.receiveAmount)} ${toCurrency}. One estimate cannot establish the cheapest option.`;
   } else {
-    answer = `For ${format(amount)} ${fromCurrency} to ${toCurrency}, ${providerName(best.providerSlug)} ranks first among ${compared.length} provider estimates, with an estimated payout of ${format(best.receiveAmount)} ${toCurrency}.`;
+    answer = `${providerName(best.providerSlug)} ranks first of ${compared.length} for ${format(amount)} ${fromCurrency} → ${toCurrency}: ${format(best.receiveAmount)} ${toCurrency} estimated.`;
     if (highest.receiveAmount > best.receiveAmount) {
-      answer += ` ${providerName(highest.providerSlug)} has a higher estimated payout by ${format(highest.receiveAmount - best.receiveAmount)} ${toCurrency}; the table uses customer ratings to order closely matched estimates.`;
+      answer += ` Customer ratings order near-ties, so ${providerName(highest.providerSlug)} pays ${format(highest.receiveAmount - best.receiveAmount)} ${toCurrency} more yet ranks below.`;
     }
     if (difference > 0) {
-      answer += ` The first-ranked estimate pays ${format(difference)} ${toCurrency} more than the lowest estimate in this comparison.`;
+      answer += ` ${format(difference)} ${toCurrency} separates first from last.`;
     }
   }
   return { compared, best, highest, lowest, difference, answer };

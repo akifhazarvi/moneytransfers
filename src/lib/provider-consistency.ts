@@ -193,7 +193,7 @@ function buildSummary(
 
   if (!todayBest) return `${head}${rival}.${intermittentNote}`;
   if (todayBestIsUsualLeader) {
-    return `${head}${rival} — and it is also today's best, so the usual leader is winning today.${intermittentNote}`;
+    return `${head}${rival}; ${name(todayBest)} is today's best too.${intermittentNote}`;
   }
   const todayRecord = leaders.find((l) => l.providerSlug === todayBest);
   const todayNote = todayRecord

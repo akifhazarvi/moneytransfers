@@ -198,7 +198,7 @@
     "ourStory": "Our story",
     "ourStoryP1": "SendMoneyCompare was born from a simple frustration: we were overpaying on international transfers and couldn’t find a single, unbiased place to compare all our options.",
     "ourStoryP2": "We built the tool we wished existed — a transparent comparison engine that shows you the real cost of sending money abroad, factoring in both transfer fees and exchange rate markups.",
-    "ourStoryP3": "Today we compare 50+ regulated apps across %CORRIDOR_COUNT% corridors, updated every 6 hours with live quotes.",
+    "ourStoryP3": "Today we compare %PROVIDER_COUNT% providers across %CORRIDOR_COUNT% corridors, updated every 6 hours with live quotes.",
     "whatWeBelieve": "What we believe",
     "transparencyFirst": "Transparency first",
     "transparencyFirstDesc": "We show you the total cost of every transfer — not just the fee or the exchange rate, but both combined. No hidden surprises.",
@@ -244,11 +244,11 @@
     "importantNoteHeading": "Important note"
   },
   "companies": {
-    "metaTitle": "Best Money Transfer Companies 2026: 50+ Apps Ranked (Real Fees)",
+    "metaTitle": "Best Money Transfer Companies 2026: %PROFILE_COUNT% Apps Compared",
     "metaDescription": "Independent reviews of Wise, Remitly, Western Union, OFX, Revolut & 30+ more. Real fees, exchange-rate markup data, Trustpilot ratings. Ranked by who pays recipients the most.",
     "metaKeywords": "money transfer reviews 2026, best money transfer company, remittance providers rated, Wise review, Remitly review, Western Union review, money transfer ratings, cheapest money transfer service",
     "title": "Money Transfer Company Reviews",
-    "subtitle": "Independent reviews of 50+ international money transfer apps. Compare ratings, fees, speed, and coverage.",
+    "subtitle": "Independent profiles of %PROFILE_COUNT% international money transfer apps. Compare ratings, fees, speed, and coverage.",
     "countries": "Countries",
     "speed": "Speed",
     "fees": "Fees",
@@ -269,7 +269,7 @@
     "usaToPakistan": "USA to Pakistan",
     "usaToPhilippines": "USA to Philippines",
     "heading": "Money Transfer Company Reviews",
-    "subheading": "Independent reviews of 50+ international money transfer apps. Compare ratings, fees, speed, and coverage."
+    "subheading": "Independent profiles of %PROFILE_COUNT% international money transfer apps. Compare ratings, fees, speed, and coverage."
   },
   "companiesSlug": {
     "editorsRating": "Editor’s Rating",
@@ -310,7 +310,7 @@
     "metaDescription": "Compare money transfer companies and apps side-by-side — Wise, Remitly, Western Union, OFX & 30+ more. Pick any two, see who pays your recipient more. Live rates every 6 hours, no affiliate bias.",
     "metaKeywords": "compare money transfer rates, compare money transfer, compare remittance rates, money transfer comparison, cheapest money transfer, compare money transfer rates 2026, best money transfer rate, international money transfer fees, exchange rate comparison",
     "title": "Compare Money Transfer Rates",
-    "subtitle": "Live Rates from 50+ Apps",
+    "subtitle": "Live Rates from %PROVIDER_COUNT% Providers",
     "provider": "Provider",
     "rating": "Rating",
     "fees": "Fees",
@@ -421,7 +421,7 @@
     "source": "Source:"
   },
   "sendMoney": {
-    "indexMetaTitle": "Send Money Abroad — Compare 50+ Apps (2026)",
+    "indexMetaTitle": "Send Money Abroad — Compare %PROVIDER_COUNT% Providers (2026)",
     "indexMetaDescription": "Compare live exchange rates, fees, and delivery times from %PROVIDER_COUNT% providers. Updated every 6 hours with real quotes. Find who delivers the most money to your recipient.",
     "heading": "Compare Money Transfer Providers",
     "subheading": "Compare exchange rates, fees, and delivery times from {count}+ providers to find the cheapest way to send money abroad.",
@@ -490,7 +490,7 @@
   },
   "exchangeRates": {
     "metaTitle": "Exchange Rates Today — Live Mid-Market Rates & 12-Month Charts",
-    "metaDescription": "Today's mid-market exchange rates for %CURRENCY_COUNT% currencies with 12-month trend charts and day-over-day change. See the real rate before banks add markup, then compare 50+ transfer providers.",
+    "metaDescription": "Today's mid-market exchange rates for %CURRENCY_COUNT% currencies with 12-month trend charts and day-over-day change. See the real rate before banks add markup, then compare %PROVIDER_COUNT% transfer providers.",
     "metaKeywords": "exchange rates today, live exchange rates, currency rates, mid-market rate, USD to INR, GBP to INR, USD to PHP, USD to MXN, real exchange rate, currency converter",
     "title": "Today’s Exchange Rates — USD Base",
     "compareTransferRates": "Compare Transfer Rates",
