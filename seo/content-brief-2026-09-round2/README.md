@@ -38,6 +38,13 @@ provider quote or firsthand transfer test. Named ranking claims were not added
 by these examples. Sources for changed external facts are linked in the pages.
 No target was merged, redirected, or canonicalized to another page by this pass.
 
+## September 26 production recheck
+
+The [new SiteLiner report](siteliner-2026-09-26.md) measured all 42 targets:
+39 below 30%, with Mexico (32%), embedded finance (35%) and Revolut US charter
+(37%) still above. Small follow-up edits are recorded there; another crawl is
+needed to measure them. The local result below is retained as historical evidence.
+
 ## Validation and meaning of the scores
 
 **Final result: 42/42 target URLs below 30% maximum pairwise overlap across
