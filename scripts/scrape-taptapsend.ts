@@ -38,6 +38,45 @@ type ProcessWithLoadEnvFile = NodeJS.Process & {
 try { (process as ProcessWithLoadEnvFile).loadEnvFile?.(".env.local"); } catch {}
 
 import { sendCurrencies, currencies } from "../src/data/transfer-currencies";
+import countryCodes from "../src/data/scraped/country-codes.json";
+import currencyCodes from "../src/data/scraped/currency-codes.json";
+import { roundRate } from "./lib/scrape-budget";
+
+// --- Which destination represents a currency? ---------------------------------
+// TapTap prices per DESTINATION COUNTRY, but our quotes are keyed by currency
+// pair. One origin sends USD to ~15 countries (AUD→USD: 0.70 Liberia, 0.69
+// Ecuador, 0.63 Vietnam), EUR to every eurozone member plus Georgia and Türkiye,
+// XOF/XAF to eight and six CFA states. Emitting all of them wrote up to 25
+// conflicting rows per key (5,054 duplicates) and the merge layer kept whichever
+// came first. We now emit ONE row per pair: a destination where the currency is
+// the official one (never USD-cash-in-Vietnam standing in for "to the USA"), at
+// the lower median rate when several qualify (CFA states differ by up to 3.6%).
+const normName = (n: string) => n.toLowerCase().replace(/[^a-z]/g, "");
+const alpha2ByName = new Map(
+  (countryCodes as { country: string; alpha2: string }[]).map((c) => [normName(c.country), c.alpha2])
+);
+const OFFICIAL_CURRENCIES = new Map<string, Set<string>>();
+for (const row of currencyCodes as { country: string; code?: string }[]) {
+  const a2 = alpha2ByName.get(normName(row.country));
+  if (!a2 || !row.code) continue;
+  if (!OFFICIAL_CURRENCIES.has(a2)) OFFICIAL_CURRENCIES.set(a2, new Set());
+  OFFICIAL_CURRENCIES.get(a2)!.add(row.code);
+}
+// The bundled ISO 4217 list predates Venezuela's VES redenomination.
+OFFICIAL_CURRENCIES.get("VE")?.add("VES");
+
+/**
+ * Relative error implied by how many decimals TapTap published the rate with.
+ * "0.002" (HUF→EUR, true 0.00274) can be off by 25%; "0.09" (NOK→USD, true
+ * 0.105) by 5.6%. Those rows landed 14–27% away from mid-market.
+ */
+const MAX_PUBLISHED_PRECISION_ERROR = 0.01;
+function publishedPrecisionError(fxRate: string): number {
+  const value = parseFloat(fxRate);
+  if (!value) return Infinity;
+  const decimals = fxRate.includes(".") ? fxRate.split(".")[1].length : 0;
+  return (0.5 * 10 ** -decimals) / value;
+}
 
 const TRACKED_SEND = new Set(sendCurrencies.map((c) => c.code));
 const TRACKED_RECEIVE = new Set(currencies.map((c) => c.code));
@@ -227,15 +266,39 @@ async function main() {
   const sendCurrenciesCovered = [...originBySendCurrency.keys()].sort();
   console.log(`Send currencies covered: ${sendCurrenciesCovered.join(", ")}\n`);
 
+  const dropped = { noHomeDestination: 0, coarseRate: 0 };
+
   for (const [sendCurrency, origin] of originBySendCurrency) {
     let corridorCount = 0;
+
+    const byCurrency = new Map<string, FxCorridor[]>();
     for (const corridor of origin.corridors) {
       const receiveCurrency = corridor.currency;
       if (!TRACKED_RECEIVE.has(receiveCurrency)) continue;
       if (sendCurrency === receiveCurrency) continue;
+      if (!(parseFloat(corridor.fxRate) > 0)) continue;
+      if (!byCurrency.has(receiveCurrency)) byCurrency.set(receiveCurrency, []);
+      byCurrency.get(receiveCurrency)!.push(corridor);
+    }
 
+    for (const [receiveCurrency, destinations] of byCurrency) {
+      const home = destinations.filter((d) =>
+        OFFICIAL_CURRENCIES.get(d.isoCountryCode)?.has(receiveCurrency)
+      );
+      if (home.length === 0) {
+        dropped.noHomeDestination++;
+        continue;
+      }
+      const precise = home.filter(
+        (d) => publishedPrecisionError(d.fxRate) <= MAX_PUBLISHED_PRECISION_ERROR
+      );
+      if (precise.length === 0) {
+        dropped.coarseRate++;
+        continue;
+      }
+      precise.sort((a, b) => parseFloat(a.fxRate) - parseFloat(b.fxRate));
+      const corridor = precise[Math.floor((precise.length - 1) / 2)];
       const rate = parseFloat(corridor.fxRate);
-      if (!rate || rate <= 0) continue;
 
       const schedule = corridor.transferFeeSchedule ?? corridor.feeSchedule;
 
@@ -254,9 +317,10 @@ async function main() {
           providerType: "moneyTransferProvider",
           sendCurrency,
           receiveCurrency,
+          receiveCountry: corridor.isoCountryCode,
           sendAmount: amount,
           fee: Math.round(fee * 100) / 100,
-          exchangeRate: Math.round(rate * 10000) / 10000,
+          exchangeRate: roundRate(rate),
           receiveAmount: Math.round(receiveAmount * 100) / 100,
           paymentMethod: null,
           deliveryEstimate: null,
@@ -271,6 +335,10 @@ async function main() {
     console.log(`${sendCurrency} (${origin.isoCountryCode}): ${corridorCount} corridors`);
   }
 
+  console.log(
+    `\nSkipped currency pairs — no destination where it is the official currency: ${dropped.noHomeDestination}; ` +
+    `rate published too coarsely (>${MAX_PUBLISHED_PRECISION_ERROR * 100}%): ${dropped.coarseRate}`
+  );
   console.log(`\nTotal quotes: ${successCount} success, ${failCount} failed`);
   writeOutput("TapTap Send", "taptapsend", allQuotes, startTime, successCount, failCount);
 }

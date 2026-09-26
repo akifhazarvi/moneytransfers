@@ -8,13 +8,19 @@
  * Unplex's per-unit rates live at the TOP LEVEL of `data` (present for every
  * corridor, including PHP where Unplex isn't in its own provider-comparison
  * list):
- *   - data.BlendedRate → the effective standard rate a typical sender gets.
- *     This is what we compare on (per Unplex). Falls back to data.Currency.
- *   - data.Currency → the visible headline rate (≈ BlendedRate, slightly lower).
+ *   - data.Currency → the standard rate, and the headline on Unplex's own site.
+ *     This is what we compare on.
  *   - data.FirstTimeRate + data.FirstTimeTransferLimit → an enhanced first-
  *     transfer rate applying only up to a per-corridor cap ($100 INR, $500 PHP).
+ *   - data.BlendedRate → NOT a standard rate: it is the first-transfer promo
+ *     blended in by amount, (FirstTimeRate × limit + Currency × (amount − limit))
+ *     / amount — exact on all five promo corridors, 2026-09-26 (USD→INR $1000:
+ *     (105.61×100 + 96.88×900)/1000 = 97.753). We used to compare on it, which
+ *     put Unplex 1.3–4% above what a repeat sender gets and above mid-market on
+ *     USD→PHP. Absent on corridors with no promo. Ignored.
+ *   - data.NREBlendedRate → the rate into an Indian NRE account. Ignored.
  *
- * The comparison rate is always the standard (Blended) rate, so we never
+ * The comparison rate is always the standard (Currency) rate, so we never
  * overstate what a sender receives. The first-time promo is carried as metadata
  * for the UI to MENTION as a badge, not baked into the comparison rate.
  *
@@ -25,6 +31,7 @@
  */
 import * as fs from "fs";
 import * as path from "path";
+import { roundRate } from "./lib/scrape-budget";
 
 const OUTPUT_DIR = path.join(__dirname, "..", "src", "data", "scraped");
 const API_URL = "https://unplex.money/api-payment/currency-converter";
@@ -41,9 +48,8 @@ const CORRIDORS = [
   { from: "CAD", to: "PHP" },
 ];
 
-// One amount per corridor, chosen ABOVE every promo cap ($100 INR, $500 PHP) so
-// BlendedRate reflects the true standard rate, not the promo-inflated rate the
-// API returns at small amounts. The promo is captured separately as metadata.
+// One amount per corridor, above every promo cap ($100 INR, $500 PHP). The
+// promo is captured separately as metadata.
 const SEND_AMOUNTS = [1000];
 
 interface UnplexQuote {
@@ -108,12 +114,9 @@ async function fetchUnplexQuote(
 
     // Unplex's per-unit rate fields live at the TOP LEVEL of `data` and are
     // present for every corridor (including PHP, where Unplex isn't listed in
-    // its own rateComparision.providers array). Per Unplex, BlendedRate is the
-    // effective standard rate a typical sender receives; Currency is the
-    // visible headline. We use BlendedRate, falling back to Currency.
-    const blended = num(data.BlendedRate);
-    const headline = num(data.Currency);
-    const standardRate = blended ?? headline;
+    // its own rateComparision.providers array). `Currency` is the standard
+    // rate; `BlendedRate` folds in the first-transfer promo (see header).
+    const standardRate = num(data.Currency);
     if (!standardRate || standardRate <= 0) return null;
 
     // First-time promo: a higher rate applying only up to a per-corridor send
@@ -148,14 +151,14 @@ async function fetchUnplexQuote(
       receiveCurrency: to,
       sendAmount: amount,
       fee: Math.round(fee * 100) / 100,
-      exchangeRate: Math.round(exchangeRate * 10000) / 10000,
+      exchangeRate: roundRate(exchangeRate),
       midMarketRate: 0,
       markup: 0,
       receiveAmount: Math.round(receiveAmount * 100) / 100,
       paymentMethod: null,
       deliveryEstimate: null,
       deliveryMethod: null,
-      firstTimeRate: firstTimeRate != null ? Math.round(firstTimeRate * 10000) / 10000 : null,
+      firstTimeRate: firstTimeRate != null ? roundRate(firstTimeRate) : null,
       firstTimeLimit,
       isPromoRate: false, // comparison rate is always the standard rate
       dateCollected: new Date().toISOString(),

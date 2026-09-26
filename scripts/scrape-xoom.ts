@@ -56,6 +56,32 @@ const CORRIDORS = [
 
 const SEND_AMOUNTS = [100, 1000];
 
+interface XoomPricing {
+  disbursementType?: string;
+  paymentType?: { type?: string };
+  fxRate?: { rate?: string };
+  feeAmount?: { rawValue?: string };
+  sendAmount?: { rawValue?: string };
+  receiveAmount?: { rawValue?: string };
+  tags?: { text?: string; type?: string }[] | null;
+  validations?: { level?: string }[];
+}
+
+// Account-based delivery — comparable with the bank-deposit quotes elsewhere.
+const ACCOUNT_DISBURSEMENTS = ["DEPOSIT", "CARD_DEPOSIT", "UPI_DEPOSIT", "MOBILE_WALLET"];
+const DISBURSEMENT_LABELS: Record<string, string> = {
+  DEPOSIT: "Bank Deposit",
+  CARD_DEPOSIT: "Card Deposit",
+  UPI_DEPOSIT: "UPI",
+  MOBILE_WALLET: "Mobile Wallet",
+};
+const PAYMENT_PREFERENCE = ["ACH", "DEBIT_CARD"];
+function entryRank(e: XoomPricing): number {
+  const d = ACCOUNT_DISBURSEMENTS.indexOf(e.disbursementType ?? "");
+  const p = PAYMENT_PREFERENCE.indexOf(e.paymentType?.type ?? "");
+  return (d < 0 ? 9 : d) * 10 + (p < 0 ? 9 : p);
+}
+
 function parseXoomResponse(
   body: string,
   sendCurrency: string,
@@ -64,31 +90,51 @@ function parseXoomResponse(
 ): ProviderQuote | null {
   try {
     const data = JSON.parse(body);
-    const pricing = data?.quote?.pricing;
+    const pricing = data?.quote?.pricing as XoomPricing[] | undefined;
     if (!Array.isArray(pricing) || pricing.length === 0) return null;
 
-    // Prefer ACH (bank) payment, then debit card
-    const achPricing = pricing.find(
-      (p: Record<string, unknown>) =>
-        (p.paymentType as Record<string, string>)?.type === "ACH"
+    // pricing[] has one entry per (disbursementType × paymentType). Anonymous
+    // visitors are priced as NEW customers: account-based entries for INR, PHP,
+    // MXN, COP and GTQ carry tags[{type:"FIRST_TIME_RATE"}] — a first-transfer
+    // promo (up to +2.8% over mid-market on USD→PHP $100) — and the scraper used
+    // to store exactly those as Xoom's rate. Verified against raw responses and
+    // Xoom's promo terms 2026-09-26. Promo entries are excluded from the
+    // comparison rate, and cash pickup/delivery is never substituted for a bank
+    // deposit quote (different product, often 10% worse). Where only a promo is
+    // offered for account delivery we publish nothing rather than overstate.
+    const isPromo = (e: XoomPricing) => (e.tags ?? []).some((t) => t?.type === "FIRST_TIME_RATE");
+    const hasError = (e: XoomPricing) => (e.validations ?? []).some((v) => v?.level === "error");
+    const accountDelivery = pricing.filter(
+      (e) => ACCOUNT_DISBURSEMENTS.includes(e.disbursementType ?? "") && !hasError(e) && parseFloat(e.fxRate?.rate ?? "0") > 0
     );
-    const debitPricing = pricing.find(
-      (p: Record<string, unknown>) =>
-        (p.paymentType as Record<string, string>)?.type === "DEBIT_CARD"
-    );
-    const best = achPricing || debitPricing || pricing[0];
+    const standard = accountDelivery.filter((e) => !isPromo(e));
+    const byPreference = (list: XoomPricing[]) =>
+      [...list].sort((a, b) => entryRank(a) - entryRank(b))[0];
+    const best = byPreference(standard);
+    if (!best) {
+      if (accountDelivery.some(isPromo)) {
+        console.log(`    ⚠ ${sendCurrency}→${receiveCurrency}: only a first-time promo rate offered for account delivery — skipped`);
+      }
+      return null;
+    }
+
+    // The requested amount must be what Xoom priced. A mis-filled input once
+    // priced "100350.00" (typed "100" in front of the default 350) — the root of
+    // the old "scaled-integer rawValue" theory. rawValue is plain major units.
+    const pricedSend = parseFloat(best.sendAmount?.rawValue ?? "0");
+    if (pricedSend && Math.abs(pricedSend - expectedAmount) > 0.01) {
+      console.log(`    ⚠ Xoom priced ${pricedSend}, expected ${expectedAmount} — discarded`);
+      return null;
+    }
 
     const rate = parseFloat(best.fxRate?.rate || "0");
     const fee = parseFloat(best.feeAmount?.rawValue || "0");
-    const paymentType =
-      (best.paymentType as Record<string, string>)?.type || null;
+    const paymentType = best.paymentType?.type || null;
+    const promo = byPreference(accountDelivery.filter(isPromo));
+    const promoRate = promo ? parseFloat(promo.fxRate?.rate || "0") : 0;
 
-    // Xoom's rawValue fields switched to a scaled-integer encoding in
-    // May 2026 (sendAmount.rawValue=100200 for a $100 send, receiveAmount
-    // similarly inflated 10000x). We ignore rawValue entirely now and use
-    // the requested expectedAmount as send, and compute receive from
-    // rate × (send - fee). This matches what the user actually gets and
-    // is robust against future Xoom unit-encoding tweaks.
+    // Xoom charges the fee on top (receive = send × rate); we store the
+    // deducted-convention figure for a total outlay of `sendAmount`.
     const sendAmount = expectedAmount;
     if (!rate) return null;
     const receiveAmount = (sendAmount - fee) * rate;
@@ -103,9 +149,11 @@ function parseXoomResponse(
       fee: Math.round(fee * 100) / 100,
       exchangeRate: rate,
       receiveAmount: Math.round(receiveAmount * 100) / 100,
+      firstTimeRate: promoRate > rate ? promoRate : null,
+      firstTimeLimit: null,
       paymentMethod: paymentType,
       deliveryEstimate: null,
-      deliveryMethod: null,
+      deliveryMethod: DISBURSEMENT_LABELS[best.disbursementType ?? ""] ?? null,
       dateCollected: new Date().toISOString(),
       source: "xoom-browser-api",
     };
@@ -180,31 +228,10 @@ async function scrapeCorridorAmount(
 
     if (capturedQuote) return capturedQuote;
 
-    // DOM fallback
-    const bodyText = await page.locator("body").textContent({ timeout: 3000 }).catch(() => "");
-    const rateMatch = bodyText?.match(/1\s*USD\s*=\s*([\d,.]+)\s*[A-Z]{3}/);
-    if (rateMatch) {
-      const rate = parseFloat(rateMatch[1].replace(/,/g, ""));
-      if (rate > 0) {
-        return {
-          provider: "Xoom",
-          providerSlug: "xoom",
-          providerType: "moneyTransferProvider",
-          sendCurrency: corridor.from,
-          receiveCurrency: corridor.to,
-          sendAmount: amount,
-          fee: 0,
-          exchangeRate: rate,
-          receiveAmount: Math.round(amount * rate * 100) / 100,
-          paymentMethod: null,
-          deliveryEstimate: null,
-          deliveryMethod: null,
-          dateCollected: new Date().toISOString(),
-          source: "xoom-browser-dom",
-        };
-      }
-    }
-
+    // No DOM fallback (removed 2026-09-26). The page's "1 USD = x" headline is
+    // the first pricing entry — the first-time promo on INR/PHP/MXN/COP/GTQ —
+    // and it was stored with an assumed $0 fee, reintroducing exactly the
+    // overstated rate the parser above rejects. No API quote means no quote.
     return null;
   } catch (err) {
     console.log(`    ⚠ Browser error: ${(err as Error).message?.slice(0, 80)}`);

@@ -15,7 +15,9 @@
  *   - feeAmount             — fixed fee in CNY (¥79 flat)
  *   - floatFeeAmount        — variable fee in CNY (0.38% of transaction)
  *   - totalCommissionAmt    — total fee = fixed + float
- *   - finalExchangeRateQuotation — CNY→buyCurrency rate after markup
+ *   - realExchangeRateQuotation  — the rate the converted CNY is priced at
+ *   - finalExchangeRateQuotation — realExchangeRateQuotation with the float fee
+ *                                  baked in AGAIN (display "all-in" rate; unused)
  *
  * SkyRemit only sends CNY, so sendCurrency is always "CNY".
  * Payment via WeChat Pay / Alipay / bank transfer; bank deposit delivery.
@@ -33,6 +35,7 @@ import {
 } from "./lib/browser";
 
 import { currencies } from "../src/data/transfer-currencies";
+import { roundRate } from "./lib/scrape-budget";
 
 const API_URL = "https://remit.skyee360.com/api/v1/ExchangeRateInquiry";
 const SEND_CURRENCY = "CNY";
@@ -56,6 +59,7 @@ interface SkyRemitResponseBody {
   selling: { amount: number; currencyCode: string };
   feeAmount: number;
   totalCommissionAmt: string;
+  realExchangeRateQuotation: string;
   finalExchangeRateQuotation: string;
 }
 
@@ -112,7 +116,12 @@ async function main() {
 
       const receiveAmount = parseFloat(body.buying.amount);
       const fee = parseFloat(body.totalCommissionAmt) || body.feeAmount || 0;
-      const rate = parseFloat(body.finalExchangeRateQuotation);
+      // buying.amount = (sendAmount - totalCommissionAmt) × realExchangeRateQuotation,
+      // exact at every amount (verified 2026-09-26: 500 CNY → (500 - 81.38) ×
+      // 14.215641 = 5,950.95 INR). finalExchangeRateQuotation is that rate minus
+      // the 0.57% float fee a second time; pairing it with totalCommissionAmt
+      // (which already includes the float fee) understated SkyRemit by ~0.57%.
+      const rate = parseFloat(body.realExchangeRateQuotation) || parseFloat(body.finalExchangeRateQuotation);
 
       if (!receiveAmount || receiveAmount <= 0 || !rate || rate <= 0) {
         failCount++;
@@ -127,7 +136,7 @@ async function main() {
         receiveCurrency,
         sendAmount,
         fee: Math.round(fee * 100) / 100,
-        exchangeRate: Math.round(rate * 100000) / 100000,
+        exchangeRate: roundRate(rate),
         receiveAmount: Math.round(receiveAmount * 100) / 100,
         paymentMethod: "WeChat Pay / Alipay / Bank Transfer",
         deliveryMethod: "Bank Deposit",

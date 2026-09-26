@@ -152,6 +152,8 @@ export interface ProviderQuote {
   providerType: string;
   sendCurrency: string;
   receiveCurrency: string;
+  /** ISO alpha-2 destination, where the provider prices per country (TapTap). */
+  receiveCountry?: string | null;
   sendAmount: number;
   fee: number;
   exchangeRate: number;
@@ -164,6 +166,12 @@ export interface ProviderQuote {
   deliveryEstimate: string | null;
   dateCollected: string;
   source: string;
+  /** A better promotional rate (first transfer / new customer). Informational
+   * only — `exchangeRate` stays the standard rate so we never overstate what a
+   * typical sender receives. unified-quotes surfaces it as a promo note. */
+  firstTimeRate?: number | null;
+  /** Send-amount cap the promo applies up to, when the provider states one. */
+  firstTimeLimit?: number | null;
 }
 
 /**
@@ -481,7 +489,10 @@ export async function fillAmountInput(
       if (await input.isVisible({ timeout: 2000 })) {
         await input.click({ clickCount: 3 });
         await delay(150 + Math.random() * 100);
-        await input.press("Control+a");
+        // ControlOrMeta: on macOS Control+a moves the caret to the start of the
+        // field instead of selecting, so typed digits were prepended to the
+        // default amount (Xoom priced "100350.00" for a $100 request).
+        await input.press("ControlOrMeta+a");
         await input.press("Backspace");
         await delay(100);
         for (const char of String(amount)) {

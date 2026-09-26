@@ -14,7 +14,7 @@ import * as path from "path";
 const OUTPUT_DIR = path.join(__dirname, "..", "src", "data", "scraped");
 const DELAY_MS = 1500;
 
-// Country code → Instarem bank account ID mapping (for payment method)
+// Country code → Instarem bank account ID (the ID is only sent to the comparison endpoint)
 const COUNTRY_CONFIG: Record<string, { code: string; bankAccountId: number }> = {
   USD: { code: "US", bankAccountId: 58 }, // ACH
   GBP: { code: "GB", bankAccountId: 11 }, // Faster Payments
@@ -79,7 +79,14 @@ async function fetchInstaremQuote(
   const config = COUNTRY_CONFIG[from];
   if (!config) return null;
 
-  const url = `https://www.instarem.com/api/v1/public/transaction/computed-value?source_currency=${from}&destination_currency=${to}&instarem_bank_account_id=${config.bankAccountId}&country_code=${config.code}&source_amount=${amount}`;
+  // No instarem_bank_account_id here. Instarem renumbered those IDs (GBP
+  // 11 → 90) and every non-USD request came back HTTP 400 "Invalid bank account
+  // details for the provided country-currency combination" — 42 of 62 requests,
+  // every run, leaving Instarem with USD corridors only. Without the parameter
+  // the API prices the default bank transfer: rate, fee and destination amount
+  // match the explicit ID exactly (checked USD and GBP, 2026-09-26). The
+  // comparison endpoint below still requires an ID and still accepts these.
+  const url = `https://www.instarem.com/api/v1/public/transaction/computed-value?source_currency=${from}&destination_currency=${to}&country_code=${config.code}&source_amount=${amount}`;
 
   try {
     const res = await fetch(url, {

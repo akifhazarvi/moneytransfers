@@ -21,6 +21,7 @@ import {
   writeOutput,
   type ProviderQuote,
 } from "./lib/browser";
+import { roundRate } from "./lib/scrape-budget";
 
 const DELAY_MS = 800;
 
@@ -215,11 +216,24 @@ async function fetchRiaQuote(
     const calc = json?.model?.transferDetails?.calculations;
     if (!calc) return null;
 
+    // `amountTo` is priced at the FIRST-TRANSFER promo rate whenever one exists:
+    // amountTo = amountFrom × (exchangeRatePromo ?? exchangeRate), verified on
+    // 35/36 raw responses (2026-09-26). The promo lifts receive by 1–4% (USD→MXN
+    // +3.98%), and storing it beside the standard `exchangeRate` left 89/132 rows
+    // contradicting themselves. The fee is charged ON TOP: totalAmount = amountFrom
+    // + fee in every response. We store the standard rate and the receive amount
+    // for a total outlay of `sendAmount` — (send − fee) × rate — the convention
+    // every direct reader (social posts, studies) assumes, as Xoom does.
+    // Key off `exchangeRatePromo`, never `calculatedRatePromo` (populated even when
+    // no promo applies, e.g. EUR→NGN).
     const exchangeRate = calc.exchangeRate || 0;
-    const receiveAmount = calc.amountTo || 0;
     const fee = calc.transferFee ?? calc.totalFeesAndTaxes ?? 0;
+    const receiveAmount = Math.max(0, amount - fee) * exchangeRate;
+    const promoRate = typeof calc.exchangeRatePromo === "number" && calc.exchangeRatePromo > exchangeRate
+      ? calc.exchangeRatePromo
+      : null;
 
-    if (!exchangeRate && !receiveAmount) return null;
+    if (!exchangeRate) return null;
 
     return {
       provider: "Ria Money Transfer",
@@ -229,8 +243,10 @@ async function fetchRiaQuote(
       receiveCurrency: corridor.to,
       sendAmount: amount,
       fee: Math.round(fee * 100) / 100,
-      exchangeRate: Math.round(exchangeRate * 10000) / 10000,
+      exchangeRate: roundRate(exchangeRate),
       receiveAmount: Math.round(receiveAmount * 100) / 100,
+      firstTimeRate: promoRate != null ? roundRate(promoRate) : null,
+      firstTimeLimit: null,
       paymentMethod: "Debit Card",
       deliveryMethod: "Bank Deposit",
       deliveryEstimate: null,
