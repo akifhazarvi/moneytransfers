@@ -48,9 +48,24 @@ npm run build:llms       # regenerate llms.txt + llms-full.txt (also runs in pre
 ## Data Flow
 
 1. **Scrapers** (GitHub Actions, every 6hrs) collect quotes from provider APIs and websites
-2. **`src/lib/unified-quotes.ts`** merges sources with priority: direct API > Monito > Wise API > fallback
-3. **`generateQuotes(amount, from, to)`** in `src/data/providers.ts` returns quotes sorted by best receive amount
-4. **Trustpilot ratings** are overlaid from `data/scraped/trustpilot-ratings.json`
+2. **`src/lib/unified-quotes.ts`** merges sources by tier: 1 direct (first-party
+   API/calculator) > 2 Wise Comparison API > 3 Monito > 4 Exiap > 5 RemitRoutes.
+   A better tier wins a provider+amount **unless the other row is >24h fresher**;
+   rows >72h behind the freshest row are quarantined as stale; rows that cannot be
+   true are quarantined by `src/lib/quote-integrity.ts` (beats interbank outside
+   `PARALLEL_RATE_CURRENCIES`, absurd markup/fee). Every row is restated to
+   "recipient gets for a total outlay of `sendAmount`" whatever the source's fee
+   convention.
+3. **`generateQuotes(amount, from, to)`** in `src/lib/quotes-engine.ts` returns what
+   every comparison table renders (priced at the amount, hidden providers and
+   transfer limits applied). Anything else that publishes a ranking — social
+   posts, studies — must read it, not the raw files.
+4. **History**: `aggregate-history.ts` snapshots all live files each run
+   (`history/quotes-*.json.gz`) and rebuilds per-corridor series with the same
+   tiers and guards → rate-insights → consistency index, SendScore, corridor
+   leaders. Ranking by a raw `receiveAmount` is how Ria's promo rows became "the
+   usual leader" on 40 corridors until 2026-09-27.
+5. **Trustpilot ratings** are overlaid from `data/scraped/trustpilot-ratings.json`
 
 ## Design System
 
@@ -84,7 +99,11 @@ Use design tokens via `var(--color-*)` in Tailwind arbitrary values, e.g. `text-
 
 - **Author email**: All commits must use `akifhazarvi@yahoo.com` (GitHub-associated email). Other emails will block Vercel deployment on the Hobby plan.
 - **No Co-Authored-By trailers** with non-GitHub emails.
-- **Main branch** deploys directly to production.
+- **Main branch** deploys directly to production — including the scrape workflows'
+  data-only commits. `vercel-ignore.sh` used to skip those ("deploy hook will
+  handle it") after the hook was removed, so no scraped data deployed from Sep 18
+  to Sep 27 2026. It now builds every commit; never skip data commits unless
+  something else deploys them.
 - **GitHub Actions** workflow at `.github/workflows/scrape.yml` runs scrapers on schedule.
 
 ## Route Gating — read before writing any internal link
@@ -243,9 +262,18 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
 ## Scraper Architecture & Failure Patterns
 
 ### Scraper Types
-- **API scrapers** (fast, reliable): `scrape-providers.ts` (Wise API), `scrape-ofx.ts`, `scrape-instarem.ts`, `scrape-taptapsend.ts`, `scrape-wise-direct.ts`
-- **Cheerio scrapers** (medium): `scrape-exchangerates.ts`, `scrape-reviews.ts`
-- **Playwright browser scrapers** (fragile): `scrape-monito.ts`, `scrape-worldremit.ts`, `scrape-remitly.ts`, `scrape-western-union.ts`, `scrape-revolut.ts`, `scrape-xoom.ts`, `scrape-ria.ts`, `scrape-xe-transfer.ts`
+- **API scrapers** (`scrape.yml`, every 6h): `scrape-ofx`, `scrape-instarem`,
+  `scrape-xe` (mid-market), `scrape-taptapsend` (partner key), `scrape-wise-direct`,
+  `scrape-wise-comparison`, `scrape-remitly`, `scrape-pandaremit`, `scrape-skyremit`,
+  `scrape-lemfi`, `scrape-unplex`, `scrape-remitroutes`
+- **Cheerio**: `scrape-exiap` (JSON-LD); `scrape-ace` works but is disabled in CI
+  (403 from datacenter IPs)
+- **Playwright** (`scrape-browsers.yml`, daily): `scrape-monito` (4 shards),
+  `scrape-xoom`, `scrape-ria` (browser auth, then API); `scrape-reviews` +
+  `scrape-app-ratings` in `scrape-reviews.yml`
+
+Verified field semantics per provider (which field is the promo, which is all-in)
+are in the scrapers' own comments — read them before "fixing" a parse.
 
 ### Common Failure Modes (from git history)
 1. **Page closing race condition** — Playwright `page.close()` called while navigation is in-flight. Fix: wrap close in try-catch or use `page.isClosed()` guard. (See: WU scraper fix `5acc13c`)
@@ -254,6 +282,27 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
 4. **Cookie/consent overlays** — Blocking interaction with calculator. Fix: `dismissOverlays()` helper in `scripts/lib/browser.ts`.
 5. **Rate limiting** — Too many requests too fast. Fix: `jitteredDelay()` between corridor iterations.
 6. **API response format changes** — Provider changes their JSON schema. Fix: check response shape before parsing.
+7. **Orphaned scrapers** — GitHub's step `timeout-minutes` kills the bash wrapper but
+   not the `npx → tsx → node` child, which keeps writing its file later; on
+   2026-09-26 one rewrote its output mid-`git pull` and aborted the commit. Every
+   scraper step runs under `timeout -k 15s <N>s` (30s inside the step cap), and
+   `pkill -f scripts/scrape-` runs before the tail steps. Keep both.
+8. **Green checks that hide failures** — `continue-on-error` reports a killed scraper
+   as success (Remitly and RemitRoutes timed out on 7 of 8 runs unnoticed). Judge
+   scrapers by output: the `Scrape health` step (`scripts/check-scrape-health.ts`)
+   fails the run, after the commit, when a file wasn't rewritten, came back empty
+   or lost >50% of its rows.
+9. **Promo rates stored as the rate** — Ria `amountTo`, Xoom `FIRST_TIME_RATE`
+   entries, Unplex `BlendedRate`, CompareRemit (removed). The comparison rate is
+   the standard rate; promos go in `firstTimeRate`. A provider beating mid-market
+   on a free-floating currency is a promo until proven otherwise.
+10. **Total cost stored as a fee** — RemitRoutes `totalFeePercent` and Exiap
+    `feesAndCommissionsSpecification` are fee + margin vs mid; stored next to the
+    provider's own marked-up rate they charged the margin twice. Check a raw
+    response: does fee% equal markup%, or does the page publish a mid?
+11. **Empty output** — `writeOutput` (and Xoom's writer) keep the previous file on a
+    0-quote run; the merge layer's 72h stale gate expires it and the health step
+    flags it. Don't reintroduce an unconditional overwrite.
 
 ### Shared Browser Utilities (`scripts/lib/browser.ts`)
 All Playwright scrapers import from this shared library: `setupBrowserContext`, `dismissOverlays`, `fillAmountInput`, `withRetry`, `delay`, `jitteredDelay`, `writeOutput`, `parseNumber`.
@@ -261,7 +310,9 @@ All Playwright scrapers import from this shared library: `setupBrowserContext`, 
 ### Debugging Scrapers
 - Run a single scraper locally: `npx tsx scripts/scrape-<provider>.ts`
 - Check GitHub Actions: `gh run list --workflow=scrape.yml --limit=3`
-- All scrapers use `continue-on-error: true` in CI — one failure won't block others
+- All scrapers use `continue-on-error: true` in CI — one failure won't block
+  others, which is why the step status means nothing: read the **Scrape health**
+  table in the run summary
 - Output goes to `src/data/scraped/<provider>-quotes.json`
 - Use `/scrape-debug` command to check data freshness across all scrapers
 
@@ -273,7 +324,9 @@ All Playwright scrapers import from this shared library: `setupBrowserContext`, 
 
 ## Important Files
 
-- `src/data/providers.ts` — Provider interface, 16 hardcoded providers, `generateQuotes()`, currencies list
+- `src/data/providers.ts` — Provider interface, 16 hardcoded providers, currencies list
+- `src/lib/quotes-engine.ts` — `generateQuotes()`, the rows every comparison table shows
+- `src/lib/quote-integrity.ts` — quarantine rules and `PARALLEL_RATE_CURRENCIES` (each entry cites its evidence)
 - `src/lib/unified-quotes.ts` — Quote merging, source priority, Trustpilot index
 - `src/lib/route-map.ts` — **does this internal URL render?** Ask before linking
 - `src/lib/provider-logo.ts` — logo resolution against files that exist
