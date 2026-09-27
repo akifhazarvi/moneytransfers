@@ -53,6 +53,12 @@ export const PARALLEL_RATE_CURRENCIES = new Set([
   "CUP", // Cuba
   "EGP", // Egypt — parallel market persisted well past the 2024 devaluation
   "GHS", // Ghana
+  // Bolivia — dual-rate since the 2025 dollar shortage; the reference itself is
+  // unstable. XE's USD→BOB mid fell 1.2% in a day (12.2196 → 12.079, Sep 26→27
+  // 2026), flipping TapTap's steady 12.15 from +0.57% to −0.59% and quarantining
+  // the only USD→BOB quote — which un-rendered /send-money/send-money-to-bolivia
+  // while the sitemap still submitted it (check:indexing failed on main).
+  "BOB",
 ]);
 
 /** A rate this far better than the reference mid is not a real standing rate. */
