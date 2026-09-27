@@ -22,42 +22,42 @@
       "providerName": "Ria Money Transfer",
       "corridorsLed": 45,
       "corridorsQuoted": 66,
-      "wins": 3163,
+      "wins": 3162,
       "quotedDays": 4678,
-      "winRate": 67.61,
+      "winRate": 67.59,
       "avgShortfallPct": 0.45,
       "leadRate": 68.18
     },
     {
       "providerSlug": "taptap-send",
       "providerName": "TapTap Send",
-      "corridorsLed": 38,
+      "corridorsLed": 37,
       "corridorsQuoted": 153,
       "wins": 4044,
       "quotedDays": 13376,
       "winRate": 30.23,
       "avgShortfallPct": 1,
-      "leadRate": 24.84
+      "leadRate": 24.18
     },
     {
       "providerSlug": "lemfi",
       "providerName": "LemFi",
-      "corridorsLed": 31,
+      "corridorsLed": 32,
       "corridorsQuoted": 87,
-      "wins": 2790,
+      "wins": 2792,
       "quotedDays": 7824,
-      "winRate": 35.66,
+      "winRate": 35.69,
       "avgShortfallPct": 1.06,
-      "leadRate": 35.63
+      "leadRate": 36.78
     },
     {
       "providerSlug": "instarem",
       "providerName": "InstaReM",
       "corridorsLed": 20,
       "corridorsQuoted": 80,
-      "wins": 1821,
+      "wins": 1820,
       "quotedDays": 7168,
-      "winRate": 25.4,
+      "winRate": 25.39,
       "avgShortfallPct": 1.19,
       "leadRate": 25
     },
@@ -77,9 +77,9 @@
       "providerName": "Paysend",
       "corridorsLed": 6,
       "corridorsQuoted": 55,
-      "wins": 578,
+      "wins": 577,
       "quotedDays": 4984,
-      "winRate": 11.6,
+      "winRate": 11.58,
       "avgShortfallPct": 3.05,
       "leadRate": 10.91
     },
@@ -121,9 +121,9 @@
       "providerName": "Remitly",
       "corridorsLed": 3,
       "corridorsQuoted": 101,
-      "wins": 360,
+      "wins": 361,
       "quotedDays": 8644,
-      "winRate": 4.16,
+      "winRate": 4.18,
       "avgShortfallPct": 3.51,
       "leadRate": 2.97
     },
@@ -733,6 +733,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 58,
-  "stableCorridors": 158
+  "rotatingCorridors": 60,
+  "stableCorridors": 156
 }
