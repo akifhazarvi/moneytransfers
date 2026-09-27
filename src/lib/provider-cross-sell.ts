@@ -56,8 +56,9 @@ const UNGATED_PARTNER = "taptap-send";
 export function selectCrossSellPartners({ intent = "personal", eligible, exclude, limit = 3 }: {
   intent?: TransferIntent; eligible?: readonly string[]; exclude?: string; limit?: number;
 } = {}): CrossSellPartner[] {
-  // An empty eligible set means no matching partner. Never fall back to a
-  // different corridor or a consumer service on a business page.
+  // An empty eligible set means no matching partner — except the ungated one
+  // above, whose card makes no corridor claim. Never fall back to a different
+  // corridor or a consumer service on a business page.
   return (intent === "business" ? BUSINESS : PERSONAL)
     .filter((partner) => partner.slug !== exclude
       && (partner.slug === UNGATED_PARTNER || !eligible || eligible.includes(partner.slug)))
