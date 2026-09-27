@@ -16052,7 +16052,7 @@
       "paysend": {
         "rate": 5.8873,
         "fee": 0,
-        "markup": 0.32,
+        "markup": 0.33,
         "receiveAmount": 588.73
       },
       "sendwave": {
@@ -16096,6 +16096,12 @@
         "fee": 1.86,
         "markup": null,
         "receiveAmount": 579.18
+      },
+      "profee": {
+        "rate": 5.9242,
+        "fee": 1.3,
+        "markup": -0.3,
+        "receiveAmount": 584.72
       }
     }
   }

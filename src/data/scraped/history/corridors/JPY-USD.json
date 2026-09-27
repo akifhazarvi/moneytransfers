@@ -1897,8 +1897,14 @@
       "instarem": {
         "rate": 0.0064,
         "fee": 0,
-        "markup": -0.67,
+        "markup": -0.66,
         "receiveAmount": 0.64
+      },
+      "xe": {
+        "rate": 0.0062,
+        "fee": 0,
+        "markup": 1.85,
+        "receiveAmount": 0.62
       }
     }
   }
