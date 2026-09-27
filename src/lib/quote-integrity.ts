@@ -59,6 +59,14 @@ export const PARALLEL_RATE_CURRENCIES = new Set([
   // the only USD→BOB quote — which un-rendered /send-money/send-money-to-bolivia
   // while the sitemap still submitted it (check:indexing failed on main).
   "BOB",
+  // Mozambique — the metical has been held stable against the dollar since 2021
+  // while the parallel premium widened to ~14% at end-2025, with exchange houses
+  // 10-15% above banks (IMF 2025 Article IV, Feb 2026). TapTap, the only source
+  // quoting MZN, paid 3-9% above XE's official mid from every origin — exactly
+  // that gap — and was quarantined off every Mozambique corridor. GNF was checked
+  // too and is NOT listed: the IMF reports Guinea's parallel premium "virtually
+  // eliminated" by 2022, so TapTap's GNF rates above mid stay unexplained.
+  "MZN",
 ]);
 
 /** A rate this far better than the reference mid is not a real standing rate. */
