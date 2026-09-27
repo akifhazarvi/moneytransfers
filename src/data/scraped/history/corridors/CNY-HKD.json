@@ -5,13 +5,13 @@
       "pandaremit": {
         "rate": 1.1439,
         "fee": 80,
-        "markup": null,
+        "markup": 0.66,
         "receiveAmount": 22.88
       },
       "wise": {
         "rate": 1.1515,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.19
       }
     }
@@ -22,13 +22,13 @@
       "pandaremit": {
         "rate": 1.1416,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 22.83
       },
       "wise": {
         "rate": 1.1495,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.03
       }
     }
@@ -39,13 +39,13 @@
       "pandaremit": {
         "rate": 1.1437,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 22.87
       },
       "wise": {
         "rate": 1.1517,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.2
       }
     }
@@ -56,13 +56,13 @@
       "pandaremit": {
         "rate": 1.1445,
         "fee": 80,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 22.89
       },
       "wise": {
         "rate": 1.1516,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.19
       }
     }
@@ -73,13 +73,13 @@
       "pandaremit": {
         "rate": 1.1414,
         "fee": 80,
-        "markup": null,
+        "markup": 1.01,
         "receiveAmount": 22.83
       },
       "wise": {
         "rate": 1.1526,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 90.27
       }
     }
@@ -90,13 +90,13 @@
       "pandaremit": {
         "rate": 1.1414,
         "fee": 80,
-        "markup": null,
+        "markup": 1.02,
         "receiveAmount": 22.83
       },
       "wise": {
         "rate": 1.1526,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 90.27
       }
     }
@@ -107,13 +107,13 @@
       "pandaremit": {
         "rate": 1.1462,
         "fee": 80,
-        "markup": null,
+        "markup": 0.59,
         "receiveAmount": 22.92
       },
       "wise": {
         "rate": 1.1529,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 90.3
       }
     }
@@ -124,13 +124,13 @@
       "pandaremit": {
         "rate": 1.147,
         "fee": 80,
-        "markup": null,
+        "markup": 0.53,
         "receiveAmount": 22.94
       },
       "wise": {
         "rate": 1.155,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.16,
         "receiveAmount": 90.46
       }
     }
@@ -141,13 +141,13 @@
       "pandaremit": {
         "rate": 1.1483,
         "fee": 80,
-        "markup": null,
+        "markup": 0.55,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1548,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 90.44
       }
     }
@@ -158,13 +158,13 @@
       "pandaremit": {
         "rate": 1.1479,
         "fee": 80,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 22.96
       },
       "wise": {
         "rate": 1.1556,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.51
       }
     }
@@ -175,13 +175,13 @@
       "pandaremit": {
         "rate": 1.1488,
         "fee": 80,
-        "markup": null,
+        "markup": 0.59,
         "receiveAmount": 22.98
       },
       "wise": {
         "rate": 1.1561,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 90.55
       }
     }
@@ -192,14 +192,14 @@
       "pandaremit": {
         "rate": 1.1474,
         "fee": 80,
-        "markup": null,
+        "markup": 0.93,
         "receiveAmount": 22.95
       },
       "wise": {
         "rate": 1.1583,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.71
+        "markup": -0.02,
+        "receiveAmount": 90.72
       }
     }
   },
@@ -209,14 +209,14 @@
       "pandaremit": {
         "rate": 1.1474,
         "fee": 80,
-        "markup": null,
+        "markup": 0.92,
         "receiveAmount": 22.95
       },
       "wise": {
         "rate": 1.1583,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.71
+        "markup": -0.02,
+        "receiveAmount": 90.72
       }
     }
   },
@@ -226,13 +226,13 @@
       "pandaremit": {
         "rate": 1.1506,
         "fee": 80,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 23.01
       },
       "wise": {
         "rate": 1.1579,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 90.69
       }
     }
@@ -243,13 +243,13 @@
       "pandaremit": {
         "rate": 1.1509,
         "fee": 80,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 23.02
       },
       "wise": {
         "rate": 1.1582,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.71
       }
     }
@@ -260,13 +260,13 @@
       "pandaremit": {
         "rate": 1.1509,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 23.02
       },
       "wise": {
         "rate": 1.1588,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 90.76
       }
     }
@@ -277,13 +277,13 @@
       "pandaremit": {
         "rate": 1.1488,
         "fee": 80,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 22.98
       },
       "wise": {
         "rate": 1.1561,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 90.55
       }
     }
@@ -294,13 +294,13 @@
       "pandaremit": {
         "rate": 1.1482,
         "fee": 80,
-        "markup": null,
+        "markup": 0.72,
         "receiveAmount": 22.96
       },
       "wise": {
         "rate": 1.1565,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.58
       }
     }
@@ -311,13 +311,13 @@
       "pandaremit": {
         "rate": 1.1425,
         "fee": 80,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 22.85
       },
       "wise": {
         "rate": 1.1541,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 90.39
       }
     }
@@ -328,13 +328,13 @@
       "pandaremit": {
         "rate": 1.1425,
         "fee": 80,
-        "markup": null,
+        "markup": 1.32,
         "receiveAmount": 22.85
       },
       "wise": {
         "rate": 1.1541,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 90.39
       }
     }
@@ -345,13 +345,13 @@
       "pandaremit": {
         "rate": 1.1464,
         "fee": 80,
-        "markup": null,
+        "markup": 0.91,
         "receiveAmount": 22.93
       },
       "wise": {
         "rate": 1.1556,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 90.51
       }
     }
@@ -362,13 +362,13 @@
       "pandaremit": {
         "rate": 1.1474,
         "fee": 80,
-        "markup": null,
+        "markup": 0.68,
         "receiveAmount": 22.95
       },
       "wise": {
         "rate": 1.1553,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 90.48
       }
     }
@@ -379,14 +379,14 @@
       "pandaremit": {
         "rate": 1.1488,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 22.98
       },
       "wise": {
         "rate": 1.157,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.61
+        "markup": -0.02,
+        "receiveAmount": 90.62
       }
     }
   },
@@ -396,14 +396,14 @@
       "pandaremit": {
         "rate": 1.1488,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 22.98
       },
       "wise": {
         "rate": 1.157,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.61
+        "markup": -0.02,
+        "receiveAmount": 90.62
       }
     }
   },
@@ -413,13 +413,13 @@
       "pandaremit": {
         "rate": 1.1473,
         "fee": 80,
-        "markup": null,
+        "markup": 0.79,
         "receiveAmount": 22.95
       },
       "wise": {
         "rate": 1.1587,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.2,
         "receiveAmount": 90.75
       }
     }
@@ -430,13 +430,13 @@
       "pandaremit": {
         "rate": 1.1473,
         "fee": 80,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 22.95
       },
       "wise": {
         "rate": 1.1587,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 90.75
       }
     }
@@ -447,13 +447,13 @@
       "pandaremit": {
         "rate": 1.1473,
         "fee": 80,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 22.95
       },
       "wise": {
         "rate": 1.1587,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 90.75
       }
     }
@@ -464,14 +464,14 @@
       "pandaremit": {
         "rate": 1.1519,
         "fee": 80,
-        "markup": null,
+        "markup": 0.52,
         "receiveAmount": 23.04
       },
       "wise": {
         "rate": 1.1579,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.68
+        "markup": 0,
+        "receiveAmount": 90.69
       }
     }
   },
@@ -481,14 +481,14 @@
       "pandaremit": {
         "rate": 1.1519,
         "fee": 80,
-        "markup": null,
+        "markup": 0.52,
         "receiveAmount": 23.04
       },
       "wise": {
         "rate": 1.1579,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.68
+        "markup": 0,
+        "receiveAmount": 90.69
       }
     }
   },
@@ -498,14 +498,14 @@
       "pandaremit": {
         "rate": 1.1519,
         "fee": 80,
-        "markup": null,
+        "markup": 0.52,
         "receiveAmount": 23.04
       },
       "wise": {
         "rate": 1.1579,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.68
+        "markup": 0,
+        "receiveAmount": 90.69
       }
     }
   },
@@ -515,13 +515,13 @@
       "pandaremit": {
         "rate": 1.1493,
         "fee": 80,
-        "markup": null,
+        "markup": 0.84,
         "receiveAmount": 22.99
       },
       "wise": {
         "rate": 1.1589,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 90.77
       }
     }
@@ -532,13 +532,13 @@
       "pandaremit": {
         "rate": 1.1487,
         "fee": 80,
-        "markup": null,
+        "markup": 0.77,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1579,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 90.69
       }
     }
@@ -549,13 +549,13 @@
       "pandaremit": {
         "rate": 1.1441,
         "fee": 80,
-        "markup": null,
+        "markup": 1.16,
         "receiveAmount": 22.88
       },
       "wise": {
         "rate": 1.1575,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.66
       }
     }
@@ -566,13 +566,13 @@
       "pandaremit": {
         "rate": 1.1441,
         "fee": 80,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 22.88
       },
       "wise": {
         "rate": 1.1575,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 90.66
       }
     }
@@ -583,13 +583,13 @@
       "pandaremit": {
         "rate": 1.1477,
         "fee": 80,
-        "markup": null,
+        "markup": 0.88,
         "receiveAmount": 22.95
       },
       "wise": {
         "rate": 1.1577,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 90.67
       }
     }
@@ -600,14 +600,14 @@
       "pandaremit": {
         "rate": 1.1487,
         "fee": 80,
-        "markup": null,
+        "markup": 0.72,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.157,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.61
+        "markup": 0.01,
+        "receiveAmount": 90.62
       }
     }
   },
@@ -617,13 +617,13 @@
       "pandaremit": {
         "rate": 1.1465,
         "fee": 80,
-        "markup": null,
+        "markup": 0.74,
         "receiveAmount": 22.93
       },
       "wise": {
         "rate": 1.1545,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 90.42
       }
     }
@@ -634,13 +634,13 @@
       "pandaremit": {
         "rate": 1.1429,
         "fee": 80,
-        "markup": null,
+        "markup": 0.8,
         "receiveAmount": 22.86
       },
       "wise": {
         "rate": 1.151,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 90.15
       }
     }
@@ -651,13 +651,13 @@
       "pandaremit": {
         "rate": 1.1449,
         "fee": 80,
-        "markup": null,
+        "markup": 0.74,
         "receiveAmount": 22.9
       },
       "wise": {
         "rate": 1.1534,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.33
       }
     }
@@ -668,13 +668,13 @@
       "pandaremit": {
         "rate": 1.1412,
         "fee": 80,
-        "markup": null,
+        "markup": 1.03,
         "receiveAmount": 22.82
       },
       "wise": {
         "rate": 1.1531,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.31
       }
     }
@@ -685,13 +685,13 @@
       "pandaremit": {
         "rate": 1.1412,
         "fee": 80,
-        "markup": null,
+        "markup": 1.04,
         "receiveAmount": 22.82
       },
       "wise": {
         "rate": 1.1531,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 90.31
       }
     }
@@ -702,13 +702,13 @@
       "pandaremit": {
         "rate": 1.1412,
         "fee": 80,
-        "markup": null,
+        "markup": 1.04,
         "receiveAmount": 22.82
       },
       "wise": {
         "rate": 1.1531,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 90.31
       }
     }
@@ -719,13 +719,13 @@
       "pandaremit": {
         "rate": 1.1453,
         "fee": 80,
-        "markup": null,
+        "markup": 0.76,
         "receiveAmount": 22.91
       },
       "wise": {
         "rate": 1.1539,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 90.37
       }
     }
@@ -736,14 +736,14 @@
       "pandaremit": {
         "rate": 1.1468,
         "fee": 80,
-        "markup": null,
+        "markup": 0.73,
         "receiveAmount": 22.94
       },
       "wise": {
         "rate": 1.1556,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 90.5
+        "markup": -0.04,
+        "receiveAmount": 90.51
       }
     }
   },
@@ -753,13 +753,13 @@
       "pandaremit": {
         "rate": 1.1468,
         "fee": 80,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 22.94
       },
       "wise": {
         "rate": 1.1549,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 90.45
       }
     }
@@ -770,13 +770,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 90.59
       }
     }
@@ -787,13 +787,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.72,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.59
       }
     }
@@ -804,13 +804,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.71,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 90.59
       }
     }
@@ -821,13 +821,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.12,
         "receiveAmount": 90.59
       }
     }
@@ -838,13 +838,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.53,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.19,
         "receiveAmount": 90.59
       }
     }
@@ -855,13 +855,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.47,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.25,
         "receiveAmount": 90.59
       }
     }
@@ -872,13 +872,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.4,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.32,
         "receiveAmount": 90.59
       }
     }
@@ -889,13 +889,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.65,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 90.59
       }
     }
@@ -906,13 +906,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 90.59
       }
     }
@@ -923,13 +923,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.73,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 90.59
       }
     }
@@ -940,13 +940,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.11,
         "receiveAmount": 90.59
       }
     }
@@ -957,13 +957,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 90.59
       }
     }
@@ -974,13 +974,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.84,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 90.59
       }
     }
@@ -991,13 +991,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.84,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 90.59
       }
     }
@@ -1008,13 +1008,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.76,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 90.59
       }
     }
@@ -1025,13 +1025,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.74,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 90.59
       }
     }
@@ -1042,13 +1042,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.71,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 90.59
       }
     }
@@ -1059,13 +1059,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.8,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 90.59
       }
     }
@@ -1076,13 +1076,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.86,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 90.59
       }
     }
@@ -1093,13 +1093,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.82,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 90.59
       }
     }
@@ -1110,13 +1110,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.85,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 90.59
       }
     }
@@ -1127,13 +1127,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.77,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 90.59
       }
     }
@@ -1144,13 +1144,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.83,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 90.59
       }
     }
@@ -1161,13 +1161,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.81,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 90.59
       }
     }
@@ -1178,13 +1178,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.86,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 90.59
       }
     }
@@ -1195,13 +1195,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.89,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 90.59
       }
     }
@@ -1212,13 +1212,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 0.84,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 90.59
       }
     }
@@ -1229,13 +1229,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.01,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 90.59
       }
     }
@@ -1246,13 +1246,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.47,
         "receiveAmount": 90.59
       }
     }
@@ -1263,13 +1263,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.09,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.37,
         "receiveAmount": 90.59
       }
     }
@@ -1280,13 +1280,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.11,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.4,
         "receiveAmount": 90.59
       }
     }
@@ -1297,13 +1297,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.12,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.4,
         "receiveAmount": 90.59
       }
     }
@@ -1314,13 +1314,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.05,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 90.59
       }
     }
@@ -1331,13 +1331,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.48,
         "receiveAmount": 90.59
       }
     }
@@ -1348,13 +1348,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.49,
         "receiveAmount": 90.59
       }
     }
@@ -1365,13 +1365,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.51,
         "receiveAmount": 90.59
       }
     }
@@ -1382,13 +1382,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.5,
         "receiveAmount": 90.59
       }
     }
@@ -1399,13 +1399,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.49,
         "receiveAmount": 90.59
       }
     }
@@ -1416,13 +1416,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.54,
         "receiveAmount": 90.59
       }
     }
@@ -1433,13 +1433,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.56,
         "receiveAmount": 90.59
       }
     }
@@ -1450,13 +1450,13 @@
       "pandaremit": {
         "rate": 1.1484,
         "fee": 80,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 22.97
       },
       "wise": {
         "rate": 1.1567,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.56,
         "receiveAmount": 90.59
       }
     }
@@ -1467,13 +1467,13 @@
       "pandaremit": {
         "rate": 1.1557,
         "fee": 80,
-        "markup": null,
+        "markup": 0.68,
         "receiveAmount": 23.11
       },
       "wise": {
         "rate": 1.1636,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.13
       }
     }
@@ -1484,13 +1484,13 @@
       "pandaremit": {
         "rate": 1.1555,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 23.11
       },
       "wise": {
         "rate": 1.1635,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.13
       }
     }
@@ -1501,14 +1501,14 @@
       "pandaremit": {
         "rate": 1.1522,
         "fee": 80,
-        "markup": null,
+        "markup": 1,
         "receiveAmount": 23.04
       },
       "wise": {
         "rate": 1.1635,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 91.12
+        "markup": 0.03,
+        "receiveAmount": 91.13
       }
     }
   },
@@ -1518,14 +1518,14 @@
       "pandaremit": {
         "rate": 1.1522,
         "fee": 80,
-        "markup": null,
+        "markup": 1,
         "receiveAmount": 23.04
       },
       "wise": {
         "rate": 1.1635,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 91.12
+        "markup": 0.03,
+        "receiveAmount": 91.13
       }
     }
   },
@@ -1535,13 +1535,13 @@
       "pandaremit": {
         "rate": 1.1563,
         "fee": 80,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 23.13
       },
       "wise": {
         "rate": 1.1638,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 91.15
       }
     }
@@ -1552,13 +1552,13 @@
       "pandaremit": {
         "rate": 1.1556,
         "fee": 80,
-        "markup": null,
+        "markup": 0.7,
         "receiveAmount": 23.11
       },
       "wise": {
         "rate": 1.1637,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 91.14
       }
     }
@@ -1569,13 +1569,13 @@
       "pandaremit": {
         "rate": 1.1547,
         "fee": 80,
-        "markup": null,
+        "markup": 0.73,
         "receiveAmount": 23.09
       },
       "wise": {
         "rate": 1.1631,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.09
       }
     }
@@ -1586,13 +1586,13 @@
       "pandaremit": {
         "rate": 1.1572,
         "fee": 80,
-        "markup": null,
+        "markup": 0.68,
         "receiveAmount": 23.14
       },
       "wise": {
         "rate": 1.1648,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 91.23
       }
     }
@@ -1603,14 +1603,14 @@
       "pandaremit": {
         "rate": 1.1585,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 23.17
       },
       "wise": {
         "rate": 1.1663,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 91.35
+        "markup": 0.03,
+        "receiveAmount": 91.34
       }
     }
   },
@@ -1620,13 +1620,13 @@
       "pandaremit": {
         "rate": 1.1552,
         "fee": 80,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 23.1
       },
       "wise": {
         "rate": 1.1665,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 91.36
       }
     }
@@ -1637,13 +1637,13 @@
       "pandaremit": {
         "rate": 1.1552,
         "fee": 80,
-        "markup": null,
+        "markup": 0.97,
         "receiveAmount": 23.1
       },
       "wise": {
         "rate": 1.1665,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.36
       }
     }
@@ -1654,13 +1654,13 @@
       "pandaremit": {
         "rate": 1.1589,
         "fee": 80,
-        "markup": null,
+        "markup": 0.65,
         "receiveAmount": 23.18
       },
       "wise": {
         "rate": 1.1664,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.35
       }
     }
@@ -1671,14 +1671,14 @@
       "pandaremit": {
         "rate": 1.1582,
         "fee": 80,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 23.16
       },
       "wise": {
         "rate": 1.1654,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 91.28
+        "markup": 0.02,
+        "receiveAmount": 91.27
       }
     }
   },
@@ -1688,13 +1688,13 @@
       "pandaremit": {
         "rate": 1.159,
         "fee": 80,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 23.18
       },
       "wise": {
         "rate": 1.1663,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.34
       }
     }
@@ -1705,13 +1705,13 @@
       "pandaremit": {
         "rate": 1.1588,
         "fee": 80,
-        "markup": null,
+        "markup": 0.65,
         "receiveAmount": 23.18
       },
       "wise": {
         "rate": 1.1664,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.35
       }
     }
@@ -1722,13 +1722,13 @@
       "pandaremit": {
         "rate": 1.1585,
         "fee": 80,
-        "markup": null,
+        "markup": 0.68,
         "receiveAmount": 23.17
       },
       "wise": {
         "rate": 1.1664,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.35
       }
     }
@@ -1739,13 +1739,13 @@
       "pandaremit": {
         "rate": 1.1536,
         "fee": 80,
-        "markup": null,
+        "markup": 1.04,
         "receiveAmount": 23.07
       },
       "wise": {
         "rate": 1.1651,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 91.25
       }
     }
@@ -1756,13 +1756,13 @@
       "pandaremit": {
         "rate": 1.1536,
         "fee": 80,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 23.07
       },
       "wise": {
         "rate": 1.1651,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 91.25
       }
     }
@@ -1773,13 +1773,13 @@
       "pandaremit": {
         "rate": 1.1582,
         "fee": 80,
-        "markup": null,
+        "markup": 0.68,
         "receiveAmount": 23.16
       },
       "wise": {
         "rate": 1.1663,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 91.34
       }
     }
@@ -1790,13 +1790,13 @@
       "pandaremit": {
         "rate": 1.1582,
         "fee": 80,
-        "markup": null,
+        "markup": 0.68,
         "receiveAmount": 23.16
       },
       "wise": {
         "rate": 1.1663,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 91.34
       }
     }
@@ -1807,13 +1807,13 @@
       "pandaremit": {
         "rate": 1.1596,
         "fee": 80,
-        "markup": null,
+        "markup": 0.64,
         "receiveAmount": 23.19
       },
       "wise": {
         "rate": 1.167,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.4
       }
     }
@@ -1824,13 +1824,13 @@
       "pandaremit": {
         "rate": 1.1595,
         "fee": 80,
-        "markup": null,
+        "markup": 0.66,
         "receiveAmount": 23.19
       },
       "wise": {
         "rate": 1.1673,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.42
       }
     }
@@ -1841,13 +1841,13 @@
       "pandaremit": {
         "rate": 1.1596,
         "fee": 80,
-        "markup": null,
+        "markup": 0.65,
         "receiveAmount": 23.19
       },
       "wise": {
         "rate": 1.1672,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 91.42
       }
     }
@@ -1858,13 +1858,13 @@
       "pandaremit": {
         "rate": 1.1575,
         "fee": 80,
-        "markup": null,
+        "markup": 0.92,
         "receiveAmount": 23.15
       },
       "wise": {
         "rate": 1.1685,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 91.52
       }
     }
@@ -1875,13 +1875,13 @@
       "pandaremit": {
         "rate": 1.1576,
         "fee": 80,
-        "markup": null,
+        "markup": 0.9,
         "receiveAmount": 23.15
       },
       "wise": {
         "rate": 1.1683,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 91.5
       }
     }
@@ -1892,13 +1892,13 @@
       "pandaremit": {
         "rate": 1.1607,
         "fee": 80,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 23.21
       },
       "wise": {
         "rate": 1.1683,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 91.5
       }
     }
@@ -1909,14 +1909,14 @@
       "pandaremit": {
         "rate": 1.1613,
         "fee": 80,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 23.23
       },
       "wise": {
         "rate": 1.1689,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 91.54
+        "markup": -0.04,
+        "receiveAmount": 91.55
       }
     }
   },
@@ -1926,13 +1926,13 @@
       "pandaremit": {
         "rate": 1.1615,
         "fee": 80,
-        "markup": null,
+        "markup": 0.65,
         "receiveAmount": 23.23
       },
       "wise": {
         "rate": 1.1693,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 91.58
       }
     }
@@ -1943,13 +1943,13 @@
       "pandaremit": {
         "rate": 1.16,
         "fee": 80,
-        "markup": null,
+        "markup": 0.75,
         "receiveAmount": 23.2
       },
       "wise": {
         "rate": 1.1683,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 91.5
       }
     }
@@ -1960,13 +1960,13 @@
       "pandaremit": {
         "rate": 1.1613,
         "fee": 80,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 23.23
       },
       "wise": {
         "rate": 1.1692,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 91.57
       }
     }
@@ -1977,13 +1977,13 @@
       "pandaremit": {
         "rate": 1.1578,
         "fee": 80,
-        "markup": null,
+        "markup": 0.99,
         "receiveAmount": 23.16
       },
       "wise": {
         "rate": 1.1692,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 91.57
       }
     }
@@ -1994,13 +1994,13 @@
       "pandaremit": {
         "rate": 1.1578,
         "fee": 80,
-        "markup": null,
+        "markup": 0.95,
         "receiveAmount": 23.16
       },
       "wise": {
         "rate": 1.1687,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 91.53
       }
     }
@@ -2011,13 +2011,13 @@
       "pandaremit": {
         "rate": 1.1613,
         "fee": 80,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 23.23
       },
       "wise": {
         "rate": 1.1689,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 91.55
       }
     }
@@ -2028,13 +2028,13 @@
       "pandaremit": {
         "rate": 1.1609,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 23.22
       },
       "wise": {
         "rate": 1.1688,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 91.54
       }
     }
@@ -2045,13 +2045,13 @@
       "pandaremit": {
         "rate": 1.1609,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 23.22
       },
       "wise": {
         "rate": 1.1693,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 91.58
       }
     }
@@ -2062,13 +2062,13 @@
       "pandaremit": {
         "rate": 1.1625,
         "fee": 80,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 23.25
       },
       "wise": {
         "rate": 1.1701,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 91.64
       }
     }
@@ -2079,13 +2079,13 @@
       "pandaremit": {
         "rate": 1.1639,
         "fee": 80,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 23.28
       },
       "wise": {
         "rate": 1.1715,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 91.75
       }
     }
@@ -2096,13 +2096,13 @@
       "pandaremit": {
         "rate": 1.1603,
         "fee": 80,
-        "markup": null,
+        "markup": 0.88,
         "receiveAmount": 23.21
       },
       "wise": {
         "rate": 1.1715,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 91.75
       }
     }
@@ -2113,13 +2113,13 @@
       "pandaremit": {
         "rate": 1.16,
         "fee": 80,
-        "markup": null,
+        "markup": 0.91,
         "receiveAmount": 23.2
       },
       "wise": {
         "rate": 1.1707,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 91.69
       }
     }
@@ -2130,13 +2130,13 @@
       "pandaremit": {
         "rate": 1.1643,
         "fee": 80,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 23.29
       },
       "wise": {
         "rate": 1.172,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 91.79
       }
     }
@@ -2147,13 +2147,13 @@
       "pandaremit": {
         "rate": 1.1632,
         "fee": 80,
-        "markup": null,
+        "markup": 0.71,
         "receiveAmount": 23.26
       },
       "wise": {
         "rate": 1.1708,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 91.7
       }
     }
@@ -2164,13 +2164,13 @@
       "pandaremit": {
         "rate": 1.1609,
         "fee": 80,
-        "markup": null,
+        "markup": 0.77,
         "receiveAmount": 23.22
       },
       "wise": {
         "rate": 1.1687,
         "fee": 21.68,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 91.53
       }
     }
@@ -2181,13 +2181,13 @@
       "pandaremit": {
         "rate": 1.16,
         "fee": 80,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 23.2
       },
       "wise": {
         "rate": 1.1683,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 91.5
       }
     }
@@ -2198,14 +2198,14 @@
       "pandaremit": {
         "rate": 1.1555,
         "fee": 80,
-        "markup": null,
+        "markup": 1.11,
         "receiveAmount": 23.11
       },
       "wise": {
         "rate": 1.1686,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 91.53
+        "markup": -0.02,
+        "receiveAmount": 91.52
       }
     }
   },
@@ -2215,14 +2215,14 @@
       "pandaremit": {
         "rate": 1.1555,
         "fee": 80,
-        "markup": null,
+        "markup": 1.12,
         "receiveAmount": 23.11
       },
       "wise": {
         "rate": 1.1686,
         "fee": 21.68,
-        "markup": null,
-        "receiveAmount": 91.53
+        "markup": 0,
+        "receiveAmount": 91.52
       }
     }
   },
@@ -2232,13 +2232,13 @@
       "pandaremit": {
         "rate": 1.1556,
         "fee": 80,
-        "markup": null,
+        "markup": 1.07,
         "receiveAmount": 23.11
       },
       "wise": {
-        "rate": 1.1683,
+        "rate": 1.16832,
         "fee": 21.68,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 91.5
       }
     }

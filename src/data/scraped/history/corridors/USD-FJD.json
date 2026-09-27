@@ -5,7 +5,7 @@
       "remitly": {
         "rate": 2.1449,
         "fee": 2.99,
-        "markup": 3.5011,
+        "markup": 3.5,
         "receiveAmount": 208.08
       }
     }
@@ -16,7 +16,7 @@
       "wise": {
         "rate": 2.2272,
         "fee": 0,
-        "markup": null,
+        "markup": 1.36,
         "receiveAmount": 222.72
       }
     }
@@ -25,10 +25,10 @@
     "date": "2026-03-29",
     "providers": {
       "wise": {
-        "rate": 2.2717,
+        "rate": 2.2272,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 227.17
+        "markup": 0.81,
+        "receiveAmount": 222.72
       }
     }
   },
@@ -38,7 +38,7 @@
       "wise": {
         "rate": 2.2321,
         "fee": 0,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 223.21
       }
     }
@@ -49,7 +49,7 @@
       "wise": {
         "rate": 2.2371,
         "fee": 0,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 223.71
       }
     }
@@ -60,7 +60,7 @@
       "wise": {
         "rate": 2.2321,
         "fee": 0,
-        "markup": null,
+        "markup": 1.11,
         "receiveAmount": 223.21
       }
     }
@@ -71,7 +71,7 @@
       "wise": {
         "rate": 2.2321,
         "fee": 0,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 223.21
       }
     }
@@ -82,7 +82,7 @@
       "wise": {
         "rate": 2.2321,
         "fee": 0,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 223.21
       }
     }
@@ -93,7 +93,7 @@
       "wise": {
         "rate": 2.2321,
         "fee": 0,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 223.21
       }
     }
@@ -104,7 +104,7 @@
       "wise": {
         "rate": 2.2321,
         "fee": 0,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 223.21
       }
     }
@@ -115,7 +115,7 @@
       "wise": {
         "rate": 2.2321,
         "fee": 0,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 223.21
       }
     }
@@ -126,19 +126,8 @@
       "wise": {
         "rate": 2.2525,
         "fee": 0,
-        "markup": null,
+        "markup": -0.43,
         "receiveAmount": 225.25
-      }
-    }
-  },
-  {
-    "date": "2026-04-08",
-    "providers": {
-      "wise": {
-        "rate": 2.248,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 224.8
       }
     }
   },
@@ -148,7 +137,7 @@
       "wise": {
         "rate": 2.2356,
         "fee": 0,
-        "markup": null,
+        "markup": -0.54,
         "receiveAmount": 223.56
       }
     }
@@ -159,7 +148,7 @@
       "wise": {
         "rate": 2.223,
         "fee": 0,
-        "markup": null,
+        "markup": -0.46,
         "receiveAmount": 222.3
       }
     }
@@ -170,7 +159,7 @@
       "wise": {
         "rate": 2.2217,
         "fee": 0,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 222.17
       }
     }
@@ -181,19 +170,8 @@
       "wise": {
         "rate": 2.2217,
         "fee": 0,
-        "markup": null,
+        "markup": -0.27,
         "receiveAmount": 222.17
-      }
-    }
-  },
-  {
-    "date": "2026-04-13",
-    "providers": {
-      "wise": {
-        "rate": 2.2422,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 224.22
       }
     }
   },
@@ -203,7 +181,7 @@
       "wise": {
         "rate": 2.2267,
         "fee": 0,
-        "markup": null,
+        "markup": -0.84,
         "receiveAmount": 222.67
       }
     }
@@ -214,7 +192,7 @@
       "wise": {
         "rate": 2.2151,
         "fee": 0,
-        "markup": null,
+        "markup": -0.7,
         "receiveAmount": 221.51
       }
     }
@@ -225,7 +203,7 @@
       "wise": {
         "rate": 2.209,
         "fee": 0,
-        "markup": null,
+        "markup": 0.53,
         "receiveAmount": 220.9
       }
     }
@@ -236,7 +214,7 @@
       "wise": {
         "rate": 2.2117,
         "fee": 0,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 221.17
       }
     }
@@ -247,7 +225,7 @@
       "wise": {
         "rate": 2.2117,
         "fee": 0,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 221.17
       }
     }
@@ -258,7 +236,7 @@
       "wise": {
         "rate": 2.2117,
         "fee": 0,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 221.17
       }
     }
@@ -269,7 +247,7 @@
       "wise": {
         "rate": 2.22,
         "fee": 0,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 222
       }
     }
@@ -280,7 +258,7 @@
       "wise": {
         "rate": 2.206,
         "fee": 0,
-        "markup": null,
+        "markup": -0.55,
         "receiveAmount": 220.6
       }
     }
@@ -291,7 +269,7 @@
       "wise": {
         "rate": 2.2056,
         "fee": 0,
-        "markup": null,
+        "markup": -0.37,
         "receiveAmount": 220.56
       }
     }
@@ -302,7 +280,7 @@
       "wise": {
         "rate": 2.2056,
         "fee": 0,
-        "markup": null,
+        "markup": 0.55,
         "receiveAmount": 220.56
       }
     }
@@ -313,7 +291,7 @@
       "wise": {
         "rate": 2.2185,
         "fee": 0,
-        "markup": null,
+        "markup": -0.61,
         "receiveAmount": 221.85
       }
     }
@@ -324,7 +302,7 @@
       "wise": {
         "rate": 2.2097,
         "fee": 0,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 220.97
       }
     }
@@ -335,19 +313,8 @@
       "wise": {
         "rate": 2.2097,
         "fee": 0,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 220.97
-      }
-    }
-  },
-  {
-    "date": "2026-04-27",
-    "providers": {
-      "wise": {
-        "rate": 2.2242,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 222.42
       }
     }
   },
@@ -357,7 +324,7 @@
       "wise": {
         "rate": 2.2075,
         "fee": 0,
-        "markup": null,
+        "markup": -0.52,
         "receiveAmount": 220.75
       }
     }
@@ -368,7 +335,7 @@
       "wise": {
         "rate": 2.2112,
         "fee": 0,
-        "markup": null,
+        "markup": -0.4,
         "receiveAmount": 221.12
       }
     }
@@ -379,7 +346,7 @@
       "wise": {
         "rate": 2.2227,
         "fee": 0,
-        "markup": null,
+        "markup": -0.67,
         "receiveAmount": 222.27
       }
     }
@@ -390,7 +357,7 @@
       "wise": {
         "rate": 2.2026,
         "fee": 0,
-        "markup": null,
+        "markup": -0.42,
         "receiveAmount": 220.26
       }
     }
@@ -401,7 +368,7 @@
       "wise": {
         "rate": 2.1939,
         "fee": 0,
-        "markup": null,
+        "markup": 0.49,
         "receiveAmount": 219.39
       }
     }
@@ -412,7 +379,7 @@
       "wise": {
         "rate": 2.1939,
         "fee": 0,
-        "markup": null,
+        "markup": 0.56,
         "receiveAmount": 219.39
       }
     }
@@ -423,7 +390,7 @@
       "wise": {
         "rate": 2.2036,
         "fee": 0,
-        "markup": null,
+        "markup": -0.48,
         "receiveAmount": 220.36
       }
     }
@@ -434,7 +401,7 @@
       "wise": {
         "rate": 2.2063,
         "fee": 0,
-        "markup": null,
+        "markup": -0.24,
         "receiveAmount": 220.63
       }
     }
@@ -445,7 +412,7 @@
       "wise": {
         "rate": 2.2036,
         "fee": 0,
-        "markup": null,
+        "markup": -0.59,
         "receiveAmount": 220.36
       }
     }
@@ -456,7 +423,7 @@
       "wise": {
         "rate": 2.2046,
         "fee": 0,
-        "markup": null,
+        "markup": -0.95,
         "receiveAmount": 220.46
       }
     }
@@ -467,7 +434,7 @@
       "wise": {
         "rate": 2.2007,
         "fee": 0,
-        "markup": null,
+        "markup": -0.48,
         "receiveAmount": 220.07
       }
     }
@@ -478,7 +445,7 @@
       "wise": {
         "rate": 2.1851,
         "fee": 0,
-        "markup": null,
+        "markup": 0.66,
         "receiveAmount": 218.51
       }
     }
@@ -489,7 +456,7 @@
       "wise": {
         "rate": 2.1851,
         "fee": 0,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 218.51
       }
     }
@@ -500,7 +467,7 @@
       "wise": {
         "rate": 2.2012,
         "fee": 0,
-        "markup": null,
+        "markup": -0.6,
         "receiveAmount": 220.12
       }
     }
@@ -511,7 +478,7 @@
       "wise": {
         "rate": 2.198,
         "fee": 0,
-        "markup": null,
+        "markup": -0.45,
         "receiveAmount": 219.8
       }
     }
@@ -522,7 +489,7 @@
       "wise": {
         "rate": 2.2005,
         "fee": 0,
-        "markup": null,
+        "markup": -0.69,
         "receiveAmount": 220.05
       }
     }
@@ -533,13 +500,13 @@
       "wise": {
         "rate": 2.1839,
         "fee": 0,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 218.39
       },
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 5.95,
         "receiveAmount": 206
       }
     }
@@ -550,13 +517,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.8,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.1839,
         "fee": 0,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 218.39
       }
     }
@@ -567,13 +534,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.05,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.181,
         "fee": 0,
-        "markup": null,
+        "markup": 1.01,
         "receiveAmount": 218.1
       }
     }
@@ -584,13 +551,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.07,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.181,
         "fee": 0,
-        "markup": null,
+        "markup": 1.04,
         "receiveAmount": 218.1
       }
     }
@@ -601,13 +568,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.17,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.218,
         "fee": 0,
-        "markup": null,
+        "markup": -0.54,
         "receiveAmount": 221.8
       }
     }
@@ -618,13 +585,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.04,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2131,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.45,
         "receiveAmount": 203.14
       }
     }
@@ -635,13 +602,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 5.87,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2158,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.28,
         "receiveAmount": 203.39
       }
     }
@@ -652,14 +619,14 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.17,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2153,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 203.35
+        "markup": -0.42,
+        "receiveAmount": 203.34
       }
     }
   },
@@ -669,13 +636,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.09,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2085,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.19,
         "receiveAmount": 202.72
       }
     }
@@ -686,14 +653,14 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.49,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.193,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 201.29
+        "markup": 0.93,
+        "receiveAmount": 201.3
       }
     }
   },
@@ -703,14 +670,14 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.49,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.193,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 201.29
+        "markup": 0.93,
+        "receiveAmount": 201.3
       }
     }
   },
@@ -720,13 +687,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2151,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.59,
         "receiveAmount": 203.32
       }
     }
@@ -737,13 +704,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.95,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2129,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.54,
         "receiveAmount": 203.12
       }
     }
@@ -754,14 +721,14 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.17,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2161,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 203.41
+        "markup": -0.45,
+        "receiveAmount": 203.42
       }
     }
   },
@@ -771,13 +738,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.56,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2078,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 202.65
       }
     }
@@ -788,13 +755,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.93,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.193,
         "fee": 14.24,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 188.07
       }
     }
@@ -805,13 +772,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.59,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.193,
         "fee": 14.24,
-        "markup": null,
+        "markup": 0.93,
         "receiveAmount": 188.07
       }
     }
@@ -822,13 +789,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.74,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.193,
         "fee": 14.24,
-        "markup": null,
+        "markup": 1.09,
         "receiveAmount": 188.07
       }
     }
@@ -839,13 +806,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.83,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.206,
         "fee": 14.24,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 189.19
       }
     }
@@ -856,13 +823,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.81,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2107,
         "fee": 14.24,
-        "markup": null,
+        "markup": -0.59,
         "receiveAmount": 189.59
       }
     }
@@ -873,13 +840,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.29,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2039,
         "fee": 0,
-        "markup": null,
+        "markup": -0.26,
         "receiveAmount": 220.39
       }
     }
@@ -890,13 +857,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.12,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2119,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.32,
         "receiveAmount": 203.03
       }
     }
@@ -907,14 +874,14 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.18,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2114,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 202.99
+        "markup": -0.23,
+        "receiveAmount": 202.98
       }
     }
   },
@@ -924,14 +891,14 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.86,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.1954,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 201.51
+        "markup": 1.12,
+        "receiveAmount": 201.52
       }
     }
   },
@@ -941,14 +908,14 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.86,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.1954,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 201.51
+        "markup": 1.12,
+        "receiveAmount": 201.52
       }
     }
   },
@@ -958,14 +925,8 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.85,
         "receiveAmount": 209
-      },
-      "wise": {
-        "rate": 2.2432,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 205.9
       }
     }
   },
@@ -975,14 +936,14 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.87,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2245,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 204.18
+        "markup": -0.19,
+        "receiveAmount": 204.19
       }
     }
   },
@@ -992,13 +953,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.92,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2334,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.54,
         "receiveAmount": 205
       }
     }
@@ -1009,13 +970,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.92,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2334,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.54,
         "receiveAmount": 205
       }
     }
@@ -1026,13 +987,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.22,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.208,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.45,
         "receiveAmount": 202.67
       }
     }
@@ -1043,13 +1004,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.65,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.208,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.91,
         "receiveAmount": 202.67
       }
     }
@@ -1060,13 +1021,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.65,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.208,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.91,
         "receiveAmount": 202.67
       }
     }
@@ -1077,13 +1038,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.82,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2309,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.53,
         "receiveAmount": 204.77
       }
     }
@@ -1094,13 +1055,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.82,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2309,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.53,
         "receiveAmount": 204.77
       }
     }
@@ -1111,13 +1072,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.82,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2309,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.53,
         "receiveAmount": 204.77
       }
     }
@@ -1128,13 +1089,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 6.71,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2384,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 205.46
       }
     }
@@ -1145,13 +1106,13 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 6.94,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2401,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 205.62
       }
     }
@@ -1162,13 +1123,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 5.65,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2173,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.85,
         "receiveAmount": 203.53
       }
     }
@@ -1179,13 +1140,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 5.65,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2173,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.85,
         "receiveAmount": 203.53
       }
     }
@@ -1196,13 +1157,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.04,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2424,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.15,
         "receiveAmount": 205.83
       }
     }
@@ -1213,13 +1174,13 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.75,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2454,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 206.11
       }
     }
@@ -1230,13 +1191,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.02,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2505,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.23,
         "receiveAmount": 206.57
       }
     }
@@ -1247,13 +1208,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.49,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2533,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 206.83
       }
     }
@@ -1264,13 +1225,13 @@
       "taptap-send": {
         "rate": 2.13,
         "fee": 0,
-        "markup": null,
+        "markup": 6,
         "receiveAmount": 213
       },
       "wise": {
         "rate": 2.253,
         "fee": 8.21,
-        "markup": null,
+        "markup": 0.58,
         "receiveAmount": 206.8
       }
     }
@@ -1281,13 +1242,13 @@
       "taptap-send": {
         "rate": 2.13,
         "fee": 0,
-        "markup": null,
+        "markup": 5.63,
         "receiveAmount": 213
       },
       "wise": {
         "rate": 2.2302,
         "fee": 8.21,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 204.71
       }
     }
@@ -1298,13 +1259,13 @@
       "taptap-send": {
         "rate": 2.13,
         "fee": 0,
-        "markup": null,
+        "markup": 5.71,
         "receiveAmount": 213
       },
       "wise": {
         "rate": 2.2302,
         "fee": 8.21,
-        "markup": null,
+        "markup": 1.28,
         "receiveAmount": 204.71
       }
     }
@@ -1315,13 +1276,13 @@
       "taptap-send": {
         "rate": 2.13,
         "fee": 0,
-        "markup": null,
+        "markup": 5.71,
         "receiveAmount": 213
       },
       "wise": {
         "rate": 2.2302,
         "fee": 8.21,
-        "markup": null,
+        "markup": 1.28,
         "receiveAmount": 204.71
       }
     }
@@ -1332,14 +1293,14 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.26,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2612,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 207.55
+        "markup": -0.46,
+        "receiveAmount": 207.56
       }
     }
   },
@@ -1349,14 +1310,14 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.04,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.249,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.43
+        "markup": -0.15,
+        "receiveAmount": 206.44
       }
     }
   },
@@ -1366,13 +1327,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.29,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2607,
         "fee": 8.21,
-        "markup": null,
+        "markup": -0.4,
         "receiveAmount": 207.51
       }
     }
@@ -1383,14 +1344,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 6.27,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": 0.3,
+        "receiveAmount": 207
       }
     }
   },
@@ -1400,14 +1361,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 6.02,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": 0.03,
+        "receiveAmount": 207
       }
     }
   },
@@ -1417,14 +1378,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 6.02,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": 0.03,
+        "receiveAmount": 207
       }
     }
   },
@@ -1434,14 +1395,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.59,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.43,
+        "receiveAmount": 207
       }
     }
   },
@@ -1451,14 +1412,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.27,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.76,
+        "receiveAmount": 207
       }
     }
   },
@@ -1468,14 +1429,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.3,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.74,
+        "receiveAmount": 207
       }
     }
   },
@@ -1485,14 +1446,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.34,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.69,
+        "receiveAmount": 207
       }
     }
   },
@@ -1502,14 +1463,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.98,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1519,14 +1474,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.64,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.37,
+        "receiveAmount": 207
       }
     }
   },
@@ -1536,14 +1491,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.56,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.46,
+        "receiveAmount": 207
       }
     }
   },
@@ -1553,14 +1508,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.2,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.84,
+        "receiveAmount": 207
       }
     }
   },
@@ -1570,14 +1525,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.18,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.86,
+        "receiveAmount": 207
       }
     }
   },
@@ -1587,14 +1542,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.79,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1604,14 +1553,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.36,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.67,
+        "receiveAmount": 207
       }
     }
   },
@@ -1621,14 +1570,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.43,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.59,
+        "receiveAmount": 207
       }
     }
   },
@@ -1638,14 +1587,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.43,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.59,
+        "receiveAmount": 207
       }
     }
   },
@@ -1655,14 +1604,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.43,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.59,
+        "receiveAmount": 207
       }
     }
   },
@@ -1672,14 +1621,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.96,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1689,14 +1632,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.62,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1706,14 +1643,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.29,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.74,
+        "receiveAmount": 207
       }
     }
   },
@@ -1723,14 +1660,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.53,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.49,
+        "receiveAmount": 207
       }
     }
   },
@@ -1740,14 +1677,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.61,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.4,
+        "receiveAmount": 207
       }
     }
   },
@@ -1757,14 +1694,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.73,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.27,
+        "receiveAmount": 207
       }
     }
   },
@@ -1774,14 +1711,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.65,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.36,
+        "receiveAmount": 207
       }
     }
   },
@@ -1791,14 +1728,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.06,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -1,
+        "receiveAmount": 207
       }
     }
   },
@@ -1808,14 +1745,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1825,14 +1756,14 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.1,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2551,
         "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
+        "markup": -0.94,
+        "receiveAmount": 207
       }
     }
   },
@@ -1842,14 +1773,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.97,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1859,14 +1784,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.39,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1876,14 +1795,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.24,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1893,14 +1806,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.25,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1910,14 +1817,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.25,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1927,14 +1828,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.41,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1944,14 +1839,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.3,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1961,14 +1850,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.19,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1978,14 +1861,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.52,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -1995,14 +1872,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -2012,14 +1883,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.36,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -2029,14 +1894,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.13,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -2046,14 +1905,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.18,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -2063,14 +1916,8 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 4.25,
         "receiveAmount": 212
-      },
-      "wise": {
-        "rate": 2.2551,
-        "fee": 8.21,
-        "markup": null,
-        "receiveAmount": 206.99
       }
     }
   },
@@ -2080,13 +1927,13 @@
       "taptap-send": {
         "rate": 2.1,
         "fee": 0,
-        "markup": null,
+        "markup": 5.19,
         "receiveAmount": 210
       },
       "wise": {
         "rate": 2.2249,
         "fee": 10.33,
-        "markup": null,
+        "markup": -0.45,
         "receiveAmount": 199.51
       }
     }
@@ -2097,13 +1944,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.03,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2249,
         "fee": 10.14,
-        "markup": null,
+        "markup": -0.52,
         "receiveAmount": 199.93
       }
     }
@@ -2114,13 +1961,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.61,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2267,
         "fee": 10.54,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 199.2
       }
     }
@@ -2131,13 +1978,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.02,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2267,
         "fee": 10.54,
-        "markup": null,
+        "markup": -0.61,
         "receiveAmount": 199.2
       }
     }
@@ -2148,14 +1995,14 @@
       "taptap-send": {
         "rate": 2.1,
         "fee": 0,
-        "markup": null,
+        "markup": 5.03,
         "receiveAmount": 210
       },
       "wise": {
         "rate": 2.2225,
         "fee": 10.49,
-        "markup": null,
-        "receiveAmount": 198.93
+        "markup": -0.51,
+        "receiveAmount": 198.94
       }
     }
   },
@@ -2165,13 +2012,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 6.13,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.22,
         "fee": 10.55,
-        "markup": null,
+        "markup": -0.67,
         "receiveAmount": 198.58
       }
     }
@@ -2182,14 +2029,14 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 5.91,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2235,
         "fee": 10.3,
-        "markup": null,
-        "receiveAmount": 199.44
+        "markup": -0.58,
+        "receiveAmount": 199.45
       }
     }
   },
@@ -2199,13 +2046,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.9,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2136,
         "fee": 10.47,
-        "markup": null,
+        "markup": -0.62,
         "receiveAmount": 198.18
       }
     }
@@ -2216,14 +2063,14 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.84,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2153,
         "fee": 10.39,
-        "markup": null,
-        "receiveAmount": 198.52
+        "markup": -0.77,
+        "receiveAmount": 198.51
       }
     }
   },
@@ -2233,13 +2080,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2134,
         "fee": 10.87,
-        "markup": null,
+        "markup": -1,
         "receiveAmount": 197.28
       }
     }
@@ -2250,13 +2097,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.66,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2134,
         "fee": 10.87,
-        "markup": null,
+        "markup": -0.29,
         "receiveAmount": 197.28
       }
     }
@@ -2267,13 +2114,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.55,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2134,
         "fee": 10.87,
-        "markup": null,
+        "markup": -1,
         "receiveAmount": 197.28
       }
     }
@@ -2284,13 +2131,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 5.4,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2107,
         "fee": 10.39,
-        "markup": null,
+        "markup": -0.54,
         "receiveAmount": 198.1
       }
     }
@@ -2301,13 +2148,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.09,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2078,
         "fee": 10.47,
-        "markup": null,
+        "markup": -0.65,
         "receiveAmount": 197.66
       }
     }
@@ -2318,13 +2165,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.07,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2087,
         "fee": 10.39,
-        "markup": null,
+        "markup": -0.71,
         "receiveAmount": 197.92
       }
     }
@@ -2335,14 +2182,14 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.03,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2078,
         "fee": 10.32,
-        "markup": null,
-        "receiveAmount": 197.99
+        "markup": -0.71,
+        "receiveAmount": 198
       }
     }
   },
@@ -2352,13 +2199,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.85,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2078,
         "fee": 10.47,
-        "markup": null,
+        "markup": -0.41,
         "receiveAmount": 197.66
       }
     }
@@ -2369,13 +2216,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.72,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2078,
         "fee": 10.47,
-        "markup": null,
+        "markup": -0.56,
         "receiveAmount": 197.66
       }
     }
@@ -2386,13 +2233,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.82,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2131,
         "fee": 10.44,
-        "markup": null,
+        "markup": -0.69,
         "receiveAmount": 198.21
       }
     }
@@ -2403,13 +2250,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.82,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2131,
         "fee": 10.44,
-        "markup": null,
+        "markup": -0.69,
         "receiveAmount": 198.21
       }
     }
@@ -2420,13 +2267,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.98,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2153,
         "fee": 10.31,
-        "markup": null,
+        "markup": -0.62,
         "receiveAmount": 198.69
       }
     }
@@ -2437,13 +2284,13 @@
       "taptap-send": {
         "rate": 2.07,
         "fee": 0,
-        "markup": null,
+        "markup": 5.98,
         "receiveAmount": 207
       },
       "wise": {
         "rate": 2.2175,
         "fee": 10.55,
-        "markup": null,
+        "markup": -0.72,
         "receiveAmount": 198.36
       }
     }
@@ -2454,13 +2301,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.07,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2102,
         "fee": 10.54,
-        "markup": null,
+        "markup": -0.78,
         "receiveAmount": 197.72
       }
     }
@@ -2471,13 +2318,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.5,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.208,
         "fee": 10.38,
-        "markup": null,
+        "markup": -0.22,
         "receiveAmount": 197.88
       }
     }
@@ -2488,13 +2335,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.95,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.208,
         "fee": 10.38,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 197.88
       }
     }
@@ -2505,14 +2352,14 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.34,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2036,
         "fee": 10.29,
-        "markup": null,
-        "receiveAmount": 197.69
+        "markup": -0.19,
+        "receiveAmount": 197.68
       }
     }
   },
@@ -2522,13 +2369,13 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.16,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.2053,
         "fee": 10.27,
-        "markup": null,
+        "markup": -0.46,
         "receiveAmount": 197.88
       }
     }
@@ -2539,14 +2386,14 @@
       "taptap-send": {
         "rate": 2.06,
         "fee": 0,
-        "markup": null,
+        "markup": 6.36,
         "receiveAmount": 206
       },
       "wise": {
         "rate": 2.206,
         "fee": 10.22,
-        "markup": null,
-        "receiveAmount": 198.06
+        "markup": -0.27,
+        "receiveAmount": 198.05
       }
     }
   },
@@ -2556,13 +2403,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 5.42,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2156,
         "fee": 10.89,
-        "markup": null,
+        "markup": -0.74,
         "receiveAmount": 197.43
       }
     }
@@ -2573,14 +2420,14 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.87,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2129,
         "fee": 10.07,
-        "markup": null,
-        "receiveAmount": 199
+        "markup": 0.33,
+        "receiveAmount": 199.01
       }
     }
   },
@@ -2590,14 +2437,14 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.56,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2129,
         "fee": 10.07,
-        "markup": null,
-        "receiveAmount": 199
+        "markup": 0,
+        "receiveAmount": 199.01
       }
     }
   },
@@ -2607,14 +2454,14 @@
       "taptap-send": {
         "rate": 2.09,
         "fee": 0,
-        "markup": null,
+        "markup": 5.75,
         "receiveAmount": 209
       },
       "wise": {
         "rate": 2.2129,
         "fee": 10.07,
-        "markup": null,
-        "receiveAmount": 199
+        "markup": 0.2,
+        "receiveAmount": 199.01
       }
     }
   },
@@ -2624,13 +2471,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 5.88,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2205,
         "fee": 10.67,
-        "markup": null,
+        "markup": -0.48,
         "receiveAmount": 198.36
       }
     }
@@ -2641,13 +2488,13 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 5.98,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.22,
         "fee": 10.21,
-        "markup": null,
+        "markup": -0.34,
         "receiveAmount": 199.33
       }
     }
@@ -2658,13 +2505,13 @@
       "taptap-send": {
         "rate": 2.1,
         "fee": 0,
-        "markup": null,
+        "markup": 5.1,
         "receiveAmount": 210
       },
       "wise": {
         "rate": 2.2242,
         "fee": 10.54,
-        "markup": null,
+        "markup": -0.51,
         "receiveAmount": 198.98
       }
     }
@@ -2675,13 +2522,13 @@
       "taptap-send": {
         "rate": 2.1,
         "fee": 0,
-        "markup": null,
+        "markup": 5.92,
         "receiveAmount": 210
       },
       "wise": {
         "rate": 2.224,
         "fee": 10.08,
-        "markup": null,
+        "markup": 0.36,
         "receiveAmount": 199.98
       }
     }
@@ -2692,14 +2539,14 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.27,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2166,
         "fee": 9.62,
-        "markup": null,
-        "receiveAmount": 200.33
+        "markup": 0.11,
+        "receiveAmount": 200.34
       }
     }
   },
@@ -2709,14 +2556,14 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.13,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2166,
         "fee": 9.62,
-        "markup": null,
-        "receiveAmount": 200.33
+        "markup": -0.03,
+        "receiveAmount": 200.34
       }
     }
   },
@@ -2726,14 +2573,14 @@
       "taptap-send": {
         "rate": 2.08,
         "fee": 0,
-        "markup": null,
+        "markup": 6.13,
         "receiveAmount": 208
       },
       "wise": {
         "rate": 2.2166,
         "fee": 9.62,
-        "markup": null,
-        "receiveAmount": 200.33
+        "markup": -0.03,
+        "receiveAmount": 200.34
       }
     }
   },
@@ -2743,14 +2590,14 @@
       "taptap-send": {
         "rate": 2.1,
         "fee": 0,
-        "markup": null,
+        "markup": 5.43,
         "receiveAmount": 210
       },
       "wise": {
         "rate": 2.2381,
         "fee": 11.37,
-        "markup": null,
-        "receiveAmount": 198.37
+        "markup": -0.79,
+        "receiveAmount": 198.36
       }
     }
   },
@@ -2760,13 +2607,13 @@
       "taptap-send": {
         "rate": 2.1,
         "fee": 0,
-        "markup": null,
+        "markup": 6.2,
         "receiveAmount": 210
       },
       "wise": {
         "rate": 2.2339,
         "fee": 10.61,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 199.69
       }
     }
@@ -2777,13 +2624,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 5.68,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2356,
         "fee": 10.83,
-        "markup": null,
+        "markup": 0.07,
         "receiveAmount": 199.35
       }
     }
@@ -2794,13 +2641,13 @@
       "taptap-send": {
         "rate": 2.12,
         "fee": 0,
-        "markup": null,
+        "markup": 5.39,
         "receiveAmount": 212
       },
       "wise": {
         "rate": 2.2376,
         "fee": 10.02,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 201.34
       }
     }
@@ -2811,13 +2658,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.11,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2381,
         "fee": 10.14,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 201.12
       }
     }
@@ -2828,13 +2675,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.11,
         "receiveAmount": 211
       },
       "wise": {
         "rate": 2.2381,
         "fee": 10.14,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 201.12
       }
     }
@@ -2845,13 +2692,13 @@
       "taptap-send": {
         "rate": 2.11,
         "fee": 0,
-        "markup": null,
+        "markup": 6.11,
         "receiveAmount": 211
       },
       "wise": {
-        "rate": 2.2381,
+        "rate": 2.23814,
         "fee": 10.14,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 201.12
       }
     }

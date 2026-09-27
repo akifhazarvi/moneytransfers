@@ -3,27 +3,27 @@
     "date": "2026-03-17",
     "providers": {
       "instarem": {
-        "rate": 0.879,
+        "rate": 0.879012,
         "fee": 0.35,
-        "markup": 0.0089,
+        "markup": 0.01,
         "receiveAmount": 87.59
       },
       "wise": {
-        "rate": 0.8791,
+        "rate": 0.87909,
         "fee": 27.57,
         "markup": 0,
         "receiveAmount": 63.67
       },
       "hang-seng": {
-        "rate": 0.874,
+        "rate": 0.873989,
         "fee": 0,
-        "markup": 0.5803,
+        "markup": 0.58,
         "receiveAmount": 87.4
       },
       "hsbc-hk": {
-        "rate": 0.8739,
+        "rate": 0.873913,
         "fee": 70,
-        "markup": 0.5889,
+        "markup": 0.59,
         "receiveAmount": 26.22
       }
     }
@@ -32,27 +32,27 @@
     "date": "2026-03-18",
     "providers": {
       "hang-seng": {
-        "rate": 0.8726,
+        "rate": 0.872618,
         "fee": 0,
-        "markup": 0.6123,
+        "markup": 0.61,
         "receiveAmount": 87.26
       },
       "instarem": {
-        "rate": 0.8778,
+        "rate": 0.877764,
         "fee": 0.35,
-        "markup": 0.0262,
+        "markup": 0.03,
         "receiveAmount": 87.47
       },
       "wise": {
-        "rate": 0.878,
+        "rate": 0.877994,
         "fee": 27.59,
         "markup": 0,
         "receiveAmount": 63.58
       },
       "hsbc-hk": {
-        "rate": 0.8724,
+        "rate": 0.87245,
         "fee": 70,
-        "markup": 0.6315,
+        "markup": 0.63,
         "receiveAmount": 26.17
       }
     }
@@ -63,7 +63,7 @@
       "pandaremit": {
         "rate": 0.8662,
         "fee": 30,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 60.63
       }
     }
@@ -74,7 +74,7 @@
       "pandaremit": {
         "rate": 0.8677,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 60.74
       }
     }
@@ -85,7 +85,7 @@
       "pandaremit": {
         "rate": 0.8662,
         "fee": 30,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 60.63
       }
     }
@@ -96,7 +96,7 @@
       "pandaremit": {
         "rate": 0.8656,
         "fee": 30,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 60.59
       }
     }
@@ -107,7 +107,7 @@
       "pandaremit": {
         "rate": 0.8644,
         "fee": 30,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 60.51
       }
     }
@@ -118,7 +118,7 @@
       "pandaremit": {
         "rate": 0.8644,
         "fee": 30,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 60.51
       }
     }
@@ -129,7 +129,7 @@
       "pandaremit": {
         "rate": 0.8642,
         "fee": 30,
-        "markup": null,
+        "markup": 0.36,
         "receiveAmount": 60.49
       }
     }
@@ -140,7 +140,7 @@
       "pandaremit": {
         "rate": 0.8636,
         "fee": 30,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 60.45
       }
     }
@@ -151,7 +151,7 @@
       "pandaremit": {
         "rate": 0.8628,
         "fee": 30,
-        "markup": null,
+        "markup": 0.37,
         "receiveAmount": 60.4
       }
     }
@@ -162,7 +162,7 @@
       "pandaremit": {
         "rate": 0.8631,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 60.42
       }
     }
@@ -173,7 +173,7 @@
       "pandaremit": {
         "rate": 0.8599,
         "fee": 30,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 60.19
       }
     }
@@ -184,7 +184,7 @@
       "pandaremit": {
         "rate": 0.8599,
         "fee": 30,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 60.19
       }
     }
@@ -195,7 +195,7 @@
       "pandaremit": {
         "rate": 0.861,
         "fee": 30,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 60.27
       }
     }
@@ -206,7 +206,7 @@
       "pandaremit": {
         "rate": 0.8607,
         "fee": 30,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 60.25
       }
     }
@@ -217,7 +217,7 @@
       "pandaremit": {
         "rate": 0.8607,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 60.25
       }
     }
@@ -228,7 +228,7 @@
       "pandaremit": {
         "rate": 0.8623,
         "fee": 30,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 60.36
       }
     }
@@ -239,7 +239,7 @@
       "pandaremit": {
         "rate": 0.8629,
         "fee": 30,
-        "markup": null,
+        "markup": 0.21,
         "receiveAmount": 60.4
       }
     }
@@ -250,7 +250,7 @@
       "pandaremit": {
         "rate": 0.8636,
         "fee": 30,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 60.45
       }
     }
@@ -261,7 +261,7 @@
       "pandaremit": {
         "rate": 0.8639,
         "fee": 30,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 60.47
       }
     }
@@ -272,7 +272,7 @@
       "pandaremit": {
         "rate": 0.8633,
         "fee": 30,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 60.43
       }
     }
@@ -283,7 +283,7 @@
       "pandaremit": {
         "rate": 0.86,
         "fee": 30,
-        "markup": null,
+        "markup": 0.55,
         "receiveAmount": 60.2
       }
     }
@@ -294,7 +294,7 @@
       "pandaremit": {
         "rate": 0.86,
         "fee": 30,
-        "markup": null,
+        "markup": 0.37,
         "receiveAmount": 60.2
       }
     }
@@ -305,7 +305,7 @@
       "pandaremit": {
         "rate": 0.86,
         "fee": 30,
-        "markup": null,
+        "markup": 0.37,
         "receiveAmount": 60.2
       }
     }
@@ -316,7 +316,7 @@
       "pandaremit": {
         "rate": 0.86,
         "fee": 30,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 60.2
       }
     }
@@ -327,7 +327,7 @@
       "pandaremit": {
         "rate": 0.86,
         "fee": 30,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 60.2
       }
     }
@@ -338,7 +338,7 @@
       "pandaremit": {
         "rate": 0.86,
         "fee": 30,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 60.2
       }
     }
@@ -349,7 +349,7 @@
       "pandaremit": {
         "rate": 0.8619,
         "fee": 30,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 60.33
       }
     }
@@ -360,7 +360,7 @@
       "pandaremit": {
         "rate": 0.8623,
         "fee": 30,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 60.36
       }
     }
@@ -371,7 +371,7 @@
       "pandaremit": {
         "rate": 0.8624,
         "fee": 30,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 60.37
       }
     }
@@ -382,7 +382,7 @@
       "pandaremit": {
         "rate": 0.8624,
         "fee": 30,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 60.37
       }
     }
@@ -393,7 +393,7 @@
       "pandaremit": {
         "rate": 0.8631,
         "fee": 30,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 60.42
       }
     }
@@ -404,7 +404,7 @@
       "pandaremit": {
         "rate": 0.8623,
         "fee": 30,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 60.36
       }
     }
@@ -415,7 +415,7 @@
       "pandaremit": {
         "rate": 0.8641,
         "fee": 30,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 60.49
       }
     }
@@ -426,7 +426,7 @@
       "pandaremit": {
         "rate": 0.8668,
         "fee": 30,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 60.68
       }
     }
@@ -437,7 +437,7 @@
       "pandaremit": {
         "rate": 0.8652,
         "fee": 30,
-        "markup": null,
+        "markup": 0.21,
         "receiveAmount": 60.56
       }
     }
@@ -448,7 +448,7 @@
       "pandaremit": {
         "rate": 0.8645,
         "fee": 30,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 60.52
       }
     }
@@ -459,7 +459,7 @@
       "pandaremit": {
         "rate": 0.8645,
         "fee": 30,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 60.52
       }
     }
@@ -470,7 +470,7 @@
       "pandaremit": {
         "rate": 0.8645,
         "fee": 30,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 60.52
       }
     }
@@ -481,7 +481,7 @@
       "pandaremit": {
         "rate": 0.865,
         "fee": 30,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 60.55
       }
     }
@@ -492,7 +492,7 @@
       "pandaremit": {
         "rate": 0.8638,
         "fee": 30,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 60.47
       }
     }
@@ -503,7 +503,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 60.38
       }
     }
@@ -514,7 +514,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 60.38
       }
     }
@@ -525,7 +525,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 60.38
       }
     }
@@ -536,7 +536,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 60.38
       }
     }
@@ -547,7 +547,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 60.38
       }
     }
@@ -558,7 +558,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.47,
         "receiveAmount": 60.38
       }
     }
@@ -569,7 +569,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.54,
         "receiveAmount": 60.38
       }
     }
@@ -580,7 +580,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 60.38
       }
     }
@@ -591,7 +591,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 60.38
       }
     }
@@ -602,7 +602,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 60.38
       }
     }
@@ -613,7 +613,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 60.38
       }
     }
@@ -624,7 +624,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 60.38
       }
     }
@@ -635,7 +635,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 60.38
       }
     }
@@ -646,7 +646,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 60.38
       }
     }
@@ -657,7 +657,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 60.38
       }
     }
@@ -668,7 +668,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 60.38
       }
     }
@@ -679,7 +679,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 60.38
       }
     }
@@ -690,7 +690,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 60.38
       }
     }
@@ -701,7 +701,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 60.38
       }
     }
@@ -712,7 +712,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 60.38
       }
     }
@@ -723,7 +723,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 60.38
       }
     }
@@ -734,7 +734,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 60.38
       }
     }
@@ -745,7 +745,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 60.38
       }
     }
@@ -756,7 +756,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 60.38
       }
     }
@@ -767,7 +767,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 60.38
       }
     }
@@ -778,7 +778,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 60.38
       }
     }
@@ -789,7 +789,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 60.38
       }
     }
@@ -800,7 +800,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 60.38
       }
     }
@@ -811,7 +811,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.25,
         "receiveAmount": 60.38
       }
     }
@@ -822,7 +822,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.15,
         "receiveAmount": 60.38
       }
     }
@@ -833,7 +833,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.17,
         "receiveAmount": 60.38
       }
     }
@@ -844,7 +844,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.18,
         "receiveAmount": 60.38
       }
     }
@@ -855,7 +855,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.11,
         "receiveAmount": 60.38
       }
     }
@@ -866,7 +866,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.26,
         "receiveAmount": 60.38
       }
     }
@@ -877,7 +877,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.27,
         "receiveAmount": 60.38
       }
     }
@@ -888,7 +888,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.29,
         "receiveAmount": 60.38
       }
     }
@@ -899,7 +899,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.28,
         "receiveAmount": 60.38
       }
     }
@@ -910,7 +910,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.27,
         "receiveAmount": 60.38
       }
     }
@@ -921,7 +921,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.32,
         "receiveAmount": 60.38
       }
     }
@@ -932,7 +932,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.34,
         "receiveAmount": 60.38
       }
     }
@@ -943,7 +943,7 @@
       "pandaremit": {
         "rate": 0.8626,
         "fee": 30,
-        "markup": null,
+        "markup": -0.33,
         "receiveAmount": 60.38
       }
     }
@@ -954,7 +954,7 @@
       "pandaremit": {
         "rate": 0.8572,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 60
       }
     }
@@ -965,7 +965,7 @@
       "pandaremit": {
         "rate": 0.8572,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 60
       }
     }
@@ -976,7 +976,7 @@
       "pandaremit": {
         "rate": 0.8563,
         "fee": 30,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 59.94
       }
     }
@@ -987,7 +987,7 @@
       "pandaremit": {
         "rate": 0.8563,
         "fee": 30,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 59.94
       }
     }
@@ -998,7 +998,7 @@
       "pandaremit": {
         "rate": 0.8568,
         "fee": 30,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 59.98
       }
     }
@@ -1009,7 +1009,7 @@
       "pandaremit": {
         "rate": 0.8573,
         "fee": 30,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 60.01
       }
     }
@@ -1020,7 +1020,7 @@
       "pandaremit": {
         "rate": 0.8579,
         "fee": 30,
-        "markup": null,
+        "markup": 0.21,
         "receiveAmount": 60.05
       }
     }
@@ -1031,7 +1031,7 @@
       "pandaremit": {
         "rate": 0.8561,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 59.93
       }
     }
@@ -1042,7 +1042,7 @@
       "pandaremit": {
         "rate": 0.855,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 59.85
       }
     }
@@ -1053,7 +1053,7 @@
       "pandaremit": {
         "rate": 0.8541,
         "fee": 30,
-        "markup": null,
+        "markup": 0.38,
         "receiveAmount": 59.79
       }
     }
@@ -1064,7 +1064,7 @@
       "pandaremit": {
         "rate": 0.8541,
         "fee": 30,
-        "markup": null,
+        "markup": 0.37,
         "receiveAmount": 59.79
       }
     }
@@ -1075,7 +1075,7 @@
       "pandaremit": {
         "rate": 0.8547,
         "fee": 30,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 59.83
       }
     }
@@ -1086,7 +1086,7 @@
       "pandaremit": {
         "rate": 0.8553,
         "fee": 30,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 59.87
       }
     }
@@ -1097,7 +1097,7 @@
       "pandaremit": {
         "rate": 0.8547,
         "fee": 30,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 59.83
       }
     }
@@ -1108,7 +1108,7 @@
       "pandaremit": {
         "rate": 0.8548,
         "fee": 30,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 59.84
       }
     }
@@ -1119,7 +1119,7 @@
       "pandaremit": {
         "rate": 0.8551,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 59.86
       }
     }
@@ -1130,7 +1130,7 @@
       "pandaremit": {
         "rate": 0.8553,
         "fee": 30,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 59.87
       }
     }
@@ -1141,7 +1141,7 @@
       "pandaremit": {
         "rate": 0.8553,
         "fee": 30,
-        "markup": null,
+        "markup": 0.38,
         "receiveAmount": 59.87
       }
     }
@@ -1152,7 +1152,7 @@
       "pandaremit": {
         "rate": 0.8553,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 59.87
       }
     }
@@ -1163,7 +1163,7 @@
       "pandaremit": {
         "rate": 0.8553,
         "fee": 30,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 59.87
       }
     }
@@ -1174,7 +1174,7 @@
       "pandaremit": {
         "rate": 0.8543,
         "fee": 30,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 59.8
       }
     }
@@ -1185,7 +1185,7 @@
       "pandaremit": {
         "rate": 0.8543,
         "fee": 30,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 59.8
       }
     }
@@ -1196,7 +1196,7 @@
       "pandaremit": {
         "rate": 0.8543,
         "fee": 30,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 59.8
       }
     }
@@ -1207,7 +1207,7 @@
       "pandaremit": {
         "rate": 0.8524,
         "fee": 30,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 59.67
       }
     }
@@ -1218,7 +1218,7 @@
       "pandaremit": {
         "rate": 0.8506,
         "fee": 30,
-        "markup": null,
+        "markup": 0.64,
         "receiveAmount": 59.54
       }
     }
@@ -1229,7 +1229,7 @@
       "pandaremit": {
         "rate": 0.8535,
         "fee": 30,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 59.75
       }
     }
@@ -1240,7 +1240,7 @@
       "pandaremit": {
         "rate": 0.853,
         "fee": 30,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 59.71
       }
     }
@@ -1251,7 +1251,7 @@
       "pandaremit": {
         "rate": 0.8528,
         "fee": 30,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 59.7
       }
     }
@@ -1262,7 +1262,7 @@
       "pandaremit": {
         "rate": 0.854,
         "fee": 30,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 59.78
       }
     }
@@ -1273,7 +1273,7 @@
       "pandaremit": {
         "rate": 0.8547,
         "fee": 30,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 59.83
       }
     }
@@ -1284,7 +1284,7 @@
       "pandaremit": {
         "rate": 0.8522,
         "fee": 30,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 59.65
       }
     }
@@ -1295,7 +1295,7 @@
       "pandaremit": {
         "rate": 0.8505,
         "fee": 30,
-        "markup": null,
+        "markup": 0.58,
         "receiveAmount": 59.54
       }
     }
@@ -1306,7 +1306,7 @@
       "pandaremit": {
         "rate": 0.853,
         "fee": 30,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 59.71
       }
     }
@@ -1317,7 +1317,7 @@
       "pandaremit": {
         "rate": 0.8533,
         "fee": 30,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 59.73
       }
     }
@@ -1328,7 +1328,7 @@
       "pandaremit": {
         "rate": 0.8533,
         "fee": 30,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 59.73
       }
     }
@@ -1339,7 +1339,7 @@
       "pandaremit": {
         "rate": 0.8521,
         "fee": 30,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 59.65
       }
     }
@@ -1350,7 +1350,7 @@
       "pandaremit": {
         "rate": 0.8528,
         "fee": 30,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 59.7
       }
     }
@@ -1361,7 +1361,7 @@
       "pandaremit": {
         "rate": 0.8503,
         "fee": 30,
-        "markup": null,
+        "markup": 0.46,
         "receiveAmount": 59.52
       }
     }
@@ -1372,7 +1372,7 @@
       "pandaremit": {
         "rate": 0.8488,
         "fee": 30,
-        "markup": null,
+        "markup": 0.64,
         "receiveAmount": 59.42
       }
     }
@@ -1383,7 +1383,7 @@
       "pandaremit": {
         "rate": 0.8508,
         "fee": 30,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 59.56
       }
     }
@@ -1394,7 +1394,7 @@
       "pandaremit": {
         "rate": 0.8516,
         "fee": 30,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 59.61
       }
     }
@@ -1405,7 +1405,7 @@
       "pandaremit": {
         "rate": 0.8533,
         "fee": 30,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 59.73
       }
     }
@@ -1416,7 +1416,7 @@
       "pandaremit": {
         "rate": 0.854,
         "fee": 30,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 59.78
       }
     }
@@ -1427,7 +1427,7 @@
       "pandaremit": {
         "rate": 0.8539,
         "fee": 30,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 59.77
       }
     }
@@ -1438,7 +1438,7 @@
       "pandaremit": {
         "rate": 0.8539,
         "fee": 30,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 59.77
       }
     }
@@ -1449,7 +1449,7 @@
       "pandaremit": {
         "rate": 0.8521,
         "fee": 30,
-        "markup": null,
+        "markup": 0.47,
         "receiveAmount": 59.65
       }
     }

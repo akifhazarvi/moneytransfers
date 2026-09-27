@@ -1,22 +1,11 @@
 [
   {
-    "date": "2026-09-10",
-    "providers": {
-      "taptap-send": {
-        "rate": 7.478,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 747.8
-      }
-    }
-  },
-  {
     "date": "2026-09-11",
     "providers": {
       "taptap-send": {
         "rate": 7.313,
         "fee": 0,
-        "markup": null,
+        "markup": 0.99,
         "receiveAmount": 731.3
       }
     }
@@ -27,7 +16,7 @@
       "taptap-send": {
         "rate": 7.31,
         "fee": 0,
-        "markup": null,
+        "markup": 0.51,
         "receiveAmount": 731
       }
     }
@@ -38,7 +27,7 @@
       "taptap-send": {
         "rate": 7.311,
         "fee": 0,
-        "markup": null,
+        "markup": 0.51,
         "receiveAmount": 731.1
       }
     }
@@ -49,7 +38,7 @@
       "taptap-send": {
         "rate": 7.306,
         "fee": 0,
-        "markup": null,
+        "markup": 0.56,
         "receiveAmount": 730.6
       }
     }
@@ -60,7 +49,7 @@
       "taptap-send": {
         "rate": 7.331,
         "fee": 0,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 733.1
       }
     }
@@ -71,7 +60,7 @@
       "taptap-send": {
         "rate": 7.324,
         "fee": 0,
-        "markup": null,
+        "markup": 0.74,
         "receiveAmount": 732.4
       }
     }
@@ -82,7 +71,7 @@
       "taptap-send": {
         "rate": 7.323,
         "fee": 0,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 732.3
       }
     }
@@ -93,7 +82,7 @@
       "taptap-send": {
         "rate": 7.349,
         "fee": 0,
-        "markup": null,
+        "markup": 0.95,
         "receiveAmount": 734.9
       }
     }
@@ -104,7 +93,7 @@
       "taptap-send": {
         "rate": 7.364,
         "fee": 0,
-        "markup": null,
+        "markup": 0.51,
         "receiveAmount": 736.4
       }
     }
@@ -115,7 +104,7 @@
       "taptap-send": {
         "rate": 7.358,
         "fee": 0,
-        "markup": null,
+        "markup": 0.57,
         "receiveAmount": 735.8
       }
     }
@@ -126,7 +115,7 @@
       "taptap-send": {
         "rate": 7.386,
         "fee": 0,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 738.6
       }
     }
@@ -137,7 +126,7 @@
       "taptap-send": {
         "rate": 7.359,
         "fee": 0,
-        "markup": null,
+        "markup": 0.98,
         "receiveAmount": 735.9
       }
     }
@@ -148,7 +137,7 @@
       "taptap-send": {
         "rate": 7.345,
         "fee": 0,
-        "markup": null,
+        "markup": 0.72,
         "receiveAmount": 734.5
       }
     }
@@ -159,7 +148,7 @@
       "taptap-send": {
         "rate": 7.371,
         "fee": 0,
-        "markup": null,
+        "markup": -0.16,
         "receiveAmount": 737.1
       }
     }
@@ -170,7 +159,7 @@
       "taptap-send": {
         "rate": 7.317,
         "fee": 0,
-        "markup": null,
+        "markup": 0.84,
         "receiveAmount": 731.7
       }
     }
@@ -181,7 +170,7 @@
       "taptap-send": {
         "rate": 7.318,
         "fee": 0,
-        "markup": null,
+        "markup": 0.5,
         "receiveAmount": 731.8
       }
     }
@@ -192,7 +181,7 @@
       "taptap-send": {
         "rate": 7.318,
         "fee": 0,
-        "markup": null,
+        "markup": 0.52,
         "receiveAmount": 731.8
       }
     }

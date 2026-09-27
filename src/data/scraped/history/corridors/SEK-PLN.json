@@ -3,21 +3,21 @@
     "date": "2026-03-17",
     "providers": {
       "remitly": {
-        "rate": 0.3869,
+        "rate": 0.38691,
         "fee": 19.9,
-        "markup": 2.6165,
+        "markup": 2.62,
         "receiveAmount": 30.99
       },
       "wise": {
-        "rate": 0.3973,
+        "rate": 0.397306,
         "fee": 10.62,
         "markup": 0,
         "receiveAmount": 35.51
       },
       "paypal": {
-        "rate": 0.374,
+        "rate": 0.373963,
         "fee": 19.99,
-        "markup": 5.8752,
+        "markup": 5.88,
         "receiveAmount": 29.92
       }
     }
@@ -26,21 +26,21 @@
     "date": "2026-03-18",
     "providers": {
       "paypal": {
-        "rate": 0.3772,
+        "rate": 0.377167,
         "fee": 19.99,
-        "markup": 5.2961,
+        "markup": 5.3,
         "receiveAmount": 30.18
       },
       "wise": {
-        "rate": 0.3982,
+        "rate": 0.398247,
         "fee": 10.72,
-        "markup": 0.003,
+        "markup": 0,
         "receiveAmount": 35.56
       },
       "remitly": {
-        "rate": 0.3879,
+        "rate": 0.387896,
         "fee": 19.9,
-        "markup": 2.602,
+        "markup": 2.6,
         "receiveAmount": 31.07
       }
     }

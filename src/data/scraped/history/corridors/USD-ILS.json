@@ -3,9 +3,9 @@
     "date": "2026-03-18",
     "providers": {
       "xoom": {
-        "rate": 3.0363,
+        "rate": 3.03633,
         "fee": 0,
-        "markup": 1.8323,
+        "markup": 1.83,
         "receiveAmount": 303.63
       },
       "wise": {
@@ -15,9 +15,9 @@
         "receiveAmount": 298.38
       },
       "remitly": {
-        "rate": 3.0338,
+        "rate": 3.03382,
         "fee": 0,
-        "markup": 1.9134,
+        "markup": 1.91,
         "receiveAmount": 303.38
       }
     }
@@ -28,8 +28,8 @@
       "wise": {
         "rate": 3.1487,
         "fee": 3.53,
-        "markup": null,
-        "receiveAmount": 303.75
+        "markup": 0.01,
+        "receiveAmount": 303.76
       }
     }
   },
@@ -39,7 +39,7 @@
       "wise": {
         "rate": 3.1497,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 303.85
       }
     }
@@ -50,7 +50,7 @@
       "wise": {
         "rate": 3.1714,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.75,
         "receiveAmount": 305.94
       }
     }
@@ -61,7 +61,7 @@
       "wise": {
         "rate": 3.1484,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.55,
         "receiveAmount": 303.73
       }
     }
@@ -72,7 +72,7 @@
       "wise": {
         "rate": 3.1296,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 301.91
       }
     }
@@ -83,7 +83,7 @@
       "wise": {
         "rate": 3.133,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.17,
         "receiveAmount": 302.24
       }
     }
@@ -94,7 +94,7 @@
       "wise": {
         "rate": 3.1329,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 302.23
       }
     }
@@ -105,7 +105,7 @@
       "wise": {
         "rate": 3.132,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 302.14
       }
     }
@@ -116,7 +116,7 @@
       "wise": {
         "rate": 3.132,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 302.14
       }
     }
@@ -127,7 +127,7 @@
       "wise": {
         "rate": 3.1442,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 303.32
       }
     }
@@ -138,8 +138,8 @@
       "wise": {
         "rate": 3.1506,
         "fee": 3.53,
-        "markup": null,
-        "receiveAmount": 303.93
+        "markup": -0.01,
+        "receiveAmount": 303.94
       }
     }
   },
@@ -149,7 +149,7 @@
       "wise": {
         "rate": 3.1001,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 299.07
       }
     }
@@ -160,7 +160,7 @@
       "wise": {
         "rate": 3.091,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 298.19
       }
     }
@@ -171,7 +171,7 @@
       "wise": {
         "rate": 3.0602,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 295.22
       }
     }
@@ -182,7 +182,7 @@
       "wise": {
         "rate": 3.0389,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 293.16
       }
     }
@@ -193,7 +193,7 @@
       "wise": {
         "rate": 3.0389,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 293.16
       }
     }
@@ -204,7 +204,7 @@
       "wise": {
         "rate": 3.0549,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.19,
         "receiveAmount": 294.71
       }
     }
@@ -215,7 +215,7 @@
       "wise": {
         "rate": 3.0471,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.2,
         "receiveAmount": 293.95
       }
     }
@@ -226,7 +226,7 @@
       "wise": {
         "rate": 3.0161,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 290.96
       }
     }
@@ -237,7 +237,7 @@
       "wise": {
         "rate": 2.9938,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 288.81
       }
     }
@@ -248,7 +248,7 @@
       "wise": {
         "rate": 2.9938,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 288.81
       }
     }
@@ -259,7 +259,7 @@
       "wise": {
         "rate": 2.968,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 286.32
       }
     }
@@ -270,7 +270,7 @@
       "wise": {
         "rate": 2.968,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 286.32
       }
     }
@@ -281,7 +281,7 @@
       "wise": {
         "rate": 2.9829,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 287.76
       }
     }
@@ -292,7 +292,7 @@
       "wise": {
         "rate": 2.9801,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 287.49
       }
     }
@@ -303,7 +303,7 @@
       "wise": {
         "rate": 3.0057,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 289.96
       }
     }
@@ -314,7 +314,7 @@
       "wise": {
         "rate": 2.9886,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 288.31
       }
     }
@@ -325,7 +325,7 @@
       "wise": {
         "rate": 3.0051,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 289.9
       }
     }
@@ -336,7 +336,7 @@
       "wise": {
         "rate": 2.9859,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 288.05
       }
     }
@@ -347,7 +347,7 @@
       "wise": {
         "rate": 2.9859,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 288.05
       }
     }
@@ -358,7 +358,7 @@
       "wise": {
         "rate": 2.9829,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 287.76
       }
     }
@@ -369,7 +369,7 @@
       "wise": {
         "rate": 2.9798,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 287.46
       }
     }
@@ -380,7 +380,7 @@
       "wise": {
         "rate": 2.9613,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 285.68
       }
     }
@@ -391,7 +391,7 @@
       "wise": {
         "rate": 2.985,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 287.96
       }
     }
@@ -402,7 +402,7 @@
       "wise": {
         "rate": 2.9442,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 284.03
       }
     }
@@ -413,7 +413,7 @@
       "wise": {
         "rate": 2.9452,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 284.12
       }
     }
@@ -424,7 +424,7 @@
       "wise": {
         "rate": 2.9452,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 284.12
       }
     }
@@ -435,7 +435,7 @@
       "wise": {
         "rate": 2.9502,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 295.02
       }
     }
@@ -446,7 +446,7 @@
       "wise": {
         "rate": 2.9619,
         "fee": 3.53,
-        "markup": null,
+        "markup": -0.25,
         "receiveAmount": 285.73
       }
     }
@@ -457,7 +457,7 @@
       "wise": {
         "rate": 2.9321,
         "fee": 3.53,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 282.86
       }
     }
@@ -468,7 +468,7 @@
       "wise": {
         "rate": 2.9061,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 280.58
       }
     }
@@ -479,7 +479,7 @@
       "wise": {
         "rate": 2.9129,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 281.24
       }
     }
@@ -490,7 +490,7 @@
       "wise": {
         "rate": 2.8992,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 279.92
       }
     }
@@ -501,7 +501,7 @@
       "wise": {
         "rate": 2.8992,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 279.92
       }
     }
@@ -512,7 +512,7 @@
       "wise": {
         "rate": 2.917,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 281.64
       }
     }
@@ -523,7 +523,7 @@
       "wise": {
         "rate": 2.9004,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 280.03
       }
     }
@@ -534,7 +534,7 @@
       "wise": {
         "rate": 2.9139,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 281.34
       }
     }
@@ -545,7 +545,7 @@
       "wise": {
         "rate": 2.9068,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.14,
         "receiveAmount": 280.65
       }
     }
@@ -556,8 +556,8 @@
       "wise": {
         "rate": 2.9045,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 280.42
+        "markup": 0.06,
+        "receiveAmount": 280.43
       }
     }
   },
@@ -567,7 +567,7 @@
       "wise": {
         "rate": 2.9165,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 281.59
       }
     }
@@ -578,7 +578,7 @@
       "wise": {
         "rate": 2.9165,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 281.59
       }
     }
@@ -589,7 +589,7 @@
       "wise": {
         "rate": 2.9213,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 282.05
       }
     }
@@ -600,7 +600,7 @@
       "wise": {
         "rate": 2.8993,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 279.93
       }
     }
@@ -611,7 +611,7 @@
       "wise": {
         "rate": 2.9145,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 281.39
       }
     }
@@ -622,7 +622,7 @@
       "wise": {
         "rate": 2.9043,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 280.41
       }
     }
@@ -633,7 +633,7 @@
       "wise": {
         "rate": 2.9009,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 280.08
       }
     }
@@ -644,7 +644,7 @@
       "wise": {
         "rate": 2.898,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.16,
         "receiveAmount": 279.8
       }
     }
@@ -655,7 +655,7 @@
       "wise": {
         "rate": 2.898,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 279.8
       }
     }
@@ -666,7 +666,7 @@
       "wise": {
         "rate": 2.8936,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.12,
         "receiveAmount": 279.38
       }
     }
@@ -677,7 +677,7 @@
       "wise": {
         "rate": 2.8746,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 277.54
       }
     }
@@ -688,7 +688,7 @@
       "wise": {
         "rate": 2.8423,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 274.42
       }
     }
@@ -699,7 +699,7 @@
       "wise": {
         "rate": 2.829,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 273.14
       }
     }
@@ -710,7 +710,7 @@
       "wise": {
         "rate": 2.8232,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 272.58
       }
     }
@@ -721,7 +721,7 @@
       "wise": {
         "rate": 2.8148,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.17,
         "receiveAmount": 271.77
       }
     }
@@ -732,7 +732,7 @@
       "wise": {
         "rate": 2.8148,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 271.77
       }
     }
@@ -743,8 +743,8 @@
       "wise": {
         "rate": 2.8093,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 271.23
+        "markup": 0.01,
+        "receiveAmount": 271.24
       }
     }
   },
@@ -754,7 +754,7 @@
       "wise": {
         "rate": 2.8179,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 272.07
       }
     }
@@ -765,8 +765,8 @@
       "wise": {
         "rate": 2.8499,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 275.15
+        "markup": -0.02,
+        "receiveAmount": 275.16
       }
     }
   },
@@ -776,7 +776,7 @@
       "wise": {
         "rate": 2.8738,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 277.47
       }
     }
@@ -787,7 +787,7 @@
       "wise": {
         "rate": 2.9002,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 280.01
       }
     }
@@ -798,7 +798,7 @@
       "wise": {
         "rate": 2.9523,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.37,
         "receiveAmount": 285.04
       }
     }
@@ -809,7 +809,7 @@
       "wise": {
         "rate": 2.9523,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 285.04
       }
     }
@@ -820,7 +820,7 @@
       "wise": {
         "rate": 2.9454,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 284.38
       }
     }
@@ -831,7 +831,7 @@
       "wise": {
         "rate": 2.9377,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 283.63
       }
     }
@@ -842,7 +842,7 @@
       "wise": {
         "rate": 2.9554,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 285.34
       }
     }
@@ -853,7 +853,7 @@
       "wise": {
         "rate": 2.9554,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 285.34
       }
     }
@@ -864,7 +864,7 @@
       "wise": {
         "rate": 2.9222,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.74,
         "receiveAmount": 282.14
       }
     }
@@ -875,7 +875,7 @@
       "wise": {
         "rate": 2.9222,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 282.14
       }
     }
@@ -886,7 +886,7 @@
       "wise": {
         "rate": 2.9222,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 282.14
       }
     }
@@ -897,7 +897,7 @@
       "wise": {
         "rate": 2.9207,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 281.99
       }
     }
@@ -908,7 +908,7 @@
       "wise": {
         "rate": 2.9207,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 281.99
       }
     }
@@ -919,7 +919,7 @@
       "wise": {
         "rate": 2.9207,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 281.99
       }
     }
@@ -930,7 +930,7 @@
       "wise": {
         "rate": 2.937,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 283.57
       }
     }
@@ -941,7 +941,7 @@
       "wise": {
         "rate": 2.9392,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 283.78
       }
     }
@@ -952,7 +952,7 @@
       "wise": {
         "rate": 2.9609,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 285.87
       }
     }
@@ -963,7 +963,7 @@
       "wise": {
         "rate": 2.9609,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 285.87
       }
     }
@@ -974,7 +974,7 @@
       "wise": {
         "rate": 2.9623,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 286.01
       }
     }
@@ -985,7 +985,7 @@
       "wise": {
         "rate": 2.9703,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 286.78
       }
     }
@@ -996,7 +996,7 @@
       "wise": {
         "rate": 2.9893,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 288.62
       }
     }
@@ -1007,7 +1007,7 @@
       "wise": {
         "rate": 2.984,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 288.11
       }
     }
@@ -1018,7 +1018,7 @@
       "wise": {
         "rate": 2.9829,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 288
       }
     }
@@ -1029,7 +1029,7 @@
       "wise": {
         "rate": 3.0029,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 289.93
       }
     }
@@ -1040,7 +1040,7 @@
       "wise": {
         "rate": 3.0029,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 289.93
       }
     }
@@ -1051,7 +1051,7 @@
       "wise": {
         "rate": 3.0029,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 289.93
       }
     }
@@ -1062,7 +1062,7 @@
       "wise": {
         "rate": 2.9913,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 288.81
       }
     }
@@ -1073,7 +1073,7 @@
       "wise": {
         "rate": 2.9751,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 287.25
       }
     }
@@ -1084,7 +1084,7 @@
       "wise": {
         "rate": 2.9876,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 288.45
       }
     }
@@ -1095,8 +1095,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": -0.02,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1106,8 +1106,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.04,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1117,8 +1117,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": -0.06,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1128,8 +1128,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.21,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1139,8 +1139,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": -0.15,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1150,8 +1150,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.55,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1161,8 +1161,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.41,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1172,8 +1172,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.41,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1183,8 +1183,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.44,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1194,8 +1194,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.77,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1205,8 +1205,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.82,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1216,8 +1216,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.1,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1227,8 +1227,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": -0.03,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1238,8 +1238,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": -0.3,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1249,8 +1249,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.05,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1260,8 +1260,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.31,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1271,8 +1271,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.82,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1282,8 +1282,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.33,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1293,8 +1293,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.79,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1304,8 +1304,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.71,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1315,8 +1315,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 2.03,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1326,8 +1326,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 2.51,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1337,8 +1337,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.87,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1348,8 +1348,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.86,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1359,8 +1359,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.62,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1370,8 +1370,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.95,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1381,8 +1381,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 2.06,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1392,8 +1392,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 2.53,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1403,8 +1403,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.87,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1414,8 +1414,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 2.09,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1425,8 +1425,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.95,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1436,8 +1436,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.8,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1447,8 +1447,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 1.55,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1458,8 +1458,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.2,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1469,8 +1469,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.28,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1480,8 +1480,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.52,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1491,8 +1491,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.15,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1502,8 +1502,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.73,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1513,8 +1513,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.13,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1524,8 +1524,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": -0.03,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1535,8 +1535,8 @@
       "wise": {
         "rate": 2.9974,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 289.39
+        "markup": 0.22,
+        "receiveAmount": 289.4
       }
     }
   },
@@ -1546,7 +1546,7 @@
       "wise": {
         "rate": 2.9687,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.46,
         "receiveAmount": 286.63
       }
     }
@@ -1557,7 +1557,7 @@
       "wise": {
         "rate": 2.9652,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 286.29
       }
     }
@@ -1568,7 +1568,7 @@
       "wise": {
         "rate": 2.9581,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.1,
         "receiveAmount": 285.6
       }
     }
@@ -1579,7 +1579,7 @@
       "wise": {
         "rate": 2.9581,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 285.6
       }
     }
@@ -1590,7 +1590,7 @@
       "wise": {
         "rate": 2.9548,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 285.29
       }
     }
@@ -1601,7 +1601,7 @@
       "wise": {
         "rate": 2.9673,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 286.49
       }
     }
@@ -1612,7 +1612,7 @@
       "wise": {
         "rate": 2.9913,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 288.81
       }
     }
@@ -1623,7 +1623,7 @@
       "wise": {
         "rate": 2.978,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 287.53
       }
     }
@@ -1634,7 +1634,7 @@
       "wise": {
         "rate": 3.002,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 289.84
       }
     }
@@ -1645,7 +1645,7 @@
       "wise": {
         "rate": 2.9878,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 288.47
       }
     }
@@ -1656,7 +1656,7 @@
       "wise": {
         "rate": 2.9878,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.12,
         "receiveAmount": 288.47
       }
     }
@@ -1667,7 +1667,7 @@
       "wise": {
         "rate": 2.9832,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 288.03
       }
     }
@@ -1678,7 +1678,7 @@
       "wise": {
         "rate": 3.0025,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 289.89
       }
     }
@@ -1689,8 +1689,8 @@
       "wise": {
         "rate": 2.9721,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 286.95
+        "markup": -0.02,
+        "receiveAmount": 286.96
       }
     }
   },
@@ -1700,7 +1700,7 @@
       "wise": {
         "rate": 2.9706,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 286.81
       }
     }
@@ -1711,7 +1711,7 @@
       "wise": {
         "rate": 2.9694,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 286.7
       }
     }
@@ -1722,7 +1722,7 @@
       "wise": {
         "rate": 2.9976,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.14,
         "receiveAmount": 289.42
       }
     }
@@ -1733,7 +1733,7 @@
       "wise": {
         "rate": 2.9976,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.54,
         "receiveAmount": 289.42
       }
     }
@@ -1744,8 +1744,8 @@
       "wise": {
         "rate": 2.9914,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 288.81
+        "markup": 0,
+        "receiveAmount": 288.82
       }
     }
   },
@@ -1755,8 +1755,8 @@
       "wise": {
         "rate": 2.9914,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 288.81
+        "markup": 0,
+        "receiveAmount": 288.82
       }
     }
   },
@@ -1766,8 +1766,8 @@
       "wise": {
         "rate": 3.0231,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 291.89
+        "markup": 0.01,
+        "receiveAmount": 291.88
       }
     }
   },
@@ -1777,7 +1777,7 @@
       "wise": {
         "rate": 3.0292,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 292.47
       }
     }
@@ -1788,7 +1788,7 @@
       "wise": {
         "rate": 3.006,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 290.23
       }
     }
@@ -1799,7 +1799,7 @@
       "wise": {
         "rate": 3.0125,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 290.86
       }
     }
@@ -1810,7 +1810,7 @@
       "wise": {
         "rate": 3.0117,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 290.78
       }
     }
@@ -1821,7 +1821,7 @@
       "wise": {
         "rate": 3.0124,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 290.85
       }
     }
@@ -1832,7 +1832,7 @@
       "wise": {
         "rate": 3.0203,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.31,
         "receiveAmount": 291.61
       }
     }
@@ -1843,7 +1843,7 @@
       "wise": {
         "rate": 3.0251,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.29,
         "receiveAmount": 292.07
       }
     }
@@ -1854,7 +1854,7 @@
       "wise": {
         "rate": 3.0537,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.96,
         "receiveAmount": 294.83
       }
     }
@@ -1865,7 +1865,7 @@
       "wise": {
         "rate": 3.0324,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.65,
         "receiveAmount": 292.78
       }
     }
@@ -1876,7 +1876,7 @@
       "wise": {
         "rate": 3.0328,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.12,
         "receiveAmount": 292.82
       }
     }
@@ -1887,8 +1887,8 @@
       "wise": {
         "rate": 3.0326,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 292.79
+        "markup": -0.39,
+        "receiveAmount": 292.8
       }
     }
   },
@@ -1898,7 +1898,7 @@
       "wise": {
         "rate": 3.0428,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 293.78
       }
     }
@@ -1909,7 +1909,7 @@
       "wise": {
         "rate": 3.0403,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 293.54
       }
     }
@@ -1920,7 +1920,7 @@
       "wise": {
         "rate": 3.0462,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.38,
         "receiveAmount": 294.11
       }
     }
@@ -1931,8 +1931,8 @@
       "wise": {
         "rate": 3.0298,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 292.52
+        "markup": 0.41,
+        "receiveAmount": 292.53
       }
     }
   },
@@ -1942,7 +1942,7 @@
       "wise": {
         "rate": 3.0336,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.23,
         "receiveAmount": 292.89
       }
     }
@@ -1953,7 +1953,7 @@
       "wise": {
         "rate": 3.0255,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.36,
         "receiveAmount": 292.11
       }
     }
@@ -1964,8 +1964,8 @@
       "wise": {
         "rate": 3.0356,
         "fee": 3.45,
-        "markup": null,
-        "receiveAmount": 293.08
+        "markup": 0.11,
+        "receiveAmount": 293.09
       }
     }
   },
@@ -1975,7 +1975,7 @@
       "wise": {
         "rate": 3.0145,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 291.05
       }
     }
@@ -1986,7 +1986,7 @@
       "wise": {
         "rate": 3.0075,
         "fee": 3.45,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 290.37
       }
     }
@@ -1997,7 +1997,7 @@
       "wise": {
         "rate": 3.0365,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.98,
         "receiveAmount": 293.17
       }
     }
@@ -2008,7 +2008,7 @@
       "wise": {
         "rate": 3.0467,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.1,
         "receiveAmount": 294.16
       }
     }
@@ -2019,7 +2019,7 @@
       "wise": {
         "rate": 3.0477,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 294.26
       }
     }
@@ -2030,7 +2030,7 @@
       "wise": {
         "rate": 3.0477,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 294.26
       }
     }
@@ -2041,7 +2041,7 @@
       "wise": {
         "rate": 3.048,
         "fee": 3.45,
-        "markup": null,
+        "markup": -0.47,
         "receiveAmount": 294.28
       }
     }

@@ -3,39 +3,39 @@
     "date": "2026-03-17",
     "providers": {
       "wise": {
-        "rate": 1.103,
+        "rate": 1.10302,
         "fee": 1.44,
         "markup": 0,
         "receiveAmount": 108.71
       },
       "zkb": {
-        "rate": 1.0891,
+        "rate": 1.08908,
         "fee": 0,
-        "markup": 1.2639,
+        "markup": 1.26,
         "receiveAmount": 108.91
       },
       "raiffeisen-ch": {
-        "rate": 1.0843,
+        "rate": 1.08429,
         "fee": 5,
-        "markup": 1.6978,
+        "markup": 1.7,
         "receiveAmount": 103.01
       },
       "western-union": {
-        "rate": 1.0779,
+        "rate": 1.07794,
         "fee": 0,
-        "markup": 2.2734,
+        "markup": 2.27,
         "receiveAmount": 107.79
       },
       "postfinance": {
-        "rate": 1.0893,
+        "rate": 1.08929,
         "fee": 0,
-        "markup": 1.2451,
+        "markup": 1.25,
         "receiveAmount": 108.93
       },
       "paypal": {
-        "rate": 1.0582,
+        "rate": 1.05816,
         "fee": 2.49,
-        "markup": 4.0674,
+        "markup": 4.07,
         "receiveAmount": 103.18
       }
     }
@@ -44,39 +44,39 @@
     "date": "2026-03-18",
     "providers": {
       "wise": {
-        "rate": 1.1038,
+        "rate": 1.10381,
         "fee": 1.44,
         "markup": 0,
         "receiveAmount": 108.79
       },
       "postfinance": {
-        "rate": 1.0903,
+        "rate": 1.09032,
         "fee": 0,
-        "markup": 1.2217,
+        "markup": 1.22,
         "receiveAmount": 109.03
       },
       "zkb": {
-        "rate": 1.0904,
+        "rate": 1.09038,
         "fee": 0,
-        "markup": 1.2163,
+        "markup": 1.22,
         "receiveAmount": 109.04
       },
       "raiffeisen-ch": {
-        "rate": 1.0856,
+        "rate": 1.08561,
         "fee": 5,
-        "markup": 1.6486,
+        "markup": 1.65,
         "receiveAmount": 103.13
       },
       "paypal": {
-        "rate": 1.0577,
+        "rate": 1.05769,
         "fee": 2.49,
-        "markup": 4.1784,
+        "markup": 4.18,
         "receiveAmount": 103.14
       },
       "western-union": {
-        "rate": 1.0786,
+        "rate": 1.07861,
         "fee": 0,
-        "markup": 2.2826,
+        "markup": 2.28,
         "receiveAmount": 107.86
       }
     }
@@ -87,38 +87,38 @@
       "paypal": {
         "rate": 1.0462,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.8,
         "receiveAmount": 102.01
       },
       "western-union": {
         "rate": 1.0617,
         "fee": 0,
-        "markup": null,
+        "markup": 2.38,
         "receiveAmount": 106.17
       },
       "postfinance": {
         "rate": 1.0737,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 107.37
       },
       "zkb": {
         "rate": 1.0725,
         "fee": 0,
-        "markup": null,
+        "markup": 1.38,
         "receiveAmount": 107.25
       },
       "raiffeisen-ch": {
         "rate": 1.0681,
         "fee": 5,
-        "markup": null,
+        "markup": 1.79,
         "receiveAmount": 101.47
       },
       "wise": {
         "rate": 1.0877,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.21
+        "markup": -0.01,
+        "receiveAmount": 107.2
       }
     }
   },
@@ -128,37 +128,37 @@
       "raiffeisen-ch": {
         "rate": 1.069,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.55
+        "markup": 1.73,
+        "receiveAmount": 101.56
       },
       "zkb": {
         "rate": 1.0733,
         "fee": 0,
-        "markup": null,
+        "markup": 1.33,
         "receiveAmount": 107.33
       },
       "postfinance": {
         "rate": 1.0745,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.45
       },
       "paypal": {
         "rate": 1.0423,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.64
+        "markup": 4.18,
+        "receiveAmount": 101.63
       },
       "western-union": {
         "rate": 1.0624,
         "fee": 0,
-        "markup": null,
+        "markup": 2.34,
         "receiveAmount": 106.24
       },
       "wise": {
         "rate": 1.088,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 107.23
       }
     }
@@ -169,37 +169,37 @@
       "raiffeisen-ch": {
         "rate": 1.072,
         "fee": 5,
-        "markup": null,
+        "markup": 1.5,
         "receiveAmount": 101.84
       },
       "zkb": {
         "rate": 1.0773,
         "fee": 0,
-        "markup": null,
+        "markup": 1.01,
         "receiveAmount": 107.73
       },
       "postfinance": {
         "rate": 1.0779,
         "fee": 0,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 107.79
       },
       "paypal": {
         "rate": 1.0433,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.14,
         "receiveAmount": 101.73
       },
       "western-union": {
         "rate": 1.0654,
         "fee": 0,
-        "markup": null,
+        "markup": 2.1,
         "receiveAmount": 106.54
       },
       "wise": {
         "rate": 1.091,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.25,
         "receiveAmount": 107.53
       }
     }
@@ -210,37 +210,37 @@
       "postfinance": {
         "rate": 1.0679,
         "fee": 0,
-        "markup": null,
+        "markup": 2.07,
         "receiveAmount": 106.79
       },
       "paypal": {
         "rate": 1.041,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.53,
         "receiveAmount": 101.51
       },
       "raiffeisen-ch": {
         "rate": 1.0634,
         "fee": 5,
-        "markup": null,
+        "markup": 2.48,
         "receiveAmount": 101.02
       },
       "western-union": {
         "rate": 1.0576,
         "fee": 0,
-        "markup": null,
+        "markup": 3.01,
         "receiveAmount": 105.76
       },
       "zkb": {
         "rate": 1.0691,
         "fee": 0,
-        "markup": null,
+        "markup": 1.96,
         "receiveAmount": 106.91
       },
       "wise": {
         "rate": 1.0817,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.8,
         "receiveAmount": 106.61
       }
     }
@@ -251,37 +251,37 @@
       "raiffeisen-ch": {
         "rate": 1.0676,
         "fee": 5,
-        "markup": null,
+        "markup": 1.49,
         "receiveAmount": 101.42
       },
       "paypal": {
         "rate": 1.0352,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.48,
         "receiveAmount": 100.94
       },
       "western-union": {
         "rate": 1.0618,
         "fee": 0,
-        "markup": null,
+        "markup": 2.03,
         "receiveAmount": 106.18
       },
       "postfinance": {
         "rate": 1.0731,
         "fee": 0,
-        "markup": null,
+        "markup": 0.99,
         "receiveAmount": 107.31
       },
       "zkb": {
         "rate": 1.0736,
         "fee": 0,
-        "markup": null,
+        "markup": 0.94,
         "receiveAmount": 107.36
       },
       "wise": {
         "rate": 1.0866,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.26,
         "receiveAmount": 107.1
       }
     }
@@ -292,37 +292,37 @@
       "paypal": {
         "rate": 1.0352,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.75,
         "receiveAmount": 100.94
       },
       "postfinance": {
         "rate": 1.0717,
         "fee": 0,
-        "markup": null,
+        "markup": 1.39,
         "receiveAmount": 107.17
       },
       "zkb": {
         "rate": 1.0715,
         "fee": 0,
-        "markup": null,
+        "markup": 1.41,
         "receiveAmount": 107.15
       },
       "raiffeisen-ch": {
         "rate": 1.0659,
         "fee": 5,
-        "markup": null,
+        "markup": 1.92,
         "receiveAmount": 101.26
       },
       "western-union": {
         "rate": 1.06,
         "fee": 0,
-        "markup": null,
+        "markup": 2.46,
         "receiveAmount": 106
       },
       "wise": {
         "rate": 1.0849,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 106.93
       }
     }
@@ -333,37 +333,37 @@
       "paypal": {
         "rate": 1.0389,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.31
+        "markup": 4.23,
+        "receiveAmount": 101.3
       },
       "postfinance": {
         "rate": 1.0712,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107.12
       },
       "zkb": {
         "rate": 1.0708,
         "fee": 0,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 107.08
       },
       "raiffeisen-ch": {
         "rate": 1.0648,
         "fee": 5,
-        "markup": null,
+        "markup": 1.84,
         "receiveAmount": 101.16
       },
       "western-union": {
         "rate": 1.0592,
         "fee": 0,
-        "markup": null,
+        "markup": 2.36,
         "receiveAmount": 105.92
       },
       "wise": {
         "rate": 1.0844,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 106.88
       }
     }
@@ -374,37 +374,37 @@
       "zkb": {
         "rate": 1.0719,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107.19
       },
       "postfinance": {
         "rate": 1.0722,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.22
       },
       "raiffeisen-ch": {
         "rate": 1.0659,
         "fee": 5,
-        "markup": null,
+        "markup": 1.79,
         "receiveAmount": 101.26
       },
       "paypal": {
         "rate": 1.0372,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.13
+        "markup": 4.43,
+        "receiveAmount": 101.14
       },
       "western-union": {
         "rate": 1.0602,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 106.02
       },
       "wise": {
         "rate": 1.0853,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.97
       }
     }
@@ -415,37 +415,37 @@
       "western-union": {
         "rate": 1.0602,
         "fee": 0,
-        "markup": null,
+        "markup": 2.29,
         "receiveAmount": 106.02
       },
       "raiffeisen-ch": {
         "rate": 1.0659,
         "fee": 5,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 101.26
       },
       "zkb": {
         "rate": 1.0719,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.19
       },
       "postfinance": {
         "rate": 1.0722,
         "fee": 0,
-        "markup": null,
+        "markup": 1.18,
         "receiveAmount": 107.22
       },
       "paypal": {
         "rate": 1.0372,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.13
+        "markup": 4.41,
+        "receiveAmount": 101.14
       },
       "wise": {
         "rate": 1.0853,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 106.97
       }
     }
@@ -456,37 +456,37 @@
       "postfinance": {
         "rate": 1.0722,
         "fee": 0,
-        "markup": null,
+        "markup": 1.11,
         "receiveAmount": 107.22
       },
       "zkb": {
         "rate": 1.0717,
         "fee": 0,
-        "markup": null,
+        "markup": 1.16,
         "receiveAmount": 107.17
       },
       "raiffeisen-ch": {
         "rate": 1.0659,
         "fee": 5,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 101.26
       },
       "paypal": {
         "rate": 1.0371,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.12
+        "markup": 4.35,
+        "receiveAmount": 101.13
       },
       "western-union": {
         "rate": 1.0602,
         "fee": 0,
-        "markup": null,
+        "markup": 2.22,
         "receiveAmount": 106.02
       },
       "wise": {
         "rate": 1.0857,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.13,
         "receiveAmount": 107.01
       }
     }
@@ -497,37 +497,37 @@
       "raiffeisen-ch": {
         "rate": 1.0655,
         "fee": 5,
-        "markup": null,
+        "markup": 1.8,
         "receiveAmount": 101.22
       },
       "postfinance": {
         "rate": 1.0719,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.19
       },
       "zkb": {
         "rate": 1.0713,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 107.13
       },
       "paypal": {
         "rate": 1.0357,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.54,
         "receiveAmount": 100.99
       },
       "western-union": {
         "rate": 1.0599,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 105.99
       },
       "wise": {
         "rate": 1.085,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.94
       }
     }
@@ -538,37 +538,37 @@
       "paypal": {
         "rate": 1.0363,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.33,
         "receiveAmount": 101.05
       },
       "zkb": {
         "rate": 1.0696,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 106.96
       },
       "western-union": {
         "rate": 1.0589,
         "fee": 0,
-        "markup": null,
+        "markup": 2.24,
         "receiveAmount": 105.89
       },
       "postfinance": {
         "rate": 1.0694,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 106.94
       },
       "raiffeisen-ch": {
         "rate": 1.0643,
         "fee": 5,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 101.11
       },
       "wise": {
         "rate": 1.0831,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 106.75
       }
     }
@@ -579,43 +579,43 @@
       "zkb": {
         "rate": 1.07,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107
       },
       "western-union": {
         "rate": 1.0593,
         "fee": 0,
-        "markup": null,
+        "markup": 2.23,
         "receiveAmount": 105.93
       },
       "raiffeisen-ch": {
         "rate": 1.0648,
         "fee": 5,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 101.16
       },
       "paypal": {
         "rate": 1.0337,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.6,
         "receiveAmount": 100.8
       },
       "postfinance": {
         "rate": 1.07,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107
       },
       "migros": {
         "rate": 1.0648,
         "fee": 25,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 79.86
       },
       "wise": {
         "rate": 1.0836,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 106.8
       }
     }
@@ -626,44 +626,44 @@
       "zkb": {
         "rate": 1.0673,
         "fee": 0,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 106.73
       },
       "paypal": {
         "rate": 1.0371,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.09,
         "receiveAmount": 101.13
       },
       "western-union": {
         "rate": 1.0572,
         "fee": 0,
-        "markup": null,
+        "markup": 2.23,
         "receiveAmount": 105.72
       },
       "raiffeisen-ch": {
         "rate": 1.0627,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 100.95
+        "markup": 1.72,
+        "receiveAmount": 100.96
       },
       "postfinance": {
         "rate": 1.0682,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 106.82
       },
       "migros": {
         "rate": 1.0644,
         "fee": 25,
-        "markup": null,
+        "markup": 1.56,
         "receiveAmount": 79.83
       },
       "wise": {
         "rate": 1.0814,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 106.59
+        "markup": -0.01,
+        "receiveAmount": 106.58
       }
     }
   },
@@ -673,43 +673,43 @@
       "zkb": {
         "rate": 1.0671,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 106.71
       },
       "migros": {
         "rate": 1.0621,
         "fee": 25,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 79.66
       },
       "postfinance": {
         "rate": 1.0674,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 106.74
       },
       "paypal": {
         "rate": 1.0356,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.14,
         "receiveAmount": 100.98
       },
       "western-union": {
         "rate": 1.0556,
         "fee": 0,
-        "markup": null,
+        "markup": 2.29,
         "receiveAmount": 105.56
       },
       "raiffeisen-ch": {
         "rate": 1.0605,
         "fee": 5,
-        "markup": null,
+        "markup": 1.84,
         "receiveAmount": 100.75
       },
       "wise": {
         "rate": 1.0806,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 106.5
       }
     }
@@ -720,43 +720,43 @@
       "migros": {
         "rate": 1.0621,
         "fee": 25,
-        "markup": null,
+        "markup": 1.7,
         "receiveAmount": 79.66
       },
       "zkb": {
         "rate": 1.0671,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 106.71
       },
       "postfinance": {
         "rate": 1.0674,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 106.74
       },
       "paypal": {
         "rate": 1.0356,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.15,
         "receiveAmount": 100.98
       },
       "western-union": {
         "rate": 1.0556,
         "fee": 0,
-        "markup": null,
+        "markup": 2.3,
         "receiveAmount": 105.56
       },
       "raiffeisen-ch": {
         "rate": 1.0605,
         "fee": 5,
-        "markup": null,
+        "markup": 1.85,
         "receiveAmount": 100.75
       },
       "wise": {
         "rate": 1.0806,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 106.5
       }
     }
@@ -767,43 +767,43 @@
       "raiffeisen-ch": {
         "rate": 1.0598,
         "fee": 5,
-        "markup": null,
+        "markup": 1.87,
         "receiveAmount": 100.68
       },
       "zkb": {
         "rate": 1.0664,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 106.64
       },
       "paypal": {
         "rate": 1.0358,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.1,
         "receiveAmount": 101
       },
       "western-union": {
         "rate": 1.0549,
         "fee": 0,
-        "markup": null,
+        "markup": 2.33,
         "receiveAmount": 105.49
       },
       "postfinance": {
         "rate": 1.0668,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 106.68
       },
       "migros": {
         "rate": 1.0624,
         "fee": 25,
-        "markup": null,
+        "markup": 1.63,
         "receiveAmount": 79.68
       },
       "wise": {
         "rate": 1.0801,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 106.45
       }
     }
@@ -814,44 +814,44 @@
       "migros": {
         "rate": 1.0667,
         "fee": 25,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 80
       },
       "zkb": {
         "rate": 1.0719,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.19
       },
       "postfinance": {
         "rate": 1.0723,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.23
       },
       "raiffeisen-ch": {
         "rate": 1.0652,
         "fee": 5,
-        "markup": null,
+        "markup": 1.83,
         "receiveAmount": 101.19
       },
       "paypal": {
         "rate": 1.036,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.52,
         "receiveAmount": 101.02
       },
       "western-union": {
         "rate": 1.0603,
         "fee": 0,
-        "markup": null,
+        "markup": 2.28,
         "receiveAmount": 106.03
       },
       "wise": {
         "rate": 1.0851,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 106.94
+        "markup": -0.01,
+        "receiveAmount": 106.95
       }
     }
   },
@@ -861,43 +861,43 @@
       "migros": {
         "rate": 1.0675,
         "fee": 25,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 80.06
       },
       "postfinance": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 107.27
       },
       "paypal": {
         "rate": 1.0401,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.19,
         "receiveAmount": 101.42
       },
       "zkb": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 107.27
       },
       "raiffeisen-ch": {
         "rate": 1.0675,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.42
+        "markup": 1.67,
+        "receiveAmount": 101.41
       },
       "western-union": {
         "rate": 1.0602,
         "fee": 0,
-        "markup": null,
+        "markup": 2.34,
         "receiveAmount": 106.02
       },
       "wise": {
         "rate": 1.0857,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.01
       }
     }
@@ -908,43 +908,43 @@
       "western-union": {
         "rate": 1.0589,
         "fee": 0,
-        "markup": null,
+        "markup": 2.36,
         "receiveAmount": 105.89
       },
       "postfinance": {
         "rate": 1.0712,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.12
       },
       "migros": {
         "rate": 1.0656,
         "fee": 25,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 79.92
       },
       "raiffeisen-ch": {
         "rate": 1.0661,
         "fee": 5,
-        "markup": null,
+        "markup": 1.7,
         "receiveAmount": 101.28
       },
       "paypal": {
         "rate": 1.0394,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.16,
         "receiveAmount": 101.35
       },
       "zkb": {
         "rate": 1.0708,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 107.08
       },
       "wise": {
         "rate": 1.0844,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 106.88
       }
     }
@@ -955,44 +955,44 @@
       "postfinance": {
         "rate": 1.0709,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.09
       },
       "migros": {
         "rate": 1.0651,
         "fee": 25,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 79.88
       },
       "paypal": {
         "rate": 1.0368,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.34,
         "receiveAmount": 101.1
       },
       "raiffeisen-ch": {
         "rate": 1.0657,
         "fee": 5,
-        "markup": null,
+        "markup": 1.68,
         "receiveAmount": 101.24
       },
       "western-union": {
         "rate": 1.0584,
         "fee": 0,
-        "markup": null,
+        "markup": 2.35,
         "receiveAmount": 105.84
       },
       "zkb": {
         "rate": 1.0701,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 107.01
       },
       "wise": {
         "rate": 1.084,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 106.83
+        "markup": -0.01,
+        "receiveAmount": 106.84
       }
     }
   },
@@ -1002,44 +1002,44 @@
       "postfinance": {
         "rate": 1.0743,
         "fee": 0,
-        "markup": null,
+        "markup": 1.3,
         "receiveAmount": 107.43
       },
       "zkb": {
         "rate": 1.0741,
         "fee": 0,
-        "markup": null,
+        "markup": 1.32,
         "receiveAmount": 107.41
       },
       "paypal": {
         "rate": 1.0378,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.66,
         "receiveAmount": 101.2
       },
       "western-union": {
         "rate": 1.0661,
         "fee": 0,
-        "markup": null,
+        "markup": 2.06,
         "receiveAmount": 106.61
       },
       "raiffeisen-ch": {
         "rate": 1.0686,
         "fee": 5,
-        "markup": null,
+        "markup": 1.83,
         "receiveAmount": 101.52
       },
       "migros": {
         "rate": 1.0689,
         "fee": 25,
-        "markup": null,
+        "markup": 1.8,
         "receiveAmount": 80.17
       },
       "wise": {
         "rate": 1.0874,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.18
+        "markup": 0.1,
+        "receiveAmount": 107.17
       }
     }
   },
@@ -1049,44 +1049,44 @@
       "raiffeisen-ch": {
         "rate": 1.0686,
         "fee": 5,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 101.52
       },
       "postfinance": {
         "rate": 1.0743,
         "fee": 0,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 107.43
       },
       "zkb": {
         "rate": 1.0741,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.41
       },
       "paypal": {
         "rate": 1.0378,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.55,
         "receiveAmount": 101.2
       },
       "western-union": {
         "rate": 1.0661,
         "fee": 0,
-        "markup": null,
+        "markup": 1.95,
         "receiveAmount": 106.61
       },
       "migros": {
         "rate": 1.0689,
         "fee": 25,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 80.17
       },
       "wise": {
         "rate": 1.0874,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.18
+        "markup": -0.01,
+        "receiveAmount": 107.17
       }
     }
   },
@@ -1096,44 +1096,44 @@
       "zkb": {
         "rate": 1.0737,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.37
       },
       "migros": {
         "rate": 1.0689,
         "fee": 25,
-        "markup": null,
+        "markup": 1.66,
         "receiveAmount": 80.17
       },
       "raiffeisen-ch": {
         "rate": 1.0682,
         "fee": 5,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 101.48
       },
       "paypal": {
         "rate": 1.0378,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.52,
         "receiveAmount": 101.2
       },
       "western-union": {
         "rate": 1.0657,
         "fee": 0,
-        "markup": null,
+        "markup": 1.96,
         "receiveAmount": 106.57
       },
       "postfinance": {
         "rate": 1.0739,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.39
       },
       "wise": {
         "rate": 1.087,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.14
+        "markup": 0,
+        "receiveAmount": 107.13
       }
     }
   },
@@ -1143,43 +1143,43 @@
       "zkb": {
         "rate": 1.0763,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 107.63
       },
       "western-union": {
         "rate": 1.0685,
         "fee": 0,
-        "markup": null,
+        "markup": 1.99,
         "receiveAmount": 106.85
       },
       "migros": {
         "rate": 1.0717,
         "fee": 25,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 80.38
       },
       "raiffeisen-ch": {
         "rate": 1.071,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.75
+        "markup": 1.76,
+        "receiveAmount": 101.74
       },
       "paypal": {
         "rate": 1.0424,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.38,
         "receiveAmount": 101.64
       },
       "postfinance": {
         "rate": 1.0767,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107.67
       },
       "wise": {
         "rate": 1.0902,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 107.45
       }
     }
@@ -1190,43 +1190,43 @@
       "raiffeisen-ch": {
         "rate": 1.0721,
         "fee": 5,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 101.85
       },
       "zkb": {
         "rate": 1.077,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 107.7
       },
       "migros": {
         "rate": 1.0718,
         "fee": 25,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 80.39
       },
       "postfinance": {
         "rate": 1.0778,
         "fee": 0,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 107.78
       },
       "western-union": {
         "rate": 1.0656,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 106.56
       },
       "paypal": {
         "rate": 1.0439,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.3,
         "receiveAmount": 101.79
       },
       "wise": {
         "rate": 1.0909,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.52
       }
     }
@@ -1237,44 +1237,44 @@
       "migros": {
         "rate": 1.0708,
         "fee": 25,
-        "markup": null,
+        "markup": 1.64,
         "receiveAmount": 80.31
       },
       "postfinance": {
         "rate": 1.0755,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.55
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 106.35
       },
       "paypal": {
         "rate": 1.0437,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.13,
         "receiveAmount": 101.77
       },
       "raiffeisen-ch": {
         "rate": 1.07,
         "fee": 5,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 101.65
       },
       "zkb": {
         "rate": 1.0752,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107.52
       },
       "wise": {
         "rate": 1.0885,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.29
+        "markup": 0.02,
+        "receiveAmount": 107.28
       }
     }
   },
@@ -1284,43 +1284,43 @@
       "raiffeisen-ch": {
         "rate": 1.0696,
         "fee": 5,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 101.61
       },
       "paypal": {
         "rate": 1.0435,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.11,
         "receiveAmount": 101.75
       },
       "western-union": {
         "rate": 1.0631,
         "fee": 0,
-        "markup": null,
+        "markup": 2.3,
         "receiveAmount": 106.31
       },
       "migros": {
         "rate": 1.0699,
         "fee": 25,
-        "markup": null,
+        "markup": 1.68,
         "receiveAmount": 80.24
       },
       "postfinance": {
         "rate": 1.0751,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.51
       },
       "zkb": {
         "rate": 1.0743,
         "fee": 0,
-        "markup": null,
+        "markup": 1.28,
         "receiveAmount": 107.43
       },
       "wise": {
         "rate": 1.0883,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.26
       }
     }
@@ -1331,44 +1331,44 @@
       "paypal": {
         "rate": 1.0411,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.2,
         "receiveAmount": 101.52
       },
       "raiffeisen-ch": {
         "rate": 1.0677,
         "fee": 5,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 101.43
       },
       "zkb": {
         "rate": 1.0737,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.37
       },
       "western-union": {
         "rate": 1.0625,
         "fee": 0,
-        "markup": null,
+        "markup": 2.23,
         "receiveAmount": 106.25
       },
       "migros": {
         "rate": 1.0684,
         "fee": 25,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 80.13
       },
       "postfinance": {
         "rate": 1.074,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.4
       },
       "wise": {
         "rate": 1.087,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.14
+        "markup": -0.02,
+        "receiveAmount": 107.13
       }
     }
   },
@@ -1378,44 +1378,44 @@
       "migros": {
         "rate": 1.0684,
         "fee": 25,
-        "markup": null,
+        "markup": 1.68,
         "receiveAmount": 80.13
       },
       "postfinance": {
         "rate": 1.074,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.4
       },
       "zkb": {
         "rate": 1.0737,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.37
       },
       "western-union": {
         "rate": 1.0625,
         "fee": 0,
-        "markup": null,
+        "markup": 2.23,
         "receiveAmount": 106.25
       },
       "paypal": {
         "rate": 1.0411,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.2,
         "receiveAmount": 101.52
       },
       "raiffeisen-ch": {
         "rate": 1.0677,
         "fee": 5,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 101.43
       },
       "wise": {
         "rate": 1.087,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.14
+        "markup": -0.03,
+        "receiveAmount": 107.13
       }
     }
   },
@@ -1425,43 +1425,43 @@
       "migros": {
         "rate": 1.0687,
         "fee": 25,
-        "markup": null,
+        "markup": 1.64,
         "receiveAmount": 80.15
       },
       "zkb": {
         "rate": 1.0732,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.32
       },
       "postfinance": {
         "rate": 1.0735,
         "fee": 0,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 107.35
       },
       "paypal": {
         "rate": 1.0414,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.15,
         "receiveAmount": 101.55
       },
       "raiffeisen-ch": {
         "rate": 1.0671,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.38
+        "markup": 1.78,
+        "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0619,
         "fee": 0,
-        "markup": null,
+        "markup": 2.26,
         "receiveAmount": 106.19
       },
       "wise": {
         "rate": 1.0865,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 107.09
       }
     }
@@ -1472,44 +1472,44 @@
       "migros": {
         "rate": 1.0668,
         "fee": 25,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 80.01
       },
       "postfinance": {
         "rate": 1.0721,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.21
       },
       "raiffeisen-ch": {
         "rate": 1.066,
         "fee": 5,
-        "markup": null,
+        "markup": 1.78,
         "receiveAmount": 101.27
       },
       "western-union": {
         "rate": 1.0609,
         "fee": 0,
-        "markup": null,
+        "markup": 2.25,
         "receiveAmount": 106.09
       },
       "paypal": {
         "rate": 1.0399,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.19,
         "receiveAmount": 101.4
       },
       "zkb": {
         "rate": 1.072,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.2
       },
       "wise": {
         "rate": 1.0855,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 106.98
+        "markup": -0.01,
+        "receiveAmount": 106.99
       }
     }
   },
@@ -1519,43 +1519,43 @@
       "migros": {
         "rate": 1.0637,
         "fee": 25,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 79.78
       },
       "paypal": {
         "rate": 1.0378,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.11,
         "receiveAmount": 101.2
       },
       "raiffeisen-ch": {
         "rate": 1.0637,
         "fee": 5,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 101.05
       },
       "western-union": {
         "rate": 1.0581,
         "fee": 0,
-        "markup": null,
+        "markup": 2.24,
         "receiveAmount": 105.81
       },
       "zkb": {
         "rate": 1.0687,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 106.87
       },
       "postfinance": {
         "rate": 1.069,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 106.9
       },
       "wise": {
         "rate": 1.0824,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 106.68
       }
     }
@@ -1566,43 +1566,43 @@
       "migros": {
         "rate": 1.0643,
         "fee": 25,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 79.82
       },
       "paypal": {
         "rate": 1.0365,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.28,
         "receiveAmount": 101.07
       },
       "raiffeisen-ch": {
         "rate": 1.0644,
         "fee": 5,
-        "markup": null,
+        "markup": 1.7,
         "receiveAmount": 101.12
       },
       "western-union": {
         "rate": 1.0588,
         "fee": 0,
-        "markup": null,
+        "markup": 2.22,
         "receiveAmount": 105.88
       },
       "zkb": {
         "rate": 1.0695,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 106.95
       },
       "postfinance": {
         "rate": 1.0699,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 106.99
       },
       "wise": {
         "rate": 1.0828,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 106.72
       }
     }
@@ -1613,44 +1613,44 @@
       "western-union": {
         "rate": 1.0663,
         "fee": 0,
-        "markup": null,
+        "markup": 2.24,
         "receiveAmount": 106.63
       },
       "raiffeisen-ch": {
         "rate": 1.072,
         "fee": 5,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 101.84
       },
       "zkb": {
         "rate": 1.0774,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.74
       },
       "postfinance": {
         "rate": 1.0771,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107.71
       },
       "paypal": {
         "rate": 1.0348,
         "fee": 2.49,
-        "markup": null,
+        "markup": 5.13,
         "receiveAmount": 100.9
       },
       "migros": {
         "rate": 1.071,
         "fee": 25,
-        "markup": null,
+        "markup": 1.81,
         "receiveAmount": 80.33
       },
       "wise": {
         "rate": 1.0908,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.5
+        "markup": -0.01,
+        "receiveAmount": 107.51
       }
     }
   },
@@ -1660,44 +1660,44 @@
       "zkb": {
         "rate": 1.0778,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.78
       },
       "western-union": {
         "rate": 1.0661,
         "fee": 0,
-        "markup": null,
+        "markup": 2.3,
         "receiveAmount": 106.61
       },
       "migros": {
         "rate": 1.073,
         "fee": 25,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 80.47
       },
       "postfinance": {
         "rate": 1.0778,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.78
       },
       "raiffeisen-ch": {
         "rate": 1.072,
         "fee": 5,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 101.84
       },
       "paypal": {
         "rate": 1.0421,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.5,
         "receiveAmount": 101.62
       },
       "wise": {
         "rate": 1.0911,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.53
+        "markup": 0.01,
+        "receiveAmount": 107.54
       }
     }
   },
@@ -1707,44 +1707,44 @@
       "zkb": {
         "rate": 1.0778,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.78
       },
       "migros": {
         "rate": 1.073,
         "fee": 25,
-        "markup": null,
+        "markup": 1.65,
         "receiveAmount": 80.47
       },
       "postfinance": {
         "rate": 1.0778,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.78
       },
       "western-union": {
         "rate": 1.0661,
         "fee": 0,
-        "markup": null,
+        "markup": 2.28,
         "receiveAmount": 106.61
       },
       "paypal": {
         "rate": 1.0421,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.48,
         "receiveAmount": 101.62
       },
       "raiffeisen-ch": {
         "rate": 1.072,
         "fee": 5,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 101.84
       },
       "wise": {
         "rate": 1.0911,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.53
+        "markup": -0.01,
+        "receiveAmount": 107.54
       }
     }
   },
@@ -1754,7 +1754,7 @@
       "wise": {
         "rate": 1.0917,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.6
       }
     }
@@ -1765,43 +1765,43 @@
       "zkb": {
         "rate": 1.0779,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.79
       },
       "western-union": {
         "rate": 1.0662,
         "fee": 0,
-        "markup": null,
+        "markup": 2.29,
         "receiveAmount": 106.62
       },
       "migros": {
         "rate": 1.0727,
         "fee": 25,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 80.45
       },
       "postfinance": {
         "rate": 1.0778,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.78
       },
       "raiffeisen-ch": {
         "rate": 1.0721,
         "fee": 5,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 101.85
       },
       "paypal": {
         "rate": 1.0456,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.95
+        "markup": 4.18,
+        "receiveAmount": 101.96
       },
       "wise": {
         "rate": 1.0911,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 107.54
       }
     }
@@ -1812,43 +1812,43 @@
       "migros": {
         "rate": 1.0728,
         "fee": 25,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 80.46
       },
       "raiffeisen-ch": {
         "rate": 1.0732,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.96
+        "markup": 1.7,
+        "receiveAmount": 101.95
       },
       "western-union": {
         "rate": 1.0662,
         "fee": 0,
-        "markup": null,
+        "markup": 2.34,
         "receiveAmount": 106.62
       },
       "paypal": {
         "rate": 1.0441,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.36,
         "receiveAmount": 101.81
       },
       "zkb": {
         "rate": 1.0786,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.86
       },
       "postfinance": {
         "rate": 1.0786,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.86
       },
       "wise": {
         "rate": 1.0916,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 107.59
       }
     }
@@ -1859,44 +1859,44 @@
       "migros": {
         "rate": 1.0733,
         "fee": 25,
-        "markup": null,
+        "markup": 1.77,
         "receiveAmount": 80.5
       },
       "postfinance": {
         "rate": 1.0791,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107.91
       },
       "paypal": {
         "rate": 1.0459,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.98
+        "markup": 4.27,
+        "receiveAmount": 101.99
       },
       "zkb": {
         "rate": 1.0799,
         "fee": 0,
-        "markup": null,
+        "markup": 1.16,
         "receiveAmount": 107.99
       },
       "western-union": {
         "rate": 1.0671,
         "fee": 0,
-        "markup": null,
+        "markup": 2.33,
         "receiveAmount": 106.71
       },
       "raiffeisen-ch": {
         "rate": 1.0741,
         "fee": 5,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 102.04
       },
       "wise": {
         "rate": 1.0925,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.67
+        "markup": 0.01,
+        "receiveAmount": 107.68
       }
     }
   },
@@ -1906,44 +1906,44 @@
       "paypal": {
         "rate": 1.0463,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.2,
         "receiveAmount": 102.02
       },
       "zkb": {
         "rate": 1.0787,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107.87
       },
       "western-union": {
         "rate": 1.0666,
         "fee": 0,
-        "markup": null,
+        "markup": 2.35,
         "receiveAmount": 106.66
       },
       "migros": {
         "rate": 1.0742,
         "fee": 25,
-        "markup": null,
+        "markup": 1.65,
         "receiveAmount": 80.57
       },
       "postfinance": {
         "rate": 1.079,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.9
       },
       "raiffeisen-ch": {
         "rate": 1.0736,
         "fee": 5,
-        "markup": null,
+        "markup": 1.7,
         "receiveAmount": 101.99
       },
       "wise": {
         "rate": 1.0924,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.66
+        "markup": -0.02,
+        "receiveAmount": 107.67
       }
     }
   },
@@ -1953,43 +1953,43 @@
       "paypal": {
         "rate": 1.0459,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.22,
         "receiveAmount": 101.99
       },
       "zkb": {
         "rate": 1.0794,
         "fee": 0,
-        "markup": null,
+        "markup": 1.15,
         "receiveAmount": 107.94
       },
       "western-union": {
         "rate": 1.0678,
         "fee": 0,
-        "markup": null,
+        "markup": 2.21,
         "receiveAmount": 106.78
       },
       "raiffeisen-ch": {
         "rate": 1.0742,
         "fee": 5,
-        "markup": null,
+        "markup": 1.63,
         "receiveAmount": 102.05
       },
       "migros": {
         "rate": 1.0741,
         "fee": 25,
-        "markup": null,
+        "markup": 1.64,
         "receiveAmount": 80.56
       },
       "postfinance": {
         "rate": 1.0796,
         "fee": 0,
-        "markup": null,
+        "markup": 1.13,
         "receiveAmount": 107.96
       },
       "wise": {
         "rate": 1.0928,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 107.71
       }
     }
@@ -2000,43 +2000,43 @@
       "paypal": {
         "rate": 1.0459,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.2,
         "receiveAmount": 101.99
       },
       "zkb": {
         "rate": 1.0794,
         "fee": 0,
-        "markup": null,
+        "markup": 1.13,
         "receiveAmount": 107.94
       },
       "western-union": {
         "rate": 1.0678,
         "fee": 0,
-        "markup": null,
+        "markup": 2.19,
         "receiveAmount": 106.78
       },
       "raiffeisen-ch": {
         "rate": 1.0742,
         "fee": 5,
-        "markup": null,
+        "markup": 1.61,
         "receiveAmount": 102.05
       },
       "migros": {
         "rate": 1.0741,
         "fee": 25,
-        "markup": null,
+        "markup": 1.62,
         "receiveAmount": 80.56
       },
       "postfinance": {
         "rate": 1.0793,
         "fee": 0,
-        "markup": null,
+        "markup": 1.14,
         "receiveAmount": 107.93
       },
       "wise": {
         "rate": 1.0928,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.1,
         "receiveAmount": 107.71
       }
     }
@@ -2047,43 +2047,43 @@
       "raiffeisen-ch": {
         "rate": 1.0732,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.96
+        "markup": 1.71,
+        "receiveAmount": 101.95
       },
       "migros": {
         "rate": 1.0739,
         "fee": 25,
-        "markup": null,
-        "receiveAmount": 80.55
+        "markup": 1.65,
+        "receiveAmount": 80.54
       },
       "postfinance": {
         "rate": 1.079,
         "fee": 0,
-        "markup": null,
+        "markup": 1.18,
         "receiveAmount": 107.9
       },
       "paypal": {
         "rate": 1.0456,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.24,
         "receiveAmount": 101.96
       },
       "western-union": {
         "rate": 1.0669,
         "fee": 0,
-        "markup": null,
+        "markup": 2.29,
         "receiveAmount": 106.69
       },
       "zkb": {
         "rate": 1.0785,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.85
       },
       "wise": {
         "rate": 1.0918,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 107.61
       }
     }
@@ -2094,43 +2094,43 @@
       "postfinance": {
         "rate": 1.0783,
         "fee": 0,
-        "markup": null,
+        "markup": 1.12,
         "receiveAmount": 107.83
       },
       "migros": {
         "rate": 1.0724,
         "fee": 25,
-        "markup": null,
+        "markup": 1.66,
         "receiveAmount": 80.43
       },
       "paypal": {
         "rate": 1.0453,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.15,
         "receiveAmount": 101.93
       },
       "western-union": {
         "rate": 1.0656,
         "fee": 0,
-        "markup": null,
+        "markup": 2.29,
         "receiveAmount": 106.56
       },
       "raiffeisen-ch": {
         "rate": 1.0719,
         "fee": 5,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 101.83
       },
       "zkb": {
         "rate": 1.0769,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107.69
       },
       "wise": {
         "rate": 1.0906,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.49
       }
     }
@@ -2141,43 +2141,43 @@
       "western-union": {
         "rate": 1.0665,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 106.65
       },
       "migros": {
         "rate": 1.0712,
         "fee": 25,
-        "markup": null,
+        "markup": 1.88,
         "receiveAmount": 80.34
       },
       "zkb": {
         "rate": 1.0786,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.86
       },
       "postfinance": {
         "rate": 1.0775,
         "fee": 0,
-        "markup": null,
+        "markup": 1.3,
         "receiveAmount": 107.75
       },
       "raiffeisen-ch": {
         "rate": 1.0722,
         "fee": 5,
-        "markup": null,
+        "markup": 1.79,
         "receiveAmount": 101.86
       },
       "paypal": {
         "rate": 1.0449,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.29,
         "receiveAmount": 101.89
       },
       "wise": {
         "rate": 1.0916,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 107.59
       }
     }
@@ -2188,44 +2188,44 @@
       "zkb": {
         "rate": 1.0799,
         "fee": 0,
-        "markup": null,
+        "markup": 1.11,
         "receiveAmount": 107.99
       },
       "raiffeisen-ch": {
         "rate": 1.0737,
         "fee": 5,
-        "markup": null,
+        "markup": 1.68,
         "receiveAmount": 102
       },
       "postfinance": {
         "rate": 1.0787,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.87
       },
       "paypal": {
         "rate": 1.0454,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.27,
         "receiveAmount": 101.94
       },
       "western-union": {
         "rate": 1.068,
         "fee": 0,
-        "markup": null,
+        "markup": 2.2,
         "receiveAmount": 106.8
       },
       "migros": {
         "rate": 1.0724,
         "fee": 25,
-        "markup": null,
+        "markup": 1.8,
         "receiveAmount": 80.43
       },
       "wise": {
         "rate": 1.0933,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.75
+        "markup": -0.12,
+        "receiveAmount": 107.76
       }
     }
   },
@@ -2235,43 +2235,43 @@
       "paypal": {
         "rate": 1.0456,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.95
+        "markup": 4.33,
+        "receiveAmount": 101.96
       },
       "western-union": {
         "rate": 1.068,
         "fee": 0,
-        "markup": null,
+        "markup": 2.28,
         "receiveAmount": 106.8
       },
       "raiffeisen-ch": {
         "rate": 1.0737,
         "fee": 5,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 102
       },
       "zkb": {
         "rate": 1.0795,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.95
       },
       "migros": {
         "rate": 1.0724,
         "fee": 25,
-        "markup": null,
+        "markup": 1.88,
         "receiveAmount": 80.43
       },
       "postfinance": {
         "rate": 1.0785,
         "fee": 0,
-        "markup": null,
+        "markup": 1.32,
         "receiveAmount": 107.85
       },
       "wise": {
         "rate": 1.0931,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 107.74
       }
     }
@@ -2282,43 +2282,43 @@
       "paypal": {
         "rate": 1.0465,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.05
+        "markup": 4.25,
+        "receiveAmount": 102.04
       },
       "western-union": {
         "rate": 1.0676,
         "fee": 0,
-        "markup": null,
+        "markup": 2.32,
         "receiveAmount": 106.76
       },
       "raiffeisen-ch": {
         "rate": 1.0743,
         "fee": 5,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 102.06
       },
       "migros": {
         "rate": 1.0747,
         "fee": 25,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 80.6
       },
       "postfinance": {
         "rate": 1.0798,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.98
       },
       "zkb": {
         "rate": 1.0799,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.99
       },
       "wise": {
         "rate": 1.0931,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.74
       }
     }
@@ -2329,43 +2329,43 @@
       "western-union": {
         "rate": 1.0676,
         "fee": 0,
-        "markup": null,
+        "markup": 2.3,
         "receiveAmount": 106.76
       },
       "raiffeisen-ch": {
         "rate": 1.0743,
         "fee": 5,
-        "markup": null,
+        "markup": 1.68,
         "receiveAmount": 102.06
       },
       "paypal": {
         "rate": 1.0465,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.05
+        "markup": 4.23,
+        "receiveAmount": 102.04
       },
       "migros": {
         "rate": 1.0747,
         "fee": 25,
-        "markup": null,
+        "markup": 1.65,
         "receiveAmount": 80.6
       },
       "postfinance": {
         "rate": 1.0798,
         "fee": 0,
-        "markup": null,
+        "markup": 1.18,
         "receiveAmount": 107.98
       },
       "zkb": {
         "rate": 1.0799,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.99
       },
       "wise": {
         "rate": 1.0931,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 107.74
       }
     }
@@ -2376,44 +2376,44 @@
       "western-union": {
         "rate": 1.0682,
         "fee": 0,
-        "markup": null,
+        "markup": 2.33,
         "receiveAmount": 106.82
       },
       "postfinance": {
         "rate": 1.08,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 108
       },
       "paypal": {
         "rate": 1.0467,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.3,
         "receiveAmount": 102.06
       },
       "zkb": {
         "rate": 1.0804,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 108.04
       },
       "raiffeisen-ch": {
         "rate": 1.0749,
         "fee": 5,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 102.12
       },
       "migros": {
         "rate": 1.0749,
         "fee": 25,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 80.62
       },
       "wise": {
         "rate": 1.0937,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.79
+        "markup": 0,
+        "receiveAmount": 107.8
       }
     }
   },
@@ -2423,43 +2423,43 @@
       "migros": {
         "rate": 1.0747,
         "fee": 25,
-        "markup": null,
-        "receiveAmount": 80.61
+        "markup": 1.74,
+        "receiveAmount": 80.6
       },
       "postfinance": {
         "rate": 1.0804,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 108.04
       },
       "zkb": {
         "rate": 1.0808,
         "fee": 0,
-        "markup": null,
+        "markup": 1.18,
         "receiveAmount": 108.08
       },
       "western-union": {
         "rate": 1.0682,
         "fee": 0,
-        "markup": null,
+        "markup": 2.33,
         "receiveAmount": 106.82
       },
       "paypal": {
         "rate": 1.0469,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.28,
         "receiveAmount": 102.08
       },
       "raiffeisen-ch": {
         "rate": 1.075,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 102.12
+        "markup": 1.71,
+        "receiveAmount": 102.13
       },
       "wise": {
         "rate": 1.0937,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 107.8
       }
     }
@@ -2470,43 +2470,43 @@
       "raiffeisen-ch": {
         "rate": 1.0724,
         "fee": 5,
-        "markup": null,
+        "markup": 1.8,
         "receiveAmount": 101.88
       },
       "zkb": {
         "rate": 1.0788,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.88
       },
       "paypal": {
         "rate": 1.0462,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.02
+        "markup": 4.2,
+        "receiveAmount": 102.01
       },
       "western-union": {
         "rate": 1.0679,
         "fee": 0,
-        "markup": null,
+        "markup": 2.21,
         "receiveAmount": 106.79
       },
       "postfinance": {
         "rate": 1.0801,
         "fee": 0,
-        "markup": null,
+        "markup": 1.09,
         "receiveAmount": 108.01
       },
       "migros": {
         "rate": 1.0735,
         "fee": 25,
-        "markup": null,
+        "markup": 1.7,
         "receiveAmount": 80.51
       },
       "wise": {
         "rate": 1.0921,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.64
       }
     }
@@ -2517,44 +2517,44 @@
       "raiffeisen-ch": {
         "rate": 1.0737,
         "fee": 5,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 102
       },
       "zkb": {
         "rate": 1.08,
         "fee": 0,
-        "markup": null,
+        "markup": 1.14,
         "receiveAmount": 108
       },
       "western-union": {
         "rate": 1.0692,
         "fee": 0,
-        "markup": null,
+        "markup": 2.13,
         "receiveAmount": 106.92
       },
       "postfinance": {
         "rate": 1.0784,
         "fee": 0,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 107.84
       },
       "paypal": {
         "rate": 1.0458,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.97
+        "markup": 4.27,
+        "receiveAmount": 101.98
       },
       "migros": {
         "rate": 1.0743,
         "fee": 25,
-        "markup": null,
-        "receiveAmount": 80.58
+        "markup": 1.66,
+        "receiveAmount": 80.57
       },
       "wise": {
         "rate": 1.0934,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.76
+        "markup": -0.09,
+        "receiveAmount": 107.77
       }
     }
   },
@@ -2564,43 +2564,43 @@
       "raiffeisen-ch": {
         "rate": 1.0745,
         "fee": 5,
-        "markup": null,
+        "markup": 1.81,
         "receiveAmount": 102.08
       },
       "paypal": {
         "rate": 1.0454,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.46,
         "receiveAmount": 101.94
       },
       "postfinance": {
         "rate": 1.0799,
         "fee": 0,
-        "markup": null,
+        "markup": 1.31,
         "receiveAmount": 107.99
       },
       "zkb": {
         "rate": 1.0818,
         "fee": 0,
-        "markup": null,
+        "markup": 1.14,
         "receiveAmount": 108.18
       },
       "western-union": {
         "rate": 1.07,
         "fee": 0,
-        "markup": null,
+        "markup": 2.22,
         "receiveAmount": 107
       },
       "migros": {
         "rate": 1.0751,
         "fee": 25,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 80.63
       },
       "wise": {
         "rate": 1.0943,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 107.85
       }
     }
@@ -2611,43 +2611,43 @@
       "paypal": {
         "rate": 1.0468,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.67,
         "receiveAmount": 102.07
       },
       "postfinance": {
         "rate": 1.0812,
         "fee": 0,
-        "markup": null,
+        "markup": 1.54,
         "receiveAmount": 108.12
       },
       "western-union": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 107.27
       },
       "migros": {
         "rate": 1.0785,
         "fee": 25,
-        "markup": null,
+        "markup": 1.79,
         "receiveAmount": 80.89
       },
       "raiffeisen-ch": {
         "rate": 1.0789,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 102.49
+        "markup": 1.75,
+        "receiveAmount": 102.5
       },
       "zkb": {
         "rate": 1.0839,
         "fee": 0,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 108.39
       },
       "wise": {
         "rate": 1.0977,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 108.19
       }
     }
@@ -2658,43 +2658,43 @@
       "migros": {
         "rate": 1.0785,
         "fee": 25,
-        "markup": null,
+        "markup": 1.79,
         "receiveAmount": 80.89
       },
       "zkb": {
         "rate": 1.0839,
         "fee": 0,
-        "markup": null,
+        "markup": 1.3,
         "receiveAmount": 108.39
       },
       "raiffeisen-ch": {
         "rate": 1.0789,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 102.49
+        "markup": 1.75,
+        "receiveAmount": 102.5
       },
       "western-union": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 2.32,
         "receiveAmount": 107.27
       },
       "paypal": {
         "rate": 1.0468,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.68,
         "receiveAmount": 102.07
       },
       "postfinance": {
         "rate": 1.0812,
         "fee": 0,
-        "markup": null,
+        "markup": 1.54,
         "receiveAmount": 108.12
       },
       "wise": {
         "rate": 1.0977,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 108.19
       }
     }
@@ -2705,43 +2705,43 @@
       "paypal": {
         "rate": 1.047,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.1
+        "markup": 4.66,
+        "receiveAmount": 102.09
       },
       "zkb": {
         "rate": 1.0844,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 108.44
       },
       "western-union": {
         "rate": 1.0732,
         "fee": 0,
-        "markup": null,
+        "markup": 2.27,
         "receiveAmount": 107.32
       },
       "postfinance": {
         "rate": 1.0812,
         "fee": 0,
-        "markup": null,
+        "markup": 1.55,
         "receiveAmount": 108.12
       },
       "raiffeisen-ch": {
         "rate": 1.0793,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 102.54
+        "markup": 1.72,
+        "receiveAmount": 102.53
       },
       "migros": {
         "rate": 1.079,
         "fee": 25,
-        "markup": null,
-        "receiveAmount": 80.92
+        "markup": 1.75,
+        "receiveAmount": 80.93
       },
       "wise": {
         "rate": 1.0981,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 108.23
       }
     }
@@ -2752,43 +2752,43 @@
       "western-union": {
         "rate": 1.0717,
         "fee": 0,
-        "markup": null,
+        "markup": 2.29,
         "receiveAmount": 107.17
       },
       "paypal": {
         "rate": 1.0462,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.02
+        "markup": 4.62,
+        "receiveAmount": 102.01
       },
       "raiffeisen-ch": {
         "rate": 1.0779,
         "fee": 5,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 102.4
       },
       "zkb": {
         "rate": 1.0835,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 108.35
       },
       "migros": {
         "rate": 1.0775,
         "fee": 25,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 80.81
       },
       "postfinance": {
         "rate": 1.0806,
         "fee": 0,
-        "markup": null,
+        "markup": 1.48,
         "receiveAmount": 108.06
       },
       "wise": {
         "rate": 1.0969,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 108.11
       }
     }
@@ -2799,37 +2799,37 @@
       "postfinance": {
         "rate": 1.0837,
         "fee": 0,
-        "markup": null,
+        "markup": 0.98,
         "receiveAmount": 108.37
       },
       "zkb": {
         "rate": 1.0805,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 108.05
       },
       "paypal": {
         "rate": 1.0495,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.1,
         "receiveAmount": 102.34
       },
       "western-union": {
         "rate": 1.0677,
         "fee": 0,
-        "markup": null,
+        "markup": 2.44,
         "receiveAmount": 106.77
       },
       "raiffeisen-ch": {
         "rate": 1.0757,
         "fee": 5,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 102.19
       },
       "wise": {
         "rate": 1.0944,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 107.86
       }
     }
@@ -2840,37 +2840,37 @@
       "zkb": {
         "rate": 1.0784,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 107.84
       },
       "postfinance": {
         "rate": 1.0799,
         "fee": 0,
-        "markup": null,
+        "markup": 1.12,
         "receiveAmount": 107.99
       },
       "paypal": {
         "rate": 1.0476,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.08,
         "receiveAmount": 102.15
       },
       "western-union": {
         "rate": 1.0655,
         "fee": 0,
-        "markup": null,
+        "markup": 2.44,
         "receiveAmount": 106.55
       },
       "raiffeisen-ch": {
         "rate": 1.0734,
         "fee": 5,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 101.97
       },
       "wise": {
         "rate": 1.0921,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 107.64
       }
     }
@@ -2881,37 +2881,37 @@
       "paypal": {
         "rate": 1.0463,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.03
+        "markup": 4.44,
+        "receiveAmount": 102.02
       },
       "zkb": {
         "rate": 1.0814,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 108.14
       },
       "postfinance": {
         "rate": 1.0796,
         "fee": 0,
-        "markup": null,
+        "markup": 1.4,
         "receiveAmount": 107.96
       },
       "raiffeisen-ch": {
         "rate": 1.076,
         "fee": 5,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 102.22
       },
       "western-union": {
         "rate": 1.068,
         "fee": 0,
-        "markup": null,
+        "markup": 2.46,
         "receiveAmount": 106.8
       },
       "wise": {
         "rate": 1.0951,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.93
       }
     }
@@ -2922,38 +2922,38 @@
       "zkb": {
         "rate": 1.0842,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 108.42
       },
       "western-union": {
         "rate": 1.0717,
         "fee": 0,
-        "markup": null,
+        "markup": 2.41,
         "receiveAmount": 107.17
       },
       "raiffeisen-ch": {
         "rate": 1.0789,
         "fee": 5,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 102.5
       },
       "paypal": {
         "rate": 1.0498,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.36
+        "markup": 4.4,
+        "receiveAmount": 102.37
       },
       "postfinance": {
         "rate": 1.0821,
         "fee": 0,
-        "markup": null,
+        "markup": 1.46,
         "receiveAmount": 108.21
       },
       "wise": {
         "rate": 1.0981,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 108.22
+        "markup": 0,
+        "receiveAmount": 108.23
       }
     }
   },
@@ -2963,38 +2963,38 @@
       "raiffeisen-ch": {
         "rate": 1.0789,
         "fee": 5,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 102.5
       },
       "western-union": {
         "rate": 1.0717,
         "fee": 0,
-        "markup": null,
+        "markup": 2.41,
         "receiveAmount": 107.17
       },
       "zkb": {
         "rate": 1.0842,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 108.42
       },
       "postfinance": {
         "rate": 1.0821,
         "fee": 0,
-        "markup": null,
+        "markup": 1.46,
         "receiveAmount": 108.21
       },
       "paypal": {
         "rate": 1.0498,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.36
+        "markup": 4.4,
+        "receiveAmount": 102.37
       },
       "wise": {
         "rate": 1.0981,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 108.22
+        "markup": 0,
+        "receiveAmount": 108.23
       }
     }
   },
@@ -3004,37 +3004,37 @@
       "postfinance": {
         "rate": 1.081,
         "fee": 0,
-        "markup": null,
+        "markup": 1.45,
         "receiveAmount": 108.1
       },
       "zkb": {
         "rate": 1.0828,
         "fee": 0,
-        "markup": null,
+        "markup": 1.28,
         "receiveAmount": 108.28
       },
       "paypal": {
         "rate": 1.0487,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 102.25
+        "markup": 4.39,
+        "receiveAmount": 102.26
       },
       "western-union": {
         "rate": 1.0704,
         "fee": 0,
-        "markup": null,
+        "markup": 2.41,
         "receiveAmount": 107.04
       },
       "raiffeisen-ch": {
         "rate": 1.0776,
         "fee": 5,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 102.37
       },
       "wise": {
         "rate": 1.0968,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 108.1
       }
     }
@@ -3045,37 +3045,37 @@
       "raiffeisen-ch": {
         "rate": 1.0737,
         "fee": 5,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 102
       },
       "zkb": {
         "rate": 1.0792,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107.92
       },
       "postfinance": {
         "rate": 1.083,
         "fee": 0,
-        "markup": null,
+        "markup": 0.89,
         "receiveAmount": 108.3
       },
       "paypal": {
         "rate": 1.0477,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.12,
         "receiveAmount": 102.16
       },
       "western-union": {
         "rate": 1.0665,
         "fee": 0,
-        "markup": null,
+        "markup": 2.4,
         "receiveAmount": 106.65
       },
       "wise": {
         "rate": 1.0927,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 107.7
       }
     }
@@ -3086,37 +3086,37 @@
       "paypal": {
         "rate": 1.0474,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.06,
         "receiveAmount": 102.13
       },
       "raiffeisen-ch": {
         "rate": 1.0729,
         "fee": 5,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 101.93
       },
       "western-union": {
         "rate": 1.0661,
         "fee": 0,
-        "markup": null,
+        "markup": 2.35,
         "receiveAmount": 106.61
       },
       "postfinance": {
         "rate": 1.0796,
         "fee": 0,
-        "markup": null,
+        "markup": 1.11,
         "receiveAmount": 107.96
       },
       "zkb": {
         "rate": 1.0781,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107.81
       },
       "wise": {
         "rate": 1.0915,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 107.58
       }
     }
@@ -3127,37 +3127,37 @@
       "raiffeisen-ch": {
         "rate": 1.0704,
         "fee": 5,
-        "markup": null,
+        "markup": 1.71,
         "receiveAmount": 101.69
       },
       "paypal": {
         "rate": 1.0449,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.88
+        "markup": 4.05,
+        "receiveAmount": 101.89
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 2.35,
         "receiveAmount": 106.35
       },
       "postfinance": {
         "rate": 1.0779,
         "fee": 0,
-        "markup": null,
+        "markup": 1.02,
         "receiveAmount": 107.79
       },
       "zkb": {
         "rate": 1.075,
         "fee": 0,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 107.5
       },
       "wise": {
         "rate": 1.0889,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 107.32
       }
     }
@@ -3168,37 +3168,37 @@
       "raiffeisen-ch": {
         "rate": 1.0724,
         "fee": 5,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 101.88
       },
       "western-union": {
         "rate": 1.0656,
         "fee": 0,
-        "markup": null,
+        "markup": 2.35,
         "receiveAmount": 106.56
       },
       "zkb": {
         "rate": 1.0777,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107.77
       },
       "postfinance": {
         "rate": 1.0752,
         "fee": 0,
-        "markup": null,
+        "markup": 1.47,
         "receiveAmount": 107.52
       },
       "paypal": {
         "rate": 1.0469,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.06,
         "receiveAmount": 102.08
       },
       "wise": {
         "rate": 1.0913,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.56
       }
     }
@@ -3209,37 +3209,37 @@
       "raiffeisen-ch": {
         "rate": 1.0715,
         "fee": 5,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 101.79
       },
       "western-union": {
         "rate": 1.0547,
         "fee": 0,
-        "markup": null,
+        "markup": 3.28,
         "receiveAmount": 105.47
       },
       "zkb": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 1.36,
         "receiveAmount": 107.56
       },
       "postfinance": {
         "rate": 1.0778,
         "fee": 0,
-        "markup": null,
+        "markup": 1.16,
         "receiveAmount": 107.78
       },
       "paypal": {
         "rate": 1.0455,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.94
+        "markup": 4.12,
+        "receiveAmount": 101.95
       },
       "wise": {
         "rate": 1.0897,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.07,
         "receiveAmount": 107.4
       }
     }
@@ -3250,37 +3250,37 @@
       "postfinance": {
         "rate": 1.0778,
         "fee": 0,
-        "markup": null,
+        "markup": 1.15,
         "receiveAmount": 107.78
       },
       "zkb": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 1.36,
         "receiveAmount": 107.56
       },
       "western-union": {
         "rate": 1.0547,
         "fee": 0,
-        "markup": null,
+        "markup": 3.27,
         "receiveAmount": 105.47
       },
       "raiffeisen-ch": {
         "rate": 1.0715,
         "fee": 5,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 101.79
       },
       "paypal": {
         "rate": 1.0455,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.94
+        "markup": 4.12,
+        "receiveAmount": 101.95
       },
       "wise": {
         "rate": 1.0897,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 107.4
       }
     }
@@ -3291,31 +3291,31 @@
       "raiffeisen-ch": {
         "rate": 1.0712,
         "fee": 5,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 101.76
       },
       "western-union": {
         "rate": 1.0544,
         "fee": 0,
-        "markup": null,
+        "markup": 3.21,
         "receiveAmount": 105.44
       },
       "zkb": {
         "rate": 1.0753,
         "fee": 0,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 107.53
       },
       "postfinance": {
         "rate": 1.0776,
         "fee": 0,
-        "markup": null,
+        "markup": 1.08,
         "receiveAmount": 107.76
       },
       "wise": {
         "rate": 1.0893,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 107.36
       }
     }
@@ -3326,31 +3326,31 @@
       "western-union": {
         "rate": 1.0517,
         "fee": 0,
-        "markup": null,
+        "markup": 3.22,
         "receiveAmount": 105.17
       },
       "postfinance": {
         "rate": 1.0746,
         "fee": 0,
-        "markup": null,
+        "markup": 1.11,
         "receiveAmount": 107.46
       },
       "zkb": {
         "rate": 1.0731,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107.31
       },
       "raiffeisen-ch": {
         "rate": 1.0685,
         "fee": 5,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 101.51
       },
       "wise": {
         "rate": 1.0866,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 107.1
       }
     }
@@ -3361,31 +3361,31 @@
       "western-union": {
         "rate": 1.0611,
         "fee": 0,
-        "markup": null,
+        "markup": 2.16,
         "receiveAmount": 106.11
       },
       "postfinance": {
         "rate": 1.0743,
         "fee": 0,
-        "markup": null,
+        "markup": 0.94,
         "receiveAmount": 107.43
       },
       "zkb": {
         "rate": 1.0715,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.15
       },
       "raiffeisen-ch": {
         "rate": 1.0663,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.29
+        "markup": 1.68,
+        "receiveAmount": 101.3
       },
       "wise": {
         "rate": 1.0845,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.89
       }
     }
@@ -3396,31 +3396,31 @@
       "western-union": {
         "rate": 1.0611,
         "fee": 0,
-        "markup": null,
+        "markup": 2.16,
         "receiveAmount": 106.11
       },
       "postfinance": {
         "rate": 1.0743,
         "fee": 0,
-        "markup": null,
+        "markup": 0.94,
         "receiveAmount": 107.43
       },
       "zkb": {
         "rate": 1.0715,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.15
       },
       "raiffeisen-ch": {
         "rate": 1.0663,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.29
+        "markup": 1.68,
+        "receiveAmount": 101.3
       },
       "wise": {
         "rate": 1.0845,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.89
       }
     }
@@ -3431,31 +3431,31 @@
       "western-union": {
         "rate": 1.0612,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 106.12
       },
       "raiffeisen-ch": {
         "rate": 1.0663,
         "fee": 5,
-        "markup": null,
+        "markup": 1.84,
         "receiveAmount": 101.3
       },
       "postfinance": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107.27
       },
       "zkb": {
         "rate": 1.0712,
         "fee": 0,
-        "markup": null,
+        "markup": 1.39,
         "receiveAmount": 107.12
       },
       "wise": {
         "rate": 1.0846,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 106.9
       }
     }
@@ -3466,31 +3466,31 @@
       "zkb": {
         "rate": 1.0712,
         "fee": 0,
-        "markup": null,
+        "markup": 1.18,
         "receiveAmount": 107.12
       },
       "western-union": {
         "rate": 1.0612,
         "fee": 0,
-        "markup": null,
+        "markup": 2.11,
         "receiveAmount": 106.12
       },
       "postfinance": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.04,
         "receiveAmount": 107.27
       },
       "raiffeisen-ch": {
         "rate": 1.0663,
         "fee": 5,
-        "markup": null,
+        "markup": 1.63,
         "receiveAmount": 101.3
       },
       "wise": {
         "rate": 1.0846,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 106.9
       }
     }
@@ -3501,31 +3501,31 @@
       "zkb": {
         "rate": 1.0712,
         "fee": 0,
-        "markup": null,
+        "markup": 1.18,
         "receiveAmount": 107.12
       },
       "western-union": {
         "rate": 1.0612,
         "fee": 0,
-        "markup": null,
+        "markup": 2.11,
         "receiveAmount": 106.12
       },
       "postfinance": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.04,
         "receiveAmount": 107.27
       },
       "raiffeisen-ch": {
         "rate": 1.0663,
         "fee": 5,
-        "markup": null,
+        "markup": 1.63,
         "receiveAmount": 101.3
       },
       "wise": {
         "rate": 1.0846,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 106.9
       }
     }
@@ -3536,19 +3536,19 @@
       "zkb": {
         "rate": 1.072,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.2
       },
       "postfinance": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.27
       },
       "wise": {
         "rate": 1.0854,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.98
       }
     }
@@ -3559,19 +3559,19 @@
       "zkb": {
         "rate": 1.072,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.2
       },
       "postfinance": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.27
       },
       "wise": {
         "rate": 1.0854,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.98
       }
     }
@@ -3582,19 +3582,19 @@
       "zkb": {
         "rate": 1.072,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 107.2
       },
       "postfinance": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.27
       },
       "wise": {
         "rate": 1.0854,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.98
       }
     }
@@ -3605,32 +3605,32 @@
       "raiffeisen-ch": {
         "rate": 1.068,
         "fee": 5,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 101.46
       },
       "postfinance": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.42
       },
       "zkb": {
         "rate": 1.0739,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.39
       },
       "western-union": {
         "rate": 1.0623,
         "fee": 0,
-        "markup": null,
+        "markup": 2.27,
         "receiveAmount": 106.23
       },
       "wise": {
         "rate": 1.087,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.14
+        "markup": 0,
+        "receiveAmount": 107.13
       }
     }
   },
@@ -3640,43 +3640,43 @@
       "western-union": {
         "rate": 1.0595,
         "fee": 0,
-        "markup": null,
+        "markup": 2.28,
         "receiveAmount": 105.95
       },
       "migros": {
         "rate": 1.0654,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.73,
         "receiveAmount": 106.22
       },
       "zkb": {
         "rate": 1.0704,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 107.04
       },
       "postfinance": {
         "rate": 1.0732,
         "fee": 0,
-        "markup": null,
+        "markup": 1.01,
         "receiveAmount": 107.32
       },
       "raiffeisen-ch": {
         "rate": 1.0653,
         "fee": 5,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 101.2
       },
       "paypal": {
         "rate": 1.0391,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.16,
         "receiveAmount": 101.32
       },
       "wise": {
         "rate": 1.0842,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.86
       }
     }
@@ -3687,43 +3687,43 @@
       "western-union": {
         "rate": 1.0563,
         "fee": 0,
-        "markup": null,
+        "markup": 2.16,
         "receiveAmount": 105.63
       },
       "raiffeisen-ch": {
         "rate": 1.0661,
         "fee": 5,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 101.28
       },
       "paypal": {
         "rate": 1.0342,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 100.85
+        "markup": 4.21,
+        "receiveAmount": 100.84
       },
       "zkb": {
         "rate": 1.067,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 106.7
       },
       "postfinance": {
         "rate": 1.0696,
         "fee": 0,
-        "markup": null,
+        "markup": 0.93,
         "receiveAmount": 106.96
       },
       "migros": {
         "rate": 1.0616,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 105.84
       },
       "wise": {
         "rate": 1.0804,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 106.48
       }
     }
@@ -3734,43 +3734,43 @@
       "postfinance": {
         "rate": 1.0696,
         "fee": 0,
-        "markup": null,
+        "markup": 0.93,
         "receiveAmount": 106.96
       },
       "zkb": {
         "rate": 1.067,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 106.7
       },
       "migros": {
         "rate": 1.0616,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 105.84
       },
       "raiffeisen-ch": {
         "rate": 1.0661,
         "fee": 5,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 101.28
       },
       "paypal": {
         "rate": 1.0342,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 100.85
+        "markup": 4.2,
+        "receiveAmount": 100.84
       },
       "western-union": {
         "rate": 1.0563,
         "fee": 0,
-        "markup": null,
+        "markup": 2.16,
         "receiveAmount": 105.63
       },
       "wise": {
         "rate": 1.0804,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 106.48
       }
     }
@@ -3781,43 +3781,43 @@
       "migros": {
         "rate": 1.0616,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 105.84
       },
       "raiffeisen-ch": {
         "rate": 1.0653,
         "fee": 5,
-        "markup": null,
+        "markup": 1.32,
         "receiveAmount": 101.2
       },
       "postfinance": {
         "rate": 1.0693,
         "fee": 0,
-        "markup": null,
+        "markup": 0.95,
         "receiveAmount": 106.93
       },
       "paypal": {
         "rate": 1.0342,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 100.85
+        "markup": 4.2,
+        "receiveAmount": 100.84
       },
       "western-union": {
         "rate": 1.0556,
         "fee": 0,
-        "markup": null,
+        "markup": 2.22,
         "receiveAmount": 105.56
       },
       "zkb": {
         "rate": 1.0662,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 106.62
       },
       "wise": {
         "rate": 1.0796,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.41
       }
     }
@@ -3828,43 +3828,43 @@
       "migros": {
         "rate": 1.0636,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 106.04
       },
       "postfinance": {
         "rate": 1.0674,
         "fee": 0,
-        "markup": null,
+        "markup": 1.37,
         "receiveAmount": 106.74
       },
       "paypal": {
         "rate": 1.0349,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.37,
         "receiveAmount": 100.91
       },
       "western-union": {
         "rate": 1.0582,
         "fee": 0,
-        "markup": null,
+        "markup": 2.22,
         "receiveAmount": 105.82
       },
       "zkb": {
         "rate": 1.0689,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 106.89
       },
       "raiffeisen-ch": {
         "rate": 1.068,
         "fee": 5,
-        "markup": null,
+        "markup": 1.31,
         "receiveAmount": 101.46
       },
       "wise": {
         "rate": 1.0824,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 106.68
       }
     }
@@ -3875,43 +3875,43 @@
       "zkb": {
         "rate": 1.0715,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107.15
       },
       "western-union": {
         "rate": 1.0581,
         "fee": 0,
-        "markup": null,
+        "markup": 2.47,
         "receiveAmount": 105.81
       },
       "migros": {
         "rate": 1.0659,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 106.27
       },
       "raiffeisen-ch": {
         "rate": 1.0667,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.33
+        "markup": 1.68,
+        "receiveAmount": 101.34
       },
       "paypal": {
         "rate": 1.0353,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 100.96
+        "markup": 4.57,
+        "receiveAmount": 100.95
       },
       "postfinance": {
         "rate": 1.0684,
         "fee": 0,
-        "markup": null,
+        "markup": 1.52,
         "receiveAmount": 106.84
       },
       "wise": {
         "rate": 1.085,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 106.94
       }
     }
@@ -3922,43 +3922,43 @@
       "raiffeisen-ch": {
         "rate": 1.0654,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.22
+        "markup": 1.7,
+        "receiveAmount": 101.21
       },
       "migros": {
         "rate": 1.066,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 106.29
+        "markup": 1.64,
+        "receiveAmount": 106.28
       },
       "western-union": {
         "rate": 1.0569,
         "fee": 0,
-        "markup": null,
+        "markup": 2.48,
         "receiveAmount": 105.69
       },
       "paypal": {
         "rate": 1.0395,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.09,
         "receiveAmount": 101.36
       },
       "postfinance": {
         "rate": 1.0712,
         "fee": 0,
-        "markup": null,
+        "markup": 1.16,
         "receiveAmount": 107.12
       },
       "zkb": {
         "rate": 1.0701,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 107.01
       },
       "wise": {
         "rate": 1.0838,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.82
       }
     }
@@ -3969,38 +3969,38 @@
       "paypal": {
         "rate": 1.0382,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.38,
         "receiveAmount": 101.23
       },
       "western-union": {
         "rate": 1.0589,
         "fee": 0,
-        "markup": null,
+        "markup": 2.47,
         "receiveAmount": 105.89
       },
       "postfinance": {
         "rate": 1.0712,
         "fee": 0,
-        "markup": null,
+        "markup": 1.34,
         "receiveAmount": 107.12
       },
       "migros": {
         "rate": 1.0669,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 106.37
       },
       "zkb": {
         "rate": 1.0725,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.25
       },
       "wise": {
         "rate": 1.0858,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.01
+        "markup": -0.01,
+        "receiveAmount": 107.02
       }
     }
   },
@@ -4010,44 +4010,44 @@
       "paypal": {
         "rate": 1.0383,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.3,
         "receiveAmount": 101.24
       },
       "western-union": {
         "rate": 1.0609,
         "fee": 0,
-        "markup": null,
+        "markup": 2.22,
         "receiveAmount": 106.09
       },
       "postfinance": {
         "rate": 1.0734,
         "fee": 0,
-        "markup": null,
+        "markup": 1.07,
         "receiveAmount": 107.34
       },
       "zkb": {
         "rate": 1.0709,
         "fee": 0,
-        "markup": null,
+        "markup": 1.3,
         "receiveAmount": 107.09
       },
       "migros": {
         "rate": 1.0667,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0651,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.19
+        "markup": 1.83,
+        "receiveAmount": 101.18
       },
       "wise": {
         "rate": 1.0844,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 106.87
+        "markup": 0.06,
+        "receiveAmount": 106.88
       }
     }
   },
@@ -4057,44 +4057,44 @@
       "postfinance": {
         "rate": 1.0734,
         "fee": 0,
-        "markup": null,
+        "markup": 1.02,
         "receiveAmount": 107.34
       },
       "paypal": {
         "rate": 1.0383,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.26,
         "receiveAmount": 101.24
       },
       "migros": {
         "rate": 1.0667,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.64,
         "receiveAmount": 106.35
       },
       "western-union": {
         "rate": 1.0609,
         "fee": 0,
-        "markup": null,
+        "markup": 2.17,
         "receiveAmount": 106.09
       },
       "raiffeisen-ch": {
         "rate": 1.0651,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.19
+        "markup": 1.78,
+        "receiveAmount": 101.18
       },
       "zkb": {
         "rate": 1.0709,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107.09
       },
       "wise": {
         "rate": 1.0844,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 106.87
+        "markup": 0,
+        "receiveAmount": 106.88
       }
     }
   },
@@ -4104,44 +4104,44 @@
       "postfinance": {
         "rate": 1.0734,
         "fee": 0,
-        "markup": null,
+        "markup": 1.02,
         "receiveAmount": 107.34
       },
       "paypal": {
         "rate": 1.0383,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.26,
         "receiveAmount": 101.24
       },
       "migros": {
         "rate": 1.0667,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.64,
         "receiveAmount": 106.35
       },
       "western-union": {
         "rate": 1.0609,
         "fee": 0,
-        "markup": null,
+        "markup": 2.17,
         "receiveAmount": 106.09
       },
       "raiffeisen-ch": {
         "rate": 1.0651,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.19
+        "markup": 1.78,
+        "receiveAmount": 101.18
       },
       "zkb": {
         "rate": 1.0709,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 107.09
       },
       "wise": {
         "rate": 1.0844,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 106.87
+        "markup": 0,
+        "receiveAmount": 106.88
       }
     }
   },
@@ -4151,43 +4151,43 @@
       "raiffeisen-ch": {
         "rate": 1.0651,
         "fee": 5,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 101.18
       },
       "migros": {
         "rate": 1.0652,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 106.2
       },
       "postfinance": {
         "rate": 1.0711,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.11
       },
       "paypal": {
         "rate": 1.0379,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.2
+        "markup": 4.27,
+        "receiveAmount": 101.21
       },
       "zkb": {
         "rate": 1.0711,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.11
       },
       "western-union": {
         "rate": 1.0609,
         "fee": 0,
-        "markup": null,
+        "markup": 2.15,
         "receiveAmount": 106.09
       },
       "wise": {
         "rate": 1.0844,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 106.88
       }
     }
@@ -4198,43 +4198,43 @@
       "postfinance": {
         "rate": 1.07,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 107
       },
       "migros": {
         "rate": 1.0651,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 106.19
       },
       "zkb": {
         "rate": 1.0704,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.04
       },
       "western-union": {
         "rate": 1.0584,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 105.84
       },
       "raiffeisen-ch": {
         "rate": 1.0642,
         "fee": 5,
-        "markup": null,
+        "markup": 1.78,
         "receiveAmount": 101.1
       },
       "paypal": {
         "rate": 1.0374,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.25,
         "receiveAmount": 101.16
       },
       "wise": {
         "rate": 1.0834,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 106.78
       }
     }
@@ -4245,43 +4245,43 @@
       "raiffeisen-ch": {
         "rate": 1.0665,
         "fee": 5,
-        "markup": null,
+        "markup": 1.77,
         "receiveAmount": 101.32
       },
       "western-union": {
         "rate": 1.0607,
         "fee": 0,
-        "markup": null,
+        "markup": 2.3,
         "receiveAmount": 106.07
       },
       "paypal": {
         "rate": 1.038,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 101.21
+        "markup": 4.39,
+        "receiveAmount": 101.22
       },
       "migros": {
         "rate": 1.0675,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 106.43
       },
       "zkb": {
         "rate": 1.0724,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.24
       },
       "postfinance": {
         "rate": 1.0727,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 107.27
       },
       "wise": {
         "rate": 1.0858,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 107.02
       }
     }
@@ -4292,44 +4292,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.5,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.77,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 1.32,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.01,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4339,44 +4339,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.52,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 2.33,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.8,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 1.35,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": 0.01,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4386,44 +4386,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.48,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 2.28,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 1.17,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.65,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 1.3,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.03,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4433,44 +4433,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.39,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 2.19,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.66,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 1.08,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.56,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.13,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4480,44 +4480,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.21,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 2.01,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.48,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.9,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.38,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 1.03,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.31,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4527,44 +4527,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.07,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.86,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.33,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.75,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.88,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.46,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4574,44 +4574,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.11,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.9,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.37,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.79,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.92,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.42,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4621,44 +4621,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.31,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 2.11,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.58,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 1,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.48,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 1.13,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.21,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4668,44 +4668,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.13,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.92,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.39,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.81,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.93,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.4,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4715,44 +4715,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.06,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.86,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.32,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.74,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.87,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.47,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4762,44 +4762,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.03,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.82,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.7,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.18,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.83,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.51,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4809,44 +4809,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.64,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.43,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.89,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.79,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.43,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.91,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4856,44 +4856,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.82,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.6,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.07,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.48,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.97,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.73,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4903,44 +4903,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.93,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.08,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.73,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.61,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4950,44 +4950,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.8,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.59,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.06,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.47,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.95,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.74,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -4997,44 +4997,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.94,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.1,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.75,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.59,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -5044,44 +5044,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.95,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.1,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.75,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.59,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -5091,44 +5091,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.96,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.75,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.64,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.12,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.76,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.58,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -5138,44 +5138,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.83,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.61,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 1.08,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.49,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.98,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.72,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -5185,44 +5185,44 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.62,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.4,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.87,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.76,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 107.42
       },
       "wise": {
         "rate": 1.0887,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
+        "markup": -0.93,
+        "receiveAmount": 107.3
       }
     }
   },
@@ -5232,44 +5232,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.35,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.13,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.59,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.49,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5279,44 +5273,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.32,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.1,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.56,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.45,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5326,44 +5314,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.26,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.04,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.5,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.4,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5373,44 +5355,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.27,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.05,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.51,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.4,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5420,44 +5396,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.36,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.14,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.5,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.15,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5467,44 +5437,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.17,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.95,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.18,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5514,44 +5478,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.06,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.83,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.29,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.16,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5561,44 +5519,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 2.93,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.7,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.43,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.3,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5608,44 +5560,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.43,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.57,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5655,44 +5601,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.18,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.95,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.17,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5702,44 +5642,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.15,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.92,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.38,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.21,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5749,44 +5683,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.03,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.8,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.33,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.15,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.2,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5796,44 +5724,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.05,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.82,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.31,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.18,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5843,44 +5765,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.08,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.85,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.28,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.21,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.15,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5890,44 +5806,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.14,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.91,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.37,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.22,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5937,44 +5847,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 2.67,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.43,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": -0.11,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.7,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": -0.22,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.57,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -5984,44 +5888,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 2.93,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.7,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.15,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.43,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.3,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -6031,44 +5929,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 2.9,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.46,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.33,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -6078,44 +5970,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 2.85,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.51,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.38,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -6125,44 +6011,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 2.79,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.55,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.58,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.45,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -6172,44 +6052,38 @@
       "paypal": {
         "rate": 1.0396,
         "fee": 2.49,
-        "markup": null,
+        "markup": 2.65,
         "receiveAmount": 101.37
       },
       "western-union": {
         "rate": 1.0635,
         "fee": 0,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 106.35
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": -0.13,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.72,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0704,
         "fee": 0.3,
-        "markup": null,
+        "markup": -0.23,
         "receiveAmount": 106.72
       },
       "zkb": {
         "rate": 1.0742,
         "fee": 0,
-        "markup": null,
+        "markup": -0.59,
         "receiveAmount": 107.42
-      },
-      "wise": {
-        "rate": 1.0887,
-        "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 107.31
       }
     }
   },
@@ -6219,43 +6093,43 @@
       "paypal": {
         "rate": 1.0215,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 99.6
+        "markup": 4.21,
+        "receiveAmount": 99.61
       },
       "western-union": {
         "rate": 1.0413,
         "fee": 0,
-        "markup": null,
+        "markup": 2.36,
         "receiveAmount": 104.13
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
         "fee": 5,
-        "markup": null,
+        "markup": -0.27,
         "receiveAmount": 101.58
       },
       "postfinance": {
         "rate": 1.0756,
         "fee": 0,
-        "markup": null,
+        "markup": -0.86,
         "receiveAmount": 107.56
       },
       "migros": {
         "rate": 1.0486,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 104.55
       },
       "zkb": {
         "rate": 1.0519,
         "fee": 0,
-        "markup": null,
+        "markup": 1.36,
         "receiveAmount": 105.19
       },
       "wise": {
         "rate": 1.0652,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 104.99
       }
     }
@@ -6266,31 +6140,31 @@
       "paypal": {
         "rate": 1.0216,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.07,
         "receiveAmount": 99.62
       },
       "western-union": {
         "rate": 1.041,
         "fee": 0,
-        "markup": null,
+        "markup": 2.25,
         "receiveAmount": 104.1
       },
       "zkb": {
         "rate": 1.0516,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 105.16
       },
       "migros": {
         "rate": 1.0488,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.56
+        "markup": 1.51,
+        "receiveAmount": 104.57
       },
       "wise": {
         "rate": 1.0649,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 104.96
       }
     }
@@ -6301,31 +6175,31 @@
       "paypal": {
         "rate": 1.019,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.12,
         "receiveAmount": 99.36
       },
       "western-union": {
         "rate": 1.0402,
         "fee": 0,
-        "markup": null,
+        "markup": 2.12,
         "receiveAmount": 104.02
       },
       "zkb": {
         "rate": 1.0493,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 104.93
       },
       "migros": {
         "rate": 1.0455,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.23
+        "markup": 1.62,
+        "receiveAmount": 104.24
       },
       "wise": {
         "rate": 1.0626,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 104.73
       }
     }
@@ -6336,31 +6210,31 @@
       "paypal": {
         "rate": 1.019,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.11,
         "receiveAmount": 99.36
       },
       "western-union": {
         "rate": 1.0402,
         "fee": 0,
-        "markup": null,
+        "markup": 2.12,
         "receiveAmount": 104.02
       },
       "zkb": {
         "rate": 1.0493,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 104.93
       },
       "migros": {
         "rate": 1.0455,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.23
+        "markup": 1.62,
+        "receiveAmount": 104.24
       },
       "wise": {
         "rate": 1.0626,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 104.73
       }
     }
@@ -6371,31 +6245,31 @@
       "paypal": {
         "rate": 1.0195,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.14,
         "receiveAmount": 99.41
       },
       "western-union": {
         "rate": 1.0412,
         "fee": 0,
-        "markup": null,
+        "markup": 2.1,
         "receiveAmount": 104.12
       },
       "migros": {
         "rate": 1.046,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.28
+        "markup": 1.65,
+        "receiveAmount": 104.29
       },
       "zkb": {
         "rate": 1.0503,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 105.03
       },
       "wise": {
         "rate": 1.0634,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 104.81
       }
     }
@@ -6406,31 +6280,31 @@
       "zkb": {
         "rate": 1.0511,
         "fee": 0,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 105.11
       },
       "western-union": {
         "rate": 1.0423,
         "fee": 0,
-        "markup": null,
+        "markup": 2.11,
         "receiveAmount": 104.23
       },
       "paypal": {
         "rate": 1.0174,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.45,
         "receiveAmount": 99.21
       },
       "migros": {
         "rate": 1.0469,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.68,
         "receiveAmount": 104.38
       },
       "wise": {
         "rate": 1.0648,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 104.95
       }
     }
@@ -6441,32 +6315,32 @@
       "zkb": {
         "rate": 1.0504,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 105.04
       },
       "migros": {
         "rate": 1.0463,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.31
+        "markup": 1.63,
+        "receiveAmount": 104.32
       },
       "western-union": {
         "rate": 1.0391,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 103.91
       },
       "paypal": {
         "rate": 1.0198,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.12,
         "receiveAmount": 99.44
       },
       "wise": {
         "rate": 1.0637,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 104.83
+        "markup": 0,
+        "receiveAmount": 104.84
       }
     }
   },
@@ -6476,32 +6350,32 @@
       "zkb": {
         "rate": 1.0589,
         "fee": 0,
-        "markup": null,
+        "markup": 1.31,
         "receiveAmount": 105.89
       },
       "paypal": {
         "rate": 1.0187,
         "fee": 2.49,
-        "markup": null,
+        "markup": 5.05,
         "receiveAmount": 99.33
       },
       "migros": {
         "rate": 1.0534,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.82,
         "receiveAmount": 105.02
       },
       "western-union": {
         "rate": 1.048,
         "fee": 0,
-        "markup": null,
+        "markup": 2.32,
         "receiveAmount": 104.8
       },
       "wise": {
         "rate": 1.0728,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 105.73
+        "markup": 0.01,
+        "receiveAmount": 105.74
       }
     }
   },
@@ -6511,31 +6385,31 @@
       "paypal": {
         "rate": 1.0259,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 100.03
+        "markup": 4.09,
+        "receiveAmount": 100.04
       },
       "western-union": {
         "rate": 1.045,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 104.5
       },
       "migros": {
         "rate": 1.0517,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.86
+        "markup": 1.68,
+        "receiveAmount": 104.85
       },
       "zkb": {
         "rate": 1.0561,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 105.61
       },
       "wise": {
         "rate": 1.0696,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 105.42
       }
     }
@@ -6546,31 +6420,31 @@
       "paypal": {
         "rate": 1.0249,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.14,
         "receiveAmount": 99.94
       },
       "zkb": {
         "rate": 1.0555,
         "fee": 0,
-        "markup": null,
+        "markup": 1.28,
         "receiveAmount": 105.55
       },
       "western-union": {
         "rate": 1.0441,
         "fee": 0,
-        "markup": null,
+        "markup": 2.34,
         "receiveAmount": 104.41
       },
       "migros": {
         "rate": 1.0504,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.73
+        "markup": 1.75,
+        "receiveAmount": 104.72
       },
       "wise": {
         "rate": 1.0688,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 105.34
       }
     }
@@ -6581,31 +6455,31 @@
       "paypal": {
         "rate": 1.0249,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.08,
         "receiveAmount": 99.94
       },
       "western-union": {
         "rate": 1.0441,
         "fee": 0,
-        "markup": null,
+        "markup": 2.28,
         "receiveAmount": 104.41
       },
       "zkb": {
         "rate": 1.0555,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 105.55
       },
       "migros": {
         "rate": 1.0504,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.73
+        "markup": 1.69,
+        "receiveAmount": 104.72
       },
       "wise": {
         "rate": 1.0688,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 105.34
       }
     }
@@ -6616,31 +6490,31 @@
       "western-union": {
         "rate": 1.0448,
         "fee": 0,
-        "markup": null,
+        "markup": 2.33,
         "receiveAmount": 104.48
       },
       "paypal": {
         "rate": 1.0252,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.16,
         "receiveAmount": 99.97
       },
       "zkb": {
         "rate": 1.0563,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 105.63
       },
       "migros": {
         "rate": 1.0508,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 104.76
       },
       "wise": {
         "rate": 1.0696,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 105.42
       }
     }
@@ -6651,31 +6525,31 @@
       "western-union": {
         "rate": 1.0435,
         "fee": 0,
-        "markup": null,
+        "markup": 2.31,
         "receiveAmount": 104.35
       },
       "paypal": {
         "rate": 1.023,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 99.76
+        "markup": 4.23,
+        "receiveAmount": 99.75
       },
       "migros": {
         "rate": 1.0504,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 104.72
       },
       "zkb": {
         "rate": 1.055,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 105.5
       },
       "wise": {
         "rate": 1.0682,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 105.28
       }
     }
@@ -6686,31 +6560,31 @@
       "zkb": {
         "rate": 1.0558,
         "fee": 0,
-        "markup": null,
+        "markup": 1.18,
         "receiveAmount": 105.58
       },
       "migros": {
         "rate": 1.0499,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.67
+        "markup": 1.74,
+        "receiveAmount": 104.68
       },
       "paypal": {
         "rate": 1.0234,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.22,
         "receiveAmount": 99.79
       },
       "western-union": {
         "rate": 1.0436,
         "fee": 0,
-        "markup": null,
+        "markup": 2.33,
         "receiveAmount": 104.36
       },
       "wise": {
         "rate": 1.0686,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 105.32
       }
     }
@@ -6721,25 +6595,25 @@
       "paypal": {
         "rate": 1.0221,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 99.67
+        "markup": 4.03,
+        "receiveAmount": 99.66
       },
       "zkb": {
         "rate": 1.0522,
         "fee": 0,
-        "markup": null,
+        "markup": 1.21,
         "receiveAmount": 105.22
       },
       "migros": {
         "rate": 1.0478,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.62,
         "receiveAmount": 104.47
       },
       "wise": {
         "rate": 1.0649,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 104.96
       }
     }
@@ -6750,31 +6624,31 @@
       "paypal": {
         "rate": 1.0219,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 99.64
+        "markup": 4.24,
+        "receiveAmount": 99.65
       },
       "western-union": {
         "rate": 1.0055,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.77,
         "receiveAmount": 97.54
       },
       "zkb": {
         "rate": 1.0541,
         "fee": 0,
-        "markup": null,
+        "markup": 1.22,
         "receiveAmount": 105.41
       },
       "migros": {
         "rate": 1.0492,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.68,
         "receiveAmount": 104.61
       },
       "wise": {
         "rate": 1.067,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 105.16
       }
     }
@@ -6785,31 +6659,31 @@
       "zkb": {
         "rate": 1.0537,
         "fee": 0,
-        "markup": null,
+        "markup": 1.38,
         "receiveAmount": 105.37
       },
       "paypal": {
         "rate": 1.0214,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 99.59
+        "markup": 4.41,
+        "receiveAmount": 99.6
       },
       "migros": {
         "rate": 1.0488,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.56
+        "markup": 1.84,
+        "receiveAmount": 104.57
       },
       "western-union": {
         "rate": 1.0032,
         "fee": 2.99,
-        "markup": null,
+        "markup": 6.11,
         "receiveAmount": 97.32
       },
       "wise": {
         "rate": 1.0666,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 105.12
       }
     }
@@ -6820,31 +6694,31 @@
       "western-union": {
         "rate": 1.0032,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.96,
         "receiveAmount": 97.32
       },
       "paypal": {
         "rate": 1.0214,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 99.59
+        "markup": 4.26,
+        "receiveAmount": 99.6
       },
       "migros": {
         "rate": 1.0488,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.56
+        "markup": 1.69,
+        "receiveAmount": 104.57
       },
       "zkb": {
         "rate": 1.0537,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 105.37
       },
       "wise": {
         "rate": 1.0666,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 105.12
       }
     }
@@ -6855,32 +6729,32 @@
       "zkb": {
         "rate": 1.0544,
         "fee": 0,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 105.44
       },
       "western-union": {
         "rate": 1.0033,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.98,
         "receiveAmount": 97.33
       },
       "paypal": {
         "rate": 1.0218,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.25,
         "receiveAmount": 99.64
       },
       "migros": {
         "rate": 1.0489,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.57
+        "markup": 1.71,
+        "receiveAmount": 104.58
       },
       "wise": {
         "rate": 1.0671,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 105.18
+        "markup": 0,
+        "receiveAmount": 105.17
       }
     }
   },
@@ -6890,32 +6764,32 @@
       "zkb": {
         "rate": 1.0544,
         "fee": 0,
-        "markup": null,
+        "markup": 1.19,
         "receiveAmount": 105.44
       },
       "western-union": {
         "rate": 1.0033,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.98,
         "receiveAmount": 97.33
       },
       "paypal": {
         "rate": 1.0218,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.25,
         "receiveAmount": 99.64
       },
       "migros": {
         "rate": 1.0489,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.57
+        "markup": 1.71,
+        "receiveAmount": 104.58
       },
       "wise": {
         "rate": 1.0671,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 105.18
+        "markup": 0,
+        "receiveAmount": 105.17
       }
     }
   },
@@ -6925,31 +6799,31 @@
       "zkb": {
         "rate": 1.0481,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 104.81
       },
       "western-union": {
         "rate": 0.9982,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.94,
         "receiveAmount": 96.84
       },
       "paypal": {
         "rate": 1.0189,
         "fee": 2.49,
-        "markup": null,
+        "markup": 3.99,
         "receiveAmount": 99.35
       },
       "migros": {
         "rate": 1.0439,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.64,
         "receiveAmount": 104.08
       },
       "wise": {
         "rate": 1.0611,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 104.58
       }
     }
@@ -6960,31 +6834,31 @@
       "western-union": {
         "rate": 0.9997,
         "fee": 2.99,
-        "markup": null,
-        "receiveAmount": 96.99
+        "markup": 5.85,
+        "receiveAmount": 96.98
       },
       "paypal": {
         "rate": 1.0168,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.24,
         "receiveAmount": 99.15
       },
       "migros": {
         "rate": 1.0432,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 104.01
       },
       "zkb": {
         "rate": 1.0486,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 104.86
       },
       "wise": {
         "rate": 1.0618,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 104.65
       }
     }
@@ -6995,31 +6869,31 @@
       "migros": {
         "rate": 1.0489,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.57
+        "markup": 1.48,
+        "receiveAmount": 104.58
       },
       "western-union": {
         "rate": 1.005,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.6,
         "receiveAmount": 97.5
       },
       "zkb": {
         "rate": 1.0509,
         "fee": 0,
-        "markup": null,
+        "markup": 1.29,
         "receiveAmount": 105.09
       },
       "paypal": {
         "rate": 1.0176,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 99.22
+        "markup": 4.42,
+        "receiveAmount": 99.23
       },
       "wise": {
         "rate": 1.0648,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 104.95
       }
     }
@@ -7030,31 +6904,31 @@
       "migros": {
         "rate": 1.0455,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.23
+        "markup": 1.69,
+        "receiveAmount": 104.24
       },
       "western-union": {
         "rate": 1,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.97,
         "receiveAmount": 97.01
       },
       "zkb": {
         "rate": 1.0496,
         "fee": 0,
-        "markup": null,
+        "markup": 1.3,
         "receiveAmount": 104.96
       },
       "paypal": {
         "rate": 1.0189,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.19,
         "receiveAmount": 99.35
       },
       "wise": {
         "rate": 1.063,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 104.77
       }
     }
@@ -7065,31 +6939,31 @@
       "migros": {
         "rate": 1.0455,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.23
+        "markup": 1.66,
+        "receiveAmount": 104.24
       },
       "western-union": {
         "rate": 1,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.94,
         "receiveAmount": 97.01
       },
       "zkb": {
         "rate": 1.0496,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 104.96
       },
       "paypal": {
         "rate": 1.0189,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.16,
         "receiveAmount": 99.35
       },
       "wise": {
         "rate": 1.0634,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 104.81
       }
     }
@@ -7100,31 +6974,31 @@
       "paypal": {
         "rate": 1.0192,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.06,
         "receiveAmount": 99.38
       },
       "western-union": {
         "rate": 1.0004,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.83,
         "receiveAmount": 97.05
       },
       "migros": {
         "rate": 1.0452,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.62,
         "receiveAmount": 104.21
       },
       "zkb": {
         "rate": 1.0496,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 104.96
       },
       "wise": {
         "rate": 1.063,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 104.77
       }
     }
@@ -7135,31 +7009,31 @@
       "paypal": {
         "rate": 1.0163,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.37,
         "receiveAmount": 99.1
       },
       "zkb": {
         "rate": 1.0495,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 104.95
       },
       "western-union": {
         "rate": 1.0019,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.72,
         "receiveAmount": 97.19
       },
       "migros": {
         "rate": 1.0456,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.61,
         "receiveAmount": 104.25
       },
       "wise": {
         "rate": 1.0626,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 104.73
       }
     }
@@ -7170,31 +7044,31 @@
       "migros": {
         "rate": 1.0433,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.84,
         "receiveAmount": 104.02
       },
       "zkb": {
         "rate": 1.0482,
         "fee": 0,
-        "markup": null,
+        "markup": 1.38,
         "receiveAmount": 104.82
       },
       "paypal": {
         "rate": 1.0178,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.24,
         "receiveAmount": 99.25
       },
       "western-union": {
         "rate": 0.999,
         "fee": 2.99,
-        "markup": null,
+        "markup": 6.01,
         "receiveAmount": 96.91
       },
       "wise": {
         "rate": 1.061,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 104.57
       }
     }
@@ -7205,32 +7079,32 @@
       "migros": {
         "rate": 1.0413,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.86,
         "receiveAmount": 103.82
       },
       "zkb": {
         "rate": 1.0457,
         "fee": 0,
-        "markup": null,
+        "markup": 1.44,
         "receiveAmount": 104.57
       },
       "paypal": {
         "rate": 1.0173,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.12,
         "receiveAmount": 99.2
       },
       "western-union": {
         "rate": 0.9945,
         "fee": 2.99,
-        "markup": null,
+        "markup": 6.27,
         "receiveAmount": 96.48
       },
       "wise": {
         "rate": 1.059,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 104.37
+        "markup": 0.19,
+        "receiveAmount": 104.38
       }
     }
   },
@@ -7240,31 +7114,31 @@
       "paypal": {
         "rate": 1.0154,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.12,
         "receiveAmount": 99.01
       },
       "western-union": {
         "rate": 0.9931,
         "fee": 2.99,
-        "markup": null,
+        "markup": 6.23,
         "receiveAmount": 96.34
       },
       "zkb": {
         "rate": 1.0425,
         "fee": 0,
-        "markup": null,
+        "markup": 1.56,
         "receiveAmount": 104.25
       },
       "migros": {
         "rate": 1.0384,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 103.52
+        "markup": 1.95,
+        "receiveAmount": 103.53
       },
       "wise": {
         "rate": 1.0561,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 104.09
       }
     }
@@ -7275,31 +7149,31 @@
       "western-union": {
         "rate": 0.9937,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.9,
         "receiveAmount": 96.4
       },
       "paypal": {
         "rate": 1.0122,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.14,
         "receiveAmount": 98.7
       },
       "zkb": {
         "rate": 1.0429,
         "fee": 0,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 104.29
       },
       "migros": {
         "rate": 1.039,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 103.58
+        "markup": 1.61,
+        "receiveAmount": 103.59
       },
       "wise": {
         "rate": 1.056,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 104.08
       }
     }
@@ -7310,31 +7184,31 @@
       "western-union": {
         "rate": 0.9935,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.91,
         "receiveAmount": 96.38
       },
       "migros": {
         "rate": 1.0388,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.62,
         "receiveAmount": 103.57
       },
       "zkb": {
         "rate": 1.0428,
         "fee": 0,
-        "markup": null,
+        "markup": 1.25,
         "receiveAmount": 104.28
       },
       "paypal": {
         "rate": 1.0121,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.15,
         "receiveAmount": 98.69
       },
       "wise": {
         "rate": 1.0558,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 104.06
       }
     }
@@ -7345,32 +7219,32 @@
       "paypal": {
         "rate": 1.0127,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.13,
         "receiveAmount": 98.75
       },
       "migros": {
         "rate": 1.0421,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.35,
         "receiveAmount": 103.9
       },
       "western-union": {
         "rate": 0.9993,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.4,
         "receiveAmount": 96.94
       },
       "zkb": {
         "rate": 1.0458,
         "fee": 0,
-        "markup": null,
+        "markup": 1,
         "receiveAmount": 104.58
       },
       "wise": {
         "rate": 1.0593,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 104.41
+        "markup": -0.28,
+        "receiveAmount": 104.4
       }
     }
   },
@@ -7380,32 +7254,32 @@
       "zkb": {
         "rate": 1.0451,
         "fee": 0,
-        "markup": null,
+        "markup": 1.35,
         "receiveAmount": 104.51
       },
       "paypal": {
         "rate": 1.0116,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 98.65
+        "markup": 4.51,
+        "receiveAmount": 98.64
       },
       "western-union": {
         "rate": 0.9966,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.93,
         "receiveAmount": 96.68
       },
       "migros": {
         "rate": 1.0409,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 103.78
       },
       "wise": {
         "rate": 1.0589,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 104.36
+        "markup": 0.05,
+        "receiveAmount": 104.37
       }
     }
   },
@@ -7415,31 +7289,31 @@
       "migros": {
         "rate": 1.0401,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 103.7
       },
       "paypal": {
         "rate": 1.0135,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 98.82
+        "markup": 4.23,
+        "receiveAmount": 98.83
       },
       "zkb": {
         "rate": 1.0438,
         "fee": 0,
-        "markup": null,
+        "markup": 1.37,
         "receiveAmount": 104.38
       },
       "western-union": {
         "rate": 0.9883,
         "fee": 2.99,
-        "markup": null,
-        "receiveAmount": 95.88
+        "markup": 6.61,
+        "receiveAmount": 95.87
       },
       "wise": {
         "rate": 1.0563,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 104.11
       }
     }
@@ -7450,31 +7324,31 @@
       "paypal": {
         "rate": 1.0131,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.11,
         "receiveAmount": 98.79
       },
       "migros": {
         "rate": 1.0389,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 103.57
+        "markup": 1.67,
+        "receiveAmount": 103.58
       },
       "western-union": {
         "rate": 0.9946,
         "fee": 2.99,
-        "markup": null,
-        "receiveAmount": 96.48
+        "markup": 5.86,
+        "receiveAmount": 96.49
       },
       "zkb": {
         "rate": 1.0439,
         "fee": 0,
-        "markup": null,
+        "markup": 1.2,
         "receiveAmount": 104.39
       },
       "wise": {
         "rate": 1.0568,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 104.16
       }
     }
@@ -7485,31 +7359,31 @@
       "zkb": {
         "rate": 1.0463,
         "fee": 0,
-        "markup": null,
+        "markup": 1.07,
         "receiveAmount": 104.63
       },
       "migros": {
         "rate": 1.0415,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.52,
         "receiveAmount": 103.84
       },
       "paypal": {
         "rate": 1.0117,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.34,
         "receiveAmount": 98.65
       },
       "western-union": {
         "rate": 0.9967,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.76,
         "receiveAmount": 96.69
       },
       "wise": {
         "rate": 1.0592,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.15,
         "receiveAmount": 104.39
       }
     }
@@ -7520,31 +7394,31 @@
       "western-union": {
         "rate": 0.9964,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.81,
         "receiveAmount": 96.66
       },
       "zkb": {
         "rate": 1.0462,
         "fee": 0,
-        "markup": null,
+        "markup": 1.1,
         "receiveAmount": 104.62
       },
       "paypal": {
         "rate": 1.0119,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.34,
         "receiveAmount": 98.67
       },
       "migros": {
         "rate": 1.0415,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 103.83
+        "markup": 1.55,
+        "receiveAmount": 103.84
       },
       "wise": {
         "rate": 1.0591,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.12,
         "receiveAmount": 104.38
       }
     }
@@ -7555,32 +7429,32 @@
       "paypal": {
         "rate": 1.0112,
         "fee": 2.49,
-        "markup": null,
-        "receiveAmount": 98.61
+        "markup": 4.51,
+        "receiveAmount": 98.6
       },
       "western-union": {
         "rate": 0.9958,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.97,
         "receiveAmount": 96.6
       },
       "migros": {
         "rate": 1.0408,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.72,
         "receiveAmount": 103.77
       },
       "zkb": {
         "rate": 1.0456,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 104.56
       },
       "wise": {
         "rate": 1.0586,
         "fee": 1.44,
-        "markup": null,
-        "receiveAmount": 104.33
+        "markup": 0.04,
+        "receiveAmount": 104.34
       }
     }
   },
@@ -7590,31 +7464,31 @@
       "western-union": {
         "rate": 0.9981,
         "fee": 2.99,
-        "markup": null,
-        "receiveAmount": 96.82
+        "markup": 5.73,
+        "receiveAmount": 96.83
       },
       "zkb": {
         "rate": 1.0492,
         "fee": 0,
-        "markup": null,
+        "markup": 0.9,
         "receiveAmount": 104.92
       },
       "paypal": {
         "rate": 1.0119,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.43,
         "receiveAmount": 98.67
       },
       "migros": {
         "rate": 1.0445,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.35,
         "receiveAmount": 104.14
       },
       "wise": {
         "rate": 1.0622,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.33,
         "receiveAmount": 104.69
       }
     }
@@ -7625,31 +7499,31 @@
       "migros": {
         "rate": 1.0467,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.47,
         "receiveAmount": 104.36
       },
       "paypal": {
         "rate": 1.0146,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.49,
         "receiveAmount": 98.93
       },
       "western-union": {
         "rate": 0.9988,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.98,
         "receiveAmount": 96.89
       },
       "zkb": {
         "rate": 1.0511,
         "fee": 0,
-        "markup": null,
+        "markup": 1.05,
         "receiveAmount": 105.11
       },
       "wise": {
         "rate": 1.0645,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.21,
         "receiveAmount": 104.92
       }
     }
@@ -7660,31 +7534,31 @@
       "western-union": {
         "rate": 1.0004,
         "fee": 2.99,
-        "markup": null,
+        "markup": 6.08,
         "receiveAmount": 97.05
       },
       "paypal": {
         "rate": 1.015,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.71,
         "receiveAmount": 98.97
       },
       "migros": {
         "rate": 1.0474,
         "fee": 0.3,
-        "markup": null,
-        "receiveAmount": 104.42
+        "markup": 1.66,
+        "receiveAmount": 104.43
       },
       "zkb": {
         "rate": 1.0533,
         "fee": 0,
-        "markup": null,
+        "markup": 1.11,
         "receiveAmount": 105.33
       },
       "wise": {
         "rate": 1.065,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 104.97
       }
     }
@@ -7695,31 +7569,31 @@
       "western-union": {
         "rate": 0.999,
         "fee": 2.99,
-        "markup": null,
+        "markup": 6.28,
         "receiveAmount": 96.91
       },
       "paypal": {
         "rate": 1.0182,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.48,
         "receiveAmount": 99.28
       },
       "migros": {
         "rate": 1.0438,
         "fee": 0.3,
-        "markup": null,
+        "markup": 2.08,
         "receiveAmount": 104.07
       },
       "zkb": {
         "rate": 1.0482,
         "fee": 0,
-        "markup": null,
+        "markup": 1.67,
         "receiveAmount": 104.82
       },
       "wise": {
         "rate": 1.0615,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 104.62
       }
     }
@@ -7730,31 +7604,31 @@
       "zkb": {
         "rate": 1.0461,
         "fee": 0,
-        "markup": null,
+        "markup": 1.37,
         "receiveAmount": 104.61
       },
       "migros": {
         "rate": 1.042,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.76,
         "receiveAmount": 103.89
       },
       "western-union": {
         "rate": 0.9974,
         "fee": 2.99,
-        "markup": null,
-        "receiveAmount": 96.75
+        "markup": 5.96,
+        "receiveAmount": 96.76
       },
       "paypal": {
         "rate": 1.0176,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.06,
         "receiveAmount": 99.23
       },
       "wise": {
         "rate": 1.0597,
         "fee": 1.44,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 104.44
       }
     }
@@ -7765,31 +7639,31 @@
       "paypal": {
         "rate": 1.0148,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.22,
         "receiveAmount": 98.95
       },
       "migros": {
         "rate": 1.042,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.66,
         "receiveAmount": 103.89
       },
       "western-union": {
         "rate": 0.9974,
         "fee": 2.99,
-        "markup": null,
-        "receiveAmount": 96.75
+        "markup": 5.87,
+        "receiveAmount": 96.76
       },
       "zkb": {
         "rate": 1.0461,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 104.61
       },
       "wise": {
         "rate": 1.0597,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 104.44
       }
     }
@@ -7798,33 +7672,33 @@
     "date": "2026-09-27",
     "providers": {
       "zkb": {
-        "rate": 1.0466,
+        "rate": 1.04663,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 104.66
       },
       "migros": {
-        "rate": 1.0425,
+        "rate": 1.04249,
         "fee": 0.3,
-        "markup": null,
+        "markup": 1.62,
         "receiveAmount": 103.94
       },
       "paypal": {
-        "rate": 1.0153,
+        "rate": 1.01529,
         "fee": 2.49,
-        "markup": null,
+        "markup": 4.19,
         "receiveAmount": 99
       },
       "western-union": {
-        "rate": 0.9978,
+        "rate": 0.997836,
         "fee": 2.99,
-        "markup": null,
+        "markup": 5.84,
         "receiveAmount": 96.8
       },
       "wise": {
-        "rate": 1.0608,
+        "rate": 1.06082,
         "fee": 1.44,
-        "markup": null,
+        "markup": -0.11,
         "receiveAmount": 104.55
       }
     }

@@ -23,19 +23,19 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.6,
         "fee": 0,
-        "markup": null,
+        "markup": 0.7,
         "receiveAmount": 2560
       },
       "wise": {
         "rate": 25.7769,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2577.69
       }
     }
@@ -64,19 +64,19 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.74,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.7,
         "fee": 0,
-        "markup": null,
+        "markup": 0.43,
         "receiveAmount": 2570
       },
       "wise": {
         "rate": 25.7909,
         "fee": 0,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 2579.09
       }
     }
@@ -105,26 +105,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.1,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.6925,
         "fee": 0,
-        "markup": null,
+        "markup": -0.19,
         "receiveAmount": 2569.25
-      },
-      "xoom": {
-        "rate": 94.5609,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9456
       }
     }
   },
@@ -152,26 +146,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.13,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.55,
         "fee": 0,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 2555
       },
       "wise": {
         "rate": 25.483,
         "fee": 0,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 2548.3
-      },
-      "xoom": {
-        "rate": 94.3579,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9436
       }
     }
   },
@@ -199,26 +187,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": -0.67,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.4,
         "fee": 0,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2540
       },
       "wise": {
         "rate": 25.2714,
         "fee": 0,
-        "markup": null,
+        "markup": 0.7,
         "receiveAmount": 2527.14
-      },
-      "xoom": {
-        "rate": 93.2514,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9325
       }
     }
   },
@@ -244,28 +226,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.25,
         "fee": 0,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 2525
       },
       "wise": {
         "rate": 25.3139,
         "fee": 0,
-        "markup": null,
+        "markup": -0.31,
         "receiveAmount": 2531.39
-      },
-      "xoom": {
-        "rate": 93.0993,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9310
       }
     }
   },
@@ -291,28 +267,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.25,
         "fee": 0,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 2525
       },
       "wise": {
         "rate": 25.2396,
         "fee": 0,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 2523.96
-      },
-      "xoom": {
-        "rate": 92.6116,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9261
       }
     }
   },
@@ -338,28 +308,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.2,
         "fee": 0,
-        "markup": null,
+        "markup": 0.21,
         "receiveAmount": 2520
       },
       "wise": {
         "rate": 25.2392,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2523.92
-      },
-      "xoom": {
-        "rate": 92.67,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9267
       }
     }
   },
@@ -385,28 +349,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.2,
         "fee": 0,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 2520
       },
       "wise": {
         "rate": 25.2392,
         "fee": 0,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 2523.92
-      },
-      "xoom": {
-        "rate": 92.4788,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9248
       }
     }
   },
@@ -432,28 +390,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.25,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2525
       },
       "wise": {
         "rate": 25.3366,
         "fee": 0,
-        "markup": null,
+        "markup": -0.31,
         "receiveAmount": 2533.66
-      },
-      "xoom": {
-        "rate": 92.6721,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9267
       }
     }
   },
@@ -479,28 +431,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.25,
         "fee": 0,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2525
       },
       "wise": {
         "rate": 25.2909,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2529.09
-      },
-      "xoom": {
-        "rate": 92.7575,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9276
       }
     }
   },
@@ -526,28 +472,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.28,
         "fee": 0,
-        "markup": null,
+        "markup": -0.31,
         "receiveAmount": 2528
       },
       "wise": {
         "rate": 25.2067,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2520.67
-      },
-      "xoom": {
-        "rate": 92.6877,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9269
       }
     }
   },
@@ -573,28 +513,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.1,
         "fee": 0,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 2510
       },
       "wise": {
         "rate": 25.2108,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2521.08
-      },
-      "xoom": {
-        "rate": 92.356,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9236
       }
     }
   },
@@ -620,28 +554,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.2,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2520
       },
       "wise": {
         "rate": 25.209,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2520.9
-      },
-      "xoom": {
-        "rate": 92.4198,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9242
       }
     }
   },
@@ -667,28 +595,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.25,
         "fee": 0,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 2525
       },
       "wise": {
         "rate": 25.3425,
         "fee": 0,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 2534.25
-      },
-      "xoom": {
-        "rate": 92.5125,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9251
       }
     }
   },
@@ -714,28 +636,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.25,
         "fee": 0,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 2525
       },
       "wise": {
         "rate": 25.3425,
         "fee": 0,
-        "markup": null,
+        "markup": -0.1,
         "receiveAmount": 2534.25
-      },
-      "xoom": {
-        "rate": 92.6796,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9268
       }
     }
   },
@@ -763,26 +679,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.1,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.2,
         "fee": 0,
-        "markup": null,
+        "markup": 1.74,
         "receiveAmount": 2520
       },
       "wise": {
         "rate": 25.3638,
         "fee": 0,
-        "markup": null,
+        "markup": 1.1,
         "receiveAmount": 2536.38
-      },
-      "xoom": {
-        "rate": 92.6796,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9268
       }
     }
   },
@@ -810,26 +720,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": -0.84,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.35,
         "fee": 0,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 2535
       },
       "wise": {
         "rate": 25.3861,
         "fee": 0,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 2538.61
-      },
-      "xoom": {
-        "rate": 93.108,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9311
       }
     }
   },
@@ -855,28 +759,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.2,
         "fee": 0,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 2520
       },
       "wise": {
         "rate": 25.3544,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2535.44
-      },
-      "xoom": {
-        "rate": 93.0882,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9309
       }
     }
   },
@@ -904,26 +802,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": -0.82,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.3,
         "fee": 0,
-        "markup": null,
+        "markup": 0.44,
         "receiveAmount": 2530
       },
       "wise": {
         "rate": 25.4037,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2540.37
-      },
-      "xoom": {
-        "rate": 93.1214,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9312
       }
     }
   },
@@ -949,28 +841,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.35,
         "fee": 0,
-        "markup": null,
+        "markup": -0.11,
         "receiveAmount": 2535
       },
       "wise": {
         "rate": 25.3187,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2531.87
-      },
-      "xoom": {
-        "rate": 92.9092,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9291
       }
     }
   },
@@ -996,28 +882,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.2,
         "fee": 0,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 2520
       },
       "wise": {
         "rate": 25.2118,
         "fee": 0,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 2521.18
-      },
-      "xoom": {
-        "rate": 92.539,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9254
       }
     }
   },
@@ -1043,28 +923,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.2,
         "fee": 0,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 2520
       },
       "wise": {
         "rate": 25.2118,
         "fee": 0,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 2521.18
-      },
-      "xoom": {
-        "rate": 92.5049,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9250
       }
     }
   },
@@ -1090,28 +964,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.2,
         "fee": 0,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 2520
       },
       "wise": {
         "rate": 25.2304,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2523.04
-      },
-      "xoom": {
-        "rate": 92.5732,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9257
       }
     }
   },
@@ -1137,28 +1005,22 @@
         "receiveAmount": 2482.76
       },
       "remitly": {
-        "rate": 25.62,
+        "rate": 25.44,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.62,
+        "receiveAmount": 2416.8
       },
       "taptap-send": {
         "rate": 25.3,
         "fee": 0,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2530
       },
       "wise": {
         "rate": 25.3377,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2533.77
-      },
-      "xoom": {
-        "rate": 93.071,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 9307
       }
     }
   },
@@ -1186,26 +1048,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": -0.52,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.3,
         "fee": 0,
-        "markup": null,
+        "markup": 0.74,
         "receiveAmount": 2530
       },
       "wise": {
         "rate": 25.484,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2548.4
-      },
-      "xoom": {
-        "rate": 93.5764,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9358
       }
     }
   },
@@ -1233,26 +1089,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": -0.24,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.5,
         "fee": 0,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 2550
       },
       "wise": {
         "rate": 25.5629,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2556.29
-      },
-      "xoom": {
-        "rate": 93.8095,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9381
       }
     }
   },
@@ -1280,26 +1130,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.15,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.5,
         "fee": 0,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 2550
       },
       "wise": {
         "rate": 25.6607,
         "fee": 0,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 2566.07
-      },
-      "xoom": {
-        "rate": 94.0326,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9403
       }
     }
   },
@@ -1327,26 +1171,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.01,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.6,
         "fee": 0,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 2560
       },
       "wise": {
         "rate": 25.6146,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2561.46
-      },
-      "xoom": {
-        "rate": 93.9921,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9399
       }
     }
   },
@@ -1374,26 +1212,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.03,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.6,
         "fee": 0,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 2560
       },
       "wise": {
         "rate": 25.6146,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2561.46
-      },
-      "xoom": {
-        "rate": 93.9865,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9399
       }
     }
   },
@@ -1421,26 +1253,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.03,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.6,
         "fee": 0,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 2560
       },
       "wise": {
         "rate": 25.6391,
         "fee": 0,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 2563.91
-      },
-      "xoom": {
-        "rate": 93.9622,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9396
       }
     }
   },
@@ -1468,26 +1294,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.19,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.58,
         "fee": 0,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2558
       },
       "wise": {
         "rate": 25.6644,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2566.44
-      },
-      "xoom": {
-        "rate": 94.2078,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9421
       }
     }
   },
@@ -1515,26 +1335,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.55,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.44,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.7579,
         "fee": 0,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 2575.79
-      },
-      "xoom": {
-        "rate": 94.5181,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9452
       }
     }
   },
@@ -1562,26 +1376,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.88,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.7,
         "fee": 0,
-        "markup": null,
+        "markup": 0.57,
         "receiveAmount": 2570
       },
       "wise": {
         "rate": 25.8586,
         "fee": 0,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 2585.86
-      },
-      "xoom": {
-        "rate": 95.0367,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9504
       }
     }
   },
@@ -1609,26 +1417,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.8,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.78,
         "fee": 0,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 2578
       },
       "wise": {
         "rate": 25.8392,
         "fee": 0,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 2583.92
-      },
-      "xoom": {
-        "rate": 94.6447,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9464
       }
     }
   },
@@ -1656,26 +1458,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.8,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.78,
         "fee": 0,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 2578
       },
       "wise": {
         "rate": 25.8041,
         "fee": 0,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 2580.41
-      },
-      "xoom": {
-        "rate": 94.6397,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9464
       }
     }
   },
@@ -1703,26 +1499,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.82,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.78,
         "fee": 0,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 2578
       },
       "wise": {
         "rate": 25.8041,
         "fee": 0,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 2580.41
-      },
-      "xoom": {
-        "rate": 94.6397,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9464
       }
     }
   },
@@ -1750,26 +1540,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.77,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.7,
         "fee": 0,
-        "markup": null,
+        "markup": 0.46,
         "receiveAmount": 2570
       },
       "wise": {
         "rate": 25.804,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2580.4
-      },
-      "xoom": {
-        "rate": 94.6465,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9465
       }
     }
   },
@@ -1797,26 +1581,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 1.17,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.75,
         "fee": 0,
-        "markup": null,
+        "markup": 0.66,
         "receiveAmount": 2575
       },
       "wise": {
         "rate": 25.9223,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2592.23
-      },
-      "xoom": {
-        "rate": 95.1021,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9510
       }
     }
   },
@@ -1844,26 +1622,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 1.01,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.8771,
         "fee": 0,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 2587.71
-      },
-      "xoom": {
-        "rate": 94.8385,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9484
       }
     }
   },
@@ -1891,26 +1663,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.5,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.38,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.761,
         "fee": 0,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 2576.1
-      },
-      "xoom": {
-        "rate": 94.6206,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9462
       }
     }
   },
@@ -1938,26 +1704,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.38,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.5,
         "fee": 0,
-        "markup": null,
+        "markup": 0.85,
         "receiveAmount": 2550
       },
       "wise": {
         "rate": 25.6647,
         "fee": 0,
-        "markup": null,
+        "markup": 0.21,
         "receiveAmount": 2566.47
-      },
-      "xoom": {
-        "rate": 94.2759,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9428
       }
     }
   },
@@ -1985,26 +1745,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.38,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.5,
         "fee": 0,
-        "markup": null,
+        "markup": 0.85,
         "receiveAmount": 2550
       },
       "wise": {
         "rate": 25.7116,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2571.16
-      },
-      "xoom": {
-        "rate": 94.1799,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9418
       }
     }
   },
@@ -2032,26 +1786,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.4,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.5,
         "fee": 0,
-        "markup": null,
+        "markup": 0.87,
         "receiveAmount": 2550
       },
       "wise": {
         "rate": 25.7116,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2571.16
-      },
-      "xoom": {
-        "rate": 94.1799,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9418
       }
     }
   },
@@ -2079,26 +1827,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 0.49,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.5,
         "fee": 0,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 2550
       },
       "wise": {
         "rate": 25.714,
         "fee": 0,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 2571.4
-      },
-      "xoom": {
-        "rate": 94.8961,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9490
       }
     }
   },
@@ -2126,26 +1868,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 1.47,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.5,
         "fee": 0,
-        "markup": null,
+        "markup": 1.93,
         "receiveAmount": 2550
       },
       "wise": {
         "rate": 25.9525,
         "fee": 0,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2595.25
-      },
-      "xoom": {
-        "rate": 95.2932,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9529
       }
     }
   },
@@ -2173,26 +1909,20 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2562
+        "markup": 1.56,
+        "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.5,
         "fee": 0,
-        "markup": null,
+        "markup": 2.02,
         "receiveAmount": 2550
       },
       "wise": {
         "rate": 26.0391,
         "fee": 0,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 2603.91
-      },
-      "xoom": {
-        "rate": 95.4416,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9544
       }
     }
   },
@@ -2220,26 +1950,20 @@
       "remitly": {
         "rate": 26.18,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 2618
+        "markup": -0.48,
+        "receiveAmount": 2487.1
       },
       "taptap-send": {
         "rate": 25.95,
         "fee": 0,
-        "markup": null,
+        "markup": 0.4,
         "receiveAmount": 2595
       },
       "wise": {
         "rate": 26.073,
         "fee": 0,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 2607.3
-      },
-      "xoom": {
-        "rate": 95.4547,
-        "fee": 4.29,
-        "markup": null,
-        "receiveAmount": 9545
       }
     }
   },
@@ -2261,19 +1985,19 @@
       "remitly": {
         "rate": 26,
         "fee": 5,
-        "markup": null,
+        "markup": 0.38,
         "receiveAmount": 2470
       },
       "taptap-send": {
         "rate": 25.95,
         "fee": 0,
-        "markup": null,
+        "markup": 0.57,
         "receiveAmount": 2595
       },
       "wise": {
         "rate": 26.0762,
         "fee": 0,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 2607.62
       }
     }
@@ -2296,19 +2020,19 @@
       "remitly": {
         "rate": 26.06,
         "fee": 5,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 2475.7
       },
       "taptap-send": {
         "rate": 25.95,
         "fee": 0,
-        "markup": null,
+        "markup": 0.71,
         "receiveAmount": 2595
       },
       "wise": {
         "rate": 26.1365,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2613.65
       },
       "skrill": {
@@ -2343,19 +2067,19 @@
       "remitly": {
         "rate": 26.06,
         "fee": 5,
-        "markup": null,
+        "markup": 0.36,
         "receiveAmount": 2475.7
       },
       "taptap-send": {
         "rate": 25.95,
         "fee": 0,
-        "markup": null,
+        "markup": 0.78,
         "receiveAmount": 2595
       },
       "wise": {
         "rate": 26.1365,
         "fee": 0,
-        "markup": null,
+        "markup": 0.07,
         "receiveAmount": 2613.65
       }
     }
@@ -2384,19 +2108,19 @@
       "remitly": {
         "rate": 26.06,
         "fee": 5,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 2475.7
       },
       "taptap-send": {
         "rate": 25.95,
         "fee": 0,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 2595
       },
       "wise": {
         "rate": 26.1323,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2613.23
       }
     }
@@ -2425,19 +2149,19 @@
       "remitly": {
         "rate": 26.16,
         "fee": 5,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 2485.2
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.89,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.2567,
         "fee": 0,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 2625.67
       }
     }
@@ -2460,19 +2184,19 @@
       "remitly": {
         "rate": 26.22,
         "fee": 5,
-        "markup": null,
+        "markup": 0.41,
         "receiveAmount": 2490.9
       },
       "taptap-send": {
         "rate": 26.15,
         "fee": 0,
-        "markup": null,
+        "markup": 0.68,
         "receiveAmount": 2615
       },
       "wise": {
         "rate": 26.3208,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2632.08
       }
     }
@@ -2495,19 +2219,19 @@
       "remitly": {
         "rate": 26.13,
         "fee": 5,
-        "markup": null,
+        "markup": 0.96,
         "receiveAmount": 2482.35
       },
       "taptap-send": {
         "rate": 26.2,
         "fee": 0,
-        "markup": null,
+        "markup": 0.69,
         "receiveAmount": 2620
       },
       "wise": {
         "rate": 26.2049,
         "fee": 0,
-        "markup": null,
+        "markup": 0.67,
         "receiveAmount": 2620.49
       },
       "skrill": {
@@ -2542,19 +2266,19 @@
       "remitly": {
         "rate": 26.12,
         "fee": 5,
-        "markup": null,
+        "markup": 0.35,
         "receiveAmount": 2481.4
       },
       "taptap-send": {
         "rate": 26.15,
         "fee": 0,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 2615
       },
       "wise": {
         "rate": 26.1939,
         "fee": 0,
-        "markup": null,
+        "markup": 0.06,
         "receiveAmount": 2619.39
       }
     }
@@ -2577,19 +2301,19 @@
       "remitly": {
         "rate": 25.98,
         "fee": 5,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 2468.1
       },
       "taptap-send": {
         "rate": 25.9,
         "fee": 0,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 2590
       },
       "wise": {
         "rate": 26.0378,
         "fee": 0,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 2603.78
       }
     }
@@ -2612,19 +2336,19 @@
       "remitly": {
         "rate": 25.98,
         "fee": 5,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 2468.1
       },
       "taptap-send": {
         "rate": 25.9,
         "fee": 0,
-        "markup": null,
+        "markup": 0.64,
         "receiveAmount": 2590
       },
       "wise": {
         "rate": 26.0378,
         "fee": 0,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 2603.78
       },
       "skrill": {
@@ -2659,19 +2383,19 @@
       "remitly": {
         "rate": 25.98,
         "fee": 5,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 2468.1
       },
       "taptap-send": {
         "rate": 25.9,
         "fee": 0,
-        "markup": null,
+        "markup": 0.64,
         "receiveAmount": 2590
       },
       "wise": {
         "rate": 26.0267,
         "fee": 0,
-        "markup": null,
+        "markup": 0.15,
         "receiveAmount": 2602.67
       }
     }
@@ -2694,19 +2418,19 @@
       "remitly": {
         "rate": 25.86,
         "fee": 5,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 2456.7
       },
       "taptap-send": {
         "rate": 25.9,
         "fee": 0,
-        "markup": null,
+        "markup": 0.15,
         "receiveAmount": 2590
       },
       "wise": {
         "rate": 25.9479,
         "fee": 0,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 2594.79
       }
     }
@@ -2729,19 +2453,19 @@
       "remitly": {
         "rate": 25.98,
         "fee": 5,
-        "markup": null,
+        "markup": 0.87,
         "receiveAmount": 2468.1
       },
       "taptap-send": {
         "rate": 25.95,
         "fee": 0,
-        "markup": null,
+        "markup": 0.99,
         "receiveAmount": 2595
       },
       "wise": {
         "rate": 26.0879,
         "fee": 0,
-        "markup": null,
+        "markup": 0.46,
         "receiveAmount": 2608.79
       },
       "skrill": {
@@ -2776,19 +2500,19 @@
       "remitly": {
         "rate": 25.99,
         "fee": 5,
-        "markup": null,
+        "markup": 0.75,
         "receiveAmount": 2469.05
       },
       "taptap-send": {
         "rate": 25.95,
         "fee": 0,
-        "markup": null,
+        "markup": 0.9,
         "receiveAmount": 2595
       },
       "wise": {
         "rate": 26.116,
         "fee": 0,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 2611.6
       }
     }
@@ -2811,19 +2535,19 @@
       "remitly": {
         "rate": 25.98,
         "fee": 5,
-        "markup": null,
+        "markup": 0.76,
         "receiveAmount": 2468.1
       },
       "taptap-send": {
         "rate": 25.95,
         "fee": 0,
-        "markup": null,
+        "markup": 0.87,
         "receiveAmount": 2595
       },
       "wise": {
         "rate": 26.0912,
         "fee": 0,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2609.12
       },
       "skrill": {
@@ -2858,19 +2582,19 @@
       "remitly": {
         "rate": 25.8,
         "fee": 5,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 2451
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.8542,
         "fee": 0,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 2585.42
       }
     }
@@ -2899,19 +2623,19 @@
       "remitly": {
         "rate": 25.8,
         "fee": 5,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 2451
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.8542,
         "fee": 0,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 2585.42
       }
     }
@@ -2934,19 +2658,19 @@
       "remitly": {
         "rate": 25.8,
         "fee": 5,
-        "markup": null,
+        "markup": 0.36,
         "receiveAmount": 2451
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9021,
         "fee": 0,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 2590.21
       },
       "skrill": {
@@ -2981,19 +2705,19 @@
       "remitly": {
         "rate": 25.79,
         "fee": 5,
-        "markup": null,
+        "markup": 0.86,
         "receiveAmount": 2450.05
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9326,
         "fee": 0,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 2593.26
       }
     }
@@ -3016,19 +2740,19 @@
       "remitly": {
         "rate": 25.87,
         "fee": 5,
-        "markup": null,
+        "markup": 0.64,
         "receiveAmount": 2457.65
       },
       "taptap-send": {
         "rate": 25.9,
         "fee": 0,
-        "markup": null,
+        "markup": 0.52,
         "receiveAmount": 2590
       },
       "wise": {
         "rate": 25.9868,
         "fee": 0,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2598.68
       },
       "skrill": {
@@ -3069,13 +2793,13 @@
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.63,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.1026,
         "fee": 0,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 2610.26
       }
     }
@@ -3098,19 +2822,19 @@
       "remitly": {
         "rate": 26.01,
         "fee": 5,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 2470.95
       },
       "taptap-send": {
         "rate": 26.25,
         "fee": 0,
-        "markup": null,
+        "markup": -0.7,
         "receiveAmount": 2625
       },
       "wise": {
         "rate": 26.0696,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2606.96
       }
     }
@@ -3121,19 +2845,19 @@
       "remitly": {
         "rate": 25.78,
         "fee": 5,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2449.1
       },
       "taptap-send": {
         "rate": 25.75,
         "fee": 0,
-        "markup": null,
+        "markup": 0.5,
         "receiveAmount": 2575
       },
       "wise": {
         "rate": 25.9624,
         "fee": 0,
-        "markup": null,
+        "markup": -0.32,
         "receiveAmount": 2596.24
       },
       "skrill": {
@@ -3180,19 +2904,19 @@
       "remitly": {
         "rate": 25.78,
         "fee": 5,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 2449.1
       },
       "taptap-send": {
         "rate": 25.75,
         "fee": 0,
-        "markup": null,
+        "markup": 0.4,
         "receiveAmount": 2575
       },
       "wise": {
         "rate": 25.9624,
         "fee": 0,
-        "markup": null,
+        "markup": -0.42,
         "receiveAmount": 2596.24
       }
     }
@@ -3215,19 +2939,19 @@
       "remitly": {
         "rate": 25.79,
         "fee": 5,
-        "markup": null,
+        "markup": 0.77,
         "receiveAmount": 2450.05
       },
       "taptap-send": {
         "rate": 25.75,
         "fee": 0,
-        "markup": null,
+        "markup": 0.92,
         "receiveAmount": 2575
       },
       "wise": {
         "rate": 25.9478,
         "fee": 0,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 2594.78
       },
       "skrill": {
@@ -3262,19 +2986,19 @@
       "remitly": {
         "rate": 25.99,
         "fee": 5,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 2469.05
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0219,
         "fee": 0,
-        "markup": null,
+        "markup": 0.1,
         "receiveAmount": 2602.19
       }
     }
@@ -3297,19 +3021,19 @@
       "remitly": {
         "rate": 25.89,
         "fee": 5,
-        "markup": null,
+        "markup": 0.77,
         "receiveAmount": 2459.55
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 25.9885,
         "fee": 0,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2598.85
       }
     }
@@ -3332,19 +3056,19 @@
       "remitly": {
         "rate": 25.89,
         "fee": 5,
-        "markup": null,
+        "markup": 0.77,
         "receiveAmount": 2459.55
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 25.9885,
         "fee": 0,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2598.85
       }
     }
@@ -3367,19 +3091,19 @@
       "remitly": {
         "rate": 25.83,
         "fee": 5,
-        "markup": null,
+        "markup": 0.78,
         "receiveAmount": 2453.85
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 25.9223,
         "fee": 0,
-        "markup": null,
+        "markup": 0.43,
         "receiveAmount": 2592.23
       }
     }
@@ -3408,19 +3132,19 @@
       "remitly": {
         "rate": 25.83,
         "fee": 5,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2453.85
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": -0.32,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 25.9223,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2592.23
       }
     }
@@ -3449,19 +3173,19 @@
       "remitly": {
         "rate": 25.83,
         "fee": 5,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2453.85
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": -0.32,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 25.9223,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2592.23
       }
     }
@@ -3490,19 +3214,19 @@
       "remitly": {
         "rate": 25.83,
         "fee": 5,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 2453.85
       },
       "taptap-send": {
         "rate": 25.8,
         "fee": 0,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 2580
       },
       "wise": {
         "rate": 25.8552,
         "fee": 0,
-        "markup": null,
+        "markup": 0.07,
         "receiveAmount": 2585.52
       }
     }
@@ -3531,19 +3255,19 @@
       "remitly": {
         "rate": 25.83,
         "fee": 5,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 2453.85
       },
       "taptap-send": {
         "rate": 25.8,
         "fee": 0,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 2580
       },
       "wise": {
         "rate": 25.8552,
         "fee": 0,
-        "markup": null,
+        "markup": 0.07,
         "receiveAmount": 2585.52
       }
     }
@@ -3572,19 +3296,19 @@
       "remitly": {
         "rate": 25.83,
         "fee": 5,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 2453.85
       },
       "taptap-send": {
         "rate": 25.8,
         "fee": 0,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 2580
       },
       "wise": {
         "rate": 25.8552,
         "fee": 0,
-        "markup": null,
+        "markup": 0.07,
         "receiveAmount": 2585.52
       }
     }
@@ -3613,19 +3337,19 @@
       "remitly": {
         "rate": 25.67,
         "fee": 5,
-        "markup": null,
+        "markup": 0.5,
         "receiveAmount": 2438.65
       },
       "taptap-send": {
         "rate": 25.7,
         "fee": 0,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2570
       },
       "wise": {
         "rate": 25.83,
         "fee": 0,
-        "markup": null,
+        "markup": -0.12,
         "receiveAmount": 2583
       }
     }
@@ -3648,19 +3372,19 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.6,
         "fee": 0,
-        "markup": null,
+        "markup": 0.38,
         "receiveAmount": 2560
       },
       "wise": {
         "rate": 25.6964,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2569.64
       },
       "skrill": {
@@ -3695,19 +3419,19 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.6,
         "fee": 0,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2560
       },
       "wise": {
         "rate": 25.6926,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2569.26
       }
     }
@@ -3736,19 +3460,19 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.6,
         "fee": 0,
-        "markup": null,
+        "markup": 0.4,
         "receiveAmount": 2560
       },
       "wise": {
         "rate": 25.6926,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2569.26
       }
     }
@@ -3777,19 +3501,19 @@
       "remitly": {
         "rate": 25.62,
         "fee": 5,
-        "markup": null,
+        "markup": 0.38,
         "receiveAmount": 2433.9
       },
       "taptap-send": {
         "rate": 25.6,
         "fee": 0,
-        "markup": null,
+        "markup": 0.46,
         "receiveAmount": 2560
       },
       "wise": {
         "rate": 25.7062,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2570.62
       }
     }
@@ -3818,19 +3542,19 @@
       "remitly": {
         "rate": 25.71,
         "fee": 5,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 2442.45
       },
       "taptap-send": {
         "rate": 25.75,
         "fee": 0,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 2575
       },
       "wise": {
         "rate": 25.7521,
         "fee": 0,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 2575.21
       }
     }
@@ -3859,19 +3583,19 @@
       "remitly": {
         "rate": 25.73,
         "fee": 5,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 2444.35
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.92,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.836,
         "fee": 0,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 2583.6
       }
     }
@@ -3894,19 +3618,19 @@
       "remitly": {
         "rate": 25.7,
         "fee": 5,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2441.5
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.6802,
         "fee": 0,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 2568.02
       },
       "currencyfair": {
@@ -3935,19 +3659,19 @@
       "remitly": {
         "rate": 25.64,
         "fee": 5,
-        "markup": null,
+        "markup": 0.46,
         "receiveAmount": 2435.8
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.7624,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2576.24
       },
       "skrill": {
@@ -3982,19 +3706,19 @@
       "remitly": {
         "rate": 25.61,
         "fee": 5,
-        "markup": null,
+        "markup": 0.37,
         "receiveAmount": 2432.95
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.6963,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2569.63
       }
     }
@@ -4023,19 +3747,19 @@
       "remitly": {
         "rate": 25.61,
         "fee": 5,
-        "markup": null,
+        "markup": 0.48,
         "receiveAmount": 2432.95
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.6963,
         "fee": 0,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 2569.63
       }
     }
@@ -4058,19 +3782,19 @@
       "remitly": {
         "rate": 25.61,
         "fee": 5,
-        "markup": null,
+        "markup": 0.48,
         "receiveAmount": 2432.95
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.6963,
         "fee": 0,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 2569.63
       }
     }
@@ -4093,19 +3817,19 @@
       "remitly": {
         "rate": 25.68,
         "fee": 5,
-        "markup": null,
+        "markup": 0.54,
         "receiveAmount": 2439.6
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.65,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.7647,
         "fee": 0,
-        "markup": null,
+        "markup": 0.21,
         "receiveAmount": 2576.47
       }
     }
@@ -4122,19 +3846,19 @@
       "remitly": {
         "rate": 25.7,
         "fee": 5,
-        "markup": null,
+        "markup": 0.43,
         "receiveAmount": 2441.5
       },
       "taptap-send": {
         "rate": 25.65,
         "fee": 0,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 2565
       },
       "wise": {
         "rate": 25.7428,
         "fee": 0,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 2574.28
       },
       "currencyfair": {
@@ -4169,13 +3893,13 @@
       "taptap-send": {
         "rate": 25.7,
         "fee": 0,
-        "markup": null,
+        "markup": 0.87,
         "receiveAmount": 2570
       },
       "wise": {
         "rate": 25.9226,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2592.26
       }
     }
@@ -4198,19 +3922,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2591.24
       },
       "skrill": {
@@ -4245,19 +3969,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.35,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.59,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.35,
         "receiveAmount": 2591.24
       }
     }
@@ -4286,19 +4010,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.49,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 2591.24
       }
     }
@@ -4321,19 +4045,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.36,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.12,
         "receiveAmount": 2591.24
       }
     }
@@ -4356,19 +4080,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.43,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2591.24
       }
     }
@@ -4397,19 +4121,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2591.24
       }
     }
@@ -4432,19 +4156,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.36,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.59,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.35,
         "receiveAmount": 2591.24
       }
     }
@@ -4473,19 +4197,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.42,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.18,
         "receiveAmount": 2591.24
       }
     }
@@ -4514,19 +4238,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2591.24
       }
     }
@@ -4555,19 +4279,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.35,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.58,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2591.24
       }
     }
@@ -4590,19 +4314,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.52,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.75,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.51,
         "receiveAmount": 2591.24
       }
     }
@@ -4625,19 +4349,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.71,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.94,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.7,
         "receiveAmount": 2591.24
       }
     }
@@ -4666,19 +4390,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.13,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.36,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.12,
         "receiveAmount": 2591.24
       }
     }
@@ -4701,19 +4425,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.47,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 2591.24
       }
     }
@@ -4742,19 +4466,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.5,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.26,
         "receiveAmount": 2591.24
       }
     }
@@ -4777,19 +4501,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.55,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.77,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.54,
         "receiveAmount": 2591.24
       }
     }
@@ -4812,19 +4536,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.28,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.51,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.27,
         "receiveAmount": 2591.24
       }
     }
@@ -4847,19 +4571,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.3,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.53,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.3,
         "receiveAmount": 2591.24
       }
     }
@@ -4888,19 +4612,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.34,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.57,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.33,
         "receiveAmount": 2591.24
       }
     }
@@ -4929,19 +4653,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.24,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.46,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.23,
         "receiveAmount": 2591.24
       }
     }
@@ -4970,19 +4694,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.42,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.65,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.41,
         "receiveAmount": 2591.24
       }
     }
@@ -5005,19 +4729,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.69,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.91,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.68,
         "receiveAmount": 2591.24
       }
     }
@@ -5046,19 +4770,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.39,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.62,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.38,
         "receiveAmount": 2591.24
       }
     }
@@ -5081,19 +4805,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.43,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.66,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.42,
         "receiveAmount": 2591.24
       }
     }
@@ -5116,19 +4840,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 1.08,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 1.31,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 1.07,
         "receiveAmount": 2591.24
       }
     }
@@ -5151,19 +4875,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.62,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.85,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.61,
         "receiveAmount": 2591.24
       }
     }
@@ -5186,19 +4910,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.56,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.79,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.55,
         "receiveAmount": 2591.24
       }
     }
@@ -5227,19 +4951,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.52,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.75,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.51,
         "receiveAmount": 2591.24
       }
     }
@@ -5262,19 +4986,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.57,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 2591.24
       }
     }
@@ -5297,19 +5021,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.51,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 2591.24
       }
     }
@@ -5332,19 +5056,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.54,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 2591.24
       }
     }
@@ -5367,19 +5091,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2591.24
       }
     }
@@ -5402,19 +5126,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.5,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 2591.24
       }
     }
@@ -5437,19 +5161,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": -0.24,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": -0.25,
         "receiveAmount": 2591.24
       }
     }
@@ -5472,19 +5196,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": -0.1,
         "receiveAmount": 2591.24
       }
     }
@@ -5507,19 +5231,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.47,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 2591.24
       }
     }
@@ -5542,19 +5266,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": -0.04,
         "receiveAmount": 2591.24
       }
     }
@@ -5577,19 +5301,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.07,
         "receiveAmount": 2591.24
       }
     }
@@ -5612,19 +5336,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2591.24
       }
     }
@@ -5647,19 +5371,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.27,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.5,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 2591.24
       }
     }
@@ -5676,19 +5400,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 25.85,
         "fee": 0,
-        "markup": null,
+        "markup": 0.54,
         "receiveAmount": 2585
       },
       "wise": {
         "rate": 25.9124,
         "fee": 0,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 2591.24
       }
     }
@@ -5711,19 +5435,19 @@
       "remitly": {
         "rate": 25.92,
         "fee": 5,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 2462.4
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": -0.11,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 25.9874,
         "fee": 0,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 2598.74
       }
     }
@@ -5746,19 +5470,19 @@
       "remitly": {
         "rate": 25.92,
         "fee": 5,
-        "markup": null,
+        "markup": 0.24,
         "receiveAmount": 2462.4
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 25.9756,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2597.56
       }
     }
@@ -5781,19 +5505,19 @@
       "remitly": {
         "rate": 25.92,
         "fee": 5,
-        "markup": null,
+        "markup": 0.43,
         "receiveAmount": 2462.4
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.13,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0301,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2603.01
       },
       "skrill": {
@@ -5828,19 +5552,19 @@
       "remitly": {
         "rate": 25.92,
         "fee": 5,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2462.4
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0301,
         "fee": 0,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 2603.01
       }
     }
@@ -5869,19 +5593,19 @@
       "remitly": {
         "rate": 25.92,
         "fee": 5,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 2462.4
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0547,
         "fee": 0,
-        "markup": null,
+        "markup": 0.08,
         "receiveAmount": 2605.47
       }
     }
@@ -5904,19 +5628,19 @@
       "remitly": {
         "rate": 25.97,
         "fee": 5,
-        "markup": null,
+        "markup": 0.44,
         "receiveAmount": 2467.15
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.06,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.0797,
         "fee": 0,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 2607.97
       }
     }
@@ -5939,19 +5663,19 @@
       "remitly": {
         "rate": 25.99,
         "fee": 5,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 2469.05
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.0765,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2607.65
       }
     }
@@ -5974,19 +5698,19 @@
       "remitly": {
         "rate": 26.01,
         "fee": 5,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2470.95
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.31,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.0258,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2602.58
       },
       "skrill": {
@@ -6021,19 +5745,19 @@
       "remitly": {
         "rate": 25.99,
         "fee": 5,
-        "markup": null,
+        "markup": 0.33,
         "receiveAmount": 2469.05
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.0816,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2608.16
       }
     }
@@ -6056,19 +5780,19 @@
       "remitly": {
         "rate": 25.99,
         "fee": 5,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 2469.05
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.17,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.045,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2604.5
       },
       "skrill": {
@@ -6103,19 +5827,19 @@
       "remitly": {
         "rate": 25.99,
         "fee": 5,
-        "markup": null,
+        "markup": 0.26,
         "receiveAmount": 2469.05
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.16,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.045,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2604.5
       }
     }
@@ -6144,19 +5868,19 @@
       "remitly": {
         "rate": 25.99,
         "fee": 5,
-        "markup": null,
+        "markup": 0.15,
         "receiveAmount": 2469.05
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.28,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.0538,
         "fee": 0,
-        "markup": null,
+        "markup": -0.1,
         "receiveAmount": 2605.38
       }
     }
@@ -6179,19 +5903,19 @@
       "remitly": {
         "rate": 26,
         "fee": 5,
-        "markup": null,
+        "markup": 0.28,
         "receiveAmount": 2470
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.1,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.0813,
         "fee": 0,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 2608.13
       }
     }
@@ -6214,19 +5938,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.09,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.65,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 25.9351,
         "fee": 0,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 2593.51
       },
       "skrill": {
@@ -6261,19 +5985,19 @@
       "remitly": {
         "rate": 25.93,
         "fee": 5,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 2463.35
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 25.9951,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2599.51
       }
     }
@@ -6296,19 +6020,19 @@
       "remitly": {
         "rate": 25.91,
         "fee": 5,
-        "markup": null,
+        "markup": 0.25,
         "receiveAmount": 2461.45
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.48,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 25.9672,
         "fee": 0,
-        "markup": null,
+        "markup": 0.03,
         "receiveAmount": 2596.72
       }
     }
@@ -6337,13 +6061,13 @@
       "taptap-send": {
         "rate": 26.05,
         "fee": 0,
-        "markup": null,
+        "markup": -0.25,
         "receiveAmount": 2605
       },
       "wise": {
         "rate": 26.0308,
         "fee": 0,
-        "markup": null,
+        "markup": -0.17,
         "receiveAmount": 2603.08
       }
     }
@@ -6366,19 +6090,19 @@
       "remitly": {
         "rate": 25.9,
         "fee": 5,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 2460.5
       },
       "taptap-send": {
         "rate": 26.05,
         "fee": 0,
-        "markup": null,
+        "markup": -0.27,
         "receiveAmount": 2605
       },
       "wise": {
         "rate": 26.0308,
         "fee": 0,
-        "markup": null,
+        "markup": -0.19,
         "receiveAmount": 2603.08
       }
     }
@@ -6407,13 +6131,13 @@
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0254,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2602.54
       }
     }
@@ -6442,13 +6166,13 @@
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.11,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0254,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2602.54
       }
     }
@@ -6477,19 +6201,19 @@
       "remitly": {
         "rate": 25.79,
         "fee": 5,
-        "markup": null,
+        "markup": -0.28,
         "receiveAmount": 2450.05
       },
       "taptap-send": {
         "rate": 25.9,
         "fee": 0,
-        "markup": null,
+        "markup": -0.71,
         "receiveAmount": 2590
       },
       "wise": {
         "rate": 25.7241,
         "fee": 0,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 2572.41
       }
     }
@@ -6518,19 +6242,19 @@
       "remitly": {
         "rate": 25.79,
         "fee": 5,
-        "markup": null,
+        "markup": -0.33,
         "receiveAmount": 2450.05
       },
       "taptap-send": {
         "rate": 25.9,
         "fee": 0,
-        "markup": null,
+        "markup": -0.76,
         "receiveAmount": 2590
       },
       "wise": {
         "rate": 25.7188,
         "fee": 0,
-        "markup": null,
+        "markup": -0.05,
         "receiveAmount": 2571.88
       }
     }
@@ -6553,19 +6277,19 @@
       "remitly": {
         "rate": 25.66,
         "fee": 5,
-        "markup": null,
+        "markup": 0.36,
         "receiveAmount": 2437.7
       },
       "taptap-send": {
         "rate": 25.75,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2575
       },
       "wise": {
         "rate": 25.752,
         "fee": 0,
-        "markup": null,
+        "markup": 0.01,
         "receiveAmount": 2575.2
       }
     }
@@ -6588,19 +6312,19 @@
       "remitly": {
         "rate": 25.66,
         "fee": 5,
-        "markup": null,
+        "markup": 0.34,
         "receiveAmount": 2437.7
       },
       "taptap-send": {
         "rate": 25.75,
         "fee": 0,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 2575
       },
       "wise": {
         "rate": 25.7059,
         "fee": 0,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 2570.59
       },
       "skrill": {
@@ -6641,13 +6365,13 @@
       "taptap-send": {
         "rate": 25.75,
         "fee": 0,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 2575
       },
       "wise": {
         "rate": 25.7361,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2573.61
       }
     }
@@ -6670,19 +6394,19 @@
       "remitly": {
         "rate": 25.66,
         "fee": 5,
-        "markup": null,
+        "markup": 0.23,
         "receiveAmount": 2437.7
       },
       "taptap-send": {
         "rate": 25.72,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2572
       },
       "wise": {
         "rate": 25.7378,
         "fee": 0,
-        "markup": null,
+        "markup": -0.07,
         "receiveAmount": 2573.78
       }
     }
@@ -6705,13 +6429,13 @@
       "taptap-send": {
         "rate": 25.8,
         "fee": 0,
-        "markup": null,
+        "markup": -0.1,
         "receiveAmount": 2580
       },
       "wise": {
         "rate": 25.8251,
         "fee": 0,
-        "markup": null,
+        "markup": -0.2,
         "receiveAmount": 2582.51
       },
       "currencyfair": {
@@ -6746,13 +6470,13 @@
       "taptap-send": {
         "rate": 25.9,
         "fee": 0,
-        "markup": null,
+        "markup": -0.16,
         "receiveAmount": 2590
       },
       "wise": {
         "rate": 25.9042,
         "fee": 0,
-        "markup": null,
+        "markup": -0.18,
         "receiveAmount": 2590.42
       }
     }
@@ -6781,19 +6505,19 @@
       "remitly": {
         "rate": 25.92,
         "fee": 5,
-        "markup": null,
+        "markup": -0.03,
         "receiveAmount": 2462.4
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": -0.34,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0561,
         "fee": 0,
-        "markup": null,
+        "markup": -0.56,
         "receiveAmount": 2605.61
       }
     }
@@ -6822,19 +6546,19 @@
       "remitly": {
         "rate": 25.95,
         "fee": 5,
-        "markup": null,
+        "markup": 0.44,
         "receiveAmount": 2465.25
       },
       "taptap-send": {
         "rate": 26.09,
         "fee": 0,
-        "markup": null,
+        "markup": -0.09,
         "receiveAmount": 2609
       },
       "wise": {
         "rate": 26.0256,
         "fee": 0,
-        "markup": null,
+        "markup": 0.15,
         "receiveAmount": 2602.56
       }
     }
@@ -6857,19 +6581,19 @@
       "remitly": {
         "rate": 25.95,
         "fee": 5,
-        "markup": null,
+        "markup": 0.31,
         "receiveAmount": 2465.25
       },
       "taptap-send": {
         "rate": 26.09,
         "fee": 0,
-        "markup": null,
+        "markup": -0.22,
         "receiveAmount": 2609
       },
       "wise": {
         "rate": 26.0215,
         "fee": 0,
-        "markup": null,
+        "markup": 0.04,
         "receiveAmount": 2602.15
       }
     }
@@ -6892,19 +6616,19 @@
       "remitly": {
         "rate": 25.94,
         "fee": 5,
-        "markup": null,
+        "markup": 0.32,
         "receiveAmount": 2464.3
       },
       "taptap-send": {
         "rate": 26.09,
         "fee": 0,
-        "markup": null,
+        "markup": -0.25,
         "receiveAmount": 2609
       },
       "wise": {
         "rate": 26.0199,
         "fee": 0,
-        "markup": null,
+        "markup": 0.02,
         "receiveAmount": 2601.99
       }
     }
@@ -6927,19 +6651,19 @@
       "remitly": {
         "rate": 25.95,
         "fee": 5,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2465.25
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0794,
         "fee": 0,
-        "markup": null,
+        "markup": -0.11,
         "receiveAmount": 2607.94
       }
     }
@@ -6962,19 +6686,19 @@
       "remitly": {
         "rate": 26.06,
         "fee": 5,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 2475.7
       },
       "taptap-send": {
         "rate": 26.25,
         "fee": 0,
-        "markup": null,
+        "markup": -0.59,
         "receiveAmount": 2625
       },
       "wise": {
         "rate": 26.139,
         "fee": 0,
-        "markup": null,
+        "markup": -0.16,
         "receiveAmount": 2613.9
       }
     }
@@ -6997,19 +6721,19 @@
       "remitly": {
         "rate": 26.06,
         "fee": 5,
-        "markup": null,
+        "markup": 0.2,
         "receiveAmount": 2475.7
       },
       "taptap-send": {
         "rate": 26.25,
         "fee": 0,
-        "markup": null,
+        "markup": -0.53,
         "receiveAmount": 2625
       },
       "wise": {
         "rate": 26.1497,
         "fee": 0,
-        "markup": null,
+        "markup": -0.15,
         "receiveAmount": 2614.97
       }
     }
@@ -7032,19 +6756,19 @@
       "remitly": {
         "rate": 26.05,
         "fee": 5,
-        "markup": null,
+        "markup": 0.19,
         "receiveAmount": 2474.75
       },
       "taptap-send": {
         "rate": 26.25,
         "fee": 0,
-        "markup": null,
+        "markup": -0.58,
         "receiveAmount": 2625
       },
       "wise": {
         "rate": 26.0864,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2608.64
       }
     }
@@ -7073,13 +6797,13 @@
       "taptap-send": {
         "rate": 26.25,
         "fee": 0,
-        "markup": null,
+        "markup": -0.69,
         "receiveAmount": 2625
       },
       "wise": {
         "rate": 26.1268,
         "fee": 0,
-        "markup": null,
+        "markup": -0.22,
         "receiveAmount": 2612.68
       }
     }
@@ -7108,13 +6832,13 @@
       "taptap-send": {
         "rate": 26.25,
         "fee": 0,
-        "markup": null,
+        "markup": -0.42,
         "receiveAmount": 2625
       },
       "wise": {
         "rate": 26.1274,
         "fee": 0,
-        "markup": null,
+        "markup": 0.05,
         "receiveAmount": 2612.74
       }
     }
@@ -7143,13 +6867,13 @@
       "taptap-send": {
         "rate": 26.25,
         "fee": 0,
-        "markup": null,
+        "markup": -0.47,
         "receiveAmount": 2625
       },
       "wise": {
         "rate": 26.1487,
         "fee": 0,
-        "markup": null,
+        "markup": -0.08,
         "receiveAmount": 2614.87
       }
     }
@@ -7172,19 +6896,19 @@
       "remitly": {
         "rate": 26.02,
         "fee": 5,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 2471.9
       },
       "taptap-send": {
         "rate": 26.11,
         "fee": 0,
-        "markup": null,
+        "markup": -0.12,
         "receiveAmount": 2611
       },
       "wise": {
         "rate": 26.0784,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2607.84
       }
     }
@@ -7213,13 +6937,13 @@
       "taptap-send": {
         "rate": 26.11,
         "fee": 0,
-        "markup": null,
+        "markup": -0.14,
         "receiveAmount": 2611
       },
       "wise": {
         "rate": 26.0322,
         "fee": 0,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 2603.22
       }
     }
@@ -7242,19 +6966,19 @@
       "remitly": {
         "rate": 26,
         "fee": 5,
-        "markup": null,
+        "markup": 0.16,
         "receiveAmount": 2470
       },
       "taptap-send": {
         "rate": 26.11,
         "fee": 0,
-        "markup": null,
+        "markup": -0.27,
         "receiveAmount": 2611
       },
       "wise": {
         "rate": 26.0835,
         "fee": 0,
-        "markup": null,
+        "markup": -0.16,
         "receiveAmount": 2608.35
       }
     }
@@ -7277,19 +7001,19 @@
       "remitly": {
         "rate": 26.06,
         "fee": 5,
-        "markup": null,
+        "markup": 0.14,
         "receiveAmount": 2475.7
       },
       "taptap-send": {
         "rate": 26.1,
         "fee": 0,
-        "markup": null,
+        "markup": -0.01,
         "receiveAmount": 2610
       },
       "wise": {
         "rate": 26.1269,
         "fee": 0,
-        "markup": null,
+        "markup": -0.11,
         "receiveAmount": 2612.69
       },
       "skrill": {
@@ -7324,19 +7048,19 @@
       "remitly": {
         "rate": 26.02,
         "fee": 5,
-        "markup": null,
+        "markup": 0.39,
         "receiveAmount": 2471.9
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.47,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0766,
         "fee": 0,
-        "markup": null,
+        "markup": 0.17,
         "receiveAmount": 2607.66
       }
     }
@@ -7365,13 +7089,13 @@
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.29,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0766,
         "fee": 0,
-        "markup": null,
+        "markup": 0,
         "receiveAmount": 2607.66
       }
     }
@@ -7394,19 +7118,19 @@
       "remitly": {
         "rate": 26.02,
         "fee": 5,
-        "markup": null,
+        "markup": 0.22,
         "receiveAmount": 2471.9
       },
       "taptap-send": {
         "rate": 26,
         "fee": 0,
-        "markup": null,
+        "markup": 0.3,
         "receiveAmount": 2600
       },
       "wise": {
         "rate": 26.0819,
         "fee": 0,
-        "markup": null,
+        "markup": -0.02,
         "receiveAmount": 2608.19
       }
     }
