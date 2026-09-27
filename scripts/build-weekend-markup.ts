@@ -31,6 +31,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
+import { listSnapshotFiles, readSnapshot } from "./lib/history-snapshots";
 const SCRAPED = "src/data/scraped";
 const HISTORY_DIR = path.join(SCRAPED, "history");
 const MIDMARKET = path.join(SCRAPED, "history/midmarket-daily.json");
@@ -83,7 +84,7 @@ function main(): void {
     return t / f;
   };
 
-  const files = fs.readdirSync(HISTORY_DIR).filter((f) => f.startsWith("quotes-") && f.endsWith(".json"));
+  const files = listSnapshotFiles(HISTORY_DIR);
   const byDow: Record<string, number[]> = {};
   const byProvDow: Record<string, Record<string, number[]>> = {};
   const snapshotDays = new Set<string>();
@@ -91,7 +92,7 @@ function main(): void {
 
   for (const file of files) {
     let arr: Quote[];
-    try { arr = JSON.parse(fs.readFileSync(path.join(HISTORY_DIR, file), "utf-8")); } catch { continue; }
+    try { arr = readSnapshot<Quote[]>(HISTORY_DIR, file); } catch { continue; }
     if (!Array.isArray(arr)) continue;
 
     for (const q of arr) {

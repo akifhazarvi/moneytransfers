@@ -2,7 +2,8 @@
  * aggregate-history.ts
  *
  * 1. Creates a new snapshot by merging all live *-quotes.json files into
- *    history/quotes-{timestamp}.json (skipped if one already exists for this hour).
+ *    history/quotes-{timestamp}.json.gz (skipped if one already exists for this
+ *    hour). Gzipped since 2026-09-27 — see scripts/lib/history-snapshots.ts.
  * 2. Reads all history/quotes-*.json snapshots and produces compact per-corridor
  *    time series files at history/corridors/{FROM}-{TO}.json.
  *
@@ -37,6 +38,13 @@
 import fs from "fs";
 import path from "path";
 import { implausibilityReason, isSelfConsistent } from "../src/lib/quote-integrity";
+import {
+  compressLegacySnapshots,
+  listSnapshotFiles,
+  readSnapshot,
+  snapshotStamp,
+  writeSnapshot,
+} from "./lib/history-snapshots";
 import type { NormalizedQuote } from "../src/lib/unified-quotes";
 
 const SCRAPED_DIR = path.join("src/data/scraped");
@@ -126,14 +134,10 @@ function isoToDate(iso: string): string {
 function createSnapshot(): string | null {
   const now = new Date();
   const tag = now.toISOString().replace(/:/g, "-").slice(0, 16); // "2026-03-28T18-27"
-  const filename = `quotes-${tag}.json`;
-  const outPath = path.join(HISTORY_DIR, filename);
 
   // Skip if a snapshot for this hour already exists
   const hourPrefix = `quotes-${tag.slice(0, 13)}`; // "quotes-2026-03-28T18"
-  const existing = fs
-    .readdirSync(HISTORY_DIR)
-    .filter((f) => f.startsWith(hourPrefix) && f.endsWith(".json"));
+  const existing = listSnapshotFiles(HISTORY_DIR).filter((f) => f.startsWith(hourPrefix));
   if (existing.length > 0) {
     console.log(`Snapshot already exists for this hour (${existing[0]}) — skipping`);
     return null;
@@ -161,7 +165,7 @@ function createSnapshot(): string | null {
     return null;
   }
 
-  fs.writeFileSync(outPath, JSON.stringify(allQuotes));
+  const filename = writeSnapshot(HISTORY_DIR, tag, allQuotes);
   console.log(
     `Created snapshot ${filename} (${allQuotes.length} quotes from ${quoteFiles.length} files)`
   );
@@ -169,24 +173,17 @@ function createSnapshot(): string | null {
 }
 
 function loadSnapshotFiles(): string[] {
-  return fs
-    .readdirSync(HISTORY_DIR)
-    .filter((f) => f.startsWith("quotes-") && f.endsWith(".json"))
-    .sort(); // lexicographic sort = chronological (ISO timestamps)
+  return listSnapshotFiles(HISTORY_DIR); // lexicographic = chronological
 }
 
 function rebuildIndex(files: string[]): void {
   const snapshots = files.map((file) => {
-    const filePath = path.join(HISTORY_DIR, file);
-    const quotes: Quote[] = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    const quotes = readSnapshot<Quote[]>(HISTORY_DIR, file);
     const corridors = new Set(
       quotes.map((q) => `${q.sendCurrency}-${q.receiveCurrency}`)
     ).size;
     // Extract timestamp from filename: quotes-2026-03-16T19-13.json → 2026-03-16T19:13:00.000Z
-    const ts = file
-      .replace("quotes-", "")
-      .replace(".json", "")
-      .replace(/T(\d{2})-(\d{2})$/, "T$1:$2:00.000Z");
+    const ts = (snapshotStamp(file) ?? "").replace(/T(\d{2})-(\d{2})$/, "T$1:$2:00.000Z");
     return { timestamp: ts, file, corridors, quotes: quotes.length };
   });
   fs.writeFileSync(INDEX_PATH, JSON.stringify({ snapshots }, null, 2));
@@ -219,8 +216,7 @@ function aggregateCorridors(files: string[]): void {
     {};
 
   for (const file of files) {
-    const filePath = path.join(HISTORY_DIR, file);
-    const quotes: Quote[] = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    const quotes = readSnapshot<Quote[]>(HISTORY_DIR, file);
 
     // Extract date from filename (more reliable than dateCollected field)
     const dateMatch = file.match(/quotes-(\d{4}-\d{2}-\d{2})/);
@@ -457,6 +453,10 @@ function saveMidMarketSnapshot(): void {
 
 function main() {
   fs.mkdirSync(HISTORY_DIR, { recursive: true });
+
+  // Step 0: gzip any plain-JSON snapshot (legacy, or written by older code)
+  const converted = compressLegacySnapshots(HISTORY_DIR);
+  if (converted) console.log(`Compressed ${converted} plain-JSON snapshot(s) to .json.gz`);
 
   // Step 1: Create a new snapshot from live quote files
   createSnapshot();
