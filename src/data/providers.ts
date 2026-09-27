@@ -2000,7 +2000,6 @@ export const providers: Provider[] = [
       "Zero transfer fees on all corridors",
       "Competitive exchange rates to India and the Philippines",
       "Enhanced first-time rate for new customers",
-      "4.5/5 on Trustpilot",
     ],
     cons: [
       "Only sends to India and the Philippines",

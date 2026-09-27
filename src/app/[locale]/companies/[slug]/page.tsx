@@ -421,7 +421,7 @@ function DefaultReview({
 
             {/* Features */}
             <Card>
-              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">Key Features</h2>
+              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">{provider.name} features</h2>
               <div className="grid sm:grid-cols-2 gap-2.5">
                 {provider.features.map((feature) => (
                   <div key={feature} className="flex items-center gap-2.5 text-sm bg-[var(--color-surface-dim)] rounded-xl p-3">
@@ -436,7 +436,7 @@ function DefaultReview({
 
             {/* Details */}
             <Card>
-              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">Transfer Details</h2>
+              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">{provider.name} transfer details</h2>
               <div className="divide-y divide-[var(--color-outline)]">
                 {[
                   { label: "Headquarters", value: provider.headquarters },

@@ -136,7 +136,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
   const bestFor: { category: string; blurb: string; providerSlug: string; why: string }[] = [
     {
       category: "Biggest savings (total cost)",
-      blurb: "The mid-market exchange rate with a small transparent fee — almost always the cheapest for transfers above $500.",
+      blurb: "The mid-market exchange rate with a small transparent fee, shown before you pay.",
       providerSlug: "wise",
       why: "Uses the real mid-market rate with 0.33–0.7% fee. No hidden FX markup.",
     },
@@ -570,7 +570,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-on-surface)] mb-6">
-              Frequently asked questions
+              Comparing transfer providers: questions answered
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {faqs.map((f, i) => (

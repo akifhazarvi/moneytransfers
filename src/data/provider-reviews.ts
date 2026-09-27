@@ -1644,7 +1644,7 @@ export const providerReviews: ProviderReview[] = [
       },
       {
         q: "Is Xoom cheaper than Western Union?",
-        a: "It depends on the corridor and delivery method. Xoom often has lower flat fees ($0–$4.99 vs $5–$10+ for Western Union) but both services add an exchange rate markup. For cash pickup to Latin America and the Philippines, Xoom is generally competitive with or slightly cheaper than Western Union. However, for the best overall value, Wise and Remitly typically beat both Xoom and Western Union on total cost.",
+        a: "It depends on the corridor and delivery method. Xoom often has lower flat fees ($0–$4.99 vs $5–$10+ for Western Union) but both services add an exchange rate markup. For cash pickup to Latin America and the Philippines, Xoom is generally competitive with or slightly cheaper than Western Union. On total cost, check Wise and Remitly on your route as well — the comparison table shows which delivers the most today.",
       },
       {
         q: "Can I send money with Xoom from outside the US?",
@@ -1693,7 +1693,7 @@ export const providerReviews: ProviderReview[] = [
         id: "fees",
         heading: "Transfer fees",
         content:
-          "<p>WorldRemit charges a flat transfer fee that varies by corridor and delivery method. Fees typically range from $0.99 to $3.99 for most popular corridors, making them competitive for small to medium transfers.</p>\n\n<p><strong>Fee ranges by delivery method:</strong></p>\n\n<table>\n<tr><th>Delivery method</th><th>Typical fee</th><th>Notes</th></tr>\n<tr><td>Bank deposit</td><td>$0.99–$3.99</td><td>Cheapest option on most corridors</td></tr>\n<tr><td>Mobile money</td><td>$0.99–$3.99</td><td>Same range as bank deposit</td></tr>\n<tr><td>Cash pickup</td><td>$1.99–$4.99</td><td>Slightly higher due to agent costs</td></tr>\n<tr><td>Airtime top-up</td><td>$0.99–$2.99</td><td>Often the cheapest option</td></tr>\n</table>\n\n<p><strong>Important:</strong> While the flat fee looks low, WorldRemit's real cost is in the exchange rate markup. On a $1,000 transfer, the fee might be $3.99 but the exchange rate markup could add $15–$30 in hidden cost depending on the corridor. Always compare the total receive amount, not just the fee.</p>\n\n<p><strong>Payment method surcharges:</strong></p>\n<ul>\n<li><strong>Bank transfer / ACH:</strong> No surcharge — cheapest funding option</li>\n<li><strong>Debit card:</strong> No surcharge on most corridors</li>\n<li><strong>Credit card:</strong> Small surcharge (~1%) on some corridors</li>\n<li><strong>Apple Pay:</strong> Same as debit card</li>\n</ul>",
+          "<p>WorldRemit charges a flat transfer fee that varies by corridor and delivery method. Fees typically range from $0.99 to $3.99 for most popular corridors, making them competitive for small to medium transfers.</p>\n\n<p><strong>Fee ranges by delivery method:</strong></p>\n\n<table>\n<tr><th>Delivery method</th><th>Typical fee</th><th>Notes</th></tr>\n<tr><td>Bank deposit</td><td>$0.99–$3.99</td><td>Usually its lowest fee</td></tr>\n<tr><td>Mobile money</td><td>$0.99–$3.99</td><td>Same range as bank deposit</td></tr>\n<tr><td>Cash pickup</td><td>$1.99–$4.99</td><td>Slightly higher due to agent costs</td></tr>\n<tr><td>Airtime top-up</td><td>$0.99–$2.99</td><td>Often the cheapest option</td></tr>\n</table>\n\n<p><strong>Important:</strong> While the flat fee looks low, WorldRemit's real cost is in the exchange rate markup. On a $1,000 transfer, the fee might be $3.99 but the exchange rate markup could add $15–$30 in hidden cost depending on the corridor. Always compare the total receive amount, not just the fee.</p>\n\n<p><strong>Payment method surcharges:</strong></p>\n<ul>\n<li><strong>Bank transfer / ACH:</strong> No surcharge — cheapest funding option</li>\n<li><strong>Debit card:</strong> No surcharge on most corridors</li>\n<li><strong>Credit card:</strong> Small surcharge (~1%) on some corridors</li>\n<li><strong>Apple Pay:</strong> Same as debit card</li>\n</ul>",
       },
       {
         id: "exchange-rates",
@@ -2270,7 +2270,7 @@ export const providerReviews: ProviderReview[] = [
     readTime: "12 min read",
     editorRating: 8.9,
     editorVerdict:
-      "TapTap Send earns its place at the top of any diaspora remittance shortlist. On major corridors — India, Pakistan, Ghana, West Africa — the exchange rate markup is extraordinarily low (as little as 0.09–0.20%), fees are zero on most routes, and 95% of transfers land in under 3 minutes. The app is one of the cleanest in the category, and the customer satisfaction numbers are simply unmatched: 4.7/5 on Trustpilot (32,000+ reviews), 4.8/5 on App Store (59,000 reviews), 4.8/5 on Google Play (262,000 reviews). But it's not perfect everywhere. Exotic corridors like Gambia (~10% markup) and Rwanda (~7.8% markup) are expensive — always compare before sending to less common destinations. Transfer limits are conservative until you reach the 'Super' tier. And it's mobile app only, with no web platform. For the core Africa and South Asia diaspora sending £100–£5,000 regularly, TapTap Send is an outstanding first choice. For large one-off transfers or unusual corridors, compare carefully.",
+      "TapTap Send earns its place at the top of any diaspora remittance shortlist. On major corridors — India, Pakistan, Ghana, West Africa — the exchange rate markup is extraordinarily low (as little as 0.09–0.20%), fees are zero on most routes, and 95% of transfers land in under 3 minutes. The app is one of the cleanest in the category, and its app-store ratings are high: 4.8/5 on App Store (59,000 reviews), 4.8/5 on Google Play (262,000 reviews). But it's not perfect everywhere. Exotic corridors like Gambia (~10% markup) and Rwanda (~7.8% markup) are expensive — always compare before sending to less common destinations. Transfer limits are conservative until you reach the 'Super' tier. And it's mobile app only, with no web platform. For the core Africa and South Asia diaspora sending £100–£5,000 regularly, TapTap Send is an outstanding first choice. For large one-off transfers or unusual corridors, compare carefully.",
     usp: {
       headline: "Rock-bottom rates and near-instant delivery on core diaspora corridors",
       points: [
@@ -2339,7 +2339,7 @@ export const providerReviews: ProviderReview[] = [
           "Easy recipient setup: one of the fastest and simplest payee-adding flows in the category",
           "Mobile money delivery to M-Pesa, MTN, Wave, bKash, JazzCash, Orange Money, and more",
           "Users who want no hidden fees — the amount shown is exactly what your recipient gets",
-          "Trusted by millions: 4.8/5 App Store (59K reviews), 4.8/5 Google Play (262K reviews), 4.7/5 Trustpilot",
+          "Trusted by millions: 4.8/5 App Store (59K reviews), 4.8/5 Google Play (262K reviews)",
         ],
       },
       {
@@ -2850,14 +2850,14 @@ export const providerReviews: ProviderReview[] = [
     slug: "unplex",
     title: "Unplex Review 2026 — Zero-Fee Transfers to India",
     metaDescription:
-      "Unplex review: zero-fee transfers to India and the Philippines, an enhanced first-time rate, NRE/NRO support, WhatsApp sending and 4.5/5 on Trustpilot. FinCEN-registered. How it compares to Wise, Remitly and Instarem.",
+      "Unplex review: zero-fee transfers to India and the Philippines, an enhanced first-time rate, NRE/NRO support and WhatsApp sending. FinCEN-registered. How it compares to Wise, Remitly and Instarem.",
     publishedAt: "2026-06-09",
     updatedAt: "2026-06-09",
     lastVerified: "2026-06-09",
     readTime: "8 min read",
     editorRating: 7.5,
     editorVerdict:
-      "Unplex is a focused, fast-growing remittance service that does one thing and does it competitively: zero-fee transfers to India and the Philippines from the US, UK, Europe and Canada. Our live rate tracking shows Unplex pricing competitively on its corridors — in line with strong specialists like Instarem and ahead of bank wires — with an enhanced first-transfer rate on top. It holds a strong 4.5/5 on Trustpilot, supports NRE/NRO accounts, and lets you send over WhatsApp as well as its app. The main trade-offs are deliberate: a small set of destination corridors (India and the Philippines) and bank-deposit-only delivery (no cash pickup). For NRIs and Filipino senders who value zero fees and a simple flow, Unplex is a genuinely strong option — just compare the live receive amount against Wise and Instarem before you send.",
+      "Unplex is a focused, fast-growing remittance service that does one thing and does it competitively: zero-fee transfers to India and the Philippines from the US, UK, Europe and Canada. Our live rate tracking shows Unplex pricing competitively on its corridors — in line with strong specialists like Instarem and ahead of bank wires — with an enhanced first-transfer rate on top. It supports NRE/NRO accounts, and lets you send over WhatsApp as well as its app. The main trade-offs are deliberate: a small set of destination corridors (India and the Philippines) and bank-deposit-only delivery (no cash pickup). For NRIs and Filipino senders who value zero fees and a simple flow, Unplex is a genuinely strong option — just compare the live receive amount against Wise and Instarem before you send.",
     usp: {
       headline: "Zero-fee India transfers with an enhanced first-time rate",
       points: [
@@ -2869,7 +2869,7 @@ export const providerReviews: ProviderReview[] = [
     reviewer: "Awais Imran",
     factChecker: "Ahsan Mukhtar",
     howWeTested:
-      "We pull live Unplex quotes directly from its public currency-converter API every 6 hours across all eight corridors it serves (USD, GBP, EUR and CAD into both INR and PHP). The comparison uses Unplex's standard rate above the promo cap — the rate a typical sender receives — benchmarked against Wise, Instarem, Remitly and the other providers in our index at the same moment. Unplex's enhanced first-transfer rate (which applies up to a per-corridor cap) is shown as a separate note on the result, so you see the promo without it inflating the comparison at amounts where it doesn't apply. We also verified its 4.5/5 Trustpilot rating across 140 reviews.",
+      "We pull live Unplex quotes directly from its public currency-converter API every 6 hours across all eight corridors it serves (USD, GBP, EUR and CAD into both INR and PHP). The comparison uses Unplex's standard rate above the promo cap — the rate a typical sender receives — benchmarked against Wise, Instarem, Remitly and the other providers in our index at the same moment. Unplex's enhanced first-transfer rate (which applies up to a per-corridor cap) is shown as a separate note on the result, so you see the promo without it inflating the comparison at amounts where it doesn't apply.",
     sections: [
       {
         id: "overview",
@@ -2939,7 +2939,7 @@ export const providerReviews: ProviderReview[] = [
     faqs: [
       {
         q: "Is Unplex safe and regulated?",
-        a: "Unplex is a Delaware-registered fintech and is registered with FinCEN as a money services business. Its money transmission is powered by licensed partners — Cybrid Inc. (MSB license 31000246961737) and Bivo Inc. (NMLS 2572288) — and it uses a PCI-DSS certified payment processor. That structure is common for fintechs, which operate on the licenses and rails of established, regulated partners rather than holding every license themselves. On the customer side it holds a strong 4.5/5 on Trustpilot, which is reassuring for a newer brand.",
+        a: "Unplex is a Delaware-registered fintech and is registered with FinCEN as a money services business. Its money transmission is powered by licensed partners — Cybrid Inc. (MSB license 31000246961737) and Bivo Inc. (NMLS 2572288) — and it uses a PCI-DSS certified payment processor. That structure is common for fintechs, which operate on the licenses and rails of established, regulated partners rather than holding every license themselves.",
       },
       {
         q: "Which countries and currencies does Unplex support?",

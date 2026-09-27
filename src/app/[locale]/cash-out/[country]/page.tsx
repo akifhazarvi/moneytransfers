@@ -222,7 +222,7 @@ export default async function CashOutCountryPage({
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Who does this — and why</h2>
+              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Who cashes out crypto in {c.country} — and why</h2>
               <p className="mt-2 text-[var(--color-on-surface-variant)]">{c.whoAndWhy}</p>
             </div>
 
@@ -232,13 +232,13 @@ export default async function CashOutCountryPage({
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Is it legal &amp; taxed?</h2>
+              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Is it legal &amp; taxed in {c.country}?</h2>
               <p className="mt-2 text-[var(--color-on-surface-variant)]">{c.regulatoryNote}</p>
               {c.sources && <ul className="mt-3 space-y-1 text-sm">{c.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className="underline">{source.label}</a></li>)}</ul>}
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Prefer a normal transfer?</h2>
+              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Prefer a normal transfer to {c.country}?</h2>
               <p className="mt-2 text-[var(--color-on-surface-variant)]">
                 Or skip crypto: {c.topSourceCurrencies[0]} → {c.currency} through a licensed provider, live rates below.
               </p>
@@ -261,7 +261,7 @@ export default async function CashOutCountryPage({
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Frequently asked questions</h2>
+              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">{c.country} crypto cash-out questions</h2>
               <div className="mt-3 divide-y divide-[var(--color-outline)]/70 rounded-2xl ring-1 ring-[var(--color-outline)]/60 overflow-hidden">
                 {faqs.map((f) => (
                   <details key={f.question} className="group bg-[var(--color-surface)]">

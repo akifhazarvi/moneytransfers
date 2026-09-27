@@ -427,7 +427,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
           </div>
 
           {/* FAQ */}
-          <h2 id="faq" className="mt-16 scroll-mt-28 text-2xl font-normal text-[var(--color-on-surface)]">Frequently asked questions</h2>
+          <h2 id="faq" className="mt-16 scroll-mt-28 text-2xl font-normal text-[var(--color-on-surface)]">Business payment providers: questions answered</h2>
           <div className="mt-4 space-y-5">
             {faqs.map((f) => (
               <div key={f.q}>

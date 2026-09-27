@@ -266,7 +266,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-6">
-              Frequently asked questions
+              {from} to {to} rate history questions
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {historyFaqs.map(({ question, answer }) => (

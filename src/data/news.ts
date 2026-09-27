@@ -692,7 +692,7 @@ export const newsItems: NewsItem[] = [
 <h2>The bigger picture</h2>
 <p>The CBN says it's targeting <strong>$1 billion in monthly diaspora remittances by end of 2026</strong>, as reported by Zawya (that article is no longer reachable at its original URL; the CBN publishes its own statements and directives in its <a href="https://www.cbn.gov.ng/Documents/circulars.html" target="_blank" rel="noopener noreferrer">circulars</a>). That's ambitious — and whether it happens depends entirely on whether the new rules make formal channels more attractive or simply more expensive. For a broader perspective on how African remittance corridors are evolving, see our guide to <a href="/guides/send-money-to-nigeria-guide">sending money to Nigeria</a> and our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report.</p>
 
-<h2>Frequently asked questions</h2>
+<h2>Questions about the CBN naira-only rule</h2>
 <h3>Will I still receive dollars in Nigeria after May 2026?</h3>
 <p>No. From May 1, 2026, all IMTO inflows must be converted to naira through authorised dealer banks before reaching recipients. Dollar, pound, and euro payouts through formal remittance channels are ending.</p>
 
@@ -768,7 +768,7 @@ export const newsItems: NewsItem[] = [
 
 <p>Compare what you'd actually receive using our <a href="/send-money">comparison tool</a> — we show live rates and fees from PayPal alongside dedicated providers so you can see the real difference. For more on how PayPal's pricing compares, see our <a href="/companies/paypal">PayPal review</a> and <a href="/compare/wise-vs-paypal">Wise vs PayPal</a> comparison. And for an overview of the best options available, check our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide.</p>
 
-<h2>Frequently asked questions</h2>
+<h2>Questions about Venmo's international transfers</h2>
 <h3>Can I use Venmo to send money internationally?</h3>
 <p>Yes, as of March 23, 2026, Venmo users can send money to PayPal users in 90 countries. The recipient must have an active PayPal account. International fees are waived through August 24, 2026, but PayPal's standard FX markup of 3-4% still applies to currency conversions.</p>
 
@@ -837,7 +837,7 @@ export const newsItems: NewsItem[] = [
 
 <p>Use our <a href="/send-money">comparison tool</a> to see real-time costs across providers for your specific corridor. For a complete breakdown of which providers charge the tax and how to avoid it, see our <a href="/guides/us-remittance-tax-2026">US remittance tax guide</a>. And for the broader picture of where costs are heading, our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report covers the full landscape.</p>
 
-<h2>Frequently asked questions</h2>
+<h2>Questions about the 1% remittance tax</h2>
 <h3>How much is the US remittance tax?</h3>
 <p>The federal excise tax is 1% of the transfer amount, applied only to cash-funded international remittances. A $500 cash transfer incurs a $5 tax. Digital transfers funded by bank account, debit card, or credit card are exempt.</p>
 
@@ -917,7 +917,7 @@ export const newsItems: NewsItem[] = [
 
 <h2>The cheapest and most expensive corridors</h2>
 <table>
-<thead><tr><th>Corridor</th><th>Average Cost</th><th>Cheapest Provider</th><th>Compare</th></tr></thead>
+<thead><tr><th>Corridor</th><th>Average Cost</th><th>Providers to check</th><th>Compare</th></tr></thead>
 <tbody>
 <tr class="blog-row-highlight"><td><strong>USA → India</strong></td><td>~2.5%</td><td>Wise (0.5%)</td><td><a href="/send-money/usa-to-india">Live rates →</a></td></tr>
 <tr><td><strong>UAE → India</strong></td><td>~2.8%</td><td>Wise / Remitly</td><td><a href="/send-money/uae-to-india">Live rates →</a></td></tr>
@@ -1356,7 +1356,7 @@ export const newsItems: NewsItem[] = [
 <li><strong>Full-year results (November 2026)</strong> — First post-listing earnings; expect a sharpened US corridor roadmap and likely new product announcements.</li>
 </ol>
 
-<h2>Frequently asked questions</h2>
+<h2>Questions about Wise's Nasdaq listing</h2>
 <h3>Is Wise safe after the Nasdaq listing in 2026?</h3>
 <p>Yes. Wise's safeguarding and regulatory status is unchanged by the listing switch. Customer funds remain ring-fenced from corporate funds under FCA and FinCEN rules. The Nasdaq move is a corporate-governance change, not an operational one. See our full <a href="/companies/wise">Wise review</a> for the latest safety breakdown.</p>
 
@@ -1450,7 +1450,7 @@ export const newsItems: NewsItem[] = [
 <li><a href="/swift-codes/pakistan">Pakistan SWIFT codes</a> — for bank-to-bank wires</li>
 </ul>
 
-<h2>Frequently asked questions</h2>
+<h2>Questions about sending GBP to Pakistan</h2>
 <h3>What is the cheapest way to send money from the UK to Pakistan in 2026?</h3>
 <p>ACE Money Transfer, Wise, and Remitly are among the more visible app-based names on the GBP to PKR corridor, but they are not the measured leader: {{CORRIDOR_LEADER:GBP:PKR}}. Differences of 5,000–15,000 PKR per £1,000 are common between the best and worst providers on any given day — compare before every transfer at our <a href="/send-money/uk-to-pakistan">UK to Pakistan comparison page</a>.</p>
 
@@ -1552,7 +1552,7 @@ export const newsItems: NewsItem[] = [
 <li><a href="/swift-codes/india">India SWIFT / IFSC lookup</a></li>
 </ul>
 
-<h2>Frequently asked questions</h2>
+<h2>Questions about sending money to India now</h2>
 <h3>Why is the Indian rupee so weak in April 2026?</h3>
 <p>Three forces: sustained US dollar strength after the Fed's March hold, persistent oil import demand, and offshore hedging pressure. The RBI is intervening to stabilise — not reverse — the move, which is why the rate has stayed in a 92.4–94.6 range through the month.</p>
 
@@ -1636,7 +1636,7 @@ export const newsItems: NewsItem[] = [
 <li><a href="/compare/wise-vs-revolut">Wise vs Revolut head-to-head</a></li>
 </ul>
 
-<h2>Frequently asked questions</h2>
+<h2>Questions about Revolut's Africa corridors</h2>
 <h3>Can I send money from the UK to Nigeria via Revolut in 2026?</h3>
 <p>Yes. As of April 2026, Revolut supports direct transfers from GBP balances to MTN MoMo and Airtel Money wallets in Nigeria, delivered in minutes. Compare live rates on our <a href="/send-money/uk-to-nigeria">UK to Nigeria comparison page</a> — Lemfi and Wise remain cost-competitive on this route.</p>
 
@@ -1745,7 +1745,7 @@ export const newsItems: NewsItem[] = [
 </ol>
 <p>For background on how to think about timing, see our piece on <a href="/news/inr-weakest-year-send-money-india-april-2026">timing USD/INR transfers</a> and our guide to <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a>.</p>
 
-<h2>Frequently asked questions</h2>
+<h2>Questions about the May 2026 currency outlook</h2>
 
 <h3>Is the US dollar going up or down in May 2026?</h3>
 <p>Down. The US Dollar Index (DXY) has fallen from 99.3 in late April to 97.7 in mid-May — its lowest level since February. Three forces are weighing on the dollar: US–Iran de-escalation reducing the safe-haven premium, an 8-4 split FOMC vote signalling internal disagreement, and market pricing of two Fed rate cuts before year-end (compared to zero priced in six weeks ago). Most major banks now expect DXY to end 2026 between 90 and 96.</p>

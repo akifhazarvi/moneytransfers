@@ -52,7 +52,7 @@
 .guide-research-desk > a:hover h3 { color: var(--color-primary); }
 .guide-library { outline: none; }
 .guide-library-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 12px 0 24px; }
-.guide-library-heading h2, .guide-related-heading h2 { font-size: 36px; line-height: 1.2; font-weight: 400; margin-top: 7px; letter-spacing: -.02em; }
+.guide-library-heading h2, .guide-related-heading .guide-related-title { font-size: 36px; line-height: 1.2; font-weight: 400; margin-top: 7px; letter-spacing: -.02em; }
 .guide-result-count { font-size: 12px; line-height: 1.6; color: var(--color-on-surface-variant); margin-top: 9px; overflow-wrap: anywhere; }
 .guide-sort { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--color-on-surface-variant); flex-shrink: 0; }
 .guide-sort select { max-width: 100%; padding: 10px 28px 10px 12px; border: 1px solid var(--guide-line); border-radius: 8px; background-color: var(--color-surface); font: inherit; color: var(--color-on-surface); cursor: pointer; }
@@ -173,7 +173,7 @@
   .guide-research-desk { padding: 22px 24px 4px; }
   .guide-research-desk > a { padding: 19px 0; }
   .guide-library-heading { align-items: start; flex-direction: column; gap: 18px; }
-  .guide-library-heading h2, .guide-related-heading h2 { font-size: 32px; }
+  .guide-library-heading h2, .guide-related-heading .guide-related-title { font-size: 32px; }
   .guide-sort { width: 100%; justify-content: space-between; }
   .guide-preview-grid { grid-template-columns: 1fr; gap: 12px; }
   .guide-preview { padding: 22px 22px 16px; }

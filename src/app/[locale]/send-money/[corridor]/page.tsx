@@ -2168,7 +2168,7 @@ export default async function CorridorPage({ params }: Props) {
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
-              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">Recipient details for your transfer</h2>
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">Recipient details: {corridor.fromCountry} to {corridor.toCountry}</h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
                 Before sending from {corridor.fromCountry}, confirm these details with your recipient in {corridor.toCountry}: {countryDetails.recipientRequirements.filter((req) => req.required).map((req) => req.label).join(", ")}.
               </p>

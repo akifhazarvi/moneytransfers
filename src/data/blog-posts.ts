@@ -258,9 +258,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 70+ countries</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 70+ countries</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express option delivers in minutes</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>Zero fees and 0.42% avg markup</td></tr>
+<tr><td><strong>No transfer fee</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>Zero fees and a {{AVG_MARKUP_PCT:instarem}} median markup</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
@@ -1013,9 +1013,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Accepts IBANs, 0% markup, 70+ countries</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Accepts IBANs, 0% markup, 70+ countries</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Simple IBAN entry, Express delivery option</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/xe">XE</a></td><td>No fees, rate alerts, handles IBAN routing</td></tr>
+<tr><td><strong>No transfer fee</strong></td><td><a href="/companies/xe">XE</a></td><td>No fees, rate alerts, handles IBAN routing</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
@@ -1150,10 +1150,10 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 299K+ reviews</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>4.6/5 Trustpilot, Express in minutes</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>Zero fees, 0.42% avg markup</td></tr>
-<tr><td><strong>Best for Diaspora Corridors</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>4.7/5 Trustpilot (32K+ reviews), 80+ countries, 95% under 3 min</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 299K+ reviews</td></tr>
+<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>{{TRUSTPILOT:remitly}} on Trustpilot, Express in minutes</td></tr>
+<tr><td><strong>No transfer fee</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>Zero fees, {{AVG_MARKUP_PCT:instarem}} median markup</td></tr>
+<tr><td><strong>Best for Diaspora Corridors</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>80+ countries, 95% under 3 min</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
@@ -1161,7 +1161,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Sending from the United States? See our <a href="/guides/best-apps-to-send-money-from-us-2026">guide to money transfer apps for US senders</a>. To compare the tools you use to research providers, read our <a href="/guides/monito-alternatives">comparison of Monito alternatives</a>.</p>`,
       },
       {
-        heading: "1. Wise — Best Overall",
+        heading: "1. Wise — Mid-Market Rate, Fee Upfront",
         content: `<p><strong>Trustpilot: {{TRUSTPILOT:wise}} | Apps: {{APP_SCORES:wise}} | Measured markup: {{AVG_MARKUP:wise}} | Total cost on $1,000: {{COST_PCT:wise:USD:INR:1000}} (USD→INR)</strong></p>
 <p><a href="/companies/wise">Wise</a> is the gold standard for transparent international transfers. They're the only major provider that charges <strong>zero exchange rate markup</strong> — you always get the real mid-market rate. Their fee is shown upfront and scales with the transfer amount.</p>
 <p><strong>Best for:</strong> Medium to large transfers ($500+) where the 0% markup saves you the most. Excellent app with real-time tracking and multi-currency accounts. See how <a href="/compare/wise-vs-remitly">Wise compares to Remitly</a> for specific corridors.</p>
@@ -1237,7 +1237,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the best app to send money internationally?",
         answer:
-          "<a href=\"/companies/wise\">Wise</a> is the best overall for transparent pricing and 0% exchange rate markup. <a href=\"/companies/remitly\">Remitly</a> is best for remittances to developing countries. <a href=\"/companies/instarem\">Instarem</a> offers the lowest total cost in many Asia-Pacific corridors. The best app depends on where you're sending and how much.",
+          "<a href=\"/companies/wise\">Wise</a> stands out for transparent pricing and 0% exchange rate markup. <a href=\"/companies/remitly\">Remitly</a> is best for remittances to developing countries. <a href=\"/companies/instarem\">Instarem</a> offers the lowest total cost in many Asia-Pacific corridors. The best app depends on where you're sending and how much.",
       },
       {
         question: "Is Wise better than Remitly?",
@@ -1286,9 +1286,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 70+ countries</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivers in minutes, 4.6/5 Trustpilot</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0 fee for small remittances to India/Philippines</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 70+ countries</td></tr>
+<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivers in minutes, {{TRUSTPILOT:remitly}} on Trustpilot</td></tr>
+<tr><td><strong>Small remittances</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0 fee for small remittances to India/Philippines</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
@@ -1721,7 +1721,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Best For</th><th>Key Feature</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise Business</a></td><td>SMEs, 1–500 employees</td><td>0% markup, batch CSV, API, Xero/QBO</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise Business</a></td><td>SMEs, 1–500 employees</td><td>0% markup, batch CSV, API, Xero/QBO</td></tr>
 <tr><td><strong>Best for Large Transfers</strong></td><td><a href="/companies/ofx">OFX</a></td><td>$50K+ transfers, property</td><td>Dedicated FX dealer, forward contracts</td></tr>
 <tr><td><strong>Best for Startups</strong></td><td><a href="/companies/revolut">Revolut Business</a></td><td>Tech companies, freelancers</td><td>Free tier, team cards, expense mgmt</td></tr>
 <tr><td><strong>Best for EU Payments</strong></td><td>Wise / Revolut</td><td>SEPA zone businesses</td><td>Free/instant SEPA transfers</td></tr>
@@ -2657,7 +2657,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall Bonus</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$25 off first transfer, no code needed, plus competitive base rates</td></tr>
+<tr class="blog-row-highlight"><td><strong>First-transfer bonus</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$25 off first transfer, no code needed, plus competitive base rates</td></tr>
 <tr><td><strong>Most Free Transfers</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Code 3FREE gives you 3 completely fee-free transfers</td></tr>
 <tr><td><strong>Best for Large Amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>Improved introductory exchange rate on first transfer across 7 currencies</td></tr>
 </tbody>
@@ -2723,7 +2723,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Best Refer-a-Friend Programs",
         content: `<p>Referral programs reward you for inviting friends to use the service. Here's how the top programs compare:</p>
 
-<h3>Remitly — Best Overall ($25 Each)</h3>
+<h3>Remitly — First-Transfer Bonus ($25 Each)</h3>
 <p>Both you and your friend get <strong>$25</strong> when they complete a first transfer of $100+. No limit on referrals, making this the most lucrative ongoing referral program. If you send money regularly, this is essentially unlimited $25 bonuses.</p>
 
 <h3>TorFX — Best for Large Transfers (GBP 50 Each)</h3>
@@ -3017,7 +3017,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% exchange rate markup — your family receives the real rate</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% exchange rate markup — your family receives the real rate</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery in minutes to mobile wallets or cash pickup</td></tr>
 <tr><td><strong>Widest Reach</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>500,000+ agent locations including Pakistan, Bangladesh, Egypt</td></tr>
 </tbody>
@@ -3287,9 +3287,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~$6–$8 fee — best value for $500+ transfers</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~$6–$8 fee — best value for $500+ transfers</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery in minutes via bank or Easypaisa/JazzCash</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee with competitive PKR rates on smaller amounts</td></tr>
+<tr><td><strong>Smaller PKR transfers</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee with competitive PKR rates on smaller amounts</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Unmatched agent network across Pakistan including smaller cities</td></tr>
 </tbody>
 </table>
@@ -3498,9 +3498,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate (0% markup), 40+ currencies, local bank details in 22 currencies</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate (0% markup), 40+ currencies, local bank details in 22 currencies</td></tr>
 <tr><td><strong>Best for Auto-Exchange</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Set a target rate; converts automatically — unique feature on free plan</td></tr>
-<tr><td><strong>Cheapest for Small Conversions</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Free conversions up to $1,000/month on weekdays with no markup</td></tr>
+<tr><td><strong>Free conversions (small)</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Free conversions up to $1,000/month on weekdays with no markup</td></tr>
 <tr><td><strong>Best for Exotic Corridors</strong></td><td><a href="/companies/xe">Xe</a></td><td>Sends to 130+ currencies — more than Wise or Revolut</td></tr>
 </tbody>
 </table>
@@ -3686,9 +3686,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee, competitive PHP rate, GCash delivery in seconds</td></tr>
+<tr class="blog-row-highlight"><td><strong>Wallet delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee, competitive PHP rate, GCash delivery in seconds</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery via GCash or bank — typically under 1 hour</td></tr>
-<tr><td><strong>Cheapest for Large Amounts</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — best for $2,000+ transfers</td></tr>
+<tr><td><strong>Mid-market rate (large amounts)</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — best for $2,000+ transfers</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>30,000+ pickup points including Cebuana Lhuillier and M Lhuillier</td></tr>
 </tbody>
 </table>
@@ -3877,7 +3877,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Cheapest overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market USD/BRL rate, 0% markup. USD 5–8 fee. PIX delivery in seconds</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market USD/BRL rate, 0% markup. USD 5–8 fee. PIX delivery in seconds</td></tr>
 <tr><td><strong>Best for &lt; USD 500</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>USD 0–3.99 fee with Express PIX delivery. Frequent first-transfer promo zero-markup deals</td></tr>
 <tr><td><strong>Strong PIX coverage</strong></td><td><a href="/companies/xoom">Xoom</a></td><td>PayPal-owned, USD 0 fee but 1.5–3% markup. Best if you already use PayPal balance</td></tr>
 <tr><td><strong>Latin America specialist</strong></td><td>Boss Money</td><td>Deep Brazilian-side relationships, often competitive on FX markup. Strong on smaller transfers</td></tr>
@@ -4032,7 +4032,7 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     faqs: [
-      { question: "What is the cheapest way to send money to Brazil from the US?", answer: "Wise is consistently cheapest for amounts USD 500+ — mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000. PIX delivery in seconds. For USD 100–500 transfers, Remitly Express is competitive thanks to a low flat fee (USD 0–3.99) and frequent first-transfer promotional rates. Boss Money is competitive for sender-side cash funding and Portuguese-language customer service. Brazil's 0.38% IOF tax applies on top regardless of provider — unavoidable. Avoid US bank wires (Chase, BofA, Wells Fargo) which cost USD 70–90 total on USD 1,000 vs USD 5–8 with Wise." },
+      { question: "What is the cheapest way to send money to Brazil from the US?", answer: "On price alone, the measured USD to BRL leader is {{CORRIDOR_LEADER:USD:BRL}}. Wise uses the mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000. PIX delivery in seconds. For USD 100–500 transfers, Remitly Express is competitive thanks to a low flat fee (USD 0–3.99) and frequent first-transfer promotional rates. Boss Money is competitive for sender-side cash funding and Portuguese-language customer service. Brazil's 0.38% IOF tax applies on top regardless of provider — unavoidable. Avoid US bank wires (Chase, BofA, Wells Fargo) which cost USD 70–90 total on USD 1,000 vs USD 5–8 with Wise." },
       { question: "What is PIX and how does it work for international transfers?", answer: "PIX is Brazil's central-bank-operated instant payments rail, launched November 2020 by Banco Central do Brasil and now used by 160+ million Brazilians. For US-to-Brazil transfers, providers (Wise, Remitly, Xoom, Boss Money, Western Union) perform the USD-to-BRL FX conversion in their system, then push BRL via PIX to the recipient's registered Brazilian bank account using the recipient's PIX key (CPF, phone number, email, or random key). Settlement is under 10 seconds inside Brazil — the dominant variable in total transfer time is US-side funding clearance (1–2 days for ACH, instant for debit card). PIX is free for end users (mandated by Banco Central do Brasil) and works 24/7/365 including weekends and overnight." },
       { question: "What is the IOF tax and do I have to pay it?", answer: "IOF (Imposto sobre Operações Financeiras) is a Brazilian federal tax on financial transactions. For inbound personal remittances, the rate is 0.38% — automatically deducted by the receiving Brazilian bank at the moment of USD-to-BRL conversion. On USD 1,000 at BRL 5.0/USD that's roughly BRL 19. IOF applies to every provider — Wise, Remitly, Xoom, Western Union, US bank wires all incur it equally because the tax is on the BRL-side conversion, not the provider's fee. Some providers advertise 'no Brazil tax' which means they pre-discount their FX to absorb the IOF, but the tax is still collected by the Brazilian government — it's just hidden in the provider's pricing. There is no legal way to avoid IOF on inbound personal remittances." },
       { question: "How fast does a Wise transfer to Brazil arrive?", answer: "Typically under 30 minutes end-to-end, sometimes under 5 minutes. The Brazilian leg via PIX is sub-10-second; the dominant variable is US-side funding. ACH-funded Wise transfers take 1–2 business days for the US ACH leg to clear before Wise can dispatch PIX. Debit-card-funded Wise transfers are instant on the US side and arrive in BRL within minutes. Wire-funded Wise transfers (USD 25–30 wire fee) clear same-day. Once Wise initiates PIX, the recipient sees the BRL credit in their bank app within seconds, regardless of time of day or day of week." },
@@ -4243,7 +4243,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>The pattern is consistent across every corridor we track: <strong>the exchange rate markup — not the upfront fee — is what really costs you money.</strong> A bank advertising "no transfer fee" can still take 3-5% off the exchange rate, which on $500 is $15-$25 quietly disappearing before your money even leaves the country. Below, we break down exactly how each method works, what it costs, and when it's the right choice.</p>`,
       },
       {
-        heading: "Method 1: Money Transfer Apps (Cheapest for Most People)",
+        heading: "Method 1: Money Transfer Apps (Cheaper Than Banks)",
         content: `<p>Digital money transfer apps are built specifically for cross-border payments, and the USA-Mexico corridor is one of the most competitive routes they serve. You send from your phone or computer — funded by your US bank account or debit card — and the money lands in your recipient's Mexican bank account, debit card, or cash pickup location, often within minutes.</p>
 <h3>How Apps Price USA to Mexico Transfers</h3>
 <ul>
@@ -4332,7 +4332,7 @@ const rawBlogPosts: BlogPost[] = [
 </tbody>
 </table>
 </div>
-<p>For the vast majority of people sending money home to Mexico, the answer is simple: if your recipient has any kind of bank account, ask for their CLABE and send via an app that supports SPEI. It's consistently the cheapest, fastest option — and it works around the clock, every day of the year.</p>`,
+<p>For the vast majority of people sending money home to Mexico, the answer is simple: if your recipient has any kind of bank account, ask for their CLABE and send via an app that supports SPEI. It's usually the lowest-cost, fastest delivery method — and it works around the clock, every day of the year.</p>`,
       },
       {
         heading: "5 Ways to Cut Your Transfer Cost Further",
@@ -4436,9 +4436,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with 0% markup — most transparent on a volatile corridor</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with 0% markup — most transparent on a volatile corridor</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery to GTBank, Access, and Zenith Bank accounts</td></tr>
-<tr><td><strong>Cheapest for Small Amounts</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee with competitive NGN rates for transfers under $500</td></tr>
+<tr><td><strong>Transfers under $500</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee with competitive NGN rates for transfers under $500</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Thousands of agent locations in Lagos, Abuja, Port Harcourt, and beyond</td></tr>
 </tbody>
 </table>
@@ -4594,9 +4594,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee, competitive BDT rate, direct bKash delivery in seconds</td></tr>
+<tr class="blog-row-highlight"><td><strong>Wallet delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee, competitive BDT rate, direct bKash delivery in seconds</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to bKash — near-instant delivery to 60M+ registered accounts</td></tr>
-<tr><td><strong>Cheapest for Large Amounts</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — most transparent for $1,000+ transfers</td></tr>
+<tr><td><strong>Mid-market rate (large amounts)</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — most transparent for $1,000+ transfers</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Extensive network at bank branches and agent points across Bangladesh</td></tr>
 </tbody>
 </table>
@@ -4839,9 +4839,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~C$7 fee — consistently cheapest for C$500+</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~C$7 fee</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express via IMPS/UPI — typically delivers in minutes, 24/7</td></tr>
-<tr><td><strong>Cheapest for Large Amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No fees on C$1,000+ transfers; forward contracts available</td></tr>
+<tr><td><strong>No fee, large amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No fees on C$1,000+ transfers; forward contracts available</td></tr>
 <tr><td><strong>Best for Interac</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Interac e-Transfer funding — instant and low-cost</td></tr>
 </tbody>
 </table>
@@ -6094,7 +6094,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>The best overall option for most US-Canada business payments. Wise uses the mid-market rate with 0% markup and charges a small transparent fee (typically 0.28% on USD to CAD). Transfers often arrive same-day. Supports batch payments via CSV, API access, and integrates with Xero and QuickBooks. Multi-currency account lets you hold CAD and pay Canadian suppliers directly.</p>
+<p>Our pick for most US-Canada business payments, on price. Wise uses the mid-market rate with 0% markup and charges a small transparent fee (typically 0.28% on USD to CAD). Transfers often arrive same-day. Supports batch payments via CSV, API access, and integrates with Xero and QuickBooks. Multi-currency account lets you hold CAD and pay Canadian suppliers directly.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
 <p>Best for large transfers ($10,000+). No transfer fees and dedicated FX dealers who can negotiate better rates for high-volume clients. Forward contracts available to lock USD/CAD rates up to 12 months — useful for businesses with predictable Canadian expenses.</p>
 <h3><a href="/companies/xe">XE Business</a></h3>
@@ -6216,7 +6216,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Best overall for US-UK business payments. Wise offers the mid-market rate with 0% markup. Transfers to UK bank accounts often arrive within hours via Faster Payments. Batch payments, API access, and direct integration with Xero and QuickBooks make it ideal for recurring supplier and contractor payments.</p>
+<p>Our pick for US-UK business payments, on price. Wise offers the mid-market rate with 0% markup. Transfers to UK bank accounts often arrive within hours via Faster Payments. Batch payments, API access, and direct integration with Xero and QuickBooks make it ideal for recurring supplier and contractor payments.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
 <p>Best for large payments ($10,000+). No transfer fees, dedicated FX dealers, and forward contracts to lock USD/GBP rates up to 12 months. Strong for businesses importing goods from the UK or making regular large payments.</p>
 <h3><a href="/companies/revolut">Revolut Business</a></h3>
@@ -6330,7 +6330,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Best overall for regular USD-INR business payments. 0% markup on the mid-market rate, batch payments via CSV for paying multiple contractors at once, and API access for automated payroll. Integrates with Xero and QuickBooks. Transfers to India typically arrive within 1–2 business days via NEFT/IMPS.</p>
+<p>Our pick for regular USD-INR business payments, on price. 0% markup on the mid-market rate, batch payments via CSV for paying multiple contractors at once, and API access for automated payroll. Integrates with Xero and QuickBooks. Transfers to India typically arrive within 1–2 business days via NEFT/IMPS.</p>
 <h3><a href="/companies/remitly">Remitly</a></h3>
 <p>Fastest option — transfers can arrive within minutes via IMPS. Low fees and competitive rates, especially for amounts under $5,000. Good for urgent contractor payments. See our <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a>.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
@@ -6461,7 +6461,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Best overall for regular USD-MXN business payments. 0% markup, batch payments, API, and accounting integrations. Payments to Mexican bank accounts via SPEI (Mexico's interbank payment system) typically arrive within 1–2 business days. CLABE number required for the recipient.</p>
+<p>Our pick for regular USD-MXN business payments, on price. 0% markup, batch payments, API, and accounting integrations. Payments to Mexican bank accounts via SPEI (Mexico's interbank payment system) typically arrive within 1–2 business days. CLABE number required for the recipient.</p>
 <h3><a href="/companies/remitly">Remitly</a></h3>
 <p>Fastest option for Mexico — can deliver within minutes via SPEI. Competitive rates on amounts under $5,000. Good for urgent contractor payments. See our <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a> and <a href="/guides/send-money-to-mexico-guide">Mexico transfer guide</a>.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
@@ -6577,7 +6577,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Best overall for USD-EUR business payments. 0% markup on the mid-market rate. Wise delivers via SEPA, meaning payments to European bank accounts often arrive same-day. Multi-currency account includes EUR IBAN for receiving European payments too. Batch payments, API, Xero/QuickBooks integration.</p>
+<p>Our pick for USD-EUR business payments, on price. 0% markup on the mid-market rate. Wise delivers via SEPA, meaning payments to European bank accounts often arrive same-day. Multi-currency account includes EUR IBAN for receiving European payments too. Batch payments, API, Xero/QuickBooks integration.</p>
 <h3><a href="/companies/revolut">Revolut Business</a></h3>
 <p>Excellent for businesses with European operations. Multi-currency EUR account with IBAN, team cards, expense management, and competitive FX. Free plan available. Particularly strong for SaaS and tech companies with EU customers and suppliers.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
@@ -6692,7 +6692,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Best overall for UK-Europe business payments. 0% markup on the mid-market rate. Wise routes via SEPA through their EU-licensed entity, so payments arrive same-day or next-day. EUR IBAN included for receiving European client payments. Batch payments, Xero/QuickBooks integration, and API access.</p>
+<p>Our pick for UK-Europe business payments, on price. 0% markup on the mid-market rate. Wise routes via SEPA through their EU-licensed entity, so payments arrive same-day or next-day. EUR IBAN included for receiving European client payments. Batch payments, Xero/QuickBooks integration, and API access.</p>
 <h3><a href="/companies/revolut">Revolut Business</a></h3>
 <p>UK-headquartered with an EU banking license in Lithuania. Multi-currency EUR account with full SEPA access. Competitive rates, team cards, expense management, and a free plan for small businesses. Particularly strong for UK businesses with regular EU transactions.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
@@ -6806,7 +6806,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Best overall for UK-India business payments. 0% markup, batch payments for paying multiple Indian contractors or suppliers at once, and API access. Payments via NEFT/IMPS typically arrive within 1–2 business days. Integrates with Xero and QuickBooks. Requires the recipient's IFSC code.</p>
+<p>Our pick for UK-India business payments, on price. 0% markup, batch payments for paying multiple Indian contractors or suppliers at once, and API access. Payments via NEFT/IMPS typically arrive within 1–2 business days. Integrates with Xero and QuickBooks. Requires the recipient's IFSC code.</p>
 <h3><a href="/companies/instarem">InstaReM</a></h3>
 <p>Strong competitor on the GBP-INR corridor. Zero transfer fees with a competitive markup (avg ~0.4%). Singapore-headquartered with strong Asian corridor expertise. Good for businesses with payments across multiple Asian countries.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
@@ -7039,7 +7039,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Best overall for US-Australia business payments. 0% markup on the mid-market rate. Wise has a strong Australian presence and delivers via Australia's New Payments Platform (NPP) — often arriving within hours. Multi-currency account includes AUD details for receiving Australian payments.</p>
+<p>Our pick for US-Australia business payments, on price. 0% markup on the mid-market rate. Wise has a strong Australian presence and delivers via Australia's New Payments Platform (NPP) — often arriving within hours. Multi-currency account includes AUD details for receiving Australian payments.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
 <p>Australian-headquartered company (formerly OzForex), making them particularly strong on the USD-AUD corridor. No transfer fees, dedicated dealers, forward contracts, and deeply competitive rates for large transfers. Best for $10,000+ payments.</p>
 <h3><a href="/companies/xe">XE Business</a></h3>
@@ -7288,7 +7288,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Best overall for Canadian businesses paying in USD. 0% markup, accepts Interac e-Transfer and direct debit funding. Multi-currency USD account lets you hold USD and pay US vendors directly. Batch payments, API, and Xero/QuickBooks integration. Payments to US bank accounts often arrive same-day via ACH.</p>
+<p>Our pick for Canadian businesses paying in USD, on price. 0% markup, accepts Interac e-Transfer and direct debit funding. Multi-currency USD account lets you hold USD and pay US vendors directly. Batch payments, API, and Xero/QuickBooks integration. Payments to US bank accounts often arrive same-day via ACH.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
 <p>Strong on the CAD-USD corridor. No transfer fees, dedicated FX dealers for large amounts, and forward contracts to lock rates. Good for Canadian importers with regular US supplier payments.</p>
 <h3><a href="/companies/revolut">Revolut Business</a></h3>
@@ -7608,9 +7608,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, no markup, always tax-free</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, no markup, always tax-free</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Instant delivery, $0 fee, bank-funded only</td></tr>
-<tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/instarem">InstaReM</a></td><td>$0 fee, ~0.42% markup, digital-only</td></tr>
+<tr><td><strong>Fee-free, digital-only</strong></td><td><a href="/companies/instarem">InstaReM</a></td><td>$0 fee, {{AVG_MARKUP_PCT:instarem}} median markup, digital-only</td></tr>
 <tr><td><strong>Best for Large Amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No fees, negotiated rates, bank transfer only</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Cash pickup at destination, app-funded (no tax)</td></tr>
 </tbody>
@@ -7811,7 +7811,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, transparent fees, 70+ countries</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, transparent fees, 70+ countries</td></tr>
 <tr><td><strong>Best Multi-Currency App</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Multi-currency accounts, competitive rates, crypto integration</td></tr>
 <tr><td><strong>Fastest Delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Instant delivery in minutes, $0 fees on many corridors</td></tr>
 <tr><td><strong>Best for Large Amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No fees, negotiated rates for $10K+ transfers</td></tr>
@@ -7957,7 +7957,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Transfer Fee</strong></td><td>$0–$5 (plan-dependent)</td><td>$1–$12 (amount-dependent)</td><td>$0 (most corridors)</td></tr>
 <tr><td><strong>Speed</strong></td><td>1–3 days</td><td>74% arrive in &lt;20 seconds</td><td>Minutes (Express)</td></tr>
 <tr><td><strong>Multi-Currency</strong></td><td>30+ currencies</td><td>40+ currencies</td><td>No</td></tr>
-<tr><td><strong>Best For</strong></td><td>Multi-currency spending + transfers</td><td>Cheapest total cost</td><td>Fast delivery, small amounts</td></tr>
+<tr><td><strong>Best For</strong></td><td>Multi-currency spending + transfers</td><td>Mid-market rate, fee upfront</td><td>Fast delivery, small amounts</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates for your specific transfer →</a></p>
@@ -8111,7 +8111,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall (GBP → EUR)</strong></td><td><a href="/companies/wise">Wise</a></td><td>£3.70 fee on £1,000, mid-market rate, near-instant</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate (GBP → EUR)</strong></td><td><a href="/companies/wise">Wise</a></td><td>£3.70 fee on £1,000, mid-market rate, near-instant</td></tr>
 <tr><td><strong>Best Multi-Currency</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Hold EUR + 30 currencies, free Revolut-to-Revolut</td></tr>
 <tr><td><strong>Best for Large Amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No fees, negotiated rates for €10K+</td></tr>
 <tr><td><strong>Best for USD → EUR</strong></td><td><a href="/companies/wise">Wise</a></td><td>$7.33 on $1,000, 0% markup, now with instant payout</td></tr>
@@ -8213,7 +8213,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Wise: Best for International Transfers",
-        content: `<p><a href="/companies/wise">Wise</a> (formerly TransferWise) built its multi-currency account around one principle: <strong>the mid-market exchange rate with no markup</strong>. That transparency makes it the cheapest option for most international transfers.</p>
+        content: `<p><a href="/companies/wise">Wise</a> (formerly TransferWise) built its multi-currency account around one principle: <strong>the mid-market exchange rate with no markup</strong>. That transparency is what it is measured on here: it delivered the most on {{LEADS_SHORT:wise}} of the routes we compare.</p>
 <p><strong>Standout features:</strong></p>
 <ul>
 <li><strong>40+ currencies</strong> — The widest currency support of any multi-currency account</li>
@@ -8429,7 +8429,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Provider</th><th>EUR Fee</th><th>Exchange Rate Markup</th><th>Best For</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>€0.50–€5</td><td>0% (mid-market rate)</td><td>Best overall — transparent pricing, 70+ countries</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>€0.50–€5</td><td>0% (mid-market rate)</td><td>Transparent pricing, 70+ countries</td></tr>
 <tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>€0</td><td>0.3–0.5% avg</td><td>Zero-fee transfers, strong in Asia-Pacific corridors</td></tr>
 <tr><td><strong><a href="/companies/revolut">Revolut</a></strong></td><td>€0 (plan-dependent)</td><td>0–1% (weekend markup)</td><td>Quick EUR transfers within Europe, multi-currency account</td></tr>
 <tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>€0</td><td>0.4–0.8%</td><td>Large transfers (€5,000+), forward contracts available</td></tr>
@@ -8534,7 +8534,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall (Ongoing)</strong></td><td><a href="/companies/wise">Wise Business</a></td><td>True mid-market rate, 0.36%–0.81%, no monthly fee</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate (ongoing)</strong></td><td><a href="/companies/wise">Wise Business</a></td><td>True mid-market rate, 0.36%–0.81%, no monthly fee</td></tr>
 <tr><td><strong>Lowest Rate in 2026</strong></td><td>WorldFirst</td><td>0.3% promo rate for first 180 days (new accounts)</td></tr>
 <tr><td><strong>Best for Offline &amp; Cards</strong></td><td>Airwallex</td><td>Offline drafts, yield on balances, 0.5% major currencies</td></tr>
 <tr><td><strong>Best All-in-One SME</strong></td><td><a href="/companies/revolut">Revolut Business</a></td><td>Invoicing + expenses + 200 virtual cards/employee</td></tr>
@@ -9001,9 +9001,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Use Case</th><th>Best Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall (India)</strong></td><td><a href="/companies/remitly">Remitly</a> or WorldRemit</td><td>Zero fee over $1K, competitive rate, fast</td></tr>
-<tr><td><strong>Best Overall (Pakistan)</strong></td><td>WorldRemit or Sendwave</td><td>Highest reported payout, 30-min delivery</td></tr>
-<tr><td><strong>Best Overall (Bangladesh)</strong></td><td>WorldRemit + bKash Eid promo</td><td>Fast + BDT 500 coupon for recipients</td></tr>
+<tr class="blog-row-highlight"><td><strong>Editor&rsquo;s pick (India)</strong></td><td><a href="/companies/remitly">Remitly</a> or WorldRemit</td><td>Zero fee over $1K, competitive rate, fast</td></tr>
+<tr><td><strong>Editor&rsquo;s pick (Pakistan)</strong></td><td>WorldRemit or Sendwave</td><td>Highest reported payout, 30-min delivery</td></tr>
+<tr><td><strong>Editor&rsquo;s pick (Bangladesh)</strong></td><td>WorldRemit + bKash Eid promo</td><td>Fast + BDT 500 coupon for recipients</td></tr>
 <tr><td><strong>UK → India (2026)</strong></td><td>ACE Money Transfer</td><td>Recurring fee-free festival offer</td></tr>
 <tr><td><strong>UK → Pakistan (Eid)</strong></td><td>ACE Money Transfer</td><td>Eid Umrah lucky draw + competitive rate</td></tr>
 <tr><td><strong>Needs cash pickup</strong></td><td>Western Union</td><td>500,000+ agent locations globally</td></tr>
@@ -9735,7 +9735,7 @@ const rawBlogPosts: BlogPost[] = [
         question:
           "How can I avoid hidden fees on international transfers?",
         answer:
-          "Use a specialist transfer service instead of a bank. Providers like Wise (0% markup), Remitly ($0 fees on many corridors), and Instarem (0.42% average markup) use local payment networks instead of SWIFT, eliminating correspondent bank deductions. Always compare the rate offered against the mid-market rate on Google before confirming.",
+          "Use a specialist transfer service instead of a bank. Providers like Wise (0% markup), Remitly ($0 fees on many corridors), and Instarem ({{AVG_MARKUP_PCT:instarem}} median markup) use local payment networks instead of SWIFT, eliminating correspondent bank deductions. Always compare the rate offered against the mid-market rate on Google before confirming.",
       },
       {
         question: "Do all banks charge exchange rate markups?",
@@ -10638,7 +10638,7 @@ const rawBlogPosts: BlogPost[] = [
   </tbody>
   </table></div>
   
-  <p>According to SendMoneyCompare's comparison, <a href="/companies/wise">Wise Business</a> offers the best overall value for small-to-mid-sized businesses, while OFX is the strongest option for companies making fewer but larger payments where FX rates matter most.</p>`,
+  <p>According to SendMoneyCompare's comparison, <a href="/companies/wise">Wise Business</a> suits small-to-mid-sized businesses on price, while OFX is the strongest option for companies making fewer but larger payments where FX rates matter most.</p>`,
       },
       {
         heading: "How to Set Up Batch International Payments",
@@ -11199,10 +11199,10 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with 0% markup, transparent $4–$7 fee — best for $500+</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with 0% markup, transparent $4–$7 fee — best for $500+</td></tr>
 <tr><td><strong>Fastest Delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to bank in minutes, eSewa wallet instant</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>4,500+ agent locations across Nepal including rural areas</td></tr>
-<tr><td><strong>Cheapest Small Amounts</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Low fees under $200, competitive NPR rates</td></tr>
+<tr><td><strong>Small NPR transfers</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Low fees under $200, competitive NPR rates</td></tr>
 <tr><td><strong>Best for Mobile Wallet</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct eSewa delivery — funds arrive in seconds</td></tr>
 </tbody>
 </table>
@@ -11502,7 +11502,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall (Europe)</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, transparent fees, fast bank deposit</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate (Europe)</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, transparent fees, fast bank deposit</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Wafacash, Barid Bank, and 10,000+ agent locations across Morocco</td></tr>
 <tr><td><strong>Best from France</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Competitive EUR→MAD rates, multiple delivery options</td></tr>
 <tr><td><strong>Fastest Delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express bank deposit in minutes</td></tr>
@@ -11996,7 +11996,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee — consistently cheapest for £500+</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to bKash — near-instant delivery to 60M+ accounts, 24/7</td></tr>
 <tr><td><strong>Low-Fee App</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>{{FEE:taptap-send:GBP:BDT:1000}} fee, {{MARKUP:taptap-send:GBP:BDT:1000}} over mid-market on £1,000</td></tr>
 <tr><td><strong>Best for bKash</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Supports bKash, Nagad, and bank deposit with competitive GBP rates</td></tr>
@@ -12275,9 +12275,9 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee — consistently transparent</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee — consistently transparent</td></tr>
 <tr><td><strong>Best for Nigeria Corridor</strong></td><td><a href="/companies/lemfi">LemFi</a></td><td>Zero-fee, competitive NGN rates — built specifically for African diaspora</td></tr>
-<tr><td><strong>Best Zero-Fee + Speed</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, ~0.7% markup — 95% of transfers under 3 minutes. 4.7/5 Trustpilot</td></tr>
+<tr><td><strong>Best Zero-Fee + Speed</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, {{AVG_MARKUP_PCT:taptap-send}} median markup — 95% of transfers under 3 minutes</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Bank deposit in minutes, mobile wallet delivery available</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations across all 36 Nigerian states</td></tr>
 </tbody>
@@ -12457,7 +12457,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — consistently cheapest for $500+</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate</td></tr>
 <tr><td><strong>Best for eWallet/Cash</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>FNB eWallet, Shoprite cash pickup, competitive ZAR rates</td></tr>
 <tr><td><strong>Best for Large Amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>$0 fees, dedicated FX dealer for $10K+ transfers, forward contracts</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agents at Shoprite, Checkers, Pick n Pay, post offices across SA</td></tr>
@@ -12664,9 +12664,9 @@ const rawBlogPosts: BlogPost[] = [
 <div class="table-wrapper"><table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr><td><strong>Cheapest overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, 0% markup, $4–7 fee. 1–2 day delivery to Bancolombia, Davivienda, BBVA Colombia</td></tr>
+<tr><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, 0% markup, $4–7 fee. 1–2 day delivery to Bancolombia, Davivienda, BBVA Colombia</td></tr>
 <tr><td><strong>Best for Nequi</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct Nequi delivery within minutes. Express fee $2–4, economy $0–2. Competitive COP rates</td></tr>
-<tr><td><strong>Best zero-fee option</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, ~0.7% markup — 95% of transfers under 3 minutes. 4.7/5 Trustpilot, 32K+ reviews</td></tr>
+<tr><td><strong>Best zero-fee option</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, {{AVG_MARKUP_PCT:taptap-send}} median markup — 95% of transfers under 3 minutes</td></tr>
 <tr><td><strong>Best for cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>10,000+ Efecty locations plus Gana and Super Giros networks. Available within minutes</td></tr>
 <tr><td><strong>Best from Spain</strong></td><td><a href="/companies/ria">Ria</a></td><td>Strong EUR→COP rates. Cash pickup at Efecty and Su Red networks. Popular with Colombian community in Spain</td></tr>
 <tr><td><strong>Best for large amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No transfer fees, dedicated FX dealers. Strong for amounts over $5,000 and business payments</td></tr>
@@ -12825,7 +12825,7 @@ const rawBlogPosts: BlogPost[] = [
 <div class="table-wrapper"><table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr><td><strong>Cheapest overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, 0% markup. GBP→PLN fee ~£4–5 on £1,000. SEPA delivery 1 day. Trusted by 16M+ users</td></tr>
+<tr><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, 0% markup. GBP→PLN fee ~£4–5 on £1,000. SEPA delivery 1 day. Trusted by 16M+ users</td></tr>
 <tr><td><strong>Best free transfers</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Free Revolut-to-Revolut. Competitive EUR→PLN on weekdays (free up to €1,000/month). SEPA to any Polish IBAN</td></tr>
 <tr><td><strong>Best from EU</strong></td><td>SEPA bank transfer</td><td>Any EU bank → Polish IBAN in PLN or EUR. Fee: usually €0–1. Conversion depends on your bank</td></tr>
 <tr><td><strong>Best for large amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No transfer fees, competitive margins on amounts over £5,000. Dedicated dealer for regular transfers</td></tr>
@@ -12983,7 +12983,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~AED 20 fee — consistently cheapest for AED 2,000+</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~AED 20 fee</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express via UPI/IMPS — delivers in minutes, 24/7</td></tr>
 <tr><td><strong>Best for Large Amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No fees, negotiated rates for AED 20,000+ transfers</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>100,000+ locations across India including rural areas</td></tr>
@@ -13048,7 +13048,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Speed</th><th>Best For</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Wise (digital)</strong></td><td>~AED 20</td><td>0%</td><td>1–2 days</td><td>Best overall value</td></tr>
+<tr class="blog-row-highlight"><td><strong>Wise (digital)</strong></td><td>~AED 20</td><td>0%</td><td>1–2 days</td><td>Mid-market rate</td></tr>
 <tr><td><strong>Remitly (digital)</strong></td><td>~AED 10</td><td>0.3–0.5%</td><td>Minutes (UPI)</td><td>Fastest delivery</td></tr>
 <tr><td><strong>Al Ansari Exchange</strong></td><td>AED 0–10</td><td>0.5–1%</td><td>Same day</td><td>Walk-in cash senders</td></tr>
 <tr><td><strong>UAE Exchange/Unimoni</strong></td><td>AED 0–15</td><td>0.5–1%</td><td>Instant to 1 day</td><td>Good rates + physical presence</td></tr>
@@ -13184,7 +13184,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~$7 fee, bank deposit to Chinese banks</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~$7 fee, bank deposit to Chinese banks</td></tr>
 <tr><td><strong>Best for Alipay</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct Alipay delivery in minutes</td></tr>
 <tr><td><strong>Best for Large Transfers</strong></td><td><a href="/companies/ofx">OFX</a></td><td>$0 fees, dedicated FX dealer, forward contracts for $10K+</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations in major Chinese cities via partner banks</td></tr>
@@ -13580,7 +13580,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — consistently cheapest</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Bank deposit in minutes to major Vietnamese banks</td></tr>
 <tr><td><strong>Best from Australia</strong></td><td><a href="/companies/wise">Wise</a></td><td>Strong AUD-VND corridor, POLi/PayID funding</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations in Ho Chi Minh City, Hanoi, Da Nang</td></tr>
@@ -13698,7 +13698,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — most transparent</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — most transparent</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Bank deposit to Turkish banks in minutes</td></tr>
 <tr><td><strong>Best from Europe</strong></td><td><a href="/companies/wise">Wise</a> / <a href="/companies/revolut">Revolut</a></td><td>SEPA funding (free) + competitive TRY rates</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Wide agent network across Turkey</td></tr>
@@ -14110,7 +14110,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "The 7 Best Money Transfer Apps for Expats",
-        content: `<h3>1. <a href="/companies/wise">Wise</a> — Best Overall for Expats</h3>
+        content: `<h3>1. <a href="/companies/wise">Wise</a> — Multi-Currency Account for Expats</h3>
 <p><strong>Why expats love it:</strong> The Wise multi-currency account holds 40+ currencies with real account details in USD, EUR, GBP, AUD, and more. You can receive salary in one currency and convert to another at the mid-market rate. The Wise debit card works in 200+ countries with no foreign transaction fees.</p>
 <ul><li>Fees: 0.41%–1.5% per conversion</li><li>Rate: Mid-market (0% markup)</li><li>Multi-currency: 40+ currencies</li><li>Card: Visa debit in most countries</li><li>Best for: Long-term expats managing money across 2+ countries</li></ul>
 
@@ -14159,7 +14159,7 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     faqs: [
-      { question: "What is the best money transfer app for expats in 2026?", answer: "Wise is the best overall for expats — mid-market exchange rate, multi-currency account with 40+ currencies, debit card for local spending, and batch payments. For sending money home to family in emerging markets, Remitly offers the best corridor coverage and speed. For diaspora expats sending to Africa, South Asia, or Latin America, TapTap Send stands out with zero fees, a ~0.7% markup, and 95% of transfers under 3 minutes — plus the highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews). For an all-in-one financial app, Revolut combines banking, transfers, and investing." },
+      { question: "What is the best money transfer app for expats in 2026?", answer: "Wise is the all-rounder for expats — mid-market exchange rate, multi-currency account with 40+ currencies, debit card for local spending, and batch payments. For sending money home to family in emerging markets, Remitly offers the best corridor coverage and speed. For diaspora expats sending to Africa, South Asia, or Latin America, TapTap Send stands out with zero fees, a ~0.7% markup, and 95% of transfers under 3 minutes — plus the highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews). For an all-in-one financial app, Revolut combines banking, transfers, and investing." },
       { question: "How can expats avoid high exchange rate fees?", answer: "Use providers that show the mid-market rate (Wise, Revolut). Fund transfers via bank transfer instead of card. Avoid weekend conversions on Revolut (0.5-1% markup). Set up rate alerts on XE to time large conversions. Compare providers before every transfer — even small rate differences add up over a year of regular sending." },
       { question: "Can I use Wise in any country?", answer: "Wise is available in 170+ countries for sending money. Multi-currency accounts with local bank details are available in fewer countries — check Wise's website for your specific location. The Wise debit card works in 200+ countries but cannot be issued in all countries." },
       { question: "Is Revolut or Wise better for expats?", answer: "Wise is better for pure money transfers — mid-market rate with 0% markup. Revolut is better if you want an all-in-one app (banking, transfers, crypto, insurance). Wise's multi-currency account has more currency options (40+ vs 30+). Revolut offers free exchange up to €1,000/month on Standard plan." },
@@ -14259,8 +14259,8 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Cheapest (US → UK)</strong></td><td><a href="/companies/wise">Wise</a></td><td>USD/GBP mid-market rate, 0% markup. $5–7 fee on $1,000. Faster Payments delivery in minutes</td></tr>
-<tr><td><strong>Cheapest (EU → UK)</strong></td><td><a href="/companies/wise">Wise</a> / <a href="/companies/revolut">Revolut</a></td><td>EUR→GBP at near mid-market. Revolut free Revolut-to-Revolut weekdays (1% weekend surcharge)</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate (US → UK)</strong></td><td><a href="/companies/wise">Wise</a></td><td>USD/GBP mid-market rate, 0% markup. $5–7 fee on $1,000. Faster Payments delivery in minutes</td></tr>
+<tr><td><strong>Near mid-market (EU → UK)</strong></td><td><a href="/companies/wise">Wise</a> / <a href="/companies/revolut">Revolut</a></td><td>EUR→GBP at near mid-market. Revolut free Revolut-to-Revolut weekdays (1% weekend surcharge)</td></tr>
 <tr><td><strong>Best for £10,000+</strong></td><td><a href="/companies/ofx">OFX</a></td><td>Zero fees, dedicated dealer who can lock a rate for 24h. Best for property purchases, school fees, large gifts</td></tr>
 <tr><td><strong>Best from India / Pakistan</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Competitive INR/PKR → GBP rates. Express to bank via FPS within hours. Strong UK network</td></tr>
 <tr><td><strong>Best from Australia</strong></td><td>Wise / <a href="/companies/instarem">InstaReM</a></td><td>Competitive AUD→GBP rates. PayID funding from Australia. Both deliver in 1–2 business days</td></tr>
@@ -14433,7 +14433,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Cheapest overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market USD/GBP/AUD → KRW rate, 0% markup. $5–7 on $1,000. Bank deposit in 1–2 days</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market USD/GBP/AUD → KRW rate, 0% markup. $5–7 on $1,000. Bank deposit in 1–2 days</td></tr>
 <tr><td><strong>Fastest</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery within hours to a Korean bank. Competitive USD/GBP → KRW rates</td></tr>
 <tr><td><strong>Best from Asia-Pacific</strong></td><td><a href="/companies/instarem">InstaReM</a></td><td>Singapore-based. Strong AUD/SGD → KRW rates. Frequent zero-fee promotions</td></tr>
 <tr><td><strong>Best for $10,000+</strong></td><td><a href="/companies/ofx">OFX</a></td><td>Zero fees, negotiable rates on large amounts. Dedicated dealer can lock for 24h</td></tr>
@@ -14609,8 +14609,8 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Cheapest (UK → AUS)</strong></td><td><a href="/companies/wise">Wise</a></td><td>GBP→AUD mid-market rate. £4–5 on £1,000. NPP delivery in minutes once source clears</td></tr>
-<tr><td><strong>Cheapest (US → AUS)</strong></td><td><a href="/companies/wise">Wise</a></td><td>USD→AUD mid-market rate. $5–7 on $1,000. 1–2 business days from ACH funding</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate (UK → AUS)</strong></td><td><a href="/companies/wise">Wise</a></td><td>GBP→AUD mid-market rate. £4–5 on £1,000. NPP delivery in minutes once source clears</td></tr>
+<tr><td><strong>Mid-market rate (US → AUS)</strong></td><td><a href="/companies/wise">Wise</a></td><td>USD→AUD mid-market rate. $5–7 on $1,000. 1–2 business days from ACH funding</td></tr>
 <tr><td><strong>Best for AU $10,000+</strong></td><td><a href="/companies/ofx">OFX</a></td><td>Sydney-headquartered. Zero fees, dedicated dealer who can lock the rate for 24h. Best for property purchases, school fees, large gifts</td></tr>
 <tr><td><strong>Best from New Zealand</strong></td><td><a href="/companies/wise">Wise</a> / <a href="/companies/instarem">InstaReM</a></td><td>Trans-Tasman corridor. Wise wins on transparency, InstaReM on zero-fee promos</td></tr>
 <tr><td><strong>Best from India</strong></td><td><a href="/companies/remitly">Remitly</a> / Wise</td><td>INR→AUD competitive rates. Remitly wins on speed for sub-$2,000, Wise wins on transparency</td></tr>
@@ -14766,7 +14766,7 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     faqs: [
-      { question: "What is the cheapest way to send money to Australia?", answer: "Wise is cheapest for most corridors — mid-market rate with 0% markup and fees of £4–5 on £1,000 GBP→AUD or $5–7 on $1,000 USD→AUD. OFX (Australian company, Sydney-headquartered) is best for large transfers (AU $10,000+) with zero fees and dedicated dealers. Avoid bank wires which add 2–4% FX markup plus a flat fee." },
+      { question: "What is the cheapest way to send money to Australia?", answer: "From the UK, the measured GBP to AUD leader is {{CORRIDOR_LEADER:GBP:AUD}}. Wise uses the mid-market rate with 0% markup and fees of £4–5 on £1,000 GBP→AUD or $5–7 on $1,000 USD→AUD. OFX (Australian company, Sydney-headquartered) is best for large transfers (AU $10,000+) with zero fees and dedicated dealers. Avoid bank wires which add 2–4% FX markup plus a flat fee." },
       { question: "Does Australia use IBANs?", answer: "No. Australia uses BSB (6-digit bank/branch code) + account number (6–10 digits) for domestic transfers. PayID (phone number, email, or ABN) is the modern alternative for NPP transfers. For international SWIFT transfers, you need the bank's SWIFT/BIC code: Commonwealth Bank (CTBAAU2S), Westpac (WPACAU2S), ANZ (ANZBAU3M), NAB (NATAAU33), HSBC Australia (HKBAAU2S)." },
       { question: "How long does a transfer to Australia take?", answer: "NPP/PayID: instant — typically under 30 seconds, available 24/7 including weekends and public holidays. Wise: typically within minutes once source funding clears (1–2 business days from US ACH, under 30 minutes from UK Faster Payments). Remitly Express: ~30 minutes via card funding. OFX: 1–3 business days. SWIFT bank wire: 2–4 business days." },
       { question: "What is PayID and should I use it?", answer: "PayID is a recipient identifier (phone number, email, or ABN) linked to an Australian bank account. It's used with NPP for instant 24/7 transfers and shows the recipient's name on screen before you send — reducing transcription errors and fraud risk. Most modern providers (Wise, Revolut, OFX) support PayID. If your recipient has registered a PayID, use it — it's faster and more error-resistant than typing a 16-digit BSB+account combination." },
@@ -14804,7 +14804,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<div class="table-wrapper"><table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr><td><strong>Best overall</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Competitive ETB rates. Bank deposit, cash pickup, telebirr. Fast delivery</td></tr>
+<tr><td><strong>Delivery choice</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Competitive ETB rates. Bank deposit, cash pickup, telebirr. Fast delivery</td></tr>
 <tr><td><strong>Best for mobile money</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct telebirr delivery. Express option in minutes. $2-5 fee</td></tr>
 <tr><td><strong>Best exchange rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with 0% markup. Bank deposit only. 1-3 business days</td></tr>
 <tr><td><strong>Best for cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Widest agent network including rural Ethiopia. Commercial Bank of Ethiopia branches</td></tr>
@@ -16106,7 +16106,7 @@ const rawBlogPosts: BlogPost[] = [
 <p class="blog-footnote">Measured exchange-rate markup across every corridor we price them on: SkyRemit {{AVG_MARKUP:skyremit}}, Panda Remit {{AVG_MARKUP:panda-remit}}, Wise {{AVG_MARKUP:wise}}. Those cover each provider's whole footprint, not just CNY, and are a better guide to habitual pricing than a single day's quote on a thin corridor.</p>`,
       },
       {
-        heading: "SkyRemit — Best Overall for CNY Outbound",
+        heading: "SkyRemit — CNY Outbound Specialist",
         content: `<h3>Overview</h3>
 <p><a href="/companies/skyremit">SkyRemit</a> is the most purpose-built app for sending CNY from China internationally. It's operated by Skyee, a wholly owned subsidiary of LAKALA (拉卡拉支付股份有限公司), China's first A-share listed third-party payment company (stock code: 300773). This matters: LAKALA holds a <strong>PBOC payment business licence</strong> and is subject to full Chinese financial regulation.</p>
 <div class="blog-table-box">
@@ -16612,7 +16612,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The Best USA to India Money Transfer Apps at a Glance",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For sending money from the USA to India in 2026, <a href="/companies/wise">Wise</a> is the strongest all-round app on features — true mid-market rate, transparent fees, and a top-rated app for direct-to-bank and UPI delivery. On measured payouts, the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:INR}}. <a href="/companies/remitly">Remitly</a> is the best for speed and small transfers (frequent $0-fee promos, delivery in minutes, 4.6/5 on Trustpilot). On pure value for a $1,000 transfer, <a href="/companies/instarem">Instarem</a> and <a href="/companies/xoom">Xoom</a> currently deliver the most rupees thanks to near-mid rates and waived fees. <a href="/send-money/usa-to-india">Compare live USD → INR rates from all of them →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For sending money from the USA to India in 2026, <a href="/companies/wise">Wise</a> is the strongest all-round app on features — true mid-market rate, transparent fees, and a top-rated app for direct-to-bank and UPI delivery. On measured payouts, the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:INR}}. <a href="/companies/remitly">Remitly</a> is the best for speed and small transfers (frequent $0-fee promos, delivery in minutes, rated {{TRUSTPILOT:remitly}} on Trustpilot). On pure value for a $1,000 transfer, <a href="/companies/instarem">Instarem</a> and <a href="/companies/xoom">Xoom</a> currently deliver the most rupees thanks to near-mid rates and waived fees. <a href="/send-money/usa-to-india">Compare live USD → INR rates from all of them →</a></p></div>
 <p>The US-to-India corridor is the largest remittance route in the world. India received an estimated <strong>$125 billion in remittances in 2025</strong> — more than any other country, according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a> — and the United States is the single biggest source. With over 4.5 million Indian-Americans plus a huge population of students and H-1B workers, the competition between apps on this route is fierce, which is good news for your wallet.</p>
 <p>This guide ranks the top apps using three things that actually matter: <strong>pricing</strong> (how many rupees your family receives), <strong>consumer reviews</strong> (live Trustpilot scores), and <strong>ease of transfer</strong> (app quality, delivery speed, and UPI/IMPS support). All pricing figures below come from real quotes collected by our comparison engine on {{QUOTE_DATE}} for a $1,000 USD → INR transfer to an Indian bank account.</p>`,
       },
@@ -16643,41 +16643,41 @@ const rawBlogPosts: BlogPost[] = [
 </ul>`,
       },
       {
-        heading: "1. Wise — Best Overall for USA to India",
-        content: `<p><strong>Trustpilot: 4.3/5 (290,000+ reviews) · Delivery: minutes to 1 day · Fee on $1,000: ~$6.85</strong></p>
+        heading: "1. Wise — Mid-Market Rate on USA to India",
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:wise}} · Delivery: minutes to 1 day · Fee on $1,000: ~$6.85</strong></p>
 <p><a href="/companies/wise">Wise</a> (formerly TransferWise) is our top overall pick for the US-India corridor because it does the one thing no other app does: it gives you the <strong>real mid-market exchange rate with zero markup</strong>, then charges a small, fully visible fee. You always know exactly what you're paying. On $1,000 the net is a hair behind the zero-fee apps, but Wise's transparency and app quality make it the safest default — and on transfers above ~$2,000, the mid-market rate makes Wise the cheapest mainstream option.</p>
 <p>For India specifically, Wise supports direct bank deposit and <strong>UPI</strong> delivery, with most transfers landing in minutes to a few hours when funded by debit card. The app is consistently rated one of the best in the category for clarity and ease of use, and you can hold a USD balance and convert to INR when the rate is favorable.</p>
 <p><strong>Best for:</strong> Anyone who wants honest pricing, larger transfers, and a frictionless app. <strong>Watch out for:</strong> The fee means it's edged out by promo-driven apps on small one-off transfers. See our full <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a>.</p>`,
       },
       {
         heading: "2. Remitly — Best for Speed and Small Transfers",
-        content: `<p><strong>Trustpilot: 4.6/5 (114,000+ reviews) · Delivery: minutes (Express) · Fee on $1,000: $0 (promo)</strong></p>
-<p><a href="/companies/remitly">Remitly</a> is purpose-built for remittances to countries like India and routinely tops the consumer-satisfaction rankings with a 4.6/5 Trustpilot score. Its Express tier delivers to Indian bank accounts and UPI in <strong>minutes</strong>, and it runs aggressive first-transfer promotions that frequently mean $0 fees and a near-mid rate for new users — sometimes the best single deal on the corridor.</p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:remitly}} · Delivery: minutes (Express) · Fee on $1,000: $0 (promo)</strong></p>
+<p><a href="/companies/remitly">Remitly</a> is purpose-built for remittances to countries like India and holds a {{TRUSTPILOT:remitly}} Trustpilot score. Its Express tier delivers to Indian bank accounts and UPI in <strong>minutes</strong>, and it runs aggressive first-transfer promotions that frequently mean $0 fees and a near-mid rate for new users — sometimes the best single deal on the corridor.</p>
 <p>Remitly's strengths are speed, a genuinely simple app, and excellent delivery options: bank deposit, UPI, and cash pickup all supported. It's the app we recommend most often for people sending under $1,000 regularly to family, especially first-timers who can capture the promotional rate.</p>
 <p><strong>Best for:</strong> Fast delivery, small-to-mid transfers, first-time senders. <strong>Watch out for:</strong> Standard (non-promo) rates carry a small markup, so compare once the promo expires.</p>`,
       },
       {
         heading: "3. Instarem — Best Value on a $1,000 Transfer",
-        content: `<p><strong>Trustpilot: 4.0/5 (8,800+ reviews) · Delivery: same day to 2 days · Fee on $1,000: $0</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:instarem}} · Delivery: same day to 2 days · Fee on $1,000: $0</strong></p>
 <p><a href="/companies/instarem">Instarem</a> quietly delivered the <strong>most rupees of any app</strong> in our latest $1,000 scrape (₹94,159) by combining a near-mid exchange rate with no transfer fee. It's a Singapore-headquartered specialist that's especially strong on Asia-Pacific corridors, and it frequently runs zero-fee promotions plus a loyalty-points program on repeat transfers.</p>
 <p>The trade-offs are a smaller review base than the giants (a still-solid 4.0/5 from ~8,800 reviews) and slightly slower delivery than Remitly Express. But on pure price for a typical family transfer, it's hard to beat right now.</p>
 <p><strong>Best for:</strong> Squeezing the most rupees out of a ~$1,000 transfer. <strong>Watch out for:</strong> Delivery isn't instant, and the brand is less established than Wise or Remitly.</p>`,
       },
       {
         heading: "4. Xoom (PayPal) — Best for PayPal Users",
-        content: `<p><strong>Trustpilot: 4.6/5 (188,000+ reviews) · Delivery: minutes · Fee on $1,000: $0 (bank-funded)</strong></p>
-<p><a href="/companies/xoom">Xoom</a> is PayPal's money-transfer arm, and it was a top performer in our $1,000 data (₹94,153 — second only to Instarem). It pairs near-mid rates on bank-funded transfers with PayPal's trust and a 4.6/5 Trustpilot score. If you already keep funds in PayPal, Xoom is the most convenient way to move them to an Indian bank account, UPI, or cash pickup — often within minutes.</p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:xoom}} · Delivery: minutes · Fee on $1,000: $0 (bank-funded)</strong></p>
+<p><a href="/companies/xoom">Xoom</a> is PayPal's money-transfer arm, and it was a top performer in our $1,000 data (₹94,153 — second only to Instarem). It pairs near-mid rates on bank-funded transfers with PayPal's trust and a {{TRUSTPILOT:xoom}} Trustpilot score. If you already keep funds in PayPal, Xoom is the most convenient way to move them to an Indian bank account, UPI, or cash pickup — often within minutes.</p>
 <p><strong>Best for:</strong> Existing PayPal users, fast bank deposits. <strong>Watch out for:</strong> Card-funded transfers add a surcharge, and rates on some amounts carry a markup — always check the rupees received, not just the "$0 fee" label. (Note: PayPal's own brand carries poor reviews, but Xoom is rated separately and far higher.)</p>`,
       },
       {
         heading: "5. Western Union — Best for Cash Pickup",
-        content: `<p><strong>Trustpilot: 4.3/5 (163,000+ reviews) · Delivery: minutes (cash) · Fee: varies</strong></p>
-<p>If your recipient doesn't have a bank account or you need cash collected in person, <a href="/companies/western-union">Western Union</a> has the widest physical network in India, with payout at thousands of bank branches and agent locations. Its app has matured into a solid digital option (4.3/5 Trustpilot) supporting bank deposit and UPI too, though its exchange-rate markup is typically higher than the specialist apps.</p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:western-union}} · Delivery: minutes (cash) · Fee: varies</strong></p>
+<p>If your recipient doesn't have a bank account or you need cash collected in person, <a href="/companies/western-union">Western Union</a> has the widest physical network in India, with payout at thousands of bank branches and agent locations. Its app has matured into a solid digital option ({{TRUSTPILOT:western-union}} on Trustpilot) supporting bank deposit and UPI too, though its exchange-rate markup is typically higher than the specialist apps.</p>
 <p><strong>Best for:</strong> Cash pickup, unbanked recipients, rural areas. <strong>Watch out for:</strong> Higher FX markup than Wise/Instarem — use it for reach, not for the cheapest rate.</p>`,
       },
       {
         heading: "6. Revolut — Best for Multi-Currency Holders",
-        content: `<p><strong>Trustpilot: 4.7/5 (418,000+ reviews) · Delivery: minutes · Fee: free allowance, then small %</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:revolut}} · Delivery: minutes · Fee: free allowance, then small %</strong></p>
 <p><a href="/companies/revolut">Revolut</a> has the highest Trustpilot score of any provider here (4.7/5) and is ideal if you already manage multiple currencies. Standard-plan users get a monthly fee-free exchange allowance at the interbank rate (a small markup applies on weekends and beyond the allowance). For Indians in the US who hold a USD balance and want to convert and send to India on their own schedule, it's a slick, app-first option.</p>
 <p><strong>Best for:</strong> Multi-currency users, frequent small conversions. <strong>Watch out for:</strong> Weekend markups and allowance limits; INR payout options are narrower than India specialists like Remitly. Compare against the field on our <a href="/send-money/usa-to-india">USA to India page</a>.</p>`,
       },
@@ -16720,7 +16720,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the best money transfer app for sending money from the USA to India?",
         answer:
-          "Wise is the strongest all-round app for USA-to-India transfers on features — true mid-market exchange rate, transparent fees, and a top-rated app with UPI support. Remitly is best for speed and small transfers (frequent $0-fee promos and delivery in minutes, 4.6/5 on Trustpilot). On a $1,000 transfer specifically, Instarem and Xoom currently deliver the most rupees because they combine near-mid rates with waived fees. Always compare live rates before sending, as the cheapest app changes daily.",
+          "Wise is the strongest all-round app for USA-to-India transfers on features — true mid-market exchange rate, transparent fees, and a top-rated app with UPI support. Remitly is best for speed and small transfers (frequent $0-fee promos and delivery in minutes, rated {{TRUSTPILOT:remitly}} on Trustpilot). On a $1,000 transfer specifically, Instarem and Xoom currently deliver the most rupees because they combine near-mid rates with waived fees. Always compare live rates before sending, as the cheapest app changes daily.",
       },
       {
         question: "Which app gives the best USD to INR exchange rate?",

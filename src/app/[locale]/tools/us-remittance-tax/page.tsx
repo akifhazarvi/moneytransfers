@@ -193,7 +193,7 @@ export default async function UsRemittanceTaxPage({
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">Frequently asked questions</h2>
+              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">US remittance tax: questions answered</h2>
               <div className="mt-3 divide-y divide-[var(--color-outline)]/70 rounded-2xl ring-1 ring-[var(--color-outline)]/60 overflow-hidden">
                 {FAQS.map((f) => (
                   <details key={f.question} className="group bg-[var(--color-surface)]">

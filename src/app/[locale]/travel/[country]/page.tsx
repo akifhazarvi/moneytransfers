@@ -425,7 +425,7 @@ export default async function TravelCountryPage({ params }: Props) {
         <Container>
           <div className="max-w-4xl">
             <h2 className="text-h2 font-semibold text-[var(--color-on-surface)] mb-3">
-              Culture & etiquette: dos and don&rsquo;ts
+              {guide.countryName} etiquette: dos and don&rsquo;ts
             </h2>
             <p className="text-md text-[var(--color-on-surface)] leading-relaxed mb-6">{guide.culture.overview}</p>
 
@@ -462,7 +462,7 @@ export default async function TravelCountryPage({ params }: Props) {
         <Container>
           <div className="max-w-4xl">
             <h2 className="text-h2 font-semibold text-[var(--color-on-surface)] mb-3 flex items-center gap-2">
-              <Trophy className="w-6 h-6 text-[var(--color-primary)]" /> Sports & local pastimes
+              <Trophy className="w-6 h-6 text-[var(--color-primary)]" /> Sports & pastimes in {guide.countryName}
             </h2>
             <p className="text-md text-[var(--color-on-surface)] leading-relaxed mb-4">{guide.sports.overview}</p>
             <ul className="space-y-2">
@@ -481,7 +481,7 @@ export default async function TravelCountryPage({ params }: Props) {
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-4xl">
-            <h2 className="text-h2 font-semibold text-[var(--color-on-surface)] mb-6">Practical travel info</h2>
+            <h2 className="text-h2 font-semibold text-[var(--color-on-surface)] mb-6">Practical info for {guide.countryName}</h2>
             <div className="grid md:grid-cols-2 gap-4">
               <Card>
                 <div className="flex items-center gap-2 mb-2"><Sun className="w-5 h-5 text-[var(--color-primary)]" /><h3 className="font-semibold">Best time to visit</h3></div>
@@ -540,7 +540,7 @@ export default async function TravelCountryPage({ params }: Props) {
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="text-h2 font-semibold text-[var(--color-on-surface)] mb-6">Frequently asked questions</h2>
+            <h2 className="text-h2 font-semibold text-[var(--color-on-surface)] mb-6">Travelling to {guide.countryName}: questions answered</h2>
             <div className="space-y-3">
               {guide.faqs.map((faq, i) => (
                 <details key={i} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 group">

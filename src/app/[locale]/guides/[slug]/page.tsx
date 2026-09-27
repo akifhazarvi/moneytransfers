@@ -30,6 +30,7 @@ import { BUSINESS_FX_SLUGS } from "@/lib/business-fx-index";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { guideQuoteCorridor } from "@/lib/guide-quote-corridor";
 import { corridorPageRenders } from "@/lib/route-map";
+import { faqHeading, stepsHeading, sectionHeading } from "@/lib/page-headings";
 
 /** Slugify a heading string into a URL-friendly ID */
 function slugifyHeading(heading: string): string {
@@ -384,7 +385,7 @@ export default async function BlogPostPage({ params }: Props) {
             {post.sections.map((section, i) => (
               <section key={i} id={sectionIds[i]} className="guide-article-section">
                 <h2 className="text-[clamp(1.375rem,3vw,1.625rem)] font-bold leading-[1.28] tracking-tight text-[var(--color-on-surface)] mb-5">
-                  {section.heading}
+                  {sectionHeading(section.heading, post.title, post.slug)}
                 </h2>
                 <div
                   className="prose-content prose-custom"
@@ -442,7 +443,7 @@ export default async function BlogPostPage({ params }: Props) {
             {post.howToSteps && post.howToSteps.length > 0 && (
               <section id="how-to-steps" className="guide-article-section">
                 <h2 className="text-[clamp(1.375rem,3vw,1.625rem)] font-bold leading-[1.28] tracking-tight text-[var(--color-on-surface)] mb-5">
-                  Step-by-Step Guide
+                  {stepsHeading(post.title, post.slug)}
                 </h2>
                 <ol className="space-y-4">
                   {post.howToSteps.map((step, i) => (
@@ -464,7 +465,7 @@ export default async function BlogPostPage({ params }: Props) {
             {post.faqs?.length ? (
               <section id="faqs" className="guide-article-section">
                 <h2 className="text-h3 font-semibold text-[var(--color-on-surface)] mb-6">
-                  Frequently Asked Questions
+                  {faqHeading(post.title, post.slug)}
                 </h2>
                 <div className="space-y-3">
                   {post.faqs.map((faq, i) => (
@@ -581,8 +582,10 @@ export default async function BlogPostPage({ params }: Props) {
       {relatedPosts.length > 0 && (
         <Container className="guide-related">
           {/* Titles only: the cards' category, read time and "Read guide"
-              labels were the same furniture on every guide (2026-09-25). */}
-          <div className="guide-related-heading"><div><h2>Related guides</h2></div><Link href="/guides"><ArrowLeft size={15} aria-hidden="true" />All guides</Link></div>
+              labels were the same furniture on every guide (2026-09-25). The
+              label is not a heading: it named 116 guides' navigation the same
+              way (check:headings, 2026-09-27). */}
+          <div className="guide-related-heading"><div><p className="guide-related-title">Related guides</p></div><Link href="/guides"><ArrowLeft size={15} aria-hidden="true" />All guides</Link></div>
           <ul className="grid sm:grid-cols-3 gap-3">
             {relatedPosts.map((related) => (
               <li key={related.slug}>

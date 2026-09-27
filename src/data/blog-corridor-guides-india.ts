@@ -106,7 +106,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <p class="blog-footnote">Markup compared to the mid-market (interbank) exchange rate. Actual amounts vary by corridor, amount, and date. <a href="/send-money">Compare live rates for your transfer →</a></p>
 </div>
 
-<h3><a href="/companies/wise">Wise</a> — Best Overall for International Transfers to India</h3>
+<h3><a href="/companies/wise">Wise</a> — Mid-Market Rate for Transfers to India</h3>
 <p>Wise has built its reputation on one principle: use the <strong>real mid-market exchange rate</strong> with zero markup — the same rate Reuters and Bloomberg publish. For India, this means you always get a fair INR rate, regardless of whether you're sending from the US, UK, Europe, or Australia. The fee is transparent, disclosed upfront, and typically ranges from 0.41% to 0.79% of the send amount. On a $1,000 USD transfer, that's around $7. On a £2,000 transfer, roughly £12. Delivery is via IMPS (usually within the hour) or NEFT (2–4 hours on banking days). No cash pickup. No surprises. See our full <a href="/companies/wise">Wise review</a>.</p>
 
 <h3><a href="/companies/remitly">Remitly</a> — Best for Speed and First-Timers</h3>
@@ -440,7 +440,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       {
         question: "What is the best app to send money to India in 2026?",
         answer:
-          "Wise is the best overall app for sending money to India — it uses the real mid-market exchange rate with 0% markup and delivers via IMPS in minutes. Remitly is the best app for speed and small amounts, with $0 fees and instant UPI/IMPS delivery. Instarem is a strong zero-fee alternative with a low consistent markup. All three are available on iOS and Android with easy account setup.",
+          "Wise is the app for a transparent price on India transfers — it uses the real mid-market exchange rate with 0% markup and delivers via IMPS in minutes. Remitly is the best app for speed and small amounts, with $0 fees and instant UPI/IMPS delivery. Instarem is a strong zero-fee alternative with a low consistent markup. All three are available on iOS and Android with easy account setup.",
       },
       {
         question: "What is the cheapest way to send money to India from abroad?",
@@ -586,7 +586,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <strong>Cons:</strong> Exchange rate markup (0.3–0.8%), promotional rates expire</p>
 
 <h3><a href="/companies/instarem">Instarem</a> — Best Zero-Fee Option</h3>
-<p>Instarem charges <strong>zero transfer fees</strong> with a low average markup of 0.42%. As an Asia-Pacific specialist, they have strong banking relationships in India, which means reliable delivery. Good for regular senders who want predictable pricing.</p>
+<p>Instarem charges <strong>zero transfer fees</strong> with a measured median markup of {{AVG_MARKUP_PCT:instarem}}. As an Asia-Pacific specialist, they have strong banking relationships in India, which means reliable delivery. Good for regular senders who want predictable pricing.</p>
 
 <h3><a href="/companies/xoom">Xoom</a> — Best for Cash Pickup Flexibility</h3>
 <p>Xoom (owned by PayPal) offers <strong>bank deposit, cash pickup, and mobile wallet delivery</strong> across India. If your recipient doesn't have a bank account, Xoom lets them collect cash at agent locations. Integration with your existing PayPal account is seamless.</p>

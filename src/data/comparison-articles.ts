@@ -1657,9 +1657,9 @@ export const comparisonArticles: ComparisonArticle[] = [
         content: `<table>
 <tr><th>Feature</th><th>Remitly</th><th>Xoom (PayPal)</th></tr>
 <tr><td>Founded</td><td>2011 (Seattle, US)</td><td>2001 (San Francisco, US — acquired by PayPal 2015)</td></tr>
-<tr><td>Best for</td><td>Cheapest remittances, Express speed</td><td>PayPal users, cash pickup in India/Mexico</td></tr>
+<tr><td>Best for</td><td>Express speed, first-transfer promotions</td><td>PayPal users, cash pickup in India/Mexico</td></tr>
 <tr><td>Fee model</td><td>$0–$3.99 (Express) / $0.49+ (Economy)</td><td>$0–$4.99 (avg $5.43). $0 with PYUSD.</td></tr>
-<tr><td>Exchange rate</td><td>0.4%–3% markup</td><td>~4.5% avg markup (varies by corridor)</td></tr>
+<tr><td>Exchange rate</td><td>0.4%–3% markup</td><td>Markup varies by corridor — see the live quotes</td></tr>
 <tr><td>Transfer speed</td><td>Minutes (Express) / 3–5 days (Economy)</td><td>Minutes to hours</td></tr>
 <tr><td>Max transfer</td><td>$10,000</td><td>$50,000</td></tr>
 <tr><td>Destination countries</td><td>170+</td><td>130–160</td></tr>
@@ -1847,7 +1847,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "Is Xoom safe?",
-        a: "Yes. Xoom is a subsidiary of PayPal Holdings (NASDAQ: PYPL), regulated by FinCEN in the US. It has a 4.7/5 Trustpilot rating from 166,000+ reviews. The PayPal backing provides financial stability and consumer protection infrastructure. Both Remitly and Xoom are safe, regulated services.",
+        a: "Yes. Xoom is a subsidiary of PayPal Holdings (NASDAQ: PYPL), regulated by FinCEN in the US. The PayPal backing provides financial stability and consumer protection infrastructure. Both Remitly and Xoom are safe, regulated services.",
       },
     ],
   },
@@ -2018,7 +2018,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "Is TapTap Send safe?",
-        a: "Yes. TapTap Send is authorised by the UK Financial Conduct Authority (FCA) and registered with FinCEN in the US. It has a 4.4/5 Trustpilot rating from 15,000+ reviews. The company was founded in 2018 by former WorldRemit executives.",
+        a: "Yes. TapTap Send is authorised by the UK Financial Conduct Authority (FCA) and registered with FinCEN in the US.",
       },
     ],
   },
@@ -2298,7 +2298,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "Is MoneyGram safe?",
-        a: "Yes. MoneyGram has been operating since 1940 and is regulated by FinCEN (US), FCA (UK), and financial authorities in 200+ countries. It has a 4.1/5 Trustpilot rating from 14,000+ reviews. Both Remitly and MoneyGram are safe, regulated services.",
+        a: "Yes. MoneyGram has been operating since 1940 and is regulated by FinCEN (US), FCA (UK), and financial authorities in 200+ countries. Both Remitly and MoneyGram are safe, regulated services.",
       },
     ],
   },

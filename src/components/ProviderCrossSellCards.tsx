@@ -56,9 +56,12 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
     <aside ref={ref} className={`provider-cross-sell provider-cross-sell--${placement}`} aria-label="Transfer partner options" data-provider-cross-sell={placement}>
       <div className="partner-section-heading" data-partner-heading>
         {compact && <p className="partner-eyebrow">Partner spotlight</p>}
-        {/* The page-end module keeps its heading for screen readers only: the
-            same visible line closed 200+ pages (2026-09-25). */}
-        {!compact && <h2 className={placement === "page-end" ? "sr-only" : undefined}>{title || "Ready for your next transfer?"}</h2>}
+        {/* Not a heading: a widget's title is the same on every page it sits
+            on, and an H2 shared by 246 pages reads to a crawler as the page
+            template, not the page (2026-09-27, check:headings). The page-end
+            module shows no title at all — the same visible line closed 200+
+            pages (2026-09-25); the aside's aria-label names it. */}
+        {!compact && placement !== "page-end" && <p className="partner-section-title">{title || "Ready for your next transfer?"}</p>}
         {context && <p className="partner-corridor">For {context.amount.toLocaleString("en-US")} {context.from} → {context.to}</p>}
       </div>
       <div className={`partner-grid${partners.length === 2 ? " partner-grid--two" : ""}`}>

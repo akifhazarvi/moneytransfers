@@ -1064,7 +1064,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Kenya?",
         answer:
-          "Wise, WorldRemit, and Remitly are consistently the cheapest for USD-to-KES transfers. WorldRemit is particularly competitive for M-Pesa delivery. Wise offers the closest-to-mid-market rate for bank deposit. On a $500 transfer, differences between providers can be KES 2,000–5,000. Always compare total KES received.",
+          "On USD to KES, the measured leader is {{CORRIDOR_LEADER:USD:KES}}. WorldRemit is particularly competitive for M-Pesa delivery. Wise offers the closest-to-mid-market rate for bank deposit. On a $500 transfer, differences between providers can be KES 2,000–5,000. Always compare total KES received.",
       },
       {
         question: "How do I send money directly to M-Pesa in Kenya?",
@@ -1442,7 +1442,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to France?",
         answer:
-          "Wise is typically the cheapest for most currency pairs to EUR. For Moroccan or Algerian senders in France receiving from family, providers like Remitly, WorldRemit, and Western Union also offer competitive rates. For USD-to-EUR transfers, OFX and Wise are both very competitive.",
+          "From the UK, the measured GBP to EUR leader is {{CORRIDOR_LEADER:GBP:EUR}}. For Moroccan or Algerian senders in France receiving from family, providers like Remitly, WorldRemit, and Western Union also offer competitive rates. For USD-to-EUR transfers, OFX and Wise are both very competitive.",
       },
       {
         question: "What IBAN format do French banks use?",
@@ -1484,7 +1484,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Spain?",
         answer:
-          "Wise is consistently cheapest for most currencies to EUR. For Latin American senders (Colombian, Ecuadorian, Bolivian), Remitly, WorldRemit, and Ria offer competitive rates. For USD-to-EUR, OFX and Wise are very competitive. EUR is a liquid currency — focus on fees as well as rate when comparing.",
+          "On USD to EUR, the measured leader is {{CORRIDOR_LEADER:USD:EUR}}. For Latin American senders (Colombian, Ecuadorian, Bolivian), Remitly, WorldRemit, and Ria offer competitive rates. For USD-to-EUR, OFX and Wise are very competitive. EUR is a liquid currency — focus on fees as well as rate when comparing.",
       },
       {
         question: "What IBAN format do Spanish banks use?",

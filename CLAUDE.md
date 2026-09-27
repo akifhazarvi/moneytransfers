@@ -34,7 +34,10 @@ npm run scrape:reviews   # Trustpilot ratings
 # Guards — prebuild and postbuild run these automatically; a failure fails the build
 npm run check:assets     # logo manifest ↔ public/logos, asset paths, title-template length
 npm run check:links      # every internal link resolves to a page the build rendered
-npm run check:indexing   # sitemap ⇔ robots ⇔ canonical agree
+npm run check:indexing   # sitemap ⇔ robots ⇔ canonical agree; sitemap-google.xml ⊂ sitemap.xml
+npm run check:headings   # no H2 shared by 10+ indexable pages (postbuild)
+npm run check:claims     # no scores, "Best Overall", unmeasured "cheapest", typed ratings (pre + postbuild)
+npm run check:swift-codes # no spliced, mis-countried or wrong-length SWIFT codes (prebuild)
 npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (needs a deploy)
 
 # Not a build gate — run periodically and read the output
@@ -44,6 +47,73 @@ npm run check:weight     # heaviest prerendered pages; fails above 2 MB
 npm run check:bundle     # heaviest CLIENT JS per page; catches a dataset bundled into a client chunk
 npm run build:llms       # regenerate llms.txt + llms-full.txt (also runs in prebuild)
 ```
+
+## Strict rules — these apply to every page, and most fail the build
+
+Owner decision, 2026-09-27: what the round-2 and round-3 audits taught is
+policy site-wide, not a fix for the pages that were audited. Each rule names
+what enforces it. Where a rule is not automated, it says how to check it.
+
+1. **Index per search engine; never gate Google with a generic `noindex`.**
+   Google-only suppression is `googlebot: noindex` (meta + `X-Robots-Tag`),
+   from `robotsFor()`/`xRobotsTagFor()` in `seo-indexing.ts`. A generic
+   `robots: noindex` also removes the page from Bing, where the site earns:
+   the Sep 20 gate cost 33% of Bing clicks in a week. *Enforced:* `check:indexing`.
+2. **Two sitemaps, and GSC gets only one.** `sitemap.xml` = every
+   `bingIndexable()` URL (submitted to Bing, pinged via IndexNow);
+   `sitemap-google.xml` = the `googleIndexable()` subset, the only sitemap
+   submitted in Search Console. Never resubmit `sitemap.xml` to GSC.
+   *Enforced:* `check:indexing` (subset, and no Googlebot noindex in it).
+3. **Reopen a page only on evidence, and measure it first.** A page joins
+   `BING_DEMAND_ROUTES` on demand data (≥3 Bing sessions in 90 days in GA4, or
+   the IBAN/SWIFT allowlists), never in bulk. Measure duplication before and
+   after (8-word shingles over the rendered body, `$RC` splice replayed): no
+   existing page may rise more than 0.5 points or cross 30%. Currency twins
+   (send-money-to-spain / -germany / usa-to-europe are all USD→EUR) stay
+   closed. *Not automated* — the procedure is the check.
+4. **A heading names its page; a widget has no heading.** No H2 may appear on
+   10+ indexable pages. Template headings take the subject
+   (`faqHeading(title, slug)`, `sectionHeading()` in `src/lib/page-headings.ts`,
+   "{provider} features", "{a} vs {b}: your questions"). The subject must not
+   be text other pages already print: a guide headline of 7+ words is on
+   /guides and in every related list, so those guides get a short
+   `GUIDE_TOPICS` entry (≤6 words, a last word its siblings don't share) —
+   measured, not styled: the first version raised 15 guides and pushed /guides
+   over 30%. A widget, ad or navigation block titles itself with a styled
+   `<p>`; its landmark (`<aside aria-label>`) names it. *Enforced:*
+   `check:headings` (postbuild); the duplication measurement of rule 3 still
+   applies to any heading change.
+5. **No unmeasured superlative, score or typed rating.** No `N/10` score, no
+   "Best Overall", no "consistently / always cheapest", no "cheapest for most
+   …", no hand-crowned "Cheapest …" table label, no hand-typed Trustpilot
+   score or average markup. Say what we measured —
+   `{{CORRIDOR_LEADER:USD:INR}}`, `{{LEADS_SHORT:wise}}`,
+   `{{AVG_MARKUP_PCT:slug}}`, `{{TRUSTPILOT:slug}}` — or label an editorial
+   pick "Editor's pick". Hand-typed markup figures ("within 0.5–1% of
+   mid-market") are legacy debt on a ratchet (`scripts/claims-baseline.json`):
+   the count may fall, never rise. *Enforced:* `check:claims` (prebuild), and
+   `check:claims --built` (postbuild) for rule 6.
+6. **A single estimate is never "Cheapest" or "Best".** A corridor page that
+   holds one quote may not say either in its `<title>`. *Enforced:*
+   `check:claims --built`.
+7. **Figures come from data, markups as medians.** See SEO Conventions: tokens
+   in `ratings-tokens.ts` or `site-stats.ts`; `markupMedianPct`, never the
+   mean. A field rendered without `renderDataTokens()` (provider reviews,
+   `providers.ts` pros, non-editorial compare articles) cannot hold a token,
+   so it cannot hold a figure a dataset knows either — drop the figure.
+8. **SWIFT codes come from the directory.** A code is shown only when
+   `src/data/scraped/swift-codes.json` (or `bank-details.json`) holds it for
+   that bank, matched both ways on distinctive name words; otherwise remove it
+   (tables show "—"). Never write one from memory. *Enforced (structure
+   only):* `check:swift-codes` (prebuild).
+9. **Never commit build-regenerated files.** `src/data/scraped/*`,
+   `public/llms.txt`, `public/llms-full.txt` and
+   `public/.well-known/ai-plugin.json` are rewritten by every build and by the
+   scrape workflow. Restore them with `git checkout -- <path>` before
+   `git add`; never `git add -A src`.
+10. **After a deploy that changes URLs or indexing:** run
+    `npm run ping:indexnow` (Bing and the IndexNow engines), and confirm GSC
+    still lists only `sitemap-google.xml`.
 
 ## Data Flow
 
@@ -331,6 +401,7 @@ All Playwright scrapers import from this shared library: `setupBrowserContext`, 
 - `src/lib/route-map.ts` — **does this internal URL render?** Ask before linking
 - `src/lib/provider-logo.ts` — logo resolution against files that exist
 - `src/lib/seo-title.ts` — `<title>` construction (70-char cap, distinct from `<h1>`)
+- `src/lib/page-headings.ts` — page-specific wording for headings a template repeats
 - `src/lib/sitemap-allowlists.ts` — what gets submitted, gated on Bing/GSC demand
 - `src/lib/seo-indexing.ts` — which families stay indexable beyond the sitemap
 - `src/lib/affiliate.ts` — Affiliate link generation (`getGoUrl()`)

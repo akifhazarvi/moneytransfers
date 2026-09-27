@@ -538,7 +538,7 @@ function DefaultComparison({
             <>
               <section id="the-decision" className="mb-10">
                 <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
-                  What our measurements show for this pair
+                  What we measured: {a.name} vs {b.name}
                 </h2>
                 <p
                   className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
@@ -596,7 +596,7 @@ function DefaultComparison({
 
               <section id="limits" className="mb-10">
                 <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
-                  What this comparison does not settle
+                  What the {a.name} and {b.name} figures don&rsquo;t settle
                 </h2>
                 <p
                   className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"

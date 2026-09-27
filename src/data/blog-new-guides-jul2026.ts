@@ -93,7 +93,7 @@ export const newGuidesJul2026: BlogPost[] = [
 <table>
 <thead><tr><th></th><th><a href="/companies/lemfi">Lemfi</a></th><th><a href="/companies/taptap-send">TapTap Send</a></th><th><a href="/companies/remitly">Remitly</a></th></tr></thead>
 <tbody>
-<tr><td><strong>Best for</strong></td><td>Cheapest total cost</td><td>Speed + zero fee</td><td>Cash pickup in Nigeria</td></tr>
+<tr><td><strong>Best for</strong></td><td>Zero fee, low markup</td><td>Speed + zero fee</td><td>Cash pickup in Nigeria</td></tr>
 <tr><td><strong>Fee</strong></td><td>£0</td><td>£0</td><td>£0–£1.99</td></tr>
 <tr><td><strong>Rate markup</strong></td><td>~0.5%</td><td>~0.7%</td><td>~1%</td></tr>
 <tr><td><strong>Speed</strong></td><td>Minutes–hours</td><td>Under 3 minutes</td><td>Minutes (Express)</td></tr>
@@ -287,7 +287,7 @@ export const newGuidesJul2026: BlogPost[] = [
       {
         question: "What is the cheapest way for a business to make international payments?",
         answer:
-          "In 2026, <a href=\"/companies/wise\">Wise Business</a> is the cheapest option for most SMBs — 0% FX markup plus a transparent 0.35–0.9% fee, compared to 2.5–4% all-in for a bank SWIFT wire. Airwallex is competitive for high-volume businesses with local collection accounts. On a $10,000 transfer, switching from your bank to Wise Business typically saves $200–$400.",
+          "In 2026, <a href=\"/companies/wise\">Wise Business</a> is a low-cost default for SMBs — 0% FX markup plus a transparent 0.35–0.9% fee, compared to 2.5–4% all-in for a bank SWIFT wire. Airwallex is competitive for high-volume businesses with local collection accounts. On a $10,000 transfer, switching from your bank to Wise Business typically saves $200–$400.",
       },
       {
         question: "How do I pay an international supplier in another currency?",

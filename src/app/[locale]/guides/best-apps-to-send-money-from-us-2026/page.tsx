@@ -7,6 +7,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 import corridorLeaders from "@/data/scraped/corridor-leaders.json";
+import trustpilotRatings from "@/data/scraped/trustpilot-ratings.json";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/best-apps-to-send-money-from-us-2026";
@@ -29,6 +30,13 @@ const US_LEADERS = (() => {
   return { total: rows.length, wise: counts.get("wise")?.led ?? 0, top: ranked[0] };
 })();
 
+// Trustpilot scores from the scrape, never typed: the hand-typed ones had
+// drifted (Wise "293K" reviews against 302K scraped) and TapTap Send carried a
+// 4.3 we hold no record of (check:claims, 2026-09-27).
+const TP = Object.fromEntries((trustpilotRatings as { slug: string; score: number; totalReviews: number }[]).map((r) => [r.slug, r]));
+const tpScore = (slug: string) => (TP[slug] ? `${TP[slug].score.toFixed(1)}/5` : "");
+const tpReviews = (slug: string) => (TP[slug] ? `${Math.round(TP[slug].totalReviews / 1000)}K` : "");
+
 // ─── Data tables (compiled from live scraped data, June 2026) ────────────────
 
 const TOP_PICKS = [
@@ -36,9 +44,7 @@ const TOP_PICKS = [
     rank: 1,
     slug: "wise",
     name: "Wise",
-    verdict: "Best Overall",
-    trustpilot: 4.3,
-    reviews: "293K",
+    verdict: "Mid-market rate",
     fee: "From 0.41%",
     markup: "0% (mid-market)",
     speed: "Instant–2 days",
@@ -52,8 +58,6 @@ const TOP_PICKS = [
     slug: "remitly",
     name: "Remitly",
     verdict: "Best for Speed & Coverage",
-    trustpilot: 4.6,
-    reviews: "113K",
     fee: "$0–$3.99",
     markup: "0.5%–2%",
     speed: "Minutes (Express)",
@@ -67,8 +71,6 @@ const TOP_PICKS = [
     slug: "torfx",
     name: "TorFX",
     verdict: "Best Rated (Trustpilot)",
-    trustpilot: 4.9,
-    reviews: "9.7K",
     fee: "$0",
     markup: "0.3%–1.5%",
     speed: "1–2 business days",
@@ -82,8 +84,6 @@ const TOP_PICKS = [
     slug: "ofx",
     name: "OFX",
     verdict: "Best for Large Transfers",
-    trustpilot: 4.2,
-    reviews: "11.4K",
     fee: "$0",
     markup: "0.5%–1.5%",
     speed: "1–2 business days",
@@ -97,8 +97,6 @@ const TOP_PICKS = [
     slug: "taptap-send",
     name: "TapTap Send",
     verdict: "Best Zero-Fee App",
-    trustpilot: 4.3,
-    reviews: "—",
     fee: "$0 most corridors",
     markup: "~0.7%",
     speed: "Under 3 minutes (95%)",
@@ -112,8 +110,6 @@ const TOP_PICKS = [
     slug: "xe",
     name: "XE Money Transfer",
     verdict: "Best No-Fee Option",
-    trustpilot: 4.4,
-    reviews: "85K",
     fee: "$0",
     markup: "0.5%–1.5%",
     speed: "1–3 business days",
@@ -127,8 +123,6 @@ const TOP_PICKS = [
     slug: "revolut",
     name: "Revolut",
     verdict: "Best for Existing Revolut Users",
-    trustpilot: 4.7,
-    reviews: "417K",
     fee: "Free up to limit",
     markup: "0% weekdays, 0.5% weekends",
     speed: "Instant (Revolut-to-Revolut)",
@@ -142,8 +136,6 @@ const TOP_PICKS = [
     slug: "xoom",
     name: "Xoom (PayPal)",
     verdict: "Best for Cash Pickup",
-    trustpilot: 4.6,
-    reviews: "187K",
     fee: "$0–$4.99",
     markup: "1%–3%",
     speed: "Minutes to card/wallet",
@@ -157,7 +149,7 @@ const TOP_PICKS = [
 const COMPARISON_FAQS = [
   {
     q: "What is the best app to send money internationally from the US in 2026?",
-    a: `Wise is the best overall app for sending money internationally from the US in 2026. It uses the real mid-market exchange rate with zero markup and charges a transparent fee from 0.41%, so the price you see is the price you pay. It is not the cheapest everywhere: over the last 91 days it led ${US_LEADERS.wise} of the ${US_LEADERS.total} US-sending corridors we can compare, while ${US_LEADERS.top.name} led ${US_LEADERS.top.led}. Remitly is the best alternative if you need cash pickup or faster delivery to emerging markets. For the highest Trustpilot rating, TorFX (4.9/5) leads the field. Compare live rates for your exact amount and destination at SendMoneyCompare.`,
+    a: `Wise is where we would start from the US in 2026, on pricing rather than a measured win: it uses the real mid-market exchange rate with zero markup and charges a transparent fee from 0.41%, so the price you see is the price you pay. It is not the cheapest everywhere: over the last 91 days it led ${US_LEADERS.wise} of the ${US_LEADERS.total} US-sending corridors we can compare, while ${US_LEADERS.top.name} led ${US_LEADERS.top.led}. Remitly is the best alternative if you need cash pickup or faster delivery to emerging markets. For the highest Trustpilot rating among these eight, TorFX (${tpScore("torfx")}) leads. Compare live rates for your exact amount and destination at SendMoneyCompare.`,
   },
   {
     q: "Which money transfer app has the lowest fees from the US?",
@@ -185,7 +177,7 @@ const COMPARISON_FAQS = [
   },
   {
     q: "Which app is best for sending large amounts internationally from the US?",
-    a: "For transfers above $10,000, OFX and TorFX are the best options. Both charge no transfer fees, offer competitive FX margins (0.3%–1.5%), and provide a dedicated account manager for large or regular transfers. TorFX holds a 4.9/5 Trustpilot rating. OFX offers forward contracts and rate-lock tools. Wise also handles large transfers well (up to $1M) with its transparent fee structure, though for very large amounts the percentage fee matters less than the FX rate.",
+    a: `For transfers above $10,000, OFX and TorFX are the best options. Both charge no transfer fees, offer competitive FX margins (0.3%–1.5%), and provide a dedicated account manager for large or regular transfers. TorFX holds a ${tpScore("torfx")} Trustpilot rating. OFX offers forward contracts and rate-lock tools. Wise also handles large transfers well (up to $1M) with its transparent fee structure, though for very large amounts the percentage fee matters less than the FX rate.`,
   },
 ];
 
@@ -356,7 +348,7 @@ function ProviderCard({ p }: { p: (typeof TOP_PICKS)[number] }) {
         </div>
         <div className="flex items-center gap-2 flex-wrap">
           <Badge color={p.highlight ? "blue" : "green"}>{p.verdict}</Badge>
-          <span className="text-xs text-[var(--color-on-surface-variant)]">★ {p.trustpilot} ({p.reviews} reviews)</span>
+          {TP[p.slug] && <span className="text-xs text-[var(--color-on-surface-variant)]">★ {tpScore(p.slug)} on Trustpilot ({tpReviews(p.slug)} reviews)</span>}
         </div>
       </div>
 
@@ -493,11 +485,11 @@ export default async function BestAppsFromUSPage({
               Quick answer
             </p>
             <p className="citable-passage text-[var(--color-on-surface)] leading-relaxed">
-              <strong>Wise</strong> is the best overall app to send money internationally from the US in 2026. It
-              uses the real mid-market exchange rate with 0% markup and charges a transparent variable fee from
+              <strong>Wise</strong> is where we would start to send money internationally from the US in 2026 — on
+              pricing, not a measured win. It uses the real mid-market exchange rate with 0% markup and charges a transparent variable fee from
               0.41%, so what you see is what you pay — though it led only {US_LEADERS.wise} of the {US_LEADERS.total} US-sending corridors we can compare over the last 91 days, where <strong>{US_LEADERS.top.name}</strong> led {US_LEADERS.top.led}. <strong>Remitly</strong> is the best
               alternative for speed and emerging-market coverage (175+ country network, Express delivery in minutes on major corridors).{" "}
-              <strong>TorFX</strong> holds the highest Trustpilot rating (4.9 /&nbsp;5) and is best for
+              <strong>TorFX</strong> holds the highest Trustpilot rating of the eight ({tpScore("torfx")}) and is best for
               transfers above $10,000. All eight providers below are licensed money service businesses,
               regulated by FinCEN and other authorities. <Link href="/send-money" className="text-[var(--color-primary)] underline">Compare live rates for your transfer →</Link>
             </p>
@@ -865,7 +857,7 @@ export default async function BestAppsFromUSPage({
 
           {/* ── Section 7: FAQ ──────────────────────────────────────────────── */}
           <h2 id="faq" className="mt-14 text-2xl font-normal text-[var(--color-on-surface)]">
-            Frequently asked questions
+            Money apps from the US: questions answered
           </h2>
 
           <div className="mt-5 divide-y divide-[var(--color-outline)]">

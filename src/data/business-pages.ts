@@ -75,7 +75,7 @@ export const businessPages: BusinessPage[] = [
 <p class="blog-footnote">Rates verified March 2026. <a href="/send-money">Compare live rates →</a></p>
 </div>
 
-<h3>Wise Business — Best Overall for Small Business International Payments</h3>
+<h3>Wise Business — Mid-Market Rate for Small Business Payments</h3>
 <p>Wise Business is the standout choice for most SMEs making international business payments. It uses the real mid-market exchange rate (0% markup) with a transparent percentage fee that typically ranges from 0.41% to 0.71% depending on the currency corridor. The business account includes multi-currency accounts in 10+ currencies, batch payments via CSV upload (up to 1,000 payments per batch), a well-documented API for automated payments, and direct integration with Xero and QuickBooks. The account is free to open — you only pay when you transfer. For businesses making regular international payments, Wise consistently delivers the lowest total cost.</p>
 
 <h3>Revolut Business — Best for Startups Making International Payments</h3>
@@ -646,7 +646,7 @@ export const businessPages: BusinessPage[] = [
 <p class="blog-footnote">Based on business account pricing, March 2026. <a href="/send-money">Compare live B2B rates →</a></p>
 </div>
 
-<h3>Wise Business — Best Overall for B2B International Money Transfers</h3>
+<h3>Wise Business — Mid-Market Rate for B2B Transfers</h3>
 <p>Wise Business is the top choice for most B2B international money transfers. The 0% exchange rate markup (true mid-market rate) plus a transparent 0.41–0.71% fee delivers the lowest total cost for most corridors and amounts. Business accounts include multi-currency balances in 10+ currencies, batch payments via CSV for up to 1,000 transfers, a well-documented API for automated B2B payouts, and direct integration with Xero and QuickBooks. No minimum transfer amount makes it accessible for businesses of all sizes. Free to open — you only pay per transfer.</p>
 
 <h3>OFX — Best for Large B2B Transfers</h3>
@@ -863,7 +863,7 @@ export const businessPages: BusinessPage[] = [
         question:
           "What is the best business account for international payments?",
         answer:
-          "The best business account for international payments depends on your needs. Wise Business is best overall for cost and features (0% markup, batch payments, API, accounting integration). OFX is best for large transfers with personalised service (dedicated dealer, forward contracts, $0 fees). XE Business is best for FX risk management and exotic currencies (130+ currencies, rate alerts, limit orders). Revolut Business is best for all-in-one financial management (payments, cards, expenses). Most businesses benefit from opening 1–2 specialist accounts alongside their regular bank.",
+          "The best business account for international payments depends on your needs. Wise Business is strong on cost and features (0% markup, batch payments, API, accounting integration). OFX is best for large transfers with personalised service (dedicated dealer, forward contracts, $0 fees). XE Business is best for FX risk management and exotic currencies (130+ currencies, rate alerts, limit orders). Revolut Business is best for all-in-one financial management (payments, cards, expenses). Most businesses benefit from opening 1–2 specialist accounts alongside their regular bank.",
       },
       {
         question:

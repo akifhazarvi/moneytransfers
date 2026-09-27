@@ -377,7 +377,7 @@ export default async function BusinessHubPage({
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
-              Frequently asked questions
+              Business payments: questions answered
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
@@ -435,9 +435,10 @@ export default async function BusinessHubPage({
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-xl font-normal text-[var(--color-on-surface)] mb-4">
+            {/* A label, not a heading: navigation reads the same on every page. */}
+            <p className="text-xl font-normal text-[var(--color-on-surface)] mb-4">
               Related guides
-            </h2>
+            </p>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link

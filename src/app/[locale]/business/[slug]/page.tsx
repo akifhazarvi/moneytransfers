@@ -22,6 +22,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { SITE_STATS } from "@/lib/site-stats";
 import { formatLocalDate } from "@/lib/format-date";
+import { faqHeading, sectionHeading } from "@/lib/page-headings";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -182,7 +183,7 @@ export default async function BusinessSubPage({ params }: Props) {
             {page.sections.map((section, i) => (
               <div key={i} className="mb-10">
                 <h2 className="text-h4 md:text-h4-plus font-normal text-[var(--color-on-surface)] mb-4">
-                  {section.heading}
+                  {sectionHeading(section.heading, page.title)}
                 </h2>
                 <div
                   className="text-md text-[var(--color-on-surface-variant)] leading-relaxed [&_a]:text-[var(--color-primary)] [&_a]:underline [&_h3]:text-lg [&_h3]:font-medium [&_h3]:text-[var(--color-on-surface)] [&_h3]:mt-6 [&_h3]:mb-2 [&_ul]:my-4 [&_ul]:pl-6 [&_ol]:my-4 [&_ol]:pl-6 [&_li]:mb-2 [&_p]:mb-4 [&_table]:w-full [&_table]:text-sm [&_table]:border-collapse [&_th]:text-left [&_th]:py-2 [&_th]:px-3 [&_th]:font-medium [&_th]:border-b-2 [&_th]:border-[var(--color-outline)] [&_td]:py-2 [&_td]:px-3 [&_td]:border-b [&_td]:border-[var(--color-outline)] [&_strong]:text-[var(--color-on-surface)]"
@@ -222,7 +223,7 @@ export default async function BusinessSubPage({ params }: Props) {
           <Container>
             <div className="max-w-3xl mx-auto">
               <h2 className="text-h4 md:text-h4-plus font-normal text-[var(--color-on-surface)] mb-6">
-                Frequently asked questions
+                {faqHeading(page.title)}
               </h2>
               <div className="space-y-6">
                 {page.faqs.map((faq, i) => (
@@ -245,9 +246,10 @@ export default async function BusinessSubPage({ params }: Props) {
       <section className="py-10">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-xl font-normal text-[var(--color-on-surface)] mb-4">
+            {/* A label, not a heading: navigation reads the same on every page. */}
+            <p className="text-xl font-normal text-[var(--color-on-surface)] mb-4">
               Related guides
-            </h2>
+            </p>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
