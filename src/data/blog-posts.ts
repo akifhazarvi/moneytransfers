@@ -2708,7 +2708,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><a href="/companies/wise">Wise</a></td><td>{{TWELVE_TRANSFER_GAP:wise:USD:INR:1000}}</td></tr>
 <tr><td><a href="/companies/ria">Ria</a></td><td>{{TWELVE_TRANSFER_GAP:ria:USD:INR:1000}}</td></tr>
 </tbody></table></div>
-<p><strong>Read that against the offer.</strong> A $25 welcome credit is worth roughly ₹2,200 once. If a provider's ordinary pricing costs you more than that across the year, the promo has bought you a worse deal with a good first impression — which is what it is designed to do. Where the promo provider also happens to be the cheapest on your route, as Remitly is on USD→INR today, the offer is genuinely additive and you should take it.</p>
+<p><strong>Read that against the offer.</strong> A $25 welcome credit is worth roughly ₹2,200 once. If a provider's ordinary pricing costs you more than that across the year, the promo has bought you a worse deal with a good first impression — which is what it is designed to do. Where the promo provider also happens to be the cheapest on your route, the offer is genuinely additive and you should take it — on USD→INR that has most often been {{CORRIDOR_LEADER:USD:INR}}.</p>
 <p>Two caveats on that table, both of which cut against reading it too literally. It prices one corridor at one amount on the day this page was built, and the cheapest provider on a route changes — on about a quarter of corridors today's winner is not the habitual one (<a href="/provider-consistency">provider consistency</a>). And promotional rates are excluded from our quotes throughout, so these are standard rates, which is exactly the point: it is what you pay from transfer two onward. Run <a href="/send-money">your own corridor and amount</a> before deciding.</p>
 <p>There are four questions worth asking before you use any remittance promo:</p>
 <ol>
@@ -8977,13 +8977,13 @@ const rawBlogPosts: BlogPost[] = [
 <p><a href="/companies/wise">Wise</a> uses the true mid-market rate — the same rate you see on Google — with a transparent fee of roughly 1.5–1.78% of the transfer amount. There's no hidden exchange rate markup, which makes it uniquely honest. The downside is the fee, which becomes noticeable on smaller transfers. Wise does not run festival-specific promotions, but its consistent transparency means you're never caught off-guard by a rate change. Best for medium and large transfers where you want certainty.</p>
 
 <h3>Remitly</h3>
-<p><a href="/companies/remitly">Remitly</a> is consistently ranked among the cheapest for USD→INR and USD→PKR. For transfers over $1,000, the fee is $0 with a competitive exchange rate. New users get an additional promotional rate on their first transfer. The Economy option takes 3–5 business days; Express is significantly faster but with a slightly lower rate. No confirmed Eid-specific campaign, but the standard promotions make it strong value. Remitly is exempt from the new US remittance excise tax on digital transfers.</p>
+<p><a href="/companies/remitly">Remitly</a> costs {{COST_PCT:remitly:USD:INR:1000}} all-in on $1,000 USD→INR and {{COST_PCT:remitly:USD:PKR:1000}} on USD→PKR in our latest data. For transfers over $1,000, the fee is $0 with a competitive exchange rate. New users get an additional promotional rate on their first transfer. The Economy option takes 3–5 business days; Express is significantly faster but with a slightly lower rate. No confirmed Eid-specific campaign, but the standard promotions make it strong value. Remitly is exempt from the new US remittance excise tax on digital transfers.</p>
 
 <h3>Western Union</h3>
 <p>Western Union's exchange rate markup runs <strong>2–7% above mid-market</strong> depending on the corridor and payment method — by far the most expensive option on rate. However, its agent network of 500,000+ locations across Pakistan, India, Bangladesh, Indonesia, Egypt, and Turkey makes it the only viable option for recipients in rural areas or those without bank accounts. Use it only when cash pickup is genuinely required. WU offers ongoing zero-fee digital transfers on some routes but the rate margin offsets this.</p>
 
 <h3>WorldRemit</h3>
-<p><a href="/companies/worldremit">WorldRemit</a> consistently reported the highest payout to Pakistan in independent comparisons during Eid 2026, and is fast — most bank deposits arrive within 30 minutes. The promo code <strong>3FREE</strong> gives new users 3 fee-free transfers. At a flat fee of $2.99 for USD→PKR and $0 for USD→INR, WorldRemit is competitive on cost while being one of the fastest providers.</p>
+<p>On USD→PKR the usual leader in our data is {{CORRIDOR_LEADER:USD:PKR}}. <a href="/companies/worldremit">WorldRemit</a> is fast — most bank deposits arrive within 30 minutes. The promo code <strong>3FREE</strong> gives new users 3 fee-free transfers. At a flat fee of $2.99 for USD→PKR and $0 for USD→INR, WorldRemit is competitive on cost while being one of the fastest providers.</p>
 
 <h3>Xe.com</h3>
 <p>Xe charges zero fees on transfers over $1,000 (just $1 below that threshold) and a small rate markup. Best for larger amounts where that markup is manageable. Xe supports transfers up to $535,000 to India, making it suitable for significant festival gifts. No confirmed holiday promotion.</p>
@@ -17078,7 +17078,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "How does XE compare to Wise?",
         answer:
-          "Both are strong on major corridors, but they price differently. Wise shows its fee and exchange-rate markup as separate line items, making the true cost transparent; XE shows a single converted rate without breaking out the spread. Our data recorded XE's markup on USD → EUR at around 2%, where Wise is typically far lower — so on European corridors Wise usually wins on cost. For business features like forward contracts, XE is stronger. See our Wise vs XE comparison for a live head-to-head.",
+          "Both are strong on major corridors, but they price differently. Wise shows its fee and exchange-rate markup as separate line items, making the true cost transparent; XE shows a single converted rate without breaking out the spread. In our data XE's median markup is {{AVG_MARKUP_PCT:xe}} against {{AVG_MARKUP_PCT:wise}} for Wise, and on USD → EUR the usual leader is {{CORRIDOR_LEADER:USD:EUR}}. For business features like forward contracts, XE is stronger. See our Wise vs XE comparison for a live head-to-head.",
       },
       {
         question: "How can I find out if XE is the cheapest option for my transfer?",
