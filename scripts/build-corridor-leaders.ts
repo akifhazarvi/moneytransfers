@@ -4,11 +4,16 @@
  *
  * WHY THIS EXISTS
  * The site computes, per corridor, the one number no competitor can copy —
- * "Ria delivered the most on 73 of the last 91 days on USD->INR" — and then
+ * "X delivered the most on N of the last 91 days on USD->INR" — and then
  * publishes it only on corridor pages, which Google last crawled in March 2026.
  * Meanwhile /guides/*, the one family Google still crawls weekly, carries 60
  * hand-written claims that CONTRADICT that record ("Wise almost always delivers
- * the most rupees"; Ria won 73 of 91).
+ * the most rupees").
+ *
+ * (The example here used to be "Ria won 73 of 91" on USD->INR. That record was
+ * an artifact: Ria's stored receive amounts were priced at its first-transfer
+ * promo rate, and history ranked by receive amount. Corrected 2026-09-27 in
+ * aggregate-history.ts; the leader is only as good as the rows beneath it.)
  *
  * This emits a compact per-pair leader record so {{CORRIDOR_LEADER:USD:INR}} can
  * state the measured finding in a guide instead of an author's recollection.

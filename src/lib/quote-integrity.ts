@@ -82,11 +82,22 @@ export function hasParallelMarket(quote: NormalizedQuote): boolean {
  * Returning a reason (rather than a boolean) so the loader can report the
  * breakdown instead of silently shrinking the dataset.
  */
-export function implausibilityReason(quote: NormalizedQuote): string | null {
+export function implausibilityReason(
+  quote: NormalizedQuote,
+  opts: {
+    /** Override for callers whose reference mid is coarser than the live one
+     *  (history benchmarks against ONE daily XE snapshot, so intraday drift
+     *  alone can put a mid-priced Wise quote 0.5–1% "better" than it). */
+    beatsInterbankPct?: number;
+    /** False where a flat fee can legitimately exceed half the send amount. */
+    checkFeeShare?: boolean;
+  } = {},
+): string | null {
+  const beatsPct = opts.beatsInterbankPct ?? BEATS_INTERBANK_PCT;
   if (!quote.exchangeRate || quote.exchangeRate <= 0) return "no-rate";
   if (quote.markup > ABSURD_MARKUP_PCT) return "markup-absurd";
-  if (quote.sendAmount > 0 && quote.fee / quote.sendAmount > ABSURD_FEE_SHARE) return "fee-absurd";
-  if (quote.markup < BEATS_INTERBANK_PCT && !hasParallelMarket(quote)) return "beats-interbank";
+  if (opts.checkFeeShare !== false && quote.sendAmount > 0 && quote.fee / quote.sendAmount > ABSURD_FEE_SHARE) return "fee-absurd";
+  if (quote.markup < beatsPct && !hasParallelMarket(quote)) return "beats-interbank";
   return null;
 }
 

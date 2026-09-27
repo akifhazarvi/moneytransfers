@@ -21,10 +21,23 @@
  *
  * When multiple snapshots exist for the same day, the latest one wins.
  * Only the $100 send-amount quote is kept (the most common reference amount).
+ *
+ * Within a snapshot, a provider quoted by several sources is resolved the way
+ * the live comparison resolves it (src/lib/unified-quotes.ts): best source
+ * tier first, rows that cannot be true (quote-integrity guards) dropped, and
+ * the receive amount priced from fee and rate. Before 2026-09-27 the row from
+ * whichever file sorted LAST alphabetically won, unguarded and in its source's
+ * own fee convention — so Ria's promo-priced receive amounts, Xoom's
+ * first-transfer rates and TapTap's arbitrary destination rows could hold
+ * "best today" in rate-insights and skew the consistency index and SendScore.
+ * Snapshots are re-aggregated in full on every run, so the whole history is
+ * rebuilt under these rules.
  */
 
 import fs from "fs";
 import path from "path";
+import { implausibilityReason, isSelfConsistent } from "../src/lib/quote-integrity";
+import type { NormalizedQuote } from "../src/lib/unified-quotes";
 
 const SCRAPED_DIR = path.join("src/data/scraped");
 const HISTORY_DIR = path.join(SCRAPED_DIR, "history");
@@ -74,6 +87,19 @@ interface Quote {
   markup: number;
   receiveAmount: number;
   dateCollected: string;
+}
+
+// Source → tier, mirroring the addQuotes() order in src/lib/unified-quotes.ts
+// (lower = preferred). Snapshots record each row's `source`, not its file.
+function sourceTier(source: string | undefined): number | null {
+  const src = source ?? "";
+  if (src === "compareremit") return null; // retired: Remitly promo rates via a comparison site
+  if (/^(ofx-api|instarem-api|xoom-browser|taptapsend|wise-direct|ace-|ria-|remitly-|pandaremit|skyremit|lemfi|unplex)/.test(src)) return 1;
+  if (src.startsWith("wise-comparison")) return 2;
+  if (src.startsWith("monito")) return 3;
+  if (src.startsWith("exiap")) return 4;
+  if (src.startsWith("remitroutes")) return 5;
+  return 9; // early-2026 rows written before scrapers set `source`
 }
 
 interface ProviderEntry {
@@ -167,8 +193,26 @@ function rebuildIndex(files: string[]): void {
   console.log(`Rebuilt index.json with ${snapshots.length} snapshots`);
 }
 
+function loadMidMarketByDate(): Map<string, Record<string, number>> {
+  const byDate = new Map<string, Record<string, number>>();
+  try {
+    const days = JSON.parse(fs.readFileSync(MIDMARKET_HISTORY_PATH, "utf-8")) as MidMarketDay[];
+    for (const d of days) byDate.set(d.date, d.rates);
+  } catch {
+    console.warn("No midmarket-daily.json — history rows are aggregated without the beats-interbank guard");
+  }
+  return byDate;
+}
+
+interface Candidate extends ProviderEntry {
+  tier: number;
+  consistent: boolean;
+}
+
 function aggregateCorridors(files: string[]): void {
   fs.mkdirSync(CORRIDORS_DIR, { recursive: true });
+  const midByDate = loadMidMarketByDate();
+  const dropped: Record<string, number> = {};
 
   // Map: corridor → date → providers
   const data: Record<string, Record<string, Record<string, ProviderEntry>>> =
@@ -181,25 +225,92 @@ function aggregateCorridors(files: string[]): void {
     // Extract date from filename (more reliable than dateCollected field)
     const dateMatch = file.match(/quotes-(\d{4}-\d{2}-\d{2})/);
     const fileDate = dateMatch ? dateMatch[1] : isoToDate(new Date().toISOString());
+    const mids = midByDate.get(fileDate);
 
-    for (const q of quotes) {
+    // corridor → provider → every row this snapshot holds for it
+    const candidates = new Map<string, Map<string, Candidate[]>>();
+
+    for (const q of quotes as (Quote & { source?: string })[]) {
       // Only keep the $100 reference amount
       if (q.sendAmount !== 100) continue;
+      const tier = sourceTier(q.source);
+      if (tier == null) {
+        dropped.retiredSource = (dropped.retiredSource ?? 0) + 1;
+        continue;
+      }
+      const rate = Number(q.exchangeRate) || 0;
+      if (rate <= 0) continue;
+      // RemitRoutes rates are all-in; its "fee" restated the same cost.
+      const fee = q.source === "remitroutes-bridge" ? 0 : Math.max(0, Number(q.fee) || 0);
+      const midFromRow = Number(q.midMarketRate) || 0;
+      const midFromDay = mids
+        ? (mids[q.receiveCurrency] ?? (q.receiveCurrency === "USD" ? 1 : 0)) /
+          (mids[q.sendCurrency] ?? (q.sendCurrency === "USD" ? 1 : NaN))
+        : 0;
+      const mid = midFromRow > 0 ? midFromRow : Number.isFinite(midFromDay) ? midFromDay : 0;
+      const markup = mid > 0 ? Math.round(((mid - rate) / mid) * 10000) / 100 : 0;
+      // The comparable figure: what the recipient gets for a total outlay of
+      // $100, whatever the source's fee convention (see normalizeQuote()).
+      const receiveAmount = Math.max(0, q.sendAmount - fee) * rate;
+
+      const asQuote = {
+        sendCurrency: q.sendCurrency,
+        receiveCurrency: q.receiveCurrency,
+        sendAmount: q.sendAmount,
+        fee,
+        exchangeRate: rate,
+        receiveAmount,
+        markup,
+      } as NormalizedQuote;
+      // Two calibrations differ from the live index:
+      //  - no fee-share check: history's reference is 100 units of the SEND
+      //    currency, where a flat fee can really exceed half the send
+      //    (PandaRemit ¥80, Wise ¥20+ on ¥100 ≈ $14) — the check emptied every
+      //    CNY corridor's series;
+      //  - beats-interbank at -1.0%, not -0.5%: the benchmark is one XE
+      //    snapshot per day, and intraday drift alone put 79% of the Wise rows it
+      //    flagged between -0.5% and -1.0% (median -0.68%), while Xoom's
+      //    first-transfer promos sit well beyond it (median -1.90%).
+      const reason = implausibilityReason(asQuote, { beatsInterbankPct: -1.0, checkFeeShare: false });
+      if (reason) {
+        dropped[reason] = (dropped[reason] ?? 0) + 1;
+        continue;
+      }
+      const original = { ...asQuote, receiveAmount: Number(q.receiveAmount) || 0 } as NormalizedQuote;
 
       const corridor = `${q.sendCurrency}-${q.receiveCurrency}`;
+      const slug = normalizeSlug(q.providerSlug);
+      if (!candidates.has(corridor)) candidates.set(corridor, new Map());
+      const bySlug = candidates.get(corridor)!;
+      if (!bySlug.has(slug)) bySlug.set(slug, []);
+      bySlug.get(slug)!.push({
+        tier,
+        consistent: isSelfConsistent(original),
+        rate: Number(rate.toPrecision(6)),
+        fee: Math.round(fee * 100) / 100,
+        markup,
+        receiveAmount: Math.round(receiveAmount * 100) / 100,
+      });
+    }
+
+    for (const [corridor, bySlug] of candidates) {
       if (!data[corridor]) data[corridor] = {};
       if (!data[corridor][fileDate]) data[corridor][fileDate] = {};
-
-      // Latest snapshot for this day wins (files are sorted chronologically)
-      const slug = normalizeSlug(q.providerSlug);
-      data[corridor][fileDate][slug] = {
-        rate: Math.round(q.exchangeRate * 10000) / 10000,
-        fee: q.fee,
-        markup: Math.round(q.markup * 10000) / 10000,
-        receiveAmount: Math.round(q.receiveAmount * 100) / 100,
-      };
+      for (const [slug, rows] of bySlug) {
+        // Best tier; within it prefer rows whose own figures reconcile; among
+        // what remains (TapTap's per-destination duplicates) take the LOWER
+        // median receive — representative, and never the flattering outlier.
+        const topTier = Math.min(...rows.map((r) => r.tier));
+        let pool = rows.filter((r) => r.tier === topTier);
+        if (pool.some((r) => r.consistent)) pool = pool.filter((r) => r.consistent);
+        pool.sort((a, b) => a.receiveAmount - b.receiveAmount);
+        const { rate, fee, markup, receiveAmount } = pool[Math.floor((pool.length - 1) / 2)];
+        // Latest snapshot for this day wins (files are sorted chronologically)
+        data[corridor][fileDate][slug] = { rate, fee, markup, receiveAmount };
+      }
     }
   }
+  console.log(`History rows dropped: ${JSON.stringify(dropped)}`);
 
   let corridorCount = 0;
   for (const [corridor, dateMap] of Object.entries(data)) {
@@ -211,6 +322,14 @@ function aggregateCorridors(files: string[]): void {
     fs.writeFileSync(outPath, JSON.stringify(series, null, 2));
     corridorCount++;
   }
+
+  // A corridor with no row left that passes the guards (e.g. HUF-EUR, whose
+  // only quotes were TapTap's 1-significant-digit rates) must not keep its old
+  // unguarded series on disk for rate-insights to pick up.
+  const written = new Set(Object.keys(data).map((c) => `${c}.json`));
+  const removed = fs.readdirSync(CORRIDORS_DIR).filter((f) => f.endsWith(".json") && !written.has(f));
+  for (const f of removed) fs.unlinkSync(path.join(CORRIDORS_DIR, f));
+  if (removed.length) console.log(`Removed ${removed.length} corridor series with no valid rows: ${removed.join(", ")}`);
 
   console.log(
     `Wrote ${corridorCount} corridor files to history/corridors/`
