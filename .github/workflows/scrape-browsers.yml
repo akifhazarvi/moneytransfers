@@ -201,14 +201,6 @@ jobs:
           git pull --rebase --autostash -X theirs
           git push
 
-      # REQUIRED for this data to actually reach production. vercel-ignore.sh
-      # cancels any build whose diff is entirely under src/data/scraped/, on the
-      # assumption that "the deploy hook will handle it" — but the hook used to
-      # live only in scrape.yml. When that workflow started timing out before its
-      # final steps (2026-07-03), every data-only commit from all three scrape
-      # workflows was committed and then silently never deployed: production
-      # served an Aug-10 build while main had Aug-13 data. Each workflow that
-      # commits data must trigger its own deploy so no single one is a chokepoint.
       # REMOVED 2026-09-18: the explicit deploy hook.
       #
       # `git push` above already triggers a Vercel Git deployment (the project
@@ -222,6 +214,10 @@ jobs:
       #
       # One deploy per commit has nothing to race with. If the Git integration is
       # ever disconnected, restore a hook POST here — but never both at once.
+      #
+      # 2026-09-27: vercel-ignore.sh still skipped data-only commits ("the deploy
+      # hook will handle it"), so after the hook's removal NO scraped-data commit
+      # deployed. It now builds every commit.
 
       - name: Ping IndexNow (Bing)
         run: npx tsx scripts/ping-indexnow.ts
