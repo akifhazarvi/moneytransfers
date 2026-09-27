@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/build-corridor-leaders.ts && npx tsx scripts/build-corridor-uniqueness.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-site-coverage.ts && npx tsx scripts/build-llms-txt.ts",
+    "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-swift-codes.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/build-corridor-leaders.ts && npx tsx scripts/build-corridor-uniqueness.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-site-coverage.ts && npx tsx scripts/build-llms-txt.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -44,6 +44,7 @@
     "check:assets": "npx tsx scripts/check-assets.ts",
     "check:links": "npx tsx scripts/check-links.ts",
     "check:indexing": "npx tsx scripts/check-indexing.ts",
+    "check:swift-codes": "npx tsx scripts/check-swift-codes.ts",
     "postbuild": "npx tsx scripts/check-links.ts && npx tsx scripts/check-indexing.ts && npx tsx scripts/check-bundle-weight.ts",
     "build:consistency": "npx tsx scripts/build-consistency-index.ts",
     "build:sendscore": "npx tsx scripts/build-sendscore-summary.ts",

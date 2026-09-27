@@ -346,7 +346,13 @@ function DefaultComparison({
               const winsB = priced.filter((c) => c.winner === "b").length;
               return (
                 <p className="text-md text-[var(--color-on-surface-variant)] mb-4">
-                  {a.name} paid the recipient more on {winsA} of {priced.length} shared routes, {b.name} on {winsB}{priced.length - winsA - winsB > 0 ? `, ${priced.length - winsA - winsB} tied` : ""}.
+                  {/* Route names, not a count skeleton: "paid the recipient more
+                      on N of N shared routes" read the same on every comparison. */}
+                  {(() => {
+                    const won = (side: "a" | "b") => priced.filter((c) => c.winner === side).map((c) => c.label).join(", ");
+                    const wa = won("a"), wb = won("b");
+                    return `${wa ? `${a.name} ahead on ${wa}` : `${a.name} ahead nowhere`}; ${wb ? `${b.name} on ${wb}` : `${b.name} nowhere`}.`;
+                  })()}
                 </p>
               );
             })()}
@@ -695,7 +701,7 @@ function DefaultComparison({
           {/* FAQs */}
           {hasFaqs && <section id="faqs" className="mb-10">
             <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-6">
-              Frequently asked questions
+              {a.name} vs {b.name}: your questions
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {(editorial ? editorial.faqs : faqs).map((faq) => (

@@ -162,7 +162,7 @@ export const swiftContentEn: SwiftContent = {
     intro:
       "The Bangko Sentral ng Pilipinas (BSP) regulates all international transfers into and out of the Philippines. SWIFT is the standard channel for inbound foreign currency wire transfers, while domestic peso transfers use the InstaPay and PESONet systems operated by PhilPaSS. The Philippines is one of the world's largest remittance-receiving countries, and virtually all major banks are connected to the SWIFT network.",
     bullets: [
-      "The four largest recipient banks for international transfers are BDO Unibank (ABORPH2X), Bank of the Philippine Islands (BABORPHMXXX), Metropolitan Bank and Trust Company (MABORPMM), and Land Bank of the Philippines (TLBPPHMM). These SWIFT codes route to each bank's central international operations desk, not individual branches.",
+      "The four largest recipient banks for international transfers are BDO Unibank (BNORPHMM), Bank of the Philippine Islands (BOPIPHMM), Metropolitan Bank and Trust Company, and Land Bank of the Philippines (TLBPPHMM). These SWIFT codes route to each bank's central international operations desk, not individual branches.",
       "BSP regulations require that the sender's name and purpose of transfer are declared for inbound wires above USD 10,000. The receiving bank may request supporting documentation before crediting the funds, particularly for business or investment-related transfers. Personal remittances under the threshold are generally credited on the same or next business day.",
       "The Philippine peso (PHP) is not freely convertible. Inbound foreign currency is automatically converted to PHP at the bank's buying rate on the settlement date. Senders who want the recipient to receive USD can instruct the beneficiary to open a foreign currency deposit account (FCDU), which most major Philippine banks offer.",
       "2026 update: <a href=\"/news/gcash-free-middle-east-transfers-philippines-ofw-2026\">GCash dropped all fees for Filipino transfers from the Middle East in March 2026</a>, putting wallet-based payouts (GCash, Maya, PalawanPay) in direct competition with SWIFT bank wires for the UAE→PHP, Saudi Arabia→PHP, and Qatar→PHP corridors that together represent over 4 million Overseas Filipino Workers. The Philippine Congress is currently considering a sector-wide fee waiver for OFW transfers, which would push wallet rails further ahead of SWIFT on cost. Practical effect for senders: for personal remittances under PHP 50,000, mobile-wallet delivery via Wise, Remitly, TapTap Send, or WorldRemit is typically faster and cheaper than a SWIFT wire to BDO or BPI. SWIFT wires remain the right rail for amounts above the BSP wallet caps or for business payments.",
@@ -245,7 +245,7 @@ export const swiftContentEn: SwiftContent = {
     intro:
       "Bank Negara Malaysia (BNM) regulates foreign exchange and international payments. Domestic ringgit transfers use the DuitNow real-time payment network, which links to MYKAD (national ID) numbers and phone numbers for instant transfers. International inbound transfers require SWIFT codes. Malaysia's banking system is one of the most advanced in Southeast Asia, with major banks offering multi-currency accounts.",
     bullets: [
-      "Malaysia's three largest banks by SWIFT usage are Malayan Banking Berhad (Maybank, MABORYMM), CIMB Bank (CIBBMYKL), and Public Bank Berhad (PBBEMYKL). RHB Bank, Hong Leong Bank, and AmBank are also commonly used for international wire receipts. Islamic banking subsidiaries of these banks have separate SWIFT codes — for example, Maybank Islamic is distinct from Maybank conventional.",
+      "Malaysia's three largest banks by SWIFT usage are Malayan Banking Berhad (Maybank), CIMB Bank (CIBBMYKL), and Public Bank Berhad (PBBEMYKL). RHB Bank, Hong Leong Bank, and AmBank are also commonly used for international wire receipts. Islamic banking subsidiaries of these banks have separate SWIFT codes — for example, Maybank Islamic is distinct from Maybank conventional.",
       "BNM's foreign exchange administration rules require that residents declare the purpose of inbound foreign transfers above MYR 10,000. The receiving bank processes the declaration, but the recipient may need to provide documentation for business-related transfers. Personal remittances for family maintenance are generally straightforward.",
       "The Malaysian ringgit (MYR) is not freely traded offshore. Inbound foreign currency is converted to MYR at the bank's prevailing rate on the settlement date. Senders transferring USD or SGD should confirm with the recipient whether their bank can hold foreign currency, as some Malaysian accounts can maintain multi-currency balances before conversion.",
     ],
@@ -287,7 +287,7 @@ export const swiftContentEn: SwiftContent = {
     intro:
       "The Central Bank of Sri Lanka (CBSL) regulates all foreign exchange transactions and international payments. SWIFT is the primary channel for inbound remittances, which are among Sri Lanka's most important sources of foreign exchange earnings. Major banks including Bank of Ceylon, Commercial Bank of Ceylon, Hatton National Bank, and Sampath Bank are all connected to the SWIFT network.",
     bullets: [
-      "Sri Lanka's four most commonly used banks for inbound international wires are Bank of Ceylon (BCEYLKLX), Commercial Bank of Ceylon (CABORLKLXXX), Hatton National Bank (HABORLKLXXX), and Sampath Bank. Bank of Ceylon is state-owned and handles a large share of government-related transfers, while Commercial Bank has the widest retail network and strong diaspora remittance volumes.",
+      "Sri Lanka's four most commonly used banks for inbound international wires are Bank of Ceylon (BCEYLKLX), Commercial Bank of Ceylon (CCEYLKLX), Hatton National Bank (HBLILKLX), and Sampath Bank. Bank of Ceylon is state-owned and handles a large share of government-related transfers, while Commercial Bank has the widest retail network and strong diaspora remittance volumes.",
       "CBSL regulations allow Sri Lankan residents to receive foreign currency transfers into Inward Remittance Accounts (IRAs) or Non-Resident Foreign Currency (NRFC) accounts. Funds in NRFC accounts can be held in foreign currency without mandatory conversion to LKR, which is useful for expatriates or recipients who regularly transfer money home.",
       "Sri Lanka has experienced significant economic volatility in recent years, which has affected the LKR exchange rate and led to periodic restrictions on foreign exchange. Senders should use SWIFT transfers through official bank channels rather than informal networks, as CBSL prioritizes allocating foreign exchange to officially recorded inbound remittances.",
     ],
@@ -317,7 +317,7 @@ export const swiftContentEn: SwiftContent = {
     intro:
       "The Central Bank of Egypt (CBE) regulates foreign exchange and international payments. Egypt operates an ACH (Automated Clearing House) system for domestic EGP transfers, while international wires use SWIFT. Remittances from Egyptians working abroad are one of the country's most important sources of foreign currency. The National Bank of Egypt, Banque Misr, and Commercial International Bank (CIB) are the dominant players in international wire transfer processing.",
     bullets: [
-      "Egypt's three most-used banks for inbound SWIFT transfers are the National Bank of Egypt (NBEGEGCX), Banque Misr (BMISEGCX), and Commercial International Bank (CIBOREG1XXX). The National Bank of Egypt and Banque Misr are both state-owned and handle the bulk of diaspora remittances. CIB is the largest private sector bank and is widely used for business and corporate international payments.",
+      "Egypt's three most-used banks for inbound SWIFT transfers are the National Bank of Egypt (NBEGEGCX), Banque Misr (BMISEGCX), and Commercial International Bank (CIBEEGCX). The National Bank of Egypt and Banque Misr are both state-owned and handle the bulk of diaspora remittances. CIB is the largest private sector bank and is widely used for business and corporate international payments.",
       "CBE regulations require that inbound foreign currency be converted to EGP at the bank's declared rate unless the recipient holds a foreign currency account. Egypt has maintained multiple exchange rate mechanisms historically, and the official versus parallel market rate gap has varied significantly. Using official bank channels ensures that transfers are received at the CBE-published rate and that the recipient avoids complications with foreign currency regulations.",
       "Egypt imposes no withholding tax on inbound remittances, and personal transfers from expatriate Egyptians are encouraged by CBE policy. However, large business transfers may require documentation such as commercial invoices, import licences, or contracts before the receiving bank releases funds. Ensuring that payment references match the declared purpose helps prevent compliance delays.",
     ],
@@ -337,7 +337,7 @@ export const swiftContentEn: SwiftContent = {
     intro:
       "The Banco de la República (Banrep) regulates monetary policy and foreign exchange, while the Superintendencia Financiera de Colombia oversees banking. Colombia uses ACH Colombia for domestic COP transfers, which operates separately from SWIFT. International inbound wire transfers require SWIFT codes, and Colombia's banking regulator requires all inbound foreign currency to be registered through the formal banking system.",
     bullets: [
-      "Colombia's three largest banks for SWIFT-based international wires are Bancolombia (COABORBB), Banco de Bogotá (BBOGCOBB), and Davivienda (DAVICOBB). Bancolombia is the largest bank in the country and has the most developed international wire capabilities, including strong connectivity with the United States. BBVA Colombia and Scotiabank Colpatria also handle significant cross-border volumes.",
+      "Colombia's three largest banks for SWIFT-based international wires are Bancolombia (COLOCOBM), Banco de Bogotá (BBOGCOBB), and Davivienda (DAVICOBB). Bancolombia is the largest bank in the country and has the most developed international wire capabilities, including strong connectivity with the United States. BBVA Colombia and Scotiabank Colpatria also handle significant cross-border volumes.",
       "Colombia's foreign exchange regulations require that all inbound international transfers be channeled through a licensed financial intermediary (an authorized bank or broker). The recipient's bank registers the transfer with Banrep under a specific reason code. For amounts above USD 10,000, additional declaration forms may be required. The purpose declared must match the actual nature of the transaction to avoid regulatory complications.",
       "The Colombian peso (COP) is freely convertible. Inbound USD or EUR transfers are converted to COP at the bank's market rate on the day of credit. Colombia does not impose withholding tax on personal remittances. For business payments, invoice documentation should be provided. The sender is advised to keep transfer receipts, as Colombia may request evidence of outbound payments for statistical purposes.",
     ],
@@ -347,7 +347,7 @@ export const swiftContentEn: SwiftContent = {
     intro:
       "The Banco Central de Reserva del Perú (BCRP) manages monetary policy and foreign exchange reserves. Peru's banking regulator, the SBS (Superintendencia de Banca, Seguros y AFP), oversees all licensed banks. Domestic transfers in PEN use the CCE (Cámara de Compensación Electrónica) clearing system. For international inbound transfers, Peru's major banks are well-connected to SWIFT, and Peru's relatively open foreign exchange system makes receiving international wires straightforward.",
     bullets: [
-      "Peru's four main SWIFT-connected banks are Banco de Crédito del Perú (BCP, BCPLPEPL), BBVA Perú (BABORPPL), Interbank (BINPPEPL), and Scotiabank Perú. BCP is the largest Peruvian bank by assets and processes the highest volume of inbound international wires. Interbank has strong digital banking capabilities and is popular among retail customers receiving remittances.",
+      "Peru's four main SWIFT-connected banks are Banco de Crédito del Perú (BCP, BCPLPEPL), BBVA Perú, Interbank (BINPPEPL), and Scotiabank Perú. BCP is the largest Peruvian bank by assets and processes the highest volume of inbound international wires. Interbank has strong digital banking capabilities and is popular among retail customers receiving remittances.",
       "Peru permits individuals to hold USD accounts at local banks, and inbound USD transfers can be credited directly to a dollar account (cuenta en dólares) without mandatory conversion to PEN. This is a significant advantage for recipients who want to avoid converting at the bank's exchange rate or who need to make USD payments from their account.",
       "SBS regulations require that inbound transfers above USD 10,000 be accompanied by a declaration of origin of funds. The receiving bank handles the regulatory filing, but the transfer purpose should be clearly stated in the payment reference. Peru does not impose withholding tax on personal remittances. Business transfers require invoice documentation, particularly for imports or service payments.",
     ],
@@ -507,7 +507,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major Indian banks?",
-      a: "Key Indian bank SWIFT codes include: State Bank of India (SBI) — SBININBB, HDFC Bank — HDFCINBB, ICICI Bank — ICICINBB, Axis Bank — AXISINBB, Punjab National Bank — PUNBINBB, Bank of Baroda — BARBINBB, and Kotak Mahindra Bank — ABORINBB. Always confirm the exact code with the recipient's bank, as branch-level SWIFT codes may differ.",
+      a: "Key Indian bank SWIFT codes include: State Bank of India (SBI) — SBININBB, HDFC Bank — HDFCINBB, ICICI Bank — ICICINBB, Axis Bank — AXISINBB, Punjab National Bank — PUNBINBB, Bank of Baroda — BARBINBB. Always confirm the exact code with the recipient's bank, as branch-level SWIFT codes may differ.",
     },
     {
       q: "How do I find the SWIFT code for my Indian bank?",
@@ -574,11 +574,11 @@ export const swiftContentEn: SwiftContent = {
   "united-arab-emirates": [
     {
       q: "What is a SWIFT code for the United Arab Emirates?",
-      a: "A SWIFT code (BIC) for the UAE is an 8 or 11-character identifier used by UAE banks for international wire transfers. The country code portion is AE. For example, ABORAEADXXX is the SWIFT code for Emirates NBD. The structure is: 4 characters for the bank, 2 for country (AE), 2 for the city, and optionally 3 for the branch.",
+      a: "A SWIFT code (BIC) for the UAE is an 8 or 11-character identifier used by UAE banks for international wire transfers. The country code portion is AE. The structure is: 4 characters for the bank, 2 for country (AE), 2 for the city, and optionally 3 for the branch.",
     },
     {
       q: "What are the SWIFT codes for major UAE banks?",
-      a: "Key UAE bank SWIFT codes include: Emirates NBD — ABORAEADXXX, Abu Dhabi Commercial Bank (ADCB) — ADCBAEAA, First Abu Dhabi Bank (FAB) — NBADAEAA, Mashreq Bank — BOMLAEADXXX, Dubai Islamic Bank — DUIBAEAD, and RAK Bank — NABOREAD. Free zone branches (DIFC, ADGM) may use different SWIFT codes — always confirm with the recipient.",
+      a: "Key UAE bank SWIFT codes include: Abu Dhabi Commercial Bank (ADCB) — ADCBAEAA, First Abu Dhabi Bank (FAB) — NBADAEAA, Mashreq Bank — BOMLAEADXXX, Dubai Islamic Bank — DUIBAEAD. Free zone branches (DIFC, ADGM) may use different SWIFT codes — always confirm with the recipient.",
     },
     {
       q: "How do I find the SWIFT code for my UAE bank?",
@@ -613,7 +613,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major Canadian banks?",
-      a: "Key Canadian bank SWIFT codes include: Royal Bank of Canada (RBC) — ROYCCAT2, TD Canada Trust — TDOMCATTTOR, Scotiabank — NOSCCATT, Bank of Montreal (BMO) — BOFMCAM2, CIBC — CABOROTT, National Bank of Canada — BNDCCAMM, and Desjardins — CCDQCAMM. Always confirm the exact code with the recipient's bank.",
+      a: "Key Canadian bank SWIFT codes include: Royal Bank of Canada (RBC) — ROYCCAT2, TD Canada Trust — TDOMCATTTOR, Scotiabank — NOSCCATT, Bank of Montreal (BMO) — BOFMCAM2, CIBC — CIBCCATT, National Bank of Canada — BNDCCAMM, and Desjardins — CCDQCAMM. Always confirm the exact code with the recipient's bank.",
     },
     {
       q: "How do I find the SWIFT code for my Canadian bank?",
@@ -718,7 +718,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major South African banks?",
-      a: "Key South African bank SWIFT codes include: Standard Bank — SBZAZAJJ, First National Bank (FNB) — FIRNZAJJ, Absa Bank — ABSAZAJJ, Nedbank — NEDSZAJJ, Capitec Bank — CABORAZJ, and Investec — IVESZAJJ. Most international transfers are routed through the bank's head office SWIFT gateway in Johannesburg.",
+      a: "Key South African bank SWIFT codes include: Standard Bank — SBZAZAJJ, First National Bank (FNB) — FIRNZAJJ, Absa Bank — ABSAZAJJ, Nedbank — NEDSZAJJ, and Investec — IVESZAJJ. Most international transfers are routed through the bank's head office SWIFT gateway in Johannesburg.",
     },
     {
       q: "How do I find the SWIFT code for my South African bank?",
@@ -788,7 +788,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major New Zealand banks?",
-      a: "Key New Zealand bank SWIFT codes include: ANZ New Zealand — ANZBNZ22, ASB Bank — ASBBNZ2A, Bank of New Zealand (BNZ) — BKNZNZ22, Westpac New Zealand — WPACNZ2W, Kiwibank — KIABORZ22, and TSB Bank — TSBKNZ22. Always confirm the exact code with the recipient's bank before sending.",
+      a: "Key New Zealand bank SWIFT codes include: ANZ New Zealand — ANZBNZ22, ASB Bank — ASBBNZ2A, Bank of New Zealand (BNZ) — BKNZNZ22, Westpac New Zealand — WPACNZ2W, and TSB Bank — TSBKNZ22. Always confirm the exact code with the recipient's bank before sending.",
     },
     {
       q: "How do I find the SWIFT code for my New Zealand bank?",
@@ -854,11 +854,11 @@ export const swiftContentEn: SwiftContent = {
   philippines: [
     {
       q: "What is a SWIFT code for the Philippines?",
-      a: "A SWIFT code (BIC) for the Philippines is an 8 or 11-character code identifying a Philippine bank for international wire transfers. The country code portion is PH. For example, ABORPH2X is the BIC for BDO Unibank, the largest Philippine bank. The code structure is: 4 characters for the bank, 2 for country (PH), 2 for the city or location, and optionally 3 for the branch.",
+      a: "A SWIFT code (BIC) for the Philippines is an 8 or 11-character code identifying a Philippine bank for international wire transfers. The country code portion is PH. For example, BNORPHMM is the BIC for BDO Unibank, the largest Philippine bank. The code structure is: 4 characters for the bank, 2 for country (PH), 2 for the city or location, and optionally 3 for the branch.",
     },
     {
       q: "What are the SWIFT codes for major Philippine banks?",
-      a: "Key Philippine bank SWIFT codes include: BDO Unibank — ABORPH2X, Bank of the Philippine Islands (BPI) — BABORPHMXXX, Metropolitan Bank and Trust (Metrobank) — MABORPMM, Land Bank of the Philippines — TLBPPHMM, Philippine National Bank (PNB) — PNBMPHM1XXX, Security Bank — SBTCPHMMXXX, and UnionBank — UBPHPHMM. Always confirm the exact code with the recipient's bank.",
+      a: "Key Philippine bank SWIFT codes include: BDO Unibank — BNORPHMM, Bank of the Philippine Islands (BPI) — BOPIPHMM, Land Bank of the Philippines — TLBPPHMM, Philippine National Bank (PNB) — PNBMPHM1XXX, Security Bank — SBTCPHMMXXX, and UnionBank — UBPHPHMM. Always confirm the exact code with the recipient's bank.",
     },
     {
       q: "How do I send money to a Philippine bank account from abroad?",
@@ -1134,11 +1134,11 @@ export const swiftContentEn: SwiftContent = {
   malaysia: [
     {
       q: "What is a SWIFT code for Malaysia?",
-      a: "A SWIFT code (BIC) for Malaysia is an 8 or 11-character code identifying a Malaysian bank for international wire transfers. The country code portion is MY. For example, MABORYMM is the SWIFT code for Maybank (Malayan Banking Berhad). The structure is: 4 characters for the bank, 2 for country (MY), 2 for the city, and optionally 3 for the branch.",
+      a: "A SWIFT code (BIC) for Malaysia is an 8 or 11-character code identifying a Malaysian bank for international wire transfers. The country code portion is MY. The structure is: 4 characters for the bank, 2 for country (MY), 2 for the city, and optionally 3 for the branch.",
     },
     {
       q: "What are the SWIFT codes for major Malaysian banks?",
-      a: "Key Malaysian bank SWIFT codes include: Maybank — MABORYMM, CIMB Bank — CIBBMYKL, Public Bank — PBBEMYKL, RHB Bank — RHBBMYKL, Hong Leong Bank — HLBBMYKL, AmBank — ARBKMYKL, and Standard Chartered Malaysia — SCBLMYKXXXX. Islamic banking subsidiaries have separate SWIFT codes — for example, Maybank Islamic is distinct from Maybank conventional.",
+      a: "Key Malaysian bank SWIFT codes include: CIMB Bank — CIBBMYKL, Public Bank — PBBEMYKL, RHB Bank — RHBBMYKL, Hong Leong Bank — HLBBMYKL, AmBank — ARBKMYKL, and Standard Chartered Malaysia — SCBLMYKXXXX. Islamic banking subsidiaries have separate SWIFT codes — for example, Maybank Islamic is distinct from Maybank conventional.",
     },
     {
       q: "Can DuitNow receive international transfers?",
@@ -1278,7 +1278,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major Sri Lankan banks?",
-      a: "Key Sri Lankan bank SWIFT codes include: Bank of Ceylon — BCEYLKLX, Commercial Bank of Ceylon — CABORLKLXXX, Hatton National Bank (HNB) — HABORLKLXXX, Sampath Bank — BSAMLKLX, People's Bank — PEBLLKLX, Nations Trust Bank — NTBCLKLX, and Standard Chartered Sri Lanka — SCBLLKLX. Always verify the exact code with the recipient's bank.",
+      a: "Key Sri Lankan bank SWIFT codes include: Bank of Ceylon — BCEYLKLX, Commercial Bank of Ceylon — CCEYLKLX, Hatton National Bank (HNB) — HBLILKLX, Sampath Bank — BSAMLKLX, People's Bank — PEBLLKLX, Nations Trust Bank — NTBCLKLX, and Standard Chartered Sri Lanka — SCBLLKLX. Always verify the exact code with the recipient's bank.",
     },
     {
       q: "How do I send money to a Sri Lankan bank account from abroad?",
@@ -1313,7 +1313,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major Nepali banks?",
-      a: "Key Nepali bank SWIFT codes include: Nabil Bank — NABILNPA, Standard Chartered Nepal — SCBLNPKA, Nepal Investment Mega Bank — NIBLNPKA, Himalayan Bank — HIMANPKA, Everest Bank — EVBLNPKA, NMB Bank — NMBNPKKA, and Prabhu Bank — PRBLNPKA. Always confirm the exact code with the recipient's bank as branch-level codes may vary.",
+      a: "Key Nepali bank SWIFT codes include: Nabil Bank — NABILNPA, Standard Chartered Nepal — SCBLNPKA, Nepal Investment Mega Bank — NIBLNPKA, Himalayan Bank — HIMANPKA, Everest Bank — EVBLNPKA, and Prabhu Bank — PRBLNPKA. Always confirm the exact code with the recipient's bank as branch-level codes may vary.",
     },
     {
       q: "How do remittances from Gulf countries and Malaysia reach Nepal via SWIFT?",
@@ -1383,7 +1383,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major Egyptian banks?",
-      a: "Key Egyptian bank SWIFT codes include: National Bank of Egypt — NBEGEGCX, Banque Misr — BMISEGCX, Commercial International Bank (CIB) — CIBOREG1XXX, Banque du Caire — BCAIEGCX, Arab African International Bank — ARAIEGCXXX, HSBC Egypt — HBEGEGCX, and QNB Alahli — QNBAEGCXXX. Always confirm the exact code with the recipient's bank.",
+      a: "Key Egyptian bank SWIFT codes include: National Bank of Egypt — NBEGEGCX, Banque Misr — BMISEGCX, Commercial International Bank (CIB) — CIBEEGCX, Banque du Caire — BCAIEGCX, HSBC Egypt — HBEGEGCX, and QNB Alahli — QNBAEGCXXX. Always confirm the exact code with the recipient's bank.",
     },
     {
       q: "How do I receive money from abroad into an Egyptian bank account?",
@@ -1449,11 +1449,11 @@ export const swiftContentEn: SwiftContent = {
   colombia: [
     {
       q: "What is a SWIFT code for Colombia?",
-      a: "A SWIFT code (BIC) for Colombia is an 8 or 11-character code identifying a Colombian bank for international wire transfers. The country code portion is CO. For example, COABORBB is the SWIFT code for Bancolombia. The structure is: 4 characters for the bank, 2 for country (CO), 2 for the city, and optionally 3 for the branch.",
+      a: "A SWIFT code (BIC) for Colombia is an 8 or 11-character code identifying a Colombian bank for international wire transfers. The country code portion is CO. For example, COLOCOBM is the SWIFT code for Bancolombia. The structure is: 4 characters for the bank, 2 for country (CO), 2 for the city, and optionally 3 for the branch.",
     },
     {
       q: "What are the SWIFT codes for major Colombian banks?",
-      a: "Key Colombian bank SWIFT codes include: Bancolombia — COABORBB, Banco de Bogotá — BBOGCOBB, Davivienda — DAVICOBB, BBVA Colombia — BABOROBB, Scotiabank Colpatria — COLPCOBB, Banco Agrario — BANACOBC, and Citibank Colombia — CITICOBB. Always confirm the exact code with the recipient's bank.",
+      a: "Key Colombian bank SWIFT codes include: Bancolombia — COLOCOBM, Banco de Bogotá — BBOGCOBB, Davivienda — DAVICOBB, Scotiabank Colpatria — COLPCOBB, Banco Agrario — BANACOBC, and Citibank Colombia — CITICOBB. Always confirm the exact code with the recipient's bank.",
     },
     {
       q: "How do I send money to a Colombian bank account from abroad?",
@@ -1488,7 +1488,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major Peruvian banks?",
-      a: "Key Peruvian bank SWIFT codes include: Banco de Crédito del Perú (BCP) — BCPLPEPL, BBVA Perú — BABORPPL, Interbank — BINPPEPL, Scotiabank Perú — BSUDPEPL, BanBif — BFCAPEPL, Mibanco — MIBAEPPL, and Citibank Perú — CITIPEPL. Always confirm the exact code with the recipient's bank.",
+      a: "Key Peruvian bank SWIFT codes include: Banco de Crédito del Perú (BCP) — BCPLPEPL, Interbank — BINPPEPL, Scotiabank Perú — BSUDPEPL, BanBif — BFCAPEPL, and Citibank Perú — CITIPEPL. Always confirm the exact code with the recipient's bank.",
     },
     {
       q: "Can I receive USD directly in a Peruvian bank account?",
@@ -1519,11 +1519,11 @@ export const swiftContentEn: SwiftContent = {
   pakistan: [
     {
       q: "What is a SWIFT code for Pakistan?",
-      a: "A SWIFT code (also called a BIC code) is an 8 or 11-character code that identifies a specific bank in Pakistan for international wire transfers. For example, HABORPKAXXXX identifies the head office of Bank Al Habib Limited. The first 4 characters identify the bank, the next 2 (PK) identify Pakistan, the next 2 identify the city, and the optional last 3 identify the branch.",
+      a: "A SWIFT code (also called a BIC code) is an 8 or 11-character code that identifies a specific bank in Pakistan for international wire transfers. For example, HABBPKKA identifies the head office of Bank Al Habib Limited. The first 4 characters identify the bank, the next 2 (PK) identify Pakistan, the next 2 identify the city, and the optional last 3 identify the branch.",
     },
     {
       q: "What are the SWIFT codes for major Pakistani banks?",
-      a: "Key SWIFT codes include: HBL (Habib Bank Limited) — HABORPKAXXXX, UBL (United Bank Limited) — UNILPKKAXXXX, MCB Bank — MUCBPKKAXXXX, Allied Bank — ABLOOPKAXXX, Meezan Bank — MEZUPKKAXXXX, Bank Al Habib — HABORPKAXXXX, Standard Chartered Pakistan — SCBLPKKXXXX, Faysal Bank — FABORPKAXXXX, and National Bank of Pakistan — NBPAPKKAXXXX.",
+      a: "Key SWIFT codes include: HBL (Habib Bank Limited) — HABBPKKA, UBL (United Bank Limited) — UNILPKKA, MCB Bank — MUCBPKKA, Allied Bank — ABPAPKKA, Meezan Bank — MEZNPKKA, Bank Al Habib — BAHLPKKA, Standard Chartered Pakistan — SCBLPKKXXXX, Faysal Bank — FAYSPKKA, and National Bank of Pakistan — NBPAPKKA.",
     },
     {
       q: "How do I find the SWIFT code for my Pakistani bank?",
@@ -1543,7 +1543,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "Is there a difference between SWIFT code and IBAN in Pakistan?",
-      a: "Yes. A SWIFT code identifies a bank (e.g., MUCBPKKAXXXX for MCB Bank), while an IBAN identifies a specific account at that bank (e.g., PK36SCBL0000001123456702). For international transfers to Pakistan, the sender needs both: the SWIFT code to route the payment to the correct bank, and the IBAN to credit the correct account.",
+      a: "Yes. A SWIFT code identifies a bank (e.g., MUCBPKKA for MCB Bank), while an IBAN identifies a specific account at that bank (e.g., PK36SCBL0000001123456702). For international transfers to Pakistan, the sender needs both: the SWIFT code to route the payment to the correct bank, and the IBAN to credit the correct account.",
     },
     {
       q: "Can I receive USD or GBP directly in my Pakistani bank account?",

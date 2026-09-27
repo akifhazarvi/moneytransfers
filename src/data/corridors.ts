@@ -2582,7 +2582,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Can I send money to PrivatBank in Ukraine from the US?",
-        a: "Yes, PrivatBank is the most widely used receiving bank for international transfers to Ukraine, serving over 20 million customers. Wise, Remitly, and WorldRemit all support direct bank deposits to PrivatBank accounts using the recipient's IBAN (UA-format) or card number. Western Union and MoneyGram also partner with PrivatBank for cash pickup at its branches. When sending to PrivatBank, you will need the recipient's full name (matching their bank records), their UAH account IBAN, and the bank's SWIFT code (PABORUA). PrivatBank's Privat24 app notifies recipients instantly when funds arrive.",
+        a: "Yes, PrivatBank is the most widely used receiving bank for international transfers to Ukraine, serving over 20 million customers. Wise, Remitly, and WorldRemit all support direct bank deposits to PrivatBank accounts using the recipient's IBAN (UA-format) or card number. Western Union and MoneyGram also partner with PrivatBank for cash pickup at its branches. When sending to PrivatBank, you will need the recipient's full name (matching their bank records), their UAH account IBAN, and PrivatBank's SWIFT code, which the recipient can confirm in Privat24. PrivatBank's Privat24 app notifies recipients instantly when funds arrive.",
       },
       {
         q: "Is it safe to send money to Ukraine right now?",

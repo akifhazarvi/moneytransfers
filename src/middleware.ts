@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 import { getGeoDefaults } from "./data/geo-corridors";
-import { shouldNoindexPath } from "./lib/seo-indexing";
+import { xRobotsTagFor } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 import { getCompareCanonicalSlug } from "./lib/compare-canonical";
 import { GONE_CORRIDOR_SLUGS, DUPLICATE_CORRIDOR_REDIRECTS } from "./lib/gone-corridors";
@@ -222,8 +222,10 @@ export default function middleware(request: NextRequest) {
   //   - [locale]/{compare,news,guides,exchange-rates,business,companies,compare-money-transfer}/...
   //   - non-allowlisted iban/[slug] and swift-codes/[country]
   const path = request.nextUrl.pathname;
-  if (shouldNoindexPath(path)) {
-    response.headers.set("X-Robots-Tag", "noindex, follow");
+  // Per-engine since 2026-09-27: Bing-only pages get `googlebot: noindex`.
+  const robotsHeader = xRobotsTagFor(path);
+  if (robotsHeader) {
+    response.headers.set("X-Robots-Tag", robotsHeader);
   }
 
   // CSP uses SHA-256 hashes for the two inline scripts in [locale]/layout.tsx

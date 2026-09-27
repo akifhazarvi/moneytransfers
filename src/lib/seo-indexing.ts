@@ -108,6 +108,7 @@ import indexableRoutes from "@/data/scraped/indexable-routes.json";
 import { RANKING_CORRIDOR_SLUGS } from "./ranking-corridors";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 import { FOOTER_IBAN_LINKS, FOOTER_SWIFT_LINKS } from "@/data/footer-reference-links";
+import { BING_DEMAND_ROUTES, GOOGLE_HIDDEN_PREFIXES, GOOGLE_HIDDEN_ROUTES } from "@/data/search-engine-routes";
 
 /**
  * 2026-09-26: the IBAN and SWIFT pages the footer links on every page.
@@ -200,20 +201,68 @@ export function newsIsIndexable(slug: string): boolean {
   return SITEMAP_NEWS_SLUGS.has(slug) || REVIEWED_INDEXABLE_ROUTES.has(`/news/${slug}`);
 }
 
-/** Metadata `robots` value for a path: undefined when indexable. */
-export function robotsFor(pathname: string): { index: false; follow: true } | undefined {
-  return routeIsIndexable(pathname) ? undefined : { index: false, follow: true };
+function cleanPath(pathname: string): string {
+  const clean = "/" + pathname.replace(/^\/+/, "").replace(/\/$/, "");
+  return clean === "/" ? "/" : clean;
 }
 
-export function shouldNoindexPath(pathname: string): boolean {
-  // The header mirrors the page-level robots exactly — it is the same predicate
-  // robotsFor() uses. It used to add its own family rules on top (cash-out,
-  // non-allowlisted IBAN/SWIFT, rate history) on the theory that over-flagging
-  // was harmless because "page metadata determines real index/noindex". It is
-  // not harmless: Google honours an X-Robots-Tag noindex as binding, so a page
-  // whose meta said `index` while the header said `noindex` was simply
-  // noindexed. The 2026-09-24 re-check found three /swift-codes pages in
-  // exactly that state. Family rules now live in routeIsIndexable() or in the
-  // page metadata, never here alone.
-  return !routeIsIndexable(pathname);
+/**
+ * 2026-09-27 — one decision per search engine (round-3 freelance plan).
+ *
+ * routeIsIndexable() above is the Google gate: measured duplication, reviewed
+ * routes, footer pages, ranking corridors. Google is the engine that does not
+ * index the site, and the gate exists to control what its quality systems see.
+ * Bing is the engine that earns, and on 2026-09-20 the same gate — sent as a
+ * generic `robots: noindex` — removed Bing earners from Bing too. So:
+ *
+ *   googleIndexable  = the gate, minus pages hidden from Googlebot
+ *   bingIndexable    = the gate, plus pages with Bing demand
+ *
+ * Both lists live in src/data/search-engine-routes.ts. A page that is
+ * Bing-only is served `robots: index` with `googlebot: noindex` — in the
+ * metadata AND in X-Robots-Tag, both derived from xRobotsTagFor()/robotsFor()
+ * below, so the header can never contradict the page (the 2026-09-24 bug).
+ */
+function googleHidden(path: string): boolean {
+  // A ranking URL must never serve noindex to anyone — check:ranking.
+  const corridor = path.startsWith("/send-money/") ? path.slice("/send-money/".length) : "";
+  if (corridor && RANKING_CORRIDOR_SLUGS.has(corridor)) return false;
+  if (GOOGLE_HIDDEN_ROUTES.has(path)) return true;
+  return GOOGLE_HIDDEN_PREFIXES.some((prefix) => path.startsWith(prefix) && path.length > prefix.length);
+}
+
+/** Index candidate for Google: submitted in sitemap-google.xml. */
+export function googleIndexable(pathname: string): boolean {
+  const path = cleanPath(pathname);
+  return routeIsIndexable(path) && !googleHidden(path);
+}
+
+/** Index candidate for Bing and every engine that reads the generic robots tag. */
+export function bingIndexable(pathname: string): boolean {
+  const path = cleanPath(pathname);
+  return routeIsIndexable(path) || BING_DEMAND_ROUTES.has(path);
+}
+
+type RobotsMeta =
+  | { index: false; follow: true }
+  | { index: true; follow: true; googleBot: { index: false; follow: true } };
+
+/** Metadata `robots` value for a path: undefined when indexable everywhere. */
+export function robotsFor(pathname: string): RobotsMeta | undefined {
+  if (googleIndexable(pathname)) return undefined;
+  if (bingIndexable(pathname)) return { index: true, follow: true, googleBot: { index: false, follow: true } };
+  return { index: false, follow: true };
+}
+
+/**
+ * X-Robots-Tag value for a path, or null for none. Mirrors robotsFor()
+ * exactly. Google honours a header noindex as binding, so the header may never
+ * say more than the page does — it used to add family rules of its own, and
+ * the 2026-09-24 re-check found /swift-codes pages whose meta said `index`
+ * while the header said `noindex`.
+ */
+export function xRobotsTagFor(pathname: string): string | null {
+  if (googleIndexable(pathname)) return null;
+  if (bingIndexable(pathname)) return "googlebot: noindex, follow";
+  return "noindex, follow";
 }

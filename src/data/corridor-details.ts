@@ -274,7 +274,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { name: "BBVA México", swiftCode: "BCMRMXMMXXX", notes: "Mexico's largest bank, formerly Bancomer" },
       { name: "Banorte", swiftCode: "MENOMXMTXXX", notes: "Largest Mexican-owned bank" },
       { name: "Santander México", swiftCode: "BMSXMXMMXXX", notes: "Strong retail banking presence" },
-      { name: "Citibanamex", swiftCode: "ABORINMXXXX", notes: "Major bank currently being acquired by local investors" },
+      { name: "Citibanamex", swiftCode: "", notes: "Major bank currently being acquired by local investors" },
       { name: "HSBC México", swiftCode: "BIMEMXMMXXX", notes: "International bank with wide branch network" },
       { name: "Scotiabank México", swiftCode: "MBCOMXMMXXX", notes: "Canadian-owned bank with solid coverage" },
     ],
@@ -356,11 +356,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "BRAC Bank", swiftCode: "BABORINBXXX", notes: "Strong in mobile and digital banking" },
+      { name: "BRAC Bank", swiftCode: "BRAKBDDH", notes: "Strong in mobile and digital banking" },
       { name: "Dutch-Bangla Bank (DBBL)", swiftCode: "DBBLBDDHXXX", notes: "Pioneer in mobile banking in Bangladesh" },
       { name: "Islami Bank Bangladesh", swiftCode: "IBBLBDDHXXX", notes: "Largest Islamic bank, extensive branch network" },
       { name: "Sonali Bank", swiftCode: "BSONBDDHXXX", notes: "Largest state-owned bank" },
-      { name: "Eastern Bank (EBL)", swiftCode: "EABORINBXXX", notes: "Strong digital presence and remittance services" },
+      { name: "Eastern Bank (EBL)", swiftCode: "EBLDBDDH", notes: "Strong digital presence and remittance services" },
       { name: "Agrani Bank", swiftCode: "AGBKBDDHXXX", notes: "Major state-owned bank with rural coverage" },
     ],
   },
@@ -400,7 +400,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { name: "Barclays", swiftCode: "BARCGB22XXX", notes: "Major UK high-street bank" },
       { name: "Lloyds Bank", swiftCode: "LOYDGB2LXXX", notes: "UK's largest retail bank" },
       { name: "NatWest", swiftCode: "NWBKGB2LXXX", notes: "Strong personal and business banking" },
-      { name: "Santander UK", swiftCode: "ABORINBKXXX", notes: "Popular current accounts" },
+      { name: "Santander UK", swiftCode: "", notes: "Popular current accounts" },
       { name: "Monzo", notes: "Digital-only bank, popular with younger demographics" },
       { name: "Starling Bank", notes: "Digital bank with strong business accounts" },
     ],
@@ -524,10 +524,10 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     },
     popularBanks: [
       { name: "Banco do Brasil", swiftCode: "BRASBRRJXXX", notes: "Largest bank in Latin America" },
-      { name: "Itaú Unibanco", swiftCode: "ITABORJJXXX", notes: "Largest private bank in Brazil" },
+      { name: "Itaú Unibanco", swiftCode: "", notes: "Largest private bank in Brazil" },
       { name: "Bradesco", swiftCode: "BBDEBRSAXXX", notes: "Second-largest private bank" },
-      { name: "Caixa Econômica Federal", swiftCode: "CABORJBJXXX", notes: "Government-owned, handles social programs" },
-      { name: "Santander Brasil", swiftCode: "BABORJBJXXX", notes: "Major international bank presence" },
+      { name: "Caixa Econômica Federal", swiftCode: "", notes: "Government-owned, handles social programs" },
+      { name: "Santander Brasil", swiftCode: "", notes: "Major international bank presence" },
       { name: "Nubank", notes: "World's largest digital bank by customers, hugely popular in Brazil" },
     ],
   },
@@ -564,9 +564,9 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     popularBanks: [
       { name: "National Bank of Egypt (NBE)", swiftCode: "NBEGEGCXXXX", notes: "Egypt's oldest and largest bank" },
       { name: "Banque Misr", swiftCode: "BMISEGCXXXX", notes: "Second-largest state-owned bank" },
-      { name: "Commercial International Bank (CIB)", swiftCode: "CIABORIEGXX", notes: "Largest private sector bank" },
+      { name: "Commercial International Bank (CIB)", swiftCode: "CIBEEGCX", notes: "Largest private sector bank" },
       { name: "QNB Alahli", swiftCode: "QNBAEGCXXXX", notes: "Major bank with Qatari ownership" },
-      { name: "Arab African International Bank", swiftCode: "ABORIEGCXXX", notes: "Strong in international transfers" },
+      { name: "Arab African International Bank", swiftCode: "", notes: "Strong in international transfers" },
     ],
   },
 
@@ -602,11 +602,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "Equity Bank", swiftCode: "EABORINKXXX", notes: "Largest bank by customer base" },
-      { name: "KCB Bank (Kenya Commercial Bank)", swiftCode: "KCBLKENAXX", notes: "Largest bank by assets" },
+      { name: "Equity Bank", swiftCode: "EQBLKENA", notes: "Largest bank by customer base" },
+      { name: "KCB Bank (Kenya Commercial Bank)", swiftCode: "KCBLKENX", notes: "Largest bank by assets" },
       { name: "Co-operative Bank", swiftCode: "KCOOKENA", notes: "Strong in co-operative and SME banking" },
-      { name: "Absa Bank Kenya", swiftCode: "BABORINKXXX", notes: "Formerly Barclays Kenya" },
-      { name: "Standard Chartered Kenya", swiftCode: "SCBLKENAXX", notes: "International bank with premium services" },
+      { name: "Absa Bank Kenya", swiftCode: "", notes: "Formerly Barclays Kenya" },
+      { name: "Standard Chartered Kenya", swiftCode: "SCBLKENX", notes: "International bank with premium services" },
     ],
   },
 
@@ -643,8 +643,8 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     },
     popularBanks: [
       { name: "GCB Bank", swiftCode: "GHCBGHACXXX", notes: "Largest Ghanaian-owned bank" },
-      { name: "Ecobank Ghana", swiftCode: "EABORINHXXX", notes: "Pan-African bank with wide branch network" },
-      { name: "Absa Bank Ghana", swiftCode: "BABORINHXXX", notes: "Formerly Barclays Ghana" },
+      { name: "Ecobank Ghana", swiftCode: "ECOCGHAC", notes: "Pan-African bank with wide branch network" },
+      { name: "Absa Bank Ghana", swiftCode: "", notes: "Formerly Barclays Ghana" },
       { name: "Stanbic Bank Ghana", swiftCode: "SBICGHACXXX", notes: "Part of Standard Bank Group" },
       { name: "Fidelity Bank Ghana", swiftCode: "FBLIGHACXXX", notes: "Strong in retail and SME banking" },
     ],
@@ -685,7 +685,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { name: "VietinBank", swiftCode: "ICBVVNVXXXX", notes: "Second-largest state-owned bank" },
       { name: "BIDV", swiftCode: "BIDVVNVXXXX", notes: "Largest bank by total assets" },
       { name: "Techcombank", swiftCode: "VTCBVNVXXXX", notes: "Leading private bank, strong digital services" },
-      { name: "MB Bank (Military Bank)", swiftCode: "MABORVNVXXX", notes: "Fast-growing private bank" },
+      { name: "MB Bank (Military Bank)", swiftCode: "", notes: "Fast-growing private bank" },
       { name: "ACB (Asia Commercial Bank)", swiftCode: "ASCBVNVXXXX", notes: "Popular private bank" },
     ],
   },
@@ -723,7 +723,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     popularBanks: [
       { name: "Nepal Rastra Bank (Central Bank)", notes: "Central bank, not for personal accounts" },
       { name: "Nabil Bank", swiftCode: "NARBNPKAXXX", notes: "Oldest private bank in Nepal" },
-      { name: "Nepal Investment Bank (NIBL)", swiftCode: "NIABORPKXXX", notes: "Leading private bank" },
+      { name: "Nepal Investment Bank (NIBL)", swiftCode: "", notes: "Leading private bank" },
       { name: "Standard Chartered Nepal", swiftCode: "SCBLNPKAXXX", notes: "International bank presence" },
       { name: "Global IME Bank", swiftCode: "GLBBNPKAXXX", notes: "Largest private bank by branch network" },
       { name: "NIC Asia Bank", swiftCode: "NICENPKAXXX", notes: "Major bank formed from merger" },
@@ -760,11 +760,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "Bank of Ceylon", swiftCode: "BABORLKLXXX", notes: "Largest state-owned bank" },
-      { name: "People's Bank", swiftCode: "PABORLKLXXX", notes: "Major state-owned bank with wide branch network" },
-      { name: "Commercial Bank of Ceylon", swiftCode: "CABORLKLXXX", notes: "Largest private sector bank" },
-      { name: "Hatton National Bank (HNB)", swiftCode: "HABORLKLXXX", notes: "Leading private bank" },
-      { name: "Sampath Bank", swiftCode: "SABORLKLXXX", notes: "Strong digital banking presence" },
+      { name: "Bank of Ceylon", swiftCode: "BCEYLKLX", notes: "Largest state-owned bank" },
+      { name: "People's Bank", swiftCode: "PSBKLKLX", notes: "Major state-owned bank with wide branch network" },
+      { name: "Commercial Bank of Ceylon", swiftCode: "CCEYLKLX", notes: "Largest private sector bank" },
+      { name: "Hatton National Bank (HNB)", swiftCode: "HBLILKLX", notes: "Leading private bank" },
+      { name: "Sampath Bank", swiftCode: "BSAMLKLX", notes: "Strong digital banking presence" },
     ],
   },
 
@@ -805,7 +805,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { name: "Bancolombia", swiftCode: "COLOCOBMXXX", notes: "Colombia's largest bank" },
       { name: "Banco de Bogotá", swiftCode: "BBOGCOBMXXX", notes: "Oldest commercial bank in Colombia" },
       { name: "Davivienda", swiftCode: "DAVICOBMXXX", notes: "Third-largest bank, operates Daviplata" },
-      { name: "Banco de Occidente", swiftCode: "BOCCOBBBXXX", notes: "Major regional bank" },
+      { name: "Banco de Occidente", swiftCode: "OCCICOBC", notes: "Major regional bank" },
       { name: "BBVA Colombia", swiftCode: "BBVACOBMXXX", notes: "International bank presence" },
     ],
   },
@@ -881,8 +881,8 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { name: "Attijariwafa Bank", swiftCode: "BCMAMAMCXXX", notes: "Morocco's and Africa's largest bank by assets" },
       { name: "BMCE Bank (Bank of Africa)", swiftCode: "BMCEMAMCXXX", notes: "Major pan-African banking group" },
       { name: "Banque Populaire", swiftCode: "BCPOMAMC", notes: "Largest bank by branch network in Morocco" },
-      { name: "CIH Bank", swiftCode: "CIABORMAXX", notes: "Strong in housing and real estate finance" },
-      { name: "Crédit du Maroc", swiftCode: "CDMAMACXXX", notes: "Part of Crédit Agricole group" },
+      { name: "CIH Bank", swiftCode: "", notes: "Strong in housing and real estate finance" },
+      { name: "Crédit du Maroc", swiftCode: "", notes: "Part of Crédit Agricole group" },
     ],
   },
 
@@ -918,7 +918,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     popularBanks: [
       { name: "Ziraat Bankası", swiftCode: "TCZBTR2AXXX", notes: "Turkey's largest state-owned bank" },
       { name: "İş Bankası (İşbank)", swiftCode: "ISBKTRISXXX", notes: "Largest private bank in Turkey" },
-      { name: "Garanti BBVA", swiftCode: "GABORISIXXX", notes: "Major private bank, BBVA partnership" },
+      { name: "Garanti BBVA", swiftCode: "", notes: "Major private bank, BBVA partnership" },
       { name: "Akbank", swiftCode: "AKBKTRISXXX", notes: "Leading private bank" },
       { name: "Yapı Kredi", swiftCode: "YAPITRISXXX", notes: "Major bank with Koç/UniCredit backing" },
       { name: "Halkbank", swiftCode: "TRHBTR2AXXX", notes: "State-owned bank serving SMEs" },
@@ -1045,7 +1045,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { name: "MUFG Bank (Mitsubishi UFJ)", swiftCode: "BOTKJPJT", notes: "Japan's largest bank by assets, part of the MUFG financial group" },
       { name: "Sumitomo Mitsui Banking Corporation (SMBC)", swiftCode: "SMBCJPJT", notes: "Second-largest bank, strong in corporate and retail banking" },
       { name: "Mizuho Bank", swiftCode: "MHCBJPJT", notes: "One of Japan's three mega-banks" },
-      { name: "Japan Post Bank (Yucho)", swiftCode: "JABORJPJ", notes: "Largest bank by deposits with 24,000+ branches nationwide" },
+      { name: "Japan Post Bank (Yucho)", swiftCode: "", notes: "Largest bank by deposits with 24,000+ branches nationwide" },
       { name: "Resona Bank", swiftCode: "DIWAJPJT", notes: "Major regional bank group" },
       { name: "Rakuten Bank", swiftCode: "RAKTJPJT", notes: "Leading online bank, popular with younger demographics" },
     ],
@@ -1085,11 +1085,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     },
     popularBanks: [
       { name: "Banco de Credito del Peru (BCP)", swiftCode: "BCPLPEPL", notes: "Peru's largest bank with the widest branch and ATM network" },
-      { name: "BBVA Peru", swiftCode: "BABORPPLXXX", notes: "Spanish-owned bank, strong digital platform" },
+      { name: "BBVA Peru", swiftCode: "", notes: "Spanish-owned bank, strong digital platform" },
       { name: "Interbank", swiftCode: "BINPPEPL", notes: "Known for convenience — branches in shopping malls and extended hours" },
-      { name: "Scotiabank Peru", swiftCode: "BABORPPLXXX", notes: "Canadian-owned, strong in personal and commercial banking" },
+      { name: "Scotiabank Peru", swiftCode: "", notes: "Canadian-owned, strong in personal and commercial banking" },
       { name: "Banco de la Nacion", swiftCode: "BANCPEPL", notes: "State-owned bank serving government workers and rural areas" },
-      { name: "MiBanco", swiftCode: "MABORPPL", notes: "BCP subsidiary focused on microfinance and small businesses" },
+      { name: "MiBanco", swiftCode: "", notes: "BCP subsidiary focused on microfinance and small businesses" },
     ],
   },
 
@@ -1127,11 +1127,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "Banrural", swiftCode: "BABORGTGXXX", notes: "Largest bank by branch network, strong rural presence" },
+      { name: "Banrural", swiftCode: "", notes: "Largest bank by branch network, strong rural presence" },
       { name: "Banco Industrial", swiftCode: "INDLGTGC", notes: "Largest private bank by assets in Guatemala" },
       { name: "Banco G&T Continental", swiftCode: "GTCBGTGC", notes: "Major commercial bank with strong corporate services" },
       { name: "BAM (Banco Agromercantil)", swiftCode: "BAMCGTGC", notes: "Leading bank in agricultural finance" },
-      { name: "Banco de los Trabajadores (Bantrab)", swiftCode: "TABORGTGXXX", notes: "Workers' bank with strong retail presence" },
+      { name: "Banco de los Trabajadores (Bantrab)", swiftCode: "", notes: "Workers' bank with strong retail presence" },
     ],
   },
 
@@ -1168,12 +1168,12 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "Banco Popular Dominicano", swiftCode: "BABORDO1XXX", notes: "Largest private bank in the Dominican Republic" },
+      { name: "Banco Popular Dominicano", swiftCode: "", notes: "Largest private bank in the Dominican Republic" },
       { name: "Banreservas", swiftCode: "BRESDOSD", notes: "State-owned, largest bank by assets and branch network" },
       { name: "Banco BHD Leon", swiftCode: "BHDLDOSD", notes: "Major private bank formed from BHD and Leon merger" },
-      { name: "Scotiabank Dominican Republic", swiftCode: "NABORDO1XXX", notes: "Canadian-owned international bank" },
+      { name: "Scotiabank Dominican Republic", swiftCode: "", notes: "Canadian-owned international bank" },
       { name: "Banco Santa Cruz", swiftCode: "BSCRDOSD", notes: "Regional bank with growing national presence" },
-      { name: "Asociacion Popular de Ahorros y Prestamos", swiftCode: "APAPORDO", notes: "Largest savings and loan association in Latin America" },
+      { name: "Asociacion Popular de Ahorros y Prestamos", swiftCode: "", notes: "Largest savings and loan association in Latin America" },
     ],
   },
 
@@ -1210,11 +1210,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "National Commercial Bank (NCB)", swiftCode: "JABORJMK", notes: "Jamaica's largest bank by assets and market capitalization" },
-      { name: "Scotiabank Jamaica", swiftCode: "NABORJMKXXX", notes: "Canadian-owned, second-largest bank" },
-      { name: "CIBC FirstCaribbean", swiftCode: "FCIBBJMK", notes: "Regional Caribbean bank with strong corporate services" },
-      { name: "JN Bank", swiftCode: "JABORJM2XXX", notes: "Jamaica National Group subsidiary, strong in diaspora services" },
-      { name: "Sagicor Bank Jamaica", swiftCode: "SABORJMK", notes: "Part of the Sagicor financial group" },
+      { name: "National Commercial Bank (NCB)", swiftCode: "", notes: "Jamaica's largest bank by assets and market capitalization" },
+      { name: "Scotiabank Jamaica", swiftCode: "", notes: "Canadian-owned, second-largest bank" },
+      { name: "CIBC FirstCaribbean", swiftCode: "", notes: "Regional Caribbean bank with strong corporate services" },
+      { name: "JN Bank", swiftCode: "", notes: "Jamaica National Group subsidiary, strong in diaspora services" },
+      { name: "Sagicor Bank Jamaica", swiftCode: "", notes: "Part of the Sagicor financial group" },
     ],
   },
 
@@ -1254,10 +1254,10 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     },
     popularBanks: [
       { name: "Standard Bank", swiftCode: "SBZAZAJJ", notes: "Africa's largest bank by assets, universal branch code 051001" },
-      { name: "FirstRand Bank (FNB)", swiftCode: "FIABORJJ", notes: "Most innovative digital bank, universal branch code 250655" },
+      { name: "FirstRand Bank (FNB)", swiftCode: "FIRNZAJJ", notes: "Most innovative digital bank, universal branch code 250655" },
       { name: "Absa Bank", swiftCode: "ABSAZAJJ", notes: "Former Barclays Africa, universal branch code 632005" },
       { name: "Nedbank", swiftCode: "NEDSZAJJ", notes: "Fourth-largest bank, universal branch code 198765" },
-      { name: "Capitec Bank", swiftCode: "CABORJJXXX", notes: "Fastest-growing retail bank, popular with younger demographics" },
+      { name: "Capitec Bank", swiftCode: "", notes: "Fastest-growing retail bank, popular with younger demographics" },
       { name: "Investec Bank", swiftCode: "IVESZAJJ", notes: "Specialist bank for wealth management and private banking" },
     ],
   },
@@ -1296,11 +1296,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     },
     popularBanks: [
       { name: "Commercial Bank of Ethiopia (CBE)", swiftCode: "CBETETAA", notes: "State-owned, by far the largest bank with 1,900+ branches" },
-      { name: "Dashen Bank", swiftCode: "ABORETAA", notes: "Largest private bank in Ethiopia" },
-      { name: "Awash Bank", swiftCode: "AABORETAA", notes: "One of the oldest and largest private banks" },
-      { name: "Bank of Abyssinia", swiftCode: "ABORETAA", notes: "Fast-growing private bank with strong digital services" },
-      { name: "Wegagen Bank", swiftCode: "WABORETAA", notes: "Established private bank with nationwide presence" },
-      { name: "Oromia Bank", swiftCode: "OABORETAA", notes: "Largest in the Oromia region, interest-free banking options" },
+      { name: "Dashen Bank", swiftCode: "", notes: "Largest private bank in Ethiopia" },
+      { name: "Awash Bank", swiftCode: "", notes: "One of the oldest and largest private banks" },
+      { name: "Bank of Abyssinia", swiftCode: "", notes: "Fast-growing private bank with strong digital services" },
+      { name: "Wegagen Bank", swiftCode: "", notes: "Established private bank with nationwide presence" },
+      { name: "Oromia Bank", swiftCode: "", notes: "Largest in the Oromia region, interest-free banking options" },
     ],
   },
 
@@ -1339,11 +1339,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     },
     popularBanks: [
       { name: "Stanbic Bank Uganda", swiftCode: "SBICUGKX", notes: "Largest bank by assets, Standard Bank subsidiary" },
-      { name: "DFCU Bank", swiftCode: "DFABORUGXXX", notes: "One of Uganda's oldest and largest commercial banks" },
-      { name: "Centenary Bank", swiftCode: "CABORUGXXX", notes: "Largest indigenous bank, strong rural microfinance focus" },
-      { name: "Absa Bank Uganda", swiftCode: "BABORUGKXXX", notes: "Formerly Barclays Bank Uganda" },
-      { name: "Bank of Africa Uganda", swiftCode: "AFABORUGXXX", notes: "Pan-African bank with growing presence" },
-      { name: "Equity Bank Uganda", swiftCode: "EABORUGXXX", notes: "Kenyan-owned bank focused on mass market banking" },
+      { name: "DFCU Bank", swiftCode: "", notes: "One of Uganda's oldest and largest commercial banks" },
+      { name: "Centenary Bank", swiftCode: "", notes: "Largest indigenous bank, strong rural microfinance focus" },
+      { name: "Absa Bank Uganda", swiftCode: "BARCUGKX", notes: "Formerly Barclays Bank Uganda" },
+      { name: "Bank of Africa Uganda", swiftCode: "", notes: "Pan-African bank with growing presence" },
+      { name: "Equity Bank Uganda", swiftCode: "", notes: "Kenyan-owned bank focused on mass market banking" },
     ],
   },
 
@@ -1382,11 +1382,11 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "CRDB Bank", swiftCode: "COABORTZXXX", notes: "Tanzania's largest bank by assets and branch network" },
+      { name: "CRDB Bank", swiftCode: "", notes: "Tanzania's largest bank by assets and branch network" },
       { name: "NMB Bank", swiftCode: "NMIBTZTZ", notes: "Second-largest bank, Rabobank-affiliated, strong in rural areas" },
       { name: "Stanbic Bank Tanzania", swiftCode: "SBICTZTZ", notes: "Standard Bank subsidiary, strong in corporate banking" },
-      { name: "Exim Bank Tanzania", swiftCode: "EABORTZXXX", notes: "Fast-growing domestic commercial bank" },
-      { name: "Absa Bank Tanzania", swiftCode: "BABORTZXXX", notes: "Formerly Barclays Bank Tanzania" },
+      { name: "Exim Bank Tanzania", swiftCode: "", notes: "Fast-growing domestic commercial bank" },
+      { name: "Absa Bank Tanzania", swiftCode: "", notes: "Formerly Barclays Bank Tanzania" },
       { name: "NBC Bank", swiftCode: "NLCBTZTX", notes: "National Bank of Commerce, one of the oldest banks" },
     ],
   },
@@ -1428,9 +1428,9 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { name: "CBAO Groupe Attijariwafa", swiftCode: "CBAOSNDA", notes: "Largest bank in Senegal, Moroccan-owned Attijariwafa group" },
       { name: "Societe Generale Senegal", swiftCode: "SGSNSNDA", notes: "French-owned, second-largest bank" },
       { name: "Banque de Dakar (BDK)", swiftCode: "BDKRSNDA", notes: "Major domestic commercial bank" },
-      { name: "Ecobank Senegal", swiftCode: "ECABORSNXXX", notes: "Pan-African bank with strong West African network" },
+      { name: "Ecobank Senegal", swiftCode: "", notes: "Pan-African bank with strong West African network" },
       { name: "BICIS (BNP Paribas)", swiftCode: "BICISNDAXXX", notes: "BNP Paribas subsidiary in Senegal" },
-      { name: "Bank of Africa Senegal", swiftCode: "AFABORSNXXX", notes: "Part of the Bank of Africa network" },
+      { name: "Bank of Africa Senegal", swiftCode: "", notes: "Part of the Bank of Africa network" },
     ],
   },
 
@@ -1549,8 +1549,8 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "BSP Financial Group (Bank South Pacific)", swiftCode: "ABORFJFJ", notes: "Largest bank in Fiji after acquiring Westpac's Pacific operations" },
-      { name: "ANZ Fiji", swiftCode: "ANABORFJXXX", notes: "Australian-owned, strong in commercial banking" },
+      { name: "BSP Financial Group (Bank South Pacific)", swiftCode: "", notes: "Largest bank in Fiji after acquiring Westpac's Pacific operations" },
+      { name: "ANZ Fiji", swiftCode: "", notes: "Australian-owned, strong in commercial banking" },
       { name: "Bred Bank Fiji", swiftCode: "BREDFJFJ", notes: "French-owned bank (Banque Populaire group)" },
       { name: "HFC Bank", swiftCode: "HFCBFJFJ", notes: "Home Finance Corporation, focused on home loans and savings" },
       { name: "Bank of Baroda Fiji", swiftCode: "BARBFJFJ", notes: "Indian-owned bank serving Fiji's Indo-Fijian community" },
@@ -1591,12 +1591,12 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "Maybank", swiftCode: "MABORJM1XXX", notes: "Malaysia's largest bank and Southeast Asia's fourth-largest by assets" },
-      { name: "CIMB Bank", swiftCode: "CIABORMYK1XXX", notes: "Second-largest, strong ASEAN presence" },
-      { name: "Public Bank Berhad", swiftCode: "PABORJMKXXX", notes: "Largest non-government bank, known for conservative lending" },
-      { name: "RHB Bank", swiftCode: "RHABORJM1XXX", notes: "Fifth-largest bank with strong regional presence" },
-      { name: "Hong Leong Bank", swiftCode: "HLABORMYKXXX", notes: "Diversified financial group, strong digital banking" },
-      { name: "AmBank", swiftCode: "AMABORJMXXX", notes: "Part of the AMMB Holdings group, ANZ-affiliated" },
+      { name: "Maybank", swiftCode: "", notes: "Malaysia's largest bank and Southeast Asia's fourth-largest by assets" },
+      { name: "CIMB Bank", swiftCode: "", notes: "Second-largest, strong ASEAN presence" },
+      { name: "Public Bank Berhad", swiftCode: "", notes: "Largest non-government bank, known for conservative lending" },
+      { name: "RHB Bank", swiftCode: "", notes: "Fifth-largest bank with strong regional presence" },
+      { name: "Hong Leong Bank", swiftCode: "", notes: "Diversified financial group, strong digital banking" },
+      { name: "AmBank", swiftCode: "", notes: "Part of the AMMB Holdings group, ANZ-affiliated" },
     ],
   },
 
@@ -1678,7 +1678,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       { name: "K&H Bank", swiftCode: "OKHBHUHB", notes: "KBC Group subsidiary, strong in corporate banking" },
       { name: "UniCredit Bank Hungary", swiftCode: "BACXHUHB", notes: "Italian-owned, focused on corporate and private banking" },
       { name: "Raiffeisen Bank Hungary", swiftCode: "UBRTHUHB", notes: "Austrian-owned, strong in retail banking" },
-      { name: "CIB Bank", swiftCode: "CABORHUBXXX", notes: "Intesa Sanpaolo subsidiary" },
+      { name: "CIB Bank", swiftCode: "CIBHHUHB", notes: "Intesa Sanpaolo subsidiary" },
     ],
   },
 
@@ -1715,12 +1715,12 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "Bank Hapoalim", swiftCode: "POABORILXXX", notes: "Israel's largest bank by assets" },
+      { name: "Bank Hapoalim", swiftCode: "POALILIT", notes: "Israel's largest bank by assets" },
       { name: "Bank Leumi", swiftCode: "LUMIILITXXX", notes: "Second-largest bank, Israel's oldest bank" },
-      { name: "Israel Discount Bank", swiftCode: "IDBORILITXXX", notes: "Third-largest bank" },
+      { name: "Israel Discount Bank", swiftCode: "", notes: "Third-largest bank" },
       { name: "Mizrahi Tefahot Bank", swiftCode: "MIZBILIT", notes: "Largest mortgage bank, merged with Union Bank" },
       { name: "First International Bank of Israel (FIBI)", swiftCode: "FIRBILITXXX", notes: "Fifth-largest banking group" },
-      { name: "Bank Yahav", swiftCode: "ABORILITTXXX", notes: "Government employees' bank" },
+      { name: "Bank Yahav", swiftCode: "", notes: "Government employees' bank" },
     ],
   },
 
@@ -1803,7 +1803,7 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     popularBanks: [
       { name: "Bank of Kigali", swiftCode: "BKIGRWRW", notes: "Rwanda's largest bank by assets, listed on the Rwanda Stock Exchange" },
       { name: "I&M Bank Rwanda", swiftCode: "IMRWRWRW", notes: "Kenyan-owned, formerly BCR (Banque Commerciale du Rwanda)" },
-      { name: "Equity Bank Rwanda", swiftCode: "EABORWRWXXX", notes: "Kenyan-owned, strong in mass market banking" },
+      { name: "Equity Bank Rwanda", swiftCode: "", notes: "Kenyan-owned, strong in mass market banking" },
       { name: "BPR (Banque Populaire du Rwanda)", swiftCode: "BPRWRWRW", notes: "Atlas Mara subsidiary, strong rural network" },
       { name: "Cogebanque", swiftCode: "COGERWRW", notes: "Domestic commercial bank focused on SME lending" },
     ],
@@ -1845,9 +1845,9 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     popularBanks: [
       { name: "Zanaco (Zambia National Commercial Bank)", swiftCode: "ZNCOZMLU", notes: "One of the oldest and largest banks in Zambia" },
       { name: "Stanbic Bank Zambia", swiftCode: "SBICZMLU", notes: "Standard Bank subsidiary, largest by assets" },
-      { name: "Absa Bank Zambia", swiftCode: "BABORZMLU", notes: "Formerly Barclays Bank Zambia" },
-      { name: "First National Bank Zambia", swiftCode: "FIABORZMXXX", notes: "FirstRand subsidiary from South Africa" },
-      { name: "Atlas Mara Zambia", swiftCode: "ABORZMLU", notes: "Pan-African bank, formerly Finance Bank" },
+      { name: "Absa Bank Zambia", swiftCode: "", notes: "Formerly Barclays Bank Zambia" },
+      { name: "First National Bank Zambia", swiftCode: "", notes: "FirstRand subsidiary from South Africa" },
+      { name: "Atlas Mara Zambia", swiftCode: "", notes: "Pan-African bank, formerly Finance Bank" },
       { name: "Indo Zambia Bank", swiftCode: "INZAZMLU", notes: "Joint venture between Indian and Zambian governments" },
     ],
   },
@@ -1886,10 +1886,10 @@ const countryDetailsMap: Record<string, CountryDetails> = {
       ],
     },
     popularBanks: [
-      { name: "Afriland First Bank", swiftCode: "CCEIOCMX", notes: "Largest domestically-owned bank in Cameroon" },
+      { name: "Afriland First Bank", swiftCode: "CCEICMCX", notes: "Largest domestically-owned bank in Cameroon" },
       { name: "Societe Generale Cameroun", swiftCode: "SGCMCMCX", notes: "French-owned, one of the largest banks" },
-      { name: "Ecobank Cameroun", swiftCode: "ECABOROCMXXX", notes: "Pan-African bank with wide West and Central African network" },
-      { name: "UBA Cameroon", swiftCode: "UNABOROCMXXX", notes: "United Bank for Africa, Nigerian-owned pan-African bank" },
+      { name: "Ecobank Cameroun", swiftCode: "", notes: "Pan-African bank with wide West and Central African network" },
+      { name: "UBA Cameroon", swiftCode: "", notes: "United Bank for Africa, Nigerian-owned pan-African bank" },
       { name: "BICEC (Banque Internationale du Cameroun pour l'Epargne et le Credit)", swiftCode: "BICECMCX", notes: "Atlas Mara subsidiary, strong savings and retail" },
       { name: "Standard Chartered Cameroon", swiftCode: "SCBLCMCX", notes: "International bank with premium banking services" },
     ],
@@ -1898,10 +1898,24 @@ const countryDetailsMap: Record<string, CountryDetails> = {
 
 // ── Fallback generation for non-curated countries ──
 
+const EURO_COUNTRY_CODES: Record<string, string> = {
+  austria: "AT", belgium: "BE", croatia: "HR", cyprus: "CY", estonia: "EE", finland: "FI",
+  france: "FR", germany: "DE", greece: "GR", ireland: "IE", italy: "IT", latvia: "LV",
+  lithuania: "LT", luxembourg: "LU", malta: "MT", netherlands: "NL", portugal: "PT",
+  slovakia: "SK", slovenia: "SI", spain: "ES",
+};
+
 function slugFromCountryName(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
+// 2026-09-27: 76 of the 219 hand-typed SWIFT codes in popularBanks were
+// impossible — four letters spliced into the middle of the code,
+// another country's letters (Citibanamex with India's "IN"), or 10 and 12
+// characters where a BIC has 8 or 11. 18 were replaced with the code our SWIFT
+// directory (src/data/scraped/swift-codes.json) holds for that bank; the rest
+// were blanked (rendered "—") rather than guessed. scripts/check-swift-codes.ts
+// keeps impossible codes out.
 export function getCountryDetails(
   toCountryName: string,
   toCurrency: string,
@@ -1910,11 +1924,18 @@ export function getCountryDetails(
   const slug = slugFromCountryName(toCountryName);
   if (countryDetailsMap[slug]) return countryDetailsMap[slug];
 
-  // Special case: EUR goes to "europe"
-  if (toCurrency === "EUR" && countryDetailsMap["europe"]) return countryDetailsMap["europe"];
+  // The shared "europe" block is for the Europe hub itself. A named euro
+  // country (Croatia, Portugal…) printed the same ~800 words of ECB, SEPA and
+  // Deutsche Bank/BNP detail as every other euro destination; it now falls
+  // through to the generated block for its own IBAN and banks.
+  if (toCurrency === "EUR" && slug === "europe" && countryDetailsMap["europe"]) return countryDetailsMap["europe"];
 
   // Generate fallback from IBAN + bank data
-  const countryCode = currencyToCountryCode[toCurrency];
+  // A euro country is resolved by name — currencyToCountryCode maps EUR to a
+  // single country, which would print that country's IBAN on every euro page.
+  const countryCode = toCurrency === "EUR"
+    ? EURO_COUNTRY_CODES[slug]
+    : currencyToCountryCode[toCurrency];
   if (!countryCode) return null;
 
   const ibanData = getIbanStructure(countryCode);

@@ -570,7 +570,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code to receive a transfer from outside Europe to Spain?",
-      a: "For SEPA transfers from EU and EEA countries, only the ES IBAN is required. For transfers from outside SEPA (such as from the US, Latin America, or Asia), the sender needs both your 24-character ES IBAN and your bank's SWIFT/BIC code. Santander's SWIFT code is BSCHESMM; BBVA's is BBVAESMM; CaixaBank's is CABORKMM.",
+      a: "For SEPA transfers from EU and EEA countries, only the ES IBAN is required. For transfers from outside SEPA (such as from the US, Latin America, or Asia), the sender needs both your 24-character ES IBAN and your bank's SWIFT/BIC code. Santander's SWIFT code is BSCHESMM; BBVA's is BBVAESMM.",
     },
     {
       q: "What are common mistakes when sharing a Spanish IBAN?",
@@ -694,7 +694,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do transfers from the UK to Ireland still use SEPA?",
-      a: "No. Since Brexit, the UK is no longer part of SEPA. Transfers from UK banks to Ireland are now routed via SWIFT rather than the cheaper SEPA scheme. This means potentially higher fees and longer processing times. The sender needs both your IE IBAN and your bank's SWIFT/BIC code. AIB's SWIFT code is AABORKMM; Bank of Ireland's is BOFIIE2D.",
+      a: "No. Since Brexit, the UK is no longer part of SEPA. Transfers from UK banks to Ireland are now routed via SWIFT rather than the cheaper SEPA scheme. This means potentially higher fees and longer processing times. The sender needs both your IE IBAN and your bank's SWIFT/BIC code. AIB's SWIFT code is AIBKIE2D; Bank of Ireland's is BOFIIE2D.",
     },
     {
       q: "What are common mistakes when sharing an Irish IBAN?",

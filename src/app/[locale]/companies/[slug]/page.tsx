@@ -29,7 +29,8 @@ import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { fitTitle } from "@/lib/seo-title";
-import { comparePageHref, alternativesPageRenders, companyPageRenders } from "@/lib/route-map";
+import { comparePageHref, alternativesPageRenders, companyPageRenders, corridorPageRenders } from "@/lib/route-map";
+import { getCorridor } from "@/data/corridors";
 import { PageByline } from "@/components/PageByline";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import { getCompanyEditorial } from "@/data/company-editorial";
@@ -96,6 +97,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// Candidate corridors for a profile's "ranks best" links — head routes across
+// the main sending countries, so a UK, Australian or Canadian provider gets
+// its own markets rather than US ones.
+const PROVIDER_CORRIDOR_POOL: readonly string[] = [
+  "usa-to-india", "usa-to-mexico", "usa-to-philippines", "usa-to-pakistan", "usa-to-nigeria",
+  "uk-to-india", "uk-to-pakistan", "uk-to-france", "uk-to-nigeria", "uk-to-philippines",
+  "canada-to-india", "canada-to-philippines", "australia-to-india", "australia-to-uk",
+  "uae-to-india", "uae-to-pakistan", "uae-to-philippines", "germany-to-turkey", "usa-to-europe",
+];
+
 const WIDGET_ROUTES: readonly (readonly [string, string])[] = [
   ["USD", "INR"], ["USD", "MXN"], ["USD", "PHP"], ["GBP", "INR"],
   ["USD", "PKR"], ["GBP", "EUR"], ["USD", "NGN"], ["EUR", "INR"],
@@ -123,19 +134,24 @@ export default async function CompanyPage({ params }: Props) {
     // were repeated text across nine profiles (2026-09-25).
     .slice(0, 2);
 
+  const providerCorridors = PROVIDER_CORRIDOR_POOL.flatMap((corridorSlug, order) => {
+    const c = getCorridor(corridorSlug);
+    if (!c || !corridorPageRenders(corridorSlug)) return [];
+    const rank = generateQuotes(c.sampleAmount, c.fromCurrency, c.toCurrency).findIndex((q) => q.providerSlug === slug);
+    if (rank < 0) return [];
+    return [{ rank, order, href: `/send-money/${corridorSlug}`, label: `${c.fromCountry} to ${c.toCountry}` }];
+  })
+    .sort((x, y) => x.rank - y.rank || x.order - y.order)
+    .slice(0, 5)
+    .map(({ href, label }) => ({ href, label }));
+
   const crossLinks = (
     <CrossLinks
       sections={[
-        {
-          title: "Popular corridors",
-          links: [
-            { href: "/send-money/usa-to-india", label: "USA to India" },
-            { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan" },
-            { href: "/send-money/usa-to-europe", label: "USA to Europe" },
-            { href: "/send-money/usa-to-philippines", label: "USA to Philippines" },
-            { href: "/send-money/usa-to-mexico", label: "USA to Mexico" },
-          ],
-        },
+        // This provider's own best routes, not the same five USA corridors on
+        // every profile (a UK bank's page linked "USA to Pakistan"). Ranked by
+        // where it places highest in our quotes; omitted below two.
+        ...(providerCorridors.length >= 2 ? [{ title: `Where ${provider.name} ranks best`, links: providerCorridors }] : []),
         {
           title: "Comparisons",
           links: [

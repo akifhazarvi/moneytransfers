@@ -25,6 +25,7 @@
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { xRobotsTagFor } from "../src/lib/seo-indexing";
 
 const ROOT = join(__dirname, "..");
 const APP = join(ROOT, ".next/server/app");
@@ -57,6 +58,8 @@ function walk(dir: string, out: string[] = []): string[] {
 interface Page {
   path: string;
   robots: string;
+  /** The `googlebot`-specific tag (2026-09-27: Bing-only pages carry `noindex`). */
+  googlebot: string;
   canonical: string;
 }
 
@@ -71,6 +74,7 @@ for (const f of walk(APP)) {
   pages.set(path, {
     path,
     robots: html.match(/<meta[^>]+name="robots"[^>]+content="([^"]+)"/)?.[1] ?? "",
+    googlebot: html.match(/<meta[^>]+name="googlebot"[^>]+content="([^"]+)"/)?.[1] ?? "",
     canonical: html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]+)"/)?.[1] ?? "",
   });
 }
@@ -125,6 +129,43 @@ for (const url of submitted) {
     if (page.canonical.replace(/\/$/, "") !== self) {
       errors.push(`submitted but canonicalises to ${page.canonical}: ${url}`);
     }
+  }
+}
+
+// ── sitemap-google.xml (2026-09-27, round-3 plan) ──
+// The Google sitemap must be a subset of sitemap.xml and may only list pages
+// Googlebot is allowed to index: no generic noindex AND no googlebot noindex.
+// sitemap.xml may carry Bing-only pages (googlebot noindex); this one may not.
+{
+  const gBody = join(APP, "sitemap-google.xml.body");
+  if (!existsSync(gBody)) {
+    errors.push("sitemap-google.xml was not rendered — src/app/sitemap-google.xml/route.ts");
+  } else {
+    const main = new Set(submitted);
+    const google = [...readFileSync(gBody, "utf8").matchAll(/<loc>(.*?)<\/loc>/g)]
+      .map((m) => (m[1].replace(SITE, "").replace(/\/$/, "") || "/"));
+    for (const url of google) {
+      if (!main.has(url)) errors.push(`in sitemap-google.xml but not sitemap.xml: ${url}`);
+      const page = pages.get(url);
+      if (page && (/noindex/i.test(page.robots) || /noindex/i.test(page.googlebot))) {
+        errors.push(`in sitemap-google.xml but noindex for Googlebot: ${url}`);
+      }
+    }
+    console.log(`check:indexing — sitemap-google.xml: ${google.length} URLs (Google), sitemap.xml: ${submitted.length} (Bing)`);
+  }
+}
+
+// ── X-Robots-Tag may never be stricter than the page's own meta ──
+// Google treats a header noindex as binding, so a header saying more than the
+// meta silently noindexes the page (three /swift-codes pages, 2026-09-24).
+// The header comes from xRobotsTagFor(); check it against what each page renders.
+for (const [path, page] of pages) {
+  const header = xRobotsTagFor(path);
+  if (header === "noindex, follow" && !/noindex/i.test(page.robots)) {
+    errors.push(`X-Robots-Tag noindex but page meta allows indexing: ${path}`);
+  }
+  if (header === "googlebot: noindex, follow" && !/noindex/i.test(page.googlebot) && !/noindex/i.test(page.robots)) {
+    errors.push(`X-Robots-Tag googlebot noindex but page has no googlebot noindex: ${path}`);
   }
 }
 

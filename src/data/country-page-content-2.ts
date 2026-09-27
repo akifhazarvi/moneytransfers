@@ -817,7 +817,7 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       {
         question: "What details do I need for a Malaysian bank transfer?",
         answer:
-          "You need the recipient's full name (matching their bank account), bank name (Maybank, CIMB, Public Bank, RHB, etc.), and account number (typically 10–16 digits depending on the bank). Malaysia does not use IBAN. The SWIFT/BIC code is also helpful (e.g., MABORAKL for Maybank, CIBBMYKL for CIMB).",
+          "You need the recipient's full name (matching their bank account), bank name (Maybank, CIMB, Public Bank, RHB, etc.), and account number (typically 10–16 digits depending on the bank). Malaysia does not use IBAN. The SWIFT/BIC code is also helpful (e.g., CIBBMYKL for CIMB).",
       },
       {
         question: "Can I send money to Touch 'n Go eWallet in Malaysia?",
@@ -1189,7 +1189,7 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       {
         question: "What details do I need for a Zambian bank transfer?",
         answer:
-          "You need the recipient's full name, bank name (Zanaco, Stanbic, FNB, Atlas Mara, etc.), branch name, and account number. Zambia does not use IBAN. The bank's SWIFT code is required for international transfers (e.g.,ABORZMLU for Absa Zambia, SBICZMLX for Stanbic Bank Zambia).",
+          "You need the recipient's full name, bank name (Zanaco, Stanbic, FNB, Atlas Mara, etc.), branch name, and account number. Zambia does not use IBAN. The bank's SWIFT code is required for international transfers (e.g., SBICZMLX for Stanbic Bank Zambia).",
       },
       {
         question: "Can I pick up cash in Zambia?",

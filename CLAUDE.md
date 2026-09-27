@@ -157,6 +157,20 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   both `Footer.tsx` and `routeIsIndexable()`) were reopened as Bing earners
   after their templates were de-duplicated. They stay out of the sitemap —
   IBAN/SWIFT are the documented broader-than-sitemap families.
+- **Indexing is decided per search engine (2026-09-27, round-3 brief).**
+  Google indexes 1 of ~8,700 known URLs; Bing earns. `routeIsIndexable()` is
+  the Google gate. `googleIndexable()` = the gate minus `GOOGLE_HIDDEN_*`
+  (`/companies/*`, `/compare/*`, `/banks/*` children + no-demand duplicates);
+  `bingIndexable()` = the gate plus `BING_DEMAND_ROUTES` (evidenced Bing
+  earners the Sep 20 gate had noindexed — Bing clicks fell 33% the week
+  after). Lists in `src/data/search-engine-routes.ts`. A Bing-only page serves
+  `robots: index` + `googlebot: noindex` in meta AND `X-Robots-Tag: googlebot:
+  noindex` (both from `robotsFor()`/`xRobotsTagFor()`). sitemap.xml is the
+  Bing sitemap; `sitemap-google.xml` is the `googleIndexable()` subset and the
+  one submitted in GSC. `check:indexing` enforces both and that the header is
+  never stricter than the meta. Before adding a Bing earner, measure it: many
+  corridor/compare allowlist pages are currency twins that raise other pages'
+  duplicate share.
 - **Sitemap membership is gated on demand data, not judgement** — Bing
   Webmaster Tools (≥5 impressions/90d) post-deindex, since the site wins on
   Bing/AI assistants and Google is the failing channel. Allowlists live in

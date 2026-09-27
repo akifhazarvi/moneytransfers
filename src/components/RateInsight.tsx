@@ -221,10 +221,19 @@ export function RateHistorySection({
   insight,
   toCurrency,
   fromCurrency,
+  maxDays,
 }: {
   insight: RateInsight;
   toCurrency: string;
   fromCurrency: string;
+  /**
+   * Most recent days to print. Corridor pages pass 14: every corridor on the
+   * same currency pair printed the identical full table (136 rows), as did
+   * the pair's own /exchange-rates/history page, so two such pages were ~85%
+   * the same text (history/eur-to-gbp vs send-money/france-to-uk, 2026-09-27).
+   * The full table stays on the history page.
+   */
+  maxDays?: number;
 }) {
   // Get top 5 providers by frequency in sparkline data
   const providersByDataPoints = Object.entries(insight.sparklines)
@@ -241,7 +250,7 @@ export function RateHistorySection({
       <p className="mb-4 text-2sm text-[var(--color-on-surface-variant)]">
         {/* Kept short: this caption sits under the same heading on every
             corridor and rate-history page. */}
-        Per 100 {fromCurrency} sent, {insight.totalDays} days.
+        Per 100 {fromCurrency} sent, {maxDays && maxDays < insight.totalDays ? `last ${maxDays} of ${insight.totalDays} days` : `${insight.totalDays} days`}.
       </p>
 
       <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)]">
@@ -274,7 +283,7 @@ export function RateHistorySection({
               ))}
             </tr>
             {/* Data rows — most recent first */}
-            {[...Array.from({ length: insight.totalDays }, (_, i) => insight.totalDays - 1 - i)]
+            {[...Array.from({ length: Math.min(insight.totalDays, maxDays ?? insight.totalDays) }, (_, i) => insight.totalDays - 1 - i)]
               .map((dayIdx) => {
                 const sparkData = providersByDataPoints[0]?.[1];
                 if (!sparkData || dayIdx >= sparkData.length) return null;

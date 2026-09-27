@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { robotsFor, routeIsIndexable } from "@/lib/seo-indexing";
+import { robotsFor, bingIndexable } from "@/lib/seo-indexing";
 import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
 import { quoteFreshness } from "@/lib/quote-freshness";
 import Image from "next/image";
@@ -1008,7 +1008,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     shouldNoindex(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) &&
     // 2026-09-24: a corridor the round-2 freelance brief opened falls through
     // to the full metadata, whose robotsFor() admits it.
-    !(locale === "en" && routeIsIndexable(`/send-money/${slug}`))
+    !(locale === "en" && bingIndexable(`/send-money/${slug}`))
   ) {
     return {
       alternates: getAlternates(`send-money/${slug}`, locale),
@@ -2692,7 +2692,7 @@ export default async function CorridorPage({ params }: Props) {
                 Popular banks in {corridor.toCountry}
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                {countryDetails.popularBanks.length} banks commonly receive international transfers in {corridor.toCountry}, including {countryDetails.popularBanks[0].name}{countryDetails.popularBanks[1] ? ` and ${countryDetails.popularBanks[1].name}` : ""} — each has its own SWIFT/BIC code below for the receiving side of the transfer.
+                {countryDetails.popularBanks.length} banks commonly receive international transfers in {corridor.toCountry}, including {countryDetails.popularBanks[0].name}{countryDetails.popularBanks[1] ? ` and ${countryDetails.popularBanks[1].name}` : ""}{countryDetails.popularBanks.every((b) => b.swiftCode) ? " — each bank's SWIFT/BIC code is below." : ". SWIFT/BIC codes are shown where we could verify them; confirm the rest with the receiving bank."}
               </p>
               <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
                 {/* Table header */}
@@ -2735,6 +2735,10 @@ export default async function CorridorPage({ params }: Props) {
               insight={rateInsight}
               fromCurrency={fromCurrency}
               toCurrency={toCurrency}
+              // Truncated only where the pair has its own history page (linked
+              // below): there the full table is the same text twice. Elsewhere
+              // the table is the only copy on the site and stays whole.
+              maxDays={rateHistoryHref(`${fromCurrency.toLowerCase()}-to-${toCurrency.toLowerCase()}`) ? 14 : undefined}
             />
             {/* /exchange-rates/history/[pair] sets dynamicParams=false and keeps a
                 small allowlist, so this link only exists for pairs that render —

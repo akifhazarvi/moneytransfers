@@ -16,7 +16,9 @@ import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
-import { routeIsIndexable, newsIsIndexable } from "@/lib/seo-indexing";
+import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
+import { BING_DEMAND_ROUTES } from "@/data/search-engine-routes";
+import { corridorPageRenders } from "@/lib/route-map";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 import {
   SITEMAP_IBAN_SLUGS,
@@ -50,6 +52,7 @@ const STATIC_CONTENT_DATE = "2026-03-01";
 // family, bumped when that family's content actually changes.
 const BUSINESS_CONTENT_DATE = "2026-09-07"; // measured cost figures + live tokens
 const REVIEWED_ROUTES_DATE = "2026-09-24"; // round-2 freelance brief opened these
+const BING_DEMAND_DATE = "2026-09-27";     // Bing earners reopened (round-3 plan)
 const GUIDES_HUB_DATE = "2026-09-07";       // hub listing now driven by guideIsIndexable()
 
 // Derived from the most recently modified scraped quotes file (shared with
@@ -317,6 +320,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(path.replace(/^\//, ""), REVIEWED_ROUTES_DATE),
   );
 
+  // ── Bing earners reopened 2026-09-27 (round-3 plan) ──
+  // Served `googlebot: noindex`, so they belong in this sitemap — the one Bing
+  // reads — and never in sitemap-google.xml, which filters by googleIndexable().
+  // A Bing-demand corridor whose tier drops on a fresh scrape stops rendering
+  // (dynamicParams = false). Drop it from the sitemap rather than submit a 404
+  // — failing check:indexing there would block every scraper deploy and freeze
+  // prices, which is what the Sep 27 Bolivia flap did.
+  const bingDemandPages: MetadataRoute.Sitemap = [...BING_DEMAND_ROUTES]
+    .filter((path) => !path.startsWith("/send-money/") || corridorPageRenders(path.slice("/send-money/".length)))
+    .map((path) => entry(path.replace(/^\//, ""), BING_DEMAND_DATE));
+
+  // 2026-09-27: this is the Bing sitemap (the one robots.txt has always named).
+  // Google gets sitemap-google.xml, the googleIndexable() subset of this list.
   const seen = new Set<string>();
   return [
     ...staticPages,
@@ -333,7 +349,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...businessHubPages,
     ...bankPages,
     ...reviewedPages,
+    ...bingDemandPages,
   ]
-    .filter((e) => routeIsIndexable(new URL(e.url).pathname))
+    .filter((e) => bingIndexable(new URL(e.url).pathname))
     .filter((e) => !seen.has(e.url) && !!seen.add(e.url));
 }

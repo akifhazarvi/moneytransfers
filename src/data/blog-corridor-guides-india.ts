@@ -304,13 +304,13 @@ export const corridorGuidesIndia: BlogPost[] = [
 <thead><tr><th>Bank</th><th>IFSC Prefix</th><th>SWIFT Code</th></tr></thead>
 <tbody>
 <tr><td>State Bank of India (SBI)</td><td>SBIN0</td><td>SBININBBXXX</td></tr>
-<tr><td>HDFC Bank</td><td>HDFC0</td><td>HABORINBXXX</td></tr>
-<tr><td>ICICI Bank</td><td>ICIC0</td><td>ABORINBBXXX</td></tr>
+<tr><td>HDFC Bank</td><td>HDFC0</td><td>—</td></tr>
+<tr><td>ICICI Bank</td><td>ICIC0</td><td>—</td></tr>
 <tr><td>Axis Bank</td><td>UTIB0</td><td>AXISINBBXXX</td></tr>
 <tr><td>Punjab National Bank (PNB)</td><td>PUNB0</td><td>PUNBINBBXXX</td></tr>
-<tr><td>Kotak Mahindra Bank</td><td>KKBK0</td><td>ABORINBKXXX</td></tr>
+<tr><td>Kotak Mahindra Bank</td><td>KKBK0</td><td>—</td></tr>
 <tr><td>Bank of Baroda</td><td>BARB0</td><td>BARBINBBXXX</td></tr>
-<tr><td>Canara Bank</td><td>CNRB0</td><td>ABORINBBXXX</td></tr>
+<tr><td>Canara Bank</td><td>CNRB0</td><td>—</td></tr>
 </tbody>
 </table>
 </div>`,
@@ -665,7 +665,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <thead><tr><th>Feature</th><th>IFSC Code</th><th>SWIFT/BIC Code</th></tr></thead>
 <tbody>
 <tr><td><strong>Used for</strong></td><td>Domestic Indian transfers (IMPS, NEFT, RTGS)</td><td>International wire transfers (bank-to-bank)</td></tr>
-<tr><td><strong>Format</strong></td><td>11 characters (e.g., HDFC0001234)</td><td>8 or 11 characters (e.g., HABORINBXXX)</td></tr>
+<tr><td><strong>Format</strong></td><td>11 characters (e.g., HDFC0001234)</td><td>8 or 11 characters</td></tr>
 <tr><td><strong>Required by</strong></td><td>Wise, Remitly, WorldRemit, Instarem, Xoom</td><td>US banks (Wells Fargo, BofA, Chase)</td></tr>
 <tr><td><strong>Identifies</strong></td><td>Specific bank branch in India</td><td>The bank globally (not always branch-specific)</td></tr>
 <tr><td><strong>Delivery speed</strong></td><td>Minutes (IMPS) to hours (NEFT)</td><td>3–5 business days</td></tr>
@@ -690,13 +690,13 @@ export const corridorGuidesIndia: BlogPost[] = [
 <thead><tr><th>Bank</th><th>IFSC Prefix</th><th>SWIFT Code</th><th>Branches</th></tr></thead>
 <tbody>
 <tr><td><strong>State Bank of India (SBI)</strong></td><td>SBIN0</td><td>SBININBBXXX</td><td>22,000+</td></tr>
-<tr><td><strong>HDFC Bank</strong></td><td>HDFC0</td><td>HABORINBXXX</td><td>7,800+</td></tr>
-<tr><td><strong>ICICI Bank</strong></td><td>ICIC0</td><td>ABORINBBXXX</td><td>5,900+</td></tr>
+<tr><td><strong>HDFC Bank</strong></td><td>HDFC0</td><td>—</td><td>7,800+</td></tr>
+<tr><td><strong>ICICI Bank</strong></td><td>ICIC0</td><td>—</td><td>5,900+</td></tr>
 <tr><td><strong>Axis Bank</strong></td><td>UTIB0</td><td>AXISINBBXXX</td><td>5,000+</td></tr>
 <tr><td><strong>Punjab National Bank</strong></td><td>PUNB0</td><td>PUNBINBBXXX</td><td>10,000+</td></tr>
-<tr><td><strong>Kotak Mahindra Bank</strong></td><td>KKBK0</td><td>ABORINBKXXX</td><td>1,800+</td></tr>
+<tr><td><strong>Kotak Mahindra Bank</strong></td><td>KKBK0</td><td>—</td><td>1,800+</td></tr>
 <tr><td><strong>Bank of Baroda</strong></td><td>BARB0</td><td>BARBINBBXXX</td><td>8,200+</td></tr>
-<tr><td><strong>Canara Bank</strong></td><td>CNRB0</td><td>ABORINBBXXX</td><td>9,500+</td></tr>
+<tr><td><strong>Canara Bank</strong></td><td>CNRB0</td><td>—</td><td>9,500+</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">IFSC prefix = first 5 characters. The remaining 6 identify the specific branch.</p>

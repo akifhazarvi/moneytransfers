@@ -390,7 +390,7 @@ export default async function SwiftCountryPage({ params }: Props) {
     if (sample) {
       dataFaqs.push({
         q: `What does a ${country.name} SWIFT code look like?`,
-        a: `${sample.bic11} (${sample.bankName}): bank ${sample.bankCode}, country ${sample.countryCode}, location ${sample.locationCode}, branch ${sample.branchCode || "XXX"}. ${sample.branchCode && sample.branchCode !== "XXX" ? "" : "XXX marks a head office; the eight-character form drops it."}`.trim(),
+        a: `${sample.bic11} (${sample.bankName}): bank ${sample.bankCode}, country ${sample.countryCode}, location ${sample.locationCode}, branch ${sample.branchCode || "XXX"}.`,
       });
     }
     const topBank = sortedBankEntries.reduce<(typeof sortedBankEntries)[number] | null>(
@@ -416,7 +416,24 @@ export default async function SwiftCountryPage({ params }: Props) {
       });
     }
   }
-  const faqItems = swiftFaqsList ?? dataFaqs;
+  // Curated lists open with "What is a SWIFT code for X?" — one skeleton on
+  // every curated country ("an 8 or 11-character identifier used by … banks for
+  // international wire transfers. The country code portion is …"), and several
+  // quoted example codes that were not real BICs (Maybank's, for one). The data answer built from our own directory replaces it.
+  //
+  // Also dropped: the generic "How do I find the SWIFT code for my … bank?"
+  // (statement, online banking, branch) and "Can I receive foreign currency
+  // directly…?" answers, the same on every curated country, and the "Always
+  // confirm the exact code…" tail repeated under 27 bank lists.
+  const GENERIC_SWIFT_FAQ = /^(What is a SWIFT code for|How do I find the SWIFT code for my|Can I receive (foreign currency|non-[A-Z]+ currencies) directly)\b/i;
+  const faqItems = swiftFaqsList
+    ? [
+        ...dataFaqs.slice(0, 1),
+        ...swiftFaqsList
+          .filter((f) => !GENERIC_SWIFT_FAQ.test(f.q))
+          .map((f) => ({ q: f.q, a: f.a.replace(/\s*Always (?:confirm|verify) the exact code[^.]*\./, "").trim() })),
+      ]
+    : dataFaqs;
 
   return (
     <>
@@ -562,32 +579,19 @@ export default async function SwiftCountryPage({ params }: Props) {
           {/* FAQ */}
           <Card>
             <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
-              {t("faq")}
+              {`${country.name} SWIFT code questions`}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
-              {swiftFaqsList ? (
-                swiftFaqsList.map((faq, i) => (
-                  <div key={i} className="py-4">
-                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
-                      {faq.q}
-                    </h3>
-                    <p className="text-sm text-[var(--color-on-surface-variant)]">
-                      {faq.a}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                dataFaqs.map((faq) => (
-                  <div key={faq.q} className="py-4">
-                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
-                      {faq.q}
-                    </h3>
-                    <p className="text-sm text-[var(--color-on-surface-variant)]">
-                      {faq.a}
-                    </p>
-                  </div>
-                ))
-              )}
+              {faqItems.map((faq) => (
+                <div key={faq.q} className="py-4">
+                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
+                    {faq.q}
+                  </h3>
+                  <p className="text-sm text-[var(--color-on-surface-variant)]">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
             </div>
           </Card>
 

@@ -6089,7 +6089,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">USD → CAD business transfers on 5,000 USD</h3>
 <p>USD → CAD on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:CAD:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">USA → Canada: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live USD to CAD rates →</a></p>
 </div>
 
@@ -6140,12 +6140,11 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>FINTRAC reporting</strong> — Canadian financial institutions report cross-border EFTs of C$10,000 or more to <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a></li>
 <li><strong>GST/HST</strong> — If your business is registered for Canadian GST/HST, cross-border service payments may have GST implications depending on the place of supply rules</li>
 <li><strong>Withholding tax</strong> — Canada generally does not withhold on most business service payments to US companies under the US-Canada Tax Treaty, but payments for royalties, management fees, or certain services may trigger 15–25% withholding unless treaty relief applies</li>
-</ul>
-<p>For more on compliance, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+</ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">USA to Canada comparison tool</a> for the latest rates.</p>
+        content: `<p>USA to Canada figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money">USA to Canada comparison</a> on the day you pay.</p>
 <p>External sources include the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer">Office of the US Trade Representative</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a>, and provider-published business fee schedules.</p>`,
       },
     ],
@@ -6212,7 +6211,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">USD → GBP business transfers on 5,000 USD</h3>
 <p>USD → GBP on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:GBP:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">USA → UK: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-uk">Compare live USD to GBP rates →</a></p>
 </div>
 
@@ -6260,12 +6259,11 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>FCA regulation</strong> — All payment providers operating in the UK must be authorized by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority</a></li>
 <li><strong>VAT on services</strong> — If you're a US business paying a UK supplier for services, the UK supplier typically charges VAT at 20%. Under the reverse charge mechanism for B2B services, the UK supplier may not charge VAT if the service is "used and enjoyed" outside the UK.</li>
 <li><strong>Withholding tax</strong> — The US-UK tax treaty generally eliminates withholding on business service payments. Royalty payments may be subject to 0% withholding under the treaty (vs. the standard 20% UK rate).</li>
-</ul>
-<p>For more on compliance, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+</ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/usa-to-uk">USA to UK comparison tool</a> for the latest rates.</p>
+        content: `<p>USA to UK figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-uk">USA to UK comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -6327,7 +6325,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">USD → INR business transfers on 5,000 USD</h3>
 <p>USD → INR on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:INR:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">USA → India: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
 </div>
 
@@ -6391,7 +6389,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/usa-to-india">USA to India comparison tool</a> for the latest rates.</p>
+        content: `<p>USA to India figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-india">USA to India comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -6458,7 +6456,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">USD → MXN business transfers on 5,000 USD</h3>
 <p>USD → MXN on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:MXN:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">USA → Mexico: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates →</a></p>
 </div>
 
@@ -6508,12 +6506,11 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>IVA (VAT)</strong> — Mexico charges 16% IVA on most services. Cross-border B2B service payments may be subject to IVA retention rules.</li>
 <li><strong>Withholding tax</strong> — Under the US-Mexico tax treaty, service payments to US companies are generally exempt from Mexican withholding tax. Royalties may be subject to 10% withholding.</li>
 <li><strong>CLABE requirement</strong> — All domestic Mexican bank transfers require the 18-digit CLABE number. This is the equivalent of a routing + account number.</li>
-</ul>
-<p>For more on compliance, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+</ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/usa-to-mexico">USA to Mexico comparison tool</a> for the latest rates.</p>
+        content: `<p>USA to Mexico figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-mexico">USA to Mexico comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -6575,7 +6572,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">USD → EUR business transfers on 5,000 USD</h3>
 <p>USD → EUR on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:EUR:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">USA → Europe: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live USD to EUR rates →</a></p>
 </div>
 
@@ -6624,12 +6621,11 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>GDPR</strong> — If your payments involve personal data of EU residents, ensure GDPR compliance in your data handling</li>
 <li><strong>EU Anti-Money Laundering Directives</strong> — EU payment providers must comply with the latest AML directive. This may require enhanced due diligence for large or unusual transactions.</li>
 <li><strong>Withholding tax</strong> — Most EU countries have tax treaties with the US that reduce or eliminate withholding on business service payments. Royalties and dividends may still be subject to withholding at treaty-reduced rates.</li>
-</ul>
-<p>For more on compliance, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+</ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/usa-to-europe">USA to Europe comparison tool</a> for the latest rates.</p>
+        content: `<p>USA to Europe figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-europe">USA to Europe comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -6691,7 +6687,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">Quick Comparison: GBP → EUR Business Transfers (£10,000)</h3>
 <p>GBP → EUR on a 5,000 GBP supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:GBP:EUR:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">UK → Europe: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live GBP to EUR rates →</a></p>
 </div>
 
@@ -6739,12 +6735,11 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>EU VAT</strong> — The reverse charge mechanism still applies for most B2B services between UK and EU businesses, meaning no VAT is charged on the invoice</li>
 <li><strong>EORI numbers</strong> — Required for goods trade between the UK and EU post-Brexit</li>
 <li><strong>Withholding tax</strong> — UK-EU tax treaties generally eliminate withholding on business service payments</li>
-</ul>
-<p>For more on compliance, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+</ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/usa-to-europe">UK to Europe comparison tool</a> for the latest rates.</p>
+        content: `<p>UK to Europe figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-europe">UK to Europe comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -6806,7 +6801,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">Quick Comparison: GBP → INR Business Transfers (£10,000)</h3>
 <p>GBP → INR on a 5,000 GBP supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:GBP:INR:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">UK → India: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/uk-to-india">Compare live GBP to INR rates →</a></p>
 </div>
 
@@ -6860,7 +6855,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/uk-to-india">UK to India comparison tool</a> for the latest rates.</p>
+        content: `<p>UK to India figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/uk-to-india">UK to India comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -6922,7 +6917,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">USD → PHP business transfers on 5,000 USD</h3>
 <p>USD → PHP on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:PHP:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">USA → Philippines: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates →</a></p>
 </div>
 
@@ -6977,7 +6972,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/usa-to-philippines">USA to Philippines comparison tool</a> for the latest rates.</p>
+        content: `<p>USA to Philippines figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-philippines">USA to Philippines comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -7039,7 +7034,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">USD → AUD business transfers on 5,000 USD</h3>
 <p>USD → AUD on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:AUD:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">USA → Australia: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live USD to AUD rates →</a></p>
 </div>
 
@@ -7086,12 +7081,11 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>GST on imported services</strong> — Australian businesses may need to account for GST (10%) on imported services via the reverse charge mechanism</li>
 <li><strong>Withholding tax</strong> — The US-Australia tax treaty generally eliminates withholding on business service payments. Royalty payments may be subject to reduced 5% withholding.</li>
 <li><strong>ABN requirement</strong> — If you transact regularly with Australian businesses, understanding the Australian Business Number (ABN) system is helpful for proper invoicing</li>
-</ul>
-<p>For more on compliance, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+</ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">USA to Australia comparison tool</a> for the latest rates.</p>
+        content: `<p>USA to Australia figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money">USA to Australia comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -7153,7 +7147,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">USD → CNY business transfers on 5,000 USD</h3>
 <p>USD → CNY on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:CNY:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">USA → China: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live rates →</a></p>
 </div>
 
@@ -7222,7 +7216,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">USA to China comparison tool</a> for the latest rates.</p>
+        content: `<p>USA to China figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money">USA to China comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -7289,7 +7283,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">Quick Comparison: CAD → USD Business Transfers (C$10,000)</h3>
 <p>CAD → USD on a 5,000 CAD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:CAD:USD:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">Canada → USA: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live CAD to USD rates →</a></p>
 </div>
 
@@ -7342,7 +7336,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">Canada to USA comparison tool</a> for the latest rates.</p>
+        content: `<p>Canada to USA figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money">Canada to USA comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -7404,7 +7398,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3 style="margin-top: 0;">Quick Comparison: AUD → INR Business Transfers (A$10,000)</h3>
 <p>AUD → INR on a 5,000 AUD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:AUD:INR:5000}}
-<p class="blog-footnote">Consumer-facing quotes: a business account can price differently, so confirm yours (<a href="/business/compare">business comparison</a>).</p>
+<p class="blog-footnote">Australia → India: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/australia-to-india">Compare live AUD to INR rates →</a></p>
 </div>
 
@@ -7457,7 +7451,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/australia-to-india">Australia to India comparison tool</a> for the latest rates.</p>
+        content: `<p>Australia to India figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/australia-to-india">Australia to India comparison</a> on the day you pay.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -12756,7 +12750,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/send-money-to-colombia">Colombia comparison tool</a> for the latest rates.</p>
+        content: `<p>Colombia figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/send-money-to-colombia">Colombia comparison</a> on the day you pay.</p>
 <p>External sources include <a href="https://www.banrep.gov.co/" target="_blank" rel="noopener noreferrer">Banco de la República</a> remittance statistics, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a> bilateral remittance data, and regulatory filings with the <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> and <a href="https://www.superfinanciera.gov.co/" target="_blank" rel="noopener noreferrer">SFC</a>.</p>`,
       },
     ],
@@ -12913,7 +12907,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/send-money-to-poland">Poland comparison tool</a> for the latest rates.</p>
+        content: `<p>Poland figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/send-money-to-poland">Poland comparison</a> on the day you pay.</p>
 <p>External sources include <a href="https://www.nbp.pl/" target="_blank" rel="noopener noreferrer">National Bank of Poland (NBP)</a> statistics, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a> bilateral remittance data, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
@@ -14836,7 +14830,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Recipient's full name</strong> and <strong>valid Ethiopian ID</strong></li>
 <li>Pickup at Commercial Bank of Ethiopia, Dashen Bank, Awash Bank, or agent locations</li>
 </ul>
-<p>Major banks: Commercial Bank of Ethiopia (CBETETAA), Dashen Bank (ABORETET), Awash Bank (AABORETX), Bank of Abyssinia (BUSEETAA).</p>`,
+<p>Major banks: Commercial Bank of Ethiopia (CBETETAA), Dashen Bank, Awash Bank, Bank of Abyssinia (BUSEETAA).</p>`,
       },
       {
         heading: "ETB Exchange Rate: What You Need to Know",

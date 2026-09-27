@@ -26,11 +26,20 @@ import { quoteDataDate } from "@/lib/unified-quotes";
 // outbound remittance market and the site's default quote currency; the widget
 // is skipped entirely when it would produce a same-currency corridor.
 const SEND_FROM_CURRENCY = "USD";
+/**
+ * Euro countries whose largest sending market is the UK quote GBP→EUR instead:
+ * every euro IBAN page quoting USD→EUR printed the same provider rows, the bulk
+ * of what France, Ireland, Portugal and Spain shared (round-3 duplicate crawl).
+ */
+const GBP_SENDER_SLUGS = new Set(["ireland", "spain", "portugal", "france", "cyprus", "malta"]);
+function sendFromFor(slug: string): string {
+  return GBP_SENDER_SLUGS.has(slug) ? "GBP" : SEND_FROM_CURRENCY;
+}
 /** Distinct table amount per page on a shared currency — see table-amounts.ts. */
 const IBAN_TABLE_AMOUNTS = assignTableAmounts(
   wiseCountries.filter((c) => c.slug),
   (c) => c.slug!,
-  (c) => `${SEND_FROM_CURRENCY}-${c.currency}`,
+  (c) => `${sendFromFor(c.slug!)}-${c.currency}`,
   "iban",
 );
 
@@ -38,7 +47,15 @@ interface Props {
   params: Promise<{ slug: string; locale: string }>;
 }
 
+// ISO long forms that read badly in titles and headings, and repeated an
+// eight-word run across every page whose related-countries rail listed the UK.
+const SHORT_COUNTRY_NAMES: Record<string, string> = {
+  GB: "United Kingdom",
+  MK: "North Macedonia",
+};
+
 function getCountryName(code: string, slug: string): string {
+  if (SHORT_COUNTRY_NAMES[code]) return SHORT_COUNTRY_NAMES[code];
   const country = getCountryByAlpha2(code);
   if (country) {
     return country.country
@@ -523,8 +540,8 @@ export default async function IbanCountryPage({ params }: Props) {
               {/* Field-by-field wording ("encodes a 4-character bank code,
                   followed by…") moved to the structure card, where each field
                   now shows the example's own segment. */}
-              It opens <strong className="font-medium text-[var(--color-on-surface)]">{country.countryCode}</strong>{" "}
-              plus two check digits; the other {country.ibanLength - 4} are the {name} BBAN (Basic Bank Account Number).
+              <strong className="font-medium text-[var(--color-on-surface)]">{country.countryCode}</strong> and two
+              check digits open every {name} IBAN; its remaining {country.ibanLength - 4} form the BBAN (Basic Bank Account Number).
               {!country.sepa && ` Transfers into ${name} arrive in ${country.currency} over SWIFT.`}
             </p>
           </Card>
@@ -564,9 +581,9 @@ export default async function IbanCountryPage({ params }: Props) {
               ~1,170 sessions per 90 days and converted under 1%. Someone
               looking up an IBAN is mid-transfer; the comparison belongs here,
               right after the reference facts they came for, not in the footer. */}
-          {country.currency !== SEND_FROM_CURRENCY && (
+          {country.currency !== sendFromFor(slug) && (
             <InlineProviderQuotes
-              from={SEND_FROM_CURRENCY}
+              from={sendFromFor(slug)}
               to={country.currency}
               amount={IBAN_TABLE_AMOUNTS.get(slug) ?? 1050}
               source={`iban:${slug}`}
@@ -574,10 +591,11 @@ export default async function IbanCountryPage({ params }: Props) {
             />
           )}
 
-          {/* Example IBAN */}
+          {/* Example IBAN. Heading names the country: a bare "Example IBAN"
+              was the same H2 on all 69 pages (round-3 freelance plan). */}
           <Card>
             <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
-              Example IBAN
+              Example {name} IBAN
             </h2>
             <div className="bg-[var(--color-surface-dim)] rounded-lg p-4 mb-4">
               <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1.5">
@@ -666,7 +684,7 @@ export default async function IbanCountryPage({ params }: Props) {
           {/* FAQ Schema content */}
           <Card>
             <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
-              Frequently asked questions
+              {name} IBAN questions
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {countryFaqsList ? (
