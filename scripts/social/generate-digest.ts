@@ -11,7 +11,8 @@ export interface Digest {
   x: string;
   url: string;
   topQuotes: Quote[];
-  worstQuote: Quote;
+  /** Null when no quote is corroborated enough to name, or the spread is < 1%. */
+  worstQuote: Quote | null;
   latestCollected: Date | null;
   isStale: boolean;
 }
@@ -31,10 +32,19 @@ export function generateDigest(date: Date = new Date()): Digest | null {
     : true;
 
   const topQuotes = quotes.slice(0, 3);
-  const worstQuote = quotes[quotes.length - 1];
+  // Naming a company as "worst" in public needs better evidence than ranking
+  // it: a single Monito row for PNB Europe (GBP->PHP at ~2021's rate, a 21.6%
+  // all-in cost) or a gap-fill Exiap row would otherwise headline the post. The
+  // callout goes to the worst CORROBORATED quote, and is dropped entirely when
+  // it trails the best by under 1% — a near-tie is not a villain.
+  const candidate = [...quotes].reverse().find((q) => q.corroborated && !topQuotes.includes(q)) ?? null;
+  const worstQuote =
+    candidate && (topQuotes[0].receiveAmount - candidate.receiveAmount) / topQuotes[0].receiveAmount >= 0.01
+      ? candidate
+      : null;
 
   const sendLabel = fmtSend(corridor.from, corridor.amount);
-  const gap = topQuotes[0].receiveAmount - worstQuote.receiveAmount;
+  const gap = worstQuote ? topQuotes[0].receiveAmount - worstQuote.receiveAmount : 0;
   const gapInSendCurrency = gap / topQuotes[0].exchangeRate;
   const gapStr = fmtAmount(corridor.from, gapInSendCurrency);
 
@@ -45,9 +55,9 @@ export function generateDigest(date: Date = new Date()): Digest | null {
     `${corridor.fromFlag}${corridor.toFlag} ${corridor.fromName} → ${corridor.toName}, ${sendLabel} today:`,
     "",
     ...topQuotes.map((q, i) => `${i + 1}. ${q.provider} → ${fmtAmount(corridor.to, q.receiveAmount)}`),
-    `❌ ${worstQuote.provider} → ${fmtAmount(corridor.to, worstQuote.receiveAmount)}`,
-    "",
-    `${gapStr} gap. FX markup is where margin hides.`,
+    ...(worstQuote
+      ? [`❌ ${worstQuote.provider} → ${fmtAmount(corridor.to, worstQuote.receiveAmount)}`, "", `${gapStr} gap. FX markup is where margin hides.`]
+      : ["", "FX markup is where margin hides."]),
     "",
     url,
   ];
@@ -56,8 +66,7 @@ export function generateDigest(date: Date = new Date()): Digest | null {
     const shorter = [
       `${corridor.fromFlag}${corridor.toFlag} ${corridor.fromName} → ${corridor.toName}, ${sendLabel}:`,
       ...topQuotes.slice(0, 2).map((q, i) => `${i + 1}. ${q.provider} → ${fmtAmount(corridor.to, q.receiveAmount)}`),
-      `❌ ${worstQuote.provider} → ${fmtAmount(corridor.to, worstQuote.receiveAmount)}`,
-      `${gapStr} gap.`,
+      ...(worstQuote ? [`❌ ${worstQuote.provider} → ${fmtAmount(corridor.to, worstQuote.receiveAmount)}`, `${gapStr} gap.`] : []),
       url,
     ];
     xPost = shorter.join("\n");
@@ -73,10 +82,14 @@ export function generateDigest(date: Date = new Date()): Digest | null {
     `🥇 ${topQuotes[0].provider} → ${fmtAmount(corridor.to, topQuotes[0].receiveAmount)}`,
     `🥈 ${topQuotes[1].provider} → ${fmtAmount(corridor.to, topQuotes[1].receiveAmount)}`,
     `🥉 ${topQuotes[2].provider} → ${fmtAmount(corridor.to, topQuotes[2].receiveAmount)}`,
-    `❌ ${worstQuote.provider} → ${fmtAmount(corridor.to, worstQuote.receiveAmount)} (worst rate today)`,
-    "",
-    `Gap between best and worst: ${gapStr} on the same ${sendLabel} transfer. Same recipient, same day.`,
-    "",
+    ...(worstQuote
+      ? [
+          `❌ ${worstQuote.provider} → ${fmtAmount(corridor.to, worstQuote.receiveAmount)} (worst rate today)`,
+          "",
+          `Gap between best and worst: ${gapStr} on the same ${sendLabel} transfer. Same recipient, same day.`,
+          "",
+        ]
+      : [""]),
     `Exchange rate markup is where providers hide their margin — not the upfront fee. Most people never check the spread before pressing send.`,
     "",
     `Full live comparison: ${url}`,

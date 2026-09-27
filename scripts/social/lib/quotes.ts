@@ -1,5 +1,6 @@
 import { generateQuotes } from "../../../src/lib/quotes-engine";
 import { getProviderName } from "../../../src/data/providers";
+import { quotesByCorridor } from "../../../src/lib/unified-quotes";
 
 export interface Quote {
   provider: string;
@@ -12,6 +13,10 @@ export interface Quote {
   receiveAmount: number;
   dateCollected?: string;
   source: string;
+  /** Backed by a first-party scrape or Wise's comparison API (tiers 1-2), or by
+   *  two independent sources. Only a corroborated quote may be named as the
+   *  "worst" in a public post — see generate-digest.ts. */
+  corroborated: boolean;
 }
 
 // Returns the corridor's quotes at `sendAmount`, sorted best → worst — the SAME
@@ -30,6 +35,13 @@ export function getAllQuotes(
   sendAmount: number
 ): { quotes: Quote[]; latestCollected: Date | null } {
   const rows = generateQuotes(sendAmount, sendCurrency, receiveCurrency).filter((q) => !q.isIndicative);
+  const sourcesBySlug = new Map<string, { best: number; sources: Set<string> }>();
+  for (const q of quotesByCorridor[`${sendCurrency}_${receiveCurrency}`] ?? []) {
+    const e = sourcesBySlug.get(q.providerSlug) ?? { best: Infinity, sources: new Set<string>() };
+    e.best = Math.min(e.best, q.sourcePriority);
+    e.sources.add(q.source.split("-")[0]); // exiap-www.x / exiap-www.y are one source
+    sourcesBySlug.set(q.providerSlug, e);
+  }
 
   let latest: Date | null = null;
   const raw: Quote[] = rows.map((q) => {
@@ -48,6 +60,10 @@ export function getAllQuotes(
       receiveAmount: q.receiveAmount,
       dateCollected: q.dateCollected,
       source: "site-comparison",
+      corroborated: (() => {
+        const e = sourcesBySlug.get(q.providerSlug);
+        return !!e && (e.best <= 2 || e.sources.size >= 2);
+      })(),
     };
   });
   raw.sort((a, b) => b.receiveAmount - a.receiveAmount);
