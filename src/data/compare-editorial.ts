@@ -513,12 +513,12 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     theDecision: `There is very little overlap between these two, and the page is most useful for showing that. OFX is a no-fee FX broker for bank-to-bank transfers, with no upper limit, one to three business days, and a dealer for larger amounts. Xoom is PayPal's remittance arm: cash pickup, mobile reload and bank deposit across 130 countries, settling in minutes, priced with a 1–3% rate markup and a fee up to $4.99. One is built for a large planned transfer; the other for a small urgent one. Anyone genuinely choosing between them has not yet decided what kind of transfer this is.`,
     measuredRecord: `OFX led {{LED:ofx}} of the corridors we price and Xoom {{LED:xoom}}. OFX's win rate is measured on a very small corridor sample and should not be read against Xoom's larger one; average shortfall is the more comparable figure, at {{SHORTFALL:ofx}} for OFX and {{SHORTFALL:xoom}} for Xoom. Xoom quotes far more of the remittance corridors we track, which is consistent with what it is for. Neither leads often.`,
     workedExample: {
-      heading: "A worked example: $1,000 to India",
-      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:ofx:xoom:USD:INR:1000}}, with {{CHEAPER:ofx:xoom:USD:INR:1000}} delivering more — {{COST_PCT:ofx:USD:INR:1000}} all-in for OFX against {{COST_PCT:xoom:USD:INR:1000}} for Xoom. The number that does not appear here is time. OFX quotes one to three business days; Xoom quotes minutes. If the money has to arrive today, the cheaper figure above is not available to you at any speed, and the comparison is decided before price enters it.`,
+      heading: "A worked example: $1,000 to Pakistan",
+      body: `On $1,000 USD→PKR the gap is {{RECEIVE_DIFF:ofx:xoom:USD:PKR:1000}}, with {{CHEAPER:ofx:xoom:USD:PKR:1000}} delivering more — {{COST_PCT:ofx:USD:PKR:1000}} all-in for OFX against {{COST_PCT:xoom:USD:PKR:1000}} for Xoom. The number that does not appear here is time. OFX quotes one to three business days; Xoom quotes minutes. If the money has to arrive today, only Xoom's figure is on the table — OFX cannot deliver today at any price — and the comparison is decided before price enters it.`,
     },
     secondExample: {
-      heading: "Why there's only one worked example here",
-      body: `We could not build a second one for this pair, and that's worth explaining rather than skipping past. Xoom quotes {{COSTCORRIDORS:xoom}} of the corridors we price, against {{COSTCORRIDORS:ofx}} for OFX — a broker with a global reach and a remittance app built around a much narrower set of routes rarely overlap on the same currency pair at the same amount. USD→INR is one of the few places they do. If your corridor isn't USD→INR, neither provider's figure above is a reliable stand-in for it — get a live quote from both rather than extrapolating from this example.`,
+      heading: "Why the example isn't India",
+      body: `USD→INR is the route most readers of this page are pricing, and it used to be the example here. We took it out because the only bank-deposit rate Xoom shows a visitor without an account on that route is a first-transfer promotion — a rate for a new or lapsed customer's first send, not for anyone sending regularly. This site compares standard rates, so Xoom has no India figure here until its standard rate is visible to us. Beyond that, the two overlap on only a handful of pairs: Xoom quotes {{COSTCORRIDORS:xoom}} of the corridors we price against {{COSTCORRIDORS:ofx}} for OFX. If your corridor isn't USD→PKR, get a live quote from both rather than extrapolating from this one.`
     },
     pickA: {
       heading: "Pick OFX for planned transfers, especially large ones",
@@ -537,8 +537,8 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     faqs: [
       {
-        q: "Why is there only one corridor priced for this pair?",
-        a: "Xoom prices far more of the remittance corridors we track than OFX, whose route list is built around large planned transfers rather than everyday remittance pairs — USD to INR is one of the few currency pairs and amounts where both actually quote, so it's the only like-for-like example we can show.",
+        q: "Why do OFX and Xoom overlap on so few corridors?",
+        a: "Xoom prices far more of the remittance corridors we track than OFX, whose route list is built around large planned transfers rather than everyday remittance pairs — so the two rarely quote the same currency pair at the same amount. USD to PKR is one where they do, which is why it carries the like-for-like example above.",
       },
       {
         q: "Can OFX deliver cash the way Xoom does?",
@@ -546,7 +546,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Is OFX cheaper than Xoom once you account for the fee?",
-        a: "On the one corridor we can price both on, yes — but that single data point shouldn't be extrapolated to your own transfer. OFX's rates also improve with transfer size in a way our $1,000 sample doesn't capture; get a live quote from both for your actual amount and corridor.",
+        a: "On $1,000 USD to PKR the gap is {{RECEIVE_DIFF:ofx:xoom:USD:PKR:1000}}, with {{CHEAPER:ofx:xoom:USD:PKR:1000}} delivering more — but one corridor shouldn't be extrapolated to your own transfer. OFX's rates also improve with transfer size in a way our $1,000 sample doesn't capture; get a live quote from both for your actual amount and corridor.",
       },
       {
         q: "Does OFX's no-fee claim apply everywhere?",
@@ -565,8 +565,8 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     theDecision: `Both put cash in a recipient's hand within minutes, so this is a genuine like-for-like comparison — rarer on this site than you would think. MoneyGram is an agent network dating to 1940, reaching roughly 200 countries with fees from $1.99 and a 1–3% rate markup. Xoom is PayPal's remittance service, reaching 130 countries with cash pickup, mobile reload and bank deposit, a fee up to $4.99 and a similar 1–3% markup. The decision is usually made by two things: whether a convenient agent is a MoneyGram or a Xoom partner, and whether you already have a PayPal account.`,
     measuredRecord: `Xoom led {{LED:xoom}} of the corridors we price against {{LED:moneygram}} for MoneyGram, whose win rate of {{WINRATE:moneygram}} means it effectively never takes the front. The averages invert that, though: MoneyGram's average shortfall is {{SHORTFALL:moneygram}} while Xoom's is {{SHORTFALL:xoom}}. So Xoom takes the lead more often but is further behind when it does not, and MoneyGram is steadier without ever winning. For a regular sender the average matters more than the count, and it favours MoneyGram slightly.`,
     workedExample: {
-      heading: "A worked example: $1,000 to India",
-      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:moneygram:xoom:USD:INR:1000}}, with {{CHEAPER:moneygram:xoom:USD:INR:1000}} ahead — {{COST_PCT:moneygram:USD:INR:1000}} all-in against {{COST_PCT:xoom:USD:INR:1000}}. Both price cash pickup differently from bank deposit and both charge more for card funding than bank funding, so quote your actual combination rather than assuming this ordering holds. On a corridor where both are within a percent of each other, the collection location is worth more than the rate.`,
+      heading: "A worked example: $1,000 to Pakistan",
+      body: `On $1,000 USD→PKR the gap is {{RECEIVE_DIFF:moneygram:xoom:USD:PKR:1000}}, with {{CHEAPER:moneygram:xoom:USD:PKR:1000}} ahead — {{COST_PCT:moneygram:USD:PKR:1000}} all-in against {{COST_PCT:xoom:USD:PKR:1000}}. Both price cash pickup differently from bank deposit and both charge more for card funding than bank funding, so quote your actual combination rather than assuming this ordering holds. On a corridor where both are within a percent of each other, the collection location is worth more than the rate.`,
     },
     pickA: {
       heading: "Pick MoneyGram for agent coverage and steadier pricing",
@@ -578,7 +578,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     secondExample: {
       heading: "A second corridor: $200 to Nigeria",
-      body: `Nigeria is one of the few corridors outside India where both networks actually quote at the same amount — Xoom's route list is narrower than MoneyGram's agent network, so overlapping pairs are the exception rather than the rule. On $200 USD→NGN the gap is {{RECEIVE_DIFF:moneygram:xoom:USD:NGN:200}}, with {{CHEAPER:moneygram:xoom:USD:NGN:200}} delivering more. Both providers happen to be quoting above the day's mid-market reference rate for naira, which floors their computed markup at zero — the receive-amount gap above is the reliable number here, not a percentage. Confirm your own corridor is one Xoom actually serves before assuming this pattern holds.`,
+      body: `Nigeria is another corridor where both networks actually quote at the same amount — Xoom's route list is narrower than MoneyGram's agent network, so overlapping pairs are the exception rather than the rule. On $200 USD→NGN the gap is {{RECEIVE_DIFF:moneygram:xoom:USD:NGN:200}}, with {{CHEAPER:moneygram:xoom:USD:NGN:200}} delivering more. Both providers happen to be quoting above the day's mid-market reference rate for naira, which floors their computed markup at zero — the receive-amount gap above is the reliable number here, not a percentage. Confirm your own corridor is one Xoom actually serves before assuming this pattern holds.`,
     },
     limits: `Agent-level pricing is not something we observe. Both vary fees by corridor, payout method and funding method; cash pickup depends on the specific agent. Confirm the quote, the collection point and the identification required before sending.`,
     verdict: {
@@ -1295,8 +1295,8 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     theDecision: `Both are digital-first remittance specialists with cash pickup and mobile delivery options, which makes this one of the more direct like-for-like comparisons on the site. Remitly reaches 100 countries with home delivery as an extra option; Xoom reaches 130 countries with mobile reload as its differentiator, backed by PayPal's funding infrastructure for existing PayPal users.`,
     measuredRecord: `{{LED:remitly}} of the corridors we price went to Remitly against {{LED:xoom}} for Xoom. Remitly's average shortfall when it isn't cheapest is {{SHORTFALL:remitly}}, against {{SHORTFALL:xoom}} for Xoom.`,
     workedExample: {
-      heading: "A worked example: $1,000 to India",
-      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:remitly:xoom:USD:INR:1000}}, with {{CHEAPER:remitly:xoom:USD:INR:1000}} delivering more — {{COST_PCT:remitly:USD:INR:1000}} all-in for Remitly against {{COST_PCT:xoom:USD:INR:1000}} for Xoom. Both price cash pickup differently from bank deposit, and Xoom's funding is instant for existing PayPal users, which this figure doesn't capture.`,
+      heading: "A worked example: $1,000 to Pakistan",
+      body: `On $1,000 USD→PKR the gap is {{RECEIVE_DIFF:remitly:xoom:USD:PKR:1000}}, with {{CHEAPER:remitly:xoom:USD:PKR:1000}} delivering more — {{COST_PCT:remitly:USD:PKR:1000}} all-in for Remitly against {{COST_PCT:xoom:USD:PKR:1000}} for Xoom. Both price cash pickup differently from bank deposit, and Xoom's funding is instant for existing PayPal users, which this figure doesn't capture.`,
     },
     pickA: {
       heading: "Pick Remitly for wider country reach and home delivery",
