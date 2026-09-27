@@ -545,6 +545,16 @@ export function writeOutput(
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
   const outputPath = path.join(OUTPUT_DIR, `${slug}-quotes.json`);
+  // Zero quotes means the scraper broke (blocked, redesigned, API changed), not
+  // that the provider stopped quoting everywhere. Overwriting with [] used to
+  // wipe the provider from every table until a human noticed; keeping the
+  // previous file is safe because unified-quotes quarantines rows more than
+  // 72h behind the freshest data, and check-scrape-health reports the file as
+  // not rewritten. A file that is already empty (ACE) is left as it is.
+  if (quotes.length === 0 && fs.existsSync(outputPath)) {
+    console.error(`\n✗ ${providerName}: 0 quotes — keeping the previous ${slug}-quotes.json (${successCount} ok, ${failCount} failed)`);
+    return;
+  }
   fs.writeFileSync(outputPath, JSON.stringify(quotes, null, 2));
 
   const elapsed = Math.round((Date.now() - startTime) / 1000);

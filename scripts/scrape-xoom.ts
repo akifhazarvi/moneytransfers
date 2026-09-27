@@ -13,7 +13,7 @@
  */
 import * as fs from "fs";
 import * as path from "path";
-import { chromium, type BrowserContext } from "playwright";
+import { type BrowserContext } from "playwright";
 import {
   OUTPUT_DIR,
   NAV_TIMEOUT,
@@ -55,6 +55,12 @@ const CORRIDORS = [
 ];
 
 const SEND_AMOUNTS = [100, 1000];
+
+// Corridors where Xoom offered only a first-time promo for account delivery.
+// The promo applies at every amount, so neither a retry nor the next amount
+// can produce a standard quote — each wasted ~8s of browser time x3 attempts.
+const PROMO_ONLY = new Set<string>();
+const PROMO_ONLY_SKIP = { promoOnly: true } as const;
 
 interface XoomPricing {
   disbursementType?: string;
@@ -113,7 +119,10 @@ function parseXoomResponse(
     const best = byPreference(standard);
     if (!best) {
       if (accountDelivery.some(isPromo)) {
-        console.log(`    ⚠ ${sendCurrency}→${receiveCurrency}: only a first-time promo rate offered for account delivery — skipped`);
+        if (!PROMO_ONLY.has(`${sendCurrency}-${receiveCurrency}`)) {
+          console.log(`    ⚠ ${sendCurrency}→${receiveCurrency}: only a first-time promo rate offered for account delivery — skipped`);
+        }
+        PROMO_ONLY.add(`${sendCurrency}-${receiveCurrency}`);
       }
       return null;
     }
@@ -262,10 +271,17 @@ async function main() {
         try {
           console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
 
-          const quote = await withRetry(
-            () => scrapeCorridorAmount(context, corridor, amount),
+          const key = `${corridor.from}-${corridor.to}`;
+          if (PROMO_ONLY.has(key)) {
+            console.log(`    – skipped: promo-only corridor`);
+            continue;
+          }
+          const result = await withRetry(
+            async () => (PROMO_ONLY.has(key) ? PROMO_ONLY_SKIP : await scrapeCorridorAmount(context, corridor, amount)),
             MAX_RETRIES
           );
+          if (result === PROMO_ONLY_SKIP) continue;
+          const quote = result as ProviderQuote | null;
 
           if (quote) {
             allQuotes.push(quote);
@@ -289,7 +305,14 @@ async function main() {
     await context.browser()?.close();
 
     const outputPath = path.join(OUTPUT_DIR, "xoom-quotes.json");
-    fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
+    // An empty result is a broken page, not "Xoom quotes nothing": keep the
+    // previous file (the merge layer expires rows >72h behind the freshest)
+    // rather than wiping Xoom from every table. check-scrape-health flags it.
+    if (allQuotes.length > 0) {
+      fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
+    } else {
+      console.error("✗ No Xoom quotes collected — keeping the previous xoom-quotes.json");
+    }
 
     const elapsed = Math.round((Date.now() - startTime) / 1000);
     const total = successCount + failCount;
