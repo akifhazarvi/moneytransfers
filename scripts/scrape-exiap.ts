@@ -271,9 +271,21 @@ function parseJsonLd(html: string): {
   return null;
 }
 
+/**
+ * The page's reference mid-market rate, embedded in its data as
+ * `"midMarketRate":67.2705` (the i18n strings with the same key hold text, so
+ * only a numeric value matches).
+ */
+function parseMidMarketRate(html: string): number | null {
+  const m = html.match(/"midMarketRate"\s*:\s*([0-9]+(?:\.[0-9]+)?)/);
+  const v = m ? parseFloat(m[1]) : NaN;
+  return Number.isFinite(v) && v > 0 ? v : null;
+}
+
 function extractQuotes(
   parsed: NonNullable<ReturnType<typeof parseJsonLd>>,
-  sourceSite: string
+  sourceSite: string,
+  midMarketRate: number | null
 ): ProviderQuote[] {
   const { sendAmount, sendCurrency, receiveCurrency, agents } = parsed;
   const quotes: ProviderQuote[] = [];
@@ -290,11 +302,30 @@ function extractQuotes(
 
     const exchangeRate = rateItem.currentExchangeRate.price;
 
-    // Parse fee from string like "23.5 USD" or "0 GBP"
-    let fee = 0;
+    // feesAndCommissionsSpecification is the TOTAL cost against the page's
+    // mid-market rate — transfer fee PLUS the margin in the provider's rate —
+    // not a transfer fee. The page says so in its own copy ("That rate is lower
+    // than the mid-market rate of 67.2705, which will cost you $60.36" for XE,
+    // whose JSON-LD figure is 60.36), and its template reads "the transfer fee
+    // of X + margin = total". Stored as a fee next to the provider's own
+    // marked-up rate, the margin was charged twice: XE on AUD->INR carried a
+    // "fee" of 60.36 AUD per 10,000 (the 30.18 / 60.36 / 90.54 pattern the merge
+    // layer called spurious) and 0.6% of cost it does not charge. The page
+    // prices the margin as send x (mid - rate) / rate, so the transfer fee is
+    // what remains. Verified 2026-09-27: XE 0.00, CurrencyFair 1.80, Wise 44.62
+    // (Wise quotes at mid, so its whole figure is fee).
+    let totalCost = 0;
     const feeStr = (feeItem as Record<string, unknown>)?.feesAndCommissionsSpecification as string || "0";
-    const feeMatch = feeStr.match(/^([\d.]+)/);
-    if (feeMatch) fee = parseFloat(feeMatch[1]);
+    const feeMatch = feeStr.trim().match(/^([\d.]+)/);
+    if (feeMatch) totalCost = parseFloat(feeMatch[1]);
+    if (!midMarketRate) {
+      // Without the page's mid the margin cannot be separated; a total cost
+      // stored as a fee would double-count it, so publish nothing.
+      continue;
+    }
+    const margin = Math.max(0, (sendAmount * (midMarketRate - exchangeRate)) / exchangeRate);
+    // Rounding on the page can leave a few cents either way.
+    const fee = Math.max(0, totalCost - margin) < 0.01 ? 0 : Math.max(0, totalCost - margin);
 
     const receiveAmount = (sendAmount - fee) * exchangeRate;
 
@@ -334,11 +365,13 @@ async function fetchCorridor(corridor: Corridor): Promise<ProviderQuote[]> {
 
   const html = await res.text();
   const parsed = parseJsonLd(html);
+  const midMarketRate = parseMidMarketRate(html);
   if (!parsed) {
     throw new Error("No MoneyTransfer JSON-LD found");
   }
 
-  return extractQuotes(parsed, corridor.site);
+  if (!midMarketRate) console.log(`  ⚠ no midMarketRate on ${url} — its total-cost figures cannot be split into fee and margin; skipped`);
+  return extractQuotes(parsed, corridor.site, midMarketRate);
 }
 
 async function main() {

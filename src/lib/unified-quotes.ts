@@ -382,11 +382,14 @@ addQuotes(monitoQuotes as unknown[], 3, "monito-comparison");
 
 // TIER 4: Everything else — gap-fill only.
 // Exiap / TheCurrencyShop (JSON-LD, US+UK+AU corridors). Demoted below
-// Wise/Monito because Exiap's "fee" field is unreliable — it reports XE (and
-// other fee-free providers) with spurious flat fees that are multiples of a
-// base number (e.g. 30.18 / 60.36 / 90.54 USD), inflating the effective cost
-// and producing wrong receive amounts. Only used where no better tier covers
-// the provider+corridor.
+// Wise/Monito after its "fee" was found to report XE (and other fee-free
+// providers) with flat fees that were multiples of a base number (30.18 /
+// 60.36 / 90.54 USD). Cause found 2026-09-27: the JSON-LD figure is the TOTAL
+// cost against the page's mid-market rate (fee + margin), not a fee, so the
+// margin was being charged twice. scrape-exiap.ts now splits the real fee out
+// using the page's own midMarketRate (XE 0.00, Wise unchanged). Still a
+// third-party aggregator, so it stays gap-fill: used only where no better tier
+// covers the provider+corridor.
 addQuotes(exiapQuotes as unknown[], 4, "exiap");
 
 // TIER 5: RemitRoutes bridge — traditional rows only (crypto rails are consumed
