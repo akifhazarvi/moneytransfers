@@ -8358,40 +8358,40 @@
     "date": "2026-09-28",
     "providers": {
       "western-union": {
-        "rate": 1.22277,
+        "rate": 1.22201,
         "fee": 0.99,
-        "markup": 1.29,
-        "receiveAmount": 121.07
+        "markup": 1.35,
+        "receiveAmount": 120.99
       },
       "commonwealth-bank": {
-        "rate": 1.19662,
+        "rate": 1.19588,
         "fee": 0,
-        "markup": 3.4,
-        "receiveAmount": 119.66
+        "markup": 3.46,
+        "receiveAmount": 119.59
       },
       "nab": {
-        "rate": 1.20122,
+        "rate": 1.20047,
         "fee": 0,
-        "markup": 3.03,
-        "receiveAmount": 120.12
+        "markup": 3.09,
+        "receiveAmount": 120.05
       },
       "anz": {
-        "rate": 1.20123,
+        "rate": 1.20048,
         "fee": 0,
-        "markup": 3.03,
-        "receiveAmount": 120.12
+        "markup": 3.09,
+        "receiveAmount": 120.05
       },
       "paypal": {
-        "rate": 1.18369,
+        "rate": 1.18296,
         "fee": 5,
-        "markup": 4.44,
-        "receiveAmount": 112.45
+        "markup": 4.5,
+        "receiveAmount": 112.38
       },
       "hsbc": {
-        "rate": 1.21455,
+        "rate": 1.2138,
         "fee": 0,
-        "markup": 1.95,
-        "receiveAmount": 121.46
+        "markup": 2.01,
+        "receiveAmount": 121.38
       }
     }
   }

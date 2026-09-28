@@ -2707,16 +2707,16 @@
     "date": "2026-09-28",
     "providers": {
       "taptap-send": {
-        "rate": 2.1,
+        "rate": 2.12,
         "fee": 0,
-        "markup": 6.15,
-        "receiveAmount": 210
+        "markup": 5.26,
+        "receiveAmount": 212
       },
       "wise": {
-        "rate": 2.25378,
-        "fee": 10.89,
-        "markup": -0.72,
-        "receiveAmount": 200.83
+        "rate": 2.25225,
+        "fee": 10.77,
+        "markup": -0.65,
+        "receiveAmount": 200.97
       }
     }
   }

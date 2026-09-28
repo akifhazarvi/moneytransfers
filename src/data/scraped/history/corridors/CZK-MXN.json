@@ -1499,10 +1499,10 @@
     "date": "2026-09-28",
     "providers": {
       "taptap-send": {
-        "rate": 0.82,
+        "rate": 0.83,
         "fee": 0,
-        "markup": 1.04,
-        "receiveAmount": 82
+        "markup": -0.17,
+        "receiveAmount": 83
       }
     }
   }
