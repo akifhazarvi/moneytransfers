@@ -17509,5 +17509,106 @@
         "receiveAmount": 1922.66
       }
     }
+  },
+  {
+    "date": "2026-09-28",
+    "providers": {
+      "moneygram": {
+        "rate": 19.8395,
+        "fee": 1.99,
+        "markup": 1.78,
+        "receiveAmount": 1944.47
+      },
+      "taptap-send": {
+        "rate": 20.02,
+        "fee": 0,
+        "markup": 0.88,
+        "receiveAmount": 2002
+      },
+      "xe": {
+        "rate": 19.7861,
+        "fee": 4,
+        "markup": 1.76,
+        "receiveAmount": 1899.47
+      },
+      "western-union": {
+        "rate": 19.9724,
+        "fee": 0.99,
+        "markup": 1.12,
+        "receiveAmount": 1977.47
+      },
+      "currencyfair": {
+        "rate": 19.9379,
+        "fee": 3,
+        "markup": 1.01,
+        "receiveAmount": 1933.98
+      },
+      "worldremit": {
+        "rate": 19.8877,
+        "fee": 0.99,
+        "markup": 1.26,
+        "receiveAmount": 1969.08
+      },
+      "paysend": {
+        "rate": 20.0481,
+        "fee": 0,
+        "markup": 0.46,
+        "receiveAmount": 2004.81
+      },
+      "sendwave": {
+        "rate": 20.0186,
+        "fee": 1.99,
+        "markup": 0.61,
+        "receiveAmount": 1962.02
+      },
+      "remitly": {
+        "rate": 20.06,
+        "fee": 1.99,
+        "markup": 0.68,
+        "receiveAmount": 1966.08
+      },
+      "revolut": {
+        "rate": 20.0003,
+        "fee": 1.5,
+        "markup": 0.7,
+        "receiveAmount": 1970.03
+      },
+      "wise": {
+        "rate": 20.2006,
+        "fee": 1.71,
+        "markup": -0.01,
+        "receiveAmount": 1985.52
+      },
+      "ria": {
+        "rate": 19.98,
+        "fee": 0.9,
+        "markup": 1.08,
+        "receiveAmount": 1980.02
+      },
+      "monese": {
+        "rate": 20.1081,
+        "fee": 4,
+        "markup": 0.45,
+        "receiveAmount": 1930.37
+      },
+      "commerzbank": {
+        "rate": 19.5694,
+        "fee": 12.5,
+        "markup": 3.11,
+        "receiveAmount": 1712.32
+      },
+      "paypal": {
+        "rate": 19.3025,
+        "fee": 3.99,
+        "markup": 4.43,
+        "receiveAmount": 1853.23
+      },
+      "skrill": {
+        "rate": 19.2376,
+        "fee": 0,
+        "markup": 4.76,
+        "receiveAmount": 1923.76
+      }
+    }
   }
 ]
