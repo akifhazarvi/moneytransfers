@@ -13837,7 +13837,7 @@
       "boss-money": {
         "rate": 3256.76,
         "fee": 1.99,
-        "markup": 1.54,
+        "markup": 1.5,
         "receiveAmount": 319195.44
       },
       "western-union": {
@@ -13847,10 +13847,10 @@
         "receiveAmount": 316622.78
       },
       "worldremit": {
-        "rate": 3253.03,
+        "rate": 3230.8,
         "fee": 1.99,
-        "markup": 1.65,
-        "receiveAmount": 318829.37
+        "markup": 2.28,
+        "receiveAmount": 316650.93
       },
       "instarem": {
         "rate": 3283.21,
@@ -13861,13 +13861,13 @@
       "xe": {
         "rate": 3259.03,
         "fee": 4,
-        "markup": 1.47,
+        "markup": 1.43,
         "receiveAmount": 312866.5
       },
       "paysend": {
         "rate": 3234.99,
         "fee": 0,
-        "markup": 2.2,
+        "markup": 2.15,
         "receiveAmount": 323498.96
       },
       "remitly": {
@@ -13887,6 +13887,12 @@
         "fee": 0,
         "markup": 8.08,
         "receiveAmount": 303810.21
+      },
+      "moneygram": {
+        "rate": 3258.93,
+        "fee": 1.99,
+        "markup": 1.43,
+        "receiveAmount": 319408.04
       }
     }
   }

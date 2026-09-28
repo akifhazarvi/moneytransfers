@@ -15413,10 +15413,10 @@
         "receiveAmount": 1074
       },
       "moneygram": {
-        "rate": 10.8001,
+        "rate": 10.8153,
         "fee": 0.8,
-        "markup": 1.33,
-        "receiveAmount": 1071.37
+        "markup": 1.42,
+        "receiveAmount": 1072.88
       },
       "skrill": {
         "rate": 10.6046,
@@ -15431,10 +15431,10 @@
         "receiveAmount": 1081
       },
       "xe": {
-        "rate": 10.9611,
+        "rate": 10.8041,
         "fee": 4,
-        "markup": -0.14,
-        "receiveAmount": 1052.27
+        "markup": 1.52,
+        "receiveAmount": 1037.19
       },
       "western-union": {
         "rate": 10.637,
@@ -15449,22 +15449,22 @@
         "receiveAmount": 1057.22
       },
       "worldremit": {
-        "rate": 10.629,
+        "rate": 10.6692,
         "fee": 1.99,
-        "markup": 2.89,
-        "receiveAmount": 1041.75
+        "markup": 2.75,
+        "receiveAmount": 1045.69
       },
       "paysend": {
-        "rate": 10.8762,
+        "rate": 10.9119,
         "fee": 0,
-        "markup": 0.63,
-        "receiveAmount": 1087.62
+        "markup": 0.54,
+        "receiveAmount": 1091.19
       },
       "sendwave": {
-        "rate": 10.8332,
+        "rate": 10.8742,
         "fee": 1.99,
-        "markup": 1.02,
-        "receiveAmount": 1061.76
+        "markup": 0.88,
+        "receiveAmount": 1065.78
       },
       "remitly": {
         "rate": 10.69,
@@ -15473,10 +15473,10 @@
         "receiveAmount": 1042.38
       },
       "revolut": {
-        "rate": 10.8087,
-        "fee": 2.75,
-        "markup": 1.25,
-        "receiveAmount": 1051.15
+        "rate": 10.8488,
+        "fee": 1.75,
+        "markup": 1.12,
+        "receiveAmount": 1065.9
       },
       "wise": {
         "rate": 10.9375,
@@ -15495,6 +15495,12 @@
         "fee": 12.5,
         "markup": 3.06,
         "receiveAmount": 926.75
+      },
+      "deutsche-bank": {
+        "rate": 10.6967,
+        "fee": 29.13,
+        "markup": 2.5,
+        "receiveAmount": 758.08
       }
     }
   }

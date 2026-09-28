@@ -16667,16 +16667,16 @@
         "receiveAmount": 31054.01
       },
       "profee": {
-        "rate": 314.414,
+        "rate": 313.743,
         "fee": 1.2,
-        "markup": 0.5,
-        "receiveAmount": 31064.12
+        "markup": 0.54,
+        "receiveAmount": 30997.8
       },
       "worldremit": {
-        "rate": 312.602,
+        "rate": 312.247,
         "fee": 2.99,
-        "markup": 1.07,
-        "receiveAmount": 30325.5
+        "markup": 1.01,
+        "receiveAmount": 30291.04
       },
       "instarem": {
         "rate": 313.601,
@@ -16685,22 +16685,22 @@
         "receiveAmount": 31360.12
       },
       "xe": {
-        "rate": 317.929,
+        "rate": 312.315,
         "fee": 1,
-        "markup": -0.61,
-        "receiveAmount": 31474.95
+        "markup": 0.99,
+        "receiveAmount": 30919.23
       },
       "paysend": {
-        "rate": 314.112,
+        "rate": 313.822,
         "fee": 0,
-        "markup": 0.6,
-        "receiveAmount": 31411.21
+        "markup": 0.51,
+        "receiveAmount": 31382.23
       },
       "sendwave": {
-        "rate": 315.129,
+        "rate": 314.771,
         "fee": 1.99,
-        "markup": 0.27,
-        "receiveAmount": 30885.76
+        "markup": 0.21,
+        "receiveAmount": 30850.66
       },
       "remitly": {
         "rate": 313.87,
@@ -16709,16 +16709,16 @@
         "receiveAmount": 30762.4
       },
       "revolut": {
-        "rate": 314.039,
-        "fee": 2.75,
-        "markup": 0.62,
-        "receiveAmount": 30540.31
+        "rate": 313.623,
+        "fee": 1.75,
+        "markup": 0.58,
+        "receiveAmount": 30813.45
       },
       "ria": {
-        "rate": 318.93,
+        "rate": 313.298,
         "fee": 0.9,
-        "markup": -0.99,
-        "receiveAmount": 31605.91
+        "markup": 0.8,
+        "receiveAmount": 31047.88
       },
       "skrill": {
         "rate": 300.833,
@@ -16731,6 +16731,12 @@
         "fee": 1.9,
         "markup": 0.06,
         "receiveAmount": 30963.5
+      },
+      "deutsche-bank": {
+        "rate": 312.53,
+        "fee": 29.13,
+        "markup": 0.92,
+        "receiveAmount": 22149
       }
     }
   }

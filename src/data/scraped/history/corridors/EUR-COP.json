@@ -11911,7 +11911,7 @@
       "moneygram": {
         "rate": 3728.52,
         "fee": 0.99,
-        "markup": 1.05,
+        "markup": 0.7,
         "receiveAmount": 369160.86
       },
       "taptap-send": {
@@ -11927,10 +11927,10 @@
         "receiveAmount": 360384.64
       },
       "worldremit": {
-        "rate": 3754.78,
+        "rate": 3723.81,
         "fee": 0.99,
-        "markup": 0.35,
-        "receiveAmount": 371761.25
+        "markup": 0.83,
+        "receiveAmount": 368694.92
       },
       "instarem": {
         "rate": 3736.72,
@@ -11939,16 +11939,16 @@
         "receiveAmount": 373671.75
       },
       "xe": {
-        "rate": 3771.14,
+        "rate": 3704.51,
         "fee": 4,
-        "markup": -0.08,
-        "receiveAmount": 362029.82
+        "markup": 1.34,
+        "receiveAmount": 355633.2
       },
       "paysend": {
-        "rate": 3725.98,
+        "rate": 3721.4,
         "fee": 0,
-        "markup": 1.12,
-        "receiveAmount": 372598.08
+        "markup": 0.89,
+        "receiveAmount": 372140.17
       },
       "remitly": {
         "rate": 3690.54,
@@ -11957,10 +11957,10 @@
         "receiveAmount": 358019.29
       },
       "revolut": {
-        "rate": 3706.65,
-        "fee": 2,
-        "markup": 1.63,
-        "receiveAmount": 363251.87
+        "rate": 3694.25,
+        "fee": 1,
+        "markup": 1.62,
+        "receiveAmount": 365730.78
       },
       "wise": {
         "rate": 3768.8,
@@ -11969,10 +11969,10 @@
         "receiveAmount": 364593.71
       },
       "ria": {
-        "rate": 3780.41,
+        "rate": 3713.66,
         "fee": 0.9,
-        "markup": -0.43,
-        "receiveAmount": 374638.74
+        "markup": 1.35,
+        "receiveAmount": 368024.14
       }
     }
   }
