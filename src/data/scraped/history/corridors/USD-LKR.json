@@ -11914,16 +11914,16 @@
         "receiveAmount": 32700
       },
       "western-union": {
-        "rate": 329.326,
+        "rate": 329.924,
         "fee": 1.99,
-        "markup": 0.33,
-        "receiveAmount": 32277.24
+        "markup": 0.15,
+        "receiveAmount": 32335.85
       },
       "instarem": {
-        "rate": 328.167,
+        "rate": 328.763,
         "fee": 0,
-        "markup": 0.68,
-        "receiveAmount": 32816.68
+        "markup": 0.5,
+        "receiveAmount": 32876.27
       },
       "xe": {
         "rate": 327.575,
@@ -11944,10 +11944,10 @@
         "receiveAmount": 32717.34
       },
       "remitly": {
-        "rate": 329.278,
+        "rate": 329.876,
         "fee": 1.99,
-        "markup": 0.34,
-        "receiveAmount": 32272.57
+        "markup": 0.16,
+        "receiveAmount": 32331.18
       },
       "revolut": {
         "rate": 329.121,
@@ -11956,10 +11956,10 @@
         "receiveAmount": 32665.28
       },
       "wise": {
-        "rate": 330.4,
+        "rate": 331,
         "fee": 2.32,
-        "markup": 0,
-        "receiveAmount": 32273.47
+        "markup": -0.18,
+        "receiveAmount": 32332.08
       }
     }
   }

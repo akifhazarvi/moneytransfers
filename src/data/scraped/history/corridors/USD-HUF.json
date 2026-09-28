@@ -4840,28 +4840,28 @@
     "date": "2026-09-28",
     "providers": {
       "western-union": {
-        "rate": 316.771,
+        "rate": 318.388,
         "fee": 0.99,
-        "markup": 1.41,
-        "receiveAmount": 31363.54
+        "markup": 0.91,
+        "receiveAmount": 31523.56
       },
       "remitly": {
-        "rate": 317.585,
+        "rate": 319.205,
         "fee": 0.99,
-        "markup": 1.16,
-        "receiveAmount": 31444.09
+        "markup": 0.65,
+        "receiveAmount": 31604.52
       },
       "paypal": {
-        "rate": 307.164,
+        "rate": 308.731,
         "fee": 4.99,
-        "markup": 4.4,
-        "receiveAmount": 29183.62
+        "markup": 3.91,
+        "receiveAmount": 29332.52
       },
       "wise": {
-        "rate": 321.269,
+        "rate": 323.269,
         "fee": 1.45,
-        "markup": 0.01,
-        "receiveAmount": 31661.06
+        "markup": -0.61,
+        "receiveAmount": 31858.16
       }
     }
   }

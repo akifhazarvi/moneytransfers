@@ -19325,16 +19325,16 @@
     "date": "2026-09-28",
     "providers": {
       "instarem": {
-        "rate": 67.424,
+        "rate": 67.389,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 6742.4
+        "receiveAmount": 6738.9
       },
       "lemfi": {
-        "rate": 67.19,
+        "rate": 67.42,
         "fee": 0,
-        "markup": 0.37,
-        "receiveAmount": 6719
+        "markup": -0.03,
+        "receiveAmount": 6742
       },
       "moneygram": {
         "rate": 66.9123,
@@ -19343,10 +19343,10 @@
         "receiveAmount": 6591.53
       },
       "western-union": {
-        "rate": 66.8874,
+        "rate": 66.8295,
         "fee": 1.99,
-        "markup": 0.82,
-        "receiveAmount": 6555.63
+        "markup": 0.9,
+        "receiveAmount": 6549.96
       },
       "currencyfair": {
         "rate": 66.8815,
@@ -19361,10 +19361,10 @@
         "receiveAmount": 6516.43
       },
       "remitly": {
-        "rate": 67.07,
+        "rate": 67.03,
         "fee": 0.99,
-        "markup": 0.55,
-        "receiveAmount": 6640.6
+        "markup": 0.6,
+        "receiveAmount": 6636.64
       },
       "revolut": {
         "rate": 67.0944,
@@ -19385,34 +19385,34 @@
         "receiveAmount": 6700
       },
       "commonwealth-bank": {
-        "rate": 66.0216,
+        "rate": 65.9645,
         "fee": 0,
-        "markup": 2.1,
-        "receiveAmount": 6602.16
+        "markup": 2.18,
+        "receiveAmount": 6596.45
       },
       "nab": {
-        "rate": 65.1318,
+        "rate": 65.0755,
         "fee": 0,
-        "markup": 3.42,
-        "receiveAmount": 6513.18
+        "markup": 3.5,
+        "receiveAmount": 6507.55
       },
       "anz": {
-        "rate": 64.7402,
+        "rate": 64.6843,
         "fee": 0,
-        "markup": 4,
-        "receiveAmount": 6474.02
+        "markup": 4.08,
+        "receiveAmount": 6468.43
       },
       "hsbc": {
-        "rate": 65.6306,
+        "rate": 65.5739,
         "fee": 0,
-        "markup": 2.68,
-        "receiveAmount": 6563.06
+        "markup": 2.76,
+        "receiveAmount": 6557.39
       },
       "wise": {
-        "rate": 67.4398,
+        "rate": 67.3713,
         "fee": 1.38,
-        "markup": 0,
-        "receiveAmount": 6650.91
+        "markup": 0.1,
+        "receiveAmount": 6644.16
       },
       "skrill": {
         "rate": 65.366,
