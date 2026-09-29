@@ -1378,7 +1378,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "Which countries accept SEPA transfers?",
         answer:
-          "SEPA covers all 27 EU member states plus Iceland, Liechtenstein, Norway, Switzerland, Monaco, San Marino, Andorra, and Vatican City — 36 countries total. Post-Brexit, the UK is no longer in SEPA but many UK banks still process SEPA-compatible transfers. SEPA covers EUR accounts; non-EUR countries (e.g. Sweden using SEK, Denmark using DKK, Poland using PLN) participate in SEPA but still require FX conversion.",
+          "SEPA's geographical scope covers 41 countries and territories (European Payments Council): the 27 EU member states plus the UK, Iceland, Norway, Liechtenstein, Switzerland, Monaco, San Marino, Andorra, Vatican City, Montenegro, Albania, North Macedonia, Moldova and Serbia. The UK stayed in after Brexit, though its euro payments must now carry the BIC and payer's address. SEPA covers EUR accounts; non-EUR countries (e.g. Sweden using SEK, Denmark using DKK, Poland using PLN) participate in SEPA but still require FX conversion.",
       },
     ],
   },

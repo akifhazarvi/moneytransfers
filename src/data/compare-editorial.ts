@@ -52,6 +52,8 @@ export interface CompareEditorial {
    * finding, not a restatement of the first example.
    */
   secondExample?: CompareEditorialSection;
+  /** A third case, only where it tests something the first two do not (a different payout market). */
+  thirdExample?: CompareEditorialSection;
   /** Where each genuinely wins, written for this pair only. */
   pickA: CompareEditorialSection;
   pickB: CompareEditorialSection;
@@ -95,7 +97,7 @@ export interface CompareEditorial {
 export const compareEditorial: Record<string, CompareEditorial> = {
   "wise-vs-remitly": {
     theDecision: `This is not a price comparison, even though it is usually framed as one. Wise and Remitly are built around different assumptions about who collects the money. Wise moves funds between bank accounts at the mid-market rate and charges for it openly; it has no cash payout at all. Remitly assumes the recipient may have no usable bank account, and sells reach — cash pickup, mobile money and home delivery across 100 countries — with the cost folded into the rate. So the question that decides this page is not "which is cheaper" but "can the person receiving it use a bank deposit?" If they can, the comparison is about cost and Wise usually wins it. If they cannot, Wise is not an option at any price.`,
-    measuredRecord: `Across the corridors we price continuously, Wise led on {{LED:wise}} and Remitly on {{LED:remitly}}. That gap is the clearest in this set of comparisons, and it is structural rather than promotional: Wise's published markup is 0% against the mid-market rate, so its entire cost is the visible fee, while Remitly's sits at 0.5–2% inside the rate where it is harder to see. When Remitly is not the best-priced option it trails the leader by {{SHORTFALL:remitly}} on average, against {{SHORTFALL:wise}} for Wise. Remitly's <a href="https://www.trustpilot.com/review/remitly.com" target="_blank" rel="noopener noreferrer nofollow">Trustpilot score</a> is nonetheless the higher of the two — <a href="https://www.trustpilot.com/review/wise.com" target="_blank" rel="noopener noreferrer nofollow">Wise's own record</a> is close behind — which is worth taking seriously — it measures whether the transfer felt reliable, not whether it was cheap.`,
+    measuredRecord: `Across the corridors we price continuously, Wise led on {{LED:wise}} and Remitly on {{LED:remitly}}. That gap is the clearest in this set of comparisons, and it is structural rather than promotional: Wise's published markup is 0% against the mid-market rate, so its entire cost is the visible fee, while Remitly's median markup in our data, {{AVG_MARKUP_PCT:remitly}}, sits inside the rate where it is harder to see. When Remitly is not the best-priced option it trails the leader by {{SHORTFALL:remitly}} on average, against {{SHORTFALL:wise}} for Wise. Remitly's <a href="https://www.trustpilot.com/review/remitly.com" target="_blank" rel="noopener noreferrer nofollow">Trustpilot score</a> is nonetheless the higher of the two — <a href="https://www.trustpilot.com/review/wise.com" target="_blank" rel="noopener noreferrer nofollow">Wise's own record</a> is close behind — which is worth taking seriously — it measures whether the transfer felt reliable, not whether it was cheap.`,
     workedExample: {
       heading: "A worked example: $1,000 to India",
       body: `On a $1,000 USD→INR transfer, the gap between these two is {{RECEIVE_DIFF:wise:remitly:USD:INR:1000}}, with {{CHEAPER:wise:remitly:USD:INR:1000}} delivering more. Wise's fee on that transfer is {{FEE:wise:USD:INR:1000}} and its all-in cost {{COST_PCT:wise:USD:INR:1000}} of the amount sent; Remitly's fee is {{FEE:remitly:USD:INR:1000}} at an all-in cost of {{COST_PCT:remitly:USD:INR:1000}}. Note what the fee column does and does not tell you: the lower fee is not automatically the lower total, because the rate carries the rest. Run the same check on your own amount — the ranking can invert between $200 and $5,000, and a first-transfer promotion applies once while the ongoing price applies every month after.`,
@@ -103,6 +105,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     secondExample: {
       heading: "A second corridor: $1,000 to Mexico",
       body: `India is a bank-deposit corridor, which favours Wise's model — Mexico is one of Remitly's core remittance routes, so it's the fairer test of Remitly's actual strength. On $1,000 USD→MXN the gap is {{RECEIVE_DIFF:wise:remitly:USD:MXN:1000}}, with {{CHEAPER:wise:remitly:USD:MXN:1000}} delivering more, at {{COST_PCT:wise:USD:MXN:1000}} all-in for Wise against {{COST_PCT:remitly:USD:MXN:1000}} for Remitly. Even on Remitly's own strongest ground, check both figures against your own amount rather than assuming the India result generalises.`,
+    },
+    thirdExample: {
+      heading: "A Remitly-strength route: $1,000 to the Philippines",
+      body: `The Philippines is a cash-pickup and e-wallet market, the kind of route Remitly is built for, so this is where its reach should count. On price, $1,000 USD→PHP today puts {{CHEAPER:wise:remitly:USD:PHP:1000}} ahead by {{RECEIVE_DIFF:wise:remitly:USD:PHP:1000}}: Wise charges a {{FEE:wise:USD:PHP:1000}} fee at a {{MARKUP:wise:USD:PHP:1000}} rate margin, Remitly {{FEE:remitly:USD:PHP:1000}} with {{MARKUP:remitly:USD:PHP:1000}} inside its rate. The route's most frequent leader in our quotes over the last 91 days is {{CORRIDOR_LEADER_SHORT:USD:PHP}}, so compare the whole table rather than this pair alone.`,
     },
     pickA: {
       heading: "Pick Wise when the recipient has a bank account",
@@ -114,7 +120,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     limits: `Both figures above are estimates built from collected pricing against a mid-market reference, not guaranteed quotes, and our quotes are gathered by currency pair rather than by sending country — so we cannot confirm either provider serves your specific country, funding method or transfer purpose. Confirm eligibility, payout method and limits with the provider before you commit.`,
     verdict: {
-      costExplanation: `Wise wins the cost comparison on {{LED:wise}} of the corridors we price, trailing the leader by {{SHORTFALL:wise}} on the corridors it doesn't win; Remitly trails by {{SHORTFALL:remitly}}. The gap tracks Remitly's rate markup rather than its fee — a visible $0-$3.99 charge next to a 0.5-2% spread that moves with the amount sent.`,
+      costExplanation: `Wise wins the cost comparison on {{LED:wise}} of the corridors we price, trailing the leader by {{SHORTFALL:wise}} on the corridors it doesn't win; Remitly trails by {{SHORTFALL:remitly}}. The gap tracks Remitly's rate markup rather than its fee — a visible $0-$3.99 charge next to a spread — {{AVG_MARKUP_PCT:remitly}} at the median — that moves with the amount sent.`,
       speedExplanation: `Both quote overlapping windows — Wise instant to two days, Remitly's express tier minutes to five days — so speed alone rarely decides this pair. Remitly's express settlement matters when the money is needed same-day; Wise's window holds regardless of how urgently you need it delivered.`,
       coverageExplanation: `Remitly reaches 100 countries against Wise's 80 and adds cash pickup, mobile money and home delivery that Wise does not offer at any price. Wise counters with a $1,000,000 ceiling against Remitly's $300,000 US cap and an extra regulator (FCA, FinCEN and ASIC against Remitly's FinCEN and FCA).`,
       bottomLine: `This page is decided by the recipient's bank access, not by either provider's marketing. A banked recipient makes it a cost question, and Wise wins that one on the numbers above. An unbanked recipient makes coverage the only question that matters, and Remitly is the only one of the two that can answer it.`,
@@ -138,7 +144,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "Wise's fee is a visible 0.41%-and-up charge with zero markup; Remitly's fee looks smaller ($0-$3.99) but its 0.5-2% markup is where the real cost sits, which is why the total more often favours Wise despite the sticker fee looking similar.",
+      "Wise's fee is a visible 0.41%-and-up charge with zero markup; Remitly's fee looks smaller ($0-$3.99) but its markup — {{AVG_MARKUP_PCT:remitly}} at the median in our data — is where the real cost sits, which is why the total more often favours Wise despite the sticker fee looking similar.",
       "Remitly settles in minutes on its express tier; Wise's window is instant to two days but applies uniformly, without an express upcharge.",
       "Wise caps out at $1,000,000 against Remitly's $300,000 US ceiling — real headroom for a large one-off transfer that Remitly's remittance-sized limit doesn't match.",
       "Cash pickup, mobile money and home delivery exist only on Remitly's side; Wise's only payout is a bank deposit.",
@@ -841,7 +847,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Why is TapTap Send usually cheaper than MoneyGram?",
-        a: "TapTap Send prices close to the mid-market rate (roughly 0.7% built in, $0 fee on most corridors) as its core proposition, while MoneyGram's pricing reflects the cost of maintaining a much larger physical agent network. The trade is reach for price.",
+        a: "TapTap Send prices close to the mid-market rate (a {{AVG_MARKUP_PCT:taptap-send}} median markup in our data, $0 fee on most corridors) as its core proposition, while MoneyGram's pricing reflects the cost of maintaining a much larger physical agent network. The trade is reach for price.",
       },
       {
         q: "Can MoneyGram deliver to a mobile money wallet?",
@@ -853,7 +859,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "TapTap Send prices close to the mid-market rate (roughly 0.7% built in, $0 fee on most corridors); MoneyGram's fee starts at $1.99 with a 1-3% markup.",
+      "TapTap Send's median markup in our data is {{AVG_MARKUP_PCT:taptap-send}}, with $0 fee on most corridors; MoneyGram's fee starts at $1.99, at a {{AVG_MARKUP_PCT:moneygram}} median markup.",
       "MoneyGram reaches roughly 200 countries through its agent network; TapTap Send's list is narrower, concentrated in the diaspora corridors it was built for.",
       "TapTap Send settles in under three minutes for 95% of transfers; MoneyGram's speed varies more by corridor.",
       "Both offer cash pickup and mobile money, but TapTap Send is built around mobile money as a primary method where MoneyGram treats it as one option among several.",
@@ -949,7 +955,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "TapTap Send prices close to the mid-market rate on most corridors; Remitly charges $0-$3.99 with a 0.5-2% markup.",
+      "TapTap Send's median markup in our data is {{AVG_MARKUP_PCT:taptap-send}}; Remitly charges $0-$3.99 with a median markup of {{AVG_MARKUP_PCT:remitly}}.",
       "Remitly's 100-country reach and $300,000 ceiling beat TapTap Send's narrower, diaspora-focused list and $10,000 cap.",
       "Remitly offers home delivery, a payout method TapTap Send doesn't have; both offer cash pickup and mobile money.",
       "TapTap Send settles in under three minutes for 95% of transfers, matching or beating Remitly's express tier on the corridors it serves.",

@@ -90,9 +90,12 @@ what enforces it. Where a rule is not automated, it says how to check it.
    score or average markup. Say what we measured —
    `{{CORRIDOR_LEADER:USD:INR}}`, `{{LEADS_SHORT:wise}}`,
    `{{AVG_MARKUP_PCT:slug}}`, `{{TRUSTPILOT:slug}}` — or label an editorial
-   pick "Editor's pick". Hand-typed markup figures ("within 0.5–1% of
+   pick "Editor's pick". Never say the UK left SEPA: the EPC kept it in
+   SEPA's scope after Brexit as a non-EEA member (BIC + payer address
+   required) — ~30 passages said otherwise until 2026-09-29. Hand-typed markup figures ("within 0.5–1% of
    mid-market") are legacy debt on a ratchet (`scripts/claims-baseline.json`):
-   the count may fall, never rise. *Enforced:* `check:claims` (prebuild), and
+   the count may fall, never rise; so may the "(example)" table cells that
+   hold invented payouts. *Enforced:* `check:claims` (prebuild), and
    `check:claims --built` (postbuild) for rule 6.
 6. **A single estimate is never "Cheapest" or "Best".** A corridor page that
    holds one quote may not say either in its `<title>`. *Enforced:*
@@ -102,11 +105,15 @@ what enforces it. Where a rule is not automated, it says how to check it.
    mean. A field rendered without `renderDataTokens()` (provider reviews,
    `providers.ts` pros, non-editorial compare articles) cannot hold a token,
    so it cannot hold a figure a dataset knows either — drop the figure.
-8. **SWIFT codes come from the directory.** A code is shown only when
-   `src/data/scraped/swift-codes.json` (or `bank-details.json`) holds it for
-   that bank, matched both ways on distinctive name words; otherwise remove it
-   (tables show "—"). Never write one from memory. *Enforced (structure
-   only):* `check:swift-codes` (prebuild).
+8. **SWIFT codes come from the directory.** A new or rewritten code is shown
+   only when `src/data/scraped/swift-codes.json` (or `bank-details.json`)
+   holds it for that bank, matched both ways on distinctive name words, or the
+   bank's own site confirms it; otherwise remove it (tables show "—"). Never
+   write one from memory. Legacy debt: ~450 codes in content (swift-content,
+   corridor-details, guides, IBAN FAQs) pre-date this rule and are not in the
+   directory — most look genuine, some do not (an Israel Discount Bank code
+   under "DSCB", Raiffeisen Ukraine under "RAIF"); verify before trusting one.
+   *Enforced (structure only):* `check:swift-codes` (prebuild).
 9. **Never commit build-regenerated files.** `src/data/scraped/*`,
    `public/llms.txt`, `public/llms-full.txt` and
    `public/.well-known/ai-plugin.json` are rewritten by every build and by the

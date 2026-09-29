@@ -607,7 +607,6 @@ export const providers: Provider[] = [
       "~0.7% exchange rate markup — among the lowest available",
       "95% of transfers delivered in under 3 minutes",
       "80+ countries and 65+ currencies covered",
-      "Highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews)",
       "Accepts debit card, bank transfer, Google Pay, Apple Pay, UPI",
     ],
     cons: [

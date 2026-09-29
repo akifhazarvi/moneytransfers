@@ -3427,7 +3427,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "Is BOSS Money safe and legitimate?",
-        a: "Yes. BOSS Money is a subsidiary of IDT Corporation, a NYSE-listed company (ticker: IDT) that has been operating in international communications and money transfer for over 30 years. BOSS Money is registered with FinCEN as a Money Services Business and licensed in 50 US states. Customer funds are segregated from operating funds. Trustpilot rating is 4.5★ across 40,000+ reviews.",
+        a: "Yes. BOSS Money is a subsidiary of IDT Corporation, a NYSE-listed company (ticker: IDT) that has been operating in international communications and money transfer for over 30 years. BOSS Money is registered with FinCEN as a Money Services Business and licensed in 50 US states. Customer funds are segregated from operating funds.",
       },
       {
         q: "Does BOSS Money send to India and the Philippines?",
@@ -5878,7 +5878,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "How do Western Union and WorldRemit compare on trust and safety?",
-        a: "Western Union is NYSE-listed, 170+ years old, regulated globally. WorldRemit is FCA-regulated (UK), FinCEN-registered (US), part of the Zepz group. Both are established and safe. Western Union's Trustpilot score is lower (~3.5★) than WorldRemit's (~4.2★), reflecting customer experience differences.",
+        a: "Western Union is NYSE-listed, 170+ years old, regulated globally. WorldRemit is FCA-regulated (UK), FinCEN-registered (US), part of the Zepz group. Both are established and safe; each review page shows its current Trustpilot score.",
       },
     ],
   },

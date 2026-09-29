@@ -141,7 +141,7 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
       "SendMoneyCompare data shows sending GBP to EUR is one of the most straightforward cross-border transfers thanks to the SEPA payment network, but post-Brexit changes mean costs vary more than you might expect. Digital-first providers like Wise and Revolut dominate this corridor on price.",
     bullets: [
       "SEPA (Single Euro Payments Area) transfers within Europe settle in hours and cost a fraction of SWIFT wires. Any provider routing your transfer via SEPA rather than SWIFT will be significantly cheaper and faster for EUR deliveries.",
-      "Post-Brexit, UK banks are no longer part of SEPA directly, but most specialist providers maintain SEPA access through European banking partners. This means you can still get SEPA-speed delivery without paying traditional international wire fees.",
+      "UK banks stayed in SEPA after Brexit, but as non-EEA members they must add the BIC and payer's address, and some send euro payments over SWIFT instead. Specialist providers pay out through European banking partners on SEPA rails, so you can still get SEPA-speed delivery without paying traditional international wire fees.",
       "Wise and Revolut both price GBP/EUR close to mid-market, often within 0.3–0.5%. On measured payouts the most frequent leader is {{CORRIDOR_LEADER:GBP:EUR}}. Traditional banks typically charge 2–4% in hidden FX markup on top of their wire fees.",
       "For regular payments like rent, mortgage, or salary splitting across the UK and Europe, consider providers offering recurring transfers or multi-currency accounts. The convenience savings on monthly payments add up quickly.",
     ],
@@ -183,13 +183,13 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
       "Italy is Europe's 4th largest economy with over 5 million registered foreign residents — the largest immigrant communities are Romanian (1.1M), Albanian (430K), Moroccan (420K), Chinese (300K), and Filipino (165K). Many receive regular support from family abroad. SendMoneyCompare data shows the key variable on this corridor is whether your transfer routes via SEPA or SWIFT — the cost difference can be 10x.",
     bullets: [
       "SEPA Instant Credit Transfer (SCT Inst) can deliver EUR to Italian bank accounts in under 10 seconds, 24/7 including weekends. Not all providers support SCT Inst yet — Wise and Revolut do. Standard SEPA settles within a few hours on business days. Either way, SEPA is dramatically cheaper than SWIFT (€0–€1 vs €20–€40).",
-      "Post-Brexit, UK banks lost direct SEPA membership. But Wise, Revolut, and CurrencyFair route through European banking partners that retain SEPA access — so a UK→Italy transfer via these providers still settles in hours at SEPA rates. Your high-street bank will default to SWIFT at 10x the cost. Always ask which rail is used.",
+      "Brexit left the UK inside SEPA, but your high-street bank may still send euros to Italy over SWIFT. Wise, Revolut, and CurrencyFair pay out through European banking partners, so a UK→Italy transfer via these providers settles in hours at SEPA rates. Always ask which rail is used.",
       "Cash pickup matters in Italy more than you'd expect for a Eurozone country. Over 12,800 Poste Italiane branches, plus tabaccherie (tobacconists licensed as payment agents) and Western Union/MoneyGram locations serve recipients who are unbanked or prefer cash — common among newly arrived immigrants.",
       "For USD, GBP, or AUD senders: the provider converts to EUR before crediting the Italian bank account. The conversion markup is where the real cost hides. A provider charging $0 fee but marking up USD/EUR by 1.5% costs more on a $1,000 transfer than one charging $5 with a 0.3% markup. SendMoneyCompare shows total EUR received so you can compare directly.",
     ],
     warningTitle: "UK senders: your bank is almost certainly using SWIFT",
     warningBody:
-      "Post-Brexit, UK high-street banks (Barclays, HSBC, Lloyds, NatWest) default to SWIFT for Italy transfers — costing £20–£40 plus 2–3% FX markup, taking 2–3 business days. Specialist providers route the same transfer via SEPA in hours for under £5 total cost. That's a real-world saving of £25–£50 on every transfer.",
+      "A UK bank that sends your euros to Italy over SWIFT rather than SEPA adds a transfer fee to its FX markup, and the payment can take 2–3 business days. Specialist providers route the same transfer via SEPA in hours.",
   },
   "usa-to-morocco": {
     title: "What matters on the USA to Morocco corridor",

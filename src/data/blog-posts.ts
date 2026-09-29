@@ -534,6 +534,17 @@ const rawBlogPosts: BlogPost[] = [
 <p>Below $398, C produces the larger payout; above $398, D does. At exactly $398 their payouts match before rounding. This is why a “cheapest provider” result for $1,000 cannot answer a question about sending $100. This constructed example assumes constant prices; real fees and rate margins may change at amount thresholds.</p>`,
       },
       {
+        heading: "The same method on today's quotes: $1,000 to Mexico",
+        content: `<p>Here is the calculation above run on real quotes instead of invented ones: $1,000 sent to a peso account, priced on {{QUOTE_DATE}}. At the mid-market rate of {{MID_RATE:USD:MXN}}, $1,000 would deliver {{MID_RECEIVE:USD:MXN:1000}}; every peso short of that is what the transfer cost.</p>
+<table><caption>$1,000 USD to MXN, our quotes on {{QUOTE_DATE}}</caption><thead><tr><th></th><th>Wise</th><th>Remitly</th><th>Western Union</th></tr></thead><tbody>
+<tr><td>Fee</td><td>{{FEE:wise:USD:MXN:1000}}</td><td>{{FEE:remitly:USD:MXN:1000}}</td><td>{{FEE:western-union:USD:MXN:1000}}</td></tr>
+<tr><td>Rate margin</td><td>{{MARKUP:wise:USD:MXN:1000}}</td><td>{{MARKUP:remitly:USD:MXN:1000}}</td><td>{{MARKUP:western-union:USD:MXN:1000}}</td></tr>
+<tr><td>Recipient gets</td><td>{{RECEIVE:wise:USD:MXN:1000}}</td><td>{{RECEIVE:remitly:USD:MXN:1000}}</td><td>{{RECEIVE:western-union:USD:MXN:1000}}</td></tr>
+<tr><td>All-in cost</td><td>{{COST:wise:USD:MXN:1000}} ({{COST_PCT:wise:USD:MXN:1000}})</td><td>{{COST:remitly:USD:MXN:1000}} ({{COST_PCT:remitly:USD:MXN:1000}})</td><td>{{COST:western-union:USD:MXN:1000}} ({{COST_PCT:western-union:USD:MXN:1000}})</td></tr>
+</tbody></table>
+<p>Read the fee row against the all-in row. A larger fee can sit beside a smaller total when the rate margin is lower, and a fee under $2 can hide a margin that costs several times more. Which provider comes out ahead moves with the market — these figures are rebuilt from our quotes every time the site is — so the ranking that counts is the one on your own confirmation screen, worked out the same way.</p>`,
+      },
+      {
         heading: "Which Providers Have the Lowest Markup?",
         content: `<p>Based on our analysis of thousands of real quotes across {{PROVIDER_COUNT}} providers:</p>
 <ul>
@@ -925,6 +936,16 @@ const rawBlogPosts: BlogPost[] = [
 <p>The <a href="https://www.swift.com/standards/data-standards/bic-business-identifier-code" target="_blank" rel="noopener noreferrer">BIC definition</a> is the reference for that structure. It is a format explanation, not a lookup of a particular bank's current payment instructions.</p>`,
       },
       {
+        heading: "Three real codes, read position by position",
+        content: `<p>These three come from our <a href="/swift-codes">SWIFT code directory</a>, which lists each bank's registered codes, rather than from memory:</p>
+<table><thead><tr><th>Code</th><th>Bank and city in the directory</th><th>1–4</th><th>5–6</th><th>7–8</th><th>9–11</th></tr></thead><tbody>
+<tr><td>AIBKIE2DXXX</td><td>AIB Bank, Dublin</td><td>AIBK</td><td>IE</td><td>2D</td><td>XXX</td></tr>
+<tr><td>UNCRITMMXXX</td><td>UniCredit S.p.A., Milan</td><td>UNCR</td><td>IT</td><td>MM</td><td>XXX</td></tr>
+<tr><td>ZABAHR2XXXX</td><td>Zagrebačka banka, Zagreb</td><td>ZABA</td><td>HR</td><td>2X</td><td>XXX</td></tr>
+</tbody></table>
+<p>All three end in XXX, the code for the institution's primary office; the same code written with eight characters — AIBKIE2D — means the same office. The location pair tells you nothing you could route on: UniCredit's MM happens to look like Milano, while AIB's 2D and Zagrebačka banka's 2X are not abbreviations of anything. When a code a sender gives you differs from the bank's directory entry in any of these positions, ask the bank before paying.</p>`,
+      },
+      {
         heading: "How to Find Your Bank's SWIFT Code",
         content: `<p>There are several ways to find your SWIFT code:</p>
 <ol>
@@ -1217,7 +1238,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "App Store Ratings vs Trustpilot — Why They Disagree",
-        content: `<p class="citable-passage">App-store ratings and Trustpilot ratings measure different things, and the gap between them is wide enough to change which provider looks best. Apps ask for a rating inside the app, usually moments after a transfer has gone through — a point chosen because the customer is happy. Trustpilot reviews are written on a separate site that people generally visit on purpose, often to complain. The result is that almost every provider scores between 4.6 and 4.9 on the App Store, while the same providers spread from 1.3 to 4.7 on Trustpilot. PayPal is the extreme case: 1.3 on Trustpilot against 4.8 on the App Store.</p>
+        content: `<p class="citable-passage">App-store ratings and Trustpilot ratings measure different things, and the gap between them is wide enough to change which provider looks best. Apps ask for a rating inside the app, usually moments after a transfer has gone through — a point chosen because the customer is happy. Trustpilot reviews are written on a separate site that people generally visit on purpose, often to complain. The result is that almost every provider scores between 4.6 and 4.9 on the App Store, while on Trustpilot the same providers fall as low as PayPal's {{TRUSTPILOT:paypal}}. PayPal is the extreme case: {{TRUSTPILOT:paypal}} on Trustpilot against {{APP_SCORES:paypal}}.</p>
 {{APP_RATINGS_TABLE}}
 <p>We rank on Trustpilot because it actually separates providers and the reviews are independently verifiable. We publish the app-store numbers next to it because readers ask for them, and because the gap is itself informative — a provider with a wide gap usually has a well-built app sitting in front of a weaker service record. Read neither number on its own.</p>
 <p>One practical warning: store ratings differ by country. Every figure above is the US storefront, collected on the same day for all 16 providers so the comparison is like-for-like. A provider's own marketing typically quotes a worldwide total, which will always be a bigger number than any single storefront reports — so a provider's published count and the count here can both be right.</p>`,
@@ -1232,7 +1253,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Why does Remitly score 4.9 on the App Store but 4.6 on Trustpilot?",
         answer:
-          "Because the two collect reviews differently. Apps prompt for a rating in-app right after a successful transfer, when the customer is happy; Trustpilot is a separate site people usually visit deliberately, often to complain. The pattern holds across the whole market — nearly every provider sits between 4.6 and 4.9 on the App Store, while Trustpilot spreads the same providers from 1.3 to 4.7. <a href=\"/companies/paypal\">PayPal</a> is the extreme case: {{TRUSTPILOT:paypal}} on Trustpilot against {{APP_SCORES:paypal}}. We rank on Trustpilot because it separates providers; see the full table above.",
+          "Because the two collect reviews differently. Apps prompt for a rating in-app right after a successful transfer, when the customer is happy; Trustpilot is a separate site people usually visit deliberately, often to complain. The pattern holds across the whole market — nearly every provider sits between 4.6 and 4.9 on the App Store, while on Trustpilot the same names can sit far lower. <a href=\"/companies/paypal\">PayPal</a> is the extreme case: {{TRUSTPILOT:paypal}} on Trustpilot against {{APP_SCORES:paypal}}. We rank on Trustpilot because it separates providers; see the full table above.",
       },
       {
         question: "What is the best app to send money internationally?",
@@ -3838,11 +3859,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "send-money-to-india-guide",
+      "business-payments-usa-to-philippines",
+      "fastest-way-to-send-money-internationally",
       "send-money-to-pakistan-guide",
-      "send-money-to-mexico-guide",
-      "cheapest-way-to-send-money-internationally",
-      "best-money-transfer-apps",
     ],
   },
   // ============================
@@ -4181,11 +4200,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "send-money-to-india-guide",
-      "send-money-to-philippines-guide",
-      "send-money-to-nigeria-guide",
-      "cheapest-way-to-send-money-internationally",
-      "best-money-transfer-apps",
+      "send-money-usa-to-mexico-cost-guide",
+      "business-payments-usa-to-mexico",
+      "us-remittance-tax-2026",
     ],
   },
   // ============================
@@ -6076,21 +6093,20 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "US-Canada: The World's Largest Bilateral Trade Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/ofx">OFX</a> offer the lowest fees for USD to CAD business payments — saving 1–3% compared to bank wire transfers on every payment.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> costs {{COST_PCT:wise:USD:CAD:5000}} in total on a $5,000 USD→CAD payment today and pays the Canadian payee from a local account; <a href="/companies/ofx">OFX</a> charges no transfer fee and negotiates rates on larger payments.</p></div>
 <p>The US and Canada share the world's largest bilateral trade relationship, with over <strong>$900 billion</strong> in goods and services crossing the border annually, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer">Office of the US Trade Representative</a>.</p>
 <p>Yet despite this massive volume, many businesses still overpay on USD to CAD transfers. Banks routinely charge 1.5–3% exchange rate markups on business wire transfers between the two countries — that's $1,500–$3,000 on every $100,000 payment.</p>
 <p>The good news: because USD-CAD is one of the most liquid currency pairs in the world, specialist providers offer extremely competitive rates. Here's how to take advantage.</p>`,
       },
       {
         heading: "Best Providers for US to Canada Business Payments",
-        content: `<p>We compared the top platforms for USD to CAD business transfers based on cost, speed, and business features:</p>
+        content: `<p>Here is what a $5,000 USD payment into a Canadian-dollar account costs with each provider that offers business accounts. Specialists such as Wise pay the payee from a Canadian account, which avoids a cross-border wire landing at the Canadian bank.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → CAD business transfers on 5,000 USD</h3>
 <p>USD → CAD on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:CAD:5000}}
-<p class="blog-footnote">USA → Canada: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
-<p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live USD to CAD rates →</a></p>
+<p class="blog-footnote">Personal-account quotes for USD→CAD; a business plan can price differently — check it in the <a href="/business/compare">business comparison</a>, or <a href="/send-money">compare today's USD to CAD rates →</a></p>
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
@@ -6131,8 +6147,8 @@ const rawBlogPosts: BlogPost[] = [
 <p>The Canada-United States-Mexico Agreement governs trade between the three countries. While it primarily affects goods and tariffs, businesses should ensure their commercial payments are properly documented with supporting invoices and trade documentation.</p>
 <h3>US Reporting Requirements</h3>
 <ul>
-<li><strong>CTR (Currency Transaction Report)</strong> — Required for cash transactions over $10,000, filed with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></li>
-<li><strong>FBAR (FinCEN 114)</strong> — If your business holds Canadian bank accounts (including multi-currency accounts) with aggregate balances exceeding $10,000 at any point during the year, you must file an FBAR annually</li>
+<li><strong>Sanctions screening</strong> — payments to Canada are screened against OFAC lists like any other; a held payment is often a name match the provider needs you to clear</li>
+<li><strong>FBAR (FinCEN 114)</strong> — once Canadian bank accounts the business controls hold more than $10,000 combined at any point in a year, it files an FBAR with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></li>
 <li><strong>Form 8938 (FATCA)</strong> — Additional reporting for specified foreign financial assets exceeding certain thresholds</li>
 </ul>
 <h3>Canadian Requirements</h3>
@@ -6144,7 +6160,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>USA to Canada figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money">USA to Canada comparison</a> on the day you pay.</p>
+        content: `<p>Costs on this page come from our USD→CAD quote collection, refreshed every 6 hours; check <a href="/send-money">today's USA to Canada rates</a> before you pay.</p>
 <p>External sources include the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer">Office of the US Trade Representative</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a>, and provider-published business fee schedules.</p>`,
       },
     ],
@@ -6152,7 +6168,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way for a US business to pay a Canadian supplier?",
         answer:
-          "Wise Business is typically the cheapest option, charging ~0.28% total cost with 0% exchange rate markup. On a $10,000 transfer, that's about $28 versus $175–$345 through a major bank. OFX is also competitive for larger amounts ($10,000+) with $0 fees and negotiable rates.",
+          "On consumer quotes the most frequent USD→CAD leader is {{CORRIDOR_LEADER:USD:CAD}}. Among business accounts, Wise Business costs {{COST_PCT:wise:USD:CAD:5000}} in total on $5,000 today; OFX has no transfer fee and negotiates rates on larger amounts.",
       },
       {
         question: "How long does a business payment from USA to Canada take?",
@@ -6162,7 +6178,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Do I need to report US to Canada business payments?",
         answer:
-          "Yes, in certain cases. In the US, cash transactions over $10,000 require a Currency Transaction Report (CTR) filed with FinCEN. If you hold Canadian bank accounts (including multi-currency accounts) with aggregate balances over $10,000, you must file an FBAR annually. On the Canadian side, financial institutions automatically report cross-border transfers of C$10,000+ to FINTRAC.",
+          "Sometimes. A wire payment itself creates no US filing for the business, but Canadian bank accounts it controls with more than $10,000 combined at any point in a year mean an annual FBAR. In Canada, banks and money services businesses report incoming international transfers of C$10,000 or more to FINTRAC.",
       },
       {
         question: "Can I lock the USD/CAD exchange rate for future payments?",
@@ -6171,10 +6187,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
+      "business-payments-canada-to-usa",
+      "invoicing-international-clients-multiple-currencies",
       "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
     ],
   },
 
@@ -6199,20 +6214,19 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The USD-GBP Business Payment Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> offers 0% markup on the mid-market rate for USD to GBP business transfers, making it the cheapest option for regular <a href="/send-money/usa-to-uk">USA to UK payments</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> converts USD to GBP at the mid-market rate with a separate fee — {{COST_PCT:wise:USD:GBP:5000}} in total on a $5,000 payment today — and pays the UK supplier over Faster Payments. Check the <a href="/send-money/usa-to-uk">USA to UK rates</a> on the day you pay.</p></div>
 <p>The United States and the United Kingdom share one of the world's most significant economic partnerships, with bilateral trade in goods and services exceeding <strong>$300 billion annually</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer">Office of the US Trade Representative</a>. The UK is the largest European destination for US foreign direct investment.</p>
 <p>Despite this deep economic integration, many US businesses still rely on traditional bank wires to pay UK suppliers and contractors — losing 1.5–3% per transfer in hidden exchange rate markups. On a $50,000 payment, that's $750–$1,500 that didn't need to be spent.</p>`,
       },
       {
         heading: "Best Providers for USA to UK Business Payments",
-        content: `<p>We compared the top platforms for USD to GBP business transfers based on cost, speed, and business features:</p>
+        content: `<p>The table prices a $5,000 payment into a UK supplier's sterling account, using only providers that run business accounts; the notes after it cover what a price table can't — Faster Payments payout, forward contracts and accounting links.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → GBP business transfers on 5,000 USD</h3>
 <p>USD → GBP on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:GBP:5000}}
-<p class="blog-footnote">USA → UK: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
-<p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-uk">Compare live USD to GBP rates →</a></p>
+<p class="blog-footnote">Priced on personal-account quotes for the same USD→GBP route; business tiers are often set by monthly volume, so confirm yours in the <a href="/business/compare">business comparison</a> or see <a href="/send-money/usa-to-uk">today's USD to GBP rates →</a></p>
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
@@ -6224,7 +6238,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Payment Methods Compared",
-        content: `<p>USA to UK businesses have several payment options. Here's how they compare:</p>
+        content: `<p>A US payer has four realistic ways to put sterling into a UK account:</p>
 <h3>FX Platform Transfer (Recommended)</h3>
 <p>Services like Wise, OFX, and XE route payments through local rails — you send USD domestically to their US account, they pay GBP from their UK account via Faster Payments. This avoids SWIFT fees entirely and typically delivers same-day or next-day.</p>
 <h3>SWIFT Wire Transfer</h3>
@@ -6250,8 +6264,8 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>The USA to UK corridor has specific compliance considerations:</p>
 <h3>US Reporting Requirements</h3>
 <ul>
-<li><strong>CTR (Currency Transaction Report)</strong> — Required for cash transactions over $10,000, filed with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></li>
-<li><strong>FBAR (FinCEN 114)</strong> — If your business holds UK bank accounts (including multi-currency accounts with GBP) with aggregate balances exceeding $10,000 at any point during the year, file annually</li>
+<li><strong>OFAC screening</strong> — a US business may not pay anyone on the Treasury's sanctions lists, so providers screen the UK beneficiary before releasing a first payment</li>
+<li><strong>FBAR (FinCEN 114)</strong> — a UK bank account the business controls counts toward the $10,000 combined foreign-balance threshold; cross it at any point in a year and the business files with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></li>
 <li><strong>FATCA (Form 8938)</strong> — Additional reporting for specified foreign financial assets above certain thresholds</li>
 </ul>
 <h3>UK Requirements</h3>
@@ -6263,15 +6277,14 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>USA to UK figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-uk">USA to UK comparison</a> on the day you pay.</p>
-<p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
+        content: `<p>The $5,000 table and the costs quoted in this guide come from our USD→GBP quote collection, refreshed every 6 hours — rates move daily, so check the <a href="/send-money/usa-to-uk">USA to UK comparison</a> before paying. Rules for UK payment firms cite the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>; US reporting duties cite <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
       {
         question: "What is the cheapest way for a US business to pay a UK supplier?",
         answer:
-          "Wise Business and Revolut Business are typically cheapest, both offering near mid-market rates. Wise charges ~0.35% total cost on USD to GBP. On a $10,000 transfer, that's ~$35 versus $175–$345 through a bank. OFX offers better negotiated rates for amounts over $10,000.",
+          "On consumer quotes, the most frequent USD→GBP leader is {{CORRIDOR_LEADER:USD:GBP}}. For a business account, Wise Business costs {{COST_PCT:wise:USD:GBP:5000}} in total on $5,000 today, against the $25–$45 wire fee plus markup a bank typically adds; OFX negotiates rates on larger payments.",
       },
       {
         question: "How long does a business payment from USA to UK take?",
@@ -6285,10 +6298,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
+      "business-payments-uk-to-europe",
+      "send-money-to-uk-guide",
+      "international-payroll-pay-remote-teams",
     ],
   },
 
@@ -6416,10 +6428,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
+      "business-payments-uk-to-india",
+      "how-to-pay-international-freelancers-contractors",
+      "send-money-to-india-from-usa-guide",
     ],
   },
 
@@ -6532,10 +6543,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
+      "send-money-usa-to-mexico-cost-guide",
+      "business-payments-canada-to-usa",
       "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
     ],
   },
 
@@ -6560,20 +6570,19 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The USD-EUR Business Payment Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and Airwallex offer the best USD to EUR rates for businesses — with 0–0.3% markup and SEPA routing for fast European delivery. <a href="/send-money/usa-to-europe">Compare live rates</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and Airwallex both pay euro invoices over SEPA from a US business account, so the supplier receives a domestic-looking transfer; the table below shows what each costs on $5,000 today. <a href="/send-money/usa-to-europe">Compare live rates</a>.</p></div>
 <p>The European Union is the United States' largest trade and investment partner, with bilateral trade in goods and services exceeding <strong>$1.3 trillion annually</strong> and mutual investment stocks of over <strong>$5.6 trillion</strong>, according to the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer">European Commission</a>.</p>
-<p>For US businesses paying European suppliers, contractors, or offices, understanding SEPA (the Single Euro Payments Area) is key. SEPA enables fast, cheap euro transfers across 36 European countries — and smart businesses can use FX platforms to route their USD payments via SEPA for dramatically lower costs than traditional SWIFT wires.</p>`,
+<p>For US businesses paying European suppliers, contractors, or offices, understanding SEPA (the Single Euro Payments Area) is key. SEPA enables fast, cheap euro transfers across 41 countries and territories — and smart businesses can use FX platforms to route their USD payments via SEPA for dramatically lower costs than traditional SWIFT wires.</p>`,
       },
       {
         heading: "Best Providers for USA to Europe Business Payments",
-        content: `<p>We compared the top platforms for USD to EUR business transfers based on cost, speed, and business features:</p>
+        content: `<p>The table prices a $5,000 payment into a European supplier's euro IBAN with business-account providers. The rail matters as much as the rate: a SEPA payout arrives whole, while a SWIFT wire can lose correspondent fees on the way.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → EUR business transfers on 5,000 USD</h3>
 <p>USD → EUR on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:EUR:5000}}
-<p class="blog-footnote">USA → Europe: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
-<p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live USD to EUR rates →</a></p>
+<p class="blog-footnote">These are personal-account quotes on USD→EUR; check your business plan's pricing in the <a href="/business/compare">business comparison</a>, or <a href="/send-money/usa-to-europe">see today's USD to EUR rates →</a></p>
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
@@ -6585,9 +6594,9 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Payment Methods Compared",
-        content: `<p>USA to Europe businesses have several payment options. Here's how they compare:</p>
+        content: `<p>A US business paying in euros has four routes to a European IBAN:</p>
 <h3>FX Platform via SEPA (Recommended)</h3>
-<p>SEPA (Single Euro Payments Area) enables fast, cheap euro transfers across 36 countries. Providers like Wise and Revolut convert your USD and deliver EUR via SEPA Credit Transfer (1 business day) or SEPA Instant (seconds). Your European recipient receives a domestic-looking EUR transfer — no SWIFT fees, no intermediary charges.</p>
+<p>SEPA (Single Euro Payments Area) enables fast, cheap euro transfers across 41 countries and territories. Providers like Wise and Revolut convert your USD and deliver EUR via SEPA Credit Transfer (1 business day) or SEPA Instant (seconds). Your European recipient receives a domestic-looking EUR transfer — no SWIFT fees, no intermediary charges.</p>
 <h3>SEPA Instant</h3>
 <p>A newer SEPA scheme delivering payments in under 10 seconds, 24/7/365. Wise supports SEPA Instant for many European destinations. Not all European banks support receiving SEPA Instant yet, but adoption is growing rapidly.</p>
 <h3>SWIFT Wire Transfer</h3>
@@ -6625,20 +6634,19 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>USA to Europe figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-europe">USA to Europe comparison</a> on the day you pay.</p>
-<p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
+        content: `<p>USD→EUR prices come from our quote collection, refreshed every 6 hours; the <a href="/send-money/usa-to-europe">USA to Europe comparison</a> has today's. US reporting duties cite <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>; SEPA scope cites the <a href="https://www.europeanpaymentscouncil.eu/about-sepa" target="_blank" rel="noopener noreferrer">European Payments Council</a>.</p>`,
       },
     ],
     faqs: [
       {
         question: "What is SEPA and why does it matter for US-Europe payments?",
         answer:
-          "SEPA (Single Euro Payments Area) is a payment integration initiative covering 36 European countries. It allows euro transfers between any SEPA bank within 1 business day (or seconds via SEPA Instant) at minimal cost. Smart FX platforms convert your USD and deliver via SEPA, avoiding expensive SWIFT wires.",
+          "SEPA (Single Euro Payments Area) is a payment integration initiative covering 41 countries and territories. It allows euro transfers between any SEPA bank within 1 business day (or seconds via SEPA Instant) at minimal cost. Smart FX platforms convert your USD and deliver via SEPA, avoiding expensive SWIFT wires.",
       },
       {
         question: "What is the cheapest way for a US business to pay a European supplier?",
         answer:
-          "Wise Business (~0.33% total) and Revolut Business (~0.3% total) are typically cheapest, both delivering via SEPA. On a $10,000 transfer, that's $30–$33 versus $175–$345 through a bank. OFX offers better rates for amounts over $10,000.",
+          "On consumer quotes the most frequent USD→EUR leader is {{CORRIDOR_LEADER:USD:EUR}}. For business accounts, compare Wise Business and Revolut Business in the table — both pay out over SEPA — against a bank wire's fee and markup; OFX negotiates on larger amounts.",
       },
       {
         question: "Do I need an IBAN to send money to Europe?",
@@ -6647,10 +6655,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
+      "business-payments-uk-to-europe",
+      "lowest-fx-fees-business-payments-2026",
+      "b2b-international-payments-guide",
     ],
   },
 
@@ -6675,20 +6682,19 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The GBP-EUR Business Payment Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> offers 0% markup on the mid-market rate for GBP to EUR business transfers, with SEPA delivery in seconds to 1 day — even post-Brexit.</p></div>
-<p>The EU remains the UK's largest trading partner, with bilateral trade exceeding <strong>£560 billion annually</strong>. However, post-Brexit changes have added new complexity — and cost — to cross-border payments. UK businesses are no longer part of SEPA by default, and some banks have reduced or repriced their European payment services.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> converts GBP to EUR at the mid-market rate — {{COST_PCT:wise:GBP:EUR:5000}} in total on £5,000 today — and pays the supplier's IBAN over SEPA, which the UK is still part of.</p></div>
+<p>The EU remains the UK's largest trading partner, with bilateral trade exceeding <strong>£560 billion annually</strong>. However, post-Brexit changes have added new complexity — and cost — to cross-border payments. The UK stayed in SEPA, but UK payments now count as non-EEA — the sender must supply the BIC and full address — and some banks have reduced or repriced their European payment services.</p>
 <p>The good news: specialist FX platforms still offer UK businesses seamless access to SEPA. <a href="/companies/wise">Wise Business</a> and <a href="/companies/revolut">Revolut Business</a>, both UK-headquartered, maintain EU-licensed entities that route GBP-to-EUR payments via SEPA — delivering the same speed and cost as pre-Brexit.</p>`,
       },
       {
         heading: "Best Providers for UK to Europe Business Payments",
-        content: `<p>We compared the top platforms for GBP to EUR business transfers based on cost, speed, and business features:</p>
+        content: `<p>The table prices a £5,000 payment into a eurozone supplier's IBAN, business-account providers only. Since the UK stayed in SEPA, what separates them is the rail each one uses and whether it collects the BIC and address a non-EEA SEPA payment needs.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: GBP → EUR Business Transfers (£10,000)</h3>
 <p>GBP → EUR on a 5,000 GBP supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:GBP:EUR:5000}}
-<p class="blog-footnote">UK → Europe: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
-<p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live GBP to EUR rates →</a></p>
+<p class="blog-footnote">Personal-account prices on GBP→EUR; business plans differ, so confirm yours in the <a href="/business/compare">business comparison</a>, or open <a href="/send-money/usa-to-europe">live euro rates →</a></p>
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
@@ -6700,7 +6706,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Payment Methods Compared",
-        content: `<p>UK to Europe businesses have several payment options. Here's how they compare:</p>
+        content: `<p>From a UK account, a euro invoice can be paid four ways:</p>
 <h3>FX Platform via SEPA (Recommended)</h3>
 <p>Despite Brexit, UK businesses can still access SEPA through providers that hold EU licenses. Wise and Revolut convert GBP via Faster Payments and deliver EUR via SEPA Credit Transfer or SEPA Instant. The recipient sees a standard SEPA payment — no additional cost or delay on their end.</p>
 <h3>UK Faster Payments → SEPA</h3>
@@ -6739,32 +6745,30 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>UK to Europe figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/usa-to-europe">UK to Europe comparison</a> on the day you pay.</p>
-<p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
+        content: `<p>Prices here come from our GBP→EUR quote collection, refreshed every 6 hours; check <a href="/send-money/usa-to-europe">live euro rates</a> before a large payment. UK firm rules cite the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>; SEPA membership and the non-EEA data rules cite the <a href="https://www.europeanpaymentscouncil.eu/about-sepa" target="_blank" rel="noopener noreferrer">European Payments Council</a>.</p>`,
       },
     ],
     faqs: [
       {
         question: "Can UK businesses still use SEPA after Brexit?",
         answer:
-          "Not directly through UK banks, but yes through FX platforms like Wise Business and Revolut Business that hold EU licenses. They route your GBP-to-EUR payment through their EU entities via SEPA, so the European recipient receives a standard SEPA transfer at the same speed and cost as before Brexit.",
+          "Yes. The UK remained in SEPA, so UK banks can send SEPA Credit Transfers, though not all offer them for business accounts and each payment must carry the payee's BIC and your address. FX platforms like Wise Business and Revolut Business also route your GBP-to-EUR payment through their EU entities via SEPA, so the European recipient receives a standard SEPA transfer at the same speed and cost as before Brexit.",
       },
       {
         question: "What is the cheapest way for a UK business to pay a European supplier?",
         answer:
-          "Wise Business (~0.29% total) and Revolut Business (~0.3% total) are cheapest, both delivering via SEPA. On £10,000, that's ~£29–30 versus £155–330 through a high street bank. OFX offers negotiated rates for larger amounts.",
+          "On consumer quotes the most frequent GBP→EUR leader is {{CORRIDOR_LEADER:GBP:EUR}}. Among business accounts, Wise Business costs {{COST_PCT:wise:GBP:EUR:5000}} in total on £5,000 today, Revolut Business prices by plan, and OFX negotiates on larger amounts.",
       },
       {
         question: "How has Brexit affected UK-EU business payments?",
         answer:
-          "UK banks lost direct SEPA membership, making bank-to-bank EUR transfers slower and more expensive. However, FX platforms with EU licenses still provide full SEPA access. The main impact is on goods trade (customs, VAT), not the payment rails themselves. For services, the reverse charge mechanism still works.",
+          "UK banks kept SEPA access — the UK stayed in its geographical scope — but UK payments now count as non-EEA, so they need the BIC and the payer's address, and some banks send euros over SWIFT, which is slower and dearer. FX platforms with EU licences also provide full SEPA access. The main impact is on goods trade (customs, VAT), not the payment rails themselves. For services, the reverse charge mechanism still works.",
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
+      "business-payments-usa-to-europe",
+      "bulk-international-payments-guide",
+      "xe-business-payments-review",
     ],
   },
 
@@ -6789,20 +6793,19 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The GBP-INR Business Payment Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/instarem">Instarem</a> are the cheapest options for GBP to INR business payments, cutting costs by 80%+ compared to UK high street banks.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> costs {{COST_PCT:wise:GBP:INR:5000}} in total on a £5,000 GBP→INR payment today, and <a href="/companies/instarem">Instarem</a> charges no transfer fee on the route; a UK high-street bank adds a SWIFT fee to its own markup.</p></div>
 <p>The UK-India economic relationship has entered a new phase, with bilateral trade exceeding <strong>£38 billion annually</strong> and ongoing negotiations for a comprehensive free trade agreement. India is one of the UK's fastest-growing trade partners, driven by the technology services sector, pharmaceutical trade, and professional services.</p>
 <p>For UK businesses paying Indian IT development teams, BPO partners, or suppliers, traditional bank transfers are particularly expensive on the GBP-INR corridor — with markups often reaching 3–4%. Specialist providers can cut these costs by 80% or more.</p>`,
       },
       {
         heading: "Best Providers for UK to India Business Payments",
-        content: `<p>We compared the top platforms for GBP to INR business transfers based on cost, speed, and business features:</p>
+        content: `<p>The table prices a £5,000 payment to an Indian contractor's rupee account with business-account providers. Whichever you use, the Indian bank will ask for the payment's purpose code, which it uses to report the inflow to the Reserve Bank of India.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: GBP → INR Business Transfers (£10,000)</h3>
 <p>GBP → INR on a 5,000 GBP supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:GBP:INR:5000}}
-<p class="blog-footnote">UK → India: these are consumer quotes, and a business account may be priced differently — confirm yours (<a href="/business/compare">business comparison</a>).</p>
-<p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/uk-to-india">Compare live GBP to INR rates →</a></p>
+<p class="blog-footnote">Quotes are personal-account prices on GBP→INR; business plans can differ, so confirm yours in the <a href="/business/compare">business comparison</a> or check <a href="/send-money/uk-to-india">today's GBP to INR rates →</a></p>
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
@@ -6815,7 +6818,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Payment Methods Compared",
-        content: `<p>UK to India businesses have several payment options. Here's how they compare:</p>
+        content: `<p>Four ways to move rupees from a UK business account to an Indian one:</p>
 <h3>FX Platform via NEFT/IMPS (Recommended)</h3>
 <p>Wise, InstaReM, and OFX deliver INR via India's domestic payment systems: NEFT (National Electronic Funds Transfer) for standard payments or IMPS (Immediate Payment Service) for instant delivery. You fund in GBP via Faster Payments; the provider converts and deposits INR directly.</p>
 <h3>SWIFT Wire Transfer</h3>
@@ -6855,15 +6858,14 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>UK to India figures here come from our own quote collection, refreshed every 6 hours; rates move daily, so check the <a href="/send-money/uk-to-india">UK to India comparison</a> on the day you pay.</p>
-<p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
+        content: `<p>The GBP→INR figures come from our quote collection, refreshed every 6 hours — check the <a href="/send-money/uk-to-india">UK to India comparison</a> the day you pay. UK payment-firm rules cite the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>; purpose codes and inward-remittance reporting cite the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>.</p>`,
       },
     ],
     faqs: [
       {
         question: "What is the cheapest way for a UK business to pay Indian contractors?",
         answer:
-          "Wise Business (~0.39% total) and InstaReM (~0.4% total) are typically cheapest. On £10,000, that's ~£39–40 versus £255–425 through a high street bank. OFX offers better negotiated rates for amounts over £10,000.",
+          "On consumer quotes, the most frequent GBP→INR leader is {{CORRIDOR_LEADER:GBP:INR}}. For a business account, Wise Business costs {{COST_PCT:wise:GBP:INR:5000}} in total on £5,000 today and InstaReM {{COST_PCT:instarem:GBP:INR:5000}}; OFX negotiates rates on larger payments.",
       },
       {
         question: "How long does a business payment from UK to India take?",
@@ -6877,10 +6879,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
+      "send-money-uk-to-india-guide",
+      "business-payments-australia-to-india",
+      "how-to-pay-international-freelancers-contractors",
     ],
   },
 
@@ -6994,10 +6995,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
+      "send-money-to-philippines-guide",
+      "international-payroll-pay-remote-teams",
+      "business-payments-usa-to-india",
     ],
   },
 
@@ -7107,8 +7107,7 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
+      "send-money-to-australia-guide",
       "fx-hedging-strategies-small-business",
       "business-money-transfers-provider-review",
     ],
@@ -7243,10 +7242,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
+      "large-business-transfers-from-china-cny",
+      "send-money-to-china-guide",
       "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
     ],
   },
 
@@ -7358,10 +7356,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
+      "business-payments-usa-to-canada",
       "business-money-transfers-provider-review",
+      "invoicing-international-clients-multiple-currencies",
     ],
   },
 
@@ -7473,10 +7470,9 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "business-international-payments-guide",
-      "how-to-pay-international-suppliers",
-      "fx-hedging-strategies-small-business",
-      "business-money-transfers-provider-review",
+      "send-money-australia-to-india",
+      "business-payments-uk-to-india",
+      "bulk-international-payments-guide",
     ],
   },
 
@@ -11803,7 +11799,7 @@ const rawBlogPosts: BlogPost[] = [
 </ul>
 
 <h3>From the UK (GBP → RON)</h3>
-<p>Post-Brexit, UK→Romania is no longer a SEPA transfer. For a £500 transfer:</p>
+<p>A UK→Romania transfer in lei was never a SEPA payment — SEPA carries only euros — so what you pay is mostly the conversion. For a £500 transfer:</p>
 <ul>
 <li><strong>Wise:</strong> Best GBP→RON rate. Mid-market rate with ~£3–£5 fee. Delivery in 1–2 business days.</li>
 <li><strong>Revolut:</strong> Competitive for smaller amounts if both parties have Revolut.</li>
@@ -11875,8 +11871,8 @@ const rawBlogPosts: BlogPost[] = [
 
 <p><strong>Why this matters:</strong> A SEPA Instant transfer of €1,000 costs €0–€1 and arrives in 10 seconds. The same transfer through a traditional wire costs €15–€30 plus 2–4% markup and takes 2–3 days. That's a potential saving of €35–€70 on a single transfer.</p>
 
-<h3>UK Senders: Post-Brexit SEPA Access</h3>
-<p>UK banks are no longer part of SEPA. Your options:</p>
+<h3>UK Senders: SEPA After Brexit</h3>
+<p>The UK is still in SEPA, but not every UK bank sends SEPA payments, and those that do need the Romanian bank's BIC. Your options:</p>
 <ul>
 <li><strong>Wise:</strong> Acts as your SEPA bridge. Send GBP, Wise converts and delivers via SEPA to Romanian IBAN.</li>
 <li><strong>Revolut:</strong> Revolut's EU entity can send SEPA transfers — useful if you have a Revolut account.</li>
@@ -11905,7 +11901,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<ol>
 <li><strong>Send EUR to a EUR account whenever possible.</strong> This is the golden rule for Romania. SEPA is free, instant, and avoids conversion markup entirely.</li>
 <li><strong>If RON is needed, let the recipient convert locally.</strong> Romanian banking apps (especially ING, Revolut Romania, and Banca Transilvania) offer excellent EUR→RON conversion rates — often better than transfer providers.</li>
-<li><strong>Use Wise as your SEPA bridge from the UK.</strong> Since the UK left SEPA, Wise is the most cost-effective way to send GBP→EUR or GBP→RON to Romania.</li>
+<li><strong>Compare specialists before you use your bank from the UK.</strong> Wise converts GBP and pays a Romanian IBAN over local rails; check the live table for who delivers the most on your amount.</li>
 <li><strong>Avoid traditional bank wires.</strong> The fees and markup are 5–10x what specialist providers charge.</li>
 <li><strong>Revolut-to-Revolut for small, frequent transfers.</strong> If both you and your recipient have Revolut, transfers are instant and free.</li>
 <li><strong>Keep Romanian bank holidays in mind:</strong> Major holidays (Easter, December 1 National Day, Christmas) can delay bank processing by 1–3 days.</li>
@@ -12010,7 +12006,7 @@ const rawBlogPosts: BlogPost[] = [
 <ul>
 <li><strong><a href="/companies/wise">Wise</a></strong>: ~£5 fee, 0% markup (mid-market rate) — the zero markup matters most on larger amounts</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Low fee, competitive rate — Express delivery in seconds via bKash. First transfer fee often waived.</li>
-<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Zero fee, ~0.7% markup — among the tightest total costs available. 95% of transfers arrive in under 3 minutes. Accepts debit card, bank transfer, Google Pay, Apple Pay. Highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews).</li>
+<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: No fee on GBP→BDT and a {{AVG_MARKUP_PCT:taptap-send}} median markup across the routes we price it on; it pays bKash wallets as well as bank accounts, and 95% of its transfers arrive in under 3 minutes by its own figures.</li>
 <li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good BDT rates with bKash, Nagad, and bank deposit delivery options</li>
 <li><strong><a href="/companies/xe">XE</a></strong>: No transfer fees, competitive rates — suited for larger transfers</li>
 <li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but extensive cash pickup network across Bangladesh, including Sylhet and Chittagong divisions</li>
@@ -12023,7 +12019,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>Sending money for the first time? Here's exactly what to do:</p>
 <ol>
 <li><strong>Choose a provider.</strong> Use our <a href="/send-money/uk-to-bangladesh">GBP to BDT comparison</a> to compare live rates and total BDT received. Focus on the total amount your recipient gets, not just the headline fee.</li>
-<li><strong>Create an account.</strong> You'll need your UK address, date of birth, and a photo ID (passport, driving licence, or BRP card). Most providers verify your identity within minutes.</li>
+<li><strong>Create an account.</strong> Sign up with the address you live at in the UK and your date of birth; a passport or photocard licence clears most identity checks the same day. Ask your recipient first whether they want bKash, Nagad or their bank.</li>
 <li><strong>Choose a delivery method.</strong> Options include:
 <ul>
 <li><strong>bKash</strong> — Fastest. Delivers in seconds to the recipient's bKash wallet. They can withdraw cash from 350,000+ agents or spend directly.</li>
@@ -12088,21 +12084,9 @@ const rawBlogPosts: BlogPost[] = [
 <p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Transfers to DBBL, Islami Bank, and BRAC Bank typically process faster than smaller or state-owned banks.</p>`,
       },
       {
-        heading: "UK High-Street Banks vs Specialists on GBP to BDT",
-        content: `<p>If you're still using your UK bank for Bangladesh transfers, you're almost certainly overpaying. Here's a typical comparison on a £1,000 transfer:</p>
-<table>
-<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ৳ Received</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~£5</td><td>0%</td><td>৳140,000 (example)</td></tr>
-<tr><td><strong>Remitly</strong></td><td>~£2</td><td>0.3–0.5%</td><td>৳139,200 (example)</td></tr>
-<tr><td><strong>TapTap Send</strong></td><td>£0</td><td>~0.7%</td><td>৳139,020 (example)</td></tr>
-<tr><td><strong>HSBC UK</strong></td><td>£15–£30</td><td>2.5–4%</td><td>৳133,000 (example)</td></tr>
-<tr><td><strong>Barclays</strong></td><td>£25</td><td>3–4%</td><td>৳132,000 (example)</td></tr>
-</tbody>
-</table>
-<p><em>Rates are illustrative — <a href="/send-money/uk-to-bangladesh">check live rates here</a>.</em></p>
-<p>High-street banks typically charge £15–£30 in fees PLUS a 2.5–4% exchange rate markup. On £1,000, that means your family receives <strong>৳7,000–৳8,000 less</strong>. Over 12 monthly transfers, that's <strong>৳84,000–৳96,000 lost</strong> to bank charges.</p>
-<p>For a detailed breakdown of how markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
+        heading: "What UK Banks Cost on Taka Transfers",
+        content: `<p>UK high-street banks do not appear in our GBP to BDT quotes, so this guide does not put a figure on them. Among the specialists we price, {{BEST_PROVIDER:GBP:BDT:1000}} pays the most taka on £1,000 today; where we do hold bank quotes, on other routes, banks come out {{BANK_SAVINGS_PCT}} dearer than specialists on $1,000.</p>
+<p>The <a href="/send-money/uk-to-bangladesh">live GBP to BDT table</a> lists every provider, fee and payout.</p>`,
       },
       {
         heading: "The 2.5% Government Incentive: What UK Senders Need to Know",
@@ -12174,8 +12158,7 @@ const rawBlogPosts: BlogPost[] = [
     ],
     relatedSlugs: [
       "send-money-to-bangladesh-guide",
-      "cheapest-way-to-send-money-internationally",
-      "exchange-rate-markup-explained",
+      "send-money-uk-to-india-guide",
       "swift-codes-explained",
     ],
   },
@@ -12289,7 +12272,7 @@ const rawBlogPosts: BlogPost[] = [
 <ul>
 <li><strong><a href="/companies/wise">Wise</a></strong>: ~£5 fee, 0% markup (mid-market rate) — best for transparency and larger amounts</li>
 <li><strong><a href="/companies/lemfi">LemFi</a></strong>: Zero fees, competitive NGN rates — purpose-built for UK-Africa transfers. Strong on the Nigeria corridor.</li>
-<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Zero fee, ~0.7% markup — highly competitive total cost with blazing speed (95% of transfers under 3 minutes). Accepts debit card, bank transfer, Google Pay, Apple Pay. Nigeria is one of TapTap Send's core corridors. Highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews).</li>
+<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Charges no fee to Nigeria, with a {{AVG_MARKUP_PCT:taptap-send}} median markup across the routes we price it on. You can pay by UK debit card, bank transfer, Google Pay or Apple Pay, and it reports 95% of transfers landing within 3 minutes.</li>
 <li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good rates with bank deposit, cash pickup, and mobile wallet delivery options</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive rates with Express delivery in minutes</li>
 <li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but unmatched cash pickup network — over 10,000 agent locations across Nigeria</li>
@@ -12302,7 +12285,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>Here's exactly how to send your first transfer:</p>
 <ol>
 <li><strong>Choose a provider.</strong> Use our <a href="/send-money/uk-to-nigeria">GBP to NGN comparison</a> to compare live rates. Focus on the total Naira your recipient gets — not just the advertised fee.</li>
-<li><strong>Create an account.</strong> You'll need a UK address, date of birth, and photo ID (passport, driving licence, or BRP card). Most providers verify within minutes.</li>
+<li><strong>Create an account.</strong> Register with your UK address and date of birth, then verify with a passport or UK photocard driving licence — usually within minutes. Have your recipient's NUBAN and bank ready before you start.</li>
 <li><strong>Choose a delivery method:</strong>
 <ul>
 <li><strong>Bank deposit</strong> — Most common. Delivers to any Nigerian bank account (NUBAN format). 1–2 business days, some providers same-day.</li>
@@ -12348,21 +12331,9 @@ const rawBlogPosts: BlogPost[] = [
 <p>Nigeria uses <strong>NUBAN (Nigeria Uniform Bank Account Number)</strong> — a 10-digit format. Your recipient can find their NUBAN in their banking app or on their bank statement. Nigeria does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For SWIFT wire transfers, you also need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</p>`,
       },
       {
-        heading: "UK High-Street Banks vs Specialists on GBP to NGN",
-        content: `<p>Here's a typical comparison on a £1,000 transfer to Nigeria:</p>
-<table>
-<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ₦ Received</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~£5</td><td>0%</td><td>₦2,050,000 (example)</td></tr>
-<tr><td><strong>LemFi</strong></td><td>£0</td><td>0.5–1%</td><td>₦2,030,000 (example)</td></tr>
-<tr><td><strong>TapTap Send</strong></td><td>£0</td><td>~0.7%</td><td>₦2,036,000 (example)</td></tr>
-<tr><td><strong>WorldRemit</strong></td><td>~£2</td><td>0.5–1.5%</td><td>₦2,010,000 (example)</td></tr>
-<tr><td><strong>HSBC UK</strong></td><td>£15–£30</td><td>3–5%</td><td>₦1,900,000 (example)</td></tr>
-<tr><td><strong>Barclays</strong></td><td>£25</td><td>3–5%</td><td>₦1,890,000 (example)</td></tr>
-</tbody>
-</table>
-<p><em>Rates are illustrative — <a href="/send-money/uk-to-nigeria">check live rates here</a>.</em></p>
-<p>UK banks charge £15–£30 in fees PLUS a 3–5% exchange rate markup. On £1,000, your family receives <strong>₦100,000–₦160,000 less</strong>. Over 12 monthly transfers, that's <strong>₦1.2M–₦1.9M lost</strong> to bank charges. The Naira's volatility makes this gap even worse — banks often use rates that are hours or days old.</p>`,
+        heading: "UK Banks vs Specialists: The Naira Gap",
+        content: `<p>We hold no live quotes from UK high-street banks on GBP to NGN, so they are not priced here. What we can measure is how far apart the specialists sit: on £1,000 today, {{BEST_PROVIDER:GBP:NGN:1000}} delivers the most ({{BEST_RECEIVE:GBP:NGN:1000}}), {{SPREAD:GBP:NGN:1000}} more than the provider at the bottom of the table. On the corridors where we do collect bank quotes, specialists cost {{BANK_SAVINGS_PCT}} less than banks on a $1,000 transfer.</p>
+<p>See every provider we price in the <a href="/send-money/uk-to-nigeria">live GBP to NGN comparison</a>.</p>`,
       },
       {
         heading: "Tax and Regulation for UK to Nigeria Transfers",
@@ -12419,10 +12390,8 @@ const rawBlogPosts: BlogPost[] = [
     ],
     relatedSlugs: [
       "send-money-to-nigeria-guide",
+      "best-apps-send-money-uk-to-nigeria-2026",
       "send-money-to-kenya-guide",
-      "send-money-to-south-africa-guide",
-      "cheapest-way-to-send-money-internationally",
-      "exchange-rate-markup-explained",
     ],
   },
   // ============================
@@ -12832,7 +12801,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Best for cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Pickup at Bank Pekao, Euronet, and partner locations across Poland</td></tr>
 </tbody></table></div>
 <h3>From the UK (Largest Corridor)</h3>
-<p>Post-Brexit, UK banks lost direct SEPA access, making digital providers essential. On measured payouts the most frequent leader on GBP→PLN is {{CORRIDOR_LEADER:GBP:PLN}}. Revolut is excellent if your recipient also has Revolut (instant, free). <a href="/companies/remitly">Remitly</a> offers competitive rates with GBP debit card funding. Avoid UK bank wire transfers — they charge £25–40 plus a 2–4% exchange rate markup.</p>
+<p>Złoty payments never ran on SEPA, which carries only euros, so a UK bank's route to Poland is SWIFT — which is why digital providers matter here. On measured payouts the most frequent leader on GBP→PLN is {{CORRIDOR_LEADER:GBP:PLN}}. Revolut is excellent if your recipient also has Revolut (instant, free). <a href="/companies/remitly">Remitly</a> offers competitive rates with GBP debit card funding. Avoid UK bank wire transfers — they charge £25–40 plus a 2–4% exchange rate markup.</p>
 <h3>From Germany, Ireland, Netherlands (EU)</h3>
 <p>Send EUR via SEPA to a Polish EUR account (zero conversion cost) or to a PLN account (bank converts at their rate). For the best EUR→PLN conversion, use Wise or Revolut rather than letting the Polish bank convert. SEPA Instant arrives in under 10 seconds.</p>
 <h3>From the US and Canada</h3>
@@ -12844,7 +12813,7 @@ const rawBlogPosts: BlogPost[] = [
 <ul>
 <li><strong>Recipient's full name</strong> (as registered with their Polish bank)</li>
 <li><strong>Polish IBAN</strong> — 28 characters starting with PL (e.g., PL61 1090 1014 0000 0712 1981 2874)</li>
-<li><strong>SWIFT/BIC code</strong> — Required for non-SEPA transfers (e.g., from US/Canada/UK)</li>
+<li><strong>SWIFT/BIC code</strong> — Required for non-SEPA transfers (e.g., from the US or Canada) and for UK senders, who are in SEPA but outside the EEA</li>
 </ul>
 <p><strong>IBAN structure:</strong> PL + 2 check digits + 8-digit bank sort code + 16-digit account number. Your recipient can find their IBAN in their banking app, on their bank statement, or by asking their branch. See our <a href="/iban/poland">Poland IBAN guide</a> for validation details.</p>
 <h3>For Cash Pickup</h3>
@@ -12876,8 +12845,8 @@ const rawBlogPosts: BlogPost[] = [
 <p>Settles within 1 business day. Fee: typically €0–1 from any EU bank. Available 24/7 for submission, but processing only on business days.</p>
 <h3>SEPA Instant Credit Transfer</h3>
 <p>Settles in <strong>under 10 seconds, 24/7/365</strong>. Most major Polish banks now support SEPA Instant receiving. Maximum €100,000 per transfer. Check if your sending bank supports SEPA Instant — if so, this is the fastest way to get EUR into Poland.</p>
-<h3>UK Post-Brexit Access</h3>
-<p>UK banks lost direct SEPA access after Brexit. This means GBP→PLN transfers from UK banks now go via SWIFT (slower, more expensive). To get SEPA-level pricing from the UK, use <a href="/companies/wise">Wise</a> or <a href="/companies/revolut">Revolut</a> — they route through their EU entities to deliver via SEPA, giving you fast delivery and low fees despite Brexit.</p>
+<h3>UK Senders After Brexit</h3>
+<p>Brexit did not take the UK out of SEPA, but it never applied to złoty anyway: a GBP→PLN transfer from a UK bank goes over SWIFT, which is slower and dearer. For low fees from the UK, use <a href="/companies/wise">Wise</a> or <a href="/companies/revolut">Revolut</a> — they pay out in Poland over local rails, giving you fast delivery and low fees.</p>
 <h3>EUR Account vs PLN Account</h3>
 <p>If your recipient has a EUR account at their Polish bank (most banks offer multi-currency accounts), send EUR directly via SEPA — zero conversion cost. If they only have a PLN account, the bank will convert at their rate. For better rates, send via Wise or Revolut which convert to PLN before depositing.</p>`,
       },
@@ -14135,7 +14104,7 @@ const rawBlogPosts: BlogPost[] = [
 <ul><li>Fees: Low flat fees</li><li>Rate: Competitive (small markup)</li><li>Corridors: 130+ countries</li><li>Best for: Expats who want to time currency conversions</li></ul>
 
 <h3>7. <a href="/companies/taptap-send">TapTap Send</a> — Best for Diaspora Remittances</h3>
-<p><strong>Why expats love it:</strong> TapTap Send is built for expats sending money home to Africa, South Asia, and Latin America. Zero fees on most corridors, a ~0.7% markup, and <strong>95% of transfers delivered in under 3 minutes</strong>. The highest Trustpilot rating in money transfer — 4.7 from 32,000+ reviews. Accepts debit card, bank transfer, Google Pay, Apple Pay, and UPI.</p>
+<p><strong>Why expats love it:</strong> TapTap Send is built for expats sending money home to Africa, South Asia, and Latin America. Zero fees on most corridors, a ~0.7% markup, and <strong>95% of transfers delivered in under 3 minutes</strong>, by its own figures. Accepts debit card, bank transfer, Google Pay, Apple Pay, and UPI.</p>
 <ul><li>Fees: $0 on most corridors, small fee on select routes</li><li>Rate: ~0.7% markup</li><li>Corridors: 80+ countries, 65+ currencies</li><li>Multi-currency card: Available for UK & EU users</li><li>Best for: Expats sending to Nigeria, Ghana, Kenya, Pakistan, Bangladesh, Nepal, Colombia, India and other diaspora corridors</li></ul>
 
 <h3>8. <a href="/companies/western-union">Western Union</a> — Best for Cash Pickup Anywhere</h3>
@@ -14159,7 +14128,7 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     faqs: [
-      { question: "What is the best money transfer app for expats in 2026?", answer: "Wise is the all-rounder for expats — mid-market exchange rate, multi-currency account with 40+ currencies, debit card for local spending, and batch payments. For sending money home to family in emerging markets, Remitly offers the best corridor coverage and speed. For diaspora expats sending to Africa, South Asia, or Latin America, TapTap Send stands out with zero fees, a ~0.7% markup, and 95% of transfers under 3 minutes — plus the highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews). For an all-in-one financial app, Revolut combines banking, transfers, and investing." },
+      { question: "What is the best money transfer app for expats in 2026?", answer: "Wise is the all-rounder for expats — mid-market exchange rate, multi-currency account with 40+ currencies, debit card for local spending, and batch payments. For sending money home to family in emerging markets, Remitly offers the best corridor coverage and speed. For diaspora expats sending to Africa, South Asia, or Latin America, TapTap Send stands out with zero fees, a ~0.7% markup, and 95% of transfers under 3 minutes by its own figures. For an all-in-one financial app, Revolut combines banking, transfers, and investing." },
       { question: "How can expats avoid high exchange rate fees?", answer: "Use providers that show the mid-market rate (Wise, Revolut). Fund transfers via bank transfer instead of card. Avoid weekend conversions on Revolut (0.5-1% markup). Set up rate alerts on XE to time large conversions. Compare providers before every transfer — even small rate differences add up over a year of regular sending." },
       { question: "Can I use Wise in any country?", answer: "Wise is available in 170+ countries for sending money. Multi-currency accounts with local bank details are available in fewer countries — check Wise's website for your specific location. The Wise debit card works in 200+ countries but cannot be issued in all countries." },
       { question: "Is Revolut or Wise better for expats?", answer: "Wise is better for pure money transfers — mid-market rate with 0% markup. Revolut is better if you want an all-in-one app (banking, transfers, crypto, insurance). Wise's multi-currency account has more currency options (40+ vs 30+). Revolut offers free exchange up to €1,000/month on Standard plan." },
@@ -14249,7 +14218,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup and fees of $5–7 on $1,000 from the US; on measured payouts the most frequent leader on USD→GBP is {{CORRIDOR_LEADER:USD:GBP}}. Delivery via the UK's <strong>Faster Payments Service (FPS)</strong> arrives in minutes, 24/7, including weekends and bank holidays. From the EU, <a href="/companies/revolut">Revolut</a> and <a href="/companies/wise">Wise</a> tie at the top — Revolut is free Revolut-to-Revolut on weekdays, Wise is the most predictable across all banks. UK high-street banks (Barclays, HSBC, Lloyds, NatWest) typically add a 2–4% FX markup on the rate, so a £1,000 inbound transfer through your bank loses you £20–£40 versus a specialist provider. <a href="/send-money/send-money-to-uk">Compare live GBP rates from 10+ providers →</a></p></div>
 <p>The UK is one of the world's most connected financial centers and a top-tier remittance destination, receiving inflows from the <strong>US, EU, India, Pakistan, Australia, Canada, the UAE, and Hong Kong</strong>. According to the <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">World Bank's KNOMAD</a> data, the UK is also the seventh-largest remittance <em>sender</em> globally — but inbound flows from diaspora workers, returning expats, and family transfers consistently rank in the top 15 worldwide.</p>
 <p>The infrastructure helps. The <strong>Faster Payments Service (FPS)</strong> — operated by <a href="https://www.wearepay.uk/" target="_blank" rel="noopener noreferrer">Pay.UK</a> — enables instant GBP transfers <strong>24/7, including weekends and bank holidays</strong>. Most digital providers route through FPS for the final-mile leg, which means a transfer initiated from the US at 10pm Pacific can hit a Barclays or Monzo account in London within minutes. Compare that with the US ACH system (1–3 business days) or older EU SWIFT routing (2–4 business days) and you understand why the UK is one of the easiest countries in the world to send money to.</p>
-<p>Post-Brexit, the UK operates outside SEPA for domestic GBP payments — but EU→UK is still highly competitive because most digital providers maintain GBP nostro accounts and convert EUR→GBP at near mid-market. Where Brexit hurts is on bank-to-bank SWIFT transfers: SEPA Instant doesn't reach UK accounts anymore, so a German bank wiring directly to a UK bank can still take 1–2 days and add 1–3% in correspondent fees. The fix is simple: use a specialist (Wise, Revolut, OFX) instead of your bank.</p>
+<p>SEPA only ever carried euros, so domestic GBP payments run on Faster Payments, Brexit or not — and EU→UK is still highly competitive because most digital providers maintain GBP nostro accounts and convert EUR→GBP at near mid-market. Where Brexit hurts is on bank-to-bank SWIFT transfers: SEPA Instant reaches only the few UK banks that have joined it, so a German bank wiring directly to a UK bank can still take 1–2 days and add 1–3% in correspondent fees. The fix is simple: use a specialist (Wise, Revolut, OFX) instead of your bank.</p>
 <p>This guide covers the four largest inbound corridors (US, EU, Australia, India), the three you should pay attention to (UAE, Canada, Pakistan), what data you actually need to send a UK payment, and the specific providers that win on each route in 2026.</p>`,
       },
       {
@@ -14396,7 +14365,7 @@ const rawBlogPosts: BlogPost[] = [
       { question: "How long does a transfer to the UK take?", answer: "Faster Payments: minutes (24/7, including weekends and bank holidays). CHAPS: same business day for large amounts. SWIFT from outside the UK: 1–3 business days. Wise typically delivers within minutes once source funding clears. Remitly Express: ~30 minutes. Bank wires: 2–4 business days." },
       { question: "Do I need an IBAN to send money to the UK?", answer: "From within the UK: sort code (6 digits) + account number (8 digits) is sufficient. From abroad: most providers accept either sort code + account number OR the full UK IBAN (GB + 20 characters). Some non-UK providers and EU banks require the full IBAN. The IBAN encodes the same sort code and account number, so either format reaches the same account." },
       { question: "What is Confirmation of Payee and why does it matter?", answer: "Confirmation of Payee (CoP) is a UK system where the recipient name you enter is checked against the actual account holder name before the transfer completes. A mismatch returns a warning. Under the 2024 UK APP fraud rules, if you ignore a CoP warning and money goes to the wrong account, your bank may not refund you. Always type the recipient's name exactly as it appears on their bank statement." },
-      { question: "Why does the UK use Faster Payments and not SEPA?", answer: "The UK was never part of SEPA for GBP (SEPA covers EUR primarily). Faster Payments Service (FPS), launched in 2008 and operated by Pay.UK, is the UK's domestic 24/7 instant payments rail and pre-dates SEPA Instant. Post-Brexit, the UK left SEPA's broader payments framework but FPS continues operating independently and most non-UK providers route inbound transfers through it." },
+      { question: "Why does the UK use Faster Payments and not SEPA?", answer: "The UK was never part of SEPA for GBP (SEPA covers EUR primarily). Faster Payments Service (FPS), launched in 2008 and operated by Pay.UK, is the UK's domestic 24/7 instant payments rail and pre-dates SEPA Instant. The UK remained in SEPA after Brexit for euro payments, while FPS continues operating independently and most non-UK providers route inbound GBP transfers through it." },
       { question: "What is the cheapest way to send a large amount (£10,000+) to the UK?", answer: "OFX is typically cheapest for £10,000+ transfers — zero fees and a dedicated dealer who can lock the rate for 24 hours. Wise also handles large transfers but charges a percentage fee that grows with size. From the EU, a SEPA transfer to a Wise multi-currency account followed by a GBP conversion is often the cheapest route. Avoid bank wires which charge $40–50 plus 2–4% markup." },
     ],
     relatedSlugs: ["send-money-to-spain-guide", "send-money-to-india-guide", "cheapest-way-to-send-money-internationally", "best-money-transfer-apps", "send-money-uk-to-india-guide", "exchange-rate-markup-explained"],
@@ -15252,7 +15221,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Tax Season Creates a Money-Movement Problem",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For expats moving money across US, UK, EU, Australia, Canada, or New Zealand during tax season 2026, <a href="/companies/xe">XE</a> is the strongest option for <strong>transfers above $25,000</strong>, <strong>same-currency cross-border payments</strong> (e.g., USD in the US to a USD account abroad), and <strong>forward contracts</strong> that lock an exchange rate up to 24 months ahead. For transfers under $10,000, <a href="/companies/wise">Wise</a> is typically cheaper. XE has 30+ years of history (founded 1993), a Trustpilot rating of 4.4/5 from 84,000 reviews, and now offers a <strong>personal Multi-Currency Account</strong> in the US, UK, EU, and New Zealand. Thanks to XE's bank-funded transfer model, XE users are also <strong>exempt from the new 1% US remittance tax</strong> that took effect January 1, 2026.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For expats moving money across US, UK, EU, Australia, Canada, or New Zealand during tax season 2026, <a href="/companies/xe">XE</a> is the strongest option for <strong>transfers above $25,000</strong>, <strong>same-currency cross-border payments</strong> (e.g., USD in the US to a USD account abroad), and <strong>forward contracts</strong> that lock an exchange rate up to 24 months ahead. For transfers under $10,000, <a href="/companies/wise">Wise</a> is typically cheaper. XE has 30+ years of history (founded 1993), a Trustpilot score of {{TRUSTPILOT:xe}}, and now offers a <strong>personal Multi-Currency Account</strong> in the US, UK, EU, and New Zealand. Thanks to XE's bank-funded transfer model, XE users are also <strong>exempt from the new 1% US remittance tax</strong> that took effect January 1, 2026.</p></div>
 <p>If you're an American citizen living in London, a Canadian entrepreneur with an Australian subsidiary, a British expat in Spain with rental income in the UK, or any other combination of cross-border tax resident — <strong>tax season is when your money problems actually become money movement problems.</strong></p>
 <p>You need to pay the IRS in USD while your paycheck arrives in GBP. HMRC owes you a refund in pounds but you now live in Germany. You have to pay a New York CPA from a Dubai bank account. Australian rental income needs to settle estimated tax to the ATO before October 31.</p>
 <p>This guide walks through how international workers and expats use <a href="/companies/xe">XE Money Transfer</a> and its Multi-Currency Account to solve these problems fast — often within hours — across the six major expat markets.</p>`,
@@ -15456,7 +15425,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         question: "Is XE safe for large money transfers?",
-        answer: "Yes. XE has been operating since 1993 — over 30 years. It's regulated by FinCEN (US), FCA (UK), ASIC (Australia), and equivalent authorities in other jurisdictions. XE's Trustpilot rating is 4.4/5 from over 84,000 reviews (80% five-star). XE is owned by Euronet Worldwide (NASDAQ: EEFT), a Fortune 1000 company. Customer funds are safeguarded in segregated accounts per regulatory requirements.",
+        answer: "Yes. XE has been operating since 1993 — over 30 years. It's regulated by FinCEN (US), FCA (UK), ASIC (Australia), and equivalent authorities in other jurisdictions. XE scores {{TRUSTPILOT:xe}} on Trustpilot. XE is owned by Euronet Worldwide (NASDAQ: EEFT), a Fortune 1000 company. Customer funds are safeguarded in segregated accounts per regulatory requirements.",
       },
       {
         question: "Does XE count as a 'foreign account' for FBAR purposes?",
@@ -16678,7 +16647,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "6. Revolut — Best for Multi-Currency Holders",
         content: `<p><strong>Trustpilot: {{TRUSTPILOT:revolut}} · Delivery: minutes · Fee: free allowance, then small %</strong></p>
-<p><a href="/companies/revolut">Revolut</a> has the highest Trustpilot score of any provider here (4.7/5) and is ideal if you already manage multiple currencies. Standard-plan users get a monthly fee-free exchange allowance at the interbank rate (a small markup applies on weekends and beyond the allowance). For Indians in the US who hold a USD balance and want to convert and send to India on their own schedule, it's a slick, app-first option.</p>
+<p><a href="/companies/revolut">Revolut</a> scores {{TRUSTPILOT:revolut}} on Trustpilot and is ideal if you already manage multiple currencies. Standard-plan users get a monthly fee-free exchange allowance at the interbank rate (a small markup applies on weekends and beyond the allowance). For Indians in the US who hold a USD balance and want to convert and send to India on their own schedule, it's a slick, app-first option.</p>
 <p><strong>Best for:</strong> Multi-currency users, frequent small conversions. <strong>Watch out for:</strong> Weekend markups and allowance limits; INR payout options are narrower than India specialists like Remitly. Compare against the field on our <a href="/send-money/usa-to-india">USA to India page</a>.</p>`,
       },
       {
@@ -16713,7 +16682,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Pricing figures are real quotes collected from each provider's public API or pricing widget by our automated comparison engine, refreshed every 6 hours; the figures cited here are from a $1,000 USD → INR snapshot in late June 2026. Consumer-review scores are live Trustpilot ratings collected the same week (Wise 4.3, Remitly 4.6, Xoom 4.6, Western Union 4.3, Instarem 4.0, OFX 4.2, Revolut 4.7). Remittance-flow figures are from the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>. Exchange rates and fees change constantly — always confirm with our <a href="/send-money/usa-to-india">live USD → INR comparison tool</a> before sending.</p>`,
+        content: `<p>Pricing figures are real quotes collected from each provider's public API or pricing widget by our automated comparison engine, refreshed every 6 hours; the figures cited here are from a $1,000 USD → INR snapshot in late June 2026. Consumer-review scores are Trustpilot ratings from our latest scrape ({{RATINGS_DATE}}): Wise {{TRUSTPILOT:wise}}, Remitly {{TRUSTPILOT:remitly}}, Xoom {{TRUSTPILOT:xoom}}, Western Union {{TRUSTPILOT:western-union}}, Instarem {{TRUSTPILOT:instarem}}, OFX {{TRUSTPILOT:ofx}} and Revolut {{TRUSTPILOT:revolut}}. Remittance-flow figures are from the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>. Exchange rates and fees change constantly — always confirm with our <a href="/send-money/usa-to-india">live USD → INR comparison tool</a> before sending.</p>`,
       },
     ],
     faqs: [

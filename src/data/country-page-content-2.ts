@@ -636,7 +636,7 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       {
         question: "Can I send money from the UK to Poland after Brexit?",
         answer:
-          "Yes. Brexit did not stop money transfers to Poland, but UK banks lost direct SEPA access. Specialist providers like Wise maintain SEPA connectivity through European banking partners, so transfers are still fast and cheap. Traditional UK bank wires to Poland have become more expensive post-Brexit due to routing changes.",
+          "Yes. Brexit did not stop money transfers to Poland, and the UK is still inside SEPA — though SEPA carries only euros, so a payment in złoty never used it. Specialist providers like Wise pay out through local Polish banking partners, so transfers are still fast and cheap, while a UK bank wire travels over SWIFT with correspondent fees on top.",
       },
       {
         question: "Are there taxes on receiving money in Poland?",
@@ -1296,7 +1296,7 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       "SEPA Instant Credit Transfer (SCT Inst) delivers EUR to Italian banks in under 10 seconds, 24/7, including weekends. Wise and Revolut support SCT Inst; most traditional providers still use standard SEPA (same-day on business days).",
       "Poste Italiane (Italian Post Office) has 12,800+ branches and serves as both a banking service (BancoPosta) and a cash pickup point for Western Union — making it the most accessible financial institution in Italy, especially in rural areas and small towns.",
       "Italian IBANs are 27 characters starting with 'IT' followed by 2 check digits, 1 national check character, 5-digit ABI (bank code), 5-digit CAB (branch code), and 12-digit account number.",
-      "Post-Brexit, UK→Italy transfers no longer route via SEPA by default through banks. Specialist providers like Wise and Revolut maintain SEPA access through European partners, saving £20–£40 vs SWIFT.",
+      "The UK stayed in SEPA after Brexit, but a UK bank can still choose SWIFT for a euro payment to Italy. Specialist providers like Wise and Revolut pay Italian IBANs over SEPA through their EU entities, saving £20–£40 vs SWIFT.",
       "Italy's tabaccherie (licensed tobacconists) serve as payment agents for Western Union and MoneyGram — there are over 50,000 tabaccherie across Italy, more than any other retail network.",
     ],
     faqs: [
@@ -1313,12 +1313,12 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       {
         question: "What is SEPA and why does it matter for Italy transfers?",
         answer:
-          "SEPA (Single Euro Payments Area) is a payment network covering 36 European countries that makes EUR transfers as fast and cheap as domestic payments. An intra-SEPA transfer costs €0–€1 and settles in hours (or seconds with SCT Inst). A SWIFT transfer to Italy costs $20–$50 and takes 2–3 days. If your provider routes via SEPA, you save dramatically. Since Brexit, UK banks default to SWIFT for Italy — but specialist providers maintain SEPA access through EU-based partner banks.",
+          "SEPA (Single Euro Payments Area) is a payment network covering 41 European countries and territories that makes EUR transfers as fast and cheap as domestic payments. An intra-SEPA transfer costs €0–€1 and settles in hours (or seconds with SCT Inst). A SWIFT transfer to Italy costs $20–$50 and takes 2–3 days. If your provider routes via SEPA, you save dramatically. The UK is one of them after Brexit, but some UK banks still send euros to Italy over SWIFT — specialist providers deliver through EU-based partner banks on SEPA instead.",
       },
       {
         question: "Can I send money to Italy from the UK after Brexit?",
         answer:
-          "Yes, but the routing matters enormously. UK high-street banks (Barclays, HSBC, Lloyds, NatWest) lost direct SEPA membership after Brexit and default to SWIFT — costing £20–£40 plus a 2–3% FX markup per transfer. Specialist providers like Wise, Revolut, and CurrencyFair route through European banking partners that retain SEPA access, delivering EUR to Italian accounts in hours for under £5 total. That's a real-world saving of £25–£50 on every transfer.",
+          "Yes, but the routing matters enormously. A UK high-street bank may send the payment as a SEPA transfer (the UK stayed in SEPA after Brexit) or over SWIFT, and what it charges for either varies by bank — ask before you send. Specialist providers like Wise, Revolut, and CurrencyFair deliver EUR to Italian accounts through European banking partners, typically within hours.",
       },
       {
         question: "What details do I need to send money to an Italian bank account?",

@@ -445,7 +445,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Can I still use SEPA transfers from the UK?",
-        a: "The UK is no longer a member of the SEPA (Single Euro Payments Area) scheme following Brexit, which means UK banks cannot send SEPA payments directly. However, many specialist money transfer providers — including Wise, OFX, and XE — route your EUR payments through SEPA on your behalf using their European banking infrastructure. This means your recipient in Europe still receives the payment via SEPA, which is faster (typically same-day to 1 business day) and cheaper than SWIFT transfers. The key advantage is that SEPA payments do not incur intermediary bank fees, whereas SWIFT transfers may pass through correspondent banks that each deduct a small fee. When choosing a provider for GBP to EUR transfers, confirm that they deliver via SEPA rather than SWIFT — this single factor can save £10–£20 per transfer and reduce delivery time from 3–5 days to under 24 hours.",
+        a: "The UK is still in SEPA: the European Payments Council kept it in the schemes' geographical scope after Brexit. What changed is that the UK now counts as outside the EEA, so a UK bank's euro payment must carry the BIC and the payer's address, and some UK banks send euros over SWIFT instead. Specialist money transfer providers — including Wise, OFX, and XE — pay out through SEPA using their European banking infrastructure. This means your recipient in Europe still receives the payment via SEPA, which is faster (typically same-day to 1 business day) and cheaper than SWIFT transfers. The key advantage is that SEPA payments do not incur intermediary bank fees, whereas SWIFT transfers may pass through correspondent banks that each deduct a small fee. When choosing a provider for GBP to EUR transfers, confirm that they deliver via SEPA rather than SWIFT — this single factor can save £10–£20 per transfer and reduce delivery time from 3–5 days to under 24 hours.",
       },
       {
         q: "How much do banks charge for GBP to EUR transfers?",
@@ -637,7 +637,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Which European countries can I send money to from the US?",
-        a: "You can send money to all 27 EU member states plus Norway, Switzerland, Iceland, and Liechtenstein through the SEPA network using specialist transfer services. This covers all major European destinations including Germany, France, Spain, Italy, Netherlands, Portugal, Poland, Austria, Belgium, and more. For non-SEPA European countries such as the UK, Serbia, or Turkey, transfers still go through but may route via SWIFT rather than SEPA. Most specialist providers support bank-to-bank transfers across the entire continent. Always verify that your provider supports the specific country and currency pair before initiating a large transfer.",
+        a: "You can send money to all 27 EU member states plus Norway, Switzerland, Iceland, and Liechtenstein through the SEPA network using specialist transfer services. This covers all major European destinations including Germany, France, Spain, Italy, Netherlands, Portugal, Poland, Austria, Belgium, and more. For European countries outside SEPA, such as Turkey, transfers still go through but may route via SWIFT rather than SEPA. Most specialist providers support bank-to-bank transfers across the entire continent. Always verify that your provider supports the specific country and currency pair before initiating a large transfer.",
       },
     ],
   },
@@ -1553,7 +1553,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Can I send money to India from any European country?",
-        a: "Yes, specialist providers like Wise, Remitly, and Instarem accept transfers from all 27 EU member states plus SEPA-affiliated countries including Norway, Switzerland, Iceland, and Liechtenstein — covering 36 countries in total. The key requirement is that you can fund via SEPA bank transfer in euros. Some providers also support local funding methods in specific countries — for example, iDEAL in the Netherlands, Bancontact in Belgium, and SOFORT in Germany and Austria. Availability of specific features like delivery speed options and transfer limits may vary slightly by sending country due to local regulatory requirements. All providers operating in the EU must be licensed under PSD2 and registered with the relevant national regulator — such as BaFin in Germany, AFM in the Netherlands, or ACPR in France. Wise is headquartered in Belgium for its EU operations and holds a licence from the National Bank of Belgium.",
+        a: "Yes, specialist providers like Wise, Remitly, and Instarem accept transfers from all 27 EU member states plus EEA and SEPA countries such as Norway, Switzerland, Iceland, and Liechtenstein. The key requirement is that you can fund via SEPA bank transfer in euros. Some providers also support local funding methods in specific countries — for example, iDEAL in the Netherlands, Bancontact in Belgium, and SOFORT in Germany and Austria. Availability of specific features like delivery speed options and transfer limits may vary slightly by sending country due to local regulatory requirements. All providers operating in the EU must be licensed under PSD2 and registered with the relevant national regulator — such as BaFin in Germany, AFM in the Netherlands, or ACPR in France. Wise is headquartered in Belgium for its EU operations and holds a licence from the National Bank of Belgium.",
       },
     ],
   },
@@ -2631,7 +2631,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Is TransferGo good for UK to Ukraine transfers?",
-        a: "Yes, TransferGo is one of the strongest providers for the GBP to UAH corridor. Founded in 2012 and headquartered in London, TransferGo specializes in transfers from Western Europe to Eastern Europe and has built optimized payment rails for this specific route. TransferGo offers three speed tiers: standard (1–2 business days, cheapest), fast (within hours), and instant (within minutes, for supported banks). Exchange rates are typically within 0.5–1% of the mid-market rate with fees of £1–£3 depending on the speed tier. TransferGo has a Trustpilot rating of 4.5+ stars and is regulated by the FCA. For regular senders, their recurring transfer feature and loyalty pricing make them particularly cost-effective.",
+        a: "Yes, TransferGo is one of the strongest providers for the GBP to UAH corridor. Founded in 2012 and headquartered in London, TransferGo specializes in transfers from Western Europe to Eastern Europe and has built optimized payment rails for this specific route. TransferGo offers three speed tiers: standard (1–2 business days, cheapest), fast (within hours), and instant (within minutes, for supported banks). Exchange rates are typically within 0.5–1% of the mid-market rate with fees of £1–£3 depending on the speed tier. TransferGo is regulated by the FCA. For regular senders, their recurring transfer feature and loyalty pricing make them particularly cost-effective.",
       },
     ],
   },

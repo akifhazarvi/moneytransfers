@@ -567,6 +567,17 @@ function DefaultComparison({
                     />
                   </div>
                 )}
+                {editorial.thirdExample && (
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mt-4">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                      {editorial.thirdExample.heading}
+                    </h3>
+                    <p
+                      className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.thirdExample.body) }}
+                    />
+                  </div>
+                )}
               </section>
 
               <section id="when-to-use" className="mb-10">

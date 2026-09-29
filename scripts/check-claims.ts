@@ -20,6 +20,8 @@
  *                   {{CORRIDOR_LEADER:FROM:TO}} or {{LEADS_SHORT:slug}}.
  *   cheapest-most   "cheapest for most corridors / people / currencies".
  *   cheapest-label  a table row labelled "Cheapest …" beside a named provider.
+ *   uk-sepa         "the UK is no longer part of SEPA" — false: the EPC kept the UK in
+ *                   SEPA after Brexit, as a non-EEA member (BIC + payer address needed).
  *   trustpilot      "4.6/5 Trustpilot", "Trustpilot 4.6". Use {{TRUSTPILOT:slug}}.
  *   avg-markup      "0.42% avg markup". Use {{AVG_MARKUP_PCT:slug}} (a median).
  *
@@ -31,6 +33,7 @@
  *                   content must use {{MARKUP:…}}, {{AVG_MARKUP_PCT:…}} or
  *                   {{BANK_MEDIAN}}. Lower the baseline when you fix some:
  *                   `npx tsx scripts/check-claims.ts --update-baseline`.
+ *   invented-example table cells marked "(example)" holding made-up payouts.
  *
  * Scope: src/**\/*.ts(x) except scraped data, comment lines, and
  * ai-prompt-benchmark.ts (prompts we send to AI assistants, not page copy).
@@ -72,11 +75,22 @@ const HARD: Rule[] = [
   // was labelled "Cheapest (US → UK)" where InstaReM led USD→GBP on 91 of 91
   // days. Live tokens ({{BEST_PROVIDER:…}}) are fine — they are not typed.
   { id: "cheapest-label", re: /<td>\s*<strong>\s*Cheapest\b[^<]*<\/strong>\s*<\/td>\s*<td>\s*<a href="\/companies\/|<td>\s*Cheapest total cost\s*<\/td>/gi },
-  { id: "trustpilot", re: /\b\d\.\d\s*\/\s*5\s*(?:\(|on\s+)?Trustpilot|Trustpilot(?:\s+rating)?[:\s]+\d\.\d\b/gi },
+  // The UK stayed in SEPA's geographical scope after Brexit (EPC Board
+  // decision, 7 March 2019); it counts as non-EEA, so euro payments need the
+  // BIC and the payer's address. ~30 passages said it had left (2026-09-29).
+  {
+    id: "uk-sepa",
+    re: /\b(?:UK|United Kingdom|British)\b[^.]{0,40}\b(?:no longer (?:a member of |part of |in )(?:the )?SEPA|left SEPA|lost (?:direct )?SEPA)|\bnot eligible for SEPA\b/gi,
+    allow: (before) => /incorrectly/i.test(before),
+  },
+  { id: "trustpilot", re: /\b\d\.\d\s*\/\s*5\s*(?:\(|on\s+)?Trustpilot|Trustpilot(?:\s+(?:rating|score))?[^.<\d{]{0,40}\d\.\d\b/gi , allow: (_b, m) => /\b(?:below|above|under|over)\b/i.test(m) },
   { id: "avg-markup", re: /\d+(?:\.\d+)?%\s*(?:avg|average)\.?\s+mark-?up|\b(?:avg|average)\s+mark-?up\s+(?:of\s+)?(?:about\s+|~)?\d/gi },
 ];
 
 const RATCHET: Rule[] = [
+  // "₦2,050,000 (example)": invented figures in a table dressed as a comparison.
+  // Replace with {{QUOTE_TABLE:…}} or {{BEST_PROVIDER:…}}/{{BEST_RECEIVE:…}}.
+  { id: "invented-example", re: /\(example\)<\/td>/g },
   {
     id: "markup-figure",
     re: /within\s+(?:about\s+|roughly\s+|~)?\d+(?:\.\d+)?\s*%?(?:\s*[–-]\s*\d+(?:\.\d+)?\s*)?%\s+of\s+(?:the\s+)?(?:mid-market|interbank|real)|\b\d+(?:\.\d+)?\s*%?\s*[–-]\s*\d+(?:\.\d+)?\s*%\s*(?:exchange[- ]rate\s+|FX\s+)?mark-?ups?\b/gi,

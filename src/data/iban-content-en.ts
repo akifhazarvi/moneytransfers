@@ -23,7 +23,7 @@ export const ibanContentEn: IbanContent = {
       "The UK adopted the IBAN format relatively late compared to most of Europe, and many British account holders are still more familiar with their six-digit sort code and eight-digit account number. Since the UK left the EU and SEPA, IBANs remain valid for receiving international wires, but domestic payments run through BACS, Faster Payments, and CHAPS rather than the SEPA network.",
     bullets: [
       "A UK IBAN is 22 characters long and embeds both the sort code and account number after the GB country code and two check digits. If someone abroad asks for your IBAN, you can derive it from your sort code and account number or find it in your online banking portal.",
-      "Because the UK is no longer part of SEPA, euro payments from EU banks may be routed via SWIFT rather than the cheaper SEPA Credit Transfer scheme. This can mean higher fees for the sender, so it is worth confirming with the sending bank how the payment will be routed.",
+      "The UK stayed inside SEPA after Brexit, but as a country outside the EEA: a euro payment from an EU bank to a GB IBAN has to carry the receiving bank's BIC and the payer's full address, and some banks still send it over SWIFT instead. If the sender's fees matter, ask their bank which route it will use.",
       "For inbound GBP transfers, make sure the sender has both your IBAN and your bank's SWIFT/BIC code. Some non-UK banks will reject the payment if only the IBAN is provided, particularly for high-value CHAPS-eligible transfers.",
     ],
   },
@@ -33,7 +33,7 @@ export const ibanContentEn: IbanContent = {
       "Germany was one of the earliest adopters of the IBAN standard, and the transition from the old Bankleitzahl (BLZ) and Kontonummer system is now complete. The eight-digit BLZ maps directly into the BBAN portion of a German IBAN, making conversion straightforward. As a core SEPA member, virtually all domestic and cross-border euro transfers in Germany use the IBAN exclusively. Germany's banking sector is one of the largest in Europe, with over 1,500 banks including the major Sparkassen (savings banks) network, cooperative banks (Volksbanken/Raiffeisenbanken), and private commercial banks.",
     bullets: [
       "A German IBAN is 22 characters long: the country code DE, two check digits, the eight-digit BLZ (bank routing code), and a ten-digit account number. If your account number is shorter than ten digits, it is padded with leading zeros. Example: DE89 3704 0044 0532 0130 00, where 37040044 is the BLZ for Commerzbank Köln.",
-      "For transfers within the SEPA zone, only the IBAN is required — no BIC needed. However, when sending or receiving from outside SEPA (e.g., from the US, UK post-Brexit, or Asia), German banks require both the IBAN and BIC/SWIFT code. Major BLZ ranges: Deutsche Bank (100-199), Commerzbank (200-299), Sparkassen (various regional ranges), N26 (10011001).",
+      "For transfers within the SEPA zone, only the IBAN is required — no BIC needed. However, when sending or receiving from outside SEPA (from the US or Asia, for example), German banks require both the IBAN and BIC/SWIFT code; a UK sender needs the BIC as well, since the UK sits in SEPA but outside the EEA. The first digit of a BLZ marks the clearing region rather than the bank — N26, registered in Berlin, has BLZ 100 110 01.",
       "Direct debits (Lastschrift) and standing orders within Germany all rely on the IBAN. SEPA Direct Debit mandates require your IBAN plus a signed authorisation. Germany processes over 25 billion SEPA transactions per year — the largest volume in the eurozone.",
       "Germany supports SEPA Instant Credit Transfer (SCT Inst) through most major banks. Transfers arrive in under 10 seconds, 24/7/365, with a maximum of €100,000 per transaction. Not all Sparkassen branches support instant transfers yet, so check with your specific bank.",
       "Finding your IBAN: check your Kontoauszug (bank statement), your bank's online banking portal, or the Girocard itself — many German debit cards print the IBAN on the front. You can also calculate it from your old BLZ + Kontonummer using tools provided by the Bundesbank.",
@@ -110,7 +110,7 @@ export const ibanContentEn: IbanContent = {
       "Ireland uses a 22-character IBAN that incorporates the six-digit National Sort Code (NSC) and the eight-digit account number from the legacy domestic system. Since Ireland is both an EU and eurozone member, SEPA transfers using the IBAN are the primary method for domestic and cross-border euro payments. The Irish banking landscape is relatively concentrated, with AIB, Bank of Ireland, and Permanent TSB being the main retail banks.",
     bullets: [
       "An Irish IBAN starts with IE, two check digits, a four-character bank code (like AIBK or BOFI), a six-digit branch sort code, and an eight-digit account number. If you know your NSC and account number, your bank can provide the full IBAN, or you can find it in your online banking settings.",
-      "For receiving international transfers in euro from within SEPA, only the IBAN is needed. Payments from outside SEPA, for instance from the US or UK, require both the IBAN and the bank's BIC/SWIFT code. Post-Brexit, transfers from UK banks are no longer processed through SEPA and may carry higher fees.",
+      "For receiving international transfers in euro from within SEPA, only the IBAN is needed. Payments from outside SEPA, for instance from the US, require both the IBAN and the bank's BIC/SWIFT code. From Britain, a SEPA transfer is still possible after Brexit, but the UK bank must add the BIC and the payer's address, and some send euros over SWIFT instead, at a higher cost.",
       "Ireland has seen significant growth in digital banking, with services like Revolut and N26 widely used alongside traditional banks. Regardless of which provider you use, your Irish IBAN (starting with IE) functions identically for receiving SEPA payments and setting up direct debits for bills and subscriptions.",
     ],
   },
@@ -257,7 +257,7 @@ export const ibanContentEn: IbanContent = {
       "Cyprus uses a 28-character IBAN and is a eurozone and SEPA member. The Central Bank of Cyprus (CBC) oversees the banking system, which underwent significant restructuring following the 2012–2013 banking crisis. Today the banking sector is led by Bank of Cyprus and Hellenic Bank, with all accounts denominated in EUR and IBANs used for all domestic and international transfers.",
     bullets: [
       "A Cypriot IBAN starts with CY, two check digits, a three-digit bank code, a five-digit branch code, and a 16-character account number. Bank of Cyprus accounts are identified by bank code 002, while Hellenic Bank uses 005. Your IBAN is available through online banking, mobile apps, or printed on bank statements.",
-      "Cyprus participates in SEPA, so euro transfers from EU countries are processed quickly and at low cost. For payments arriving from outside SEPA — for example from the UK post-Brexit, or from non-EU countries — the sender will need your full 28-character CY IBAN and your bank's SWIFT/BIC code. Hellenic Bank and Bank of Cyprus both publish their SWIFT codes on their websites.",
+      "Cyprus participates in SEPA, so euro transfers from EU countries are processed quickly and at low cost. For payments arriving from outside SEPA — from Russia or Israel, for example — the sender will need your full 28-character CY IBAN and your bank's SWIFT/BIC code, and a sender in the UK, which stayed in SEPA after Brexit but is outside the EEA, needs the BIC as well. Hellenic Bank and Bank of Cyprus both publish their SWIFT codes on their websites.",
       "Cyprus has a significant international business community and high volume of cross-border payments. When receiving payments from non-EU jurisdictions, be aware that some Cypriot banks apply enhanced due diligence and may request documentation for large inbound transfers. Confirming compliance requirements with your bank before expecting a high-value remittance can prevent unexpected delays.",
     ],
   },
@@ -438,7 +438,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Is the UK part of SEPA?",
-      a: "No. Since Brexit, the UK is no longer part of the SEPA (Single Euro Payments Area). Transfers between the UK and EU countries are now routed via SWIFT rather than the cheaper SEPA Credit Transfer scheme. This can mean higher fees and longer processing times compared to intra-EU transfers.",
+      a: "Yes. The European Payments Council kept the UK in SEPA's geographical scope after Brexit (Board decision of 7 March 2019), so UK banks can send and receive SEPA Credit Transfers in euro. Because the UK is outside the EEA, those payments must include the BIC and the payer's address, and not every UK bank offers them: some route euro payments over SWIFT, where fees are usually higher.",
     },
     {
       q: "What is the difference between sort code/account number and IBAN in the UK?",
@@ -446,7 +446,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code as well as my IBAN to receive international transfers in the UK?",
-      a: "Yes. Since the UK is outside SEPA, senders from abroad should always provide both your 22-character GB IBAN and your bank's SWIFT/BIC code. For example, Barclays' SWIFT code is BARCGB22; HSBC's is MIDLGB22; Lloyds' is LOYDGB21; NatWest's is NWBKGB2L.",
+      a: "Yes. A sender outside SEPA needs both, and so does a euro sender inside it, because the UK takes part in SEPA from outside the EEA — give both your 22-character GB IBAN and your bank's SWIFT/BIC code. For example, Barclays' SWIFT code is BARCGB22; HSBC's is MIDLGB22; Lloyds' is LOYDGB21; NatWest's is NWBKGB2L.",
     },
     {
       q: "What are common mistakes when using a UK IBAN?",
@@ -468,11 +468,11 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Is Germany part of SEPA?",
-      a: "Yes. Germany is a founding eurozone and SEPA member. All domestic and cross-border euro transfers use the IBAN exclusively. Within SEPA, only the DE IBAN is required for euro credit transfers — no BIC/SWIFT code is needed.",
+      a: "Yes — Germany founded the euro and SEPA replaced its domestic Überweisung and Lastschrift formats in 2014, so a German bank treats a SEPA payment from Lisbon or Dublin like one from Munich. The DE IBAN alone is enough for a euro credit transfer from any EU or EEA bank.",
     },
     {
       q: "What is a Bankleitzahl (BLZ) and how does it relate to the IBAN?",
-      a: "The Bankleitzahl (BLZ) is the 8-digit German bank routing code that identifies the bank and branch. It maps directly into positions 5-12 of the German IBAN. For example, Deutsche Bank's BLZ 37040044 appears as DE89 3704 0044 in the IBAN. The old BLZ + Kontonummer system has been fully replaced by IBAN for all transfers.",
+      a: "The Bankleitzahl (BLZ) is the 8-digit German bank routing code that identifies the bank and branch. It maps directly into positions 5-12 of the German IBAN. In the widely used example IBAN DE89 3704 0044 0532 0130 00, the BLZ is 37040044. The old BLZ + Kontonummer system has been fully replaced by IBAN for all transfers.",
     },
     {
       q: "Do I need a BIC code for transfers within Germany or the EU?",
@@ -502,7 +502,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Is France part of SEPA?",
-      a: "Yes. France is a founding eurozone and SEPA member. Euro transfers from other EU and EEA countries are processed via SEPA Credit Transfer (SCT) or SEPA Instant Credit Transfer (SCT Inst). Within SEPA, only the FR IBAN is required — no BIC/SWIFT code is needed.",
+      a: "Yes. France is a founding member of both the euro and SEPA, and a virement SEPA from another EU or EEA bank needs only your 27-character FR IBAN. The French overseas departments — Guadeloupe, Martinique, French Guiana, Réunion and Mayotte — use FR IBANs too, while Monaco, also in SEPA, has its own MC prefix.",
     },
     {
       q: "What is a RIB and how does it relate to the French IBAN?",
@@ -510,7 +510,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a BIC code for SEPA transfers to France?",
-      a: "No. For SEPA Credit Transfers within the EU and EEA, only the FR IBAN is required. BIC is no longer mandatory for intra-SEPA transfers. For transfers from outside SEPA (such as from the US, UK post-Brexit, or Asia), the sender should include both your FR IBAN and your bank's SWIFT/BIC code.",
+      a: "No. For SEPA Credit Transfers within the EU and EEA, only the FR IBAN is required. BIC is no longer mandatory for intra-SEPA transfers. A payer outside SEPA — in the US or Asia, say — should add your bank's SWIFT/BIC code, and a UK payer needs it too, as a non-EEA SEPA member.",
     },
     {
       q: "How do direct debits (prelevement) work with the French IBAN?",
@@ -600,7 +600,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code to receive international transfers in Italy?",
-      a: "For SEPA transfers from EU and EEA countries in EUR, only the IT IBAN is sufficient — no SWIFT code is required. For transfers from outside SEPA (such as from the US, UK, or non-EU countries), the sender needs both your 27-character IT IBAN and your bank's SWIFT/BIC code. UniCredit's SWIFT code is UNCRITMM; Intesa Sanpaolo's is BCITITMM.",
+      a: "For SEPA transfers from EU and EEA countries in EUR, only the IT IBAN is sufficient — no SWIFT code is required. For transfers from outside SEPA (such as from the US or other non-European countries), and from the UK too, the sender needs both your 27-character IT IBAN and your bank's SWIFT/BIC code. UniCredit's SWIFT code is UNCRITMM; Intesa Sanpaolo's is BCITITMM.",
     },
     {
       q: "What are common mistakes when sharing an Italian IBAN?",
@@ -634,7 +634,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code to receive transfers from outside Europe?",
-      a: "For SEPA transfers from EU and EEA countries, only the BE IBAN is sufficient. For transfers from outside SEPA (such as from the US, UK, or Asia), the sender should include both the IBAN and the bank's SWIFT/BIC code. KBC's SWIFT code is KREDBEBB; BNP Paribas Fortis' is GEBABEBB; ING Belgium's is BBRUBEBB; Belfius' is GKCCBEBB.",
+      a: "For SEPA transfers from EU and EEA countries, only the BE IBAN is sufficient. For transfers from outside SEPA (from the US or Asia, say), the sender should include both the IBAN and the bank's SWIFT/BIC code, and a British bank sending euros adds it too. KBC's SWIFT code is KREDBEBB; BNP Paribas Fortis' is GEBABEBB; ING Belgium's is BBRUBEBB; Belfius' is GKCCBEBB.",
     },
     {
       q: "What are common mistakes when sharing a Belgian IBAN?",
@@ -664,7 +664,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code to receive a transfer from outside Europe?",
-      a: "For SEPA transfers from EU and EEA countries, only the AT IBAN is required. For transfers from outside SEPA (such as from the US, UK, or Asia), the sender needs both your 20-character AT IBAN and your bank's SWIFT/BIC code. Erste Bank's SWIFT code is GIBAATWWXXX; Raiffeisen Zentralbank's is RZBAATWW; Bank Austria's is BKAUATWW.",
+      a: "For SEPA transfers from EU and EEA countries, only the AT IBAN is required. For transfers from outside SEPA, such as from the US or Asia, the sender needs both your 20-character AT IBAN and your bank's SWIFT/BIC code; British senders give the BIC as well. Bank Austria's SWIFT code is BKAUATWW.",
     },
     {
       q: "What are common mistakes when sharing an Austrian IBAN?",
@@ -682,11 +682,11 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "How do I find my IBAN in Ireland?",
-      a: "Your IE IBAN is displayed in your bank's online banking or mobile app. AIB, Bank of Ireland, and Permanent TSB all show the 22-character IBAN on the account details page. It also appears on bank statements. If you know your NSC (National Sort Code) and account number, your bank can provide the full IBAN.",
+      a: "In the AIB, Bank of Ireland and PTSB apps the IE IBAN sits with the account's sort code, and it is printed at the top of every statement. If you only have the six-digit National Sort Code and eight-digit account number from an old chequebook, your branch can confirm the 22-character IBAN built from them.",
     },
     {
       q: "Is Ireland part of SEPA?",
-      a: "Yes. Ireland is a eurozone and SEPA member. Euro transfers from other EU and EEA countries are processed via SEPA Credit Transfer (SCT) or SEPA Instant Credit Transfer (SCT Inst). Within SEPA, only the IE IBAN is required — no BIC/SWIFT code is needed.",
+      a: "Yes. Ireland has used SEPA for euro payments since the scheme began, so a transfer from any EU or EEA bank reaches an Irish account on the IE IBAN alone. Irish banks also receive SEPA Instant payments, which settle in seconds, since the EU made receiving them compulsory for eurozone banks in January 2025.",
     },
     {
       q: "What is the National Sort Code (NSC) and how does it appear in the Irish IBAN?",
@@ -694,11 +694,11 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do transfers from the UK to Ireland still use SEPA?",
-      a: "No. Since Brexit, the UK is no longer part of SEPA. Transfers from UK banks to Ireland are now routed via SWIFT rather than the cheaper SEPA scheme. This means potentially higher fees and longer processing times. The sender needs both your IE IBAN and your bank's SWIFT/BIC code. AIB's SWIFT code is AIBKIE2D; Bank of Ireland's is BOFIIE2D.",
+      a: "They can. The UK stayed in SEPA after Brexit as a country outside the EEA, so a British bank may send euros to Ireland as a SEPA Credit Transfer — but it must now include the payer's address and your bank's BIC (AIB's is AIBKIE2D). Some UK banks send euro payments over SWIFT instead, which is slower and usually dearer, so a regular sender from Belfast or London should ask their bank which route it uses.",
     },
     {
       q: "What are common mistakes when sharing an Irish IBAN?",
-      a: "Common mistakes include: providing only the NSC and account number without the IE prefix, confusing the 4-character bank code (AIBK, BOFI) with the SWIFT code, and entering an incorrect branch sort code. Always verify the full 22-character IBAN before sharing it with a sender.",
+      a: "The usual Irish slip is giving a UK-style sort code and account number instead of the IBAN — easy to do for anyone who banks on both sides of the border. Others: reading the four letters after the check digits (AIBK, BOFI) as the whole SWIFT code, and copying the NSC from a different branch's paperwork.",
     },
     {
       q: "Can I use digital bank IBANs (Revolut, N26) for SEPA transfers in Ireland?",
@@ -712,11 +712,11 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "How do I find my IBAN in Portugal?",
-      a: "Your PT IBAN is displayed in your bank's online banking (homebanking) or mobile app. Caixa Geral de Depositos (CGD), Millennium BCP, Novo Banco, and Santander Totta all show the 25-character IBAN on the account details page. It also appears on bank statements and the account contract.",
+      a: "Portuguese banks put the IBAN under the account's details in homebanking and in their apps — CGD, Millennium BCP, Novo Banco and Santander Totta all do — and on the comprovativo de IBAN you can download to hand to an employer or landlord. It also appears on the account contract.",
     },
     {
       q: "Is Portugal part of SEPA?",
-      a: "Yes. Portugal is a eurozone and SEPA member. Euro transfers from other EU and EEA countries are processed via SEPA Credit Transfer (SCT) or SEPA Instant Credit Transfer (SCT Inst). Within SEPA, only the PT IBAN is required — no BIC/SWIFT code is needed.",
+      a: "Yes. A euro payment from anywhere in the EU or EEA reaches a Portuguese account on the PT IBAN alone, and banks there also take SEPA Instant payments. Every Portuguese IBAN begins PT50: the NIB inside it already carries its own two check digits, which fixes the IBAN's check digits at 50.",
     },
     {
       q: "What is the NIB and how does it relate to the Portuguese IBAN?",
@@ -724,7 +724,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code to receive transfers from outside Europe?",
-      a: "For SEPA transfers from EU and EEA countries, only the PT IBAN is sufficient. For transfers from outside SEPA (such as from Brazil, the US, or the UK), the sender needs both the 25-character PT IBAN and your bank's SWIFT/BIC code. CGD's SWIFT code is CGDIPTPL; Millennium BCP's is BCOMPTPL; Novo Banco's is BESCPTPL.",
+      a: "For SEPA transfers from EU and EEA countries, only the PT IBAN is sufficient. From Brazil or the US, which are outside SEPA, the sender needs both the 25-character PT IBAN and your bank's SWIFT/BIC code, which your bank shows in its app next to the IBAN. A sender in the UK needs the BIC too: Brexit kept the UK in SEPA, but outside the EEA.",
     },
     {
       q: "What is Multibanco and can it be used instead of IBAN?",
@@ -732,7 +732,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "What are common mistakes when sharing a Portuguese IBAN?",
-      a: "Common mistakes include: providing only the 21-digit NIB without the PT prefix and IBAN check digits, confusing the bank code with the branch code, and mixing up the NIB check digits with the IBAN check digits. At 25 characters, the Portuguese IBAN is moderately long, so verify each section carefully.",
+      a: "The classic Portuguese error is sending just the 21-digit NIB. Because every PT IBAN starts PT50, the fix is mechanical — put PT50 in front — but a payment form will reject the bare NIB. People also misplace the two NIB check digits at the end, or pass on a Multibanco reference, which only works inside Portugal.",
     },
   ],
   switzerland: [
@@ -963,7 +963,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a BIC code for euro transfers to Romania from the EU?",
-      a: "For SEPA Credit Transfers within the EU and EEA, the IBAN alone is sufficient — no BIC is required. However, for transfers from outside SEPA (for example, from the US or UK), the sender should include both the RO IBAN and the bank's SWIFT/BIC code to ensure correct routing.",
+      a: "For SEPA Credit Transfers within the EU and EEA, the IBAN alone is sufficient — no BIC is required. However, for transfers from outside SEPA (for example, from the US) and for euros sent by a UK bank, the sender should include both the RO IBAN and the bank's SWIFT/BIC code to ensure correct routing.",
     },
     {
       q: "What is Romania's domestic payment system?",
@@ -1015,11 +1015,11 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "What bank codes do OTP Bank, K&H Bank, and Erste Bank Hungary use?",
-      a: "The 3-digit bank codes embedded in Hungarian IBANs (positions 5–7) include: 117 for OTP Bank, 103 for K&H Bank (part of KBC Group), 116 for Erste Bank Hungary, and 108 for MKB Bank. The branch code occupies the next 4 digits.",
+      a: "The first three digits after HU and the check digits are the bank's own code — OTP Bank's, for example, is 117, which is why OTP account numbers begin 117 — and the next four identify the branch. Your bank prints both as the first eight-digit block of the domestic account number.",
     },
     {
       q: "How do I find my IBAN at a Hungarian bank?",
-      a: "Your HU IBAN is displayed in your online banking or mobile app under account details. OTP Bank's OTP SmartBank app, K&H's K&H mobilbank, and Erste Bank's George Hungary platform all show the 28-character IBAN. It also appears on bank statements.",
+      a: "Hungarians usually know their account as two or three eight-digit blocks (the pénzforgalmi jelzőszám). The 28-character HU IBAN is that same number with HU and two check digits in front; OTP SmartBank, K&H mobilbank and Erste's George show it under the account's details.",
     },
     {
       q: "What is Hungary's instant payment system and does it use IBAN?",
@@ -1031,7 +1031,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a BIC code for SEPA EUR transfers to Hungary?",
-      a: "Within SEPA, only the HU IBAN is required for EUR transfers — no BIC is needed. For transfers from outside SEPA (such as from the US or UK), or for HUF transfers, the sender should include your bank's SWIFT/BIC code alongside the IBAN.",
+      a: "Within SEPA, only the HU IBAN is required for EUR transfers — no BIC is needed. Payments in forints, or in any currency from outside SEPA such as the US, need your bank's SWIFT/BIC code alongside the IBAN — and so does a euro transfer from a UK bank.",
     },
   ],
   croatia: [
@@ -1041,11 +1041,11 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "When did Croatia join the eurozone?",
-      a: "Croatia joined the eurozone on 1 January 2023, replacing the Croatian kuna (HRK) with the euro (EUR) at the fixed conversion rate of 7.53450 HRK per EUR. Since then, all Croatian bank accounts are denominated in EUR and Croatia became a full SEPA member.",
+      a: "Croatia joined the eurozone on 1 January 2023, replacing the Croatian kuna (HRK) with the euro (EUR) at the fixed conversion rate of 7.53450 HRK per EUR. Since then, Croatian bank accounts are held in euros, so the SEPA payments Croatia already took part in as an EU member since 2013 became its everyday domestic transfers.",
     },
     {
       q: "Is Croatia part of SEPA?",
-      a: "Yes. Croatia has been a SEPA member since joining the eurozone in January 2023. Euro transfers from other EU and EEA countries are now processed via SEPA Instant Credit Transfer (SCT Inst), settling within seconds. This means receiving EUR from elsewhere in the EU is fast and low-cost.",
+      a: "Yes — Croatia has been inside SEPA since it joined the EU in 2013; adopting the euro in January 2023 made SEPA its domestic system too. Euro transfers from other EU and EEA countries arrive as SEPA Credit Transfers, or within seconds as SEPA Instant where both banks offer it. This means receiving EUR from elsewhere in the EU is fast and low-cost.",
     },
     {
       q: "What are the SWIFT codes for Zagrebacka banka and PBZ?",
@@ -1083,7 +1083,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a BIC code to receive EUR in Finland from the EU?",
-      a: "Within SEPA, only the FI IBAN is required for euro transfers. BIC is no longer mandatory for SEPA Credit Transfers within the EU and EEA. For transfers from outside SEPA (such as from the US or UK), the sender should include both the IBAN and your bank's SWIFT/BIC code.",
+      a: "Within SEPA, only the FI IBAN is required for euro transfers. BIC is no longer mandatory for SEPA Credit Transfers within the EU and EEA. For transfers from outside SEPA, such as from the US, the sender should include both the IBAN and your bank's SWIFT/BIC code — and a Finnish account receiving euros from the UK needs the BIC quoted too, because the UK is outside the EEA.",
     },
     {
       q: "What is Finland's Siirto payment system?",
@@ -1113,7 +1113,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code to receive a transfer from outside the EU to Greece?",
-      a: "For SEPA transfers within the EU and EEA in EUR, no SWIFT code is needed — just the GR IBAN. For transfers from non-SEPA countries (such as the US, UK, or Australia), the sender needs both your 27-character GR IBAN and your bank's SWIFT/BIC code.",
+      a: "For SEPA transfers within the EU and EEA in EUR, no SWIFT code is needed — just the GR IBAN. For transfers from non-SEPA countries such as the US or Australia — and from Britain — the sender needs both your 27-character GR IBAN and your bank's SWIFT/BIC code.",
     },
     {
       q: "How long does it take to receive a SEPA transfer to a Greek bank account?",
@@ -1147,7 +1147,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code for transfers from outside the EU to Cyprus?",
-      a: "For SEPA transfers from EU and EEA countries in EUR, only the CY IBAN is needed. For transfers from non-SEPA countries — such as the UK post-Brexit, Russia, or the US — the sender needs both the 28-character CY IBAN and the bank's SWIFT/BIC code. Bank of Cyprus's SWIFT code is BCYPCY2N; Hellenic Bank's is HEBACY2N.",
+      a: "For SEPA transfers from EU and EEA countries in EUR, only the CY IBAN is needed. For transfers from non-SEPA countries such as Russia or the US, the sender needs both the 28-character CY IBAN and the bank's SWIFT/BIC code, published on each bank's website; UK senders need the BIC as well.",
     },
     {
       q: "Can I receive USD or GBP in a Cypriot bank account?",
@@ -1185,7 +1185,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code to receive a transfer from outside the EU to Luxembourg?",
-      a: "For SEPA transfers from EU and EEA countries, only the LU IBAN is required. For transfers from outside SEPA — for example from the US, UK, or Switzerland for non-SEPA currencies — the sender also needs your bank's SWIFT/BIC code. BGL BNP Paribas's SWIFT code is BGLLLULL; BCEE's is BCEELULL.",
+      a: "For SEPA transfers from EU and EEA countries, only the LU IBAN is required. For transfers from outside SEPA, or in currencies SEPA does not carry — dollars from the US, francs from Switzerland — the sender also needs your bank's SWIFT/BIC code, as does a euro sender in the UK. BGL BNP Paribas's SWIFT code is BGLLLULL; BCEE's is BCEELULL.",
     },
   ],
   "united-arab-emirates": [

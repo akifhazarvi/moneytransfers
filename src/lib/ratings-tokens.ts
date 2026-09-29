@@ -244,6 +244,7 @@ ${body}
 //        GBP → CNY and USD → MYR — where it delivered the most on every one of
 //        the last 91 days we could compare". The strongest honest claim a
 //        provider can make here, and it goes unstated because nothing computed it.
+//   {{CORRIDOR_LEADER_SHORT:USD:INR}}      "Ria Money Transfer (73 of 91 days)" — table cells
 //   {{CORRIDOR_LEADER:USD:INR}}            "Ria Money Transfer, which led on 73 of
 //        the last 91 days we could compare" — the measured leader
 //        for ONE corridor, as opposed to {{LEADS:}}'s site-wide count
@@ -1072,6 +1073,15 @@ export function renderDataTokens(html: string): string {
     const row = (corridorLeaders as Record<string, { name: string; wins: number; contestedDays: number; windowDays: number }>)[`${from}-${to}`];
     if (!row) return match;
     return `${row.name}, which led on ${row.wins} of the last ${row.contestedDays} days we could compare`;
+  });
+
+  // {{CORRIDOR_LEADER_SHORT:GBP:NGN}} -> "Remitly (29 of 91 days)": the same
+  // record as {{CORRIDOR_LEADER}}, short enough for a table cell. The long form
+  // repeated in a table puts one identical clause on every row (2026-09-29).
+  out = out.replace(/\{\{CORRIDOR_LEADER_SHORT:([A-Z]{3}):([A-Z]{3})\}\}/g, (match, from: string, to: string) => {
+    const row = (corridorLeaders as Record<string, { name: string; wins: number; contestedDays: number }>)[`${from}-${to}`];
+    if (!row) return match;
+    return `${row.name} (${row.wins} of ${row.contestedDays} days)`;
   });
 
   out = out.split("{{BANK_SAVINGS_PCT}}").join(`${bankSavingsPct()}%`);

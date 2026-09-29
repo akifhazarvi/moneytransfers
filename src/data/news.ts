@@ -1617,6 +1617,22 @@ export const newsItems: NewsItem[] = [
 </table></div>
 <p>The table above is an April 2026 snapshot, and it's worth being explicit that it hasn't held: {{CORRIDOR_LEADER:GBP:NGN}} on GBP to NGN as of today, not Lemfi or Revolut. That's the nature of this market — new entrants compress the field for a few months and then the ranking moves again. Check <a href="/send-money/uk-to-nigeria">today's UK to Nigeria comparison</a> rather than treating this table as current. Revolut's structural advantage hasn't changed, though: senders who already hold GBP/EUR/USD in a Revolut account can transfer instantly without opening a new service — a friction saving, not necessarily a cost saving.</p>
 
+<h2>Five months on: who leads these routes in our quotes</h2>
+<p>The April table priced a single route at a single amount. Our quote collection since then covers eight of the nine countries on Revolut's list (we hold no Congolese franc quotes), and the provider that delivered the most on each, over the last 91 days we could compare, is:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Country</th><th>Route</th><th>Most frequent leader</th></tr></thead>
+<tbody>
+<tr><td>Nigeria</td><td>GBP → NGN</td><td>{{CORRIDOR_LEADER_SHORT:GBP:NGN}}</td></tr>
+<tr><td>Kenya</td><td>GBP → KES</td><td>{{CORRIDOR_LEADER_SHORT:GBP:KES}}</td></tr>
+<tr><td>Ghana</td><td>GBP → GHS</td><td>{{CORRIDOR_LEADER_SHORT:GBP:GHS}}</td></tr>
+<tr><td>Uganda</td><td>GBP → UGX</td><td>{{CORRIDOR_LEADER_SHORT:GBP:UGX}}</td></tr>
+<tr><td>Tanzania</td><td>GBP → TZS</td><td>{{CORRIDOR_LEADER_SHORT:GBP:TZS}}</td></tr>
+<tr><td>Rwanda</td><td>GBP → RWF</td><td>{{CORRIDOR_LEADER_SHORT:GBP:RWF}}</td></tr>
+<tr><td>Cameroon</td><td>GBP → XAF</td><td>{{CORRIDOR_LEADER_SHORT:GBP:XAF}}</td></tr>
+<tr><td>Senegal</td><td>EUR → XOF</td><td>{{CORRIDOR_LEADER_SHORT:EUR:XOF}}</td></tr>
+</tbody>
+</table></div>
+<p>These leaders are recomputed from our quotes on every build, so the table can change after this article was written; each route's corridor page has the day's full list.</p>
 <h2>Why this matters beyond Revolut</h2>
 <p>Three implications worth tracking:</p>
 <ol>
@@ -1629,7 +1645,7 @@ export const newsItems: NewsItem[] = [
 <ul>
 <li><a href="/send-money/uk-to-nigeria">UK → Nigeria (GBP/NGN)</a> — highest-volume UK-to-Africa corridor</li>
 <li><a href="/send-money/uk-to-kenya">UK → Kenya (GBP/KES)</a> — M-PESA and Airtel Money delivery</li>
-<li><a href="/send-money/usa-to-nigeria">UK → Ghana (GBP/GHS)</a> — MTN MoMo dominant</li>
+<li><a href="/send-money/send-money-to-ghana">Sending money to Ghana (GHS)</a> — MTN MoMo dominant</li>
 <li><a href="/send-money/send-money-to-nigeria">All corridors → Nigeria</a></li>
 <li><a href="/guides/send-money-to-nigeria-guide">Complete Nigeria guide</a> — banks, wallets, CBN rules</li>
 <li><a href="/companies/revolut">Full Revolut review</a> — fees, tiers, transfer limits</li>
