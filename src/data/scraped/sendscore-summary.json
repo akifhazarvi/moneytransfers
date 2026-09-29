@@ -1,29 +1,29 @@
 {
-  "dataAsOf": "2026-09-28",
-  "corridorsScored": 200,
+  "dataAsOf": "2026-09-29",
+  "corridorsScored": 198,
   "corridorsWithAnyScore": 1019,
-  "singleProviderReadings": 819,
+  "singleProviderReadings": 821,
   "bands": {
     "exceptional": 4,
-    "great": 53,
-    "good": 60,
-    "typical": 29,
-    "poor": 54
+    "great": 52,
+    "good": 57,
+    "typical": 32,
+    "poor": 53
   },
-  "goodOrBetterPct": 59,
+  "goodOrBetterPct": 57,
   "confidence": {
-    "high": 200,
+    "high": 198,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 185,
+  "medianDaysObserved": 186,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 68,
+      "score": 67,
       "band": "good",
       "headline": "Good time to send",
-      "explanation": "Best rate +0.50% vs the 30-day average, 74% up the 90-day range. Rates are falling — -0.24% week on week. Today's best beats the median provider by +1.64%.",
+      "explanation": "Best rate +0.48% vs the 30-day average, 74% up the 90-day range. Rates are falling — -0.22% week on week. Today's best beats the median provider by +1.51%.",
       "components": [
         {
           "key": "range",
@@ -36,25 +36,25 @@
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 58.25851803857848,
-          "detail": "+0.50% vs the 30-day average"
+          "score": 58.06058154746135,
+          "detail": "+0.48% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 87.45663026273272,
-          "detail": "today's best beats the median provider by +1.64%"
+          "score": 82.71714133152905,
+          "detail": "today's best beats the median provider by +1.51%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 44.012942576614186,
-          "detail": "falling — -0.24% week on week"
+          "score": 44.57129681968288,
+          "detail": "falling — -0.22% week on week"
         }
       ],
-      "daysObserved": 191,
+      "daysObserved": 192,
       "rangeWindowDays": 90,
       "confidence": "high"
     }
