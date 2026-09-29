@@ -10,7 +10,9 @@ export interface Provider {
   regulated: boolean;
   regulators: string[];
   website: string;
-  minTransfer: number;
+  minTransfer: number | null;
+  /** Distinguishes a broker from the authorised firms delivering its payments. */
+  regulationNote?: string;
   maxTransfer: number | null;
   transferSpeed: string;
   supportedCountries: number;
@@ -1860,49 +1862,42 @@ export const providers: Provider[] = [
     exchangeRateMarkup: "0.5% - 2% above mid-market",
   },
   {
-    // Partner-direct integration via /go/regencyfx. FRN/EMR numbers verified
-    // from their own site footer. Operational fields (min/max/speed/fees) use
-    // category-typical values for UK FCA-regulated FX brokers — exact figures
-    // to be confirmed via partner sales channel before any rate comparison.
+    // Company brief and published partner disclosures checked 29 September 2026.
+    // No measured broker spread or confirmed minimum: do not invent either.
     slug: "regencyfx",
     name: "Regency FX",
     logo: "/logos/regencyfx.png",
-    rating: 4.6,
+    rating: 4.8,
     ratingLabel: "Excellent",
-    description: "Regency FX is a UK-based foreign exchange specialist offering bank-beating exchange rates with a dedicated account-management approach. FCA-authorised payment institution suited for larger personal and business transfers.",
-    founded: 2013,
-    headquarters: "London, UK",
+    description: "Founded in 2020 in Truro, Cornwall, Regency FX is a currency specialist for personal and business transfers, with an online platform and a dedicated account manager. Payment services are delivered through regulated partners.",
+    founded: 2020,
+    headquarters: "Truro, UK",
     regulated: true,
-    regulators: ["FCA"],
+    regulationNote: "Payment services through regulated partners",
+    regulators: ["FCA (UK payment partners)", "DNB (EEA partner)", "US state licensing (US partner)"],
     website: "https://www.regencyfx.com",
-    minTransfer: 1000,
+    minTransfer: null,
     maxTransfer: null,
-    transferSpeed: "Same day to 2 business days",
-    supportedCountries: 60,
-    supportedCurrencies: 50,
+    transferSpeed: "Same day may be available; confirm your route",
+    supportedCountries: 150,
+    supportedCurrencies: 45,
     paymentMethods: ["Bank Transfer"],
     deliveryMethods: ["Bank Deposit"],
     pros: [
-      "Dedicated account managers for every client",
-      "No transfer fees",
-      "Bank-beating rates on larger transfers",
-      "Forward contracts and limit orders available",
-      "FCA-authorised payment institution (FRN 671508)",
+      "Dedicated account manager for every client",
+      "No transfer fees; third-party charges may apply",
+      "Online transfers alongside personal guidance",
+      "Forward contracts up to 12 months and limit orders",
+      "No upper transfer limit, according to the company",
     ],
     cons: [
-      "Higher minimum suited to larger transfers",
-      "No card or mobile-wallet funding",
-      "Account onboarding required before first transfer",
+      "A personalised quote is needed to compare total cost",
+      "Forward contracts are binding; charges may apply if not fulfilled",
+      "Confirm transfer timing and out-of-hours support before committing",
     ],
-    features: [
-      "Dedicated dealer per account",
-      "Forward contracts",
-      "Limit orders",
-      "Regular payment plans",
-      "Business and corporate FX",
-    ],
-    feeStructure: "No transfer fees",
-    exchangeRateMarkup: "0.3% - 0.9% above mid-market",
+    features: ["Dedicated account manager", "24/7 online platform", "Forward contracts", "Limit orders", "Regular payments", "Personal and business transfers"],
+    feeStructure: "No transfer fees; third-party charges may apply",
+    exchangeRateMarkup: "Quoted per transfer; not independently measured",
   },
   {
     slug: "lemfi",

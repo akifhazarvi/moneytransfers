@@ -108,7 +108,7 @@ function overviewParagraph(p: Provider, tp?: { score?: number; reviews?: number 
     `Founded in ${p.founded}${hq}, ${p.name} is ${article} ${type}.`,
     `${p.name} is ${article} ${type}, founded in ${p.founded}${hq}.`,
   ]);
-  const reg = p.regulated && p.regulators.length
+  const reg = p.regulationNote ? ` ${p.regulationNote}.` : p.regulated && p.regulators.length
     ? ` ${p.name}'s regulators: ${p.regulators.slice(0, 3).join(", ")}.`
     : "";
   const ratingSentence = tp?.score

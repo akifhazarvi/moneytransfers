@@ -35,6 +35,7 @@ import { PageByline } from "@/components/PageByline";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import { getCompanyEditorial } from "@/data/company-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
+import PropertyTransferIllustration from "@/components/PropertyTransferIllustration";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -70,13 +71,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Ladder, not one pattern: "United Overseas Bank (UOB) Review 2026 — Cheaper
   // Options on Your Route?" came to 71 chars, so the question — the part doing
   // the CTR work — was the part search engines cut.
-  const title = fitTitle([
+  const title = review?.publishSections ? review.title : fitTitle([
     `${provider.name} Review ${year}${tp?.score ? `: ★${tp.score.toFixed(1)}` : ""} — Cheaper Options on Your Route?`,
     `${provider.name} Review ${year} — Cheaper Options on Your Route?`,
     `${provider.name} Review ${year}${tp?.score ? `: ★${tp.score.toFixed(1)}` : ""} — Fees & Rates`,
     `${provider.name} Review ${year}`,
   ]);
-  const description = `${provider.name}${tp?.score ? ` rated ★${tp.score.toFixed(1)}/5` : " reviewed"}: real fees and FX markup on a $1,000 transfer — plus the apps that beat it right now for your corridor. Free, no signup.`;
+  const description = review?.publishSections ? review.metaDescription : `${provider.name}${tp?.score ? ` rated ★${tp.score.toFixed(1)}/5` : " reviewed"}: real fees and FX markup on a $1,000 transfer — plus the apps that beat it right now for your corridor. Free, no signup.`;
   return {
     title,
     description,
@@ -203,8 +204,8 @@ function DefaultReview({
   // on these pages written for this provider alone, where the generated
   // profile below is built from fields many providers share (a 1-3% markup,
   // a $1 minimum) and so printed the same sentences on 50 pages. The review's
-  // long sections are NOT rendered — they carry hand-typed fee tables our
-  // quote data could contradict.
+  // Long sections stay hidden unless individually rewritten with sources and
+  // explicitly marked publishSections; legacy fee tables remain unpublished.
   // The sidebar calculator opens on a route this provider actually quotes —
   // where it ranks first if there is one — instead of USD→INR on all 55
   // profiles, which was also the same widget text on every one of them.
@@ -254,13 +255,18 @@ function DefaultReview({
             step 6. A provider review is YMYL finance content; an unattributed
             one gives E-E-A-T nothing to read. */}
         <div className="mb-6">
-          <PageByline updated={quoteDataDate ?? new Date().toISOString().split("T")[0]} reviewerSlug="awais-imran" />
+          <PageByline
+            updated={review?.publishSections ? review.updatedAt : quoteDataDate ?? new Date().toISOString().split("T")[0]}
+            reviewerSlug={review?.publishSections ? undefined : "awais-imran"}
+            {...(review?.publishSections ? { cadence: null, sourcesHref: "#company-brief", sourcesLabel: "Sources and evidence" } : {})}
+          />
         </div>
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             {/* Header card */}
             <Card>
-              <p className="text-md text-[var(--color-on-surface)] leading-relaxed mb-5">{profile.summary}</p>
+              <p className="text-md text-[var(--color-on-surface)] leading-relaxed mb-5">{review?.publishSections ? provider.description : profile.summary}</p>
+              {slug === "regencyfx" && <p className="text-sm text-[var(--color-on-surface-variant)] mb-5">Partner disclosure: we earn a commission if you transfer through our links. Placement does not establish the cheapest price.</p>}
               {/* This page is the highest-intent surface on the site — someone
                   searching a provider by name — and until now it carried ONE
                   36px near-black button labelled "Visit", a third of the way
@@ -275,7 +281,7 @@ function DefaultReview({
                   source="company_review_hero"
                   className="inline-flex items-center justify-center font-semibold rounded-full transition-colors bg-[var(--color-success-dark)] text-white hover:opacity-90 h-12 sm:h-11 px-6 text-sm sm:text-2sm w-full sm:w-auto"
                 >
-                  Send with {provider.name}
+                  {slug === "regencyfx" ? "Get a Regency FX quote" : `Send with ${provider.name}`}
                 </ProviderLink>
                 <Link href="/send-money" className="inline-flex items-center justify-center h-12 sm:h-11 px-6 border border-[var(--color-outline)] rounded-full text-sm sm:text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors w-full sm:w-auto">
                   Compare rates first
@@ -305,7 +311,7 @@ function DefaultReview({
                   Our verdict on {provider.name}
                 </h2>
                 <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">{review.editorVerdict}</p>
-                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mt-5 mb-2">How we tested {provider.name}</h3>
+                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mt-5 mb-2">{review.methodologyLabel ?? `How we tested ${provider.name}`}</h3>
                 <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">{review.howWeTested}</p>
               </Card>
             ) : !editorial ? (
@@ -378,6 +384,21 @@ function DefaultReview({
               </>
             )}
 
+            {review?.publishSections && (
+              <article aria-label={`${provider.name} source-backed review`} className="space-y-8 min-w-0">
+                <nav aria-label="In this review" className="flex flex-wrap gap-x-5 gap-y-3 text-sm underline underline-offset-4">
+                  <a href="#overview">The story</a><a href="#exchange-rates">Property calculator</a><a href="#safety">Payment partners</a><a href="#company-brief">Sources</a>
+                </nav>
+                {review.sections.map((section) => (
+                  <Card key={section.id} id={section.id} className="scroll-mt-24">
+                    <h2 className="text-xl font-semibold tracking-tight mb-4">{section.heading}</h2>
+                    <div className="prose-content" dangerouslySetInnerHTML={{ __html: renderDataTokens(section.content) }} />
+                    {slug === "regencyfx" && section.id === "exchange-rates" && <PropertyTransferIllustration />}
+                  </Card>
+                ))}
+              </article>
+            )}
+
             {review && review.whoShouldUse.length > 0 && (
               <div className="grid md:grid-cols-2 gap-4">
                 {review.whoShouldUse.map((group) => (
@@ -440,9 +461,9 @@ function DefaultReview({
               <div className="divide-y divide-[var(--color-outline)]">
                 {[
                   { label: "Headquarters", value: provider.headquarters },
-                  { label: "Regulated", value: provider.regulated ? "Yes" : "No" },
+                  { label: "Regulated", value: provider.regulationNote ?? (provider.regulated ? "Yes" : "No") },
                   { label: "Regulators", value: provider.regulators.join(", ") },
-                  { label: "Min Transfer", value: `$${provider.minTransfer}` },
+                  { label: "Min Transfer", value: provider.minTransfer == null ? "Confirm with provider" : `$${provider.minTransfer}` },
                   { label: "Max Transfer", value: provider.maxTransfer ? `$${provider.maxTransfer.toLocaleString()}` : "No limit" },
                   { label: "Payment Methods", value: provider.paymentMethods.join(", ") },
                   { label: "Delivery Methods", value: provider.deliveryMethods.join(", ") },
