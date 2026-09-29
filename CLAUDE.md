@@ -137,7 +137,11 @@ what enforces it. Where a rule is not automated, it says how to check it.
    A better tier wins a provider+amount **unless the other row is >24h fresher**;
    rows >72h behind the freshest row are quarantined as stale; rows that cannot be
    true are quarantined by `src/lib/quote-integrity.ts` (beats interbank outside
-   `PARALLEL_RATE_CURRENCIES`, absurd markup/fee). Every row is restated to
+   `PARALLEL_RATE_CURRENCIES`, absurd markup/fee). RemitRoutes (tier 5) is
+   gap-fill only: its rows are dropped for any provider a better tier covers on
+   the corridor, at any amount — it stamps one all-in estimate at $200/$1,000/
+   $5,000, which put Wise at a 2–5% "markup" on 257 slots until 2026-09-29 —
+   and its USD-origin Wise rows are never used (median +3.27 points vs Wise). Every row is restated to
    "recipient gets for a total outlay of `sendAmount`" whatever the source's fee
    convention.
 3. **`generateQuotes(amount, from, to)`** in `src/lib/quotes-engine.ts` returns what

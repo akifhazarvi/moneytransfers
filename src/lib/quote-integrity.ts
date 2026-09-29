@@ -157,3 +157,55 @@ export function dropRateOutliers(quotes: NormalizedQuote[]): NormalizedQuote[] {
   }
   return kept;
 }
+
+/** Source tier of the gap-fill-only feed (RemitRoutes) in unified-quotes.ts. */
+export const GAP_FILL_TIER = 5;
+
+/**
+ * Keep the gap-fill feed to gap-filling.
+ *
+ * RemitRoutes (tier 5) exists to add providers — mostly retail banks — that no
+ * better source covers. Dedup, though, runs per provider AND amount, so on any
+ * amount the better tiers do not happen to scrape it won the slot outright: the
+ * Wise API quotes $100 and $1,000, so RemitRoutes supplied Wise at $200 and
+ * $5,000 on every corridor. Its rows there are not quotes at those amounts —
+ * each carries one markup per provider and corridor, the same at $200 as at
+ * $5,000 (Wise USD→EUR 3.70% at both) — and for Wise, whose rate is the
+ * mid-market rate, 257 of the 524 slots it held (2026-09-29) showed a markup
+ * above 1%, up to 5.43%. That put Wise near the bottom of $200 and $5,000
+ * tables. The same pattern ran 1–5 points above first-party pricing for OFX,
+ * Remitly, Monese and the banks we also price directly.
+ *
+ * So a gap-fill row is dropped wherever the same provider has ANY better-tier
+ * row on the corridor, at any amount. The engine then prices that provider at
+ * every amount from its own better-sourced points (see estimatePricing), and
+ * RemitRoutes keeps adding the providers nobody else covers.
+ */
+export function dropCoveredGapFill(quotes: NormalizedQuote[], covered: Set<string>): NormalizedQuote[] {
+  return quotes.filter(
+    (q) => q.sourcePriority < GAP_FILL_TIER || (!covered.has(q.providerSlug) && !gapFillUnreliable(q)),
+  );
+}
+
+/**
+ * Where the gap-fill feed is measurably wrong even as the only source. Its Wise
+ * figure is an all-in cost folded into the rate, and against Wise's own API at
+ * $1,000 (50 overlapping corridors, 2026-09-29) it matched from every origin
+ * but one: EUR 9 of 10 within 0.5 points, GBP 5 of 5, SGD/CHF/CAD/AUD/HKD all
+ * within — but USD-origin rows ran a median 3.27 points high (USD→GHS 5.10%
+ * against Wise's 0.54%, USD→ZAR 5.16% against 1.15%). So its non-USD Wise rows
+ * stay as gap-fill and its USD-origin Wise rows are never used.
+ */
+const GAP_FILL_UNRELIABLE: { provider: string; sendCurrency: string }[] = [
+  { provider: "wise", sendCurrency: "USD" },
+];
+function gapFillUnreliable(q: NormalizedQuote): boolean {
+  return GAP_FILL_UNRELIABLE.some((u) => u.provider === q.providerSlug && u.sendCurrency === q.sendCurrency);
+}
+
+/** Providers on a corridor quoted by at least one source better than the gap-fill tier. */
+export function providersCoveredAboveGapFill(quotes: NormalizedQuote[]): Set<string> {
+  const covered = new Set<string>();
+  for (const q of quotes) if (q.sourcePriority < GAP_FILL_TIER) covered.add(q.providerSlug);
+  return covered;
+}

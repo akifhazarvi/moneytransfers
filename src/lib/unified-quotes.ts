@@ -16,7 +16,7 @@
 
 // --- Raw data imports ---
 import monitoQuotes from "@/data/scraped/monito-quotes.json";
-import { implausibilityReason, isSelfConsistent, dropRateOutliers } from "@/lib/quote-integrity";
+import { implausibilityReason, isSelfConsistent, dropRateOutliers, dropCoveredGapFill, providersCoveredAboveGapFill } from "@/lib/quote-integrity";
 import wiseComparisonQuotes from "@/data/scraped/wise-comparison-quotes.json";
 import exiapQuotes from "@/data/scraped/exiap-quotes.json";
 import ofxQuotes from "@/data/scraped/ofx-quotes.json";
@@ -428,6 +428,21 @@ function deduplicateQuotes(quotes: NormalizedQuote[]): NormalizedQuote[] {
     if (!existing || outranks(q, existing)) best.set(key, q);
   }
   return Array.from(best.values());
+}
+
+// The gap-fill feed only fills gaps: drop its rows for any provider a better
+// tier covers on the same corridor, at any amount (see dropCoveredGapFill).
+// Coverage is decided per corridor, before either index is deduplicated, so the
+// corridor and corridor+amount indices drop exactly the same rows.
+for (const key of Object.keys(quotesByCorridor)) {
+  const covered = providersCoveredAboveGapFill(quotesByCorridor[key]);
+  const before = quotesByCorridor[key].length;
+  quotesByCorridor[key] = dropCoveredGapFill(quotesByCorridor[key], covered);
+  const dropped = before - quotesByCorridor[key].length;
+  if (dropped) quarantineCounts["gap-fill-covered"] = (quarantineCounts["gap-fill-covered"] ?? 0) + dropped;
+  for (const amountKey of Object.keys(quotesByCorridorAmount)) {
+    if (amountKey.startsWith(`${key}_`)) quotesByCorridorAmount[amountKey] = dropCoveredGapFill(quotesByCorridorAmount[amountKey], covered);
+  }
 }
 
 // Deduplicate corridor-level index. dropRateOutliers runs FIRST so that a lone
