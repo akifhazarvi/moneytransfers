@@ -3014,10 +3014,10 @@
     "date": "2026-09-29",
     "providers": {
       "lemfi": {
-        "rate": 194.2,
+        "rate": 193.1,
         "fee": 0,
-        "markup": -0.14,
-        "receiveAmount": 19420
+        "markup": 0.24,
+        "receiveAmount": 19310
       },
       "ria": {
         "rate": 194.604,
@@ -3026,10 +3026,10 @@
         "receiveAmount": 18898.03
       },
       "taptap-send": {
-        "rate": 193,
+        "rate": 191.6,
         "fee": 3.99,
-        "markup": 0.81,
-        "receiveAmount": 18529.93
+        "markup": 1.53,
+        "receiveAmount": 18395.52
       }
     }
   }

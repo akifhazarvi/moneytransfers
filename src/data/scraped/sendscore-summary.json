@@ -4,13 +4,13 @@
   "corridorsWithAnyScore": 1019,
   "singleProviderReadings": 818,
   "bands": {
-    "exceptional": 7,
-    "great": 48,
-    "good": 58,
-    "typical": 31,
-    "poor": 57
+    "exceptional": 9,
+    "great": 50,
+    "good": 56,
+    "typical": 28,
+    "poor": 58
   },
-  "goodOrBetterPct": 56,
+  "goodOrBetterPct": 57,
   "confidence": {
     "high": 201,
     "medium": 0,
@@ -23,7 +23,7 @@
       "score": 69,
       "band": "good",
       "headline": "Good time to send",
-      "explanation": "Best rate +0.48% vs the 30-day average, 74% up the 90-day range. Rates are falling — -0.22% week on week. Today's best beats the median provider by +1.71%.",
+      "explanation": "Best rate +0.48% vs the 30-day average, 74% up the 90-day range. Rates are falling — -0.22% week on week. Today's best beats the median provider by +1.66%.",
       "components": [
         {
           "key": "range",
@@ -43,8 +43,8 @@
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 89.72551973581739,
-          "detail": "today's best beats the median provider by +1.71%"
+          "score": 87.99155612361031,
+          "detail": "today's best beats the median provider by +1.66%"
         },
         {
           "key": "trend",

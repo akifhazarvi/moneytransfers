@@ -1521,10 +1521,10 @@
     "date": "2026-09-29",
     "providers": {
       "taptap-send": {
-        "rate": 12.6,
+        "rate": 12.75,
         "fee": 0,
-        "markup": 0.7,
-        "receiveAmount": 1260
+        "markup": -0.48,
+        "receiveAmount": 1275
       }
     }
   }
