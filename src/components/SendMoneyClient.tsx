@@ -3,7 +3,6 @@
 import { useState, useMemo, useRef, useEffect, useCallback, useLayoutEffect } from "react";
 import { rankQuotes, tiedAboveLargerPayout } from "@/lib/rank-quotes";
 import { createPortal } from "react-dom";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Fragment, Suspense } from "react";
 import { useTranslations } from "next-intl";
@@ -138,20 +137,29 @@ const allPaymentMethods = [
 ];
 
 function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRailSectionData }) {
-  const searchParams = useSearchParams();
-  const paramFrom = searchParams.get("from") || "USD";
-  const paramTo = searchParams.get("to") || "INR";
-  const paramAmount = Number(searchParams.get("amount")) || 1000;
-
-  const [fromCurrency, setFromCurrency] = useState(paramFrom);
-  const [toCurrency, setToCurrency] = useState(paramTo);
-  const [amountStr, setAmountStr] = useState(String(paramAmount));
+  // Server and first client render both use the defaults; the URL is read
+  // after mount. useSearchParams() here made the statically prerendered page
+  // bail out to client rendering up to the Suspense boundary, so the server
+  // sent only "Loading..." and the widget pushed the rest of /send-money down
+  // when it mounted (CLS 0.39 on mobile Lighthouse).
+  const [fromCurrency, setFromCurrency] = useState("USD");
+  const [toCurrency, setToCurrency] = useState("INR");
+  const [amountStr, setAmountStr] = useState("1000");
   const amount = Number(amountStr) || 0;
 
-  // Hydrate from geo cookies when no URL params are present (URL params take
-  // precedence — e.g. user arrived via the homepage ComparisonWidget).
+  // URL params first (e.g. user arrived via the homepage ComparisonWidget),
+  // else geo cookies.
   useEffect(() => {
-    if (searchParams.get("from") || searchParams.get("to") || searchParams.get("amount")) return;
+    const params = new URLSearchParams(window.location.search);
+    const paramFrom = params.get("from");
+    const paramTo = params.get("to");
+    const paramAmount = params.get("amount");
+    if (paramFrom || paramTo || paramAmount) {
+      if (paramFrom) setFromCurrency(paramFrom);
+      if (paramTo) setToCurrency(paramTo);
+      if (Number(paramAmount)) setAmountStr(String(Number(paramAmount)));
+      return;
+    }
     function readCookie(name: string) {
       return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
     }
@@ -396,9 +404,9 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
           <label htmlFor="transfer-amount">You send</label>
           <div className="conversion-amount"><span aria-hidden="true">{sendCurrency?.symbol}</span><input id="transfer-amount" type="text" inputMode="decimal" value={amountStr} required pattern="[0-9]*[.]?[0-9]+" onChange={event => { if (/^\d*\.?\d*$/.test(event.target.value)) setAmountStr(event.target.value); }} onBlur={() => { if (!amountStr || Number(amountStr) <= 0) setAmountStr("1"); }} /></div>
         </div>
-        <div className="conversion-search-field"><span className="conversion-field-label">From currency</span><CurrencyPicker label={`From currency: ${fromCurrency}`} value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" /></div>
+        <div className="conversion-search-field"><span className="conversion-field-label">From currency</span><CurrencyPicker label="From currency" value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" /></div>
         <button type="button" className="conversion-swap" onClick={swap} aria-label="Swap currencies">⇄</button>
-        <div className="conversion-search-field"><span className="conversion-field-label">To currency</span><CurrencyPicker label={`To currency: ${toCurrency}`} value={toCurrency} onChange={setToCurrency} size="large" /></div>
+        <div className="conversion-search-field"><span className="conversion-field-label">To currency</span><CurrencyPicker label="To currency" value={toCurrency} onChange={setToCurrency} size="large" /></div>
         <button type="submit" className="conversion-button conversion-button--accent">Compare transfers <span aria-hidden="true">→</span></button>
       </form>
       <p className="conversion-search-note">Free to compare · Rates and fees together · <Link href="/how-we-review">How we compare</Link></p>

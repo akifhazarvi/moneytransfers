@@ -215,8 +215,12 @@ export default function CurrencyPicker({
         ref={btnRef}
         onClick={() => setOpen(!open)}
         className={btnClass}
-        aria-label={label || `Select currency, current: ${value}`}
       >
+        {/* The context goes in a visually-hidden prefix, not aria-label: an
+            aria-label replaces the visible text ("USD US Dollar") as the
+            accessible name, which fails WCAG 2.5.3 (label in name) and breaks
+            voice control ("click USD"). */}
+        <span className="sr-only">{label || "Select currency"}: </span>
         {buttonContent}
       </button>
 

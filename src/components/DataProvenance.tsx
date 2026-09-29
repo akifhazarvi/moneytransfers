@@ -94,14 +94,14 @@ export default function DataProvenance({
                   // E-E-A-T on YMYL finance content.
                   <a
                     href={s.href}
-                    className="text-[var(--color-primary)] hover:underline"
+                    className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     {s.label}
                   </a>
                 ) : (
-                  <Link href={s.href} className="text-[var(--color-primary)] hover:underline">
+                  <Link href={s.href} className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">
                     {s.label}
                   </Link>
                 )}
@@ -109,7 +109,7 @@ export default function DataProvenance({
             ))}
             {csvHref && (
               <li className="text-2sm text-[var(--color-on-surface-variant)]">
-                <a href={csvHref} className="text-[var(--color-primary)] hover:underline">
+                <a href={csvHref} className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">
                   The underlying table, as CSV
                 </a>{" "}
                 — check any figure on this page against the row that produced it
@@ -147,15 +147,15 @@ export default function DataProvenance({
         <p className="mt-6 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)] pt-5">
           <strong>Corrections and independence:</strong> figures move with the scrape, so cite the data date above
           rather than the date you read this. Where we have published something wrong and fixed it, it is logged in{" "}
-          <Link href="/corrections" className="text-[var(--color-primary)] hover:underline">
+          <Link href="/corrections" className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">
             corrections
           </Link>
           . No provider can buy a ranking or a place in these datasets — see our{" "}
-          <Link href="/editorial-policy" className="text-[var(--color-primary)] hover:underline">
+          <Link href="/editorial-policy" className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">
             editorial policy
           </Link>{" "}
           and{" "}
-          <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">
+          <Link href="/methodology" className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">
             methodology
           </Link>
           .

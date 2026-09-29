@@ -8,7 +8,7 @@ export default function AffiliateDisclosure() {
           tie-break rule it used to spell out now lives on /editorial-policy
           and in the caption under each quote table. */}
       Some links earn us a commission, at no cost to you. It never changes the ranking.{" "}
-      <Link href="/editorial-policy" className="text-[var(--color-primary)] hover:underline">
+      <Link href="/editorial-policy" className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">
         Editorial policy
       </Link>
     </div>

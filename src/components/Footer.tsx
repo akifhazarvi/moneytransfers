@@ -193,7 +193,7 @@ export default function Footer() {
           <FooterDisclosure label={`Provider reviews & comparisons (${providerReviews.length + popularComparisons.length})`}>
             <div className="pt-3 grid grid-cols-1 gap-y-4">
               <div>
-                <p className="text-2xs font-semibold text-white/45 uppercase tracking-[0.12em] mb-2">Reviews</p>
+                <p className="text-2xs font-semibold text-white/55 uppercase tracking-[0.12em] mb-2">Reviews</p>
                 <ul className="flex flex-wrap gap-x-5 gap-y-2">
                   {providerReviews.map((link) => (
                     <li key={link.href}>
@@ -205,7 +205,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <p className="text-2xs font-semibold text-white/45 uppercase tracking-[0.12em] mb-2">Head-to-head</p>
+                <p className="text-2xs font-semibold text-white/55 uppercase tracking-[0.12em] mb-2">Head-to-head</p>
                 <ul className="flex flex-wrap gap-x-5 gap-y-2">
                   {popularComparisons.map((link) => (
                     <li key={link.href}>
@@ -262,7 +262,7 @@ export default function Footer() {
 
           {/* Disclaimer — single muted line, full width */}
           <p
-            className="text-2xs text-white/45 leading-relaxed mt-6 max-w-3xl"
+            className="text-2xs text-white/55 leading-relaxed mt-6 max-w-3xl"
             data-nosnippet=""
           >
             {t("footerDisclaimer")}

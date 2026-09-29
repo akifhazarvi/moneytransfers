@@ -21,7 +21,7 @@
 .conversion-result-brand, .conversion-spotlight-heading { display: flex; align-items: center; gap: 14px; }
 .conversion-logo { border-radius: 12px; object-fit: contain; flex-shrink: 0; background: #fff; }
 .conversion-result-name { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-.conversion-result-name h3 { font-size: 18px; font-weight: 600; letter-spacing: -.025em; }
+.conversion-result-name > p { font-size: 18px; font-weight: 600; letter-spacing: -.025em; }
 .conversion-tag { font-size: 11px; line-height: 1.4; padding: 5px 9px; border-radius: 30px; color: #145739; background: #e6f4ec; font-weight: 600; }
 .conversion-result-rating { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; font-size: 11px; color: var(--color-on-surface-variant); margin-top: 6px; }
 .conversion-result-payout { text-align: right; }

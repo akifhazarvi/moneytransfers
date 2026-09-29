@@ -14,6 +14,8 @@ import { allCorridors } from "@/data/corridors";
 import { shouldNoindex } from "@/lib/corridor-tiers";
 import { corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE, SITE_STATS } from "@/lib/site-stats";
+import { PageByline } from "@/components/PageByline";
+import { quoteDataDate } from "@/lib/unified-quotes";
 
 /**
  * Crawlable index of every corridor the sitemap submits.
@@ -133,8 +135,13 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
       <Container>
         <header className="conversion-hero">
           <p className="conversion-eyebrow">Compare international money transfers</p>
-          <h1>{locale === "en" ? "Make more of your money." : heading}</h1>
+          {/* The H1 names the page's subject — the title's "Send Money Abroad"
+              — rather than a slogan, and stays distinct from the <title>. */}
+          <h1>{locale === "en" ? "Send money abroad: see what arrives before you pay" : heading}</h1>
           <p>{locale === "en" ? "Compare international transfers by what arrives, with fees and delivery times in view." : subheading}</p>
+          <div className="mt-4">
+            <PageByline updated={quoteDataDate ?? new Date().toISOString().split("T")[0]} />
+          </div>
         </header>
       </Container>
 
@@ -328,7 +335,16 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
             <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
               <p>
                 When comparing international money transfer services, consider the total cost of your transfer — not just the fee.
-                Exchange rate markups can cost more than the advertised fee. The best provider depends on your corridor (the countries
+                Exchange rate markups can cost more than the advertised fee — which is why the World Bank&rsquo;s{" "}
+                <a
+                  href="https://remittanceprices.worldbank.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline"
+                >
+                  Remittance Prices Worldwide
+                </a>{" "}
+                database counts the fee and the exchange-rate margin together as the cost of a transfer, and so do we. The best provider depends on your corridor (the countries
                 you are sending between), transfer amount, speed requirements, and preferred payment method.
               </p>
               <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-4">What we compare</h3>

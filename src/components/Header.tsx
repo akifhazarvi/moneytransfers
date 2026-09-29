@@ -148,7 +148,7 @@ export default function Header() {
               <button
                 onClick={() => setLangOpen(!langOpen)}
                 className="flex items-center gap-1.5 h-11 px-1 min-[360px]:px-3 rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200 text-2sm font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]"
-                aria-label="Switch language"
+                aria-label={`${localeLabels[locale]}, switch language`}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />

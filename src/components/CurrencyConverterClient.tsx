@@ -88,7 +88,7 @@ export default function CurrencyConverterClient() {
   const [targets, setTargetsRaw] = useState<TargetCurrency[]>(() => [
     { id: `tc-0`, code: "EUR" },
   ]);
-  const { rates, isLive, lastUpdated, secondsUntilRefresh } = useExchangeRates();
+  const { rates, isLive, lastUpdated, secondsUntilRefresh } = useExchangeRates({ countdown: true });
 
   // Hydrate state from localStorage once prefs are loaded.
   // If no saved prefs exist, fall back to geo cookies set by middleware.

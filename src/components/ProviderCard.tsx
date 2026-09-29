@@ -46,7 +46,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
       <div className="conversion-result-brand">
         <Image src={providerLogo(quote.providerSlug, provider?.logo)} alt="" width={48} height={48} className="conversion-logo" />
         <div>
-          <div className="conversion-result-name"><h3>{name}</h3>{isBestValue && <span className="conversion-tag">Best value</span>}</div>
+          <div className="conversion-result-name"><p>{name}</p>{isBestValue && <span className="conversion-tag">Best value</span>}</div>
           <p className="conversion-result-rating">{quote.rating > 0 && <><Star size={12} aria-hidden="true" />{quote.rating.toFixed(1)} <span>on Trustpilot</span></>}{quote.isIndicative && <span>Indicative quote</span>}</p>
         </div>
       </div>

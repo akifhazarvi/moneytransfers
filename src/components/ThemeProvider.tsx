@@ -15,7 +15,6 @@ export function useTheme() {
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("theme") as Theme | null;
@@ -23,7 +22,6 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     const initial = stored || (prefersDark ? "dark" : "light");
     setTheme(initial);
     document.documentElement.classList.toggle("dark", initial === "dark");
-    setMounted(true);
   }, []);
 
   const toggleTheme = () => {
@@ -33,11 +31,13 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     document.documentElement.classList.toggle("dark", next === "dark");
   };
 
-  // Prevent flash of wrong theme
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  // Always render the Provider. This used to return a bare fragment until
+  // mount, but swapping Fragment -> Provider at the same position makes React
+  // unmount and rebuild the whole site tree after hydration: every page's
+  // <header>, <main> and <footer> were thrown away and repainted, which moved
+  // LCP behind all the JS (/send-money: H1 painted at FCP, then again at ~5.5s
+  // simulated) and ran every effect twice. The flash of wrong theme is already
+  // prevented before paint by THEME_INLINE in the layout.
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

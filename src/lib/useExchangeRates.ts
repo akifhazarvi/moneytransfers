@@ -10,7 +10,13 @@ interface RatesResponse {
   timestamp: number;
 }
 
-export function useExchangeRates() {
+/**
+ * `countdown` enables the per-second `secondsUntilRefresh` ticker. It is off by
+ * default because every tick re-renders the consuming component: on
+ * /send-money that was the whole comparison widget, once a second, forever,
+ * for a value only the currency converter displays.
+ */
+export function useExchangeRates({ countdown = false }: { countdown?: boolean } = {}) {
   const [rates, setRates] = useState<Record<string, number>>(staticRates);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [isLive, setIsLive] = useState(false);
@@ -48,7 +54,7 @@ export function useExchangeRates() {
 
   // Countdown ticker
   useEffect(() => {
-    if (!nextRefresh) return;
+    if (!countdown || !nextRefresh) return;
 
     function tick() {
       const diff = Math.max(0, Math.round((nextRefresh!.getTime() - Date.now()) / 1000));
@@ -58,7 +64,7 @@ export function useExchangeRates() {
     tick();
     const timer = setInterval(tick, 1000);
     return () => clearInterval(timer);
-  }, [nextRefresh]);
+  }, [countdown, nextRefresh]);
 
   return { rates, lastUpdated, isLive, secondsUntilRefresh };
 }
