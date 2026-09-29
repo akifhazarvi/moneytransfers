@@ -114,16 +114,24 @@ export const CONTINUE_INLINE = `(function(){
 })();`;
 
 // Microsoft Clarity — session recordings + heatmaps (project x2rwjue57c). The
-// stock async loader, verbatim, so the SHA-256 below stays stable. Clarity is a
-// behavioral tool, not an ad tag: it needs no consent 'default' wiring and fires
+// stock loader, except the tag is injected on the visitor's FIRST INTERACTION
+// (pointer move/down, touch, scroll, key) instead of at parse time. The queue
+// stub is still defined immediately, so clarity(...) calls made earlier are
+// kept. Why: loaded eagerly, Clarity's tag and its c.clarity.ms -> c.bing.com
+// ID sync set third-party cookies (CLID, MUID, MR, SM, ANONCHK, SRM_B) during
+// every page load. Lighthouse fails "Uses third-party cookies" and "Issues
+// logged" on them (Best Practices 78 on /send-money, 2026-09-29), and the tag
+// was a ~150 ms long task in the load window. A session with no interaction
+// at all has nothing for a heatmap or a replay to show. Clarity is a
+// behavioral tool, not an ad tag: it needs no consent 'default' wiring and runs
 // on every rendered HTML page (including the /go + /out interstitials, which
 // embed the SAME string). Requires clarity.ms in the middleware CSP script-src,
 // connect-src (beacon) and img-src (1x1 pixel). Editing this string breaks CSP —
 // regenerate CLARITY_INLINE_SHA256 (scripts/check-inline-script-hashes.ts).
-export const CLARITY_INLINE = `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x2rwjue57c");`;
+export const CLARITY_INLINE = `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};var e=["pointermove","pointerdown","touchstart","scroll","keydown"],o={capture:true,passive:true},d=0;function g(){if(d)return;d=1;e.forEach(function(n){c.removeEventListener(n,g,o)});t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)}e.forEach(function(n){c.addEventListener(n,g,o)})})(window,document,"clarity","script","x2rwjue57c");`;
 
 // SHA-256 hashes of the strings above, base64-encoded. Used by middleware
 // CSP. Verified by scripts/check-inline-script-hashes.ts at build time.
 export const GTAG_INLINE_SHA256 = "vFs8yu5/dujeSSGQ8vbhX1jCd1iZFizSLx6JM97qj8M=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";
-export const CLARITY_INLINE_SHA256 = "iFSmoMFj82SS8nkpxuxb66/9ZMn1PaeAyBLnSLnjI+o=";
+export const CLARITY_INLINE_SHA256 = "++mvwM8fPwDGPivgHvk3pkHcSGFy9J/LGlYmUAUU1ls=";
