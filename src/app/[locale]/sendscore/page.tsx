@@ -58,7 +58,7 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
               our own recorded provider rates rather than mid-market history. It combines four measurements — where
               today sits in the 90-day range, how it compares with the 30-day average, how far the best provider beats
               the field, and which way the market moved this week. Today, {s.goodOrBetterPct}% of the{" "}
-              {s.corridorsScored} corridors we can score read &ldquo;good&rdquo; or better.
+              {s.corridorsScored}{" "}corridors we can score read &ldquo;good&rdquo; or better.
             </p>
           </div>
         </Container>

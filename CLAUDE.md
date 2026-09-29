@@ -38,6 +38,7 @@ npm run check:indexing   # sitemap ⇔ robots ⇔ canonical agree; sitemap-googl
 npm run check:headings   # no H2 shared by 10+ indexable pages (postbuild)
 npm run check:claims     # no scores, "Best Overall", unmeasured "cheapest", typed ratings (pre + postbuild)
 npm run check:swift-codes # no spliced, mis-countried or wrong-length SWIFT codes (prebuild)
+npm run check:rendered-text # no word glued to a value in rendered HTML, "216corridors" (postbuild)
 npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (needs a deploy)
 
 # Not a build gate — run periodically and read the output
@@ -111,7 +112,13 @@ what enforces it. Where a rule is not automated, it says how to check it.
    `public/.well-known/ai-plugin.json` are rewritten by every build and by the
    scrape workflow. Restore them with `git checkout -- <path>` before
    `git add`; never `git add -A src`.
-10. **After a deploy that changes URLs or indexing:** run
+10. **A space after a JSX value must survive the build.** A text run that
+    spans lines and holds an entity (`&rsquo;`) loses the space after an
+    expression, and an expression ending a line loses the line break — so
+    `{n} corridors` shipped as "216corridors" on /methodology and
+    `{country} etiquette` as "Franceetiquette" on every /travel page. Write
+    `{value}{" "}word`. *Enforced:* `check:rendered-text` (postbuild).
+11. **After a deploy that changes URLs or indexing:** run
     `npm run ping:indexnow` (Bing and the IndexNow engines), and confirm GSC
     still lists only `sitemap-google.xml`.
 

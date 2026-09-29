@@ -304,7 +304,7 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
             </div>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mt-5 leading-relaxed">
               On a $1,000 transfer, a {COSTLIEST_WHEN_LOSING[0]?.avgShortfallPct.toFixed(2)}% shortfall is about $
-              {((COSTLIEST_WHEN_LOSING[0]?.avgShortfallPct ?? 0) * 10).toFixed(0)} less reaching the recipient than the
+              {((COSTLIEST_WHEN_LOSING[0]?.avgShortfallPct ?? 0) * 10).toFixed(0)}{" "}less reaching the recipient than the
               day&rsquo;s best provider would have delivered.
             </p>
           </div>

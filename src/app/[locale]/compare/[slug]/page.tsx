@@ -596,7 +596,7 @@ function DefaultComparison({
 
               <section id="limits" className="mb-10">
                 <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
-                  What the {a.name} and {b.name} figures don&rsquo;t settle
+                  What the {a.name} and {b.name}{" "}figures don&rsquo;t settle
                 </h2>
                 <p
                   className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"

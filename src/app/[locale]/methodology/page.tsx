@@ -555,7 +555,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   </Link>{" "}
                   measures how often each provider actually delivers the most, across{" "}
                   {CONSISTENCY_INDEX.providerDayObservations.toLocaleString("en-US")} provider-day observations on{" "}
-                  {CONSISTENCY_INDEX.comparableCorridors} corridors. A day counts only when at least two providers
+                  {CONSISTENCY_INDEX.comparableCorridors}{" "}corridors. A day counts only when at least two providers
                   quoted &mdash; winning unopposed is not evidence.
                 </p>
                 <p>

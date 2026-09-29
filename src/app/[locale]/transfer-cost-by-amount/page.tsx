@@ -262,7 +262,7 @@ export default async function TransferCostByAmountPage({ params }: { params: Pro
               <p>
                 <strong className="text-[var(--color-on-surface)]">Threshold.</strong> A provider appears only with{" "}
                 {idx.minQuotesPerTier} or more usable quotes at <em>both</em> amounts, which is why{" "}
-                {idx.providersCompared} providers are compared here rather than the larger number that quote at either
+                {idx.providersCompared}{" "}providers are compared here rather than the larger number that quote at either
                 one. Comparing a provider&rsquo;s tiers on a handful of quotes would produce a difference that is
                 sampling noise.
               </p>

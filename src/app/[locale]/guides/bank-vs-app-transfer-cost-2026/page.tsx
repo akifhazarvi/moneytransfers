@@ -144,7 +144,7 @@ export default async function BankVsAppCostPage({ params }: { params: Promise<{ 
             The worst-value banks right now
           </h2>
           <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-            These banks lose senders the most, measured as the average true cost (FX markup + fees) of sending {amt}
+            These banks lose senders the most, measured as the average true cost (FX markup + fees) of sending {amt}{" "}
             across every corridor where we hold a live bank quote. Only banks covering 3+ corridors are ranked, for a
             fair average.
           </p>
