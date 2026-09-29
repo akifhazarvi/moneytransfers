@@ -5782,10 +5782,10 @@
     "date": "2026-09-29",
     "providers": {
       "lemfi": {
-        "rate": 962,
+        "rate": 955,
         "fee": 0,
-        "markup": -3.02,
-        "receiveAmount": 96200
+        "markup": -2.1,
+        "receiveAmount": 95500
       },
       "ria": {
         "rate": 950.457,
@@ -5794,22 +5794,22 @@
         "receiveAmount": 93239.81
       },
       "taptap-send": {
-        "rate": 962,
+        "rate": 955,
         "fee": 0,
-        "markup": -3.02,
-        "receiveAmount": 96200
+        "markup": -2.27,
+        "receiveAmount": 95500
       },
       "instarem": {
-        "rate": 928.115,
+        "rate": 927.708,
         "fee": 0,
-        "markup": 0.61,
-        "receiveAmount": 92811.55
+        "markup": 0.66,
+        "receiveAmount": 92770.77
       },
       "western-union": {
-        "rate": 921.799,
+        "rate": 919.729,
         "fee": 1.99,
-        "markup": 1.29,
-        "receiveAmount": 90345.54
+        "markup": 1.51,
+        "receiveAmount": 90142.62
       }
     }
   }

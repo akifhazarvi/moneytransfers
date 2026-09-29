@@ -11447,10 +11447,10 @@
     "date": "2026-09-29",
     "providers": {
       "lemfi": {
-        "rate": 0.6144,
+        "rate": 0.6146,
         "fee": 0,
-        "markup": 0.97,
-        "receiveAmount": 61.44
+        "markup": 1.07,
+        "receiveAmount": 61.46
       },
       "taptap-send": {
         "rate": 0.617,
@@ -11459,52 +11459,52 @@
         "receiveAmount": 61.7
       },
       "bnc": {
-        "rate": 0.606594,
+        "rate": 0.607407,
         "fee": 5.95,
-        "markup": 2.23,
-        "receiveAmount": 57.05
+        "markup": 2.09,
+        "receiveAmount": 57.13
       },
       "remitly": {
-        "rate": 0.617301,
+        "rate": 0.618336,
         "fee": 0,
-        "markup": 0.5,
-        "receiveAmount": 61.73
+        "markup": 0.33,
+        "receiveAmount": 61.83
       },
       "western-union": {
-        "rate": 0.60508,
+        "rate": 0.6064,
         "fee": 1.99,
-        "markup": 2.47,
-        "receiveAmount": 59.3
+        "markup": 2.26,
+        "receiveAmount": 59.43
       },
       "rbc": {
-        "rate": 0.601405,
+        "rate": 0.603051,
         "fee": 0,
-        "markup": 3.06,
-        "receiveAmount": 60.14
+        "markup": 2.8,
+        "receiveAmount": 60.31
       },
       "paypal": {
-        "rate": 0.594452,
+        "rate": 0.595336,
         "fee": 2.99,
-        "markup": 4.18,
-        "receiveAmount": 57.67
+        "markup": 4.04,
+        "receiveAmount": 57.75
       },
       "bmo": {
-        "rate": 0.590008,
+        "rate": 0.590798,
         "fee": 0,
-        "markup": 4.9,
-        "receiveAmount": 59
+        "markup": 4.77,
+        "receiveAmount": 59.08
       },
       "td-bank": {
-        "rate": 0.60271,
+        "rate": 0.603863,
         "fee": 0,
-        "markup": 2.85,
-        "receiveAmount": 60.27
+        "markup": 2.67,
+        "receiveAmount": 60.39
       },
       "instarem": {
-        "rate": 0.617001,
+        "rate": 0.618036,
         "fee": 0,
-        "markup": 0.55,
-        "receiveAmount": 61.7
+        "markup": 0.38,
+        "receiveAmount": 61.8
       }
     }
   }

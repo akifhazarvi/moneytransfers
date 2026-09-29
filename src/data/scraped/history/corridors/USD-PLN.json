@@ -5661,28 +5661,28 @@
         "receiveAmount": 370.68
       },
       "paypal": {
-        "rate": 3.68215,
+        "rate": 3.68045,
         "fee": 4.99,
-        "markup": 4.34,
-        "receiveAmount": 349.84
+        "markup": 4.38,
+        "receiveAmount": 349.68
       },
       "western-union": {
-        "rate": 3.7759,
+        "rate": 3.79248,
         "fee": 0.99,
-        "markup": 1.9,
-        "receiveAmount": 373.85
+        "markup": 1.47,
+        "receiveAmount": 375.49
       },
       "remitly": {
-        "rate": 3.77981,
+        "rate": 3.77993,
         "fee": 0.99,
         "markup": 1.8,
-        "receiveAmount": 374.24
+        "receiveAmount": 374.25
       },
       "wise": {
-        "rate": 3.8492,
+        "rate": 3.8479,
         "fee": 1.71,
-        "markup": 0,
-        "receiveAmount": 378.34
+        "markup": 0.03,
+        "receiveAmount": 378.21
       }
     }
   }

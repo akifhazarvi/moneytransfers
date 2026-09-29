@@ -3630,20 +3630,20 @@
       "lemfi": {
         "rate": 566,
         "fee": 0,
-        "markup": 1.97,
+        "markup": 2.06,
         "receiveAmount": 56600
       },
       "taptap-send": {
-        "rate": 550,
+        "rate": 565,
         "fee": 0,
-        "markup": 4.74,
-        "receiveAmount": 55000
+        "markup": 2.14,
+        "receiveAmount": 56500
       },
       "wise": {
-        "rate": 577.346,
+        "rate": 577.945,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 57734.6
+        "markup": -0.1,
+        "receiveAmount": 57794.5
       }
     }
   }
