@@ -1,3 +1,4 @@
+import { BUSINESS_JOURNEYS } from "@/data/business-journeys";
 import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
@@ -37,7 +38,6 @@ const asOfLong = new Date(idx.dataAsOf + "T00:00:00Z").toLocaleDateString("en-GB
 });
 
 const amt = `$${idx.amount.toLocaleString()}`;
-const cheapest = idx.specialistLeaderboard[0];
 const PROVIDER_COUNT = BUSINESS_PROVIDERS.length;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -91,7 +91,7 @@ const datasetSchema = {
 const faqs = [
   {
     q: "What is the best provider for international business payments?",
-    a: `It depends on your priority. For the lowest visible FX cost and clean self-serve batch + approvals, ${cheapest?.name ?? "Wise Business"} leads — our live data shows specialists average ${idx.specialistAvgCostPct}% on a ${amt} transfer versus ${idx.bankAvgCostPct}% for banks. For large or recurring transfers with hedging and a dedicated dealer, OFX, XE or Currencies Direct fit better. For a US startup wanting banking plus bill-pay approvals, Mercury; for an eCommerce/SaaS business wanting global accounts plus cards plus API, Airwallex.`,
+    a: `Start with the features your business needs, then compare eligible providers and request a quote. Our ${amt} benchmark averages ${idx.specialistAvgCostPct}% for specialists and ${idx.bankAvgCostPct}% for banks across tracked corridors. Those averages do not establish the best provider for your particular business.`,
   },
   {
     q: "Which providers support bulk payments and approval workflows?",
@@ -118,8 +118,10 @@ const SUPPORT_MARK: Record<Support, { mark: string; cls: string }> = {
   none: { mark: "—", cls: "text-[var(--color-on-surface-muted)]" },
 };
 
-export default async function BusinessComparePage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function BusinessComparePage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ workflow?: string }> }) {
   const { locale } = await params;
+  const { workflow } = await searchParams;
+  const initialWorkflow = BUSINESS_JOURNEYS.some(j => j.workflow === workflow) ? workflow : undefined;
   setRequestLocale(locale);
 
   return (
@@ -128,68 +130,22 @@ export default async function BusinessComparePage({ params }: { params: Promise<
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* ─── HERO BAND: the tool IS the thesis ─── */}
-      <section className="border-b border-[var(--color-outline)] bg-[var(--color-primary-surface)]">
-        <Container>
-          <div className="mx-auto max-w-5xl py-8">
-            <nav className="text-2sm text-[var(--color-on-surface-variant)]">
-              <Link href="/business" className="hover:text-[var(--color-primary)]">Business</Link>
-              <span className="mx-1.5">›</span>
-              <span>Provider comparison</span>
-            </nav>
-
-            <div className="mt-4 grid gap-8 lg:grid-cols-[1.55fr_1fr] lg:items-end">
-              <div>
-                <p className="text-2xs font-semibold uppercase tracking-[0.14em] text-[var(--color-primary)]">
-                  Live B2B payments tool
-                </p>
-                <h1 className="mt-2 text-[clamp(1.7rem,4.5vw,2.8rem)] font-normal leading-[1.08] tracking-[-0.015em] text-[var(--color-on-surface)]">
-                  Pick the right business<br className="hidden sm:block" /> payment provider in 30 seconds
-                </h1>
-                <p className="mt-3 max-w-xl text-md text-[var(--color-on-surface-variant)] leading-relaxed">
-                  Tell us what your business needs — bulk payouts, approvals, hedging, an API — and we rank{" "}
-                  {PROVIDER_COUNT} providers live by fit and current FX cost. Verified features, real quotes.
-                </p>
-                <p className="mt-3 text-2sm text-[var(--color-on-surface-muted)]">
-                  By {author?.name ?? "Ahsan Mukhtar"} · cost data {asOfLong} · features verified June 2026
-                </p>
-              </div>
-
-              {/* Proof stat — banks vs specialists, the one number that frames everything */}
-              <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] p-5">
-                <p className="text-2xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-                  On a {amt} transfer, today
-                </p>
-                <div className="mt-3 flex items-end gap-4">
-                  <div>
-                    <div className="text-3xl font-semibold leading-none text-[var(--color-success)]">{idx.specialistAvgCostPct}%</div>
-                    <div className="mt-1 text-2xs text-[var(--color-on-surface-variant)]">specialist avg</div>
-                  </div>
-                  <div className="pb-1 text-[var(--color-on-surface-muted)]">vs</div>
-                  <div>
-                    <div className="text-3xl font-semibold leading-none text-[var(--color-on-surface)]">{idx.bankAvgCostPct}%</div>
-                    <div className="mt-1 text-2xs text-[var(--color-on-surface-variant)]">bank avg</div>
-                  </div>
-                </div>
-                <p className="mt-3 border-t border-[var(--color-outline)] pt-3 text-2sm text-[var(--color-on-surface)]">
-                  Banks cost <strong className="text-[var(--color-primary)]">{idx.bankVsSpecialistMultiple}× more</strong>. Cheapest live:{" "}
-                  <strong>{cheapest?.name}</strong>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <section className="business-hero business-compare-hero"><Container>
+        <p className="business-eyebrow">Business provider comparison</p>
+        <h1>Find the right tools<br />for the way you pay.</h1>
+        <p className="business-deck">Choose your payment needs. Compare {PROVIDER_COUNT} providers by feature match and measured cost.</p>
+        <p className="business-small">By {author?.name ?? "Ahsan Mukhtar"} · cost data {asOfLong} · feature inventory reviewed June 2026</p>
+      </Container></section>
 
       {/* ─── Sticky in-page nav ─── */}
-      <nav className="sticky top-[var(--header-height,56px)] z-10 border-b border-[var(--color-outline)] bg-[color-mix(in_srgb,var(--color-surface)_92%,transparent)] backdrop-blur">
+      <nav aria-label="Comparison sections" className="business-compare-nav">
         <Container>
           <div className="mx-auto flex max-w-5xl gap-5 overflow-x-auto py-3 text-2sm">
             {[
               ["#finder", "Find your match"],
               ["#matrix", "Feature matrix"],
               ["#profiles", "Provider profiles"],
-              ["#cost", "Live FX cost"],
+              ["#cost", "Cost data"],
               ["#faq", "FAQ"],
             ].map(([href, label]) => (
               <a key={href} href={href} className="whitespace-nowrap text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)]">
@@ -203,11 +159,12 @@ export default async function BusinessComparePage({ params }: { params: Promise<
       <Container>
         <article className="mx-auto max-w-5xl py-10">
           {/* ── 01 · INTERACTIVE FINDER ── */}
-          <p className="text-sm font-semibold text-[var(--color-primary)]">01</p>
           <div id="finder" className="mt-2 scroll-mt-28">
             <BusinessCompareTool
               liveCosts={idx.specialistLeaderboard.map((p) => ({ slug: p.slug, avgCostPct: p.avgCostPct, corridorCount: p.corridorCount }))}
               amountLabel={amt}
+              key={initialWorkflow ?? "all"}
+              initialWorkflow={initialWorkflow}
             />
           </div>
 
@@ -217,9 +174,9 @@ export default async function BusinessComparePage({ params }: { params: Promise<
           <h2 id="matrix" className="mt-16 scroll-mt-28 text-2xl font-normal text-[var(--color-on-surface)]">
             <span className="mr-2 text-sm font-semibold text-[var(--color-primary)]">02</span>Feature comparison matrix</h2>
           <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-            ● = full support · ◐ = partial / plan-gated · — = not offered. Hover a row label for why it matters.
+            ● = full support · ◐ = partial / plan-gated · — = not listed. Open a cell for feature details and plan limits.
           </p>
-          <div className="mt-4 overflow-x-auto">
+          <div className="business-table-region" tabIndex={0} role="region" aria-label="Business feature comparison, scroll horizontally">
             <table className="w-full min-w-[720px] text-sm">
               <thead>
                 <tr className="border-b border-[var(--color-outline)] text-left text-[var(--color-on-surface-variant)]">
@@ -240,7 +197,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
                       const s = SUPPORT_MARK[cell?.level ?? "none"];
                       return (
                         <td key={p.slug} className="py-2.5 px-2 text-center" title={cell?.note || ""}>
-                          <span className={`text-base ${s.cls}`}>{s.mark}</span>
+                          <details className="business-matrix-detail"><summary aria-label={`${p.name}: ${f.label} — ${cell?.level === "full" ? "supported" : cell?.level === "partial" ? "limited support" : "not listed"}`}><span className={`text-base ${s.cls}`} aria-hidden="true">{s.mark}</span></summary><p>{cell?.note || "Confirm availability with the provider."}</p></details>
                         </td>
                       );
                     })}
@@ -333,7 +290,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
                     href={`/go/${p.slug}`}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    className="inline-block rounded-full bg-[var(--color-cta)] px-5 py-2 text-sm font-semibold text-[var(--color-cta-text)] shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)] transition-all"
+                    className="conversion-button conversion-button--accent"
                   >
                     Visit {p.name}
                   </Link>
@@ -344,7 +301,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
 
           {/* LIVE COST — supporting evidence */}
           <h2 id="cost" className="mt-16 scroll-mt-28 text-2xl font-normal text-[var(--color-on-surface)]">
-            <span className="mr-2 text-sm font-semibold text-[var(--color-primary)]">04</span>Live FX cost: specialists vs banks</h2>
+            <span className="mr-2 text-sm font-semibold text-[var(--color-primary)]">04</span>Measured FX costs: specialists vs banks</h2>
           <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
             Ranked by average true cost (FX markup + fees) of sending {amt} across {idx.corridorCount} corridors where we
             hold a live quote, as of {asOfLong}. Lower is cheaper. This is computed, not editorial — it refreshes every 6 hours.
@@ -381,7 +338,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
                   <span className="text-right text-sm font-medium tabular-nums text-[var(--color-on-surface-variant)]">{idx.bankAvgCostPct}%</span>
                 </div>
                 <p className="mt-3 text-2xs text-[var(--color-on-surface-muted)]">
-                  Bar length = average true cost (FX markup + fee) to send {amt}. Each specialist beats the bank benchmark; cheapest is highlighted.
+                  Bar length shows average total cost (FX markup + fee) to send {amt}. The first row has the lowest measured average in this dataset.
                 </p>
               </div>
             );
@@ -405,7 +362,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
           </div>
 
           {/* Methodology */}
-          <h2 className="mt-12 text-2xl font-normal text-[var(--color-on-surface)]">How we compared these</h2>
+          <h2 id="methodology" className="mt-12 text-2xl font-normal text-[var(--color-on-surface)]">How we compared these</h2>
           <div className="prose-content mt-3 space-y-3 text-[var(--color-on-surface-variant)] leading-relaxed">
             <p className="citable-passage">
               <strong>Features</strong> were verified against each provider&rsquo;s own business and pricing pages plus
