@@ -144,6 +144,10 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-1">
+            {/* Download the app (desktop). Rendered on the server but invisible
+                until the client knows it can install, so the header never shifts. */}
+            <InstallAppButton variant="header" />
+
             {/* Language switcher */}
             <div className="relative">
               <button
@@ -179,9 +183,6 @@ export default function Header() {
                 </>
               )}
             </div>
-
-            {/* Install the app (desktop). Invisible until installable. */}
-            <InstallAppButton variant="header" />
 
             {/* Dark mode toggle */}
             <button

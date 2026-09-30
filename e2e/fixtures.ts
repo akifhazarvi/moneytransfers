@@ -115,4 +115,16 @@ export async function trackedEvents(page: Page): Promise<string[]> {
   );
 }
 
+/** Parameters of each queued gtag event with this name, in order. */
+export async function trackedEventParams(page: Page, name: string): Promise<Record<string, unknown>[]> {
+  return page.evaluate(
+    (eventName) =>
+      (window.dataLayer ?? [])
+        .map((entry) => entry as unknown as ArrayLike<unknown>)
+        .filter((a) => a && a[0] === "event" && a[1] === eventName)
+        .map((a) => (a[2] ?? {}) as Record<string, unknown>),
+    name,
+  );
+}
+
 export const installPrompt = (page: Page) => page.locator("[data-pwa-install-prompt]");

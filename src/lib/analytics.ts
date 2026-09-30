@@ -21,6 +21,7 @@
  */
 
 import { track as vercelTrack } from "@vercel/analytics";
+import { deviceOs, displayMode } from "@/lib/pwa";
 
 type EventParams = Record<string, string | number | boolean | undefined>;
 
@@ -85,6 +86,11 @@ function dual(name: string, params?: EventParams) {
       if (v !== undefined) cleaned[k] = v;
     }
   }
+  // Usage from the installed app. GA4 already stamps display_mode on every hit
+  // (GTAG_INLINE); Vercel has no global params, so events fired inside the app
+  // carry it here. Browser events are left as they were.
+  const mode = displayMode();
+  if (mode !== "browser" && cleaned.display_mode === undefined) cleaned.display_mode = mode;
   try {
     vercelTrack(name, cleaned);
   } catch {
@@ -345,19 +351,26 @@ export function trackPwaPromptDismissed(platform: string) {
   dual("pwa_install_prompt_dismissed", { platform });
 }
 
-/** The browser reports the app was installed (`appinstalled`). */
-export function trackPwaInstalled(platform: string) {
-  dual("pwa_installed", { platform });
+/**
+ * The app was installed. `install_method` says how we know:
+ *  - "appinstalled": the browser said so (Chromium: desktop, Android)
+ *  - "first_launch": the installed app opened for the first time on a device
+ *    with no appinstalled on record — the only signal Safari (iOS, macOS)
+ *    gives, since it never fires appinstalled.
+ */
+export function trackPwaInstalled(platform: string, installMethod: "appinstalled" | "first_launch" = "appinstalled") {
+  dual("pwa_installed", { platform, install_method: installMethod, os: deviceOs() });
 }
 
 /**
  * A session started inside the installed app (display-mode standalone).
- * Once per session. Pair with provider_clicked to see whether installed
- * users convert differently from browser users.
+ * Once per session: the count of app sessions. Every other event in that
+ * session also carries display_mode, so provider_clicked, page views and the
+ * rest split by app vs browser.
  */
-export function trackPwaLaunched(displayMode: string) {
-  dual("pwa_launch", { display_mode: displayMode });
+export function trackPwaLaunched(mode: string) {
+  dual("pwa_launch", { display_mode: mode, os: deviceOs() });
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
-    window.gtag("set", "user_properties", { app_display_mode: displayMode });
+    window.gtag("set", "user_properties", { app_display_mode: mode });
   }
 }

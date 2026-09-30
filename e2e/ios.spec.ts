@@ -7,7 +7,7 @@ test.describe("install on iPhone", () => {
   test("the menu's Install the app shows the Add to Home Screen steps", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("button", { name: "Toggle menu" }).click();
-    await page.getByRole("button", { name: "Install the app" }).click();
+    await page.getByRole("button", { name: "Download the app" }).click();
 
     const dialog = page.getByRole("dialog");
     await expect(dialog).toContainText("Add SendMoneyCompare to your Home Screen");
@@ -36,7 +36,7 @@ test.describe("install on iPhone, in Chrome", () => {
   test("gets the same Share-sheet route, with Safari as the fallback", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("button", { name: "Toggle menu" }).click();
-    await page.getByRole("button", { name: "Install the app" }).click();
+    await page.getByRole("button", { name: "Download the app" }).click();
     const dialog = page.getByRole("dialog");
     await expect(dialog).toContainText("Add to Home Screen");
     await expect(dialog).toContainText("open this page in Safari");

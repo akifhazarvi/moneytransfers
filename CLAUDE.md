@@ -161,7 +161,7 @@ The site installs as an app on Android, iOS, macOS, Windows and ChromeOS.
 - **Install flow**: `PWA_INLINE` (inline-scripts.ts, hashed) captures Chromium's
   one-shot `beforeinstallprompt` before hydration. `src/lib/pwa.ts` names the
   platform path (`prompt`, `ios-safari`, `mac-safari`, `android`, …). Surfaces:
-  the header icon (desktop, SSR'd `invisible` so the header never shifts), the
+  the header "Download app" pill (desktop, SSR'd `invisible` so the header never shifts), the
   mobile-menu row, and `InstallPrompt` — top-docked, from the 2nd page view,
   once per session, 30-day snooze on dismissal, never before cookie consent.
   Safari has no API, so iOS/macOS get step-by-step `InstallDialog` instructions.
@@ -171,7 +171,14 @@ The site installs as an app on Android, iOS, macOS, Windows and ChromeOS.
   paint.
 - **Events** (dual-sinked): `pwa_install_prompt_shown`, `pwa_install_clicked`
   (`surface`, `platform`), `pwa_install_outcome`, `pwa_install_prompt_dismissed`,
-  `pwa_installed`, `pwa_launch` (+ user property `app_display_mode`).
+  `pwa_installed` (`install_method`: `appinstalled` on Chromium, `first_launch`
+  on Safari — it never fires appinstalled, but a Home Screen/Dock app starts
+  with empty storage, so its first launch is the install), `pwa_launch` (once
+  per app session; `os`). **Usage from the app:** GTAG_INLINE stamps
+  `display_mode` (standalone | minimal-ui | browser) on every GA4 hit from the
+  first page_view, plus user property `app_display_mode`; `dual()` adds it to
+  Vercel events fired in the app. GA4 needs these registered as custom
+  dimensions to report them (the Composio GA4 connection is read-only).
 - **CI**: `.github/workflows/e2e.yml` runs `e2e/` against
   https://sendmoneycompare.com after each successful production deployment,
   skipping data-only scrape commits. The custom domain is outside Vercel

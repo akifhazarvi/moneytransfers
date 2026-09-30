@@ -7,10 +7,12 @@ import {
   MIN_VIEWS_BEFORE_PROMPT,
   OPEN_INSTALL_EVENT,
   PROMPTABLE,
+  claimFirstAppLaunch,
   claimLaunch,
   consentSettled,
   countPageView,
   detectInstallPlatform,
+  displayMode,
   isStandalone,
   onInstallabilityChange,
   promptAlreadyShownThisSession,
@@ -115,8 +117,10 @@ export default function PwaManager() {
     // before this listener existed, so count it now.
     if (window.__smcInstalled) onInstalled();
 
-    if (isStandalone() && claimLaunch()) {
-      trackPwaLaunched(window.matchMedia("(display-mode: minimal-ui)").matches ? "minimal-ui" : "standalone");
+    if (isStandalone()) {
+      // Safari never fires appinstalled; the app's first launch is its install.
+      if (claimFirstAppLaunch()) trackPwaInstalled(platformRef.current ?? "standalone", "first_launch");
+      if (claimLaunch()) trackPwaLaunched(displayMode());
     }
 
     return () => {

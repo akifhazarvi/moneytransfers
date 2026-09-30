@@ -67,6 +67,14 @@ export const GTAG_INLINE = `window.dataLayer=window.dataLayer||[];function gtag(
       gtag('set','user_properties',{ai_referrer:src});
     }
   }catch(e){}
+  // Installed-app usage. Every hit carries display_mode, so page views,
+  // provider_clicked and the rest split by browser vs installed app from the
+  // very first page_view of an app session (PwaManager mounts too late for it).
+  try{
+    var dm=(navigator.standalone===true||matchMedia('(display-mode: standalone)').matches)?'standalone':matchMedia('(display-mode: minimal-ui)').matches?'minimal-ui':'browser';
+    gtag('set',{display_mode:dm});
+    if(dm!=='browser')gtag('set','user_properties',{app_display_mode:dm});
+  }catch(e){}
   gtag('config','G-HJH07QEJ30',cfg);
   var loaded=false;
   function loadGA(){
@@ -132,7 +140,7 @@ export const CLARITY_INLINE = `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c
 
 // SHA-256 hashes of the strings above, base64-encoded. Used by middleware
 // CSP. Verified by scripts/check-inline-script-hashes.ts at build time.
-export const GTAG_INLINE_SHA256 = "vFs8yu5/dujeSSGQ8vbhX1jCd1iZFizSLx6JM97qj8M=";
+export const GTAG_INLINE_SHA256 = "zAqAQgFR0CHPH98WTD7Ymw8F+i3hfojyM2KDlsmrIWw=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";
 export const CLARITY_INLINE_SHA256 = "++mvwM8fPwDGPivgHvk3pkHcSGFy9J/LGlYmUAUU1ls=";
 

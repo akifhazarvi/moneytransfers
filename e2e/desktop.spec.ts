@@ -1,4 +1,4 @@
-import { test, expect, installPrompt, runAsInstalledApp, trackedEvents } from "./fixtures";
+import { test, expect, installPrompt, runAsInstalledApp, trackedEventParams, trackedEvents } from "./fixtures";
 
 // Desktop paths that are not Chromium's prompt: Safari's Add to Dock, a
 // browser that cannot install, and the installed app itself.
@@ -12,7 +12,7 @@ test.describe("Safari on macOS", () => {
 
   test("Install explains File → Add to Dock", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "Install the SendMoneyCompare app" }).click();
+    await page.getByRole("button", { name: "Download app", exact: true }).click();
     const dialog = page.getByRole("dialog");
     await expect(dialog).toContainText("Add SendMoneyCompare to your Dock");
     await expect(dialog).toContainText("Add to Dock");
@@ -35,22 +35,53 @@ test.describe("a browser that cannot install", () => {
     await page.goto("/");
     await page.goto("/exchange-rates");
     // Rendered, so the header never shifts, but invisible.
-    await expect(page.getByRole("button", { name: "Install the SendMoneyCompare app" })).toBeHidden();
+    await expect(page.getByRole("button", { name: "Download app", exact: true })).toBeHidden();
     await page.waitForTimeout(5_500);
     await expect(installPrompt(page)).toHaveCount(0);
   });
 });
 
 test.describe("inside the installed app", () => {
-  test("records the launch once per session and offers nothing to install", async ({ page, context }) => {
+  test("the first launch counts the install, then every session counts a launch", async ({ page, context }) => {
     await runAsInstalledApp(context);
     await page.goto("/");
-    await expect.poll(() => trackedEvents(page)).toContain("pwa_launch");
-    await expect(page.getByRole("button", { name: "Install the SendMoneyCompare app" })).toBeHidden();
 
+    // Safari never fires appinstalled, so the first launch IS the install.
+    await expect.poll(() => trackedEventParams(page, "pwa_installed")).toEqual([
+      expect.objectContaining({ install_method: "first_launch", os: "windows" }),
+    ]);
+    await expect.poll(() => trackedEventParams(page, "pwa_launch")).toEqual([
+      expect.objectContaining({ display_mode: "standalone", os: "windows" }),
+    ]);
+    await expect(page.getByRole("button", { name: "Download app", exact: true })).toBeHidden();
+
+    // Same session, next page: neither counts again, and nothing is offered.
     await page.goto("/exchange-rates");
     await page.waitForTimeout(5_500);
     expect(await trackedEvents(page)).not.toContain("pwa_launch");
+    expect(await trackedEvents(page)).not.toContain("pwa_installed");
     await expect(installPrompt(page)).toHaveCount(0);
+
+    // A new session is a new launch, not a new install.
+    const next = await context.newPage();
+    await next.goto("/");
+    await expect.poll(() => trackedEvents(next)).toContain("pwa_launch");
+    expect(await trackedEvents(next)).not.toContain("pwa_installed");
+  });
+
+  test("a Chromium install already counted by appinstalled is not counted again", async ({ page, context }) => {
+    await context.addInitScript(() => {
+      // Set by PWA_INLINE when Chromium fired appinstalled in the browser tab;
+      // the installed app shares that storage.
+      try {
+        localStorage.setItem("smc_pwa_installed", "1");
+      } catch {
+        // about:blank has no storage.
+      }
+    });
+    await runAsInstalledApp(context);
+    await page.goto("/");
+    await expect.poll(() => trackedEvents(page)).toContain("pwa_launch");
+    expect(await trackedEvents(page)).not.toContain("pwa_installed");
   });
 });

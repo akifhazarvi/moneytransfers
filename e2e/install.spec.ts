@@ -8,9 +8,9 @@ import { test, expect, installPrompt, offerInstallPrompt, trackedEvents } from "
 async function clickInstallEntry(page: Page, isMobile: boolean) {
   if (isMobile) {
     await page.getByRole("button", { name: "Toggle menu" }).click();
-    await page.getByRole("button", { name: "Install the app" }).click();
+    await page.getByRole("button", { name: "Download the app" }).click();
   } else {
-    await page.getByRole("button", { name: "Install the SendMoneyCompare app" }).click();
+    await page.getByRole("button", { name: "Download app", exact: true }).click();
   }
 }
 
@@ -126,9 +126,9 @@ test.describe("install on Chromium", () => {
     await page.reload();
     if (isMobile) {
       await page.getByRole("button", { name: "Toggle menu" }).click();
-      await expect(page.getByRole("button", { name: "Install the app" })).toHaveCount(0);
+      await expect(page.getByRole("button", { name: "Download the app" })).toHaveCount(0);
     } else {
-      await expect(page.getByRole("button", { name: "Install the SendMoneyCompare app" })).toBeHidden();
+      await expect(page.getByRole("button", { name: "Download app", exact: true })).toBeHidden();
     }
   });
 });

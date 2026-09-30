@@ -83,12 +83,7 @@ function write(storage: "local" | "session", key: string, value: string) {
 }
 
 export function isStandalone(): boolean {
-  if (typeof window === "undefined") return false;
-  return (
-    window.matchMedia("(display-mode: standalone)").matches ||
-    window.matchMedia("(display-mode: minimal-ui)").matches ||
-    (navigator as Navigator & { standalone?: boolean }).standalone === true
-  );
+  return displayMode() !== "browser";
 }
 
 export function getDeferredPrompt(): BeforeInstallPromptEvent | null {
@@ -200,4 +195,42 @@ export function claimLaunch(): boolean {
 /** EU/UK visitors see the cookie banner first; never stack two prompts. */
 export function consentSettled(): boolean {
   return /(?:^|; )smc_consent=/.test(document.cookie);
+}
+
+/** How the page is displayed: the installed app ("standalone"/"minimal-ui") or a browser tab. */
+export function displayMode(): "standalone" | "minimal-ui" | "browser" {
+  if (typeof window === "undefined") return "browser";
+  if ((navigator as Navigator & { standalone?: boolean }).standalone === true) return "standalone";
+  if (window.matchMedia("(display-mode: standalone)").matches) return "standalone";
+  if (window.matchMedia("(display-mode: minimal-ui)").matches) return "minimal-ui";
+  return "browser";
+}
+
+/** The device family, for splitting installs and app usage (the install path says little inside the app). */
+export function deviceOs(): "ios" | "android" | "macos" | "windows" | "chromeos" | "linux" | "other" {
+  if (typeof navigator === "undefined") return "other";
+  const ua = navigator.userAgent;
+  if (/iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return "ios";
+  if (/Android/i.test(ua)) return "android";
+  if (/CrOS/.test(ua)) return "chromeos";
+  if (/Macintosh/.test(ua)) return "macos";
+  if (/Windows/.test(ua)) return "windows";
+  if (/Linux/.test(ua)) return "linux";
+  return "other";
+}
+
+const APP_SEEN_KEY = "smc_pwa_app_seen";
+
+/**
+ * True on the first launch of the installed app on this device, when no
+ * `appinstalled` was recorded for it. Safari (iOS, macOS) never fires
+ * `appinstalled`, but a Home Screen / Dock web app starts with its own empty
+ * storage, so its first launch IS the install. Chromium's installed app shares
+ * the browser's storage, where PWA_INLINE already set smc_pwa_installed, so
+ * that install is not counted twice.
+ */
+export function claimFirstAppLaunch(): boolean {
+  if (read("local", APP_SEEN_KEY) === "1") return false;
+  write("local", APP_SEEN_KEY, "1");
+  return read("local", INSTALLED_KEY) !== "1";
 }
