@@ -1,3 +1,5 @@
+import HomeTransferPaths from "@/components/HomeTransferPaths";
+import "@/app/home.css";
 import InstallSlot from "@/components/pwa/InstallSlot";
 import Link from "next/link";
 import Image from "next/image";
@@ -244,48 +246,27 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       />
       {/* ─── HERO + DYNAMIC SECTIONS ─── wrapped in shared selection context */}
       <HomeSelectionProvider defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount}>
-        {/* Hero — navy gradient band, bold headline + value props on the left, the
-            live converter card on the right. Balanced two-column, vertically centered. */}
-        <section className="ws-hero-band relative overflow-hidden">
-          <div className="ws-hero-grain" />
-          <div className="relative z-[1] mx-auto max-w-6xl px-6 sm:px-10 lg:px-12 py-10 sm:py-20 lg:py-24">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
-              {/* Left — the message (white on navy). Mobile is trimmed so the
-                  converter widget rises near the fold; full copy returns on lg. */}
-              <div className="min-w-0 text-center lg:text-left">
-                <span className="text-2sm font-semibold text-white/60">International money transfers</span>
-                <h1 className="text-[30px] sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] tracking-[-0.02em] mt-2 lg:mt-3 text-balance break-words">
-                  {tHero("title")}{" "}
-                  <span className="text-white/55">{tHero("titleHighlight")}</span>
-                </h1>
-                <p className="hidden sm:block text-base sm:text-lg text-white/70 mt-5 max-w-md mx-auto lg:mx-0 leading-relaxed">
-                  Your money is going places. Keep more of it — compare <span className="font-semibold text-white">{COVERAGE.providers}</span> on real rates and fees across {COVERAGE.currencies}. No signup.
-                </p>
-                {/* Trust row — hidden on the smallest screens to keep the widget high */}
-                <div className="hidden sm:flex items-center justify-center lg:justify-start gap-5 mt-7 text-white/55 text-xs font-medium">
-                  <span className="flex items-center gap-1.5">
-                    <svg className="w-4 h-4 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.8 4.7 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg>
-                    Trustpilot rated
-                  </span>
-                  <span className="h-3 w-px bg-white/20" />
-                  <span>64+ currencies</span>
-                  <span className="h-3 w-px bg-white/20" />
-                  <span>Updated every 6h</span>
-                </div>
-              </div>
-
-              {/* Right — live converter card */}
-              <div className="min-w-0 w-full max-w-[440px] mx-auto lg:ml-auto">
-                <HeroConverterCard defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
-              </div>
+        <section className="home-hero" aria-labelledby="home-title">
+          <div className="home-hero-grid">
+            <div className="home-hero-copy">
+              <p className="home-eyebrow">International money transfers, made clearer</p>
+              <h1 id="home-title">{tHero("title")} <span>{tHero("titleHighlight")}</span></h1>
+              <p className="home-hero-description">Compare fees and exchange rates. See what your recipient gets.</p>
+              <ul className="home-hero-assurances" aria-label="About this comparison"><li>Free to compare</li><li>No account needed</li><li>Fees and rates together</li></ul>
+              <Link className="home-method-link" href="/methodology">How we compare providers <span aria-hidden="true">↗</span></Link>
+            </div>
+            <div className="home-hero-tool">
+              <div className="home-tool-heading"><span>Start with your transfer</span><span>01 / Compare</span></div>
+              <HeroConverterCard defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
             </div>
           </div>
+
         </section>
 
       {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
         <LazyHomeDynamicSection />
       </HomeSelectionProvider>
-      <Container><InstallSlot placement="home-after-comparison" /></Container>
+      <Container><InstallSlot placement="home-after-comparison" /><HomeTransferPaths /></Container>
 
       {/* ─── TRUST STRIP + WHY TRUST US — collapsed on mobile to keep Send CTAs near the fold ─── */}
       <MobileDetailsRail label={`Why trust SendMoneyCompare`}>
@@ -594,10 +575,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Container>
           <div className="text-center mb-6 max-w-2xl mx-auto">
             <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
-              Most-read guides
+              Useful guides for your next transfer
             </h2>
             <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
-              The four guides our readers open most, kept current with the same live quotes as every comparison above.
+              Understand the costs, explore your options, and prepare before you send.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">

@@ -59,7 +59,6 @@ export default function HeroConverterCard({
     setFrom: setFromCurrency,
     setTo: setToCurrency,
     setAmount: persistAmount,
-    setCorridor,
   } = useGeoSelection({
     defaults: { from: defaultFrom, to: defaultTo, amount: defaultAmount },
     isValidFrom: validFrom,
@@ -68,6 +67,7 @@ export default function HeroConverterCard({
 
   const [amountStr, setAmountStr] = useState(String(defaultAmount));
   const amount = Number(amountStr) || 0;
+  const [amountError, setAmountError] = useState(false);
 
   useEffect(() => {
     if (geoLoaded) setAmountStr(String(geoAmount));
@@ -84,7 +84,10 @@ export default function HeroConverterCard({
   // Live quotes for the current corridor (debounced on amount typing).
   const [quotes, setQuotes] = useState<TransferQuote[] | null>(null);
   useEffect(() => {
-    if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) return;
+    if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) {
+      setAmountError(true);
+      return;
+    }
     const controller = new AbortController();
     const tid = setTimeout(() => {
       fetchQuotes(amount, fromCurrency, toCurrency, controller.signal).then((qs) => {
@@ -103,13 +106,12 @@ export default function HeroConverterCard({
 
   function go(e: React.FormEvent) {
     e.preventDefault();
-    if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) return;
+    if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) {
+      setAmountError(true);
+      return;
+    }
     trackCompareSearch(fromCurrency, toCurrency, amount);
     router.push(`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
-  }
-
-  function swap() {
-    if (validFrom(toCurrency) && validTo(fromCurrency)) setCorridor(toCurrency, fromCurrency);
   }
 
   const loading = quotes === null;
@@ -118,7 +120,8 @@ export default function HeroConverterCard({
   return (
     <form
       onSubmit={go}
-      className="w-full rounded-[24px] bg-[var(--color-surface)] dark:bg-[var(--color-surface-container)] shadow-[var(--shadow-xl)] p-3 sm:p-4 text-left"
+      aria-label="Compare your transfer"
+      className="home-comparison-form w-full rounded-[24px] bg-[var(--color-surface)] dark:bg-[var(--color-surface-container)] shadow-[var(--shadow-xl)] p-3 sm:p-4 text-left"
     >
       {/* ── One panel: You send / divider / They receive (no swap control) ──
            Light: white card on cream, hairline ring. Dark: a step DOWN to the
@@ -126,16 +129,20 @@ export default function HeroConverterCard({
       <div className="rounded-[18px] bg-[var(--color-surface)] dark:bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] dark:ring-0 divide-y divide-[var(--color-outline)]">
         {/* You send */}
         <div className="px-5 pt-4 pb-4">
-          <label className="block text-2sm font-medium text-[var(--color-on-surface-variant)] mb-2.5">You send</label>
+          <label htmlFor="home-send-amount" className="block text-2sm font-medium text-[var(--color-on-surface-variant)] mb-2.5">You send</label>
           <div className="flex items-center justify-between gap-3">
             <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="compact" />
             <input
+              aria-invalid={amountError || undefined}
+              aria-describedby={amountError ? "home-amount-error" : undefined}
+              id="home-send-amount"
               type="text"
               inputMode="decimal"
               value={amountStr}
               onChange={(e) => {
                 const v = e.target.value;
                 if (v === "" || /^\d*\.?\d*$/.test(v)) {
+                  setAmountError(false);
                   setAmountStr(v);
                   const n = Number(v);
                   if (Number.isFinite(n) && n >= MIN_AMOUNT && n <= MAX_AMOUNT) persistAmount(n);
@@ -156,11 +163,11 @@ export default function HeroConverterCard({
         </div>
         {/* They receive */}
         <div className="px-5 pt-4 pb-4">
-          <label className="block text-2sm font-medium text-[var(--color-on-surface-variant)] mb-2.5">They receive</label>
-          <div className="flex items-center justify-between gap-3">
+          <label className="block text-2sm font-medium text-[var(--color-on-surface-variant)] mb-2.5">Recipient gets · estimated</label>
+          <div className="home-receive-row flex items-center justify-between gap-3">
             <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
             {best ? (
-              <span className="text-2xl sm:text-3xl font-bold tabular-nums text-[var(--color-on-surface)] tracking-tight">
+              <span className="home-receive-value text-2xl sm:text-3xl font-bold tabular-nums text-[var(--color-on-surface)] tracking-tight">
                 {fmt(best.receiveAmount, best.receiveAmount < 100 ? 2 : 0)}
               </span>
             ) : (
@@ -199,14 +206,17 @@ export default function HeroConverterCard({
         </p>
       </div>
 
+      {amountError && <p id="home-amount-error" role="alert" className="home-amount-error">Enter an amount between 1 and 1,000,000 {fromCurrency}.</p>}
+
       {/* ── CTA — sends the user to the full provider list ── */}
       <button
         type="submit"
-        className="w-full h-12 rounded-[14px] bg-[var(--color-cta)] text-[var(--color-cta-text)] font-semibold text-sm hover:bg-[var(--color-cta-hover)] active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+        className="conversion-button conversion-button--accent w-full"
       >
-        Compare money transfer apps
+        Compare transfers
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
       </button>
+      <p className="home-quote-note">Estimated amounts. Confirm the final quote with your provider.</p>
     </form>
   );
 }

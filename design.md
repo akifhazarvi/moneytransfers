@@ -35,3 +35,7 @@ Use existing `compare_search`, provider-click, and cross-sell events to evaluate
 - Use normal-case column headings, quiet alternating surfaces, and no hover color that implies an evidence row is selected or recommended.
 - Keep the contents rail secondary to article data. Sponsored placements belong in document flow; floating reading ads must not obscure text, tables, or navigation.
 - Check shared changes at 320, 390, 768, 1024, and 1440px in both themes. Confirm explicit live quote actions still work and historical tables do not gain sales buttons.
+
+## Homepage hierarchy
+
+Keep the working comparison form beside the promise on desktop and directly below it on mobile. Use the shared green comparison action, explicit amount labels, an estimated recipient amount and visible validation feedback. Describe the provider handoff before the visitor leaves. Show business/high-value guidance after the core comparison. Do not hard-code quote age or use site-wide provider coverage as a route's result count. Homepage styles live in `src/app/home.css`.
