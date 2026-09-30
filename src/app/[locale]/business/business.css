@@ -129,3 +129,33 @@
  .business-provider-cost small { width:100%; } .business-provider-cost strong { margin:0; }
  .business-provider-actions { flex-direction:column; align-items:stretch; gap:16px; } .business-provider-actions > a:last-child { min-height:44px; display:flex; align-items:center; justify-content:center; }
 }
+/* Business guide reading and the return to comparison. */
+.business-guide-heading { max-width:860px; margin-top:24px; }
+.business-guide-heading h1 { font-size:clamp(32px,4vw,48px); }
+.business-guide-heading > p { max-width:620px; }
+.business-reading-grid { display:grid; grid-template-columns:minmax(0,780px) 240px; gap:48px; justify-content:center; }
+.business-guide-article { min-width:0; }
+.business-article-section { margin-bottom:44px; }
+.business-article-section > h2 { font-size:26px; line-height:1.25; letter-spacing:-.025em; font-weight:600; }
+.business-article-section > div { font-size:16px; line-height:1.85; }
+.business-reading-aside { position:sticky; top:calc(var(--pwa-header-height,64px) + 24px); align-self:start; max-height:calc(100dvh - var(--pwa-header-height,64px) - 48px); overflow:auto; padding:4px; }
+.business-reading-aside nav a { display:block; font-size:12px; line-height:1.6; padding:12px 0; border-bottom:1px solid var(--color-outline); color:var(--color-on-surface-variant); }
+.business-guide-tool { background:var(--color-surface-dim); padding:20px; border-radius:16px; margin-top:24px; }
+.business-guide-tool > p { font-size:16px; font-weight:600; margin-bottom:16px; }
+.business-guide-tool .conversion-button { padding:12px; font-size:12px; }
+.business-guide-tool small { display:block; font-size:11px; color:var(--color-on-surface-variant); line-height:1.7; margin-top:12px; }
+.business-mobile-contents { display:none; }
+@media(max-width:1000px) { .business-reading-grid { gap:28px; grid-template-columns:minmax(0,1fr) 210px; } }
+@media(max-width:760px) {
+ .business-reading-grid { display:block; } .business-reading-aside { display:none; }
+ .business-mobile-contents { display:block; border:1px solid var(--color-outline); border-radius:14px; padding:0 18px; margin-bottom:28px; }
+ .business-mobile-contents summary { display:flex; align-items:center; min-height:56px; cursor:pointer; font-size:14px; font-weight:600; }
+ .business-mobile-contents a { display:block; padding:12px 0; font-size:13px; line-height:1.6; border-top:1px solid var(--color-outline); }
+ .business-guide-heading { margin-top:20px; }
+ .business-guide-heading .business-actions > .conversion-button { font-size:13px; }
+}
+.business-more-research { border-top:1px solid var(--color-outline); border-bottom:1px solid var(--color-outline); margin-bottom:32px; }
+.business-more-research summary { padding:22px 0; font-size:15px; font-weight:500; cursor:pointer; }
+.business-research-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 24px; padding-bottom:24px; }
+.business-research-links a { font-size:13px; line-height:1.5; padding:12px 0; color:var(--color-on-surface-variant); }
+@media(max-width:760px) { .business-research-links { grid-template-columns:1fr; } }

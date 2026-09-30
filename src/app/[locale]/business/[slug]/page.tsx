@@ -1,3 +1,5 @@
+import { businessJourney } from "@/data/business-journeys";
+import BusinessPartner from "@/components/business/BusinessPartner";
 import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
@@ -82,6 +84,9 @@ export default async function BusinessSubPage({ params }: Props) {
   setRequestLocale(locale);
   const page = getBusinessPage(slug);
   if (!page) notFound();
+  const journey = businessJourney(slug);
+  const compareHref = `/business/compare${journey ? `?workflow=${journey.workflow}` : ""}#finder`;
+  const contents = page.sections.map((section, i) => ({ id: `business-section-${i + 1}`, title: sectionHeading(section.heading, page.title) }));
 
   // FAQPage rich results restricted to government/healthcare since Aug 2023.
   // FAQ content rendered on page for users and AI crawlers.
@@ -129,7 +134,7 @@ export default async function BusinessSubPage({ params }: Props) {
       logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
     },
     datePublished: "2026-02-15",
-    dateModified: new Date().toISOString().split("T")[0],
+    dateModified: "2026-09-30",
     mainEntityOfPage: `https://sendmoneycompare.com/business/${slug}`,
   };
 
@@ -145,17 +150,18 @@ export default async function BusinessSubPage({ params }: Props) {
       />
 
       {/* ─── HERO ─── */}
-      <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
+      <section className="business-hero business-guide-hero">
         <Container>
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Business Payments", href: "/business" }, { label: page.title }]} />
-          <div className="max-w-3xl">
+          <div className="business-guide-heading">
             <h1 className="text-h3 md:text-h2-plus font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
-              {page.heading}
+              {journey?.title ?? page.heading}
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed max-w-2xl">
-              {renderDataTokens(page.intro)}
+              {journey?.description ?? renderDataTokens(page.intro)}
             </p>
-            <div className="flex items-center gap-4 mt-4 text-2sm text-[var(--color-on-surface-variant)]">
+            <div className="business-actions"><Link href={compareHref} className="conversion-button conversion-button--accent">Compare providers for this workflow →</Link><a href="#business-guide-content" className="business-text-link">Read the guide</a></div>
+            <div className="flex flex-wrap items-center gap-4 mt-4 text-2sm text-[var(--color-on-surface-variant)]">
               <span>
                 By{" "}
                 <Link
@@ -180,9 +186,11 @@ export default async function BusinessSubPage({ params }: Props) {
       {/* ─── Content sections ─── */}
       <section className="py-10">
         <Container>
-          <article className="max-w-3xl mx-auto prose-custom">
+          <div className="business-reading-grid" id="business-guide-content">
+          <article className="business-guide-article prose-custom">
+            <details className="business-mobile-contents"><summary>In this guide</summary><nav aria-label="Guide contents">{contents.map(c => <a href={`#${c.id}`} key={c.id}>{c.title}</a>)}</nav></details>
             {page.sections.map((section, i) => (
-              <div key={i} className="mb-10">
+              <section key={i} id={contents[i].id} className="business-article-section">
                 <h2 className="text-h4 md:text-h4-plus font-normal text-[var(--color-on-surface)] mb-4">
                   {sectionHeading(section.heading, page.title)}
                 </h2>
@@ -212,13 +220,15 @@ export default async function BusinessSubPage({ params }: Props) {
                     />
                   </div>
                 )}
-              </div>
+              </section>
             ))}
           </article>
+          <aside className="business-reading-aside"><nav aria-label="Guide contents"><p className="business-eyebrow">On this page</p>{contents.map(c => <a href={`#${c.id}`} key={c.id}>{c.title}</a>)}</nav><div className="business-guide-tool"><p>Ready to compare?</p><Link href={compareHref} className="conversion-button conversion-button--accent">Build my shortlist →</Link><small>Your workflow’s features are preselected. Adjust them to suit your business.</small></div></aside>
+          </div>
         </Container>
       </section>
 
-      <Container><InstallSlot placement="business-guide-end" /></Container>
+      <Container><BusinessPartner source={`taptap_spotlight:business:${slug}`} /><InstallSlot placement="business-guide-end" /></Container>
 
       {/* ─── FAQ section ─── */}
       {page.faqs.length > 0 && (
@@ -228,16 +238,16 @@ export default async function BusinessSubPage({ params }: Props) {
               <h2 className="text-h4 md:text-h4-plus font-normal text-[var(--color-on-surface)] mb-6">
                 {faqHeading(page.title)}
               </h2>
-              <div className="space-y-6">
+              <div className="business-faq">
                 {page.faqs.map((faq, i) => (
-                  <div key={i}>
-                    <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">
+                  <details key={i}>
+                    <summary>
                       {faq.question}
-                    </h3>
+                    </summary>
                     <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       {renderDataTokens(faq.answer)}
                     </p>
-                  </div>
+                  </details>
                 ))}
               </div>
             </div>
@@ -276,10 +286,10 @@ export default async function BusinessSubPage({ params }: Props) {
               ))}
               <li>
                 <Link
-                  href="/send-money"
+                  href={compareHref}
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  Compare Live Transfer Rates →
+                  Compare providers for this workflow →
                 </Link>
               </li>
             </ul>
