@@ -109,6 +109,26 @@ const nextConfig: NextConfig = {
           { key: "Cache-Control", value: "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400" },
         ],
       },
+      // Installed app (PWA). These MUST follow the catch-all above: when two
+      // rules set the same key the later one wins, and its max-age=3600 would
+      // let a browser keep an outdated service worker or offline page for an
+      // hour after a fix ships. See public/sw.js.
+      {
+        source: "/sw.js",
+        headers: [
+          { key: "Cache-Control", value: "no-cache, max-age=0, must-revalidate" },
+          { key: "Service-Worker-Allowed", value: "/" },
+        ],
+      },
+      {
+        // The offline fallback is a utility page, not content: no engine
+        // should index it (it is not in either sitemap and nothing links it).
+        source: "/offline.html",
+        headers: [
+          { key: "Cache-Control", value: "no-cache, max-age=0, must-revalidate" },
+          { key: "X-Robots-Tag", value: "noindex" },
+        ],
+      },
     ];
   },
   async redirects() {

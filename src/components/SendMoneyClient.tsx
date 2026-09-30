@@ -843,7 +843,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
 
       {/* Sticky compare bar */}
       {compareList.length > 0 && compareList.length < 2 && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-surface)] border-t border-[var(--color-outline)] shadow-[0_-4px_16px_rgba(32,33,36,0.12)]">
+        <div className="pwa-lift fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-surface)] border-t border-[var(--color-outline)] shadow-[0_-4px_16px_rgba(32,33,36,0.12)]">
           <div className="max-w-[1120px] mx-auto px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-[var(--color-outline)]/50">

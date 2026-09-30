@@ -34,6 +34,13 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover" as const,
+  // Colours the browser UI and, once installed, the app's title/status bar.
+  // Matches --color-surface in each scheme so it blends into the sticky
+  // header; ThemeProvider rewrites it when the visitor toggles the theme.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B0C0E" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -93,7 +100,18 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-  manifest: "/manifest.json",
+  // The manifest is src/app/manifest.ts, which Next links on its own. The
+  // `manifest: "/manifest.json"` that stood here never rendered (the
+  // file-based one wins) and pointed at a second, divergent copy.
+  applicationName: "SendMoneyCompare",
+  // iOS reads these when a visitor adds the site to the Home Screen: open it
+  // full-screen, label it "SendMoney", and keep the status bar opaque so the
+  // sticky header is not drawn underneath it.
+  appleWebApp: {
+    capable: true,
+    title: "SendMoney",
+    statusBarStyle: "default",
+  },
 };
 
 export default function RootLayout({

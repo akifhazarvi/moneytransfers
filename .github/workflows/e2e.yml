@@ -1,0 +1,82 @@
+name: E2E — installed app (PWA)
+
+# Runs the Playwright suite in e2e/ against production after every successful
+# production deployment, and on demand.
+#
+# It tests https://sendmoneycompare.com, the custom domain: Vercel
+# Authentication covers every *.vercel.app URL but not custom domains, so no
+# bypass secret is needed. main deploys straight to production, so this is the
+# deploy that matters; previews are not tested.
+#
+# Deployments whose commit only touched build-regenerated data (the 6-hourly
+# scrape commits) are skipped: the code under test did not change, and four
+# runs a day would cost Actions minutes to re-prove the same thing.
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+concurrency:
+  group: e2e-production
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' && startsWith(github.event.deployment.environment, 'Production'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      code: ${{ steps.diff.outputs.code }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha || github.sha }}
+          fetch-depth: 2
+
+      - name: Did this commit change code?
+        id: diff
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "code=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          changed=$(git diff --name-only HEAD~1 HEAD || echo "unknown")
+          echo "$changed"
+          # Paths every build and scrape rewrites (CLAUDE.md Strict rule 9).
+          code=$(echo "$changed" | grep -vE '^(src/data/scraped/|public/llms(-full)?\.txt$|public/\.well-known/ai-plugin\.json$)' || true)
+          if [ -n "$code" ]; then echo "code=true" >> "$GITHUB_OUTPUT"; else echo "code=false" >> "$GITHUB_OUTPUT"; fi
+
+  e2e:
+    needs: changes
+    if: needs.changes.outputs.code == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      E2E_BASE_URL: https://sendmoneycompare.com
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha || github.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run e2e suite against production
+        run: npx playwright test
+
+      - name: Upload report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

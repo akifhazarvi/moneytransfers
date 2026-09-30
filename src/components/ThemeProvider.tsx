@@ -13,6 +13,14 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
+// The layout's <meta name="theme-color"> pair follows the OS colour scheme.
+// A manual toggle overrides that, so point both at the chosen surface colour:
+// it tints the browser bar and, once installed, the app's title/status bar.
+function syncThemeColor(theme: Theme) {
+  const color = theme === "dark" ? "#0B0C0E" : "#FFFFFF";
+  document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute("content", color));
+}
+
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 
@@ -22,6 +30,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     const initial = stored || (prefersDark ? "dark" : "light");
     setTheme(initial);
     document.documentElement.classList.toggle("dark", initial === "dark");
+    if (stored) syncThemeColor(initial);
   }, []);
 
   const toggleTheme = () => {
@@ -29,6 +38,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     setTheme(next);
     localStorage.setItem("theme", next);
     document.documentElement.classList.toggle("dark", next === "dark");
+    syncThemeColor(next);
   };
 
   // Always render the Provider. This used to return a bare fragment until

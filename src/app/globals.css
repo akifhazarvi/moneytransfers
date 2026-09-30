@@ -988,6 +988,31 @@ tbody tr:first-child .smc-send:not(.smc-send-sm):focus-visible { opacity: 0.9; }
   .animate-wa-rise { animation: none; }
 }
 
+/* ─── Installed app (PWA) ─────────────────────────────────────────────── */
+@keyframes pwa-drop {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-pwa-drop { animation: pwa-drop 0.3s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-pwa-drop { animation: none; }
+}
+
+/* Inside the installed app. Both rules are CSS so they hold from first paint,
+   before any JS knows the display mode.
+   - Install buttons have nothing to do there.
+   - viewport-fit=cover lets the page run under the iPhone home indicator.
+     ForexTicker already grows by env(safe-area-inset-bottom); everything
+     docked above it (StickyBestCTA, GuidePageNudge, the /send-money compare
+     bar, MobileScrollNav, the WhatsApp pill, the cookie banner) lifts by the
+     same inset, or the ticker covers the bottom 34px of the Send card.
+     margin-bottom moves a fixed box whether it is anchored at bottom-0 or at
+     an offset. Scoped to standalone so browser tabs render exactly as before. */
+@media (display-mode: standalone) {
+  .pwa-hide-standalone { display: none !important; }
+  .pwa-lift { margin-bottom: env(safe-area-inset-bottom, 0px); }
+}
+
 
 /* ─── Provider cross-sell ────────────────────────────────────────────────
    Merged in from provider-cross-sell.css (2026-09-20). It was a second

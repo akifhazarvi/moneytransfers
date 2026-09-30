@@ -40,6 +40,12 @@ npm run check:claims     # no scores, "Best Overall", unmeasured "cheapest", typ
 npm run check:swift-codes # no spliced, mis-countried or wrong-length SWIFT codes (prebuild)
 npm run check:rendered-text # no word glued to a value in rendered HTML, "216corridors" (postbuild)
 npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (needs a deploy)
+npm run check:pwa        # manifest installable, icons/screenshots/shortcuts exist, sw.js bypass + offline revision (prebuild)
+
+# End-to-end (Playwright, e2e/) — the installed app: manifest, worker, offline, install flows
+npm run build && npm run test:e2e        # against `next start` on :3210
+E2E_BASE_URL=https://… npm run test:e2e  # against a deployment (CI does this per deploy)
+npm run build:pwa-assets # re-render maskable + apple-touch icons (add --screenshots <url>)
 
 # Not a build gate — run periodically and read the output
 npm run check:sources    # every external citation still resolves (403/unreachable ≠ dead)
@@ -128,6 +134,50 @@ what enforces it. Where a rule is not automated, it says how to check it.
 11. **After a deploy that changes URLs or indexing:** run
     `npm run ping:indexnow` (Bing and the IndexNow engines), and confirm GSC
     still lists only `sitemap-google.xml`.
+12. **The service worker never serves a stale figure to someone online, and
+    never caches money paths.** Navigations are network-first; a saved copy is
+    served only when the network fails, and the worker writes a "copy saved
+    on <when>" label into its HTML (it must hold even when no JS runs). `/go`, `/out`, `/api` are never cached, and a `/go`/`/out`
+    navigation is answered with the navigation-preload response as-is, so a
+    tap reaches the redirect exactly once (a fallback fetch would count the
+    click twice). No install prompt may dock at the bottom of the viewport —
+    that is StickyBestCTA's. *Enforced:* `check:pwa` (prebuild) + `e2e/`.
+
+## Installed app (PWA)
+
+The site installs as an app on Android, iOS, macOS, Windows and ChromeOS.
+
+- **Manifest**: `src/app/manifest.ts` → `/manifest.webmanifest`, the only one
+  (a divergent `public/manifest.json` was removed 2026-09-29). Icons: `icon-*.png`
+  (any), `icons/maskable-*.png`, opaque `apple-touch-icon.png` (iOS paints
+  transparency black). Screenshots in `public/pwa/` feed Chrome's richer install
+  dialog.
+- **Worker**: `public/sw.js`, hand-written, registered by `PwaManager` in
+  production only (dev unregisters it — `next dev` and `next start` share
+  localhost). Strategy and update rules are in its header. Editing
+  `public/offline.html` requires updating `OFFLINE_REVISION` (check:pwa prints
+  it). **Kill switch:** `NEXT_PUBLIC_DISABLE_SW=1` + redeploy unregisters it and
+  clears its caches on the next page view.
+- **Install flow**: `PWA_INLINE` (inline-scripts.ts, hashed) captures Chromium's
+  one-shot `beforeinstallprompt` before hydration. `src/lib/pwa.ts` names the
+  platform path (`prompt`, `ios-safari`, `mac-safari`, `android`, …). Surfaces:
+  the header icon (desktop, SSR'd `invisible` so the header never shifts), the
+  mobile-menu row, and `InstallPrompt` — top-docked, from the 2nd page view,
+  once per session, 30-day snooze on dismissal, never before cookie consent.
+  Safari has no API, so iOS/macOS get step-by-step `InstallDialog` instructions.
+- **In the app** (`display-mode: standalone`): `.pwa-hide-standalone` drops the
+  install buttons and `.pwa-lift` raises every bottom-docked bar by the iPhone
+  home-indicator inset, matching ForexTicker — both CSS, so they hold at first
+  paint.
+- **Events** (dual-sinked): `pwa_install_prompt_shown`, `pwa_install_clicked`
+  (`surface`, `platform`), `pwa_install_outcome`, `pwa_install_prompt_dismissed`,
+  `pwa_installed`, `pwa_launch` (+ user property `app_display_mode`).
+- **CI**: `.github/workflows/e2e.yml` runs `e2e/` against
+  https://sendmoneycompare.com after each successful production deployment,
+  skipping data-only scrape commits. The custom domain is outside Vercel
+  Authentication, so no bypass secret is involved; previews are not tested.
+  Tests block third-party tags, so runs never reach GA4, Clarity or Vercel
+  Analytics.
 
 ## Data Flow
 
@@ -432,3 +482,4 @@ All Playwright scrapers import from this shared library: `setupBrowserContext`, 
 - `src/lib/seo-indexing.ts` — which families stay indexable beyond the sitemap
 - `src/lib/affiliate.ts` — Affiliate link generation (`getGoUrl()`)
 - `next.config.ts` — Security headers, image config, `/comparison` -> `/compare` redirect
+- `public/sw.js` + `src/components/pwa/` + `src/lib/pwa.ts` — installed app: worker, install flow, offline notice

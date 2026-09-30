@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-swift-codes.ts && npx tsx scripts/check-claims.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/build-corridor-leaders.ts && npx tsx scripts/build-corridor-uniqueness.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-site-coverage.ts && npx tsx scripts/build-llms-txt.ts",
+    "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-swift-codes.ts && npx tsx scripts/check-claims.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/build-corridor-leaders.ts && npx tsx scripts/build-corridor-uniqueness.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/check-pwa.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-site-coverage.ts && npx tsx scripts/build-llms-txt.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -42,6 +42,10 @@
     "social:post": "npx tsx scripts/social/post-daily.ts",
     "check:ranking": "npx tsx scripts/check-ranking-urls.ts",
     "check:assets": "npx tsx scripts/check-assets.ts",
+    "check:pwa": "npx tsx scripts/check-pwa.ts",
+    "build:pwa-assets": "npx tsx scripts/generate-pwa-assets.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "check:links": "npx tsx scripts/check-links.ts",
     "check:indexing": "npx tsx scripts/check-indexing.ts",
     "check:swift-codes": "npx tsx scripts/check-swift-codes.ts",
@@ -88,6 +92,7 @@
   "devDependencies": {
     "@google-cloud/local-auth": "^3.0.1",
     "@modelcontextprotocol/sdk": "^1.27.1",
+    "@playwright/test": "1.58.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

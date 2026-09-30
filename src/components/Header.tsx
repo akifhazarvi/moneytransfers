@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useTheme } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
+import InstallAppButton from "@/components/pwa/InstallAppButton";
 
 const navLinks = [
   {
@@ -179,6 +180,9 @@ export default function Header() {
               )}
             </div>
 
+            {/* Install the app (desktop). Invisible until installable. */}
+            <InstallAppButton variant="header" />
+
             {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
@@ -235,6 +239,7 @@ export default function Header() {
                 </Link>
               );
             })}
+            <InstallAppButton variant="menu" onClick={() => setMobileOpen(false)} />
           </nav>
         )}
       </div>

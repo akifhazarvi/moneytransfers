@@ -135,3 +135,15 @@ export const CLARITY_INLINE = `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c
 export const GTAG_INLINE_SHA256 = "vFs8yu5/dujeSSGQ8vbhX1jCd1iZFizSLx6JM97qj8M=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";
 export const CLARITY_INLINE_SHA256 = "++mvwM8fPwDGPivgHvk3pkHcSGFy9J/LGlYmUAUU1ls=";
+
+// PWA install capture. Chrome/Edge/Samsung fire `beforeinstallprompt` once the
+// manifest is parsed, which can be before React hydrates. A listener added in a
+// component effect misses it, and then there is no install button to offer.
+// This runs at parse time, stashes the event on window.__smcInstallPrompt and
+// announces it with `smc:installable`, which src/lib/pwa.ts subscribes to.
+// preventDefault() suppresses Android's own mini-infobar, which docks at the
+// bottom of the screen on top of StickyBestCTA's Send button. `appinstalled`
+// records the install so the prompt is not offered again in the browser tab.
+// Editing this string breaks CSP — regenerate PWA_INLINE_SHA256.
+export const PWA_INLINE = `(function(){try{addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__smcInstallPrompt=e;dispatchEvent(new Event('smc:installable'))});addEventListener('appinstalled',function(){window.__smcInstallPrompt=null;try{localStorage.setItem('smc_pwa_installed','1')}catch(e){}dispatchEvent(new Event('smc:installed'))})}catch(e){}})()`;
+export const PWA_INLINE_SHA256 = "xzB+k01hXoxoup1ezhoE24oYNlg1yZ6cHkq1+RlYI8U=";

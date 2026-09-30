@@ -318,3 +318,46 @@ export function trackWhatsappImpression(source: string) {
 export function trackWhatsappDismiss(source: string) {
   dual("whatsapp_cta_dismissed", { source });
 }
+
+// ═════════════════════════════════════════════════════════════════
+// Installed app (PWA) — install funnel and usage. `surface` names where the
+// install was offered (prompt, header, menu); `platform` is the install path
+// from src/lib/pwa.ts (prompt, ios-safari, mac-safari, chromium, …).
+// ═════════════════════════════════════════════════════════════════
+
+/** The engagement-gated install prompt appeared. Denominator for the funnel. */
+export function trackPwaPromptShown(platform: string) {
+  dual("pwa_install_prompt_shown", { platform });
+}
+
+/** User asked to install from one of our surfaces. */
+export function trackPwaInstallClicked(surface: string, platform: string) {
+  dual("pwa_install_clicked", { surface, platform });
+}
+
+/** The browser's own install dialog was answered (Chromium only). */
+export function trackPwaInstallOutcome(outcome: "accepted" | "dismissed", surface: string) {
+  dual("pwa_install_outcome", { outcome, surface });
+}
+
+/** User closed our prompt without installing; it stays quiet for 30 days. */
+export function trackPwaPromptDismissed(platform: string) {
+  dual("pwa_install_prompt_dismissed", { platform });
+}
+
+/** The browser reports the app was installed (`appinstalled`). */
+export function trackPwaInstalled(platform: string) {
+  dual("pwa_installed", { platform });
+}
+
+/**
+ * A session started inside the installed app (display-mode standalone).
+ * Once per session. Pair with provider_clicked to see whether installed
+ * users convert differently from browser users.
+ */
+export function trackPwaLaunched(displayMode: string) {
+  dual("pwa_launch", { display_mode: displayMode });
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("set", "user_properties", { app_display_mode: displayMode });
+  }
+}

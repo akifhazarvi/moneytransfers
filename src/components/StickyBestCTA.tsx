@@ -85,7 +85,7 @@ export default function StickyBestCTA({
   return (
     <div
       aria-hidden={!visible}
-      className={`fixed bottom-0 left-0 right-0 z-40 transition-transform duration-300 ease-out ${
+      className={`pwa-lift fixed bottom-0 left-0 right-0 z-40 transition-transform duration-300 ease-out ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >

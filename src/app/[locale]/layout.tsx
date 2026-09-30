@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import { GTAG_INLINE, THEME_INLINE, CLARITY_INLINE } from "@/lib/inline-scripts";
+import { GTAG_INLINE, THEME_INLINE, CLARITY_INLINE, PWA_INLINE } from "@/lib/inline-scripts";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -15,6 +15,7 @@ import GA4PageviewTracker from "@/components/GA4PageviewTracker";
 import ProviderClickDelegate from "@/components/ProviderClickDelegate";
 import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import PwaManager from "@/components/pwa/PwaManager";
 import SiteProviderCrossSell from "@/components/SiteProviderCrossSell";
 import { COVERAGE } from "@/lib/site-stats";
 import { seoDescription } from "@/lib/seo-title";
@@ -298,6 +299,13 @@ export default async function LocaleLayout({ children, params }: Props) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: CLARITY_INLINE }}
       />
+      {/* PWA install capture — must run at parse time, before hydration, or
+          Chrome's one-shot beforeinstallprompt event is missed. See
+          PWA_INLINE in src/lib/inline-scripts.ts. */}
+      <script
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: PWA_INLINE }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -340,6 +348,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <ProviderClickDelegate />
           <AiSourceInjector />
           <CookieConsentBanner />
+          <PwaManager />
         </ThemeProvider>
       </NextIntlClientProvider>
     </>

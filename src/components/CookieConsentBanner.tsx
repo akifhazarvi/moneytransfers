@@ -93,7 +93,7 @@ export default function CookieConsentBanner() {
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed bottom-0 left-0 right-0 z-[9999] sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-sm"
+      className="pwa-lift fixed bottom-0 left-0 right-0 z-[9999] sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-sm"
     >
       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] shadow-[0_4px_24px_rgba(0,0,0,0.12)] rounded-none sm:rounded-2xl p-4 sm:p-5">
         <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
