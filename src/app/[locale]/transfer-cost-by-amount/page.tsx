@@ -339,7 +339,7 @@ export default async function TransferCostByAmountPage({ params }: { params: Pro
             name: "SendMoneyCompare transfer cost by amount",
             description: `True total cost of sending ${money(idx.smallAmount)} against ${money(idx.headlineAmount)} internationally, for ${idx.providersCompared} money transfer providers priced at both amounts from live quotes.`,
             url: "https://sendmoneycompare.com/transfer-cost-by-amount",
-            license: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+            license: "https://creativecommons.org/licenses/by/4.0/",
             creator: { "@type": "Organization", name: "SendMoneyCompare", url: "https://sendmoneycompare.com" },
             dateModified: REMITTANCE_INDEX.dataAsOf,
             variableMeasured: [

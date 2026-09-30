@@ -198,14 +198,15 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
               <p>
                 These datasets are published under{" "}
                 <a
-                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                  href="https://creativecommons.org/licenses/by/4.0/"
                   className="text-[var(--color-primary)] hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  CC BY-NC-SA 4.0
+                  CC BY 4.0
                 </a>
-                . Quote the figures, reproduce the tables, and cite SendMoneyCompare with a link to the study page. Each
+                . Quote the figures, reproduce the tables or build on the data — commercial use included — and cite
+                SendMoneyCompare with a link to the study page. Each
                 study states the date of the data behind it — please cite that date rather than the date you read it,
                 because the figures move with the scrape.
               </p>
@@ -267,7 +268,7 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
             name: "SendMoneyCompare original research",
             description: `${STUDIES.length} datasets on international money transfer cost, provider selection and timing, computed from ${weekend.observations} recorded provider quotes.`,
             url: "https://sendmoneycompare.com/research",
-            license: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+            license: "https://creativecommons.org/licenses/by/4.0/",
             mainEntity: {
               "@type": "ItemList",
               itemListElement: STUDIES.map((s, i) => ({

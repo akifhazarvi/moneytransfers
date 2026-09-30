@@ -28,6 +28,8 @@
  *                   SEPA after Brexit, as a non-EEA member (BIC + payer address needed).
  *   trustpilot      "4.6/5 Trustpilot", "Trustpilot 4.6". Use {{TRUSTPILOT:slug}}.
  *   avg-markup      "0.42% avg markup". Use {{AVG_MARKUP_PCT:slug}} (a median).
+ *   licence         any NC / SA / ND Creative Commons licence. Everything we
+ *                   publish is CC BY 4.0, so a citation's terms are never in doubt.
  *
  * RATCHET — legacy debt that may shrink but never grow (scripts/claims-baseline.json):
  *   markup-figure   hand-typed markup figures in prose: "within 0.5–1% of the
@@ -116,6 +118,12 @@ const HARD: Rule[] = [
   },
   { id: "trustpilot", re: /\b\d\.\d\s*\/\s*5\s*(?:\(|on\s+)?Trustpilot|Trustpilot(?:\s+(?:rating|score))?[^.<\d{]{0,40}\d\.\d\b/gi , allow: (_b, m) => /\b(?:below|above|under|over)\b/i.test(m) },
   { id: "avg-markup", re: /\d+(?:\.\d+)?%\s*(?:avg|average)\.?\s+mark-?up|\b(?:avg|average)\s+mark-?up\s+(?:of\s+)?(?:about\s+|~)?\d/gi },
+  // One licence for everything we publish — content, datasets, API output:
+  // CC BY 4.0 (owner decision, 2026-09-29). /for-ai, llms.txt and /api/ai said
+  // CC BY while /research and six Dataset schemas said CC BY-NC-SA, a Mar 19
+  // fix for a GSC "missing license" warning that later pages copied. NC deters
+  // the commercial newsrooms and AI companies we want citing the data.
+  { id: "licence", re: /creativecommons\.org\/licenses\/by-(?:nc|sa|nd)\b|\bCC[- ]BY[- ](?:NC|SA|ND)\b/gi },
 ];
 
 const RATCHET: Rule[] = [

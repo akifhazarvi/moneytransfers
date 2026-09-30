@@ -394,6 +394,10 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   require an `aggregateRating`; without an honest one, use `WebPage` or
   `WebAPI`. Reference a node declared elsewhere by `@id` rather than re-typing
   a name-only copy.
+- **One licence: CC BY 4.0** — content, Dataset `license` fields and API output
+  alike (owner decision, 2026-09-29). /research and six Dataset schemas said
+  CC BY-NC-SA while /for-ai said CC BY; NC deters the commercial newsrooms and
+  AI companies we want citing the data. `check:claims` fails on any NC/SA/ND.
 - Affiliate links (`/go`, `/out`) carry `rel="nofollow sponsored"` and are
   disallowed in robots.txt. Internal links to our own pages never carry
   `nofollow` — it does not conserve PageRank, it just drops the edge.
