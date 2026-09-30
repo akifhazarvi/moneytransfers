@@ -84,10 +84,9 @@ export default function HeroConverterCard({
   // Live quotes for the current corridor (debounced on amount typing).
   const [quotes, setQuotes] = useState<TransferQuote[] | null>(null);
   useEffect(() => {
-    if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) {
-      setAmountError(true);
-      return;
-    }
+    // An out-of-range amount has nothing to quote. Saying so is left to blur and
+    // submit: raising it here flashed the error at every keystroke through "".
+    if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) return;
     const controller = new AbortController();
     const tid = setTimeout(() => {
       fetchQuotes(amount, fromCurrency, toCurrency, controller.signal).then((qs) => {
@@ -148,7 +147,10 @@ export default function HeroConverterCard({
                   if (Number.isFinite(n) && n >= MIN_AMOUNT && n <= MAX_AMOUNT) persistAmount(n);
                 }
               }}
-              onBlur={() => { if (!amountStr || Number(amountStr) <= 0) setAmountStr("1"); }}
+              // Say why it can't be compared; never rewrite it. This used to set
+              // "0" or "" to "1" on blur — and clicking Compare blurs the field
+              // first, so submit saw a valid 1 and sent a $1 comparison.
+              onBlur={() => { if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) setAmountError(true); }}
               aria-label="Amount to send"
               className="min-w-0 flex-1 bg-transparent text-right text-2xl sm:text-3xl font-bold tabular-nums text-[var(--color-on-surface)] outline-none tracking-tight caret-[var(--color-primary)]"
             />
