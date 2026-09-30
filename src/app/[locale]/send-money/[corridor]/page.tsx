@@ -57,7 +57,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
 import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
-import SendScoreCard from "@/components/SendScoreCard";
+import SendScoreCard, { SendScoreStrip } from "@/components/SendScoreCard";
 import StickyBestCTA from "@/components/StickyBestCTA";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { providerLogo } from "@/lib/provider-logo";
@@ -1874,6 +1874,21 @@ export default async function CorridorPage({ params }: Props) {
           )}
         </Container>
       </section>
+      )}
+
+      {/* ─── SendScore, straight after the results ───
+           The timing answer where the choice is made, placed after the ranked
+           list so no Send button moves (owner decision, 2026-09-30). The full
+           card with its components stays in Rate History below. */}
+      {!hubMode && rateInsight?.sendScore && (
+        <Container className="pt-2 pb-6">
+          <SendScoreStrip
+            score={rateInsight.sendScore}
+            fromCurrency={fromCurrency}
+            toCurrency={toCurrency}
+            consistency={rateInsight.providerConsistency}
+          />
+        </Container>
       )}
 
       {/* ─── Editorial Intro — moved below the comparison table.

@@ -193,3 +193,59 @@ export default function SendScoreCard({ score, fromCurrency, toCurrency, compact
     </section>
   );
 }
+
+/**
+ * The same verdict in one line, straight after a corridor's comparison table:
+ * the timing answer where the choice is made. It sits AFTER the ranked list,
+ * so no Send button moves and a "Poor time to send" day never stands between
+ * a reader and a provider — provider_clicked is the north-star event. The full
+ * card, with its four components, stays in the Rate History section.
+ *
+ * Every figure comes from the same SendScore and ProviderConsistency objects
+ * the card reads, and the sentences are assembled in JS rather than as JSX
+ * text (Strict rule 10: a space after a JSX value can vanish in the build).
+ * A widget, so it titles itself with a styled <p>; its landmark names it
+ * (Strict rule 4).
+ */
+export function SendScoreStrip({ score, fromCurrency, toCurrency, consistency }: Omit<Props, "compact">) {
+  const style = BAND_STYLE[score.band];
+  const average = score.components.find((c) => c.key === "average");
+  // Same threshold as the card: one ranked provider is not "usually cheapest".
+  const leader = consistency && consistency.leaders.length > 1 ? consistency.leaders[0] : null;
+  const facts = [
+    average ? `Best payout today: ${average.detail}.` : null,
+    leader ? `${leader.providerName} was cheapest on ${leader.wins} of the ${leader.quotedDays} days it quoted.` : null,
+    score.confidence === "low" ? `${score.daysObserved} days of history, so treat it as indicative.` : null,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <aside
+      aria-label={`SendScore for ${fromCurrency} to ${toCurrency}`}
+      data-sendscore-strip=""
+      className="rounded-2xl border px-4 py-3.5 sm:px-5 flex flex-wrap items-center gap-x-5 gap-y-2"
+      style={{ borderColor: "var(--color-outline)", background: "var(--color-surface)" }}
+    >
+      <p className="flex items-center gap-2.5 font-semibold" style={{ color: "var(--color-on-surface)" }}>
+        <span
+          className="tabular-nums text-lg leading-none px-2 py-1 rounded-lg"
+          style={{ background: style.bg, color: style.fg }}
+          aria-label={`SendScore ${score.score} out of 100`}
+        >
+          {score.score}
+        </span>
+        <span>{score.headline}</span>
+      </p>
+      {facts && (
+        <p className="text-sm leading-relaxed flex-1 min-w-[16rem]" style={{ color: "var(--color-on-surface-variant)" }}>
+          {facts}
+        </p>
+      )}
+      {/* Underlined: the theme's primary is near-black, so colour alone would not mark it as a link. */}
+      <Link href="/sendscore" className="text-sm font-medium underline underline-offset-2" style={{ color: "var(--color-primary)" }}>
+        How SendScore works
+      </Link>
+    </aside>
+  );
+}

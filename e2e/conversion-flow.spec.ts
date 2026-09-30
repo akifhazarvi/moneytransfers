@@ -59,3 +59,19 @@ test("a sponsored result follows the first comparison result", async ({ page }) 
   expect(await results.evaluate(el => el.firstElementChild?.classList.contains("conversion-result"))).toBe(true);
   await expect(results.locator(":scope > .conversion-spotlight")).toContainText("Sponsored");
 });
+
+// Owner decision (2026-09-30): SendScore sits AFTER the ranked results, so no
+// Send button moves and a "Poor time to send" day never precedes a provider.
+test("SendScore follows the ranked results on a corridor page", async ({ page }) => {
+  await page.goto("/send-money/usa-to-pakistan");
+  const strip = page.locator("[data-sendscore-strip]");
+  await expect(strip).toHaveCount(1);
+  await expect(strip).toContainText(/time to send/);
+  await expect(strip.getByRole("link", { name: "How SendScore works" })).toHaveAttribute("href", "/sendscore");
+  const afterResults = await page.evaluate(() => {
+    const results = document.querySelector("#compare-providers");
+    const s = document.querySelector("[data-sendscore-strip]");
+    return !!results && !!s && !!(results.compareDocumentPosition(s) & Node.DOCUMENT_POSITION_FOLLOWING);
+  });
+  expect(afterResults).toBe(true);
+});
