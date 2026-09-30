@@ -8,27 +8,96 @@ import { getAuthor } from "@/data/authors";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 import trustpilotRatings from "@/data/scraped/trustpilot-ratings.json";
+import ProviderLink from "@/components/ProviderLink";
+import { getGoUrl } from "@/lib/affiliate";
+import { companyPageRenders } from "@/lib/company-route";
+import { MEASURED_MARKUPS } from "@/lib/remittance-cost-index";
+import { generateQuotes } from "@/lib/quotes-engine";
+import { getMidMarketRate, quoteDataDate } from "@/lib/unified-quotes";
+import { getProviderName, providers } from "@/data/providers";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/best-apps-to-send-money-from-us-2026";
 const URL = `${SITE_URL}/${PATH}`;
 const PUBLISHED = "2026-06-30";
-const MODIFIED = "2026-09-23";
+const MODIFIED = "2026-09-29";
 
 const author = getAuthor("awais-imran");
 
 // Measured 91-day leaders on US-sending corridors, read from the scrape so the
 // "who is cheapest" claims below cannot drift into a superlative the data no
 // longer supports (Wise leading "most corridors" was never true from the US).
+type Leader = { name: string; slug: string; wins: number; contestedDays: number };
+const LEADERS = corridorLeaders as Record<string, Leader>;
 const US_LEADERS = (() => {
-  const rows = Object.entries(corridorLeaders as Record<string, { name: string; slug: string }>)
-    .filter(([pair]) => pair.startsWith("USD-"))
-    .map(([, row]) => row);
-  const counts = new Map<string, { name: string; led: number }>();
-  for (const r of rows) counts.set(r.slug, { name: r.name, led: (counts.get(r.slug)?.led ?? 0) + 1 });
+  const rows = Object.entries(LEADERS).filter(([pair]) => pair.startsWith("USD-")).map(([, row]) => row);
+  const counts = new Map<string, { name: string; slug: string; led: number }>();
+  for (const r of rows) counts.set(r.slug, { name: r.name, slug: r.slug, led: (counts.get(r.slug)?.led ?? 0) + 1 });
   const ranked = [...counts.values()].sort((a, b) => b.led - a.led);
-  return { total: rows.length, wise: counts.get("wise")?.led ?? 0, top: ranked[0] };
+  return {
+    total: rows.length,
+    wise: counts.get("wise")?.led ?? 0,
+    top: ranked[0],
+    /** True when no other provider ties the leader's count. */
+    topIsSole: ranked.length < 2 || ranked[0].led > ranked[1].led,
+    led: (slug: string) => counts.get(slug)?.led ?? 0,
+  };
 })();
+
+// The routes a provider leads, most-sent destinations first, e.g.
+// "USD → INR (66 of 91 days)" — the evidence behind a card's count.
+const POPULAR_DESTINATIONS = ["INR", "MXN", "PHP", "CAD", "NGN", "PKR", "VND", "GBP", "EUR", "CNY", "NPR", "IDR", "BDT", "KES", "GHS", "JMD", "HNL", "HTG", "ETB", "DOP", "GTQ", "BRL", "COP", "EGP", "JPY", "PLN"];
+function usRoutesLed(slug: string, limit = 4): string[] {
+  return Object.entries(LEADERS)
+    .filter(([pair, r]) => pair.startsWith("USD-") && r.slug === slug)
+    .sort(([a], [b]) => {
+      const ia = POPULAR_DESTINATIONS.indexOf(a.slice(4)), ib = POPULAR_DESTINATIONS.indexOf(b.slice(4));
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    })
+    .slice(0, limit)
+    .map(([pair, r]) => `USD → ${pair.slice(4)} (${r.wins} of ${r.contestedDays} days)`);
+}
+// The routes the "cheapest app by corridor" list covers; each leader is read
+// from corridor-leaders.json, never typed (the typed list named Wise on
+// USD→INR, a route Wise did not lead).
+const CORRIDOR_WINNERS = [
+  { corridor: "USA → India (USD/INR)", pair: "USD-INR", slug: "usa-to-india" },
+  { corridor: "USA → Mexico (USD/MXN)", pair: "USD-MXN", slug: "usa-to-mexico" },
+  { corridor: "USA → Philippines (USD/PHP)", pair: "USD-PHP", slug: "usa-to-philippines" },
+  { corridor: "USA → Pakistan (USD/PKR)", pair: "USD-PKR", slug: "usa-to-pakistan" },
+  { corridor: "USA → Nigeria (USD/NGN)", pair: "USD-NGN", slug: "usa-to-nigeria" },
+  { corridor: "USA → UK (USD/GBP)", pair: "USD-GBP", slug: "usa-to-uk" },
+  { corridor: "USA → Europe (USD/EUR)", pair: "USD-EUR", slug: "usa-to-europe" },
+  { corridor: "USA → Canada (USD/CAD)", pair: "USD-CAD", slug: "send-money-to-canada" },
+].flatMap((c) => (LEADERS[c.pair] ? [{ ...c, leader: LEADERS[c.pair] }] : []));
+
+// The $1,000 USD→INR table: today's quotes, not typed estimates (the typed
+// version crowned Wise at "~₹83,600", far below every live quote).
+const INDIA_1000 = (() => {
+  const mid = getMidMarketRate("USD", "INR");
+  return generateQuotes(1000, "USD", "INR")
+    .filter((q) => !(q as { indicative?: boolean }).indicative)
+    .slice(0, 6)
+    .map((q) => ({
+      slug: q.providerSlug,
+      name: getProviderName(q.providerSlug),
+      fee: `$${q.fee.toFixed(2)}`,
+      margin: mid > 0 ? `${Math.max(0, ((mid - q.exchangeRate) / mid) * 100).toFixed(2)}%` : "—",
+      gets: `₹${Math.round(q.receiveAmount).toLocaleString("en-US")}`,
+    }));
+})();
+
+const medianMarkup = (slug: string) => MEASURED_MARKUPS.get(slug)?.markupMedianPct;
+const fmtPct = (n: number | undefined) => (n === undefined ? "—" : `${n.toFixed(2)}%`);
+const TOP_US = US_LEADERS.top;
+const TOP_US_ROUTES = usRoutesLed(TOP_US.slug).join(", ");
+
+// Taptap Send's own delivery figures, as its country pages state them —
+// cited, not restated as ours (checked 2026-09-29).
+const TAPTAP_SPEED_SOURCES = [
+  { label: "95% of transfers to India received in under 3 minutes (its December 2025 data)", href: "https://www.taptapsend.com/en/send-money-to/india" },
+  { label: "97% of deliveries to Mexico in under 5 minutes (April 2026)", href: "https://www.taptapsend.com/en/send-money-to/mexico" },
+];
 
 // Trustpilot scores from the scrape, never typed: the hand-typed ones had
 // drifted (Wise "293K" reviews against 302K scraped) and TapTap Send carried a
@@ -39,7 +108,7 @@ const tpReviews = (slug: string) => (TP[slug] ? `${Math.round(TP[slug].totalRevi
 
 // ─── Data tables (compiled from live scraped data, June 2026) ────────────────
 
-const TOP_PICKS = [
+const EDITORIAL_PICKS = [
   {
     rank: 1,
     slug: "wise",
@@ -96,10 +165,10 @@ const TOP_PICKS = [
     rank: 5,
     slug: "taptap-send",
     name: "TapTap Send",
-    verdict: "Best Zero-Fee App",
+    verdict: "$0 fee on most routes",
     fee: "$0 most corridors",
     markup: "~0.7%",
-    speed: "Under 3 minutes (95%)",
+    speed: "Minutes (95% under 3 min to India†)",
     countries: 50,
     bestFor: "Africa & Asia, mobile wallets",
     regulated: "FinCEN · FCA",
@@ -149,11 +218,11 @@ const TOP_PICKS = [
 const COMPARISON_FAQS = [
   {
     q: "What is the best app to send money internationally from the US in 2026?",
-    a: `Wise is where we would start from the US in 2026, on pricing rather than a measured win: it uses the real mid-market exchange rate with zero markup and charges a transparent fee from 0.41%, so the price you see is the price you pay. It is not the cheapest everywhere: over the last 91 days it led ${US_LEADERS.wise} of the ${US_LEADERS.total} US-sending corridors we can compare, while ${US_LEADERS.top.name} led ${US_LEADERS.top.led}. Remitly is the best alternative if you need cash pickup or faster delivery to emerging markets. For the highest Trustpilot rating among these eight, TorFX (${tpScore("torfx")}) leads. Compare live rates for your exact amount and destination at SendMoneyCompare.`,
+    a: `On measured cost, ${TOP_US.name}${US_LEADERS.topIsSole ? " led more US-sending routes than any other app" : " is joint leader"}: over the last 91 days it delivered the most on ${TOP_US.led} of the ${US_LEADERS.total} US-sending corridors we compare, including ${TOP_US_ROUTES}.${TOP_US.slug === "wise" ? "" : ` Wise, which uses the real mid-market exchange rate with a transparent fee from 0.41%, led ${US_LEADERS.wise}.`} Remitly is the alternative if you need cash pickup or faster delivery to emerging markets, and TorFX has the highest Trustpilot rating of the eight (${tpScore("torfx")}). The cheapest app still depends on the route, so compare live rates for your exact amount and destination.`,
   },
   {
     q: "Which money transfer app has the lowest fees from the US?",
-    a: "TapTap Send charges $0 fees on most corridors from the US and applies only a ~0.7% exchange rate margin. XE Money Transfer and TorFX also charge no transfer fees. Wise charges a variable fee (from 0.41%) but applies 0% markup on the exchange rate, so its percentage cost falls as the amount rises. PayPal and Xoom typically cost the most, with 3–4% exchange rate margins on top of transfer fees.",
+    a: `TapTap Send charges no transfer fee on most US routes, with a ${fmtPct(medianMarkup("taptap-send"))} median exchange-rate markup in our data. XE Money Transfer and TorFX also charge no transfer fee. Wise charges a fee from 0.41% but prices at the mid-market rate (${fmtPct(medianMarkup("wise"))} at the median in our quotes), so its percentage cost falls as the amount rises. Xoom's median markup is ${fmtPct(medianMarkup("xoom"))} and PayPal's ${fmtPct(medianMarkup("paypal"))}, on top of their fees.`,
   },
   {
     q: "Is it safe to use apps like Wise or Remitly to send money abroad?",
@@ -161,11 +230,11 @@ const COMPARISON_FAQS = [
   },
   {
     q: "How long does an international money transfer take from the US?",
-    a: "Speed depends on the provider, destination, and how you pay. Funding by debit card is fastest: Remitly Express and TapTap Send deliver to most destinations in under 3 minutes. Wise delivers ~60% of transfers instantly and the rest within hours. Paying by bank transfer (ACH) adds 1–2 days at the front end. Transfers to countries with modern payment rails — India (UPI), Philippines (InstaPay), EU (Instant SEPA), Mexico (SPEI) — are fastest. Allow 1–3 business days for destinations without real-time infrastructure.",
+    a: "Speed depends on the provider, destination, and how you pay. Funding by debit card is fastest: Remitly Express and TapTap Send deliver in minutes — Taptap Send reports 95% of its transfers to India received in under 3 minutes (its December 2025 figure). Wise delivers ~60% of transfers instantly and the rest within hours. Paying by bank transfer (ACH) adds 1–2 days at the front end. Transfers to countries with modern payment rails — India (UPI), Philippines (InstaPay), EU (Instant SEPA), Mexico (SPEI) — are fastest. Allow 1–3 business days for destinations without real-time infrastructure.",
   },
   {
     q: "What is the cheapest way to send $1,000 from the US internationally?",
-    a: `For a $1,000 transfer there is no single answer: over the last 91 days ${US_LEADERS.top.name} was cheapest on ${US_LEADERS.top.led} of the ${US_LEADERS.total} US-sending corridors we can compare and Wise on ${US_LEADERS.wise}. TapTap Send is often the cheapest for Africa and South/Southeast Asia. Always compare at the exact amount and destination because the cheapest provider shifts by corridor — Remitly often has promotional zero-fee rates for new users that beat Wise on the first transfer.`,
+    a: `For a $1,000 transfer there is no single answer: over the last 91 days ${US_LEADERS.top.name} was cheapest on ${US_LEADERS.top.led} of the ${US_LEADERS.total} US-sending corridors we can compare and Wise on ${US_LEADERS.wise}. ${TOP_US.name}'s leads include ${TOP_US_ROUTES}. Always compare at the exact amount and destination because the cheapest provider shifts by corridor — Remitly often has promotional zero-fee rates for new users that beat Wise on the first transfer.`,
   },
   {
     q: "Can I send money abroad from the US without a bank account?",
@@ -180,6 +249,25 @@ const COMPARISON_FAQS = [
     a: `For transfers above $10,000, OFX and TorFX are the best options. Both charge no transfer fees, offer competitive FX margins (0.3%–1.5%), and provide a dedicated account manager for large or regular transfers. TorFX holds a ${tpScore("torfx")} Trustpilot rating. OFX offers forward contracts and rate-lock tools. Wise also handles large transfers well (up to $1M) with its transparent fee structure, though for very large amounts the percentage fee matters less than the FX rate.`,
   },
 ];
+
+// The order is measured, not chosen: apps that delivered the most on more of
+// the US-sending routes we compare (91-day corridor leaders) come first; apps
+// that led none keep the editorial order above. Recomputed every build, so an
+// app that stops leading drops — Taptap Send, a paid partner, is ranked here
+// by the same count as everyone else and cannot buy a place in it.
+const TOP_PICKS = EDITORIAL_PICKS
+  .map((p, i) => ({ p, i, led: US_LEADERS.led(p.slug) }))
+  .sort((a, b) => b.led - a.led || a.i - b.i)
+  .map(({ p, led }, i) => ({
+    ...p,
+    rank: i + 1,
+    usLed: led,
+    usRoutes: usRoutesLed(p.slug),
+    highlight: i === 0,
+    verdict: i === 0 && led > 0 && US_LEADERS.topIsSole ? "Most US routes led" : p.verdict,
+    markup: medianMarkup(p.slug) !== undefined ? `${fmtPct(medianMarkup(p.slug))} median` : p.markup,
+    countries: providers.find((x) => x.slug === p.slug)?.supportedCountries ?? p.countries,
+  }));
 
 // ─── Structured data ──────────────────────────────────────────────────────────
 
@@ -274,7 +362,7 @@ export async function generateMetadata({
       absolute: "Best Apps to Send Money Abroad from the US (2026) | SendMoneyCompare",
     },
     description:
-      seoDescription(`We ranked the 8 best apps to send money abroad from the US in 2026 using live data from ${COVERAGE.providers}. Wise, Remitly, TorFX, OFX, TapTap Send — compared on fees, exchange rates, speed, and trust.`),
+      seoDescription(`We ranked the 8 best apps to send money abroad from the US in 2026 using live data from ${COVERAGE.providers}. TapTap Send, Wise, Remitly, TorFX and OFX compared on fees, exchange rates, speed and trust.`),
     keywords: [
       "best app to send money internationally from US",
       "best money transfer app USA 2026",
@@ -301,7 +389,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: "Best Apps to Send Money from US Internationally (2026)",
       description:
-        "8 apps ranked by real transfer cost — Wise, Remitly, TorFX, OFX, TapTap Send and more. Independent rankings; paid placements disclosed.",
+        "8 apps ranked by how many US routes each delivered the most on — TapTap Send, Wise, Remitly and more. Paid placements disclosed.",
     },
   };
 }
@@ -372,6 +460,14 @@ function ProviderCard({ p }: { p: (typeof TOP_PICKS)[number] }) {
         </div>
       </div>
 
+      {p.usLed > 0 && (
+        <p className="mt-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+          <strong className="text-[var(--color-on-surface)]">Measured:</strong> delivered the most on {p.usLed} of the{" "}
+          {US_LEADERS.total} US-sending routes we compare over the last 91 days
+          {p.usRoutes.length > 0 && <>, including {p.usRoutes.join(", ")}</>}.
+        </p>
+      )}
+
       {/* Best for + regulated */}
       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm">
         <span className="text-[var(--color-on-surface-variant)]">
@@ -384,14 +480,15 @@ function ProviderCard({ p }: { p: (typeof TOP_PICKS)[number] }) {
 
       {/* CTA */}
       <div className="mt-4 flex gap-3 flex-wrap">
-        <Link
-          href={`/go/${p.slug}`}
-          target="_blank"
-          rel="noopener noreferrer nofollow"
+        <ProviderLink
+          href={getGoUrl(p.slug)}
+          provider={p.slug}
+          source="best_apps_us_card"
+          rank={p.rank}
           className="rounded-full bg-[var(--color-cta)] px-5 py-2 text-sm font-semibold text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] transition-colors"
         >
           Get a quote from {p.name} →
-        </Link>
+        </ProviderLink>
         <Link
           href={`/companies/${p.slug}`}
           className="rounded-full border border-[var(--color-outline)] px-5 py-2 text-sm text-[var(--color-on-surface)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
@@ -485,13 +582,13 @@ export default async function BestAppsFromUSPage({
               Quick answer
             </p>
             <p className="citable-passage text-[var(--color-on-surface)] leading-relaxed">
-              <strong>Wise</strong> is where we would start to send money internationally from the US in 2026 — on
-              pricing, not a measured win. It uses the real mid-market exchange rate with 0% markup and charges a transparent variable fee from
-              0.41%, so what you see is what you pay — though it led only {US_LEADERS.wise} of the {US_LEADERS.total} US-sending corridors we can compare over the last 91 days, where <strong>{US_LEADERS.top.name}</strong> led {US_LEADERS.top.led}. <strong>Remitly</strong> is the best
-              alternative for speed and emerging-market coverage (175+ country network, Express delivery in minutes on major corridors).{" "}
-              <strong>TorFX</strong> holds the highest Trustpilot rating of the eight ({tpScore("torfx")}) and is best for
-              transfers above $10,000. All eight providers below are licensed money service businesses,
-              regulated by FinCEN and other authorities. <Link href="/send-money" className="text-[var(--color-primary)] underline">Compare live rates for your transfer →</Link>
+              <strong>{TOP_US.name}</strong> delivered the most on {TOP_US.led} of the {US_LEADERS.total} US-sending
+              routes we compare over the last 91 days{US_LEADERS.topIsSole ? " — more than any other app —" : ","} including {TOP_US_ROUTES}.{" "}
+              {TOP_US.slug !== "wise" && <><strong>Wise</strong> uses the real mid-market rate with a visible fee from 0.41% and led {US_LEADERS.wise}.{" "}</>}
+              <strong>Remitly</strong> is the alternative for cash pickup and express delivery to emerging markets, and{" "}
+              <strong>TorFX</strong> has the highest Trustpilot rating of the eight ({tpScore("torfx")}) for transfers above $10,000.
+              All eight are licensed money service businesses, regulated by FinCEN and other authorities.{" "}
+              <Link href="/send-money" className="text-[var(--color-primary)] underline">Compare live rates for your transfer →</Link>
             </p>
           </div>
 
@@ -524,7 +621,7 @@ export default async function BestAppsFromUSPage({
             <StatBox value={atLeast(SITE_STATS.liveProviders)} label="Providers compared" />
             <StatBox value="190+" label="Countries covered" />
             <StatBox value="Every 6h" label="Data refresh rate" />
-            <StatBox value="$0" label="Paid placements" />
+            <StatBox value="0" label="Paid rankings" />
           </div>
 
           {/* ── Section 1: Rankings ─────────────────────────────────────────── */}
@@ -532,9 +629,11 @@ export default async function BestAppsFromUSPage({
             The 8 best apps to send money internationally from the US (2026)
           </h2>
           <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-            We tested all eight providers with real transfers across multiple corridors. The rankings reflect{" "}
-            <strong>all-in cost</strong> (fee + FX margin), delivery speed, regulatory standing, and user trust
-            score as of June 2026.
+            The order is measured: apps that delivered the most on more of the {US_LEADERS.total} US-sending routes we
+            compare, over the last 91 days of quotes, come first; apps that led none follow in our editorial order,
+            weighing fees, speed, regulation and Trustpilot. It is recomputed from our data every time the site is
+            built. Taptap Send is a paid partner of this site — its position comes from the same count as
+            everyone else&rsquo;s, which it cannot buy.
           </p>
 
           <div className="mt-6 space-y-5">
@@ -542,6 +641,16 @@ export default async function BestAppsFromUSPage({
               <ProviderCard key={p.slug} p={p} />
             ))}
           </div>
+          <p className="mt-3 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
+            † Taptap Send&rsquo;s own figures:{" "}
+            {TAPTAP_SPEED_SOURCES.map((src, i) => (
+              <span key={src.href}>
+                {i > 0 && "; "}
+                <a href={src.href} target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">{src.label}</a>
+              </span>
+            ))}
+            . Markups are medians across every quote we hold for each app.
+          </p>
 
           {/* Live comparison CTA */}
           <div className="mt-8 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] p-5 text-center">
@@ -630,11 +739,12 @@ export default async function BestAppsFromUSPage({
               </thead>
               <tbody className="divide-y divide-[var(--color-outline)]">
                 {[
+                  ["Most US routes led (measured)", TOP_US.name, `${TOP_US.led} of ${US_LEADERS.total} US-sending routes, last 91 days`],
                   ["Transparent pricing", "Wise", "0% FX markup, transparent fee from 0.41%"],
                   ["Fastest delivery", "Remitly Express / TapTap Send", "Minutes to bank, wallet or cash pickup"],
                   ["Transfers above $10,000", "TorFX or OFX", "No fees, dedicated dealer, rate-lock tools"],
                   ["Cash pickup globally", "Western Union / Xoom", "200+ countries, thousands of agent locations"],
-                  ["Sending to Africa & South Asia", "TapTap Send", "$0 fee, mobile wallet delivery in < 3 min"],
+                  ["Sending to Africa", "TapTap Send", "$0 fee to Nigeria, Ghana, Kenya and Ethiopia; mobile wallet delivery"],
                   ["Daily digital banking + transfers", "Revolut", "Free in-plan transfers, instant Revolut-to-Revolut"],
                   ["Latin America & Philippines", "Xoom (PayPal)", "Minutes to GCash, Maya, SPEI, cash"],
                   ["Regular business payments", "OFX / Wise Business", "Volume discounts, API, batch payments"],
@@ -654,8 +764,8 @@ export default async function BestAppsFromUSPage({
             Cheapest app by corridor from the US
           </h2>
           <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-            The cheapest provider shifts by destination. These are the live front-runners on the most popular
-            routes from the US, based on our latest data collection (June 2026). Always{" "}
+            The cheapest provider shifts by destination. Each leader below is the app that delivered the most on that
+            route most often over the last 91 days of our quotes, recomputed on every build. Always{" "}
             <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
               check live rates
             </Link>{" "}
@@ -663,64 +773,7 @@ export default async function BestAppsFromUSPage({
           </p>
 
           <div className="mt-5 space-y-2">
-            {[
-              {
-                corridor: "USA → India (USD/INR)",
-                winner: "Wise",
-                note: "0% markup, instant UPI delivery",
-                slug: "usa-to-india",
-                winnerSlug: "wise",
-              },
-              {
-                corridor: "USA → Mexico (USD/MXN)",
-                winner: "Remitly / Xoom",
-                note: "Minutes delivery via SPEI or cash",
-                slug: "usa-to-mexico",
-                winnerSlug: "remitly",
-              },
-              {
-                corridor: "USA → Philippines (USD/PHP)",
-                winner: "Remitly / Xoom",
-                note: "GCash, Maya wallet in minutes",
-                slug: "usa-to-philippines",
-                winnerSlug: "remitly",
-              },
-              {
-                corridor: "USA → Pakistan (USD/PKR)",
-                winner: "TapTap Send / Wise",
-                note: "$0 fee, bank or cash delivery",
-                slug: "usa-to-pakistan",
-                winnerSlug: "taptap-send",
-              },
-              {
-                corridor: "USA → Nigeria (USD/NGN)",
-                winner: "TapTap Send",
-                note: "$0 fee, GTBank/Access in < 3 min",
-                slug: "usa-to-nigeria",
-                winnerSlug: "taptap-send",
-              },
-              {
-                corridor: "USA → UK (USD/GBP)",
-                winner: "Wise",
-                note: "0% markup, instant Faster Payments",
-                slug: "usa-to-uk",
-                winnerSlug: "wise",
-              },
-              {
-                corridor: "USA → Europe (USD/EUR)",
-                winner: "Wise",
-                note: "Instant SEPA, 0% rate markup",
-                slug: "usa-to-europe",
-                winnerSlug: "wise",
-              },
-              {
-                corridor: "USA → Canada (USD/CAD)",
-                winner: "Wise / OFX",
-                note: "Competitive on large amounts",
-                slug: "send-money-to-canada",
-                winnerSlug: "wise",
-              },
-            ].map((c) => (
+            {CORRIDOR_WINNERS.map((c) => (
               <div
                 key={c.corridor}
                 className="flex items-center justify-between gap-3 rounded-xl border border-[var(--color-outline)] px-4 py-3 flex-wrap"
@@ -729,13 +782,19 @@ export default async function BestAppsFromUSPage({
                   <Link href={`/send-money/${c.slug}`} className="font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] hover:underline text-sm">
                     {c.corridor}
                   </Link>
-                  <p className="text-xs text-[var(--color-on-surface-variant)] mt-0.5">{c.note}</p>
+                  <p className="text-xs text-[var(--color-on-surface-variant)] mt-0.5">
+                    Top payout on {c.leader.wins} of {c.leader.contestedDays} days in our record
+                  </p>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   <span className="text-xs text-[var(--color-on-surface-variant)]">Leader:</span>
-                  <Link href={`/companies/${c.winnerSlug}`} className="text-sm font-semibold text-[var(--color-primary)] hover:underline">
-                    {c.winner}
-                  </Link>
+                  {companyPageRenders(c.leader.slug) ? (
+                    <Link href={`/companies/${c.leader.slug}`} className="text-sm font-semibold text-[var(--color-primary)] hover:underline">
+                      {c.leader.name}
+                    </Link>
+                  ) : (
+                    <span className="text-sm font-semibold text-[var(--color-on-surface)]">{c.leader.name}</span>
+                  )}
                 </div>
               </div>
             ))}
@@ -774,21 +833,14 @@ export default async function BestAppsFromUSPage({
                   <th className="py-2 pr-4 font-medium">Provider</th>
                   <th className="py-2 pr-4 font-medium text-right">Fee</th>
                   <th className="py-2 pr-4 font-medium text-right">FX margin</th>
-                  <th className="py-2 font-medium text-right">Est. recipient gets</th>
+                  <th className="py-2 font-medium text-right">Recipient gets</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--color-outline)]">
-                {[
-                  { name: "Wise", fee: "~$6", margin: "0%", gets: "~₹83,600", highlight: true },
-                  { name: "Remitly (Economy)", fee: "$0", margin: "~1%", gets: "~₹82,700" },
-                  { name: "XE Money Transfer", fee: "$0", margin: "~1%", gets: "~₹82,700" },
-                  { name: "TapTap Send", fee: "$0", margin: "~0.7%", gets: "~₹83,000" },
-                  { name: "Xoom", fee: "$2.99", margin: "~1.5%", gets: "~₹81,400" },
-                  { name: "Your Bank", fee: "$0–$35", margin: "~3–4%", gets: "~₹79,000–80,500" },
-                ].map((r) => (
-                  <tr key={r.name} className={r.highlight ? "bg-[var(--color-primary-surface)]" : ""}>
+                {INDIA_1000.map((r, i) => (
+                  <tr key={r.slug} className={i === 0 ? "bg-[var(--color-primary-surface)]" : ""}>
                     <td className="py-2.5 pr-4 font-medium text-[var(--color-on-surface)]">
-                      {r.name} {r.highlight && <Badge color="blue">Best</Badge>}
+                      {r.name} {i === 0 && <Badge color="blue">Most today</Badge>}
                     </td>
                     <td className="py-2.5 pr-4 text-right text-[var(--color-on-surface-variant)]">{r.fee}</td>
                     <td className="py-2.5 pr-4 text-right text-[var(--color-on-surface-variant)]">{r.margin}</td>
@@ -798,9 +850,9 @@ export default async function BestAppsFromUSPage({
               </tbody>
             </table>
             <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
-              Illustrative figures based on mid-June 2026 rates. Actual amounts vary by date.{" "}
+              Our quotes for $1,000 USD → INR{quoteDataDate ? ` on ${quoteDataDate}` : ""}; the full list, updated every 6 hours, is on the{" "}
               <Link href="/send-money/usa-to-india" className="text-[var(--color-primary)] hover:underline">
-                Get live quotes for USA → India →
+                USA → India comparison →
               </Link>
             </p>
           </div>

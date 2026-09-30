@@ -245,6 +245,8 @@ ${body}
 //        the last 91 days we could compare". The strongest honest claim a
 //        provider can make here, and it goes unstated because nothing computed it.
 //   {{CORRIDOR_LEADER_SHORT:USD:INR}}      "Ria Money Transfer (73 of 91 days)" — table cells
+//   {{LEAD_RECORD:taptap-send:USD:INR}}   "the most frequent leader on this route in our
+//        quotes (66 of the last 91 days)", or who leads instead — after "{Provider} is"
 //   {{CORRIDOR_LEADER:USD:INR}}            "Ria Money Transfer, which led on 73 of
 //        the last 91 days we could compare" — the measured leader
 //        for ONE corridor, as opposed to {{LEADS:}}'s site-wide count
@@ -1082,6 +1084,20 @@ export function renderDataTokens(html: string): string {
     const row = (corridorLeaders as Record<string, { name: string; wins: number; contestedDays: number }>)[`${from}-${to}`];
     if (!row) return match;
     return `${row.name} (${row.wins} of ${row.contestedDays} days)`;
+  });
+
+  // {{LEAD_RECORD:taptap-send:CAD:INR}} -> "the most frequent leader on this
+  // route in our quotes (43 of the last 91 days)" while that provider leads,
+  // else "priced on this route in our quotes, where the most frequent leader is
+  // Wise (60 of 91 days)". Written after "{Provider} is". A sentence that names
+  // a provider beside {{CORRIDOR_LEADER}} contradicts itself the day another
+  // provider takes the lead; this one stays true either way (2026-09-29).
+  out = out.replace(/\{\{LEAD_RECORD:([a-z0-9-]+):([A-Z]{3}):([A-Z]{3})\}\}/g, (match, slug: string, from: string, to: string) => {
+    const row = (corridorLeaders as Record<string, { name: string; slug: string; wins: number; contestedDays: number }>)[`${from}-${to}`];
+    if (!row) return match;
+    return row.slug === slug
+      ? `the most frequent leader on this route in our quotes (${row.wins} of the last ${row.contestedDays} days)`
+      : `priced on this route in our quotes, where the most frequent leader is ${row.name} (${row.wins} of ${row.contestedDays} days)`;
   });
 
   out = out.split("{{BANK_SAVINGS_PCT}}").join(`${bankSavingsPct()}%`);

@@ -17,9 +17,9 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
     slug: "bank-wire-transfer-fees-2026",
     title: "Bank Wire Transfer Fees 2026: Chase vs Wells Fargo vs Bank of America vs HSBC",
     metaDescription:
-      "Comparing wire transfer fees at major banks in 2026? Chase charges $50, Wells Fargo $45, Bank of America $45 for international wires — plus a 3–5% hidden exchange rate markup. Full comparison inside.",
+      "Comparing wire transfer fees at major banks in 2026? Chase charges $50, Wells Fargo $45, Bank of America $45 for international wires — plus a margin on the rate. Live comparison inside.",
     excerpt:
-      "Chase charges $50 for an international wire. Wells Fargo charges $45. Bank of America charges $45. But the flat fee is just half the story — the hidden exchange rate markup costs 3–5× more. We broke it all down.",
+      "Chase charges $50 for an international wire. Wells Fargo charges $45. Bank of America charges $45. But the flat fee is just half the story — the margin on the exchange rate usually costs more. We broke it all down.",
     category: "Research",
     readTime: "11 min read",
     publishedAt: "2026-07-01",
@@ -66,7 +66,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
 <tr><td><strong>Citibank</strong></td><td>$25–$35</td><td>$0 for Citigold members</td><td>3–4%</td><td>$55–$75</td></tr>
 <tr><td><strong>US Bank</strong></td><td>$50</td><td>$50</td><td>3–5%</td><td>$80–$100</td></tr>
 <tr><td><strong>TD Bank</strong></td><td>$40–$50</td><td>Varies by account type</td><td>3–4%</td><td>$70–$90</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a> (for comparison)</strong></td><td>~$7</td><td>Online only</td><td>0%</td><td><strong>~$7–$14</strong></td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a> (for comparison)</strong></td><td>{{FEE:wise:USD:GBP:1000}} (to the UK, live)</td><td>Online only</td><td>0%</td><td><strong>{{COST:wise:USD:GBP:1000}}</strong></td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Fees sourced from published bank fee schedules Q2 2026. Exchange rate markup estimated vs mid-market rate at time of comparison. <a href="/send-money">Compare live rates →</a></p>
@@ -93,7 +93,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
 <tr><td><strong>NatWest / RBS</strong></td><td>£15–£20</td><td>3.5–5%</td><td>£50–£70</td></tr>
 <tr><td><strong>Santander UK</strong></td><td>£25</td><td>3–5%</td><td>£55–£75</td></tr>
 <tr><td><strong>Nationwide</strong></td><td>£20</td><td>3–4%</td><td>£50–£60</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a> (for comparison)</strong></td><td>~£3–£5</td><td>0%</td><td><strong>~£3–£8</strong></td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a> (for comparison)</strong></td><td>{{FEE:wise:GBP:EUR:1000}} (to the eurozone, live)</td><td>0%</td><td><strong>{{COST:wise:GBP:EUR:1000}}</strong></td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">UK bank fees sourced from published tariff sheets Q2 2026. <a href="/send-money">Compare live GBP rates →</a></p>
@@ -112,30 +112,32 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
 <li>Multiply your transfer amount by that percentage to get the hidden cost in dollars.</li>
 </ol>
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">True Cost Comparison: Sending $5,000 USD to GBP (Illustrative, 2026)</h3>
+<h3 style="margin-top: 0;">Modelled SWIFT Wire Cost: Sending $5,000 USD to GBP (2026)</h3>
 <table>
-<thead><tr><th>Provider</th><th>Flat Fee</th><th>FX Markup Cost</th><th>Correspondent Fees</th><th>Total Cost</th><th>GBP Received (est.)</th></tr></thead>
+<thead><tr><th>Provider</th><th>Flat Fee</th><th>FX Markup Cost</th><th>Correspondent Fees</th><th>Total Cost</th></tr></thead>
 <tbody>
-<tr><td><strong>Chase</strong></td><td>$45</td><td>~$175 (3.5%)</td><td>$0–$50</td><td><strong>$220–$270</strong></td><td>~£3,760–£3,810</td></tr>
-<tr><td><strong>Wells Fargo</strong></td><td>$45</td><td>~$200 (4%)</td><td>$0–$50</td><td><strong>$245–$295</strong></td><td>~£3,730–£3,780</td></tr>
-<tr><td><strong>Bank of America</strong></td><td>$30 (online)</td><td>~$175 (3.5%)</td><td>$0–$50</td><td><strong>$205–$255</strong></td><td>~£3,760–£3,820</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>~$28</td><td>$0 (0%)</td><td>$0</td><td><strong>~$28</strong></td><td>~£3,970</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>$0</td><td>~$35 (0.7%)</td><td>$0</td><td><strong>~$35</strong></td><td>~£3,963</td></tr>
+<tr><td><strong>Chase</strong></td><td>$45</td><td>~$175 (3.5%)</td><td>$0–$50</td><td><strong>$220–$270</strong></td></tr>
+<tr><td><strong>Wells Fargo</strong></td><td>$45</td><td>~$200 (4%)</td><td>$0–$50</td><td><strong>$245–$295</strong></td></tr>
+<tr><td><strong>Bank of America</strong></td><td>$30 (online)</td><td>~$175 (3.5%)</td><td>$0–$50</td><td><strong>$205–$255</strong></td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Illustrative based on USD/GBP ~0.80. Actual amounts vary. <a href="/send-money">Get live quotes →</a></p>
+<p class="blog-footnote">A model of a branch SWIFT wire: each bank's published flat fee plus a typical markup and correspondent charges. Not a live quote.</p>
 </div>
-<p>On a $5,000 transfer, Chase costs approximately <strong>$192–$242 more</strong> than Wise. That's £150–£190 your recipient never receives. At $10,000, the gap doubles.</p>
+<p>A modelled branch wire costing $220–$270 is about 4–5% of the transfer. Here is what the same $5,000 delivers with every provider we price today, against {{MID_RECEIVE:USD:GBP:5000}} at the mid-market rate:</p>
+<div class="blog-table-box">
+{{QUOTE_TABLE:USD:GBP:5000}}
+<p class="blog-footnote">Live quotes, refreshed every 6 hours; banks appear where we can price their own online transfer. <a href="/send-money/usa-to-uk">Compare USD to GBP at your amount →</a></p>
+</div>
 <h3>What we actually measure these banks charging</h3>
 <p>The figures above model a SWIFT wire: the published flat fee plus a markup. Separately, we price banks directly from live quotes in our <a href="/remittance-cost-index">Remittance Cost Index</a>, and those come out lower, because the quotes we capture are usually a bank's own online transfer product rather than a branch SWIFT wire. Measured across every corridor each bank quotes at $1,000:</p>
 <div class="overflow-x-auto"><table>
 <thead><tr><th>Bank</th><th>Measured all-in cost on $1,000</th></tr></thead>
 <tbody>
-<tr><td>HSBC</td><td>2.81%</td></tr>
-<tr><td>Wells Fargo</td><td>3.11%</td></tr>
-<tr><td>Barclays</td><td>3.61%</td></tr>
-<tr><td>Chase (US)</td><td>3.72%</td></tr>
-<tr><td>Lloyds</td><td>5.35%</td></tr>
+<tr><td>HSBC</td><td>{{AVGCOST:hsbc}}</td></tr>
+<tr><td>Barclays</td><td>{{AVGCOST:barclays}}</td></tr>
+<tr><td>Wells Fargo</td><td>{{AVGCOST:wells-fargo}}</td></tr>
+<tr><td>Chase (US)</td><td>{{AVGCOST:chase}}</td></tr>
+<tr><td>Lloyds</td><td>{{AVGCOST:lloyds}}</td></tr>
 </tbody></table></div>
 <p>Both numbers are real and they answer different questions. If you walk into a branch and ask for an international wire, expect the higher, fee-led figure. If you use the bank's own app or website, expect something closer to the measured one. Neither is close to what a specialist charges — across all 35 banks and 26 specialists we price at $1,000, the averages are {{AVG_BANK_COST}} against {{AVG_SPECIALIST_COST}}. The spread <em>within</em> the bank group is wider than most people expect, though: the cheapest bank we measure beats many specialists, and the dearest costs more than four times the bank average.</p>
 <p class="blog-footnote">Bank fee schedules in the tables above were read from each bank's published pricing pages and last checked July 2026; banks change them without notice, and the fee often differs by account tier and destination. Confirm your own bank's current fee and its quoted receive amount before sending. The measured percentages are recomputed from live quotes on every build.</p>`,
@@ -166,16 +168,17 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
         content: `<div class="blog-table-box">
 <h3 style="margin-top: 0;">Cheapest International Transfer Apps vs. Major Banks</h3>
 <table>
-<thead><tr><th>Provider</th><th>Best For</th><th>Total Cost on $1,000</th><th>Speed</th></tr></thead>
+<thead><tr><th>Provider</th><th>Best For</th><th>Average All-In Cost</th><th>Speed</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Most corridors, transparency</td><td>~$7–$14</td><td>Seconds–hours</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Remittances, speed, cash pickup</td><td>~$4–$12</td><td>Minutes</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>Large transfers ($5,000+)</td><td>~$7–$15</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>Asia corridors, zero fee</td><td>~$4–$10</td><td>Hours</td></tr>
-<tr><td><strong>Chase / Wells Fargo</strong></td><td>—</td><td>~$75–$95</td><td>2–5 days</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Most corridors, transparency</td><td>{{AVGCOST:wise}}</td><td>Seconds–hours</td></tr>
+<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>Family remittances, app-only</td><td>{{AVGCOST:taptap-send}}</td><td>Minutes</td></tr>
+<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Remittances, speed, cash pickup</td><td>{{AVGCOST:remitly}}</td><td>Minutes</td></tr>
+<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>Asia corridors, zero fee</td><td>{{AVGCOST:instarem}}</td><td>Hours</td></tr>
+<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>Large transfers ($5,000+)</td><td>{{AVGCOST:ofx}}</td><td>1–2 days</td></tr>
+<tr><td><strong>Chase / Wells Fargo</strong></td><td>—</td><td>{{AVGCOST:chase}} / {{AVGCOST:wells-fargo}}</td><td>2–5 days</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on live quotes Q2 2026. <a href="/send-money">Compare at your exact amount and currency →</a></p>
+<p class="blog-footnote">Average all-in cost as a share of the amount sent, across every corridor we price each provider on (Remittance Cost Index, $1,000), recomputed on every build. <a href="/send-money">Compare at your exact amount and currency →</a></p>
 </div>
 <p>The simplest switch: open a <a href="/companies/wise">Wise</a> account online (free, takes 10 minutes), add your recipient's bank details, and pay via ACH from your US bank account. Your recipient gets a domestic bank deposit in their country — no SWIFT, no correspondent fees, no hidden markup. See our full guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> for a complete breakdown.</p>`,
       },
