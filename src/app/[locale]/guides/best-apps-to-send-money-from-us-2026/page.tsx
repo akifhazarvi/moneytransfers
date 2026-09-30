@@ -15,6 +15,7 @@ import { MEASURED_MARKUPS } from "@/lib/remittance-cost-index";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getMidMarketRate, quoteDataDate } from "@/lib/unified-quotes";
 import { getProviderName, providers } from "@/data/providers";
+import { formatLocalDate } from "@/lib/format-date";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/best-apps-to-send-money-from-us-2026";
@@ -564,7 +565,8 @@ export default async function BestAppsFromUSPage({
               , {author?.role ?? "Editor-in-Chief"}
             </span>
             <span>·</span>
-            <span>Updated June 30, 2026</span>
+            {/* From MODIFIED, so the visible date matches dateModified in the JSON-LD. */}
+            <span>Updated <time dateTime={MODIFIED}>{formatLocalDate(MODIFIED)}</time></span>
             <span>·</span>
             <span>12 min read</span>
           </div>

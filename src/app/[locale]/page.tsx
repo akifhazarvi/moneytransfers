@@ -17,7 +17,7 @@ import { DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { COVERAGE } from "@/lib/site-stats";
 import ProviderLink from "@/components/ProviderLink";
 import { getGoUrl } from "@/lib/affiliate";
-import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
+import { CONSISTENCY_INDEX, CONSISTENCY_ROWS, TOP_LEADER } from "@/lib/consistency-index";
 
 /**
  * What we can honestly say about Wise being "Best Rate".
@@ -153,7 +153,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { q: tFaq("q3"), a: tFaq("a3") },
     { q: tFaq("q4"), a: tFaq("a4") },
     { q: tFaq("q5"), a: tFaq("a5") },
-    { q: tFaq("q6"), a: tFaq("a6") },
+    // "Wise consistently ranks highest" was an adjective nothing measures; the
+    // answer now states the consistency index's leader, recomputed every build.
+    { q: tFaq("q6"), a: tFaq("a6", { leader: TOP_LEADER.providerName, led: TOP_LEADER.corridorsLed, corridors: CONSISTENCY_INDEX.comparableCorridors }) },
     { q: tFaq("q7"), a: tFaq("a7") },
     { q: tFaq("q8"), a: tFaq("a8") },
   ];

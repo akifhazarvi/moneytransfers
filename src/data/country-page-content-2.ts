@@ -544,7 +544,7 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Turkey?",
         answer:
-          "Wise consistently offers the tightest TRY exchange rate margins, especially for EUR and GBP senders. From Germany (the largest corridor), providers like Azimo, WorldRemit, and Wise compete aggressively. Fund via SEPA bank transfer from Europe or ACH from the US to avoid card processing fees.",
+          "On USD to TRY, the measured leader is {{CORRIDOR_LEADER:USD:TRY}}; from the UK it is {{CORRIDOR_LEADER_SHORT:GBP:TRY}}, and from the eurozone {{CORRIDOR_LEADER_SHORT:EUR:TRY}}. From Germany (the largest corridor), providers like Azimo, WorldRemit, and Wise compete aggressively. Fund via SEPA bank transfer from Europe or ACH from the US to avoid card processing fees.",
       },
       {
         question: "How long does a money transfer to Turkey take?",
@@ -646,7 +646,7 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       {
         question: "Which providers send money from the UK to Poland?",
         answer:
-          "Wise, Revolut, WorldRemit, Western Union, MoneyGram, and OFX all serve the UK-to-Poland corridor. Wise and Revolut consistently offer the best GBP/PLN rates. Western Union provides cash pickup at Euronet and Bank Pocztowy locations if your recipient prefers not to use a bank account.",
+          "Wise, Revolut, WorldRemit, Western Union, MoneyGram, and OFX all serve the UK-to-Poland corridor. On GBP to PLN, the measured leader is {{CORRIDOR_LEADER:GBP:PLN}}. Western Union provides cash pickup at Euronet and Bank Pocztowy locations if your recipient prefers not to use a bank account.",
       },
       {
         question: "Can I pick up cash in Poland?",

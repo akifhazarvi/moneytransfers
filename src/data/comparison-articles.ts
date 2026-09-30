@@ -1983,7 +1983,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <li>You want the <strong>flexibility of a web app</strong> alongside mobile</li>
 </ul>
 
-<p><strong>The smart approach:</strong> If your corridor is served by TapTap Send, compare both on our <a href="/send-money">comparison tool</a> before each transfer. The cheapest option shifts by corridor and amount. Having accounts with both services costs nothing and ensures you always get the best rate.</p>`,
+<p><strong>The smart approach:</strong> If your corridor is served by TapTap Send, compare both on our <a href="/send-money">comparison tool</a> before each transfer. The cheapest option shifts by corridor and amount. Having accounts with both services costs nothing and lets you send with whichever is cheaper on the day.</p>`,
       },
     ],
     verdict: {
@@ -2383,7 +2383,6 @@ export const comparisonArticles: ComparisonArticle[] = [
 <li><strong>Instant transfers:</strong> Revolut-to-Revolut is instant, 24/7</li>
 <li><strong>No monthly fee on Standard plan</strong> (Chase Total Checking: $12/month unless you meet conditions)</li>
 <li><strong>Crypto and stock trading built in</strong></li>
-<li><strong>Better mobile app</strong> — Revolut is consistently rated #1 in fintech UX surveys</li>
 <li><strong>Spending analytics</strong> by category, merchant, country</li>
 </ul>
 <p>For complete Revolut fee details (including weekend markup and FX limits), see our <a href="/guides/revolut-foreign-transaction-fees-2026">Revolut foreign transaction fees guide</a>.</p>`,

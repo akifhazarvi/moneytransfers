@@ -663,7 +663,7 @@ const rawBlogPosts: BlogPost[] = [
 </table>
 </div>
 <p><strong>Key insight:</strong> All major providers we list are regulated. "Safeguarded funds" refers to the UK/EU safeguarding regime; for US customers the equivalent protection comes from state money transmitter licensing (surety bonds and permissible investments), and money held in a bank account — such as a Revolut account once it is with Revolut's bank — is covered by deposit insurance instead. Beyond that, the main practical difference between providers is customer service quality — how quickly they resolve issues and how responsive they are when something goes wrong. Trustpilot scores reflect this.</p>
-<p><a href="/send-money">Compare all regulated providers</a> using our comparison tool, which only includes licensed services.</p>`,
+<p><a href="/send-money">Compare providers side by side</a> in our comparison tool — and before your first transfer with one you haven't used, look it up on the register for the country you send from.</p>`,
       },
       {
         heading: "How to Verify Any Provider Is Legitimate",
@@ -760,7 +760,7 @@ const rawBlogPosts: BlogPost[] = [
 <p><strong>Yes.</strong> <a href="/companies/ofx">OFX</a> (formerly OzForex) is FCA-authorised (UK), ASIC-licensed (Australia), and FinCEN-registered (US). It's listed on the Australian Stock Exchange (ASX: OFX) since 2013. OFX specialises in larger transfers (typically £1,000+) for property purchases, business payments, and emigration. The {{TRUSTPILOT:ofx}} Trustpilot record leans positive on customer support quality.</p>
 <h3>Is XE Money Transfer safe?</h3>
 <p><strong>Yes.</strong> <a href="/companies/xe">XE</a> is FCA-authorised (UK), FinCEN-registered (US), and ASIC-licensed (Australia). XE is owned by Euronet Worldwide (NASDAQ: EEFT). Its currency data feeds power 10,000+ partner sites and apps — the brand has been operating since 1993, one of the longest-running consumer FX services online.</p>
-<p><strong>Bottom line:</strong> All providers in our <a href="/send-money">comparison tool</a> are checked for current regulatory authorisation. Differences in Trustpilot scores mostly reflect customer service experience rather than safety incidents. For a side-by-side comparison, see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a>, <a href="/compare/wise-vs-revolut">Wise vs Revolut</a>, or <a href="/compare/western-union-vs-moneygram">Western Union vs MoneyGram</a>.</p>`,
+<p><strong>Bottom line:</strong> Every provider above is regulated in the markets it serves; for any other provider in our <a href="/send-money">comparison tool</a>, check the register for your country before your first transfer. Differences in Trustpilot scores mostly reflect customer service experience rather than safety incidents. For a side-by-side comparison, see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a>, <a href="/compare/wise-vs-revolut">Wise vs Revolut</a>, or <a href="/compare/western-union-vs-moneygram">Western Union vs MoneyGram</a>.</p>`,
       },
       {
         heading: "Card vs Bank vs Wallet — Which Funding Method Is Safest?",
@@ -856,7 +856,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the safest way to send money internationally?",
         answer:
-          "Use a provider regulated where you live (check the FCA register, EBA register, or FinCEN plus your state regulator), enable two-factor authentication, verify recipient details carefully before sending, fund via bank transfer or debit card (not credit card to a new provider), and start with a small test transfer before sending large amounts. Our <a href=\"/send-money\">comparison tool</a> only lists regulated providers.",
+          "Use a provider regulated where you live (check the FCA register, EBA register, or FinCEN plus your state regulator), enable two-factor authentication, verify recipient details carefully before sending, fund via bank transfer or debit card (not credit card to a new provider), and start with a small test transfer before sending large amounts. Our <a href=\"/send-money\">comparison tool</a> shows the fee and exchange rate side by side, so you can compare the regulated options open to you.",
       },
       {
         question: "Are money transfer companies safe?",
@@ -2557,7 +2557,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "How to Choose the Right Service",
         content: `<p>The best provider depends on your specific situation. Ask yourself:</p>
 <ul>
-<li><strong>How much are you sending?</strong> For large transfers ($3,000+), Currencies Direct and OFX add a dealer and forward contracts, but check their live quote: on $5,000 USD → GBP today, {{BEST_PROVIDER:USD:GBP:5000}} delivers the most. For smaller, frequent sends, Remitly and SoFi are built around speed and convenience.</li>
+<li><strong>How much are you sending?</strong> For large transfers ($3,000+), Currencies Direct and OFX add a dealer and forward contracts. Check the live quote before you choose on service alone: on $5,000 USD → GBP today, {{BEST_PROVIDER:USD:GBP:5000}} delivers the most. For smaller, frequent sends, Remitly and SoFi are built around speed and convenience.</li>
 <li><strong>How fast do you need it?</strong> For instant delivery, Remitly Express or OnePay Cash are your best bets. For non-urgent transfers, CurrencyFair or OFX can save you money.</li>
 <li><strong>Does your recipient have a bank account?</strong> If not, Western Union or OnePay offer cash pickup at hundreds of thousands of locations.</li>
 <li><strong>How often do you send?</strong> Regular senders benefit from CurrencyFair's free transfer offers or SoFi's flat-fee model.</li>
@@ -3107,7 +3107,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money home for Eid?",
         answer:
-          "The cheapest option depends on the corridor and amount. For popular routes like USA to Pakistan or UK to India, Wise and Remitly consistently offer the best value. Wise charges the real exchange rate with a small fee, while Remitly often has zero fees with a small markup. Always compare at your exact amount using our comparison tool.",
+          "The cheapest option depends on the corridor and amount. On USA to Pakistan, the measured leader is {{CORRIDOR_LEADER:USD:PKR}}; on UK to India it is {{CORRIDOR_LEADER_SHORT:GBP:INR}}. Wise charges the real exchange rate with a small fee, while Remitly often has zero fees with a small markup. Always compare at your exact amount using our comparison tool.",
       },
       {
         question: "How long does it take for money to arrive before Eid?",
@@ -5273,7 +5273,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Which provider is best for small business international payments?",
         answer:
-          "Wise Business is the best choice for most SMBs — it offers 0% markup on the mid-market rate, batch payments via CSV, a full API, and direct integration with Xero and QuickBooks. If you also need expense management and team cards, Revolut Business is a strong alternative.",
+          "Wise Business is our editorial pick for most SMBs — it offers 0% markup on the mid-market rate, batch payments via CSV, a full API, and direct integration with Xero and QuickBooks. If you also need expense management and team cards, Revolut Business is a strong alternative.",
       },
       {
         question: "Can I lock in exchange rates for future business payments?",
@@ -8257,7 +8257,7 @@ const rawBlogPosts: BlogPost[] = [
 </table>
 <p class="blog-footnote"><a href="/send-money">Compare live rates across all providers →</a></p>
 </div>
-<p>If you primarily need to send money internationally, <a href="/companies/wise">Wise</a> is the straightforward winner — its 0% markup policy means you always get the best exchange rate. If you want an all-in-one financial app that handles banking, investing, crypto, and transfers, <a href="/companies/revolut">Revolut</a> is hard to beat.</p>
+<p>If you primarily need to send money internationally, <a href="/companies/wise">Wise</a> is the straightforward winner — its 0% markup policy means you always get the mid-market exchange rate. If you want an all-in-one financial app that handles banking, investing, crypto, and transfers, <a href="/companies/revolut">Revolut</a> is hard to beat.</p>
 <p>For a corridor-specific look at which provider offers the best deal, use our <a href="/send-money">comparison tool</a> or check our guides for <a href="/send-money/usa-to-india">USA to India</a>, <a href="/send-money/usa-to-europe">UK to Europe</a>, and <a href="/send-money/usa-to-mexico">USA to Mexico</a>.</p>
 <h3>Sources &amp; Methodology</h3>
 <p>Feature and pricing data sourced from provider websites and our comparison engine in March 2026. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest. External sources include <a href="https://financialit.net/news/banking/finecobank-expands-multi-currency-account-offering-new-currencies-expanded-trading" target="_blank" rel="noopener noreferrer">Financial IT</a>, <a href="https://www.airwallex.com/us/blog/best-multi-currency-accounts" target="_blank" rel="noopener noreferrer nofollow">Airwallex</a>, and <a href="https://www.pymnts.com/news/banking/2026/retail-banking-bundles-turn-subscriptions-into-fintech-battleground/" target="_blank" rel="noopener noreferrer">PYMNTS</a>.</p>`,
@@ -9924,7 +9924,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "GBP to PKR Forecast 2026 — What Analysts Expect",
-        content: `<p>The GBP/PKR exchange rate is the single most watched currency pair for the Pakistani diaspora, and for good reason. The UK is home to over 1.5 million people of Pakistani origin, and the UK-to-Pakistan corridor consistently ranks among the top five global remittance routes. As of March 2026, one British pound buys roughly 368 Pakistani rupees.</p>
+        content: `<p>The GBP/PKR exchange rate is the single most watched currency pair for the Pakistani diaspora, and for good reason. The UK is home to over 1.5 million people of Pakistani origin, and the UK is one of the largest sources of remittances to Pakistan. As of March 2026, one British pound buys roughly 368 Pakistani rupees.</p>
   
   <h3>What's Driving GBP Strength?</h3>
   
@@ -10195,7 +10195,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money to Pakistan?",
         answer:
-          "The cheapest option depends on the amount, currency, and delivery speed you need. For bank-to-bank transfers of £500 or more from the UK, ACE Money Transfer and Wise consistently rank among the most cost-effective providers on SendMoneyCompare. ACE charges zero fees and offers tight GBP/PKR spreads, while Wise charges a small upfront fee but uses the mid-market exchange rate. For smaller transfers or instant delivery, TapTap Send (zero fees, app-only) and Remitly (promotional rates for new users) are strong alternatives. Western Union costs more per transfer but is unbeatable for cash pickup in rural Pakistan. The key is to compare total received amount, not just fees — a provider with zero fees but a 2% exchange-rate markup will cost you more than one charging £3 but offering a tighter spread.",
+          "The cheapest option depends on the amount, currency, and delivery speed you need. On GBP to PKR, the measured leader is {{CORRIDOR_LEADER:GBP:PKR}}. ACE charges zero fees and offers tight GBP/PKR spreads, while Wise charges a small upfront fee but uses the mid-market exchange rate. For smaller transfers or instant delivery, TapTap Send (zero fees, app-only) and Remitly (promotional rates for new users) are strong alternatives. Western Union costs more per transfer but is unbeatable for cash pickup in rural Pakistan. The key is to compare total received amount, not just fees — a provider with zero fees but a 2% exchange-rate markup will cost you more than one charging £3 but offering a tighter spread.",
       },
       {
         question: "How much does £1,000 convert to PKR right now?",
@@ -13264,12 +13264,13 @@ const rawBlogPosts: BlogPost[] = [
 
 <p>For a $1,000 transfer to Vietnam:</p>
 <ul>
-<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup — best value for most transfers</li>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup — the fee is the whole cost, since it converts at the mid-market rate</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive rate, fast bank deposit to Vietcombank, BIDV, Agribank</li>
 <li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Bank deposit and cash pickup options</li>
 <li><strong><a href="/companies/xe">XE</a></strong>: No fees, competitive rates for larger amounts</li>
 <li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but wide cash pickup network</li>
-</ul>`,
+</ul>
+<p>That list is editorial. On measured payouts, the USD to VND leader is {{CORRIDOR_LEADER:USD:VND}}.</p>`,
       },
       {
         heading: "What Do You Need to Send Money to Vietnam?",

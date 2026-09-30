@@ -475,7 +475,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       {
         question: "Which is better for sending money to India — Wise or Remitly?",
         answer:
-          "For transfers above $500/£400, Wise is usually better — its 0% exchange rate markup means you consistently get the best INR rate. For smaller or more urgent transfers, Remitly often wins — it charges $0 fees on many corridors, delivers via IMPS in minutes, and supports UPI delivery. Both are excellent, regulated, and safe. Compare them side-by-side for your specific amount using our comparison tool.",
+          "For transfers above $500/£400, Wise's pricing works in its favour — it converts at the mid-market rate, so its whole cost is a fee that weighs less as the amount grows. For smaller or more urgent transfers, Remitly is worth quoting — it charges $0 fees on many corridors, delivers via IMPS in minutes, and supports UPI delivery. On measured payouts, the USD to INR leader is {{CORRIDOR_LEADER:USD:INR}}. Both are regulated. Compare them side-by-side for your specific amount using our comparison tool.",
       },
       {
         question: "Can I send money to India for cash pickup if my recipient doesn't have a bank account?",

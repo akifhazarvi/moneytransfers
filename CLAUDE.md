@@ -92,8 +92,10 @@ what enforces it. Where a rule is not automated, it says how to check it.
    applies to any heading change.
 5. **No unmeasured superlative, score or typed rating.** No `N/10` score, no
    "Best Overall", no "consistently / always cheapest", no "cheapest for most
-   …", no hand-crowned "Cheapest …" table label, no hand-typed Trustpilot
-   score or average markup. Say what we measured —
+   …" or "best EUR rates for most corridors", no "consistently offers the best
+   rate / ranks highest", no hand-crowned "Cheapest …" table label, no
+   hand-typed Trustpilot score or average markup. `messages/*.json` is in
+   scope — the homepage FAQ lives there and went unscanned until 2026-09-29. Say what we measured —
    `{{CORRIDOR_LEADER:USD:INR}}`, `{{LEADS_SHORT:wise}}`,
    `{{AVG_MARKUP_PCT:slug}}`, `{{TRUSTPILOT:slug}}` — or label an editorial
    pick "Editor's pick". Never say the UK left SEPA: the EPC kept it in

@@ -258,7 +258,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Sri Lanka?",
         answer:
-          "Wise, Remitly, and Western Union Digital consistently offer the best rates on the GBP-to-LKR and USD-to-LKR corridors. For transfers from the Middle East, local providers like Al Ahalia and UAE Exchange often compete well. Always compare the total LKR received — the exchange rate spread is the main cost driver.",
+          "On USD to LKR, the measured leader is {{CORRIDOR_LEADER:USD:LKR}}; on GBP to LKR it is {{CORRIDOR_LEADER_SHORT:GBP:LKR}}. For transfers from the Middle East, local providers like Al Ahalia and UAE Exchange often compete well. Always compare the total LKR received — the exchange rate spread is the main cost driver.",
       },
       {
         question: "How long does a transfer to Sri Lanka take?",
@@ -300,7 +300,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to the Philippines?",
         answer:
-          "Wise and Instarem consistently offer the best exchange rates on the USD-to-PHP corridor. Remitly is competitive for smaller amounts and is popular for GCash delivery. For Gulf countries, companies like LuLu Exchange and UAE Exchange often have competitive PHP rates. Always compare total PHP received rather than looking at fees alone — rate markup is the primary cost.",
+          "On USD to PHP, the measured leader is {{CORRIDOR_LEADER:USD:PHP}}. Remitly is competitive for smaller amounts and is popular for GCash delivery. For Gulf countries, companies like LuLu Exchange and UAE Exchange often have competitive PHP rates. Always compare total PHP received rather than looking at fees alone — rate markup is the primary cost.",
       },
       {
         question: "How do I send money directly to GCash?",
@@ -530,7 +530,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Japan?",
         answer:
-          "Wise consistently offers the best JPY exchange rates internationally, typically within 0.4% of the mid-market rate. For USD-to-JPY, OFX and CurrencyFair are also competitive for larger amounts. Remitly and WorldRemit cover Japan for smaller everyday transfers. The JPY trades in high volume globally, so rate spreads are generally lower than for emerging market currencies.",
+          "On USD to JPY, the measured leader is {{CORRIDOR_LEADER:USD:JPY}}. OFX and CurrencyFair are also worth quoting for larger amounts. Remitly and WorldRemit cover Japan for smaller everyday transfers. The JPY trades in high volume globally, so rate spreads are generally lower than for emerging market currencies.",
       },
       {
         question: "How long does a bank transfer to Japan take?",
@@ -1111,7 +1111,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to the UK?",
         answer:
-          "Wise consistently offers the best GBP exchange rate for international transfers, typically within 0.4% of the mid-market rate. For USD-to-GBP, OFX and CurrencyFair are also competitive for larger amounts. Remitly covers the UK for everyday transfers. GBP is a highly liquid currency, so rate spreads tend to be lower than for emerging market currencies.",
+          "On USD to GBP, the measured leader is {{CORRIDOR_LEADER:USD:GBP}}; from the eurozone it is {{CORRIDOR_LEADER_SHORT:EUR:GBP}}. For USD-to-GBP, OFX and CurrencyFair are also worth quoting for larger amounts. Remitly covers the UK for everyday transfers. GBP is a highly liquid currency, so rate spreads tend to be lower than for emerging market currencies.",
       },
       {
         question: "How long does a transfer to the UK take?",
@@ -1158,7 +1158,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Australia?",
         answer:
-          "Wise offers the best AUD exchange rates for most corridors, typically within 0.5% of the mid-market rate. For USD-to-AUD, OFX is also competitive — particularly for amounts above $5,000. Remitly covers Australia for everyday amounts. AUD is a liquid major currency, so the rate difference between providers (typically 0.5–2%) is narrower than for emerging market currencies.",
+          "From the UK, the measured GBP to AUD leader is {{CORRIDOR_LEADER:GBP:AUD}}. For USD-to-AUD, OFX is worth quoting — particularly for amounts above $5,000 — and Remitly covers Australia for everyday amounts. AUD is a liquid major currency, so the rate difference between providers is narrower than for emerging market currencies.",
       },
       {
         question: "How long does a transfer to Australia take?",
@@ -1200,7 +1200,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Canada?",
         answer:
-          "Wise offers the best CAD exchange rates for most corridors. For USD-to-CAD, OFX and Wise are both very competitive. Remitly covers Canada for everyday transfers. Given CAD's high liquidity, the rate spread between providers is typically only 0.3–1.5% — compare fees as these become proportionally more important.",
+          "On USD to CAD, the measured leader is {{CORRIDOR_LEADER:USD:CAD}}; from the UK it is {{CORRIDOR_LEADER_SHORT:GBP:CAD}}. Remitly covers Canada for everyday transfers. Given CAD's high liquidity, the rate spread between providers is narrow — compare fees as these become proportionally more important.",
       },
       {
         question: "How long does a transfer to Canada take?",
@@ -1242,7 +1242,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to New Zealand?",
         answer:
-          "Wise offers the best NZD exchange rates for most corridors, followed by OFX for larger amounts. Remitly covers New Zealand for everyday transfers. For transfers from Australia, Wise and OFX offer very competitive AUD-to-NZD rates given the closely linked currencies.",
+          "From the UK, the measured GBP to NZD leader is {{CORRIDOR_LEADER:GBP:NZD}}; from Australia it is {{CORRIDOR_LEADER_SHORT:AUD:NZD}}. OFX is worth quoting for larger amounts, and Remitly covers New Zealand for everyday transfers.",
       },
       {
         question: "How long does a transfer to New Zealand take?",
@@ -1358,7 +1358,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Europe?",
         answer:
-          "Wise offers the best EUR exchange rate for most corridors, typically within 0.3–0.5% of the mid-market rate. For USD-to-EUR, OFX and Wise are extremely competitive. For GBP-to-EUR, Wise and Revolut both offer near mid-market rates. The EUR's high liquidity keeps rate spreads very tight across providers.",
+          "On USD to EUR, the measured leader is {{CORRIDOR_LEADER:USD:EUR}}; on GBP to EUR it is {{CORRIDOR_LEADER_SHORT:GBP:EUR}}. The EUR's high liquidity keeps rate spreads very tight across providers.",
       },
       {
         question: "How do I send money via SEPA to Europe?",
@@ -1400,7 +1400,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Germany?",
         answer:
-          "Wise and Revolut offer the best EUR rates for most currencies. For USD-to-EUR, OFX is also competitive for amounts above $3,000. Given Germany's EUR use and SEPA connectivity, the fee structure matters more than the exchange rate spread — both are generally very low for major currency pairs.",
+          "Which provider delivers the most euros depends on the currency you send from — the live comparison on this page ranks them for USD, and OFX is worth quoting for amounts above $3,000. Given Germany's EUR use and SEPA connectivity, the fee structure matters more than the exchange rate spread — both are generally very low for major currency pairs.",
       },
       {
         question: "What IBAN format do German banks use?",

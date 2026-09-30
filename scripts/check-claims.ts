@@ -19,6 +19,10 @@
  *                   Negations ("not always the cheapest") are fine. Use
  *                   {{CORRIDOR_LEADER:FROM:TO}} or {{LEADS_SHORT:slug}}.
  *   cheapest-most   "cheapest for most corridors / people / currencies".
+ *   best-most       "the best EUR rates for most corridors", "best value for
+ *                   most transfers" — cheapest-most without the word.
+ *   consistently-best "consistently offer the best rates", "consistently ranks
+ *                   highest", "consistently rated #1". Use {{CORRIDOR_LEADER:…}}.
  *   cheapest-label  a table row labelled "Cheapest …" beside a named provider.
  *   uk-sepa         "the UK is no longer part of SEPA" — false: the EPC kept the UK in
  *                   SEPA after Brexit, as a non-EEA member (BIC + payer address needed).
@@ -34,9 +38,15 @@
  *                   {{BANK_MEDIAN}}. Lower the baseline when you fix some:
  *                   `npx tsx scripts/check-claims.ts --update-baseline`.
  *   invented-example table cells marked "(example)" holding made-up payouts.
+ *   provider-best-rate "Wise offers the best KRW rates", "Instarem often has the
+ *                   most competitive SGD/BDT rates" — a provider crowned on a
+ *                   route by hand. Use {{CORRIDOR_LEADER:FROM:TO}}.
  *
  * Scope: src/**\/*.ts(x) except scraped data, comment lines, and
- * ai-prompt-benchmark.ts (prompts we send to AI assistants, not page copy).
+ * ai-prompt-benchmark.ts (prompts we send to AI assistants, not page copy);
+ * and messages/*.json — the i18n catalogue holds the homepage FAQ, and went
+ * unscanned until 2026-09-29, when "Wise consistently ranks highest" was
+ * found in it by an outside audit rather than by this check.
  *
  * BUILT PASS (--built, postbuild): a corridor page that holds ONE estimate
  * ("…is the only estimate we hold…") must not be titled "Cheapest" or "Best" —
@@ -49,6 +59,7 @@ import { join } from "node:path";
 
 const ROOT = join(__dirname, "..");
 const SRC = join(ROOT, "src");
+const MESSAGES = join(ROOT, "messages");
 const BASELINE = join(__dirname, "claims-baseline.json");
 const SKIP_FILES = new Set(["ai-prompt-benchmark.ts"]);
 
@@ -59,7 +70,9 @@ interface Rule {
   allow?: (before: string, match: string, after: string) => boolean;
 }
 
-const NEGATED = /\b(?:not|never|isn['’]t|aren['’]t|assuming (?:any )?(?:one )?(?:provider )?(?:is )?)\s*(?:\w+\s+){0,2}$/i;
+const NEGATED = /\b(?:not|never|isn['’]t|aren['’]t|don['’]t|doesn['’]t|assuming (?:any )?(?:one )?(?:provider )?(?:is )?)\s*(?:\w+\s+){0,2}$/i;
+// "No single provider has the best rate on most corridors" denies the claim.
+const NO_SINGLE = /\bno (?:single )?(?:provider|app|service)\b[^.]*$/i;
 
 const HARD: Rule[] = [
   { id: "score", re: /(?<![\d.$£€/-])\b\d{1,2}(?:\.\d)?\s?\/\s?10\b(?![\d/])/g },
@@ -71,6 +84,24 @@ const HARD: Rule[] = [
     allow: (before, _m, after) => NEGATED.test(before) || /^\s*[^.!]*\?/.test(after) && /\b(?:is|are)\s+\w+\s*$/i.test(before),
   },
   { id: "cheapest-most", re: /\bcheapest\s+(?:option\s+|provider\s+|choice\s+)?(?:for|on|in|across)\s+(?:most|the majority)\b/gi },
+  // The same claim without the word "cheapest". Six country FAQs said "Wise
+  // offers the best EUR/AUD/CAD/NZD rates for most corridors" while their own
+  // route's leader was someone else — USD→EUR: InstaReM, 89 of 91 days
+  // (2026-09-29). "No single provider has the best rate on most corridors" is fine.
+  {
+    id: "best-most",
+    re: /\bbest\s+(?:[A-Z]{3}\s+)?(?:exchange\s+|FX\s+)?(?:rates?|value|choice|option|deal)\s+(?:for|on|in|across)\s+(?:most|the majority)\b/gi,
+    allow: (before) => NEGATED.test(before) || NO_SINGLE.test(before),
+  },
+  // "consistently offer the best rates", "consistently ranks highest",
+  // "consistently rated #1": a standing lead nothing measured — the homepage
+  // FAQ said it of Wise, a Sri Lanka FAQ of three providers that led none of it.
+  {
+    id: "consistently-best",
+    re: /\b(?:consistently|always|reliably|invariably)\s+(?:(?:offers?|gives?|has|have|gets?|provides?)\s+)?(?:the\s+)?(?:best|highest|top|tightest|lowest|most\s+competitive)\s+(?:[A-Z]{3}(?:\/[A-Z]{3})?\s+)?(?:rates?|exchange\s+rates?|value|deal|payouts?|spreads?|(?:exchange\s+rate\s+)?margins?)\b|\b(?:consistently|always|reliably|invariably)\s+(?:ranks?|rated|scores?)\s+(?:the\s+|as\s+)?(?:highest|top|first|best|#1|among)\b/gi,
+    // "compare who consistently gives the best deal" asks; it does not claim.
+    allow: (before) => NEGATED.test(before) || /\b(?:who|which(?:\s+\w+)?)\s*$/i.test(before),
+  },
   // A quick-pick table row that crowns a provider "Cheapest …" by hand. Wise
   // was labelled "Cheapest (US → UK)" where InstaReM led USD→GBP on 91 of 91
   // days. Live tokens ({{BEST_PROVIDER:…}}) are fine — they are not typed.
@@ -91,6 +122,21 @@ const RATCHET: Rule[] = [
   // "₦2,050,000 (example)": invented figures in a table dressed as a comparison.
   // Replace with {{QUOTE_TABLE:…}} or {{BEST_PROVIDER:…}}/{{BEST_RECEIVE:…}}.
   { id: "invented-example", re: /\(example\)<\/td>/g },
+  // "Wise offers the best KRW rates", "Instarem often has the most competitive
+  // SGD/BDT rates": a named provider crowned on a route, unmeasured. ~30 sit in
+  // the March country and corridor copy; the absolute forms ("consistently …")
+  // are HARD above. Replace with {{CORRIDOR_LEADER:…}} as you touch them.
+  // Questions ("Which provider has the best rate?") and generic subjects
+  // ("a platform that offers the best rate for GBP-to-INR") are not claims.
+  {
+    id: "provider-best-rate",
+    re: /\b(?:offers?|provides?|gives?|has|have)\s+(?:the\s+)?(?:best|tightest|most\s+competitive)\s+(?:[A-Z]{3}(?:\/[A-Z]{3})?\s+)?(?:exchange\s+rates?|rates?|spreads?|(?:exchange\s+rate\s+)?margins?)\b/gi,
+    allow: (before, _m, after) =>
+      /^[^.!]*\?/.test(after) ||
+      NEGATED.test(before) ||
+      NO_SINGLE.test(before) ||
+      /\b(?:which|who|whichever|what|that|some|any)\s+(?:\w+\s+){0,2}(?:(?:often|usually|typically|tends? to)\s+)?$/i.test(before),
+  },
   {
     id: "markup-figure",
     re: /within\s+(?:about\s+|roughly\s+|~)?\d+(?:\.\d+)?\s*%?(?:\s*[–-]\s*\d+(?:\.\d+)?\s*)?%\s+of\s+(?:the\s+)?(?:mid-market|interbank|real)|\b\d+(?:\.\d+)?\s*%?\s*[–-]\s*\d+(?:\.\d+)?\s*%\s*(?:exchange[- ]rate\s+|FX\s+)?mark-?ups?\b/gi,
@@ -109,7 +155,11 @@ function walk(dir: string, out: string[] = []): string[] {
 
 interface Hit { rule: string; file: string; line: number; text: string }
 const hits: Hit[] = [];
-for (const file of walk(SRC)) {
+const files = [
+  ...walk(SRC),
+  ...readdirSync(MESSAGES).filter((n) => n.endsWith(".json")).map((n) => join(MESSAGES, n)),
+];
+for (const file of files) {
   const lines = readFileSync(file, "utf8").split("\n");
   lines.forEach((line, i) => {
     const t = line.trimStart();
