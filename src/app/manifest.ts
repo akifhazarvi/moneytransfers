@@ -20,7 +20,7 @@ export default function manifest(): MetadataRoute.Manifest {
       "Compare fees, exchange rates and delivery times from leading providers to find the cheapest way to send money internationally.",
     lang: "en",
     dir: "ltr",
-    start_url: "/",
+    start_url: "/send-money",
     scope: "/",
     display: "standalone",
     display_override: ["standalone", "minimal-ui"],

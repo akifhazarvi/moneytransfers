@@ -612,18 +612,6 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
               const tiedMarks = sortBy === "receiveAmount" ? tiedAboveLargerPayout(filteredQuotes) : new Set<string>();
               return filteredQuotes.map((quote, index) => (
                 <Fragment key={quote.providerSlug}>
-                {/* Sponsored TapTap block, ABOVE the ranked list — the paid slot
-                    sits outside the ranking, labelled "Sponsored", and the list
-                    below still opens with the measured best value. Skipped when
-                    TapTap IS the top card: the reader would meet one provider
-                    twice before a second one. */}
-                {index === 0 && partnerQuote && quote.providerSlug !== "taptap-send" && (
-                  <PartnerFeatureBlock
-                    source="taptap_spotlight:send-money"
-                    variant="card"
-                    quote={{ fromCurrency, toCurrency, sendAmount: amount, receiveAmount: partnerQuote.receiveAmount, exchangeRate: partnerQuote.exchangeRate, fee: partnerQuote.fee }}
-                  />
-                )}
                 <ProviderCard
                   quote={quote}
                   sendCurrencySymbol={sendCurrency?.symbol || "$"}
@@ -641,6 +629,15 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
                   tiedAhead={tiedMarks.has(quote.providerSlug)}
                   badge={insight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug)}
                 />
+                {/* The ranked result answers the search first; a clearly labelled
+                    partner placement follows it without changing the ranking. */}
+                {index === 0 && partnerQuote && quote.providerSlug !== "taptap-send" && (
+                  <PartnerFeatureBlock
+                    source="taptap_spotlight:send-money"
+                    variant="card"
+                    quote={{ fromCurrency, toCurrency, sendAmount: amount, receiveAmount: partnerQuote.receiveAmount, exchangeRate: partnerQuote.exchangeRate, fee: partnerQuote.fee }}
+                  />
+                )}
                 </Fragment>
               ));
             })()}
@@ -690,6 +687,8 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
           </div>
         )}
       </div>
+
+      <div data-pwa-install-slot="comparison-end" className="min-h-px" />
 
       {/* Crypto / stablecoin rails for this corridor — self-hides when the
           corridor has no crypto data (e.g. USD→GBP), so it only appears on

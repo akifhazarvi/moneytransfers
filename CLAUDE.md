@@ -163,14 +163,26 @@ The site installs as an app on Android, iOS, macOS, Windows and ChromeOS.
 - **Install flow**: `PWA_INLINE` (inline-scripts.ts, hashed) captures Chromium's
   one-shot `beforeinstallprompt` before hydration. `src/lib/pwa.ts` names the
   platform path (`prompt`, `ios-safari`, `mac-safari`, `android`, …). Surfaces:
-  the header "Download app" pill (desktop, SSR'd `invisible` so the header never shifts), the
-  mobile-menu row, and `InstallPrompt` — top-docked, from the 2nd page view,
-  once per session, 30-day snooze on dismissal, never before cookie consent.
-  Safari has no API, so iOS/macOS get step-by-step `InstallDialog` instructions.
-- **In the app** (`display-mode: standalone`): `.pwa-hide-standalone` drops the
-  install buttons and `.pwa-lift` raises every bottom-docked bar by the iPhone
-  home-indicator inset, matching ForexTicker — both CSS, so they hold at first
-  paint.
+  the header "Install app" pill (desktop, SSR'd `invisible` so the header never shifts), the
+  mobile-menu row, and `InstallPrompt` — an **in-flow banner**, never fixed.
+  Pages mark where it may appear with `<InstallSlot placement="…">`
+  (`data-pwa-install-slot`; the layout adds `article-end`, /send-money has
+  `comparison-end` after the results); `PwaManager` portals the one offer into
+  the first slot once the reader scrolls it into view — from the 2nd page view,
+  never while a form field has focus or a dialog is open, never on /go, /out,
+  /privacy, /terms, once per session, 30-day snooze, never before cookie
+  consent. Copy follows the placement prefix (`business-*`, `guide*`, other);
+  `pwa_install_prompt_shown` carries `placement`. Safari has no API, so
+  iOS/macOS get step-by-step `InstallDialog` instructions.
+- **In the app** (`display-mode: standalone` or `minimal-ui`, or
+  `html[data-app-mode="true"]` set by PwaManager): `.pwa-hide-standalone` drops
+  the install buttons and desktop nav, `.pwa-app-nav` shows a Compare / Rates /
+  Guides bar under the header, `.pwa-secondary-chrome` hides the back-to-top
+  and WhatsApp pills, and `.pwa-lift` raises every bottom-docked bar by the
+  iPhone home-indicator inset, matching ForexTicker — all CSS, so they hold at
+  first paint. `start_url` is `/send-money` (the task); `id: "/"` is fixed, so
+  existing installs keep their identity. `OfflineNotice` renders in the layout,
+  sticky under the header, not fixed over it.
 - **Events** (dual-sinked): `pwa_install_prompt_shown`, `pwa_install_clicked`
   (`surface`, `platform`), `pwa_install_outcome`, `pwa_install_prompt_dismissed`,
   `pwa_installed` (`install_method`: `appinstalled` on Chromium, `first_launch`

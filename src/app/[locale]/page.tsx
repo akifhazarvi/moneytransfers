@@ -1,3 +1,4 @@
+import InstallSlot from "@/components/pwa/InstallSlot";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
@@ -284,6 +285,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
         <LazyHomeDynamicSection />
       </HomeSelectionProvider>
+      <Container><InstallSlot placement="home-after-comparison" /></Container>
 
       {/* ─── TRUST STRIP + WHY TRUST US — collapsed on mobile to keep Send CTAs near the fold ─── */}
       <MobileDetailsRail label={`Why trust SendMoneyCompare`}>

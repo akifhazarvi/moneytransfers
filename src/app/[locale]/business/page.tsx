@@ -1,3 +1,4 @@
+import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -308,6 +309,8 @@ export default async function BusinessHubPage({
           </div>
         </Container>
       </section>
+
+      <Container><InstallSlot placement="business-after-benchmark" /></Container>
 
       {/* ─── Subpage cards ─── */}
       <section className="py-10 bg-[var(--color-surface-dim)]">

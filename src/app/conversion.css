@@ -164,3 +164,8 @@
  .inline-quotes-payout { text-align: left; }
  .inline-quotes-header h3 { font-size: 20px; }
 }
+
+/* The comparison form is the primary task, including on installed-app launch. */
+.conversion-hero.conversion-hero--compare { padding-top: 20px; padding-bottom: 20px; }
+.conversion-hero--compare h1 { font-size: clamp(28px, 4vw, 42px); }
+.conversion-hero--compare > p { margin-top: 10px; max-width: 42rem; }

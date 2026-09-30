@@ -9,7 +9,7 @@ test.describe("installability", () => {
     expect(res.headers()["content-type"]).toContain("application/manifest+json");
 
     const m = await res.json();
-    expect(m).toMatchObject({ id: "/", start_url: "/", scope: "/", display: "standalone", short_name: "SendMoney" });
+    expect(m).toMatchObject({ id: "/", start_url: "/send-money", scope: "/", display: "standalone", short_name: "SendMoney" });
 
     const icons: Icon[] = m.icons;
     expect(icons.some((i) => i.sizes === "192x192" && i.type === "image/png" && i.purpose?.includes("any"))).toBe(true);

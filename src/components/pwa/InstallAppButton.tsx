@@ -51,15 +51,15 @@ export default function InstallAppButton({ variant, onClick }: { variant: "heade
         // The label shows from xl; at lg (1024–1279) it would wrap the nav's
         // "Send Money" / "Compare Apps" onto two lines, so the pill keeps
         // only its glyph there. aria-label keeps the name the same at both.
-        aria-label="Download app"
-        className={`pwa-hide-standalone hidden lg:inline-flex items-center gap-1.5 h-9 px-2.5 xl:pl-3 xl:pr-3.5 mr-1 rounded-full border border-[var(--color-outline)] text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200 whitespace-nowrap ${
+        aria-label="Install app"
+        className={`pwa-hide-standalone hidden lg:inline-flex items-center gap-1.5 min-h-12 px-2.5 xl:pl-3 xl:pr-3.5 mr-1 rounded-full border border-[var(--color-outline)] text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200 whitespace-nowrap ${
           available ? "" : "invisible"
         }`}
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" />
         </svg>
-        <span className="hidden xl:inline">Download app</span>
+        <span className="hidden xl:inline">Install app</span>
       </button>
     );
   }
@@ -76,7 +76,7 @@ export default function InstallAppButton({ variant, onClick }: { variant: "heade
         <rect x="6.5" y="2.5" width="11" height="19" rx="2.5" strokeWidth={1.5} />
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 7v7m0 0-2.5-2.5M12 14l2.5-2.5M10.5 18.5h3" />
       </svg>
-      Download the app
+      Install the app
     </button>
   );
 }

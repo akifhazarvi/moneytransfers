@@ -1008,10 +1008,21 @@ tbody tr:first-child .smc-send:not(.smc-send-sm):focus-visible { opacity: 0.9; }
      same inset, or the ticker covers the bottom 34px of the Send card.
      margin-bottom moves a fixed box whether it is anchored at bottom-0 or at
      an offset. Scoped to standalone so browser tabs render exactly as before. */
-@media (display-mode: standalone) {
+@media (display-mode: standalone), (display-mode: minimal-ui) {
   .pwa-hide-standalone { display: none !important; }
   .pwa-lift { margin-bottom: env(safe-area-inset-bottom, 0px); }
+  :root { --pwa-nav-display: grid; --pwa-scroll-offset: calc(8rem + env(safe-area-inset-top, 0px)); --pwa-header-height: calc(120px + env(safe-area-inset-top, 0px)); --pwa-top-inset: env(safe-area-inset-top, 0px); }
+  .pwa-secondary-chrome { display: none !important; }
 }
+html[data-app-mode="true"] { --pwa-nav-display: grid; --pwa-scroll-offset: calc(8rem + env(safe-area-inset-top, 0px)); --pwa-header-height: calc(120px + env(safe-area-inset-top, 0px)); --pwa-top-inset: env(safe-area-inset-top, 0px); }
+html[data-app-mode="true"] .pwa-hide-standalone { display: none !important; }
+.site-header { padding-top: var(--pwa-top-inset, 0px); }
+.pwa-app-nav { display: var(--pwa-nav-display, none); grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 0 0 8px; }
+.pwa-app-nav a { display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 12px; font-size: 14px; color: var(--color-on-surface-variant); }
+.pwa-app-nav a[aria-current="page"] { background: var(--color-surface-dim); color: var(--color-on-surface); font-weight: 650; }
+.pwa-app-nav a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -2px; }
+html[data-app-mode="true"] .pwa-secondary-chrome { display: none !important; }
+#comparison-results { scroll-margin-top: var(--pwa-scroll-offset, 6rem); }
 
 
 /* ─── Provider cross-sell ────────────────────────────────────────────────
@@ -1079,4 +1090,32 @@ tbody tr:first-child .smc-send:not(.smc-send-sm):focus-visible { opacity: 0.9; }
   :is(.prose-content, .prose-custom) .editorial-table-hint { display: block; font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.75rem; color: var(--color-on-surface-variant); margin: 1rem 0 0.5rem; }
   .editorial-table-hint + .editorial-table-scroll { margin-top: 0; }
   .editorial-table-hint::before { content: "Scroll horizontally to see all columns →"; }
+}
+
+/* In-flow PWA offer: one shared surface, contextual copy, explicit install action. */
+.pwa-install-banner { display:grid; grid-template-columns:56px minmax(0,1fr) 190px; gap:24px; align-items:center; padding:28px; margin:28px auto; max-width:1040px; border:1px solid var(--color-outline); border-radius:24px; background:var(--color-surface-dim); color:var(--color-on-surface); }
+.pwa-install-brand { align-self:start; }
+.pwa-install-brand img { border-radius:15px; width:56px; height:56px; }
+.pwa-install-eyebrow { margin:0 0 8px; font-size:11px; line-height:1.5; font-weight:600; color:var(--color-on-surface-variant); }
+.pwa-install-title { margin:0; font-size:clamp(20px,2.5vw,25px); font-weight:600; letter-spacing:-.025em; line-height:1.2; }
+.pwa-install-description { margin:12px 0; font-size:14px; line-height:1.65; color:var(--color-on-surface-variant); }
+.pwa-install-note { font-size:12px; line-height:1.6; color:var(--color-on-surface-variant); margin:0; }
+.pwa-install-note span { padding:0 5px; }
+.pwa-install-actions { display:flex; flex-direction:column; align-items:stretch; gap:4px; text-align:center; }
+.pwa-install-later { min-height:48px; border-radius:14px; font-size:13px; cursor:pointer; color:var(--color-on-surface-variant); }
+.pwa-install-later:hover { background:var(--color-surface); }
+.pwa-install-later:focus-visible { outline:3px solid #48a981; outline-offset:3px; }
+.pwa-install-actions > p { margin:4px 0 0; font-size:11px; line-height:1.6; color:var(--color-on-surface-variant); }
+@media(max-width:700px) {
+ .pwa-install-banner { grid-template-columns:40px minmax(0,1fr); gap:16px; padding:22px; border-radius:20px; }
+ .pwa-install-brand img { width:40px; height:40px; border-radius:11px; }
+ .pwa-install-actions { grid-column:1 / -1; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; }
+ .pwa-install-actions > p { grid-column:1 / -1; margin-top:0; }
+}
+@media(prefers-reduced-motion:reduce) { .pwa-install-banner * { transition:none; } }
+@media(max-width:700px) {
+ .pwa-install-banner { position:relative; }
+ .pwa-install-brand { position:absolute; top:22px; left:22px; }
+ .pwa-install-copy { grid-column:1 / -1; }
+ .pwa-install-eyebrow { display:flex; align-items:center; min-height:40px; padding-left:56px; margin-bottom:12px; }
 }

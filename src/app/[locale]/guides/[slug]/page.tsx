@@ -1,3 +1,4 @@
+import InstallSlot from "@/components/pwa/InstallSlot";
 import { notFound } from "next/navigation";
 import { guideIsIndexable } from "@/lib/guide-status";
 import Link from "next/link";
@@ -438,6 +439,8 @@ export default async function BlogPostPage({ params }: Props) {
                 )}
               </section>
             ))}
+
+            <InstallSlot placement="guide-after-reading" />
 
             {/* HowTo Steps — visual rendering */}
             {post.howToSteps && post.howToSteps.length > 0 && (

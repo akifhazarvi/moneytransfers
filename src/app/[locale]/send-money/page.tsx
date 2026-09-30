@@ -133,20 +133,19 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
       />
       {/* Server-rendered SEO content — visible to crawlers */}
       <Container>
-        <header className="conversion-hero">
-          <p className="conversion-eyebrow">Compare international money transfers</p>
+        <header className="conversion-hero conversion-hero--compare">
           {/* The H1 names the page's subject — the title's "Send Money Abroad"
               — rather than a slogan, and stays distinct from the <title>. */}
-          <h1>{locale === "en" ? "Send money abroad: see what arrives before you pay" : heading}</h1>
-          <p>{locale === "en" ? "Compare international transfers by what arrives, with fees and delivery times in view." : subheading}</p>
-          <div className="mt-4">
-            <PageByline updated={quoteDataDate ?? new Date().toISOString().split("T")[0]} />
-          </div>
+          <h1>{locale === "en" ? "Compare money transfers" : heading}</h1>
+          <p>{locale === "en" ? "See what arrives after fees. Choose a provider to complete your transfer." : subheading}</p>
         </header>
       </Container>
 
       {/* Interactive client widget — replaces static table once JS loads */}
       <SendMoneyClient initialCryptoRails={getCryptoRailSectionData("USD", "INR", 1000)} />
+      <Container className="py-6">
+        <PageByline updated={quoteDataDate ?? new Date().toISOString().split("T")[0]} />
+      </Container>
 
       {/* Server-rendered default quotes table — always in the HTML for SEO */}
       <Container>

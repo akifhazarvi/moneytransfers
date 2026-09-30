@@ -105,7 +105,7 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-[color-mix(in_srgb,var(--color-surface)_78%,transparent)] backdrop-blur-xl supports-[backdrop-filter]:bg-[color-mix(in_srgb,var(--color-surface)_72%,transparent)] shadow-[var(--shadow-xs)]">
+    <header className="site-header sticky top-0 z-50 bg-[color-mix(in_srgb,var(--color-surface)_78%,transparent)] backdrop-blur-xl supports-[backdrop-filter]:bg-[color-mix(in_srgb,var(--color-surface)_72%,transparent)] shadow-[var(--shadow-xs)]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
@@ -123,7 +123,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1">
+          <nav aria-label="Main navigation" className="pwa-hide-standalone hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
               const active = link.href === "/" ? pathname === "/" : pathname === link.href || pathname.startsWith(link.href + "/");
               return (
@@ -243,6 +243,17 @@ export default function Header() {
             <InstallAppButton variant="menu" onClick={() => setMobileOpen(false)} />
           </nav>
         )}
+        <nav className="pwa-app-nav" aria-label="App navigation">
+          {[
+            { href: "/send-money", label: "Compare" },
+            { href: "/exchange-rates", label: "Rates" },
+            { href: "/guides", label: "Guides" },
+          ].map(({ href, label }) => (
+            <Link key={href} href={href}
+              aria-current={pathname === href || pathname.startsWith(`${href}/`) ? "page" : undefined}
+              onClick={() => setMobileOpen(false)}>{label}</Link>
+          ))}
+        </nav>
       </div>
     </header>
   );

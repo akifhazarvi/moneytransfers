@@ -8,9 +8,9 @@ import { test, expect, installPrompt, offerInstallPrompt, trackedEvents } from "
 async function clickInstallEntry(page: Page, isMobile: boolean) {
   if (isMobile) {
     await page.getByRole("button", { name: "Toggle menu" }).click();
-    await page.getByRole("button", { name: "Download the app" }).click();
+    await page.getByRole("button", { name: "Install the app" }).click();
   } else {
-    await page.getByRole("button", { name: "Download app", exact: true }).click();
+    await page.getByRole("button", { name: "Install app", exact: true }).click();
   }
 }
 
@@ -37,21 +37,24 @@ test.describe("install on Chromium", () => {
     await expect(dialog).toHaveCount(0);
   });
 
-  test("the prompt waits for a second page view, sits clear of the Send bars, and installs", async ({ page, context }) => {
+  test("the prompt waits for engagement and the end of results, then installs", async ({ page, context }) => {
     await offerInstallPrompt(context, "accepted");
     await page.goto("/");
     await page.waitForTimeout(5_500);
     await expect(installPrompt(page), "never on the landing page view").toHaveCount(0);
 
     await page.goto("/send-money");
+    await page.waitForTimeout(5_500);
+    await expect(installPrompt(page)).toHaveCount(0);
+    await page.locator("[data-pwa-install-slot]").first().scrollIntoViewIfNeeded();
     const prompt = installPrompt(page);
     await expect(prompt).toBeVisible({ timeout: 15_000 });
     await expect(prompt).toContainText("Install the SendMoneyCompare app");
 
-    // Docked in the top half: the bottom belongs to StickyBestCTA & co.
-    const box = await prompt.boundingBox();
-    const viewport = page.viewportSize();
-    expect(box && viewport && box.y + box.height).toBeLessThan((viewport?.height ?? 0) / 2);
+    // In document flow after the results, never laid over a provider action.
+    // Mobile sets `relative` to anchor the icon — still in flow; fixed/sticky are not.
+    expect(await prompt.evaluate((node) => getComputedStyle(node).position)).toMatch(/^(?:static|relative)$/);
+    await expect(page.locator('[data-pwa-install-slot="comparison-end"]')).toContainText("Install the SendMoneyCompare app");
 
     await prompt.getByRole("button", { name: "Install", exact: true }).click();
     await expect.poll(() => page.evaluate(() => window.__installPromptCalls)).toBe(1);
@@ -63,6 +66,7 @@ test.describe("install on Chromium", () => {
     await offerInstallPrompt(context, "accepted");
     await page.goto("/");
     await page.goto("/send-money");
+    await page.locator("[data-pwa-install-slot]").first().scrollIntoViewIfNeeded();
     const prompt = installPrompt(page);
     await expect(prompt).toBeVisible({ timeout: 15_000 });
     await prompt.getByRole("button", { name: "Not now" }).click();
@@ -80,6 +84,7 @@ test.describe("install on Chromium", () => {
     await offerInstallPrompt(context, "dismissed");
     await page.goto("/");
     await page.goto("/send-money");
+    await page.locator("[data-pwa-install-slot]").first().scrollIntoViewIfNeeded();
     const prompt = installPrompt(page);
     await expect(prompt).toBeVisible({ timeout: 15_000 });
     await prompt.getByRole("button", { name: "Install", exact: true }).click();
@@ -126,9 +131,9 @@ test.describe("install on Chromium", () => {
     await page.reload();
     if (isMobile) {
       await page.getByRole("button", { name: "Toggle menu" }).click();
-      await expect(page.getByRole("button", { name: "Download the app" })).toHaveCount(0);
+      await expect(page.getByRole("button", { name: "Install the app" })).toHaveCount(0);
     } else {
-      await expect(page.getByRole("button", { name: "Download app", exact: true })).toBeHidden();
+      await expect(page.getByRole("button", { name: "Install app", exact: true })).toBeHidden();
     }
   });
 });

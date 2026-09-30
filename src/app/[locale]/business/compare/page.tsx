@@ -1,3 +1,4 @@
+import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
@@ -209,6 +210,8 @@ export default async function BusinessComparePage({ params }: { params: Promise<
               amountLabel={amt}
             />
           </div>
+
+          <InstallSlot placement="business-after-finder" />
 
           {/* ── 02 · FEATURE MATRIX (static, for SEO + AI crawlers) ── */}
           <h2 id="matrix" className="mt-16 scroll-mt-28 text-2xl font-normal text-[var(--color-on-surface)]">

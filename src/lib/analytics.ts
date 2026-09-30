@@ -106,12 +106,12 @@ const corridor = (from: string, to: string) => `${from}-${to}`.toUpperCase();
 
 /** User submits the comparison widget */
 export function trackCompareSearch(from: string, to: string, amount: number) {
-  dual("compare_search", { from, to, amount, corridor: corridor(from, to) });
+  dual("compare_search", { from, to, amount, corridor: corridor(from, to), display_mode: displayMode() });
 }
 
 /** Quote results rendered with N providers */
 export function trackQuotesViewed(from: string, to: string, providerCount: number) {
-  dual("quotes_viewed", { from, to, provider_count: providerCount, corridor: corridor(from, to) });
+  dual("quotes_viewed", { from, to, provider_count: providerCount, corridor: corridor(from, to), display_mode: displayMode() });
 }
 
 /** User expands a provider card */
@@ -126,7 +126,7 @@ export function trackProviderExpanded(provider: string, rank: number, corridorSt
  * don't conflate. Dedup unique-session counts in GA4 Explorations / BigQuery,
  * not at emit time — keeps the raw signal recoverable. */
 export function trackProviderClicked(provider: string, corridorStr: string, rank: number, source?: string) {
-  dual("provider_clicked", { provider, corridor: corridorStr, rank, source: source || "results" });
+  dual("provider_clicked", { provider, corridor: corridorStr, rank, source: source || "results", display_mode: displayMode() });
 }
 
 /** Partner placements are measured separately from ranked quote results. */
@@ -332,8 +332,8 @@ export function trackWhatsappDismiss(source: string) {
 // ═════════════════════════════════════════════════════════════════
 
 /** The engagement-gated install prompt appeared. Denominator for the funnel. */
-export function trackPwaPromptShown(platform: string) {
-  dual("pwa_install_prompt_shown", { platform });
+export function trackPwaPromptShown(platform: string, placement: string = "inline") {
+  dual("pwa_install_prompt_shown", { platform, placement });
 }
 
 /** User asked to install from one of our surfaces. */

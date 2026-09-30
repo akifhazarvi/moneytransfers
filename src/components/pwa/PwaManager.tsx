@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   MIN_VIEWS_BEFORE_PROMPT,
   OPEN_INSTALL_EVENT,
@@ -32,7 +33,6 @@ import {
   trackPwaPromptShown,
 } from "@/lib/analytics";
 import InstallPrompt from "./InstallPrompt";
-import OfflineNotice from "./OfflineNotice";
 
 // Only needed after a click, so it stays out of every page's first load.
 const InstallDialog = dynamic(() => import("./InstallDialog"), { ssr: false });
@@ -93,6 +93,7 @@ export default function PwaManager() {
   // The pathname the prompt was offered on. Navigating away hides it (and the
   // once-per-session rule keeps it from coming back until the next session).
   const [promptPath, setPromptPath] = useState<string | null>(null);
+  const [promptSlot, setPromptSlot] = useState<HTMLElement | null>(null);
   const [dialogSurface, setDialogSurface] = useState<string | null>(null);
   const platformRef = useRef<InstallPlatform | null>(null);
 
@@ -103,6 +104,7 @@ export default function PwaManager() {
     const update = () => {
       platformRef.current = detectInstallPlatform();
       setPlatform(platformRef.current);
+      document.documentElement.dataset.appMode = isStandalone() ? "true" : "false";
     };
     update();
     const unsubscribe = onInstallabilityChange(update);
@@ -110,6 +112,7 @@ export default function PwaManager() {
     const onInstalled = () => {
       window.__smcInstalled = 0;
       setPromptPath(null);
+      setDialogSurface(null);
       trackPwaInstalled(platformRef.current ?? "unknown");
     };
     window.addEventListener("smc:installed", onInstalled);
@@ -134,6 +137,7 @@ export default function PwaManager() {
     const onRequest = async (e: Event) => {
       const surface = (e as CustomEvent<{ surface?: string }>).detail?.surface ?? "unknown";
       const current = detectInstallPlatform();
+      if (current === "standalone" || current === "installed" || current === "unsupported") return;
       trackPwaInstallClicked(surface, current);
       setPromptPath(null);
       if (current === "prompt") {
@@ -150,40 +154,52 @@ export default function PwaManager() {
     return () => window.removeEventListener(OPEN_INSTALL_EVENT, onRequest);
   }, []);
 
-  // Each page view counts toward engagement; the offer comes on a later one.
+  // Views establish engagement; seeing the in-flow slot establishes placement.
+  // A second page view alone must never interrupt someone entering a transfer.
   useEffect(() => {
     const views = countPageView();
-    const eligible = views >= MIN_VIEWS_BEFORE_PROMPT && !promptAlreadyShownThisSession() && !promptSnoozed();
+    const eligible = views >= MIN_VIEWS_BEFORE_PROMPT && !promptAlreadyShownThisSession() && !promptSnoozed()
+      && !/^\/(?:en\/)?(?:go|out|privacy|terms)(?:\/|$)/.test(pathname);
+    let observer: IntersectionObserver | undefined;
     const timer = eligible
       ? setTimeout(() => {
-          // Re-read at fire time: Chromium's prompt may have arrived since mount.
-          const current = detectInstallPlatform();
-          if (!PROMPTABLE.has(current) || !navigator.onLine || !consentSettled()) return;
-          recordPromptShown();
-          trackPwaPromptShown(current);
-          setPromptPath(pathname);
+          const slot = document.querySelector<HTMLElement>("[data-pwa-install-slot]");
+          if (!slot) return;
+          observer = new IntersectionObserver(([entry]) => {
+            const current = detectInstallPlatform();
+            if (!entry.isIntersecting || !PROMPTABLE.has(current) || !navigator.onLine || !consentSettled()) return;
+            if (document.activeElement?.matches("input, textarea, select, [contenteditable=true]") || document.querySelector("dialog[open]")) return;
+            recordPromptShown();
+            trackPwaPromptShown(current, slot.dataset.pwaInstallSlot ?? "inline");
+            setPromptSlot(slot);
+            setPromptPath(pathname);
+            observer?.disconnect();
+          });
+          observer.observe(slot);
         }, PROMPT_DELAY_MS)
       : undefined;
     return () => {
       clearTimeout(timer);
+      observer?.disconnect();
       // Leaving the page withdraws the offer, so coming back does not revive it.
       setPromptPath(null);
+      setPromptSlot(null);
     };
   }, [pathname]);
 
   return (
     <>
-      <OfflineNotice />
-      {promptPath === pathname && platform && (
+      {promptPath === pathname && platform && promptSlot && createPortal(
         <InstallPrompt
           platform={platform}
-          onAccept={() => requestInstall("prompt")}
+          placement={promptSlot.dataset.pwaInstallSlot}
+          onAccept={() => requestInstall(promptSlot.dataset.pwaInstallSlot ?? "inline")}
           onDismiss={() => {
             snoozePrompt();
             trackPwaPromptDismissed(platform);
             setPromptPath(null);
           }}
-        />
+        />, promptSlot
       )}
       {dialogSurface && platform && (
         <InstallDialog

@@ -1,5 +1,8 @@
 "use client";
 
+import InstallSlot from "@/components/pwa/InstallSlot";
+
+
 import { useMemo, useRef, useState, type ReactNode } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import GuidePreview, { type GuideCard } from "@/components/GuidePreview";
@@ -68,6 +71,7 @@ export default function GuidesClientPage({ posts, categories, featured }: Props)
       </div>
 
       {showFeatured && featured}
+      <InstallSlot placement="guides-library" />
 
       <section ref={topRef} tabIndex={-1} id="guide-library" className="guide-library" aria-labelledby="guide-library-title">
         <div className="guide-library-heading">

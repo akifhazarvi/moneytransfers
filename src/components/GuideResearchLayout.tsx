@@ -1,3 +1,4 @@
+import InstallSlot from "@/components/pwa/InstallSlot";
 import { Children, cloneElement, isValidElement, type ReactNode } from "react";
 import Container from "@/components/Container";
 import GuideContents, { type GuideSection } from "@/components/GuideContents";
@@ -61,6 +62,7 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
             linkContext={DEFAULT_PARTNER_CORRIDOR}
           />
           {firstSection >= 0 && content.slice(partnerAt)}
+          <InstallSlot placement="guide-research-end" />
 
         </article>
         <aside className="guide-article-sidebar" aria-label="Guide navigation and tools">

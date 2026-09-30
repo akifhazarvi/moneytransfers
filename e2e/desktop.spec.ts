@@ -12,7 +12,7 @@ test.describe("Safari on macOS", () => {
 
   test("Install explains File → Add to Dock", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "Download app", exact: true }).click();
+    await page.getByRole("button", { name: "Install app", exact: true }).click();
     const dialog = page.getByRole("dialog");
     await expect(dialog).toContainText("Add SendMoneyCompare to your Dock");
     await expect(dialog).toContainText("Add to Dock");
@@ -21,6 +21,8 @@ test.describe("Safari on macOS", () => {
   test("the prompt offers the steps on a later page view", async ({ page }) => {
     await page.goto("/");
     await page.goto("/exchange-rates");
+    await page.waitForTimeout(5_500);
+    await page.locator("[data-pwa-install-slot]").first().scrollIntoViewIfNeeded();
     const prompt = installPrompt(page);
     await expect(prompt).toContainText("Add SendMoneyCompare to your Dock", { timeout: 15_000 });
     await prompt.getByRole("button", { name: "Show me how" }).click();
@@ -35,7 +37,7 @@ test.describe("a browser that cannot install", () => {
     await page.goto("/");
     await page.goto("/exchange-rates");
     // Rendered, so the header never shifts, but invisible.
-    await expect(page.getByRole("button", { name: "Download app", exact: true })).toBeHidden();
+    await expect(page.getByRole("button", { name: "Install app", exact: true })).toBeHidden();
     await page.waitForTimeout(5_500);
     await expect(installPrompt(page)).toHaveCount(0);
   });
@@ -53,7 +55,7 @@ test.describe("inside the installed app", () => {
     await expect.poll(() => trackedEventParams(page, "pwa_launch")).toEqual([
       expect.objectContaining({ display_mode: "standalone", os: "windows" }),
     ]);
-    await expect(page.getByRole("button", { name: "Download app", exact: true })).toBeHidden();
+    await expect(page.getByRole("button", { name: "Install app", exact: true })).toBeHidden();
 
     // Same session, next page: neither counts again, and nothing is offered.
     await page.goto("/exchange-rates");

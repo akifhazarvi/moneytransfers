@@ -1,3 +1,4 @@
+import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -216,6 +217,8 @@ export default async function BusinessSubPage({ params }: Props) {
           </article>
         </Container>
       </section>
+
+      <Container><InstallSlot placement="business-guide-end" /></Container>
 
       {/* ─── FAQ section ─── */}
       {page.faqs.length > 0 && (

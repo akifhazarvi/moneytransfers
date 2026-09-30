@@ -101,7 +101,7 @@ export default function WhatsAppChannelButton() {
       // Desktop: StickyBestCTA's card runs to right-6, so bottom-6 put this pill
       // directly on top of the Send button — bottom-28 lifts it clear. Never
       // overlap the affiliate bar; provider_clicked is the north-star event.
-      className="pwa-lift animate-wa-rise fixed bottom-32 left-3 right-auto z-40 sm:bottom-28 sm:left-auto sm:right-6"
+      className="pwa-secondary-chrome pwa-lift animate-wa-rise fixed bottom-32 left-3 right-auto z-40 sm:bottom-28 sm:left-auto sm:right-6"
     >
       <div className="relative">
         <WhatsAppFollowLink

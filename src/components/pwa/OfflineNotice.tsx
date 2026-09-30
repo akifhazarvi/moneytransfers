@@ -52,22 +52,22 @@ export default function OfflineNotice() {
   const message = offline
     ? saved
       ? `You're offline. ${saved}; rates and fees may have changed since.`
-      : "You're offline. Rates and fees on this page may be out of date."
+      : "You're offline. Connect to refresh quotes and continue to a provider."
     : `You're back online. ${saved}; reload for live rates and fees.`;
 
   return (
     <div
       role="status"
       data-pwa-offline-notice=""
-      className="fixed top-[72px] left-1/2 -translate-x-1/2 z-[55] w-[min(560px,calc(100vw-24px))]"
+      className="sticky top-[var(--pwa-header-height,64px)] z-[45] px-3 py-2 bg-[var(--color-surface)]"
     >
-      <div className="flex items-center gap-3 rounded-2xl bg-[var(--color-on-surface)] text-[var(--color-surface)] px-4 py-2.5 shadow-[0_8px_24px_rgba(0,0,0,0.2)] text-[13px] leading-snug">
+      <div className="max-w-[1120px] mx-auto flex items-center gap-3 rounded-2xl bg-[var(--color-on-surface)] text-[var(--color-surface)] px-4 py-2.5 text-sm leading-snug">
         <span className="flex-1">{message}</span>
         {!offline && (
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="shrink-0 h-8 px-3 rounded-full bg-[var(--color-surface)] text-[var(--color-on-surface)] font-semibold"
+            className="shrink-0 min-h-12 px-4 rounded-full bg-[var(--color-surface)] text-[var(--color-on-surface)] font-semibold"
           >
             Reload
           </button>

@@ -40,8 +40,11 @@ export default function MobileScrollNav({ sections }: Props) {
       }
     }
     window.addEventListener("scroll", onScroll, { passive: true });
-    update();
-    return () => window.removeEventListener("scroll", onScroll);
+    const initialFrame = requestAnimationFrame(update);
+    return () => {
+      cancelAnimationFrame(initialFrame);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [update]);
 
   if (!visible) return null;
@@ -50,7 +53,7 @@ export default function MobileScrollNav({ sections }: Props) {
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label={`Back to top — currently viewing ${activeLabel}`}
-      className="pwa-lift fixed bottom-[46px] right-3 z-50 sm:hidden flex items-center gap-1.5 h-8 pl-2.5 pr-3 rounded-full bg-black/75 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.25)] active:scale-95 transition-transform duration-150"
+      className="pwa-secondary-chrome pwa-lift fixed bottom-[46px] right-3 z-50 sm:hidden flex items-center gap-1.5 h-8 pl-2.5 pr-3 rounded-full bg-black/75 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.25)] active:scale-95 transition-transform duration-150"
     >
       <svg className="w-3.5 h-3.5 text-white/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />

@@ -16,6 +16,7 @@ import ProviderClickDelegate from "@/components/ProviderClickDelegate";
 import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import PwaManager from "@/components/pwa/PwaManager";
+import OfflineNotice from "@/components/pwa/OfflineNotice";
 import SiteProviderCrossSell from "@/components/SiteProviderCrossSell";
 import { COVERAGE } from "@/lib/site-stats";
 import { seoDescription } from "@/lib/seo-title";
@@ -337,10 +338,12 @@ export default async function LocaleLayout({ children, params }: Props) {
             Skip to main content
           </a>
           <Header />
+          <OfflineNotice />
           <main id="main-content" className="min-h-screen pb-10">
             <ErrorBoundary>{children}</ErrorBoundary>
             <SiteProviderCrossSell />
           </main>
+          <div data-pwa-install-slot="article-end" className="min-h-px max-w-[1200px] mx-auto px-4 sm:px-6" />
           <Footer />
           <LazyForexTicker />
           <LazyAnalytics />

@@ -142,7 +142,7 @@ export default function InstallDialog({
             type="button"
             onClick={() => ref.current?.close()}
             aria-label="Close"
-            className="w-9 h-9 -mr-2 -mt-1 flex items-center justify-center rounded-full text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-dim)]"
+            className="w-12 h-12 shrink-0 -mr-2 -mt-1 flex items-center justify-center rounded-full text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-dim)]"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18 18 6M6 6l12 12" />
@@ -163,16 +163,16 @@ export default function InstallDialog({
         {guide.note && <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">{guide.note}</p>}
 
         <ul className="mt-5 pt-4 border-t border-[var(--color-outline)] space-y-1.5 text-sm text-[var(--color-on-surface-variant)]">
-          <li>Opens in its own window, one tap from your home screen or Dock.</li>
-          <li>Free, and there is no app store download.</li>
-          <li>Pages you have opened stay readable offline, with the figures from when you last loaded them.</li>
+          <li>Open straight into transfer comparisons from your home screen or Dock.</li>
+          <li>Free to install. No account or app store required.</li>
+          <li>Saved pages may be available offline. Connect to refresh quotes and continue to a provider.</li>
         </ul>
 
         {onInstall && (
           <button
             type="button"
             onClick={onInstall}
-            className="mt-5 w-full h-11 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] font-semibold hover:bg-[var(--color-cta-hover)] transition-colors"
+            className="mt-5 w-full h-12 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] font-semibold hover:bg-[var(--color-cta-hover)] transition-colors"
           >
             Install app
           </button>
