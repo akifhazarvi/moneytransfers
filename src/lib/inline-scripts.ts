@@ -143,7 +143,10 @@ export const CLARITY_INLINE_SHA256 = "++mvwM8fPwDGPivgHvk3pkHcSGFy9J/LGlYmUAUU1l
 // announces it with `smc:installable`, which src/lib/pwa.ts subscribes to.
 // preventDefault() suppresses Android's own mini-infobar, which docks at the
 // bottom of the screen on top of StickyBestCTA's Send button. `appinstalled`
-// records the install so the prompt is not offered again in the browser tab.
+// records the install so the prompt is not offered again in the browser tab,
+// and leaves window.__smcInstalled for PwaManager: an install finished from
+// the address-bar icon can land before hydration, and CI caught that event
+// being dropped (no listener yet, so no `pwa_installed`).
 // Editing this string breaks CSP — regenerate PWA_INLINE_SHA256.
-export const PWA_INLINE = `(function(){try{addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__smcInstallPrompt=e;dispatchEvent(new Event('smc:installable'))});addEventListener('appinstalled',function(){window.__smcInstallPrompt=null;try{localStorage.setItem('smc_pwa_installed','1')}catch(e){}dispatchEvent(new Event('smc:installed'))})}catch(e){}})()`;
-export const PWA_INLINE_SHA256 = "xzB+k01hXoxoup1ezhoE24oYNlg1yZ6cHkq1+RlYI8U=";
+export const PWA_INLINE = `(function(){try{addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__smcInstallPrompt=e;dispatchEvent(new Event('smc:installable'))});addEventListener('appinstalled',function(){window.__smcInstallPrompt=null;window.__smcInstalled=1;try{localStorage.setItem('smc_pwa_installed','1')}catch(e){}dispatchEvent(new Event('smc:installed'))})}catch(e){}})()`;
+export const PWA_INLINE_SHA256 = "Q9LfnkzSrEQk1WT5KVSpaKKj371Kcti2qHhFZmfsLfY=";

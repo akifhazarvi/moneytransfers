@@ -17,6 +17,8 @@ export interface BeforeInstallPromptEvent extends Event {
 declare global {
   interface Window {
     __smcInstallPrompt?: BeforeInstallPromptEvent | null;
+    /** Set by PWA_INLINE when `appinstalled` fires, possibly before hydration. */
+    __smcInstalled?: number;
   }
 }
 

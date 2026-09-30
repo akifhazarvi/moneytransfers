@@ -106,10 +106,14 @@ export default function PwaManager() {
     const unsubscribe = onInstallabilityChange(update);
 
     const onInstalled = () => {
+      window.__smcInstalled = 0;
       setPromptPath(null);
       trackPwaInstalled(platformRef.current ?? "unknown");
     };
     window.addEventListener("smc:installed", onInstalled);
+    // Installed while the page was still hydrating: the event came and went
+    // before this listener existed, so count it now.
+    if (window.__smcInstalled) onInstalled();
 
     if (isStandalone() && claimLaunch()) {
       trackPwaLaunched(window.matchMedia("(display-mode: minimal-ui)").matches ? "minimal-ui" : "standalone");

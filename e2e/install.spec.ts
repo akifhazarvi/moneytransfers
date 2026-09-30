@@ -97,6 +97,18 @@ test.describe("install on Chromium", () => {
     await expect(installPrompt(page)).toHaveCount(0);
   });
 
+  test("an install is counted even when it lands before hydration", async ({ page, context }) => {
+    // Chromium fires appinstalled when the address-bar install finishes, which
+    // can be while the page is still hydrating. CI's first run caught this
+    // exact event being dropped. DOMContentLoaded is always before hydration.
+    await context.addInitScript(() => {
+      addEventListener("DOMContentLoaded", () => dispatchEvent(new Event("appinstalled")));
+    });
+    await page.goto("/");
+    await expect.poll(() => trackedEvents(page)).toContain("pwa_installed");
+    expect((await trackedEvents(page)).filter((e) => e === "pwa_installed")).toHaveLength(1);
+  });
+
   test("once installed, the install entry points go away", async ({ page, context, isMobile }) => {
     await offerInstallPrompt(context, "accepted");
     await page.goto("/");
