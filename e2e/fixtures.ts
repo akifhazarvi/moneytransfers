@@ -128,3 +128,16 @@ export async function trackedEventParams(page: Page, name: string): Promise<Reco
 }
 
 export const installPrompt = (page: Page) => page.locator("[data-pwa-install-prompt]");
+
+/**
+ * Scroll to an install slot until the offer appears, as a reader would keep
+ * scrolling. On a live deployment the quotes can land after the first scroll
+ * and push the slot back out of reach; one scroll and a wait is a timing bet
+ * that failed on production (a27e148d7) while passing against `next start`.
+ */
+export async function scrollUntilOffered(page: Page, slot = page.locator("[data-pwa-install-slot]").first()) {
+  await expect(async () => {
+    await slot.scrollIntoViewIfNeeded();
+    await expect(installPrompt(page)).toBeVisible({ timeout: 1_000 });
+  }).toPass({ timeout: 20_000 });
+}

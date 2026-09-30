@@ -40,6 +40,12 @@ const InstallDialog = dynamic(() => import("./InstallDialog"), { ssr: false });
 /** Wait this long into a page view before offering, so the offer never competes with LCP. */
 const PROMPT_DELAY_MS = 4000;
 
+/** Any part of the element is inside the viewport. */
+function onScreen(el: Element): boolean {
+  const r = el.getBoundingClientRect();
+  return r.bottom > 0 && r.top < window.innerHeight;
+}
+
 /**
  * The service worker is production-only. `next dev` serves unhashed chunk
  * URLs, which a cache-first worker would pin to stale code, and localhost:3000
@@ -154,36 +160,91 @@ export default function PwaManager() {
     return () => window.removeEventListener(OPEN_INSTALL_EVENT, onRequest);
   }, []);
 
-  // Views establish engagement; seeing the in-flow slot establishes placement.
+  // Views establish engagement; reaching an in-flow slot establishes placement.
   // A second page view alone must never interrupt someone entering a transfer.
+  //
+  // Every slot is watched from the first frame, and the offer is re-checked
+  // whenever something that blocked it changes. The first version watched only
+  // the first slot, only from 4s in, and gave up at the first blocked check: a
+  // visitor who typed an amount and scrolled on (focus stays in the field) never
+  // saw it, nor did one who passed the homepage slot in the first four seconds —
+  // the end-of-page slot was never watched.
   useEffect(() => {
     const views = countPageView();
     const eligible = views >= MIN_VIEWS_BEFORE_PROMPT && !promptAlreadyShownThisSession() && !promptSnoozed()
       && !/^\/(?:en\/)?(?:go|out|privacy|terms)(?:\/|$)/.test(pathname);
-    let observer: IntersectionObserver | undefined;
-    const timer = eligible
-      ? setTimeout(() => {
-          const slot = document.querySelector<HTMLElement>("[data-pwa-install-slot]");
-          if (!slot) return;
-          observer = new IntersectionObserver(([entry]) => {
-            const current = detectInstallPlatform();
-            if (!entry.isIntersecting || !PROMPTABLE.has(current) || !navigator.onLine || !consentSettled()) return;
-            if (document.activeElement?.matches("input, textarea, select, [contenteditable=true]") || document.querySelector("dialog[open]")) return;
-            recordPromptShown();
-            trackPwaPromptShown(current, slot.dataset.pwaInstallSlot ?? "inline");
-            setPromptSlot(slot);
-            setPromptPath(pathname);
-            observer?.disconnect();
-          });
-          observer.observe(slot);
-        }, PROMPT_DELAY_MS)
-      : undefined;
-    return () => {
-      clearTimeout(timer);
-      observer?.disconnect();
+    const withdraw = () => {
       // Leaving the page withdraws the offer, so coming back does not revive it.
       setPromptPath(null);
       setPromptSlot(null);
+    };
+    if (!eligible) return withdraw;
+
+    const inReach = new Set<Element>();
+    const watched = new WeakSet<Element>();
+    let dwelled = false;
+    let frame = 0;
+    // 200px of margin mounts the banner just before its slot scrolls in, so the
+    // content it pushes down is still off-screen: no visible layout shift.
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) inReach.add(entry.target);
+        else inReach.delete(entry.target);
+      }
+      schedule();
+    }, { rootMargin: "200px 0px" });
+
+    // Slots inside client-rendered sections can appear after this effect runs.
+    function watchSlots() {
+      document.querySelectorAll("[data-pwa-install-slot]").forEach((slot) => {
+        if (watched.has(slot)) return;
+        watched.add(slot);
+        observer.observe(slot);
+      });
+    }
+    function schedule() {
+      if (!frame) frame = requestAnimationFrame(offer);
+    }
+    function offer() {
+      frame = 0;
+      watchSlots();
+      if (!dwelled) return;
+      const slot = [...document.querySelectorAll<HTMLElement>("[data-pwa-install-slot]")].find((s) => inReach.has(s));
+      if (!slot) return;
+      const current = detectInstallPlatform();
+      if (!PROMPTABLE.has(current) || !navigator.onLine || !consentSettled()) return;
+      if (document.querySelector("dialog[open]")) return;
+      // Someone mid-entry keeps the form to themselves; a field left focused
+      // after scrolling away from it is not being typed in.
+      const field = document.activeElement?.closest("input, textarea, select, [contenteditable=true]");
+      if (field && onScreen(field)) return;
+      stop();
+      recordPromptShown();
+      trackPwaPromptShown(current, slot.dataset.pwaInstallSlot ?? "inline");
+      setPromptSlot(slot);
+      setPromptPath(pathname);
+    }
+    function stop() {
+      clearTimeout(timer);
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener("scroll", schedule);
+      document.removeEventListener("focusout", schedule);
+      document.removeEventListener("close", schedule, true);
+    }
+
+    const timer = setTimeout(() => {
+      dwelled = true;
+      schedule();
+    }, PROMPT_DELAY_MS);
+    watchSlots();
+    window.addEventListener("scroll", schedule, { passive: true });
+    document.addEventListener("focusout", schedule);
+    // A <dialog> closing: `close` does not bubble, so listen in the capture phase.
+    document.addEventListener("close", schedule, true);
+    return () => {
+      stop();
+      withdraw();
     };
   }, [pathname]);
 

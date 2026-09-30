@@ -1,5 +1,5 @@
 import type { Page } from "@playwright/test";
-import { test, expect, installPrompt, offerInstallPrompt, trackedEvents } from "./fixtures";
+import { test, expect, installPrompt, offerInstallPrompt, scrollUntilOffered, trackedEvents } from "./fixtures";
 
 // Chromium browsers (desktop Chrome/Edge, Android Chrome): the install flow
 // the browser API makes possible. Runs on the desktop and Android projects.
@@ -46,9 +46,8 @@ test.describe("install on Chromium", () => {
     await page.goto("/send-money");
     await page.waitForTimeout(5_500);
     await expect(installPrompt(page)).toHaveCount(0);
-    await page.locator("[data-pwa-install-slot]").first().scrollIntoViewIfNeeded();
+    await scrollUntilOffered(page);
     const prompt = installPrompt(page);
-    await expect(prompt).toBeVisible({ timeout: 15_000 });
     await expect(prompt).toContainText("Install the SendMoneyCompare app");
 
     // In document flow after the results, never laid over a provider action.
@@ -66,9 +65,8 @@ test.describe("install on Chromium", () => {
     await offerInstallPrompt(context, "accepted");
     await page.goto("/");
     await page.goto("/send-money");
-    await page.locator("[data-pwa-install-slot]").first().scrollIntoViewIfNeeded();
+    await scrollUntilOffered(page);
     const prompt = installPrompt(page);
-    await expect(prompt).toBeVisible({ timeout: 15_000 });
     await prompt.getByRole("button", { name: "Not now" }).click();
     await expect(prompt).toHaveCount(0);
     expect(await trackedEvents(page)).toContain("pwa_install_prompt_dismissed");
@@ -84,11 +82,41 @@ test.describe("install on Chromium", () => {
     await offerInstallPrompt(context, "dismissed");
     await page.goto("/");
     await page.goto("/send-money");
-    await page.locator("[data-pwa-install-slot]").first().scrollIntoViewIfNeeded();
+    await scrollUntilOffered(page);
     const prompt = installPrompt(page);
-    await expect(prompt).toBeVisible({ timeout: 15_000 });
     await prompt.getByRole("button", { name: "Install", exact: true }).click();
     await expect.poll(() => page.evaluate(() => localStorage.getItem("smc_pwa_dismissed_at"))).not.toBeNull();
+  });
+
+  // Regression (a27e148d7): focus stays in the amount field while the page
+  // scrolls, and the first version refused the offer for good at that moment.
+  test("a field left focused after scrolling away does not block the offer", async ({ page, context }) => {
+    await offerInstallPrompt(context, "accepted");
+    await page.goto("/");
+    await page.goto("/send-money");
+    const amount = page.locator("#transfer-amount");
+    await amount.fill("2000");
+    await expect(amount).toBeFocused();
+    await scrollUntilOffered(page, page.locator('[data-pwa-install-slot="comparison-end"]'));
+    await expect(amount).toBeFocused();
+  });
+
+  // Regression (a27e148d7): only the page's first slot was watched, so a reader
+  // who skipped past the homepage slot never got the offer further down.
+  test("a later slot still offers when the reader skipped the first", async ({ page, context }) => {
+    await offerInstallPrompt(context, "accepted");
+    // A returning visitor. (Visiting /guides first is not enough on the Pixel
+    // profile: leaving before it hydrates never counts that view.)
+    await context.addInitScript(() => localStorage.setItem("smc_pwa_views", "1"));
+    await page.goto("/");
+    await page.waitForTimeout(4_500); // past the dwell, still at the top: no slot in reach
+    const end = page.locator('[data-pwa-install-slot="article-end"]');
+    // Jump straight to the end-of-page slot. Near the top of the viewport, the
+    // homepage slot is well outside the 200px reach (centring would pull it in).
+    await expect(async () => {
+      await end.evaluate((el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 100));
+      await expect(end.locator("[data-pwa-install-prompt]")).toBeVisible({ timeout: 1_000 });
+    }).toPass({ timeout: 20_000 });
   });
 
   test("the prompt never stacks on the cookie banner", async ({ page, context, baseURL }) => {
