@@ -18,8 +18,6 @@ import { COVERAGE } from "@/lib/site-stats";
 import ProviderLink from "@/components/ProviderLink";
 import { getGoUrl } from "@/lib/affiliate";
 import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
-import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
-import { getPartnerQuote, DEFAULT_PARTNER_CORRIDOR } from "@/lib/partner-quote";
 
 /**
  * What we can honestly say about Wise being "Best Rate".
@@ -678,17 +676,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
 
-      {/* ─── PARTNER — TapTap Send. Replaced the WhatsApp channel CTA on
-           2026-09-12. Last position on the page, after the FAQ and every
-           comparison, and the only affiliate CTA outside the tables.
-           Shared with the guide template via PartnerFeatureBlock (2026-09-17)
-           so the copy can't drift between the two surfaces. ─── */}
-      <PartnerFeatureBlock
-        source="home_partner_feature"
-        variant="section"
-        quote={getPartnerQuote()}
-        linkContext={DEFAULT_PARTNER_CORRIDOR}
-      />
+      {/* The sponsored TapTap card moved up into HomeDynamicSection (2026-09-30):
+          last on the page it sat ~2,500px down, and it quoted USD→INR whatever
+          route the reader had picked. It now sits above the live table,
+          priced on the selected route. */}
 
       {/* Mobile back-to-top + section label */}
       <MobileScrollNav
