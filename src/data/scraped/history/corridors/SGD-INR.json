@@ -12807,10 +12807,10 @@
     "date": "2026-09-30",
     "providers": {
       "instarem": {
-        "rate": 75.08,
+        "rate": 75.014,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 7508
+        "receiveAmount": 7501.4
       },
       "moneygram": {
         "rate": 74.6506,
@@ -12849,16 +12849,16 @@
         "receiveAmount": 7491
       },
       "hsbc-sg": {
-        "rate": 74.338,
+        "rate": 74.355,
         "fee": 0,
-        "markup": 0.99,
-        "receiveAmount": 7433.8
+        "markup": 0.97,
+        "receiveAmount": 7435.5
       },
       "wise": {
-        "rate": 75.0949,
+        "rate": 75.1003,
         "fee": 1.05,
-        "markup": -0.01,
-        "receiveAmount": 7430.64
+        "markup": -0.02,
+        "receiveAmount": 7431.17
       }
     }
   }

@@ -5919,10 +5919,10 @@
     "date": "2026-09-30",
     "providers": {
       "lemfi": {
-        "rate": 15.4663,
+        "rate": 15.4876,
         "fee": 0,
-        "markup": -0.15,
-        "receiveAmount": 1546.63
+        "markup": 0.4,
+        "receiveAmount": 1548.76
       },
       "ria": {
         "rate": 15.48,
@@ -5931,22 +5931,22 @@
         "receiveAmount": 1524.78
       },
       "taptap-send": {
-        "rate": 15.47,
+        "rate": 15.4876,
         "fee": 0,
-        "markup": -0.17,
-        "receiveAmount": 1547
+        "markup": -0.28,
+        "receiveAmount": 1548.76
       },
       "western-union": {
-        "rate": 15.4639,
+        "rate": 15.4876,
         "fee": 1.99,
-        "markup": -0.13,
-        "receiveAmount": 1515.62
+        "markup": -0.28,
+        "receiveAmount": 1517.94
       },
       "instarem": {
-        "rate": 15.3034,
+        "rate": 15.4269,
         "fee": 0,
-        "markup": 0.91,
-        "receiveAmount": 1530.34
+        "markup": 0.11,
+        "receiveAmount": 1542.69
       }
     }
   }

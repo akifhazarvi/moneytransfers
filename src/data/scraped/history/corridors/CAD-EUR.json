@@ -11512,40 +11512,40 @@
     "date": "2026-09-30",
     "providers": {
       "lemfi": {
-        "rate": 0.6146,
+        "rate": 0.615,
         "fee": 0,
-        "markup": 1.11,
-        "receiveAmount": 61.46
+        "markup": 0.94,
+        "receiveAmount": 61.5
       },
       "taptap-send": {
-        "rate": 0.618,
+        "rate": 0.617,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 61.8
+        "markup": 0.73,
+        "receiveAmount": 61.7
       },
       "remitly": {
-        "rate": 0.618578,
+        "rate": 0.617939,
         "fee": 0,
-        "markup": 0.47,
-        "receiveAmount": 61.86
+        "markup": 0.58,
+        "receiveAmount": 61.79
       },
       "td-bank": {
-        "rate": 0.603844,
+        "rate": 0.603332,
         "fee": 0,
-        "markup": 2.84,
-        "receiveAmount": 60.38
+        "markup": 2.93,
+        "receiveAmount": 60.33
       },
       "paypal": {
-        "rate": 0.594992,
+        "rate": 0.594955,
         "fee": 2.99,
         "markup": 4.27,
         "receiveAmount": 57.72
       },
       "bmo": {
-        "rate": 0.589584,
+        "rate": 0.588992,
         "fee": 0,
-        "markup": 5.14,
-        "receiveAmount": 58.96
+        "markup": 5.23,
+        "receiveAmount": 58.9
       },
       "bnc": {
         "rate": 0.607681,
@@ -11554,22 +11554,22 @@
         "receiveAmount": 57.15
       },
       "rbc": {
-        "rate": 0.602195,
+        "rate": 0.601589,
         "fee": 0,
-        "markup": 3.11,
-        "receiveAmount": 60.22
+        "markup": 3.21,
+        "receiveAmount": 60.16
       },
       "instarem": {
-        "rate": 0.618378,
+        "rate": 0.617739,
         "fee": 0,
-        "markup": 0.51,
-        "receiveAmount": 61.84
+        "markup": 0.61,
+        "receiveAmount": 61.77
       },
       "western-union": {
-        "rate": 0.606501,
+        "rate": 0.605736,
         "fee": 1.99,
-        "markup": 2.42,
-        "receiveAmount": 59.44
+        "markup": 2.54,
+        "receiveAmount": 59.37
       }
     }
   }
