@@ -29,9 +29,17 @@ interface Props {
   badge?: ProviderBadge;
   tiedAhead?: boolean;
   isBestValue?: boolean;
+  /**
+   * One-line row instead of the full card. Only the top result (and the
+   * partner spotlight under it) is shown expanded: twenty full cards made the
+   * list a long scroll of repeated facts. The row keeps what decides a choice
+   * — payout, fee, rate — and its own Send button: the click is the
+   * conversion, so it is never moved behind the details toggle.
+   */
+  compact?: boolean;
 }
 
-export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, providerInsight, sparklineData, tiedAhead, isBestValue = rank === 1 }: Props) {
+export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, providerInsight, sparklineData, tiedAhead, isBestValue = rank === 1, compact = false }: Props) {
   const [expanded, setExpanded] = useState(false);
   const detailsId = useId();
   const provider = providers.find(p => p.slug === quote.providerSlug);
@@ -41,6 +49,51 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
     sourceCurrency: quote.sendCurrency, targetCurrency: quote.receiveCurrency,
     sourceAmount: quote.sendAmount, clickref: "results",
   });
+  const payout = `${receiveCurrencySymbol}${quote.receiveAmount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const toggle = () => { setExpanded(!expanded); if (!expanded) trackProviderExpanded(quote.providerSlug, rank, `${quote.sendCurrency}-${quote.receiveCurrency}`); };
+  const details = expanded && (
+    <div className="conversion-result-details" id={detailsId}>
+      {tiedAhead && <TiedNote rating={quote.rating} />}
+      {midMarketRate && <p>Mid-market reference: {midMarketRate.toFixed(4)} {quote.receiveCurrency} per {quote.sendCurrency}. The final rate and delivery time are confirmed by {name}.</p>}
+      {provider?.paymentMethods.length ? <p><strong>Pay with:</strong> {provider.paymentMethods.join(" · ")}</p> : null}
+      {quote.promoNote && <p>{quote.promoNote}</p>}
+      {providerInsight && sparklineData && <ProviderRateInsightLine insight={providerInsight} sparklineData={sparklineData} toCurrency={quote.receiveCurrency} />}
+      {companyPageRenders(quote.providerSlug) && <Link href={`/companies/${quote.providerSlug}`} className="conversion-text-link">Read our {name} review <ArrowRight size={14} aria-hidden="true" /></Link>}
+    </div>
+  );
+
+  if (compact) {
+    return (
+      <article className="conversion-row" data-provider={quote.providerSlug}>
+        <span className="conversion-row-rank" aria-label={`Rank ${rank}`}>{rank}</span>
+        <div className="conversion-row-brand">
+          <Image src={providerLogo(quote.providerSlug, provider?.logo)} alt="" width={32} height={32} className="conversion-logo" />
+          <div>
+            <p className="conversion-row-name">{name}</p>
+            <p className="conversion-row-meta">
+              {quote.rating > 0 && <><Star size={11} aria-hidden="true" />{quote.rating.toFixed(1)}{" "}</>}
+              {quote.isIndicative ? "Indicative" : quote.transferSpeed}
+            </p>
+          </div>
+        </div>
+        <div className="conversion-row-payout">
+          <strong>{payout}</strong>
+          <span>{fee} · rate {quote.exchangeRate.toFixed(4)}</span>
+        </div>
+        <ProviderLink href={href} provider={quote.providerSlug} source="comparison_result" corridor={`${quote.sendCurrency}-${quote.receiveCurrency}`} rank={rank} className="conversion-button conversion-row-send" ariaLabel={quote.isIndicative ? `Request a quote from ${name}` : `Continue with ${name}`}>
+          {quote.isIndicative ? "Quote" : "Send"}<ArrowRight size={14} aria-hidden="true" />
+        </ProviderLink>
+        <button type="button" className="conversion-row-toggle" aria-expanded={expanded} aria-controls={detailsId} aria-label={`${expanded ? "Hide" : "Show"} ${name} transfer details`} onClick={toggle}>
+          <ChevronDown size={16} aria-hidden="true" style={{ transform: expanded ? "rotate(180deg)" : undefined }} />
+        </button>
+        {expanded && onCompareToggle && (
+          <label className="conversion-row-compare"><input type="checkbox" checked={!!compareSelected} disabled={compareDisabled && !compareSelected} onChange={() => onCompareToggle(quote.providerSlug)} />Compare side by side</label>
+        )}
+        {details}
+      </article>
+    );
+  }
+
   return (
     <article className={`conversion-result${isBestValue ? " conversion-result--best" : ""}`} data-provider={quote.providerSlug}>
       <div className="conversion-result-brand">
@@ -52,7 +105,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
       </div>
       <div className="conversion-result-payout">
         <span>{quote.isIndicative ? "Indicative recipient amount" : "Recipient gets"}</span>
-        <strong>{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+        <strong>{payout}</strong>
         <small>{quote.receiveCurrency} · after transfer fees</small>
       </div>
       <dl className="conversion-result-facts">
@@ -67,19 +120,12 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
         <span>Complete your transfer with {name}</span>
       </div>
       <div className="conversion-result-footer">
-        <button type="button" aria-expanded={expanded} aria-controls={detailsId} onClick={() => { setExpanded(!expanded); if (!expanded) trackProviderExpanded(quote.providerSlug, rank, `${quote.sendCurrency}-${quote.receiveCurrency}`); }}>
+        <button type="button" aria-expanded={expanded} aria-controls={detailsId} onClick={toggle}>
           {expanded ? "Less detail" : "Transfer details"}<ChevronDown size={14} aria-hidden="true" style={{ transform: expanded ? "rotate(180deg)" : undefined }} />
         </button>
         {onCompareToggle && <label><input type="checkbox" checked={!!compareSelected} disabled={compareDisabled && !compareSelected} onChange={() => onCompareToggle(quote.providerSlug)} />Compare side by side</label>}
       </div>
-      {expanded && <div className="conversion-result-details" id={detailsId}>
-        {tiedAhead && <TiedNote rating={quote.rating} />}
-        {midMarketRate && <p>Mid-market reference: {midMarketRate.toFixed(4)} {quote.receiveCurrency} per {quote.sendCurrency}. The final rate and delivery time are confirmed by {name}.</p>}
-        {provider?.paymentMethods.length ? <p><strong>Pay with:</strong> {provider.paymentMethods.join(" · ")}</p> : null}
-        {quote.promoNote && <p>{quote.promoNote}</p>}
-        {providerInsight && sparklineData && <ProviderRateInsightLine insight={providerInsight} sparklineData={sparklineData} toCurrency={quote.receiveCurrency} />}
-        {companyPageRenders(quote.providerSlug) && <Link href={`/companies/${quote.providerSlug}`} className="conversion-text-link">Read our {name} review <ArrowRight size={14} aria-hidden="true" /></Link>}
-      </div>}
+      {details}
     </article>
   );
 }

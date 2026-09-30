@@ -617,6 +617,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
                   receiveCurrencySymbol={receiveCurrency?.symbol || ""}
                   rank={index + 1}
                   isBestValue={sortBy === "receiveAmount" && index === 0}
+                  compact={index > 0}
                   compareSelected={compareList.includes(quote.providerSlug)}
                   onCompareToggle={toggleCompare}
                   compareDisabled={compareList.length >= 2}

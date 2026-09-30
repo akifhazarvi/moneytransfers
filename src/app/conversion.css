@@ -15,7 +15,9 @@
 .conversion-swap { height: 44px; width: 44px; border: 1px solid var(--color-outline); border-radius: 50%; font-size: 24px; cursor: pointer; }
 .conversion-search-note { font-size: 12px; line-height: 1.7; color: var(--color-on-surface-variant); margin: 14px 0 28px; }
 .conversion-search-note a { text-decoration: underline; text-underline-offset: 3px; }
-.conversion-results { display: grid; gap: 16px; }
+.conversion-results { display: grid; gap: 8px; }
+/* The top card and the spotlight keep their breathing room; rows sit tight. */
+.conversion-results > .conversion-result, .conversion-results > .conversion-spotlight { margin-bottom: 8px; }
 .conversion-result { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; border: 1px solid var(--color-outline); border-radius: 24px; padding: 24px; background: var(--color-surface); }
 .conversion-result--best { border-color: #328362; box-shadow: 0 0 0 1px #328362; }
 .conversion-result-brand, .conversion-spotlight-heading { display: flex; align-items: center; gap: 14px; }
@@ -37,6 +39,25 @@
 .conversion-result-footer input { width: 16px; height: 16px; accent-color: #166344; }
 .conversion-result-details { grid-column: 1 / -1; font-size: 13px; line-height: 1.7; border-top: 1px solid var(--color-outline); padding-top: 16px; }
 .conversion-result-details p { margin-bottom: 12px; }
+/* Collapsed result rows: everything after the top card. One line on desktop,
+   two on phones; the Send button stays visible either way. */
+.conversion-row { display: grid; grid-template-columns: 22px minmax(0, 1.3fr) minmax(0, 1fr) auto 40px; grid-template-areas: "rank brand payout send toggle"; align-items: center; gap: 4px 14px; border: 1px solid var(--color-outline); border-radius: 16px; padding: 10px 10px 10px 14px; background: var(--color-surface); }
+.conversion-row-rank { grid-area: rank; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--color-surface-dim); color: var(--color-on-surface-variant); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.conversion-row-brand { grid-area: brand; display: flex; align-items: center; gap: 10px; min-width: 0; }
+.conversion-row-brand > div { min-width: 0; }
+.conversion-row-name { font-size: 15px; font-weight: 600; letter-spacing: -.015em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.conversion-row-meta svg { flex-shrink: 0; }
+.conversion-row-meta { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--color-on-surface-variant); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.conversion-row-payout { grid-area: payout; text-align: right; min-width: 0; }
+.conversion-row-payout strong { display: block; font-size: 17px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.conversion-row-payout span { display: block; font-size: 11px; color: var(--color-on-surface-variant); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.conversion-button.conversion-row-send { grid-area: send; min-height: 40px; padding: 8px 16px; gap: 8px; border-radius: 12px; }
+.conversion-row-toggle { grid-area: toggle; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; color: var(--color-on-surface-variant); cursor: pointer; }
+.conversion-row-toggle:hover { background: var(--color-surface-dim); }
+.conversion-row-compare { grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 12px; color: var(--color-on-surface-variant); cursor: pointer; border-top: 1px solid var(--color-outline); margin-top: 6px; }
+.conversion-row-compare input { width: 16px; height: 16px; accent-color: #166344; }
+.conversion-row > .conversion-result-details { padding-top: 12px; margin-top: 2px; }
+.conversion-row :focus-visible { outline: 3px solid #48a981; outline-offset: 2px; }
 .conversion-text-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; min-height: 44px; }
 .conversion-spotlight { margin: 24px 0; padding: 28px; border-radius: 24px; border: 1px solid var(--color-outline); background: var(--color-surface); color: var(--color-on-surface); }
 .conversion-spotlight h2, .conversion-spotlight .conversion-spotlight-title { font-size: 24px !important; font-weight: 600; letter-spacing: -.035em; line-height: 1.2; margin: 5px 0 0 !important; }
@@ -64,6 +85,11 @@
  .conversion-result-action { justify-self: stretch; }
  .conversion-result-action .conversion-button { width: 100%; }
  .conversion-result-footer { font-size: 11px; gap: 8px; }
+ .conversion-row { grid-template-columns: 22px minmax(0, 1fr) auto 40px; grid-template-areas: "rank brand payout payout" ". fee send toggle"; gap: 6px 8px; padding: 10px 8px 8px 12px; }
+ .conversion-row-payout { display: contents; }
+ .conversion-row-payout strong { grid-area: payout; text-align: right; font-size: 16px; }
+ .conversion-row-payout span { grid-area: fee; align-self: center; text-align: left; }
+ .conversion-button.conversion-row-send { min-width: 88px; padding: 8px 14px; }
  .conversion-spotlight { padding: 20px; border-radius: 20px; }
  .conversion-spotlight-actions { gap: 8px; }
  .conversion-spotlight-actions .conversion-button { width: 100%; }

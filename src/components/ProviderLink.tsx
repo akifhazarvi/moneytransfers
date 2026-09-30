@@ -10,6 +10,8 @@ interface Props {
   corridor?: string;
   rank?: number;
   className?: string;
+  /** Accessible name when the visible label is short ("Send"). */
+  ariaLabel?: string;
   children: ReactNode;
 }
 
@@ -24,6 +26,7 @@ export default function ProviderLink({
   corridor = "",
   rank = 0,
   className,
+  ariaLabel,
   children,
 }: Props) {
   // Append ?src= to the /go/ URL so the route can pass it as a Partnerize clickref
@@ -42,6 +45,7 @@ export default function ProviderLink({
       data-pc="1"
       onClick={() => trackProviderClicked(provider, corridor, rank, source)}
       className={className}
+      aria-label={ariaLabel}
     >
       {children}
     </a>
