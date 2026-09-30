@@ -38,6 +38,9 @@ export interface TransferQuote {
   receiveAmount: number;
   transferSpeed: string;
   rating: number;
+  /** True when `rating` is the scraped Trustpilot score, not a fallback — only
+   * then may a card say "on Trustpilot". */
+  ratingIsTrustpilot?: boolean;
   ratingLabel: "Excellent" | "Good" | "Fair" | "Poor";
   // Partner-direct brokers (e.g. Regency FX) don't expose a public rate feed.
   // We surface the mid-market rate as an "Indicative Rate" with no fee shown

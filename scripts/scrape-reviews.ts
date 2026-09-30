@@ -29,6 +29,10 @@ const PROVIDERS: { slug: string; name: string; trustpilotDomain: string }[] = [
   { slug: "regencyfx", name: "Regency FX", trustpilotDomain: "regencyfx.com" },
   { slug: "currencies-direct", name: "Currencies Direct", trustpilotDomain: "currenciesdirect.com" },
   { slug: "unplex", name: "Unplex", trustpilotDomain: "unplex.app" },
+  // Trustpilot lists TapTap under the www. host; the bare domain has no profile.
+  // Missing until 2026-09-29, so the site fell back to a hand-typed 4.7 and
+  // labelled it "on Trustpilot" (the profile says 4.6 from ~42K reviews).
+  { slug: "taptap-send", name: "TapTap Send", trustpilotDomain: "www.taptapsend.com" },
 ];
 
 interface TrustpilotRating {

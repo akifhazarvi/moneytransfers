@@ -611,7 +611,20 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
               // legitimately puts smaller payouts higher and needs no excuse.
               const tiedMarks = sortBy === "receiveAmount" ? tiedAboveLargerPayout(filteredQuotes) : new Set<string>();
               return filteredQuotes.map((quote, index) => (
-                <Fragment key={quote.providerSlug}><ProviderCard
+                <Fragment key={quote.providerSlug}>
+                {/* Sponsored TapTap block, ABOVE the ranked list — the paid slot
+                    sits outside the ranking, labelled "Sponsored", and the list
+                    below still opens with the measured best value. Skipped when
+                    TapTap IS the top card: the reader would meet one provider
+                    twice before a second one. */}
+                {index === 0 && partnerQuote && quote.providerSlug !== "taptap-send" && (
+                  <PartnerFeatureBlock
+                    source="taptap_spotlight:send-money"
+                    variant="card"
+                    quote={{ fromCurrency, toCurrency, sendAmount: amount, receiveAmount: partnerQuote.receiveAmount, exchangeRate: partnerQuote.exchangeRate, fee: partnerQuote.fee }}
+                  />
+                )}
+                <ProviderCard
                   quote={quote}
                   sendCurrencySymbol={sendCurrency?.symbol || "$"}
                   receiveCurrencySymbol={receiveCurrency?.symbol || ""}
@@ -628,28 +641,6 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
                   tiedAhead={tiedMarks.has(quote.providerSlug)}
                   badge={insight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug)}
                 />
-                {/* Partner spotlight, slotted under the top card — but never
-                    when the partner IS the top card. Ranked #1 already shows
-                    the logo, the payout, the rate, the fee and a /go button,
-                    and the spotlight repeats all five verbatim, so the reader
-                    meets one provider twice before meeting a second one on a
-                    surface headed "N providers". Suppressing it costs no
-                    visibility: the partner is right there at the top, with the
-                    stronger CTA. Keyed off the rendered top card rather than
-                    the default "Best value" order, so an explicit sort by
-                    rate, fee or rating that floats the partner to #1
-                    suppresses it too — the duplication is visual and does not
-                    care how the list got ordered. Paid placement stays
-                    disclosed by <AffiliateDisclosure /> below the list, which
-                    is why dropping the block here does not drop the
-                    disclosure with it. */}
-                {index === 0 && partnerQuote && quote.providerSlug !== "taptap-send" && (
-                  <PartnerFeatureBlock
-                    source="taptap_spotlight:send-money"
-                    variant="card"
-                    quote={{ fromCurrency, toCurrency, sendAmount: amount, receiveAmount: partnerQuote.receiveAmount, exchangeRate: partnerQuote.exchangeRate, fee: partnerQuote.fee }}
-                  />
-                )}
                 </Fragment>
               ));
             })()}

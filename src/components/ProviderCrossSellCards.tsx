@@ -55,7 +55,7 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
   return (
     <aside ref={ref} className={`provider-cross-sell provider-cross-sell--${placement}`} aria-label="Transfer partner options" data-provider-cross-sell={placement}>
       <div className="partner-section-heading" data-partner-heading>
-        {compact && <p className="partner-eyebrow">Partner spotlight</p>}
+        {compact && <p className="partner-eyebrow">Sponsored</p>}
         {/* Not a heading: a widget's title is the same on every page it sits
             on, and an H2 shared by 246 pages reads to a crawler as the page
             template, not the page (2026-09-27, check:headings). The page-end

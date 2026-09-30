@@ -16,6 +16,7 @@ import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { trackCompareSelected } from "@/lib/analytics";
 import { useGeoSelection } from "@/lib/useGeoSelection";
 import LiveTimestamp from "@/components/LiveTimestamp";
+import trustpilotRatings from "@/data/scraped/trustpilot-ratings.json";
 
 /* Corridors sampled for the "who wins more often" strip. Kept short so the
    table stays scannable; the headline verdict uses the user-chosen corridor. */
@@ -270,13 +271,19 @@ export default function CompareShowdown({
   const toSym = symbolFor(toCurrency);
   const articleSlug = getCompareCanonicalSlug(`${a}-vs-${b}`);
 
+  const tpScore = (slug: string) => (trustpilotRatings as { slug: string; score: number | null }[]).find((r) => r.slug === slug)?.score ?? null;
+  const tpA = tpScore(provA.slug);
+  const tpB = tpScore(provB.slug);
   // Feature diff rows — drawn straight from the Provider interface
   const rows: { label: string; va: string; vb: string; w: "a" | "b" | "tie" }[] = [
     {
+      // The scraped Trustpilot score, never providers.ts's typed `rating`: that
+      // field was labelled "Trustpilot rating" here and had drifted (TapTap Send
+      // showed 4.7 with no Trustpilot record behind it until 2026-09-29).
       label: "Trustpilot rating",
-      va: `${provA.rating.toFixed(1)} (${provA.ratingLabel})`,
-      vb: `${provB.rating.toFixed(1)} (${provB.ratingLabel})`,
-      w: provA.rating > provB.rating ? "a" : provB.rating > provA.rating ? "b" : "tie",
+      va: tpA != null ? tpA.toFixed(1) : "—",
+      vb: tpB != null ? tpB.toFixed(1) : "—",
+      w: tpA == null || tpB == null ? "tie" : tpA > tpB ? "a" : tpB > tpA ? "b" : "tie",
     },
     { label: "Fee structure", va: provA.feeStructure, vb: provB.feeStructure, w: "tie" },
     {

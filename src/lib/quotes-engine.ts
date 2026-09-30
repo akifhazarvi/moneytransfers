@@ -147,6 +147,7 @@ export function generateQuotes(
         receiveAmount: Math.round(receiveAmount * 100) / 100,
         transferSpeed: estimate.deliveryEstimate || sq.deliveryEstimate || provider?.transferSpeed || "1-3 business days",
         rating,
+        ratingIsTrustpilot: tp?.score != null,
         ratingLabel,
         ...(estimate.promoNote || sq.promoNote ? { promoNote: estimate.promoNote ?? sq.promoNote } : {}),
       });
@@ -260,6 +261,7 @@ function buildIndicativeQuotes(
       receiveAmount: Math.round(amount * adjustedRate * 100) / 100,
       transferSpeed: provider.transferSpeed,
       rating,
+      ratingIsTrustpilot: tp?.score != null,
       ratingLabel: toRatingLabel(rating),
       isIndicative: true,
     }];

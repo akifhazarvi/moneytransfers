@@ -31,7 +31,7 @@ interface Props {
   isBestValue?: boolean;
   /**
    * One-line row instead of the full card. Only the top result (and the
-   * partner spotlight under it) is shown expanded: twenty full cards made the
+   * sponsored TapTap block above it) is shown expanded: twenty full cards made the
    * list a long scroll of repeated facts. The row keeps what decides a choice
    * — payout, fee, rate — and its own Send button: the click is the
    * conversion, so it is never moved behind the details toggle.
@@ -71,7 +71,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
           <div>
             <p className="conversion-row-name">{name}</p>
             <p className="conversion-row-meta">
-              {quote.rating > 0 && <><Star size={11} aria-hidden="true" />{quote.rating.toFixed(1)}{" "}</>}
+              {quote.ratingIsTrustpilot && quote.rating > 0 && <span className="conversion-row-tp" title="Trustpilot rating"><Star size={11} aria-hidden="true" />{quote.rating.toFixed(1)}<span className="sr-only"> on Trustpilot</span></span>}{" "}
               {quote.isIndicative ? "Indicative" : quote.transferSpeed}
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
         <Image src={providerLogo(quote.providerSlug, provider?.logo)} alt="" width={48} height={48} className="conversion-logo" />
         <div>
           <div className="conversion-result-name"><p>{name}</p>{isBestValue && <span className="conversion-tag">Best value</span>}</div>
-          <p className="conversion-result-rating">{quote.rating > 0 && <><Star size={12} aria-hidden="true" />{quote.rating.toFixed(1)} <span>on Trustpilot</span></>}{quote.isIndicative && <span>Indicative quote</span>}</p>
+          <p className="conversion-result-rating">{quote.ratingIsTrustpilot && quote.rating > 0 && <><Star size={12} aria-hidden="true" />{quote.rating.toFixed(1)} <span>on Trustpilot</span></>}{quote.isIndicative && <span>Indicative quote</span>}</p>
         </div>
       </div>
       <div className="conversion-result-payout">

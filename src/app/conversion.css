@@ -47,6 +47,7 @@
 .conversion-row-brand > div { min-width: 0; }
 .conversion-row-name { font-size: 15px; font-weight: 600; letter-spacing: -.015em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .conversion-row-meta svg { flex-shrink: 0; }
+.conversion-row-tp { display: inline-flex; align-items: center; gap: 3px; flex-shrink: 0; }
 .conversion-row-meta { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--color-on-surface-variant); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .conversion-row-payout { grid-area: payout; text-align: right; min-width: 0; }
 .conversion-row-payout strong { display: block; font-size: 17px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
@@ -59,16 +60,21 @@
 .conversion-row > .conversion-result-details { padding-top: 12px; margin-top: 2px; }
 .conversion-row :focus-visible { outline: 3px solid #48a981; outline-offset: 2px; }
 .conversion-text-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; min-height: 44px; }
-.conversion-spotlight { margin: 24px 0; padding: 28px; border-radius: 24px; border: 1px solid var(--color-outline); background: var(--color-surface); color: var(--color-on-surface); }
-.conversion-spotlight h2, .conversion-spotlight .conversion-spotlight-title { font-size: 24px !important; font-weight: 600; letter-spacing: -.035em; line-height: 1.2; margin: 5px 0 0 !important; }
-.conversion-spotlight > p { font-size: 14px; line-height: 1.7; color: var(--color-on-surface-variant); margin: 16px 0; max-width: 760px; }
-.conversion-spotlight-quote { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 20px; background: var(--color-surface-dim); border-radius: 16px; margin: 20px 0; }
-.conversion-spotlight-quote div:last-of-type { text-align: right; }
-.conversion-spotlight-quote span { font-size: 12px; color: var(--color-on-surface-variant); display: block; }
-.conversion-spotlight-quote strong { font-size: clamp(17px, 2.4vw, 26px); font-weight: 600; letter-spacing: -.025em; overflow-wrap: anywhere; }
-.conversion-spotlight-quote small { grid-column: 1 / -1; font-size: 11px; line-height: 1.6; color: var(--color-on-surface-variant); }
-.conversion-spotlight-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.conversion-spotlight > .conversion-disclosure { font-size: 11px; margin: 16px 0 0; }
+/* Sponsored TapTap block. Same shape as a result card (name left, payout
+   right, action under it) so it reads as one more offer, clearly tagged. */
+.conversion-spotlight { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head pay" "note act"; align-items: center; gap: 16px 32px; margin: 24px 0; padding: 24px; border-radius: 24px; border: 1px solid var(--color-outline); background: var(--color-surface); color: var(--color-on-surface); }
+.conversion-spotlight-heading { grid-area: head; }
+.conversion-spotlight-namerow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.conversion-spotlight .conversion-spotlight-title { font-size: 18px; font-weight: 600; letter-spacing: -.025em; line-height: 1.3; margin: 0; }
+.conversion-sponsored { font-size: 11px; line-height: 1.4; padding: 4px 9px; border-radius: 30px; font-weight: 600; color: var(--color-on-surface-variant); background: var(--color-surface-dim); border: 1px solid var(--color-outline); }
+.conversion-spotlight-proof { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; font-size: 12px; color: var(--color-on-surface-variant); margin-top: 6px; }
+.conversion-spotlight-proof svg { flex-shrink: 0; }
+.conversion-spotlight-payout { grid-area: pay; text-align: right; min-width: 0; }
+.conversion-spotlight-payout span, .conversion-spotlight-payout small { display: block; font-size: 12px; color: var(--color-on-surface-variant); }
+.conversion-spotlight-payout strong { display: block; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3; letter-spacing: -.035em; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.conversion-spotlight-actions { grid-area: act; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.conversion-spotlight-actions .conversion-text-link { font-size: 12px; min-height: 36px; }
+.conversion-spotlight > .conversion-disclosure { grid-area: note; align-self: end; font-size: 11px; line-height: 1.6; color: var(--color-on-surface-variant); margin: 0; max-width: 560px; }
 .provider-cross-sell .partner-primary { border-radius: 14px; min-height: 48px; }
 @media (max-width: 900px) {
  .conversion-search { grid-template-columns: 1fr 44px 1fr; }
@@ -90,16 +96,16 @@
  .conversion-row-payout strong { grid-area: payout; text-align: right; font-size: 16px; }
  .conversion-row-payout span { grid-area: fee; align-self: center; text-align: left; }
  .conversion-button.conversion-row-send { min-width: 88px; padding: 8px 14px; }
- .conversion-spotlight { padding: 20px; border-radius: 20px; }
- .conversion-spotlight-actions { gap: 8px; }
+ .conversion-spotlight { grid-template-columns: 1fr; grid-template-areas: "head" "pay" "act" "note"; gap: 14px; padding: 20px; border-radius: 20px; }
+ .conversion-spotlight-payout { text-align: left; }
+ .conversion-spotlight-actions { align-items: stretch; }
  .conversion-spotlight-actions .conversion-button { width: 100%; }
- .conversion-spotlight-quote { padding: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { .conversion-button { transition: none; } }
 
 .provider-cross-sell .partner-card { border-radius: 24px; }
 .provider-cross-sell .partner-primary { font-size: 14px; background: #166344; color: #fff; }
-.conversion-results .conversion-spotlight { margin: 0; }
+.conversion-results .conversion-spotlight { margin: 0 0 8px; }
 
 /* Persistent, dismissible reading action. It never covers an active form or consent dialog. */
 .taptap-reading-cta { position: fixed; z-index: 60; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); right: 24px; display: flex; align-items: center; gap: 14px; max-width: calc(100vw - 32px); padding: 16px 12px 16px 18px; border: 1px solid var(--color-outline); border-radius: 20px; background: var(--color-surface); color: var(--color-on-surface); box-shadow: 0 8px 40px #0002; }
@@ -114,7 +120,7 @@
 .taptap-reading-dismiss:focus-visible { outline: 2px solid var(--color-on-surface); outline-offset: 2px; }
 .taptap-reading-reserve { height: 120px; }
 .provider-cross-sell .partner-card[data-partner="taptap-send"] { border-color: #328362; }
-.provider-cross-sell .partner-card[data-partner="taptap-send"] .partner-name::before { content: "Paid spotlight"; display: block; font-size: 10px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 5px; color: var(--color-on-surface-variant); }
+.provider-cross-sell .partner-card[data-partner="taptap-send"] .partner-name::before { content: "Sponsored"; display: block; font-size: 10px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 5px; color: var(--color-on-surface-variant); }
 @media (max-width: 600px) {
  .taptap-reading-cta { left: 12px; right: 12px; max-width: none; gap: 10px; padding: 12px; flex-wrap: wrap; }
  .taptap-reading-copy { flex: 1; }
