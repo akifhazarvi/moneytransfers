@@ -9601,10 +9601,10 @@
     "date": "2026-09-30",
     "providers": {
       "moneygram": {
-        "rate": 113.287,
+        "rate": 112.552,
         "fee": 1.99,
-        "markup": 1.52,
-        "receiveAmount": 11103.24
+        "markup": 2.24,
+        "receiveAmount": 11031.22
       },
       "western-union": {
         "rate": 111.053,
@@ -9619,28 +9619,28 @@
         "receiveAmount": 11204.29
       },
       "currencyfair": {
-        "rate": 114.2,
+        "rate": 114.305,
         "fee": 1.05,
-        "markup": 0.73,
-        "receiveAmount": 11300.09
+        "markup": 0.71,
+        "receiveAmount": 11310.48
       },
       "postfinance": {
-        "rate": 111.932,
-        "fee": 18.68,
-        "markup": 2.7,
-        "receiveAmount": 9102.31
+        "rate": 111.694,
+        "fee": 18.65,
+        "markup": 2.98,
+        "receiveAmount": 9086.34
       },
       "paysend": {
-        "rate": 113.242,
+        "rate": 113.237,
         "fee": 2.9,
-        "markup": 1.56,
-        "receiveAmount": 10995.76
+        "markup": 1.64,
+        "receiveAmount": 10995.34
       },
       "revolut": {
-        "rate": 114.628,
+        "rate": 114.725,
         "fee": 1.1,
-        "markup": 0.36,
-        "receiveAmount": 11336.72
+        "markup": 0.35,
+        "receiveAmount": 11346.26
       },
       "wise": {
         "rate": 114.995,
