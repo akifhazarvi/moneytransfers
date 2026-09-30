@@ -27,13 +27,17 @@
  *   Currencies Direct — currenciesdirect.com/business, help.currenciesdirect.com.
  *                       Zero fees; min ~£100 online to third parties.
  *
+ * Regency FX added 30 September 2026; primary sources and review date are
+ * recorded on its profile. Unverified features do not imply non-availability.
+ *
  * Support levels:
  *   "full"    — first-class, documented feature
  *   "partial" — available but limited, plan-gated, or via a workaround
  *   "none"    — not offered
+ *   "unknown" — not verified; receives no matching credit
  */
 
-export type Support = "full" | "partial" | "none";
+export type Support = "full" | "partial" | "none" | "unknown";
 
 export interface BusinessFeature {
   key: string;
@@ -91,9 +95,50 @@ export interface BusinessProvider {
   features: Record<string, { level: Support; note?: string }>;
   /** Whether we hold an editorial review for the company-page link. */
   hasReview: boolean;
+  sources?: { label: string; url: string }[];
+  reviewedAt?: string;
 }
 
 export const BUSINESS_PROVIDERS: BusinessProvider[] = [
+  {
+    slug: "regencyfx",
+    name: "Regency FX",
+    tagline: "Account-managed business FX with forward contracts for planned payments.",
+    bestFor: "Businesses planning overseas supplier payments or larger transfers with a dedicated account manager.",
+    fxNote: "Request a quote for your amount and route; compare the exchange rate and total received.",
+    facts: {
+      pricing: "Company information states no transfer fees; exchange-rate margin and third-party charges can affect total cost.",
+      speed: "Confirm arrival time for your currency and funding method before booking.",
+      reach: "Confirm your destination and currency with the business team.",
+      minimum: "Confirm the minimum for your payment with Regency FX.",
+      eligibility: "Business accounts available, subject to onboarding and payment-partner eligibility checks.",
+      batchLimit: "Batch upload capability and recipient limits not verified.",
+    },
+    trust: {
+      regulators: "Payment services are supplied by partners including Currencycloud, Equals Connect and Sciopay; the applicable entity depends on location and service. These are partner authorisations, not Regency FX's own FCA authorisation.",
+      kyc: "Ask the account manager for required company, ownership and source-of-funds documents.",
+      limits: "Confirm transfer limits and any forward-contract deposit before agreeing a trade.",
+      fraud: "The provider's security page describes encryption and access controls; confirm the controls available on your business account.",
+      fundsProtection: "Regency FX states that its payment partners safeguard client funds. Ask which partner will handle your payment and how its safeguarding applies.",
+    },
+    useCases: ["Overseas supplier invoices", "Planning future foreign-currency payments", "Larger business transfers with account-manager support"],
+    industries: ["Import/export", "Businesses with overseas suppliers"],
+    pros: ["Personal account manager", "Forward contracts available for up to 12 months", "Online transfers alongside assisted service"],
+    cons: ["Pricing requires a personalised quote", "Forward contracts create a binding payment commitment", "Batch, API and accounting capabilities not verified"],
+    hasReview: true,
+    reviewedAt: "30 September 2026",
+    sources: [
+      { label: "Business services", url: "https://www.regencyfx.com/business" },
+      { label: "Forward contracts", url: "https://www.regencyfx.com/currency-forward-contracts" },
+      { label: "Safeguarding and security", url: "https://www.regencyfx.com/safety-of-your-funds" },
+    ],
+    features: {
+      forwardContracts: { level: "full", note: "Business page offers fixed exchange rates for up to 12 months. Confirm deposit and settlement obligations." },
+      dedicatedDealer: { level: "full", note: "Personal account manager documented on the business services page." },
+      ...Object.fromEntries(["bulkPayments", "approvals", "multiUser", "multiCurrencyAccount", "api", "accounting", "cards"].map(key => [key, { level: "unknown" as const, note: "Not verified for Regency FX business accounts. Partner capabilities alone do not establish availability; confirm directly." }])),
+    },
+  },
+
   {
     slug: "wise",
     name: "Wise Business",

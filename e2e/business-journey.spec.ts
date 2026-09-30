@@ -13,7 +13,7 @@ for (const [slug, workflow, title] of [
     await page.waitForURL(`**/business/compare?workflow=${workflow}#finder`);
     await expect(page.getByRole("group", { name: "Payment workflow" }).getByRole("button", { name: title, exact: true })).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator(".business-needs button[aria-pressed=true]")).toHaveCount(2);
-    await expect(page.locator("[data-business-provider]")).toHaveCount(6);
+    await expect(page.locator("[data-business-provider]")).toHaveCount(7);
   });
 }
 
@@ -22,7 +22,7 @@ test("business shortlist filters, clears and sorts measured costs", async ({ pag
   await page.getByRole("checkbox", { name: "My company is outside the US" }).check();
   await expect(page.locator('[data-business-provider="mercury"]')).toHaveCount(0);
   await page.getByRole("button", { name: "Clear selections", exact: true }).click();
-  await expect(page.locator("[data-business-provider]")).toHaveCount(6);
+  await expect(page.locator("[data-business-provider]")).toHaveCount(7);
   await page.getByRole("combobox", { name: "Sort by" }).selectOption("cost");
   const values = await page.locator(".business-provider-cost strong").allTextContents();
   const numeric = values.filter(v => v.endsWith("%")).map(parseFloat);
@@ -53,7 +53,20 @@ test("comparison keeps the business sponsor outside the ranked shortlist", async
   await page.goto("/business/compare");
   const sponsor = page.getByRole("complementary", { name: "Sponsored: TapTap Send Business" });
   await expect(sponsor).toHaveCount(1);
-  await expect(page.locator("[data-business-provider]")).toHaveCount(6);
+  await expect(page.locator("[data-business-provider]")).toHaveCount(7);
   await expect(page.locator('.business-provider-results [aria-label="Sponsored: TapTap Send Business"]')).toHaveCount(0);
   await expect(sponsor.getByRole("link", { name: /Explore business payments/ })).toHaveAttribute("href", "https://business.taptapsend.com/");
 });
+
+ test("Regency FX appears once with evidenced planning features and source links", async ({ page }) => {
+  await page.goto("/business/compare?workflow=planning");
+  const card = page.locator('[data-business-provider="regencyfx"]');
+  await expect(card).toHaveCount(1);
+  await expect(card).toContainText("2/2 fully supported");
+  await expect(card).toContainText("Quote needed");
+  await expect(card.getByRole("link", { name: /Visit Regency FX/ })).toHaveAttribute("href", /go\/regencyfx/);
+  await expect(page.locator("#regencyfx").getByRole("link", { name: "Business services", exact: true })).toHaveAttribute("href", "https://www.regencyfx.com/business");
+  await expect(page.getByRole("button", { name: /Bulk \/ batch payments/ })).toBeVisible();
+  await page.getByRole("button", { name: /Bulk \/ batch payments/ }).click();
+  await expect(card).toContainText("Not verified");
+ });

@@ -63,3 +63,9 @@ Keep the existing `provider_clicked` and `filter_applied` signals. Workflow pres
 - [Provider results, mobile](results-390.png)
 - [Business guide, narrow mobile](guide-320.png)
 - [Sponsor placement](partner-1440.png)
+
+## Regency FX correction
+
+The initial redesign retained the existing six-provider feature inventory, which omitted Regency FX. Added its single canonical `regencyfx` entry to the shared comparison dataset, with account-manager and forward-contract support checked against its official business page. Profile source links and a separate review date identify the evidence. Seven other feature dimensions remain explicitly “Not verified” and receive no matching credit. The indicative broker price is excluded from measured cost rankings; the finder asks for a quote. Existing partner URL and company review are reused. TapTap sponsorship remains separate.
+
+Validation after this correction: all 18 business browser scenarios passed on desktop and Android-sized Chromium; TypeScript, targeted lint and whitespace checks passed. The first browser attempt was interrupted by the stopped preview; the complete rerun passed. Workflow query selection is applied in the browser to preserve prerendering of the comparison page.

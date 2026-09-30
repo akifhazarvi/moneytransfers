@@ -1,5 +1,4 @@
 import BusinessPartner from "@/components/business/BusinessPartner";
-import { BUSINESS_JOURNEYS } from "@/data/business-journeys";
 import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
@@ -96,7 +95,7 @@ const faqs = [
   },
   {
     q: "Which providers support bulk payments and approval workflows?",
-    a: `All six support bulk/batch payments. Wise Business handles up to 1,000 payments per BatchTransfer, Airwallex up to 1,000 recipients per batch, XE up to 250 per mass-pay request, and OFX, Mercury and Currencies Direct via file upload or API. For approval controls, Mercury and Wise offer the most granular self-serve rules (Mercury enforces separation of duties so a creator can't approve their own payment); OFX and Airwallex support multi-layer approvals; XE and Currencies Direct are lighter or account-manager-led.`,
+    a: `Wise, OFX, Airwallex, Mercury, XE and Currencies Direct list bulk/batch payments; Regency FX batch capability is not verified. Wise Business handles up to 1,000 payments per BatchTransfer, Airwallex up to 1,000 recipients per batch, XE up to 250 per mass-pay request, and OFX, Mercury and Currencies Direct via file upload or API. For approval controls, Mercury and Wise offer the most granular self-serve rules (Mercury enforces separation of duties so a creator can't approve their own payment); OFX and Airwallex support multi-layer approvals; XE and Currencies Direct are lighter or account-manager-led.`,
   },
   {
     q: "Are these providers safe and regulated for business money?",
@@ -114,15 +113,17 @@ const faqSchema = {
 };
 
 const SUPPORT_MARK: Record<Support, { mark: string; cls: string }> = {
+  unknown: { mark: "?", cls: "text-[var(--color-on-surface-muted)]" },
   full: { mark: "●", cls: "text-[var(--color-success,green)]" },
   partial: { mark: "◐", cls: "text-[var(--color-on-surface-variant)]" },
   none: { mark: "—", cls: "text-[var(--color-on-surface-muted)]" },
 };
 
-export default async function BusinessComparePage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ workflow?: string }> }) {
+// ?workflow= is read by BusinessCompareTool after mount. Awaiting searchParams
+// here made the page dynamic: it left the prerendered set, so check:links
+// failed every link to it, and it lost the static render revalidate relies on.
+export default async function BusinessComparePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const { workflow } = await searchParams;
-  const initialWorkflow = BUSINESS_JOURNEYS.some(j => j.workflow === workflow) ? workflow : undefined;
   setRequestLocale(locale);
 
   return (
@@ -135,7 +136,7 @@ export default async function BusinessComparePage({ params, searchParams }: { pa
         <p className="business-eyebrow">Business provider comparison</p>
         <h1>Find the right tools <br />for the way you pay.</h1>
         <p className="business-deck">Choose your payment needs. Compare {PROVIDER_COUNT} providers by feature match and measured cost.</p>
-        <p className="business-small">By {author?.name ?? "Ahsan Mukhtar"} · cost data {asOfLong} · feature inventory reviewed June 2026</p>
+        <p className="business-small">By {author?.name ?? "Ahsan Mukhtar"} · cost data {asOfLong} · original feature inventory reviewed June 2026 · Regency FX checked 30 September 2026</p>
       </Container></section>
 
       {/* ─── Sticky in-page nav ─── */}
@@ -164,8 +165,6 @@ export default async function BusinessComparePage({ params, searchParams }: { pa
             <BusinessCompareTool
               liveCosts={idx.specialistLeaderboard.map((p) => ({ slug: p.slug, avgCostPct: p.avgCostPct, corridorCount: p.corridorCount }))}
               amountLabel={amt}
-              key={initialWorkflow ?? "all"}
-              initialWorkflow={initialWorkflow}
             />
           </div>
 
@@ -176,7 +175,7 @@ export default async function BusinessComparePage({ params, searchParams }: { pa
           <h2 id="matrix" className="mt-16 scroll-mt-28 text-2xl font-normal text-[var(--color-on-surface)]">
             <span className="mr-2 text-sm font-semibold text-[var(--color-primary)]">02</span>Feature comparison matrix</h2>
           <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-            ● = full support · ◐ = partial / plan-gated · — = not listed. Open a cell for feature details and plan limits.
+            ● = full support · ◐ = partial / plan-gated · — = not listed · ? = not verified. Open a cell for feature details and plan limits.
           </p>
           <div className="business-table-region" tabIndex={0} role="region" aria-label="Business feature comparison, scroll horizontally">
             <table className="w-full min-w-[720px] text-sm">
@@ -199,7 +198,7 @@ export default async function BusinessComparePage({ params, searchParams }: { pa
                       const s = SUPPORT_MARK[cell?.level ?? "none"];
                       return (
                         <td key={p.slug} className="py-2.5 px-2 text-center" title={cell?.note || ""}>
-                          <details className="business-matrix-detail"><summary aria-label={`${p.name}: ${f.label} — ${cell?.level === "full" ? "supported" : cell?.level === "partial" ? "limited support" : "not listed"}`}><span className={`text-base ${s.cls}`} aria-hidden="true">{s.mark}</span></summary><p>{cell?.note || "Confirm availability with the provider."}</p></details>
+                          <details className="business-matrix-detail"><summary aria-label={`${p.name}: ${f.label} — ${cell?.level === "full" ? "supported" : cell?.level === "partial" ? "limited support" : cell?.level === "unknown" ? "not verified" : "not listed"}`}><span className={`text-base ${s.cls}`} aria-hidden="true">{s.mark}</span></summary><p>{cell?.note || "Confirm availability with the provider."}</p></details>
                         </td>
                       );
                     })}
@@ -287,6 +286,7 @@ export default async function BusinessComparePage({ params, searchParams }: { pa
                   </dl>
                 </details>
 
+                {p.sources && <p className="mt-4 text-sm text-[var(--color-on-surface-variant)]">Sources checked {p.reviewedAt}: {p.sources.map((source, index) => <span key={source.url}>{index > 0 && " · "}<a href={source.url} target="_blank" rel="noopener noreferrer" className="underline">{source.label}</a></span>)}</p>}
                 <div className="mt-4">
                   <Link
                     href={`/go/${p.slug}`}
@@ -370,7 +370,7 @@ export default async function BusinessComparePage({ params, searchParams }: { pa
               <strong>Features</strong> were verified against each provider&rsquo;s own business and pricing pages plus
               2026 third-party reviews (June 2026). We scoped the set to genuine business-FX / B2B-payment providers —
               Wise Business, OFX, Airwallex, Mercury, XE and Currencies Direct — because the question here is business
-              payments, not consumer remittance.
+              payments, not consumer remittance. Regency FX was added on 30 September 2026 using its business, forward-contract and safeguarding pages plus company-supplied information. Unverified capabilities are labelled separately and receive no feature-match credit.
             </p>
             <p className="citable-passage">
               <strong>Cost</strong> is computed live: we collect quotes for the same {amt} payment on the same corridor

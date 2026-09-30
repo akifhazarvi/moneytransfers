@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { BUSINESS_PROVIDERS, BUSINESS_FEATURES } from "@/data/business-providers";
 import { BUSINESS_JOURNEYS } from "@/data/business-journeys";
 import { trackFilterApplied } from "@/lib/analytics";
@@ -9,9 +9,23 @@ import { getGoUrl } from "@/lib/affiliate";
 
 export interface LiveCost { slug: string; avgCostPct: number; corridorCount: number }
 type SortKey = "match" | "cost" | "name";
-const SUPPORT = { full: "Supported", partial: "Limited / plan-dependent", none: "Not listed as supported" };
+const SUPPORT = { unknown: "Not verified", full: "Supported", partial: "Limited / plan-dependent", none: "Not listed as supported" };
 
-export default function BusinessCompareTool({ liveCosts, amountLabel, initialWorkflow = "" }: {
+// The page is prerendered, so ?workflow= (the /business/[slug] guides link with
+// it) is read in the browser: the server and hydration render no workflow, then
+// the finder remounts preselected.
+const noSubscribe = () => () => {};
+const urlWorkflow = () => {
+  const workflow = new URLSearchParams(window.location.search).get("workflow");
+  return BUSINESS_JOURNEYS.some(j => j.workflow === workflow) ? workflow! : "";
+};
+
+export default function BusinessCompareTool(props: { liveCosts: LiveCost[]; amountLabel: string }) {
+  const workflow = useSyncExternalStore(noSubscribe, urlWorkflow, () => "");
+  return <Finder key={workflow || "all"} {...props} initialWorkflow={workflow} />;
+}
+
+function Finder({ liveCosts, amountLabel, initialWorkflow = "" }: {
   liveCosts: LiveCost[]; amountLabel: string; initialWorkflow?: string;
 }) {
   const costBySlug = useMemo(() => new Map(liveCosts.map(c => [c.slug, c])), [liveCosts]);
