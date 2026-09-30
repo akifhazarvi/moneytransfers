@@ -4,13 +4,13 @@
   "corridorsWithAnyScore": 1018,
   "singleProviderReadings": 814,
   "bands": {
-    "exceptional": 5,
-    "great": 52,
-    "good": 60,
-    "typical": 28,
-    "poor": 59
+    "exceptional": 12,
+    "great": 44,
+    "good": 59,
+    "typical": 32,
+    "poor": 57
   },
-  "goodOrBetterPct": 57,
+  "goodOrBetterPct": 56,
   "confidence": {
     "high": 204,
     "medium": 0,
@@ -20,37 +20,37 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 64,
+      "score": 69,
       "band": "good",
       "headline": "Good time to send",
-      "explanation": "Best rate +0.35% vs the 30-day average, 61% up the 90-day range. Rates are flat over the past week. Today's best beats the median provider by +1.70%.",
+      "explanation": "Best rate +0.50% vs the 30-day average, 68% up the 90-day range. Rates are flat over the past week. Today's best beats the median provider by +1.96%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 60.99823521426282,
-          "detail": "61% up the 90-day range"
+          "score": 67.7722973890224,
+          "detail": "68% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 55.790415673801526,
-          "detail": "+0.35% vs the 30-day average"
+          "score": 58.322127617729834,
+          "detail": "+0.50% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 89.39498095432441,
-          "detail": "today's best beats the median provider by +1.70%"
+          "score": 98.64263782467987,
+          "detail": "today's best beats the median provider by +1.96%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 49.25317146161273,
+          "score": 49.74174782905965,
           "detail": "flat over the past week"
         }
       ],

@@ -13509,70 +13509,70 @@
     "date": "2026-09-30",
     "providers": {
       "santander": {
-        "rate": 2.28053,
+        "rate": 2.28059,
         "fee": 25,
         "markup": 2.75,
         "receiveAmount": 171.04
       },
       "rbs": {
-        "rate": 2.29768,
+        "rate": 2.29773,
         "fee": 0,
         "markup": 2.02,
         "receiveAmount": 229.77
       },
       "natwest": {
-        "rate": 2.29768,
+        "rate": 2.29773,
         "fee": 0,
         "markup": 2.02,
         "receiveAmount": 229.77
       },
       "remitly": {
-        "rate": 2.33931,
+        "rate": 2.33816,
         "fee": 1.99,
-        "markup": 0.25,
-        "receiveAmount": 229.28
+        "markup": 0.3,
+        "receiveAmount": 229.16
       },
       "instarem": {
-        "rate": 2.33951,
+        "rate": 2.33866,
         "fee": 0,
-        "markup": 0.24,
-        "receiveAmount": 233.95
+        "markup": 0.27,
+        "receiveAmount": 233.87
       },
       "barclays": {
-        "rate": 2.2899,
+        "rate": 2.28995,
         "fee": 0,
         "markup": 2.35,
-        "receiveAmount": 228.99
+        "receiveAmount": 229
       },
       "nationwide": {
-        "rate": 2.30609,
+        "rate": 2.30624,
         "fee": 15,
         "markup": 1.66,
-        "receiveAmount": 196.02
+        "receiveAmount": 196.03
       },
       "western-union": {
-        "rate": 2.30776,
+        "rate": 2.31501,
         "fee": 1.99,
-        "markup": 1.59,
-        "receiveAmount": 226.18
+        "markup": 1.28,
+        "receiveAmount": 226.89
       },
       "lloyds": {
-        "rate": 2.26948,
+        "rate": 2.26954,
         "fee": 9.5,
         "markup": 3.22,
         "receiveAmount": 205.39
       },
       "hsbc": {
-        "rate": 2.32955,
+        "rate": 2.32961,
         "fee": 0,
         "markup": 0.66,
         "receiveAmount": 232.96
       },
       "paypal": {
-        "rate": 2.22703,
+        "rate": 2.22555,
         "fee": 2.99,
-        "markup": 5.03,
-        "receiveAmount": 216.04
+        "markup": 5.1,
+        "receiveAmount": 215.9
       }
     }
   }

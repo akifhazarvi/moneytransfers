@@ -1477,10 +1477,10 @@
     "date": "2026-09-30",
     "providers": {
       "wise": {
-        "rate": 0.547706,
+        "rate": 0.547645,
         "fee": 33.64,
-        "markup": 0,
-        "receiveAmount": 36.35
+        "markup": 0.01,
+        "receiveAmount": 36.34
       }
     }
   }

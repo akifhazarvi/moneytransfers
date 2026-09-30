@@ -7804,34 +7804,34 @@
     "date": "2026-09-30",
     "providers": {
       "monese": {
-        "rate": 4.36805,
+        "rate": 4.3496,
         "fee": 3,
-        "markup": 0.02,
-        "receiveAmount": 423.7
+        "markup": 0.44,
+        "receiveAmount": 421.91
       },
       "commerzbank": {
-        "rate": 4.29658,
+        "rate": 4.29239,
         "fee": 12.5,
-        "markup": 1.66,
-        "receiveAmount": 375.95
+        "markup": 1.75,
+        "receiveAmount": 375.58
       },
       "paypal": {
-        "rate": 4.18576,
+        "rate": 4.18695,
         "fee": 3.99,
-        "markup": 4.19,
-        "receiveAmount": 401.87
+        "markup": 4.17,
+        "receiveAmount": 401.99
       },
       "skrill": {
-        "rate": 4.15842,
+        "rate": 4.15571,
         "fee": 0,
-        "markup": 4.82,
-        "receiveAmount": 415.84
+        "markup": 4.88,
+        "receiveAmount": 415.57
       },
       "western-union": {
-        "rate": 4.30192,
+        "rate": 4.30472,
         "fee": 2.99,
-        "markup": 1.53,
-        "receiveAmount": 417.33
+        "markup": 1.47,
+        "receiveAmount": 417.6
       }
     }
   }

@@ -9227,7 +9227,7 @@
       "lemfi": {
         "rate": 162.5,
         "fee": 0,
-        "markup": 0.57,
+        "markup": 0.4,
         "receiveAmount": 16250
       },
       "ria": {
@@ -9243,28 +9243,28 @@
         "receiveAmount": 16250
       },
       "western-union": {
-        "rate": 160.91,
+        "rate": 160.958,
         "fee": 1.99,
-        "markup": 1.18,
-        "receiveAmount": 15770.82
+        "markup": 1.15,
+        "receiveAmount": 15775.46
       },
       "remitly": {
-        "rate": 162.734,
+        "rate": 163.106,
         "fee": 0.99,
-        "markup": 0.06,
-        "receiveAmount": 16112.33
+        "markup": -0.17,
+        "receiveAmount": 16149.13
       },
       "instarem": {
-        "rate": 161.612,
+        "rate": 161.428,
         "fee": 0,
-        "markup": 0.75,
-        "receiveAmount": 16161.16
+        "markup": 0.86,
+        "receiveAmount": 16142.8
       },
       "skrill": {
-        "rate": 155.721,
+        "rate": 155.317,
         "fee": 0,
-        "markup": 4.37,
-        "receiveAmount": 15572.1
+        "markup": 4.62,
+        "receiveAmount": 15531.73
       }
     }
   }
