@@ -16,7 +16,7 @@
 
 // --- Raw data imports ---
 import monitoQuotes from "@/data/scraped/monito-quotes.json";
-import { implausibilityReason, isSelfConsistent, dropRateOutliers, dropCoveredGapFill, providersCoveredAboveGapFill } from "@/lib/quote-integrity";
+import { implausibilityReason, isSelfConsistent, dropRateOutliers, dropCoveredGapFill, providersCoveredAboveGapFill, unreadTapTapFee } from "@/lib/quote-integrity";
 import wiseComparisonQuotes from "@/data/scraped/wise-comparison-quotes.json";
 import exiapQuotes from "@/data/scraped/exiap-quotes.json";
 import ofxQuotes from "@/data/scraped/ofx-quotes.json";
@@ -168,6 +168,15 @@ function normalizeQuote(
   let receiveAmount = (raw.receiveAmount as number) || 0;
   const fromCcy = (raw.sendCurrency as string) || "";
   const toCcy = (raw.receiveCurrency as string) || "";
+
+  // TapTap's flat fees were stored as $0 until 2026-09-29, overstating what it
+  // delivers on USD→INR and ~37 more pairs; restate with its published fee.
+  const tapTapFee = unreadTapTapFee({ source: raw.source as string | undefined, sendCurrency: fromCcy, receiveCurrency: toCcy, fee });
+  if (tapTapFee && exchangeRate > 0 && sendAmount > tapTapFee) {
+    fee = tapTapFee;
+    receiveAmount = (sendAmount - fee) * exchangeRate;
+    restatedCounts.taptapFlatFee = (restatedCounts.taptapFlatFee ?? 0) + 1;
+  }
 
   // Mid-market: use the value scraped alongside this quote when available;
   // otherwise fall back to the global mid-market table so markup can still

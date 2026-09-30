@@ -158,6 +158,43 @@ export function dropRateOutliers(quotes: NormalizedQuote[]): NormalizedQuote[] {
   return kept;
 }
 
+/**
+ * TapTap Send's published flat fees, per currency pair, as its public
+ * /api/fxRates listed them on 2026-09-29 ({ type: "standard", flatFee }).
+ *
+ * Until that date scrape-taptapsend.ts read only TIERED fee schedules, so every
+ * flat one was stored as a $0 fee: USD→INR carried no fee where TapTap charges
+ * $1.99, which on history's $100 reference is 2% of the transfer. That made
+ * TapTap the "most frequent leader" on USD/CAD/GBP/EUR→INR and USD→THB, and #1
+ * at $1,000 on USD→INR and CAD→INR, where with its fee it ranks second.
+ *
+ * The scraper now reads flat fees. Rows written before the fix still carry $0,
+ * so they are restated with the fee TapTap publishes — the best evidence we
+ * hold of what it charged over the window. A row that already carries a fee is
+ * left alone, so this stops applying as fixed rows replace the old ones.
+ * Pairs whose schedule varies by origin country (EUR→NPR, EUR→XOF) or is a
+ * percentage are not listed; neither are pairs we do not emit.
+ */
+export const TAPTAP_FLAT_FEES: Record<string, number> = {
+  "AED-ARS": 5, "AED-BOB": 5, "AED-INR": 5, "AUD-ARS": 1.49, "AUD-BOB": 2.89, "AUD-INR": 1.99,
+  "BRL-HTG": 4.99, "BRL-INR": 9.99, "CAD-ARS": 4.99, "CAD-BOB": 2.99, "CAD-INR": 1.99, "CAD-THB": 2.99,
+  "CZK-ARS": 40, "CZK-BOB": 40, "DKK-ARS": 15, "DKK-BOB": 15, "EUR-ARS": 2.49, "EUR-BOB": 1.99,
+  "EUR-INR": 1.99, "EUR-THB": 1.49, "GBP-ARS": 1.99, "GBP-BOB": 2.49, "GBP-INR": 0.99, "GBP-NPR": 0.99,
+  "GBP-THB": 0.99, "HUF-ARS": 490, "NOK-ARS": 20, "NOK-BOB": 20, "PLN-ARS": 9, "PLN-BOB": 9,
+  "RON-ARS": 10, "RON-BOB": 10, "SEK-ARS": 20, "SEK-BOB": 20, "USD-ARS": 1.99, "USD-BOB": 1.99,
+  "USD-INR": 1.99, "USD-THB": 1.99,
+};
+
+/**
+ * The flat fee a TapTap row should have carried, or 0 when it needs no
+ * restating (not TapTap's own feed, a pair without a flat fee, or a row that
+ * already has one). Callers restate receive = (sendAmount − fee) × rate.
+ */
+export function unreadTapTapFee(q: { source?: string; sendCurrency: string; receiveCurrency: string; fee: number }): number {
+  if (!q.source?.startsWith("taptapsend") || q.fee > 0) return 0;
+  return TAPTAP_FLAT_FEES[`${q.sendCurrency}-${q.receiveCurrency}`] ?? 0;
+}
+
 /** Source tier of the gap-fill-only feed (RemitRoutes) in unified-quotes.ts. */
 export const GAP_FILL_TIER = 5;
 

@@ -391,6 +391,14 @@ are in the scrapers' own comments — read them before "fixing" a parse.
 11. **Empty output** — `writeOutput` (and Xoom's writer) keep the previous file on a
     0-quote run; the merge layer's 72h stale gate expires it and the health step
     flags it. Don't reintroduce an unconditional overwrite.
+12. **A fee shape the parser ignores** — TapTap sends tiered (`tiers`) AND flat
+    (`{ type: "standard", flatFee }`) schedules; until 2026-09-29 the scraper read
+    only tiers, so 38 pairs stored a $0 fee (USD→INR: $1.99, 2% of history's $100
+    reference) and TapTap "led" USD/CAD/GBP/EUR→INR and USD→THB on payouts it
+    never made. Old rows are restated from `TAPTAP_FLAT_FEES` in
+    `quote-integrity.ts`; an unreadable schedule now logs `WARN` in CI. A `fee: 0`
+    from a provider that publishes fees is a parse gap until a raw response says
+    otherwise.
 
 ### Shared Browser Utilities (`scripts/lib/browser.ts`)
 All Playwright scrapers import from this shared library: `setupBrowserContext`, `dismissOverlays`, `fillAmountInput`, `withRetry`, `delay`, `jitteredDelay`, `writeOutput`, `parseNumber`.

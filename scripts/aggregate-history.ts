@@ -37,7 +37,7 @@
 
 import fs from "fs";
 import path from "path";
-import { implausibilityReason, isSelfConsistent } from "../src/lib/quote-integrity";
+import { implausibilityReason, isSelfConsistent, unreadTapTapFee } from "../src/lib/quote-integrity";
 import {
   compressLegacySnapshots,
   listSnapshotFiles,
@@ -237,7 +237,10 @@ function aggregateCorridors(files: string[]): void {
       const rate = Number(q.exchangeRate) || 0;
       if (rate <= 0) continue;
       // RemitRoutes rates are all-in; its "fee" restated the same cost.
-      const fee = q.source === "remitroutes-bridge" ? 0 : Math.max(0, Number(q.fee) || 0);
+      const storedFee = q.source === "remitroutes-bridge" ? 0 : Math.max(0, Number(q.fee) || 0);
+      // TapTap's flat fees were stored as $0 until 2026-09-29 ($1.99 on USD→INR
+      // is 2% of this $100 reference); restate with its published fee.
+      const fee = storedFee || unreadTapTapFee({ source: q.source, sendCurrency: q.sendCurrency, receiveCurrency: q.receiveCurrency, fee: storedFee });
       const midFromRow = Number(q.midMarketRate) || 0;
       const midFromDay = mids
         ? (mids[q.receiveCurrency] ?? (q.receiveCurrency === "USD" ? 1 : 0)) /

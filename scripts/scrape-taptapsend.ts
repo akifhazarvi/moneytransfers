@@ -13,6 +13,10 @@
  *
  * Tiered fees: { tiers: [{ fee: "0.99", minValue: "0.00" }, { fee: "0.00", minValue: "125.00" }] }
  * means $0.99 fee under 125, $0 at 125+.
+ * Flat fees: { type: "standard", flatFee: "1.99" } (a few add feePercent/maxFee)
+ * means $1.99 at every amount. Until 2026-09-29 only tiers were read, so every
+ * flat schedule priced at $0 — USD→INR ($1.99), GBP→INR (£0.99), CAD→INR,
+ * AED→INR (AED 5) and ~36 more pairs overstated what TapTap delivers.
  *
  * Partner API configuration:
  * - TAPTAP_PARTNER_API_KEY: enables partner mode (Authorization: Bearer <key>)
@@ -89,7 +93,10 @@ interface FeeTier {
 
 interface FeeSchedule {
   type: string;
-  tiers: FeeTier[];
+  tiers?: FeeTier[];
+  flatFee?: string;
+  feePercent?: string;
+  maxFee?: string;
 }
 
 interface FxCorridor {
@@ -222,11 +229,26 @@ function tierMin(tier: FeeTier): number {
   return parseFloat(tier.minTransferAmount ?? tier.minValue ?? "0") || 0;
 }
 
+/** Schedules with a shape we cannot price — logged so a format change shows in CI. */
+const unreadSchedules: string[] = [];
+
 function getFeeForAmount(
   schedule: FeeSchedule | undefined,
   sendAmount: number
 ): number {
-  if (!schedule?.tiers?.length) return 0;
+  if (!schedule) return 0;
+  if (!schedule.tiers?.length) {
+    const flat = parseFloat(schedule.flatFee ?? "");
+    const pct = parseFloat(schedule.feePercent ?? "");
+    if (Number.isNaN(flat) && Number.isNaN(pct)) {
+      if (unreadSchedules.length < 5) unreadSchedules.push(JSON.stringify(schedule));
+      return 0;
+    }
+    let fee = (flat || 0) + (sendAmount * (pct || 0)) / 100;
+    const max = parseFloat(schedule.maxFee ?? "");
+    if (max > 0) fee = Math.min(fee, max);
+    return fee;
+  }
 
   const tiers = [...schedule.tiers].sort((a, b) => tierMin(a) - tierMin(b));
   let fee = parseFloat(tiers[0].fee) || 0;
@@ -339,6 +361,9 @@ async function main() {
     `\nSkipped currency pairs — no destination where it is the official currency: ${dropped.noHomeDestination}; ` +
     `rate published too coarsely (>${MAX_PUBLISHED_PRECISION_ERROR * 100}%): ${dropped.coarseRate}`
   );
+  if (unreadSchedules.length) {
+    console.warn(`\nWARN fee schedules with no tiers and no flatFee/feePercent, priced at $0:\n  ${unreadSchedules.join("\n  ")}`);
+  }
   console.log(`\nTotal quotes: ${successCount} success, ${failCount} failed`);
   writeOutput("TapTap Send", "taptapsend", allQuotes, startTime, successCount, failCount);
 }
