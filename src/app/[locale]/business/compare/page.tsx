@@ -1,3 +1,4 @@
+import BusinessPartner from "@/components/business/BusinessPartner";
 import { BUSINESS_JOURNEYS } from "@/data/business-journeys";
 import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
@@ -132,7 +133,7 @@ export default async function BusinessComparePage({ params, searchParams }: { pa
 
       <section className="business-hero business-compare-hero"><Container>
         <p className="business-eyebrow">Business provider comparison</p>
-        <h1>Find the right tools<br />for the way you pay.</h1>
+        <h1>Find the right tools <br />for the way you pay.</h1>
         <p className="business-deck">Choose your payment needs. Compare {PROVIDER_COUNT} providers by feature match and measured cost.</p>
         <p className="business-small">By {author?.name ?? "Ahsan Mukhtar"} · cost data {asOfLong} · feature inventory reviewed June 2026</p>
       </Container></section>
@@ -168,6 +169,7 @@ export default async function BusinessComparePage({ params, searchParams }: { pa
             />
           </div>
 
+          <BusinessPartner source="taptap_spotlight:business-compare" />
           <InstallSlot placement="business-after-finder" />
 
           {/* ── 02 · FEATURE MATRIX (static, for SEO + AI crawlers) ── */}

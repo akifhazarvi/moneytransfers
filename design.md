@@ -39,3 +39,7 @@ Use existing `compare_search`, provider-click, and cross-sell events to evaluate
 ## Homepage hierarchy
 
 Keep the working comparison form beside the promise on desktop and directly below it on mobile. Use the shared green comparison action, explicit amount labels, an estimated recipient amount and visible validation feedback. Describe the provider handoff before the visitor leaves. Show business/high-value guidance after the core comparison. Do not hard-code quote age or use site-wide provider coverage as a route's result count. Homepage styles live in `src/app/home.css`.
+
+## Business journey
+
+Business routes share `business.css` and a three-link section navigation. Lead with payment workflows, then match requirements to provider features. Separate feature matches from cost benchmarks; show unknown costs explicitly and retain observation dates. Business guide actions carry a workflow into `/business/compare`. Keep sponsor cards outside scored provider results and link business visitors to the business product. Feature details must work by keyboard and touch, not only by hovering.

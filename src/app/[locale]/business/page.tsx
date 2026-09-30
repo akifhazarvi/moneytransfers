@@ -45,7 +45,7 @@ export default async function BusinessHubPage({ params }: { params: Promise<{ lo
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
     <section className="business-hero"><Container><div className="business-hero-grid">
-      <div><p className="business-eyebrow">International business payments</p><h1>Find a better fit<br />for the way you pay.</h1><p className="business-deck">Compare costs, payment tools and account requirements. Build a shortlist around your business.</p>
+      <div><p className="business-eyebrow">International business payments</p><h1>Find a better fit <br />for the way you pay.</h1><p className="business-deck">Compare costs, payment tools and account requirements. Build a shortlist around your business.</p>
         <div className="business-actions"><Link href="/business/compare#finder" className="conversion-button conversion-button--accent">Compare business providers <span aria-hidden="true">→</span></Link><a href="#business-guides" className="business-text-link">Explore payment guides</a></div>
         <p className="business-small">Free comparison · {BUSINESS_PROVIDERS.length} provider profiles · No account needed</p>
       </div><BusinessBenchmark index={BFX} />

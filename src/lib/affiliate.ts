@@ -85,6 +85,9 @@ const SLUG_ALIASES: Record<string, string> = {
 };
 
 const affiliateLinks: Record<string, string> = {
+  // Business profiles without a commercial agreement still need a real destination.
+  airwallex: "https://www.airwallex.com/",
+  mercury: "https://mercury.com/business-payments",
   // --- Core providers (hardcoded in providers.ts) ---
   wise: "https://wise.prf.hn/click/camref:1011l5EGnY",
   // Impact.com tracking link (media partner 7718824, ad 663350, campaign 10408).
