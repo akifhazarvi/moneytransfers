@@ -1,4 +1,6 @@
 "use client";
+import BusinessProviderLogo from "@/components/business/BusinessProviderLogo";
+
 
 import { useMemo, useState, useSyncExternalStore } from "react";
 import { BUSINESS_PROVIDERS, BUSINESS_FEATURES } from "@/data/business-providers";
@@ -59,7 +61,7 @@ function Finder({ liveCosts, amountLabel, initialWorkflow = "" }: {
     <div className="business-provider-results">{ranked.map(({ p, met }, i) => {
       const cost = costBySlug.get(p.slug);
       return <article className="business-provider-result" key={p.slug} data-business-provider={p.slug}>
-        <div className="business-provider-info"><div className="business-provider-title"><span className="business-rank">{String(i + 1).padStart(2,"0")}</span><h4>{p.name}</h4>{needs.size > 0 && <span className="business-match">{met}/{needs.size} fully supported</span>}</div><p>{p.tagline}</p>
+        <div className="business-provider-info"><div className="business-provider-title"><span className="business-rank">{String(i + 1).padStart(2,"0")}</span><BusinessProviderLogo slug={p.slug} /><h4>{p.name}</h4>{needs.size > 0 && <span className="business-match">{met}/{needs.size} fully supported</span>}</div><p>{p.tagline}</p>
           {needs.size > 0 && <ul className="business-match-list">{[...needs].map(k => <li key={k}><strong>{BUSINESS_FEATURES.find(f => f.key === k)?.label}:</strong> {SUPPORT[p.features[k]?.level ?? "none"]}</li>)}</ul>}
         </div>
         <div className="business-provider-cost"><span>Benchmark cost</span><strong>{cost ? `${cost.avgCostPct.toFixed(2)}%` : "Quote needed"}</strong><small>{cost ? `${cost.corridorCount} tracked routes` : "No measured cost in this dataset"}</small></div>

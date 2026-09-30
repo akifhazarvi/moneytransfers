@@ -22,6 +22,7 @@
 /** Every file in public/logos at last sync. Generated — do not hand-edit. */
 export const KNOWN_LOGOS: readonly string[] = [
   "ace-money-transfer.svg",
+  "airwallex.png",
   "anz.png",
   "auckland-savings-bank-nz.png",
   "bank-of-america.png",
@@ -52,6 +53,7 @@ export const KNOWN_LOGOS: readonly string[] = [
   "koho.png",
   "lemfi.png",
   "lloyds.png",
+  "mercury.svg",
   "monese.png",
   "moneycorp.png",
   "moneygram.svg",

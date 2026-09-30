@@ -159,3 +159,16 @@
 .business-research-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 24px; padding-bottom:24px; }
 .business-research-links a { font-size:13px; line-height:1.5; padding:12px 0; color:var(--color-on-surface-variant); }
 @media(max-width:760px) { .business-research-links { grid-template-columns:1fr; } }
+
+.business-provider-logo { display:inline-flex; flex:0 0 48px; width:48px; height:48px; padding:6px; align-items:center; justify-content:center; background:#fff; border:1px solid #e6e6e6; border-radius:12px; }
+.business-provider-logo img { width:100%; height:100%; object-fit:contain; }
+.business-provider-logo--compact { width:32px; height:32px; flex-basis:32px; padding:4px; border-radius:8px; }
+.business-profile-brand, .business-cost-brand { display:flex; align-items:center; gap:10px; min-width:0; }
+.business-matrix-brand { display:flex; flex-direction:column; align-items:center; gap:8px; }
+.business-provider-directory { padding:32px 0; border-bottom:1px solid var(--color-outline); }
+.business-provider-directory h2 { font-size:20px; font-weight:600; }
+.business-provider-directory p { margin:8px 0 20px; color:var(--color-on-surface-variant); }
+.business-provider-directory > div { display:flex; flex-wrap:wrap; gap:12px; }
+.business-provider-directory a { display:flex; align-items:center; gap:10px; padding:8px 14px 8px 8px; border:1px solid var(--color-outline); border-radius:14px; font-size:14px; }
+.business-provider-directory a:hover { border-color:var(--color-primary); background:var(--color-surface-dim); }
+@media(max-width:420px) { .business-provider-directory > div { display:grid; grid-template-columns:1fr 1fr; gap:8px; } .business-provider-directory a { flex-direction:column; text-align:center; padding:12px 8px; } }

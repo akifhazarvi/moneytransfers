@@ -1,3 +1,4 @@
+import BusinessProviderLogo from "@/components/business/BusinessProviderLogo";
 import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -51,6 +52,7 @@ export default async function BusinessHubPage({ params }: { params: Promise<{ lo
       </div><BusinessBenchmark index={BFX} />
     </div></Container></section>
     <Container>
+      <section className="business-provider-directory" aria-labelledby="business-providers-title"><h2 id="business-providers-title">Explore business payment providers</h2><p>Compare features and account requirements, including Regency FX for assisted business transfers.</p><div>{BUSINESS_PROVIDERS.map(p => <Link href={`/business/compare#${p.slug}`} key={p.slug}><BusinessProviderLogo slug={p.slug} /><span>{p.name}</span></Link>)}</div></section>
       <section id="business-guides" className="business-section">
         <div className="business-section-heading"><p className="business-eyebrow">Start with the job to be done</p><h2>What does your business need to pay?</h2><p>Choose a workflow to find the questions worth asking.</p></div>
         <div className="business-task-grid">{BUSINESS_JOURNEYS.map((j, i) => <Link href={`/business/${j.slug}`} key={j.slug} className="business-task-card"><div><span>0{i + 1}</span><span aria-hidden="true">↗</span></div><h3>{j.title}</h3><p>{j.description}</p><span className="business-card-link">Explore this workflow →</span></Link>)}</div>

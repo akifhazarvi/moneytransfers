@@ -1,3 +1,4 @@
+import BusinessProviderLogo from "@/components/business/BusinessProviderLogo";
 import BusinessPartner from "@/components/business/BusinessPartner";
 import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
@@ -183,7 +184,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
                 <tr className="border-b border-[var(--color-outline)] text-left text-[var(--color-on-surface-variant)]">
                   <th className="py-2 pr-3 font-medium">Feature</th>
                   {BUSINESS_PROVIDERS.map((p) => (
-                    <th key={p.slug} className="py-2 px-2 font-medium text-center whitespace-nowrap">{p.name}</th>
+                    <th key={p.slug} className="py-2 px-2 font-medium text-center whitespace-nowrap"><span className="business-matrix-brand"><BusinessProviderLogo slug={p.slug} compact />{p.name}</span></th>
                   ))}
                 </tr>
               </thead>
@@ -218,7 +219,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
             {BUSINESS_PROVIDERS.map((p) => (
               <div key={p.slug} id={p.slug} className="rounded-2xl border border-[var(--color-outline)] p-5 sm:p-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-xl font-medium text-[var(--color-on-surface)]">{p.name}</h3>
+                  <div className="business-profile-brand"><BusinessProviderLogo slug={p.slug} /><h3 className="text-xl font-medium text-[var(--color-on-surface)]">{p.name}</h3></div>
                   {p.hasReview && (
                     <Link href={`/companies/${p.slug}`} className="text-sm text-[var(--color-primary)] hover:underline">
                       Read full review →
@@ -318,8 +319,8 @@ export default async function BusinessComparePage({ params }: { params: Promise<
                 <div className="relative space-y-2.5">
                   {idx.specialistLeaderboard.map((p, i) => (
                     <div key={p.slug} className="grid grid-cols-[8.5rem_1fr_3rem] items-center gap-3">
-                      <Link href={`/companies/${p.slug}`} className="truncate text-sm text-[var(--color-on-surface)] hover:text-[var(--color-primary)]">
-                        <span className="mr-1.5 text-[var(--color-on-surface-muted)]">{i + 1}</span>{p.name}
+                      <Link href={`/companies/${p.slug}`} className="business-cost-brand text-sm text-[var(--color-on-surface)] hover:text-[var(--color-primary)]">
+                        <BusinessProviderLogo slug={p.slug} compact /><span className="truncate">{p.name}</span>
                       </Link>
                       <div className="h-6 rounded-full bg-[var(--color-surface-dim)]">
                         <div
