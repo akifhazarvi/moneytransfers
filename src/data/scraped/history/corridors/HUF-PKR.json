@@ -707,10 +707,10 @@
     "date": "2026-10-01",
     "providers": {
       "taptap-send": {
-        "rate": 0.86,
+        "rate": 0.85,
         "fee": 0,
-        "markup": -0.57,
-        "receiveAmount": 86
+        "markup": 0.6,
+        "receiveAmount": 85
       }
     }
   }

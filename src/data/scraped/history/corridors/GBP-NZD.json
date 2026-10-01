@@ -13580,58 +13580,58 @@
     "date": "2026-10-01",
     "providers": {
       "santander": {
-        "rate": 2.2839,
+        "rate": 2.2818,
         "fee": 25,
-        "markup": 3.12,
-        "receiveAmount": 171.29
+        "markup": 3.21,
+        "receiveAmount": 171.14
       },
       "western-union": {
-        "rate": 2.31575,
+        "rate": 2.31578,
         "fee": 1.99,
-        "markup": 1.77,
+        "markup": 1.76,
         "receiveAmount": 226.97
       },
       "remitly": {
-        "rate": 2.34321,
+        "rate": 2.34221,
         "fee": 1.99,
-        "markup": 0.6,
-        "receiveAmount": 229.66
+        "markup": 0.64,
+        "receiveAmount": 229.56
       },
       "rbs": {
-        "rate": 2.30242,
+        "rate": 2.30031,
         "fee": 0,
-        "markup": 2.33,
-        "receiveAmount": 230.24
+        "markup": 2.42,
+        "receiveAmount": 230.03
       },
       "paypal": {
-        "rate": 2.23877,
+        "rate": 2.23897,
         "fee": 2.99,
-        "markup": 5.03,
-        "receiveAmount": 217.18
+        "markup": 5.02,
+        "receiveAmount": 217.2
       },
       "hsbc": {
-        "rate": 2.33299,
+        "rate": 2.33085,
         "fee": 0,
-        "markup": 1.03,
-        "receiveAmount": 233.3
+        "markup": 1.12,
+        "receiveAmount": 233.09
       },
       "natwest": {
-        "rate": 2.30242,
+        "rate": 2.30031,
         "fee": 0,
-        "markup": 2.33,
-        "receiveAmount": 230.24
+        "markup": 2.42,
+        "receiveAmount": 230.03
       },
       "nationwide": {
-        "rate": 2.30519,
+        "rate": 2.30347,
         "fee": 15,
-        "markup": 2.21,
-        "receiveAmount": 195.94
+        "markup": 2.29,
+        "receiveAmount": 195.8
       },
       "lloyds": {
-        "rate": 2.27283,
+        "rate": 2.27075,
         "fee": 9.5,
-        "markup": 3.59,
-        "receiveAmount": 205.69
+        "markup": 3.67,
+        "receiveAmount": 205.5
       },
       "instarem": {
         "rate": 2.34291,
@@ -13640,10 +13640,10 @@
         "receiveAmount": 234.29
       },
       "barclays": {
-        "rate": 2.29327,
+        "rate": 2.29117,
         "fee": 0,
-        "markup": 2.72,
-        "receiveAmount": 229.33
+        "markup": 2.81,
+        "receiveAmount": 229.12
       }
     }
   }

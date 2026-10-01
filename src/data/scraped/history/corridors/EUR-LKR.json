@@ -2889,16 +2889,16 @@
     "date": "2026-10-01",
     "providers": {
       "taptap-send": {
-        "rate": 370,
+        "rate": 369.5,
         "fee": 0,
-        "markup": 1.18,
-        "receiveAmount": 37000
+        "markup": 1.32,
+        "receiveAmount": 36950
       },
       "wise": {
-        "rate": 373.092,
+        "rate": 371.866,
         "fee": 3.11,
-        "markup": 0.36,
-        "receiveAmount": 36148.88
+        "markup": 0.68,
+        "receiveAmount": 36030.1
       }
     }
   }

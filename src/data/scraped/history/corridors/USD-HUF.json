@@ -4927,22 +4927,22 @@
     "date": "2026-10-01",
     "providers": {
       "western-union": {
-        "rate": 322.968,
+        "rate": 322.985,
         "fee": 0.99,
-        "markup": 0.3,
-        "receiveAmount": 31977.08
+        "markup": 0.29,
+        "receiveAmount": 31978.78
       },
       "remitly": {
-        "rate": 322.359,
+        "rate": 323.959,
         "fee": 0.99,
-        "markup": 0.49,
-        "receiveAmount": 31916.73
+        "markup": -0.01,
+        "receiveAmount": 32075.21
       },
       "paypal": {
-        "rate": 309.215,
+        "rate": 309.728,
         "fee": 4.99,
-        "markup": 4.54,
-        "receiveAmount": 29378.51
+        "markup": 4.38,
+        "receiveAmount": 29427.25
       },
       "wise": {
         "rate": 325.559,

@@ -20504,16 +20504,16 @@
     "date": "2026-10-01",
     "providers": {
       "instarem": {
-        "rate": 43.964,
+        "rate": 44.0338,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 4396.4
+        "receiveAmount": 4403.38
       },
       "lemfi": {
-        "rate": 43.66,
+        "rate": 43.55,
         "fee": 0,
-        "markup": 0.94,
-        "receiveAmount": 4366
+        "markup": 1.37,
+        "receiveAmount": 4355
       },
       "moneygram": {
         "rate": 43.9553,
@@ -20528,10 +20528,10 @@
         "receiveAmount": 4186.38
       },
       "western-union": {
-        "rate": 43.3962,
+        "rate": 43.5141,
         "fee": 0.99,
-        "markup": 1.49,
-        "receiveAmount": 4296.66
+        "markup": 1.22,
+        "receiveAmount": 4308.33
       },
       "dahabshiil": {
         "rate": 43.7707,
@@ -20570,16 +20570,16 @@
         "receiveAmount": 4323.97
       },
       "remitly": {
-        "rate": 43.78,
+        "rate": 43.84,
         "fee": 0,
-        "markup": 0.62,
-        "receiveAmount": 4378
+        "markup": 0.48,
+        "receiveAmount": 4384
       },
       "wise": {
-        "rate": 44.0751,
+        "rate": 44.1554,
         "fee": 2.51,
-        "markup": -0.05,
-        "receiveAmount": 4296.88
+        "markup": -0.23,
+        "receiveAmount": 4304.71
       },
       "ria": {
         "rate": 43.5925,
@@ -20594,22 +20594,22 @@
         "receiveAmount": 4340
       },
       "bmo": {
-        "rate": 40.9238,
+        "rate": 40.994,
         "fee": 0,
-        "markup": 7.1,
-        "receiveAmount": 4092.38
+        "markup": 6.94,
+        "receiveAmount": 4099.4
       },
       "rbc": {
-        "rate": 42.9523,
+        "rate": 42.9525,
         "fee": 0,
         "markup": 2.5,
-        "receiveAmount": 4295.23
+        "receiveAmount": 4295.25
       },
       "paypal": {
-        "rate": 42.0579,
+        "rate": 42.1165,
         "fee": 4.99,
-        "markup": 4.53,
-        "receiveAmount": 3995.92
+        "markup": 4.4,
+        "receiveAmount": 4001.49
       }
     }
   }

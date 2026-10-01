@@ -2923,16 +2923,16 @@
     "date": "2026-10-01",
     "providers": {
       "taptap-send": {
-        "rate": 4.09,
+        "rate": 4.08,
         "fee": 0,
-        "markup": -0.08,
-        "receiveAmount": 409
+        "markup": 0.16,
+        "receiveAmount": 408
       },
       "wise": {
-        "rate": 4.0845,
+        "rate": 4.08482,
         "fee": 1.39,
         "markup": 0.05,
-        "receiveAmount": 402.77
+        "receiveAmount": 402.8
       }
     }
   }

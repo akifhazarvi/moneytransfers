@@ -4945,28 +4945,28 @@
     "date": "2026-10-01",
     "providers": {
       "remitly": {
-        "rate": 21.555,
+        "rate": 21.5825,
         "fee": 1.99,
-        "markup": 0.21,
-        "receiveAmount": 2112.61
+        "markup": 0.08,
+        "receiveAmount": 2115.3
       },
       "paypal": {
-        "rate": 20.6179,
+        "rate": 20.6517,
         "fee": 4.99,
-        "markup": 4.55,
-        "receiveAmount": 1958.91
+        "markup": 4.39,
+        "receiveAmount": 1962.12
       },
       "western-union": {
-        "rate": 21.4419,
+        "rate": 21.451,
         "fee": 0.99,
-        "markup": 0.73,
-        "receiveAmount": 2122.97
+        "markup": 0.69,
+        "receiveAmount": 2123.86
       },
       "wise": {
-        "rate": 21.6806,
+        "rate": 21.7602,
         "fee": 1.85,
-        "markup": -0.37,
-        "receiveAmount": 2127.95
+        "markup": -0.74,
+        "receiveAmount": 2135.76
       }
     }
   }

@@ -6020,16 +6020,16 @@
         "receiveAmount": 6707.07
       },
       "remitly": {
-        "rate": 75.43,
+        "rate": 75.42,
         "fee": 7,
-        "markup": 0,
-        "receiveAmount": 7014.99
+        "markup": 0.01,
+        "receiveAmount": 7014.06
       },
       "taptap-send": {
-        "rate": 76,
+        "rate": 75.71,
         "fee": 6,
-        "markup": -0.76,
-        "receiveAmount": 7144
+        "markup": -0.37,
+        "receiveAmount": 7116.74
       },
       "wise": {
         "rate": 75.4366,
