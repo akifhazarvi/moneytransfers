@@ -525,10 +525,17 @@ export default async function IbanCountryPage({ params }: Props) {
             {/* Named author, review date and sources — content brief §5.4 /
                 §10-A step 6. IBAN formats are reference data people act on when
                 moving money, so the page should say who stands behind it. */}
+            {/* "from the SWIFT IBAN Registry" was a provenance claim we could
+                not back: the formats are a March 2026 scrape of Wise's IBAN
+                pages (data/wise-iban.ts). What is true, checked 2026-10-01: all
+                69 countries are registry members whose length matches the
+                registry spec, and every example IBAN validates (checksum,
+                BBAN format, length) against ibantools 4.5.4's registry specs.
+                The date stays quoteDataDate: this page carries live quotes. */}
             <div className="mb-4">
               <PageByline
                 updated={quoteDataDate ?? new Date().toISOString().split("T")[0]}
-                cadence="IBAN structures from the SWIFT IBAN Registry"
+                cadence="IBAN formats match the SWIFT IBAN Registry"
               />
             </div>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">

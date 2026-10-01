@@ -14,8 +14,9 @@ import type { Metadata } from "next";
 
 // Last edit to what this page says, not to its metadata or robots — bump it
 // when the content changes, never on a deploy. The IBAN formats come from a
-// March 2026 scrape that does not refresh, so neither quoteDataDate (what
-// /iban/[slug] passes) nor PageByline's "every 6 hours" cadence is true here.
+// March 2026 scrape that does not refresh and the hub shows no quotes, so
+// neither quoteDataDate (what /iban/[slug] passes) nor PageByline's "every 6
+// hours" cadence is true here. The registry line is: see /iban/[slug].
 const IBAN_HUB_UPDATED = "2026-05-31";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -100,7 +101,7 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
             {/* The hub was the one IBAN page with no named human behind it;
                 /iban/[slug] has carried PageByline since the Sep 2026 brief. */}
             <div className="flex justify-center mt-4">
-              <PageByline updated={IBAN_HUB_UPDATED} cadence={null} />
+              <PageByline updated={IBAN_HUB_UPDATED} cadence="IBAN formats match the SWIFT IBAN Registry" />
             </div>
           </div>
 
