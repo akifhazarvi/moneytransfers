@@ -28,7 +28,9 @@ export type PromptTopic =
   | "speed"
   | "rules"
   | "business"
-  | "timing";
+  | "timing"
+  /** Which comparison SITE to use — us vs Monito, Finder, Wise's tool. */
+  | "discovery";
 
 export interface BenchmarkPrompt {
   id: string;
@@ -160,6 +162,19 @@ export const BENCHMARK_PROMPTS: BenchmarkPrompt[] = [
   { id: "x09", prompt: "do I pay tax on money received from abroad?", topic: "rules" },
   { id: "x10", prompt: "best way to send money to family abroad every month", topic: "corridor" },
   { id: "x11", prompt: "how do digital nomads move money between countries?", topic: "business" },
+
+  // ── Added 2026-10-01: Okara's GEO gap analysis. Not baseline. ───────────
+  // Okara reports wise.com, monito.com and finder.com cited for these and us
+  // absent. Worded exactly as Okara ran them so the two measurements can be
+  // set side by side. A topic of their own, so adding them does not move the
+  // "comparison" series. The page built for all four already exists
+  // (published 2026-09-17, titled "…Best Money Transfer Comparison Sites"),
+  // which is why Okara's "/vs/monito" page was not built. First run
+  // 2026-10-01: Perplexity cited it at #1 for g04, nothing else cited us.
+  { id: "g01", prompt: "Best websites to compare international money transfer rates in 2026", topic: "discovery", target: "/guides/monito-alternatives" },
+  { id: "g02", prompt: "Best tools to find the cheapest way to send money abroad", topic: "discovery", target: "/guides/monito-alternatives" },
+  { id: "g03", prompt: "Top money transfer comparison sites for sending remittances overseas", topic: "discovery", target: "/guides/monito-alternatives" },
+  { id: "g04", prompt: "Monito alternatives for comparing international money transfers", topic: "discovery", target: "/guides/monito-alternatives" },
 ];
 
 /** Domains we compete with for these answers, checked in every response. */
