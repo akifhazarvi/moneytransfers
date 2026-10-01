@@ -16352,16 +16352,16 @@
         "receiveAmount": 12273
       },
       "moneygram": {
-        "rate": 121.905,
+        "rate": 122.004,
         "fee": 1.99,
-        "markup": 1.02,
-        "receiveAmount": 11947.9
+        "markup": 0.95,
+        "receiveAmount": 11957.62
       },
       "ria": {
-        "rate": 122.004,
+        "rate": 122.073,
         "fee": 2,
-        "markup": 0.94,
-        "receiveAmount": 11956.4
+        "markup": 0.88,
+        "receiveAmount": 11963.2
       },
       "taptap-send": {
         "rate": 122,
@@ -16372,7 +16372,7 @@
       "boss-money": {
         "rate": 121.142,
         "fee": 2.49,
-        "markup": 1.64,
+        "markup": 1.65,
         "receiveAmount": 11812.6
       },
       "western-union": {
@@ -16382,28 +16382,28 @@
         "receiveAmount": 12051.55
       },
       "worldremit": {
-        "rate": 122.886,
+        "rate": 123.422,
         "fee": 0.99,
-        "markup": 0.22,
-        "receiveAmount": 12166.98
+        "markup": -0.21,
+        "receiveAmount": 12220.01
       },
       "xe": {
-        "rate": 122.312,
+        "rate": 122.381,
         "fee": 4,
-        "markup": 0.69,
-        "receiveAmount": 11741.92
+        "markup": 0.64,
+        "receiveAmount": 11748.6
       },
       "paysend": {
-        "rate": 121.613,
+        "rate": 121.307,
         "fee": 1.99,
-        "markup": 1.26,
-        "receiveAmount": 11919.26
+        "markup": 1.51,
+        "receiveAmount": 11889.28
       },
       "sendwave": {
-        "rate": 122.886,
+        "rate": 123.422,
         "fee": 0.99,
-        "markup": 0.22,
-        "receiveAmount": 12166.98
+        "markup": -0.21,
+        "receiveAmount": 12220.01
       },
       "remitly": {
         "rate": 122.38,
@@ -16418,10 +16418,10 @@
         "receiveAmount": 11904.02
       },
       "xoom": {
-        "rate": 120.175,
+        "rate": 120.107,
         "fee": 4.99,
-        "markup": 2.42,
-        "receiveAmount": 11417.85
+        "markup": 2.48,
+        "receiveAmount": 11411.37
       }
     }
   }
