@@ -43,7 +43,7 @@ const teamSchema = [
     url: `${SITE_URL}/about/awais-imran`,
     jobTitle: "Editor-in-Chief",
     worksFor: { "@id": `${SITE_URL}/#organization` },
-    sameAs: ["https://www.linkedin.com/in/awais-imran-smc"],
+    sameAs: ["https://www.linkedin.com/in/awsimran/"],
   },
 ];
 

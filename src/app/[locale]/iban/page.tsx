@@ -9,7 +9,14 @@ import CircleFlag from "@/components/CircleFlag";
 import { wiseCountries, getSepaCountries } from "@/data/wise-iban";
 import { getCountryByAlpha2 } from "@/data/countries";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
+import { PageByline } from "@/components/PageByline";
 import type { Metadata } from "next";
+
+// Last edit to what this page says, not to its metadata or robots — bump it
+// when the content changes, never on a deploy. The IBAN formats come from a
+// March 2026 scrape that does not refresh, so neither quoteDataDate (what
+// /iban/[slug] passes) nor PageByline's "every 6 hours" cadence is true here.
+const IBAN_HUB_UPDATED = "2026-05-31";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -90,6 +97,11 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
             <p className="text-base text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               {t("subheading", { count: wiseCountries.length })}
             </p>
+            {/* The hub was the one IBAN page with no named human behind it;
+                /iban/[slug] has carried PageByline since the Sep 2026 brief. */}
+            <div className="flex justify-center mt-4">
+              <PageByline updated={IBAN_HUB_UPDATED} cadence={null} />
+            </div>
           </div>
 
           {/* Quick stats */}
