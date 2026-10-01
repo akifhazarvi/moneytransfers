@@ -18344,10 +18344,10 @@
     "date": "2026-10-01",
     "providers": {
       "instarem": {
-        "rate": 67.2464,
+        "rate": 67.5071,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 6724.64
+        "receiveAmount": 6750.71
       },
       "moneygram": {
         "rate": 67.1397,
@@ -18356,16 +18356,16 @@
         "receiveAmount": 6446.08
       },
       "western-union": {
-        "rate": 67.2477,
+        "rate": 67.3145,
         "fee": 1.99,
-        "markup": 0.17,
-        "receiveAmount": 6590.95
+        "markup": 0.07,
+        "receiveAmount": 6597.49
       },
       "worldremit": {
-        "rate": 67.4093,
+        "rate": 67.6453,
         "fee": 0,
-        "markup": -0.07,
-        "receiveAmount": 6740.93
+        "markup": -0.42,
+        "receiveAmount": 6764.53
       },
       "paysend": {
         "rate": 67.3632,
@@ -18392,34 +18392,34 @@
         "receiveAmount": 6592.64
       },
       "taptap-send": {
-        "rate": 67.3,
+        "rate": 67.5,
         "fee": 1.99,
-        "markup": 0.09,
-        "receiveAmount": 6596.07
+        "markup": -0.21,
+        "receiveAmount": 6615.68
       },
       "rbc": {
-        "rate": 65.1322,
+        "rate": 65.3603,
         "fee": 0,
-        "markup": 3.31,
-        "receiveAmount": 6513.22
+        "markup": 2.97,
+        "receiveAmount": 6536.03
       },
       "bmo": {
-        "rate": 65.4235,
+        "rate": 65.6525,
         "fee": 0,
-        "markup": 2.87,
-        "receiveAmount": 6542.35
+        "markup": 2.53,
+        "receiveAmount": 6565.25
       },
       "td-bank": {
-        "rate": 65.1394,
+        "rate": 65.3498,
         "fee": 0,
-        "markup": 3.3,
-        "receiveAmount": 6513.94
+        "markup": 2.98,
+        "receiveAmount": 6534.98
       },
       "wise": {
-        "rate": 67.3565,
-        "fee": 2.58,
-        "markup": 0,
-        "receiveAmount": 6561.87
+        "rate": 67.5849,
+        "fee": 2.57,
+        "markup": -0.33,
+        "receiveAmount": 6584.8
       }
     }
   }

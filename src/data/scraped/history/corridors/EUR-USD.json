@@ -13120,62 +13120,62 @@
       "lemfi": {
         "rate": 1.13,
         "fee": 0,
-        "markup": 0.15,
+        "markup": -0.12,
         "receiveAmount": 113
       },
       "taptap-send": {
-        "rate": 1.12,
+        "rate": 1.11,
         "fee": 0,
-        "markup": 1.03,
-        "receiveAmount": 112
+        "markup": 1.91,
+        "receiveAmount": 111
       },
       "moneygram": {
-        "rate": 1.11679,
+        "rate": 1.11097,
         "fee": 1.99,
-        "markup": 1.31,
-        "receiveAmount": 109.46
+        "markup": 1.83,
+        "receiveAmount": 108.89
       },
       "monese": {
-        "rate": 1.1315,
+        "rate": 1.12835,
         "fee": 3,
-        "markup": 0.01,
-        "receiveAmount": 109.76
+        "markup": 0.29,
+        "receiveAmount": 109.45
       },
       "commerzbank": {
-        "rate": 1.12178,
+        "rate": 1.11875,
         "fee": 12.5,
-        "markup": 0.87,
-        "receiveAmount": 98.16
+        "markup": 1.14,
+        "receiveAmount": 97.89
       },
       "paypal": {
-        "rate": 1.08596,
+        "rate": 1.08572,
         "fee": 3.99,
-        "markup": 4.04,
-        "receiveAmount": 104.26
+        "markup": 4.06,
+        "receiveAmount": 104.24
       },
       "ing-de": {
-        "rate": 1.12052,
+        "rate": 1.11815,
         "fee": 22,
-        "markup": 0.98,
-        "receiveAmount": 87.4
+        "markup": 1.19,
+        "receiveAmount": 87.22
       },
       "skrill": {
-        "rate": 1.07735,
+        "rate": 1.07421,
         "fee": 0,
-        "markup": 4.8,
-        "receiveAmount": 107.73
+        "markup": 5.08,
+        "receiveAmount": 107.42
       },
       "instarem": {
-        "rate": 1.12271,
+        "rate": 1.11896,
         "fee": 0,
-        "markup": 0.79,
-        "receiveAmount": 112.27
+        "markup": 1.12,
+        "receiveAmount": 111.9
       },
       "western-union": {
-        "rate": 1.10445,
+        "rate": 1.09526,
         "fee": 0.99,
-        "markup": 2.41,
-        "receiveAmount": 109.35
+        "markup": 3.22,
+        "receiveAmount": 108.44
       }
     }
   }

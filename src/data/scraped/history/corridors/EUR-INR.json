@@ -21230,16 +21230,16 @@
     "date": "2026-10-01",
     "providers": {
       "instarem": {
-        "rate": 108.491,
+        "rate": 108.602,
         "fee": 0,
         "markup": 0.1,
-        "receiveAmount": 10849.14
+        "receiveAmount": 10860.23
       },
       "lemfi": {
-        "rate": 108.64,
+        "rate": 108.57,
         "fee": 1.99,
-        "markup": -0.02,
-        "receiveAmount": 10647.81
+        "markup": 0.07,
+        "receiveAmount": 10640.95
       },
       "moneygram": {
         "rate": 106.762,
@@ -21248,10 +21248,10 @@
         "receiveAmount": 10463.73
       },
       "taptap-send": {
-        "rate": 108.6,
+        "rate": 109,
         "fee": 1.99,
-        "markup": 0.01,
-        "receiveAmount": 10643.89
+        "markup": -0.36,
+        "receiveAmount": 10683.09
       },
       "deutsche-bank": {
         "rate": 107.082,
@@ -21266,10 +21266,10 @@
         "receiveAmount": 10476.5
       },
       "western-union": {
-        "rate": 105.114,
+        "rate": 104.452,
         "fee": 0.99,
-        "markup": 3.22,
-        "receiveAmount": 10407.35
+        "markup": 3.83,
+        "receiveAmount": 10341.76
       },
       "profee": {
         "rate": 109.548,
@@ -21314,22 +21314,22 @@
         "receiveAmount": 10670.1
       },
       "monese": {
-        "rate": 108.364,
+        "rate": 108.286,
         "fee": 3,
-        "markup": 0.23,
-        "receiveAmount": 10511.27
+        "markup": 0.3,
+        "receiveAmount": 10503.74
       },
       "skrill": {
-        "rate": 107.984,
+        "rate": 108.191,
         "fee": 0,
-        "markup": 0.58,
-        "receiveAmount": 10798.36
+        "markup": 0.39,
+        "receiveAmount": 10819.11
       },
       "wise": {
-        "rate": 108.607,
+        "rate": 108.679,
         "fee": 1.58,
-        "markup": 0.01,
-        "receiveAmount": 10689.1
+        "markup": -0.06,
+        "receiveAmount": 10696.19
       }
     }
   }

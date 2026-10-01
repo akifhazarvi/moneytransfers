@@ -2341,10 +2341,10 @@
     "date": "2026-10-01",
     "providers": {
       "lemfi": {
-        "rate": 183.8,
+        "rate": 183.23,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 18380
+        "markup": 0.48,
+        "receiveAmount": 18323
       },
       "taptap-send": {
         "rate": 205,

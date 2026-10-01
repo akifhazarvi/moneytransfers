@@ -12657,10 +12657,10 @@
     "date": "2026-10-01",
     "providers": {
       "lemfi": {
-        "rate": 0.6976,
+        "rate": 0.6977,
         "fee": 0,
-        "markup": 0.6,
-        "receiveAmount": 69.76
+        "markup": 0.61,
+        "receiveAmount": 69.77
       },
       "taptap-send": {
         "rate": 0.69,
@@ -12669,52 +12669,52 @@
         "receiveAmount": 69
       },
       "rbc": {
-        "rate": 0.687496,
+        "rate": 0.687712,
         "fee": 0,
-        "markup": 2.04,
-        "receiveAmount": 68.75
+        "markup": 2.01,
+        "receiveAmount": 68.77
       },
       "western-union": {
-        "rate": 0.683446,
+        "rate": 0.68263,
         "fee": 2.99,
-        "markup": 2.62,
-        "receiveAmount": 66.3
+        "markup": 2.74,
+        "receiveAmount": 66.22
       },
       "paypal": {
-        "rate": 0.673784,
+        "rate": 0.673925,
         "fee": 2.99,
-        "markup": 4,
-        "receiveAmount": 65.36
+        "markup": 3.98,
+        "receiveAmount": 65.38
       },
       "bmo": {
-        "rate": 0.676636,
+        "rate": 0.676849,
         "fee": 0,
-        "markup": 3.59,
-        "receiveAmount": 67.66
+        "markup": 3.56,
+        "receiveAmount": 67.68
       },
       "td-bank": {
-        "rate": 0.683143,
+        "rate": 0.68338,
         "fee": 0,
-        "markup": 2.66,
-        "receiveAmount": 68.31
+        "markup": 2.63,
+        "receiveAmount": 68.34
       },
       "instarem": {
-        "rate": 0.697908,
+        "rate": 0.698354,
         "fee": 0,
-        "markup": 0.56,
-        "receiveAmount": 69.79
+        "markup": 0.5,
+        "receiveAmount": 69.84
       },
       "remitly": {
-        "rate": 0.695609,
+        "rate": 0.695555,
         "fee": 0,
         "markup": 0.89,
         "receiveAmount": 69.56
       },
       "worldremit": {
-        "rate": 0.688071,
+        "rate": 0.688288,
         "fee": 3.99,
-        "markup": 1.96,
-        "receiveAmount": 66.06
+        "markup": 1.93,
+        "receiveAmount": 66.08
       }
     }
   }

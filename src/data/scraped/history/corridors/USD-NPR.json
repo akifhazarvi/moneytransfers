@@ -11359,16 +11359,16 @@
         "receiveAmount": 14899.5
       },
       "taptap-send": {
-        "rate": 152,
+        "rate": 152.1,
         "fee": 1.99,
-        "markup": 1.06,
-        "receiveAmount": 14897.52
+        "markup": 1,
+        "receiveAmount": 14907.32
       },
       "western-union": {
-        "rate": 152.237,
+        "rate": 152.336,
         "fee": 1.99,
-        "markup": 0.91,
-        "receiveAmount": 14920.71
+        "markup": 0.84,
+        "receiveAmount": 14930.46
       },
       "worldremit": {
         "rate": 151.475,
@@ -11377,10 +11377,10 @@
         "receiveAmount": 14997.56
       },
       "instarem": {
-        "rate": 152.124,
+        "rate": 152.6,
         "fee": 0,
-        "markup": 0.98,
-        "receiveAmount": 15212.45
+        "markup": 0.67,
+        "receiveAmount": 15259.97
       },
       "xe": {
         "rate": 151.957,
@@ -11401,10 +11401,10 @@
         "receiveAmount": 14886.74
       },
       "wise": {
-        "rate": 153.545,
-        "fee": 3.02,
-        "markup": 0.06,
-        "receiveAmount": 14890.79
+        "rate": 154.105,
+        "fee": 2.97,
+        "markup": -0.31,
+        "receiveAmount": 14952.81
       }
     }
   }

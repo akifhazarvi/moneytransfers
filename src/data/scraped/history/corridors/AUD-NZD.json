@@ -8481,40 +8481,40 @@
     "date": "2026-10-01",
     "providers": {
       "commonwealth-bank": {
-        "rate": 1.19504,
+        "rate": 1.19545,
         "fee": 0,
-        "markup": 3.31,
-        "receiveAmount": 119.5
+        "markup": 3.27,
+        "receiveAmount": 119.54
       },
       "hsbc": {
-        "rate": 1.2102,
+        "rate": 1.21267,
         "fee": 0,
-        "markup": 2.08,
-        "receiveAmount": 121.02
+        "markup": 1.88,
+        "receiveAmount": 121.27
       },
       "anz": {
-        "rate": 1.19912,
+        "rate": 1.20156,
         "fee": 0,
-        "markup": 2.98,
-        "receiveAmount": 119.91
+        "markup": 2.78,
+        "receiveAmount": 120.16
       },
       "paypal": {
-        "rate": 1.17987,
+        "rate": 1.18105,
         "fee": 5,
-        "markup": 4.54,
-        "receiveAmount": 112.09
+        "markup": 4.44,
+        "receiveAmount": 112.2
       },
       "nab": {
-        "rate": 1.20431,
+        "rate": 1.20692,
         "fee": 0,
-        "markup": 2.56,
-        "receiveAmount": 120.43
+        "markup": 2.35,
+        "receiveAmount": 120.69
       },
       "western-union": {
-        "rate": 1.21489,
+        "rate": 1.22103,
         "fee": 0.99,
-        "markup": 1.7,
-        "receiveAmount": 120.29
+        "markup": 1.21,
+        "receiveAmount": 120.89
       }
     }
   }

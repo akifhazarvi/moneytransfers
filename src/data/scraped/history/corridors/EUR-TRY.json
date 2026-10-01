@@ -14168,10 +14168,10 @@
     "date": "2026-10-01",
     "providers": {
       "moneygram": {
-        "rate": 54.8337,
+        "rate": 54.6282,
         "fee": 1.49,
-        "markup": 1.17,
-        "receiveAmount": 5401.67
+        "markup": 1.54,
+        "receiveAmount": 5381.42
       },
       "taptap-send": {
         "rate": 55.5,
@@ -14192,16 +14192,16 @@
         "receiveAmount": 5266.89
       },
       "western-union": {
-        "rate": 54.7559,
+        "rate": 54.345,
         "fee": 0.99,
-        "markup": 1.31,
-        "receiveAmount": 5421.38
+        "markup": 2.05,
+        "receiveAmount": 5380.7
       },
       "instarem": {
-        "rate": 55.0758,
+        "rate": 54.94,
         "fee": 0,
-        "markup": 0.74,
-        "receiveAmount": 5507.58
+        "markup": 0.98,
+        "receiveAmount": 5494.01
       },
       "paysend": {
         "rate": 55.0281,
@@ -14210,10 +14210,10 @@
         "receiveAmount": 5502.81
       },
       "remitly": {
-        "rate": 54.75,
+        "rate": 54.62,
         "fee": 1.99,
-        "markup": 1.32,
-        "receiveAmount": 5366.05
+        "markup": 1.56,
+        "receiveAmount": 5353.31
       },
       "revolut": {
         "rate": 55.0154,
@@ -14222,10 +14222,10 @@
         "receiveAmount": 5446.53
       },
       "wise": {
-        "rate": 55.4854,
+        "rate": 55.2969,
         "fee": 2.97,
-        "markup": 0,
-        "receiveAmount": 5383.75
+        "markup": 0.34,
+        "receiveAmount": 5365.46
       },
       "ria": {
         "rate": 54.2936,
@@ -14234,16 +14234,16 @@
         "receiveAmount": 5380.5
       },
       "commerzbank": {
-        "rate": 53.8725,
+        "rate": 53.7441,
         "fee": 12.5,
-        "markup": 2.9,
-        "receiveAmount": 4713.84
+        "markup": 3.14,
+        "receiveAmount": 4702.61
       },
       "ing-de": {
-        "rate": 54.3721,
+        "rate": 54.278,
         "fee": 22,
-        "markup": 2,
-        "receiveAmount": 4241.02
+        "markup": 2.17,
+        "receiveAmount": 4233.69
       }
     }
   }
