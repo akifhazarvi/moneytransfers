@@ -2336,5 +2336,22 @@
         "receiveAmount": 5885
       }
     }
+  },
+  {
+    "date": "2026-10-01",
+    "providers": {
+      "lemfi": {
+        "rate": 58.67,
+        "fee": 0,
+        "markup": 0.28,
+        "receiveAmount": 5867
+      },
+      "taptap-send": {
+        "rate": 58.85,
+        "fee": 0,
+        "markup": -0.03,
+        "receiveAmount": 5885
+      }
+    }
   }
 ]

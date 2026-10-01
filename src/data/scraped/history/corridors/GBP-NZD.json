@@ -13575,5 +13575,76 @@
         "receiveAmount": 215.9
       }
     }
+  },
+  {
+    "date": "2026-10-01",
+    "providers": {
+      "santander": {
+        "rate": 2.28384,
+        "fee": 25,
+        "markup": 3.12,
+        "receiveAmount": 171.29
+      },
+      "western-union": {
+        "rate": 2.31493,
+        "fee": 1.99,
+        "markup": 1.8,
+        "receiveAmount": 226.89
+      },
+      "remitly": {
+        "rate": 2.34304,
+        "fee": 1.99,
+        "markup": 0.61,
+        "receiveAmount": 229.64
+      },
+      "rbs": {
+        "rate": 2.301,
+        "fee": 0,
+        "markup": 2.39,
+        "receiveAmount": 230.1
+      },
+      "paypal": {
+        "rate": 2.23842,
+        "fee": 2.99,
+        "markup": 5.05,
+        "receiveAmount": 217.15
+      },
+      "hsbc": {
+        "rate": 2.33293,
+        "fee": 0,
+        "markup": 1.04,
+        "receiveAmount": 233.29
+      },
+      "natwest": {
+        "rate": 2.301,
+        "fee": 0,
+        "markup": 2.39,
+        "receiveAmount": 230.1
+      },
+      "nationwide": {
+        "rate": 2.30953,
+        "fee": 15,
+        "markup": 2.03,
+        "receiveAmount": 196.31
+      },
+      "lloyds": {
+        "rate": 2.27277,
+        "fee": 9.5,
+        "markup": 3.59,
+        "receiveAmount": 205.69
+      },
+      "instarem": {
+        "rate": 2.34274,
+        "fee": 0,
+        "markup": 0.62,
+        "receiveAmount": 234.27
+      },
+      "barclays": {
+        "rate": 2.29321,
+        "fee": 0,
+        "markup": 2.72,
+        "receiveAmount": 229.32
+      }
+    }
   }
 ]

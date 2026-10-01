@@ -17457,5 +17457,94 @@
         "receiveAmount": 178179.86
       }
     }
+  },
+  {
+    "date": "2026-10-01",
+    "providers": {
+      "instarem": {
+        "rate": 1750.25,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 175024.57
+      },
+      "lemfi": {
+        "rate": 1800,
+        "fee": 0,
+        "markup": -2.3,
+        "receiveAmount": 180000
+      },
+      "moneygram": {
+        "rate": 1812.55,
+        "fee": 0.99,
+        "markup": -2.82,
+        "receiveAmount": 179460.32
+      },
+      "taptap-send": {
+        "rate": 1801,
+        "fee": 0,
+        "markup": -2.35,
+        "receiveAmount": 180100
+      },
+      "western-union": {
+        "rate": 1765.77,
+        "fee": 1.99,
+        "markup": -0.35,
+        "receiveAmount": 173063.43
+      },
+      "dahabshiil": {
+        "rate": 1793.64,
+        "fee": 1.99,
+        "markup": -1.75,
+        "receiveAmount": 175794.42
+      },
+      "transfergo": {
+        "rate": 1799.33,
+        "fee": 0,
+        "markup": -2.07,
+        "receiveAmount": 179933.29
+      },
+      "worldremit": {
+        "rate": 1804.19,
+        "fee": 0.99,
+        "markup": -2.35,
+        "receiveAmount": 178632.71
+      },
+      "mukuru": {
+        "rate": 1796.79,
+        "fee": 0,
+        "markup": -1.93,
+        "receiveAmount": 179679
+      },
+      "paysend": {
+        "rate": 1808.51,
+        "fee": 0,
+        "markup": -2.59,
+        "receiveAmount": 180850.74
+      },
+      "sendwave": {
+        "rate": 1804.19,
+        "fee": 0.99,
+        "markup": -2.35,
+        "receiveAmount": 178632.71
+      },
+      "remitly": {
+        "rate": 1803.09,
+        "fee": 0,
+        "markup": -2.47,
+        "receiveAmount": 180309
+      },
+      "ria": {
+        "rate": 1812.58,
+        "fee": 1.99,
+        "markup": -3.01,
+        "receiveAmount": 177650.5
+      },
+      "wise": {
+        "rate": 1798.98,
+        "fee": 1.16,
+        "markup": -2.24,
+        "receiveAmount": 177811.18
+      }
+    }
   }
 ]

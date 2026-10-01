@@ -14590,5 +14590,100 @@
         "receiveAmount": 13262.58
       }
     }
+  },
+  {
+    "date": "2026-10-01",
+    "providers": {
+      "lemfi": {
+        "rate": 139.6,
+        "fee": 0,
+        "markup": -0.16,
+        "receiveAmount": 13960
+      },
+      "moneygram": {
+        "rate": 136.778,
+        "fee": 1.99,
+        "markup": 2.19,
+        "receiveAmount": 13405.56
+      },
+      "taptap-send": {
+        "rate": 139.5,
+        "fee": 0,
+        "markup": -0.09,
+        "receiveAmount": 13950
+      },
+      "western-union": {
+        "rate": 133.935,
+        "fee": 0.99,
+        "markup": 3.9,
+        "receiveAmount": 13260.89
+      },
+      "dahabshiil": {
+        "rate": 137.325,
+        "fee": 1.99,
+        "markup": 1.8,
+        "receiveAmount": 13459.18
+      },
+      "worldremit": {
+        "rate": 138.955,
+        "fee": 3.99,
+        "markup": 0.63,
+        "receiveAmount": 13341.09
+      },
+      "instarem": {
+        "rate": 137.704,
+        "fee": 0,
+        "markup": 1.2,
+        "receiveAmount": 13770.45
+      },
+      "xe": {
+        "rate": 138.533,
+        "fee": 4,
+        "markup": 0.93,
+        "receiveAmount": 13299.21
+      },
+      "paysend": {
+        "rate": 139.478,
+        "fee": 0,
+        "markup": 0.26,
+        "receiveAmount": 13947.82
+      },
+      "sendwave": {
+        "rate": 138.844,
+        "fee": 0.99,
+        "markup": 0.71,
+        "receiveAmount": 13746.91
+      },
+      "remitly": {
+        "rate": 138.57,
+        "fee": 0.99,
+        "markup": 0.58,
+        "receiveAmount": 13719.82
+      },
+      "revolut": {
+        "rate": 139.112,
+        "fee": 2.3,
+        "markup": 0.52,
+        "receiveAmount": 13591.21
+      },
+      "wise": {
+        "rate": 139.13,
+        "fee": 3.14,
+        "markup": 0.17,
+        "receiveAmount": 13476.13
+      },
+      "ria": {
+        "rate": 138.61,
+        "fee": 0,
+        "markup": 0.55,
+        "receiveAmount": 13861
+      },
+      "skrill": {
+        "rate": 132.359,
+        "fee": 0,
+        "markup": 5.03,
+        "receiveAmount": 13235.92
+      }
+    }
   }
 ]
