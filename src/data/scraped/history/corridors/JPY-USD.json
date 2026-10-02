@@ -1975,5 +1975,22 @@
         "receiveAmount": 0.63
       }
     }
+  },
+  {
+    "date": "2026-10-02",
+    "providers": {
+      "xe": {
+        "rate": 0.00622,
+        "fee": 0,
+        "markup": 1.45,
+        "receiveAmount": 0.62
+      },
+      "instarem": {
+        "rate": 0.0063,
+        "fee": 0,
+        "markup": 0.18,
+        "receiveAmount": 0.63
+      }
+    }
   }
 ]
