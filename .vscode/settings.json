@@ -1,0 +1,21 @@
+{
+  // Every build rewrites thousands of files under .next (1.6 GB) and every
+  // scrape adds history snapshots; watching them floods the editor's file
+  // watcher and re-triggers the TypeScript server.
+  "files.watcherExclude": {
+    "**/.next/**": true,
+    "**/node_modules/**": true,
+    "**/src/data/scraped/history/**": true,
+    "**/test-results/**": true,
+    "**/playwright-report/**": true,
+    "**/.vercel/**": true
+  },
+  "search.exclude": {
+    "**/.next": true,
+    "**/src/data/scraped/history": true,
+    "src/data/scraped/rate-insights.json": true
+  },
+  // The project needs ~2 GB to type-check (3.8 GB before the .d.json.ts
+  // declarations in src/data/scraped). Headroom above the 3 GB default.
+  "typescript.tsserver.maxTsServerMemory": 4096
+}

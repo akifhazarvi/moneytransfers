@@ -126,7 +126,8 @@ what enforces it. Where a rule is not automated, it says how to check it.
    `public/llms.txt`, `public/llms-full.txt` and
    `public/.well-known/ai-plugin.json` are rewritten by every build and by the
    scrape workflow. Restore them with `git checkout -- <path>` before
-   `git add`; never `git add -A src`.
+   `git add`; never `git add -A src`. The exception is `src/data/scraped/*.d.json.ts`:
+   hand-written types (see *Editor & TypeScript load*), committed like code.
 10. **A space after a JSX value must survive the build.** A text run that
     spans lines and holds an entity (`&rsquo;`) loses the space after an
     expression, and an expression ending a line loses the line break — so
@@ -144,6 +145,24 @@ what enforces it. Where a rule is not automated, it says how to check it.
     tap reaches the redirect exactly once (a fallback fetch would count the
     click twice). No install prompt may dock at the bottom of the viewport —
     that is StickyBestCTA's. *Enforced:* `check:pwa` (prebuild) + `e2e/`.
+
+## Editor & TypeScript load
+
+TypeScript infers a type from every imported JSON file. `rate-insights.json`
+(28 MB) alone took the project check to 1.4M types and 3.8 GB, past the
+editor's TypeScript-server limit, so Cursor's TS server crashed. A
+`<name>.d.json.ts` beside the file (`allowArbitraryExtensions` in tsconfig)
+declares its type instead; the bundler still imports the real JSON. With
+declarations for rate-insights and the three largest quote files the check is
+~2.0 GB / 256K types / ~14s. Give any new multi-MB JSON import one. Measure
+with `npx tsc --noEmit --incremental false --extendedDiagnostics`.
+`.vscode/settings.json` keeps the file watcher off `.next` and the history
+snapshots; `.cursorindexingignore` keeps generated data out of the index.
+
+A slow build is usually a loaded machine: unloaded, `npm run build` is ~1.5
+min (prebuild ~15s, `next build` ~67s, postbuild ~8s). Stop any dev server you
+start (`/private/tmp/*` previews ran for days at 4–6 GB each), and check
+`sysctl vm.swapusage` before blaming the code.
 
 ## Installed app (PWA)
 
