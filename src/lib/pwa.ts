@@ -140,10 +140,16 @@ export async function promptInstall(): Promise<"accepted" | "dismissed" | "unava
   const deferred = getDeferredPrompt();
   if (!deferred) return "unavailable";
   window.__smcInstallPrompt = null;
-  await deferred.prompt();
-  const { outcome } = await deferred.userChoice;
-  window.dispatchEvent(new Event("smc:installable"));
-  return outcome;
+  try {
+    await deferred.prompt();
+    const { outcome } = await deferred.userChoice;
+    return outcome;
+  } catch {
+    // A consumed or expired browser event must not leave a dead install button.
+    return "unavailable";
+  } finally {
+    window.dispatchEvent(new Event("smc:installable"));
+  }
 }
 
 /**

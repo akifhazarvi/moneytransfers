@@ -1,13 +1,13 @@
 import { test, expect, offerInstallPrompt, installPrompt, trackedEventParams } from "./fixtures";
 
 const pages = [
-  ["/", "home-after-comparison", "Ready for the next time you send"],
-  ["/guides", "guides-library", "From research to your next transfer"],
-  ["/guides/best-money-transfer-apps-large-transfers", "guide-after-reading", "From research to your next transfer"],
-  ["/guides/bank-vs-app-transfer-cost-2026", "guide-research-end", "From research to your next transfer"],
-  ["/business", "business-after-benchmark", "For your next business payment"],
-  ["/business/small-business", "business-guide-end", "For your next business payment"],
-  ["/business/compare", "business-after-finder", "For your next business payment"],
+  ["/", "home-after-comparison", "Rates and transfer comparisons, one tap away."],
+  ["/guides", "guides-library", "Guides and transfer comparisons, one tap away."],
+  ["/guides/best-money-transfer-apps-large-transfers", "guide-after-reading", "Guides and transfer comparisons, one tap away."],
+  ["/guides/bank-vs-app-transfer-cost-2026", "guide-research-end", "Guides and transfer comparisons, one tap away."],
+  ["/business", "business-after-benchmark", "Business guides and comparisons, one tap away."],
+  ["/business/small-business", "business-guide-end", "Business guides and comparisons, one tap away."],
+  ["/business/compare", "business-after-finder", "Business guides and comparisons, one tap away."],
 ];
 
 for (const [url, placement, copy] of pages) {

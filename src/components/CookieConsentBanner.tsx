@@ -29,6 +29,7 @@ function getConsent(): "granted" | "denied" | null {
 function setConsent(value: "granted" | "denied") {
   const expires = new Date(Date.now() + COOKIE_DAYS * 864e5).toUTCString();
   document.cookie = `${COOKIE_NAME}=${value}; path=/; expires=${expires}; SameSite=Lax`;
+  window.dispatchEvent(new Event("smc:consent-changed"));
 }
 
 function applyConsent(value: "granted" | "denied") {

@@ -30,7 +30,7 @@ function useInstallPlatform(): InstallPlatform | null {
  * `menu` lives in the mobile menu, which only renders once opened, so it can
  * simply be absent where installing is not possible.
  */
-export default function InstallAppButton({ variant, onClick }: { variant: "header" | "menu"; onClick?: () => void }) {
+export default function InstallAppButton({ variant, onClick }: { variant: "header" | "menu" | "footer"; onClick?: () => void }) {
   const platform = useInstallPlatform();
   const available = platform !== null && !NOTHING_TO_INSTALL.has(platform);
 
@@ -65,6 +65,12 @@ export default function InstallAppButton({ variant, onClick }: { variant: "heade
   }
 
   if (!available) return null;
+  if (variant === "footer") return (
+    <button type="button" onClick={handle} data-pwa-install-button="footer"
+      className="pwa-hide-standalone inline-flex min-h-11 items-center text-sm text-white/80 underline underline-offset-4 hover:text-white">
+      Add to your device
+    </button>
+  );
   return (
     <button
       type="button"

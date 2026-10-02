@@ -86,11 +86,10 @@ function manageServiceWorker() {
         // Registration failure only costs offline support; the site is unaffected.
       });
   };
-  // After load and on idle: the worker's install step fetches the offline
-  // page, and that must not queue in front of the page's own requests.
-  const idle = () => ("requestIdleCallback" in window ? window.requestIdleCallback(register) : setTimeout(register, 1));
-  if (document.readyState === "complete") idle();
-  else window.addEventListener("load", idle, { once: true });
+  // Hydration has completed. Do not wait for load: slow third-party frames can
+  // delay it indefinitely, preventing both offline support and installability.
+  if ("requestIdleCallback" in window) window.requestIdleCallback(register, { timeout: 2000 });
+  else setTimeout(register, 1);
 }
 
 export default function PwaManager() {
@@ -148,7 +147,11 @@ export default function PwaManager() {
       setPromptPath(null);
       if (current === "prompt") {
         const outcome = await promptInstall();
-        if (outcome === "unavailable") return;
+        if (outcome === "unavailable") {
+          setPlatform(detectInstallPlatform());
+          setDialogSurface(surface);
+          return;
+        }
         trackPwaInstallOutcome(outcome, surface);
         // Declining the browser's own dialog is as clear an answer as ours.
         if (outcome === "dismissed") snoozePrompt();
@@ -172,7 +175,7 @@ export default function PwaManager() {
   useEffect(() => {
     const views = countPageView();
     const eligible = views >= MIN_VIEWS_BEFORE_PROMPT && !promptAlreadyShownThisSession() && !promptSnoozed()
-      && !/^\/(?:en\/)?(?:go|out|privacy|terms)(?:\/|$)/.test(pathname);
+      && !/^\/(?:en\/)?(?:go|out|privacy-policy|cookies|terms)(?:\/|$)/.test(pathname);
     const withdraw = () => {
       // Leaving the page withdraws the offer, so coming back does not revive it.
       setPromptPath(null);
@@ -184,6 +187,7 @@ export default function PwaManager() {
     const watched = new WeakSet<Element>();
     let dwelled = false;
     let frame = 0;
+    let stopped = false;
     // 200px of margin mounts the banner just before its slot scrolls in, so the
     // content it pushes down is still off-screen: no visible layout shift.
     const observer = new IntersectionObserver((entries) => {
@@ -203,7 +207,7 @@ export default function PwaManager() {
       });
     }
     function schedule() {
-      if (!frame) frame = requestAnimationFrame(offer);
+      if (!stopped && !frame) frame = requestAnimationFrame(offer);
     }
     function offer() {
       frame = 0;
@@ -225,9 +229,14 @@ export default function PwaManager() {
       setPromptPath(pathname);
     }
     function stop() {
+      stopped = true;
       clearTimeout(timer);
       cancelAnimationFrame(frame);
       observer.disconnect();
+      mutations.disconnect();
+      unsubscribeInstallability();
+      window.removeEventListener("online", schedule);
+      window.removeEventListener("smc:consent-changed", schedule);
       window.removeEventListener("scroll", schedule);
       document.removeEventListener("focusout", schedule);
       document.removeEventListener("close", schedule, true);
@@ -237,7 +246,13 @@ export default function PwaManager() {
       dwelled = true;
       schedule();
     }, PROMPT_DELAY_MS);
+    // Browser capability and consent often settle after the first intersection.
+    const unsubscribeInstallability = onInstallabilityChange(schedule);
+    const mutations = new MutationObserver(schedule);
+    mutations.observe(document.getElementById("main-content") ?? document.body, { childList: true, subtree: true });
     watchSlots();
+    window.addEventListener("online", schedule);
+    window.addEventListener("smc:consent-changed", schedule);
     window.addEventListener("scroll", schedule, { passive: true });
     document.addEventListener("focusout", schedule);
     // A <dialog> closing: `close` does not bubble, so listen in the capture phase.

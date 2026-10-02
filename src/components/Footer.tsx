@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
 import LazyTrustpilot from "@/components/LazyTrustpilot";
+import InstallAppButton from "@/components/pwa/InstallAppButton";
 import { FOOTER_IBAN_LINKS, FOOTER_SWIFT_LINKS } from "@/data/footer-reference-links";
 
 type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean; label?: string };
@@ -253,6 +254,7 @@ export default function Footer() {
 
             {/* Trust + copyright */}
             <div className="flex flex-wrap items-center gap-4">
+              <InstallAppButton variant="footer" />
               <LazyTrustpilot />
               <span className="text-xs text-white/55 whitespace-nowrap">
                 {t("copyright", { year: new Date().getFullYear() })}
