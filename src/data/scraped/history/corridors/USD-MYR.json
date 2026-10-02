@@ -2940,16 +2940,16 @@
     "date": "2026-10-02",
     "providers": {
       "taptap-send": {
-        "rate": 4.08,
+        "rate": 4.09,
         "fee": 0,
-        "markup": 0.1,
-        "receiveAmount": 408
+        "markup": -0.15,
+        "receiveAmount": 409
       },
       "wise": {
-        "rate": 4.084,
+        "rate": 4.0845,
         "fee": 1.39,
-        "markup": 0,
-        "receiveAmount": 402.72
+        "markup": -0.01,
+        "receiveAmount": 402.77
       }
     }
   }

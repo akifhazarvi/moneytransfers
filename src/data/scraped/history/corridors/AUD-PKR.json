@@ -3085,7 +3085,7 @@
       "lemfi": {
         "rate": 191.7,
         "fee": 0,
-        "markup": 0.21,
+        "markup": 0.24,
         "receiveAmount": 19170
       },
       "ria": {
@@ -3095,10 +3095,10 @@
         "receiveAmount": 18652.26
       },
       "taptap-send": {
-        "rate": 191.6,
+        "rate": 193,
         "fee": 3.99,
-        "markup": 0.27,
-        "receiveAmount": 18395.52
+        "markup": -0.46,
+        "receiveAmount": 18529.93
       }
     }
   }
