@@ -10,6 +10,7 @@ import { wiseCountries, getSepaCountries } from "@/data/wise-iban";
 import { getCountryByAlpha2 } from "@/data/countries";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { PageByline } from "@/components/PageByline";
+import { getAuthor } from "@/data/authors";
 import type { Metadata } from "next";
 
 // Last edit to what this page says, not to its metadata or robots — bump it
@@ -18,6 +19,7 @@ import type { Metadata } from "next";
 // neither quoteDataDate (what /iban/[slug] passes) nor PageByline's "every 6
 // hours" cadence is true here. The registry line is: see /iban/[slug].
 const IBAN_HUB_UPDATED = "2026-05-31";
+const IBAN_AUTHOR_SLUG = "awais-imran";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -51,14 +53,6 @@ const regionMap: Record<string, string[]> = {
   "Caribbean": ["VG"],
 };
 
-function getFlag(code: string): string {
-  return code
-    .toUpperCase()
-    .split("")
-    .map((c) => String.fromCodePoint(0x1f1e6 + c.charCodeAt(0) - 65))
-    .join("");
-}
-
 function getCountryName(code: string, slug: string): string {
   const country = getCountryByAlpha2(code);
   if (country) {
@@ -78,6 +72,28 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "iban" });
   const sepaCountries = getSepaCountries();
+  const author = getAuthor(IBAN_AUTHOR_SLUG);
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://sendmoneycompare.com/iban#webpage",
+    url: "https://sendmoneycompare.com/iban",
+    name: t("metaTitle"),
+    description: t("subheading", { count: wiseCountries.length }),
+    dateModified: IBAN_HUB_UPDATED,
+    isPartOf: { "@id": "https://sendmoneycompare.com/#website" },
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" },
+    ...(author && {
+      author: {
+        "@type": "Person",
+        "@id": `https://sendmoneycompare.com/about/${author.slug}#person`,
+        name: author.name,
+        url: `https://sendmoneycompare.com/about/${author.slug}`,
+        jobTitle: author.role,
+        ...(author.linkedin && { sameAs: [author.linkedin] }),
+      },
+    }),
+  };
   const sorted = [...wiseCountries].sort((a, b) => {
     const nameA = getCountryName(a.countryCode, a.slug);
     const nameB = getCountryName(b.countryCode, b.slug);
@@ -86,6 +102,10 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema).replace(/</g, "\\u003c") }}
+      />
       {/* Hero */}
       <section className="bg-[var(--color-surface)] pt-12 pb-8 border-b border-[var(--color-outline)]">
         <Container>
@@ -101,7 +121,7 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
             {/* The hub was the one IBAN page with no named human behind it;
                 /iban/[slug] has carried PageByline since the Sep 2026 brief. */}
             <div className="flex justify-center mt-4">
-              <PageByline updated={IBAN_HUB_UPDATED} cadence="IBAN formats match the SWIFT IBAN Registry" />
+              <PageByline authorSlug={IBAN_AUTHOR_SLUG} updated={IBAN_HUB_UPDATED} cadence="IBAN formats match the SWIFT IBAN Registry" />
             </div>
           </div>
 
