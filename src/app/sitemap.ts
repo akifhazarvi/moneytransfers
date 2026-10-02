@@ -323,12 +323,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Bing earners reopened 2026-09-27 (round-3 plan) ──
   // Served `googlebot: noindex`, so they belong in this sitemap — the one Bing
   // reads — and never in sitemap-google.xml, which filters by googleIndexable().
-  // A Bing-demand corridor whose tier drops on a fresh scrape stops rendering
-  // (dynamicParams = false). Drop it from the sitemap rather than submit a 404
-  // — failing check:indexing there would block every scraper deploy and freeze
-  // prices, which is what the Sep 27 Bolivia flap did.
   const bingDemandPages: MetadataRoute.Sitemap = [...BING_DEMAND_ROUTES]
-    .filter((path) => !path.startsWith("/send-money/") || corridorPageRenders(path.slice("/send-money/".length)))
     .map((path) => entry(path.replace(/^\//, ""), BING_DEMAND_DATE));
 
   // 2026-09-27: this is the Bing sitemap (the one robots.txt has always named).
@@ -351,6 +346,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...reviewedPages,
     ...bingDemandPages,
   ]
-    .filter((e) => bingIndexable(new URL(e.url).pathname))
+    .filter((e) => {
+      const path = new URL(e.url).pathname;
+      // Apply availability to every source, including corridorPages and
+      // reviewedPages. Filtering only bingDemandPages let unavailable routes
+      // re-enter through those other lists after a fresh quote scrape.
+      if (path.startsWith("/send-money/") && !corridorPageRenders(path.slice("/send-money/".length))) return false;
+      return bingIndexable(path);
+    })
     .filter((e) => !seen.has(e.url) && !!seen.add(e.url));
 }
