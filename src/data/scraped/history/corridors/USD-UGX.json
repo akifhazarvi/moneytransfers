@@ -7890,10 +7890,10 @@
     "date": "2026-10-02",
     "providers": {
       "lemfi": {
-        "rate": 3955.75,
+        "rate": 3948.18,
         "fee": 0,
-        "markup": 0.23,
-        "receiveAmount": 395575
+        "markup": 1.03,
+        "receiveAmount": 394818
       },
       "ria": {
         "rate": 3894.89,
@@ -7908,28 +7908,28 @@
         "receiveAmount": 388300
       },
       "instarem": {
-        "rate": 3949.86,
+        "rate": 3934.17,
         "fee": 0,
-        "markup": 0.12,
-        "receiveAmount": 394985.63
+        "markup": 0.52,
+        "receiveAmount": 393416.67
       },
       "remitly": {
-        "rate": 3887.01,
+        "rate": 3871.57,
         "fee": 2.99,
-        "markup": 1.71,
-        "receiveAmount": 377078.51
+        "markup": 2.1,
+        "receiveAmount": 375581.01
       },
       "western-union": {
-        "rate": 3392.42,
+        "rate": 3387.03,
         "fee": 7.99,
-        "markup": 14.22,
-        "receiveAmount": 312136.4
+        "markup": 14.35,
+        "receiveAmount": 311640.47
       },
       "wise": {
-        "rate": 3977.81,
+        "rate": 3970.22,
         "fee": 3.22,
-        "markup": -0.59,
-        "receiveAmount": 384972.45
+        "markup": -0.39,
+        "receiveAmount": 384237.89
       }
     }
   }

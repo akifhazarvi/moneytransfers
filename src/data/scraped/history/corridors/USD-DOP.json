@@ -10284,10 +10284,10 @@
         "receiveAmount": 5685.2
       },
       "taptap-send": {
-        "rate": 59,
+        "rate": 59.25,
         "fee": 0,
-        "markup": 1.75,
-        "receiveAmount": 5900
+        "markup": 1.33,
+        "receiveAmount": 5925
       },
       "boss-money": {
         "rate": 58.7641,
@@ -10296,16 +10296,16 @@
         "receiveAmount": 5730.09
       },
       "western-union": {
-        "rate": 58.1792,
+        "rate": 58.4005,
         "fee": 0.99,
-        "markup": 3.11,
-        "receiveAmount": 5760.32
+        "markup": 2.75,
+        "receiveAmount": 5782.23
       },
       "instarem": {
-        "rate": 59.2225,
+        "rate": 59.5406,
         "fee": 0,
-        "markup": 1.38,
-        "receiveAmount": 5922.25
+        "markup": 0.85,
+        "receiveAmount": 5954.06
       },
       "paysend": {
         "rate": 58.6356,
@@ -10320,10 +10320,10 @@
         "receiveAmount": 5477.33
       },
       "wise": {
-        "rate": 59.8975,
-        "fee": 11.16,
-        "markup": 0.25,
-        "receiveAmount": 5321.29
+        "rate": 60.143,
+        "fee": 11.85,
+        "markup": -0.16,
+        "receiveAmount": 5301.61
       }
     }
   }
