@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -84,39 +84,41 @@ export default function SavingsCalculator({
   const [amountText, setAmountText] = useState(String(initialAmount));
   const [perYear, setPerYear] = useState(12);
   const [current, setCurrent] = useState<string>("median");
-  const [quotes, setQuotes] = useState<CalcQuote[]>(initialQuotes);
-  const [loading, setLoading] = useState(false);
-  const [failed, setFailed] = useState(false);
-  const first = useRef(true);
+  // The quotes on screen and the corridor + amount they were priced for. The
+  // result reads its currencies and amount from here, never from the inputs,
+  // so a route still loading is never labelled with the previous route's
+  // numbers (USD→INR rows shown as GBP, a 200 quote under a 2,000 input).
+  const [priced, setPriced] = useState({ corridor: initialCorridor, amount: initialAmount, quotes: initialQuotes });
+  const [failedKey, setFailedKey] = useState<string | null>(null);
+  const [retry, setRetry] = useState(0);
 
-  const from = corridor.slice(0, 3);
-  const to = corridor.slice(4);
-  const amount = Math.min(50000, Math.max(0, Number(amountText) || 0));
+  const amount = Number(amountText);
+  const validAmount = Number.isFinite(amount) && amount >= 10 && amount <= 50000;
+  const upToDate = priced.corridor === corridor && priced.amount === amount;
+  const failed = failedKey === `${corridor}:${amount}`;
+  const updating = validAmount && !upToDate && !failed;
+  const { quotes } = priced;
+  const from = priced.corridor.slice(0, 3);
+  const to = priced.corridor.slice(4);
 
   useEffect(() => {
-    // The server already priced the opening state.
-    if (first.current) {
-      first.current = false;
-      return;
-    }
-    if (amount < 10) return;
+    // The server priced the opening state, so nothing to fetch until it changes.
+    if (!validAmount || upToDate) return;
     let cancelled = false;
     const timer = setTimeout(async () => {
-      setLoading(true);
-      setFailed(false);
+      setFailedKey(null);
       try {
-        const res = await fetch(`/api/quotes?from=${from}&to=${to}&amount=${amount}`);
+        const res = await fetch(`/api/quotes?from=${corridor.slice(0, 3)}&to=${corridor.slice(4)}&amount=${amount}`);
+        if (!res.ok) throw new Error(`quotes ${res.status}`);
         const data: { quotes?: (CalcQuote & { isIndicative?: boolean })[] } = await res.json();
         if (cancelled) return;
         const rows = (data.quotes ?? [])
           .filter((q) => !q.isIndicative && q.receiveAmount > 0)
           .map(({ providerSlug, receiveAmount, fee, exchangeRate, transferSpeed }) => ({ providerSlug, receiveAmount, fee, exchangeRate, transferSpeed }));
-        setQuotes(rows);
+        setPriced({ corridor, amount, quotes: rows });
         trackToolUsed("savings-calculator", { corridor, amount, per_year: perYear, source });
       } catch {
-        if (!cancelled) setFailed(true);
-      } finally {
-        if (!cancelled) setLoading(false);
+        if (!cancelled) setFailedKey(`${corridor}:${amount}`);
       }
     }, 350);
     return () => {
@@ -125,7 +127,7 @@ export default function SavingsCalculator({
     };
     // perYear only scales the result; it never needs a refetch.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [corridor, amount]);
+  }, [corridor, amount, validAmount, upToDate, retry]);
 
   // A provider chosen on the previous corridor may not quote this one.
   const currentValid = current === "median" || quotes.some((q) => q.providerSlug === current);
@@ -156,7 +158,7 @@ export default function SavingsCalculator({
   const partner = quotes.find((q) => q.providerSlug === PARTNER);
   const partnerIsTop = quotes[0]?.providerSlug === PARTNER;
   const partnerGain = partner && result ? partner.receiveAmount - result.currentReceive : 0;
-  const goParams = { sourceCurrency: from, targetCurrency: to, sourceAmount: amount };
+  const goParams = { sourceCurrency: from, targetCurrency: to, sourceAmount: priced.amount };
   const selectClass =
     "w-full h-11 px-3 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] text-sm font-medium text-[var(--color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]";
 
@@ -164,7 +166,7 @@ export default function SavingsCalculator({
   // /send-money uses), never a re-ordered row within them.
   const partnerCard = (
       <aside className="mt-4 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] p-4" aria-label="Sponsored: TapTap Send">
-        <ConversionImpression source={`taptap_spotlight:${source}`} corridor={corridor} />
+        <ConversionImpression source={`taptap_spotlight:${source}`} corridor={priced.corridor} />
         <div className="flex items-start gap-3">
           <Image src="/logos/taptap-send.png" alt="" width={40} height={40} className="rounded-xl bg-white shrink-0" />
           <div className="min-w-0 flex-1">
@@ -174,7 +176,7 @@ export default function SavingsCalculator({
             {partner ? (
               <p className="mt-1 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 Recipient gets <strong className="text-[var(--color-on-surface)] tabular-nums">{fmtReceive(partner.receiveAmount, to)}</strong> for{" "}
-                {fmtSend(amount, from)}
+                {fmtSend(priced.amount, from)}
                 {partnerIsTop
                   ? ", the top of our comparison on this route today."
                   : partnerGain > 0.5 && result
@@ -193,10 +195,10 @@ export default function SavingsCalculator({
             href={getGoUrl(PARTNER, { ...goParams, clickref: `taptap_spotlight:${source}` })}
             provider={PARTNER}
             source={`taptap_spotlight:${source}`}
-            corridor={corridor}
+            corridor={priced.corridor}
             className="conversion-button conversion-button--accent"
           >
-            {partner ? `Send ${fmtSend(amount, from)} with TapTap` : "Check TapTap Send rates"} <ArrowRight size={16} aria-hidden="true" />
+            {partner ? `Send ${fmtSend(priced.amount, from)} with TapTap` : "Check TapTap Send rates"} <ArrowRight size={16} aria-hidden="true" />
           </ProviderLink>
           <Link href="/companies/taptap-send" className="conversion-text-link">Read our TapTap Send review</Link>
         </div>
@@ -224,7 +226,7 @@ export default function SavingsCalculator({
           </div>
           <div>
             <label htmlFor="sc-amount" className="block text-sm font-semibold mb-1.5 text-[var(--color-on-surface)]">
-              Amount per transfer ({from})
+              Amount per transfer ({corridor.slice(0, 3)})
             </label>
             <input
               id="sc-amount"
@@ -280,16 +282,35 @@ export default function SavingsCalculator({
         </div>
 
         {/* Result */}
-        <div className="p-5 sm:p-6" aria-live="polite" aria-busy={loading}>
-          {failed && <p className="text-sm text-[var(--color-on-surface-variant)]">We could not load quotes just now. Try again in a moment.</p>}
-          {!failed && !result && (
+        <div className="p-5 sm:p-6" aria-live="polite" aria-busy={updating}>
+          {!validAmount && (
+            <p role="status" className="mb-3 text-sm text-[var(--color-on-surface-variant)]">
+              Enter an amount between 10 and 50,000 {corridor.slice(0, 3)} to compare.
+            </p>
+          )}
+          {failed && (
+            <div role="status" className="mb-3 text-sm text-[var(--color-on-surface-variant)]">
+              We could not load quotes for this transfer.{" "}
+              <button
+                type="button"
+                onClick={() => {
+                  setFailedKey(null);
+                  setRetry((n) => n + 1);
+                }}
+                className="min-h-11 font-semibold text-[var(--color-primary)] underline underline-offset-4"
+              >
+                Try again
+              </button>
+            </div>
+          )}
+          {!failed && !result && !updating && (
             <p className="text-sm text-[var(--color-on-surface-variant)]">
               We do not hold enough quotes at this amount to compare.{" "}
               <Link href="/send-money" className="text-[var(--color-primary)] underline underline-offset-4">Open the full comparison</Link>.
             </p>
           )}
-          {result && (
-            <div className={loading ? "opacity-60 transition-opacity" : "transition-opacity"}>
+          {result && !failed && (
+            <div className={upToDate ? "transition-opacity" : "opacity-50 transition-opacity"}>
               {result.perTransfer > 0.5 ? (
                 <>
                   <p className="text-sm text-[var(--color-on-surface-variant)]">
@@ -325,7 +346,7 @@ export default function SavingsCalculator({
               {partnerCard}
 
               <p className="mt-5 mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-                Top of our comparison for {fmtSend(amount, from)}
+                Top of our comparison for {fmtSend(priced.amount, from)}
               </p>
               <ol className="space-y-2">
                 {quotes.slice(0, 3).map((q, i) => (
@@ -345,7 +366,7 @@ export default function SavingsCalculator({
                       href={getGoUrl(q.providerSlug, { ...goParams, clickref: source })}
                       provider={q.providerSlug}
                       source={source}
-                      corridor={corridor}
+                      corridor={priced.corridor}
                       rank={i + 1}
                       ariaLabel={`Send with ${nameOf(q.providerSlug)}`}
                       className="shrink-0 inline-flex items-center min-h-10 px-4 rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold hover:opacity-90"
@@ -364,7 +385,7 @@ export default function SavingsCalculator({
             </div>
           )}
 
-          {!result && partnerCard}
+          {(!result || failed) && partnerCard}
 
           <p className="mt-3 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed">
             Recipient amounts are after fees, from our latest quotes. The provider confirms the final rate when you send.
