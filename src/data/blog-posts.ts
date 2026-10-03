@@ -12645,7 +12645,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money from UAE to India?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> converts AED to INR at the mid-market rate with 0% markup, and it is {{LEAD_RECORD:wise:AED:INR}}. On AED 3,500 (~$1,000) today, {{BEST_PROVIDER:AED:INR:3500}} delivers the most ({{BEST_RECEIVE:AED:INR:3500}}), and <a href="/companies/taptap-send">TapTap Send</a> pays out {{RECEIVE:taptap-send:AED:INR:3500}} on the same amount. <a href="/companies/remitly">Remitly</a> delivers in minutes via UPI or IMPS to any Indian bank account. For cash pickup, <a href="/companies/western-union">Western Union</a> and local exchange houses have the widest networks. A UAE bank wire adds an AED 50–100 fee on top of the bank's rate, and the gap between the best and worst payout we price on AED 3,500 is {{SPREAD:AED:INR:3500}}. <a href="/send-money/uae-to-india">Compare live AED to INR rates</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> converts AED to INR at the mid-market rate with 0% markup, and it is {{LEAD_RECORD:wise:AED:INR}}. On AED 3,500 (~$1,000) today, {{BEST_PROVIDER:AED:INR:3500}} delivers the most ({{BEST_RECEIVE:AED:INR:3500}}), and <a href="/companies/taptap-send">TapTap Send</a> shows its INR payout in the app before you pay. <a href="/companies/remitly">Remitly</a> delivers in minutes via UPI or IMPS to any Indian bank account. For cash pickup, <a href="/companies/western-union">Western Union</a> and local exchange houses have the widest networks. A UAE bank wire adds an AED 50–100 fee on top of the bank's rate, and the gap between the best and worst payout we price on AED 3,500 is {{SPREAD:AED:INR:3500}}. <a href="/send-money/uae-to-india">Compare live AED to INR rates</a>.</p></div>
 <div class="blog-callout-blue-sm"><p><strong>Key data:</strong> The World Bank rates the UAE-to-India corridor at approximately 2.8% average cost — well below the global average of 6%. SendMoneyCompare data shows specialist providers deliver ₹2,000–₹5,000 more than UAE bank wires on an AED 3,500 transfer. UPI enables instant delivery 24/7.</p></div>
 <p>The UAE is India's <strong>second-largest remittance source</strong> after the United States, with over <strong>3.5 million Indian expats</strong> — the largest expatriate community in the UAE. In 2025, UAE-to-India remittances exceeded <strong>$15 billion</strong>, driven by workers in Dubai, Abu Dhabi, and Sharjah sending money to families across India.</p>
 <p>The AED-INR corridor benefits from intense competition: 10+ digital providers compete alongside hundreds of physical exchange houses. This competition keeps costs low — the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a> rates the UAE-to-India corridor at approximately 2.8% average cost, well below the global average of 6%.</p>`,
@@ -12670,7 +12670,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>For an AED 3,500 (~$1,000) transfer to India:</p>
 <ul>
 <li><strong><a href="/companies/wise">Wise</a></strong>: 0% markup and a fee shown upfront — the zero markup matters most on larger amounts</li>
-<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: {{RECEIVE:taptap-send:AED:INR:3500}} on AED 3,500 today, credited to a UPI ID or Indian bank account from its app</li>
+<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: credits a UPI ID or Indian bank account from its app, with the rupee amount confirmed before you send</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Low fee, competitive rate — Express delivery in minutes via UPI/IMPS</li>
 <li><strong><a href="/companies/instarem">InstaReM</a></strong>: Strong on the AED-INR corridor with zero-fee promotions</li>
 <li><strong><a href="/companies/xe">XE</a></strong>: No transfer fees, competitive rates — suited for larger transfers</li>
@@ -12725,7 +12725,7 @@ const rawBlogPosts: BlogPost[] = [
 <thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Speed</th><th>Best For</th></tr></thead>
 <tbody>
 <tr class="blog-row-highlight"><td><strong>Wise (digital)</strong></td><td>Shown before you pay</td><td>0%</td><td>1–2 days</td><td>Mid-market rate</td></tr>
-<tr><td><strong>TapTap Send (digital)</strong></td><td>Shown before you pay</td><td>{{MARKUP:taptap-send:AED:INR:3500}}</td><td>Minutes (bank or UPI)</td><td>App-only senders</td></tr>
+<tr><td><strong>TapTap Send (digital)</strong></td><td>Shown before you pay</td><td>Varies daily</td><td>Minutes (bank or UPI)</td><td>App-only senders</td></tr>
 <tr><td><strong>Remitly (digital)</strong></td><td>Shown before you pay</td><td>{{MARKUP:remitly:AED:INR:3500}}</td><td>Minutes (UPI)</td><td>Fastest delivery</td></tr>
 <tr><td><strong>Al Ansari Exchange</strong></td><td>AED 0–10</td><td>0.5–1%</td><td>Same day</td><td>Walk-in cash senders</td></tr>
 <tr><td><strong>UAE Exchange/Unimoni</strong></td><td>AED 0–15</td><td>0.5–1%</td><td>Instant to 1 day</td><td>Good rates + physical presence</td></tr>
