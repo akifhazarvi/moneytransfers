@@ -1258,12 +1258,6 @@
         "fee": 0.75,
         "markup": 1.35,
         "receiveAmount": 367141.11
-      },
-      "wise": {
-        "rate": 3749.32,
-        "fee": 0,
-        "markup": 0.01,
-        "receiveAmount": 374932
       }
     }
   },
@@ -7937,10 +7931,10 @@
     "date": "2026-10-03",
     "providers": {
       "lemfi": {
-        "rate": 3948.18,
+        "rate": 3922.86,
         "fee": 0,
-        "markup": 0.85,
-        "receiveAmount": 394818
+        "markup": 1.21,
+        "receiveAmount": 392286
       },
       "ria": {
         "rate": 3894.89,

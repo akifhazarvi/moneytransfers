@@ -3032,10 +3032,10 @@
         "receiveAmount": 12801.08
       },
       "wise": {
-        "rate": 129.15,
-        "fee": 0,
-        "markup": 0,
-        "receiveAmount": 12915
+        "rate": 129.333,
+        "fee": 9.59,
+        "markup": -0.01,
+        "receiveAmount": 11693
       },
       "remitly": {
         "rate": 127.15,
@@ -3109,10 +3109,10 @@
         "receiveAmount": 12801.08
       },
       "wise": {
-        "rate": 129.15,
-        "fee": 0,
-        "markup": 0.01,
-        "receiveAmount": 12915
+        "rate": 129.333,
+        "fee": 9.59,
+        "markup": -0.01,
+        "receiveAmount": 11693
       }
     }
   },
@@ -15686,7 +15686,7 @@
       "lemfi": {
         "rate": 128.21,
         "fee": 0,
-        "markup": 0.78,
+        "markup": 0.93,
         "receiveAmount": 12821
       },
       "moneygram": {
