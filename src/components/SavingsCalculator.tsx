@@ -208,14 +208,19 @@ export default function SavingsCalculator({
       </aside>
   );
 
+  const rowLabel = (q: CalcQuote) => nameOf(q.providerSlug);
+  const labelClass = "block text-sm font-semibold mb-1.5 text-[var(--color-on-surface)]";
+
   return (
-    <div className="not-prose my-6 rounded-3xl bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] shadow-[var(--shadow-md)] overflow-hidden">
-      <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-        {/* Inputs */}
-        <div className="p-5 sm:p-6 space-y-4 bg-[var(--color-surface-dim)] border-b lg:border-b-0 lg:border-r border-[var(--color-outline)]">
-          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)]">Your transfer</p>
+    // A container, not the viewport, decides the layout: the tool sits in an
+    // article column next to a sidebar, so lg: would fire at a width it never has.
+    <div className="@container not-prose my-6 rounded-3xl bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] shadow-[var(--shadow-md)] overflow-hidden">
+      {/* Inputs: one column on a phone, two once the tool has room. */}
+      <div className="p-5 sm:p-6 bg-[var(--color-surface-dim)] border-b border-[var(--color-outline)]">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)]">Your transfer</p>
+        <div className="mt-3 grid gap-4 @lg:grid-cols-2">
           <div>
-            <label htmlFor="sc-corridor" className="block text-sm font-semibold mb-1.5 text-[var(--color-on-surface)]">Where you send</label>
+            <label htmlFor="sc-corridor" className={labelClass}>Where you send</label>
             <select id="sc-corridor" value={corridor} onChange={(e) => setCorridor(e.target.value)} className={selectClass}>
               {corridors.map((c) => (
                 <option key={c.corridor} value={c.corridor}>
@@ -225,7 +230,7 @@ export default function SavingsCalculator({
             </select>
           </div>
           <div>
-            <label htmlFor="sc-amount" className="block text-sm font-semibold mb-1.5 text-[var(--color-on-surface)]">
+            <label htmlFor="sc-amount" className={labelClass}>
               Amount per transfer ({corridor.slice(0, 3)})
             </label>
             <input
@@ -247,8 +252,8 @@ export default function SavingsCalculator({
                   aria-pressed={amount === a}
                   className={`min-h-9 px-3 rounded-full text-xs font-semibold border transition-colors ${
                     amount === a
-                      ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]"
-                      : "border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:border-[var(--color-primary)]"
+                      ? "bg-[var(--color-on-surface)] text-[var(--color-surface)] border-[var(--color-on-surface)]"
+                      : "border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:border-[var(--color-on-surface)]"
                   }`}
                 >
                   {a.toLocaleString("en-US")}
@@ -257,7 +262,7 @@ export default function SavingsCalculator({
             </div>
           </div>
           <div>
-            <label htmlFor="sc-freq" className="block text-sm font-semibold mb-1.5 text-[var(--color-on-surface)]">How often</label>
+            <label htmlFor="sc-freq" className={labelClass}>How often</label>
             <select id="sc-freq" value={perYear} onChange={(e) => setPerYear(Number(e.target.value))} className={selectClass}>
               {FREQUENCIES.map((f) => (
                 <option key={f.perYear} value={f.perYear}>{f.label}</option>
@@ -265,132 +270,153 @@ export default function SavingsCalculator({
             </select>
           </div>
           <div>
-            <label htmlFor="sc-current" className="block text-sm font-semibold mb-1.5 text-[var(--color-on-surface)]">What you use now</label>
+            <label htmlFor="sc-current" className={labelClass}>What you use now</label>
             <select id="sc-current" value={currentKey} onChange={(e) => setCurrent(e.target.value)} className={selectClass}>
               <option value="median">Not sure: a typical provider</option>
               {[...quotes]
-                .sort((a, b) => nameOf(a.providerSlug).localeCompare(nameOf(b.providerSlug)))
+                .sort((a, b) => rowLabel(a).localeCompare(rowLabel(b)))
                 .map((q) => (
-                  <option key={q.providerSlug} value={q.providerSlug}>{nameOf(q.providerSlug)}</option>
+                  <option key={q.providerSlug} value={q.providerSlug}>{rowLabel(q)}</option>
                 ))}
             </select>
             <p className="mt-1.5 text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
-              Banks appear here when we quote them on this route. A typical provider is the median of every option we
+              Banks are listed when we quote them on this route. A typical provider is the median of every option we
               compare.
             </p>
           </div>
         </div>
+      </div>
 
-        {/* Result */}
-        <div className="p-5 sm:p-6" aria-live="polite" aria-busy={updating}>
-          {!validAmount && (
-            <p role="status" className="mb-3 text-sm text-[var(--color-on-surface-variant)]">
-              Enter an amount between 10 and 50,000 {corridor.slice(0, 3)} to compare.
-            </p>
-          )}
-          {failed && (
-            <div role="status" className="mb-3 text-sm text-[var(--color-on-surface-variant)]">
-              We could not load quotes for this transfer.{" "}
-              <button
-                type="button"
-                onClick={() => {
-                  setFailedKey(null);
-                  setRetry((n) => n + 1);
-                }}
-                className="min-h-11 font-semibold text-[var(--color-primary)] underline underline-offset-4"
-              >
-                Try again
-              </button>
-            </div>
-          )}
-          {!failed && !result && !updating && (
-            <p className="text-sm text-[var(--color-on-surface-variant)]">
-              We do not hold enough quotes at this amount to compare.{" "}
-              <Link href="/send-money" className="text-[var(--color-primary)] underline underline-offset-4">Open the full comparison</Link>.
-            </p>
-          )}
-          {result && !failed && (
-            <div className={upToDate ? "transition-opacity" : "opacity-50 transition-opacity"}>
-              {result.perTransfer > 0.5 ? (
-                <>
-                  <p className="text-sm text-[var(--color-on-surface-variant)]">
-                    Moving from {result.currentLabel} to {nameOf(result.top.providerSlug)} would put
-                  </p>
-                  <p className="mt-1 text-4xl sm:text-5xl font-semibold tracking-tight text-[var(--color-success)] tabular-nums">
-                    {fmtReceive(result.perYearReceive, to)}
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--color-on-surface)]">
-                    more in your family&rsquo;s hands each year
-                    {result.perYearSend > 0 && (
-                      <>
-                        {" "}
-                        <span className="text-[var(--color-on-surface-variant)]">
-                          (about {fmtSend(result.perYearSend, from)}, or {fmtReceive(result.perTransfer, to)} per transfer)
-                        </span>
-                      </>
-                    )}
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p className="text-2xl font-semibold text-[var(--color-on-surface)]">
-                    {result.currentLabel === "a typical provider" ? "These providers pay almost the same today." : `${result.currentLabel} is at the top of our comparison today.`}
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
-                    The gap to the lowest payer on this route is {fmtReceive(result.dearestGapYear, to)} a year at this amount, so it
-                    is still worth checking before each transfer.
-                  </p>
-                </>
-              )}
-
-              {partnerCard}
-
-              <p className="mt-5 mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-                Top of our comparison for {fmtSend(priced.amount, from)}
-              </p>
-              <ol className="space-y-2">
-                {quotes.slice(0, 3).map((q, i) => (
-                  <li key={q.providerSlug} className="flex items-center gap-3 rounded-2xl border border-[var(--color-outline)] px-3 py-2.5">
-                    <span className="w-6 h-6 shrink-0 inline-flex items-center justify-center rounded-full bg-[var(--color-surface-dim)] text-xs font-semibold tabular-nums text-[var(--color-on-surface-variant)]">{i + 1}</span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-sm font-semibold text-[var(--color-on-surface)] truncate">{nameOf(q.providerSlug)}</span>
-                      <span className="block text-xs text-[var(--color-on-surface-variant)] tabular-nums">
-                        {q.fee === 0 ? "No fee" : `${fmtSend(q.fee, from)} fee`} · rate {q.exchangeRate.toFixed(q.exchangeRate >= 10 ? 2 : 4)}
-                      </span>
-                    </span>
-                    <span className="text-right">
-                      <span className="block text-sm font-semibold tabular-nums text-[var(--color-on-surface)]">{fmtReceive(q.receiveAmount, to)}</span>
-                      <span className="block text-2xs text-[var(--color-on-surface-variant)]">recipient gets</span>
-                    </span>
-                    <ProviderLink
-                      href={getGoUrl(q.providerSlug, { ...goParams, clickref: source })}
-                      provider={q.providerSlug}
-                      source={source}
-                      corridor={priced.corridor}
-                      rank={i + 1}
-                      ariaLabel={`Send with ${nameOf(q.providerSlug)}`}
-                      className="shrink-0 inline-flex items-center min-h-10 px-4 rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold hover:opacity-90"
-                    >
-                      Send
-                    </ProviderLink>
-                  </li>
-                ))}
-              </ol>
-              <Link
-                href="/send-money"
-                className="mt-2 inline-flex items-center gap-1.5 min-h-10 text-sm font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
-              >
-                See all {quotes.length} providers on this route <ArrowRight size={14} aria-hidden="true" />
-              </Link>
-            </div>
-          )}
-
-          {(!result || failed) && partnerCard}
-
-          <p className="mt-3 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed">
-            Recipient amounts are after fees, from our latest quotes. The provider confirms the final rate when you send.
+      {/* Result */}
+      <div className="p-5 sm:p-6" aria-live="polite" aria-busy={updating}>
+        {!validAmount && (
+          <p role="status" className="mb-3 text-sm text-[var(--color-on-surface-variant)]">
+            Enter an amount between 10 and 50,000 {corridor.slice(0, 3)} to compare.
           </p>
-        </div>
+        )}
+        {failed && (
+          <div role="status" className="mb-3 text-sm text-[var(--color-on-surface-variant)]">
+            We could not load quotes for this transfer.{" "}
+            <button
+              type="button"
+              onClick={() => {
+                setFailedKey(null);
+                setRetry((n) => n + 1);
+              }}
+              className="min-h-11 font-semibold text-[var(--color-primary)] underline underline-offset-4"
+            >
+              Try again
+            </button>
+          </div>
+        )}
+        {!failed && !result && !updating && (
+          <p className="text-sm text-[var(--color-on-surface-variant)]">
+            We do not hold enough quotes at this amount to compare.{" "}
+            <Link href="/send-money" className="text-[var(--color-primary)] underline underline-offset-4">Open the full comparison</Link>.
+          </p>
+        )}
+        {result && !failed && (
+          <div className={upToDate ? "transition-opacity" : "opacity-50 transition-opacity"}>
+            {result.perTransfer > 0.5 ? (
+              <>
+                <p className="text-sm text-[var(--color-on-surface-variant)]">
+                  Moving from {result.currentLabel} to {rowLabel(result.top)} would put
+                </p>
+                <p className="mt-1 text-4xl @lg:text-5xl font-semibold tracking-tight text-[var(--color-success)] tabular-nums break-words">
+                  +{fmtReceive(result.perYearReceive, to)}
+                </p>
+                <p className="mt-1 text-sm text-[var(--color-on-surface)]">
+                  in your family&rsquo;s hands each year
+                  {result.perYearSend > 0 && (
+                    <span className="text-[var(--color-on-surface-variant)]"> (about {fmtSend(result.perYearSend, from)})</span>
+                  )}
+                </p>
+
+                {/* The sum behind the headline, so the reader can check it. */}
+                <dl className="mt-5 rounded-2xl bg-[var(--color-surface-dim)] p-4 text-sm space-y-2 tabular-nums">
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4">
+                    <dt className="text-[var(--color-on-surface-variant)]">
+                      {result.currentLabel === "a typical provider" ? "Typical provider (median quote)" : result.currentLabel}
+                    </dt>
+                    <dd className="text-right font-semibold text-[var(--color-on-surface)]">{fmtReceive(result.currentReceive, to)}</dd>
+                  </div>
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4">
+                    <dt className="text-[var(--color-on-surface-variant)]">{rowLabel(result.top)}, top of our comparison</dt>
+                    <dd className="text-right font-semibold text-[var(--color-on-surface)]">{fmtReceive(result.top.receiveAmount, to)}</dd>
+                  </div>
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 border-t border-[var(--color-outline)] pt-2">
+                    <dt className="font-semibold text-[var(--color-on-surface)]">More on each {fmtSend(priced.amount, from)} transfer</dt>
+                    <dd className="text-right font-semibold text-[var(--color-success)]">+{fmtReceive(result.perTransfer, to)}</dd>
+                  </div>
+                </dl>
+                <p className="mt-2 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed">
+                  Each year = that gap &times; {perYear}{" "}transfers at today&rsquo;s quotes, after fees. Rates move, so the top
+                  payer can change: check before each transfer.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-2xl font-semibold text-[var(--color-on-surface)]">
+                  {result.currentLabel === "a typical provider" ? "These providers pay almost the same today." : `${result.currentLabel} is at the top of our comparison today.`}
+                </p>
+                <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
+                  The gap to the lowest payer on this route is {fmtReceive(result.dearestGapYear, to)} a year at this amount, so it
+                  is still worth checking before each transfer.
+                </p>
+              </>
+            )}
+
+            {partnerCard}
+
+            <p className="mt-6 mb-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)]">
+              Top of our comparison for {fmtSend(priced.amount, from)}
+            </p>
+            <ol className="divide-y divide-[var(--color-outline)]">
+              {quotes.slice(0, 3).map((q, i) => (
+                <li key={q.providerSlug} className="flex flex-wrap items-center gap-x-3 gap-y-2 py-3">
+                  <span className="w-6 h-6 shrink-0 inline-flex items-center justify-center rounded-full bg-[var(--color-surface-dim)] text-xs font-semibold tabular-nums text-[var(--color-on-surface-variant)]">{i + 1}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-[var(--color-on-surface)] truncate">{rowLabel(q)}</span>
+                    <span className="block text-xs text-[var(--color-on-surface-variant)] tabular-nums">
+                      {q.fee === 0 ? "No fee" : `${fmtSend(q.fee, from)} fee`} · rate {q.exchangeRate.toFixed(q.exchangeRate >= 10 ? 2 : 4)}
+                    </span>
+                  </span>
+                  <span className="text-right">
+                    <span className="block text-sm font-semibold tabular-nums text-[var(--color-on-surface)]">{fmtReceive(q.receiveAmount, to)}</span>
+                    <span className="block text-2xs text-[var(--color-on-surface-variant)]">recipient gets</span>
+                  </span>
+                  <ProviderLink
+                    href={getGoUrl(q.providerSlug, { ...goParams, clickref: source })}
+                    provider={q.providerSlug}
+                    source={source}
+                    corridor={priced.corridor}
+                    rank={i + 1}
+                    ariaLabel={`Send with ${rowLabel(q)}`}
+                    className={
+                      i === 0
+                        ? "conversion-button conversion-button--accent w-full @md:w-auto shrink-0"
+                        : "inline-flex items-center justify-center gap-3 min-h-12 px-5 rounded-[14px] border border-[var(--color-outline)] text-sm font-semibold text-[var(--color-on-surface)] hover:border-[var(--color-on-surface)] w-full @md:w-auto shrink-0"
+                    }
+                  >
+                    Send <ArrowRight size={14} aria-hidden="true" />
+                  </ProviderLink>
+                </li>
+              ))}
+            </ol>
+            <Link
+              href={`/send-money?from=${from}&to=${to}&amount=${priced.amount}`}
+              className="mt-1 inline-flex items-center gap-1.5 min-h-10 text-sm font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
+            >
+              See all {quotes.length} providers on this route <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </div>
+        )}
+
+        {(!result || failed) && partnerCard}
+
+        <p className="mt-3 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed">
+          Recipient amounts are after fees, from our latest quotes. The provider confirms the final rate when you send.
+        </p>
       </div>
     </div>
   );
