@@ -2,8 +2,8 @@
   "dataAsOf": "2026-10-03",
   "comparableCorridors": 216,
   "pairsTracked": 1044,
-  "contestedCorridorDays": 18092,
-  "providerDayObservations": 124522,
+  "contestedCorridorDays": 18093,
+  "providerDayObservations": 124524,
   "maxWindowDays": 91,
   "rows": [
     {
@@ -22,9 +22,9 @@
       "providerName": "TapTap Send",
       "corridorsLed": 44,
       "corridorsQuoted": 153,
-      "wins": 4554,
-      "quotedDays": 13255,
-      "winRate": 34.36,
+      "wins": 4553,
+      "quotedDays": 13256,
+      "winRate": 34.35,
       "avgShortfallPct": 0.72,
       "leadRate": 28.76
     },
@@ -33,9 +33,9 @@
       "providerName": "LemFi",
       "corridorsLed": 38,
       "corridorsQuoted": 87,
-      "wins": 3046,
-      "quotedDays": 7732,
-      "winRate": 39.39,
+      "wins": 3047,
+      "quotedDays": 7733,
+      "winRate": 39.4,
       "avgShortfallPct": 0.8,
       "leadRate": 43.68
     },
@@ -44,9 +44,9 @@
       "providerName": "InstaReM",
       "corridorsLed": 34,
       "corridorsQuoted": 80,
-      "wins": 2871,
+      "wins": 2872,
       "quotedDays": 7147,
-      "winRate": 40.17,
+      "winRate": 40.18,
       "avgShortfallPct": 0.55,
       "leadRate": 42.5
     },
@@ -300,7 +300,7 @@
       "wins": 8,
       "quotedDays": 1001,
       "winRate": 0.8,
-      "avgShortfallPct": 1.91,
+      "avgShortfallPct": 1.9,
       "leadRate": 0
     },
     {
@@ -586,7 +586,7 @@
       "wins": 0,
       "quotedDays": 1001,
       "winRate": 0,
-      "avgShortfallPct": 1.91,
+      "avgShortfallPct": 1.9,
       "leadRate": 0
     },
     {
@@ -619,7 +619,7 @@
       "wins": 0,
       "quotedDays": 728,
       "winRate": 0,
-      "avgShortfallPct": 11.32,
+      "avgShortfallPct": 11.31,
       "leadRate": 0
     },
     {
@@ -733,6 +733,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 66,
-  "stableCorridors": 150
+  "rotatingCorridors": 65,
+  "stableCorridors": 151
 }
