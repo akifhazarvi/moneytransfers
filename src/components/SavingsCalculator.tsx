@@ -134,7 +134,7 @@ export default function SavingsCalculator({
   const currentKey = currentValid ? current : "median";
 
   const result = useMemo(() => {
-    if (quotes.length < 2) return null;
+    if (!validAmount || !upToDate || quotes.length < 2) return null;
     const top = quotes[0];
     const med = median(quotes.map((q) => q.receiveAmount));
     const chosen = currentKey === "median" ? null : quotes.find((q) => q.providerSlug === currentKey) ?? null;
@@ -153,7 +153,7 @@ export default function SavingsCalculator({
       dearest,
       dearestGapYear: (top.receiveAmount - dearest.receiveAmount) * perYear,
     };
-  }, [quotes, currentKey, perYear]);
+  }, [quotes, currentKey, perYear, validAmount, upToDate]);
 
   const partner = quotes.find((q) => q.providerSlug === PARTNER);
   const partnerIsTop = quotes[0]?.providerSlug === PARTNER;
@@ -294,6 +294,7 @@ export default function SavingsCalculator({
             Enter an amount between 10 and 50,000 {corridor.slice(0, 3)} to compare.
           </p>
         )}
+        {updating && <p role="status" className="mb-3 text-sm text-[var(--color-on-surface-variant)]">Updating quotes for your transfer…</p>}
         {failed && (
           <div role="status" className="mb-3 text-sm text-[var(--color-on-surface-variant)]">
             We could not load quotes for this transfer.{" "}
@@ -309,7 +310,7 @@ export default function SavingsCalculator({
             </button>
           </div>
         )}
-        {!failed && !result && !updating && (
+        {validAmount && !failed && !result && !updating && (
           <p className="text-sm text-[var(--color-on-surface-variant)]">
             We do not hold enough quotes at this amount to compare.{" "}
             <Link href="/send-money" className="text-[var(--color-primary)] underline underline-offset-4">Open the full comparison</Link>.
@@ -326,7 +327,7 @@ export default function SavingsCalculator({
                   +{fmtReceive(result.perYearReceive, to)}
                 </p>
                 <p className="mt-1 text-sm text-[var(--color-on-surface)]">
-                  in your family&rsquo;s hands each year
+                  extra per year if the current payout gap stayed the same
                   {result.perYearSend > 0 && (
                     <span className="text-[var(--color-on-surface-variant)]"> (about {fmtSend(result.perYearSend, from)})</span>
                   )}
@@ -412,7 +413,7 @@ export default function SavingsCalculator({
           </div>
         )}
 
-        {(!result || failed) && partnerCard}
+        {validAmount && upToDate && !result && !failed && partnerCard}
 
         <p className="mt-3 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed">
           Recipient amounts are after fees, from our latest quotes. The provider confirms the final rate when you send.
