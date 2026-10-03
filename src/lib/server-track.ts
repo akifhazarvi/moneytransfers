@@ -16,6 +16,15 @@ import { gaServerEvent, type GeoHints } from "@/lib/ga4-server";
  *
  * Both calls are fire-and-forget and individually guarded: a failure in one
  * sink never blocks the redirect or the other sink.
+ *
+ * One exception to parity: a self-identifying crawler (`is_bot`) whose hit was
+ * not forwarded to a provider is kept out of GA4. Measurement Protocol events
+ * carry no session, and a cookieless crawler gets a fresh client id per hit, so
+ * each one became a new GA4 user: 20,188 of 62,494 "total users" in the 28 days
+ * to 2026-10-02, none of them active. Vercel still records these hits, so the
+ * crawler volume stays measurable there. Any hit that reached a provider
+ * (`outcome: "redirect"`, e.g. a false-positived human who pressed Continue)
+ * still goes to GA4.
  */
 export async function serverTrack(
   eventName: string,
@@ -23,8 +32,10 @@ export async function serverTrack(
   clientId?: string,
   geo?: GeoHints,
 ): Promise<void> {
+  const unforwardedCrawler = params.is_bot === true && params.outcome !== "redirect";
+
   // GA4 (Measurement Protocol) — already handles its own try/catch + env guard.
-  void gaServerEvent(eventName, params, clientId, geo);
+  if (!unforwardedCrawler) void gaServerEvent(eventName, params, clientId, geo);
 
   // Vercel Analytics (server). Its server track accepts only string/number/
   // boolean values, same as ours. Swallow any error so analytics never breaks
