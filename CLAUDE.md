@@ -458,7 +458,9 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
 - **API scrapers** (`scrape.yml`, every 6h): `scrape-ofx`, `scrape-instarem`,
   `scrape-xe` (mid-market), `scrape-taptapsend` (partner key), `scrape-wise-direct`,
   `scrape-wise-comparison`, `scrape-remitly`, `scrape-pandaremit`, `scrape-skyremit`,
-  `scrape-lemfi`, `scrape-unplex`, `scrape-remitroutes`
+  `scrape-lemfi`, `scrape-unplex`, `scrape-remitroutes`, `scrape-gulf` (Gulf senders:
+  Western Union SA/AE/KW/BH, e& money, Al Ansari — rate-only operators need a
+  published fee in `PUBLISHED_FEES` or they are not shown)
 - **Cheerio**: `scrape-exiap` (JSON-LD); `scrape-ace` works but is disabled in CI
   (403 from datacenter IPs)
 - **Playwright** (`scrape-browsers.yml`, daily): `scrape-monito` (4 shards),

@@ -22,6 +22,8 @@
  * - TAPTAP_PARTNER_API_KEY: enables partner mode (Authorization: Bearer <key>)
  * - TAPTAP_FX_RATES_URL: override endpoint if needed
  */
+import * as fs from "fs";
+import * as path from "path";
 import {
   writeOutput,
   type ProviderQuote,
@@ -366,6 +368,23 @@ async function main() {
   }
   console.log(`\nTotal quotes: ${successCount} success, ${failCount} failed`);
   writeOutput("TapTap Send", "taptapsend", allQuotes, startTime, successCount, failCount);
+  writeSendCurrencies(allQuotes);
+}
+
+/**
+ * The currencies TapTap sends FROM, for the partner card. It renders in client
+ * components too, so it reads this ~15-code list rather than the 2.6 MB quote
+ * file. Without it the card said "Send 3,000 SAR with TapTap" on Saudi pages,
+ * a currency TapTap does not send. A thin run keeps the previous list.
+ */
+function writeSendCurrencies(quotes: ProviderQuote[]): void {
+  const codes = [...new Set(quotes.map((q) => q.sendCurrency))].sort();
+  if (codes.length < 5) {
+    console.warn(`WARN only ${codes.length} send currencies — keeping taptap-send-currencies.json`);
+    return;
+  }
+  fs.writeFileSync(path.join(__dirname, "..", "src", "data", "scraped", "taptap-send-currencies.json"), JSON.stringify(codes) + "\n");
+  console.log(`Send currencies: ${codes.join(" ")}`);
 }
 
 main().catch((err) => {

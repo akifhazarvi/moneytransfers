@@ -95,6 +95,9 @@ const affiliateLinks: Record<string, string> = {
   ofx: "https://ofx.com/?ref=sendmoneycompare",
   xe: "https://xe.com/?ref=sendmoneycompare",
   "western-union": "https://westernunion.com/?ref=sendmoneycompare",
+  // Gulf operators (scripts/scrape-gulf.ts): no affiliate deal, plain links.
+  "e-and-money": "https://www.eandmoney.com/en/send-abroad.html",
+  "al-ansari-exchange": "https://alansariexchange.com/service/remittances/",
   worldremit: "https://worldremit.com/?ref=sendmoneycompare",
   revolut: "https://revolut.com/?ref=sendmoneycompare",
   paypal: "https://paypal.com/?ref=sendmoneycompare",

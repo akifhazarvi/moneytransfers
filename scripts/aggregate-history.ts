@@ -102,7 +102,7 @@ interface Quote {
 function sourceTier(source: string | undefined): number | null {
   const src = source ?? "";
   if (src === "compareremit") return null; // retired: Remitly promo rates via a comparison site
-  if (/^(ofx-api|instarem-api|xoom-browser|taptapsend|wise-direct|ace-|ria-|remitly-|pandaremit|skyremit|lemfi|unplex)/.test(src)) return 1;
+  if (/^(ofx-api|instarem-api|xoom-browser|taptapsend|wise-direct|ace-|ria-|remitly-|pandaremit|skyremit|lemfi|unplex|gulf-)/.test(src)) return 1;
   if (src.startsWith("wise-comparison")) return 2;
   if (src.startsWith("monito")) return 3;
   if (src.startsWith("exiap")) return 4;

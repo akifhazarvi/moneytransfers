@@ -32,8 +32,8 @@ jobs:
     # job, so remaining steps are skipped regardless of their conditions. The
     # only real protection is keeping the budget sum below the cap.
     #
-    # Current budget: 64 (scrapers) + 30 (tail) + 6 (orphan sweep, health,
-    # IndexNow, final gate) + ~1 (checkout/npm ci) = ~101 < 105.
+    # Current budget: 67 (scrapers) + 30 (tail) + 6 (orphan sweep, health,
+    # IndexNow, final gate) + ~1 (checkout/npm ci) = ~104 < 105.
     timeout-minutes: 105
 
     env:
@@ -160,6 +160,13 @@ jobs:
         timeout-minutes: 2 # observed ~15s
         continue-on-error: true
 
+      # Gulf senders (SA/AE/KW/BH): Western Union, e& money, Al Ansari. Observed
+      # ~1m locally with Western Union's requests 4-wide.
+      - name: Scrape Gulf operators (direct)
+        run: timeout -k 15s 150s npx tsx scripts/scrape-gulf.ts
+        timeout-minutes: 3
+        continue-on-error: true
+
       # Hit its 10m cap on every run from Sep 25 2026 (825 serial requests to a
       # slowing upstream). Now concurrent (~3.5m locally), with a soft budget so
       # it writes partial results + carries forward instead of being killed.
@@ -190,7 +197,7 @@ jobs:
           taptapsend-quotes.json wise-direct-quotes.json wise-comparison-quotes.json
           exiap-quotes.json remitly-quotes.json pandaremit-quotes.json
           skyremit-quotes.json lemfi-quotes.json unplex-quotes.json
-          remitroutes-quotes.json
+          remitroutes-quotes.json gulf-quotes.json
         timeout-minutes: 2
         continue-on-error: true
 

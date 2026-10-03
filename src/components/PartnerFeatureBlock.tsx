@@ -8,6 +8,10 @@ import { getGoUrl } from "@/lib/affiliate";
 import { providerLogo } from "@/lib/provider-logo";
 import appRatings from "@/data/scraped/app-store-ratings.json";
 import trustpilotRatings from "@/data/scraped/trustpilot-ratings.json";
+import tapTapSendCurrencies from "@/data/scraped/taptap-send-currencies.json";
+
+/** Currencies TapTap sends from, written by scripts/scrape-taptapsend.ts. */
+const TAPTAP_SENDS_FROM: ReadonlySet<string> = new Set(tapTapSendCurrencies as string[]);
 
 // Measured social proof, never typed: TapTap's Trustpilot score from the
 // reviews scrape, then its App Store and Google Play scores. Each part is
@@ -44,6 +48,11 @@ export default function PartnerFeatureBlock({ source, variant = "section", quote
   linkContext?: { from: string; to: string; amount: number };
 }) {
   const context = linkContext ?? (quote ? { from: quote.fromCurrency, to: quote.toCurrency, amount: quote.sendAmount } : undefined);
+  // Only where TapTap sends from this currency. On Saudi pages the card said
+  // "Send 3,000 SAR with TapTap", a dead end: TapTap sends from ~15 currencies
+  // and SAR is not one. Fewer than 5 means the list failed to load — show the
+  // card rather than hide TapTap everywhere.
+  if (context && TAPTAP_SENDS_FROM.size >= 5 && !TAPTAP_SENDS_FROM.has(context.from)) return null;
   const href = getGoUrl("taptap-send", context ? { sourceCurrency: context.from, targetCurrency: context.to, sourceAmount: context.amount, clickref: source } : undefined);
   const corridor = context ? `${context.from}-${context.to}` : "";
   const money = (n: number) => n.toLocaleString("en-US", { maximumFractionDigits: 2 });

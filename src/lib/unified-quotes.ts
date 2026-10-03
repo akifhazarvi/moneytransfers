@@ -32,6 +32,7 @@ import skyremitQuotes from "@/data/scraped/skyremit-quotes.json";
 import lemfiQuotes from "@/data/scraped/lemfi-quotes.json";
 import unplexQuotes from "@/data/scraped/unplex-quotes.json";
 import remitroutesQuotes from "@/data/scraped/remitroutes-quotes.json";
+import gulfQuotes from "@/data/scraped/gulf-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -346,7 +347,7 @@ const ALL_SOURCE_ROWS: unknown[][] = [
   ofxQuotes, instaremQuotes, xoomQuotes, taptapsendQuotes, wiseDirectQuotes,
   aceQuotes, riaQuotes, remitlyQuotes, pandaremitQuotes, skyremitQuotes,
   lemfiQuotes, unplexQuotes, wiseComparisonQuotes, monitoQuotes, exiapQuotes,
-  remitroutesQuotes,
+  remitroutesQuotes, gulfQuotes,
 ] as unknown[][];
 const STALE_AFTER_MS = 72 * 3600_000;
 let freshestCollectedMs = 0;
@@ -378,6 +379,10 @@ addQuotes(wiseDirectQuotes as unknown[], 1, "wise-direct-api");
 addQuotes(aceQuotes as unknown[], 1, "ace-direct");
 addQuotes(riaQuotes as unknown[], 1, "ria-browser");
 addQuotes(remitlyQuotes as unknown[], 1, "remitly-browser");
+// Gulf senders (SA, AE, KW, BH): Western Union's price catalog, e& money and
+// Al Ansari Exchange — first-party prices from each operator's own site.
+// See scripts/scrape-gulf.ts.
+addQuotes(gulfQuotes as unknown[], 1, "gulf-direct");
 addQuotes(pandaremitQuotes as unknown[], 1, "pandaremit-api");
 addQuotes(skyremitQuotes as unknown[], 1, "skyremit-api");
 addQuotes(lemfiQuotes as unknown[], 1, "lemfi-api");
