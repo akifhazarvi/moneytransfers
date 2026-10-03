@@ -77,6 +77,16 @@ const ABSURD_MARKUP_PCT = 25;
 const ABSURD_FEE_SHARE = 0.5;
 /** Rate spread beyond which a lone source is treated as contradicting its peers. */
 const OUTLIER_TOLERANCE = 0.02;
+/**
+ * Sources that record the mid-market rate with a $0 fee when the provider gave
+ * no quote. That is a placeholder, not a price: until 2026-10-03 every Gulf
+ * "Wise" row (AED, SAR, KWD, QAR, OMR, BHD — 76 rows) came from it, showing
+ * Wise at 0% markup and no fee on Saudi→India and the rest, although Wise's own
+ * quote API rejects SAR/KWD/QAR/OMR/BHD as a source (HTTP 422) and offers AED
+ * only from a Wise balance. The scraper no longer writes these; this keeps old
+ * rows and history snapshots out too.
+ */
+const PLACEHOLDER_SOURCES = new Set(["wise-direct-live-rate"]);
 
 export function hasParallelMarket(quote: NormalizedQuote): boolean {
   return (
@@ -102,6 +112,7 @@ export function implausibilityReason(
   } = {},
 ): string | null {
   const beatsPct = opts.beatsInterbankPct ?? BEATS_INTERBANK_PCT;
+  if (quote.source && PLACEHOLDER_SOURCES.has(quote.source)) return "mid-rate-placeholder";
   if (!quote.exchangeRate || quote.exchangeRate <= 0) return "no-rate";
   if (quote.markup > ABSURD_MARKUP_PCT) return "markup-absurd";
   if (opts.checkFeeShare !== false && quote.sendAmount > 0 && quote.fee / quote.sendAmount > ABSURD_FEE_SHARE) return "fee-absurd";

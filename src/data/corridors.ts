@@ -979,14 +979,14 @@ export const corridors: Corridor[] = [
     context:
       "Thanks to intense competition, the AED to INR corridor offers some of the tightest exchange rate spreads in the world. Many providers offer rates within 0.2–0.5% of the mid-market rate — significantly better than the 2–4% markups charged by traditional banks. For a AED 3,000 transfer, this difference can mean ₹1,500–₹3,000 more reaching your recipient. Providers like Wise, Remitly, and Al Ansari Exchange are well-established on this route, alongside regional players like UAE Exchange and Al Rostamani Exchange.",
     feesNote:
-      "Transfer fees on the AED to INR corridor are among the lowest globally, ranging from AED 0 (Wise, Remitly) to AED 10–15 for exchange house transfers. Most specialist providers charge under AED 10. Traditional exchange houses may offer zero fees but compensate with slightly wider exchange rate spreads. Always compare the total INR received, not just the fee.",
+      "Transfer fees on the AED to INR corridor are among the lowest globally, ranging from AED 0 on some Remitly and TapTap Send transfers to AED 10–15 for exchange house transfers. Most specialist providers charge under AED 10. Traditional exchange houses may offer zero fees but compensate with slightly wider exchange rate spreads. Always compare the total INR received, not just the fee.",
     deliveryNote:
       "Bank deposits to India via NEFT/IMPS typically arrive within hours to 1 business day. Several providers offer instant delivery to major Indian banks through UPI or IMPS. Cash pickup is widely available through Western Union and MoneyGram agent networks in India.",
     faqs: [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send money from UAE to India?",
-        a: "Wise uses the mid-market rate with a small transparent fee, while Remitly frequently offers promotional rates for new users. Al Ansari Exchange and UAE Exchange are also competitive and convenient with branches across the UAE.",
+        a: "Remitly and TapTap Send both take payments from UAE bank accounts and cards and show the rupee amount before you pay; Remitly often runs first-transfer promotions. Licensed exchange houses such as Al Ansari Exchange add branch and cash options. Wise does not quote AED transfers paid from a UAE bank account, and XE and Ria's online service do not accept UAE senders.",
       },
       {
         q: "How long does it take to send money from UAE to India?",
@@ -1020,7 +1020,7 @@ export const corridors: Corridor[] = [
     context:
       "The Pakistani rupee has experienced significant volatility in recent years, making it especially important to compare providers at the time of sending. Exchange rate spreads can vary dramatically between providers — even a 1% difference on AED 3,000 translates to PKR 5,000–7,000 less for your recipient. Providers like Wise, ACE Money Transfer, TapTap Send, and Al Ansari Exchange compete aggressively on this corridor, and many offer JazzCash and Easypaisa wallet delivery for near-instant transfers.",
     feesNote:
-      "Fees range from AED 0 (TapTap Send, Wise for bank transfers) to AED 10–15 for exchange houses. ACE Money Transfer often runs zero-fee promotions. The exchange rate markup is the primary cost driver — always compare the total PKR your recipient receives after all costs.",
+      "Fees range from AED 0 on some TapTap Send and Remitly transfers to AED 10–15 for exchange houses. ACE Money Transfer often runs zero-fee promotions. The exchange rate markup is the primary cost driver — always compare the total PKR your recipient receives after all costs.",
     deliveryNote:
       "Mobile wallet transfers via JazzCash and Easypaisa arrive within minutes. Bank deposits take 1–2 business days. Cash pickup through Western Union, MoneyGram, and local bank partners is typically available same-day.",
     faqs: [
@@ -1061,14 +1061,14 @@ export const corridors: Corridor[] = [
     context:
       "The AED to PHP corridor is well-served by both global transfer providers and regional exchange houses. GCash delivery has become increasingly popular, allowing recipients to receive funds instantly on their mobile wallets. On a AED 3,000 transfer, choosing the right provider can mean PHP 2,000–4,000 more reaching your family. Providers like Remitly, WorldRemit, and Wise compete alongside regional players like Al Ansari Exchange and Emirates NBD.",
     feesNote:
-      "Transfer fees range from AED 0 (Remitly, Wise for bank-funded transfers) to AED 10–15 for exchange house sends. Many providers offer fee-free transfers for first-time users. The exchange rate markup is typically the larger cost component — compare the total PHP received.",
+      "Transfer fees range from AED 0 on some Remitly and TapTap Send transfers to AED 10–15 for exchange house sends. Many providers offer fee-free transfers for first-time users. The exchange rate markup is typically the larger cost component — compare the total PHP received.",
     deliveryNote:
       "GCash transfers arrive within minutes. Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup through Cebuana Lhuillier, M Lhuillier, and other partners is available same-day in the Philippines.",
     faqs: [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send money from UAE to the Philippines?",
-        a: "Remitly, Wise, and WorldRemit offer the best total value for AED to PHP transfers. Remitly often has promotional rates for new users and supports GCash delivery. Compare all providers to find today's best rate.",
+        a: "Remitly and TapTap Send both take payments from the UAE and show the peso amount before you pay; Remitly supports GCash delivery and often has first-transfer promotions. Licensed exchange houses add branch and cash options. Compare the PHP each delivers for the same AED amount.",
       },
       {
         q: "Can I send money to GCash from the UAE?",
@@ -1080,7 +1080,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Is it cheaper to send money through an exchange house or online?",
-        a: "Online providers like Wise and Remitly generally offer better exchange rates than physical exchange houses, saving you AED 50–100 on a AED 3,000 transfer. Exchange houses offer convenience for cash-funded transfers.",
+        a: "Compare app providers that take UAE payments, such as Remitly and TapTap Send, with your usual exchange house on the peso amount delivered for the same AED amount. Exchange houses offer convenience for cash-funded transfers.",
       },
       {
         q: "Do I need to pay tax on remittances to the Philippines?",
@@ -1103,14 +1103,14 @@ export const corridors: Corridor[] = [
     context:
       "The SAR to INR corridor benefits from strong competition among providers. The Saudi riyal is pegged to the US dollar, which keeps exchange rate fluctuations with the Indian rupee relatively predictable. On a SAR 3,000 transfer, the difference between the best and worst providers can mean ₹2,000–₹4,000 less reaching your recipient. Providers like Wise, Remitly, TapTap Send, and STCPay compete alongside traditional exchange houses such as Al Rajhi Bank and Western Union.",
     feesNote:
-      "Fees range from SAR 0 (Wise, TapTap Send) to SAR 15–25 for bank wire transfers. Exchange houses like Al Rajhi may charge SAR 10–15 per transfer. The real cost difference between providers lies in the exchange rate — a 1% difference on SAR 3,000 translates to roughly ₹2,200 less for your recipient.",
+      "Fees range up to SAR 15–25 for bank wire transfers, and bank remittance services like Tahweel Al Rajhi may charge SAR 10–15 per transfer. Wise, Remitly, TapTap Send, XE and Ria's online service do not take payments from Saudi Arabia, so Saudi senders compare SAMA-licensed bank and wallet services. The real cost difference between providers lies in the exchange rate — a 1% difference on SAR 3,000 translates to roughly ₹2,200 less for your recipient.",
     deliveryNote:
       "IMPS and UPI-enabled transfers to India arrive within minutes. Standard bank deposits take 1–2 business days. Cash pickup through Western Union and MoneyGram is available same-day at partner locations across India.",
     faqs: [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to India?",
-        a: "Wise provides the mid-market rate with transparent fees. TapTap Send charges zero fees. Compare all providers on the day you send for the best rate.",
+        a: "Wise, Remitly, TapTap Send, XE and Ria's online service do not take payments from Saudi Arabia. Saudi residents send through SAMA-licensed services such as Tahweel Al Rajhi, SNB Quick Pay, Riyad Bank's Riyad Remit and Bank AlBilad's Enjaz. Compare the rupee amount each quotes for the same riyal amount on the day you send.",
       },
       {
         q: "How long does it take to transfer money from Saudi Arabia to India?",
@@ -1144,7 +1144,7 @@ export const corridors: Corridor[] = [
     context:
       "Pakistan receives over $8 billion annually from Saudi Arabia alone, making this the largest single bilateral remittance corridor for Pakistan. The Pakistani rupee's volatility means rates can change significantly day to day, making real-time comparison essential. Providers like ACE Money Transfer, TapTap Send, Wise, and Al Rajhi Bank all compete for this high-volume corridor. JazzCash and Easypaisa mobile wallets have revolutionised delivery, making it possible to receive money instantly without a bank account.",
     feesNote:
-      "Fees range from SAR 0 (TapTap Send, ACE Money Transfer promotions) to SAR 15–25 for exchange house and bank transfers. The exchange rate markup is the main cost — even a 0.5% difference on SAR 3,000 means PKR 3,500+ less for your recipient.",
+      "Fees run up to SAR 15–25 for exchange house and bank transfers, and some services waive the fee on promotions. The exchange rate markup is the main cost — even a 0.5% difference on SAR 3,000 means PKR 3,500+ less for your recipient.",
     deliveryNote:
       "JazzCash and Easypaisa transfers arrive within minutes. Bank deposits take 1–2 business days. Cash pickup through Western Union, MoneyGram, and local bank branches is available same-day across Pakistan.",
     faqs: [
@@ -1159,11 +1159,11 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Can I send money to JazzCash from Saudi Arabia?",
-        a: "Yes, ACE Money Transfer, Remitly, and Western Union support JazzCash delivery from Saudi Arabia. This is the fastest and most convenient option for recipients without a bank account.",
+        a: "Yes, ACE Money Transfer and Western Union support JazzCash delivery from Saudi Arabia (Remitly does not take payments from Saudi Arabia). This is the fastest and most convenient option for recipients without a bank account.",
       },
       {
         q: "Is it cheaper to use Al Rajhi Bank or an online provider?",
-        a: "Online providers like Wise and TapTap Send typically offer better exchange rates than Al Rajhi Bank, saving you SAR 30–60 on a SAR 3,000 transfer. Al Rajhi is convenient for in-branch sends but costs more overall.",
+        a: "Wise, Remitly, TapTap Send, XE and Ria's online service do not take payments from Saudi Arabia. Compare Al Rajhi with the other SAMA-licensed services, such as Enjaz and SNB Quick Pay, on the rupees delivered for the same riyal amount; Al Rajhi is convenient for in-branch sends.",
       },
       {
         q: "Do I need an Iqama to send money from Saudi Arabia?",
@@ -1185,18 +1185,18 @@ export const corridors: Corridor[] = [
     context:
       "Bangladesh is one of the top remittance-receiving countries globally, with Saudi Arabia being a major source. The corridor is well-served by providers including Wise, TapTap Send, ACE Money Transfer, and Western Union. bKash mobile wallet delivery has transformed this corridor, allowing recipients to receive money instantly on their phones. On a SAR 3,000 transfer, switching from a bank to a specialist provider can save BDT 2,000–4,000.",
     feesNote:
-      "Transfer fees range from SAR 0 (TapTap Send) to SAR 15–20 for exchange houses. Many providers offer zero-fee promotions for first-time users. The exchange rate markup is where most of the cost lies — compare the total BDT received rather than just the fee.",
+      "Transfer fees run up to SAR 15–20 at exchange houses. Many providers offer zero-fee promotions for first-time users. The exchange rate markup is where most of the cost lies — compare the total BDT received rather than just the fee.",
     deliveryNote:
       "bKash and Nagad transfers arrive within minutes. Bank deposits to Bangladeshi banks take 1–3 business days. Cash pickup is available through partner networks in major cities across Bangladesh.",
     faqs: [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to Bangladesh?",
-        a: "TapTap Send and Wise typically offer the best value. TapTap Send charges zero fees with competitive rates. Wise uses the mid-market rate. ACE Money Transfer also offers strong rates with bKash delivery.",
+        a: "Wise, Remitly, TapTap Send, XE and Ria's online service do not take payments from Saudi Arabia. Saudi residents send to Bangladesh through SAMA-licensed services such as Tahweel Al Rajhi, SNB Quick Pay and Bank AlBilad's Enjaz. Compare the taka each delivers for the same riyal amount.",
       },
       {
         q: "Can I send money to bKash from Saudi Arabia?",
-        a: "Yes, multiple providers including ACE Money Transfer, WorldRemit, and Remitly support bKash delivery from Saudi Arabia. Transfers arrive within minutes.",
+        a: "Yes, providers including ACE Money Transfer and WorldRemit support bKash delivery from Saudi Arabia (Remitly does not take payments from Saudi Arabia). Transfers arrive within minutes.",
       },
       {
         q: "How long does a transfer from Saudi Arabia to Bangladesh take?",
@@ -1222,14 +1222,14 @@ export const corridors: Corridor[] = [
     context:
       "Egypt has experienced significant currency devaluation in recent years, with the Egyptian pound losing substantial value against major currencies. This makes real-time rate comparison even more critical — the spread between the best and worst provider rates can translate to thousands of extra pounds for your recipient. Providers like Wise, Western Union, MoneyGram, and Instapay-enabled services compete on this corridor. Egypt's Instapay system allows instant domestic transfers, and some international providers now leverage this for faster delivery.",
     feesNote:
-      "Fees range from SAR 0 (Wise for bank transfers) to SAR 15–25 for exchange house and bank sends. The exchange rate is the dominant cost factor on this corridor due to the wide spread between official and market rates. Always compare the total EGP your recipient will receive.",
+      "Fees run up to SAR 15–25 for exchange house and bank sends. The exchange rate is the dominant cost factor on this corridor due to the wide spread between official and market rates. Always compare the total EGP your recipient will receive.",
     deliveryNote:
       "Bank deposits to Egyptian banks typically arrive within 1–2 business days. Instapay-linked transfers can be faster. Cash pickup through Western Union and MoneyGram is available same-day at thousands of locations across Egypt.",
     faqs: [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to Egypt?",
-        a: "Wise and Western Union typically offer competitive rates for SAR to EGP. Wise provides the mid-market rate with transparent fees. Western Union offers convenient cash pickup across Egypt. Compare all providers on the day you send due to EGP volatility.",
+        a: "Wise, Remitly, TapTap Send, XE and Ria's online service do not take payments from Saudi Arabia. Saudi residents send to Egypt through SAMA-licensed services such as Tahweel Al Rajhi and Bank AlBilad's Enjaz, and Western Union offers cash pickup across Egypt. Compare all providers on the day you send due to EGP volatility.",
       },
       {
         q: "How long does a transfer from Saudi Arabia to Egypt take?",
@@ -1654,14 +1654,14 @@ export const corridors: Corridor[] = [
     context:
       "The UAE-to-Bangladesh corridor is dominated by exchange houses like Al Ansari Exchange, Lulu Exchange, and UAE Exchange, which offer cash-in convenience at physical branches across Dubai, Abu Dhabi, and Sharjah. However, digital providers like Wise, Remitly, and bKash's own international transfer partnerships increasingly offer better exchange rates with lower markups. Bangladesh Bank actively encourages formal remittance channels, and the Bangladesh government offers a 2.5% cash incentive on all inward remittances received through legal banking channels — a significant bonus that effectively reduces the cost of sending. Mobile financial services like bKash and Nagad have transformed how recipients access funds, with over 70 million registered accounts between them. All money transfer operators in the UAE must be licensed by the Central Bank of the UAE (CBUAE), which regulates exchange houses and digital remittance providers under a strict compliance framework.",
     feesNote:
-      "Fees on the AED to BDT route range from AED 0 (Wise for bank-funded transfers, some exchange house promotions) to AED 10–25 for cash-in transfers at exchange house counters. Exchange rate markups are the bigger cost factor — traditional exchange houses typically mark up the rate by 1.5%–3%, while Wise and Remitly stay within 0.5%–1% of the mid-market rate. On an AED 2,000 transfer, this difference can mean BDT 1,500–3,000 less reaching your recipient. Factor in Bangladesh's 2.5% government incentive when calculating total value.",
+      "Fees on the AED to BDT route range from AED 0 on some app and exchange house promotions to AED 10–25 for cash-in transfers at exchange house counters. The exchange rate markup is the bigger cost factor, so compare the taka delivered rather than the fee. Factor in Bangladesh's 2.5% government incentive when calculating total value.",
     deliveryNote:
       "bKash and Nagad wallet transfers typically arrive within minutes. Bank deposits to Bangladeshi banks such as Islami Bank, Dutch-Bangla Bank, and Sonali Bank take 1–2 business days. Cash pickup through exchange house partner networks is usually available same-day. Western Union and MoneyGram offer cash pickup at thousands of agent locations across Bangladesh within minutes.",
     faqs: [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send money from the UAE to Bangladesh?",
-        a: "Wise uses the real mid-market exchange rate with a transparent fee and no hidden markup, making it one of the most cost-effective options for bank-funded transfers. Remitly offers competitive rates with frequent promotional offers for new users. Traditional exchange houses like Al Ansari and Lulu Exchange offer convenience — especially for cash-in funding — but typically apply higher exchange rate markups of 1.5%–3%. On an AED 2,000 transfer, the difference between the best digital provider and a typical exchange house can exceed BDT 2,000–4,000. Additionally, recipients receive a 2.5% government cash incentive on remittances through formal banking channels, which effectively boosts the total amount received. Always compare the total BDT delivered rather than just the transfer fee.",
+        a: "Remitly and TapTap Send take payments from UAE bank accounts and cards and show the taka amount before you pay; Remitly often runs first-transfer promotions. Exchange houses like Al Ansari and Lulu Exchange offer convenience, especially for cash-in funding. Wise does not quote AED transfers paid from a UAE bank account. Additionally, recipients receive a 2.5% government cash incentive on remittances through formal banking channels, which effectively boosts the total amount received. Always compare the total BDT delivered rather than just the transfer fee.",
       },
       {
         q: "Can I send money directly to a bKash account from the UAE?",
@@ -1778,9 +1778,9 @@ export const corridors: Corridor[] = [
     intro:
       "Over 500,000 Egyptians live and work in the UAE, making it one of the most important remittance corridors in the Middle East. The AED to EGP route has become particularly significant as Egypt's currency reforms have dramatically changed the exchange rate landscape.",
     context:
-      "Egypt has undergone a seismic currency shift since 2022. The Egyptian pound was devalued multiple times and moved to a more flexible exchange rate regime under pressure from the IMF, going from around EGP 15 per USD to over EGP 50 per USD by early 2024. For remittance senders, this means every AED now buys significantly more Egyptian pounds — but it also means exchange rate markups cost recipients far more in absolute terms. The Central Bank of Egypt (CBE) has implemented reforms to unify the official and parallel market rates, and Egypt's InstaPay system now enables instant domestic bank transfers. Major Egyptian banks including CIB, National Bank of Egypt (NBE), and Banque Misr are integrated with international remittance platforms. UAE-based senders can use both digital providers like Wise and Remitly and traditional exchange houses like Al Ansari, UAE Exchange, and Lulu Exchange. Vodafone Cash, Egypt's leading mobile wallet, is also emerging as a delivery option through some providers.",
+      "Egypt has undergone a seismic currency shift since 2022. The Egyptian pound was devalued multiple times and moved to a more flexible exchange rate regime under pressure from the IMF, going from around EGP 15 per USD to over EGP 50 per USD by early 2024. For remittance senders, this means every AED now buys significantly more Egyptian pounds — but it also means exchange rate markups cost recipients far more in absolute terms. The Central Bank of Egypt (CBE) has implemented reforms to unify the official and parallel market rates, and Egypt's InstaPay system now enables instant domestic bank transfers. Major Egyptian banks including CIB, National Bank of Egypt (NBE), and Banque Misr are integrated with international remittance platforms. UAE-based senders can use apps that take UAE payments, such as Remitly and TapTap Send, or licensed exchange houses like Al Ansari and Lulu Exchange. Vodafone Cash, Egypt's leading mobile wallet, is also emerging as a delivery option through some providers.",
     feesNote:
-      "Fees on the AED to EGP route range from AED 0 (Wise for bank-funded transfers) to AED 10–30 for exchange house counter transactions. The exchange rate markup is the dominant cost — providers may mark up the rate by 0.5% to 4% above the mid-market rate. Given the EGP's current levels, even a 1% markup on an AED 3,000 transfer can mean EGP 1,000+ less for your recipient. Wise uses the mid-market rate with a transparent fee, while exchange houses and banks typically embed their margin in the exchange rate.",
+      "Fees on the AED to EGP route range from AED 0 on some app promotions to AED 10–30 for exchange house counter transactions. The exchange rate markup is the dominant cost — providers may mark up the rate by 0.5% to 4% above the mid-market rate. Given the EGP's current levels, even a 1% markup on an AED 3,000 transfer can mean EGP 1,000+ less for your recipient. Exchange houses and banks typically embed their margin in the exchange rate, so compare the pounds delivered, not the fee.",
     deliveryNote:
       "Bank deposits to Egyptian banks like CIB, NBE, and Banque Misr take 1–2 business days. Some providers offer same-day delivery through Egypt's InstaPay instant payment infrastructure. Cash pickup through Western Union and MoneyGram agent locations is available within minutes. Vodafone Cash mobile wallet delivery is supported by select providers and arrives instantly.",
     faqs: [
@@ -1829,7 +1829,7 @@ export const corridors: Corridor[] = [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send money from Saudi Arabia to the Philippines?",
-        a: "Wise uses the real mid-market exchange rate with a transparent fee and no hidden markup, making it ideal for larger transfers. For OFWs sending smaller, regular amounts, TapTap Send charges zero fees with a competitive rate. Al Rajhi Bank's remittance service is widely used for its convenience — with branches across Saudi Arabia and a popular mobile app — but its exchange rate typically includes a 1%–2% markup. On a SAR 2,000 transfer, the difference between the cheapest and most expensive provider can exceed PHP 2,000–4,000. Many providers offer first-transfer promotions with enhanced rates. For frequent monthly senders, even a small rate improvement adds up significantly over a year — potentially PHP 25,000–50,000 in savings across 12 transfers.",
+        a: "Wise, Remitly, TapTap Send, XE and Ria's online service do not take payments from Saudi Arabia. Al Rajhi Bank's remittance service is widely used for its convenience, with branches across Saudi Arabia and a popular mobile app; compare it with the other SAMA-licensed services, such as Enjaz and SNB Quick Pay, on the pesos delivered. Many providers offer first-transfer promotions with enhanced rates. For frequent monthly senders, even a small rate improvement adds up significantly over a year — potentially PHP 25,000–50,000 in savings across 12 transfers.",
       },
       {
         q: "Can I send money directly to GCash from Saudi Arabia?",

@@ -392,12 +392,12 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
     bullets: [
       "Al Rajhi Bank, Saudi National Bank (SNB), and Arab National Bank (ANB) all offer remittance services with India delivery. However, digital providers and exchange houses like Lulu Exchange typically offer better SAR/INR rates.",
       "IMPS delivery to Indian bank accounts (HDFC, SBI, ICICI, Axis, Kotak) arrives within minutes and is available from multiple Saudi providers. This is the fastest and most convenient delivery method.",
-      "Saudi Aramco workers and other high-income expats sending large amounts (SAR 10,000+) should compare OFX and Wise, which offer better rates on larger transfers than retail exchange services.",
+      "Expats sending large amounts (SAR 10,000+) should ask their bank's remittance service for its rate on that amount: OFX, Wise and Remitly do not take payments from Saudi Arabia, so the comparison is between SAMA-licensed banks and exchange services.",
       "The SAR is pegged to the USD at 3.75, meaning SAR/INR rates track USD/INR closely. Rate differences between providers are mainly a function of their exchange rate markup, not currency market movements.",
     ],
     warningTitle: "Watch for rate differences between exchange houses and digital providers",
     warningBody:
-      "Saudi exchange houses are convenient and widely trusted, but digital providers now match their rates while delivering faster to Indian bank accounts. A quick comparison between Al Rajhi rates and Wise or Remitly rates often reveals SAR 10–30 in savings per SAR 1,000 transfer.",
+      "Saudi exchange houses are convenient and widely trusted, but digital providers now match their rates while delivering faster to Indian bank accounts. Comparing Al Rajhi with Enjaz and SNB Quick Pay on the rupees delivered for the same riyal amount is the quickest check; Wise and Remitly do not take payments from Saudi Arabia.",
   },
   "saudi-arabia-to-pakistan": {
     title: "What matters on the Saudi Arabia to Pakistan corridor",
@@ -425,7 +425,7 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
     ],
     warningTitle: "Don't assume exchange houses are cheapest — compare digitally",
     warningBody:
-      "UAE exchange houses are trusted and convenient, but digital providers have closed the gap on AED to INR rates. A 5-minute comparison between your usual exchange house and Wise or Remitly often reveals AED 15–40 in savings per AED 1,000 transfer.",
+      "UAE exchange houses are trusted and convenient, but digital providers have closed the gap on AED to INR rates. A 5-minute comparison between your usual exchange house and apps that take UAE payments, such as Remitly and TapTap Send, shows the difference on the rupees delivered.",
   },
   "usa-to-uk": {
     title: "What matters on the USA to UK corridor",
@@ -463,7 +463,7 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
       "The Egyptian pound's devaluation means SAR/EGP rates have changed dramatically. Providers that update their rates in real time offer better value than those using stale exchange rates — always check the rate is current before confirming a transfer.",
       "InstaPay is Egypt's instant payment network, enabling real-time transfers to Egyptian bank accounts. Providers that support InstaPay delivery can get funds to recipients within minutes, compared to 1–2 business days for traditional bank transfers.",
       "The Central Bank of Egypt (CBE) has liberalised the exchange rate regime, allowing market-driven pricing. This means rates between providers can differ significantly — comparison is more valuable on this corridor than on pegged-currency corridors.",
-      "SAMA-licensed exchange houses like Al Rajhi and Lulu Exchange offer Egypt remittance services, but digital providers like Wise and Remitly often provide more competitive SAR/EGP rates, especially after Egypt's rate liberalisation.",
+      "SAMA-licensed services like Tahweel Al Rajhi, Enjaz and Lulu Exchange offer Egypt remittances; Wise and Remitly do not take payments from Saudi Arabia, so compare the licensed services on the pounds delivered.",
     ],
     warningTitle: "EGP rates move fast — compare immediately before sending",
     warningBody:

@@ -18,7 +18,7 @@ export const corridorGuides2: BlogPost[] = [
     slug: "send-money-uae-to-pakistan-guide",
     title: "Send Money from UAE to Pakistan 2026: AED to PKR Rates",
     metaDescription:
-      "Send AED to PKR in 2026: live rates from Wise, Remitly, TapTap Send, ACE, Al Ansari, LuLu, Western Union. Plus RDA, JazzCash, RAAST, and Buna integration.",
+      "Send AED to PKR in 2026: live rates from Remitly, TapTap Send, ACE, Al Ansari, LuLu, Western Union. Plus RDA, JazzCash, RAAST, and Buna integration.",
     excerpt:
       "Pakistanis in the UAE sent home $7B+ in 10 months of FY26 — second only to Saudi Arabia. On AED 3,000 the gap between cheapest and most expensive provider is roughly PKR 18,000 (7.9%). Here's the full 15-provider comparison, RDA explainer, RAAST/Buna update, and Eid timing guide.",
     category: "Corridors",
@@ -207,7 +207,7 @@ export const corridorGuides2: BlogPost[] = [
         content: `<ol>
 <li><strong>Compare on every transfer, especially on AED 3,000+.</strong> The 4.5–7.9% gap on AED 3,000 = PKR 10,000–18,000 — the single biggest lever you have. <a href="/send-money/uae-to-pakistan">Compare 15+ providers live →</a></li>
 <li><strong>Default to JazzCash or Easypaisa for amounts under AED 5,000.</strong> Instant credit, no recipient bank visit, supported by TapTap Send / Wise / Remitly / ACE / WorldRemit.</li>
-<li><strong>Use Wise above AED 5,000.</strong> The fixed ~AED 12–18 fee amortises across larger nominals — Wise's 0% markup wins on math at scale.</li>
+<li><strong>Check the rate above AED 5,000.</strong> A fixed fee matters less on a large transfer, so the exchange rate decides who delivers more: compare the rupees received, not the fee.</li>
 <li><strong>Open an RDA if you're saving, not just sending.</strong> 7–11% PKR yields on Naya Pakistan Certificates beat sending money to a relative's bank account at 0%. Free debit card when funded by remittance.</li>
 <li><strong>Verify the Pakistani IBAN character-by-character.</strong> 24 characters, PK + check digits + 4-letter bank code + 16-digit account. One wrong digit can delay a transfer 3+ days. See our <a href="/iban/pakistan">Pakistan IBAN format guide</a>.</li>
 <li><strong>Send Eid al-Adha money by May 22.</strong> Avoid Eid-week congestion at UAE-side TT and Pakistan-side bank closures.</li>
@@ -221,7 +221,7 @@ export const corridorGuides2: BlogPost[] = [
       },
     ],
     faqs: [
-      { question: "What is the cheapest way to send money from UAE to Pakistan in 2026?", answer: "On AED 3,000 (~USD 815) in May 2026: TapTap Send and Remitly deliver roughly PKR 230,000 at promo rates of 76.6–76.9 PKR/AED — matching or beating the interbank mid-market (75.86). Wise is best above AED 5,000 thanks to its 0% markup. ACE Money Transfer is the best all-in-one with zero fees and JazzCash/Easypaisa/bank/cash/SadaPay/NayaPay in one app. The gap between cheapest and most expensive provider on AED 3,000 is roughly PKR 18,000 (~7.9%)." },
+      { question: "What is the cheapest way to send money from UAE to Pakistan in 2026?", answer: "On AED 3,000 (~USD 815) in May 2026: TapTap Send and Remitly deliver roughly PKR 230,000 at promo rates of 76.6–76.9 PKR/AED — matching or beating the interbank mid-market (75.86). Wise does not quote AED transfers paid from a UAE bank account. ACE Money Transfer is the best all-in-one with zero fees and JazzCash/Easypaisa/bank/cash/SadaPay/NayaPay in one app. The gap between cheapest and most expensive provider on AED 3,000 is roughly PKR 18,000 (~7.9%)." },
       { question: "How long does it take to send money from UAE to Pakistan?", answer: "TapTap Send delivers 95% of transfers in under 3 minutes via JazzCash or Easypaisa wallets. Wise to RAAST-connected Pakistani banks credits in seconds during business hours. Western Union cash pickup is available within minutes at 9,600+ Pakistani retail locations. Bank-only OFX takes ~3 business days. The slowest mainstream option is UAE bank TT at 2–5 business days." },
       { question: "Can I send money to JazzCash or Easypaisa from the UAE?", answer: "Yes. Wise, Remitly, ACE Money Transfer, TapTap Send, WorldRemit, and Western Union (JazzCash only) all support direct mobile wallet delivery. Credit is instant once the provider confirms the transfer. You only need the recipient's registered mobile number — no IBAN needed. JazzCash has 121,000+ cash-out agents for the recipient." },
       { question: "What is the Roshan Digital Account (RDA) and should I open one?", answer: "RDA is an SBP-launched scheme (Sept 2020) that lets Non-Resident Pakistanis open a Pakistani bank account digitally from abroad — no branch visit. As of April 2026 it has accumulated $12.75 billion across ~1 million accounts, with a record $321 million inflow in April 2026 alone. Accounts come in PKR/USD/GBP/EUR, with access to Naya Pakistan Certificates yielding 7–11%, plus PSX shares and Sukuk. Worth opening if you're saving (not just sending) AED 10,000+/month." },
@@ -236,7 +236,7 @@ export const corridorGuides2: BlogPost[] = [
     ],
     howToSteps: [
       { name: "Compare live AED→PKR rates", text: "Enter AED 3,000 (or your amount) on our UAE to Pakistan comparison tool. Sort by total PKR received — that's the only number that matters." },
-      { name: "Pick the winning provider", text: "TapTap Send / Remitly for promo rates under AED 5,000; Wise for AED 5,000+; ACE Money Transfer for the JazzCash/Easypaisa/bank/cash/SadaPay all-in-one option." },
+      { name: "Pick the winning provider", text: "TapTap Send / Remitly for app transfers paid from the UAE, compared on the PKR delivered at your amount; ACE Money Transfer for the JazzCash/Easypaisa/bank/cash/SadaPay all-in-one option." },
       { name: "Verify your Emirates ID", text: "All CBUAE-regulated providers require Emirates ID verification via the FAIC gateway. Most onboarding completes in minutes; some providers also need a passport scan." },
       { name: "Enter Pakistani recipient details", text: "For JazzCash/Easypaisa: registered mobile number. For bank deposit: full legal name + 24-character PK-prefix IBAN. For cash pickup: full name + CNIC number." },
       { name: "Fund from a UAE bank account", text: "Bank transfer is the cheapest funding method; card funding adds AED 5–15. Review the PKR your recipient will receive before confirming — that's your locked-in rate." },

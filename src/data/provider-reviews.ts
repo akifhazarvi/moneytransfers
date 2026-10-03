@@ -2517,7 +2517,7 @@ export const providerReviews: ProviderReview[] = [
       },
       {
         q: "Can I send money from the UAE to Pakistan with ACE?",
-        a: "ACE supports sending from the UAE (AED→PKR), and this is one of the popular corridors given the large Pakistani diaspora in the Gulf states. You can send to bank accounts, cash pickup, or mobile wallets in Pakistan. Exchange rates for AED→PKR are competitive. ACE also supports sending from Saudi Arabia (SAR→PKR) and other Gulf countries. For UAE-based senders, ACE, Wise, and Western Union are the main options — compare all three on SendMoneyCompare for the most current rates.",
+        a: "ACE supports sending from the UAE (AED→PKR), and this is one of the popular corridors given the large Pakistani diaspora in the Gulf states. You can send to bank accounts, cash pickup, or mobile wallets in Pakistan. Exchange rates for AED→PKR are competitive. ACE also supports sending from Saudi Arabia (SAR→PKR) and other Gulf countries. For UAE-based senders, compare ACE with Remitly and TapTap Send, which also take UAE payments, on SendMoneyCompare for the most current rates.",
       },
       {
         q: "Does ACE offer a first-transfer-free deal?",

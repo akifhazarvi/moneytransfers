@@ -493,6 +493,22 @@ are in the scrapers' own comments — read them before "fixing" a parse.
     `quote-integrity.ts`; an unreadable schedule now logs `WARN` in CI. A `fee: 0`
     from a provider that publishes fees is a parse gap until a raw response says
     otherwise.
+13. **A placeholder stored as a quote** — `scrape-wise-direct`'s last-resort
+    fallback wrote the mid-market rate with a $0 fee whenever Wise returned no
+    quote. Every Gulf "Wise" row (AED/SAR/KWD/QAR/OMR/BHD, 76 rows) was one, so
+    Saudi→India showed Wise at 0% / $0 although Wise rejects SAR as a source
+    (HTTP 422) and offers AED only from a Wise balance. Removed 2026-10-03;
+    `PLACEHOLDER_SOURCES` in `quote-integrity.ts` quarantines old rows live and
+    in history. A scraper records nothing when the provider gives no quote. Before
+    adding a sender country, probe the provider's own API for it: on 2026-10-03
+    Remitly answered only from the UAE, Ria "Country not available" for every
+    Gulf state, and XE serves senders in the EU, UK, US, CA, AU and NZ only.
+14. **Amounts are in the sending currency** — `SEND_AMOUNTS` (100, 1,000) is
+    ₹1,000 ($11) on an INR route. `sendAmountsFor(currency)` in
+    `scripts/lib/browser.ts` adds the ~$1,000 equivalent for currencies where
+    1,000 units is under $500 (AED 3,700). Keep 100 in every scraper's set:
+    `aggregate-history.ts` keeps only the 100-unit row, so OFX (500/1,000) and
+    SkyRemit (500+) are absent from history, leaders and the consistency index.
 
 ### Shared Browser Utilities (`scripts/lib/browser.ts`)
 All Playwright scrapers import from this shared library: `setupBrowserContext`, `dismissOverlays`, `fillAmountInput`, `withRetry`, `delay`, `jitteredDelay`, `writeOutput`, `parseNumber`.

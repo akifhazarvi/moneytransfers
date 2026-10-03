@@ -1999,7 +1999,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
     ],
 
     exchangeGuide:
-      "The dirham has been pegged at exactly 3.6725 to the US dollar since 1997, which removes all timing anxiety — the rate is the rate. Card payments plus fee-free ATM withdrawals cover virtually everything; if you do want cash exchanged, the UAE's exchange houses (Al Ansari, Al Fardan, Lulu Exchange — they're everywhere, serving the remittance economy) offer tight spreads that embarrass airport counters worldwide. The UAE is one of the planet's largest remittance-sending countries, and that competition is your friend: for sending money out — to India, Pakistan, the Philippines, or home — compare exchange houses against digital providers like Wise on the final amount delivered; rates on the big corridors (AED to INR especially) are among the most competitive anywhere.",
+      "The dirham has been pegged at exactly 3.6725 to the US dollar since 1997, which removes all timing anxiety — the rate is the rate. Card payments plus fee-free ATM withdrawals cover virtually everything; if you do want cash exchanged, the UAE's exchange houses (Al Ansari, Al Fardan, Lulu Exchange — they're everywhere, serving the remittance economy) offer tight spreads that embarrass airport counters worldwide. The UAE is one of the planet's largest remittance-sending countries, and that competition is your friend: for sending money out — to India, Pakistan, the Philippines, or home — compare exchange houses against apps that take UAE payments, such as Remitly and TapTap Send, on the final amount delivered; rates on the big corridors (AED to INR especially) are among the most competitive anywhere.",
 
     sports: {
       overview:
@@ -2108,7 +2108,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
       {
         question: "What's the cheapest way to send money from the UAE?",
         answer:
-          "The UAE is one of the world's top remittance-sending countries, and competition is ferocious: exchange houses (Al Ansari, Lulu, Al Fardan) and digital providers (Wise, Remitly, Instarem) fight over the AED–INR, AED–PKR, and AED–PHP corridors with some of the tightest margins on earth. Compare on the final amount delivered — digital providers usually win on rate, exchange houses on same-day cash pickup. Avoid bank wires, which layer fees on both ends.",
+          "The UAE is one of the world's top remittance-sending countries, and competition is ferocious: exchange houses (Al Ansari, Lulu, Al Fardan) and apps that take UAE payments (Remitly, TapTap Send) fight over the AED–INR, AED–PKR, and AED–PHP corridors with some of the tightest margins on earth. Compare on the final amount delivered — digital providers usually win on rate, exchange houses on same-day cash pickup. Avoid bank wires, which layer fees on both ends.",
       },
     ],
 
@@ -2194,7 +2194,7 @@ export const travelGuides: Record<string, TravelGuideContent> = {
     ],
 
     exchangeGuide:
-      "The riyal has been pegged at 3.75 to the US dollar since 1986 — divide any price by 3.75 and you have dollars; there is no timing, no spread anxiety, no 'good day' for the rate. Cards plus fee-free ATM withdrawals handle virtually everything; if you want cash exchanged, licensed exchange houses (Al Rajhi's Tahweel, Enjaz, and others built for the kingdom's enormous expat remittance market) beat airport counters comfortably. That remittance infrastructure is the story here: Saudi Arabia is consistently among the world's top three remittance-sending countries, and the SAR–INR, SAR–PKR, SAR–PHP, and SAR–EGP corridors are fiercely competitive — for sending money out, compare digital providers (Wise, Remitly) against the exchange houses on the final amount delivered; for transfers in, the peg makes USD-side comparisons straightforward.",
+      "The riyal has been pegged at 3.75 to the US dollar since 1986 — divide any price by 3.75 and you have dollars; there is no timing, no spread anxiety, no 'good day' for the rate. Cards plus fee-free ATM withdrawals handle virtually everything; if you want cash exchanged, licensed exchange houses (Al Rajhi's Tahweel, Enjaz, and others built for the kingdom's enormous expat remittance market) beat airport counters comfortably. That remittance infrastructure is the story here: Saudi Arabia is consistently among the world's top three remittance-sending countries, and the SAR–INR, SAR–PKR, SAR–PHP, and SAR–EGP corridors are fiercely competitive — for sending money out, compare the SAMA-licensed bank and wallet services (Wise and Remitly do not take payments from Saudi Arabia) on the final amount delivered; for transfers in, the peg makes USD-side comparisons straightforward.",
 
     sports: {
       overview:

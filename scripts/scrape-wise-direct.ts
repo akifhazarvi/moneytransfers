@@ -56,25 +56,10 @@ const CORRIDORS = [
   { from: "EUR", to: "MAD" }, { from: "EUR", to: "LKR" },
   { from: "CAD", to: "INR" }, { from: "CAD", to: "PHP" },
   { from: "AUD", to: "INR" }, { from: "AUD", to: "PHP" },
-  { from: "AED", to: "INR" }, { from: "AED", to: "PKR" },
-  { from: "AED", to: "PHP" }, { from: "AED", to: "BDT" },
-  { from: "AED", to: "NGN" }, { from: "AED", to: "EGP" },
-  { from: "AED", to: "NPR" }, { from: "AED", to: "LKR" },
-  { from: "AED", to: "IDR" }, { from: "AED", to: "KES" },
-  { from: "SAR", to: "INR" }, { from: "SAR", to: "PKR" },
-  { from: "SAR", to: "PHP" }, { from: "SAR", to: "BDT" },
-  { from: "SAR", to: "NGN" }, { from: "SAR", to: "EGP" },
-  { from: "SAR", to: "IDR" }, { from: "SAR", to: "NPR" },
-  { from: "OMR", to: "INR" }, { from: "OMR", to: "PKR" },
-  { from: "OMR", to: "PHP" }, { from: "OMR", to: "BDT" },
-  { from: "OMR", to: "NGN" }, { from: "OMR", to: "EGP" },
-  { from: "KWD", to: "INR" }, { from: "KWD", to: "PKR" },
-  { from: "KWD", to: "PHP" }, { from: "KWD", to: "BDT" },
-  { from: "KWD", to: "NGN" }, { from: "KWD", to: "EGP" },
-  { from: "BHD", to: "INR" }, { from: "BHD", to: "PKR" },
-  { from: "BHD", to: "PHP" }, { from: "BHD", to: "BDT" },
-  { from: "QAR", to: "INR" }, { from: "QAR", to: "PKR" },
-  { from: "QAR", to: "PHP" }, { from: "QAR", to: "BDT" },
+  // No Gulf senders (AED, SAR, KWD, QAR, OMR, BHD): Wise's quote API rejects
+  // SAR/KWD/QAR/OMR/BHD as a source (HTTP 422) and offers AED only from a Wise
+  // balance, never a UAE bank. Every row these 38 pairs produced was the
+  // mid-rate placeholder below, which showed Wise at 0% / $0 on Saudi→India.
   { from: "SGD", to: "INR" }, { from: "SGD", to: "PHP" },
   { from: "NZD", to: "INR" }, { from: "NZD", to: "PHP" },
   { from: "CHF", to: "INR" }, { from: "CHF", to: "EUR" },
@@ -283,24 +268,10 @@ async function fetchV3(from: string, to: string, amount: number): Promise<Provid
   }
 }
 
-/**
- * Fallback 2: Live rates API (mid-market rate, no fee data).
- */
-async function fetchLiveRate(from: string, to: string, amount: number): Promise<ProviderQuote | null> {
-  try {
-    const res = await fetch(`https://wise.com/rates/live?source=${from}&target=${to}`, {
-      headers: HEADERS,
-      signal: AbortSignal.timeout(15000),
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    const rate = parseFloat(String(data.value || "0"));
-    if (!rate) return null;
-    return makeQuote(from, to, amount, 0, rate, amount * rate, null, "wise-direct-live-rate");
-  } catch {
-    return null;
-  }
-}
+// No mid-rate fallback: when v4 and v3 both return nothing, Wise has no quote
+// for the pair and we record none. The old "live rate" fallback wrote the
+// mid-market rate with a $0 fee as if Wise had quoted it (see PLACEHOLDER_SOURCES
+// in src/lib/quote-integrity.ts).
 
 async function main() {
   console.log("=== Wise Direct API Scraper ===\n");
@@ -326,12 +297,6 @@ async function main() {
         if (!quote) {
           console.log(`    → Trying v3 API fallback...`);
           quote = await fetchV3(corridor.from, corridor.to, amount);
-        }
-
-        // Last resort: live rate (no fee info)
-        if (!quote) {
-          console.log(`    → Trying live rates fallback...`);
-          quote = await fetchLiveRate(corridor.from, corridor.to, amount);
         }
 
         if (quote) {

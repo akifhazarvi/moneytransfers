@@ -253,6 +253,7 @@ function aggregateCorridors(files: string[]): void {
       const receiveAmount = Math.max(0, q.sendAmount - fee) * rate;
 
       const asQuote = {
+        source: q.source,
         sendCurrency: q.sendCurrency,
         receiveCurrency: q.receiveCurrency,
         sendAmount: q.sendAmount,
