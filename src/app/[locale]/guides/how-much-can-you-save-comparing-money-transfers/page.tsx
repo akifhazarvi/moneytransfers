@@ -175,6 +175,7 @@ const datasetSchema = {
   dateModified: rs.generatedAt,
   creator: { "@type": "Organization", name: "SendMoneyCompare", url: SITE_URL },
   license: "https://creativecommons.org/licenses/by/4.0/",
+  distribution: [{ "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: `${SITE_URL}/api/data/reader-savings` }],
   variableMeasured: [
     "Chosen provider payout versus median provider, percent",
     "Top payer versus median provider, percent",
@@ -546,6 +547,16 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
             );
           })}
         </div>
+
+        <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages --
+              An /api/data CSV endpoint, not a page: next/link would navigate
+              client-side instead of letting the browser download it. */}
+          <a href="/api/data/reader-savings" className="font-semibold text-[var(--color-primary)] underline underline-offset-4">
+            Download this table as a CSV
+          </a>
+          , free to reuse under CC BY 4.0 with a link to this page.
+        </p>
 
         {lead?.window && (
           <p className="mt-5 text-[var(--color-on-surface-variant)] leading-relaxed">
