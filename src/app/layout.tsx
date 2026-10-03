@@ -73,8 +73,12 @@ export const metadata: Metadata = {
     other: {
       // Remitly via FlexOffers — requested by Ahsun 2026-05-12
       "fo-verify": "77fb4b4b-5063-4b40-be91-b0a44a65eb39",
-      // Revolut via Impact — requested by Ahsun 2026-05-12
-      "impact-site-verification": "da153f9e-905b-492c-bbbf-d06ad999817e",
+      // Impact — one tag per Impact account; an array renders one meta each.
+      // da153f9e: Revolut, requested by Ahsun 2026-05-12. 2276c799: added 2026-10-03.
+      "impact-site-verification": [
+        "da153f9e-905b-492c-bbbf-d06ad999817e",
+        "2276c799-86ca-46e3-b42c-95f3654f39c0",
+      ],
       // AdSense site verification. Google's snippet check crawls the homepage,
       // but AdSenseLoader deliberately loads adsbygoogle.js ONLY on /guides/*
       // and /news/* articles (thin-content allowlist), so the crawler finds no
