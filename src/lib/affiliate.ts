@@ -146,7 +146,9 @@ const affiliateLinks: Record<string, string> = {
   ria: "https://riamoneytransfer.com/?ref=sendmoneycompare",
   sendwave: "https://sendwave.com/?ref=sendmoneycompare",
   transfergo: "https://transfergo.com/?ref=sendmoneycompare",
-  paysend: "https://paysend.com/?ref=sendmoneycompare",
+  // Owner's personal Paysend referral link (bonus per referred sender), added
+  // 2026-10-03. Not a partner programme, so not in MONETISED_SLUGS.
+  paysend: "https://c3.paysend.com/consumer/referral?ref=e72c8226",
   moneycorp: "https://moneycorp.com/?ref=sendmoneycompare",
   "panda-remit": "https://pandaremit.com/?ref=sendmoneycompare",
   singx: "https://singx.co/?ref=sendmoneycompare",
