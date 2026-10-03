@@ -146,6 +146,28 @@ export const STANDARD_CORRIDORS = [
 
 export const SEND_AMOUNTS = [100, 1000];
 
+/**
+ * SEND_AMOUNTS plus, for a currency where 1,000 units is worth under $500, the
+ * ~$1,000 equivalent (2 significant figures): AED 3,700, not AED 1,000 ($272).
+ * The comparison prices AED corridors at AED 3,670, so without it every UAE
+ * figure is extrapolated 3.7x from the nearest real quote. 100 stays in the list:
+ * aggregate-history keeps only the 100-unit row, so dropping it would remove the
+ * provider from rate history, leaders and the consistency index.
+ */
+export function sendAmountsFor(currency: string): number[] {
+  let perUsd = 0;
+  try {
+    const xe = JSON.parse(fs.readFileSync(path.join(__dirname, "../../src/data/scraped/xe-midmarket-rates.json"), "utf8"));
+    perUsd = Number(xe?.rates?.[currency]) || 0;
+  } catch {
+    return SEND_AMOUNTS;
+  }
+  if (!perUsd || 1000 / perUsd >= 500) return SEND_AMOUNTS;
+  const target = 1000 * perUsd;
+  const magnitude = 10 ** (Math.floor(Math.log10(target)) - 1);
+  return [...SEND_AMOUNTS, Math.round(target / magnitude) * magnitude];
+}
+
 export interface ProviderQuote {
   provider: string;
   providerSlug: string;

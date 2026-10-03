@@ -14,6 +14,7 @@ import * as path from "path";
 import {
   OUTPUT_DIR,
   SEND_AMOUNTS,
+  sendAmountsFor,
   writeOutput,
   type ProviderQuote,
 } from "./lib/browser";
@@ -81,9 +82,18 @@ const CORRIDORS = [
   { from: "AED", to: "NGN", conduit: "ARE:AED-NGA:NGN" },
   { from: "AED", to: "EGP", conduit: "ARE:AED-EGY:EGP" },
   { from: "AED", to: "LKR", conduit: "ARE:AED-LKA:LKR" },
-  // SAR, OMR and KWD send corridors removed 2026-09-26: the calculator answers
-  // all 14 with HTTP 400 "unsupported corridor" — zero quotes across every run
-  // checked — while costing ~40s of requests per run.
+  // Added 2026-10-03 after probing every ARE conduit: all eight quote.
+  { from: "AED", to: "NPR", conduit: "ARE:AED-NPL:NPR" },
+  { from: "AED", to: "IDR", conduit: "ARE:AED-IDN:IDR" },
+  { from: "AED", to: "KES", conduit: "ARE:AED-KEN:KES" },
+  { from: "AED", to: "ETB", conduit: "ARE:AED-ETH:ETB" },
+  { from: "AED", to: "UGX", conduit: "ARE:AED-UGA:UGX" },
+  { from: "AED", to: "JOD", conduit: "ARE:AED-JOR:JOD" },
+  { from: "AED", to: "VND", conduit: "ARE:AED-VNM:VND" },
+  { from: "AED", to: "THB", conduit: "ARE:AED-THA:THB" },
+  // No other Gulf sender: SAR, OMR and KWD were removed 2026-09-26 (HTTP 400
+  // "unsupported corridor" on all 14), and a 2026-10-03 probe of SAU, KWT, QAT,
+  // OMN and BHR against 15 destinations each returned 400 on every one.
 ];
 
 const HEADERS = {
@@ -176,7 +186,7 @@ async function main() {
   // Corridors are listed in priority order (USD, GBP, EUR first), so if the
   // budget runs out it is the long tail that waits for the next run.
   const queue = CORRIDORS.flatMap((corridor) =>
-    SEND_AMOUNTS.map((amount) => ({ corridor, amount, attempts: 0 }))
+    sendAmountsFor(corridor.from).map((amount) => ({ corridor, amount, attempts: 0 }))
   );
   let deferred = 0;
 
