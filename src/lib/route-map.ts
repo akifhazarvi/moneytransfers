@@ -32,6 +32,7 @@
 import { allCorridors } from "@/data/corridors";
 import { getCorridorTier } from "@/lib/corridor-tiers";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
+import { CORRIDOR_PAGE_ALLOWLIST } from "@/data/corridor-page-allowlist";
 import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { EDITORIAL_COMPARE_SLUGS, getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { SITEMAP_COMPARISON_SLUGS } from "@/lib/sitemap-allowlists";
@@ -50,6 +51,8 @@ const CORRIDOR_BY_SLUG = new Map(allCorridors.map((c) => [c.slug, c]));
 export function corridorPageRenders(slug: string | undefined | null): boolean {
   if (!slug) return false;
   if (GONE_CORRIDOR_SLUGS.has(slug)) return false;
+  // A ceiling: new scraped routes add quotes, never pages.
+  if (!CORRIDOR_PAGE_ALLOWLIST.has(slug)) return false;
   const c = CORRIDOR_BY_SLUG.get(slug);
   if (!c) return false;
   if (RANKING_CORRIDOR_SLUGS.has(slug)) return true;

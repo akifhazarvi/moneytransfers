@@ -75,6 +75,7 @@ import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { corridorPageRenders, companyPageRenders } from "@/lib/route-map";
 import { rateHistoryHref } from "@/lib/route-map-rates";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
+import { CORRIDOR_PAGE_ALLOWLIST } from "@/data/corridor-page-allowlist";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 import { SITE_STATS } from "@/lib/site-stats";
 import { formatLocalDate } from "@/lib/format-date";
@@ -118,6 +119,8 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return allCorridors
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
+    // Ceiling on the page set: new scraped routes add quotes, never pages.
+    .filter((c) => CORRIDOR_PAGE_ALLOWLIST.has(c.slug))
     .filter(
       (c) =>
         getCorridorTier(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage) <= 2 ||

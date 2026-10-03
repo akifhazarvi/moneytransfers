@@ -44,6 +44,7 @@ import { join } from "node:path";
 import { allCorridors, corridors as editorialCorridors, type Corridor } from "@/data/corridors";
 import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { getCorridorTier } from "@/lib/corridor-tiers";
+import { CORRIDOR_PAGE_ALLOWLIST } from "@/data/corridor-page-allowlist";
 import { SITEMAP_CORRIDOR_SLUGS } from "@/lib/sitemap-allowlists";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 import { RETIRED_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
@@ -129,8 +130,14 @@ function isProtected(c: Corridor): boolean {
   );
 }
 
-/** Lower rank = stronger claim to represent a pair that has no protected page. */
+/**
+ * Lower rank = stronger claim to represent a pair that has no protected page.
+ * A page inside the page ceiling (src/data/corridor-page-allowlist.ts) always
+ * wins: a pair's survivor must be a page that can render, or its redirects
+ * would land on a 404.
+ */
 function priority(c: Corridor): number {
+  if (CORRIDOR_PAGE_ALLOWLIST.has(c.slug)) return -1;
   if (EDITORIAL.has(c.slug)) return 0;
   if (c.isCountryPage) return 1;
   return 2;
@@ -155,7 +162,8 @@ for (const [pair, group] of [...byPair].sort((a, b) => a[0].localeCompare(b[0]))
 
   // A pair with a demand-proven page keeps every such page and retires the rest.
   // A pair with none keeps its single strongest page.
-  const survivors = protectedPages.length ? protectedPages : [ordered[0]];
+  const survivors = (protectedPages.length ? protectedPages : [ordered[0]])
+    .sort((a, b) => priority(a) - priority(b) || a.slug.localeCompare(b.slug));
   kept[pair] = survivors.map((c) => c.slug).join(", ");
 
   const surviving = new Set(survivors.map((c) => c.slug));

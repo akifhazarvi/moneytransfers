@@ -146,6 +146,17 @@ what enforces it. Where a rule is not automated, it says how to check it.
     click twice). No install prompt may dock at the bottom of the viewport —
     that is StickyBestCTA's. *Enforced:* `check:pwa` (prebuild) + `e2e/`.
 
+13. **New corridor data never creates a page.** Owner decision 2026-10-03: a
+    route a scraper starts quoting shows up as provider rows in the comparison
+    (`/send-money` results, existing corridor pages), not as a new
+    `/send-money/<slug>` page. `src/data/corridor-page-allowlist.ts` is the
+    ceiling — the 162 pages rendering that day plus one curated route — and
+    `corridorPageRenders()`, the route's `generateStaticParams` and
+    `build-corridor-uniqueness.ts` all require it, so data can remove a page but
+    not add one. A new page is a deliberate edit to that file. *Enforced:* the
+    allowlist itself; `check:links` and `check:indexing` see only what it lets
+    render.
+
 ## Editor & TypeScript load
 
 TypeScript infers a type from every imported JSON file. `rate-insights.json`
@@ -295,7 +306,7 @@ allowlisted, not on-demand ISR.**
 
 | Route | What renders | Outside it |
 |-------|--------------|-----------|
-| `/send-money/[corridor]` | Tier 1–2 (`corridor-tiers.ts`) + `RANKING_CORRIDOR_SLUGS`, minus `GONE_CORRIDOR_SLUGS` | **404** (`dynamicParams=false`) |
+| `/send-money/[corridor]` | Tier 1–2 (`corridor-tiers.ts`) + `RANKING_CORRIDOR_SLUGS`, minus `GONE_CORRIDOR_SLUGS`, inside `CORRIDOR_PAGE_ALLOWLIST` (frozen 2026-10-03) | **404** (`dynamicParams=false`) |
 | `/compare/[slug]` | `EDITORIAL_COMPARE_SLUGS` + `SITEMAP_COMPARISON_SLUGS` | **404** (`dynamicParams=false`) |
 | `/exchange-rates/history/[pair]` | `KEEP_HISTORY_PAIRS` ∩ pairs with ≥2 days of data | **404** (`dynamicParams=false`) |
 | `/companies/[slug]` | `providers` (16 curated) | `notFound()` |

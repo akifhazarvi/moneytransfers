@@ -26,6 +26,11 @@ import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { allCorridors } from "@/data/corridors";
 import { getCorridorTier } from "@/lib/corridor-tiers";
 import duplicateCorridors from "@/data/scraped/duplicate-corridors.json";
+import { CORRIDOR_PAGE_ALLOWLIST } from "@/data/corridor-page-allowlist";
+
+// Typed explicitly: when the generator finds no duplicates, a JSON import of
+// `surplus: []` infers never[] and fails the type check.
+const SURPLUS = duplicateCorridors.surplus as { slug: string; pair: string; keptInstead: string; redirectTo?: string }[];
 
 const RETIRED_SLUGS = new Set<string>([
   // Explicitly retired by the site owner after the September 20 SEO audit.
@@ -511,7 +516,7 @@ export const RETIRED_CORRIDOR_SLUGS: ReadonlySet<string> = RETIRED_SLUGS;
  * priority order that decides which URL survives a collision.
  */
 const DUPLICATE_PAIR_SLUGS: ReadonlySet<string> = new Set(
-  duplicateCorridors.surplus.map((s) => s.slug),
+  SURPLUS.map((s) => s.slug),
 );
 
 /**
@@ -591,7 +596,7 @@ export const GONE_CORRIDOR_SLUGS: ReadonlySet<string> = new Set(
  * no equivalent twin, which is exactly why they are 410.
  */
 export const DUPLICATE_CORRIDOR_REDIRECTS: ReadonlyMap<string, string> = new Map(
-  duplicateCorridors.surplus
+  SURPLUS
     .filter(
       (s): s is typeof s & { redirectTo: string } =>
         typeof (s as { redirectTo?: string }).redirectTo === "string" &&
@@ -620,6 +625,8 @@ export const DUPLICATE_CORRIDOR_REDIRECTS: ReadonlyMap<string, string> = new Map
       }
       const target = CORRIDOR_BY_SLUG.get(s.redirectTo);
       if (!target) return false;
+      // Outside the page ceiling the target never renders.
+      if (!CORRIDOR_PAGE_ALLOWLIST.has(target.slug)) return false;
       if (RANKING_CORRIDOR_SLUGS.has(target.slug)) return true;
       return (
         getCorridorTier(
