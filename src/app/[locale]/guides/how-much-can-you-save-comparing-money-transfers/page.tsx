@@ -39,8 +39,11 @@ const author = getAuthor("ahsan-mukhtar");
 // savings.ts), never typed into the copy, so the article cannot drift from
 // the data it describes.
 const T = rs.totals;
-const X = rs.totalsExParallel;
 const nf = (n: number) => n.toLocaleString("en-US");
+// Raw counts (choices, people) stay out of the copy: a month of one site's
+// readers is a small absolute number that says nothing about what comparing
+// is worth. Findings are shares, medians and gaps per $1,000; the sample is
+// described, not counted.
 /** "A, B and C" */
 const list = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`);
 const fromLong = longDate(rs.clicksMeta.window.from);
@@ -51,6 +54,7 @@ const corridors = publishableCorridors();
 const MIN_PROVIDER_CHOICES = 5;
 const providers = publishableProviders(MIN_PROVIDER_CHOICES);
 const taptap = rs.providers.find((p) => p.slug === "taptap-send");
+const taptapShare = taptap ? taptap.decisions / T.decisions : 0;
 const taptapLeads = corridors.filter((c) => c.window?.mostFrequentLeader[0]?.slug === "taptap-send");
 const lead = corridors[0];
 
@@ -104,12 +108,12 @@ const FAQ = [
   },
   {
     q: "Is a bank or a money transfer app cheaper for sending money abroad?",
-    a: `In our data, specialist providers. Across ${nf(T.bankDecisions)} reader choices on routes where we also quote banks, the provider the reader picked paid a median ${usd(T.medianVsBankPer1000 ?? 0, 2)} more per $1,000 than the median bank quote that day. Most of a bank's cost is in the exchange rate, not the fee on the screen.`,
+    a: `In our data, specialist providers. On routes where we also quote banks, the provider our readers picked paid a median ${usd(T.medianVsBankPer1000 ?? 0, 2)} more per $1,000 than the median bank quote that day. Most of a bank's cost is in the exchange rate, not the fee on the screen.`,
   },
   {
     q: "Which money transfer provider did readers choose most often?",
     a: taptap?.priced
-      ? `${providerLabel("taptap-send")}: ${nf(taptap.decisions)} choices across ${taptap.corridors} corridors. Of the ${nf(taptap.priced.pricedDecisions)} we could price against that day's quotes, ${pct(taptap.priced.shareAboveMedian)} paid more than the median provider and ${pct(taptap.priced.shareTopPayer)} were the day's top payer. ${providerLabel("taptap-send")} is a paid partner of SendMoneyCompare; payment never changes the order of our comparison.`
+      ? `${providerLabel("taptap-send")}, with ${pct(taptapShare)} of all choices. Of those we could price against that day's quotes, ${pct(taptap.priced.shareAboveMedian)} paid more than the median provider and ${pct(taptap.priced.shareTopPayer)} were the day's top payer. ${providerLabel("taptap-send")} is a paid partner of SendMoneyCompare; payment never changes the order of our comparison.`
       : "Readers chose a wide spread of providers; see the provider table on this page.",
   },
   {
@@ -120,7 +124,7 @@ const FAQ = [
   },
   {
     q: "How did you calculate these savings?",
-    a: `Each time a reader clicked through to a provider from our comparison (recorded in Google Analytics, China and Singapore excluded as bot traffic), we priced that provider against the quotes we archived for the same corridor on the same day, at the send amount nearest $1,000 that at least ${rs.method.minProviders} providers quote. We do not know whether a reader completed a transfer or how much they sent, so totals assume $1,000 per choice and are labelled as estimates.`,
+    a: `Each time a reader clicked through to a provider from our comparison (recorded in Google Analytics, China and Singapore excluded as bot traffic), we priced that provider against the quotes we archived for the same corridor on the same day, at the send amount nearest $1,000 that at least ${rs.method.minProviders} providers quote. We do not know whether a reader completed a transfer or how much they sent, so each gap is stated per $1,000 sent, not as money saved.`,
   },
 ];
 
@@ -141,7 +145,7 @@ const datasetSchema = {
   "@context": "https://schema.org",
   "@type": "Dataset",
   name: "Money transfer provider choices on SendMoneyCompare, priced against same-day quotes",
-  description: `${nf(T.decisions)} reader choices of a money transfer provider across ${T.corridors} corridors (${rs.clicksMeta.window.from} to ${rs.clicksMeta.window.to}), ${nf(T.pricedDecisions)} of them priced against the comparison archived that day: the chosen provider's payout against the median provider, the top payer and the median bank quote.`,
+  description: `Every money transfer provider SendMoneyCompare readers chose from our comparison, across ${T.corridors} corridors (${rs.clicksMeta.window.from} to ${rs.clicksMeta.window.to}), priced against the comparison archived that day: the chosen provider's payout against the median provider, the top payer and the median bank quote.`,
   url: URL,
   temporalCoverage: `${rs.clicksMeta.window.from}/${rs.clicksMeta.window.to}`,
   dateModified: rs.generatedAt,
@@ -225,7 +229,6 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
   const calcCorridors: CalcCorridor[] = corridors.map((c) => ({ corridor: c.corridor, label: corridorLabel(c.corridor) }));
 
   const maxShare = Math.max(...providers.map((p) => p.priced!.shareAboveMedian));
-  const excludedTotal = Object.values(T.excluded).reduce((s, n) => s + n, 0);
 
   return (
     <>
@@ -254,7 +257,7 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
         <div className="mt-6 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-primary-surface)] p-5">
           <p className="text-[var(--color-on-surface)] leading-relaxed">
             <strong>Short answer:</strong> comparing is worth tens of dollars on every $1,000 you send, and most of it is
-            the gap to your bank. Across {nf(T.pricedDecisions)}{" "}provider choices our readers made in {period}, priced against the
+            the gap to your bank. Across the provider choices our readers made in {period}, priced against the
             quotes we archived that same day, the provider they picked paid a median{" "}
             <strong>{usd(T.medianVsBankPer1000 ?? 0, 2)} more per $1,000</strong> than the median bank quote, and{" "}
             <strong>{usd(T.medianGainVsMedianPer1000, 2)} more</strong> than the median provider on the route.
@@ -266,8 +269,8 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
           </p>
           {taptap && (
             <p className="mt-3 text-[var(--color-on-surface)] leading-relaxed">
-              The provider readers chose most was <strong>{providerLabel("taptap-send")}</strong>: {nf(taptap.decisions)} of{" "}
-              {nf(T.decisions)} choices.
+              The provider readers chose most was <strong>{providerLabel("taptap-send")}</strong>, with{" "}
+              {pct(taptapShare)}{" "}of all choices.
               {taptapLeads.length > 0 && (
                 <>
                   {" "}It was also the most frequent top payer on{" "}
@@ -279,7 +282,7 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
         </div>
 
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <Stat value={nf(T.decisions)} label={`provider choices in ${period}, on ${T.corridors} corridors`} />
+          <Stat value={pct(T.shareTop3)} label="landed in the day&rsquo;s top three providers" />
           <Stat value={pct(T.shareAboveMedian)} label="chose a provider paying above the median" />
           <Stat value={usd(T.medianVsBankPer1000 ?? 0, 0)} label="more per $1,000 than a bank (median)" />
           <Stat value={String(days)} label="days of archived quotes behind the figures" />
@@ -314,16 +317,15 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
           Which providers readers chose, corridor by corridor
         </h2>
         <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-          Every corridor where we could price at least {rs.method.minCorridorDecisions}{" "}reader choices. &ldquo;Comparing
+          The routes our readers compared most, where we could price enough choices to report. &ldquo;Comparing
           is worth&rdquo; is the median gap, over {days}{" "}days, between the top payer and the median provider at 1,000
           units of the sending currency; &ldquo;versus a bank&rdquo; is the top payer against the median bank quote on
           the same day.
         </p>
 
         <div className="mt-5 rounded-2xl border border-[var(--color-outline)] overflow-hidden">
-          <div className="hidden md:grid grid-cols-[minmax(0,1.3fr)_64px_minmax(0,1.5fr)_minmax(0,1.1fr)_minmax(0,1.1fr)] gap-3 px-4 py-2.5 bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+          <div className="hidden md:grid grid-cols-[minmax(0,1.3fr)_minmax(0,1.5fr)_minmax(0,1.1fr)_minmax(0,1.1fr)] gap-3 px-4 py-2.5 bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
             <span>Corridor</span>
-            <span className="text-right">Choices</span>
             <span>Most chosen</span>
             <span>Comparing is worth</span>
             <span>Versus a bank</span>
@@ -333,14 +335,12 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
             return (
               <div
                 key={c.corridor}
-                className="grid grid-cols-2 md:grid-cols-[minmax(0,1.3fr)_64px_minmax(0,1.5fr)_minmax(0,1.1fr)_minmax(0,1.1fr)] gap-x-3 gap-y-2 px-4 py-3 border-t border-[var(--color-outline)] first:border-t-0 md:first:border-t text-sm items-center"
+                className="grid grid-cols-2 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1.5fr)_minmax(0,1.1fr)_minmax(0,1.1fr)] gap-x-3 gap-y-2 px-4 py-3 border-t border-[var(--color-outline)] first:border-t-0 md:first:border-t text-sm items-center"
               >
                 <span className="col-span-2 md:col-span-1"><CorridorName corridor={c.corridor} /></span>
-                <span className="text-[var(--color-on-surface-variant)] md:text-right tabular-nums">
-                  <span className="md:hidden">Choices: </span>{nf(c.decisions)}
-                </span>
-                <span className="text-[var(--color-on-surface-variant)] truncate">
-                  {c.chosen.slice(0, 2).map((p) => `${providerLabel(p.slug)} (${p.users})`).join(", ")}
+                <span className="col-span-2 md:col-span-1 text-[var(--color-on-surface-variant)] truncate">
+                  <span className="md:hidden">Most chosen: </span>
+                  {c.chosen.slice(0, 2).map((p) => providerLabel(p.slug)).join(", ")}
                 </span>
                 <span className="col-span-2 md:col-span-1">
                   <span className="block text-[var(--color-on-surface)] tabular-nums">
@@ -368,7 +368,7 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
         {lead?.window && (
           <p className="mt-5 text-[var(--color-on-surface-variant)] leading-relaxed">
             <strong className="text-[var(--color-on-surface)]">{corridorLabel(lead.corridor)}</strong> was the route our
-            readers compared most: {nf(lead.decisions)} choices, led by{" "}
+            readers compared most, and the providers they chose most there were{" "}
             {list(lead.chosen.slice(0, 3).map((p) => providerLabel(p.slug)))}. The top payer was not fixed. Over{" "}
             {lead.window.days} days it was{" "}
             {list(lead.window.mostFrequentLeader.map((l) => `${providerLabel(l.slug)} on ${l.days}`))} days.
@@ -404,16 +404,15 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
           How readers&rsquo; picks priced, provider by provider
         </h2>
         <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-          Providers with at least {MIN_PROVIDER_CHOICES}{" "}choices we could price. &ldquo;Above the median&rdquo; is the share of choices
+          Providers our readers chose often enough to report. &ldquo;Above the median&rdquo; is the share of choices
           where that provider paid more than the median provider on the same corridor and day.
         </p>
 
         <div className="mt-5 overflow-x-auto">
-          <table className="w-full text-sm min-w-[560px]">
+          <table className="w-full text-sm min-w-[480px]">
             <thead>
               <tr className="text-left text-[var(--color-on-surface-variant)]">
                 <th className="pb-2 pr-3 font-medium">Provider</th>
-                <th className="pb-2 px-3 font-medium text-right">Choices</th>
                 <th className="pb-2 px-3 font-medium">Above the median</th>
                 <th className="pb-2 px-3 font-medium text-right">Top payer</th>
                 <th className="pb-2 pl-3 font-medium text-right">Median gain per $1,000</th>
@@ -423,7 +422,6 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
               {providers.map((p) => (
                 <tr key={p.slug} className="border-t border-[var(--color-outline)]">
                   <td className="py-2.5 pr-3 text-[var(--color-on-surface)]"><ProviderName slug={p.slug} /></td>
-                  <td className="py-2.5 px-3 text-right tabular-nums text-[var(--color-on-surface-variant)]">{nf(p.decisions)}</td>
                   <td className="py-2.5 px-3">
                     <div className="flex items-center gap-2">
                       <span className="w-10 tabular-nums text-[var(--color-on-surface)]">{pct(p.priced!.shareAboveMedian)}</span>
@@ -441,8 +439,8 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
         {taptap?.priced && (
           <p className="mt-5 text-[var(--color-on-surface-variant)] leading-relaxed">
             <strong className="text-[var(--color-on-surface)]">{providerLabel("taptap-send")}</strong> was the provider
-            readers picked most often: {nf(taptap.decisions)} choices across {taptap.corridors} corridors. Of the{" "}
-            {nf(taptap.priced.pricedDecisions)}{" "}we could price, {pct(taptap.priced.shareAboveMedian)}{" "}paid more than the
+            readers picked most often, with {pct(taptapShare)}{" "}of all choices. Of those we could price,{" "}
+            {pct(taptap.priced.shareAboveMedian)}{" "}paid more than the
             median provider that day and {pct(taptap.priced.shareTopPayer)}{" "}were the day&rsquo;s top payer.
             {taptapLeads.length > 0 && (
               <>
@@ -459,30 +457,6 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
           an app they already use and trust.
         </p>
 
-        <h2 className="mt-12 text-2xl font-normal text-[var(--color-on-surface)]">
-          What those choices were worth in total
-        </h2>
-        <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-          We do not see what anyone sent after they left our site, so this is an estimate on one stated assumption: that
-          each choice was a $1,000 transfer.
-        </p>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl border border-[var(--color-outline)] p-5">
-            <div className="text-3xl font-semibold tracking-tight text-[var(--color-success)] tabular-nums">{usd(T.totalVsBankPer1000 ?? 0)}</div>
-            <p className="mt-1 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-              more reaching recipients than through the median bank quote, across the {nf(T.bankDecisions)} choices on
-              routes where we price banks.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-[var(--color-outline)] p-5">
-            <div className="text-3xl font-semibold tracking-tight text-[var(--color-success)] tabular-nums">{usd(X.totalVsMedianPer1000)}</div>
-            <p className="mt-1 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-              more than the median provider on the same route, across {nf(X.pricedDecisions)} choices. Including the
-              parallel-rate corridors (Ethiopia, Nigeria, Egypt, Ghana), where payouts spread far wider, it is{" "}
-              {usd(T.totalVsMedianPer1000)} across {nf(T.pricedDecisions)}.
-            </p>
-          </div>
-        </div>
         <p className="mt-4 text-[var(--color-on-surface-variant)] leading-relaxed">
           Spread over a year, the per-transfer gap compounds: someone sending $1,000 home every month through a bank
           rather than the top payer gives up roughly {usd(((bankMin + bankMax) / 2) * 10 * 12)} a year at the midpoint of
@@ -535,9 +509,8 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
           <p>
             <strong className="text-[var(--color-on-surface)]">The choices.</strong> When a reader clicks through to a
             provider from any comparison on this site, Google Analytics records the provider and the corridor. We counted
-            distinct people per day, corridor and provider from {fromLong} to {toLong}: {nf(T.decisions)} choices on{" "}
-            {T.corridors} corridors, plus {nf(T.decisionsWithoutCorridor)} from provider review pages that carry no
-            corridor. Visits from {rs.clicksMeta.excludedCountries.join(" and ")} are excluded after the bot waves we
+            distinct people per day, corridor and provider from {fromLong} to {toLong}, on {T.corridors}{" "}corridors.
+            Choices made from provider review pages carry no corridor and are left out. Visits from {rs.clicksMeta.excludedCountries.join(" and ")} are excluded after the bot waves we
             recorded in September 2026.
           </p>
           <p>
@@ -548,29 +521,32 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
             for the top spot, as they do in our tables.
           </p>
           <p>
-            <strong className="text-[var(--color-on-surface)]">What we could not price, and why.</strong>{" "}
-            {nf(excludedTotal)} choices are left out of the savings figures:
+            <strong className="text-[var(--color-on-surface)]">What we could not price, and why.</strong> These choices
+            are left out of the figures:
           </p>
           <ul className="space-y-2 list-disc pl-5">
             <li>
-              {nf(T.excluded.placeholder)} were {providerLabel("wise")} on routes from the Gulf. Until 3 October 2026 our
+              {providerLabel("wise")} on routes from the Gulf. Until 3 October 2026 our
               tables showed a placeholder Wise row there when Wise returned no quote; Wise does not accept Saudi riyals
               as a sending currency. We removed those rows, and these choices cannot count as savings.
             </li>
             <li>
-              {nf(T.excluded["promo-rate"])} were providers whose stored rate turned out to include a first-transfer
+              Providers whose stored rate turned out to include a first-transfer
               promotion, which a repeat sender would not get. Those providers are now hidden from our comparison.
             </li>
             <li>
-              {nf(T.excluded.thin)} were on a corridor where fewer than {rs.method.minProviders} providers quoted near
-              $1,000 that day, and {nf(T.excluded["not-quoted"])} were providers with no quote at that amount, such as
-              brokers who quote by phone.
+              Choices on a corridor where fewer than {rs.method.minProviders}{" "}providers quoted near $1,000 that day,
+              and providers with no quote at that amount, such as brokers who quote by phone.
             </li>
           </ul>
           <p>
             <strong className="text-[var(--color-on-surface)]">Limits.</strong> A click is not a transfer: we do not know
-            who went on to send, or how much. Analytics undercounts people who block tracking or decline cookies. The
-            $1,000 totals are an assumption stated where they appear, not a measurement.
+            who went on to send, or how much. Analytics undercounts people who block tracking or decline cookies. A
+            figure per $1,000 restates a percentage gap on a $1,000 basis; it is not a recorded transfer, and not an FX
+            conversion of the extra the recipient gets. The reference quote can be anywhere from US$
+            {rs.method.referenceRangeUsd[0]}{" "}to US${nf(rs.method.referenceRangeUsd[1])}{" "}equivalent, where a flat
+            fee weighs differently than at exactly $1,000. Our readers chose to compare, so the sample describes people
+            who compare, not everyone who sends money abroad.
           </p>
         </div>
 
@@ -596,7 +572,7 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
 
       <DataProvenance
         dataAsOf={rs.generatedAt}
-        computedFrom={`${nf(T.decisions)} provider choices from Google Analytics, each priced against the quote snapshot archived for its corridor and day (${days} daily snapshots), at the send amount nearest $1,000 that ${rs.method.minProviders}+ providers quote.`}
+        computedFrom={`Every provider choice readers made from our comparison in ${period} (Google Analytics), each priced against the quote snapshot archived for its corridor and day (${days} daily snapshots), at the send amount nearest $1,000 that ${rs.method.minProviders}+ providers quote.`}
         sources={[
           { label: "SendMoneyCompare quote archive: every provider’s quotes, recorded every six hours", href: "/methodology" },
           { label: "Provider Consistency Index: who leads each corridor, and how often", href: "/provider-consistency" },
