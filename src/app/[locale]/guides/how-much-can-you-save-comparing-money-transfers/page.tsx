@@ -375,37 +375,36 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
         <section aria-label="The short answer" className="mt-8 rounded-3xl bg-[#123f2e] p-6 text-white sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#bfe3cf]">The short answer</p>
           <p className="mt-3 max-w-2xl text-lg leading-relaxed sm:text-xl">
-            Comparing is worth tens of dollars on every $1,000 you send, and most of it is the gap to your bank.
+            Your starting provider makes the difference. In our sample, the gap to banks was larger than the gap to the median provider.
           </p>
           <dl className="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-8">
             <div className="border-t border-white/20 pt-5">
-              <dt className="text-sm font-semibold text-[#bfe3cf]">If you send through a bank</dt>
+              <dt className="text-sm font-semibold text-[#bfe3cf]">Against the median bank quote</dt>
               <dd className="mt-2">
                 <span className="block text-5xl font-semibold tracking-tight tabular-nums sm:text-6xl">
                   {usd(T.medianVsBankPer1000 ?? 0, 2)}
                 </span>
                 <span className="mt-2 block text-sm leading-relaxed text-white/85">
-                  more per $1,000 reached the recipient through the provider our readers chose than through the median
-                  bank quote: same route, same day, after fees.
+                  median payout advantage per normalized $1,000 for the provider our readers chose: same route, same day, after fees.
                 </span>
               </dd>
             </div>
             <div className="border-t border-white/20 pt-5">
-              <dt className="text-sm font-semibold text-[#bfe3cf]">If you already use an app</dt>
+              <dt className="text-sm font-semibold text-[#bfe3cf]">Against the median provider quote</dt>
               <dd className="mt-2">
                 <span className="block text-5xl font-semibold tracking-tight tabular-nums sm:text-6xl">
                   {usd(T.medianOpportunityPer1000, 2)}
                 </span>
                 <span className="mt-2 block text-sm leading-relaxed text-white/85">
-                  more per $1,000 from the day&rsquo;s top payer than from the median provider on the same route.
+                  median payout advantage per normalized $1,000 from the day&rsquo;s top payer. The median includes all quoted providers, including banks.
                 </span>
               </dd>
             </div>
           </dl>
           <div className="mt-7 flex flex-col gap-4 rounded-2xl bg-white/10 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
             <p className="text-sm leading-relaxed text-white/90">
-              Sending $1,000 home every month through a bank? At that gap, about{" "}
-              <strong className="text-white">{usd(bankYear)}{" "}a year</strong> more would reach your family.
+              On a normalized $1,000 monthly transfer, repeating that bank gap would be about{" "}
+              <strong className="text-white">{usd(bankYear)}{" "}a year</strong>. That is a scenario, not a forecast.
             </p>
             <a
               href="#price-your-transfer"
@@ -501,7 +500,7 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
         </h2>
         <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
           The routes our readers compared most, where we could price enough choices to report. &ldquo;Comparing
-          is worth&rdquo; is the median gap, over {days}{" "}days, between the top payer and the median provider at 1,000
+          is worth&rdquo; is the median daily payout gap, restated per 1,000
           units of the sending currency; &ldquo;versus a bank&rdquo; is the top payer against the median bank quote on
           the same day.
         </p>
@@ -633,7 +632,7 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
           <li>
             <strong className="text-[var(--color-on-surface)]">The bank is where most of the money goes.</strong> On every
             corridor in the table that quotes a bank, the top payer beat the median bank by {bankMin.toFixed(1)}% to{" "}
-            {bankMax.toFixed(1)}%. The gap between specialist providers is real but smaller: a median{" "}
+            {bankMax.toFixed(1)}%. The gap across all quoted providers was smaller: a median{" "}
             {usd(T.medianOpportunityPer1000, 2)} per $1,000 between the top payer and the median one.
           </li>
           <li>
@@ -712,7 +711,7 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
             </li>
           </ul>
           <p>
-            <strong className="text-[var(--color-on-surface)]">Limits.</strong> A click is not a transfer: we do not know
+            <strong className="text-[var(--color-on-surface)]">Limits.</strong> Dollar figures multiply a relative payout difference by 1,000; they are not a currency conversion of the extra recipient amount. Reference quotes are the available amount nearest US$1,000, not necessarily exactly US$1,000. Overall medians are weighted by reader choices; route findings use daily medians. Our readers are a self-selected sample, not a representative sample of all senders. {" "} A click is not a transfer: we do not know
             who went on to send, or how much. Analytics undercounts people who block tracking or decline cookies. A
             figure per $1,000 restates a percentage gap on a $1,000 basis; it is not a recorded transfer, and not an FX
             conversion of the extra the recipient gets. The reference quote can be anywhere from US$
