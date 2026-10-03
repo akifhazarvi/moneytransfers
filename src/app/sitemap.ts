@@ -19,6 +19,7 @@ import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
 import { BING_DEMAND_ROUTES } from "@/data/search-engine-routes";
 import { corridorPageRenders } from "@/lib/route-map";
+import readerSavings from "@/data/research/reader-savings.json";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 import {
   SITEMAP_IBAN_SLUGS,
@@ -181,6 +182,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("guides/bank-vs-app-transfer-cost-2026", DATA_UPDATED),
     entry("guides/best-day-to-send-money-abroad", DATA_UPDATED),
     entry("guides/fx-cost-vs-purchasing-power", DATA_UPDATED),
+    // Reader-choice study: GA4 provider choices priced against the quote
+    // archive (scripts/build-reader-savings.ts). Inputs are frozen, so its
+    // lastModified is the dataset date, not every scrape.
+    entry("guides/how-much-can-you-save-comparing-money-transfers", readerSavings.generatedAt),
     // Dedicated guide: best apps to send money from the US — standalone page
     // with 4 schema types, OG image, and full FAQ (added 2026-06-30).
     entry("guides/best-apps-to-send-money-from-us-2026", "2026-06-30"),

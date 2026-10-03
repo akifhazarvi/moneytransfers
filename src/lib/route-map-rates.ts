@@ -65,6 +65,7 @@ const STANDALONE_GUIDES = new Set([
   "best-day-to-send-money-abroad",
   "fx-cost-vs-purchasing-power",
   "gbp-forecast-2026",
+  "how-much-can-you-save-comparing-money-transfers",
 ]);
 
 /* ── generic gate ───────────────────────────────────────────────────────── */
