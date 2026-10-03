@@ -23,7 +23,6 @@ import {
   usd,
   longDate,
   periodLabel,
-  CHANNEL_LABELS,
   type CorridorRow,
 } from "@/lib/reader-savings";
 
@@ -211,9 +210,6 @@ function CorridorName({ corridor }: { corridor: string }) {
   );
 }
 
-const SEARCH_RELEVANT = /send|transfer|remit|exchange|rate|money/i;
-const SEARCH_OFF_TOPIC = /\b(?:b2b|business|bulk|bic|swift|iban|bank code|central bank|boj|invoice|payroll|statistics)\b/i;
-
 export default async function HowMuchCanYouSavePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -228,11 +224,6 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
     .map(({ providerSlug, receiveAmount, fee, exchangeRate, transferSpeed }) => ({ providerSlug, receiveAmount, fee, exchangeRate, transferSpeed }));
   const calcCorridors: CalcCorridor[] = corridors.map((c) => ({ corridor: c.corridor, label: corridorLabel(c.corridor) }));
 
-  const months = rs.monthlyUsers.filter(([m]) => m <= rs.clicksMeta.window.to.slice(0, 7));
-  const maxMonth = Math.max(...months.map(([, n]) => n));
-  const channels = Object.entries(rs.channelUsers);
-  const maxChannel = Math.max(...channels.map(([, n]) => n));
-  const searches = rs.searchQueries.filter(([q]) => SEARCH_RELEVANT.test(q) && !SEARCH_OFF_TOPIC.test(q)).slice(0, 16);
   const maxShare = Math.max(...providers.map((p) => p.priced!.shareAboveMedian));
   const excludedTotal = Object.values(T.excluded).reduce((s, n) => s + n, 0);
 
@@ -497,72 +488,6 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
           rather than the top payer gives up roughly {usd(((bankMin + bankMax) / 2) * 10 * 12)} a year at the midpoint of
           the bank gaps in the corridor table.
         </p>
-
-        <h2 className="mt-12 text-2xl font-normal text-[var(--color-on-surface)]">
-          How readers found the comparison, and what they searched
-        </h2>
-        <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
-          People who clicked through to a provider each month, and where their visit started. A person can appear under
-          more than one source over the period.
-        </p>
-
-        <div className="mt-5 grid gap-6 md:grid-cols-2">
-          <figure className="rounded-2xl border border-[var(--color-outline)] p-4">
-            <figcaption className="text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-              People who clicked through to a provider, by month
-            </figcaption>
-            <div className="mt-4 flex items-end gap-2 h-40" role="img" aria-label={months.map(([m, n]) => `${m}: ${n}`).join(", ")}>
-              {months.map(([m, n]) => (
-                <div key={m} className="flex-1 flex flex-col items-center justify-end h-full" title={`${m}: ${n} people`}>
-                  <span className="text-2xs tabular-nums text-[var(--color-on-surface-variant)]">{n}</span>
-                  <div className="w-full max-w-8 rounded-t bg-[var(--color-primary)]" style={{ height: `${Math.max(2, (n / maxMonth) * 100)}%` }} />
-                  <span className="mt-1 text-2xs text-[var(--color-on-surface-variant)]">
-                    {new Date(`${m}-01T00:00:00Z`).toLocaleDateString("en-GB", { month: "short", timeZone: "UTC" })}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </figure>
-          <figure className="rounded-2xl border border-[var(--color-outline)] p-4">
-            <figcaption className="text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-              Where their visit started
-            </figcaption>
-            <ul className="mt-4 space-y-2">
-              {channels.map(([k, n]) => (
-                <li key={k} className="grid grid-cols-[minmax(0,1fr)_40px] gap-2 items-center text-sm">
-                  <span>
-                    <span className="block text-[var(--color-on-surface)] truncate">{CHANNEL_LABELS[k] ?? k}</span>
-                    <Bar value={n} max={maxChannel} label={`${CHANNEL_LABELS[k] ?? k}: ${n}`} />
-                  </span>
-                  <span className="text-right tabular-nums text-[var(--color-on-surface-variant)]">{n}</span>
-                </li>
-              ))}
-            </ul>
-          </figure>
-        </div>
-
-        <p className="mt-5 text-[var(--color-on-surface-variant)] leading-relaxed">
-          The people who chose a provider were in {rs.countryCount}{" "}countries, led by{" "}
-          {list(rs.countryUsers.slice(0, 6).map(([c]) => c))}. Bing sent {nf(rs.channelUsers.bing ?? 0)}{" "}of them and AI
-          assistants such as ChatGPT and Copilot sent {nf(rs.channelUsers.aiAssistants ?? 0)}, against{" "}
-          {nf(rs.channelUsers.google ?? 0)}{" "}from Google: when someone asks an assistant how to send money home, a measured
-          comparison is increasingly where the answer starts.
-        </p>
-
-        {searches.length > 0 && (
-          <>
-            <p className="mt-5 text-sm font-semibold text-[var(--color-on-surface)]">Searches that showed our pages</p>
-            <ul className="mt-2 flex flex-wrap gap-2" aria-label="Search queries from Google Search Console">
-              {searches.map(([q]) => (
-                <li key={q} className="rounded-full border border-[var(--color-outline)] px-3 py-1 text-xs text-[var(--color-on-surface-variant)]">{q}</li>
-              ))}
-            </ul>
-            <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
-              From Google Search Console, {longDate(rs.clicksMeta.gscWindow[0])} to {longDate(rs.clicksMeta.gscWindow[1])}.
-              Each is a question this page now answers with data.
-            </p>
-          </>
-        )}
 
         <h2 className="mt-12 text-2xl font-normal text-[var(--color-on-surface)]">
           Five lessons from {days} days of real choices
