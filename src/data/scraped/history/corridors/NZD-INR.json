@@ -11916,28 +11916,28 @@
         "receiveAmount": 5151.42
       },
       "western-union": {
-        "rate": 53.1705,
+        "rate": 53.2084,
         "fee": 1.2,
-        "markup": 1.54,
-        "receiveAmount": 5253.24
+        "markup": 1.48,
+        "receiveAmount": 5256.99
       },
       "remitly": {
-        "rate": 53.41,
+        "rate": 53.39,
         "fee": 2.99,
-        "markup": 1.09,
-        "receiveAmount": 5181.3
+        "markup": 1.15,
+        "receiveAmount": 5179.36
       },
       "revolut": {
-        "rate": 53.7827,
-        "fee": 0.8,
-        "markup": 0.4,
-        "receiveAmount": 5335.24
+        "rate": 53.7361,
+        "fee": 1.8,
+        "markup": 0.5,
+        "receiveAmount": 5276.89
       },
       "ria": {
-        "rate": 53.3467,
+        "rate": 53.4515,
         "fee": 1.99,
-        "markup": 1.23,
-        "receiveAmount": 5228.51
+        "markup": 1.03,
+        "receiveAmount": 5238.78
       },
       "westpac-nz": {
         "rate": 52.5446,
@@ -11956,6 +11956,12 @@
         "fee": 1.73,
         "markup": 0.05,
         "receiveAmount": 5304.97
+      },
+      "moneygram": {
+        "rate": 52.0263,
+        "fee": 4.99,
+        "markup": 3.67,
+        "receiveAmount": 4943.02
       }
     }
   }
