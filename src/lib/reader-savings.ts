@@ -148,6 +148,14 @@ export function longDate(iso: string): string {
   return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 }
 
+/** "September 2026" when the data window is one calendar month, else "7 June 2026 – 2 October 2026". */
+export function periodLabel(w = readerSavings.clicksMeta.window): string {
+  if (w.from.slice(0, 7) === w.to.slice(0, 7)) {
+    return new Date(`${w.from}T00:00:00Z`).toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
+  }
+  return `${longDate(w.from)} – ${longDate(w.to)}`;
+}
+
 /** Channel keys from the build → reader-facing names. */
 export const CHANNEL_LABELS: Record<string, string> = {
   bing: "Bing",

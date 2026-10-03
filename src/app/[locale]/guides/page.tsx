@@ -10,7 +10,7 @@ import { guideIsIndexable } from "@/lib/guide-status";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
 import { pppIndex } from "@/lib/ppp-index";
 import { weekendMarkup } from "@/lib/weekend-markup";
-import { readerSavings } from "@/lib/reader-savings";
+import { readerSavings, periodLabel } from "@/lib/reader-savings";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -56,7 +56,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
   const bankVsApp = computeBankVsAppIndex();
 
   const researchCards = [
-    { slug: "how-much-can-you-save-comparing-money-transfers", title: "How Much Can You Save Comparing Money Transfers?", excerpt: `We priced ${readerSavings.totals.pricedDecisions} real provider choices against that day's quotes, corridor by corridor. See what comparing was worth, and price your own transfer.`, category: "Research", readTime: "", publishedAt: "2026-10-03", updatedAt: readerSavings.generatedAt },
+    { slug: "how-much-can-you-save-comparing-money-transfers", title: `Compare Money Transfer Rates: How Much You Save (${periodLabel()})`, excerpt: `We priced ${readerSavings.totals.pricedDecisions} real provider choices from ${periodLabel()} against that day's quotes, corridor by corridor. See what comparing was worth, and price your own transfer.`, category: "Research", readTime: "", publishedAt: "2026-10-03", updatedAt: readerSavings.generatedAt },
     { slug: "best-apps-to-send-money-from-us-2026", title: "Best Apps to Send Money Internationally from the US (2026)", excerpt: "Independent rankings of money transfer apps by real transfer cost, with provider comparisons for different routes and use cases.", category: "Guides", readTime: "", publishedAt: "2026-06-30", updatedAt: "2026-06-30" },
     { slug: "bank-vs-app-transfer-cost-2026", title: "Banks vs Apps: International Transfer Costs Compared", excerpt: "Compare what banks and specialist apps charge across our tracked corridors. Explore the data, methodology, and full cost breakdown.", category: "Research", readTime: "", publishedAt: "2026-06-21", updatedAt: bankVsApp.dataAsOf.slice(0, 10) },
     { slug: "best-day-to-send-money-abroad", title: "Is It Cheaper to Send Money on a Weekday?", excerpt: "We analysed millions of quotes to see how exchange rate markups change through the week, and which providers charge more at weekends.", category: "Research", readTime: "", publishedAt: "2026-08-14", updatedAt: weekendMarkup.generatedAt.slice(0, 10) },
@@ -156,7 +156,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
             <div className="guide-research-desk">
               <div className="guide-research-heading"><span className="guide-eyebrow">From the research desk</span><span className="guide-live-dot" aria-hidden="true" /></div>
               <Link href="/guides/how-much-can-you-save-comparing-money-transfers">
-                <span className="guide-research-number">01</span><div><h3>How much does comparing actually save?</h3><p>{readerSavings.totals.pricedDecisions} reader choices priced</p></div><ArrowUpRight size={18} aria-hidden="true" />
+                <span className="guide-research-number">01</span><div><h3>How much does comparing actually save?</h3><p>{periodLabel()}: {readerSavings.totals.pricedDecisions} reader choices priced</p></div><ArrowUpRight size={18} aria-hidden="true" />
               </Link>
               <Link href="/guides/bank-vs-app-transfer-cost-2026">
                 <span className="guide-research-number">02</span><div><h3>Banks vs apps: what does a transfer really cost?</h3><p>Live data across {bankVsApp.corridorCount} corridors</p></div><ArrowUpRight size={18} aria-hidden="true" />

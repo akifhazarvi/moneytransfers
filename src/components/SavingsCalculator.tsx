@@ -19,7 +19,7 @@ import providerNamesData from "@/data/provider-names.json";
  * rows as `initialQuotes`, so the tool has real numbers at first paint and a
  * crawler sees them too; later corridors and amounts are fetched.
  *
- * TapTap Send is a paid partner and gets its own labelled card under the
+ * TapTap Send is a paid partner and gets its own labelled card above the
  * ranked rows. It never moves within them: the order is the table's order.
  * Where we hold no TapTap quote for the route the card carries no numbers.
  *
@@ -160,6 +160,52 @@ export default function SavingsCalculator({
   const selectClass =
     "w-full h-11 px-3 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] text-sm font-medium text-[var(--color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]";
 
+  // Paid partner: its own labelled card above the ranked rows (the order
+  // /send-money uses), never a re-ordered row within them.
+  const partnerCard = (
+      <aside className="mt-4 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] p-4" aria-label="Sponsored: TapTap Send">
+        <ConversionImpression source={`taptap_spotlight:${source}`} corridor={corridor} />
+        <div className="flex items-start gap-3">
+          <Image src="/logos/taptap-send.png" alt="" width={40} height={40} className="rounded-xl bg-white shrink-0" />
+          <div className="min-w-0 flex-1">
+            <p className="flex flex-wrap items-center gap-2 text-sm font-semibold text-[var(--color-on-surface)]">
+              TapTap Send <span className="conversion-sponsored">Sponsored</span>
+            </p>
+            {partner ? (
+              <p className="mt-1 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                Recipient gets <strong className="text-[var(--color-on-surface)] tabular-nums">{fmtReceive(partner.receiveAmount, to)}</strong> for{" "}
+                {fmtSend(amount, from)}
+                {partnerIsTop
+                  ? ", the top of our comparison on this route today."
+                  : partnerGain > 0.5 && result
+                    ? `, ${fmtReceive(partnerGain * perYear, to)} a year more than ${result.currentLabel}.`
+                    : "."}
+              </p>
+            ) : (
+              <p className="mt-1 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                Sending to family abroad? Check TapTap Send&rsquo;s rate and delivery options for this route.
+              </p>
+            )}
+          </div>
+        </div>
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
+          <ProviderLink
+            href={getGoUrl(PARTNER, { ...goParams, clickref: `taptap_spotlight:${source}` })}
+            provider={PARTNER}
+            source={`taptap_spotlight:${source}`}
+            corridor={corridor}
+            className="conversion-button conversion-button--accent"
+          >
+            {partner ? `Send ${fmtSend(amount, from)} with TapTap` : "Check TapTap Send rates"} <ArrowRight size={16} aria-hidden="true" />
+          </ProviderLink>
+          <Link href="/companies/taptap-send" className="conversion-text-link">Read our TapTap Send review</Link>
+        </div>
+        <p className="mt-2 text-2xs text-[var(--color-on-surface-variant)]">
+          Sponsored: TapTap Send pays us when you sign up. Payment never moves a provider up our comparison.
+        </p>
+      </aside>
+  );
+
   return (
     <div className="not-prose my-6 rounded-3xl bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] shadow-[var(--shadow-md)] overflow-hidden">
       <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
@@ -276,6 +322,8 @@ export default function SavingsCalculator({
                 </>
               )}
 
+              {partnerCard}
+
               <p className="mt-5 mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)]">
                 Top of our comparison for {fmtSend(amount, from)}
               </p>
@@ -316,48 +364,7 @@ export default function SavingsCalculator({
             </div>
           )}
 
-          {/* Paid partner — its own labelled card, never a re-ordered row. */}
-          <aside className="mt-4 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] p-4" aria-label="Sponsored: TapTap Send">
-            <ConversionImpression source={`taptap_spotlight:${source}`} corridor={corridor} />
-            <div className="flex items-start gap-3">
-              <Image src="/logos/taptap-send.png" alt="" width={40} height={40} className="rounded-xl bg-white shrink-0" />
-              <div className="min-w-0 flex-1">
-                <p className="flex flex-wrap items-center gap-2 text-sm font-semibold text-[var(--color-on-surface)]">
-                  TapTap Send <span className="conversion-sponsored">Sponsored</span>
-                </p>
-                {partner ? (
-                  <p className="mt-1 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Recipient gets <strong className="text-[var(--color-on-surface)] tabular-nums">{fmtReceive(partner.receiveAmount, to)}</strong> for{" "}
-                    {fmtSend(amount, from)}
-                    {partnerIsTop
-                      ? ", the top of our comparison on this route today."
-                      : partnerGain > 0.5 && result
-                        ? `, ${fmtReceive(partnerGain * perYear, to)} a year more than ${result.currentLabel}.`
-                        : "."}
-                  </p>
-                ) : (
-                  <p className="mt-1 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Sending to family abroad? Check TapTap Send&rsquo;s rate and delivery options for this route.
-                  </p>
-                )}
-              </div>
-            </div>
-            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
-              <ProviderLink
-                href={getGoUrl(PARTNER, { ...goParams, clickref: `taptap_spotlight:${source}` })}
-                provider={PARTNER}
-                source={`taptap_spotlight:${source}`}
-                corridor={corridor}
-                className="conversion-button conversion-button--accent"
-              >
-                {partner ? `Send ${fmtSend(amount, from)} with TapTap` : "Check TapTap Send rates"} <ArrowRight size={16} aria-hidden="true" />
-              </ProviderLink>
-              <Link href="/companies/taptap-send" className="conversion-text-link">Read our TapTap Send review</Link>
-            </div>
-            <p className="mt-2 text-2xs text-[var(--color-on-surface-variant)]">
-              Sponsored: TapTap Send pays us when you sign up. Payment never moves a provider up our comparison.
-            </p>
-          </aside>
+          {!result && partnerCard}
 
           <p className="mt-3 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed">
             Recipient amounts are after fees, from our latest quotes. The provider confirms the final rate when you send.

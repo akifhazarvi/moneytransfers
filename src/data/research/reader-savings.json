@@ -9,14 +9,14 @@
   "minProviders": 3,
   "tieBandPct": 0.1,
   "minCorridorDecisions": 4,
-  "snapshotsUsed": 118
+  "snapshotsUsed": 30
  },
  "clicksMeta": {
   "pulledAt": "2026-10-03",
   "source": "GA4 (provider_clicked, client-side) and Google Search Console, read through the reporting APIs",
   "window": {
-   "from": "2026-06-07",
-   "to": "2026-10-02"
+   "from": "2026-09-01",
+   "to": "2026-09-30"
   },
   "excludedCountries": [
    "China",
@@ -27,179 +27,137 @@
    "2025-06-01",
    "2026-10-01"
   ],
-  "note": "GA4 does not backfill custom dimensions; corridor and provider are queryable from 2026-06-07. China and Singapore are excluded for the browser-spoofing bot waves recorded in Sep 2026."
+  "note": "September 2026 only. GA4 does not backfill custom dimensions; corridor and provider are queryable from 2026-06-07. China and Singapore are excluded for the browser-spoofing bot waves recorded in Sep 2026. monthlyUsers covers Mar–Sep for trend context; searchQueries cover gscWindow."
  },
  "totals": {
-  "decisions": 590,
-  "decisionsWithoutCorridor": 162,
-  "corridors": 107,
-  "providersChosen": 33,
+  "decisions": 195,
+  "decisionsWithoutCorridor": 50,
+  "corridors": 54,
+  "providersChosen": 22,
   "excluded": {
-   "placeholder": 45,
-   "promo-rate": 45,
-   "not-quoted": 37,
-   "thin": 80
+   "placeholder": 9,
+   "promo-rate": 1,
+   "not-quoted": 8,
+   "thin": 22
   },
   "excludedByProvider": {
-   "wise": {
-    "placeholder": 45,
-    "thin": 5,
-    "not-quoted": 2
+   "currencyfair": {
+    "thin": 10
    },
-   "xoom": {
-    "not-quoted": 11
+   "wise": {
+    "placeholder": 9,
+    "thin": 3
    },
    "taptap-send": {
-    "thin": 26,
-    "not-quoted": 1
-   },
-   "unplex": {
-    "promo-rate": 44
-   },
-   "ria": {
-    "not-quoted": 5,
-    "thin": 1
-   },
-   "westpac": {
-    "thin": 1
-   },
-   "paysend": {
-    "thin": 2
-   },
-   "regencyfx": {
-    "thin": 16,
-    "not-quoted": 11
-   },
-   "xpat": {
-    "not-quoted": 2
-   },
-   "western-union": {
-    "thin": 8
-   },
-   "lemfi": {
-    "not-quoted": 2
-   },
-   "remitly": {
-    "thin": 2
-   },
-   "mukuru": {
-    "thin": 1
-   },
-   "currencyfair": {
-    "thin": 16
-   },
-   "ofx": {
-    "thin": 2
-   },
-   "worldremit": {
-    "not-quoted": 1
-   },
-   "xe": {
-    "not-quoted": 1
+    "thin": 4
    },
    "sbi": {
     "promo-rate": 1
+   },
+   "regencyfx": {
+    "not-quoted": 7,
+    "thin": 5
    },
    "moneygram": {
     "not-quoted": 1
    }
   },
-  "pricedDecisions": 383,
-  "medianGainVsMedianPct": 0.6,
-  "medianGainVsMedianPer1000": 5.97,
-  "totalVsMedianPer1000": 3013,
-  "shareAboveMedian": 0.854,
-  "shareTopPayer": 0.452,
-  "shareTop3": 0.7,
-  "medianOpportunityPct": 0.99,
-  "medianOpportunityPer1000": 9.9,
-  "bankDecisions": 291,
-  "medianVsBankPer1000": 31.84,
-  "totalVsBankPer1000": 8911
+  "pricedDecisions": 155,
+  "medianGainVsMedianPct": 0.54,
+  "medianGainVsMedianPer1000": 5.4,
+  "totalVsMedianPer1000": 1059,
+  "shareAboveMedian": 0.852,
+  "shareTopPayer": 0.387,
+  "shareTop3": 0.665,
+  "medianOpportunityPct": 1.05,
+  "medianOpportunityPer1000": 10.52,
+  "bankDecisions": 131,
+  "medianVsBankPer1000": 31.23,
+  "totalVsBankPer1000": 3870
  },
  "totalsExParallel": {
-  "pricedDecisions": 344,
-  "medianGainVsMedianPct": 0.59,
-  "medianGainVsMedianPer1000": 5.94,
-  "totalVsMedianPer1000": 2173,
-  "shareAboveMedian": 0.863,
-  "shareTopPayer": 0.448,
-  "shareTop3": 0.692,
-  "medianOpportunityPct": 0.99,
-  "medianOpportunityPer1000": 9.94,
-  "bankDecisions": 291,
-  "medianVsBankPer1000": 31.84,
-  "totalVsBankPer1000": 8911
+  "pricedDecisions": 143,
+  "medianGainVsMedianPct": 0.54,
+  "medianGainVsMedianPer1000": 5.4,
+  "totalVsMedianPer1000": 914,
+  "shareAboveMedian": 0.867,
+  "shareTopPayer": 0.385,
+  "shareTop3": 0.664,
+  "medianOpportunityPct": 1.11,
+  "medianOpportunityPer1000": 11.13,
+  "bankDecisions": 131,
+  "medianVsBankPer1000": 31.23,
+  "totalVsBankPer1000": 3870
  },
  "corridors": [
   {
    "corridor": "USD-INR",
-   "decisions": 124,
+   "decisions": 31,
    "chosen": [
     {
      "slug": "taptap-send",
-     "users": 35
-    },
-    {
-     "slug": "unplex",
-     "users": 29
-    },
-    {
-     "slug": "paysend",
      "users": 12
     },
     {
-     "slug": "instarem",
-     "users": 7
+     "slug": "lemfi",
+     "users": 4
+    },
+    {
+     "slug": "remitly",
+     "users": 3
+    },
+    {
+     "slug": "moneygram",
+     "users": 2
     }
    ],
    "priced": {
-    "pricedDecisions": 90,
-    "medianGainVsMedianPct": 0.42,
-    "medianGainVsMedianPer1000": 4.15,
-    "totalVsMedianPer1000": 222,
-    "shareAboveMedian": 0.889,
-    "shareTopPayer": 0.411,
-    "shareTop3": 0.7,
-    "medianOpportunityPct": 0.56,
-    "medianOpportunityPer1000": 5.58,
-    "bankDecisions": 90,
-    "medianVsBankPer1000": 33.19,
-    "totalVsBankPer1000": 2869
+    "pricedDecisions": 28,
+    "medianGainVsMedianPct": 0.41,
+    "medianGainVsMedianPer1000": 4.07,
+    "totalVsMedianPer1000": 55,
+    "shareAboveMedian": 0.893,
+    "shareTopPayer": 0.464,
+    "shareTop3": 0.679,
+    "medianOpportunityPct": 0.48,
+    "medianOpportunityPer1000": 4.85,
+    "bankDecisions": 28,
+    "medianVsBankPer1000": 32.88,
+    "totalVsBankPer1000": 871
    },
    "window": {
-    "days": 118,
+    "days": 30,
     "referenceAmount": 1000,
-    "medianProviders": 18,
-    "medianBestVsMedianPct": 0.58,
-    "medianBestVsWorstPct": 4.77,
-    "medianBestVsBankPct": 3.54,
-    "bankDays": 118,
+    "medianProviders": 19,
+    "medianBestVsMedianPct": 0.48,
+    "medianBestVsWorstPct": 4.62,
+    "medianBestVsBankPct": 3.35,
+    "bankDays": 30,
     "mostFrequentLeader": [
      {
-      "slug": "paysend",
-      "days": 53
-     },
-     {
       "slug": "taptap-send",
-      "days": 39
+      "days": 14
      },
      {
       "slug": "instarem",
-      "days": 14
+      "days": 8
+     },
+     {
+      "slug": "lemfi",
+      "days": 3
      }
     ],
     "latest": {
-     "date": "2026-10-02",
+     "date": "2026-09-30",
      "amount": 1000,
      "best": {
       "slug": "instarem",
-      "receive": 96165.5
+      "receive": 95836
      },
-     "median": 95697.37,
+     "median": 95386.53,
      "worst": {
       "slug": "moneycorp",
-      "receive": 91785.35
+      "receive": 91535.04
      },
      "providers": 18
     }
@@ -207,72 +165,68 @@
   },
   {
    "corridor": "USD-EUR",
-   "decisions": 52,
+   "decisions": 25,
    "chosen": [
     {
      "slug": "instarem",
-     "users": 23
-    },
-    {
-     "slug": "wise",
-     "users": 7
-    },
-    {
-     "slug": "western-union",
-     "users": 6
+     "users": 10
     },
     {
      "slug": "taptap-send",
      "users": 6
+    },
+    {
+     "slug": "revolut",
+     "users": 2
+    },
+    {
+     "slug": "wise",
+     "users": 1
     }
    ],
    "priced": {
-    "pricedDecisions": 51,
-    "medianGainVsMedianPct": 0.99,
-    "medianGainVsMedianPer1000": 9.9,
-    "totalVsMedianPer1000": 449,
-    "shareAboveMedian": 0.941,
-    "shareTopPayer": 0.51,
-    "shareTop3": 0.706,
-    "medianOpportunityPct": 1.3,
-    "medianOpportunityPer1000": 12.95,
-    "bankDecisions": 51,
-    "medianVsBankPer1000": 30.39,
-    "totalVsBankPer1000": 1387
+    "pricedDecisions": 24,
+    "medianGainVsMedianPct": 1.15,
+    "medianGainVsMedianPer1000": 11.55,
+    "totalVsMedianPer1000": 191,
+    "shareAboveMedian": 0.958,
+    "shareTopPayer": 0.458,
+    "shareTop3": 0.667,
+    "medianOpportunityPct": 1.33,
+    "medianOpportunityPer1000": 13.25,
+    "bankDecisions": 24,
+    "medianVsBankPer1000": 28.88,
+    "totalVsBankPer1000": 627
    },
    "window": {
-    "days": 118,
+    "days": 30,
     "referenceAmount": 1000,
     "medianProviders": 19,
-    "medianBestVsMedianPct": 1.19,
-    "medianBestVsWorstPct": 4.95,
-    "medianBestVsBankPct": 3.16,
-    "bankDays": 118,
+    "medianBestVsMedianPct": 1.25,
+    "medianBestVsWorstPct": 4.78,
+    "medianBestVsBankPct": 3.19,
+    "bankDays": 30,
     "mostFrequentLeader": [
      {
       "slug": "instarem",
-      "days": 98
+      "days": 28
      },
      {
       "slug": "revolut",
-      "days": 14
-     },
-     {
-      "slug": "western-union",
-      "days": 3
+      "days": 2
      }
     ],
     "latest": {
-     "date": "2026-10-02",
+     "date": "2026-09-30",
      "amount": 1000,
      "best": {
       "slug": "instarem",
-      "receive": 887.3
+      "receive": 881.1
      },
-     "median": 875.95,
+     "median": 870.82,
      "worst": {
       "slug": "paypal",
-      "receive": 842.35
+      "receive": 839.2
      },
      "providers": 19
     }
@@ -280,72 +234,72 @@
   },
   {
    "corridor": "USD-MXN",
-   "decisions": 34,
+   "decisions": 21,
    "chosen": [
     {
-     "slug": "instarem",
-     "users": 8
-    },
-    {
      "slug": "taptap-send",
-     "users": 8
+     "users": 7
     },
     {
-     "slug": "xoom",
-     "users": 7
+     "slug": "instarem",
+     "users": 4
     },
     {
      "slug": "wise",
      "users": 2
+    },
+    {
+     "slug": "boss-money",
+     "users": 1
     }
    ],
    "priced": {
-    "pricedDecisions": 27,
-    "medianGainVsMedianPct": 1.2,
-    "medianGainVsMedianPer1000": 11.98,
-    "totalVsMedianPer1000": 259,
-    "shareAboveMedian": 0.852,
-    "shareTopPayer": 0.333,
-    "shareTop3": 0.667,
-    "medianOpportunityPct": 1.32,
-    "medianOpportunityPer1000": 13.19,
-    "bankDecisions": 27,
+    "pricedDecisions": 20,
+    "medianGainVsMedianPct": 1.16,
+    "medianGainVsMedianPer1000": 11.6,
+    "totalVsMedianPer1000": 176,
+    "shareAboveMedian": 0.85,
+    "shareTopPayer": 0.3,
+    "shareTop3": 0.6,
+    "medianOpportunityPct": 1.28,
+    "medianOpportunityPer1000": 12.77,
+    "bankDecisions": 20,
     "medianVsBankPer1000": 30.82,
-    "totalVsBankPer1000": 758
+    "totalVsBankPer1000": 541
    },
    "window": {
-    "days": 118,
+    "days": 30,
     "referenceAmount": 1000,
     "medianProviders": 18,
-    "medianBestVsMedianPct": 1.48,
-    "medianBestVsWorstPct": 4.93,
-    "medianBestVsBankPct": 3.26,
-    "bankDays": 118,
+    "medianBestVsMedianPct": 1.66,
+    "medianBestVsWorstPct": 5.19,
+    "medianBestVsBankPct": 3.3,
+    "bankDays": 30,
     "mostFrequentLeader": [
      {
-      "slug": "instarem",
-      "days": 52
+      "slug": "taptap-send",
+      "days": 15
      },
      {
-      "slug": "taptap-send",
-      "days": 49
+      "slug": "instarem",
+      "days": 12
      },
      {
       "slug": "xoom",
-      "days": 15
+      "days": 3
      }
     ],
     "latest": {
-     "date": "2026-10-02",
+     "date": "2026-09-30",
      "amount": 1000,
      "best": {
-      "slug": "taptap-send",
-      "receive": 18150
+      "slug": "instarem",
+      "receive": 18020.9
      },
-     "median": 17954.95,
+     "median": 17733.84,
      "worst": {
       "slug": "paypal",
-      "receive": 17215.08
+      "receive": 17062.69
      },
      "providers": 18
     }
@@ -353,160 +307,83 @@
   },
   {
    "corridor": "USD-PHP",
-   "decisions": 31,
+   "decisions": 11,
    "chosen": [
-    {
-     "slug": "xoom",
-     "users": 6
-    },
-    {
-     "slug": "paysend",
-     "users": 5
-    },
     {
      "slug": "instarem",
      "users": 5
     },
     {
-     "slug": "unplex",
-     "users": 4
+     "slug": "worldremit",
+     "users": 1
+    },
+    {
+     "slug": "taptap-send",
+     "users": 1
+    },
+    {
+     "slug": "ria",
+     "users": 1
     }
    ],
    "priced": {
-    "pricedDecisions": 22,
-    "medianGainVsMedianPct": 0.4,
-    "medianGainVsMedianPer1000": 4.03,
-    "totalVsMedianPer1000": 48,
-    "shareAboveMedian": 0.682,
+    "pricedDecisions": 11,
+    "medianGainVsMedianPct": 0.53,
+    "medianGainVsMedianPer1000": 5.32,
+    "totalVsMedianPer1000": 34,
+    "shareAboveMedian": 0.727,
     "shareTopPayer": 0.364,
-    "shareTop3": 0.5,
-    "medianOpportunityPct": 0.98,
-    "medianOpportunityPer1000": 9.75,
-    "bankDecisions": 21,
+    "shareTop3": 0.545,
+    "medianOpportunityPct": 0.97,
+    "medianOpportunityPer1000": 9.69,
+    "bankDecisions": 11,
     "medianVsBankPer1000": 29.24,
-    "totalVsBankPer1000": 534
+    "totalVsBankPer1000": 299
    },
    "window": {
-    "days": 118,
+    "days": 30,
     "referenceAmount": 1000,
     "medianProviders": 19,
-    "medianBestVsMedianPct": 1.05,
-    "medianBestVsWorstPct": 5.32,
-    "medianBestVsBankPct": 3.25,
-    "bankDays": 115,
+    "medianBestVsMedianPct": 0.87,
+    "medianBestVsWorstPct": 5.09,
+    "medianBestVsBankPct": 3.11,
+    "bankDays": 30,
     "mostFrequentLeader": [
      {
-      "slug": "paysend",
-      "days": 64
-     },
-     {
       "slug": "instarem",
-      "days": 23
+      "days": 19
      },
      {
-      "slug": "lemfi",
-      "days": 16
+      "slug": "xoom",
+      "days": 10
+     },
+     {
+      "slug": "taptap-send",
+      "days": 1
      }
     ],
     "latest": {
-     "date": "2026-10-02",
+     "date": "2026-09-30",
      "amount": 1000,
      "best": {
       "slug": "instarem",
-      "receive": 62397.3
+      "receive": 62518.1
      },
-     "median": 62026.47,
+     "median": 61819.05,
      "worst": {
-      "slug": "ofx",
-      "receive": 59519.6
+      "slug": "paypal",
+      "receive": 59622.43
      },
      "providers": 18
     }
    }
   },
   {
-   "corridor": "USD-PKR",
-   "decisions": 25,
-   "chosen": [
-    {
-     "slug": "moneygram",
-     "users": 8
-    },
-    {
-     "slug": "taptap-send",
-     "users": 5
-    },
-    {
-     "slug": "worldremit",
-     "users": 2
-    },
-    {
-     "slug": "regencyfx",
-     "users": 2
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 23,
-    "medianGainVsMedianPct": 0.36,
-    "medianGainVsMedianPer1000": 3.61,
-    "totalVsMedianPer1000": 45,
-    "shareAboveMedian": 0.696,
-    "shareTopPayer": 0.522,
-    "shareTop3": 0.609,
-    "medianOpportunityPct": 0.62,
-    "medianOpportunityPer1000": 6.17,
-    "bankDecisions": 23,
-    "medianVsBankPer1000": 40.67,
-    "totalVsBankPer1000": 965
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 16,
-    "medianBestVsMedianPct": 0.54,
-    "medianBestVsWorstPct": 4.97,
-    "medianBestVsBankPct": 4.77,
-    "bankDays": 118,
-    "mostFrequentLeader": [
-     {
-      "slug": "moneygram",
-      "days": 70
-     },
-     {
-      "slug": "worldremit",
-      "days": 25
-     },
-     {
-      "slug": "taptap-send",
-      "days": 18
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "worldremit",
-      "receive": 277161
-     },
-     "median": 275534.71,
-     "worst": {
-      "slug": "ofx",
-      "receive": 263167.5
-     },
-     "providers": 16
-    }
-   }
-  },
-  {
    "corridor": "GBP-INR",
-   "decisions": 19,
+   "decisions": 10,
    "chosen": [
     {
      "slug": "taptap-send",
-     "users": 5
-    },
-    {
-     "slug": "unplex",
      "users": 4
     },
     {
@@ -516,321 +393,66 @@
     {
      "slug": "transfergo",
      "users": 2
+    },
+    {
+     "slug": "paysend",
+     "users": 1
     }
    ],
    "priced": {
-    "pricedDecisions": 14,
+    "pricedDecisions": 10,
     "medianGainVsMedianPct": 0.64,
     "medianGainVsMedianPer1000": 6.4,
-    "totalVsMedianPer1000": 99,
+    "totalVsMedianPer1000": 72,
     "shareAboveMedian": 1,
-    "shareTopPayer": 0.357,
-    "shareTop3": 0.571,
-    "medianOpportunityPct": 0.94,
-    "medianOpportunityPer1000": 9.37,
-    "bankDecisions": 14,
-    "medianVsBankPer1000": 28.09,
-    "totalVsBankPer1000": 384
+    "shareTopPayer": 0.4,
+    "shareTop3": 0.7,
+    "medianOpportunityPct": 1.02,
+    "medianOpportunityPer1000": 10.22,
+    "bankDecisions": 10,
+    "medianVsBankPer1000": 28.92,
+    "totalVsBankPer1000": 284
    },
    "window": {
-    "days": 118,
+    "days": 30,
     "referenceAmount": 1000,
-    "medianProviders": 29,
-    "medianBestVsMedianPct": 1.07,
-    "medianBestVsWorstPct": 5.94,
-    "medianBestVsBankPct": 3.15,
-    "bankDays": 118,
+    "medianProviders": 30,
+    "medianBestVsMedianPct": 1.01,
+    "medianBestVsWorstPct": 5.72,
+    "medianBestVsBankPct": 3.17,
+    "bankDays": 30,
     "mostFrequentLeader": [
      {
-      "slug": "paysend",
-      "days": 45
+      "slug": "worldremit",
+      "days": 12
      },
      {
       "slug": "taptap-send",
-      "days": 38
+      "days": 9
      },
      {
       "slug": "moneygram",
-      "days": 13
+      "days": 5
      }
     ],
     "latest": {
-     "date": "2026-10-02",
+     "date": "2026-09-30",
      "amount": 1000,
      "best": {
-      "slug": "worldremit",
-      "receive": 127503.29
+      "slug": "taptap-send",
+      "receive": 127373.78
      },
-     "median": 125756.81,
+     "median": 126085.05,
      "worst": {
-      "slug": "halifax",
-      "receive": 119211.74
+      "slug": "santander",
+      "receive": 120642.02
      },
      "providers": 30
     }
    }
   },
   {
-   "corridor": "AED-INR",
-   "decisions": 16,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 7
-    },
-    {
-     "slug": "taptap-send",
-     "users": 4
-    },
-    {
-     "slug": "currencyfair",
-     "users": 1
-    },
-    {
-     "slug": "ofx",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 0.48,
-    "medianGainVsMedianPer1000": 4.76,
-    "totalVsMedianPer1000": 10,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 0.48,
-    "medianOpportunityPer1000": 4.76,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": {
-    "days": 36,
-    "referenceAmount": 5000,
-    "medianProviders": 3,
-    "medianBestVsMedianPct": 0.5,
-    "medianBestVsWorstPct": 3.24,
-    "medianBestVsBankPct": null,
-    "bankDays": 0,
-    "mostFrequentLeader": [
-     {
-      "slug": "taptap-send",
-      "days": 36
-     }
-    ],
-    "latest": {
-     "date": "2026-09-17",
-     "amount": 5000,
-     "best": {
-      "slug": "taptap-send",
-      "receive": 131118.75
-     },
-     "median": 129870.88,
-     "worst": {
-      "slug": "hdfc-bank",
-      "receive": 126300
-     },
-     "providers": 3
-    }
-   }
-  },
-  {
-   "corridor": "GBP-NGN",
-   "decisions": 13,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 2
-    },
-    {
-     "slug": "lemfi",
-     "users": 2
-    },
-    {
-     "slug": "paysend",
-     "users": 2
-    },
-    {
-     "slug": "remitly",
-     "users": 2
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 13,
-    "medianGainVsMedianPct": 0.15,
-    "medianGainVsMedianPer1000": 1.54,
-    "totalVsMedianPer1000": 30,
-    "shareAboveMedian": 0.615,
-    "shareTopPayer": 0.308,
-    "shareTop3": 0.538,
-    "medianOpportunityPct": 0.61,
-    "medianOpportunityPer1000": 6.14,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 14,
-    "medianBestVsMedianPct": 0.73,
-    "medianBestVsWorstPct": 3.21,
-    "medianBestVsBankPct": null,
-    "bankDays": 0,
-    "mostFrequentLeader": [
-     {
-      "slug": "moneygram",
-      "days": 61
-     },
-     {
-      "slug": "remitly",
-      "days": 17
-     },
-     {
-      "slug": "paysend",
-      "days": 14
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "ria",
-      "receive": 1798794.06
-     },
-     "median": 1779954,
-     "worst": {
-      "slug": "lemfi",
-      "receive": 1750000
-     },
-     "providers": 13
-    }
-   }
-  },
-  {
-   "corridor": "AED-PKR",
-   "decisions": 12,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 10
-    },
-    {
-     "slug": "paysend",
-     "users": 1
-    },
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "CAD-INR",
-   "decisions": 12,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 4
-    },
-    {
-     "slug": "unplex",
-     "users": 2
-    },
-    {
-     "slug": "remitly",
-     "users": 2
-    },
-    {
-     "slug": "paysend",
-     "users": 2
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 10,
-    "medianGainVsMedianPct": 0.87,
-    "medianGainVsMedianPer1000": 8.74,
-    "totalVsMedianPer1000": 85,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.4,
-    "shareTop3": 0.8,
-    "medianOpportunityPct": 1.04,
-    "medianOpportunityPer1000": 10.4,
-    "bankDecisions": 10,
-    "medianVsBankPer1000": 31.5,
-    "totalVsBankPer1000": 311
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 19,
-    "medianBestVsMedianPct": 1.21,
-    "medianBestVsWorstPct": 6.92,
-    "medianBestVsBankPct": 3.43,
-    "bankDays": 118,
-    "mostFrequentLeader": [
-     {
-      "slug": "paysend",
-      "days": 53
-     },
-     {
-      "slug": "taptap-send",
-      "days": 38
-     },
-     {
-      "slug": "worldremit",
-      "days": 19
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "taptap-send",
-      "receive": 67515.38
-     },
-     "median": 66634.09,
-     "worst": {
-      "slug": "scotiabank",
-      "receive": 63605.59
-     },
-     "providers": 20
-    }
-   }
-  },
-  {
-   "corridor": "INR-CAD",
-   "decisions": 11,
-   "chosen": [
-    {
-     "slug": "currencyfair",
-     "users": 8
-    },
-    {
-     "slug": "western-union",
-     "users": 3
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "SAR-INR",
-   "decisions": 10,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 10
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-NGN",
+   "corridor": "USD-PKR",
    "decisions": 9,
    "chosen": [
     {
@@ -838,813 +460,140 @@
      "users": 4
     },
     {
-     "slug": "lemfi",
-     "users": 1
-    },
-    {
-     "slug": "paysend",
-     "users": 1
+     "slug": "remitly",
+     "users": 2
     },
     {
      "slug": "moneygram",
+     "users": 1
+    },
+    {
+     "slug": "xoom",
      "users": 1
     }
    ],
    "priced": {
     "pricedDecisions": 9,
-    "medianGainVsMedianPct": 0.32,
-    "medianGainVsMedianPer1000": 3.17,
-    "totalVsMedianPer1000": 6,
-    "shareAboveMedian": 0.667,
-    "shareTopPayer": 0.222,
-    "shareTop3": 0.667,
-    "medianOpportunityPct": 0.55,
-    "medianOpportunityPer1000": 5.48,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
+    "medianGainVsMedianPct": 0.01,
+    "medianGainVsMedianPer1000": 0.11,
+    "totalVsMedianPer1000": -2,
+    "shareAboveMedian": 0.444,
+    "shareTopPayer": 0.333,
+    "shareTop3": 0.444,
+    "medianOpportunityPct": 0.39,
+    "medianOpportunityPer1000": 3.89,
+    "bankDecisions": 9,
+    "medianVsBankPer1000": 44.03,
+    "totalVsBankPer1000": 390
    },
    "window": {
-    "days": 118,
+    "days": 30,
     "referenceAmount": 1000,
-    "medianProviders": 13,
-    "medianBestVsMedianPct": 0.73,
-    "medianBestVsWorstPct": 2.74,
-    "medianBestVsBankPct": null,
-    "bankDays": 0,
+    "medianProviders": 16,
+    "medianBestVsMedianPct": 0.35,
+    "medianBestVsWorstPct": 4.79,
+    "medianBestVsBankPct": 4.78,
+    "bankDays": 30,
     "mostFrequentLeader": [
      {
+      "slug": "worldremit",
+      "days": 18
+     },
+     {
       "slug": "moneygram",
-      "days": 29
+      "days": 5
      },
      {
       "slug": "taptap-send",
-      "days": 28
-     },
-     {
-      "slug": "sendwave",
-      "days": 23
+      "days": 4
      }
     ],
     "latest": {
-     "date": "2026-10-02",
+     "date": "2026-09-30",
      "amount": 1000,
      "best": {
-      "slug": "boss-money",
-      "receive": 1357318.8
+      "slug": "worldremit",
+      "receive": 277161
      },
-     "median": 1341885.46,
+     "median": 275282.38,
      "worst": {
-      "slug": "moneygram",
-      "receive": 1321373.36
+      "slug": "ofx",
+      "receive": 264037.4
      },
-     "providers": 12
+     "providers": 16
     }
    }
   },
   {
-   "corridor": "INR-GBP",
-   "decisions": 9,
+   "corridor": "CAD-INR",
+   "decisions": 7,
    "chosen": [
     {
-     "slug": "currencyfair",
-     "users": 5
+     "slug": "paysend",
+     "users": 2
+    },
+    {
+     "slug": "taptap-send",
+     "users": 2
+    },
+    {
+     "slug": "remitly",
+     "users": 1
     },
     {
      "slug": "western-union",
-     "users": 3
-    },
-    {
-     "slug": "remitly",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "GBP-PKR",
-   "decisions": 8,
-   "chosen": [
-    {
-     "slug": "ria",
-     "users": 2
-    },
-    {
-     "slug": "worldremit",
-     "users": 2
-    },
-    {
-     "slug": "profee",
-     "users": 1
-    },
-    {
-     "slug": "wise",
      "users": 1
     }
    ],
    "priced": {
-    "pricedDecisions": 6,
-    "medianGainVsMedianPct": 0.71,
-    "medianGainVsMedianPer1000": 7.11,
-    "totalVsMedianPer1000": 36,
-    "shareAboveMedian": 0.833,
-    "shareTopPayer": 0.333,
-    "shareTop3": 0.667,
-    "medianOpportunityPct": 0.98,
-    "medianOpportunityPer1000": 9.78,
-    "bankDecisions": 6,
-    "medianVsBankPer1000": 42.99,
-    "totalVsBankPer1000": 267
+    "pricedDecisions": 7,
+    "medianGainVsMedianPct": 0.86,
+    "medianGainVsMedianPer1000": 8.64,
+    "totalVsMedianPer1000": 58,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0.286,
+    "shareTop3": 0.857,
+    "medianOpportunityPct": 1.01,
+    "medianOpportunityPer1000": 10.07,
+    "bankDecisions": 7,
+    "medianVsBankPer1000": 31.23,
+    "totalVsBankPer1000": 215
    },
    "window": {
-    "days": 118,
+    "days": 30,
     "referenceAmount": 1000,
     "medianProviders": 20,
-    "medianBestVsMedianPct": 0.97,
-    "medianBestVsWorstPct": 7.7,
-    "medianBestVsBankPct": 4.59,
-    "bankDays": 118,
+    "medianBestVsMedianPct": 1.13,
+    "medianBestVsWorstPct": 6.24,
+    "medianBestVsBankPct": 3.25,
+    "bankDays": 30,
     "mostFrequentLeader": [
-     {
-      "slug": "moneygram",
-      "days": 25
-     },
      {
       "slug": "worldremit",
-      "days": 20
-     },
-     {
-      "slug": "dahabshiil",
-      "days": 18
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "moneygram",
-      "receive": 366925.87
-     },
-     "median": 364332.59,
-     "worst": {
-      "slug": "mukuru",
-      "receive": 341267
-     },
-     "providers": 20
-    }
-   }
-  },
-  {
-   "corridor": "USD-CNY",
-   "decisions": 8,
-   "chosen": [
-    {
-     "slug": "xoom",
-     "users": 6
-    },
-    {
-     "slug": "remitly",
-     "users": 1
-    },
-    {
-     "slug": "ria",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 8,
-    "medianGainVsMedianPct": 1.65,
-    "medianGainVsMedianPer1000": 16.45,
-    "totalVsMedianPer1000": 103,
-    "shareAboveMedian": 0.875,
-    "shareTopPayer": 0.75,
-    "shareTop3": 0.875,
-    "medianOpportunityPct": 1.65,
-    "medianOpportunityPer1000": 16.45,
-    "bankDecisions": 3,
-    "medianVsBankPer1000": 34.4,
-    "totalVsBankPer1000": 103
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 8,
-    "medianBestVsMedianPct": 1.67,
-    "medianBestVsWorstPct": 4.22,
-    "medianBestVsBankPct": 3.44,
-    "bankDays": 51,
-    "mostFrequentLeader": [
-     {
-      "slug": "xoom",
-      "days": 91
-     },
-     {
-      "slug": "instarem",
-      "days": 27
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "instarem",
-      "receive": 6657.78
-     },
-     "median": 6595.77,
-     "worst": {
-      "slug": "ofx",
-      "receive": 6445.98
-     },
-     "providers": 8
-    }
-   }
-  },
-  {
-   "corridor": "USD-ETB",
-   "decisions": 8,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 5
-    },
-    {
-     "slug": "ria",
-     "users": 3
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 8,
-    "medianGainVsMedianPct": 9.01,
-    "medianGainVsMedianPer1000": 90.05,
-    "totalVsMedianPer1000": 653,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.75,
-    "shareTop3": 1,
-    "medianOpportunityPct": 9.27,
-    "medianOpportunityPer1000": 92.72,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 10,
-    "medianBestVsMedianPct": 9.29,
-    "medianBestVsWorstPct": 17.86,
-    "medianBestVsBankPct": null,
-    "bankDays": 0,
-    "mostFrequentLeader": [
-     {
-      "slug": "taptap-send",
-      "days": 100
-     },
-     {
-      "slug": "ria",
-      "days": 18
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "taptap-send",
-      "receive": 178000
-     },
-     "median": 160773.58,
-     "worst": {
-      "slug": "wise",
-      "receive": 158308.05
-     },
-     "providers": 9
-    }
-   }
-  },
-  {
-   "corridor": "SAR-EGP",
-   "decisions": 8,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 8
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "EUR-INR",
-   "decisions": 8,
-   "chosen": [
-    {
-     "slug": "unplex",
-     "users": 4
-    },
-    {
-     "slug": "taptap-send",
-     "users": 2
-    },
-    {
-     "slug": "currencyfair",
-     "users": 1
-    },
-    {
-     "slug": "profee",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 4,
-    "medianGainVsMedianPct": 1.51,
-    "medianGainVsMedianPer1000": 15.12,
-    "totalVsMedianPer1000": 57,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.25,
-    "shareTop3": 0.75,
-    "medianOpportunityPct": 1.96,
-    "medianOpportunityPer1000": 19.64,
-    "bankDecisions": 4,
-    "medianVsBankPer1000": 31.72,
-    "totalVsBankPer1000": 133
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 25,
-    "medianBestVsMedianPct": 1.93,
-    "medianBestVsWorstPct": 10.49,
-    "medianBestVsBankPct": 3.93,
-    "bankDays": 118,
-    "mostFrequentLeader": [
-     {
-      "slug": "profee",
-      "days": 94
-     },
-     {
-      "slug": "lemfi",
-      "days": 13
+      "days": 19
      },
      {
       "slug": "taptap-send",
       "days": 8
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "profee",
-      "receive": 108714.3
-     },
-     "median": 106516.96,
-     "worst": {
-      "slug": "la-banque-postale",
-      "receive": 98723.7
-     },
-     "providers": 28
-    }
-   }
-  },
-  {
-   "corridor": "SAR-PKR",
-   "decisions": 7,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 7
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-BDT",
-   "decisions": 6,
-   "chosen": [
-    {
-     "slug": "instarem",
-     "users": 2
-    },
-    {
-     "slug": "lemfi",
-     "users": 2
-    },
-    {
-     "slug": "taptap-send",
-     "users": 1
-    },
-    {
-     "slug": "xoom",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 6,
-    "medianGainVsMedianPct": 0.54,
-    "medianGainVsMedianPer1000": 5.37,
-    "totalVsMedianPer1000": 13,
-    "shareAboveMedian": 0.833,
-    "shareTopPayer": 0.333,
-    "shareTop3": 0.5,
-    "medianOpportunityPct": 0.73,
-    "medianOpportunityPer1000": 7.29,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 14,
-    "medianBestVsMedianPct": 0.73,
-    "medianBestVsWorstPct": 2.71,
-    "medianBestVsBankPct": null,
-    "bankDays": 0,
-    "mostFrequentLeader": [
-     {
-      "slug": "worldremit",
-      "days": 45
      },
      {
       "slug": "lemfi",
-      "days": 44
-     },
-     {
-      "slug": "paysend",
-      "days": 23
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "worldremit",
-      "receive": 122961.28
-     },
-     "median": 121829.96,
-     "worst": {
-      "slug": "xoom",
-      "receive": 119794.73
-     },
-     "providers": 14
-    }
-   }
-  },
-  {
-   "corridor": "GBP-EUR",
-   "decisions": 5,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 2
-    },
-    {
-     "slug": "taptap-send",
-     "users": 2
-    },
-    {
-     "slug": "nationwide",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 5,
-    "medianGainVsMedianPct": 1.85,
-    "medianGainVsMedianPer1000": 18.51,
-    "totalVsMedianPer1000": 60,
-    "shareAboveMedian": 0.8,
-    "shareTopPayer": 0.2,
-    "shareTop3": 0.8,
-    "medianOpportunityPct": 2.2,
-    "medianOpportunityPer1000": 22.02,
-    "bankDecisions": 5,
-    "medianVsBankPer1000": 24.96,
-    "totalVsBankPer1000": 93
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 30,
-    "medianBestVsMedianPct": 2.19,
-    "medianBestVsWorstPct": 4.73,
-    "medianBestVsBankPct": 2.78,
-    "bankDays": 118,
-    "mostFrequentLeader": [
-     {
-      "slug": "taptap-send",
-      "days": 77
-     },
-     {
-      "slug": "revolut",
-      "days": 26
-     },
-     {
-      "slug": "transfergo",
-      "days": 14
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "taptap-send",
-      "receive": 1177
-     },
-     "median": 1150.89,
-     "worst": {
-      "slug": "paypal",
-      "receive": 1118.49
-     },
-     "providers": 29
-    }
-   }
-  },
-  {
-   "corridor": "AUD-INR",
-   "decisions": 5,
-   "chosen": [
-    {
-     "slug": "lemfi",
-     "users": 2
-    },
-    {
-     "slug": "xoom",
-     "users": 2
-    },
-    {
-     "slug": "worldremit",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": 1.79,
-    "medianGainVsMedianPer1000": 17.85,
-    "totalVsMedianPer1000": 48,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.667,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.79,
-    "medianOpportunityPer1000": 17.93,
-    "bankDecisions": 3,
-    "medianVsBankPer1000": 38.1,
-    "totalVsBankPer1000": 103
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 19,
-    "medianBestVsMedianPct": 1.62,
-    "medianBestVsWorstPct": 6.58,
-    "medianBestVsBankPct": 3.69,
-    "bankDays": 118,
-    "mostFrequentLeader": [
-     {
-      "slug": "xoom",
-      "days": 60
-     },
-     {
-      "slug": "worldremit",
-      "days": 18
-     },
-     {
-      "slug": "xe",
-      "days": 16
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "worldremit",
-      "receive": 67452.26
-     },
-     "median": 66120.11,
-     "worst": {
-      "slug": "ofx",
-      "receive": 63108.36
-     },
-     "providers": 21
-    }
-   }
-  },
-  {
-   "corridor": "USD-GBP",
-   "decisions": 5,
-   "chosen": [
-    {
-     "slug": "instarem",
-     "users": 2
-    },
-    {
-     "slug": "revolut",
-     "users": 1
-    },
-    {
-     "slug": "western-union",
-     "users": 1
-    },
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 5,
-    "medianGainVsMedianPct": 0.6,
-    "medianGainVsMedianPer1000": 6.02,
-    "totalVsMedianPer1000": 36,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.4,
-    "shareTop3": 0.8,
-    "medianOpportunityPct": 0.94,
-    "medianOpportunityPer1000": 9.45,
-    "bankDecisions": 5,
-    "medianVsBankPer1000": 26.96,
-    "totalVsBankPer1000": 140
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 18,
-    "medianBestVsMedianPct": 1.13,
-    "medianBestVsWorstPct": 4.85,
-    "medianBestVsBankPct": 3.12,
-    "bankDays": 118,
-    "mostFrequentLeader": [
-     {
-      "slug": "instarem",
-      "days": 110
-     },
-     {
-      "slug": "revolut",
-      "days": 5
-     },
-     {
-      "slug": "moneygram",
       "days": 2
      }
     ],
     "latest": {
-     "date": "2026-10-02",
+     "date": "2026-09-30",
      "amount": 1000,
      "best": {
-      "slug": "instarem",
-      "receive": 754
+      "slug": "worldremit",
+      "receive": 67536.36
      },
-     "median": 747.62,
+     "median": 66769.88,
      "worst": {
-      "slug": "paypal",
-      "receive": 719.02
+      "slug": "scotiabank",
+      "receive": 63582.95
      },
-     "providers": 18
-    }
-   }
-  },
-  {
-   "corridor": "USD-COP",
-   "decisions": 5,
-   "chosen": [
-    {
-     "slug": "moneygram",
-     "users": 1
-    },
-    {
-     "slug": "instarem",
-     "users": 1
-    },
-    {
-     "slug": "ria",
-     "users": 1
-    },
-    {
-     "slug": "wells-fargo",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 5,
-    "medianGainVsMedianPct": -0.71,
-    "medianGainVsMedianPer1000": -7.08,
-    "totalVsMedianPer1000": -13,
-    "shareAboveMedian": 0.4,
-    "shareTopPayer": 0.2,
-    "shareTop3": 0.2,
-    "medianOpportunityPct": 1,
-    "medianOpportunityPer1000": 10.04,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 12,
-    "medianBestVsMedianPct": 1.3,
-    "medianBestVsWorstPct": 2.66,
-    "medianBestVsBankPct": null,
-    "bankDays": 0,
-    "mostFrequentLeader": [
-     {
-      "slug": "taptap-send",
-      "days": 35
-     },
-     {
-      "slug": "paysend",
-      "days": 32
-     },
-     {
-      "slug": "instarem",
-      "days": 26
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "wells-fargo",
-      "receive": 3285804
-     },
-     "median": 3249610.5,
-     "worst": {
-      "slug": "wise",
-      "receive": 3209691.94
-     },
-     "providers": 13
-    }
-   }
-  },
-  {
-   "corridor": "USD-MYR",
-   "decisions": 5,
-   "chosen": [
-    {
-     "slug": "instarem",
-     "users": 1
-    },
-    {
-     "slug": "ofx",
-     "users": 1
-    },
-    {
-     "slug": "regencyfx",
-     "users": 1
-    },
-    {
-     "slug": "worldremit",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": -0.21,
-    "medianGainVsMedianPer1000": -2.14,
-    "totalVsMedianPer1000": -40,
-    "shareAboveMedian": 0,
-    "shareTopPayer": 0,
-    "shareTop3": 0.333,
-    "medianOpportunityPct": 0.28,
-    "medianOpportunityPer1000": 2.85,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": {
-    "days": 118,
-    "referenceAmount": 1000,
-    "medianProviders": 5,
-    "medianBestVsMedianPct": 0.28,
-    "medianBestVsWorstPct": 4.27,
-    "medianBestVsBankPct": null,
-    "bankDays": 0,
-    "mostFrequentLeader": [
-     {
-      "slug": "taptap-send",
-      "days": 105
-     },
-     {
-      "slug": "wise",
-      "days": 11
-     },
-     {
-      "slug": "instarem",
-      "days": 2
-     }
-    ],
-    "latest": {
-     "date": "2026-10-02",
-     "amount": 1000,
-     "best": {
-      "slug": "taptap-send",
-      "receive": 4080
-     },
-     "median": 4043.76,
-     "worst": {
-      "slug": "ofx",
-      "receive": 3910.6
-     },
-     "providers": 6
+     "providers": 20
     }
    }
   },
@@ -1684,400 +633,135 @@
     "totalVsBankPer1000": 200
    },
    "window": {
-    "days": 118,
+    "days": 30,
     "referenceAmount": 1000,
-    "medianProviders": 25,
-    "medianBestVsMedianPct": 1.42,
-    "medianBestVsWorstPct": 5.31,
-    "medianBestVsBankPct": 4.19,
-    "bankDays": 118,
+    "medianProviders": 26,
+    "medianBestVsMedianPct": 1.79,
+    "medianBestVsWorstPct": 5.55,
+    "medianBestVsBankPct": 4.26,
+    "bankDays": 30,
     "mostFrequentLeader": [
      {
       "slug": "paysend",
-      "days": 75
+      "days": 24
      },
      {
       "slug": "wise",
-      "days": 25
+      "days": 4
      },
      {
-      "slug": "revolut",
-      "days": 10
+      "slug": "taptap-send",
+      "days": 1
      }
     ],
     "latest": {
-     "date": "2026-10-02",
+     "date": "2026-09-30",
      "amount": 1000,
      "best": {
       "slug": "paysend",
-      "receive": 20396.7
+      "receive": 20423.32
      },
-     "median": 19962.36,
+     "median": 20008.93,
      "worst": {
       "slug": "paypal",
-      "receive": 19326.32
+      "receive": 19315.4
      },
      "providers": 26
     }
    }
   },
   {
-   "corridor": "USD-BRL",
+   "corridor": "INR-CAD",
    "decisions": 4,
    "chosen": [
     {
-     "slug": "instarem",
-     "users": 3
-    },
-    {
-     "slug": "lemfi",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 4,
-    "medianGainVsMedianPct": 0.99,
-    "medianGainVsMedianPer1000": 9.93,
-    "totalVsMedianPer1000": 37,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.25,
-    "shareTop3": 0.75,
-    "medianOpportunityPct": 1.62,
-    "medianOpportunityPer1000": 16.22,
-    "bankDecisions": 3,
-    "medianVsBankPer1000": 53.97,
-    "totalVsBankPer1000": 157
-   },
-   "window": null
-  },
-  {
-   "corridor": "USD-DOP",
-   "decisions": 4,
-   "chosen": [
-    {
-     "slug": "instarem",
-     "users": 2
-    },
-    {
-     "slug": "taptap-send",
-     "users": 2
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 4,
-    "medianGainVsMedianPct": 1.46,
-    "medianGainVsMedianPer1000": 14.63,
-    "totalVsMedianPer1000": 71,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.75,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.46,
-    "medianOpportunityPer1000": 14.64,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "USD-KES",
-   "decisions": 4,
-   "chosen": [
-    {
-     "slug": "instarem",
-     "users": 3
-    },
-    {
-     "slug": "lemfi",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 4,
-    "medianGainVsMedianPct": 1.22,
-    "medianGainVsMedianPer1000": 12.21,
-    "totalVsMedianPer1000": 43,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.75,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.22,
-    "medianOpportunityPer1000": 12.21,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "EUR-USD",
-   "decisions": 4,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 2
-    },
-    {
-     "slug": "lemfi",
-     "users": 1
-    },
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": 2.69,
-    "medianGainVsMedianPer1000": 26.92,
-    "totalVsMedianPer1000": 27,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 2.69,
-    "medianOpportunityPer1000": 26.92,
-    "bankDecisions": 1,
-    "medianVsBankPer1000": 26.93,
-    "totalVsBankPer1000": 27
-   },
-   "window": null
-  },
-  {
-   "corridor": "USD-GHS",
-   "decisions": 3,
-   "chosen": [
-    {
-     "slug": "boss-money",
-     "users": 2
-    },
-    {
-     "slug": "paysend",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": 1.28,
-    "medianGainVsMedianPer1000": 12.8,
-    "totalVsMedianPer1000": 83,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.28,
-    "medianOpportunityPer1000": 12.8,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "GBP-ZAR",
-   "decisions": 3,
-   "chosen": [
-    {
-     "slug": "ria",
-     "users": 1
-    },
-    {
-     "slug": "taptap-send",
-     "users": 1
-    },
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 1.84,
-    "medianGainVsMedianPer1000": 18.37,
-    "totalVsMedianPer1000": 37,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.5,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.94,
-    "medianOpportunityPer1000": 19.41,
-    "bankDecisions": 2,
-    "medianVsBankPer1000": 21.7,
-    "totalVsBankPer1000": 43
-   },
-   "window": null
-  },
-  {
-   "corridor": "EUR-PHP",
-   "decisions": 3,
-   "chosen": [
-    {
-     "slug": "unplex",
-     "users": 1
-    },
-    {
-     "slug": "revolut",
-     "users": 1
-    },
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 0.36,
-    "medianGainVsMedianPer1000": 3.57,
-    "totalVsMedianPer1000": 7,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0,
-    "shareTop3": 0.5,
-    "medianOpportunityPct": 0.83,
-    "medianOpportunityPer1000": 8.26,
-    "bankDecisions": 2,
-    "medianVsBankPer1000": 20.58,
-    "totalVsBankPer1000": 41
-   },
-   "window": null
-  },
-  {
-   "corridor": "USD-THB",
-   "decisions": 3,
-   "chosen": [
-    {
-     "slug": "paypal",
-     "users": 1
-    },
-    {
-     "slug": "taptap-send",
-     "users": 1
-    },
-    {
-     "slug": "ria",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": 0.59,
-    "medianGainVsMedianPer1000": 5.87,
-    "totalVsMedianPer1000": 2,
-    "shareAboveMedian": 0.667,
-    "shareTopPayer": 0.333,
-    "shareTop3": 0.333,
-    "medianOpportunityPct": 2.16,
-    "medianOpportunityPer1000": 21.56,
-    "bankDecisions": 3,
-    "medianVsBankPer1000": 20.25,
-    "totalVsBankPer1000": 30
-   },
-   "window": null
-  },
-  {
-   "corridor": "USD-AED",
-   "decisions": 3,
-   "chosen": [
-    {
-     "slug": "instarem",
-     "users": 2
-    },
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 0.08,
-    "medianGainVsMedianPer1000": 0.83,
-    "totalVsMedianPer1000": 2,
-    "shareAboveMedian": 0.5,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 0.08,
-    "medianOpportunityPer1000": 0.83,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "SAR-PHP",
-   "decisions": 3,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 3
+     "slug": "currencyfair",
+     "users": 4
     }
    ],
    "priced": null,
    "window": null
   },
   {
-   "corridor": "USD-MAD",
-   "decisions": 3,
+   "corridor": "INR-GBP",
+   "decisions": 4,
    "chosen": [
     {
-     "slug": "lemfi",
-     "users": 2
+     "slug": "currencyfair",
+     "users": 4
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
+   "corridor": "USD-NGN",
+   "decisions": 4,
+   "chosen": [
+    {
+     "slug": "moneygram",
+     "users": 1
     },
+    {
+     "slug": "taptap-send",
+     "users": 1
+    },
+    {
+     "slug": "boss-money",
+     "users": 1
+    },
+    {
+     "slug": "instarem",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 4,
+    "medianGainVsMedianPct": 0,
+    "medianGainVsMedianPer1000": 0,
+    "totalVsMedianPer1000": -18,
+    "shareAboveMedian": 0.25,
+    "shareTopPayer": 0,
+    "shareTop3": 0.25,
+    "medianOpportunityPct": 0.42,
+    "medianOpportunityPer1000": 4.19,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
+   "corridor": "GBP-PKR",
+   "decisions": 3,
+   "chosen": [
     {
      "slug": "remitly",
      "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": 1.75,
-    "medianGainVsMedianPer1000": 17.48,
-    "totalVsMedianPer1000": 44,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.75,
-    "medianOpportunityPer1000": 17.48,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "USD-EGP",
-   "decisions": 3,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 3
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": 1.45,
-    "medianGainVsMedianPer1000": 14.51,
-    "totalVsMedianPer1000": 43,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.667,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.45,
-    "medianOpportunityPer1000": 14.51,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "USD-CAD",
-   "decisions": 3,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 2
     },
     {
-     "slug": "wise",
+     "slug": "worldremit",
+     "users": 1
+    },
+    {
+     "slug": "transfergo",
      "users": 1
     }
    ],
-   "priced": null,
+   "priced": {
+    "pricedDecisions": 3,
+    "medianGainVsMedianPct": 0.67,
+    "medianGainVsMedianPer1000": 6.75,
+    "totalVsMedianPer1000": 19,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0.333,
+    "shareTop3": 1,
+    "medianOpportunityPct": 0.67,
+    "medianOpportunityPer1000": 6.75,
+    "bankDecisions": 3,
+    "medianVsBankPer1000": 43.99,
+    "totalVsBankPer1000": 133
+   },
    "window": null
   },
   {
@@ -2110,64 +794,23 @@
    "window": null
   },
   {
-   "corridor": "USD-AUD",
+   "corridor": "USD-CAD",
    "decisions": 2,
    "chosen": [
-    {
-     "slug": "westpac",
-     "users": 1
-    },
-    {
-     "slug": "ofx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "CAD-NGN",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "lemfi",
-     "users": 1
-    },
     {
      "slug": "taptap-send",
      "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 1.21,
-    "medianGainVsMedianPer1000": 12.14,
-    "totalVsMedianPer1000": 24,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.21,
-    "medianOpportunityPer1000": 12.14,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "SAR-BDT",
-   "decisions": 2,
-   "chosen": [
+    },
     {
      "slug": "wise",
-     "users": 2
+     "users": 1
     }
    ],
    "priced": null,
    "window": null
   },
   {
-   "corridor": "EUR-LKR",
+   "corridor": "USD-EGP",
    "decisions": 2,
    "chosen": [
     {
@@ -2175,229 +818,16 @@
      "users": 2
     }
    ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "AED-GBP",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    },
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "CNY-PLN",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    },
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "SGD-INR",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "revolut",
-     "users": 1
-    },
-    {
-     "slug": "ria",
-     "users": 1
-    }
-   ],
    "priced": {
     "pricedDecisions": 2,
-    "medianGainVsMedianPct": 1.07,
-    "medianGainVsMedianPer1000": 10.67,
-    "totalVsMedianPer1000": 21,
+    "medianGainVsMedianPct": 1.43,
+    "medianGainVsMedianPer1000": 14.27,
+    "totalVsMedianPer1000": 29,
     "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.1,
-    "medianOpportunityPer1000": 10.96,
-    "bankDecisions": 2,
-    "medianVsBankPer1000": 19.21,
-    "totalVsBankPer1000": 38
-   },
-   "window": null
-  },
-  {
-   "corridor": "OMR-INR",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 2
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-HTG",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "sendwave",
-     "users": 2
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 1.2,
-    "medianGainVsMedianPer1000": 12.03,
-    "totalVsMedianPer1000": 24,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.2,
-    "medianOpportunityPer1000": 12.03,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "EUR-COP",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    },
-    {
-     "slug": "paysend",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 1.86,
-    "medianGainVsMedianPer1000": 18.6,
-    "totalVsMedianPer1000": 37,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.86,
-    "medianOpportunityPer1000": 18.6,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "AED-BDT",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 1
-    },
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-TZS",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "lemfi",
-     "users": 1
-    },
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 0.61,
-    "medianGainVsMedianPer1000": 6.13,
-    "totalVsMedianPer1000": 12,
-    "shareAboveMedian": 0.5,
     "shareTopPayer": 0.5,
-    "shareTop3": 0.5,
-    "medianOpportunityPct": 1.32,
-    "medianOpportunityPer1000": 13.21,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "EUR-BRL",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "profee",
-     "users": 1
-    },
-    {
-     "slug": "revolut",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 1.62,
-    "medianGainVsMedianPer1000": 16.2,
-    "totalVsMedianPer1000": 32,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0,
-    "shareTop3": 0.5,
-    "medianOpportunityPct": 3.37,
-    "medianOpportunityPer1000": 33.7,
-    "bankDecisions": 2,
-    "medianVsBankPer1000": 52.86,
-    "totalVsBankPer1000": 106
-   },
-   "window": null
-  },
-  {
-   "corridor": "USD-NPR",
-   "decisions": 2,
-   "chosen": [
-    {
-     "slug": "moneygram",
-     "users": 2
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 2,
-    "medianGainVsMedianPct": 0.05,
-    "medianGainVsMedianPer1000": 0.54,
-    "totalVsMedianPer1000": 1,
-    "shareAboveMedian": 0.5,
-    "shareTopPayer": 0,
-    "shareTop3": 0.5,
-    "medianOpportunityPct": 0.49,
-    "medianOpportunityPer1000": 4.94,
+    "shareTop3": 1,
+    "medianOpportunityPct": 1.52,
+    "medianOpportunityPer1000": 15.24,
     "bankDecisions": 0,
     "medianVsBankPer1000": null,
     "totalVsBankPer1000": null
@@ -2417,6 +847,192 @@
    "window": null
   },
   {
+   "corridor": "EUR-INR",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "taptap-send",
+     "users": 2
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 1.51,
+    "medianGainVsMedianPer1000": 15.12,
+    "totalVsMedianPer1000": 30,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0,
+    "shareTop3": 1,
+    "medianOpportunityPct": 2.01,
+    "medianOpportunityPer1000": 20.06,
+    "bankDecisions": 2,
+    "medianVsBankPer1000": 26.65,
+    "totalVsBankPer1000": 53
+   },
+   "window": null
+  },
+  {
+   "corridor": "EUR-PHP",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "revolut",
+     "users": 1
+    },
+    {
+     "slug": "wise",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 0.36,
+    "medianGainVsMedianPer1000": 3.57,
+    "totalVsMedianPer1000": 7,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0,
+    "shareTop3": 0.5,
+    "medianOpportunityPct": 0.83,
+    "medianOpportunityPer1000": 8.26,
+    "bankDecisions": 2,
+    "medianVsBankPer1000": 20.58,
+    "totalVsBankPer1000": 41
+   },
+   "window": null
+  },
+  {
+   "corridor": "SAR-EGP",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "wise",
+     "users": 2
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
+   "corridor": "SAR-PKR",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "wise",
+     "users": 2
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
+   "corridor": "GBP-EUR",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "nationwide",
+     "users": 1
+    },
+    {
+     "slug": "wise",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 0.13,
+    "medianGainVsMedianPer1000": 1.32,
+    "totalVsMedianPer1000": 3,
+    "shareAboveMedian": 0.5,
+    "shareTopPayer": 0,
+    "shareTop3": 0.5,
+    "medianOpportunityPct": 2.19,
+    "medianOpportunityPer1000": 21.93,
+    "bankDecisions": 2,
+    "medianVsBankPer1000": 7.29,
+    "totalVsBankPer1000": 15
+   },
+   "window": null
+  },
+  {
+   "corridor": "USD-DOP",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "taptap-send",
+     "users": 2
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 1.46,
+    "medianGainVsMedianPer1000": 14.63,
+    "totalVsMedianPer1000": 29,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 1,
+    "shareTop3": 1,
+    "medianOpportunityPct": 1.46,
+    "medianOpportunityPer1000": 14.63,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
+   "corridor": "USD-GHS",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "boss-money",
+     "users": 2
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 1.21,
+    "medianGainVsMedianPer1000": 12.14,
+    "totalVsMedianPer1000": 24,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 1,
+    "shareTop3": 1,
+    "medianOpportunityPct": 1.21,
+    "medianOpportunityPer1000": 12.14,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
+   "corridor": "EUR-USD",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "lemfi",
+     "users": 1
+    },
+    {
+     "slug": "regencyfx",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 1,
+    "medianGainVsMedianPct": 2.69,
+    "medianGainVsMedianPer1000": 26.92,
+    "totalVsMedianPer1000": 27,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 1,
+    "shareTop3": 1,
+    "medianOpportunityPct": 2.69,
+    "medianOpportunityPer1000": 26.92,
+    "bankDecisions": 1,
+    "medianVsBankPer1000": 26.93,
+    "totalVsBankPer1000": 27
+   },
+   "window": null
+  },
+  {
    "corridor": "USD-TWD",
    "decisions": 2,
    "chosen": [
@@ -2429,11 +1045,81 @@
    "window": null
   },
   {
+   "corridor": "GBP-NGN",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "paysend",
+     "users": 1
+    },
+    {
+     "slug": "taptap-send",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 0.41,
+    "medianGainVsMedianPer1000": 4.14,
+    "totalVsMedianPer1000": 8,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0.5,
+    "shareTop3": 0.5,
+    "medianOpportunityPct": 0.57,
+    "medianOpportunityPer1000": 5.69,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
    "corridor": "INR-USD",
    "decisions": 2,
    "chosen": [
     {
      "slug": "currencyfair",
+     "users": 2
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
+   "corridor": "USD-CNY",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "remitly",
+     "users": 1
+    },
+    {
+     "slug": "ria",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 0.09,
+    "medianGainVsMedianPer1000": 0.9,
+    "totalVsMedianPer1000": 2,
+    "shareAboveMedian": 0.5,
+    "shareTopPayer": 0,
+    "shareTop3": 0.5,
+    "medianOpportunityPct": 0.88,
+    "medianOpportunityPer1000": 8.83,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
+   "corridor": "AED-INR",
+   "decisions": 2,
+   "chosen": [
+    {
+     "slug": "wise",
      "users": 2
     }
    ],
@@ -2470,530 +1156,6 @@
    "window": null
   },
   {
-   "corridor": "USD-GTQ",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "xoom",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": -0.03,
-    "medianGainVsMedianPer1000": -0.35,
-    "totalVsMedianPer1000": 0,
-    "shareAboveMedian": 0,
-    "shareTopPayer": 0,
-    "shareTop3": 0,
-    "medianOpportunityPct": 0.8,
-    "medianOpportunityPer1000": 8.05,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "CAD-THB",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "AUD-PHP",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "ria",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "EUR-GBP",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": 1.31,
-    "medianGainVsMedianPer1000": 13.09,
-    "totalVsMedianPer1000": 13,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.33,
-    "medianOpportunityPer1000": 13.29,
-    "bankDecisions": 1,
-    "medianVsBankPer1000": 13.3,
-    "totalVsBankPer1000": 13
-   },
-   "window": null
-  },
-  {
-   "corridor": "AUD-PKR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "ria",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "CNY-PKR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "NZD-PHP",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "ria",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "NZD-USD",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "AED-ETB",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-JMD",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "paysend",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": 1.42,
-    "medianGainVsMedianPer1000": 14.22,
-    "totalVsMedianPer1000": 14,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.42,
-    "medianOpportunityPer1000": 14.22,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "INR-AED",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "western-union",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "ZAR-NGN",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "mukuru",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "QAR-EGP",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-IDR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": 0.64,
-    "medianGainVsMedianPer1000": 6.39,
-    "totalVsMedianPer1000": 6,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.09,
-    "medianOpportunityPer1000": 10.91,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "TRY-AUD",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "EUR-TRY",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "instarem",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": 1.2,
-    "medianGainVsMedianPer1000": 12.01,
-    "totalVsMedianPer1000": 12,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.2,
-    "medianOpportunityPer1000": 12.01,
-    "bankDecisions": 1,
-    "medianVsBankPer1000": 34.21,
-    "totalVsBankPer1000": 34
-   },
-   "window": null
-  },
-  {
-   "corridor": "AED-EGP",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "AED-KES",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-TRY",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": 0.89,
-    "medianGainVsMedianPer1000": 8.9,
-    "totalVsMedianPer1000": 9,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 0.89,
-    "medianOpportunityPer1000": 8.9,
-    "bankDecisions": 1,
-    "medianVsBankPer1000": 25.97,
-    "totalVsBankPer1000": 26
-   },
-   "window": null
-  },
-  {
-   "corridor": "CNY-AUD",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "GBP-BRL",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "KRW-PHP",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-MZN",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "EUR-XOF",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "AED-IDR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "INR-EUR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "western-union",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-CHF",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "AUD-IDR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "worldremit",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "DKK-GBP",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "BHD-PKR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-GEL",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-CZK",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "wise",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": 1.8,
-    "medianGainVsMedianPer1000": 18.01,
-    "totalVsMedianPer1000": 18,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 1,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.8,
-    "medianOpportunityPer1000": 18.01,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "GBP-DKK",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "USD-KRW",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "taptap-send",
-     "users": 1
-    }
-   ],
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": -0.65,
-    "medianGainVsMedianPer1000": -6.48,
-    "totalVsMedianPer1000": -6,
-    "shareAboveMedian": 0,
-    "shareTopPayer": 0,
-    "shareTop3": 1,
-    "medianOpportunityPct": 0.92,
-    "medianOpportunityPer1000": 9.25,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   },
-   "window": null
-  },
-  {
-   "corridor": "MXN-INR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
    "corridor": "GBP-CAD",
    "decisions": 1,
    "chosen": [
@@ -3015,6 +1177,93 @@
     "bankDecisions": 1,
     "medianVsBankPer1000": 30.07,
     "totalVsBankPer1000": 30
+   },
+   "window": null
+  },
+  {
+   "corridor": "SAR-INR",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "wise",
+     "users": 1
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
+   "corridor": "USD-ETB",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "taptap-send",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 1,
+    "medianGainVsMedianPct": 10.17,
+    "medianGainVsMedianPer1000": 101.71,
+    "totalVsMedianPer1000": 102,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 1,
+    "shareTop3": 1,
+    "medianOpportunityPct": 10.17,
+    "medianOpportunityPer1000": 101.71,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
+   "corridor": "USD-BRL",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "instarem",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 1,
+    "medianGainVsMedianPct": 1.01,
+    "medianGainVsMedianPer1000": 10.06,
+    "totalVsMedianPer1000": 10,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0,
+    "shareTop3": 1,
+    "medianOpportunityPct": 1.88,
+    "medianOpportunityPer1000": 18.84,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
+   "corridor": "AUD-INR",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "worldremit",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 1,
+    "medianGainVsMedianPct": 1.23,
+    "medianGainVsMedianPer1000": 12.28,
+    "totalVsMedianPer1000": 12,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0,
+    "shareTop3": 1,
+    "medianOpportunityPct": 2.17,
+    "medianOpportunityPer1000": 21.68,
+    "bankDecisions": 1,
+    "medianVsBankPer1000": 25.62,
+    "totalVsBankPer1000": 26
    },
    "window": null
   },
@@ -3105,7 +1354,69 @@
    "window": null
   },
   {
+   "corridor": "USD-NPR",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "moneygram",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 1,
+    "medianGainVsMedianPct": -0.15,
+    "medianGainVsMedianPer1000": -1.46,
+    "totalVsMedianPer1000": -1,
+    "shareAboveMedian": 0,
+    "shareTopPayer": 0,
+    "shareTop3": 0,
+    "medianOpportunityPct": 0.48,
+    "medianOpportunityPer1000": 4.83,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
+   "corridor": "USD-BDT",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "lemfi",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 1,
+    "medianGainVsMedianPct": 1.05,
+    "medianGainVsMedianPer1000": 10.51,
+    "totalVsMedianPer1000": 11,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 1,
+    "shareTop3": 1,
+    "medianOpportunityPct": 1.05,
+    "medianOpportunityPer1000": 10.51,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
    "corridor": "EUR-BOB",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "taptap-send",
+     "users": 1
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
+   "corridor": "AED-BDT",
    "decisions": 1,
    "chosen": [
     {
@@ -3167,6 +1478,30 @@
    "window": null
   },
   {
+   "corridor": "USD-AED",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "regencyfx",
+     "users": 1
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
+   "corridor": "AED-PKR",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "taptap-send",
+     "users": 1
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
    "corridor": "USD-RWF",
    "decisions": 1,
    "chosen": [
@@ -3192,19 +1527,7 @@
    "window": null
   },
   {
-   "corridor": "GBP-SAR",
-   "decisions": 1,
-   "chosen": [
-    {
-     "slug": "regencyfx",
-     "users": 1
-    }
-   ],
-   "priced": null,
-   "window": null
-  },
-  {
-   "corridor": "AED-PHP",
+   "corridor": "OMR-INR",
    "decisions": 1,
    "chosen": [
     {
@@ -3216,327 +1539,275 @@
    "window": null
   },
   {
-   "corridor": "USD-UGX",
+   "corridor": "SAR-PHP",
    "decisions": 1,
    "chosen": [
     {
-     "slug": "lemfi",
+     "slug": "wise",
+     "users": 1
+    }
+   ],
+   "priced": null,
+   "window": null
+  },
+  {
+   "corridor": "USD-KES",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "instarem",
      "users": 1
     }
    ],
    "priced": {
     "pricedDecisions": 1,
-    "medianGainVsMedianPct": 1.44,
-    "medianGainVsMedianPer1000": 14.44,
-    "totalVsMedianPer1000": 14,
+    "medianGainVsMedianPct": 1.24,
+    "medianGainVsMedianPer1000": 12.43,
+    "totalVsMedianPer1000": 12,
     "shareAboveMedian": 1,
     "shareTopPayer": 1,
     "shareTop3": 1,
-    "medianOpportunityPct": 1.44,
-    "medianOpportunityPer1000": 14.44,
+    "medianOpportunityPct": 1.24,
+    "medianOpportunityPer1000": 12.43,
     "bankDecisions": 0,
     "medianVsBankPer1000": null,
     "totalVsBankPer1000": null
    },
+   "window": null
+  },
+  {
+   "corridor": "USD-COP",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "western-union",
+     "users": 1
+    }
+   ],
+   "priced": {
+    "pricedDecisions": 1,
+    "medianGainVsMedianPct": -0.85,
+    "medianGainVsMedianPer1000": -8.48,
+    "totalVsMedianPer1000": -8,
+    "shareAboveMedian": 0,
+    "shareTopPayer": 0,
+    "shareTop3": 0,
+    "medianOpportunityPct": 3.27,
+    "medianOpportunityPer1000": 32.66,
+    "bankDecisions": 0,
+    "medianVsBankPer1000": null,
+    "totalVsBankPer1000": null
+   },
+   "window": null
+  },
+  {
+   "corridor": "GBP-SAR",
+   "decisions": 1,
+   "chosen": [
+    {
+     "slug": "regencyfx",
+     "users": 1
+    }
+   ],
+   "priced": null,
    "window": null
   }
  ],
  "providers": [
   {
    "slug": "taptap-send",
-   "decisions": 125,
-   "corridors": 41,
+   "decisions": 54,
+   "corridors": 22,
    "priced": {
-    "pricedDecisions": 98,
-    "medianGainVsMedianPct": 0.56,
-    "medianGainVsMedianPer1000": 5.57,
-    "totalVsMedianPer1000": 1183,
-    "shareAboveMedian": 0.969,
-    "shareTopPayer": 0.592,
-    "shareTop3": 0.857,
-    "medianOpportunityPct": 0.85,
-    "medianOpportunityPer1000": 8.45,
-    "bankDecisions": 72,
-    "medianVsBankPer1000": 33.08,
-    "totalVsBankPer1000": 2339
-   }
-  },
-  {
-   "slug": "wise",
-   "decisions": 77,
-   "corridors": 33,
-   "priced": {
-    "pricedDecisions": 25,
-    "medianGainVsMedianPct": 0.56,
-    "medianGainVsMedianPer1000": 5.63,
-    "totalVsMedianPer1000": 155,
-    "shareAboveMedian": 0.8,
-    "shareTopPayer": 0.08,
-    "shareTop3": 0.4,
-    "medianOpportunityPct": 1.26,
-    "medianOpportunityPer1000": 12.56,
-    "bankDecisions": 20,
-    "medianVsBankPer1000": 26.83,
-    "totalVsBankPer1000": 525
+    "pricedDecisions": 50,
+    "medianGainVsMedianPct": 0.49,
+    "medianGainVsMedianPer1000": 4.93,
+    "totalVsMedianPer1000": 478,
+    "shareAboveMedian": 0.96,
+    "shareTopPayer": 0.5,
+    "shareTop3": 0.76,
+    "medianOpportunityPct": 1.01,
+    "medianOpportunityPer1000": 10.14,
+    "bankDecisions": 39,
+    "medianVsBankPer1000": 32.36,
+    "totalVsBankPer1000": 1237
    }
   },
   {
    "slug": "instarem",
-   "decisions": 63,
-   "corridors": 16,
-   "priced": {
-    "pricedDecisions": 63,
-    "medianGainVsMedianPct": 1.18,
-    "medianGainVsMedianPer1000": 11.8,
-    "totalVsMedianPer1000": 639,
-    "shareAboveMedian": 0.937,
-    "shareTopPayer": 0.651,
-    "shareTop3": 0.921,
-    "medianOpportunityPct": 1.25,
-    "medianOpportunityPer1000": 12.55,
-    "bankDecisions": 50,
-    "medianVsBankPer1000": 31.84,
-    "totalVsBankPer1000": 1640
-   }
-  },
-  {
-   "slug": "unplex",
-   "decisions": 44,
-   "corridors": 6,
-   "priced": null
-  },
-  {
-   "slug": "xoom",
-   "decisions": 32,
-   "corridors": 9,
-   "priced": {
-    "pricedDecisions": 21,
-    "medianGainVsMedianPct": 0.91,
-    "medianGainVsMedianPer1000": 9.13,
-    "totalVsMedianPer1000": 116,
-    "shareAboveMedian": 0.714,
-    "shareTopPayer": 0.476,
-    "shareTop3": 0.714,
-    "medianOpportunityPct": 1.36,
-    "medianOpportunityPer1000": 13.57,
-    "bankDecisions": 16,
-    "medianVsBankPer1000": 34.4,
-    "totalVsBankPer1000": 497
-   }
-  },
-  {
-   "slug": "paysend",
-   "decisions": 30,
-   "corridors": 13,
-   "priced": {
-    "pricedDecisions": 28,
-    "medianGainVsMedianPct": 0.58,
-    "medianGainVsMedianPer1000": 5.81,
-    "totalVsMedianPer1000": 250,
-    "shareAboveMedian": 0.964,
-    "shareTopPayer": 0.679,
-    "shareTop3": 0.857,
-    "medianOpportunityPct": 0.69,
-    "medianOpportunityPer1000": 6.92,
-    "bankDecisions": 22,
-    "medianVsBankPer1000": 33.06,
-    "totalVsBankPer1000": 757
-   }
-  },
-  {
-   "slug": "regencyfx",
-   "decisions": 27,
-   "corridors": 25,
-   "priced": null
-  },
-  {
-   "slug": "lemfi",
    "decisions": 24,
-   "corridors": 14,
+   "corridors": 8,
    "priced": {
-    "pricedDecisions": 22,
-    "medianGainVsMedianPct": 0.6,
-    "medianGainVsMedianPer1000": 5.97,
-    "totalVsMedianPer1000": 172,
-    "shareAboveMedian": 0.909,
-    "shareTopPayer": 0.455,
-    "shareTop3": 0.636,
-    "medianOpportunityPct": 0.8,
-    "medianOpportunityPer1000": 7.95,
-    "bankDecisions": 11,
-    "medianVsBankPer1000": 32.34,
-    "totalVsBankPer1000": 349
+    "pricedDecisions": 24,
+    "medianGainVsMedianPct": 1.25,
+    "medianGainVsMedianPer1000": 12.55,
+    "totalVsMedianPer1000": 257,
+    "shareAboveMedian": 0.958,
+    "shareTopPayer": 0.667,
+    "shareTop3": 0.958,
+    "medianOpportunityPct": 1.29,
+    "medianOpportunityPer1000": 12.89,
+    "bankDecisions": 21,
+    "medianVsBankPer1000": 31.97,
+    "totalVsBankPer1000": 657
    }
   },
   {
-   "slug": "remitly",
-   "decisions": 22,
+   "slug": "wise",
+   "decisions": 18,
    "corridors": 13,
    "priced": {
-    "pricedDecisions": 20,
-    "medianGainVsMedianPct": 0.36,
-    "medianGainVsMedianPer1000": 3.6,
-    "totalVsMedianPer1000": 78,
-    "shareAboveMedian": 0.75,
-    "shareTopPayer": 0.2,
+    "pricedDecisions": 6,
+    "medianGainVsMedianPct": 1,
+    "medianGainVsMedianPer1000": 9.97,
+    "totalVsMedianPer1000": 61,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0,
     "shareTop3": 0.5,
-    "medianOpportunityPct": 0.75,
-    "medianOpportunityPer1000": 7.51,
-    "bankDecisions": 16,
-    "medianVsBankPer1000": 30.33,
-    "totalVsBankPer1000": 472
-   }
-  },
-  {
-   "slug": "western-union",
-   "decisions": 21,
-   "corridors": 10,
-   "priced": {
-    "pricedDecisions": 13,
-    "medianGainVsMedianPct": 0.6,
-    "medianGainVsMedianPer1000": 6.02,
-    "totalVsMedianPer1000": 63,
-    "shareAboveMedian": 0.846,
-    "shareTopPayer": 0.154,
-    "shareTop3": 0.538,
-    "medianOpportunityPct": 0.94,
-    "medianOpportunityPer1000": 9.45,
-    "bankDecisions": 12,
-    "medianVsBankPer1000": 30.39,
-    "totalVsBankPer1000": 373
+    "medianOpportunityPct": 1.69,
+    "medianOpportunityPer1000": 16.88,
+    "bankDecisions": 6,
+    "medianVsBankPer1000": 26.74,
+    "totalVsBankPer1000": 165
    }
   },
   {
    "slug": "currencyfair",
-   "decisions": 19,
+   "decisions": 12,
+   "corridors": 5,
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 0.14,
+    "medianGainVsMedianPer1000": 1.37,
+    "totalVsMedianPer1000": 3,
+    "shareAboveMedian": 0.5,
+    "shareTopPayer": 0,
+    "shareTop3": 0.5,
+    "medianOpportunityPct": 1.25,
+    "medianOpportunityPer1000": 12.48,
+    "bankDecisions": 2,
+    "medianVsBankPer1000": 21.25,
+    "totalVsBankPer1000": 43
+   }
+  },
+  {
+   "slug": "regencyfx",
+   "decisions": 12,
+   "corridors": 11,
+   "priced": null
+  },
+  {
+   "slug": "remitly",
+   "decisions": 11,
    "corridors": 7,
    "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": 0.48,
-    "medianGainVsMedianPer1000": 4.83,
-    "totalVsMedianPer1000": 10,
-    "shareAboveMedian": 0.667,
-    "shareTopPayer": 0,
-    "shareTop3": 0.333,
-    "medianOpportunityPct": 1.26,
-    "medianOpportunityPer1000": 12.56,
-    "bankDecisions": 3,
-    "medianVsBankPer1000": 24.29,
-    "totalVsBankPer1000": 76
-   }
-  },
-  {
-   "slug": "ria",
-   "decisions": 18,
-   "corridors": 14,
-   "priced": {
-    "pricedDecisions": 12,
+    "pricedDecisions": 11,
     "medianGainVsMedianPct": 0.43,
-    "medianGainVsMedianPer1000": 4.25,
-    "totalVsMedianPer1000": 207,
-    "shareAboveMedian": 0.75,
-    "shareTopPayer": 0.25,
-    "shareTop3": 0.417,
-    "medianOpportunityPct": 1.09,
-    "medianOpportunityPer1000": 10.91,
-    "bankDecisions": 7,
-    "medianVsBankPer1000": 22.75,
-    "totalVsBankPer1000": 171
+    "medianGainVsMedianPer1000": 4.3,
+    "totalVsMedianPer1000": 75,
+    "shareAboveMedian": 0.818,
+    "shareTopPayer": 0.182,
+    "shareTop3": 0.636,
+    "medianOpportunityPct": 0.69,
+    "medianOpportunityPer1000": 6.9,
+    "bankDecisions": 10,
+    "medianVsBankPer1000": 32.6,
+    "totalVsBankPer1000": 331
    }
   },
   {
-   "slug": "moneygram",
-   "decisions": 18,
-   "corridors": 8,
+   "slug": "paysend",
+   "decisions": 9,
+   "corridors": 7,
    "priced": {
-    "pricedDecisions": 17,
-    "medianGainVsMedianPct": 0.54,
-    "medianGainVsMedianPer1000": 5.42,
-    "totalVsMedianPer1000": 46,
-    "shareAboveMedian": 0.765,
-    "shareTopPayer": 0.529,
-    "shareTop3": 0.588,
-    "medianOpportunityPct": 0.61,
-    "medianOpportunityPer1000": 6.14,
-    "bankDecisions": 12,
-    "medianVsBankPer1000": 40.57,
-    "totalVsBankPer1000": 434
-   }
-  },
-  {
-   "slug": "worldremit",
-   "decisions": 16,
-   "corridors": 13,
-   "priced": {
-    "pricedDecisions": 15,
-    "medianGainVsMedianPct": 0.46,
-    "medianGainVsMedianPer1000": 4.58,
-    "totalVsMedianPer1000": 72,
-    "shareAboveMedian": 0.6,
-    "shareTopPayer": 0.267,
-    "shareTop3": 0.533,
-    "medianOpportunityPct": 0.86,
-    "medianOpportunityPer1000": 8.59,
-    "bankDecisions": 13,
-    "medianVsBankPer1000": 30.07,
-    "totalVsBankPer1000": 395
+    "pricedDecisions": 9,
+    "medianGainVsMedianPct": 0.44,
+    "medianGainVsMedianPer1000": 4.39,
+    "totalVsMedianPer1000": 57,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0.444,
+    "shareTop3": 0.667,
+    "medianOpportunityPct": 0.67,
+    "medianOpportunityPer1000": 6.74,
+    "bankDecisions": 8,
+    "medianVsBankPer1000": 31.78,
+    "totalVsBankPer1000": 274
    }
   },
   {
    "slug": "revolut",
-   "decisions": 12,
-   "corridors": 10,
+   "decisions": 9,
+   "corridors": 7,
    "priced": {
-    "pricedDecisions": 12,
-    "medianGainVsMedianPct": 0.58,
-    "medianGainVsMedianPer1000": 5.8,
-    "totalVsMedianPer1000": 82,
-    "shareAboveMedian": 0.917,
-    "shareTopPayer": 0.167,
+    "pricedDecisions": 9,
+    "medianGainVsMedianPct": 0.62,
+    "medianGainVsMedianPer1000": 6.24,
+    "totalVsMedianPer1000": 63,
+    "shareAboveMedian": 0.889,
+    "shareTopPayer": 0.111,
     "shareTop3": 0.667,
-    "medianOpportunityPct": 1.13,
-    "medianOpportunityPer1000": 11.25,
-    "bankDecisions": 12,
-    "medianVsBankPer1000": 29.94,
-    "totalVsBankPer1000": 352
+    "medianOpportunityPct": 1.21,
+    "medianOpportunityPer1000": 12.13,
+    "bankDecisions": 9,
+    "medianVsBankPer1000": 29.96,
+    "totalVsBankPer1000": 255
    }
   },
   {
-   "slug": "xe",
-   "decisions": 7,
-   "corridors": 5,
+   "slug": "worldremit",
+   "decisions": 8,
+   "corridors": 8,
    "priced": {
-    "pricedDecisions": 6,
-    "medianGainVsMedianPct": 0.19,
-    "medianGainVsMedianPer1000": 1.85,
-    "totalVsMedianPer1000": 16,
-    "shareAboveMedian": 0.833,
-    "shareTopPayer": 0,
-    "shareTop3": 0.167,
-    "medianOpportunityPct": 0.66,
-    "medianOpportunityPer1000": 6.62,
-    "bankDecisions": 6,
-    "medianVsBankPer1000": 33.2,
-    "totalVsBankPer1000": 195
+    "pricedDecisions": 8,
+    "medianGainVsMedianPct": 0.86,
+    "medianGainVsMedianPer1000": 8.63,
+    "totalVsMedianPer1000": 58,
+    "shareAboveMedian": 0.75,
+    "shareTopPayer": 0.375,
+    "shareTop3": 0.625,
+    "medianOpportunityPct": 1.14,
+    "medianOpportunityPer1000": 11.39,
+    "bankDecisions": 8,
+    "medianVsBankPer1000": 28.31,
+    "totalVsBankPer1000": 227
    }
   },
   {
-   "slug": "ofx",
+   "slug": "lemfi",
+   "decisions": 7,
+   "corridors": 4,
+   "priced": {
+    "pricedDecisions": 7,
+    "medianGainVsMedianPct": 0.46,
+    "medianGainVsMedianPer1000": 4.6,
+    "totalVsMedianPer1000": 56,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0.571,
+    "shareTop3": 0.714,
+    "medianOpportunityPct": 0.63,
+    "medianOpportunityPer1000": 6.3,
+    "bankDecisions": 6,
+    "medianVsBankPer1000": 32.51,
+    "totalVsBankPer1000": 184
+   }
+  },
+  {
+   "slug": "moneygram",
    "decisions": 6,
    "corridors": 5,
    "priced": {
-    "pricedDecisions": 4,
-    "medianGainVsMedianPct": -3.86,
-    "medianGainVsMedianPer1000": -38.56,
-    "totalVsMedianPer1000": -134,
-    "shareAboveMedian": 0,
-    "shareTopPayer": 0,
-    "shareTop3": 0,
-    "medianOpportunityPct": 0.67,
-    "medianOpportunityPer1000": 6.73,
+    "pricedDecisions": 5,
+    "medianGainVsMedianPct": 0,
+    "medianGainVsMedianPer1000": 0,
+    "totalVsMedianPer1000": -5,
+    "shareAboveMedian": 0.4,
+    "shareTopPayer": 0.2,
+    "shareTop3": 0.2,
+    "medianOpportunityPct": 0.48,
+    "medianOpportunityPer1000": 4.83,
     "bankDecisions": 3,
-    "medianVsBankPer1000": -13.16,
-    "totalVsBankPer1000": -24
+    "medianVsBankPer1000": 22.45,
+    "totalVsBankPer1000": 92
    }
   },
   {
@@ -3559,192 +1830,117 @@
    }
   },
   {
-   "slug": "transfergo",
+   "slug": "western-union",
    "decisions": 4,
    "corridors": 3,
    "priced": {
     "pricedDecisions": 4,
-    "medianGainVsMedianPct": 0.71,
-    "medianGainVsMedianPer1000": 7.09,
-    "totalVsMedianPer1000": 31,
+    "medianGainVsMedianPct": 0.17,
+    "medianGainVsMedianPer1000": 1.7,
+    "totalVsMedianPer1000": 3,
+    "shareAboveMedian": 0.5,
+    "shareTopPayer": 0,
+    "shareTop3": 0.25,
+    "medianOpportunityPct": 0.88,
+    "medianOpportunityPer1000": 8.8,
+    "bankDecisions": 3,
+    "medianVsBankPer1000": 31.23,
+    "totalVsBankPer1000": 93
+   }
+  },
+  {
+   "slug": "xoom",
+   "decisions": 3,
+   "corridors": 3,
+   "priced": {
+    "pricedDecisions": 3,
+    "medianGainVsMedianPct": -1.18,
+    "medianGainVsMedianPer1000": -11.8,
+    "totalVsMedianPer1000": -29,
+    "shareAboveMedian": 0.333,
+    "shareTopPayer": 0,
+    "shareTop3": 0.333,
+    "medianOpportunityPct": 0.64,
+    "medianOpportunityPer1000": 6.35,
+    "bankDecisions": 3,
+    "medianVsBankPer1000": 32.07,
+    "totalVsBankPer1000": 61
+   }
+  },
+  {
+   "slug": "transfergo",
+   "decisions": 3,
+   "corridors": 2,
+   "priced": {
+    "pricedDecisions": 3,
+    "medianGainVsMedianPct": 0.66,
+    "medianGainVsMedianPer1000": 6.56,
+    "totalVsMedianPer1000": 20,
     "shareAboveMedian": 1,
-    "shareTopPayer": 0.75,
+    "shareTopPayer": 0.667,
     "shareTop3": 1,
-    "medianOpportunityPct": 0.8,
-    "medianOpportunityPer1000": 7.97,
+    "medianOpportunityPct": 0.67,
+    "medianOpportunityPer1000": 6.74,
     "bankDecisions": 3,
     "medianVsBankPer1000": 32.05,
     "totalVsBankPer1000": 110
    }
   },
   {
-   "slug": "profee",
-   "decisions": 3,
-   "corridors": 3,
-   "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": 1.96,
-    "medianGainVsMedianPer1000": 19.64,
-    "totalVsMedianPer1000": 58,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.667,
-    "shareTop3": 1,
-    "medianOpportunityPct": 1.96,
-    "medianOpportunityPer1000": 19.64,
-    "bankDecisions": 3,
-    "medianVsBankPer1000": 54.05,
-    "totalVsBankPer1000": 165
-   }
-  },
-  {
-   "slug": "sendwave",
-   "decisions": 3,
+   "slug": "ofx",
+   "decisions": 2,
    "corridors": 2,
    "priced": {
-    "pricedDecisions": 3,
-    "medianGainVsMedianPct": 1.17,
-    "medianGainVsMedianPer1000": 11.75,
-    "totalVsMedianPer1000": 28,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0.667,
-    "shareTop3": 0.667,
-    "medianOpportunityPct": 1.23,
-    "medianOpportunityPer1000": 12.32,
-    "bankDecisions": 1,
-    "medianVsBankPer1000": 24.66,
-    "totalVsBankPer1000": 25
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": -2.78,
+    "medianGainVsMedianPer1000": -27.77,
+    "totalVsMedianPer1000": -56,
+    "shareAboveMedian": 0,
+    "shareTopPayer": 0,
+    "shareTop3": 0,
+    "medianOpportunityPct": 0.95,
+    "medianOpportunityPer1000": 9.45,
+    "bankDecisions": 2,
+    "medianVsBankPer1000": -4.92,
+    "totalVsBankPer1000": -10
    }
   },
   {
-   "slug": "xpat",
+   "slug": "ria",
    "decisions": 2,
-   "corridors": 1,
-   "priced": null
-  },
-  {
-   "slug": "currencies-direct",
-   "decisions": 2,
-   "corridors": 1,
+   "corridors": 2,
    "priced": {
     "pricedDecisions": 2,
-    "medianGainVsMedianPct": -0.23,
-    "medianGainVsMedianPer1000": -2.31,
-    "totalVsMedianPer1000": -5,
-    "shareAboveMedian": 0,
-    "shareTopPayer": 0,
-    "shareTop3": 0,
-    "medianOpportunityPct": 1.92,
-    "medianOpportunityPer1000": 19.15,
-    "bankDecisions": 2,
-    "medianVsBankPer1000": 9.23,
-    "totalVsBankPer1000": 18
-   }
-  },
-  {
-   "slug": "westpac",
-   "decisions": 1,
-   "corridors": 1,
-   "priced": null
-  },
-  {
-   "slug": "mukuru",
-   "decisions": 1,
-   "corridors": 1,
-   "priced": null
-  },
-  {
-   "slug": "paypal",
-   "decisions": 1,
-   "corridors": 1,
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": -2.54,
-    "medianGainVsMedianPer1000": -25.41,
-    "totalVsMedianPer1000": -25,
-    "shareAboveMedian": 0,
-    "shareTopPayer": 0,
-    "shareTop3": 0,
-    "medianOpportunityPct": 2.16,
-    "medianOpportunityPer1000": 21.56,
-    "bankDecisions": 1,
-    "medianVsBankPer1000": -18.61,
-    "totalVsBankPer1000": -19
-   }
-  },
-  {
-   "slug": "dahabshiil",
-   "decisions": 1,
-   "corridors": 1,
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": 0.15,
-    "medianGainVsMedianPer1000": 1.54,
-    "totalVsMedianPer1000": 2,
-    "shareAboveMedian": 1,
-    "shareTopPayer": 0,
-    "shareTop3": 1,
-    "medianOpportunityPct": 0.61,
-    "medianOpportunityPer1000": 6.14,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
-   }
-  },
-  {
-   "slug": "chase",
-   "decisions": 1,
-   "corridors": 1,
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": -3.49,
-    "medianGainVsMedianPer1000": -34.85,
-    "totalVsMedianPer1000": -35,
-    "shareAboveMedian": 0,
-    "shareTopPayer": 0,
-    "shareTop3": 0,
-    "medianOpportunityPct": 1.53,
-    "medianOpportunityPer1000": 15.28,
-    "bankDecisions": 1,
-    "medianVsBankPer1000": -2.24,
-    "totalVsBankPer1000": -2
-   }
-  },
-  {
-   "slug": "hdfc-bank",
-   "decisions": 1,
-   "corridors": 1,
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": -1.25,
-    "medianGainVsMedianPer1000": -12.54,
-    "totalVsMedianPer1000": -13,
-    "shareAboveMedian": 0,
-    "shareTopPayer": 0,
-    "shareTop3": 0,
-    "medianOpportunityPct": 0.71,
-    "medianOpportunityPer1000": 7.11,
-    "bankDecisions": 1,
-    "medianVsBankPer1000": 14.42,
-    "totalVsBankPer1000": 14
-   }
-  },
-  {
-   "slug": "wells-fargo",
-   "decisions": 1,
-   "corridors": 1,
-   "priced": {
-    "pricedDecisions": 1,
-    "medianGainVsMedianPct": -0.87,
-    "medianGainVsMedianPer1000": -8.74,
-    "totalVsMedianPer1000": -9,
+    "medianGainVsMedianPct": -0.57,
+    "medianGainVsMedianPer1000": -5.66,
+    "totalVsMedianPer1000": -11,
     "shareAboveMedian": 0,
     "shareTopPayer": 0,
     "shareTop3": 0,
     "medianOpportunityPct": 1,
-    "medianOpportunityPer1000": 10.04,
-    "bankDecisions": 0,
-    "medianVsBankPer1000": null,
-    "totalVsBankPer1000": null
+    "medianOpportunityPer1000": 9.98,
+    "bankDecisions": 1,
+    "medianVsBankPer1000": 17.04,
+    "totalVsBankPer1000": 17
+   }
+  },
+  {
+   "slug": "xe",
+   "decisions": 2,
+   "corridors": 2,
+   "priced": {
+    "pricedDecisions": 2,
+    "medianGainVsMedianPct": 0.08,
+    "medianGainVsMedianPer1000": 0.8,
+    "totalVsMedianPer1000": 2,
+    "shareAboveMedian": 0.5,
+    "shareTopPayer": 0,
+    "shareTop3": 0,
+    "medianOpportunityPct": 1.02,
+    "medianOpportunityPer1000": 10.19,
+    "bankDecisions": 2,
+    "medianVsBankPer1000": 30.27,
+    "totalVsBankPer1000": 61
    }
   },
   {
@@ -3790,6 +1986,25 @@
     "medianVsBankPer1000": 6.83,
     "totalVsBankPer1000": 7
    }
+  },
+  {
+   "slug": "sendwave",
+   "decisions": 1,
+   "corridors": 1,
+   "priced": {
+    "pricedDecisions": 1,
+    "medianGainVsMedianPct": 0.42,
+    "medianGainVsMedianPer1000": 4.23,
+    "totalVsMedianPer1000": 4,
+    "shareAboveMedian": 1,
+    "shareTopPayer": 0,
+    "shareTop3": 0,
+    "medianOpportunityPct": 1.26,
+    "medianOpportunityPer1000": 12.56,
+    "bankDecisions": 1,
+    "medianVsBankPer1000": 24.66,
+    "totalVsBankPer1000": 25
+   }
   }
  ],
  "monthlyUsers": [
@@ -3820,87 +2035,79 @@
   [
    "2026-09",
    174
-  ],
-  [
-   "2026-10",
-   12
   ]
  ],
  "channelUsers": {
-  "bing": 223,
-  "aiAssistants": 183,
-  "unattributed": 138,
-  "direct": 108,
-  "yahoo": 63,
-  "duckduckgo": 54,
-  "google": 17,
-  "referral": 13,
-  "otherSearch": 11,
-  "social": 11
+  "bing": 87,
+  "aiAssistants": 27,
+  "direct": 20,
+  "yahoo": 16,
+  "duckduckgo": 13,
+  "unattributed": 9,
+  "google": 5,
+  "referral": 5,
+  "otherSearch": 1,
+  "social": 1
  },
  "countryUsers": [
   [
    "United States",
-   353
+   88
   ],
   [
    "India",
-   60
-  ],
-  [
-   "United Kingdom",
-   39
+   16
   ],
   [
    "Canada",
-   39
-  ],
-  [
-   "United Arab Emirates",
-   33
-  ],
-  [
-   "Saudi Arabia",
-   33
-  ],
-  [
-   "Pakistan",
-   18
-  ],
-  [
-   "Mexico",
    15
   ],
   [
-   "Australia",
-   13
+   "United Kingdom",
+   8
   ],
   [
-   "Philippines",
-   10
-  ],
-  [
-   "Nigeria",
-   10
+   "Saudi Arabia",
+   7
   ],
   [
    "Kenya",
-   6
+   3
   ],
   [
-   "Thailand",
-   6
+   "Mexico",
+   3
   ],
   [
-   "Bangladesh",
-   5
+   "Nigeria",
+   3
+  ],
+  [
+   "Philippines",
+   3
+  ],
+  [
+   "Germany",
+   2
+  ],
+  [
+   "Japan",
+   2
   ],
   [
    "Netherlands",
-   5
+   2
+  ],
+  [
+   "Pakistan",
+   2
+  ],
+  [
+   "United Arab Emirates",
+   2
   ]
  ],
- "countryCount": 77,
+ "countryCount": 32,
  "searchQueries": [
   [
    "compare money transfer rates",
