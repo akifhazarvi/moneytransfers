@@ -19836,16 +19836,16 @@
     "date": "2026-10-03",
     "providers": {
       "instarem": {
-        "rate": 66.964,
+        "rate": 66.9305,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 6696.4
+        "markup": 0.05,
+        "receiveAmount": 6693.05
       },
       "lemfi": {
-        "rate": 66.73,
+        "rate": 67.18,
         "fee": 0,
-        "markup": 0.26,
-        "receiveAmount": 6673
+        "markup": -0.48,
+        "receiveAmount": 6718
       },
       "moneygram": {
         "rate": 66.4096,
