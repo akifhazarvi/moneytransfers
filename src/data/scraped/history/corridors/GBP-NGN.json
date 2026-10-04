@@ -17743,7 +17743,7 @@
       "moneygram": {
         "rate": 1780.44,
         "fee": 0.99,
-        "markup": -1.1,
+        "markup": -1.04,
         "receiveAmount": 176281.21
       },
       "taptap-send": {
@@ -17759,33 +17759,33 @@
         "receiveAmount": 170331.68
       },
       "transfergo": {
-        "rate": 1787.49,
+        "rate": 1782.01,
         "fee": 0,
-        "markup": -1.5,
-        "receiveAmount": 178749.45
+        "markup": -1.13,
+        "receiveAmount": 178200.69
       },
       "worldremit": {
         "rate": 1782.64,
         "fee": 0.99,
-        "markup": -1.22,
+        "markup": -1.16,
         "receiveAmount": 176499.11
       },
       "mukuru": {
         "rate": 1762.75,
         "fee": 0,
-        "markup": -0.09,
+        "markup": -0.03,
         "receiveAmount": 176275
       },
       "paysend": {
-        "rate": 1766.46,
+        "rate": 1766.56,
         "fee": 0,
-        "markup": -0.3,
-        "receiveAmount": 176646.36
+        "markup": -0.25,
+        "receiveAmount": 176655.79
       },
       "sendwave": {
         "rate": 1782.64,
         "fee": 0.99,
-        "markup": -1.22,
+        "markup": -1.16,
         "receiveAmount": 176499.11
       },
       "remitly": {
@@ -17805,6 +17805,12 @@
         "fee": 1.16,
         "markup": -0.78,
         "receiveAmount": 175501.29
+      },
+      "dahabshiil": {
+        "rate": 1786.51,
+        "fee": 1.99,
+        "markup": -1.38,
+        "receiveAmount": 175095.64
       }
     }
   }

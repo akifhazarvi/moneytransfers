@@ -21451,7 +21451,7 @@
       "moneygram": {
         "rate": 43.1,
         "fee": 0.99,
-        "markup": 0.87,
+        "markup": 0.95,
         "receiveAmount": 4267.33
       },
       "western-union": {
@@ -21463,25 +21463,25 @@
       "currencyfair": {
         "rate": 43.285,
         "fee": 1.85,
-        "markup": 0.44,
+        "markup": 0.53,
         "receiveAmount": 4248.42
       },
       "xe": {
-        "rate": 43.1762,
-        "fee": 5,
-        "markup": 0.69,
-        "receiveAmount": 4101.74
+        "rate": 43.198,
+        "fee": 1.99,
+        "markup": 0.73,
+        "receiveAmount": 4233.83
       },
       "paysend": {
         "rate": 42.7455,
         "fee": 2.9,
-        "markup": 1.69,
+        "markup": 1.77,
         "receiveAmount": 4150.59
       },
       "singx": {
         "rate": 43.3197,
         "fee": 6,
-        "markup": 0.36,
+        "markup": 0.45,
         "receiveAmount": 4072.05
       },
       "remitly": {
@@ -21493,7 +21493,7 @@
       "revolut": {
         "rate": 43.2794,
         "fee": 1.41,
-        "markup": 0.46,
+        "markup": 0.54,
         "receiveAmount": 4266.91
       },
       "wise": {
@@ -21543,6 +21543,12 @@
         "fee": 0,
         "markup": 2.1,
         "receiveAmount": 4258.56
+      },
+      "skrill": {
+        "rate": 41.4427,
+        "fee": 0,
+        "markup": 4.76,
+        "receiveAmount": 4144.27
       }
     }
   }
