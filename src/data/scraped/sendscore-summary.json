@@ -5,10 +5,10 @@
   "singleProviderReadings": 797,
   "bands": {
     "exceptional": 13,
-    "great": 56,
-    "good": 53,
-    "typical": 30,
-    "poor": 54
+    "great": 57,
+    "good": 52,
+    "typical": 28,
+    "poor": 56
   },
   "goodOrBetterPct": 59,
   "confidence": {
@@ -20,10 +20,10 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 77,
+      "score": 76,
       "band": "great",
       "headline": "Great time to send",
-      "explanation": "Best rate +0.69% vs the 30-day average, 83% up the 90-day range. Rates are improving — +0.30% week on week. Today's best beats the median provider by +1.98%.",
+      "explanation": "Best rate +0.69% vs the 30-day average, 83% up the 90-day range. Rates are improving — +0.30% week on week. Today's best beats the median provider by +1.90%.",
       "components": [
         {
           "key": "range",
@@ -43,8 +43,8 @@
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 99.25048542042019,
-          "detail": "today's best beats the median provider by +1.98%"
+          "score": 96.56515210759257,
+          "detail": "today's best beats the median provider by +1.90%"
         },
         {
           "key": "trend",

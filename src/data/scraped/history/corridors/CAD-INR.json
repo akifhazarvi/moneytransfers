@@ -18605,10 +18605,10 @@
     "date": "2026-10-04",
     "providers": {
       "instarem": {
-        "rate": 67.4656,
+        "rate": 67.4136,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 6746.56
+        "receiveAmount": 6741.36
       },
       "moneygram": {
         "rate": 66.9254,
@@ -18623,10 +18623,10 @@
         "receiveAmount": 6496.21
       },
       "western-union": {
-        "rate": 67.3977,
+        "rate": 67.35,
         "fee": 1.99,
-        "markup": 0.16,
-        "receiveAmount": 6605.65
+        "markup": 0.23,
+        "receiveAmount": 6600.98
       },
       "dahabshiil": {
         "rate": 66.6108,
@@ -18647,10 +18647,10 @@
         "receiveAmount": 6671.57
       },
       "remitly": {
-        "rate": 67.27,
+        "rate": 67.22,
         "fee": 1.99,
-        "markup": 0.35,
-        "receiveAmount": 6593.13
+        "markup": 0.42,
+        "receiveAmount": 6588.23
       },
       "ria": {
         "rate": 67.0339,
@@ -18665,28 +18665,28 @@
         "receiveAmount": 6630.38
       },
       "bmo": {
-        "rate": 65.7066,
+        "rate": 65.6321,
         "fee": 0,
-        "markup": 2.66,
-        "receiveAmount": 6570.66
+        "markup": 2.77,
+        "receiveAmount": 6563.21
       },
       "td-bank": {
-        "rate": 65.3509,
+        "rate": 65.126,
         "fee": 0,
-        "markup": 3.19,
-        "receiveAmount": 6535.09
+        "markup": 3.52,
+        "receiveAmount": 6512.6
       },
       "rbc": {
-        "rate": 65.3595,
+        "rate": 65.3132,
         "fee": 0,
-        "markup": 3.18,
-        "receiveAmount": 6535.95
+        "markup": 3.25,
+        "receiveAmount": 6531.32
       },
       "wise": {
-        "rate": 67.4668,
-        "fee": 2.58,
-        "markup": 0.06,
-        "receiveAmount": 6572.62
+        "rate": 67.5264,
+        "fee": 2.57,
+        "markup": -0.03,
+        "receiveAmount": 6579.1
       }
     }
   }
