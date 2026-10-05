@@ -375,36 +375,38 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
         <section aria-label="The short answer" className="mt-8 rounded-3xl bg-[#123f2e] p-6 text-white sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#bfe3cf]">The short answer</p>
           <p className="mt-3 max-w-2xl text-lg leading-relaxed sm:text-xl">
-            Your starting provider makes the difference. In our sample, the gap to banks was larger than the gap to the median provider.
+            Comparing is worth tens of dollars on every $1,000 you send, and most of it is the gap to your bank.
           </p>
           <dl className="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-8">
             <div className="border-t border-white/20 pt-5">
-              <dt className="text-sm font-semibold text-[#bfe3cf]">Against the median bank quote</dt>
+              <dt className="text-sm font-semibold text-[#bfe3cf]">If you send through a bank</dt>
               <dd className="mt-2">
                 <span className="block text-5xl font-semibold tracking-tight tabular-nums sm:text-6xl">
                   {usd(T.medianVsBankPer1000 ?? 0, 2)}
                 </span>
                 <span className="mt-2 block text-sm leading-relaxed text-white/85">
-                  median payout advantage per normalized $1,000 for the provider our readers chose: same route, same day, after fees.
+                  more per $1,000 reached the recipient through the provider our readers chose than through the median
+                  bank quote: same route, same day, after fees.
                 </span>
               </dd>
             </div>
             <div className="border-t border-white/20 pt-5">
-              <dt className="text-sm font-semibold text-[#bfe3cf]">Against the median provider quote</dt>
+              <dt className="text-sm font-semibold text-[#bfe3cf]">Against a mid-table quote</dt>
               <dd className="mt-2">
                 <span className="block text-5xl font-semibold tracking-tight tabular-nums sm:text-6xl">
                   {usd(T.medianOpportunityPer1000, 2)}
                 </span>
                 <span className="mt-2 block text-sm leading-relaxed text-white/85">
-                  median payout advantage per normalized $1,000 from the day&rsquo;s top payer. The median includes all quoted providers, including banks.
+                  more per $1,000 from the day&rsquo;s top payer than from the median quote on the same route, banks
+                  included.
                 </span>
               </dd>
             </div>
           </dl>
           <div className="mt-7 flex flex-col gap-4 rounded-2xl bg-white/10 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
             <p className="text-sm leading-relaxed text-white/90">
-              On a normalized $1,000 monthly transfer, repeating that bank gap would be about{" "}
-              <strong className="text-white">{usd(bankYear)}{" "}a year</strong>. That is a scenario, not a forecast.
+              Sending $1,000 home every month through a bank? At {period}&rsquo;s median gap, about{" "}
+              <strong className="text-white">{usd(bankYear)}{" "}a year</strong> more would reach your family.
             </p>
             <a
               href="#price-your-transfer"
@@ -711,13 +713,14 @@ export default async function HowMuchCanYouSavePage({ params }: { params: Promis
             </li>
           </ul>
           <p>
-            <strong className="text-[var(--color-on-surface)]">Limits.</strong> Dollar figures multiply a relative payout difference by 1,000; they are not a currency conversion of the extra recipient amount. Reference quotes are the available amount nearest US$1,000, not necessarily exactly US$1,000. Overall medians are weighted by reader choices; route findings use daily medians. Our readers are a self-selected sample, not a representative sample of all senders. {" "} A click is not a transfer: we do not know
+            <strong className="text-[var(--color-on-surface)]">Limits.</strong> A click is not a transfer: we do not know
             who went on to send, or how much. Analytics undercounts people who block tracking or decline cookies. A
             figure per $1,000 restates a percentage gap on a $1,000 basis; it is not a recorded transfer, and not an FX
             conversion of the extra the recipient gets. The reference quote can be anywhere from US$
             {rs.method.referenceRangeUsd[0]}{" "}to US${nf(rs.method.referenceRangeUsd[1])}{" "}equivalent, where a flat
             fee weighs differently than at exactly $1,000. Our readers chose to compare, so the sample describes people
-            who compare, not everyone who sends money abroad.
+            who compare, not everyone who sends money abroad. Overall medians are weighted by reader choices; the
+            corridor table uses daily medians.
           </p>
         </div>
 
