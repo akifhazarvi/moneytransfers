@@ -178,7 +178,7 @@ export const REVIEWED_INDEXABLE_ROUTES: ReadonlySet<string> = new Set<string>([
   "/iban/spain",
   "/iban/timor-leste",
   "/iban/vatican-city",
-  // news (18)
+  // news (17) — western-union-ceo-digital-competition-2026 retired 2026-10-05 (410, src/lib/gone-news.ts)
   "/news/absa-thunes-global-pay-africa-remittances",
   "/news/fednow-cross-border-payments-2026",
   "/news/gcash-free-middle-east-transfers-philippines-ofw-2026",
@@ -195,7 +195,6 @@ export const REVIEWED_INDEXABLE_ROUTES: ReadonlySet<string> = new Set<string>([
   "/news/rwanda-launches-national-fintech-centre-2026",
   "/news/stripe-paypal-acquisition-talks-2026",
   "/news/us-remittance-tax-3-months-behavioral-shift-2026",
-  "/news/western-union-ceo-digital-competition-2026",
   "/news/world-bank-remittance-costs-q1-2026",
   // send-money (28)
   "/send-money/aud-to-bdt",

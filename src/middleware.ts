@@ -9,6 +9,7 @@ import { GONE_CORRIDOR_SLUGS, DUPLICATE_CORRIDOR_REDIRECTS } from "./lib/gone-co
 import { GONE_SWIFT_SLUGS } from "./lib/gone-swift";
 import { GONE_RATE_PAIR_SLUGS } from "./lib/gone-rate-pairs";
 import { GONE_COMPANY_SLUGS } from "./lib/gone-companies";
+import { GONE_NEWS_SLUGS } from "./lib/gone-news";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -180,6 +181,12 @@ export default function middleware(request: NextRequest) {
   // the two blocks above. See src/lib/gone-companies.ts.
   const goneCompany = request.nextUrl.pathname.match(/^\/companies\/([a-z0-9-]+)$/);
   if (goneCompany && GONE_COMPANY_SLUGS.has(goneCompany[1])) {
+    return new NextResponse("Gone", { status: 410 });
+  }
+
+  // 410 Gone for retired news items. See src/lib/gone-news.ts.
+  const goneNews = request.nextUrl.pathname.match(/^\/news\/([a-zA-Z0-9-]+)$/);
+  if (goneNews && GONE_NEWS_SLUGS.has(goneNews[1])) {
     return new NextResponse("Gone", { status: 410 });
   }
 

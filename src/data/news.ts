@@ -134,33 +134,6 @@ export const newsItems: NewsItem[] = [
     providerSlugs: ["revolut"],
   },
   {
-    slug: "western-union-ceo-digital-competition-2026",
-    title: "Western Union CEO Concedes Ground to Digital Rivals",
-    excerpt:
-      "At an investor conference this week, Devin McGranahan acknowledged that Wise and Remitly are winning on customer growth, while defending Western Union's profitability and agent network.",
-    image: "/images/news/western-union-competition.jpg",
-    imageAlt: "Business professionals shaking hands over a contract, representing competitive dynamics in the money transfer industry",
-    content: `<p>It's rare for the CEO of a 170-year-old financial institution to publicly concede competitive ground. But that's exactly what <a href="/companies/western-union">Western Union</a>'s Devin McGranahan did at the Wolfe Research investor conference on March 14, offering a candid assessment of where the money transfer giant stands against a new generation of digital-first rivals.</p>
-
-<h2>The candid admission</h2>
-<p>"Are they growing customer counts faster than us in certain digital corridors? Yes," McGranahan told analysts, referencing <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> by name. "But customer count growth and sustainable, profitable growth are different conversations." If you're weighing the two, our <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a> breaks down the real differences.</p>
-
-<p>His argument centres on unit economics. Western Union, despite losing digital market share, remains enormously profitable: the company generated over $4 billion in revenue in 2025 with operating margins above 20%. Digital-first competitors, by contrast, have been spending heavily on customer acquisition — Remitly's sales and marketing costs topped $350 million last year — and several are still working toward consistent profitability.</p>
-
-<h2>The agent network advantage</h2>
-<p>McGranahan also emphasised Western Union's physical infrastructure: over 500,000 agent locations worldwide. "There are corridors and customer segments where cash-in and cash-out aren't going away anytime soon," he said. In sub-Saharan Africa, for instance, cash pickup remains the dominant delivery method for remittances, and Western Union's agent density in the region is unmatched.</p>
-
-<h2>What this means for consumers</h2>
-<p>The competitive tension between legacy operators and digital challengers is driving better outcomes for customers across the board. Western Union has been steadily lowering digital fees, Wise continues to compress margins, and Remitly's promotional offers (currently <a href="/companies/remitly">$25 off your first transfer</a>) reflect the intensity of the battle for market share.</p>
-
-<p>Our advice? Let the providers compete for your business. Our guide to the <a href="/guides/best-money-transfer-services">best money transfer services</a> ranks the top options side by side, and the <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report shows where the industry is heading. Use our <a href="/send-money">comparison tool</a> to check real-time rates and fees before every transfer — the cheapest option varies by corridor, amount, and delivery method.</p>`,
-    category: "Industry News",
-    publishedAt: "2026-03-14",
-    source: "Payments Dive / Wolfe Research conference coverage",
-    sourceUrl: "https://www.paymentsdive.com/news/western-union-digital-competition/",
-    providerSlugs: ["western-union", "wise", "remitly"],
-  },
-  {
     slug: "stripe-paypal-acquisition-talks-2026",
     title: "Stripe Reportedly Exploring PayPal Acquisition in Landmark Fintech Deal",
     excerpt:
@@ -624,7 +597,7 @@ export const newsItems: NewsItem[] = [
 <h2>Winners and losers</h2>
 <p>The clear winners are digital-first providers. <a href="/companies/remitly">Remitly</a> reports that Mexico is now its fastest-growing corridor by transaction count. <a href="/companies/wise">Wise</a> offers the mid-market exchange rate with 0% markup on this corridor — a real advantage, though the measured total-cost leader here is someone else: {{CORRIDOR_LEADER:USD:MXN}}.</p>
 
-<p>The losers are traditional agent networks. <a href="/companies/western-union">Western Union</a>, whose CEO recently <a href="/news/western-union-ceo-digital-competition-2026">acknowledged losing ground to digital rivals</a>, still operates thousands of agent locations across Mexico but is seeing digital transactions grow 3x faster than in-person visits. <a href="/companies/moneygram">MoneyGram</a> faces similar pressure.</p>
+<p>The losers are traditional agent networks. <a href="/companies/western-union">Western Union</a> still operates thousands of agent locations across Mexico but is seeing digital transactions grow 3x faster than in-person visits. <a href="/companies/moneygram">MoneyGram</a> faces similar pressure.</p>
 
 <p>That said, cash isn't dead yet. Roughly 10 million Mexican households still lack reliable banking access, and cash pickup remains essential for remittances to rural areas. But the trajectory is clear: digital is becoming the default.</p>
 
