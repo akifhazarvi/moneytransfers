@@ -6,11 +6,11 @@
   "bands": {
     "exceptional": 16,
     "great": 60,
-    "good": 45,
-    "typical": 26,
+    "good": 46,
+    "typical": 25,
     "poor": 57
   },
-  "goodOrBetterPct": 59,
+  "goodOrBetterPct": 60,
   "confidence": {
     "high": 204,
     "medium": 0,
@@ -23,34 +23,34 @@
       "score": 75,
       "band": "great",
       "headline": "Great time to send",
-      "explanation": "Best rate +0.58% vs the 30-day average, 81% up the 90-day range. Rates are improving — +0.38% week on week. Today's best beats the median provider by +1.85%.",
+      "explanation": "Best rate +0.61% vs the 30-day average, 82% up the 90-day range. Rates are improving — +0.38% week on week. Today's best beats the median provider by +1.82%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 80.53305579437962,
-          "detail": "81% up the 90-day range"
+          "score": 81.89510837594449,
+          "detail": "82% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 59.70935662237665,
-          "detail": "+0.58% vs the 30-day average"
+          "score": 60.217286799963084,
+          "detail": "+0.61% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 94.8034824368155,
-          "detail": "today's best beats the median provider by +1.85%"
+          "score": 93.58238574390596,
+          "detail": "today's best beats the median provider by +1.82%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 59.473069337179595,
+          "score": 59.57138551468974,
           "detail": "improving — +0.38% week on week"
         }
       ],

@@ -5032,28 +5032,28 @@
     "date": "2026-10-05",
     "providers": {
       "remitly": {
-        "rate": 326.059,
+        "rate": 325.143,
         "fee": 0.99,
-        "markup": 1.1,
-        "receiveAmount": 32283.14
+        "markup": 1.38,
+        "receiveAmount": 32192.4
       },
       "paypal": {
-        "rate": 312.377,
+        "rate": 312.725,
         "fee": 4.99,
-        "markup": 5.25,
-        "receiveAmount": 29678.89
+        "markup": 5.15,
+        "receiveAmount": 29711.97
       },
       "western-union": {
-        "rate": 322.429,
+        "rate": 323.016,
         "fee": 0.99,
-        "markup": 2.21,
-        "receiveAmount": 31923.68
+        "markup": 2.03,
+        "receiveAmount": 31981.83
       },
       "wise": {
-        "rate": 329.809,
+        "rate": 328.316,
         "fee": 1.45,
-        "markup": -0.03,
-        "receiveAmount": 32502.68
+        "markup": 0.42,
+        "receiveAmount": 32355.54
       }
     }
   }

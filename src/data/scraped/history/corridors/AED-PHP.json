@@ -6250,16 +6250,16 @@
     "date": "2026-10-05",
     "providers": {
       "western-union": {
-        "rate": 17.018,
+        "rate": 17.0493,
         "fee": 10,
-        "markup": 0.39,
-        "receiveAmount": 1531.62
+        "markup": 0.21,
+        "receiveAmount": 1534.44
       },
       "e-and-money": {
-        "rate": 17.0813,
+        "rate": 17.04,
         "fee": 15.75,
-        "markup": 0.02,
-        "receiveAmount": 1439.1
+        "markup": 0.27,
+        "receiveAmount": 1435.62
       },
       "currencyfair": {
         "rate": 16.926,
@@ -6280,10 +6280,10 @@
         "receiveAmount": 1613.1
       },
       "taptap-send": {
-        "rate": 17.03,
+        "rate": 17.05,
         "fee": 0,
-        "markup": 0.32,
-        "receiveAmount": 1703
+        "markup": 0.21,
+        "receiveAmount": 1705
       }
     }
   }

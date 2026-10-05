@@ -4301,22 +4301,22 @@
     "date": "2026-10-05",
     "providers": {
       "western-union": {
-        "rate": 41.9062,
+        "rate": 41.917,
         "fee": 15,
-        "markup": 0.12,
-        "receiveAmount": 3562.02
+        "markup": 0.1,
+        "receiveAmount": 3562.95
       },
       "e-and-money": {
-        "rate": 42.0133,
+        "rate": 41.8792,
         "fee": 15.75,
-        "markup": -0.13,
-        "receiveAmount": 3539.62
+        "markup": 0.19,
+        "receiveAmount": 3528.32
       },
       "al-ansari-exchange": {
-        "rate": 41.815,
+        "rate": 41.825,
         "fee": 18.57,
-        "markup": 0.34,
-        "receiveAmount": 3405
+        "markup": 0.32,
+        "receiveAmount": 3405.81
       },
       "skrill": {
         "rate": 39.9247,
@@ -4331,10 +4331,10 @@
         "receiveAmount": 3720.87
       },
       "remitly": {
-        "rate": 41.72,
+        "rate": 41.74,
         "fee": 5,
-        "markup": 0.57,
-        "receiveAmount": 3963.4
+        "markup": 0.52,
+        "receiveAmount": 3965.3
       },
       "taptap-send": {
         "rate": 42.03,

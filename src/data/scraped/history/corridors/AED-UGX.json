@@ -1599,10 +1599,10 @@
     "date": "2026-10-05",
     "providers": {
       "remitly": {
-        "rate": 1078,
+        "rate": 1087.18,
         "fee": 8,
-        "markup": 0.74,
-        "receiveAmount": 99176
+        "markup": -0.1,
+        "receiveAmount": 100020.56
       },
       "taptap-send": {
         "rate": 1072,

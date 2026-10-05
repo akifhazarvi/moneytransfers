@@ -10473,16 +10473,16 @@
         "receiveAmount": 5754.07
       },
       "western-union": {
-        "rate": 58.4005,
+        "rate": 58.5403,
         "fee": 0.99,
-        "markup": 2.37,
-        "receiveAmount": 5782.23
+        "markup": 2.13,
+        "receiveAmount": 5796.08
       },
       "instarem": {
-        "rate": 59.5406,
+        "rate": 59.8224,
         "fee": 0,
-        "markup": 0.46,
-        "receiveAmount": 5954.06
+        "markup": -0.01,
+        "receiveAmount": 5982.24
       },
       "paysend": {
         "rate": 59.0088,
@@ -10497,10 +10497,10 @@
         "receiveAmount": 5511.53
       },
       "wise": {
-        "rate": 60.143,
-        "fee": 11.85,
-        "markup": -0.55,
-        "receiveAmount": 5301.61
+        "rate": 60.287,
+        "fee": 12.28,
+        "markup": -0.79,
+        "receiveAmount": 5288.38
       }
     }
   }

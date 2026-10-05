@@ -19258,16 +19258,16 @@
     "date": "2026-10-05",
     "providers": {
       "instarem": {
-        "rate": 0.7559,
+        "rate": 0.7561,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 75.59
+        "receiveAmount": 75.61
       },
       "lemfi": {
-        "rate": 0.7524,
+        "rate": 0.7529,
         "fee": 0,
-        "markup": 0.62,
-        "receiveAmount": 75.24
+        "markup": 0.58,
+        "receiveAmount": 75.29
       },
       "moneygram": {
         "rate": 0.7536,
@@ -19294,10 +19294,10 @@
         "receiveAmount": 72.59
       },
       "western-union": {
-        "rate": 0.744121,
+        "rate": 0.748079,
         "fee": 0.99,
-        "markup": 1.71,
-        "receiveAmount": 73.68
+        "markup": 1.19,
+        "receiveAmount": 74.07
       },
       "currencyfair": {
         "rate": 0.7514,
@@ -19306,10 +19306,10 @@
         "receiveAmount": 72.64
       },
       "worldremit": {
-        "rate": 0.735935,
+        "rate": 0.736465,
         "fee": 1.99,
-        "markup": 2.79,
-        "receiveAmount": 72.13
+        "markup": 2.72,
+        "receiveAmount": 72.18
       },
       "paysend": {
         "rate": 0.743394,
@@ -19318,10 +19318,10 @@
         "receiveAmount": 72.86
       },
       "remitly": {
-        "rate": 0.7535,
+        "rate": 0.7538,
         "fee": 2.99,
-        "markup": 0.47,
-        "receiveAmount": 73.1
+        "markup": 0.43,
+        "receiveAmount": 73.13
       },
       "revolut": {
         "rate": 0.753753,
@@ -19330,28 +19330,28 @@
         "receiveAmount": 74.81
       },
       "wise": {
-        "rate": 0.757088,
+        "rate": 0.757203,
         "fee": 1.42,
-        "markup": 0,
-        "receiveAmount": 74.63
+        "markup": -0.02,
+        "receiveAmount": 74.65
       },
       "wells-fargo": {
-        "rate": 0.734105,
+        "rate": 0.734633,
         "fee": 0,
-        "markup": 3.03,
-        "receiveAmount": 73.41
+        "markup": 2.96,
+        "receiveAmount": 73.46
       },
       "paypal": {
-        "rate": 0.723581,
+        "rate": 0.7252,
         "fee": 4.99,
-        "markup": 4.42,
-        "receiveAmount": 68.75
+        "markup": 4.21,
+        "receiveAmount": 68.9
       },
       "chase": {
-        "rate": 0.735033,
+        "rate": 0.735562,
         "fee": 5,
-        "markup": 2.91,
-        "receiveAmount": 69.83
+        "markup": 2.84,
+        "receiveAmount": 69.88
       }
     }
   }

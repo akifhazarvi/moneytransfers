@@ -16702,22 +16702,22 @@
         "receiveAmount": 14208.63
       },
       "taptap-send": {
-        "rate": 145.6,
+        "rate": 145,
         "fee": 0,
-        "markup": -0.07,
-        "receiveAmount": 14560
+        "markup": -0.89,
+        "receiveAmount": 14500
       },
       "deutsche-bank": {
-        "rate": 143.434,
-        "fee": 29.38,
-        "markup": 1.42,
-        "receiveAmount": 10129.31
+        "rate": 142.697,
+        "fee": 36.55,
+        "markup": 0.71,
+        "receiveAmount": 9054.14
       },
       "western-union": {
-        "rate": 139.008,
+        "rate": 137.704,
         "fee": 1.99,
-        "markup": 3.27,
-        "receiveAmount": 13624.13
+        "markup": 4.18,
+        "receiveAmount": 13496.39
       },
       "profee": {
         "rate": 144.773,
@@ -16732,10 +16732,10 @@
         "receiveAmount": 14259.32
       },
       "instarem": {
-        "rate": 142.1,
+        "rate": 141.76,
         "fee": 0,
-        "markup": 1.12,
-        "receiveAmount": 14209.98
+        "markup": 1.36,
+        "receiveAmount": 14175.98
       },
       "xe": {
         "rate": 142.276,
@@ -16756,10 +16756,10 @@
         "receiveAmount": 14331.33
       },
       "remitly": {
-        "rate": 141.77,
+        "rate": 141.83,
         "fee": 1.99,
-        "markup": 1.35,
-        "receiveAmount": 13894.88
+        "markup": 1.31,
+        "receiveAmount": 13900.76
       },
       "revolut": {
         "rate": 144.252,
@@ -16768,10 +16768,10 @@
         "receiveAmount": 14093.44
       },
       "wise": {
-        "rate": 144.542,
+        "rate": 145.124,
         "fee": 3.55,
-        "markup": -0.58,
-        "receiveAmount": 13941.08
+        "markup": -0.98,
+        "receiveAmount": 13997.21
       },
       "ria": {
         "rate": 142.344,
@@ -16780,10 +16780,16 @@
         "receiveAmount": 13963.93
       },
       "skrill": {
-        "rate": 138.182,
+        "rate": 138.193,
         "fee": 0,
-        "markup": 3.85,
-        "receiveAmount": 13818.23
+        "markup": 3.84,
+        "receiveAmount": 13819.35
+      },
+      "lemfi": {
+        "rate": 145.5,
+        "fee": 0,
+        "markup": -0.23,
+        "receiveAmount": 14550
       }
     }
   }

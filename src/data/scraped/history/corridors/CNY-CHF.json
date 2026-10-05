@@ -1532,10 +1532,10 @@
     "date": "2026-10-05",
     "providers": {
       "wise": {
-        "rate": 0.123743,
+        "rate": 0.1241,
         "fee": 26.9,
-        "markup": 0.03,
-        "receiveAmount": 9.05
+        "markup": -0.25,
+        "receiveAmount": 9.07
       }
     }
   }
