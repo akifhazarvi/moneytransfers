@@ -134,7 +134,7 @@ export default function SavingsCalculator({
   const currentKey = currentValid ? current : "median";
 
   const result = useMemo(() => {
-    if (!validAmount || !upToDate || quotes.length < 2) return null;
+    if (quotes.length < 2) return null;
     const top = quotes[0];
     const med = median(quotes.map((q) => q.receiveAmount));
     const chosen = currentKey === "median" ? null : quotes.find((q) => q.providerSlug === currentKey) ?? null;
@@ -153,7 +153,7 @@ export default function SavingsCalculator({
       dearest,
       dearestGapYear: (top.receiveAmount - dearest.receiveAmount) * perYear,
     };
-  }, [quotes, currentKey, perYear, validAmount, upToDate]);
+  }, [quotes, currentKey, perYear]);
 
   const partner = quotes.find((q) => q.providerSlug === PARTNER);
   const partnerIsTop = quotes[0]?.providerSlug === PARTNER;
@@ -413,7 +413,7 @@ export default function SavingsCalculator({
           </div>
         )}
 
-        {validAmount && upToDate && !result && !failed && partnerCard}
+        {(!result || failed) && partnerCard}
 
         <p className="mt-3 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed">
           Recipient amounts are after fees, from our latest quotes. The provider confirms the final rate when you send.
