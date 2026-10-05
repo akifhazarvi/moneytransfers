@@ -5,7 +5,7 @@ import { clientIdFromCookie } from "@/lib/ga4-server";
 import { serverTrack } from "@/lib/server-track";
 import { classifyTrafficSource } from "@/lib/traffic-source";
 import { verifyClickToken } from "@/lib/click-token";
-import { decideRedirect, interstitialHtml, providerDisplayName, buildCrossSell } from "@/lib/redirect-decision";
+import { decideRedirect, reviewPath } from "@/lib/redirect-decision";
 
 export async function GET(
   request: Request,
@@ -72,12 +72,12 @@ export async function GET(
   // --- Click binding: genuine on-site click vs bare/scraped/bot hit --------
   // See the /go route for the full rationale. Signed token (?t=) is the certain
   // signal. Tokenless hits fall back to the UA-based isBot only (the bot scorer
-  // is gone). ?continue=1 is the interstitial's explicit human confirm.
+  // is gone). ?continue=1 is the review page's explicit human confirm.
   const tokenStatus = verifyClickToken(searchParams.get("t"), provider);
   // `?continue=1` = explicit Continue-button click; honor it ALWAYS (even if
   // flagged as a bot) so a false-positived human is never trapped. See /go route.
   const continued = searchParams.get("continue") === "1";
-  const decision = decideRedirect({ tokenStatus, isBot: trafficSource.isBot });
+  const decision = decideRedirect({ provider, tokenStatus, isBot: trafficSource.isBot });
   const outcome = continued ? "redirect" : decision.outcome;
   const genuineClick = decision.genuineClick;
   const gated = decision.gated && !continued;
@@ -114,25 +114,15 @@ export async function GET(
     geo,
   );
 
-  // Route by outcome — see /go route. Bare/scraped/bot hits get the on-site
-  // interstitial and never forward to the provider on their own.
+  // Route by outcome — see /go route. Review-bound hits go to the same page as
+  // /go, flagged via=out so its Continue comes back here.
   if (outcome !== "redirect") {
-    const continueUrl = buildContinueUrl(request.url);
-    const html = interstitialHtml({
-      providerName: providerDisplayName(provider),
-      continueUrl,
-      corridorLabel: from && to ? `${from.toUpperCase()} → ${to.toUpperCase()}` : undefined,
-      receiveCurrency: to?.toUpperCase(),
-      crossSell: buildCrossSell({ targetSlug: provider, from, to, amount, src }),
+    const review = NextResponse.redirect(new URL(reviewPath(provider, request.url, "out"), request.url), {
+      status: 302,
+      headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" },
     });
-    return new NextResponse(html, {
-      status: 200,
-      headers: {
-        "Content-Type": "text/html; charset=utf-8",
-        "Cache-Control": "no-store",
-        "X-Robots-Tag": "noindex, nofollow",
-      },
-    });
+    if (mintedVid && !trafficSource.isBot) review.cookies.set("smc_vid", vid, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
+    return review;
   }
 
   const url = getAffiliateUrl(provider, {
@@ -162,11 +152,4 @@ export async function GET(
   }
 
   return redirect;
-}
-
-// Same-origin continue URL for the interstitial — see /go route.
-function buildContinueUrl(requestUrl: string): string {
-  const u = new URL(requestUrl);
-  u.searchParams.set("continue", "1");
-  return `${u.pathname}${u.search}`;
 }

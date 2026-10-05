@@ -217,7 +217,8 @@ export default function PwaManager() {
       if (!slot) return;
       const current = detectInstallPlatform();
       if (!PROMPTABLE.has(current) || !navigator.onLine || !consentSettled()) return;
-      if (document.querySelector("dialog[open]")) return;
+      // One offer at a time: a returning visitor's welcome-back card goes first.
+      if (document.querySelector("dialog[open], [data-welcome-back]")) return;
       // Someone mid-entry keeps the form to themselves; a field left focused
       // after scrolling away from it is not being typed in.
       const field = document.activeElement?.closest("input, textarea, select, [contenteditable=true]");

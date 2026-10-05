@@ -13,6 +13,14 @@ import tapTapSendCurrencies from "@/data/scraped/taptap-send-currencies.json";
 /** Currencies TapTap sends from, written by scripts/scrape-taptapsend.ts. */
 const TAPTAP_SENDS_FROM: ReadonlySet<string> = new Set(tapTapSendCurrencies as string[]);
 
+/**
+ * Whether the TapTap ad may run for a sender currency. Fewer than 5 codes means
+ * the list failed to load — show the ad rather than hide TapTap everywhere.
+ */
+export function tapTapSendsFrom(currency: string): boolean {
+  return TAPTAP_SENDS_FROM.size < 5 || TAPTAP_SENDS_FROM.has(currency);
+}
+
 // Measured social proof, never typed: TapTap's Trustpilot score from the
 // reviews scrape, then its App Store and Google Play scores. Each part is
 // dropped when its scrape has no row, and the line when none do.
@@ -52,7 +60,7 @@ export default function PartnerFeatureBlock({ source, variant = "section", quote
   // "Send 3,000 SAR with TapTap", a dead end: TapTap sends from ~15 currencies
   // and SAR is not one. Fewer than 5 means the list failed to load — show the
   // card rather than hide TapTap everywhere.
-  if (context && TAPTAP_SENDS_FROM.size >= 5 && !TAPTAP_SENDS_FROM.has(context.from)) return null;
+  if (context && !tapTapSendsFrom(context.from)) return null;
   const href = getGoUrl("taptap-send", context ? { sourceCurrency: context.from, targetCurrency: context.to, sourceAmount: context.amount, clickref: source } : undefined);
   const corridor = context ? `${context.from}-${context.to}` : "";
   const money = (n: number) => n.toLocaleString("en-US", { maximumFractionDigits: 2 });

@@ -5,7 +5,7 @@ import { clientIdFromCookie } from "@/lib/ga4-server";
 import { serverTrack } from "@/lib/server-track";
 import { classifyTrafficSource } from "@/lib/traffic-source";
 import { verifyClickToken } from "@/lib/click-token";
-import { decideRedirect, interstitialHtml, providerDisplayName, buildCrossSell } from "@/lib/redirect-decision";
+import { decideRedirect, reviewPath } from "@/lib/redirect-decision";
 
 export async function GET(
   request: Request,
@@ -101,20 +101,19 @@ export async function GET(
   // The signed token (?t=) is minted by /api/click-token only for a real click
   // on our own pages (AiSourceInjector). A pasted/scraped/AI-cited URL or a bot
   // has no valid token. This is the one certain signal. Tokenless hits now fall
-  // back to the UA-based `trafficSource.isBot` only (the bot scorer is gone), so
-  // a tokenless human and a tokenless unknown client are treated alike: both get
-  // the interstitial and must click Continue.
+  // back to the UA-based `trafficSource.isBot` only (the bot scorer is gone).
+  // Which hits get the review page: decideRedirect in redirect-decision.ts.
   const tokenStatus = verifyClickToken(searchParams.get("t"), provider);
-  // `?continue=1` is the explicit human confirmation from the interstitial's
+  // `?continue=1` is the explicit human confirmation from the review page's
   // Continue button — a real click on a real button. Honor it as a redirect
   // ALWAYS, even when the hit was flagged as a bot: otherwise a false-positived real
-  // human is trapped on a dead Continue button (infinite loop). The interstitial
+  // human is trapped on a dead Continue button (infinite loop). The review page
   // itself is the gate (a bare fetch that renders nothing never reaches this);
   // once a visitor has actually clicked Continue, we must let them through.
   const continued = searchParams.get("continue") === "1";
-  const decision = decideRedirect({ tokenStatus, isBot: trafficSource.isBot });
-  // A continued interstitial becomes a real, forwarded redirect. A genuine
-  // token is already "redirect". Everything else follows the decision.
+  const decision = decideRedirect({ provider, tokenStatus, isBot: trafficSource.isBot });
+  // A continued review becomes a real, forwarded redirect. Everything else
+  // follows the decision.
   const outcome = continued ? "redirect" : decision.outcome;
   const genuineClick = decision.genuineClick;
   const gated = decision.gated && !continued;
@@ -153,28 +152,17 @@ export async function GET(
   );
 
   // --- Route by outcome --------------------------------------------------
-  // "interstitial" / "not_forwarded": render an on-site page instead of an
-  // instant 302. The provider redirect only fires when the request comes back
-  // with ?continue=1 (auto-continue JS for plausible humans; no auto-continue
-  // for likely bots). This is what makes our site the last authority: a bare/
-  // scraped/bot hit never forwards to the provider on its own.
+  // "interstitial" / "not_forwarded": the review page (TapTap cross-sell, app,
+  // WhatsApp; see redirect-decision.ts). The provider redirect fires only when
+  // its Continue comes back with ?continue=1, so a hit nobody clicks through
+  // never forwards. The query rides along so attribution survives the trip.
   if (outcome !== "redirect") {
-    const continueUrl = buildContinueUrl(request.url);
-    const html = interstitialHtml({
-      providerName: providerDisplayName(provider),
-      continueUrl,
-      corridorLabel: from && to ? `${from.toUpperCase()} → ${to.toUpperCase()}` : undefined,
-      receiveCurrency: to?.toUpperCase(),
-      crossSell: buildCrossSell({ targetSlug: provider, from, to, amount, src }),
+    const review = NextResponse.redirect(new URL(reviewPath(provider, request.url, "go"), request.url), {
+      status: 302,
+      headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" },
     });
-    return new NextResponse(html, {
-      status: 200,
-      headers: {
-        "Content-Type": "text/html; charset=utf-8",
-        "Cache-Control": "no-store",
-        "X-Robots-Tag": "noindex, nofollow",
-      },
-    });
+    if (mintedVid && !trafficSource.isBot) review.cookies.set("smc_vid", vid, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
+    return review;
   }
 
   const url = getAffiliateUrl(provider, {
@@ -206,17 +194,4 @@ export async function GET(
   }
 
   return redirect;
-}
-
-/**
- * Build the URL the interstitial's Continue action navigates to: the same
- * request URL with `continue=1` added, so the route re-runs and honors it as a
- * confirmed human redirect. Preserves all existing params (from/to/amount/src/
- * click_id/cid/ai_src) so attribution survives the round-trip. Returns a
- * path+query (same-origin) so it works regardless of host.
- */
-function buildContinueUrl(requestUrl: string): string {
-  const u = new URL(requestUrl);
-  u.searchParams.set("continue", "1");
-  return `${u.pathname}${u.search}`;
 }

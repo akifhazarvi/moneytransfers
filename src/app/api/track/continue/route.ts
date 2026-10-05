@@ -4,7 +4,15 @@ import { serverTrack } from "@/lib/server-track";
 import { isValidProviderSlug } from "@/lib/affiliate";
 
 /**
- * Beacon target for the interstitial's Continue click.
+ * Beacon target for the review page (/go/<provider>/review, which since
+ * 2026-10-05 sits between a click and every provider but TapTap):
+ *   ?event=impression → `interstitial_impression`, once per page render in a
+ *                       browser that ran our JS (crawlers that never render it
+ *                       are not counted)
+ *   (default)         → `interstitial_continue`, the Continue click
+ * Server-side, so both survive ad blockers and declined consent: impressions
+ * → continues is the funnel for every redirect we hold. The notes below date
+ * from the earlier standalone-HTML interstitial; continue's meaning is unchanged.
  *
  * WHY THIS EXISTS — the tracking gap it closes:
  * The /go + /out routes fire `affiliate_redirect` / `provider_clicked_server`
@@ -35,6 +43,10 @@ export async function POST(request: Request) {
     return new NextResponse(null, { status: 204 });
   }
 
+  const eventName = searchParams.get("event") === "impression" ? "interstitial_impression" : "interstitial_continue";
+  // What the page offered and where the visitor came from (see trackGoReviewShown).
+  const partner = searchParams.get("partner") || undefined;
+  const origin = searchParams.get("origin") || undefined;
   const from = searchParams.get("from") || undefined;
   const to = searchParams.get("to") || undefined;
   const src = searchParams.get("src") || "interstitial";
@@ -56,12 +68,14 @@ export async function POST(request: Request) {
   };
 
   void serverTrack(
-    "interstitial_continue",
+    eventName,
     {
       provider,
       corridor,
       source: src,
       ...(aiSrc ? { traffic_source: aiSrc } : {}),
+      ...(partner ? { partner } : {}),
+      ...(origin ? { origin } : {}),
     },
     clientId,
     geo,

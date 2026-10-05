@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import { sendCurrencies, currencies } from "@/data/transfer-currencies";
@@ -9,6 +9,7 @@ import { fetchQuotes } from "@/lib/fetch-quotes";
 import { useHomeSelection } from "@/components/HomeSelectionContext";
 import { useGeoSelection } from "@/lib/useGeoSelection";
 import { trackCompareSearch } from "@/lib/analytics";
+import { rememberSearch } from "@/lib/last-search";
 
 const MIN_AMOUNT = 1;
 const MAX_AMOUNT = 1_000_000;
@@ -98,6 +99,20 @@ export default function HeroConverterCard({
 
   const best = quotes?.[0];
 
+  // A pair or amount the visitor set here, with its result on screen, is a
+  // search worth offering back. Its payout is left out: this card prices at
+  // the build-time rate, /send-money and the offer at the live one.
+  const chosen = useRef(false);
+  const choose = <T,>(set: (value: T) => void) => (value: T) => {
+    chosen.current = true;
+    set(value);
+  };
+  useEffect(() => {
+    if (!chosen.current || !best) return;
+    if (best.sendCurrency !== fromCurrency || best.receiveCurrency !== toCurrency || best.sendAmount !== amount) return;
+    rememberSearch({ from: fromCurrency, to: toCurrency, amount, kind: "search" });
+  }, [best, fromCurrency, toCurrency, amount]);
+
   const rateLine = useMemo(() => {
     if (!best) return null;
     return `${sym(fromCurrency)}1 = ${sym(toCurrency)}${fmt(best.exchangeRate, best.exchangeRate < 10 ? 4 : 2)}`;
@@ -120,6 +135,7 @@ export default function HeroConverterCard({
     <form
       onSubmit={go}
       aria-label="Compare your transfer"
+      data-smc-corridor={`${fromCurrency}-${toCurrency}`}
       className="home-comparison-form w-full rounded-[24px] bg-[var(--color-surface)] dark:bg-[var(--color-surface-container)] shadow-[var(--shadow-xl)] p-3 sm:p-4 text-left"
     >
       {/* ── One panel: You send / divider / They receive (no swap control) ──
@@ -130,7 +146,7 @@ export default function HeroConverterCard({
         <div className="px-5 pt-4 pb-4">
           <label htmlFor="home-send-amount" className="block text-2sm font-medium text-[var(--color-on-surface-variant)] mb-2.5">You send</label>
           <div className="flex items-center justify-between gap-3">
-            <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="compact" />
+            <CurrencyPicker value={fromCurrency} onChange={choose(setFromCurrency)} currencyList={sendCurrencies} size="compact" />
             <input
               aria-invalid={amountError || undefined}
               aria-describedby={amountError ? "home-amount-error" : undefined}
@@ -141,6 +157,7 @@ export default function HeroConverterCard({
               onChange={(e) => {
                 const v = e.target.value;
                 if (v === "" || /^\d*\.?\d*$/.test(v)) {
+                  chosen.current = true;
                   setAmountError(false);
                   setAmountStr(v);
                   const n = Number(v);
@@ -167,7 +184,7 @@ export default function HeroConverterCard({
         <div className="px-5 pt-4 pb-4">
           <label className="block text-2sm font-medium text-[var(--color-on-surface-variant)] mb-2.5">Recipient gets · estimated</label>
           <div className="home-receive-row flex items-center justify-between gap-3">
-            <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
+            <CurrencyPicker value={toCurrency} onChange={choose(setToCurrency)} size="compact" />
             {best ? (
               <span className="home-receive-value text-2xl sm:text-3xl font-bold tabular-nums text-[var(--color-on-surface)] tracking-tight">
                 {fmt(best.receiveAmount, best.receiveAmount < 100 ? 2 : 0)}

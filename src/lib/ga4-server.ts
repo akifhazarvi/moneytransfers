@@ -14,6 +14,8 @@
  * Without GA4_API_SECRET, events are silently skipped — no errors thrown.
  */
 
+import { forGa4 } from "@/lib/ga4-params";
+
 const MEASUREMENT_ID = "G-HJH07QEJ30";
 const ENDPOINT = `https://www.google-analytics.com/mp/collect`;
 
@@ -63,7 +65,9 @@ export async function gaServerEvent(
     client_id: clientId || `server.${Date.now()}.${Math.random().toString(36).slice(2, 10)}`,
     non_personalized_ads: true,
     ...(userLocation ? { user_location: userLocation } : {}),
-    events: [{ name: eventName, params: { ...params, ...geoParams } }],
+    // `source` → `cta_source`, as the browser sink does, so it neither
+    // re-attributes the session nor goes unreported (ga4-params.ts).
+    events: [{ name: eventName, params: { ...forGa4(params), ...geoParams } }],
   };
 
   try {

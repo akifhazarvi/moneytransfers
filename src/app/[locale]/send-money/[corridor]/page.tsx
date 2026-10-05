@@ -59,6 +59,7 @@ import type { ProviderBadge } from "@/lib/rate-history";
 import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
 import SendScoreCard, { SendScoreStrip } from "@/components/SendScoreCard";
 import StickyBestCTA from "@/components/StickyBestCTA";
+import RememberCorridor from "@/components/welcome-back/RememberCorridor";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { providerLogo } from "@/lib/provider-logo";
 import { getPartnerQuote } from "@/lib/partner-quote";
@@ -3261,6 +3262,8 @@ export default async function CorridorPage({ params }: Props) {
           }}
         />
       )}
+
+      <RememberCorridor from={fromCurrency} to={toCurrency} amount={sampleAmount} anyOrigin={isCountryPage} />
 
       {/* Sticky best-provider CTA — appears on scroll. Floating chat bot sits at bottom-right;
           this bar sits above it so the two don't overlap on mobile. */}

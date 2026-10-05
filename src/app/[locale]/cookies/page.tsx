@@ -114,6 +114,11 @@ export default async function CookiePolicyPage({ params }: Props) {
                           <td className="px-4 py-3">Remembers your currency converter selections</td>
                           <td className="px-4 py-3">Persistent (localStorage)</td>
                         </tr>
+                        <tr className="border-b border-[var(--color-outline)]">
+                          <td className="px-4 py-3 font-mono text-xs">smc_last_search, smc_last_active</td>
+                          <td className="px-4 py-3">Remembers your last comparison so we can offer to reopen it when you come back. Kept only in your browser</td>
+                          <td className="px-4 py-3">Offered for 60 days (localStorage)</td>
+                        </tr>
                         <tr>
                           <td className="px-4 py-3 font-mono text-xs">sticky_cta_dismissed, bot_dismissed, exit_intent_*</td>
                           <td className="px-4 py-3">Remembers if you dismissed a UI element so we don&apos;t re-show it</td>

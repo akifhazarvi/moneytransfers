@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Fragment, Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { trackCompareSearch, trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
+import ComparisonStatus from "@/components/ComparisonStatus";
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
@@ -16,6 +17,7 @@ import CryptoRailSectionClient from "@/components/CryptoRailSectionClient";
 import type { CryptoRailSectionData } from "@/lib/crypto-rail-section";
 import { currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
 import { fetchQuotes } from "@/lib/fetch-quotes";
+import { APPLY_SEARCH_EVENT, rememberSearch, type SearchPick } from "@/lib/last-search";
 import type { RateInsight, ProviderInsight } from "@/lib/rate-history-types";
 import { sendCurrencies } from "@/data/transfer-currencies";
 import { promos } from "@/data/promos";
@@ -146,6 +148,10 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
   const [toCurrency, setToCurrency] = useState("INR");
   const [amountStr, setAmountStr] = useState("1000");
   const amount = Number(amountStr) || 0;
+  // The visitor chose this comparison — through the URL (every widget routes
+  // here with its pair) or the form — rather than seeing the geo default.
+  // Only a chosen one is remembered for the welcome-back offer.
+  const chosen = useRef(false);
 
   // URL params first (e.g. user arrived via the homepage ComparisonWidget),
   // else geo cookies.
@@ -155,6 +161,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
     const paramTo = params.get("to");
     const paramAmount = params.get("amount");
     if (paramFrom || paramTo || paramAmount) {
+      chosen.current = true;
       if (paramFrom) setFromCurrency(paramFrom);
       if (paramTo) setToCurrency(paramTo);
       if (Number(paramAmount)) setAmountStr(String(Number(paramAmount)));
@@ -176,7 +183,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
   }, []);
 
   const [sortBy, setSortBy] = useState<SortBy>("receiveAmount");
-  const { rates, isLive } = useExchangeRates();
+  const { rates, nextRefresh, refreshing, failed, refresh } = useExchangeRates();
 
   // Compare
   const t = useTranslations("sendMoneyClient");
@@ -225,6 +232,39 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
     );
     return () => controller.abort();
   }, [amount, fromCurrency, toCurrency, rates]);
+
+  // Remember a chosen comparison once its quotes are in. The top quote is kept
+  // too: it is priced at the live rate, as the welcome-back offer prices its
+  // own, so a later visit can say how the payout moved.
+  useEffect(() => {
+    const top = quotes[0];
+    if (quotesLoading || !chosen.current || !top) return;
+    if (top.sendCurrency !== fromCurrency || top.receiveCurrency !== toCurrency || top.sendAmount !== amount) return;
+    rememberSearch({
+      from: fromCurrency,
+      to: toCurrency,
+      amount,
+      kind: "search",
+      top: top.isIndicative ? undefined : { provider: top.providerSlug, receive: top.receiveAmount },
+    });
+  }, [quotes, quotesLoading, fromCurrency, toCurrency, amount]);
+
+  // The welcome-back offer, taken on this page, fills in the form in place.
+  useEffect(() => {
+    const onApply = (event: Event) => {
+      const pick = (event as CustomEvent<SearchPick>).detail;
+      if (!pick) return;
+      chosen.current = true;
+      setFromCurrency(pick.from);
+      setToCurrency(pick.to);
+      setAmountStr(String(pick.amount));
+      requestAnimationFrame(() => {
+        document.getElementById("comparison-results")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+      });
+    };
+    window.addEventListener(APPLY_SEARCH_EVENT, onApply);
+    return () => window.removeEventListener(APPLY_SEARCH_EVENT, onApply);
+  }, []);
 
   // ── Historical rate insights ──────────────────────────────────
   // Fetched per-corridor from /api/rate-insight instead of statically importing
@@ -381,6 +421,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
   }, []);
 
   function swap() {
+    chosen.current = true;
     trackCurrencySwapped(toCurrency, fromCurrency);
     setFromCurrency(toCurrency);
     setToCurrency(fromCurrency);
@@ -394,19 +435,20 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
 
   return (
     <Container>
-      <form className="conversion-search" onSubmit={(event) => {
+      <form className="conversion-search" data-smc-corridor={`${fromCurrency}-${toCurrency}`} onSubmit={(event) => {
         event.preventDefault();
+        chosen.current = true;
         trackCompareSearch(fromCurrency, toCurrency, amount);
         document.getElementById("comparison-results")?.focus({ preventScroll: true });
         document.getElementById("comparison-results")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
       }}>
         <div className="conversion-search-field">
           <label htmlFor="transfer-amount">You send</label>
-          <div className="conversion-amount"><span aria-hidden="true">{sendCurrency?.symbol}</span><input id="transfer-amount" type="text" inputMode="decimal" value={amountStr} required pattern="[0-9]*[.]?[0-9]+" onChange={event => { if (/^\d*\.?\d*$/.test(event.target.value)) setAmountStr(event.target.value); }} onBlur={() => { if (!amountStr || Number(amountStr) <= 0) setAmountStr("1"); }} /></div>
+          <div className="conversion-amount"><span aria-hidden="true">{sendCurrency?.symbol}</span><input id="transfer-amount" type="text" inputMode="decimal" value={amountStr} required pattern="[0-9]*[.]?[0-9]+" onChange={event => { if (/^\d*\.?\d*$/.test(event.target.value)) { chosen.current = true; setAmountStr(event.target.value); } }} onBlur={() => { if (!amountStr || Number(amountStr) <= 0) setAmountStr("1"); }} /></div>
         </div>
-        <div className="conversion-search-field"><span className="conversion-field-label">From currency</span><CurrencyPicker label="From currency" value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" /></div>
+        <div className="conversion-search-field"><span className="conversion-field-label">From currency</span><CurrencyPicker label="From currency" value={fromCurrency} onChange={(code) => { chosen.current = true; setFromCurrency(code); }} currencyList={sendCurrencies} size="large" /></div>
         <button type="button" className="conversion-swap" onClick={swap} aria-label="Swap currencies">⇄</button>
-        <div className="conversion-search-field"><span className="conversion-field-label">To currency</span><CurrencyPicker label="To currency" value={toCurrency} onChange={setToCurrency} size="large" /></div>
+        <div className="conversion-search-field"><span className="conversion-field-label">To currency</span><CurrencyPicker label="To currency" value={toCurrency} onChange={(code) => { chosen.current = true; setToCurrency(code); }} size="large" /></div>
         <button type="submit" className="conversion-button conversion-button--accent">Compare transfers <span aria-hidden="true">→</span></button>
       </form>
       <p className="conversion-search-note">Free to compare · Rates and fees together · <Link href="/how-we-review">How we compare</Link></p>
@@ -567,22 +609,8 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
         </FilterDropdown>
       </div>
 
-      {/* Results header — minimal, Google Flights "About these results" style */}
-      <div id="comparison-results" tabIndex={-1} className="flex items-center justify-between mb-2 scroll-mt-24" aria-live="polite">
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-[var(--color-on-surface-variant)]">
-            {filteredQuotes.length} providers
-          </span>
-          {isLive && (
-            <span className="inline-flex items-center gap-1 text-[10px] text-[var(--color-success)] font-medium">
-              <span className="w-1 h-1 rounded-full bg-[var(--color-success)] animate-pulse" />
-              Live
-            </span>
-          )}
-        </div>
-        <span className="text-xs text-[var(--color-on-surface-variant)]">
-          {sendCurrency?.symbol}{amount.toLocaleString()} {fromCurrency} → {toCurrency}
-        </span>
+      <div id="comparison-results" tabIndex={-1} className="scroll-mt-24">
+        <ComparisonStatus count={filteredQuotes.length} total={quotes.length} loading={quotesLoading} refreshing={refreshing} failed={failed} nextRefresh={nextRefresh} from={fromCurrency} to={toCurrency} onRefresh={refresh} />
       </div>
 
       {/* Results list */}
@@ -662,7 +690,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
             </p>
             {fallbackAmount !== null && (
               <button
-                onClick={() => setAmountStr(String(fallbackAmount))}
+                onClick={() => { chosen.current = true; setAmountStr(String(fallbackAmount)); }}
                 className="text-2sm text-[var(--color-primary)] font-medium hover:underline"
               >
                 {t("tryLowerAmount", {

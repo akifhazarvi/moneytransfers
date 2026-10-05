@@ -22,45 +22,11 @@
 
 import { track as vercelTrack } from "@vercel/analytics";
 import { deviceOs, displayMode } from "@/lib/pwa";
+import { forGa4 } from "@/lib/ga4-params";
 
 type EventParams = Record<string, string | number | boolean | undefined>;
 
-/**
- * GA4 reads these event parameters as *manual traffic-source* signals. Sending
- * one re-attributes the session to its value, so our `source` — which names the
- * on-page surface that drove an interaction — was overwriting how the visitor
- * actually arrived. A WhatsApp pill scrolling into view fired
- * `whatsapp_cta_viewed {source:"float_pill"}` and GA4 recorded a *new session*
- * from a source called "float_pill"; the Aug 2026 numbers carried 104 such
- * sessions plus "results", "home_inline", "guide_article_end" and
- * "company_review_sidebar", each one a real visitor whose true channel had been
- * erased. Rename on the way into GA4 only: Vercel Analytics has no reserved
- * names and its existing dashboards key off the original spelling.
- */
-const GA4_ATTRIBUTION_PARAMS = new Set([
-  "source",
-  "medium",
-  "campaign",
-  "term",
-  "content",
-  "campaign_id",
-  "source_platform",
-  "creative_format",
-  "marketing_tactic",
-]);
-
-/** Re-key any GA4-reserved attribution param to a `cta_`-prefixed twin. */
-function forGa4(params?: EventParams): EventParams | undefined {
-  if (!params) return params;
-  let safe: EventParams | undefined;
-  for (const key of Object.keys(params)) {
-    if (!GA4_ATTRIBUTION_PARAMS.has(key)) continue;
-    safe ??= { ...params };
-    safe[`cta_${key}`] = safe[key];
-    delete safe[key];
-  }
-  return safe ?? params;
-}
+// GA4 re-keys `source` & co. to `cta_source` & co.: see src/lib/ga4-params.ts.
 
 function gtagEvent(name: string, params?: EventParams) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
@@ -373,4 +339,47 @@ export function trackPwaLaunched(mode: string) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     window.gtag("set", "user_properties", { app_display_mode: mode });
   }
+}
+
+// ═════════════════════════════════════════════════════════════════
+// Welcome back — a return visit offered the visitor's last comparison.
+// `kind` is how that search was made: "search" (they chose the pair or amount)
+// or "page" (they read a corridor page). Shown − clicked − dismissed = ignored.
+// ═════════════════════════════════════════════════════════════════
+
+/** The offer appeared. `change` is the top payout against the visitor's last look. */
+export function trackWelcomeBackShown(from: string, to: string, kind: string, daysSince: number, change: "up" | "down" | "same" | "none") {
+  dual("welcome_back_shown", { corridor: corridor(from, to), kind, days_since: daysSince, change });
+}
+
+/** "compare" reopens the comparison; "new_search" starts another one. */
+export function trackWelcomeBackClicked(from: string, to: string, action: "compare" | "new_search") {
+  dual("welcome_back_clicked", { corridor: corridor(from, to), action });
+}
+
+/** Closed with × or Escape: that search is not offered again. */
+export function trackWelcomeBackDismissed(from: string, to: string) {
+  dual("welcome_back_dismissed", { corridor: corridor(from, to) });
+}
+
+// ═════════════════════════════════════════════════════════════════
+// Review page — /go/<provider>/review, between a click and every provider but
+// TapTap (src/lib/redirect-decision.ts). `partner` is what TapTap showed:
+// "quote" (a like-for-like payout), "card" (no quote for the route) or "none"
+// (TapTap does not send from this currency). `origin` is "on_site" when the
+// click came from our pages (it carries click_id), "external" for a /go URL
+// opened from elsewhere (AI answers, shared links).
+// Both are also beaconed server-side (interstitial_impression,
+// interstitial_continue), so the funnel holds without consent or with an ad
+// blocker. On the page, the TapTap card counts provider_cross_sell_viewed, the
+// WhatsApp card whatsapp_cta_viewed and the app card pwa_install_prompt_shown,
+// all with source/placement "go_review".
+// ═════════════════════════════════════════════════════════════════
+
+export function trackGoReviewShown(provider: string, corridorStr: string, partner: "quote" | "card" | "none", origin: "on_site" | "external") {
+  dual("go_review_shown", { provider, corridor: corridorStr, partner, origin });
+}
+
+export function trackGoReviewContinue(provider: string, corridorStr: string, origin: "on_site" | "external") {
+  dual("go_review_continue", { provider, corridor: corridorStr, origin });
 }

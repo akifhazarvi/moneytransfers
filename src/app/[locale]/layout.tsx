@@ -16,6 +16,7 @@ import ProviderClickDelegate from "@/components/ProviderClickDelegate";
 import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import PwaManager from "@/components/pwa/PwaManager";
+import WelcomeBackManager from "@/components/welcome-back/WelcomeBackManager";
 import OfflineNotice from "@/components/pwa/OfflineNotice";
 import SiteProviderCrossSell from "@/components/SiteProviderCrossSell";
 import { COVERAGE } from "@/lib/site-stats";
@@ -352,6 +353,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <AiSourceInjector />
           <CookieConsentBanner />
           <PwaManager />
+          <WelcomeBackManager />
         </ThemeProvider>
       </NextIntlClientProvider>
     </>
