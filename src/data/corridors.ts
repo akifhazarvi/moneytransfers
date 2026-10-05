@@ -287,7 +287,7 @@ export const corridors: Corridor[] = [
     toFlag: "🇲🇽",
     sampleAmount: 1000,
     intro:
-      "Mexico is the second-largest remittance market in the world, receiving over $63 billion in 2025 — the vast majority from the United States. Competition among providers on this corridor keeps costs low.",
+      "Mexico is the second-largest remittance market in the world, receiving $62.5 billion in 2025 — 97% of it from the United States, according to Banxico. Competition among providers on this corridor keeps costs low.",
     context:
       "The USD to MXN corridor benefits from intense competition and proximity between the two countries. Many providers offer same-day delivery, and fees are among the lowest of any remittance corridor. The key differentiator is usually the exchange rate markup — even a 0.5% difference means 80–100 extra pesos per $1,000.",
     feesNote:

@@ -115,7 +115,7 @@ const editorialContent: Record<string, PairEditorial> = {
     tip: "If your recipient has GCash, prioritise providers that support wallet payout — it's faster than bank deposit and avoids any inter-bank delays.",
   },
   "usd-to-mxn": {
-    intro: "Mexico is the largest recipient of remittances from the United States, receiving over $63 billion in 2025. The USD/MXN rate is highly liquid and influenced by US-Mexico trade flows, Banxico (Bank of Mexico) interest rate decisions, oil prices, and broader risk sentiment. Mexico's SPEI instant payment system means bank deposits arrive within seconds once processed.",
+    intro: "Mexico is the largest recipient of remittances from the United States: $62.5 billion arrived in 2025, 97% of it from the US, down 3.9% from the 2024 record (Banxico). The USD/MXN rate is highly liquid and influenced by US-Mexico trade flows, Banxico (Bank of Mexico) interest rate decisions, oil prices, and broader risk sentiment. Mexico's SPEI instant payment system means bank deposits arrive within seconds once processed.",
     bullets: [
       "SPEI enables near-instant bank deposits — most providers deliver within minutes during business hours",
       "Oxxo cash pickup is popular for recipients without bank accounts (available via Western Union, Remitly)",

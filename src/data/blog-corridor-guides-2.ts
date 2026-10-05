@@ -264,9 +264,9 @@ export const corridorGuides2: BlogPost[] = [
       {
         heading: "Why M-Pesa Makes Kenya the Easiest Country to Send Money To",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <strong>Sendwave</strong> pays into M-Pesa for a {{FEE:sendwave:USD:KES:1000}} fee on $1,000, and <a href="/companies/wise">Wise</a> applies no exchange-rate markup — but on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:KES}}. Today the cheapest and dearest providers on $1,000 are {{SPREAD:USD:KES:1000}} apart. Always choose <strong>M-Pesa delivery</strong> — it arrives in seconds. <a href="/send-money/usa-to-kenya">Compare live USD to KES rates →</a></p></div>
-<p>If you're sending money to Kenya from the US, you have a major advantage: <strong>M-Pesa</strong>. Used by over <strong>30 million Kenyans</strong> — more than half the country — M-Pesa is the world's most successful mobile money platform. Your transfer arrives in your recipient's phone in <strong>seconds</strong>, and they can use it instantly for bills, shopping, or cash withdrawal at any of 250,000+ agent locations.</p>
+<p>If you're sending money to Kenya from the US, you have a major advantage: <strong>M-Pesa</strong>. With about <strong>41 million</strong> one-month active customers and more than 333,000 agents (<a href="https://www.safaricom.co.ke/images/Downloads/2026-Annual-Report.pdf" target="_blank" rel="noopener noreferrer">Safaricom, year to March 2026</a>), M-Pesa is the world's most successful mobile money platform. Your transfer arrives in your recipient's phone in <strong>seconds</strong>, and they can use it instantly for bills, shopping, or cash withdrawal at an agent.</p>
 <p>This puts Kenya ahead of almost every other remittance corridor on speed and convenience. But it doesn't mean all providers are equal — the payout table below shows how far apart they sit on the same $1,000.</p>
-<p>The US is Kenya's single largest remittance source, contributing to over <strong>$4 billion in annual inflows</strong> according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>. This guide compares the 6 best providers for USD-to-KES transfers. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
+<p>The US is Kenya's single largest remittance source: about <strong>US$2.7 billion</strong> of the US$5.04 billion Kenya received in 2025, by the <a href="https://www.centralbank.go.ke/diaspora-remittances/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya's</a> source data. This guide compares the 6 best providers for USD-to-KES transfers. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
       },
       {
         heading: "Best Providers for USD to KES Transfers",
@@ -282,11 +282,11 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "M-Pesa: Why It Matters for Kenya Transfers",
-        content: `<p><strong>M-Pesa</strong> has over <strong>30 million active users</strong> in Kenya and is as ubiquitous as cash. For international senders, M-Pesa delivery offers:</p>
+        content: `<p><strong>M-Pesa</strong> is as ubiquitous as cash in Kenya. For international senders, M-Pesa delivery offers:</p>
 <ul>
 <li><strong>Speed:</strong> Money arrives in seconds</li>
 <li><strong>No bank account needed:</strong> Just a registered Safaricom SIM card</li>
-<li><strong>Cash withdrawal anywhere:</strong> Over 250,000 M-Pesa agent locations</li>
+<li><strong>Cash withdrawal anywhere:</strong> more than 333,000 M-Pesa agents</li>
 <li><strong>Lower cost:</strong> Providers often offer better rates for M-Pesa delivery</li>
 </ul>
 <p><strong>Tip:</strong> If your recipient has M-Pesa, always choose M-Pesa delivery. They can transfer to their bank for free if needed.</p>`,
@@ -311,21 +311,25 @@ export const corridorGuides2: BlogPost[] = [
 <p>Kenya's banking system is modern and well-connected. Major banks include <strong>KCB Bank</strong>, <strong>Equity Bank</strong>, <strong>Co-operative Bank</strong>, <strong>Standard Chartered Kenya</strong>, and <strong>NCBA</strong>. All accept incoming international transfers. However, M-Pesa has become so dominant that many Kenyans — particularly in rural areas — prefer mobile money over traditional banking. If your recipient uses M-Pesa, it's almost always the better delivery option.</p>`,
       },
       {
+        heading: "Kenya's US$5 billion in remittances, and M-Pesa's limits",
+        content: `<p>Kenya received US$5.04 billion in diaspora remittances in 2025, 1.9% more than in 2024 (<a href="https://www.centralbank.go.ke/uploads/weekly_bulletin/1411354329_Weekly%20CBK%20Bulletin%20January%2016%202026.pdf" target="_blank" rel="noopener noreferrer">CBK weekly bulletin</a>). In the Central Bank's source data, US$2.73 billion of that — 54% — came from the United States, far ahead of the UK at 7% and Saudi Arabia at 6%. 2026 has been softer: January to August inflows were US$3.33 billion, 0.7% below a year earlier, and North America's share fell from 58% to 52%.</p>
+<p>M-Pesa's limits decide how a large transfer lands. Safaricom caps a single M-Pesa transaction at KES 250,000, daily transactions at KES 500,000 and the wallet balance at KES 500,000 (<a href="https://www.safaricom.co.ke/main-mpesa/m-pesa-for-you/tariffs-limits/consumer-tariffs-limits" target="_blank" rel="noopener noreferrer nofollow">Safaricom</a>). Receiving an international transfer into M-Pesa is free, and the sending service sets its own per-transfer cap (<a href="https://www.safaricom.co.ke/media-center-landing/frequently-asked-questions/international-money-transfer" target="_blank" rel="noopener noreferrer nofollow">Safaricom IMT FAQ</a>) — but a transfer larger than the room left under the KES 500,000 balance cap cannot land in the wallet, so a big one-off sum belongs in a bank account at KCB, Equity or another bank instead.</p>`,
+      },
+      {
         heading: "KES Exchange Rate and True Transfer Cost",
         content: `<p>The Kenyan Shilling (KES) is a floating currency managed by the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>. Key context for US senders:</p>
 <ul>
 <li><strong>Fee vs. rate trade-off:</strong> Some providers (like Sendwave) charge little or no fee but build their cost into the exchange rate. Others (like <a href="/companies/wise">Wise</a>) charge a visible fee but give the real mid-market rate. Always compare the <strong>total KES received</strong>, not just the fee.</li>
-<li><strong>KES volatility:</strong> The Kenyan Shilling experienced significant depreciation in 2023–2024 before partially recovering. Rates can shift meaningfully week to week, making comparison at time of transfer important.</li>
+<li><strong>The shilling's path:</strong> it weakened from about KSh 123 per dollar in January 2023 to a low near KSh 160–161 in late January 2024, recovered to about KSh 129 by mid-2024, and has held near KSh 129–130 since — KSh 129.76 on 5 October 2026 (<a href="https://www.centralbank.go.ke/statistics/exchange-rates/" target="_blank" rel="noopener noreferrer">CBK</a>). With monthly averages between KSh 129.0 and 129.5 through 2025 and 2026, the month-to-month move on $1,000 is worth a few hundred shillings — less than the {{SPREAD:USD:KES:1000}} between today's best and worst provider.</li>
 <li><strong>Provider markups matter:</strong> A 2% markup on a $1,000 transfer costs you an extra KES 2,600–3,000. Over 12 monthly transfers, that's KES 31,000+ lost to unnecessary markup.</li>
 </ul>`,
       },
       {
-        heading: "M-Pesa first: four checks before a USD to KES transfer",
+        heading: "M-Pesa first: three checks before a USD to KES transfer",
         content: `<ol>
 <li><strong>Choose M-Pesa delivery</strong> when the recipient has a Safaricom line — it lands in seconds and can be moved to a bank account later.</li>
 <li><strong>Compare at your exact amount</strong> — the leader on $1,000 is not always the leader on $200. Use our <a href="/send-money/usa-to-kenya">comparison tool</a>.</li>
 <li><strong>Pay from a bank account</strong> — ACH funding is the cheapest from the US, and since January 2026 paying in cash or by money order adds a 1% federal tax.</li>
-<li><strong>Re-check the shilling</strong> — it fell sharply in 2023–2024 before partly recovering, so last week's quote is not today's.</li>
 </ol>`,
       },
       {
@@ -582,7 +586,7 @@ export const corridorGuides2: BlogPost[] = [
         heading: "Jamaica: Where Cash Pickup Still Beats Bank Transfers",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/remitly">Remitly</a> supports cash pickup with Express delivery and <a href="/companies/wise">Wise</a> applies no exchange-rate markup on bank deposits — but on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:JMD}}. Cash pickup remains the most popular delivery method in Jamaica — <a href="/companies/western-union">Western Union</a> has the widest agent network across every parish. <a href="/send-money/send-money-to-jamaica">Compare live USD to JMD rates →</a></p></div>
 <p>Jamaica is different from most corridors in this guide: <strong>cash pickup is still the most popular delivery method</strong>. While mobile banking is growing, many Jamaicans — especially in rural parishes outside Kingston, Montego Bay, and Spanish Town — rely on collecting physical cash from agent locations. This means your choice of provider depends heavily on their pickup network reach.</p>
-<p>Remittances represent roughly <strong>16% of Jamaica's GDP</strong> (~$3.5 billion in 2025), making it one of the most remittance-dependent economies in the world. The Jamaican diaspora is large — over 1 million abroad, primarily in <strong>New York, South Florida, Atlanta, London, and Toronto</strong>.</p>
+<p>Remittances were <strong>15.4% of Jamaica's GDP</strong> in 2025 — a record US$3.49 billion (<a href="https://boj.org.jm/wp-content/uploads/2026/02/Remittance-Bulletin-December-2025.pdf" target="_blank" rel="noopener noreferrer">Bank of Jamaica</a>) — making it one of the most remittance-dependent economies in the world. The Jamaican diaspora is large — over 1 million abroad, primarily in <strong>New York, South Florida, Atlanta, London, and Toronto</strong>.</p>
 <p>Price still matters: on $1,000 today, the best and worst Jamaican-dollar payouts we hold differ by {{SPREAD:USD:JMD:1000}}.</p>`,
       },
       {
@@ -603,6 +607,16 @@ export const corridorGuides2: BlogPost[] = [
 <li><strong>Remitly & WorldRemit:</strong> Partners with local agents in major towns</li>
 </ul>
 <p><strong>Tip:</strong> If your recipient banks with NCB, Scotiabank or JN Bank, price a bank deposit as well as cash pickup — providers quote them separately, and the pickup price is often the higher one.</p>`,
+      },
+      {
+        heading: "Where Jamaica's US$3.5 billion comes from",
+        content: `<p>Jamaica received a record US$3,485.7 million in remittances in 2025, 3.8% more than in 2024 and above the previous high set in 2021 (<a href="https://boj.org.jm/wp-content/uploads/2026/02/Remittance-Bulletin-December-2025.pdf" target="_blank" rel="noopener noreferrer">BOJ Remittance Bulletin</a>). US$3.08 billion of it came through licensed remittance companies, and by our calculation from the Bank of Jamaica's corridor data the United States sent about 68% of that flow, the UK 11%, Canada 10% and the Cayman Islands 6% (<a href="https://boj.org.jm/wp-content/uploads/2020/09/ES.RMT.01.xlsx" target="_blank" rel="noopener noreferrer">BOJ corridor table</a>). The first seven months of 2026 brought US$2.11 billion, 4.8% more than a year earlier (<a href="https://boj.org.jm/wp-content/uploads/2026/09/Remittance-Bulletin-July-2026.pdf" target="_blank" rel="noopener noreferrer">BOJ, September 2026</a>).</p>
+<p>Every remittance company in Jamaica is licensed and supervised by the Bank of Jamaica (<a href="https://boj.org.jm/core-functions/financial-system/cambios-remittance/supervision-of-remittance-services/" target="_blank" rel="noopener noreferrer">BOJ</a>). The large networks run through a handful of primary agents — among them GraceKennedy Remittance Service, JN Money Services, JMMB Money Transfer, VMBS Money Transfer Services and Lasco Financial Services — and BOJ's register lists 228 companies at 466 locations as at 30 September 2026 (<a href="https://boj.org.jm/core-functions/financial-system/list-of-remittance-companies/" target="_blank" rel="noopener noreferrer">BOJ register</a>).</p>`,
+      },
+      {
+        heading: "TRN, ID tiers and the currency a Jamaican recipient collects",
+        content: `<p>Collecting needs a Taxpayer Registration Number. BOJ's operating directions require remittance companies to record the recipient's TRN and ID type and number on every inbound transfer (<a href="https://boj.org.jm/wp-content/uploads/2019/07/remittance_operatingdirections.pdf" target="_blank" rel="noopener noreferrer">BOJ operating directions</a>), and from US$500 its anti-money-laundering guidance requires copies of identification and source-of-funds documents (<a href="https://boj.org.jm/wp-content/uploads/2026/06/Guidance-Notes-on-The-Prevention-of-Money-Laundering-and-Countering-The-Financing-of-Terrorism-Proliferation-and-Managing-Related-Risks-2026-265-175-AML.pdf" target="_blank" rel="noopener noreferrer">BOJ AML guidance, 2026</a>). Above that, each company sets its own tiers. JN Money asks for one ID with a TRN up to J$300,000, two IDs up to J$600,000, and above that proof of address plus purpose-of-funds and customer-profile forms (<a href="https://www.jnmoneyonline.com/guidelines-for-collecting-and-disbursing-money-transfer/" target="_blank" rel="noopener noreferrer nofollow">JN Money</a>). JMMB lists a driver's licence, passport or voter's ID as valid identification (<a href="https://jm.jmmb.com/moneytransfer" target="_blank" rel="noopener noreferrer nofollow">JMMB</a>), and JN Money exempts overseas residents and visitors from the TRN when a non-Jamaican passport shows a recent landing.</p>
+<p>Cash is paid in Jamaican dollars — BOJ's framework has remittance companies convert to pay "the JMD equivalent" to the recipient — so a pickup quote is a JMD quote. A US-dollar payout is possible only into an account: JMMB Money Transfer pays into US-dollar, Canadian-dollar or sterling accounts (<a href="https://jm.jmmb.com/moneytransfer" target="_blank" rel="noopener noreferrer nofollow">JMMB</a>), and TapTap Send's partner VMBS credits US-dollar bank accounts up to US$2,500 while paying cash in JMD (<a href="https://help.taptapsend.com/en/receiving-countries/how-can-i-send-money-to-jamaica" target="_blank" rel="noopener noreferrer nofollow">TapTap Send</a>). If the family wants to keep dollars, ask for an account credit rather than a pickup.</p>`,
       },
       {
         heading: "One $400 payment or two $200 payments?",
