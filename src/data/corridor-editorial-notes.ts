@@ -42,8 +42,8 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
       "Cash pickup: check the specific location is practical for your recipient and what identification they'll need.",
       "A time-sensitive transfer: use the full funding-to-arrival estimate, not just the local payout speed once funds land."
     ],
-    "warningTitle": "Philippine remittances topped $40 billion in 2024 — the world's 3rd-largest inflow",
-    "warningBody": "The Philippines received $40.3 billion in personal remittances in 2024 (World Bank), behind only India and Mexico. That volume is why so many providers built dedicated GCash and Maya delivery rather than treating this as just another bank-deposit corridor — worth checking which one actually fits your recipient before you compare prices."
+    "warningTitle": "The world's third-largest remittance destination",
+    "warningBody": "World Bank data rank the Philippines behind only India and Mexico for remittances received. Providers compete for that flow by building dedicated GCash and Maya delivery rather than treating it as another bank-deposit corridor, so check which wallet your recipient actually uses before you compare prices."
   },
   "send-money-to-pakistan": {
     "title": "Confirm the receiving method works for your recipient's location",

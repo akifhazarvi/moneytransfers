@@ -1959,6 +1959,17 @@ export default async function CorridorPage({ params }: Props) {
                   dangerouslySetInnerHTML={{ __html: renderDataTokens(corridorEditorial.beforeYouSend.body) }}
                 />
               </div>
+              {corridorEditorial.sections?.map((section) => (
+                <div key={section.heading}>
+                  <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
+                    {section.heading}
+                  </h2>
+                  <div
+                    className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 [&_a]:text-[var(--color-primary)] [&_a:hover]:underline"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(section.body) }}
+                  />
+                </div>
+              ))}
             </div>
           </Container>
         </section>
