@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-swift-codes.ts && npx tsx scripts/check-claims.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/build-corridor-leaders.ts && npx tsx scripts/build-corridor-uniqueness.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/check-pwa.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-site-coverage.ts && npx tsx scripts/build-llms-txt.ts",
-    "build": "next build",
+    "build": "node scripts/next-build.mjs",
     "start": "next start",
     "lint": "eslint",
     "mcp:search-console": "node mcp/search-console-server.mjs",
