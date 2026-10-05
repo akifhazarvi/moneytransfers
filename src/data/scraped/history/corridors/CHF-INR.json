@@ -9872,34 +9872,40 @@
         "receiveAmount": 10881.77
       },
       "currencyfair": {
-        "rate": 115.206,
+        "rate": 115.367,
         "fee": 1.04,
-        "markup": 0.83,
-        "receiveAmount": 11400.79
+        "markup": 0.68,
+        "receiveAmount": 11416.67
       },
       "postfinance": {
         "rate": 112.752,
-        "fee": 18.57,
-        "markup": 2.94,
-        "receiveAmount": 9181.42
+        "fee": 18.58,
+        "markup": 2.93,
+        "receiveAmount": 9180.29
       },
       "paysend": {
-        "rate": 114.339,
+        "rate": 114.268,
         "fee": 2.9,
-        "markup": 1.58,
-        "receiveAmount": 11102.29
+        "markup": 1.63,
+        "receiveAmount": 11095.4
       },
       "revolut": {
-        "rate": 115.556,
-        "fee": 2.1,
-        "markup": 0.53,
-        "receiveAmount": 11312.95
+        "rate": 115.747,
+        "fee": 1.1,
+        "markup": 0.36,
+        "receiveAmount": 11447.36
       },
       "wise": {
         "rate": 115.992,
         "fee": 1.62,
         "markup": -0.01,
         "receiveAmount": 11411.29
+      },
+      "dahabshiil": {
+        "rate": 114.867,
+        "fee": 1.99,
+        "markup": 1.11,
+        "receiveAmount": 11258.07
       }
     }
   }
