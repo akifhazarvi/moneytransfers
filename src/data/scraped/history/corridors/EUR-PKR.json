@@ -17345,5 +17345,100 @@
         "receiveAmount": 30608.57
       }
     }
+  },
+  {
+    "date": "2026-10-05",
+    "providers": {
+      "moneygram": {
+        "rate": 309.711,
+        "fee": 0.99,
+        "markup": -0.04,
+        "receiveAmount": 30664.46
+      },
+      "skrill": {
+        "rate": 295.015,
+        "fee": 0,
+        "markup": 4.7,
+        "receiveAmount": 29501.46
+      },
+      "taptap-send": {
+        "rate": 313,
+        "fee": 0.99,
+        "markup": -0.33,
+        "receiveAmount": 30990.13
+      },
+      "deutsche-bank": {
+        "rate": 308.372,
+        "fee": 29.31,
+        "markup": 1.15,
+        "receiveAmount": 21798.84
+      },
+      "western-union": {
+        "rate": 306.76,
+        "fee": 0.99,
+        "markup": 0.91,
+        "receiveAmount": 30372.28
+      },
+      "profee": {
+        "rate": 310.4,
+        "fee": 1.2,
+        "markup": 0.5,
+        "receiveAmount": 30667.53
+      },
+      "worldremit": {
+        "rate": 308.578,
+        "fee": 2.99,
+        "markup": 1.08,
+        "receiveAmount": 29935.17
+      },
+      "instarem": {
+        "rate": 308.143,
+        "fee": 0,
+        "markup": 0.46,
+        "receiveAmount": 30814.33
+      },
+      "xe": {
+        "rate": 309.453,
+        "fee": 1,
+        "markup": 0.8,
+        "receiveAmount": 30635.81
+      },
+      "paysend": {
+        "rate": 310.346,
+        "fee": 0,
+        "markup": 0.52,
+        "receiveAmount": 31034.61
+      },
+      "sendwave": {
+        "rate": 311.072,
+        "fee": 1.99,
+        "markup": 0.28,
+        "receiveAmount": 30488.21
+      },
+      "remitly": {
+        "rate": 308.98,
+        "fee": 1.99,
+        "markup": 0.19,
+        "receiveAmount": 30283.13
+      },
+      "revolut": {
+        "rate": 309.649,
+        "fee": 2.75,
+        "markup": 0.74,
+        "receiveAmount": 30113.32
+      },
+      "ria": {
+        "rate": 310.795,
+        "fee": 0.9,
+        "markup": -0.39,
+        "receiveAmount": 30799.8
+      },
+      "wise": {
+        "rate": 309.798,
+        "fee": 1.91,
+        "markup": -0.07,
+        "receiveAmount": 30388.09
+      }
+    }
   }
 ]

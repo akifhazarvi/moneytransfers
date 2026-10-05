@@ -17813,5 +17813,94 @@
         "receiveAmount": 175095.64
       }
     }
+  },
+  {
+    "date": "2026-10-05",
+    "providers": {
+      "instarem": {
+        "rate": 1737.09,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 173709.08
+      },
+      "lemfi": {
+        "rate": 1760,
+        "fee": 0,
+        "markup": -0.31,
+        "receiveAmount": 176000
+      },
+      "moneygram": {
+        "rate": 1780.44,
+        "fee": 0.99,
+        "markup": -1.04,
+        "receiveAmount": 176281.21
+      },
+      "taptap-send": {
+        "rate": 1790,
+        "fee": 0,
+        "markup": -2.02,
+        "receiveAmount": 179000
+      },
+      "western-union": {
+        "rate": 1739.14,
+        "fee": 1.99,
+        "markup": 0.88,
+        "receiveAmount": 170452.85
+      },
+      "dahabshiil": {
+        "rate": 1786.51,
+        "fee": 1.99,
+        "markup": -1.38,
+        "receiveAmount": 175095.64
+      },
+      "transfergo": {
+        "rate": 1782.01,
+        "fee": 0,
+        "markup": -1.13,
+        "receiveAmount": 178200.69
+      },
+      "worldremit": {
+        "rate": 1782.64,
+        "fee": 0.99,
+        "markup": -1.16,
+        "receiveAmount": 176499.11
+      },
+      "mukuru": {
+        "rate": 1762.75,
+        "fee": 0,
+        "markup": -0.03,
+        "receiveAmount": 176275
+      },
+      "paysend": {
+        "rate": 1766.56,
+        "fee": 0,
+        "markup": -0.25,
+        "receiveAmount": 176655.79
+      },
+      "sendwave": {
+        "rate": 1782.64,
+        "fee": 0.99,
+        "markup": -1.16,
+        "receiveAmount": 176499.11
+      },
+      "remitly": {
+        "rate": 1785.48,
+        "fee": 0,
+        "markup": -1.76,
+        "receiveAmount": 178548
+      },
+      "ria": {
+        "rate": 1787.31,
+        "fee": 1.99,
+        "markup": -1.87,
+        "receiveAmount": 175174.17
+      },
+      "wise": {
+        "rate": 1786.8,
+        "fee": 1.16,
+        "markup": -1.84,
+        "receiveAmount": 176607.31
+      }
+    }
   }
 ]

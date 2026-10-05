@@ -1,60 +1,60 @@
 {
-  "dataAsOf": "2026-10-04",
-  "corridorsScored": 206,
+  "dataAsOf": "2026-10-05",
+  "corridorsScored": 204,
   "corridorsWithAnyScore": 1003,
-  "singleProviderReadings": 797,
+  "singleProviderReadings": 799,
   "bands": {
-    "exceptional": 13,
-    "great": 57,
-    "good": 52,
-    "typical": 28,
-    "poor": 56
+    "exceptional": 16,
+    "great": 60,
+    "good": 45,
+    "typical": 26,
+    "poor": 57
   },
   "goodOrBetterPct": 59,
   "confidence": {
-    "high": 206,
+    "high": 204,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 190,
+  "medianDaysObserved": 192,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 76,
+      "score": 75,
       "band": "great",
       "headline": "Great time to send",
-      "explanation": "Best rate +0.69% vs the 30-day average, 83% up the 90-day range. Rates are improving — +0.30% week on week. Today's best beats the median provider by +1.90%.",
+      "explanation": "Best rate +0.58% vs the 30-day average, 81% up the 90-day range. Rates are improving — +0.38% week on week. Today's best beats the median provider by +1.85%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 82.68247432010477,
-          "detail": "83% up the 90-day range"
+          "score": 80.53305579437962,
+          "detail": "81% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 61.50190367815168,
-          "detail": "+0.69% vs the 30-day average"
+          "score": 59.70935662237665,
+          "detail": "+0.58% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 96.56515210759257,
-          "detail": "today's best beats the median provider by +1.90%"
+          "score": 94.8034824368155,
+          "detail": "today's best beats the median provider by +1.85%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 57.566640630272275,
-          "detail": "improving — +0.30% week on week"
+          "score": 59.473069337179595,
+          "detail": "improving — +0.38% week on week"
         }
       ],
-      "daysObserved": 197,
+      "daysObserved": 198,
       "rangeWindowDays": 90,
       "confidence": "high"
     }
