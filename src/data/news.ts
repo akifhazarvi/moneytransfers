@@ -69,7 +69,7 @@ export const newsItems: NewsItem[] = [
     publishedAt: "2026-03-17",
     updatedAt: "2026-03-31",
     source: "Reuters / Bank of England / Federal Reserve",
-    sourceUrl: "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes",
+    sourceUrl: "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/march-2026",
     providerSlugs: ["wise", "xe", "revolut"],
   },
   {

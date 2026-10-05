@@ -64,8 +64,8 @@ export const PILOT_BANKS: Record<string, BankMeta> = {
     founded: 1865,
     headline: "HSBC International Transfer Fees — What You Actually Pay (Live Data, 2026)",
     productNote:
-      "HSBC's Global Money service (free for HSBC Premier and Advance customers) competes head-on with Wise for some currencies, but standard HSBC Bank Account holders pay a 1.2-2.0% exchange rate margin plus a fixed transfer fee on most outbound international payments.",
-    sourcePage: "https://www.hsbc.co.uk/help/online-banking/global-money-transfer/",
+      "HSBC UK's Global Money Account, open to most HSBC UK current account holders, sends abroad with no HSBC fee. A standard international payment to a non-HSBC bank outside the EEA, or in a currency other than euros, costs £5 (waived for Premier and Private Banking), and converts at an exchange rate HSBC sets.",
+    sourcePage: "https://www.hsbc.co.uk/international/money-transfer/",
     recommendedAlternative: { slug: "wise", label: "Wise — mid-market rate, 0% markup, 70+ currencies" },
   },
   "wells-fargo": {
@@ -78,8 +78,8 @@ export const PILOT_BANKS: Record<string, BankMeta> = {
     founded: 1852,
     headline: "Wells Fargo International Wire Transfer Fees — Live Cost vs Wise & Remitly (2026)",
     productNote:
-      "Wells Fargo charges $30 for an online international wire transfer in USD and $40-50 in foreign currency, plus an exchange rate markup that typically lands 2.5-3.5% above the mid-market rate. The bank does not publish its FX margin upfront — the only way to see the real cost is to compare the receive amount.",
-    sourcePage: "https://www.wellsfargo.com/online-banking/transfers/wire-transfers/",
+      "Wells Fargo charges up to $30 for a wire sent through Digital Wires and $40 for a branch wire; consumer accounts pay no fee when a Digital Wire is sent in a foreign currency. The exchange rate on those wires is set by Wells Fargo and includes a markup it does not list as a fee — the only way to see the real cost is to compare the amount received against the mid-market rate.",
+    sourcePage: "https://www.wellsfargo.com/help/online-banking/wires-faqs/",
     recommendedAlternative: { slug: "wise", label: "Wise — typically saves $25-80 on a $1,000 transfer" },
   },
   "chase": {
@@ -92,8 +92,11 @@ export const PILOT_BANKS: Record<string, BankMeta> = {
     founded: 1799,
     headline: "Chase International Wire Transfer Fees — How Much You're Actually Losing (2026)",
     productNote:
-      "Chase charges $40-50 for an international wire transfer initiated online ($50 in branch). Foreign currency wires include a non-disclosed FX margin that adds 2-3.5% on top — Chase does not display the markup; you only see it by comparing the foreign-currency receive amount against the mid-market rate.",
-    sourcePage: "https://www.chase.com/personal/wire-transfer",
+      "Chase charges $40 for an international wire sent online in US dollars, $5 for one sent online in a foreign currency ($0 from $5,000), and $50 when a banker sends it. On foreign-currency wires Chase sets the exchange rate itself, including a spread it does not list as a fee — you only see it by comparing the amount received against the mid-market rate.",
+    // Chase's fee schedule for personal accounts (effective 2026-06-14): the
+    // wire fees above and the spread disclosure are on it. The old
+    // /personal/wire-transfer page returns 404.
+    sourcePage: "https://www.chase.com/content/dam/chase-ux/documents/personal/checking/ABSF-en.pdf",
     recommendedAlternative: { slug: "wise", label: "Wise — typically saves $30-90 on a $1,000 transfer" },
   },
   "lloyds": {

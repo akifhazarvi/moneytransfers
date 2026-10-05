@@ -124,23 +124,25 @@ const affiliateLinks: Record<string, string> = {
   // — verified setting AFFILIATE + afflno to our own partner number.
   "currencies-direct": "https://www.currenciesdirect.com/partner/0201110000955421?utm_id=0201110000955421&utm_source=https://sendmoneycompare.com/&utm_medium=affiliate&utm_campaign=cc_sendmoneycompare&utm_content=comparison_cpa&utm_term=table&aff_own_client_id=1234",
   monese: "https://monese.com/?ref=sendmoneycompare",
-  chase: "https://chase.com/personal/international-transfers",
+  chase: "https://www.chase.com/digital/wire-transfer",
   "bank-of-america": "https://bankofamerica.com/foreign-exchange/",
   "wells-fargo": "https://wellsfargo.com/international-remittances/",
-  hsbc: "https://hsbc.com/ways-to-bank/international-transfers",
+  hsbc: "https://www.hsbc.co.uk/international/money-transfer/",
   barclays: "https://barclays.co.uk/ways-to-bank/international-payments/",
   lloyds: "https://lloydsbank.com/international-payments.html",
-  nationwide: "https://nationwide.co.uk/current-accounts/international-payments/",
-  "commonwealth-bank": "https://commbank.com.au/international-transfers",
-  anz: "https://anz.com.au/ways-to-bank/international-money-transfers/",
-  westpac: "https://westpac.com.au/personal-banking/international-transfers/",
-  santander: "https://santander.co.uk/ways-to-bank/international-payments/",
+  nationwide: "https://www.nationwide.co.uk/help/payments/swift-sepa-international-payments",
+  "commonwealth-bank": "https://www.commbank.com.au/personal/international/international-money-transfer.html",
+  anz: "https://www.anz.com.au/personal/travel-international/international-payments/",
+  westpac: "https://www.westpac.com.au/international-travel/international-transfers/",
+  santander: "https://www.santander.co.uk/personal/support/current-accounts/making-international-payments",
   natwest: "https://natwest.com/international-payments.html",
-  "td-bank": "https://td.com/us/en/personal-banking/international-transfers/",
+  // Every scraped td-bank row sends from CAD (RemitRoutes, Wise comparison), so
+  // this slug is TD Canada; the old td.com/us page was the wrong bank and a 404.
+  "td-bank": "https://www.td.com/ca/en/personal-banking/ways-to-bank/ways-to-send/international-money-transfer/td-global-transfer",
 
   // --- Aggregator slug aliases (same provider, different slug across sources) ---
   rbs: "https://rbs.co.uk/international-payments.html",
-  uob: "https://uob.com.sg/personal/save/international-transfers.page",
+  uob: "https://www.uob.com.sg/personal/digital-banking/overseas-payments/transfer-money.page",
 
   // --- Aggregator-only fintechs ---
   ria: "https://riamoneytransfer.com/?ref=sendmoneycompare",
@@ -163,7 +165,10 @@ const affiliateLinks: Record<string, string> = {
   // Swap for the negotiated tracking link once terms are agreed (BD contact:
   // corporate@gmeremit.com). Korea-outbound (KRW) only; see INDICATIVE_PROVIDERS.
   "gme-remit": "https://www.gmeremit.com/?ref=sendmoneycompare",
-  "pnb-europe": "https://pnbeuropebank.com/?ref=sendmoneycompare",
+  // Philippine National Bank (Europe) Plc: the Monito rows are GBP/EUR→PHP.
+  // pnbeuropebank.com never resolved. pnb.com.ph answers 403 to every script,
+  // headless Chromium included, so this page is unverified by tooling.
+  "pnb-europe": "https://www.pnb.com.ph/europe/",
   starling: "https://starlingbank.com/?ref=sendmoneycompare",
   halifax: "https://halifax.co.uk/?ref=sendmoneycompare",
   "remit2any": "https://remit2any.com/?ref=sendmoneycompare",
@@ -172,23 +177,23 @@ const affiliateLinks: Record<string, string> = {
   scotiabank: "https://scotiabank.com/international-money-transfer",
   bmo: "https://bmo.com/main/personal/bank-accounts/international-money-transfer/",
   rbc: "https://rbcroyalbank.com/international-money-transfer/",
-  bnc: "https://bnc.ca/en/personal/international-money-transfer",
-  "icici-bank": "https://icicibank.com/money-transfer",
-  "state-bank-of-india": "https://sbi.co.in/web/nri/money-transfer",
+  bnc: "https://www.nbc.ca/personal/accounts/services/online/features/international-transfer.html",
+  "icici-bank": "https://www.icici.bank.in/nri-banking/money-transfer",
+  "state-bank-of-india": "https://sbi.bank.in/web/nri/remittances",
   "sbi-remit": "https://sbiremit.com/?ref=sendmoneycompare",
   "sbi-california": "https://sbical.com/?ref=sendmoneycompare",
   ocbc: "https://ocbc.com/personal-banking/international-transfers.page",
-  "deutsche-bank": "https://deutsche-bank.de/international-transfers",
-  commerzbank: "https://commerzbank.de/international-transfers",
-  nab: "https://nab.com.au/personal/international-transfers",
-  kiwibank: "https://kiwibank.co.nz/personal-banking/international-transfers/",
+  "deutsche-bank": "https://www.deutsche-bank.de/pk/service-und-kontakt/services/fragen-antworten/konto-und-debitkarten/wie-ueberweise-ich-ausserhalb-europas-oder-in-einer-fremdwaehrung.html",
+  commerzbank: "https://www.commerzbank.de/service/wie-taetige-ich-eine-auslandsueberweisung/",
+  nab: "https://www.nab.com.au/personal/international-banking/international-money-transfers",
+  kiwibank: "https://www.kiwibank.co.nz/personal-banking/accounts/international/sending-receiving-international-payments/",
   "auckland-savings-bank-nz": "https://asb.co.nz/international-transfers",
-  "bank-of-new-zealand-nz": "https://bnz.co.nz/personal-banking/international-transfers",
-  postfinance: "https://postfinance.ch/en/private/products/international-payments.html",
-  "raiffeisen-ch": "https://raiffeisen.ch/international-payments",
-  zkb: "https://zkb.ch/en/private/international-payments",
-  "hsbc-hk": "https://hsbc.com.hk/international-transfers/",
-  "hsbc-sg": "https://hsbc.com.sg/international-transfers/",
+  "bank-of-new-zealand-nz": "https://www.bnz.co.nz/personal-banking/international/international-payments",
+  postfinance: "https://www.postfinance.ch/en/private/paying-saving/international-payments/international-payment.html",
+  "raiffeisen-ch": "https://www.raiffeisen.ch/rch/de/privatkunden/konten-und-bezahlen/zahlungen.html",
+  zkb: "https://www.zkb.ch/de/private/konten-karten/zahlungsverkehr/auslandzahlungen.html",
+  "hsbc-hk": "https://www.hsbc.com.hk/transfer-payments/products/international/",
+  "hsbc-sg": "https://www.hsbc.com.sg/accounts/products/global-money-transfers/",
 };
 
 // UTM params appended to every destination URL so the provider's own

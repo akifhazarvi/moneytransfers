@@ -14519,7 +14519,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. External sources: <a href="https://nbebank.com/" target="_blank" rel="noopener noreferrer">National Bank of Ethiopia</a>, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a>, <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a>. <a href="/send-money/send-money-to-ethiopia">Compare live rates</a>.</p>`,
+        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. External sources: <a href="https://nbe.gov.et/" target="_blank" rel="noopener noreferrer">National Bank of Ethiopia</a>, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a>, <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a>. <a href="/send-money/send-money-to-ethiopia">Compare live rates</a>.</p>`,
       },
     ],
     faqs: [

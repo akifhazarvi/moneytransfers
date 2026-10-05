@@ -139,7 +139,7 @@ export default async function HowWeReviewPage({ params }: Props) {
                     </a>{" "}
                     in the US, and{" "}
                     <a
-                      href="https://asic.gov.au/online-services/search-asics-registers/"
+                      href="https://www.asic.gov.au/online-services/search-asic-registers"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[var(--color-primary)] hover:underline"

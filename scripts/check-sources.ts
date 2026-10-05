@@ -18,9 +18,10 @@
  * that would fail the build for reasons unrelated to our content, which is how
  * guards get disabled. Run it periodically and read the output instead.
  *
- * Only 404/400/410 from a host that answers normally is treated as broken.
- * 403s and connection errors are reported separately as UNVERIFIABLE, because
- * that status tells us nothing either way.
+ * Only 404/400/410 from a host that answers normally, or a domain that no longer
+ * exists (NXDOMAIN), is treated as broken. 403s and other connection errors are
+ * reported separately as UNVERIFIABLE, because that status tells us nothing
+ * either way.
  *
  * Run: npm run check:sources        (add --all to list every URL checked)
  */
@@ -29,6 +30,7 @@ import { businessPages } from "../src/data/business-pages";
 import { newsItems } from "../src/data/news";
 import { corridors } from "../src/data/corridors";
 import { getCountryDetails } from "../src/data/corridor-details";
+import { PILOT_BANKS } from "../src/lib/bank-comparisons";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
@@ -67,9 +69,18 @@ for (const p of businessPages) {
   p.sections.forEach((s) => scan(s.content, `business:${p.slug}`));
   (p.faqs ?? []).forEach((f) => scan(f.answer, `business:${p.slug}`));
 }
-for (const n of newsItems as { slug: string; content?: string; sections?: { content: string }[] }[]) {
+for (const n of newsItems as { slug: string; content?: string; sourceUrl?: string; sections?: { content: string }[] }[]) {
   scan(n.content, `news:${n.slug}`);
   (n.sections ?? []).forEach((s) => scan(s.content, `news:${n.slug}`));
+  // The "Source:" link under every news item. Read from its own field, not the
+  // HTML, so the body scan never saw it: on 2026-10-05 an Ahrefs crawl found a
+  // dead Payments Dive URL here that this guard had reported as "0 dead".
+  if (n.sourceUrl) recordSource(n.sourceUrl, `news:${n.slug}`);
+}
+// Same blind spot on /banks/<slug>: the bank's own fee page is a field, and two
+// of the four (Chase, HSBC) had moved to 404s unnoticed.
+for (const b of Object.values(PILOT_BANKS)) {
+  if (b.sourcePage) recordSource(b.sourcePage, `bank:${b.slug}`);
 }
 
 // Page components, not just the content data files. Added 2026-09-20 with the
@@ -125,7 +136,13 @@ async function head(url: string): Promise<number | string> {
     }
     return res.status;
   } catch (e) {
-    return e instanceof Error && e.name === "AbortError" ? "TIMEOUT" : "UNREACHABLE";
+    if (e instanceof Error && e.name === "AbortError") return "TIMEOUT";
+    // A domain that does not exist is dead, not unverifiable: no browser will
+    // reach it either. moia.gov.in (the ministry merged into External Affairs in
+    // 2016) sat in the "unverifiable" list as UNREACHABLE for that reason.
+    // EAI_AGAIN, the transient resolver failure, stays unverifiable.
+    const code = (e as { cause?: { code?: string } })?.cause?.code;
+    return code === "ENOTFOUND" ? "NXDOMAIN" : "UNREACHABLE";
   } finally {
     clearTimeout(timer);
   }
@@ -144,9 +161,10 @@ async function main() {
     }),
   );
 
-  const broken = results.filter((r) => typeof r.status === "number" && [400, 404, 410].includes(r.status));
+  const isBroken = (s: Result["status"]) => s === "NXDOMAIN" || (typeof s === "number" && [400, 404, 410].includes(s));
+  const broken = results.filter((r) => isBroken(r.status));
   const unverifiable = results.filter(
-    (r) => typeof r.status !== "number" || (r.status >= 400 && ![400, 404, 410].includes(r.status)),
+    (r) => !isBroken(r.status) && (typeof r.status !== "number" || r.status >= 400),
   );
   const ok = results.length - broken.length - unverifiable.length;
 
