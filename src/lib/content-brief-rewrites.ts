@@ -52,7 +52,7 @@ export const CONTENT_BRIEF_REWRITES: ReadonlyArray<readonly [string, number]> = 
   ["/compare/wise-vs-worldremit", 42],
   ["/compare/ofx-vs-xe", 42],
   ["/iban/hungary", 41],
-  ["/news/revolut-africa-14-corridors-airtel-mtn-orange-money-2026", 40],
+  // /news/revolut-africa-14-corridors-airtel-mtn-orange-money-2026 (40%) retired 2026-10-05 (410) — see src/lib/gone-news.ts
   ["/companies/ace-money-transfer", 40],
   ["/companies/xoom", 38],
   ["/compare/ofx-vs-xoom", 38],

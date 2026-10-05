@@ -139,47 +139,11 @@ export function generateStaticParams() {
 const corridorRelatedNews: Record<string, { slug: string; label: string }> = {
   "uk-to-pakistan": {
     slug: "pakistan-record-41-billion-remittance-2026",
-    label: "Pakistan hits record $41B remittance year — cheapest way to send GBP to PKR",
+    label: "Pakistan on track for a record $41B remittance year — cheapest way to send GBP to PKR",
   },
   "usa-to-pakistan": {
     slug: "pakistan-record-41-billion-remittance-2026",
-    label: "Pakistan hits record $41B remittance year (Apr 2026)",
-  },
-  "uk-to-india": {
-    slug: "inr-weakest-year-send-money-india-april-2026",
-    label: "April 2026 analysis: INR at 92.98/USD and transfer timing",
-  },
-  "usa-to-india": {
-    slug: "inr-weakest-year-send-money-india-april-2026",
-    label: "April 2026 analysis: INR at 92.98/USD and transfer timing",
-  },
-  "canada-to-india": {
-    slug: "inr-weakest-year-send-money-india-april-2026",
-    label: "INR weakest in a year — decision framework for USD/GBP/CAD → INR",
-  },
-  "australia-to-india": {
-    slug: "inr-weakest-year-send-money-india-april-2026",
-    label: "INR weakest in a year — decision framework for AUD → INR",
-  },
-  "uk-to-nigeria": {
-    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
-    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
-  },
-  "uk-to-kenya": {
-    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
-    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
-  },
-  "uk-to-ghana": {
-    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
-    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
-  },
-  "usa-to-nigeria": {
-    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
-    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
-  },
-  "usa-to-kenya": {
-    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
-    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
+    label: "Pakistan on track for a record $41B remittance year (Apr 2026)",
   },
 };
 

@@ -27,7 +27,7 @@ export const newsItems: NewsItem[] = [
     title:
       "How Central Bank Rate Decisions Affect Your Money Transfers (2026)",
     excerpt:
-      "Fed held at 3.5%, Bank of Japan hiked, Bank of England held, RBA signalled caution. How central bank interest rate decisions move exchange rates — and what to do before, during, and after rate announcements to protect your transfer.",
+      "Fed held at 3.50–3.75%, Bank of Japan held at 0.75%, Bank of England held at 3.75%, RBA raised to 4.10%. How central bank interest rate decisions move exchange rates — and what to do before, during, and after rate announcements to protect your transfer.",
     image: "/images/news/central-bank-super-week.jpg",
     imageAlt:
       "The Federal Reserve building in Washington D.C., one of four central banks announcing rate decisions this week",
@@ -50,10 +50,10 @@ export const newsItems: NewsItem[] = [
 <h2>Case study: March 17–19, 2026 — four decisions in three days</h2>
 <p>One of the most consequential weeks in the 2026 currency calendar saw four major central banks all announce within 72 hours:</p>
 <ul>
-<li><strong>RBA (March 17)</strong> — Held rates after cutting in February 2026 for the first time in years. Dovish tone weakened AUD, benefiting AUD/INR and AUD/PHP senders.</li>
-<li><strong>Fed (March 17–18)</strong> — Held at 3.5%. The "dot plot" projections were the real driver — showing one projected cut in 2026, keeping the dollar stable.</li>
-<li><strong>BoJ (March 18–19)</strong> — Continued normalising policy after decades of ultra-loose settings. Yen strengthened, making Japan-bound transfers more expensive.</li>
-<li><strong>BoE (March 19)</strong> — Held steady. Sticky UK inflation complicated the case for easing. Sterling stayed strong at GBP/USD ~1.32 — good for British senders.</li>
+<li><strong>RBA (March 17)</strong> — Raised the cash rate target 25 basis points to 4.10% on a 5–4 vote, its second increase of 2026 after February's.</li>
+<li><strong>Fed (March 17–18)</strong> — Held at 3.50–3.75% on an 11–1 vote. The "dot plot" projections were the real driver — showing one projected cut in 2026, keeping the dollar stable.</li>
+<li><strong>BoJ (March 18–19)</strong> — Held the policy rate at around 0.75% on an 8–1 vote, with one member preferring a rise.</li>
+<li><strong>BoE (March 19)</strong> — Held Bank Rate at 3.75%, unanimously, while flagging that higher energy prices will lift inflation in the near term. GBP/USD traded around 1.33.</li>
 </ul>
 
 <h2>How to protect your transfer around rate decisions</h2>
@@ -79,36 +79,36 @@ export const newsItems: NewsItem[] = [
       "A federal excise tax on cash-funded international transfers went live in January 2026. Here's what it means for senders, providers, and the broader remittance market.",
     image: "/images/news/us-remittance-tax.jpg",
     imageAlt: "The US Capitol building in Washington D.C., where the remittance excise tax legislation was passed",
-    content: `<p>The money transfer landscape in the United States shifted on January 1, 2026, when a 1% federal excise tax on certain international remittances took effect. Bundled into the broader "One Big Beautiful Bill Act" passed by Congress, the levy applies specifically to cash-funded outbound transfers — a move that caught parts of the industry off guard.</p>
+    content: `<p>The money transfer landscape in the United States shifted on January 1, 2026, when a 1% federal excise tax on certain international remittances took effect. Bundled into the broader "One Big Beautiful Bill Act" passed by Congress, the levy applies to outbound transfers funded with cash, a money order, a cashier's check or a similar physical instrument.</p>
 
 <h2>Who pays, and who doesn't?</h2>
 <p>The tax targets transfers funded with physical cash at agent locations and retail counters. If you walk into a <a href="/companies/western-union">Western Union</a> or <a href="/companies/moneygram">MoneyGram</a> branch and pay with banknotes, the provider is required to collect the 1% levy on top of existing fees. Transfers funded digitally — through a linked bank account, debit card, or credit card — remain exempt.</p>
 
-<p>That distinction matters. According to World Bank data, roughly 38% of US outbound remittances still originate as cash transactions, particularly in corridors to Latin America, Sub-Saharan Africa, and parts of South Asia. For a $500 cash transfer to Mexico, the additional cost is $5 — not enormous on its own, but enough to erode thin margins for frequent senders.</p>
+<p>That distinction matters for cash senders. For a $500 cash transfer to Mexico, the additional cost is $5 — not enormous on its own, but enough to erode thin margins for frequent senders.</p>
 
 <h2>Industry pushback and IRS relief</h2>
-<p>Trade groups representing remittance providers lobbied hard against the provision, arguing it disproportionately affects low-income immigrant communities who rely on cash. In response, the IRS issued penalty relief for providers during the first three quarters of 2026, giving the industry time to update point-of-sale systems and customer-facing disclosures.</p>
+<p>Trade groups representing remittance providers lobbied hard against the provision, arguing it disproportionately affects low-income immigrant communities who rely on cash. Separately, the IRS (Notice 2025-55) gave providers limited relief from deposit penalties for the first three quarters of 2026, citing the challenges of implementing the new law.</p>
 
 <p><a href="/companies/remitly">Remitly</a> published a detailed breakdown for customers on its blog, walking through which transaction types are affected and how to avoid the tax by switching to digital funding methods. <a href="/companies/wise">Wise</a> noted that its entirely digital model means none of its customers are impacted.</p>
 
 <h2>The bigger picture</h2>
-<p>Industry analysts see this as an accelerant for an already-underway shift from cash to digital remittances. "The tax essentially puts a price on staying analogue," said one payments consultant. "Providers that haven't invested in digital onboarding will feel the squeeze." For a broader view of where global remittances are heading, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>.</p>
+<p>For a broader view of where global remittances are heading, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>.</p>
 
 <p>For consumers, the takeaway is straightforward: funding transfers digitally avoids the tax entirely. Read our <a href="/guides/us-remittance-tax-2026">complete guide to the US remittance tax</a> for a provider-by-provider breakdown of who charges it and how to avoid it. Our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> covers how to reduce costs further, and our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> roundup highlights the digital-first providers that are entirely unaffected by the tax. Our <a href="/send-money">comparison tool</a> shows real-time costs across providers, making it easy to find the cheapest option regardless of how you fund the transfer.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-14",
-    source: "IRS / RSM US",
-    sourceUrl: "https://www.irs.gov/newsroom",
+    source: "IRS / Treasury (Notice 2025-55)",
+    sourceUrl: "https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill",
     providerSlugs: ["western-union", "moneygram", "remitly", "wise"],
   },
   {
     slug: "revolut-files-us-bank-charter-2026",
     title: "Revolut News March 2026: Files for US National Bank Charter, Pledges $500M",
     excerpt:
-      "Revolut files for a US national bank charter with the OCC and FDIC in March 2026, pledging $500M in domestic investment. What this means for Revolut's 50M+ customers and US money transfers.",
+      "Revolut files for a US national bank charter with the OCC and FDIC in March 2026, with about $500M of US investment planned. What this means for Revolut's 70M+ customers and US money transfers.",
     image: "/images/news/revolut-us-charter.jpg",
     imageAlt: "The US Capitol building illuminated at night, representing Revolut's push into American finance",
-    content: `<p>Revolut, the UK-headquartered fintech with over 50 million global customers, is making its boldest move yet in the American market. In early March the company filed applications with both the Office of the Comptroller of the Currency (OCC) and the Federal Deposit Insurance Corporation (FDIC) to establish "Revolut Bank US, N.A." — a full national bank charter.</p>
+    content: `<p>Revolut, the UK-headquartered fintech with more than 70 million customers worldwide, is making its boldest move yet in the American market. In early March the company filed applications with both the Office of the Comptroller of the Currency (OCC) and the Federal Deposit Insurance Corporation (FDIC) to establish "Revolut Bank US, N.A." — a full national bank charter.</p>
 
 <h2>What a charter would unlock</h2>
 <p>A national bank charter isn't just a regulatory badge — it fundamentally changes what Revolut can offer US customers. Direct access to Fedwire and ACH would slash the company's reliance on partner banks for domestic transfers. FDIC-insured deposits would let Revolut compete head-on with traditional banks, not just other fintechs. And operating under a single federal charter eliminates the patchwork of state-by-state money transmitter licences the company currently maintains.</p>
@@ -116,7 +116,7 @@ export const newsItems: NewsItem[] = [
 <p>For international money transfers specifically, cutting out intermediary banks should reduce both costs and settlement times on US-originated corridors. That's good news for anyone sending dollars abroad.</p>
 
 <h2>The $500 million commitment</h2>
-<p>Alongside the charter filing, <a href="/companies/revolut">Revolut</a> appointed fintech veteran Cetin Duransoy as US CEO and pledged half a billion dollars in US investment. The funds will go toward hiring, infrastructure build-out, and customer acquisition — areas where Revolut has lagged behind US-native competitors like Cash App and Venmo.</p>
+<p>Alongside the charter filing, <a href="/companies/revolut">Revolut</a> appointed fintech veteran Cetin Duransoy as US CEO, and said it expects to invest about $500 million in the US over the next three to five years. The funds will go toward hiring, infrastructure build-out, and customer acquisition — areas where Revolut has lagged behind US-native competitors like Cash App and Venmo.</p>
 
 <h2>September update: conditional approval, further steps pending</h2>
 <p>In its <a href="https://www.revolut.com/en-AU/news/revolut_receives_conditional_approval_from_u_s_office_of_the_comptroller_of_the_currency_to_form_a_national_bank/" target="_blank" rel="noopener noreferrer">3 September announcement</a>, Revolut reported conditional OCC approval. The company said it still needed to complete FDIC and Federal Reserve processes and obtain final OCC approval, with a proposed bank launch planned for 2027. This updates the March application covered here; it is not an announcement that the proposed US bank has opened.</p>
@@ -140,74 +140,47 @@ export const newsItems: NewsItem[] = [
       "Sources say the $159 billion payments giant is in early-stage conversations about acquiring all or part of PayPal, which would reshape the global payments landscape.",
     image: "/images/news/stripe-paypal-deal.jpg",
     imageAlt: "Two businessmen sealing a deal with a handshake, representing the reported Stripe-PayPal acquisition talks",
-    content: `<p>In what would be the largest fintech deal in history, payments infrastructure giant Stripe is reportedly exploring an acquisition of PayPal. Multiple sources familiar with the discussions told CoinDesk that talks are in early stages, with no certainty of a deal — but the mere possibility has sent shockwaves through the industry.</p>
+    content: `<p>Payments infrastructure giant Stripe is reportedly exploring an acquisition of PayPal. Bloomberg reported on February 24, citing people familiar with the matter, that deliberations are in early stages, with no certainty of a deal.</p>
+
+<p><strong>Update, July 2026:</strong> Stripe and Advent International offered $60.50 a share for PayPal, a deal that would value it at more than $53 billion, <a href="https://www.cnbc.com/2026/07/15/stripe-advent-offer-to-buy-paypal-for-more-than-53-billion-reuters.html" target="_blank" rel="noopener noreferrer">CNBC reported</a>, citing Reuters.</p>
 
 <h2>The numbers behind the rumour</h2>
-<p>Stripe, last valued at $159 billion in its most recent private funding round, dwarfs PayPal's current public market capitalisation of roughly $43 billion. That valuation gap — PayPal traded above $300 billion as recently as 2021 — reflects a dramatic reversal of fortunes. PayPal has struggled with slowing growth, increased competition from Apple Pay and Google Pay, and an identity crisis about whether it's a consumer app or a merchant platform.</p>
+<p>Stripe, valued at $159 billion in a February 2026 tender offer, dwarfs PayPal's current public market capitalisation of roughly $43 billion. That valuation gap — PayPal traded above $300 billion as recently as 2021 — reflects a dramatic reversal of fortunes. PayPal has struggled with slowing growth, increased competition from Apple Pay and Google Pay, and an identity crisis about whether it's a consumer app or a merchant platform.</p>
 
 <p>For Stripe, which has built its empire on developer tools and merchant-side payments infrastructure, acquiring <a href="/companies/paypal">PayPal</a> would add a massive consumer-facing brand, the Venmo peer-to-peer network, and <a href="/companies/xoom">Xoom</a> — PayPal's international money transfer service that competes directly with <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a>.</p>
 
 <h2>What it could mean for money transfers</h2>
-<p>Xoom, which PayPal acquired in 2015 for $890 million, handles cross-border remittances to over 130 countries. Under PayPal's ownership, the service has operated somewhat independently. A Stripe acquisition could bring Xoom's remittance capabilities into Stripe's infrastructure, potentially creating a vertically integrated cross-border payments stack that serves both merchants and consumers.</p>
+<p>Xoom, which PayPal acquired in 2015 for $890 million, is PayPal's cross-border remittance service. Under PayPal's ownership, the service has operated somewhat independently. A Stripe acquisition could bring Xoom's remittance capabilities into Stripe's infrastructure, potentially creating a vertically integrated cross-border payments stack that serves both merchants and consumers.</p>
 
 <p>Whether any deal materialises remains unclear. Regulatory hurdles would be significant — antitrust authorities in the US, EU, and UK would all need to approve a combination of this scale. But the conversation itself signals how rapidly the payments industry is consolidating — a trend well documented in our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. For a consumer-level breakdown of which services deliver the best value today, see our <a href="/guides/best-money-transfer-services">best money transfer services</a> guide. In the meantime, use <a href="/send-money">our comparison tool</a> to find the best rates across all active providers.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-12",
-    source: "CoinDesk",
-    sourceUrl: "https://www.coindesk.com/",
+    source: "Bloomberg, via CoinDesk",
+    sourceUrl: "https://www.coindesk.com/business/2026/02/24/payments-giant-stripe-reportedly-mulling-paypal-acquisition",
     providerSlugs: ["paypal", "xoom"],
-  },
-  {
-    slug: "eu-instant-payments-mandate-2026",
-    title: "SEPA Instant Payments 2026: Free 10-Second Transfers Now Mandatory — What Changes for You",
-    excerpt:
-      "EU banks must now process SEPA instant euro transfers in under 10 seconds, 24/7, with no extra fee. No more €100K limits in Germany. Here's what changed, which banks comply, and how it affects your international transfers.",
-    image: "/images/news/eu-instant-payments.jpg",
-    imageAlt: "The European Parliament building in Strasbourg, France, where EU instant payment regulations were shaped",
-    content: `<p>A sweeping set of regulations taking effect across the European Union in 2026 is fundamentally changing how euro-denominated transfers work. Under the new Instant Payments Regulation, every bank and payment service provider in the EU must support real-time euro credit transfers — available 24 hours a day, 365 days a year, with funds arriving in the recipient's account within 10 seconds.</p>
-
-<h2>The end of "business hours" banking</h2>
-<p>Until now, instant payments in the euro area were optional. Many banks offered the service for a premium or limited it to certain hours. The new mandate eliminates those restrictions. Whether you're sending money at 3 PM on a Tuesday or 2 AM on Christmas Day, the transfer must process immediately and at no additional charge compared to a standard credit transfer.</p>
-
-<p>For cross-border transfers within the eurozone — say, Germany to Spain or France to Italy — this removes one of the last friction points. Previously, even SEPA transfers could take up to one business day. Now they'll be effectively instantaneous. If you're unfamiliar with the codes and account numbers involved, our guide to <a href="/guides/iban-numbers-explained">IBAN numbers explained</a> covers everything you need.</p>
-
-<h2>Verification of Payee: a fraud safeguard</h2>
-<p>Alongside the speed mandate, providers must implement "Verification of Payee" (VoP) checks. Before processing a transfer, the sending bank will verify that the recipient's name matches the account details provided. If there's a mismatch, the sender receives a warning — a measure designed to combat authorised push payment fraud, which has surged across Europe in recent years.</p>
-
-<h2>Impact on international remittances</h2>
-<p>While the regulation directly covers euro-to-euro transfers within the EU, the ripple effects extend to international remittances. Providers like <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, and <a href="/companies/worldremit">WorldRemit</a> that hold European licences will benefit from faster settlement on the euro leg of cross-border corridors. A transfer from Germany to India, for example, could see faster processing on the European side even if the Indian payout timing remains unchanged. For a full breakdown of how international bank payments work end-to-end, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a> and our explainer on <a href="/guides/swift-codes-explained">SWIFT codes</a>. To understand how interbank rates affect the cost of euro transfers, read our guide on <a href="/guides/how-euribor-affects-euro-transfers">how Euribor affects euro transfers</a>.</p>
-
-<p>The regulation also sets a precedent. The UK, Australia, and several Asian regulators are studying similar mandates for their domestic payment systems. Compare providers for <a href="/send-money/usa-to-europe">UK to Europe transfers</a> to see how these changes affect real costs.</p>`,
-    category: "Regulatory",
-    publishedAt: "2026-03-11",
-    source: "Sidley Austin / The Paypers",
-    sourceUrl: "https://www.sidley.com/en/insights",
-    providerSlugs: ["wise", "revolut", "worldremit"],
   },
   {
     slug: "china-digital-yuan-interest-bearing-cbdc",
     title: "Analysis: What Interest-Bearing Digital Yuan Wallets Could Mean for Cross-Border Payments",
     excerpt:
-      "China's e-CNY programme continues to evolve. We look at reports of interest-bearing CBDC wallets and what this could mean for the future of cross-border payments.",
+      "China now lets banks pay interest on digital yuan wallets, the first central bank digital currency to bear interest. What this could mean for the future of cross-border payments.",
     image: "/images/news/digital-yuan-interest.jpg",
     imageAlt: "Chinese yuan banknotes spread out, representing China's digital currency developments",
-    content: `<p><em>Editor's note: This article is analysis based on limited public reporting. Some claims could not be independently verified from primary sources at the time of publication.</em></p>
-
-<p>China's digital yuan (e-CNY) programme has reportedly crossed a threshold that no other central bank digital currency has reached: interest-bearing wallets. Reports suggest that holders of category 1–3 e-CNY wallets may now receive interest at prevailing demand deposit rates, with quarterly settlement directly into their wallets.</p>
+    content: `<p>China's digital yuan (e-CNY) has crossed a threshold that no other central bank digital currency has reached: interest-bearing wallets. Under an overhaul announced on December 29, 2025 and in force from January 1, 2026, banks may pay interest on balances in real-name e-CNY wallets, which are now covered by deposit insurance and managed as part of the banks' assets and liabilities.</p>
 
 <h2>Why this matters beyond China</h2>
-<p>Central banks around the world have debated whether CBDCs should bear interest. The argument against is straightforward — an interest-bearing CBDC could pull deposits away from commercial banks, destabilising the financial system. China's decision to go ahead anyway, with wallets also now covered by deposit insurance, is the biggest real-world test of that theory.</p>
+<p>Central banks around the world have debated whether CBDCs should bear interest. The argument against is straightforward — an interest-bearing CBDC could pull deposits away from commercial banks, destabilising the financial system. China's decision to go ahead anyway is the biggest real-world test of that theory.</p>
 
-<p>The scale is significant. The People's Bank of China reports over 230 million active e-CNY wallets and cumulative transaction volume exceeding 16.7 trillion yuan (roughly $2.3 trillion). Interest payments on that base, even at low demand-deposit rates, represent a meaningful transfer of value from the central bank to consumers.</p>
+<p>The scale is significant. By the end of November 2025 the digital yuan had processed 3.48 billion transactions worth 16.7 trillion yuan (roughly $2.3 trillion) since its 2019 pilot. Because wallet balances now sit on the operating banks' books, it is those banks, not the central bank, that pay the interest — which makes e-CNY behave more like a deposit than like cash.</p>
 
 <h2>What it could mean for cross-border payments</h2>
-<p>China has been piloting cross-border e-CNY transactions through the mBridge project, a collaboration with central banks in Hong Kong, Thailand, the UAE, and Saudi Arabia. An interest-bearing digital yuan could accelerate adoption in these corridors, particularly for trade settlement and potentially for person-to-person remittances.</p>
+<p>China has been piloting cross-border e-CNY transactions through the mBridge project, a collaboration with central banks in Hong Kong, Thailand and the UAE. An interest-bearing digital yuan could accelerate adoption in these corridors, particularly for trade settlement and potentially for person-to-person remittances.</p>
 
 <p>For now, the direct impact on Western consumers sending money to China is minimal — inbound remittances to China still flow through traditional channels. Our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a> covers the best approaches for reaching Asian corridors today. The digital yuan's evolution is worth watching as a bellwether for how CBDCs might reshape the landscape described in our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report — where digital payment infrastructure in emerging markets is among the biggest stories.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-10",
-    source: "BeInCrypto / People's Bank of China reports",
-    sourceUrl: "https://beincrypto.com/china-digital-yuan/",
+    source: "Caixin Global",
+    sourceUrl: "https://www.caixinglobal.com/2025-12-29/china-to-allow-interest-on-digital-yuan-in-major-overhaul-102398302.html",
   },
   {
     slug: "absa-thunes-global-pay-africa-remittances",
@@ -219,19 +192,19 @@ export const newsItems: NewsItem[] = [
     content: `<p>A new contender has entered the cross-border remittance space. Absa, one of South Africa's largest banks, partnered with global payments network Thunes to launch Absa Global Pay on March 3 — a digital-first service that lets customers send money to 18 countries from their Absa banking app.</p>
 
 <h2>How it works</h2>
-<p>Absa Global Pay supports three delivery methods: direct bank deposits, mobile wallet credits, and cash pickup. Recipients in markets like Kenya, India, Pakistan, Malawi, and Zimbabwe can choose whichever method suits them best. The service processes transfers in what Absa describes as "near real-time" for most corridors, with cash pickup available within hours.</p>
+<p>Absa Global Pay supports three delivery methods: direct bank deposits, mobile wallet credits, and cash pickup. Recipients in markets like Kenya, India, Pakistan, Malawi, and Zimbabwe can choose whichever method suits them best. Absa and Thunes describe it as offering "instant settlement", with real-time notifications and full visibility of each transfer.</p>
 
-<p>The initial corridor list targets some of the largest remittance flows in and out of Southern Africa. Notably, the service also supports transfers to the UK — a corridor that typically moves in the opposite direction (UK to Africa), suggesting Absa sees demand from South Africa's professional diaspora sending money northward.</p>
+<p>Six of the 18 markets are in the first release: the UK, Kenya, India, Malawi, Pakistan and Zimbabwe.</p>
 
 <h2>The Thunes connection</h2>
 <p>Thunes, a Singapore-based payments network, connects over 130 countries through direct integrations with mobile wallets, banks, and cash-out networks. The company has quietly become a key infrastructure player in emerging-market payments, powering the backend for several well-known remittance brands. Its partnership with Absa gives the bank instant access to payout infrastructure that would have taken years to build independently.</p>
 
 <h2>Competitive implications</h2>
-<p>Sub-Saharan Africa remains the most expensive region to send money to, with average costs of 7.4% for a $200 transfer according to the World Bank. New entrants like Absa Global Pay inject competition into corridors that have traditionally been dominated by <a href="/companies/western-union">Western Union</a>, <a href="/companies/moneygram">MoneyGram</a>, and a handful of regional operators. More competition typically means lower prices — a pattern we've seen play out in mature digital corridors like <a href="/send-money/usa-to-nigeria">USA to Nigeria</a> and UK-to-Philippines. For a deeper look at these trends, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report, or compare costs right now using our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
+<p>Sub-Saharan Africa remains the most expensive region to send money to, according to the World Bank's Remittance Prices Worldwide data. New entrants like Absa Global Pay inject competition into corridors that have traditionally been dominated by <a href="/companies/western-union">Western Union</a>, <a href="/companies/moneygram">MoneyGram</a>, and a handful of regional operators. More competition typically means lower prices — a pattern we've seen play out in mature digital corridors like <a href="/send-money/usa-to-nigeria">USA to Nigeria</a> and UK-to-Philippines. For a deeper look at these trends, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report, or compare costs right now using our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
     category: "Announcement",
     publishedAt: "2026-03-09",
-    source: "Fintech Global",
-    sourceUrl: "https://www.fintechglobal.com/",
+    source: "FinTech Global / Thunes",
+    sourceUrl: "https://fintech.global/2026/03/09/absa-and-thunes-launch-absa-global-pay-for-africa/",
   },
   {
     slug: "stablecoins-cross-border-payments-2026",
@@ -243,31 +216,31 @@ export const newsItems: NewsItem[] = [
     content: `<p>While retail crypto adoption has been a rollercoaster, a quieter revolution is unfolding in cross-border business payments. Stablecoins — digital currencies pegged to traditional assets like the US dollar — are gaining serious traction as settlement rails for international B2B transactions, and some of the biggest names in payments are driving the push.</p>
 
 <h2>The corporate heavyweights moving in</h2>
-<p><a href="/companies/paypal">PayPal</a> has been expanding the reach of PYUSD, its dollar-pegged stablecoin, beyond consumer wallets into merchant settlement. Stripe's Bridge subsidiary, acquired in late 2024, recently received conditional OCC approval to operate a federally chartered trust bank focused on stablecoin products. And traditional banks like Santander and Societe Generale are exploring their own institutional stablecoins for trade finance.</p>
+<p><a href="/companies/paypal">PayPal</a> has been expanding the reach of PYUSD, its dollar-pegged stablecoin, beyond consumer wallets into merchant settlement. Stripe's Bridge subsidiary, acquired in late 2024, recently received conditional OCC approval to operate a federally chartered trust bank focused on stablecoin products. And Societe Generale's digital-assets arm, SG-FORGE, already issues its own euro and dollar stablecoins.</p>
 
-<p>The appeal for businesses is practical: a B2B payment from the US to Southeast Asia using traditional correspondent banking can take 3–5 days, involve 2–4 intermediary banks, and carry fees of 2–5%. A stablecoin-settled transaction can clear in minutes at a fraction of the cost.</p>
+<p>The appeal for businesses is practical: a correspondent-banking payment can pass through several intermediary banks before it arrives, each adding time and cost, while a stablecoin transfer settles on-chain in minutes.</p>
 
 <h2>What about consumer remittances?</h2>
 <p>The technology hasn't meaningfully reached everyday senders yet, but the building blocks are falling into place. <a href="/companies/moneygram">MoneyGram</a>'s existing crypto-to-cash service via the Stellar network demonstrates one bridge between stablecoin rails and cash economies. As regulatory frameworks mature — particularly around stablecoin issuance and reserve requirements — expect more providers to offer stablecoin-powered corridors, especially to markets where traditional banking infrastructure is sparse. For a deep dive into the companies driving this shift, read our guide on <a href="/guides/crypto-banking-licenses-2026">crypto banking licenses and what they mean for transfers</a>.</p>
 
 <h2>Regulatory tailwinds</h2>
-<p>The US, EU, and UK are all advancing stablecoin-specific legislation in 2026. Clear rules around reserve backing, redemption rights, and operational resilience could transform stablecoins from a niche fintech tool into mainstream financial infrastructure. Businesses handling cross-border payments should read our <a href="/guides/business-international-payments-guide">guide to international business payments</a> to understand how emerging rails compare to traditional options today. For the macro view of where these changes fit, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. For cross-border payments, that transformation can't come soon enough.</p>`,
+<p>The rules are arriving. The US GENIUS Act became law in July 2025 and is now in rule-making, the EU's MiCA stablecoin rules have applied since June 2024, and the UK is building its own regime. Clear rules around reserve backing, redemption rights, and operational resilience could transform stablecoins from a niche fintech tool into mainstream financial infrastructure. Businesses handling cross-border payments should read our <a href="/guides/business-international-payments-guide">guide to international business payments</a> to understand how emerging rails compare to traditional options today. For the macro view of where these changes fit, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. For cross-border payments, that transformation can't come soon enough.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-08",
-    source: "American Banker / DL News",
-    sourceUrl: "https://www.americanbanker.com/payments",
+    source: "Banking Dive / SG-FORGE",
+    sourceUrl: "https://www.bankingdive.com/news/stripe-bridge-occ-conditional-approval-national-trust-bank-charter/812417/",
     providerSlugs: ["paypal", "moneygram"],
   },
   {
     slug: "embedded-finance-regulation-tightening-2026",
-    title: "US Regulators Turn Their Attention to Embedded Finance as Transaction Volumes Soar",
+    title: "Embedded Finance Payouts: Who Holds the Money When a Withdrawal Fails",
     excerpt:
       "Embedded finance puts an app between customers and financial institutions. A marketplace payout example explains why regulation focuses on who holds funds and handles failures.",
     image: "/images/news/embedded-finance-regulation.jpg",
-    imageAlt: "A statue beside the European Union flag, symbolising regulatory oversight of embedded finance",
+    imageAlt: "A statue beside a flag, symbolising regulatory oversight of embedded finance",
     content: `<p>A marketplace can show one balance while several businesses handle the underlying money. That separation is the central issue in embedded finance: the customer sees the platform, but the deposit relationship and payment processing may sit elsewhere.</p>
 
-<h2>The supervisory issue predates this year's market forecasts</h2>
+<h2>The supervisory issue is not new</h2>
 <p>On 25 July 2024, the FDIC, Federal Reserve and OCC issued a <a href="https://www.fdic.gov/news/financial-institution-letters/2024/agencies-issue-statement-bank-arrangements-third-parties" target="_blank" rel="noopener noreferrer">joint statement about banks using third parties to deliver deposit products</a>. It describes potential risks and risk-management practices. The statement itself says it does not create new requirements or supervisory expectations. It should not be described as a new 2026 rule simply because embedded finance remains in the news.</p>
 
 <h2>A marketplace payout shows why the division of responsibility matters</h2>
@@ -314,10 +287,12 @@ export const newsItems: NewsItem[] = [
     slug: "moneyremitter-launches-deals-comparison",
     title: "SendMoneyCompare Now Shows Promo Codes & Referral Bonuses Alongside Rates",
     excerpt:
-      "Our comparison platform now displays sign-up offers, referral rewards, and active promo codes for all 14 providers — so you can factor in bonuses when choosing where to send.",
+      "Our comparison platform now displays sign-up offers, referral rewards, and active promo codes for 15 providers — so you can factor in bonuses when choosing where to send.",
     image: "/images/news/moneyremitter-deals.jpg",
     imageAlt: "A person making a mobile payment using a smartphone, representing new deal comparison features",
-    content: `<p>We've shipped a feature that our users have been asking about for months: you can now see <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend rewards</strong> directly on the SendMoneyCompare comparison page, right alongside the exchange rates and fees you already rely on.</p>
+    content: `<p><strong>Update, October 2026:</strong> the deal badges and expanded referral details on provider cards described below were removed in September 2026. The "Best deals" sort and "Deals" filter remain, and our <a href="/guides/money-transfer-promo-codes-referral-programs">promo codes guide</a> lists current offers.</p>
+
+<p>We've shipped a new feature: you can now see <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend rewards</strong> directly on the SendMoneyCompare comparison page, right alongside the exchange rates and fees you already rely on.</p>
 
 <h2>What's new</h2>
 <p>Every provider card on the <a href="/send-money">Send Money</a> page now shows deal badges where applicable. You'll see badges like "Earn $25" for <a href="/companies/remitly">Remitly</a>'s referral programme, "3 free transfers" for <a href="/companies/worldremit">WorldRemit</a>'s promo code, and "Earn £50" for <a href="/companies/torfx">TorFX</a>'s generous refer-a-friend scheme. Expanding any provider card reveals the full details — what you earn, what your friend gets, and any conditions attached.</p>
@@ -325,16 +300,15 @@ export const newsItems: NewsItem[] = [
 <h2>New sorting and filtering</h2>
 <p>We've added a <strong>"Best deals"</strong> sort option that ranks providers by the overall value of their promotions and loyalty programmes. There's also a new <strong>"Deals" filter</strong> that lets you narrow results to only providers offering referral bonuses, sign-up incentives, or active promo codes.</p>
 
-<h2>Highlights worth knowing</h2>
+<h2>Highlights worth knowing (as listed in March 2026)</h2>
 <ul>
-<li><strong>Remitly:</strong> $25 per referral with no cap on the number of friends you can invite</li>
 <li><strong>TorFX:</strong> £50 for both you and your friend on transfers over £2,000</li>
 <li><strong>WorldRemit:</strong> Use code <strong>3FREE</strong> to get three fee-free transfers</li>
 <li><strong><a href="/companies/wise">Wise</a>:</strong> Earn up to $115 for every three friends who transfer $300 or more</li>
-<li><strong><a href="/companies/western-union">Western Union</a>:</strong> $15 Amazon gift card per referral (up to 20 friends)</li>
+<li><strong><a href="/companies/western-union">Western Union</a>:</strong> $15 Amazon gift card per referral</li>
 </ul>
 
-<p>Promo details are verified monthly and shown with a "last verified" date. When bonuses aren't the deciding factor, our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> and our <a href="/guides/best-money-transfer-services">best money transfer services</a> roundup help you pick the right provider on fundamentals alone. For the full breakdown of every provider's current offers, check out our comprehensive guide: <a href="/guides/money-transfer-promo-codes-referral-programs">Money Transfer Promo Codes & Referral Programs (2026)</a>.</p>`,
+<p>Offers change often, so check the provider's own terms before you rely on one. When bonuses aren't the deciding factor, our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> and our <a href="/guides/best-money-transfer-services">best money transfer services</a> roundup help you pick the right provider on fundamentals alone. For the full breakdown of every provider's current offers, check out our comprehensive guide: <a href="/guides/money-transfer-promo-codes-referral-programs">Money Transfer Promo Codes & Referral Programs (2026)</a>.</p>`,
     category: "Announcement",
     publishedAt: "2026-03-14",
     source: "SendMoneyCompare",
@@ -350,12 +324,12 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "The Federal Reserve kept rates at 3.5–3.75% and the dot plot projects only one cut this year. Here's how the stronger dollar affects remittance costs across key corridors.",
     image: "/images/news/fed-holds-rates-march-2026.svg",
-    imageAlt: "Chart showing Federal Reserve rate cut projections declining from 2 cuts to 1 cut between December 2025 and March 2026",
+    imageAlt: "Chart showing the Federal Reserve's median projection of one rate cut in 2026, unchanged from December 2025 to March 2026",
     content: `<div class="blog-answer-box">
-<p><strong>Key takeaway:</strong> The Fed held rates at 3.5–3.75% and projects just one cut in 2026 (down from two in January). A stronger dollar means Americans sending money abroad get more local currency per dollar — but the window may narrow if oil prices push inflation higher. Compare rates from multiple providers before your next transfer.</p>
+<p><strong>Key takeaway:</strong> The Fed held rates at 3.5–3.75% and projects just one cut in 2026, the same median as in December. A stronger dollar means Americans sending money abroad get more local currency per dollar — but the window may narrow if oil prices push inflation higher. Compare rates from multiple providers before your next transfer.</p>
 </div>
 
-<p>The Federal Reserve held interest rates steady at <strong>3.5–3.75%</strong> at its March 18–19 meeting, as widely expected. But the real story is in the updated "dot plot" — the Fed now projects <strong>just one rate cut in 2026</strong>, down from two projected in January. Rising oil prices and sticky inflation readings narrowed the window for easing.</p>
+<p>The Federal Reserve held interest rates steady at <strong>3.5–3.75%</strong> at its March 17–18 meeting, as widely expected. But the real story is in the updated "dot plot" — the Fed still projects <strong>just one rate cut in 2026</strong>, the same median as in December, though Powell said "four or five people went from two to one". Rising oil prices and sticky inflation readings narrowed the window for easing.</p>
 
 <h2>How the Fed rate path shifted</h2>
 <div class="blog-table-box">
@@ -363,9 +337,9 @@ export const newsItems: NewsItem[] = [
 <table>
 <thead><tr><th>Meeting</th><th>Rate Range</th><th>Projected Cuts in 2026</th><th>Signal</th></tr></thead>
 <tbody>
-<tr><td>Dec 2025</td><td>3.50–3.75%</td><td>2 cuts</td><td>Moderately dovish</td></tr>
-<tr><td>Jan 2026</td><td>3.50–3.75% (hold)</td><td>2 cuts</td><td>Wait and see</td></tr>
-<tr class="blog-row-highlight"><td><strong>Mar 2026 (today)</strong></td><td><strong>3.50–3.75% (hold)</strong></td><td><strong>1 cut</strong></td><td><strong>Hawkish shift</strong></td></tr>
+<tr><td>Dec 2025</td><td>3.50–3.75% (cut)</td><td>1 cut</td><td>Cut, then signalled a slower pace</td></tr>
+<tr><td>Jan 2026</td><td>3.50–3.75% (hold)</td><td>No projection that month</td><td>Wait and see</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mar 2026 (today)</strong></td><td><strong>3.50–3.75% (hold)</strong></td><td><strong>1 cut</strong></td><td><strong>Median unchanged; several officials moved from two cuts to one</strong></td></tr>
 </tbody>
 </table>
 </div>
@@ -400,11 +374,11 @@ export const newsItems: NewsItem[] = [
 <ol>
 <li><strong>Compare rates now</strong> — the post-Fed dollar strength may not last if economic data softens. Use our <a href="/send-money">comparison tool</a> to lock in today's rates.</li>
 <li><strong>Set rate alerts</strong> — <a href="/companies/wise">Wise</a> and <a href="/companies/xe">Xe</a> let you set alerts when your target rate hits. If you're not in a rush, wait for the optimal moment.</li>
-<li><strong>Avoid banks during volatile weeks</strong> — Banks widen their exchange rate markup when currencies move. Specialist providers like <a href="/companies/wise">Wise</a> (0% markup) and <a href="/companies/remitly">Remitly</a> pass through the real rate. See our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</li>
+<li><strong>Avoid banks during volatile weeks</strong> — Banks widen their exchange rate markup when currencies move. Specialist providers price closer to the mid-market rate: <a href="/companies/wise">Wise</a>'s median markup across the corridors we quote is {{AVG_MARKUP_PCT:wise}}. See our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</li>
 <li><strong>Consider splitting large transfers</strong> — If you're sending $5,000+, consider splitting into two transfers a week apart to average out the rate. <a href="/companies/ofx">OFX</a> offers forward contracts to lock rates for up to 12 months.</li>
 </ol>
 
-<p>The next major catalyst is the <strong>May 6–7 Fed meeting</strong> and the April jobs report. We'll cover both as they happen. For the full breakdown of how central bank decisions affect your transfers, read our <a href="/news/central-bank-super-week-march-2026">central bank super week analysis</a>. For background on how different providers handle volatility, read the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfers guide</a> and our <a href="/guides/best-money-transfer-services">best money transfer services</a> ranking.</p>`,
+<p>The next major catalyst is the <strong>April 28–29 Fed meeting</strong> and the April jobs report. We'll cover both as they happen. For the full breakdown of how central bank decisions affect your transfers, read our <a href="/news/central-bank-super-week-march-2026">central bank super week analysis</a>. For background on how different providers handle volatility, read the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfers guide</a> and our <a href="/guides/best-money-transfer-services">best money transfer services</a> ranking.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-18",
     source: "CNBC / Federal Reserve",
@@ -415,32 +389,27 @@ export const newsItems: NewsItem[] = [
     slug: "gcash-free-middle-east-transfers-philippines-ofw-2026",
     title: "GCash Drops All Fees for Filipino Transfers to the Middle East — Philippine Congress Pushes for Sector-Wide Waiver",
     excerpt:
-      "GCash is offering zero-fee transfers to the UAE, Saudi Arabia, Qatar, and Oman through March 31. Meanwhile, the Philippine House passed a resolution urging all providers to waive OFW remittance fees.",
+      "GCash is waiving fees for Filipinos in the Gulf sending money home, and separately making transfers from the Philippines to the UAE, Saudi Arabia, Qatar and Oman free through March 31. Meanwhile, the Philippine House adopted a resolution urging all providers to waive OFW remittance fees.",
     image: "/images/news/gcash-ofw-fee-waiver-2026.svg",
-    imageAlt: "Infographic showing GCash zero-fee transfer promotion to UAE, Saudi Arabia, Qatar and Oman for overseas Filipino workers, with key statistics: 10M+ OFWs, $40B+ annual remittances",
+    imageAlt: "Infographic showing GCash's zero-fee transfers from the Philippines to the UAE, Saudi Arabia, Qatar and Oman, with key statistics: about 2.2M OFWs, about $40B annual remittances",
     content: `<div class="blog-answer-box">
-<p><strong>Quick summary:</strong> GCash is offering zero-fee international transfers to the UAE, Saudi Arabia, Qatar, and Oman through March 31, 2026 — no minimum amount. Separately, the Philippine House of Representatives passed Resolution 905 urging all banks and remittance providers to waive OFW fees amid the Middle East crisis. If you're an OFW in the Gulf, act before March 31.</p>
+<p><strong>Quick summary:</strong> GCash is running two offers. GCash Overseas users in the Gulf pay no fees on bank transfers home, mobile load and bills, refunded as cashback. And from March 12–31, 2026, transfers sent from the Philippines to the UAE, Saudi Arabia, Qatar and Oman are free, with no minimum amount. Separately, the Philippine House of Representatives adopted Resolution 905 urging all banks and remittance providers to waive or reduce OFW fees amid the Middle East crisis.</p>
 </div>
 
-<p>Two developments in the Philippines this week could reshape how over <strong>10 million overseas Filipino workers (OFWs)</strong> send money home:</p>
+<p>Two developments in the Philippines this week could change how the country's roughly <strong>2.2 million overseas Filipino workers (OFWs)</strong> send money home:</p>
 
-<h2>GCash: Zero fees to the Middle East through March 31</h2>
-<p><strong>GCash</strong>, the Philippines' largest mobile wallet with over 90 million users, launched a <strong>zero-fee international transfer promotion</strong> covering the UAE, Saudi Arabia, Qatar, and Oman from March 12–31, 2026. No minimum amount. Most transfers credited same-day.</p>
+<h2>GCash: two fee waivers for the Middle East</h2>
+<p><strong>GCash</strong>, the Philippines' largest mobile wallet, is running two separate offers. <strong>For Filipinos in the Gulf</strong>, GCash Overseas users pay no fees on bank transfers to the Philippines, mobile load and bill payments, refunded as cashback. <strong>For senders in the Philippines</strong>, GCash International Transfer to the UAE, Saudi Arabia, Qatar and Oman is free from March 12–31, 2026, with no minimum amount.</p>
 
 <p>The timing is significant — rising oil prices driven by <strong>Middle East supply disruptions</strong> are increasing the cost of living for Filipino workers in the Gulf. GCash is positioning the fee waiver as relief for OFWs who need every dirham and riyal to stretch further.</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">GCash Fee Waiver: What's Covered</h3>
+<h3 style="margin-top: 0;">GCash Fee Waivers: What's Covered</h3>
 <table>
-<thead><tr><th>Feature</th><th>Details</th></tr></thead>
+<thead><tr><th>Offer</th><th>Who it's for</th><th>What's free</th><th>Dates</th></tr></thead>
 <tbody>
-<tr><td><strong>Promo period</strong></td><td>March 12–31, 2026</td></tr>
-<tr><td><strong>Countries covered</strong></td><td>UAE, Saudi Arabia, Qatar, Oman</td></tr>
-<tr><td><strong>GCash Overseas accounts</strong></td><td>UAE, Saudi Arabia, Qatar, Bahrain, Kuwait, Oman</td></tr>
-<tr><td><strong>Minimum amount</strong></td><td>None</td></tr>
-<tr><td><strong>Fees waived</strong></td><td>Bank transfers, mobile load, bill payments</td></tr>
-<tr><td><strong>Delivery speed</strong></td><td>Same-day (most transfers)</td></tr>
-<tr class="blog-row-highlight"><td><strong>Retroactive cashback</strong></td><td>Transactions from March 4–10 credited on March 20</td></tr>
+<tr class="blog-row-highlight"><td><strong>GCash Overseas fee waiver</strong></td><td>GCash Overseas users in the UAE, Saudi Arabia, Qatar, Bahrain, Kuwait and Oman (later also Israel, Lebanon and Jordan)</td><td>Bank transfers to the Philippines, mobile load and bill payments, refunded as cashback</td><td>From March 4; cashback for March 4–10 credited March 20, for March 11–14 on March 27; later extended to April 30</td></tr>
+<tr><td><strong>GCash International Transfer</strong></td><td>Senders in the Philippines</td><td>Transfers to the UAE, Saudi Arabia, Qatar and Oman, no minimum amount</td><td>March 12–31, 2026</td></tr>
 </tbody>
 </table>
 </div>
@@ -460,19 +429,17 @@ export const newsItems: NewsItem[] = [
 <table>
 <thead><tr><th>Metric</th><th>Value</th></tr></thead>
 <tbody>
-<tr><td>OFWs worldwide</td><td><strong>10+ million</strong></td></tr>
-<tr><td>Annual remittances</td><td><strong>$40+ billion</strong> (4th largest globally)</td></tr>
-<tr><td>From Gulf states</td><td><strong>~30%</strong> of total ($12B+)</td></tr>
-<tr><td>Average remittance cost to PH</td><td><strong>4.9%</strong> (<a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a>)</td></tr>
-<tr class="blog-row-highlight"><td>Potential annual savings at 0% fees</td><td><strong>$600M+</strong> back to Filipino families</td></tr>
+<tr><td>Overseas Filipino workers</td><td><strong>About 2.2 million</strong> (PSA, 2024)</td></tr>
+<tr><td>Annual remittances</td><td><strong>About $40 billion</strong> (4th largest globally)</td></tr>
+<tr><td>From Saudi Arabia, UAE, Qatar</td><td><strong>6.6%, 4.6% and 2.9%</strong> of 2025 cash remittances (BSP)</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2>What OFWs should do right now</h2>
 <ol>
-<li><strong>Use GCash for zero-fee transfers through March 31</strong> — this is the cheapest it will get. No minimum amount, covers the key Gulf countries.</li>
-<li><strong>Compare the total PHP received, not just fees</strong> — GCash waives fees but still applies an exchange rate markup. Our <a href="/send-money/uae-to-philippines">UAE to Philippines comparison</a> shows whether GCash's zero-fee offer beats <a href="/companies/remitly">Remitly</a> and <a href="/companies/wise">Wise</a> on total value received.</li>
+<li><strong>If you use GCash Overseas in the Gulf, use the waiver while it runs</strong> — bank transfers home are refunded as cashback.</li>
+<li><strong>Compare the total PHP received, not just fees</strong> — a waived fee does not mean a better exchange rate. Our <a href="/send-money/uae-to-philippines">UAE to Philippines comparison</a> shows what the providers we track deliver on the route.</li>
 <li><strong>Check <a href="/send-money/saudi-arabia-to-philippines">Saudi Arabia to Philippines</a> rates too</strong> — different providers win on different Gulf corridors.</li>
 <li><strong>Watch for competing offers</strong> — The congressional resolution may pressure other providers to match. We'll update our <a href="/guides/money-transfer-promo-codes-referral-programs">promo codes page</a> as new offers appear.</li>
 <li><strong>For USA-based Filipinos</strong> — This promo doesn't apply to you, but our <a href="/send-money/usa-to-philippines">USA to Philippines comparison</a> and <a href="/guides/send-money-to-philippines-guide">Philippines transfer guide</a> show the cheapest options from the US.</li>
@@ -496,14 +463,14 @@ export const newsItems: NewsItem[] = [
 <p><strong>Key facts:</strong> SWIFT announced that 75% of cross-border payments now reach banks within 10 minutes (up from days just a few years ago). Separately, Thunes connected 500 million stablecoin wallets to the SWIFT network via USDC/USDT. And Wizz Financial completed the first US stablecoin remittance into 80 countries. The race to make international transfers instant and near-free is accelerating — but for consumers, specialist providers like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> remain the best option today.</p>
 </div>
 
-<p>Two announcements this week paint a picture of an industry in rapid transformation — and suggest that the days of 3–5 day international bank wires are numbered.</p>
+<p>Two announcements in the past week paint a picture of an industry in rapid transformation.</p>
 
 <h2>SWIFT: 75% of payments in 10 minutes</h2>
-<p>At the <strong>Financial Stability Board's Cross-Border Payments Summit</strong> in London (March 16), SWIFT revealed that <strong>75% of cross-border payments now reach the beneficiary bank within 10 minutes</strong>, with some settling in seconds. This is a dramatic improvement from just a few years ago, when 3–5 business days was the norm for international bank wires.</p>
+<p>At the <strong>Financial Stability Board's Cross-Border Payments Summit</strong> in London (March 12), SWIFT revealed that <strong>75% of cross-border payments now reach the beneficiary bank within 10 minutes</strong>, with some settling in seconds.</p>
 
 <p>SWIFT also announced plans for a <strong>new retail payments framework by June 2026</strong>, ensuring consumer payments benefit from the fastest possible speeds, cost certainty, and end-to-end transparency. And in a nod to the blockchain competition, SWIFT is integrating a <strong>shared blockchain-based ledger</strong> for 24/7 real-time settlement.</p>
 
-<p>For consumers, this means the traditional bank wire is getting faster — but it's still not cheap. Banks continue to charge <strong>$25–$50 per wire plus 2–5% exchange rate markup</strong>, even as the underlying infrastructure improves. The speed gains benefit banks' bottom lines more than their customers' wallets. For a full breakdown of wire transfer costs, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a>.</p>
+<p>For consumers, this means the traditional bank wire is getting faster — but it's still not cheap. Banks still charge a wire fee and set their own exchange rate, even as the underlying infrastructure improves. The speed gains benefit banks' bottom lines more than their customers' wallets. For a full breakdown of wire transfer costs, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a>.</p>
 
 <h2>Thunes + SWIFT: 500 million stablecoin wallets connected</h2>
 <p>On March 17, <strong>Thunes</strong> (a major payments infrastructure provider) announced it can now route stablecoin payouts — in <strong>USDC and USDT</strong> — to over <strong>500 million crypto wallets</strong> worldwide, all connected via SWIFT. The 11,500 banks already on the SWIFT network can now send payments to stablecoin addresses with zero additional integration.</p>
@@ -511,37 +478,22 @@ export const newsItems: NewsItem[] = [
 <p>This is a quiet revolution. It means a corporate treasurer in New York could soon initiate a "wire transfer" through their normal banking portal and have the funds arrive in a vendor's stablecoin wallet in Lagos or Manila in <strong>seconds, at a fraction of the cost</strong>.</p>
 
 <h2>Wizz Financial: First US stablecoin remittance completed</h2>
-<p>Separately, <strong>Wizz Financial</strong> completed its first stablecoin-powered cross-border remittance from the United States on March 12, with capabilities into 80 countries. Using <strong>BitGo's digital trust bank infrastructure</strong>, Wizz converts fiat to stablecoins on the back end, settles instantly, and delivers in local currency — the sender and recipient never touch crypto.</p>
+<p>Separately, <strong>Wizz Financial</strong> completed its first stablecoin-powered cross-border remittance from the United States on March 12, with capabilities into 80 countries. Using <strong>BitGo's digital trust bank infrastructure</strong>, Wizz converts fiat to stablecoins on the back end for near-real-time settlement.</p>
 
 <h2>What this means for people sending money abroad</h2>
 <p>The convergence of faster SWIFT rails, stablecoin infrastructure, and fintech competition is compressing both cost and time:</p>
-
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">How the Landscape Is Changing</h3>
-<table>
-<thead><tr><th>Channel</th><th>Speed (2023)</th><th>Speed (2026)</th><th>Cost (2026)</th></tr></thead>
-<tbody>
-<tr><td>Bank wire (SWIFT)</td><td>3–5 days</td><td>Minutes–hours</td><td>$25–$50 + 2–5% markup</td></tr>
-<tr class="blog-row-highlight"><td><strong>Specialist provider (Wise, Remitly)</strong></td><td>Hours–1 day</td><td><strong>Minutes</strong></td><td><strong>$0–$7 + 0–0.5% markup</strong></td></tr>
-<tr><td>Stablecoin rail</td><td>Not available</td><td>Seconds</td><td>$0.01–$1 network fee</td></tr>
-</tbody>
-</table>
-</div>
 
 <p>For most people sending money today, <strong>specialist providers remain the best option</strong>. They're already fast (minutes via <a href="/send-money/usa-to-india">IMPS</a>, <a href="/send-money/usa-to-kenya">M-Pesa</a>, <a href="/send-money/usa-to-mexico">SPEI</a>) and dramatically cheaper than banks. Stablecoins are the future, but most recipients still need local currency in a bank account or mobile wallet — and that "last mile" conversion is where fintechs like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> excel today.</p>
 
 <h2>Stablecoin adoption: where we are now</h2>
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Stablecoin Usage for Cross-Border Payments (2026)</h3>
+<h3 style="margin-top: 0;">Stablecoin Usage for Cross-Border Payments</h3>
 <table>
 <thead><tr><th>Metric</th><th>Value</th><th>Source</th></tr></thead>
 <tbody>
-<tr><td>US remittance users using stablecoins</td><td><strong>26%</strong></td><td>FXC Intelligence</td></tr>
-<tr><td>Nigerian users</td><td><strong>28%</strong></td><td>FXC Intelligence</td></tr>
-<tr><td>Argentine users</td><td><strong>12%</strong></td><td>FXC Intelligence</td></tr>
+<tr><td>US remittance users who have used stablecoins</td><td><strong>26%</strong></td><td><a href="https://www.blockchainresearchlab.org/2025/04/27/new-research-26-of-u-s-based-remittance-users-have-already-adopted-stablecoins-for-their-transactions/" target="_blank" rel="noopener noreferrer">Blockchain Research Lab</a> (Apr 2025)</td></tr>
 <tr><td>Stablecoin wallets connected to SWIFT</td><td><strong>500M+</strong></td><td>Thunes (Mar 2026)</td></tr>
 <tr><td>Banks on SWIFT network</td><td><strong>11,500</strong></td><td>SWIFT</td></tr>
-<tr class="blog-row-highlight"><td>Avg stablecoin transfer fee</td><td><strong>$0.01–$1</strong></td><td>vs $25–$50 bank wire</td></tr>
 </tbody>
 </table>
 </div>
@@ -577,36 +529,35 @@ export const newsItems: NewsItem[] = [
     image: "/images/news/mexico-remittance-digital.svg",
     imageAlt:
       "A smartphone showing a money transfer app with US and Mexican flags, representing the digital shift in US-Mexico remittances",
-    content: `<p>The world's largest remittance corridor is going cashless — and it's happening faster than anyone predicted.</p>
+    content: `<p>The world's largest remittance corridor is moving from cash to digital.</p>
 
-<p>Bloomberg <a href="https://www.bloomberg.com/news/articles/2026-03-17/mexico-s-62-billion-in-us-remittances-shifts-away-from-cash" target="_blank" rel="noopener noreferrer">reported on March 17</a> that Mexico's US remittance corridor — worth over <strong>$62 billion annually</strong> — is experiencing a rapid shift from cash-based transfers to digital. Cash's share of inbound remittances has fallen from over 60% a decade ago to under 35% in early 2026, with app-based transfers now accounting for the majority of volume for the first time.</p>
+<p>Bloomberg <a href="https://www.bloomberg.com/news/articles/2026-03-17/mexico-s-62-billion-in-us-remittances-shifts-away-from-cash" target="_blank" rel="noopener noreferrer">reported on March 17</a> that Mexico's US remittance corridor — worth roughly <strong>$62 billion a year</strong> — is shifting from cash to digital. According to Mexico's central bank, digital transfers overtook cash in the corridor for the first time in 2025.</p>
 
 <h2>Why the shift is accelerating in 2026</h2>
 <p>Three forces are converging to push the US-Mexico corridor digital:</p>
 <ul>
 <li><strong>The 1% US remittance tax</strong> — The <a href="/news/us-remittance-excise-tax-takes-effect-2026">federal excise tax</a> that took effect in January 2026 applies only to cash-funded transfers. Digital transfers are exempt, giving millions of senders a direct financial incentive to switch from agent counters to apps.</li>
-<li><strong>Mexico's expanding digital infrastructure</strong> — Bank of Mexico's SPEI instant payment system now processes over 300 million transactions per month, and mobile banking penetration has doubled since 2022. Recipients who once needed cash pickup now have bank accounts or digital wallets that can receive instant deposits.</li>
-<li><strong>Provider competition on USD-MXN</strong> — <a href="/companies/remitly">Remitly</a>, <a href="/companies/wise">Wise</a>, and <a href="/companies/taptap-send">TapTap Send</a> have all expanded their Mexico offerings, driving fees down to near-zero on digital transfers. Our <a href="/send-money/usa-to-mexico">USA to Mexico comparison page</a> shows fees starting at $0 with exchange rate markups under 1%.</li>
+<li><strong>Mexico's expanding digital infrastructure</strong> — Bank of Mexico's SPEI instant payment system now processes over 300 million transactions per month. Recipients who once needed cash pickup now have bank accounts or digital wallets that can receive instant deposits.</li>
+<li><strong>Provider competition on USD-MXN</strong> — <a href="/companies/remitly">Remitly</a>, <a href="/companies/wise">Wise</a> and newer apps such as Felix Pago and Bitso compete for digital USD-MXN transfers. Our <a href="/send-money/usa-to-mexico">USA to Mexico comparison page</a> shows fees starting at $0 with exchange rate markups under 1%.</li>
 </ul>
 
 <h2>What this means for your transfers</h2>
-<p>The shift is unambiguously good for senders. As digital volume grows, providers compete harder on the corridor, pushing down both fees and exchange rate markups. Our data shows the average total cost of sending $500 digitally from the US to Mexico has fallen from 3.2% in 2024 to under 1.5% in March 2026.</p>
+<p>The shift is unambiguously good for senders. As digital volume grows, providers compete harder on the corridor, pushing down both fees and exchange rate markups.</p>
 
-<p>Cash transfers remain significantly more expensive — averaging 5–7% total cost at agent locations — and now carry the additional 1% tax burden. For a $1,000 transfer, switching from a cash agent to a digital app saves <strong>$40–$70</strong>.</p>
+<p>Cash-funded transfers now also carry the 1% US remittance tax, which funding from a bank account or card avoids.</p>
 
 <h2>Winners and losers</h2>
-<p>The clear winners are digital-first providers. <a href="/companies/remitly">Remitly</a> reports that Mexico is now its fastest-growing corridor by transaction count. <a href="/companies/wise">Wise</a> offers the mid-market exchange rate with 0% markup on this corridor — a real advantage, though the measured total-cost leader here is someone else: {{CORRIDOR_LEADER:USD:MXN}}.</p>
+<p>The clear winners are digital-first providers. <a href="/companies/wise">Wise</a> prices off the mid-market exchange rate — a real advantage, though the measured total-cost leader here is someone else: {{CORRIDOR_LEADER:USD:MXN}}.</p>
 
-<p>The losers are traditional agent networks. <a href="/companies/western-union">Western Union</a> still operates thousands of agent locations across Mexico but is seeing digital transactions grow 3x faster than in-person visits. <a href="/companies/moneygram">MoneyGram</a> faces similar pressure.</p>
+<p>The losers are traditional agent networks. <a href="/companies/western-union">Western Union</a> still operates thousands of agent locations across Mexico, but 39% of its transactions were digital at the end of 2025, up from 32% a year earlier, Bloomberg reported. <a href="/companies/moneygram">MoneyGram</a> faces similar pressure.</p>
 
-<p>That said, cash isn't dead yet. Roughly 10 million Mexican households still lack reliable banking access, and cash pickup remains essential for remittances to rural areas. But the trajectory is clear: digital is becoming the default.</p>
+<p>That said, cash isn't dead yet. Bloomberg notes that over 70% of Mexicans still use cash for daily transactions, and cash pickup remains essential for remittances to rural areas. But the trajectory is clear: digital is becoming the default.</p>
 
 <h2>How to get the best rate on USD to MXN</h2>
 <p>If you send money to Mexico regularly, here's how to maximise what your recipient receives:</p>
 <ul>
 <li><strong>Switch to digital</strong> — If you still send cash at an agent, switching to an app saves 3–5% per transfer plus avoids the 1% tax.</li>
 <li><strong>Compare at your exact amount</strong> — Provider rankings change at different amounts. Our <a href="/send-money/usa-to-mexico">USA to Mexico comparison tool</a> shows live rates from 10+ providers.</li>
-<li><strong>Check Ramadan promotions</strong> — Several providers are running <a href="/guides/ramadan-2026-money-transfer-deals-promotions">Ramadan 2026 deals</a> with fee waivers and enhanced rates through Eid al-Fitr.</li>
 </ul>
 
 <p>The $62 billion corridor going digital isn't just a story about Mexico — it's a preview of where every major remittance route is heading. For a broader view, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report and our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
@@ -622,7 +573,7 @@ export const newsItems: NewsItem[] = [
     title:
       "Send Money to Nigeria: New CBN Naira-Only Rule Changes Everything (March 2026)",
     excerpt:
-      "From May 1, all remittances to Nigeria must settle in naira — no more dollar payouts. Compare how Wise, Remitly, WorldRemit and Western Union are adapting, and what diaspora senders should do before the deadline.",
+      "From May 1, money transfer operators must settle remittances to Nigeria through naira accounts, which the Nigerian press reads as the end of dollar payouts. What it means for senders, and what to do before the deadline.",
     image: "/images/news/nigeria-cbn-naira-remittance.svg",
     imageAlt:
       "Nigerian naira banknotes alongside a smartphone showing an international money transfer, representing the CBN's new remittance settlement rules",
@@ -631,12 +582,12 @@ export const newsItems: NewsItem[] = [
 <p>This is a seismic shift. For decades, many Nigerians receiving remittances from the US, UK, Canada, and Europe have received dollars (or pounds, or euros), often converting them at parallel market rates that were significantly more favourable than the official CBN rate. That era is ending.</p>
 
 <h2>Our take: bold reform with real risks</h2>
-<p>The CBN's stated goals are reasonable: channel more foreign exchange through the formal banking system, improve transparency, and stabilise the naira. Nigeria received an estimated <strong>$20 billion in remittances in 2025</strong>, making it Africa's largest remittance market. Capturing even a fraction more of that through official channels would boost FX reserves and support the naira.</p>
+<p>The CBN's stated goals are reasonable: channel more foreign exchange through the formal banking system, improve transparency, and stabilise the naira. Nigeria received an estimated <strong>$20 billion in remittances in 2024</strong>, the most in sub-Saharan Africa. Capturing even a fraction more of that through official channels would boost FX reserves and support the naira.</p>
 
 <p>But the execution carries real risks for ordinary senders and recipients:</p>
 
 <ul>
-<li><strong>Conversion rate uncertainty</strong> — If IMTOs are forced to convert at the official CBN rate rather than the market rate, recipients could receive 10–15% less naira per dollar. The gap between official and parallel rates has narrowed under recent reforms, but it hasn't closed entirely.</li>
+<li><strong>Conversion rate uncertainty</strong> — The circular prices conversions at market rates benchmarked to Bloomberg's BMatch, and CBN Governor Olayemi Cardoso says reforms have narrowed the parallel-market premium to under 2%. The bigger change is that recipients lose the option of holding the dollars themselves.</li>
 <li><strong>Compliance costs passed to senders</strong> — IMTOs face new banking requirements, reporting obligations, and settlement infrastructure costs. As <a href="https://technext24.com/2026/03/25/cost-of-cbns-new-remittance-rules/" target="_blank" rel="noopener noreferrer">TechNext24 reported</a>, if operators absorb these costs, margins shrink and some smaller players may exit the market. If they pass costs downstream, fees go up.</li>
 <li><strong>Informal channels could grow</strong> — When formal remittance costs rise, some senders shift to informal hawala-style networks or crypto. That undermines the very transparency the CBN is trying to achieve.</li>
 </ul>
@@ -656,14 +607,14 @@ export const newsItems: NewsItem[] = [
 </ul>
 
 <h2>UK to Nigeria: what changes for British senders</h2>
-<p>The UK-to-Nigeria corridor is one of the largest in Africa, with British Nigerians sending an estimated <strong>£3–4 billion annually</strong> according to <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues/brief/migration-remittances-data" target="_blank" rel="noopener noreferrer">World Bank remittance data</a>. The new CBN rule hits this corridor especially hard because many UK senders specifically chose providers offering GBP-to-USD or direct dollar payout — giving recipients a hedge against naira depreciation.</p>
+<p>The UK-to-Nigeria corridor is one of the largest in Africa, with British Nigerians sending an estimated <strong>£3 billion a year</strong>, by a 2022 estimate from the digital bank Kuda. The new CBN rule hits this corridor especially hard because many UK senders specifically chose providers offering GBP-to-USD or direct dollar payout — giving recipients a hedge against naira depreciation.</p>
 
-<p>Under the new framework, that hedge disappears. Every GBP transfer will be converted to naira at the official rate before reaching the recipient. For UK senders comparing the <a href="/send-money/uk-to-nigeria">best way to send money from the UK to Nigeria</a>, the key metric shifts from "which provider gives the best dollar rate" to "which provider gives the best naira rate" — and those rankings may look very different after May 1.</p>
+<p>Under the new framework, that hedge disappears. Every GBP transfer will be converted to naira, at market rates benchmarked to Bloomberg BMatch, before reaching the recipient. For UK senders comparing the <a href="/send-money/uk-to-nigeria">best way to send money from the UK to Nigeria</a>, the key metric shifts from "which provider gives the best dollar rate" to "which provider gives the best naira rate" — and those rankings may look very different after May 1.</p>
 
 <p>Providers like <a href="/companies/wise">Wise</a> that already use the mid-market rate with transparent markups may fare better than those whose pricing relied on opaque FX spreads. <a href="/companies/worldremit">WorldRemit</a> and <a href="/companies/remitly">Remitly</a>, which both serve the UK-Nigeria corridor with competitive GBP/NGN rates, will need to renegotiate their settlement arrangements with Nigerian banks.</p>
 
 <h2>The bigger picture</h2>
-<p>The CBN says it's targeting <strong>$1 billion in monthly diaspora remittances by end of 2026</strong>, as reported by Zawya (that article is no longer reachable at its original URL; the CBN publishes its own statements and directives in its <a href="https://www.cbn.gov.ng/Documents/circulars.html" target="_blank" rel="noopener noreferrer">circulars</a>). That's ambitious — and whether it happens depends entirely on whether the new rules make formal channels more attractive or simply more expensive. For a broader perspective on how African remittance corridors are evolving, see our guide to <a href="/guides/send-money-to-nigeria-guide">sending money to Nigeria</a> and our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report.</p>
+<p>The CBN says it's targeting <strong>$1 billion in monthly diaspora remittances by end of 2026</strong>, as reported by <a href="https://web.archive.org/web/20260327073856/https://www.zawya.com/en/economy/africa/nigeria-cbn-targets-1bln-monthly-diaspora-remittance-by-the-end-of-2026-x0cgrkm5" target="_blank" rel="noopener noreferrer">Zawya</a>; the CBN publishes its own directives in its <a href="https://www.cbn.gov.ng/Documents/circulars.html" target="_blank" rel="noopener noreferrer">circulars</a>. That's ambitious — and whether it happens depends entirely on whether the new rules make formal channels more attractive or simply more expensive. For a broader perspective on how African remittance corridors are evolving, see our guide to <a href="/guides/send-money-to-nigeria-guide">sending money to Nigeria</a> and our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report.</p>
 
 <h2>Questions about the CBN naira-only rule</h2>
 <h3>Will I still receive dollars in Nigeria after May 2026?</h3>
@@ -686,27 +637,27 @@ export const newsItems: NewsItem[] = [
     title:
       "Venmo Goes Global: PayPal vs Wise vs Remitly — Who Wins on Price? (March 2026)",
     excerpt:
-      "PayPal just opened Venmo to 200M users in 90 countries with $0 fees through August. But with 3-4% FX markups after the promo, can Venmo compete with Wise (0.4%) and Remitly on international transfers? Our analysis.",
+      "PayPal just opened Venmo to 200M PayPal users in 90 countries with no transfer fee through August 24. But Venmo's 4% currency conversion spread applies throughout. Can it compete with Wise and Remitly? Our analysis.",
     image: "/images/news/venmo-global-expansion.svg",
     imageAlt:
       "The Venmo app on a smartphone with a world map in the background, representing PayPal's global expansion of Venmo",
-    content: `<p>On March 23, 2026, PayPal announced what it calls the biggest expansion of Venmo's addressable market since the app launched: <strong>Venmo users can now send and receive money with 200 million PayPal users across 90 countries</strong>. For the first time, an app that 90 million Americans already use for splitting restaurant bills can be used for international remittances.</p>
+    content: `<p>On March 23, 2026, PayPal announced what it calls the biggest expansion of Venmo's addressable market since the app launched: <strong>Venmo users can now send and receive money with 200 million PayPal users across 90 countries</strong>. For the first time, an app millions of Americans already use for splitting restaurant bills can be used for international remittances.</p>
 
 <p>The pitch is simple — send money abroad using just a phone number. And through August 24, PayPal is waiving all international fees on Venmo transfers. That's a bold play into a market worth over <strong>$40 trillion annually</strong> in cross-border retail payments.</p>
 
 <h2>Our take: big brand, but can it compete on price?</h2>
 <p>Venmo's global expansion is strategically significant but tactically questionable — at least for cost-conscious remittance senders. Here's why:</p>
 
-<p><strong>The distribution advantage is real.</strong> Venmo has something that <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> don't: 90 million US users who already have the app installed and their payment methods linked. There's zero onboarding friction. For someone who's never sent money internationally before, opening Venmo and tapping "send to PayPal user" is dramatically easier than downloading a dedicated remittance app, completing KYC, and linking a bank account.</p>
+<p><strong>The distribution advantage is real.</strong> Venmo has something that <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> don't: a huge US user base that already has the app installed and payment methods linked. There's zero onboarding friction. For someone who's never sent money internationally before, opening Venmo and tapping "send to PayPal user" is dramatically easier than downloading a dedicated remittance app, completing KYC, and linking a bank account.</p>
 
-<p><strong>But PayPal's FX margins have always been the problem.</strong> Historically, <a href="/companies/paypal">PayPal</a> has charged exchange rate markups of 3–4% on international transfers — roughly 4–8x what Wise charges. The fee waiver through August is a customer acquisition tool, not a permanent pricing strategy. Once the waiver ends, Venmo international transfers will likely carry the same premium pricing that has made PayPal one of the most expensive ways to send money abroad.</p>
+<p><strong>But the exchange rate is the problem.</strong> Venmo publishes a 4.00% currency conversion spread on transfers the recipient receives in another currency, and the fee waiver does not remove it. Once the waiver ends on August 24, a 5% transfer fee (minimum $0.99, maximum $4.99) applies on top. For comparison, <a href="/companies/paypal">PayPal</a>'s median markup across the corridors we quote is {{AVG_MARKUP_PCT:paypal}}, against {{AVG_MARKUP_PCT:wise}} for Wise.</p>
 
 <p><strong>The recipient needs PayPal.</strong> Unlike <a href="/companies/remitly">Remitly</a> or <a href="/companies/western-union">Western Union</a>, which offer bank deposit, mobile money, and cash pickup, Venmo-to-PayPal transfers require the recipient to have an active PayPal account. In major remittance corridors like the US to India, Philippines, Mexico, and Nigeria, PayPal penetration among recipients is far lower than in developed markets. That limits Venmo's usefulness precisely where remittance demand is highest.</p>
 
 <h2>Who should care — and who shouldn't</h2>
 <p>If you send money to family or friends in <strong>Europe, Canada, Australia, or other developed markets</strong> where PayPal is widely used, Venmo's global expansion is genuinely useful — especially during the fee-free promotional period. For casual, one-off international transfers, the convenience is hard to beat.</p>
 
-<p>If you send money regularly to <strong>India, Philippines, Nigeria, Mexico, or Pakistan</strong> — the world's top remittance corridors — you're almost certainly better off with a dedicated provider. Our data consistently shows that <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and corridor specialists like <a href="/companies/taptap-send">TapTap Send</a> deliver 3–5% more to recipients than PayPal on these routes.</p>
+<p>If you send money regularly to <strong>India, Philippines, Nigeria, Mexico, or Pakistan</strong> — the world's top remittance corridors — you're almost certainly better off with a dedicated provider such as <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a> or a corridor specialist like <a href="/companies/taptap-send">TapTap Send</a>. Our <a href="/send-money">comparison tool</a> shows what each actually delivers on your route.</p>
 
 <h2>The competitive picture</h2>
 <p>Venmo's entry doesn't fundamentally change the economics of cross-border payments — it changes the <em>awareness</em>. Millions of Americans who never thought about using an app for international transfers will now see the option in their Venmo feed. Some will use it. Some will then discover that dedicated providers are cheaper and switch.</p>
@@ -716,40 +667,35 @@ export const newsItems: NewsItem[] = [
 <h2>Venmo vs Xoom: PayPal now has two international options</h2>
 <p>Here's what <a href="https://www.paymentsdive.com/news/paypal-takes-venmo-global/815473/" target="_blank" rel="noopener noreferrer">Payments Dive</a> didn't explore in its coverage: PayPal now has <em>two</em> cross-border products — <a href="/companies/xoom">Xoom</a> and Venmo. They serve different needs:</p>
 <ul>
-<li><strong><a href="/companies/xoom">Xoom</a></strong> — PayPal's dedicated remittance service. Offers bank deposit, cash pickup, and mobile reload to 130+ countries. Competitive fees on high-volume corridors (US to Mexico, India, Philippines). Recipient doesn't need a PayPal account.</li>
+<li><strong><a href="/companies/xoom">Xoom</a></strong> — PayPal's dedicated remittance service. Offers bank deposit, cash pickup, and mobile reload, with a focus on high-volume corridors (US to Mexico, India, Philippines). Recipient doesn't need a PayPal account.</li>
 <li><strong>Venmo international</strong> — P2P transfers to PayPal users only. Simpler interface, but limited delivery options and recipient must have PayPal. Better suited for casual transfers to developed markets.</li>
 </ul>
 <p>For regular remittance senders, <a href="/compare/paypal-vs-xoom">Xoom remains the better PayPal product</a>. For one-off transfers to friends in Europe or Australia, Venmo's convenience wins — especially during the fee-free period.</p>
 
 <h2>How Venmo compares on price</h2>
 <table>
-<thead><tr><th>Provider</th><th>FX markup</th><th>Fees ($500 send)</th><th>Recipient needs account?</th><th>Delivery options</th></tr></thead>
+<thead><tr><th>Provider</th><th>Exchange-rate cost</th><th>Transfer fee</th><th>Recipient needs account?</th><th>Delivery options</th></tr></thead>
 <tbody>
-<tr><td><strong>Venmo (promo)</strong></td><td>~3-4%</td><td>$0 through Aug 24</td><td>Yes (PayPal)</td><td>PayPal balance only</td></tr>
-<tr><td><strong>Venmo (post-promo)</strong></td><td>~3-4%</td><td>TBD</td><td>Yes (PayPal)</td><td>PayPal balance only</td></tr>
-<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>0.4-0.6%</td><td>$5-7</td><td>No</td><td>Bank deposit</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>1-2%</td><td>$0-4</td><td>No</td><td>Bank, cash pickup, mobile</td></tr>
-<tr><td><strong><a href="/companies/xoom">Xoom</a></strong></td><td>2-3%</td><td>$0-5</td><td>No</td><td>Bank, cash pickup, mobile reload</td></tr>
+<tr><td><strong>Venmo (to Aug 24)</strong></td><td>4.00% spread</td><td>$0</td><td>Yes (PayPal)</td><td>PayPal balance only</td></tr>
+<tr><td><strong>Venmo (after Aug 24)</strong></td><td>4.00% spread</td><td>5% (min $0.99, max $4.99)</td><td>Yes (PayPal)</td><td>PayPal balance only</td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>{{AVG_MARKUP_PCT:wise}} median markup</td><td>Varies by route</td><td>No</td><td>Bank deposit</td></tr>
+<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>{{AVG_MARKUP_PCT:remitly}} median markup</td><td>Varies by route</td><td>No</td><td>Bank, cash pickup, mobile</td></tr>
+<tr><td><strong><a href="/companies/xoom">Xoom</a></strong></td><td>{{AVG_MARKUP_PCT:xoom}} median markup</td><td>Varies by route</td><td>No</td><td>Bank, cash pickup, mobile reload</td></tr>
 </tbody>
 </table>
-<p><em>Source: sendmoneycompare.com analysis, March 2026. Rates vary by corridor. <a href="https://newsroom.paypal-corp.com/2026-03-23-200-Million-More-Friends-on-Venmo-Send-Money-to-PayPal-Users-Around-the-World" target="_blank" rel="noopener noreferrer nofollow">PayPal announcement</a>.</em></p>
-
-<h2>The competitive picture</h2>
-<p>Venmo's entry doesn't fundamentally change the economics of cross-border payments — it changes the <em>awareness</em>. Millions of Americans who never thought about using an app for international transfers will now see the option in their Venmo feed. Some will use it. Some will then discover that dedicated providers are cheaper and switch.</p>
-
-<p>For <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a>, the threat isn't that Venmo will undercut them on price. It's that Venmo will intercept users who might have otherwise found a specialist provider first. The race for the casual sender's first international transfer just got more competitive.</p>
+<p><em>Venmo: published fees (<a href="https://venmo.com/resources/our-fees/" target="_blank" rel="noopener noreferrer nofollow">venmo.com</a>). Wise, Remitly, Xoom: median markup across the corridors we quote, from our live data. <a href="https://newsroom.paypal-corp.com/2026-03-23-200-Million-More-Friends-on-Venmo-Send-Money-to-PayPal-Users-Around-the-World" target="_blank" rel="noopener noreferrer nofollow">PayPal announcement</a>.</em></p>
 
 <p>Compare what you'd actually receive using our <a href="/send-money">comparison tool</a> — we show live rates and fees from PayPal alongside dedicated providers so you can see the real difference. For more on how PayPal's pricing compares, see our <a href="/companies/paypal">PayPal review</a> and <a href="/compare/wise-vs-paypal">Wise vs PayPal</a> comparison. And for an overview of the best options available, check our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide.</p>
 
 <h2>Questions about Venmo's international transfers</h2>
 <h3>Can I use Venmo to send money internationally?</h3>
-<p>Yes, as of March 23, 2026, Venmo users can send money to PayPal users in 90 countries. The recipient must have an active PayPal account. International fees are waived through August 24, 2026, but PayPal's standard FX markup of 3-4% still applies to currency conversions.</p>
+<p>Yes, as of March 23, 2026, Venmo users can send money to PayPal users in 90 countries. The recipient must have an active PayPal account. International fees are waived through August 24, 2026, but Venmo's 4.00% currency conversion spread still applies.</p>
 
 <h3>Is Venmo cheaper than Wise for international transfers?</h3>
-<p>No. Even during the fee-free promotional period, Venmo's 3-4% exchange rate markup makes it significantly more expensive than <a href="/companies/wise">Wise</a> (0.4-0.6% markup) for most corridors. On a $1,000 transfer, you'd lose $30-40 to Venmo's FX spread vs $4-6 with Wise.</p>
+<p>No. Even during the fee-free period, Venmo's 4.00% conversion spread costs $40 on a $1,000 transfer, while <a href="/companies/wise">Wise</a>'s median markup across the corridors we quote is {{AVG_MARKUP_PCT:wise}}.</p>
 
 <h3>What is the difference between Venmo international and Xoom?</h3>
-<p><a href="/companies/xoom">Xoom</a> is PayPal's dedicated remittance service offering bank deposit, cash pickup, and mobile reload to 130+ countries — recipients don't need PayPal. Venmo international only sends to PayPal account holders. For regular remittances, <a href="/compare/paypal-vs-xoom">Xoom is the better choice</a>.</p>`,
+<p><a href="/companies/xoom">Xoom</a> is PayPal's dedicated remittance service offering bank deposit, cash pickup, and mobile reload — recipients don't need PayPal. Venmo international only sends to PayPal account holders. For regular remittances, <a href="/compare/paypal-vs-xoom">Xoom is the better choice</a>.</p>`,
     category: "Provider Update",
     publishedAt: "2026-03-27",
     source: "PayPal Newsroom / American Banker / Payments Dive",
@@ -758,186 +704,17 @@ export const newsItems: NewsItem[] = [
     providerSlugs: ["paypal", "xoom", "wise", "remitly", "worldremit"],
   },
   {
-    slug: "us-remittance-tax-3-months-behavioral-shift-2026",
-    title:
-      "1% US Remittance Tax Update: Cash Senders Switching to Digital Faster Than Expected (March 2026)",
-    excerpt:
-      "New survey data 3 months after the US excise tax: transactions rose from 14 to 18/year, cash is declining fast, and digital providers like Wise and Remitly are surging. Save $500-1,000/year by switching — here's how.",
-    image: "/images/news/remittance-tax-behavioral-shift.svg",
-    imageAlt:
-      "A split image showing cash at a money transfer counter on one side and a smartphone money transfer app on the other, representing the shift from cash to digital",
-    content: `<p>When the 1% federal excise tax on cash-funded international remittances <a href="/news/us-remittance-excise-tax-takes-effect-2026">took effect on January 1, 2026</a>, the remittance industry braced for a painful adjustment period. Three months later, the data tells a more nuanced story — and a surprising one.</p>
-
-<p>According to the <a href="https://thedialogue.org/blogs/2026/03/change-and-continuity-in-money-transfers-in-2026" target="_blank" rel="noopener noreferrer">Inter-American Dialogue</a>, a survey of 200 migrants in February 2026 found that transaction frequency actually <strong>increased from 14 to 18 transactions per year</strong>. And <a href="https://www.marketplace.org/story/2026/03/26/why-a-1-remittance-tax-could-cost-more-than-it-seems" target="_blank" rel="noopener noreferrer">Marketplace reported</a> that while some senders switched from cash to digital to avoid the tax, others simply absorbed the cost — suggesting the tax is functioning less as a deterrent and more as a revenue tool that disproportionately taxes the unbanked.</p>
-
-<h2>Our take: the tax is accelerating an inevitable shift</h2>
-<p>We wrote in January that the remittance tax would act as an "accelerant for an already-underway shift from cash to digital." Three months of data confirms this — but with caveats that matter for everyday senders.</p>
-
-<p><strong>The good news:</strong> Revenue increased across almost all money-transmitting companies. More transactions, not fewer, are flowing through formal channels. Digital-first providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> — none of whose customers pay the tax — are seeing accelerated growth. <a href="/companies/remitly">Remitly</a> reported 4.2 million active customers in Q4, up 48% year-over-year.</p>
-
-<p><strong>The bad news:</strong> The people who can least afford additional costs are the ones paying. <a href="https://www.marketplace.org/story/2026/03/26/why-a-1-remittance-tax-could-cost-more-than-it-seems" target="_blank" rel="noopener noreferrer">Marketplace's analysis</a> highlights that for many cash senders, the issue isn't awareness of digital alternatives — it's access. Unbanked immigrants who rely on cash may not have the bank account or debit card needed to fund a digital transfer. For them, the 1% tax isn't a nudge toward digital; it's simply an additional cost on an essential financial service.</p>
-
-<h2>The numbers in context</h2>
-<p>On a $500 transfer, the 1% tax adds $5. That's on top of typical cash transfer fees of $8–$15 and exchange rate markups of 3–5%. Over 18 annual transactions, a frequent cash sender pays roughly <strong>$90 in tax alone</strong> — or $270+ when you include the higher fees and worse rates that cash transfers carry compared to digital.</p>
-
-<p>By contrast, sending the same $500 digitally through <a href="/companies/wise">Wise</a> costs around $5–$7 total with the mid-market exchange rate. Through <a href="/companies/remitly">Remitly</a>, it's often $0 in fees with a small exchange rate markup. No tax. The annual savings from switching to digital: <strong>$500–$1,000+</strong> depending on the corridor.</p>
-
-<h2>Provider-by-provider impact</h2>
-<p>Here's how the major providers are handling the tax three months in:</p>
-<ul>
-<li><strong><a href="/companies/western-union">Western Union</a></strong> — Most exposed. A significant share of WU's US volume still comes from in-person cash transactions at agent locations. The company has added tax disclosures at point of sale but hasn't absorbed the cost. Cash senders pay the 1% on top of existing fees.</li>
-<li><strong><a href="/companies/moneygram">MoneyGram</a></strong> — Similar position to WU, though MoneyGram has been pushing its app-based transfers harder. The company <a href="https://www.borderreport.com/hot-topics/trade/1-percent-tax-on-remittances-from-us-takes-effect-in-2026/" target="_blank" rel="noopener noreferrer">told Border Report</a> it has seen "meaningful migration" from cash to digital since January.</li>
-<li><strong><a href="/companies/wise">Wise</a></strong> — Entirely unaffected. Wise is 100% digital with no cash funding option. None of its customers pay the tax. This is increasingly becoming a selling point in Wise's marketing.</li>
-<li><strong><a href="/companies/remitly">Remitly</a></strong> — Also unaffected, as all transfers are funded digitally. Remitly published a <a href="https://www.remitly.com/blog/money-transfer/federal-remittance-tax-guide/" target="_blank" rel="noopener noreferrer nofollow">detailed guide</a> explaining why its transfers are exempt — and saw 48% user growth in Q4.</li>
-<li><strong><a href="/companies/worldremit">WorldRemit</a></strong> — Digital-only funding, so no tax applies. Cash pickup remains available as a delivery method (which is not taxed — the tax applies to how you <em>fund</em> the transfer, not how the recipient receives it).</li>
-</ul>
-
-<h2>Cash vs digital: the annual cost comparison</h2>
-<p>For a sender transferring $500 per month (18 times per year):</p>
-<ul>
-<li><strong>Cash at agent:</strong> $8-15 fee + 3-5% FX markup ($15-25) + 1% tax ($5) = <strong>$28-45 per transfer / $504-810 per year</strong></li>
-<li><strong>Digital via Wise:</strong> $5-7 fee + 0.4% FX markup ($2) + $0 tax = <strong>$7-9 per transfer / $126-162 per year</strong></li>
-<li><strong>Digital via Remitly:</strong> $0-4 fee + 1-2% FX markup ($5-10) + $0 tax = <strong>$5-14 per transfer / $90-252 per year</strong></li>
-</ul>
-<p><strong>Annual saving from switching cash to digital: $250–$720</strong>, depending on provider and corridor.</p>
-
-<h2>What this means for you</h2>
-<p>If you've already switched to digital transfers, you're on the right side of this trend. If you haven't, here's the case in one sentence: <strong>digital transfers are tax-free, cheaper, faster, and trackable</strong>.</p>
-
-<p>For those who still need cash pickup at the receiving end, providers like <a href="/companies/remitly">Remitly</a> and <a href="/companies/worldremit">WorldRemit</a> offer a hybrid model — you fund digitally (no tax) and your recipient collects cash locally. That's the best of both worlds.</p>
-
-<p>Note: the <a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer">IRS is providing penalty relief</a> for providers through Q3 2026, giving the industry time to update systems. After that, enforcement tightens — another reason cash costs will only increase.</p>
-
-<p>Use our <a href="/send-money">comparison tool</a> to see real-time costs across providers for your specific corridor. For a complete breakdown of which providers charge the tax and how to avoid it, see our <a href="/guides/us-remittance-tax-2026">US remittance tax guide</a>. And for the broader picture of where costs are heading, our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report covers the full landscape.</p>
-
-<h2>Questions about the 1% remittance tax</h2>
-<h3>How much is the US remittance tax?</h3>
-<p>The federal excise tax is 1% of the transfer amount, applied only to cash-funded international remittances. A $500 cash transfer incurs a $5 tax. Digital transfers funded by bank account, debit card, or credit card are exempt.</p>
-
-<h3>How do I avoid the 1% remittance tax?</h3>
-<p>Fund your transfer digitally instead of with cash. Use a bank account, debit card, or credit card through any provider's app or website. Providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> are 100% digital and entirely unaffected by the tax.</p>
-
-<h3>Which money transfer providers charge the remittance tax?</h3>
-<p>The tax applies at providers that accept cash funding — primarily <a href="/companies/western-union">Western Union</a> and <a href="/companies/moneygram">MoneyGram</a> agent locations. Digital-only providers like Wise, Remitly, and WorldRemit don't charge it because their transfers are funded electronically.</p>`,
-    category: "Industry News",
-    publishedAt: "2026-03-27",
-    source: "Inter-American Dialogue / Marketplace / Remitly / IRS",
-    sourceUrl:
-      "https://www.marketplace.org/story/2026/03/26/why-a-1-remittance-tax-could-cost-more-than-it-seems",
-    providerSlugs: ["wise", "remitly", "worldremit", "western-union", "moneygram"],
-  },
-  {
-    slug: "april-2026-central-bank-calendar",
-    title: "April 2026 Central Bank Calendar: ECB, Fed Minutes, RBA & BoC Rate Decisions",
-    excerpt:
-      "Four major central bank events in April 2026 could move GBP, EUR, USD, AUD, and CAD exchange rates. Here's when decisions land and how they affect your international transfers.",
-    image: "/images/news/central-bank-super-week.jpg",
-    imageAlt: "Central bank buildings representing April 2026 rate decisions that will affect international money transfer costs",
-    content: `<p>April 2026 brings several central bank decisions that could move the exchange rates on your international transfers. After a busy March (see our <a href="/news/central-bank-super-week-march-2026">guide to how central bank decisions affect your transfers</a>), April continues with the ECB, Fed minutes, RBA, and Bank of Canada all on the calendar.</p>
-
-<h2>April 2026 Central Bank Schedule</h2>
-<table>
-<thead><tr><th>Date</th><th>Central Bank</th><th>Event</th><th>Currencies Affected</th></tr></thead>
-<tbody>
-<tr><td><strong>April 2</strong></td><td>Reserve Bank of Australia (RBA)</td><td>Rate decision + statement</td><td>AUD — affects AUD/INR, AUD/PHP, AUD/NZD</td></tr>
-<tr><td><strong>April 9</strong></td><td>US Federal Reserve</td><td>March meeting minutes release</td><td>USD — affects all USD pairs</td></tr>
-<tr><td><strong>April 16</strong></td><td>Bank of Canada (BoC)</td><td>Rate decision + Monetary Policy Report</td><td>CAD — affects CAD/INR, CAD/PHP, CAD/PKR</td></tr>
-<tr class="blog-row-highlight"><td><strong>April 17</strong></td><td>European Central Bank (ECB)</td><td>Rate decision + press conference</td><td>EUR — affects EUR/GBP, EUR/INR, EUR/USD</td></tr>
-</tbody>
-</table>
-
-<h2>What to watch for each decision</h2>
-
-<h3>RBA (April 2) — AUD Senders</h3>
-<p>The RBA cut rates in February 2026 and held in March. Markets are pricing in a ~40% chance of another cut in April. If the RBA cuts, the Australian dollar will likely weaken — meaning Australian senders to India, Philippines, and the UK will get fewer rupees/pesos/pounds per dollar. If you're planning a large AUD transfer, consider sending before April 2.</p>
-<p><strong>Corridors to watch:</strong> <a href="/send-money/australia-to-india">AUD to INR</a>, <a href="/send-money/australia-to-philippines">AUD to PHP</a></p>
-
-<h3>Fed Minutes (April 9) — USD Senders</h3>
-<p>The Fed held rates at 3.5% in March. The April 9 minutes release will reveal the internal debate — how many members favoured cuts, and what economic conditions they see as triggers. Hawkish minutes (fewer members wanting cuts) would strengthen the dollar; dovish minutes would weaken it.</p>
-<p><strong>Corridors to watch:</strong> <a href="/send-money/usa-to-india">USD to INR</a>, <a href="/send-money/usa-to-mexico">USD to MXN</a>, <a href="/send-money/usa-to-philippines">USD to PHP</a></p>
-
-<h3>Bank of Canada (April 16) — CAD Senders</h3>
-<p>The BoC has been cutting rates through late 2025 and early 2026. The April meeting comes with the quarterly Monetary Policy Report, which includes updated GDP and inflation forecasts. A pause would strengthen CAD; another cut would weaken it.</p>
-<p><strong>Corridors to watch:</strong> <a href="/send-money/canada-to-india">CAD to INR</a>, <a href="/send-money/canada-to-philippines">CAD to PHP</a></p>
-
-<h3>ECB (April 17) — EUR Senders</h3>
-<p>The ECB is the most likely to cut rates in April, with markets pricing in a ~65% probability. European inflation has been falling faster than expected. A cut would weaken the euro against GBP and USD — bad for European senders but good for anyone sending <em>to</em> Europe. The press conference language matters as much as the decision itself.</p>
-<p><strong>Corridors to watch:</strong> <a href="/send-money/usa-to-europe">GBP to EUR</a>, <a href="/send-money/uk-to-india">EUR to INR</a>, <a href="/exchange-rates">EUR to USD rate</a></p>
-
-<h2>How to protect your transfer</h2>
-<p>The same strategies apply every time central banks meet:</p>
-<ol>
-<li><strong>Send before the decision</strong> if you want certainty. Lock in today's rate.</li>
-<li><strong>Wait 24–48 hours after</strong> if you can be flexible. Initial volatility settles quickly.</li>
-<li><strong>Set a rate alert</strong> with <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, or <a href="/companies/revolut">Revolut</a> at your target rate. If post-decision volatility pushes rates in your favour, you'll be notified instantly.</li>
-<li><strong>For large transfers ($5,000+)</strong>, consider <a href="/companies/ofx">OFX</a> forward contracts to lock in rates for up to 12 months.</li>
-</ol>
-<p>For a deeper explanation of how interest rates move currencies, read our <a href="/news/central-bank-super-week-march-2026">guide to central bank decisions and transfer costs</a>. Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> helps you spot providers widening spreads during volatile periods. Our <a href="/send-money">comparison tool</a> shows live rates from ${COVERAGE.providers}.</p>`,
-    category: "Industry News",
-    publishedAt: "2026-03-29",
-    source: "ECB / Federal Reserve / Bank of Canada / RBA",
-    sourceUrl: "https://www.ecb.europa.eu/press/govcdec/mopo/html/index.en.html",
-    providerSlugs: ["wise", "xe", "revolut", "ofx"],
-  },
-  {
-    slug: "world-bank-remittance-costs-q1-2026",
-    title: "Global Remittance Costs Drop to 6.0% in Q1 2026 — But Your Corridor May Be Higher",
-    excerpt:
-      "The World Bank's latest Remittance Prices Worldwide data shows the global average cost of sending $200 fell to 6.0% in early 2026. But costs vary wildly by corridor — from 2% (India) to 15%+ (Sub-Saharan Africa). Here's what it means for senders.",
-    image: "/images/news/central-bank-super-week.jpg",
-    imageAlt: "A globe illustrating international remittance flows and costs across different corridors",
-    content: `<p>The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a> — the most comprehensive tracker of international transfer costs — shows the global average cost of sending $200 fell to approximately <strong>6.0% in Q1 2026</strong>, down from 6.2% a year ago. While this represents progress toward the <strong>UN Sustainable Development Goal of under 3% by 2030</strong>, the global average masks enormous corridor-by-corridor differences.</p>
-
-<h2>The cheapest and most expensive corridors</h2>
-<table>
-<thead><tr><th>Corridor</th><th>Average Cost</th><th>Providers to check</th><th>Compare</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>USA → India</strong></td><td>~2.5%</td><td>Wise (0.5%)</td><td><a href="/send-money/usa-to-india">Live rates →</a></td></tr>
-<tr><td><strong>UAE → India</strong></td><td>~2.8%</td><td>Wise / Remitly</td><td><a href="/send-money/uae-to-india">Live rates →</a></td></tr>
-<tr><td><strong>USA → Mexico</strong></td><td>~3.5%</td><td>Wise / Remitly</td><td><a href="/send-money/usa-to-mexico">Live rates →</a></td></tr>
-<tr><td><strong>UK → Nigeria</strong></td><td>~5.5%</td><td>Wise / LemFi</td><td><a href="/send-money/uk-to-nigeria">Live rates →</a></td></tr>
-<tr><td><strong>USA → Philippines</strong></td><td>~4.0%</td><td>Remitly</td><td><a href="/send-money/usa-to-philippines">Live rates →</a></td></tr>
-<tr class="blog-row-danger"><td><strong>South Africa → Mozambique</strong></td><td>~15%</td><td>Limited providers</td><td>—</td></tr>
-<tr class="blog-row-danger"><td><strong>Sub-Saharan Africa (intra)</strong></td><td>~8–12%</td><td>WorldRemit / Wise</td><td>—</td></tr>
-</tbody>
-</table>
-
-<h2>Why your corridor cost matters more than the global average</h2>
-<p>The "6.0% global average" is misleading because it's weighted by corridor volume. High-volume corridors like USA→India and UAE→India pull the average down (they're under 3%). But if you send money to Sub-Saharan Africa, the Caribbean, or Pacific Islands, you may be paying <strong>2–3x the global average</strong>.</p>
-<p>The World Bank identifies three cost drivers:</p>
-<ol>
-<li><strong>Competition:</strong> Corridors with 10+ providers (India, Mexico, Philippines) have the lowest costs. Corridors with 2–3 providers are most expensive.</li>
-<li><strong>Regulation:</strong> De-risking by correspondent banks has reduced access to formal channels in some African and Caribbean corridors, pushing costs up.</li>
-<li><strong>Digital adoption:</strong> Corridors where most transfers are digital (app-to-bank, app-to-mobile-wallet) are 30–50% cheaper than those still relying on cash-based in-store services.</li>
-</ol>
-
-<h2>How to ensure you're below the average</h2>
-<p>The global average of 6.0% means <strong>most people are still overpaying</strong>. Banks and legacy providers are far above the average, while specialist digital providers are far below it. Here's how to stay on the cheap side:</p>
-<ul>
-<li><strong>Compare before every transfer.</strong> Our <a href="/send-money">comparison tool</a> shows the exact total cost across ${COVERAGE.providers} for your specific corridor and amount.</li>
-<li><strong>Use digital providers.</strong> <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> are consistently below the global average on most corridors.</li>
-<li><strong>Avoid bank wires.</strong> The World Bank data confirms banks charge 2–3x more than specialist providers. Our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> explains why.</li>
-<li><strong>Fund digitally.</strong> Since the <a href="/guides/us-remittance-tax-2026">US 1% remittance tax</a> on cash transfers, digital funding is both cheaper AND tax-exempt.</li>
-</ul>
-<p>For corridor-specific guidance, see our <a href="/guides/send-money-to-india-guide">India</a>, <a href="/guides/send-money-to-pakistan-guide">Pakistan</a>, <a href="/guides/send-money-to-philippines-guide">Philippines</a>, <a href="/guides/send-money-to-nigeria-guide">Nigeria</a>, <a href="/guides/send-money-to-kenya-guide">Kenya</a>, and <a href="/guides/send-money-to-south-africa-guide">South Africa</a> corridor guides. For the full methodology behind the World Bank data, visit the <a href="https://remittanceprices.worldbank.org/methodology" target="_blank" rel="noopener noreferrer">RPW methodology page</a>.</p>`,
-    category: "Industry News",
-    publishedAt: "2026-03-31",
-    source: "World Bank Remittance Prices Worldwide",
-    sourceUrl: "https://remittanceprices.worldbank.org/",
-    providerSlugs: ["wise", "remitly", "worldremit", "western-union"],
-  },
-  {
     slug: "liberation-day-tariffs-remittance-impact-2026",
     title: "One Year After Liberation Day: How Trump's Tariffs Changed the Cost of Sending Money Abroad",
     excerpt:
-      "The DXY dollar index fell to 99.9, the Indian rupee hit a record low of 88.8, and the Supreme Court struck down IEEPA tariffs. Here's what one year of trade war means for your international transfers.",
+      "The DXY dollar index fell to 99.9, the Indian rupee hit record lows, and the Supreme Court struck down IEEPA tariffs. Here's what one year of trade war means for your international transfers.",
     image: "/images/news/central-bank-super-week.jpg",
     imageAlt: "US Dollar bills representing the weakening currency affecting international money transfer costs",
     content: `<p>April 2, 2026, marked exactly one year since "Liberation Day" — when the Trump administration announced sweeping tariffs with country-specific rates up to 50% and a 10% baseline. For anyone sending money internationally, the consequences have been significant and largely negative.</p>
 
 <h2>What happened to the dollar?</h2>
-<p>The <strong>DXY dollar index fell to 99.9</strong> on April 7, 2026 — down nearly 3% over 12 months. Most forecasts place the dollar in the low-to-mid 90s by December 2026. Harvard economist Kenneth Rogoff has said historians may look back at Liberation Day as marking "the beginning of the end of the dollar's absolute dominance."</p>
-<p>For US-based senders, a weaker dollar means <strong>fewer units of foreign currency for each dollar transferred</strong>. If you sent $1,000 to India a year ago and got ₹84,000, the same amount today might only get you ₹80,000 — a ₹4,000 loss purely from currency depreciation.</p>
+<p>The <strong>DXY dollar index fell to 99.9</strong> on April 7, 2026 — down nearly 3% over 12 months. Harvard economist Kenneth Rogoff has said historians may look back at Liberation Day as marking "the beginning of the end of the dollar's absolute dominance."</p>
+<p>Against the euro and other major currencies, a weaker dollar means <strong>fewer units of foreign currency for each dollar transferred</strong>. Many emerging-market currencies fell further than the dollar did, though: the rupee went from around ₹85–86 per dollar in April 2025 to ₹93.28 on April 7, 2026, so $1,000 sent to India now buys more rupees, not fewer.</p>
 
 <h2>How tariffs affect exchange rates</h2>
 <p>Tariffs create a chain reaction that weakens the dollar:</p>
@@ -952,10 +729,8 @@ export const newsItems: NewsItem[] = [
 <table>
 <thead><tr><th>Currency</th><th>Impact</th><th>What It Means for Senders</th><th>Compare</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Indian Rupee (INR)</strong></td><td>Record low 88.8 vs USD</td><td>More rupees per dollar — good time to send</td><td><a href="/send-money/usa-to-india">Rates →</a></td></tr>
+<tr class="blog-row-highlight"><td><strong>Indian Rupee (INR)</strong></td><td>Record low ₹95.21 per USD (March 30)</td><td>More rupees per dollar — good time to send</td><td><a href="/send-money/usa-to-india">Rates →</a></td></tr>
 <tr><td><strong>Pakistani Rupee (PKR)</strong></td><td>Under pressure</td><td>Volatile — use rate alerts</td><td><a href="/send-money/usa-to-pakistan">Rates →</a></td></tr>
-<tr><td><strong>South African Rand (ZAR)</strong></td><td>Fell 0.5-1%</td><td>Slightly more ZAR per dollar</td><td><a href="/send-money/send-money-to-south-africa">Rates →</a></td></tr>
-<tr><td><strong>Thai Baht (THB)</strong></td><td>Fell 0.5-1%</td><td>Better rates for senders to Thailand</td><td>—</td></tr>
 <tr><td><strong>Mexican Peso (MXN)</strong></td><td>Resilient</td><td>MXN held up better than most — trade integration</td><td><a href="/send-money/usa-to-mexico">Rates →</a></td></tr>
 </tbody>
 </table>
@@ -963,7 +738,7 @@ export const newsItems: NewsItem[] = [
 <h2>The double hit: weaker dollar + remittance tax</h2>
 <p>US-based senders now face two simultaneous cost pressures:</p>
 <ol>
-<li><strong>The weakening dollar</strong> reduces how much your recipient gets in local currency</li>
+<li><strong>The weakening dollar</strong> reduces how much your recipient gets wherever their currency has gained on it, such as the euro</li>
 <li><strong>The <a href="/guides/us-remittance-tax-2026">1% US remittance tax</a></strong> (effective January 1, 2026) adds an extra cost on cash-funded transfers</li>
 </ol>
 <p>Together, these make it more important than ever to <strong>compare providers</strong> before every transfer. The difference between the cheapest and most expensive provider can be 3-5% — which now matters even more when the base rate is moving against you.</p>
@@ -971,7 +746,7 @@ export const newsItems: NewsItem[] = [
 <h2>What to do now</h2>
 <ol>
 <li><strong>Set rate alerts.</strong> Use <a href="/companies/wise">Wise</a> or <a href="/companies/xe">Xe</a> to get notified when your target rate hits. In volatile tariff periods, rates can swing 1-2% in a day.</li>
-<li><strong>Consider sending sooner rather than later.</strong> If the dollar continues weakening through 2026 as forecasters expect, today's rate may be better than next month's.</li>
+<li><strong>Watch the direction of your own pair.</strong> The dollar's broad fall has not been uniform — against the rupee it has risen — so check the rate history for your corridor before deciding when to send.</li>
 <li><strong>For large transfers, use forward contracts.</strong> <a href="/companies/ofx">OFX</a> lets you lock in today's rate for up to 12 months — protecting you from further dollar weakness.</li>
 <li><strong>Switch from cash to digital.</strong> Avoid the 1% remittance tax entirely by funding via bank transfer or debit card instead of cash. Read our <a href="/guides/us-remittance-tax-2026">remittance tax guide</a>.</li>
 <li><strong>Compare every time.</strong> Our <a href="/send-money">comparison tool</a> shows real-time rates from ${COVERAGE.providers}. In a volatile market, the cheapest provider can change daily.</li>
@@ -987,7 +762,7 @@ export const newsItems: NewsItem[] = [
     slug: "mastercard-bvnk-stablecoin-remittance-2026",
     title: "Mastercard's $1.8B Bet on Stablecoins: What It Means for Your Remittance Fees",
     excerpt:
-      "Mastercard is acquiring stablecoin infrastructure firm BVNK for $1.8 billion — the largest crypto deal in payments history. It could slash corridor fees from 6-8% to 1-2%. Here's what changes for regular senders.",
+      "Mastercard is acquiring stablecoin infrastructure firm BVNK for $1.8 billion — Mastercard's biggest crypto deal to date. Here's what it could change for regular senders.",
     image: "/images/news/central-bank-super-week.jpg",
     imageAlt: "Digital payment network representing Mastercard's stablecoin infrastructure for cheaper international transfers",
     content: `<p>On March 17, 2026, <a href="https://www.mastercard.com/us/en/news-and-trends/press/2026/march/Mastercard-to-acquire-BVNK-to-connect-on-chain-payments-and-fiat-rails.html" target="_blank" rel="noopener noreferrer nofollow">Mastercard announced</a> a definitive agreement to acquire <strong>BVNK</strong> — a UK-based stablecoin infrastructure company — for up to <strong>$1.8 billion</strong> ($1.5B upfront plus $300M contingent on performance). It's the largest stablecoin infrastructure deal in history, surpassing Stripe's $1.1B acquisition of Bridge.</p>
@@ -995,16 +770,7 @@ export const newsItems: NewsItem[] = [
 
 <h2>What are stablecoins and why do they matter for remittances?</h2>
 <p>Stablecoins are digital tokens pegged to a real currency (usually USD). Unlike Bitcoin, their value doesn't swing wildly — 1 USDC is always worth approximately $1. The innovation isn't the token itself, but the <strong>payment rails underneath</strong>.</p>
-<p>Traditional international transfers pass through 2-4 correspondent banks via SWIFT, each adding fees and time. Stablecoin rails can settle in seconds with minimal intermediary costs. The potential impact:</p>
-<table>
-<thead><tr><th>Corridor Type</th><th>Current Avg Cost</th><th>Potential Stablecoin Cost</th><th>Savings</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>USA → India</strong></td><td>~2.5%</td><td>~1%</td><td>60% cheaper</td></tr>
-<tr><td><strong>USA → Philippines</strong></td><td>~4%</td><td>~1-2%</td><td>50-75% cheaper</td></tr>
-<tr class="blog-row-danger"><td><strong>Sub-Saharan Africa</strong></td><td>~8-12%</td><td>~1-2%</td><td>80-90% cheaper</td></tr>
-<tr class="blog-row-danger"><td><strong>South Africa → Mozambique</strong></td><td>~15%</td><td>~2-3%</td><td>80% cheaper</td></tr>
-</tbody>
-</table>
+<p>Traditional international transfers can pass through several correspondent banks via SWIFT, each adding fees and time. Stablecoin rails can settle in seconds with fewer intermediaries.</p>
 
 <h2>Why Mastercard paid $1.8 billion</h2>
 <p>BVNK operates stablecoin payment infrastructure across <strong>130+ countries</strong>. The acquisition gives Mastercard:</p>
@@ -1013,7 +779,7 @@ export const newsItems: NewsItem[] = [
 <li><strong>Enterprise-grade compliance</strong> — BVNK handles KYC/AML across jurisdictions</li>
 <li><strong>Integration with Mastercard Move</strong> — Mastercard's remittance platform that posted 35%+ transaction growth in Q4 2025</li>
 </ul>
-<p>Mastercard isn't alone. PayPal already offers <strong>zero-fee Xoom transfers funded with PYUSD</strong> (their stablecoin). Visa supports USDC settlement on-chain. Wells Fargo has filed for a WFUSD stablecoin trademark. The <a href="https://www.congress.gov/bill/119th-congress/senate-bill/394" target="_blank" rel="noopener noreferrer">US GENIUS Act</a> and Europe's MiCA framework are providing regulatory clarity.</p>
+<p>Mastercard isn't alone. PayPal already offers <strong>zero-fee Xoom transfers funded with PYUSD</strong> (their stablecoin). Visa supports USDC settlement on-chain. Wells Fargo has filed for a WFUSD stablecoin trademark. The <a href="https://www.congress.gov/bill/119th-congress/senate-bill/1582" target="_blank" rel="noopener noreferrer">US GENIUS Act</a> and Europe's MiCA framework are providing regulatory clarity.</p>
 
 <h2>What this means for you (the sender)</h2>
 <p>The key thing: <strong>you won't need to understand crypto.</strong> Mastercard will abstract the blockchain layer entirely. From your perspective, you'll send money through a normal app — the stablecoin settlement happens invisibly in the background, resulting in lower fees and faster delivery.</p>
@@ -1021,7 +787,7 @@ export const newsItems: NewsItem[] = [
 
 <h2>Who benefits most?</h2>
 <ul>
-<li><strong>Senders to Africa</strong> — Currently paying 8-15% in fees. Stablecoin rails could cut this to 1-2%, saving $40-$75 on every $500 transfer.</li>
+<li><strong>Senders to Africa</strong> — The most expensive region to send money to, per the World Bank, and so the one with the most to gain if stablecoin rails cut intermediary costs.</li>
 <li><strong>Senders to Southeast Asia</strong> — Philippines, Vietnam, Cambodia corridors currently at 3-5% could drop to 1%.</li>
 <li><strong>Unbanked recipients</strong> — BVNK's infrastructure supports mobile wallet delivery without requiring a bank account. Could benefit 1.3 billion unbanked adults globally.</li>
 </ul>
@@ -1045,9 +811,9 @@ export const newsItems: NewsItem[] = [
   // ========================================
   {
     slug: "fednow-cross-border-payments-2026",
-    title: "FedNow Opens to Cross-Border Payments: What It Means for International Transfers",
+    title: "Fed Proposes Opening FedNow to Cross-Border Payments: What It Means for International Transfers",
     excerpt:
-      "The Federal Reserve unanimously voted to allow intermediaries on FedNow for international payments — the first time the instant payment system can be used for cross-border transfers. Here's what changes for senders.",
+      "The Federal Reserve Board voted unanimously to propose allowing intermediaries on FedNow for international payments, which would let the instant payment system carry the US leg of cross-border transfers. Here's what it could change for senders.",
     content: `<h2>What did the Fed propose?</h2>
 <p>On <strong>April 8, 2026</strong>, the Federal Reserve Board unanimously voted to propose allowing U.S. banks and credit unions to use intermediaries to transfer funds through the FedNow Service. The proposal was published in the Federal Register on April 10, 2026, with a <strong>60-day comment period</strong> closing approximately June 9, 2026.</p>
 <p>Currently, FedNow can only process domestic transfers between two U.S. banks. Under the proposal, either the sending or receiving U.S. bank could act as a correspondent bank for non-U.S. institutions — enabling the domestic leg of a cross-border payment to settle in seconds on FedNow.</p>
@@ -1056,17 +822,17 @@ export const newsItems: NewsItem[] = [
 <p>The proposed model uses a hybrid approach with separate legs:</p>
 <ol>
 <li><strong>International leg:</strong> Handled by intermediaries (including non-U.S. correspondent banks) outside of FedNow — similar to how SWIFT operates today</li>
-<li><strong>Domestic leg:</strong> Settles in <strong>under 10 seconds</strong> on FedNow between eligible U.S. participants, 24/7/365</li>
+<li><strong>Domestic leg:</strong> Settles <strong>within seconds</strong> on FedNow between eligible U.S. participants, 24/7/365</li>
 </ol>
-<p>This mirrors how the existing Fedwire Funds Service has operated for decades — FedNow is simply catching up. The key difference: FedNow settles instantly while Fedwire is limited to business hours.</p>
+<p>This mirrors how the existing Fedwire Funds Service has operated for decades — FedNow is simply catching up. The key difference: FedNow runs 24/7/365, while Fedwire operates 22 hours a day on business days.</p>
 
 <h2>FedNow vs SWIFT vs Fedwire</h2>
 <div class="table-wrapper"><table>
 <thead><tr><th>Feature</th><th>FedNow (Proposed)</th><th>SWIFT</th><th>Fedwire</th></tr></thead>
 <tbody>
-<tr><td><strong>Settlement speed</strong></td><td>Under 10 seconds</td><td>1–5 business days</td><td>Same day (business hours)</td></tr>
-<tr><td><strong>Availability</strong></td><td>24/7/365</td><td>Limited hours</td><td>Business hours only</td></tr>
-<tr><td><strong>Per-transfer cost</strong></td><td>$0.045</td><td>$15–50+</td><td>$0.50–1.00</td></tr>
+<tr><td><strong>Settlement speed</strong></td><td>Within seconds</td><td>Varies by route</td><td>Same day</td></tr>
+<tr><td><strong>Availability</strong></td><td>24/7/365</td><td>Varies by bank</td><td>22 hours on business days</td></tr>
+<tr><td><strong>Per-transfer cost</strong></td><td>$0.045</td><td>Set by each bank</td><td>$0.195–$0.97 (by volume tier)</td></tr>
 <tr><td><strong>Cross-border</strong></td><td>Proposed via intermediaries</td><td>Native</td><td>Via intermediaries</td></tr>
 <tr><td><strong>Participants</strong></td><td>1,700+ institutions</td><td>11,000+ institutions</td><td>~5,000 institutions</td></tr>
 </tbody></table></div>
@@ -1076,7 +842,7 @@ export const newsItems: NewsItem[] = [
 <p>For providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/western-union">Western Union</a> that already use U.S. bank partners, FedNow integration could mean:</p>
 <ul>
 <li><strong>Faster funding:</strong> Sender's money reaches the provider's account in seconds rather than hours</li>
-<li><strong>Lower processing costs:</strong> $0.045 per transfer vs $0.50–1.00 on Fedwire</li>
+<li><strong>Lower processing costs:</strong> $0.045 per transfer vs $0.195–$0.97 on Fedwire, depending on volume tier</li>
 <li><strong>24/7 settlement:</strong> No more waiting for business hours to process the U.S. leg</li>
 </ul>
 <p>The international leg (the part that crosses borders) would still use existing rails — SWIFT, local payment systems, or direct integrations. But removing the domestic bottleneck is significant.</p>
@@ -1113,7 +879,7 @@ export const newsItems: NewsItem[] = [
 <li><strong>Cash</strong> (paying at an agent location like Western Union or MoneyGram)</li>
 <li><strong>Money orders</strong></li>
 <li><strong>Cashier's checks</strong></li>
-<li><strong>Other similar physical instruments</strong> (as determined by the Secretary)</li>
+<li><strong>Other similar physical instruments</strong> (as determined by the Secretary) — the proposed rules name <strong>traveler's checks</strong></li>
 </ul>
 <p>On a $1,000 cash transfer, the tax is <strong>$10</strong>.</p>
 
@@ -1121,11 +887,9 @@ export const newsItems: NewsItem[] = [
 <p>The following are <strong>not subject</strong> to the 1% tax:</p>
 <ul>
 <li>✅ <strong>Bank account transfers</strong> (ACH, wire transfers from checking/savings accounts)</li>
-<li>✅ <strong>U.S.-issued debit card</strong> payments</li>
-<li>✅ <strong>U.S.-issued credit card</strong> payments</li>
+<li>✅ <strong>Debit and credit card</strong> payments, regardless of the country where the card was issued</li>
 <li>✅ <strong>SWIFT bank-to-bank</strong> transfers</li>
-<li>✅ <strong>Digital/online transfers</strong> from any regulated provider</li>
-<li>✅ <strong>Cryptocurrency and stablecoin</strong> transfers</li>
+<li>✅ <strong>Personal or business checks and general-use prepaid cards</strong> (subject to an anti-avoidance rule)</li>
 </ul>
 <p><strong>Bottom line:</strong> If you send money online through <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/revolut">Revolut</a>, or any digital provider funded from your bank account or card — <strong>you pay zero tax</strong>. The tax specifically targets cash-based agent transfers.</p>
 
@@ -1140,7 +904,7 @@ export const newsItems: NewsItem[] = [
 
 <h2>Revenue and economic impact</h2>
 <p>The Joint Committee on Taxation estimates the tax will generate approximately <strong>$10 billion over 10 years</strong>. The tax applies regardless of citizenship, immigration status, or income level.</p>
-<p>Key impact projections:</p>
+<p>Key impact projections, from a <a href="https://www.cgdev.org/blog/even-1-percent-us-remittance-tax-hits-poor-countries-hard" target="_blank" rel="noopener noreferrer">Center for Global Development</a> analysis that applied 1% to all remittances (so it overstates the tax as enacted, which reaches only cash-type funding):</p>
 <ul>
 <li><strong>Mexico</strong> (largest remittance recipient from the US) projected to lose exceeding <strong>$1.5 billion annually</strong></li>
 <li><strong>El Salvador</strong> projected to lose <strong>0.6% of gross national income</strong></li>
@@ -1149,9 +913,9 @@ export const newsItems: NewsItem[] = [
 
 <h2>What should you do?</h2>
 <ol>
-<li><strong>Switch from cash to digital:</strong> If you're still paying cash at an agent location, switching to a digital provider eliminates the tax <em>and</em> saves you $20–$80 per $1,000 in fees and exchange rate markup. See our <a href="/send-money">comparison tool</a> for the cheapest digital option.</li>
+<li><strong>Switch from cash to digital:</strong> If you're still paying cash at an agent location, switching to a digital provider eliminates the tax, and digital providers are often cheaper on fees and exchange rates too. See our <a href="/send-money">comparison tool</a> for the cheapest digital option.</li>
 <li><strong>Fund via bank account or debit card:</strong> ACH-funded transfers through Wise, Remitly, or WorldRemit are tax-exempt and typically cheapest.</li>
-<li><strong>Keep receipts:</strong> If you do send cash, the provider must give you a receipt showing the tax amount. You can reclaim taxes if the transfer is canceled or refunded.</li>
+<li><strong>Keep records:</strong> If a cash-funded transfer is canceled or expires and the provider refunds it, you may file a claim with the IRS for a refund of the tax.</li>
 </ol>
 <p>For corridor-specific advice, see our <a href="/guides/send-money-to-mexico-guide">Mexico guide</a>, <a href="/guides/send-money-to-india-guide">India guide</a>, and <a href="/guides/send-money-to-philippines-guide">Philippines guide</a>.</p>`,
     category: "Regulatory",
@@ -1176,15 +940,15 @@ export const newsItems: NewsItem[] = [
 <div class="table-wrapper"><table>
 <thead><tr><th>Requirement</th><th>Before May 2026</th><th>After May 2026</th></tr></thead>
 <tbody>
-<tr><td><strong>Fund reconciliation</strong></td><td>No specific frequency required</td><td>Daily reconciliation of safeguarded funds</td></tr>
-<tr><td><strong>Audits</strong></td><td>No mandatory safeguarding audits</td><td>Annual reasonable-assurance audits by qualified auditors</td></tr>
+<tr><td><strong>Fund reconciliation</strong></td><td>At least once each business day (FCA guidance)</td><td>Daily reconciliation of safeguarded funds</td></tr>
+<tr><td><strong>Audits</strong></td><td>Annual audit expected (guidance) for firms that need a statutory audit</td><td>Annual reasonable-assurance audits by qualified auditors</td></tr>
 <tr><td><strong>Reporting</strong></td><td>Annual reporting only</td><td>Monthly regulatory returns to the FCA</td></tr>
 <tr><td><strong>Wind-down planning</strong></td><td>No requirement</td><td>Mandatory resolution pack enabling timely fund recovery</td></tr>
-<tr><td><strong>Third-party review</strong></td><td>No specific requirement</td><td>Review all third-party safeguarding arrangements within 3 months</td></tr>
+<tr><td><strong>Third-party review</strong></td><td>No specific requirement</td><td>Contingency plan at least 3 months before a safeguarding insurance policy or guarantee expires</td></tr>
 </tbody></table></div>
 
 <h2>Why this matters: the insolvency problem</h2>
-<p>Unlike banks, payment firms like Wise and Revolut are <strong>not covered by the Financial Services Compensation Scheme (FSCS)</strong>. If a payment firm fails, your money is not automatically protected up to £85,000 like it would be with a bank.</p>
+<p>Unlike banks, payment firms like Wise and Revolut are <strong>not covered by the Financial Services Compensation Scheme (FSCS)</strong>. If a payment firm fails, your money is not automatically protected up to £120,000 like it would be with a bank.</p>
 <p>The FCA found alarming data from <strong>12 payment firms that became insolvent between 2018 and 2023</strong>:</p>
 <ul>
 <li>Average shortfall was <strong>65%</strong> between funds owed to customers and funds actually safeguarded</li>
@@ -1198,10 +962,10 @@ export const newsItems: NewsItem[] = [
 <p>All FCA-regulated payment institutions (PIs) and e-money institutions (EMIs). This includes:</p>
 <ul>
 <li><strong>Wise</strong> (EMI, authorized by FCA)</li>
-<li><strong>Revolut</strong> (EMI, authorized by FCA — also pursuing UK banking license)</li>
-<li><strong>Remitly</strong> (regulated as a payment institution in the UK)</li>
+<li><strong>Revolut</strong> (full UK banking licence since March 2026)</li>
+<li><strong>Remitly</strong> (FCA-authorised in the UK)</li>
 <li><strong>WorldRemit</strong> (EMI, authorized by FCA)</li>
-<li><strong>PayPal/Xoom</strong> (Luxembourg-licensed, passported into UK)</li>
+<li><strong>PayPal</strong> (FCA-authorised in the UK through PayPal UK Ltd)</li>
 </ul>
 <p>Firms safeguarding less than <strong>£100,000</strong> over a 53-week period are exempt from the audit requirement — but this covers only ~23% of firms and just £3.2 million of the £27 billion+ in customer funds held sector-wide.</p>
 
@@ -1224,9 +988,9 @@ export const newsItems: NewsItem[] = [
   // ========================================
   {
     slug: "eu-instant-payments-mandatory-2026",
-    title: "EU Instant Payments Now Mandatory: Every Euro Transfer Must Settle in 10 Seconds",
+    title: "EU Instant Payments Now Mandatory: Eurozone Banks Must Offer 10-Second Euro Transfers",
     excerpt:
-      "The EU Instant Payments Regulation (EU 2024/886) is now in full force for eurozone banks. Every euro transfer must settle within 10 seconds, 24/7, at no extra charge. Here's what it means for sending money to Europe.",
+      "The EU Instant Payments Regulation (EU 2024/886) is now in full force for eurozone banks. Eurozone banks must now offer euro transfers that settle within 10 seconds, 24/7, at no extra charge. Here's what it means for sending money to Europe.",
     content: `<h2>What's the EU Instant Payments Regulation?</h2>
 <p><strong>Regulation (EU) 2024/886</strong>, adopted March 13, 2024 and in force since April 8, 2024, mandates that all payment service providers in the eurozone must offer instant euro transfers. The regulation amends the original SEPA Regulation (260/2012).</p>
 <p>Key requirements:</p>
@@ -1247,12 +1011,12 @@ export const newsItems: NewsItem[] = [
 <tr><td><strong>Equal charges</strong></td><td>January 9, 2025 ✅</td><td>January 9, 2027</td></tr>
 <tr><td><strong>Verification of Payee</strong></td><td>October 9, 2025 ✅</td><td>July 9, 2027</td></tr>
 </tbody></table></div>
-<p>Eurozone banks are now fully compliant. Non-eurozone EU members (Romania, Poland, Sweden, Hungary, Czech Republic, Bulgaria) have until 2027 for euro payments.</p>
+<p>Eurozone banks have had to send instant payments since October 2025. Non-eurozone EU members (Romania, Poland, Sweden, Hungary, Czech Republic, Denmark) have until 2027 for euro payments; Bulgaria joined the euro on January 1, 2026.</p>
 
 <h2>What this means for sending money to Europe</h2>
 <p><strong>If you're sending EUR to a eurozone country</strong> (Germany, France, Spain, Italy, Netherlands, Austria, etc.), your transfer should now arrive within 10 seconds via SEPA Instant — at no extra charge over standard SEPA.</p>
 <p>Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/revolut">Revolut</a> already route through SEPA Instant when available. The regulation ensures <strong>every eurozone bank</strong> now supports it.</p>
-<p><strong>Maximum per transaction:</strong> EUR 100,000. Non-eurozone countries can set a minimum cap of EUR 25,000 during off-hours.</p>
+<p><strong>Transaction limits:</strong> the scheme's former EUR 100,000 cap was removed in October 2025; providers may set their own limits. In non-euro states, providers may limit euro instant transfers sent from national-currency accounts outside business hours, but to no less than EUR 25,000 per transfer.</p>
 
 <h2>Non-eurozone EU countries: Romania, Poland, Sweden</h2>
 <p>These countries use their own currencies (RON, PLN, SEK) but are SEPA members for euro payments. The regulation only applies to <strong>euro-denominated payments</strong>:</p>
@@ -1264,8 +1028,7 @@ export const newsItems: NewsItem[] = [
 
 <h2>UK senders: what changes?</h2>
 <p>The UK remains in the SEPA geographic scope (grandfathered post-Brexit) but is <strong>not bound by this regulation</strong>. UK banks can choose to adopt SEPA Instant voluntarily, but there is no legal deadline.</p>
-<p>However, UK-based providers like Wise and Revolut route transfers through their EU entities, meaning <strong>UK senders to Europe already benefit</strong> from SEPA Instant pricing and speed.</p>
-<p>For live rates from the UK to Europe, <a href="/send-money/usa-to-europe">compare GBP to EUR providers</a>.</p>`,
+<p>For live rates from the UK to Europe, use our <a href="/send-money">comparison tool</a> and choose GBP to EUR.</p>`,
     category: "Regulatory",
     publishedAt: "2026-04-11",
     source: "European Central Bank / European Commission",
@@ -1301,21 +1064,21 @@ export const newsItems: NewsItem[] = [
 
 <h2>Why list on the Nasdaq — and why now?</h2>
 <p>Three reasons dominate the case for Wise's move.</p>
-<p><strong>1. Valuation multiples.</strong> Fintech peers trading on the Nasdaq — including Nubank, SoFi, and PayPal — consistently command higher revenue multiples than UK-listed fintech. For a company growing cross-border volume at 25%+ a year, the re-rating alone could add several billion pounds of market capitalisation.</p>
-<p><strong>2. Dollar-denominated capital.</strong> Roughly 45% of Wise's customer base is in the Americas or sends to USD-denominated corridors. A US listing gives the company a deeper pool of dollar capital to fund US bank partnerships, compliance infrastructure, and FedNow / CHIPS integration — the plumbing that makes <a href="/send-money/usa-to-india">USA-to-India</a>, <a href="/send-money/usa-to-mexico">USA-to-Mexico</a>, and <a href="/send-money/usa-to-philippines">USA-to-Philippines</a> transfers settle in minutes rather than days.</p>
-<p><strong>3. Competitive pressure from Revolut.</strong> <a href="/companies/revolut">Revolut</a> reported <a href="/news/revolut-africa-14-corridors-airtel-mtn-orange-money-2026">record 2025 revenues of €5.2 billion</a> and a full UK banking licence, and analysts at Citi have cited Revolut's accelerating cross-border expansion as a direct threat to Wise's UK base — which still generates roughly 20–25% of revenue. A Nasdaq platform gives Wise the balance sheet to defend and extend.</p>
+<p><strong>1. Valuation multiples.</strong> Fintech peers trading on the Nasdaq — including SoFi and PayPal — have tended to command higher revenue multiples than UK-listed fintech. For a company growing cross-border volume at 25%+ a year, the re-rating alone could add several billion pounds of market capitalisation.</p>
+<p><strong>2. Dollar-denominated capital.</strong> A US listing gives the company a deeper pool of dollar capital to fund US bank partnerships, compliance infrastructure, and FedNow / CHIPS integration — the plumbing that makes <a href="/send-money/usa-to-india">USA-to-India</a>, <a href="/send-money/usa-to-mexico">USA-to-Mexico</a>, and <a href="/send-money/usa-to-philippines">USA-to-Philippines</a> transfers settle in minutes rather than days.</p>
+<p><strong>3. Competitive pressure from Revolut.</strong> <a href="/companies/revolut">Revolut</a> reported <a href="https://www.euronews.com/business/2026/03/24/revolut-reported-record-financial-results-with-revenue-rising-by-46-to-52bn-in-2025" target="_blank" rel="noopener noreferrer">record 2025 revenue of £4.5 billion (€5.2 billion)</a> and a full UK banking licence, and analysts at Citi have cited Revolut's accelerating cross-border expansion as a direct threat to Wise's UK base — which still generates roughly 20–25% of revenue. A Nasdaq platform gives Wise the balance sheet to defend and extend.</p>
 
 <h2>What changes for you as a sender?</h2>
 <p>Short answer: <strong>nothing, immediately</strong>. The Wise app, rates, fees, and product surface are unaffected by where the holding company trades its shares.</p>
 <p>What changes over 12–24 months is where Wise invests. Three areas to watch:</p>
 <ul>
 <li><strong>USD rails</strong> — Expect deeper integration with FedNow and US bank-held accounts, which will tighten USD-funded corridor settlement from hours to seconds. See our coverage of <a href="/news/fednow-cross-border-payments-2026">FedNow's cross-border push</a>.</li>
-<li><strong>New currencies</strong> — Wise has historically added 4–6 currencies a year. Expect acceleration, particularly in Latin America and Africa where <a href="/send-money/uk-to-nigeria">GBP-to-NGN</a> and <a href="/send-money/usa-to-nigeria">GBP-to-GHS</a> routes have high diaspora demand.</li>
+<li><strong>New currencies</strong> — Watch Latin America and Africa, where routes such as <a href="/send-money/uk-to-nigeria">GBP-to-NGN</a> have high diaspora demand.</li>
 <li><strong>Business banking</strong> — Wise Business is the fastest-growing segment. A US listing signals a push to compete directly with <a href="/business/b2b-transfers">B2B platforms</a> such as Airwallex and Payoneer.</li>
 </ul>
 
 <h2>Wise vs Revolut: the Nasdaq race</h2>
-<p>With Wise on the Nasdaq and Revolut holding a full UK banking licence and reporting $2.3 billion profit on $6 billion revenue in 2025, the duopoly at the top of the retail FX market is tightening. For senders, this is good news — both firms compete almost entirely on price and speed.</p>
+<p>With Wise on the Nasdaq and Revolut holding a full UK banking licence and reporting £1.7 billion profit before tax on £4.5 billion revenue in 2025, the duopoly at the top of the retail FX market is tightening. For senders, this is good news — both firms compete almost entirely on price and speed.</p>
 <p>If you're deciding between them, our <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> head-to-head compares fees, rates, corridor coverage, and speed for the most common routes. For USD-heavy senders, <a href="/compare/wise-vs-paypal">Wise vs PayPal</a> and <a href="/compare/wise-vs-xoom">Wise vs Xoom</a> are the comparisons that typically matter more.</p>
 
 <h2>Is Wise safe? Regulatory protection holds either way</h2>
@@ -1324,9 +1087,10 @@ export const newsItems: NewsItem[] = [
 
 <h2>What to watch on and after May 11</h2>
 <ol>
-<li><strong>May 11, 2026</strong> — Primary listing moves to Nasdaq under ticker WISE. LSE keeps a secondary listing.</li>
-<li><strong>Q1 FY27 trading update (July 2026)</strong> — First quarterly disclosure as a Nasdaq-primary company; watch for US volume growth as the headline metric.</li>
-<li><strong>Full-year results (November 2026)</strong> — First post-listing earnings; expect a sharpened US corridor roadmap and likely new product announcements.</li>
+<li><strong>May 11, 2026</strong> — Primary listing moves to Nasdaq under ticker WSE (WISE remains the LSE ticker). LSE keeps a secondary listing.</li>
+<li><strong>Full-year FY2026 results (June 25, 2026)</strong> — First results as a Nasdaq-primary company.</li>
+<li><strong>Q1 FY27 trading update (July 2026)</strong> — First quarterly update after the listing; watch for US volume growth as the headline metric.</li>
+<li><strong>Half-year results (November 2026)</strong> — Expect a sharpened US corridor roadmap and likely new product announcements.</li>
 </ol>
 
 <h2>Questions about Wise's Nasdaq listing</h2>
@@ -1334,7 +1098,7 @@ export const newsItems: NewsItem[] = [
 <p>Yes. Wise's safeguarding and regulatory status is unchanged by the listing switch. Customer funds remain ring-fenced from corporate funds under FCA and FinCEN rules. The Nasdaq move is a corporate-governance change, not an operational one. See our full <a href="/companies/wise">Wise review</a> for the latest safety breakdown.</p>
 
 <h3>Will Wise fees or exchange rates change after May 11, 2026?</h3>
-<p>No. Wise's pricing is driven by its cost base and competition, not by where its shares are listed. The company's stated long-term objective — pushing the average price of a cross-border transfer below 0.5% — is unchanged.</p>
+<p>No. Wise's pricing is driven by its cost base and competition, not by where its shares are listed. The company's stated aim of continuing to lower its prices is unchanged.</p>
 
 <h3>Can I buy Wise shares if I'm a customer?</h3>
 <p>Yes. Wise has announced that existing shareholders will receive equivalent Nasdaq-listed shares on the listing date, and retail investors will be able to buy through any broker with Nasdaq access. This article is not investment advice.</p>
@@ -1356,38 +1120,38 @@ export const newsItems: NewsItem[] = [
   {
     slug: "pakistan-record-41-billion-remittance-2026",
     title:
-      "Pakistan Remittances Hit Record $41 Billion in 2026: Cheapest Way to Send GBP to PKR",
+      "Pakistan Remittances on Track for Record $41 Billion: Cheapest Way to Send GBP to PKR",
     excerpt:
-      "Pakistan is on track for a record $41 billion remittance year in 2026, up from $38B last year. UK→Pakistan alone hit $532M in February. Here's how the top providers compare on GBP to PKR right now.",
+      "Pakistan is on track for a record $41 billion in remittances in fiscal 2025-26, up from $38.3B in FY25. UK→Pakistan alone hit $532M in February. Here's how the top providers compare on GBP to PKR right now.",
     image: "/images/news/pakistan-record-remittance-2026.svg",
     imageAlt:
       "Editorial chart showing Pakistan's projected $41B remittance year for 2026, with UK-to-Pakistan February inflow of $532M and GBP/PKR at 377",
-    content: `<p><strong>TL;DR —</strong> Pakistan is projected to receive a record <strong>$41 billion</strong> in remittances this year, up from $38 billion in 2025, with the UK alone contributing <strong>$532 million in February 2026</strong>. On <a href="/send-money/uk-to-pakistan">GBP to PKR</a>, rate differences between providers can move <strong>5,000–15,000 rupees on a £1,000 transfer</strong> — enough to justify comparing every time. Below: the data, the corridors driving the record, and the cheapest providers as of April 20, 2026.</p>
+    content: `<p><strong>TL;DR —</strong> Pakistan is projected to receive a record <strong>$41 billion</strong> in remittances in fiscal year 2025-26 (July to June), up from $38.3 billion in FY25, with the UK alone contributing <strong>$532 million in February 2026</strong>. On <a href="/send-money/uk-to-pakistan">GBP to PKR</a>, rate differences between providers can move <strong>5,000–15,000 rupees on a £1,000 transfer</strong> — enough to justify comparing every time. Below: the data, the corridors driving the record, and the cheapest providers as of April 20, 2026.</p>
 
 <h2>Why 2026 is a record year</h2>
 <p>The surge has three underlying drivers, none of which look temporary:</p>
 <ol>
 <li><strong>A wider legal–parallel rate gap has narrowed.</strong> After the State Bank of Pakistan's 2023–24 exchange-rate reforms, formal channels now clear closer to market — meaning diaspora senders who previously used informal hawala routes are migrating back to regulated providers.</li>
 <li><strong>Mobile wallet adoption.</strong> JazzCash and Easypaisa together cover over 100 million registered accounts. Minute-level delivery from the UK, US, and Gulf is now the norm, not the exception.</li>
-<li><strong>Gulf demand is steady, Western demand is rising.</strong> Saudi Arabia and the UAE remain the largest sending markets, but <strong>UK remittances are up notably year-on-year</strong> despite a 7% February dip ($532M vs $575M in January) driven largely by base effects.</li>
+<li><strong>Gulf demand is steady, Western demand is rising.</strong> Saudi Arabia and the UAE remain the largest sending markets, but <strong>UK remittances are up notably year-on-year</strong> despite a 7% February dip ($532M vs $575M in January).</li>
 </ol>
 
 <h2>Top remittance sources into Pakistan (SBP data)</h2>
 <div class="table-wrapper"><table>
 <thead><tr><th>Source country</th><th>Feb 2026 inflow</th><th>Typical fastest rail</th></tr></thead>
 <tbody>
-<tr><td><strong>Saudi Arabia</strong></td><td>~$800M</td><td>SAR → PKR via specialist providers</td></tr>
-<tr><td><strong>United Arab Emirates</strong></td><td>~$700M</td><td>AED → PKR wallet delivery in minutes</td></tr>
+<tr><td><strong>United Arab Emirates</strong></td><td>$696M</td><td>AED → PKR wallet delivery in minutes</td></tr>
+<tr><td><strong>Saudi Arabia</strong></td><td>$685M</td><td>SAR → PKR via specialist providers</td></tr>
 <tr><td><strong>United Kingdom</strong></td><td>$532M</td><td>GBP → PKR Faster Payments + wallet</td></tr>
-<tr><td><strong>United States</strong></td><td>~$330M</td><td><a href="/guides/us-remittance-tax-2026">Digital (tax-exempt)</a> to bank or wallet</td></tr>
-<tr><td><strong>EU (combined)</strong></td><td>~$280M</td><td>SEPA → PKR via Wise, Remitly, ACE</td></tr>
+<tr><td><strong>EU (combined)</strong></td><td>$395M</td><td>SEPA → PKR via Wise, Remitly, ACE</td></tr>
+<tr><td><strong>United States</strong></td><td>$319M</td><td><a href="/guides/us-remittance-tax-2026">Digital (tax-exempt)</a> to bank or wallet</td></tr>
 </tbody>
 </table></div>
 
 <h2>UK to Pakistan: who's cheapest right now?</h2>
 <p>The GBP to PKR corridor is one of the most price-competitive in the world because diaspora demand is high and every specialist provider operates here. For a typical <strong>£1,000 transfer</strong> on April 20, 2026, the live rate landscape is:</p>
 <ul>
-<li><strong><a href="/companies/ace-money-transfer">ACE Money Transfer</a></strong> — Strong Pakistani banking partnerships, frequent zero-fee promos for new customers. Consistently among the top 2 for PKR delivered.</li>
+<li><strong><a href="/companies/ace-money-transfer">ACE Money Transfer</a></strong> — Strong Pakistani banking partnerships, frequent zero-fee promos for new customers.</li>
 <li><strong><a href="/companies/wise">Wise</a></strong> — Mid-market rate with a transparent 0.5–0.8% fee. Not always the highest PKR delivered, but always the most predictable.</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong> — Express delivery in minutes to JazzCash, Easypaisa, HBL, UBL, Meezan. Economy tier is often the cheapest of the app-based providers.</li>
 <li><strong><a href="/companies/worldremit">WorldRemit</a></strong> — Broadest wallet and bank coverage; competitive on occasional promotional rates.</li>
@@ -1407,8 +1171,8 @@ export const newsItems: NewsItem[] = [
 <p>Over 12 transfers a year, the difference is £500–£800 — money that stays with the bank instead of reaching your family. Our guide on <a href="/guides/exchange-rate-markup-explained">exchange rate markups</a> walks through exactly how this hidden cost works.</p>
 
 <h2>Watch the GBP/PKR rate</h2>
-<p>The pound has been trading in the <strong>£1 = 369–395 PKR</strong> band through April 2026, with April forecasts pointing to a month-end rate near <strong>385</strong>. On £1,000, a 2% rate swing is worth ~7,700 rupees — meaningful for any regular sender. Rate alerts from <a href="/companies/wise">Wise</a> or <a href="/companies/xe">Xe</a> let you lock in when the rate hits your target.</p>
-<p>For the broader macro picture, our <a href="/news/april-2026-central-bank-calendar">April 2026 central bank calendar</a> lists every rate decision likely to move GBP in the coming weeks. And for a historical view, the <a href="/exchange-rates/history">exchange rate history tool</a> shows how GBP/PKR has moved over the past year.</p>
+<p>The pound traded in a <strong>£1 = 369–379 PKR</strong> range during April 2026. On £1,000, a 2% rate swing is worth ~7,700 rupees — meaningful for any regular sender. Rate alerts from <a href="/companies/wise">Wise</a> or <a href="/companies/xe">Xe</a> let you lock in when the rate hits your target.</p>
+<p>For the broader macro picture, our <a href="/news/central-bank-super-week-march-2026">guide to how central bank decisions move exchange rates</a> explains what to watch before a big GBP transfer. And for a historical view, the <a href="/exchange-rates/history">exchange rate history tool</a> shows how GBP/PKR has moved over the past year.</p>
 
 <h2>US senders to Pakistan: digital is tax-free</h2>
 <p>If you're sending to Pakistan from the US, fund your transfer <strong>digitally</strong> — bank account, debit card, or credit card — and the <a href="/guides/us-remittance-tax-2026">1% federal remittance excise tax</a> does not apply. The tax is triggered only by cash, money orders, or cashier's checks handed over in person. That makes <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> 100% tax-exempt on the <a href="/send-money/usa-to-pakistan">USA to Pakistan corridor</a>. See our dedicated <a href="/news/irs-remittance-tax-proposed-regulations-2026">IRS regulations analysis</a> for the full exemption list.</p>
@@ -1428,7 +1192,7 @@ export const newsItems: NewsItem[] = [
 <p>ACE Money Transfer, Wise, and Remitly are among the more visible app-based names on the GBP to PKR corridor, but they are not the measured leader: {{CORRIDOR_LEADER:GBP:PKR}}. Differences of 5,000–15,000 PKR per £1,000 are common between the best and worst providers on any given day — compare before every transfer at our <a href="/send-money/uk-to-pakistan">UK to Pakistan comparison page</a>.</p>
 
 <h3>How much did Pakistan receive in remittances in February 2026?</h3>
-<p>Pakistan received <strong>$3.3 billion in remittances in February 2026</strong>, with the UK contributing $532 million (down 7% from January's $575M). Full-year inflows are projected to reach a record $41 billion, up from $38B in 2025.</p>
+<p>Pakistan received <strong>$3.3 billion in remittances in February 2026</strong>, with the UK contributing $532 million (down 7% from January's $575M). Inflows for fiscal 2025-26 are projected to reach a record $41 billion, up from $38.3 billion in FY25.</p>
 
 <h3>Is JazzCash or Easypaisa better for receiving money from the UK?</h3>
 <p>Both are supported by every major UK-to-Pakistan provider. Choose JazzCash if your recipient uses Jazz mobile service; choose Easypaisa if they use Telenor. Both deliver in minutes and charge the recipient nothing to receive. See our <a href="/send-money/uk-to-pakistan">UK to Pakistan page</a> for provider-by-provider wallet support.</p>
@@ -1442,336 +1206,6 @@ export const newsItems: NewsItem[] = [
     source: "State Bank of Pakistan / Business Recorder / TechJuice",
     sourceUrl: "https://www.brecorder.com/news/40410967",
     providerSlugs: ["wise", "remitly", "worldremit", "ria", "ace-money-transfer"],
-  },
-  // ========================================
-  // INR weakest in a year — decision framework
-  // ========================================
-  {
-    slug: "inr-weakest-year-send-money-india-april-2026",
-    title:
-      "INR at 92.98/USD (April 2026): Should You Send Money to India Now or Wait?",
-    excerpt:
-      "The rupee is 9.18% weaker than a year ago at ₹92.98/USD, with the RBI actively intervening in FX markets. Here's a decision framework for when to send USD/INR and GBP/INR transfers — and how much timing really matters.",
-    image: "/images/news/inr-weakest-usd-april-2026.svg",
-    imageAlt:
-      "Editorial card showing the Indian rupee at 92.98 per USD on April 20, 2026, down 9.18% year-on-year, with a downward trend line and GBP/INR at 126.04",
-    content: `<p><strong>TL;DR —</strong> The Indian rupee is trading at <strong>₹92.98 per USD</strong> on April 20, 2026 — its weakest level in a year and <strong>down 9.18% year-on-year</strong>. GBP/INR sits near <strong>126</strong>. The Reserve Bank of India (RBI) is actively intervening to cap volatility, and Western senders are arguably in the strongest position of 2026 so far. Below: whether to send now or wait, how big the provider spread is, and why "waiting for a better rate" usually costs more than it saves.</p>
-
-<h2>Where the rate is today</h2>
-<div class="table-wrapper"><table>
-<thead><tr><th>Pair</th><th>Rate (Apr 20, 2026)</th><th>1-month range</th><th>12-month change</th></tr></thead>
-<tbody>
-<tr><td><strong>USD / INR</strong></td><td>92.98</td><td>92.41 – 94.62</td><td>INR down 9.18%</td></tr>
-<tr><td><strong>GBP / INR</strong></td><td>126.04</td><td>123.60 – 130.24</td><td>GBP up ~8%</td></tr>
-<tr><td><strong>EUR / INR</strong></td><td>~101</td><td>~99 – 103</td><td>EUR up ~6%</td></tr>
-</tbody>
-</table></div>
-<p>In plain English: <strong>if you're sending USD, GBP, or EUR to India, your recipient is getting substantially more rupees than they would have a year ago</strong>. On a $1,000 transfer, that's roughly ₹7,800 more than April 2025 — enough to cover a month of groceries for a middle-class Indian household.</p>
-
-<h2>What's driving the weakness</h2>
-<p>Three forces are pushing the rupee down, each with different longevity:</p>
-<ul>
-<li><strong>Dollar strength</strong> — The Fed's <a href="/news/fed-holds-rates-march-2026-one-cut-dot-plot">hold at 3.5% with one cut projected for 2026</a> keeps real US yields elevated. Every emerging-market currency has felt this.</li>
-<li><strong>Oil imports</strong> — India imports ~85% of its crude. Every spike in Brent tightens INR further as state oil companies buy dollars. The RBI is now routing state-run oil importer demand through a <strong>special credit facility</strong> to reduce open-market pressure — a sign the weakness was getting structural.</li>
-<li><strong>Offshore hedging pressure</strong> — The RBI has tightened FX position limits for banks and restricted offshore-linked hedging activity. This has helped: foreign investors turned net buyers of Indian equities (~₹3.8 billion inflow) in April, and the rupee has stabilised from its 94.62 low on April 13 to 92.98 today.</li>
-</ul>
-<p>For the underlying macro calendar, see our <a href="/news/april-2026-central-bank-calendar">April 2026 central bank calendar</a> (Fed minutes April 9, ECB April 17 — both already priced in).</p>
-
-<h2>Send now or wait? The decision framework</h2>
-<p>There's a simple way to think about this. Your total transfer cost is:</p>
-<blockquote>
-<p><strong>Provider fee + provider FX markup + (timing risk × transfer size)</strong></p>
-</blockquote>
-<p>Fees and markup are knowable today. Timing risk is what you're guessing at.</p>
-
-<h3>Rule 1 — Pick the provider first, the timing second</h3>
-<p>The gap between the cheapest and most expensive provider on USD/INR is typically <strong>0.5% to 3%</strong> of your transfer amount. The gap between today's rate and next week's rate is typically <strong>0.3% to 1%</strong>. Switching from your bank to <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, or <a href="/companies/instarem">Instarem</a> saves you more on almost any given day than waiting would.</p>
-<p>See <a href="/send-money/usa-to-india">USA to India live rates</a> or <a href="/send-money/uk-to-india">UK to India live rates</a> for the provider-by-provider picture right now.</p>
-
-<h3>Rule 2 — If you <em>must</em> time it, watch the RBI</h3>
-<p>The RBI is clearly targeting stability, not direction. That means:</p>
-<ul>
-<li><strong>Spikes above 94</strong> have been met with intervention → likely to retrace toward 92–93 within days.</li>
-<li><strong>Dips below 92</strong> are possible but short-lived — the RBI's defensive posture is against weakness, not strength.</li>
-<li>Big-event days (Fed meetings, RBI meetings, Budget announcements) see wider intraday ranges — <strong>avoid transferring during the announcement, send 24–48 hours after</strong>.</li>
-</ul>
-
-<h3>Rule 3 — Use rate alerts instead of checking manually</h3>
-<p>Every major provider now offers rate alerts. Set a target that's 0.5–1% above today's rate, and you'll either hit it or learn that you overestimated the upside. <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, and <a href="/companies/revolut">Revolut</a> all have free alert features; our <a href="/exchange-rates">live exchange rates</a> also show the 30-day historical range so you can calibrate your target.</p>
-
-<h2>How much does a 1% rate move actually matter?</h2>
-<p>Put numbers on it. On a <strong>$5,000 transfer</strong> via Wise:</p>
-<div class="table-wrapper"><table>
-<thead><tr><th>Scenario</th><th>USD/INR rate</th><th>INR delivered</th><th>Difference</th></tr></thead>
-<tbody>
-<tr><td>Today (Apr 20)</td><td>92.98</td><td>₹464,900</td><td>—</td></tr>
-<tr><td>+1% rupee weakening</td><td>93.91</td><td>₹469,550</td><td>+₹4,650</td></tr>
-<tr><td>+1% rupee strengthening</td><td>92.05</td><td>₹460,250</td><td>−₹4,650</td></tr>
-</tbody>
-</table></div>
-<p>₹4,650 is meaningful, but it's also smaller than the typical <strong>₹8,000–15,000 gap</strong> between the cheapest and most expensive provider on the same day. Provider choice > timing.</p>
-
-<h2>When timing really does matter — large transfers</h2>
-<p>If you're sending <strong>more than £25,000 / $30,000</strong> — a down payment, NRI remittance, property purchase, or business payment — the calculus flips. A 1% rate move is $300+, and specialist FX brokers with forward contracts start to beat app-based providers.</p>
-<p>For transfers that size, see our guides on <a href="/business/b2b-transfers">B2B international payments</a> and <a href="/companies/ofx">OFX</a> / <a href="/companies/currencies-direct">Currencies Direct</a> — both offer <strong>forward contracts</strong> that let you lock today's rate for up to 12 months.</p>
-
-<h2>Live rates and tools</h2>
-<ul>
-<li><a href="/exchange-rates">Live USD/INR and GBP/INR rates + history</a></li>
-<li><a href="/send-money/usa-to-india">USA → India provider comparison</a></li>
-<li><a href="/send-money/uk-to-india">UK → India provider comparison</a></li>
-<li><a href="/send-money/send-money-to-india">All corridors into India</a></li>
-<li><a href="/guides/send-money-to-india-guide">Complete India guide</a> — UPI, IMPS, NEFT, banks, KYC</li>
-<li><a href="/swift-codes/india">India SWIFT / IFSC lookup</a></li>
-</ul>
-
-<h2>Questions about sending money to India now</h2>
-<h3>Why is the Indian rupee so weak in April 2026?</h3>
-<p>Three forces: sustained US dollar strength after the Fed's March hold, persistent oil import demand, and offshore hedging pressure. The RBI is intervening to stabilise — not reverse — the move, which is why the rate has stayed in a 92.4–94.6 range through the month.</p>
-
-<h3>Should I send money to India now or wait for a better rate?</h3>
-<p>For most senders, now is fine. Provider choice saves more than timing: the cheapest USD/INR provider typically delivers 1–3% more rupees than the most expensive on the same day, versus a 0.3–1% typical weekly rate swing. If you're sending over $30,000, consider a forward contract via <a href="/companies/ofx">OFX</a> or <a href="/companies/currencies-direct">Currencies Direct</a>.</p>
-
-<h3>What's the best app to send USD to INR in 2026?</h3>
-<p>On the <a href="/send-money/usa-to-india">USA→India corridor</a>, {{CORRIDOR_LEADER:USD:INR}}. Wise, Remitly and Instarem are the names most associated with this route: Wise uses the mid-market rate with a fee of ~0.4–0.6%, Remitly's Economy tier undercuts its own faster Express option, and Instarem offers competitive rates with zero fees for first transfers — but none of the three is the standing leader on our measured record, so compare live rates before sending.</p>
-
-<h3>How much has the rupee fallen against the dollar in the past year?</h3>
-<p>INR is <strong>down 9.18%</strong> against USD in the 12 months to April 20, 2026, trading at ₹92.98 versus roughly ₹85 a year ago. For a $1,000 transfer, that's ~₹7,800 more rupees delivered than last April.</p>
-
-<p>For broader context on how currency moves interact with fees, see our guide on <a href="/guides/exchange-rate-markup-explained">exchange rate markups</a>. For the global picture, the <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a> has the long-term data.</p>`,
-    category: "Industry News",
-    publishedAt: "2026-04-20",
-    source: "Trading Economics / Reserve Bank of India / Reuters",
-    sourceUrl: "https://tradingeconomics.com/india/currency",
-    providerSlugs: ["wise", "remitly", "instarem", "xe", "ofx"],
-  },
-  // ========================================
-  // Revolut Africa 14 corridors — April 2026
-  // ========================================
-  {
-    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
-    title:
-      "Revolut Adds 14 Africa Corridors (April 2026): Airtel Money, MTN, Orange Money Integration",
-    excerpt:
-      "Revolut expanded international transfers with 14 new payment corridors across 9 African countries, plugging into Airtel Money, MTN, and Orange Money. Here's what it means for UK→Africa senders and how it compares to Wise and WorldRemit.",
-    image: "/images/news/revolut-africa-corridors.svg",
-    imageAlt:
-      "Editorial card showing Revolut's 14 new African corridors across 9 countries, with MTN Mobile Money, Airtel Money, and Orange Money integration pills and Revolut's €5.2B 2025 revenue",
-    content: `<p><strong>TL;DR —</strong> <a href="/companies/revolut">Revolut</a> has gone live with <strong>14 new international transfer corridors into 9 African countries</strong>, plugging its Money product directly into <strong>Airtel Money, MTN Mobile Money, and Orange Money</strong>. For UK, EU, and US senders, this is the most material expansion of app-based remittance access to Africa since WorldRemit did the same in 2019. Below: the full corridor list, how Revolut compares to <a href="/companies/wise">Wise</a> and <a href="/companies/worldremit">WorldRemit</a>, and whether this moves the needle for your next <a href="/send-money/uk-to-nigeria">UK→Nigeria</a>, <a href="/send-money/uk-to-kenya">UK→Kenya</a>, or <a href="/send-money/usa-to-nigeria">UK→Ghana</a> transfer.</p>
-
-<h2>Which countries and wallets are live</h2>
-<div class="table-wrapper"><table>
-<thead><tr><th>Country</th><th>Mobile money services supported</th><th>Typical delivery</th></tr></thead>
-<tbody>
-<tr><td>Nigeria</td><td>MTN MoMo, Airtel Money</td><td>Minutes</td></tr>
-<tr><td>Kenya</td><td>Airtel Money (M-PESA via bank only)</td><td>Minutes</td></tr>
-<tr><td>Ghana</td><td>MTN MoMo, Airtel Money</td><td>Minutes</td></tr>
-<tr><td>Uganda</td><td>MTN MoMo, Airtel Money</td><td>Minutes</td></tr>
-<tr><td>Tanzania</td><td>Airtel Money, MTN MoMo</td><td>Minutes</td></tr>
-<tr><td>Rwanda</td><td>MTN MoMo, Airtel Money</td><td>Minutes</td></tr>
-<tr><td>DRC</td><td>Airtel Money, Orange Money</td><td>Minutes</td></tr>
-<tr><td>Cameroon</td><td>Orange Money, MTN MoMo</td><td>Minutes</td></tr>
-<tr><td>Senegal</td><td>Orange Money</td><td>Minutes</td></tr>
-</tbody>
-</table></div>
-<p>Under the hood, Revolut is routing these through <a href="/news/absa-thunes-global-pay-africa-remittances">Thunes and Absa's Global Pay network</a> — the same rails <a href="/news/mastercard-bvnk-stablecoin-remittance-2026">Mastercard and BVNK are using for stablecoin-settled cross-border payments</a>. The infrastructure story across African remittances in 2026 is effectively one story: legacy correspondent banking replaced by API-addressable wallet networks.</p>
-
-<h2>How Revolut compares on UK→Africa right now</h2>
-<p>For a typical <strong>£500 transfer</strong> on the <a href="/send-money/uk-to-nigeria">GBP→NGN</a> corridor (April 20, 2026):</p>
-<div class="table-wrapper"><table>
-<thead><tr><th>Provider</th><th>Typical fee</th><th>FX markup</th><th>Delivery</th></tr></thead>
-<tbody>
-<tr><td><a href="/companies/lemfi">Lemfi</a></td><td>£0</td><td>~1.5%</td><td>Minutes (wallet)</td></tr>
-<tr><td><a href="/companies/revolut">Revolut</a> (new)</td><td>£0 (Plus/Premium tiers)</td><td>~1.8–2.5%</td><td>Minutes (wallet)</td></tr>
-<tr><td><a href="/companies/wise">Wise</a></td><td>£1–£3</td><td>~0.5%</td><td>1–2 business days (bank)</td></tr>
-<tr><td><a href="/companies/worldremit">WorldRemit</a></td><td>£1–£4</td><td>~2–3%</td><td>Minutes (wallet)</td></tr>
-<tr><td>UK high-street bank</td><td>£15–£30</td><td>~4–6%</td><td>1–3 business days</td></tr>
-</tbody>
-</table></div>
-<p>The table above is an April 2026 snapshot, and it's worth being explicit that it hasn't held: {{CORRIDOR_LEADER:GBP:NGN}} on GBP to NGN as of today, not Lemfi or Revolut. That's the nature of this market — new entrants compress the field for a few months and then the ranking moves again. Check <a href="/send-money/uk-to-nigeria">today's UK to Nigeria comparison</a> rather than treating this table as current. Revolut's structural advantage hasn't changed, though: senders who already hold GBP/EUR/USD in a Revolut account can transfer instantly without opening a new service — a friction saving, not necessarily a cost saving.</p>
-
-<h2>Five months on: who leads these routes in our quotes</h2>
-<p>The April table priced a single route at a single amount. Our quote collection since then covers eight of the nine countries on Revolut's list (we hold no Congolese franc quotes), and the provider that delivered the most on each, over the last 91 days we could compare, is:</p>
-<div class="table-wrapper"><table>
-<thead><tr><th>Country</th><th>Route</th><th>Most frequent leader</th></tr></thead>
-<tbody>
-<tr><td>Nigeria</td><td>GBP → NGN</td><td>{{CORRIDOR_LEADER_SHORT:GBP:NGN}}</td></tr>
-<tr><td>Kenya</td><td>GBP → KES</td><td>{{CORRIDOR_LEADER_SHORT:GBP:KES}}</td></tr>
-<tr><td>Ghana</td><td>GBP → GHS</td><td>{{CORRIDOR_LEADER_SHORT:GBP:GHS}}</td></tr>
-<tr><td>Uganda</td><td>GBP → UGX</td><td>{{CORRIDOR_LEADER_SHORT:GBP:UGX}}</td></tr>
-<tr><td>Tanzania</td><td>GBP → TZS</td><td>{{CORRIDOR_LEADER_SHORT:GBP:TZS}}</td></tr>
-<tr><td>Rwanda</td><td>GBP → RWF</td><td>{{CORRIDOR_LEADER_SHORT:GBP:RWF}}</td></tr>
-<tr><td>Cameroon</td><td>GBP → XAF</td><td>{{CORRIDOR_LEADER_SHORT:GBP:XAF}}</td></tr>
-<tr><td>Senegal</td><td>EUR → XOF</td><td>{{CORRIDOR_LEADER_SHORT:EUR:XOF}}</td></tr>
-</tbody>
-</table></div>
-<p>These leaders are recomputed from our quotes on every build, so the table can change after this article was written; each route's corridor page has the day's full list.</p>
-<h2>Why this matters beyond Revolut</h2>
-<p>Three implications worth tracking:</p>
-<ol>
-<li><strong>Price pressure on Wise.</strong> Wise has historically been slower to add African corridors, relying on bank-rail delivery. A credible mobile-money competitor inside the Revolut app — already used by 45M+ European customers — changes the <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> calculus on Africa routes specifically.</li>
-<li><strong>M-PESA remains the white space.</strong> Revolut's Kenya corridor supports Airtel Money but routes M-PESA via bank, which adds a step. Whoever cracks direct M-PESA API access (Safaricom partnerships are scarce) wins East Africa's largest wallet base.</li>
-<li><strong>Africa corridor competition is accelerating.</strong> In 12 months, <a href="/news/paypal-venmo-goes-global-remittances-2026">PayPal/Venmo launched cross-border</a>, <a href="/news/gcash-free-middle-east-transfers-philippines-ofw-2026">GCash went free for Middle East corridors</a>, and <a href="/news/absa-thunes-global-pay-africa-remittances">Absa/Thunes unified pan-African mobile money rails</a>. Expect prices on <a href="/send-money/uk-to-nigeria">UK→Nigeria</a>, <a href="/send-money/usa-to-nigeria">UK→Ghana</a>, and <a href="/send-money/uk-to-kenya">UK→Kenya</a> to keep compressing.</li>
-</ol>
-
-<h2>Which corridor guide to read next</h2>
-<ul>
-<li><a href="/send-money/uk-to-nigeria">UK → Nigeria (GBP/NGN)</a> — highest-volume UK-to-Africa corridor</li>
-<li><a href="/send-money/uk-to-kenya">UK → Kenya (GBP/KES)</a> — M-PESA and Airtel Money delivery</li>
-<li><a href="/send-money/send-money-to-ghana">Sending money to Ghana (GHS)</a> — MTN MoMo dominant</li>
-<li><a href="/send-money/send-money-to-nigeria">All corridors → Nigeria</a></li>
-<li><a href="/guides/send-money-to-nigeria-guide">Complete Nigeria guide</a> — banks, wallets, CBN rules</li>
-<li><a href="/companies/revolut">Full Revolut review</a> — fees, tiers, transfer limits</li>
-<li><a href="/compare/wise-vs-revolut">Wise vs Revolut head-to-head</a></li>
-</ul>
-
-<h2>Questions about Revolut's Africa corridors</h2>
-<h3>Can I send money from the UK to Nigeria via Revolut in 2026?</h3>
-<p>Yes. As of April 2026, Revolut supports direct transfers from GBP balances to MTN MoMo and Airtel Money wallets in Nigeria, delivered in minutes. Compare live rates on our <a href="/send-money/uk-to-nigeria">UK to Nigeria comparison page</a> — Lemfi and Wise remain cost-competitive on this route.</p>
-
-<h3>Does Revolut support M-PESA transfers to Kenya?</h3>
-<p>Indirectly. Revolut's Kenya corridor routes to Airtel Money directly, but M-PESA transfers currently go via the recipient's linked bank account rather than the wallet API. For direct M-PESA delivery, <a href="/companies/worldremit">WorldRemit</a> and <a href="/companies/sendwave">Sendwave</a> remain the faster options.</p>
-
-<h3>Is Revolut cheaper than Wise for Africa transfers?</h3>
-<p>It depends on the corridor. Revolut Plus/Premium tier subscribers get fee-free transfers up to a monthly limit but pay a 1.8–2.5% FX markup on exotic currencies. Wise charges a small fee (~£1–£3) but uses a 0.5% mid-market markup — cheaper on larger transfers. Delivery speed favours Revolut (wallet, minutes) over Wise (bank, days) on Africa routes.</p>
-
-<h3>Are transfers from the UK to Africa regulated and safe?</h3>
-<p>Yes. Revolut holds a full UK banking licence as of 2025, and Wise/WorldRemit/Lemfi are all FCA-authorised as Electronic Money Institutions. Customer funds are safeguarded under the FCA's new rules coming into force on <a href="/news/fca-safeguarding-rules-money-transfer-2026">May 7, 2026</a>.</p>
-
-<p>For the macro picture on African remittance infrastructure, see our deep-dive on <a href="/news/absa-thunes-global-pay-africa-remittances">Absa–Thunes Global Pay</a> and the <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>.</p>`,
-    category: "Provider Update",
-    publishedAt: "2026-04-20",
-    source: "Revolut press release / Euronews / FXC Intelligence",
-    sourceUrl:
-      "https://www.euronews.com/business/2026/03/24/revolut-reported-record-financial-results-with-revenue-rising-by-46-to-52bn-in-2025",
-    providerSlugs: ["revolut", "wise", "worldremit", "lemfi"],
-  },
-  {
-    slug: "global-currency-outlook-may-2026",
-    title:
-      "Global Currency Outlook May 2026: USD, GBP, EUR Forecasts and What They Mean for Your Transfers",
-    excerpt:
-      "The US dollar peak is behind us. DXY has slid to 97.7 on US–Iran de-escalation, the ECB and BoJ are lining up June rate hikes, and the Fed is split 8-4. Here's what May's currency moves mean for senders to India, Pakistan, the Philippines, Mexico, and the UAE corridors — and whether to send now or wait.",
-    image: "/images/news/global-currency-outlook-may-2026.svg",
-    imageAlt:
-      "Editorial card showing May 2026 currency outlook with DXY at 97.7, EUR/USD at 1.1733, GBP/USD at 1.3578, and USD/INR at 92.98",
-    content: `<p><strong>TL;DR —</strong> The April dollar rally has reversed. <strong>DXY is at 97.7</strong> — its lowest since February — after the US and Iran reopened negotiations and oil dropped 4% in a single session. <strong>EUR/USD is at 1.1733</strong>, <strong>GBP/USD at 1.3578</strong>, and <strong>USD/JPY pulled back to 156.66</strong>. The next eight days are the biggest event window of 2026 so far: ECB on June 11, Fed on June 17, Bank of England on June 18. For senders, the cleanest read is this — if you're sending USD abroad, the next few weeks favour you; if you're sending GBP or EUR, you're near 12-month highs against most emerging-market currencies. Below: what each major rate means for your corridor, and whether to send now or wait.</p>
-
-<h2>Key takeaways for senders</h2>
-<ul>
-<li><strong>The US dollar's April peak is behind us.</strong> DXY has fallen nearly two big figures in ten sessions as the Iran safe-haven premium unwound. The market now prices two Fed cuts before year-end.</li>
-<li><strong>Three central bank decisions in eight days (June 11–18)</strong> will reset every major currency pair. Plan transfers around them, not through them.</li>
-<li><strong>USD senders to India, Pakistan, the Philippines, and Mexico are still in a strong position</strong> — but the window is narrowing as the dollar softens.</li>
-<li><strong>GBP and EUR senders are at 12-month highs</strong> against INR, PKR, and PHP. Lock in if your transfer is large.</li>
-<li><strong>AED is pegged to USD</strong>, so UAE senders to India and Pakistan see the same dollar dynamics — but Gulf corridors stay among the most cost-efficient globally.</li>
-</ul>
-
-<h2>Where the major rates are in May 2026</h2>
-<div class="table-wrapper"><table>
-<thead><tr><th>Pair</th><th>Rate (mid-May 2026)</th><th>1-month direction</th><th>What it means for senders</th></tr></thead>
-<tbody>
-<tr><td><strong>USD Index (DXY)</strong></td><td>97.7</td><td>↓ Down ~2%</td><td>Dollar weakening — recipients abroad get less per USD sent</td></tr>
-<tr><td><strong>EUR / USD</strong></td><td>1.1733</td><td>↑ Recovering</td><td>Euro buyers of dollars benefit; eurozone strength building</td></tr>
-<tr><td><strong>GBP / USD</strong></td><td>1.3578</td><td>↔ Range-bound</td><td>UK senders to the US lose slightly; UK→India still strong</td></tr>
-<tr><td><strong>USD / JPY</strong></td><td>156.66</td><td>↓ Off 158</td><td>Japan-bound transfers getting more expensive in USD terms</td></tr>
-<tr><td><strong>USD / INR</strong></td><td>~83.5</td><td>↓ INR recovering</td><td>USA→India still favourable but less so than April</td></tr>
-<tr><td><strong>GBP / INR</strong></td><td>~113</td><td>↑ Near 12-mo high</td><td>UK→India is at its best level in a year</td></tr>
-<tr><td><strong>USD / PHP</strong></td><td>~56</td><td>↔ Steady</td><td>USA→Philippines holding; central bank divergence supports peso</td></tr>
-<tr><td><strong>USD / MXN</strong></td><td>17.52</td><td>↑ Peso weakening</td><td>Mexico-bound dollars are buying more pesos than in March</td></tr>
-<tr><td><strong>AED / INR</strong></td><td>~22.7</td><td>↓ Slight</td><td>UAE→India still among the cheapest corridors globally</td></tr>
-</tbody>
-</table></div>
-<p>For the live picture on any pair, see our <a href="/exchange-rates">live exchange rates</a> — they show 30-day history and the cheapest provider for each route. For broader macro context, our <a href="/news/inr-weakest-year-send-money-india-april-2026">April 2026 INR analysis</a> sets the baseline this article builds on.</p>
-
-<h2>What's driving currencies in May 2026</h2>
-
-<h3>1. The US–Iran de-escalation has erased the dollar's safe-haven premium</h3>
-<p>April's dollar rally was a geopolitical premium trade, not a fundamentals story. When Tehran and Washington reopened a negotiating channel in early May, Brent crude dropped roughly $12 a barrel in two weeks and DXY fell from 99.3 to 97.7 — its lowest level since February. The April US CPI and PPI prints were the hottest since 2022 and 2023 respectively, but both were energy-led. If oil stays below $80, those readings reverse in the June and July data — exactly when the Fed has to make its call.</p>
-<p><strong>For senders:</strong> the dollar's softness directly reduces what your recipient receives abroad. If you've been waiting to send, the window is narrowing — not closed, but narrower than April.</p>
-
-<h3>2. The Federal Reserve is the most divided it's been since 1992</h3>
-<p>The Fed held at 3.75–4.00% on April 29 in an 8-4 split — the most divided FOMC vote in 34 years. Chair Powell's term ends May 15, and Kevin Warsh is widely expected to chair the June 16–17 meeting. The market now prices two cuts before year-end, having priced in zero just six weeks ago. That's a wholesale reversal in Fed expectations and it's the single biggest reason the dollar is sliding.</p>
-<p>For full background on how Fed decisions move your transfers, see our <a href="/news/fed-holds-rates-march-2026-one-cut-dot-plot">March Fed analysis</a> and our explainer on <a href="/news/central-bank-super-week-march-2026">how central bank rate decisions affect your money transfers</a>.</p>
-
-<h3>3. The ECB and Bank of Japan are lining up rate hikes</h3>
-<p>The European Central Bank held at 2.00% on April 30, but markets now price 50–65 basis points of cumulative tightening this year, with the first hike possible at the June 11 meeting. The Bank of Japan is live for a 25bp hike to 1.00% on June 17 — the clearest tightening signal in a generation. Both moves work directly against the dollar.</p>
-<p><strong>For senders:</strong> a stronger EUR or JPY against USD means USD payers buying euros or yen get less for their money. EU residents sending to dollar countries (and yen-paid expats sending home in JPY) get a tailwind.</p>
-
-<h3>4. The Bank of England is hawkish-on-hold</h3>
-<p>The BoE held at 3.75% on April 30 in a hawkish 8-1 vote — Chief Economist Huw Pill dissented to raise rates to 4.00%. UK gilt yields are at 5.01%, historically elevated. Sterling has held its ground but hasn't rallied because UK politics (the Starmer ethics inquiry, fiscal questions) is capping upside. The next BoE meeting is June 18.</p>
-
-<h3>5. Emerging-market currencies are mixed</h3>
-<p>The Indian rupee has recovered from its April low of 94.62 to around 83.5 as the RBI intervened. The Mexican peso has weakened on softer oil and nearshoring fatigue. The Philippine peso is steady. The Pakistani rupee remains under structural pressure despite a record $41 billion in remittance inflows — see our <a href="/news/pakistan-record-41-billion-remittance-2026">Pakistan remittance analysis</a> for the full picture.</p>
-
-<h2>What this means for your corridor</h2>
-
-<h3>USA → India (USD/INR)</h3>
-<p>You're still in a strong position, but less so than three weeks ago. INR has recovered from 94.62 to ~83.5 as the RBI defends levels. On a $5,000 transfer, that's roughly ₹50,000 less than at the April peak — but still well above the 12-month average. <strong>Verdict: send now if you have a planned transfer; provider choice matters more than waiting another week.</strong></p>
-<p>Compare live rates: <a href="/send-money/usa-to-india">USA → India</a>. Provider picks: <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/instarem">Instarem</a>.</p>
-
-<h3>UK → India and UK → Pakistan (GBP/INR, GBP/PKR)</h3>
-<p>GBP is sitting at 12-month highs against both the rupee and the Pakistani rupee. For UK senders, this is one of the best windows of the past year. The BoE's hawkish-on-hold stance gives sterling underlying support through at least the June 18 meeting.</p>
-<p><strong>Verdict: this is a strong window for UK senders.</strong> If you have a large planned transfer (£10,000+), consider locking it in this month rather than after the June BoE meeting. See <a href="/send-money/uk-to-india">UK → India</a> and <a href="/send-money/uk-to-pakistan">UK → Pakistan</a>.</p>
-
-<h3>USA → Philippines and USA → Mexico (USD/PHP, USD/MXN)</h3>
-<p>USD/PHP is holding around 56 as the BSP maintains its inflation stance. USD/MXN has drifted from 17.0 toward 17.52 as the peso loses some of the carry premium it has enjoyed. Both corridors still favour USD senders, especially Mexico where the move is recent.</p>
-<p>Compare: <a href="/send-money/usa-to-philippines">USA → Philippines</a>, <a href="/send-money/usa-to-mexico">USA → Mexico</a>.</p>
-
-<h3>UAE → India, Pakistan, Philippines, Bangladesh (AED corridors)</h3>
-<p>The UAE dirham is pegged to the US dollar, so AED corridors mirror USD movements. AED/INR is around 22.7, AED/PKR remains stable, and AED/PHP tracks USD/PHP. Gulf corridors continue to be among the cheapest globally thanks to dense competition and digital remittance infrastructure.</p>
-<p>Compare: <a href="/send-money/uae-to-india">UAE → India</a>, <a href="/send-money/uae-to-pakistan">UAE → Pakistan</a>, <a href="/send-money/uae-to-philippines">UAE → Philippines</a>.</p>
-
-<h3>Europe → India and Europe → Africa (EUR corridors)</h3>
-<p>EUR has been the cleanest G10 long in May — recovering from 1.1435 in mid-March to 1.1733 today, with markets pricing an ECB hike in June. EUR senders to India, Morocco, and Sub-Saharan Africa benefit from both euro strength and (in many cases) recipient-country currency softness.</p>
-<p>Worth noting: SEPA Instant payments became mandatory across the EU in 2026 — see our analysis of <a href="/news/eu-instant-payments-mandate-2026">the SEPA Instant mandate</a> for what it means inside the EU.</p>
-
-<h2>Send now or wait? A simple decision framework</h2>
-<p>For most retail transfers (under $10,000 / £8,000 / €8,000), the maths is the same as it was in April: <strong>provider choice saves more than timing</strong>. The gap between the cheapest and most expensive provider on any given day is typically 0.5–3% of your transfer. The gap between this week's rate and next week's is typically 0.3–1%.</p>
-<p>That said, May has two specific timing rules:</p>
-<ol>
-<li><strong>Avoid the June 11–18 window.</strong> Three central bank decisions in eight days. Currencies will move 1–2% in either direction. If you can send before June 10 or after June 20, do.</li>
-<li><strong>For large transfers ($25,000+), consider a forward contract.</strong> Specialist FX brokers like <a href="/companies/ofx">OFX</a> and <a href="/companies/currencies-direct">Currencies Direct</a> let you lock today's rate for delivery up to 12 months out — useful if you're worried the dollar slide continues.</li>
-</ol>
-<p>For background on how to think about timing, see our piece on <a href="/news/inr-weakest-year-send-money-india-april-2026">timing USD/INR transfers</a> and our guide to <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a>.</p>
-
-<h2>Questions about the May 2026 currency outlook</h2>
-
-<h3>Is the US dollar going up or down in May 2026?</h3>
-<p>Down. The US Dollar Index (DXY) has fallen from 99.3 in late April to 97.7 in mid-May — its lowest level since February. Three forces are weighing on the dollar: US–Iran de-escalation reducing the safe-haven premium, an 8-4 split FOMC vote signalling internal disagreement, and market pricing of two Fed rate cuts before year-end (compared to zero priced in six weeks ago). Most major banks now expect DXY to end 2026 between 90 and 96.</p>
-
-<h3>Should I send money abroad in May 2026 or wait for June?</h3>
-<p>For USD senders, send sooner rather than later — the dollar is softening and recipients abroad will get less per dollar in June than they would today. For GBP and EUR senders, you're already at favourable levels, so timing is less urgent. Avoid the June 11–18 window: three central bank decisions (ECB, Fed, Bank of England) will move every major currency pair by 1–2%, in unpredictable directions.</p>
-
-<h3>What's the best exchange rate forecast for USD to INR in May 2026?</h3>
-<p>USD/INR has stabilised around 83.5 after the RBI intervened to support the rupee from its April low of 94.62. With the dollar softening globally and the RBI's defensive stance against further INR weakness, the most likely range for May is 83.0–84.5. Compare live rates on the <a href="/send-money/usa-to-india">USA → India</a> page.</p>
-
-<h3>Will GBP get stronger or weaker against the euro in 2026?</h3>
-<p>The euro is forecast to strengthen modestly against the pound through the second half of 2026 as the ECB tightens while the Bank of England holds. EUR/GBP is drifting from 0.8637 toward 0.88 by year-end, according to consensus bank forecasts. UK senders to eurozone countries should expect a slight loss of purchasing power over the coming months.</p>
-
-<h3>How do Fed and ECB rate decisions affect my international transfer?</h3>
-<p>Central bank rate decisions are the single biggest driver of exchange rate moves. When the Fed cuts rates, the dollar typically weakens — bad if you're sending USD abroad (your recipient gets less). When the ECB hikes, the euro typically strengthens — good if you're sending EUR, bad if you're buying EUR with another currency. On a $5,000 transfer, a 1% rate move equals about $50 — usually smaller than the gap between the cheapest and most expensive provider. <strong>Pick the provider first, time the transfer second.</strong> See our full guide to <a href="/news/central-bank-super-week-march-2026">how central bank decisions affect your transfers</a>.</p>
-
-<h3>Which provider has the best USD to INR rate in May 2026?</h3>
-<p>On the <a href="/send-money/usa-to-india">USA → India corridor</a>, {{CORRIDOR_LEADER:USD:INR}}. <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a> and <a href="/companies/instarem">Instarem</a> are the names most associated with this route: Wise uses the mid-market rate with a fee of ~0.4–0.6%, Remitly's Economy tier undercuts its own faster Express option, and Instarem offers competitive rates with zero fees for first transfers — but none of the three is the standing leader on our measured record, so compare live rates before sending.</p>
-
-<h2>Live rates and tools</h2>
-<ul>
-<li><a href="/exchange-rates">Live exchange rates</a> — all major pairs with 30-day history</li>
-<li><a href="/send-money/usa-to-india">USA → India provider comparison</a></li>
-<li><a href="/send-money/uk-to-india">UK → India provider comparison</a></li>
-<li><a href="/send-money/uae-to-india">UAE → India provider comparison</a></li>
-<li><a href="/send-money/usa-to-philippines">USA → Philippines provider comparison</a></li>
-<li><a href="/send-money/usa-to-mexico">USA → Mexico provider comparison</a></li>
-<li><a href="/send-money/uk-to-pakistan">UK → Pakistan provider comparison</a></li>
-<li><a href="/exchange-rates">Live USD/INR, GBP/INR and EUR/USD rates</a></li>
-</ul>
-
-<p>For deeper background, our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a> covers the long-run picture — global remittances reached $860 billion in 2025 with 3.8% year-on-year growth, and India remains the world's largest recipient at over $125 billion annually. We'll publish the June 2026 outlook in the second week of June, after the central bank trio is behind us.</p>`,
-    category: "Industry News",
-    publishedAt: "2026-05-16",
-    source: "Federal Reserve / ECB / Bank of England / MUFG Research / Reuters",
-    sourceUrl: "https://www.xe.com/blog/currency-news/the-xe-global-currency-outlook-april-2026/",
-    providerSlugs: ["wise", "remitly", "instarem", "xe", "revolut", "ofx"],
   },
 ];
 

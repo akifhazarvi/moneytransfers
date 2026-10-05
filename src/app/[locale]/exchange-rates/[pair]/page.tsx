@@ -24,14 +24,8 @@ import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 
 // Pair slug → most relevant news article for context-sensitive callouts
 const pairRelatedNews: Record<string, string> = {
-  "usd-to-inr": "inr-weakest-year-send-money-india-april-2026",
-  "gbp-to-inr": "inr-weakest-year-send-money-india-april-2026",
-  "cad-to-inr": "inr-weakest-year-send-money-india-april-2026",
-  "aud-to-inr": "inr-weakest-year-send-money-india-april-2026",
   "gbp-to-pkr": "pakistan-record-41-billion-remittance-2026",
   "usd-to-pkr": "pakistan-record-41-billion-remittance-2026",
-  "usd-to-ngn": "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
-  "gbp-to-ngn": "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
   // The digital-yuan analysis names no provider, so it never reached a company
   // page, and every other rail that could carry it is labelled "latest". This
   // callout makes no recency claim, and CBDC settlement is squarely about what

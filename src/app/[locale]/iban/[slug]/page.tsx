@@ -268,7 +268,7 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "UK to India transfers", href: "/send-money/uk-to-india" },
     { label: "EUR to USD exchange rate", href: "/exchange-rates" },
-    { label: "SEPA instant payments explained", href: "/news/eu-instant-payments-mandate-2026" },
+    { label: "SEPA instant payments explained", href: "/news/eu-instant-payments-mandatory-2026" },
     { label: "Wise vs Revolut for EUR", href: "/compare/wise-vs-revolut" },
   ],
   "netherlands": [
@@ -317,7 +317,7 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   "poland": [
     { label: "Send money to Poland", href: "/send-money/send-money-to-poland" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
-    { label: "SEPA instant payments guide", href: "/news/eu-instant-payments-mandate-2026" },
+    { label: "SEPA instant payments guide", href: "/news/eu-instant-payments-mandatory-2026" },
   ],
   "norway": [
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
@@ -337,7 +337,7 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
     { label: "Send money to Romania", href: "/send-money/send-money-to-romania" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "Romania corridor guide", href: "/guides/send-money-to-romania-guide" },
-    { label: "SEPA instant payments", href: "/news/eu-instant-payments-mandate-2026" },
+    { label: "SEPA instant payments", href: "/news/eu-instant-payments-mandatory-2026" },
   ],
   "hungary": [
     { label: "Send money to Hungary", href: "/send-money/send-money-to-hungary" },

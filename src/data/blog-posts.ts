@@ -1787,7 +1787,7 @@ const rawBlogPosts: BlogPost[] = [
 <tbody>
 <tr><td><strong>SWIFT (gpi)</strong></td><td>1–5 business days</td><td>$15–$50 per transfer + intermediary fees</td><td>200+ countries. The default for international wires.</td></tr>
 <tr class="blog-row-highlight"><td><strong>SEPA</strong></td><td>Same day (SEPA Instant: 10 seconds)</td><td>Free or €0.20</td><td>36 European countries. EUR only.</td></tr>
-<tr><td><strong>SEPA Instant</strong></td><td>10 seconds, 24/7/365</td><td>Free (mandated from Oct 2025)</td><td>Eurozone banks. <a href="/news/eu-instant-payments-mandate-2026">Now mandated by EU</a>.</td></tr>
+<tr><td><strong>SEPA Instant</strong></td><td>10 seconds, 24/7/365</td><td>Free (mandated from Oct 2025)</td><td>Eurozone banks. <a href="/news/eu-instant-payments-mandatory-2026">Now mandated by EU</a>.</td></tr>
 <tr><td><strong>Faster Payments</strong></td><td>Seconds to 2 hours</td><td>Free</td><td>UK domestic. GBP only.</td></tr>
 <tr><td><strong>ACH</strong></td><td>1–3 business days</td><td>Free or $0.25–$1</td><td>US domestic. USD only.</td></tr>
 <tr><td><strong>Local rails (UPI, InstaPay, etc.)</strong></td><td>Seconds</td><td>Near-free</td><td>Country-specific. Wise uses local rails to deliver faster and cheaper.</td></tr>
@@ -2135,7 +2135,7 @@ const rawBlogPosts: BlogPost[] = [
 <tbody>
 <tr><td><strong>SWIFT</strong></td><td>200+ countries</td><td>1\u20135 business days</td><td>$15\u2013$50 + intermediary fees</td><td>International wires to any country</td></tr>
 <tr class="blog-row-highlight"><td><strong>SEPA</strong></td><td>36 European countries</td><td>1 business day</td><td>Free or \u20ac0.20</td><td>EUR transfers within Europe</td></tr>
-<tr><td><strong>SEPA Instant</strong></td><td>Eurozone banks</td><td>10 seconds, 24/7</td><td>Free (<a href="/news/eu-instant-payments-mandate-2026">EU mandated from 2025</a>)</td><td>Urgent EUR transfers</td></tr>
+<tr><td><strong>SEPA Instant</strong></td><td>Eurozone banks</td><td>10 seconds, 24/7</td><td>Free (<a href="/news/eu-instant-payments-mandatory-2026">EU mandated from 2025</a>)</td><td>Urgent EUR transfers</td></tr>
 <tr><td><strong>ACH</strong></td><td>US only</td><td>1\u20133 business days</td><td>Free or $0.25\u2013$1</td><td>US domestic, funding transfers</td></tr>
 <tr><td><strong>Fedwire</strong></td><td>US only</td><td>Same day</td><td>$15\u2013$30</td><td>Urgent US domestic</td></tr>
 <tr><td><strong>Faster Payments</strong></td><td>UK only</td><td>Seconds</td><td>Free</td><td>UK domestic (up to \u00a31M)</td></tr>
@@ -11554,7 +11554,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3>SEPA Transfer Types</h3>
 <ul>
 <li><strong>SEPA Credit Transfer (SCT):</strong> Standard — arrives within 1 business day. Often free from EU bank accounts.</li>
-<li><strong>SEPA Instant Credit Transfer (SCT Inst):</strong> Arrives in under 10 seconds, 24/7/365. <a href="/news/eu-instant-payments-mandate-2026">The EU mandate requires all banks to support SEPA Instant by 2026</a> — most Romanian banks already do.</li>
+<li><strong>SEPA Instant Credit Transfer (SCT Inst):</strong> Arrives in under 10 seconds, 24/7/365. <a href="/news/eu-instant-payments-mandatory-2026">The EU mandate requires all banks to support SEPA Instant by 2026</a> — most Romanian banks already do.</li>
 </ul>
 
 <h3>How to Use SEPA for Romania</h3>

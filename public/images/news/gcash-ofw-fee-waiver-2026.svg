@@ -15,13 +15,13 @@
   <!-- Country flags/labels around the circle -->
   <g fill="#ffffff" font-family="system-ui" font-size="16">
     <text x="320" y="200" text-anchor="middle" font-weight="600">UAE</text>
-    <text x="320" y="220" text-anchor="middle" fill="#ffffff80" font-size="13">AED → PHP</text>
+    <text x="320" y="220" text-anchor="middle" fill="#ffffff80" font-size="13">PHP → AED</text>
     <text x="320" y="350" text-anchor="middle" font-weight="600">Saudi Arabia</text>
-    <text x="320" y="370" text-anchor="middle" fill="#ffffff80" font-size="13">SAR → PHP</text>
+    <text x="320" y="370" text-anchor="middle" fill="#ffffff80" font-size="13">PHP → SAR</text>
     <text x="880" y="200" text-anchor="middle" font-weight="600">Qatar</text>
-    <text x="880" y="220" text-anchor="middle" fill="#ffffff80" font-size="13">QAR → PHP</text>
+    <text x="880" y="220" text-anchor="middle" fill="#ffffff80" font-size="13">PHP → QAR</text>
     <text x="880" y="350" text-anchor="middle" font-weight="600">Oman</text>
-    <text x="880" y="370" text-anchor="middle" fill="#ffffff80" font-size="13">OMR → PHP</text>
+    <text x="880" y="370" text-anchor="middle" fill="#ffffff80" font-size="13">PHP → OMR</text>
   </g>
   <!-- Connecting lines -->
   <g stroke="#00c853" stroke-width="1.5" opacity="0.4">
@@ -33,17 +33,17 @@
   <!-- Stats bar at bottom -->
   <rect x="100" y="440" width="1000" height="80" rx="12" fill="#ffffff10"/>
   <g fill="#ffffff" font-family="system-ui" text-anchor="middle">
-    <text x="270" y="470" font-size="28" font-weight="700">10M+</text>
-    <text x="270" y="500" font-size="13" fill="#ffffff80">OFWs worldwide</text>
-    <text x="500" y="470" font-size="28" font-weight="700">$40B+</text>
+    <text x="270" y="470" font-size="28" font-weight="700">2.2M</text>
+    <text x="270" y="500" font-size="13" fill="#ffffff80">OFWs (PSA, 2024)</text>
+    <text x="500" y="470" font-size="28" font-weight="700">~$40B</text>
     <text x="500" y="500" font-size="13" fill="#ffffff80">Annual remittances</text>
-    <text x="730" y="470" font-size="28" font-weight="700">90M</text>
-    <text x="730" y="500" font-size="13" fill="#ffffff80">GCash users</text>
+    <text x="730" y="470" font-size="28" font-weight="700">Mar 12–31</text>
+    <text x="730" y="500" font-size="13" fill="#ffffff80">Free PH → Gulf</text>
     <text x="930" y="470" font-size="28" font-weight="700">HR 905</text>
     <text x="930" y="500" font-size="13" fill="#ffffff80">Congress resolution</text>
   </g>
   <!-- Title -->
-  <text x="600" y="70" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="28" font-weight="700">GCash Drops All Fees for OFW Transfers to the Middle East</text>
+  <text x="600" y="70" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="28" font-weight="700">GCash Waives Fees on Transfers to the Middle East</text>
   <text x="600" y="105" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="17">Philippine Congress pushes sector-wide fee waiver</text>
   <!-- Footer -->
   <text x="600" y="575" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">Sources: GCash, FintechNews.ph, Manila Bulletin | March 18, 2026</text>

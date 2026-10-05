@@ -358,21 +358,20 @@ export const SITEMAP_NEWS_SLUGS = new Set<string>([
   "central-bank-super-week-march-2026",
   "china-digital-yuan-interest-bearing-cbdc",
   "embedded-finance-regulation-tightening-2026",
-  "eu-instant-payments-mandate-2026",
   "revolut-files-us-bank-charter-2026",
   "stablecoins-cross-border-payments-2026",
   "us-remittance-excise-tax-takes-effect-2026",
   // ── Added 2026-06-22 — Bing Page Traffic export (Jun 23) Bing earners
   //    missing from sitemap. All serve index:follow (en). ──
-  "april-2026-central-bank-calendar",       // 233i 3c Bing
   "wise-nasdaq-dual-listing-may-2026",       // 210i 13c
-  "eu-instant-payments-mandatory-2026",      // 25i 1c (distinct from -mandate- above)
+  "eu-instant-payments-mandatory-2026",      // 25i 1c (-mandate- 301s here since 2026-10-05)
   "fca-safeguarding-rules-money-transfer-2026", // 24i 0c
   // ── Added 2026-08-19 — news articles with Bing demand that sat off the sitemap while indexable.
   //    News now carries the same thin-page guard as guides. ──
   "fed-holds-rates-march-2026-one-cut-dot-plot",
   "swift-75-percent-payments-ten-minutes-fsb-stablecoins-thunes-2026",
-  "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+  // 2026-10-05: eu-instant-payments-mandate-2026 (301), april-2026-central-bank-calendar and
+  // revolut-africa-14-corridors-airtel-mtn-orange-money-2026 (410) retired — see src/lib/gone-news.ts.
 ]); // 11 URLs
 
 // The /exchange-rates/[pair] deep-dives, reduced to the two that earn.

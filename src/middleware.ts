@@ -9,7 +9,7 @@ import { GONE_CORRIDOR_SLUGS, DUPLICATE_CORRIDOR_REDIRECTS } from "./lib/gone-co
 import { GONE_SWIFT_SLUGS } from "./lib/gone-swift";
 import { GONE_RATE_PAIR_SLUGS } from "./lib/gone-rate-pairs";
 import { GONE_COMPANY_SLUGS } from "./lib/gone-companies";
-import { GONE_NEWS_SLUGS } from "./lib/gone-news";
+import { GONE_NEWS_SLUGS, NEWS_REDIRECTS } from "./lib/gone-news";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -184,10 +184,19 @@ export default function middleware(request: NextRequest) {
     return new NextResponse("Gone", { status: 410 });
   }
 
-  // 410 Gone for retired news items. See src/lib/gone-news.ts.
+  // Retired news items: 301 a duplicate into its surviving twin, else 410.
+  // See src/lib/gone-news.ts.
   const goneNews = request.nextUrl.pathname.match(/^\/news\/([a-zA-Z0-9-]+)$/);
-  if (goneNews && GONE_NEWS_SLUGS.has(goneNews[1])) {
-    return new NextResponse("Gone", { status: 410 });
+  if (goneNews) {
+    const consolidatesTo = NEWS_REDIRECTS.get(goneNews[1]);
+    if (consolidatesTo) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/news/${consolidatesTo}`;
+      return NextResponse.redirect(url, 301);
+    }
+    if (GONE_NEWS_SLUGS.has(goneNews[1])) {
+      return new NextResponse("Gone", { status: 410 });
+    }
   }
 
   // 301 non-canonical /compare/X-vs-Y directions to the canonical direction.
