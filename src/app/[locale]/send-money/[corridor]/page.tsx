@@ -1565,7 +1565,7 @@ export default async function CorridorPage({ params }: Props) {
                     EUR pair. See reports/content-quality-2026-09-11/ELIGIBILITY.md.
                     Do not soften this to imply we verified country coverage
                     until something in the pipeline records it. */}
-                Quotes are kept per {fromCurrency}→{toCurrency} pair, not per country, so check {corridor.fromCountry} is served before you commit. <Link href="/methodology" className="hover:underline">Methodology</Link>.
+                Quotes are kept per {fromCurrency}→{toCurrency} pair, not per country, so confirm the provider sends from {corridor.fromCountry || "your country"} before you commit. <Link href="/methodology" className="hover:underline">Methodology</Link>.
               </p>
             </div>
           </Container>
@@ -1589,12 +1589,9 @@ export default async function CorridorPage({ params }: Props) {
       {hubMode && (
         <section id="compare-providers" className="py-10">
           <Container>
-            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
               Cheapest way to send money to {corridor.toCountry}, by sending country
             </h2>
-            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-              The top-ranked estimate on each route we price into {corridor.toCountry}, from our own collected quotes. Choose your country for the full provider ranking.
-            </p>
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl divide-y divide-[var(--color-outline)] overflow-hidden">
               {originRows.map((r) => (
                 <div key={r.from} className="flex flex-col lg:flex-row lg:items-center gap-4 px-5 py-4">
@@ -2085,10 +2082,11 @@ export default async function CorridorPage({ params }: Props) {
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
                   {editorialNote.warningBody}
                 </p>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
-                  {(!hubMode && rateInsight?.providerConsistency?.summary) ||
-                    "For recurring transfers, it is worth checking live quotes each time rather than relying on one provider by habit."}
-                </p>
+                {!hubMode && rateInsight?.providerConsistency?.summary && (
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
+                    {rateInsight.providerConsistency.summary}
+                  </p>
+                )}
                 {corridorRelatedNews[slug] && (
                   <div className="pt-3 border-t border-[var(--color-outline)]">
                     <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
@@ -2345,24 +2343,11 @@ export default async function CorridorPage({ params }: Props) {
       {countryDetails && !destinationHubSlug && countryDetails.deliveryMethods.length > 0 && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
-            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
               How can my recipient receive money in {corridor.toCountry}?
             </h2>
-            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-              {countryDetails.deliveryMethods.length > 1
-                ? `Recipients in ${corridor.toCountry} have ${countryDetails.deliveryMethods.length} ways to receive this transfer: ${countryDetails.deliveryMethods.map((dm) => dm.method.toLowerCase()).join("; ")}.`
-                : `Recipients in ${corridor.toCountry} typically receive this transfer via ${countryDetails.deliveryMethods[0].method.toLowerCase()}.`}{" "}
-
-            </p>
-            {/* Sender-variant pages stop at the summary line above and link to
-                the destination page, which owns these cards: payout methods do
-                not change with the sending country, so the cards were identical
-                on every route into the destination (2026-09-25). */}
-            {destinationHubSlug ? (
-              <Link href={`/send-money/${destinationHubSlug}`} className="text-sm font-medium text-[var(--color-primary)] hover:underline">
-                Payout methods and speeds in {corridor.toCountry} →
-              </Link>
-            ) : (
+            {/* No summary line: the cards name each method, and a sentence
+                listing them repeated the same words on every destination page. */}
             <div className="grid sm:grid-cols-2 gap-4">
               {countryDetails.deliveryMethods.map((dm) => {
                 const m = dm.method.toLowerCase();
@@ -2402,7 +2387,6 @@ export default async function CorridorPage({ params }: Props) {
                 );
               })}
             </div>
-            )}
           </Container>
         </section>
       )}
@@ -2706,12 +2690,16 @@ export default async function CorridorPage({ params }: Props) {
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
-              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
                 Popular banks in {corridor.toCountry}
               </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-                {countryDetails.popularBanks.length} banks commonly receive international transfers in {corridor.toCountry}, including {countryDetails.popularBanks[0].name}{countryDetails.popularBanks[1] ? ` and ${countryDetails.popularBanks[1].name}` : ""}{countryDetails.popularBanks.every((b) => b.swiftCode) ? " — each bank's SWIFT/BIC code is below." : ". SWIFT/BIC codes are shown where we could verify them; confirm the rest with the receiving bank."}
-              </p>
+              {/* The table names the banks; a sentence counting them and naming
+                  the first two repeated it on every destination page. */}
+              {!countryDetails.popularBanks.every((b) => b.swiftCode) && (
+                <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
+                  SWIFT/BIC codes are shown where we could verify them; confirm the rest with the receiving bank.
+                </p>
+              )}
               <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
                 {/* Table header */}
                 <div className="grid grid-cols-[1fr_140px_1fr] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">

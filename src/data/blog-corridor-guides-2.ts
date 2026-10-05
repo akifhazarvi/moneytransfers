@@ -263,31 +263,22 @@ export const corridorGuides2: BlogPost[] = [
     sections: [
       {
         heading: "Why M-Pesa Makes Kenya the Easiest Country to Send Money To",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <strong>Sendwave</strong> charges no fee and delivers to M-Pesa, and <a href="/companies/wise">Wise</a> applies no exchange-rate markup — but on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:KES}}. The gap between cheapest and most expensive provider on $500 is KES 3,000–7,000. Always choose <strong>M-Pesa delivery</strong> — it arrives in seconds. <a href="/send-money/usa-to-kenya">Compare live USD to KES rates →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <strong>Sendwave</strong> pays into M-Pesa for a {{FEE:sendwave:USD:KES:1000}} fee on $1,000, and <a href="/companies/wise">Wise</a> applies no exchange-rate markup — but on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:KES}}. Today the cheapest and dearest providers on $1,000 are {{SPREAD:USD:KES:1000}} apart. Always choose <strong>M-Pesa delivery</strong> — it arrives in seconds. <a href="/send-money/usa-to-kenya">Compare live USD to KES rates →</a></p></div>
 <p>If you're sending money to Kenya from the US, you have a major advantage: <strong>M-Pesa</strong>. Used by over <strong>30 million Kenyans</strong> — more than half the country — M-Pesa is the world's most successful mobile money platform. Your transfer arrives in your recipient's phone in <strong>seconds</strong>, and they can use it instantly for bills, shopping, or cash withdrawal at any of 250,000+ agent locations.</p>
-<p>This puts Kenya ahead of almost every other remittance corridor on speed and convenience. But it doesn't mean all providers are equal — the gap between the cheapest and most expensive option on a $500 transfer is still <strong>KES 3,000–7,000</strong> ($20–$50).</p>
+<p>This puts Kenya ahead of almost every other remittance corridor on speed and convenience. But it doesn't mean all providers are equal — the payout table below shows how far apart they sit on the same $1,000.</p>
 <p>The US is Kenya's single largest remittance source, contributing to over <strong>$4 billion in annual inflows</strong> according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>. This guide compares the 6 best providers for USD-to-KES transfers. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
       },
       {
         heading: "Best Providers for USD to KES Transfers",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD to KES ($500 Transfer)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Speed</th><th>Delivery</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Sendwave</strong></td><td>$0</td><td>1–2%</td><td>Instant</td><td>M-Pesa only</td></tr>
-<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>~$5</td><td>0%</td><td>1–2 days</td><td>Bank, M-Pesa</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$0–$4</td><td>0.5–1.5%</td><td>Minutes–3 days</td><td>M-Pesa, bank, cash</td></tr>
-<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>$0–$4</td><td>0.8–1.5%</td><td>Minutes–2 days</td><td>M-Pesa, bank, cash, Airtel</td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>$5–$15</td><td>1–3%</td><td>Minutes</td><td>M-Pesa, bank, cash</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote"><a href="/send-money/usa-to-kenya">Compare live rates →</a></p>
+<h3 style="margin-top: 0;">Shillings delivered for $1,000, by provider</h3>
+{{QUOTE_TABLE:USD:KES:1000}}
+<p class="blog-footnote">What arrives for a $1,000 total outlay, priced {{QUOTE_DATE}} and refreshed every six hours. <a href="/send-money/usa-to-kenya">Compare live rates →</a></p>
 </div>
-<h3>Sendwave — Cheapest for M-Pesa</h3>
-<p>Zero fees, instant M-Pesa delivery. The exchange rate includes a 1–2% markup, but total cost is often lowest under $500.</p>
-<h3><a href="/companies/wise">Wise</a> — Best for Large Transfers</h3>
-<p>Mid-market rate with zero markup. The provider that actually delivered the most KES on this corridor was {{CORRIDOR_LEADER:USD:KES}}. Now supports M-Pesa in Kenya.</p>`,
+<h3>Sendwave — built around M-Pesa</h3>
+<p>Pays straight into an M-Pesa wallet and charges {{FEE:sendwave:USD:KES:1000}} on $1,000 today, delivering {{RECEIVE:sendwave:USD:KES:1000}}; its margin sits in the exchange rate rather than the fee.</p>
+<h3><a href="/companies/wise">Wise</a> — mid-market rate, visible fee</h3>
+<p>Converts at the mid-market rate and charges {{FEE:wise:USD:KES:1000}} on $1,000 as a separate fee, paying out to M-Pesa as well as Kenyan bank accounts.</p>`,
       },
       {
         heading: "M-Pesa: Why It Matters for Kenya Transfers",
@@ -323,40 +314,37 @@ export const corridorGuides2: BlogPost[] = [
         heading: "KES Exchange Rate and True Transfer Cost",
         content: `<p>The Kenyan Shilling (KES) is a floating currency managed by the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>. Key context for US senders:</p>
 <ul>
-<li><strong>Fee vs. rate trade-off:</strong> Some providers (like Sendwave) charge zero fees but build cost into a worse exchange rate. Others (like <a href="/companies/wise">Wise</a>) charge a visible fee but give the real mid-market rate. Always compare the <strong>total KES received</strong>, not just the fee.</li>
+<li><strong>Fee vs. rate trade-off:</strong> Some providers (like Sendwave) charge little or no fee but build their cost into the exchange rate. Others (like <a href="/companies/wise">Wise</a>) charge a visible fee but give the real mid-market rate. Always compare the <strong>total KES received</strong>, not just the fee.</li>
 <li><strong>KES volatility:</strong> The Kenyan Shilling experienced significant depreciation in 2023–2024 before partially recovering. Rates can shift meaningfully week to week, making comparison at time of transfer important.</li>
 <li><strong>Provider markups matter:</strong> A 2% markup on a $1,000 transfer costs you an extra KES 2,600–3,000. Over 12 monthly transfers, that's KES 31,000+ lost to unnecessary markup.</li>
-</ul>
-<p>Use our <a href="/send-money/usa-to-kenya">comparison tool</a> to check real-time rates. For strategies on understanding exchange rate markups, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
+</ul>`,
       },
       {
-        heading: "Tips for Sending Money to Kenya",
+        heading: "M-Pesa first: four checks before a USD to KES transfer",
         content: `<ol>
-<li><strong>Always choose M-Pesa</strong> — fastest, cheapest, most convenient.</li>
-<li><strong>Compare at your exact amount</strong> — Sendwave wins under $200, Wise wins above $500. Use our <a href="/send-money/usa-to-kenya">comparison tool</a>.</li>
-<li><strong>Fund via ACH bank transfer</strong> — cheapest funding method from the US.</li>
-<li><strong>Avoid banks and PayPal</strong> — save $20–$50 per transfer with specialist providers.</li>
-<li><strong>Set rate alerts</strong> for KES volatility.</li>
-</ol>
-<p>Read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfers guide</a> and <a href="/guides/best-money-transfer-apps">best apps guide</a>.</p>`,
+<li><strong>Choose M-Pesa delivery</strong> when the recipient has a Safaricom line — it lands in seconds and can be moved to a bank account later.</li>
+<li><strong>Compare at your exact amount</strong> — the leader on $1,000 is not always the leader on $200. Use our <a href="/send-money/usa-to-kenya">comparison tool</a>.</li>
+<li><strong>Pay from a bank account</strong> — ACH funding is the cheapest from the US, and since January 2026 paying in cash or by money order adds a 1% federal tax.</li>
+<li><strong>Re-check the shilling</strong> — it fell sharply in 2023–2024 before partly recovering, so last week's quote is not today's.</li>
+</ol>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money/usa-to-kenya">Compare live rates →</a>. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>.</p>`,
+        content: `<p>Shilling payouts come from our USD to KES quote collection (<a href="/methodology">how we collect them</a>). Kenya's remittance inflows cite the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>; the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank's Remittance Prices Worldwide</a> is the independent benchmark for corridor costs.</p>`,
       },
     ],
     faqs: [
-      { question: "What is the cheapest way to send money to Kenya from the USA?", answer: "For transfers under $500, Sendwave often delivers the most KES via M-Pesa with zero fees. For over $500, Wise wins with its mid-market rate." },
+      { question: "What is the cheapest way to send money to Kenya from the USA?", answer: "The most frequent USD to KES leader is {{CORRIDOR_LEADER:USD:KES}}, and on $1,000 today {{BEST_PROVIDER:USD:KES:1000}} delivers the most ({{BEST_RECEIVE:USD:KES:1000}}). Compare at your own amount: a flat fee weighs more on a small transfer." },
       { question: "How do I send money to M-Pesa in Kenya?", answer: "Choose a provider that supports M-Pesa (Sendwave, Remitly, WorldRemit, Wise). Enter the recipient's Safaricom phone number. Money arrives in seconds." },
       { question: "How long does it take to send money to Kenya?", answer: "M-Pesa delivery is instant. Bank deposits take 1–3 business days. Cash pickup is available in minutes." },
       { question: "Does my recipient need a bank account?", answer: "No. With M-Pesa, they only need a registered Safaricom SIM card." },
-      { question: "What is the best app to send money to Kenya?", answer: "Sendwave for small M-Pesa transfers. Remitly for speed + flexibility. Wise for large transfers." },
+      { question: "Can I send to Airtel Money instead of M-Pesa?", answer: "Yes. WorldRemit pays out to Airtel Money in Kenya — you need the recipient's Airtel Kenya number. M-Pesa is supported by more providers, so it gives you more quotes to compare." },
     ],
     howToSteps: [
       { name: "Compare providers", text: "Use our USA to Kenya comparison tool to compare total KES received." },
       { name: "Create an account", text: "Sign up with Sendwave, Wise, or Remitly. Provide ID and SSN." },
       { name: "Enter recipient details", text: "Safaricom phone number for M-Pesa, or bank details for deposit." },
-      { name: "Fund via ACH", text: "Bank transfer is cheapest. Review rate, fee, and total KES." },
+      { name: "Fund via ACH", text: "Pay from your bank account, then check the KES amount on the confirmation screen before you send." },
       { name: "Send and track", text: "M-Pesa arrives in seconds. Track status in the app." },
     ],
     relatedSlugs: ["send-money-to-nigeria-guide", "cheapest-way-to-send-money-internationally", "best-money-transfer-apps"],
@@ -592,28 +580,19 @@ export const corridorGuides2: BlogPost[] = [
     sections: [
       {
         heading: "Jamaica: Where Cash Pickup Still Beats Bank Transfers",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/remitly">Remitly</a> supports cash pickup with Express delivery and <a href="/companies/wise">Wise</a> applies no exchange-rate markup on bank deposits — but on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:JMD}}. Cash pickup remains the most popular delivery method in Jamaica — <a href="/companies/western-union">Western Union</a> has the widest agent network across every parish. Digital providers save 50-70% vs traditional operators. <a href="/send-money">Compare live USD to JMD rates →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/remitly">Remitly</a> supports cash pickup with Express delivery and <a href="/companies/wise">Wise</a> applies no exchange-rate markup on bank deposits — but on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:JMD}}. Cash pickup remains the most popular delivery method in Jamaica — <a href="/companies/western-union">Western Union</a> has the widest agent network across every parish. <a href="/send-money/send-money-to-jamaica">Compare live USD to JMD rates →</a></p></div>
 <p>Jamaica is different from most corridors in this guide: <strong>cash pickup is still the most popular delivery method</strong>. While mobile banking is growing, many Jamaicans — especially in rural parishes outside Kingston, Montego Bay, and Spanish Town — rely on collecting physical cash from agent locations. This means your choice of provider depends heavily on their pickup network reach.</p>
 <p>Remittances represent roughly <strong>16% of Jamaica's GDP</strong> (~$3.5 billion in 2025), making it one of the most remittance-dependent economies in the world. The Jamaican diaspora is large — over 1 million abroad, primarily in <strong>New York, South Florida, Atlanta, London, and Toronto</strong>.</p>
-<p>The good news: digital-first providers like <a href="/companies/remitly">Remitly</a> and <a href="/companies/wise">Wise</a> now offer JMD transfers at 50–70% lower cost than traditional operators. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a>.</p>`,
+<p>Price still matters: on $1,000 today, the best and worst Jamaican-dollar payouts we hold differ by {{SPREAD:USD:JMD:1000}}.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Jamaica",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Sending $500 to Jamaica</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Speed</th><th>Delivery</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$0–$4</td><td>0.5–1.5%</td><td>Minutes–3 days</td><td>Cash, bank</td></tr>
-<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>~$5</td><td>0%</td><td>1–2 days</td><td>Bank only</td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>$5–$12</td><td>1–3%</td><td>Minutes</td><td>Cash, bank, wallet</td></tr>
-<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>$0–$4</td><td>0.8–1.5%</td><td>Minutes–2 days</td><td>Cash, bank, wallet</td></tr>
-<tr><td><strong>MoneyGram</strong></td><td>$5–$10</td><td>1–2.5%</td><td>Minutes</td><td>Cash, bank</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote"><a href="/send-money">Compare live rates →</a></p>
+<h3 style="margin-top: 0;">Jamaican dollars delivered for $1,000</h3>
+{{QUOTE_TABLE:USD:JMD:1000}}
+<p class="blog-footnote">Bank-deposit and cash-pickup prices can differ — these are the quotes we hold for {{QUOTE_DATE}}. <a href="/send-money/send-money-to-jamaica">Compare live rates →</a></p>
 </div>
-<p><a href="/companies/remitly">Remitly</a> offers the best balance of speed, price, and delivery. <a href="/companies/wise">Wise</a> is cheapest for bank deposits. <a href="/companies/western-union">Western Union</a> has the widest cash pickup network across every parish.</p>`,
+<p>The table ranks by Jamaican dollars delivered. Beyond price, <a href="/companies/western-union">Western Union</a> has the widest cash pickup network across every parish, <a href="/companies/remitly">Remitly</a> offers Express cash pickup, and <a href="/companies/wise">Wise</a> pays into bank accounts only.</p>`,
       },
       {
         heading: "Cash Pickup in Jamaica: Why It Still Matters",
@@ -623,7 +602,7 @@ export const corridorGuides2: BlogPost[] = [
 <li><strong>MoneyGram:</strong> Second largest network</li>
 <li><strong>Remitly & WorldRemit:</strong> Partners with local agents in major towns</li>
 </ul>
-<p><strong>Tip:</strong> If your recipient has a bank account (NCB, ScotiaBank, JN Bank), bank deposit via Wise saves 1–2%. If they need cash, Remitly offers the best price for pickup.</p>`,
+<p><strong>Tip:</strong> If your recipient banks with NCB, Scotiabank or JN Bank, price a bank deposit as well as cash pickup — providers quote them separately, and the pickup price is often the higher one.</p>`,
       },
       {
         heading: "One $400 payment or two $200 payments?",
@@ -634,31 +613,28 @@ export const corridorGuides2: BlogPost[] = [
 <p>For a bank deposit, save the JMD amount promised and ask the recipient to confirm the actual credit. This separates a provider's quoted payout from any account-side charge. The useful comparison is the money the household can use when it needs it, alongside the total amount you spend.</p>`,
       },
       {
-        heading: "Tips for Sending Money to Jamaica",
+        heading: "Paying for a JMD transfer from the US, UK or Canada",
         content: `<ol>
-<li><strong>Bank deposit is cheaper than cash pickup</strong> — save 1–2% when possible.</li>
-<li><strong>Compare every time</strong> using our <a href="/send-money">comparison tool</a>.</li>
-<li><strong>Fund via bank transfer</strong> — ACH (US), Faster Payments (UK), Interac (Canada).</li>
-<li><strong>Take advantage of first-time promotions</strong> from Remitly and WorldRemit.</li>
-<li><strong>Avoid banks and PayPal</strong> — save $20–$50 per transfer.</li>
+<li><strong>Fund from your bank</strong> — ACH in the US, Faster Payments in the UK, Interac in Canada. From the US, paying cash at a counter has also carried a 1% federal tax since January 2026.</li>
+<li><strong>Treat a first-transfer offer as a one-off</strong> — compare the provider's standard rate before making it your regular choice.</li>
+<li><strong>Re-price each time</strong> with our <a href="/send-money/send-money-to-jamaica">comparison tool</a>; the leader in the table above changes.</li>
 </ol>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a>, <a href="https://boj.org.jm/" target="_blank" rel="noopener noreferrer">Bank of Jamaica</a>.</p>`,
+        content: `<p>Jamaica's remittance figures cite the <a href="https://boj.org.jm/" target="_blank" rel="noopener noreferrer">Bank of Jamaica</a>. JMD payouts are our own collected quotes (<a href="/methodology">methodology</a>), checked against the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank's Remittance Prices Worldwide</a>.</p>`,
       },
     ],
     faqs: [
-      { question: "What is the cheapest way to send money to Jamaica?", answer: "For bank transfers, Wise offers the best value. For cash pickup, Remitly is cheapest with Express delivery in minutes." },
+      { question: "What is the cheapest way to send money to Jamaica?", answer: "The most frequent USD to JMD leader is {{CORRIDOR_LEADER:USD:JMD}}; on $1,000 today {{BEST_PROVIDER:USD:JMD:1000}} delivers the most ({{BEST_RECEIVE:USD:JMD:1000}}). Cash pickup is priced separately from bank deposit, so compare the method your recipient will use." },
       { question: "How long does it take to send money to Jamaica?", answer: "Cash pickup: minutes via Western Union/Remitly. Bank deposits: 1–3 business days." },
       { question: "Can I send money to Jamaica for cash pickup?", answer: "Yes. Western Union, MoneyGram, Remitly, and WorldRemit all offer cash pickup across Jamaica." },
-      { question: "What is the best way to send money to Jamaica?", answer: "Remitly for cash pickup (best price + speed). Wise for bank deposits (best rate). Western Union for widest reach." },
     ],
     howToSteps: [
       { name: "Compare providers", text: "Enter your amount. Compare total JMD received across providers." },
       { name: "Create an account", text: "Sign up with Remitly, Wise, or Western Union. Verify with photo ID." },
       { name: "Choose delivery method", text: "Cash pickup (fastest) or bank deposit (cheapest)." },
-      { name: "Fund and send", text: "Bank transfer is cheapest. Review rate, fee, and total JMD." },
+      { name: "Fund and send", text: "Pay from your bank, then check the J$ amount and the pickup location on the confirmation before you send." },
     ],
     relatedSlugs: ["cheapest-way-to-send-money-internationally", "best-money-transfer-apps", "send-money-to-mexico-guide"],
   },

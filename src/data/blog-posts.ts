@@ -3686,8 +3686,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Philippines: A Major Remittance Destination",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> there is no single cheapest provider on this corridor — <strong>the winner changes with the amount</strong>, which is why a bare recommendation is worth so little here. Priced against {{PROVIDER_TALLY:USD:PHP:1000}} providers on {{QUOTE_DATE}}, the cheapest was <strong>{{BEST_PROVIDER:USD:PHP:200}}</strong> on $200 ({{BEST_RECEIVE:USD:PHP:200}}), <strong>{{BEST_PROVIDER:USD:PHP:1000}}</strong> on $1,000 ({{BEST_RECEIVE:USD:PHP:1000}}) and <strong>{{BEST_PROVIDER:USD:PHP:5000}}</strong> on $5,000 ({{BEST_RECEIVE:USD:PHP:5000}}). The mid-market rate was {{MID_RATE:USD:PHP}} PHP/USD. What stays constant is that choosing badly is expensive: the gap between the cheapest and dearest provider is {{SPREAD:USD:PHP:1000}} on $1,000 and {{SPREAD:USD:PHP:5000}} on $5,000. For cash pickup across 30,000+ locations including Cebuana Lhuillier and M Lhuillier, <a href="/companies/western-union">Western Union</a> has the widest network. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates for your amount</a>.</p></div>
 <p class="text-sm">Why the winner moves: providers price a flat fee and a rate margin differently, so a $0-fee provider with a wider margin wins on small amounts and loses on large ones. Across our whole dataset, the cheapest provider on a corridor today is not the one that usually wins on about a quarter of corridors — see <a href="/provider-consistency">provider consistency</a>. Quote your own amount rather than carrying a winner over from last month.</p>
-<p>The Philippines received over <strong>$38 billion in remittances</strong> in 2025, making it one of the top five remittance-receiving countries globally according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. The United States is the single largest source, with over 4 million Filipino-Americans sending money home to support families.</p>
-<p>The good news: this corridor is fiercely competitive. Providers fight for market share on the USD to PHP route, which means lower fees and tighter exchange rate spreads for you. The difference between the best and worst provider on a $1,000 transfer can be <strong>₱1,500–₱2,500</strong> — money your family actually receives.</p>`,
+<p>The Philippines received over <strong>$38 billion in remittances</strong> in 2025, making it one of the top five remittance-receiving countries globally according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. The United States is the single largest source, with over 4 million Filipino-Americans sending money home to support families.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to the Philippines",
@@ -3696,30 +3695,20 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Wallet delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee, competitive PHP rate, GCash delivery in seconds</td></tr>
+<tr class="blog-row-highlight"><td><strong>Wallet delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Pays into GCash in seconds</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery via GCash or bank — typically under 1 hour</td></tr>
-<tr><td><strong>Mid-market rate (large amounts)</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — best for $2,000+ transfers</td></tr>
+<tr><td><strong>Mid-market rate (large amounts)</strong></td><td><a href="/companies/wise">Wise</a></td><td>Converts at the mid-market rate and charges its fee separately</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>30,000+ pickup points including Cebuana Lhuillier and M Lhuillier</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/usa-to-philippines">Compare live rates →</a></p>
+<p class="blog-footnote">Picked by payout feature, not price. <a href="/send-money/usa-to-philippines">Compare live rates →</a></p>
 </div>
 
-<h3>From the US (USD → PHP)</h3>
-<p>For a $1,000 transfer:</p>
-<ul>
-<li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–$3.99 fee, competitive rate — popular for GCash delivery and Express speed</li>
-<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup on mid-market rate — best for large amounts</li>
-<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Low fees, strong coverage for cash pickup and mobile wallets</li>
-<li><strong><a href="/companies/xoom">Xoom</a> (PayPal)</strong>: $0 fee promotions, good bank deposit and cash pickup options</li>
-<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but unmatched cash pickup network across the Philippines</li>
-</ul>
 <p><strong>Tip:</strong> Provider rankings shift daily on this corridor. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates</a> before every transfer. Also see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a> for a side-by-side comparison.</p>`,
       },
       {
-        heading: "What You Need for a Philippines Transfer",
-        content: `<p>The recipient details you need depend on the delivery method:</p>
-<h3>Bank Deposit</h3>
+        heading: "Account number, GCash number or ID: what a Philippine payout needs",
+        content: `<h3>Bank Deposit</h3>
 <ul>
 <li><strong>Recipient's full name</strong> (as registered with their bank)</li>
 <li><strong>Bank name</strong> — BDO Unibank, BPI (Bank of the Philippine Islands), Metrobank, Landbank, PNB, or UnionBank</li>
@@ -3782,7 +3771,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Verified limits above the Fully Verified tier need a linked bank account or investment product inside GCash, which a recipient can add themselves — worth doing before a large one-off transfer such as tuition or a property deposit, where ₱100,000 a month is the binding constraint.</p>`,
       },
       {
-        heading: "Delivery Methods and Speed",
+        heading: "GCash, bank or pawnshop counter: how fast pesos land",
         content: `<ul>
 <li><strong>GCash</strong>: Instant. Supported by Remitly, WorldRemit and others. The recipient gets a notification and can spend or withdraw immediately. The binding constraint is the recipient's own <a href="#receiving-on-gcash-limits-verification-and-failed-transfers">GCash monthly incoming limit</a>, not the provider's — ₱5,000 a month on an unverified profile.</li>
 <li><strong>Bank deposit</strong>: Minutes to 1 business day for major banks (BDO, BPI, Metrobank). Smaller rural banks may take 2–3 days.</li>
@@ -3793,31 +3782,25 @@ const rawBlogPosts: BlogPost[] = [
 <p><strong>Fastest option:</strong> GCash is the quickest way to get money to someone in the Philippines. <strong>Widest reach:</strong> Cash pickup has the best coverage, especially in rural areas.</p>`,
       },
       {
-        heading: "Fees and Exchange Rate Tips",
-        content: `<p>The USD to PHP corridor is one of the cheapest to send money on. Here's how to minimise costs:</p>
+        heading: "Where a USD to PHP transfer loses pesos",
+        content: `<p>The quick answer above covers the first cost — the winner changes with the amount, so <a href="/send-money/usa-to-philippines">price your own amount</a>. Two more come from how Filipino recipients collect:</p>
 <ol>
-<li><strong>Compare the total PHP received, not just the fee.</strong> A $0 fee means nothing if the exchange rate markup eats ₱800. Use our <a href="/send-money/usa-to-philippines">USD to PHP comparison tool</a> to see the actual amount your recipient gets.</li>
-<li><strong>Fund with bank transfer or debit card.</strong> Credit card funding adds 1.5%–3% in surcharges — on $1,000, that's $15–$30 wasted.</li>
-<li><strong>Send larger amounts less often.</strong> Some providers charge minimum fees, so one $2,000 transfer costs less than four $500 transfers.</li>
-<li><strong>Check for first-time promotions.</strong> Remitly, Wise, and WorldRemit regularly offer enhanced rates or zero fees for new users.</li>
-<li><strong>Avoid banks.</strong> US banks charge $25–$50 wire fees plus 3–5% exchange rate markup. On $1,000, you could lose $55–$100 compared to a specialist provider.</li>
-</ol>
-<p>For a deeper explanation of how exchange rate markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
+<li><strong>One transfer instead of several — if the wallet can take it.</strong> A flat fee paid four times costs more than once, but a Basic GCash profile can receive only ₱5,000 a month, so one large transfer can bounce where two small ones would land. Check the recipient's tier in the table above first.</li>
+<li><strong>Turning a wallet balance into cash.</strong> A pawnshop or bank counter pays out what was sent; withdrawing a GCash or Maya balance at an ATM can carry a charge from the wallet or the ATM, not from your provider. Ask how the recipient will use the money.</li>
+</ol>`,
       },
       {
-        heading: "Regulations and Tax Considerations",
-        content: `<p>Key rules for sending money to the Philippines:</p>
+        heading: "BSP, AMLA and tax rules on the Philippine side",
+        content: `<p>Rules that apply once the money reaches the Philippines:</p>
 <ul>
 <li><strong>No inbound remittance limits:</strong> The <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">Bangko Sentral ng Pilipinas (BSP)</a> does not restrict inbound remittance amounts. However, amounts over ₱500,000 may require additional documentation from the receiving bank.</li>
 <li><strong>Tax-free for recipients:</strong> Remittances from OFWs (Overseas Filipino Workers) and their families are exempt from Philippine income tax.</li>
-<li><strong>US sender reporting:</strong> Transfers over $10,000 must be reported by US financial institutions under the Bank Secrecy Act. Sending as a gift is not taxable for the sender. The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> oversees AML compliance for US money transmitters.</li>
 <li><strong>Anti-money laundering:</strong> Philippine banks comply with AMLA (Anti-Money Laundering Act). Recipients may need to show valid ID for large cash pickups.</li>
-</ul>
-<p>For more on safely sending money internationally, read our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> and <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, the Philippines is consistently one of the top five remittance-receiving countries globally.</p>`,
+</ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">Bangko Sentral ng Pilipinas (BSP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        content: `<p>The Philippines' remittance total cites the World Bank and <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">Bangko Sentral ng Pilipinas (BSP)</a> statistics; GCash limits cite GCash's own help centre, checked September 2026. Peso payouts come from our USD to PHP quote collection, refreshed every six hours.</p>`,
       },
     ],
     faqs: [
@@ -3837,9 +3820,9 @@ const rawBlogPosts: BlogPost[] = [
           "GCash and Maya transfers arrive instantly. Bank deposits to major banks (BDO, BPI, Metrobank) take minutes to 1 business day. Cash pickup at Cebuana Lhuillier or M Lhuillier is usually available within minutes.",
       },
       {
-        question: "Do I need an IBAN to send money to the Philippines?",
+        question: "How much can a GCash wallet receive in a month?",
         answer:
-          "No, the Philippines does not use the IBAN system. For bank deposits, you need the recipient's bank account number and the bank's SWIFT/BIC code. For GCash, you just need their mobile number.",
+          "It depends on the recipient's profile: ₱5,000 a month on a Basic (unverified) profile, ₱100,000 once Fully Verified, and more on GCash Plus or Platinum. The limit is cumulative across every incoming transfer, from any sender, so confirm the tier and what has already arrived this month before a large transfer.",
       },
       {
         question: "What are the top banks in the Philippines for receiving money?",
@@ -4088,9 +4071,8 @@ const rawBlogPosts: BlogPost[] = [
 <p><a href="/companies/taptap-send">TapTap Send</a> charges a {{FEE:taptap-send:USD:MXN:1000}} fee on this route and pays out {{RECEIVE:taptap-send:USD:MXN:1000}} on $1,000 today. It says 97% of its deliveries to Mexico arrive in under 5 minutes (<a href="https://www.taptapsend.com/en/send-money-to/mexico" target="_blank" rel="noopener noreferrer nofollow">TapTap Send, April 2026</a>). It is app-only, and a paid partner of this site; neither changes its place in the table.</p>`,
       },
       {
-        heading: "What You Need for a Mexico Transfer",
-        content: `<p>The details you need depend on the delivery method:</p>
-<h3>Bank Deposit (SPEI Transfer)</h3>
+        heading: "CLABE, card number or ID: what a Mexican recipient gives you",
+        content: `<h3>Bank Deposit (SPEI Transfer)</h3>
 <ul>
 <li><strong>Recipient's full name</strong> (as registered with the bank)</li>
 <li><strong>CLABE number</strong> — An 18-digit standardised bank account number used across all Mexican banks. It stands for <em>Clave Bancaria Estandarizada</em>. Every Mexican bank account has a CLABE. Your recipient can find it in their online banking or on their bank statement.</li>
@@ -4128,7 +4110,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Learn more about SWIFT codes in our <a href="/guides/swift-codes-explained">complete SWIFT code guide</a>.</p>`,
       },
       {
-        heading: "Delivery Methods and Speed",
+        heading: "SPEI, OXXO or card: how fast pesos arrive",
         content: `<ul>
 <li><strong>SPEI (bank transfer)</strong>: Mexico's interbank transfer system processes payments in real time, 24/7. Most transfers via SPEI arrive <strong>within minutes</strong> — even on weekends. This is the fastest and cheapest delivery method.</li>
 <li><strong>Cash pickup at OXXO</strong>: Available within minutes. OXXO is Mexico's largest convenience chain with 20,000+ stores open late. MoneyGram and Xoom both offer OXXO pickup.</li>
@@ -4139,32 +4121,25 @@ const rawBlogPosts: BlogPost[] = [
 <p><strong>Best for speed:</strong> SPEI bank transfer — real-time, even on weekends. <strong>Best for access:</strong> OXXO cash pickup — 20,000+ locations, open late.</p>`,
       },
       {
-        heading: "Fees and Exchange Rate Tips",
-        content: `<p>The USD to MXN corridor is one of the cheapest in the world, but costs add up over time. Here's how to save:</p>
+        heading: "Two peso costs the table cannot show",
+        content: `<p>The USD to MXN table above ranks providers by pesos delivered, which already nets the fee against the exchange-rate margin. Two costs sit outside it:</p>
 <ol>
-<li><strong>Always compare total MXN received.</strong> A provider advertising "$0 fee" may hide 1–2% in the exchange rate. Use our <a href="/send-money/usa-to-mexico">comparison tool</a> to see the actual pesos your recipient gets.</li>
-<li><strong>Use SPEI instead of cash pickup.</strong> Cash pickup often carries higher exchange rate markups than direct bank transfers.</li>
-<li><strong>Fund via bank transfer or debit.</strong> Credit card funding adds 1.5%–3% in surcharges.</li>
-<li><strong>Time your transfers.</strong> USD/MXN fluctuates throughout the day. Midweek tends to have tighter spreads. Set rate alerts with Wise or Remitly.</li>
-<li><strong>Skip the banks.</strong> US banks charge $25–$50 wire fees plus 3–5% markup. On $1,000, a specialist provider saves you $55–$100+.</li>
-</ol>
-<p>Read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> to understand how hidden costs work.</p>`,
+<li><strong>The receiving method.</strong> Providers price a SPEI deposit and a cash collection separately, and cash usually carries the wider margin. A CLABE deposit quote says nothing about collecting at OXXO, so price the method your recipient will actually use.</li>
+<li><strong>Paying at a counter in cash.</strong> Since January 1, 2026 a 1% federal excise tax applies to remittances funded with cash, a money order or a cashier's check — $10 on $1,000. Paying from a bank account or a US debit or credit card is exempt; our <a href="/guides/us-remittance-tax-2026">US remittance tax guide</a> covers who collects it.</li>
+</ol>`,
       },
       {
-        heading: "Regulations and Tax Considerations",
-        content: `<p>Important rules for the US to Mexico corridor:</p>
+        heading: "Mexican ID, tax and Banxico rules",
+        content: `<p>What applies on the Mexican side of the transfer:</p>
 <ul>
 <li><strong>Mexican ID requirement:</strong> For cash pickups over $300 USD equivalent, the recipient must present valid Mexican ID (INE/IFE credential). Amounts over $4,000 USD per month may trigger additional reporting.</li>
 <li><strong>No inbound remittance tax:</strong> Mexico does not tax incoming remittances for personal use. Recipients do not owe income tax on family support payments.</li>
-<li><strong>US reporting:</strong> Transfers over $10,000 are reported by US financial institutions under the Bank Secrecy Act. Structuring multiple smaller transfers to avoid this threshold is illegal. The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> enforces these rules for US money transmitters.</li>
 <li><strong>Banxico oversight:</strong> The <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Bank of Mexico</a> tracks all inbound remittance flows and publishes monthly statistics. Licensed providers comply with Mexican AML regulations.</li>
-<li><strong>CFPB protections:</strong> The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> requires licensed US providers to disclose all fees, exchange rates, and total recipient amounts before you confirm a transfer.</li>
-</ul>
-<p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>.</p>`,
+</ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+        content: `<p>Mexico's remittance totals are <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a> statistics. Peso payouts come from our own USD to MXN quote collection; the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank's Remittance Prices Worldwide</a> is the independent benchmark for what the corridor costs.</p>`,
       },
     ],
     faqs: [
@@ -4186,12 +4161,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is a CLABE number and how do I find it?",
         answer:
-          "A CLABE (Clave Bancaria Estandarizada) is Mexico's 18-digit standardised bank account number. Every Mexican bank account has one. Your recipient can find it in their online banking, on their bank statement, or by asking their bank. The first 3 digits identify the bank.",
-      },
-      {
-        question: "Do I need an IBAN to send money to Mexico?",
-        answer:
-          "No, Mexico does not use IBANs. Instead, you need the recipient's 18-digit CLABE number for bank deposits, or their name and location for cash pickup. For international wires, you may also need the bank's SWIFT code.",
+          "A CLABE (Clave Bancaria Estandarizada) is Mexico's 18-digit standardised bank account number, used instead of an IBAN — Mexico has no IBANs. Every Mexican bank account has one. Your recipient can find it in their online banking, on their bank statement, or by asking their bank. The first 3 digits identify the bank.",
       },
     ],
     relatedSlugs: [
@@ -6101,7 +6071,7 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Our pick for most US-Canada business payments, on price. Wise uses the mid-market rate with 0% markup and charges a small transparent fee (typically 0.28% on USD to CAD). Transfers often arrive same-day. Supports batch payments via CSV, API access, and integrates with Xero and QuickBooks. Multi-currency account lets you hold CAD and pay Canadian suppliers directly.</p>
+<p>Our pick for most US-Canada business payments, on price. Wise uses the mid-market rate with 0% markup and shows its fee separately — the quick answer above gives today's all-in cost on $5,000. Transfers often arrive same-day. Supports batch payments via CSV, API access, and integrates with Xero and QuickBooks. Multi-currency account lets you hold CAD and pay Canadian suppliers directly.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
 <p>Best for large transfers ($10,000+). No transfer fees and dedicated FX dealers who can negotiate better rates for high-volume clients. Forward contracts available to lock USD/CAD rates up to 12 months — useful for businesses with predictable Canadian expenses.</p>
 <h3><a href="/companies/xe">XE Business</a></h3>
@@ -6221,9 +6191,9 @@ const rawBlogPosts: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Our pick for US-UK business payments, on price. Wise offers the mid-market rate with 0% markup. Transfers to UK bank accounts often arrive within hours via Faster Payments. Batch payments, API access, and direct integration with Xero and QuickBooks make it ideal for recurring supplier and contractor payments.</p>
+<p>Pays the UK supplier from a local sterling account over Faster Payments, usually within hours of converting, and gives the business its own GBP account details — so sterling from UK customers can be received and held rather than converted back to dollars on arrival.</p>
 <h3><a href="/companies/ofx">OFX</a></h3>
-<p>Best for large payments ($10,000+). No transfer fees, dedicated FX dealers, and forward contracts to lock USD/GBP rates up to 12 months. Strong for businesses importing goods from the UK or making regular large payments.</p>
+<p>Charges no transfer fee and prices through a dealer, so its margin is negotiable on large or regular payments rather than fixed. That suits a US importer paying a UK manufacturer on a schedule: a forward contract can fix the sterling cost of an order up to 12 months ahead.</p>
 <h3><a href="/companies/revolut">Revolut Business</a></h3>
 <p>Excellent for startups and tech companies with UK operations. Competitive FX rates, multi-currency accounts with GBP IBAN, team cards, and expense management. Free plan available for small businesses.</p>`,
       },
@@ -6231,9 +6201,9 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Payment Methods Compared",
         content: `<p>A US payer has four realistic ways to put sterling into a UK account:</p>
 <h3>FX Platform Transfer (Recommended)</h3>
-<p>Services like Wise, OFX, and XE route payments through local rails — you send USD domestically to their US account, they pay GBP from their UK account via Faster Payments. This avoids SWIFT fees entirely and typically delivers same-day or next-day.</p>
+<p>Wise, OFX and XE collect your dollars in the US and pay sterling from a UK account over Faster Payments, so no correspondent bank sits in the chain and the supplier usually sees the money the same or next day.</p>
 <h3>SWIFT Wire Transfer</h3>
-<p>Traditional bank-to-bank transfer. Costs $25–$45 per wire plus 1.5–3% FX markup. Takes 2–5 business days. Intermediary bank charges (SWIFT correspondent fees) can further reduce the amount received.</p>
+<p>A wire from a US bank to a UK bank passes through correspondent banks, any of which can deduct a charge before the sterling lands, and the sending bank sets its own conversion rate. Allow 2–5 business days.</p>
 <h3>ACH to UK Faster Payments</h3>
 <p>Some providers accept US ACH funding and deliver via UK Faster Payments. Slowest funding method (1–3 days for ACH to clear) but cheapest if you're not in a rush.</p>
 <h3>SEPA (via EUR)</h3>
@@ -6243,22 +6213,17 @@ const rawBlogPosts: BlogPost[] = [
         heading: "USD/GBP Exchange Rate: What Drives It",
         content: `<p>GBP/USD is the third most traded currency pair globally. Key factors that influence the rate:</p>
 <ul>
-<li><strong>Bank of England vs Federal Reserve policy</strong> — Interest rate differentials between the BoE and Fed are the primary driver. Higher UK rates relative to the US push GBP higher.</li>
+<li><strong>Bank of England and Federal Reserve decisions</strong> — when UK rates rise relative to US rates, sterling tends to strengthen, and the reverse.</li>
 <li><strong>UK economic data</strong> — GDP growth, inflation (CPI), employment figures, and PMI readings all move GBP. The UK's post-Brexit economic trajectory continues to influence longer-term trends.</li>
 <li><strong>Political risk</strong> — UK elections, fiscal policy announcements, and trade deal progress can cause sharp GBP moves.</li>
 <li><strong>Risk sentiment</strong> — GBP tends to weaken during global risk-off periods as investors flock to USD as a safe haven.</li>
 </ul>
-<p>The GBP/USD pair can swing 10–15% in a year. For a business making monthly $50,000 payments, that's a $5,000–$7,500 annual variance — significant enough to justify <a href="/guides/fx-hedging-strategies-small-business">FX hedging</a>.</p>`,
+<p>The GBP/USD pair can swing 10–15% in a year — $5,000–$7,500 on a single $50,000 payment, which for a business paying that every month is significant enough to justify <a href="/guides/fx-hedging-strategies-small-business">FX hedging</a>.</p>`,
       },
       {
         heading: "Compliance for USA to UK Business Payments",
-        content: `<p>The USA to UK corridor has specific compliance considerations:</p>
-<h3>US Reporting Requirements</h3>
-<ul>
-<li><strong>OFAC screening</strong> — a US business may not pay anyone on the Treasury's sanctions lists, so providers screen the UK beneficiary before releasing a first payment</li>
-<li><strong>FBAR (FinCEN 114)</strong> — a UK bank account the business controls counts toward the $10,000 combined foreign-balance threshold; cross it at any point in a year and the business files with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></li>
-<li><strong>FATCA (Form 8938)</strong> — Additional reporting for specified foreign financial assets above certain thresholds</li>
-</ul>
+        content: `<h3>On the US side</h3>
+<p>Providers screen a first payment to a UK beneficiary against the Treasury's OFAC sanctions lists. The payment itself creates no US filing, but a UK bank account the business controls counts toward the $10,000 combined foreign-balance threshold: cross it at any point in the year and the business files an FBAR with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and may also owe Form 8938 under FATCA.</p>
 <h3>UK Requirements</h3>
 <ul>
 <li><strong>FCA regulation</strong> — All payment providers operating in the UK must be authorized by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority</a></li>
@@ -6275,12 +6240,12 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way for a US business to pay a UK supplier?",
         answer:
-          "On consumer quotes, the most frequent USD→GBP leader is {{CORRIDOR_LEADER:USD:GBP}}. For a business account, Wise Business costs {{COST_PCT:wise:USD:GBP:5000}} in total on $5,000 today, against the $25–$45 wire fee plus markup a bank typically adds; OFX negotiates rates on larger payments.",
+          "On consumer quotes, the most frequent USD→GBP leader is {{CORRIDOR_LEADER:USD:GBP}}. For a business account, Wise Business costs {{COST_PCT:wise:USD:GBP:5000}} in total on $5,000 today; OFX negotiates rates on larger payments.",
       },
       {
         question: "How long does a business payment from USA to UK take?",
         answer:
-          "Through Wise, payments often arrive within hours via UK Faster Payments. OFX and XE deliver in 1–2 business days. Traditional SWIFT bank wires take 2–5 business days and may incur intermediary bank deductions.",
+          "Sterling paid out over Faster Payments usually lands within hours of the provider converting it, and Wise often manages same-day. OFX and XE quote 1–2 business days; a SWIFT wire from a US bank takes 2–5, with correspondent deductions possible on the way.",
       },
       {
         question: "Do US businesses need to pay UK VAT on services?",

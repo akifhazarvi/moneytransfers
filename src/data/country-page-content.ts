@@ -36,7 +36,6 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       "India is the world's largest remittance recipient, receiving over $125 billion annually according to the World Bank — more than any other country on earth. With a vast diaspora in the US, UK, UAE, Canada, and Australia, the USD/GBP/AED-to-INR corridor is one of the most competitive in the world, making it easier than ever to find a cheap, fast transfer.",
     highlights: [
       "IMPS and UPI transfers settle 24/7 in real time — many providers can credit an Indian bank account within minutes of sending.",
-      "Specialist providers like Wise, Remitly, and Instarem routinely beat bank exchange rates by 2–4%, which on a $1,000 transfer can mean ₹1,500–₹3,000 more for your recipient.",
       "FEMA (Foreign Exchange Management Act) governs inbound remittances. There is no cap on incoming personal transfers; gifts up to ₹50,000 are tax-exempt for the recipient.",
       "Popular delivery banks include SBI, HDFC, ICICI, Axis, and Punjab National Bank. Most providers support all major private and public sector banks.",
       "NRE and NRO accounts allow Indian citizens abroad to receive funds and freely repatriate money home — many providers support transfers directly into NRE accounts.",
@@ -45,7 +44,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to India?",
         answer:
-          "Wise and Instarem consistently offer the lowest total cost on the USD-to-INR corridor, typically charging 0.4–0.7% of the transfer amount plus a small flat fee. Always compare the total INR received — not just the fee — since exchange rate markups make up the biggest share of the cost. Remitly's Express option is cheapest for smaller amounts under $500.",
+          "It depends on the country you send from, which is why the ranking at the top of this page lists each one separately. The most frequent leader on USD→INR is {{CORRIDOR_LEADER_SHORT:USD:INR}}, and on GBP→INR {{CORRIDOR_LEADER_SHORT:GBP:INR}}. Today the highest and lowest USD→INR payouts on $1,000 differ by {{SPREAD:USD:INR:1000}}, so judge a provider by the rupees credited, not by its fee.",
       },
       {
         question: "How long does a money transfer to India take?",
@@ -102,7 +101,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Pakistan?",
         answer:
-          "Wise, Remitly, and Western Union Digital are consistently the most cost-effective providers for USD-to-PKR transfers. The exchange rate markup is the largest cost driver — look at the total PKR received rather than the stated fee. On a $1,000 transfer, the difference between the best and worst providers can exceed Rs. 5,000.",
+          "The most frequent USD→PKR leader is {{CORRIDOR_LEADER:USD:PKR}}; from the UK the record belongs to {{CORRIDOR_LEADER_SHORT:GBP:PKR}}. The exchange rate markup is the largest cost driver — look at the total PKR received rather than the stated fee. On a $1,000 transfer today, the gap between the best and worst quote is {{SPREAD:USD:PKR:1000}}.",
       },
       {
         question: "How do I send money to JazzCash or Easypaisa in Pakistan?",
@@ -300,7 +299,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to the Philippines?",
         answer:
-          "On USD to PHP, the measured leader is {{CORRIDOR_LEADER:USD:PHP}}. Remitly is competitive for smaller amounts and is popular for GCash delivery. For Gulf countries, companies like LuLu Exchange and UAE Exchange often have competitive PHP rates. Always compare total PHP received rather than looking at fees alone — rate markup is the primary cost.",
+          "On USD to PHP, the measured leader is {{CORRIDOR_LEADER:USD:PHP}}. Remitly is competitive for smaller amounts and is popular for GCash delivery. Always compare total PHP received rather than looking at fees alone — rate markup is the primary cost.",
       },
       {
         question: "How do I send money directly to GCash?",
@@ -330,7 +329,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "Which providers are best for sending from the US to the Philippines?",
         answer:
-          "Wise (best exchange rate for bank delivery), Remitly (best for GCash, Express delivery), and WorldRemit (good for cash pickup) are the top three for USD-to-PHP. Ria and Western Union are also competitive for cash pickup through Palawan Express and Pera Hub. For Gulf-to-Philippines transfers, LuLu Exchange and Al Ahalia offer competitive rates.",
+          "Price is answered above by the measured record; past price, the choice turns on how the money is collected. Remitly and WorldRemit pay into GCash wallets, Ria and Western Union pay cash through Palawan Express and Pera Hub counters, and a bank deposit suits recipients with a BDO, BPI or Metrobank account.",
       },
     ],
   },
