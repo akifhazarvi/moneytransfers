@@ -79,6 +79,7 @@ export async function POST(request: Request) {
     },
     clientId,
     geo,
+    request,
   );
 
   // 204 — beacon needs no body; keep the response tiny and uncacheable.

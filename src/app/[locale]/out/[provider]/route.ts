@@ -89,6 +89,7 @@ export async function GET(
     { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource, click_id: clickId, genuine_click: genuineClick, gated, token_status: tokenStatus, outcome },
     clientId,
     geo,
+    request,
   );
   void serverTrack(
     "affiliate_redirect",
@@ -112,6 +113,7 @@ export async function GET(
     },
     clientId,
     geo,
+    request,
   );
 
   // Route by outcome — see /go route. Review-bound hits go to the same page as
