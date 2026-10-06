@@ -7,7 +7,6 @@ import Link from "next/link";
 import { Fragment, Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { trackCompareSearch, trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
-import ComparisonStatus from "@/components/ComparisonStatus";
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
@@ -183,7 +182,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
   }, []);
 
   const [sortBy, setSortBy] = useState<SortBy>("receiveAmount");
-  const { rates, nextRefresh, refreshing, failed, refresh } = useExchangeRates();
+  const { rates, isLive } = useExchangeRates();
 
   // Compare
   const t = useTranslations("sendMoneyClient");
@@ -294,7 +293,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
     const corridor = `${fromCurrency}-${toCurrency}`;
     if (corridor === prevCorridor.current || !quotes.length) return;
     prevCorridor.current = corridor;
-    trackQuotesViewed(fromCurrency, toCurrency, quotes.length);
+    trackQuotesViewed(fromCurrency, toCurrency, quotes.length, amount);
   }, [fromCurrency, toCurrency, amount, quotes]);
 
   // When we hold no quote at the requested size, offer the largest step below it
@@ -609,8 +608,22 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
         </FilterDropdown>
       </div>
 
-      <div id="comparison-results" tabIndex={-1} className="scroll-mt-24">
-        <ComparisonStatus count={filteredQuotes.length} total={quotes.length} loading={quotesLoading} refreshing={refreshing} failed={failed} nextRefresh={nextRefresh} from={fromCurrency} to={toCurrency} onRefresh={refresh} />
+      {/* Results header — minimal, Google Flights "About these results" style */}
+      <div id="comparison-results" tabIndex={-1} className="flex items-center justify-between mb-2 scroll-mt-24" aria-live="polite">
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-[var(--color-on-surface-variant)]">
+            {filteredQuotes.length} providers
+          </span>
+          {isLive && (
+            <span className="inline-flex items-center gap-1 text-[10px] text-[var(--color-success)] font-medium">
+              <span className="w-1 h-1 rounded-full bg-[var(--color-success)] animate-pulse" />
+              Live
+            </span>
+          )}
+        </div>
+        <span className="text-xs text-[var(--color-on-surface-variant)]">
+          {sendCurrency?.symbol}{amount.toLocaleString()} {fromCurrency} → {toCurrency}
+        </span>
       </div>
 
       {/* Results list */}
