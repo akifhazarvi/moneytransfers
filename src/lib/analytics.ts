@@ -23,6 +23,7 @@
 import { track as vercelTrack } from "@vercel/analytics";
 import { deviceOs, displayMode } from "@/lib/pwa";
 import { forGa4 } from "@/lib/ga4-params";
+import { sendActivity } from "@/lib/live-activity-beacon";
 
 type EventParams = Record<string, string | number | boolean | undefined>;
 
@@ -73,11 +74,13 @@ const corridor = (from: string, to: string) => `${from}-${to}`.toUpperCase();
 /** User submits the comparison widget */
 export function trackCompareSearch(from: string, to: string, amount: number) {
   dual("compare_search", { from, to, amount, corridor: corridor(from, to), display_mode: displayMode() });
+  sendActivity({ t: "compared", from, to });
 }
 
 /** Quote results rendered with N providers */
 export function trackQuotesViewed(from: string, to: string, providerCount: number) {
   dual("quotes_viewed", { from, to, provider_count: providerCount, corridor: corridor(from, to), display_mode: displayMode() });
+  sendActivity({ t: "compared", from, to });
 }
 
 /** User expands a provider card */
@@ -93,6 +96,8 @@ export function trackProviderExpanded(provider: string, rank: number, corridorSt
  * not at emit time — keeps the raw signal recoverable. */
 export function trackProviderClicked(provider: string, corridorStr: string, rank: number, source?: string) {
   dual("provider_clicked", { provider, corridor: corridorStr, rank, source: source || "results", display_mode: displayMode() });
+  const [from, to] = corridorStr.toUpperCase().split(/[-_]/);
+  sendActivity({ t: "chose", provider, from, to });
 }
 
 /** Partner placements are measured separately from ranked quote results. */
@@ -235,6 +240,21 @@ export function trackSeeAllProviders(slug: string, corridor: string) {
 /** User clicks "All <n> providers →" header link in the InlineProviderQuotes widget */
 export function trackSeeAllProvidersHeader(slug: string, corridor: string) {
   dual("see_all_providers_clicked", { slug, corridor, source: "inline_quotes_header" });
+}
+
+// ═════════════════════════════════════════════════════════════════
+// Live activity strip (src/components/live-activity/). `placement` names the
+// page family; shown is counted once per page view. `kind` is what was
+// clicked: a reader event ("compared", "chose"), a "rate" update, or the
+// 30-day "savings" / "countries" line.
+// ═════════════════════════════════════════════════════════════════
+
+export function trackLiveActivityShown(placement: string) {
+  dual("live_activity_shown", { placement });
+}
+
+export function trackLiveActivityClicked(placement: string, kind: string) {
+  dual("live_activity_clicked", { placement, kind });
 }
 
 // ═════════════════════════════════════════════════════════════════

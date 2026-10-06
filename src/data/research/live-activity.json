@@ -1,0 +1,73 @@
+{
+ "about": "Real GA4 events (provider_clicked, compare_search, quotes_viewed; China and Singapore excluded) from 2026-10-04/05, timed to the hour, pulled through the GA4 reporting API before the first-party store existed. src/lib/live-activity.ts drops each one 48 hours after it happened.",
+ "items": [
+  {
+   "at": 1791216000000,
+   "hourly": true,
+   "country": "MX",
+   "kind": "chose",
+   "from": "USD",
+   "to": "MXN",
+   "provider": "InstaReM"
+  },
+  {
+   "at": 1791183600000,
+   "hourly": true,
+   "country": "GB",
+   "kind": "compared",
+   "from": "GBP",
+   "to": "EUR"
+  },
+  {
+   "at": 1791183600000,
+   "hourly": true,
+   "country": "GB",
+   "kind": "compared",
+   "from": "USD",
+   "to": "EUR"
+  },
+  {
+   "at": 1791183600000,
+   "hourly": true,
+   "country": "GB",
+   "kind": "chose",
+   "from": "GBP",
+   "to": "EUR",
+   "provider": "TorFX"
+  },
+  {
+   "at": 1791172800000,
+   "hourly": true,
+   "country": "US",
+   "kind": "compared",
+   "from": "USD",
+   "to": "INR"
+  },
+  {
+   "at": 1791169200000,
+   "hourly": true,
+   "country": "MY",
+   "kind": "chose",
+   "from": "USD",
+   "to": "MYR",
+   "provider": "Wise"
+  },
+  {
+   "at": 1791165600000,
+   "hourly": true,
+   "country": "AU",
+   "kind": "compared",
+   "from": "AUD",
+   "to": "EUR"
+  },
+  {
+   "at": 1791165600000,
+   "hourly": true,
+   "country": "AU",
+   "kind": "chose",
+   "from": "AUD",
+   "to": "EUR",
+   "provider": "TorFX"
+  }
+ ]
+}

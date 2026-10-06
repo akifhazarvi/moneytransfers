@@ -4,6 +4,7 @@ import { quoteDataDate } from "@/lib/unified-quotes";
 import Image from "next/image";
 import { providers } from "@/data/providers";
 import Container from "@/components/Container";
+import LiveActivity from "@/components/live-activity/LiveActivity";
 import CompareShowdown from "@/components/CompareShowdown";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
@@ -222,6 +223,10 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
           </div>
         </Container>
       </section>
+
+      <Container>
+        <LiveActivity placement="compare" />
+      </Container>
 
       {/* ─── How it works — researched, AI-citable passage (owns "exchange rate markup") ─── */}
       <section className="py-10 sm:py-14 border-b border-[var(--color-outline)]">

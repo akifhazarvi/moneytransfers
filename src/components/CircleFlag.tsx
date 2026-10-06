@@ -17,6 +17,15 @@ const LOCAL_FLAGS = new Set([
   "us", "gb", "eu", "ca", "au", "in", "ph", "mx", "ng", "pk",
   "bd", "jp", "cn", "br", "ke", "gh", "za", "ae", "sg", "nz",
   "co", "vn", "tr", "id", "ma", "my", "fj", "gt",
+  // Readers' countries for the reader pulse flag strip (2026-10-05), so the
+  // strip never waits on the CDN.
+  "al", "am", "ar", "at", "az", "be", "bg", "bh", "bm", "bo", "bs", "bw", "bz",
+  "cg", "ch", "ci", "cl", "cm", "cr", "cv", "cw", "cz", "de", "dk", "dm", "do",
+  "dz", "ec", "eg", "es", "et", "fm", "fr", "gd", "ge", "hk", "ht", "hu", "ie",
+  "il", "iq", "it", "je", "jm", "jo", "kg", "kh", "kr", "kw", "kz", "la", "lb",
+  "lk", "md", "mm", "mz", "ni", "nl", "no", "np", "om", "pa", "pe", "pg", "pl",
+  "ps", "pt", "py", "qa", "ro", "rs", "sa", "sc", "se", "sn", "so", "sv", "th",
+  "tj", "tn", "tt", "tw", "ua", "ug", "uz", "vc", "ve", "zm",
 ]);
 
 const CURRENCY_NAMES: Record<string, string> = {

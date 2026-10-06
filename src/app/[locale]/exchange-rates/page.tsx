@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import LiveRatesBoard from "./LiveRatesBoard";
+import LiveActivity from "@/components/live-activity/LiveActivity";
 import { KEPT_RATE_PAIR_SLUGS } from "@/lib/gone-rate-pairs";
 import TodayRates from "./TodayRates";
 import LazyHistoricalRateWidget from "@/components/LazyHistoricalRateWidget";
@@ -742,6 +743,10 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
               </div>
             </details>
           </section>
+
+          <div className="max-w-[760px]">
+            <LiveActivity placement="exchange-rates" />
+          </div>
 
           {/* ── Disclaimer ── */}
           <p className="text-[12px] text-[var(--color-on-surface-muted)] mt-8 leading-relaxed max-w-[760px]">

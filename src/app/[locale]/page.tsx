@@ -1,6 +1,7 @@
 import HomeTransferPaths from "@/components/HomeTransferPaths";
 import "@/app/home.css";
 import InstallSlot from "@/components/pwa/InstallSlot";
+import LiveActivity from "@/components/live-activity/LiveActivity";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
@@ -266,7 +267,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
         <LazyHomeDynamicSection />
       </HomeSelectionProvider>
-      <Container><InstallSlot placement="home-after-comparison" /><HomeTransferPaths /></Container>
+      <Container><LiveActivity placement="home" /><InstallSlot placement="home-after-comparison" /><HomeTransferPaths /></Container>
 
       {/* ─── TRUST STRIP + WHY TRUST US — collapsed on mobile to keep Send CTAs near the fold ─── */}
       <MobileDetailsRail label={`Why trust SendMoneyCompare`}>

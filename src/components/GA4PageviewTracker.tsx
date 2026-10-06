@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { startPresence } from "@/lib/live-activity-beacon";
 
 // Fires a GA4 page_view on every Next.js App Router soft navigation.
 //
@@ -24,6 +25,9 @@ function Tracker() {
   const previousUrl = useRef<string>("");
 
   useEffect(() => {
+    // The live activity strip's "here now" and "last 6 hours" counts — not
+    // GA4, so it runs whether or not gtag has loaded or been consented to.
+    startPresence();
     if (isFirstRun.current) {
       isFirstRun.current = false;
       previousUrl.current = window.location.href;

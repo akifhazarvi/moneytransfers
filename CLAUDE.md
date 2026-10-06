@@ -175,6 +175,56 @@ min (prebuild ~15s, `next build` ~67s, postbuild ~8s). Stop any dev server you
 start (`/private/tmp/*` previews ran for days at 4–6 GB each), and check
 `sysctl vm.swapusage` before blaming the code.
 
+## Live activity strip
+
+A slim strip that shows one real thing at a time, rotating every 5 seconds
+(pause on hover, focus or its button): "Someone in Mexico chose InstaReM for
+USD → MXN · 2 min ago", "USD → INR: InstaReM pays ₹… for $1,000, top of 20
+quotes · updated 2 hours ago", "Readers' picks paid a median $31 more per
+$1,000 than banks". Its pill is the counter: "3 people here now" (last 5
+minutes, the reader included, so shown from 2), else "14 people in the last 6
+hours", else "Live". On every guide (after section 4, or the last in a short
+guide), the homepage, /send-money, corridor pages and the /guides, /compare
+and /exchange-rates hubs. `src/components/live-activity/`.
+
+- **First-party, live to the second.** `src/lib/live-activity-beacon.ts`
+  (started by GA4PageviewTracker, fed by `trackCompareSearch`,
+  `trackQuotesViewed`, `trackProviderClicked`) posts to `/api/live-activity`,
+  which keeps it in **Upstash Redis, Free plan** (Vercel Marketplace; env
+  `KV_REST_API_URL`/`KV_REST_API_TOKEN` or `UPSTASH_REDIS_REST_*`), REST only,
+  no client library. `src/lib/activity-store.ts` says what is kept and the
+  command budget (Free = 500K/month). Without the env vars every write no-ops
+  and the strip runs on the GA4 history alone, grey pill, "Recent activity".
+- **Only people count, and every item is real.** Nothing is sent until the
+  page has been visible 3 seconds AND the reader scrolled, tapped or typed;
+  `navigator.webdriver` never sends (our e2e runs set it). The server takes
+  the country from Vercel, never the client; routes must be listed
+  currencies, providers known and not hidden; one event per reader + action
+  + route per 30 minutes, 20 per IP an hour; crawler UAs dropped. No cookie:
+  a visitor is an HMAC of IP + UA + day, kept only inside HyperLogLogs.
+- **GA4 can't feed this.** Its hourly data lands ~8 hours late, realtime has
+  no route, and the org blocks service-account keys
+  (`iam.disableServiceAccountKeyCreation`). `src/data/research/live-activity.json`
+  holds real GA4 events from Oct 4–5 2026 as opening history; they age out
+  after 48 hours.
+- **30-day lines** (`reader-pulse.json`): `scripts/build-reader-pulse.ts
+  --input=<saved GA4 pull>`, run by hand. Choices are priced by
+  `scripts/lib/reader-choice-pricing.ts`, shared with the September study, so
+  the two cannot disagree; countries need 2+ engaged sessions and 30s+ in 30
+  days; sanctioned jurisdictions, Russia and Belarus are never shown. The strip
+  drops these lines 45 days past their window.
+- **Rendered in the browser** (`data-nosnippet`): the same sentences SSR'd on
+  every guide and hub would raise each page's shared-text share (rule 3).
+- **Events:** `live_activity_shown` (`placement`), `live_activity_clicked`
+  (`placement`, `kind`: compared | chose | rate | savings | countries |
+  find_rate — the strip's "Find my rate" button, hidden on /send-money).
+- **One live widget per page.** A site-wide "SiteSavingsBar" under the header
+  (providers count, specialists-vs-banks %, a 5-minute "next rate check"
+  countdown) was built in parallel on 2026-10-05 and not shipped: it pushed
+  every page's content down, printed the same text on every page, and its
+  countdown implied provider quotes refresh every 5 minutes (they refresh
+  every 6 hours). Its "Find my rate" button moved into this strip.
+
 ## Installed app (PWA)
 
 The site installs as an app on Android, iOS, macOS, Windows and ChromeOS.
