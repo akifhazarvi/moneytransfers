@@ -5,10 +5,10 @@
   "singleProviderReadings": 819,
   "bands": {
     "exceptional": 14,
-    "great": 59,
-    "good": 49,
+    "great": 63,
+    "good": 44,
     "typical": 22,
-    "poor": 58
+    "poor": 59
   },
   "goodOrBetterPct": 60,
   "confidence": {
@@ -20,38 +20,38 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 75,
+      "score": 79,
       "band": "great",
       "headline": "Great time to send",
-      "explanation": "Best rate +0.55% vs the 30-day average, 82% up the 90-day range. Rates are improving — +0.40% week on week. Today's best beats the median provider by +1.84%.",
+      "explanation": "Best rate +0.68% vs the 30-day average, 87% up the 90-day range. Rates are improving — +0.41% week on week. Today's best beats the median provider by +1.97%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 81.78198108511687,
-          "detail": "82% up the 90-day range"
+          "score": 87.42929544323323,
+          "detail": "87% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 59.151313196575884,
-          "detail": "+0.55% vs the 30-day average"
+          "score": 61.25593370994968,
+          "detail": "+0.68% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 94.38806551931611,
-          "detail": "today's best beats the median provider by +1.84%"
+          "score": 99.01475286202196,
+          "detail": "today's best beats the median provider by +1.97%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 59.96537247771654,
-          "detail": "improving — +0.40% week on week"
+          "score": 60.372908764120375,
+          "detail": "improving — +0.41% week on week"
         }
       ],
       "daysObserved": 199,

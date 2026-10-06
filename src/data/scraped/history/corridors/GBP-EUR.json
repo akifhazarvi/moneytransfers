@@ -34703,20 +34703,20 @@
       "lemfi": {
         "rate": 1.168,
         "fee": 0,
-        "markup": 0.89,
+        "markup": 0.87,
         "receiveAmount": 116.8
       },
       "moneygram": {
-        "rate": 1.16607,
+        "rate": 1.16593,
         "fee": 0,
-        "markup": 1.05,
-        "receiveAmount": 116.61
+        "markup": 1.06,
+        "receiveAmount": 116.59
       },
       "hsbc": {
-        "rate": 1.13437,
+        "rate": 1.13424,
         "fee": 0,
-        "markup": 3.74,
-        "receiveAmount": 113.44
+        "markup": 3.75,
+        "receiveAmount": 113.42
       },
       "taptap-send": {
         "rate": 1.178,
@@ -34731,9 +34731,9 @@
         "receiveAmount": 115.26
       },
       "western-union": {
-        "rate": 1.15094,
+        "rate": 1.15086,
         "fee": 1.99,
-        "markup": 2.33,
+        "markup": 2.34,
         "receiveAmount": 112.8
       },
       "currencies-direct": {
@@ -34743,10 +34743,10 @@
         "receiveAmount": 116.32
       },
       "rbs": {
-        "rate": 1.15183,
+        "rate": 1.15169,
         "fee": 0,
-        "markup": 2.26,
-        "receiveAmount": 115.18
+        "markup": 2.27,
+        "receiveAmount": 115.17
       },
       "ofx": {
         "rate": 1.1794,
@@ -34779,10 +34779,10 @@
         "receiveAmount": 115.16
       },
       "remitly": {
-        "rate": 1.166,
+        "rate": 1.1661,
         "fee": 1.99,
         "markup": 1.05,
-        "receiveAmount": 114.28
+        "receiveAmount": 114.29
       },
       "revolut": {
         "rate": 1.17635,
@@ -34791,10 +34791,10 @@
         "receiveAmount": 93.71
       },
       "wise": {
-        "rate": 1.17841,
+        "rate": 1.17834,
         "fee": 0.85,
-        "markup": 0,
-        "receiveAmount": 116.84
+        "markup": 0.01,
+        "receiveAmount": 116.83
       },
       "ria": {
         "rate": 1.1583,
@@ -34803,40 +34803,40 @@
         "receiveAmount": 110.62
       },
       "nationwide": {
-        "rate": 1.1553,
+        "rate": 1.15516,
         "fee": 15,
-        "markup": 1.96,
-        "receiveAmount": 98.2
+        "markup": 1.97,
+        "receiveAmount": 98.19
       },
       "santander": {
-        "rate": 1.14322,
+        "rate": 1.14308,
         "fee": 0,
-        "markup": 2.99,
-        "receiveAmount": 114.32
+        "markup": 3,
+        "receiveAmount": 114.31
       },
       "barclays": {
-        "rate": 1.14623,
+        "rate": 1.14609,
         "fee": 0,
-        "markup": 2.73,
-        "receiveAmount": 114.62
+        "markup": 2.74,
+        "receiveAmount": 114.61
       },
       "xoom": {
-        "rate": 1.10618,
+        "rate": 1.1062,
         "fee": 0.99,
         "markup": 6.13,
         "receiveAmount": 109.52
       },
       "lloyds": {
-        "rate": 1.13587,
+        "rate": 1.13573,
         "fee": 0,
-        "markup": 3.61,
-        "receiveAmount": 113.59
+        "markup": 3.62,
+        "receiveAmount": 113.57
       },
       "natwest": {
-        "rate": 1.15183,
+        "rate": 1.15169,
         "fee": 0,
-        "markup": 2.26,
-        "receiveAmount": 115.18
+        "markup": 2.27,
+        "receiveAmount": 115.17
       },
       "paypal": {
         "rate": 1.12685,
@@ -34845,16 +34845,22 @@
         "receiveAmount": 109.32
       },
       "skrill": {
-        "rate": 1.15544,
+        "rate": 1.15524,
         "fee": 0,
-        "markup": 1.95,
-        "receiveAmount": 115.54
+        "markup": 1.97,
+        "receiveAmount": 115.52
       },
       "monese": {
-        "rate": 1.17834,
+        "rate": 1.17804,
         "fee": 3,
-        "markup": 0.01,
-        "receiveAmount": 114.3
+        "markup": 0.03,
+        "receiveAmount": 114.27
+      },
+      "halifax": {
+        "rate": 1.13986,
+        "fee": 0,
+        "markup": 3.27,
+        "receiveAmount": 113.99
       }
     }
   }
