@@ -42,10 +42,11 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/send-money/", "/compare/", "/iban/", "/swift-codes/", "/banks/", "/exchange-rates/", "/companies/", "/api/", "/go/", "/out/"],
       },
     ],
-    // sitemap.xml is the Bing sitemap (includes Bing-only pages served
-    // `googlebot: noindex`); sitemap-google.xml is the Google subset and the
-    // one submitted in Search Console. Both named here so neither engine loses
-    // discovery — round-3 freelance plan, 2026-09-27.
-    sitemap: ["https://sendmoneycompare.com/sitemap.xml", "https://sendmoneycompare.com/sitemap-google.xml"],
+    // One sitemap here: sitemap.xml, the Bing sitemap (includes Bing-only
+    // pages served `googlebot: noindex`). sitemap-google.xml, the Google
+    // subset, is submitted in Search Console only and not named here — the
+    // freelancer's round-3 follow-up, 2026-10-06 (it was listed here too from
+    // 2026-09-27).
+    sitemap: "https://sendmoneycompare.com/sitemap.xml",
   };
 }

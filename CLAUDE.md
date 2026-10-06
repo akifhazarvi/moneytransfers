@@ -70,6 +70,8 @@ what enforces it. Where a rule is not automated, it says how to check it.
    `bingIndexable()` URL (submitted to Bing, pinged via IndexNow);
    `sitemap-google.xml` = the `googleIndexable()` subset, the only sitemap
    submitted in Search Console. Never resubmit `sitemap.xml` to GSC.
+   robots.txt names `sitemap.xml` only (freelancer, 2026-10-06: one sitemap
+   there; the Google one lives in GSC).
    *Enforced:* `check:indexing` (subset, and no Googlebot noindex in it).
 3. **Reopen a page only on evidence, and measure it first.** A page joins
    `BING_DEMAND_ROUTES` on demand data (≥3 Bing sessions in 90 days in GA4, or
