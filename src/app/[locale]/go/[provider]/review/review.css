@@ -4,12 +4,20 @@
 .dark .go-review-hero { background:var(--color-surface-dim); }
 @media (min-width: 1024px) { .go-review-hero { padding: 64px 0 76px; } }
 
-.go-review-grid { display: grid; gap: 36px; align-items: start; }
+/* Phones: Continue, then the partner, then the back link and trust notes —
+   so both offers are on the first screen. Desktop: Continue and the notes on
+   the left, the partner beside them. */
+.go-review-grid { display: grid; gap: 36px; align-items: start; grid-template-areas: "main" "partner" "extras"; }
+.go-review-handoff { grid-area: main; }
+.go-review-partner { grid-area: partner; }
+.go-review-extras { grid-area: extras; }
 @media (min-width: 1024px) {
-  .go-review-grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 64px; align-items: center; }
+  .go-review-grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); grid-template-areas: "main partner" "extras partner"; column-gap: 64px; row-gap: 0; }
+  .go-review-partner { align-self: center; }
 }
 /* No partner column (TapTap does not send from this currency): one column. */
-.go-review-grid.go-review-grid--solo { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+.go-review-grid.go-review-grid--solo { grid-template-columns: minmax(0, 1fr); grid-template-areas: "main" "extras"; max-width: 760px; row-gap: 0; }
+.go-review-extras { display: flex; flex-direction: column; align-items: flex-start; margin-top: 14px; }
 
 /* A static handoff: navigation happens only when the visitor continues. */
 .go-review-route { display:flex; align-items:center; gap:18px; margin-bottom:32px; }
@@ -104,11 +112,27 @@
 .go-review .conversion-button svg { flex-shrink:0; }
 @media (min-width:601px) and (max-width:1199px) { .go-review-phone { display:none; } }
 @media (max-width:600px) {
-  .go-review-route { margin-bottom:24px; }
+  .go-review-hero { padding: 20px 0 32px; }
+  .go-review-grid { gap: 20px; }
+  .go-review-route { margin-bottom:14px; gap:12px; }
+  .go-review-tile { width:44px; height:44px; border-radius:13px; }
+  .go-review-tile img { width:30px; height:30px; }
+  .go-review-route-arrow { font-size:20px; }
+  .go-review-eyebrow, .go-review-description { display:none; }
+  .go-review-title { margin:0; font-size:28px; }
+  .go-review-title span { display:inline; }
+  .go-review-transfer { margin-top:14px; padding:10px 14px; }
+  .go-review-transfer-note { font-size:12px; }
+  .go-review-actions { margin-top:14px; }
+  .conversion-button.go-review-continue { min-height:52px; }
+  .go-review-partner { padding-top:20px; }
+  .go-review-kicker { margin-bottom:8px; }
+  .go-review-gain { margin-bottom:10px; padding:10px 14px; font-size:13.5px; }
+  .go-review-extras { margin-top:0; align-items:stretch; }
   .go-review-actions { gap:8px; }
   .go-review-back { justify-content:center; width:100%; }
   .go-review-trust { gap:10px; flex-direction:column; }
-  .go-review-partner { padding-top:24px; border-top:1px solid var(--color-outline); }
+  .go-review-partner { border-top:1px solid var(--color-outline); }
   .go-review-transfer { display:flex; padding:14px; }
   .go-review-transfer-line { font-size:16px; }
 }

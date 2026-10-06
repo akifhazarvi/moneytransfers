@@ -100,6 +100,9 @@ export default async function GoReviewPage({ params, searchParams }: Props) {
     const value = one(key);
     if (value) beacon.set(key, value);
   }
+  // A link with no src (old /out links shared elsewhere, most AI-cited /go
+  // URLs) is labelled by its route, as the route's own events are.
+  if (!beacon.has("src")) beacon.set("src", `${via}_route`);
   const backHref = route ? `/send-money?from=${route.from}&to=${route.to}&amount=${route.amount}` : "/send-money";
 
   return (
@@ -152,14 +155,7 @@ export default async function GoReviewPage({ params, searchParams }: Props) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </ReviewContinue>
-                <Link href={backHref} className="go-review-back">Back to the comparison</Link>
               </div>
-
-              <ul className="go-review-trust">
-                <li>You finish on {name}’s own site</li>
-                <li>We never handle your money</li>
-                <li>Comparing is free</li>
-              </ul>
             </div>
 
             {partnerShown && (
@@ -173,6 +169,17 @@ export default async function GoReviewPage({ params, searchParams }: Props) {
                 <PartnerFeatureBlock source="go_review" variant="card" quote={partnerQuote} linkContext={route} />
               </div>
             )}
+
+            {/* After the partner on phones, so Continue and TapTap both open
+                on the first screen; under Continue on desktop (review.css). */}
+            <div className="go-review-extras">
+              <Link href={backHref} className="go-review-back">Back to the comparison</Link>
+              <ul className="go-review-trust">
+                <li>You finish on {name}’s own site</li>
+                <li>We never handle your money</li>
+                <li>Comparing is free</li>
+              </ul>
+            </div>
           </div>
         </Container>
       </section>
