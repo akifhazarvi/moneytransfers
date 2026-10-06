@@ -58,6 +58,16 @@ function dual(name: string, params?: EventParams) {
   // carry it here. Browser events are left as they were.
   const mode = displayMode();
   if (mode !== "browser" && cleaned.display_mode === undefined) cleaned.display_mode = mode;
+  // Vercel's track() calls window.va only if it exists, and <Analytics/>
+  // creates it in an effect that runs after the page's own (LazyAnalytics sits
+  // after {children} in the layout). An event fired on mount was dropped:
+  // go_review_shown reached GA4 on every review page and Vercel on none. Seed
+  // the same queue inject() would; the script replays it once it loads.
+  if (typeof window !== "undefined" && !window.va) {
+    window.va = (...params) => {
+      (window.vaq ??= []).push(params);
+    };
+  }
   try {
     vercelTrack(name, cleaned);
   } catch {
