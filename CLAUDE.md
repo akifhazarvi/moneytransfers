@@ -623,6 +623,12 @@ are in the scrapers' own comments — read them before "fixing" a parse.
     1,000 units is under $500 (AED 3,700). Keep 100 in every scraper's set:
     `aggregate-history.ts` keeps only the 100-unit row, so OFX (500/1,000) and
     SkyRemit (500+) are absent from history, leaders and the consistency index.
+15. **A provider with nowhere to go** — `getAffiliateUrl()` sends a slug with no
+    entry in `affiliateLinks` to our own `/send-money`. Until 2026-10-06, 32
+    scraped slugs did (LemFi on 90 routes), so the review page's "Continue to
+    LemFi" landed back on our comparison. Add the provider's own site (or an
+    alias to an existing entry) when a scraper starts quoting it; the Scrape
+    health step fails the run until you do.
 
 ### Shared Browser Utilities (`scripts/lib/browser.ts`)
 All Playwright scrapers import from this shared library: `setupBrowserContext`, `dismissOverlays`, `fillAmountInput`, `withRetry`, `delay`, `jitteredDelay`, `writeOutput`, `parseNumber`.

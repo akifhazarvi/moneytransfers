@@ -12,6 +12,8 @@
  *   error    zero rows where HEAD had some
  *   error    row count fell by more than half
  *   warning  row count fell by more than a quarter
+ *   error    a provider slug with no destination in src/lib/affiliate.ts — its
+ *            /go link would send the reader back to our own /send-money
  *
  * Writes a table to $GITHUB_STEP_SUMMARY, emits ::error/::warning annotations,
  * and exits 1 on any error. Workflows run it with continue-on-error *before*
@@ -22,6 +24,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { execFileSync } from "child_process";
+import { getAffiliateUrl } from "../src/lib/affiliate";
 
 const SCRAPED = "src/data/scraped";
 const files = process.argv.slice(2);
@@ -48,6 +51,21 @@ function headVersion(rel: string): string | null {
   }
 }
 
+// A slug with no entry in affiliate.ts falls back to our own /send-money, so
+// the review page's "Continue to <provider>" lands back on our comparison.
+// Until 2026-10-06, 32 scraped slugs did (LemFi on 90 routes). The data still
+// ships; the run fails so someone adds the destination.
+function slugsWithoutDestination(json: unknown): string[] {
+  const list = Array.isArray(json) ? json : (json as { quotes?: unknown } | null)?.quotes;
+  if (!Array.isArray(list)) return [];
+  const slugs = new Set<string>();
+  for (const r of list) {
+    const slug = (r as { providerSlug?: unknown } | null)?.providerSlug;
+    if (typeof slug === "string" && slug) slugs.add(slug);
+  }
+  return [...slugs].filter((s) => getAffiliateUrl(s).startsWith("https://sendmoneycompare.com")).sort();
+}
+
 type Level = "ok" | "warning" | "error";
 const rows: { file: string; before: number | null; after: number; level: Level; note: string }[] = [];
 
@@ -61,8 +79,11 @@ for (const file of files) {
     continue;
   }
   let after = 0;
+  let homeless: string[] = [];
   try {
-    after = countRows(JSON.parse(current));
+    const json = JSON.parse(current);
+    after = countRows(json);
+    homeless = slugsWithoutDestination(json);
   } catch {
     rows.push({ file, before: null, after: 0, level: "error", note: "not valid JSON" });
     continue;
@@ -84,6 +105,10 @@ for (const file of files) {
   } else if (before && after < before * 0.75) {
     level = "warning";
     note = `rows fell ${Math.round((1 - after / before) * 100)}%`;
+  }
+  if (homeless.length > 0) {
+    level = "error";
+    note = [note, `no destination in src/lib/affiliate.ts for ${homeless.join(", ")}`].filter(Boolean).join("; ");
   }
   rows.push({ file, before, after, level, note });
 }

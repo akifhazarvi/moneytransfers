@@ -82,6 +82,17 @@ const SLUG_ALIASES: Record<string, string> = {
   "chase-bank": "chase",
   "the-royal-bank-of-scotland": "rbs",
   "united-overseas-bank": "uob",
+  // Scraped slugs for banks that already have a destination below.
+  "chase-us": "chase",
+  "wells-fargo-expresssend": "wells-fargo",
+  "royal-bank-of-canada": "rbc",
+  pandaremit: "panda-remit",
+  "santander-uk": "santander",
+  "national-australia-bank": "nab",
+  "commonwealth-bank-of-australia": "commonwealth-bank",
+  "z-rcher-kantonalbank": "zkb",
+  "hsbc-singapore": "hsbc-sg",
+  "ing-germany": "ing-de",
 };
 
 const affiliateLinks: Record<string, string> = {
@@ -194,6 +205,39 @@ const affiliateLinks: Record<string, string> = {
   zkb: "https://www.zkb.ch/de/private/konten-karten/zahlungsverkehr/auslandzahlungen.html",
   "hsbc-hk": "https://www.hsbc.com.hk/transfer-payments/products/international/",
   "hsbc-sg": "https://www.hsbc.com.sg/accounts/products/global-money-transfers/",
+
+  // --- Scraped slugs that fell back to our own /send-money until 2026-10-06 ---
+  // Since the /go review page, that put "Continue to LemFi" back on our own
+  // comparison. No commercial deal with any of these; each is the provider's
+  // official site for the country its rows send from. Every one answered 200
+  // to a GET on 2026-10-06 except where noted.
+  lemfi: "https://lemfi.com/?ref=sendmoneycompare",
+  skyremit: "https://skyremit.cn/?ref=sendmoneycompare",
+  "currency-solutions": "https://www.currencysolutions.com/?ref=sendmoneycompare",
+  "hdfc-bank": "https://www.hdfc.bank.in/",
+  // maybank2u.com.my (the Malaysian retail site) refuses scripted clients; the
+  // group site links to it.
+  maybank: "https://www.maybank.com/",
+  migros: "https://www.migrosbank.ch/",
+  "hsbc-australia": "https://www.hsbc.com.au/",
+  "citibank-singapore": "https://www.citibank.com.sg/",
+  "bnp-paribas": "https://mabanque.bnpparibas/",
+  "la-banque-postale": "https://www.labanquepostale.fr/",
+  // rabobank.nl answers 403 to every script, headless Chromium included, and
+  // westpac.co.nz never answers one; both are the banks' own domains, unverified
+  // by tooling.
+  rabobank: "https://www.rabobank.nl/",
+  "westpac-nz": "https://www.westpac.co.nz/",
+  "abn-amro-bank": "https://www.abnamro.nl/",
+  unicredit: "https://www.unicredit.it/",
+  bbva: "https://www.bbva.es/",
+  lacaixa: "https://www.caixabank.es/",
+  sabadell: "https://www.bancsabadell.com/",
+  "ing-de": "https://www.ing.de/",
+  "hang-seng": "https://www.hangseng.com/",
+  "china-construction-bank-hk": "https://www.asia.ccb.com/",
+  "ocbc-wing-hang-bank": "https://www.ocbc.com.hk/",
+  "bank-of-east-asia": "https://www.hkbea.com/",
 };
 
 // UTM params appended to every destination URL so the provider's own
@@ -404,8 +448,8 @@ function buildWiseDeepLink(params: AffiliateParams): string {
 /**
  * A provider slug is valid for redirect IFF it's a non-empty, well-formed
  * slug. We deliberately do NOT require it to exist in `affiliateLinks`: many
- * legitimate slugs (e.g. `lemfi`, `sbi`) have no dedicated affiliate URL yet
- * and fall back to a generic destination — those are real clicks and must
+ * legitimate slugs (a provider a scraper starts quoting) have no destination yet
+ * and fall back to a generic one — those are real clicks and must
  * still redirect. The ONLY thing this rejects is the bare/garbage path (e.g.
  * a crawler hitting `/go/` with no slug), which otherwise fires an
  * affiliate_redirect GA event with provider="" and pollutes the report.
@@ -422,6 +466,9 @@ export function getAffiliateUrl(
   providerSlug = SLUG_ALIASES[providerSlug] ?? providerSlug;
   const url = affiliateLinks[providerSlug] || fallbackUrl;
   if (!url) {
+    // Our own comparison, so a slug with no entry above sends the reader back
+    // to us. The scrape health step (check-scrape-health.ts) fails the run
+    // when a scraped slug lands here.
     return "https://sendmoneycompare.com/send-money";
   }
 
