@@ -175,17 +175,23 @@ min (prebuild ~15s, `next build` ~67s, postbuild ~8s). Stop any dev server you
 start (`/private/tmp/*` previews ran for days at 4–6 GB each), and check
 `sysctl vm.swapusage` before blaming the code.
 
-## Live activity strip
+## Live activity toast
 
-A slim strip that shows one real thing at a time, rotating every 5 seconds
-(pause on hover, focus or its button): "Someone in Mexico chose InstaReM for
-USD → MXN · 2 min ago", "USD → INR: InstaReM pays ₹… for $1,000, top of 20
-quotes · updated 2 hours ago", "Readers' picks paid a median $31 more per
-$1,000 than banks". Its pill is the counter: "3 people here now" (last 5
-minutes, the reader included, so shown from 2), else "14 people in the last 6
-hours", else "Live". On every guide (after section 4, or the last in a short
-guide), the homepage, /send-money, corridor pages and the /guides, /compare
-and /exchange-rates hubs. `src/components/live-activity/`.
+One small card, site-wide, under the header: it slides in with one real thing,
+stays ~6 seconds (longer while hovered or focused), slides out, and the next
+comes 10–15 seconds later, so it never covers the page for long and needs no
+scrolling. "Someone in Mexico chose InstaReM for $1,000 · USD → MXN · 2 min
+ago" (provider logo with the reader's circular flag as a badge), "InstaReM
+pays ₹96,164 for $1,000 · top of 20 quotes", "Readers' picks paid a median
+$31 more per $1,000 than banks". Its top line is the counter: "Live · 3
+people here now" (last 5 minutes, the reader included, so from 2), else "Live
+· 14 people in the last 6 hours". Phones: full width under the header (the
+bottom is the Send bar's). Wide screens: bottom-left, lifted above whatever
+is docked there when it shows — forex ticker, Send bar, guide nudge, cookie
+banner (`.pwa-lift`, `[data-forex-ticker]`); the WhatsApp pill is
+bottom-right. Never over a focused field, a dialog or the welcome-back card;
+never on /go, /out, /privacy, /terms, /cookies; × hides it for the visit.
+Mounted once in the layout: `src/components/live-activity/`.
 
 - **First-party, live to the second.** `src/lib/live-activity-beacon.ts`
   (started by GA4PageviewTracker, fed by `trackCompareSearch`,
@@ -197,7 +203,9 @@ and /exchange-rates hubs. `src/components/live-activity/`.
   and the strip runs on the GA4 history alone, grey pill, "Recent activity".
 - **Only people count, and every item is real.** Nothing is sent until the
   page has been visible 3 seconds AND the reader scrolled, tapped or typed;
-  `navigator.webdriver` never sends (our e2e runs set it). The server takes
+  `navigator.webdriver` never sends (our e2e runs set it). Amounts come from
+  the comparison (`trackQuotesViewed`/`trackCompareSearch`); a choice carries
+  the amount last compared on its route. The server takes
   the country from Vercel, never the client; routes must be listed
   currencies, providers known and not hidden; one event per reader + action
   + route per 30 minutes, 20 per IP an hour; crawler UAs dropped. No cookie:
@@ -215,15 +223,20 @@ and /exchange-rates hubs. `src/components/live-activity/`.
   drops these lines 45 days past their window.
 - **Rendered in the browser** (`data-nosnippet`): the same sentences SSR'd on
   every guide and hub would raise each page's shared-text share (rule 3).
-- **Events:** `live_activity_shown` (`placement`), `live_activity_clicked`
-  (`placement`, `kind`: compared | chose | rate | savings | countries |
-  find_rate — the strip's "Find my rate" button, hidden on /send-money).
+- **Events:** `live_activity_shown` (`placement`, the first card of a page
+  view), `live_activity_clicked` (`placement`, `kind`: compared | chose | rate
+  | savings), `live_activity_dismissed` (`placement`).
 - **One live widget per page.** A site-wide "SiteSavingsBar" under the header
   (providers count, specialists-vs-banks %, a 5-minute "next rate check"
   countdown) was built in parallel on 2026-10-05 and not shipped: it pushed
   every page's content down, printed the same text on every page, and its
   countdown implied provider quotes refresh every 5 minutes (they refresh
-  every 6 hours). Its "Find my rate" button moved into this strip.
+  every 6 hours). An in-content strip version of this feature was replaced
+  by the toast on 2026-10-06: the owner wanted it visible without scrolling.
+  The same day the owner had the /send-money "ComparisonStatus" card removed
+  (big provider count, "Next rate check 4:55" countdown, Refresh button) and
+  the one-line results header restored: the same countdown theatre, on the
+  page whose Send buttons matter most.
 
 ## Installed app (PWA)
 

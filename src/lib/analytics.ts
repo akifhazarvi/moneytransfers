@@ -74,13 +74,13 @@ const corridor = (from: string, to: string) => `${from}-${to}`.toUpperCase();
 /** User submits the comparison widget */
 export function trackCompareSearch(from: string, to: string, amount: number) {
   dual("compare_search", { from, to, amount, corridor: corridor(from, to), display_mode: displayMode() });
-  sendActivity({ t: "compared", from, to });
+  sendActivity({ t: "compared", from, to, amount });
 }
 
 /** Quote results rendered with N providers */
-export function trackQuotesViewed(from: string, to: string, providerCount: number) {
+export function trackQuotesViewed(from: string, to: string, providerCount: number, amount?: number) {
   dual("quotes_viewed", { from, to, provider_count: providerCount, corridor: corridor(from, to), display_mode: displayMode() });
-  sendActivity({ t: "compared", from, to });
+  sendActivity({ t: "compared", from, to, amount });
 }
 
 /** User expands a provider card */
@@ -243,10 +243,10 @@ export function trackSeeAllProvidersHeader(slug: string, corridor: string) {
 }
 
 // ═════════════════════════════════════════════════════════════════
-// Live activity strip (src/components/live-activity/). `placement` names the
-// page family; shown is counted once per page view. `kind` is what was
-// clicked: a reader event ("compared", "chose"), a "rate" update, or the
-// 30-day "savings" / "countries" line.
+// Live activity toast (src/components/live-activity/). `placement` names the
+// page family; shown is counted once per page view (the first card). `kind`
+// is what was clicked: a reader event ("compared", "chose"), a "rate" update
+// or the 30-day "savings" line.
 // ═════════════════════════════════════════════════════════════════
 
 export function trackLiveActivityShown(placement: string) {
@@ -255,6 +255,11 @@ export function trackLiveActivityShown(placement: string) {
 
 export function trackLiveActivityClicked(placement: string, kind: string) {
   dual("live_activity_clicked", { placement, kind });
+}
+
+/** The × on a card: no more cards for the rest of the visit. */
+export function trackLiveActivityDismissed(placement: string) {
+  dual("live_activity_dismissed", { placement });
 }
 
 // ═════════════════════════════════════════════════════════════════

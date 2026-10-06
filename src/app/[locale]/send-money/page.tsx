@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
 import SendMoneyClient from "@/components/SendMoneyClient";
-import LiveActivity from "@/components/live-activity/LiveActivity";
 import { getCryptoRailSectionData } from "@/lib/crypto-rail-section";
 import CircleFlag from "@/components/CircleFlag";
 import { currencies, getProviderName } from "@/data/providers";
@@ -144,9 +143,6 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
 
       {/* Interactive client widget — replaces static table once JS loads */}
       <SendMoneyClient initialCryptoRails={getCryptoRailSectionData("USD", "INR", 1000)} />
-      <Container>
-        <LiveActivity placement="send-money" />
-      </Container>
       <Container className="py-6">
         <PageByline updated={quoteDataDate ?? new Date().toISOString().split("T")[0]} />
       </Container>

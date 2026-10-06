@@ -65,7 +65,9 @@ export interface StoredEvent {
   kind: "compared" | "chose";
   from?: string;
   to?: string;
+  amount?: number;
   provider?: string;
+  providerSlug?: string;
 }
 
 /** The reader is on the site now. */
@@ -84,7 +86,8 @@ export async function recordEvent(event: StoredEvent, visitor: string, ip: strin
   if (!activityStoreEnabled) return false;
   const hour = new Date(event.at).toISOString().slice(0, 13);
   const capKey = `la:cap:${hash(ip)}:${hour}`;
-  const dedupeKey = `la:d:${visitor}:${event.kind}:${event.from ?? ""}${event.to ?? ""}:${event.provider ?? ""}`;
+  // The amount is left out: retyping it is the same comparison.
+  const dedupeKey = `la:d:${visitor}:${event.kind}:${event.from ?? ""}${event.to ?? ""}:${event.providerSlug ?? ""}`;
   const [fresh, count] = await pipeline([
     ["SET", dedupeKey, "1", "NX", "EX", DEDUPE_SECONDS],
     ["INCR", capKey],

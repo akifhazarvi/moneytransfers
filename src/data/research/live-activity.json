@@ -8,7 +8,8 @@
    "kind": "chose",
    "from": "USD",
    "to": "MXN",
-   "provider": "InstaReM"
+   "provider": "InstaReM",
+   "providerSlug": "instarem"
   },
   {
    "at": 1791183600000,
@@ -33,7 +34,8 @@
    "kind": "chose",
    "from": "GBP",
    "to": "EUR",
-   "provider": "TorFX"
+   "provider": "TorFX",
+   "providerSlug": "torfx"
   },
   {
    "at": 1791172800000,
@@ -50,7 +52,8 @@
    "kind": "chose",
    "from": "USD",
    "to": "MYR",
-   "provider": "Wise"
+   "provider": "Wise",
+   "providerSlug": "wise"
   },
   {
    "at": 1791165600000,
@@ -67,7 +70,8 @@
    "kind": "chose",
    "from": "AUD",
    "to": "EUR",
-   "provider": "TorFX"
+   "provider": "TorFX",
+   "providerSlug": "torfx"
   }
  ]
 }

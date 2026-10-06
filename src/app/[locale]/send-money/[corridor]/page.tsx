@@ -2,7 +2,6 @@ import Link from "next/link";
 import { robotsFor, bingIndexable } from "@/lib/seo-indexing";
 import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
 import { quoteFreshness } from "@/lib/quote-freshness";
-import LiveActivity from "@/components/live-activity/LiveActivity";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -1856,10 +1855,6 @@ export default async function CorridorPage({ params }: Props) {
           />
         </Container>
       )}
-
-      <Container>
-        <LiveActivity placement="corridor" />
-      </Container>
 
       {/* ─── Editorial Intro — moved below the comparison table.
            Answer first, context second: the user came to compare; once they

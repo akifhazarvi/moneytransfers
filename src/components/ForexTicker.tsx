@@ -77,6 +77,7 @@ export default function ForexTicker() {
 
   return (
     <div
+      data-forex-ticker=""
       className="fixed left-0 right-0 z-50 border-t border-[var(--color-ticker-border)]"
       style={{
         bottom: 0,

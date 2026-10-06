@@ -1,5 +1,4 @@
 import InstallSlot from "@/components/pwa/InstallSlot";
-import LiveActivity from "@/components/live-activity/LiveActivity";
 import { notFound } from "next/navigation";
 import { guideIsIndexable } from "@/lib/guide-status";
 import Link from "next/link";
@@ -284,11 +283,6 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
-
-  // Mid-article, where readers still are: after the fourth section. Sections 1
-  // and 2 already carry the live quotes and the partner spotlight, so a short
-  // guide gets the strip after its last section instead.
-  const activityAfterSection = post.sections.length > 3 ? 3 : -1;
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
@@ -443,11 +437,8 @@ export default async function BlogPostPage({ params }: Props) {
                     linkContext={{ from: inlineQuoteCorridor.from, to: inlineQuoteCorridor.to, amount: inlineQuoteCorridor.amount }}
                   />
                 )}
-                {i === activityAfterSection && <LiveActivity placement="guide" />}
               </section>
             ))}
-
-            {activityAfterSection < 0 && <LiveActivity placement="guide" />}
 
             <InstallSlot placement="guide-after-reading" />
 

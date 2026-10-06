@@ -1,5 +1,6 @@
 import snapshot from "@/data/research/live-activity.json";
 import { activityStoreEnabled, readStore } from "@/lib/activity-store";
+import { hasProviderLogo, providerLogo } from "@/lib/provider-logo";
 
 /**
  * What readers are doing on the site, for the live activity strip
@@ -27,8 +28,13 @@ export interface ActivityItem {
   kind: ActivityKind;
   from?: string;
   to?: string;
+  /** Send amount, in `from`. */
+  amount?: number;
   /** Display name of the chosen provider. */
   provider?: string;
+  providerSlug?: string;
+  /** Logo path, set when we ship artwork for the provider (provider-logo.ts). */
+  logo?: string;
 }
 
 export interface LiveActivity {
@@ -44,8 +50,11 @@ export interface LiveActivity {
 const MAX_ITEMS = 40;
 const MAX_AGE_MS = 48 * 3_600_000;
 
+const withLogo = (i: ActivityItem): ActivityItem =>
+  i.providerSlug && hasProviderLogo(i.providerSlug) ? { ...i, logo: providerLogo(i.providerSlug) } : i;
+
 const recent = (items: ActivityItem[], now: number) =>
-  items.filter((i) => now - i.at <= MAX_AGE_MS && i.at <= now + 60_000).sort((a, b) => b.at - a.at).slice(0, MAX_ITEMS);
+  items.filter((i) => now - i.at <= MAX_AGE_MS && i.at <= now + 60_000).sort((a, b) => b.at - a.at).slice(0, MAX_ITEMS).map(withLogo);
 
 export async function getLiveActivity(now = Date.now()): Promise<LiveActivity> {
   const history = (snapshot as { items: ActivityItem[] }).items;

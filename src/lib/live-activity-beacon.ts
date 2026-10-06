@@ -16,7 +16,10 @@ const HEARTBEAT_MS = 60_000;
 /** Heartbeats stop after ten minutes on one page; the next page starts again. */
 const MAX_HEARTBEATS = 10;
 
-type Payload = { t: "seen" } | { t: "compared"; from: string; to: string } | { t: "chose"; provider: string; from?: string; to?: string };
+type Payload =
+  | { t: "seen" }
+  | { t: "compared"; from: string; to: string; amount?: number }
+  | { t: "chose"; provider: string; from?: string; to?: string; amount?: number };
 
 let interacted = false;
 let shownSince = 0;
@@ -24,6 +27,8 @@ let started = false;
 let beats = 0;
 let timer: ReturnType<typeof setTimeout> | null = null;
 const queue: Payload[] = [];
+/** The amount last compared on each route, so a choice can say how much. */
+const amounts = new Map<string, number>();
 
 const engaged = () => interacted && shownSince > 0 && Date.now() - shownSince >= ENGAGED_AFTER_MS;
 
@@ -87,10 +92,13 @@ export function startPresence() {
 /** A comparison or a choice. Held until the reader is engaged, then sent once. */
 export function sendActivity(payload: Exclude<Payload, { t: "seen" }>) {
   if (typeof window === "undefined" || navigator.webdriver) return;
+  const route = `${payload.from ?? ""}-${payload.to ?? ""}`;
+  if (payload.t === "compared" && payload.amount) amounts.set(route, payload.amount);
   // A click on Send is engagement by definition, and the page is about to go.
   if (payload.t === "chose") {
     interacted = true;
-    send(payload);
+    const amount = payload.amount ?? amounts.get(route);
+    send(amount ? { ...payload, amount } : payload);
     return;
   }
   if (queue.length < 5) queue.push(payload);

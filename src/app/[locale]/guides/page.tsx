@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck } from "lucide-react";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
-import LiveActivity from "@/components/live-activity/LiveActivity";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import ProviderCrossSell from "@/components/ProviderCrossSell";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
@@ -174,8 +173,6 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
             </div>
           </section>
         } />
-
-        <LiveActivity placement="guides-hub" />
 
         <ProviderCrossSell source="guides" exclude="taptap-send" placement="library" title="Put your next transfer in motion." />
 

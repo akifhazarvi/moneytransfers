@@ -1,48 +1,136 @@
-/* Live activity strip: one slim line (two on a phone), one item at a time.
-   Its height is fixed, so nothing below it moves when it fills in. */
+/* Live activity toast: one card every 10–15 seconds. Fixed, so it never moves
+   the page. Phones: full width under the header (the bottom is the Send bar's).
+   Wide screens: bottom-left, the corner live-activity cards live in, lifted
+   above whatever is docked there at that moment (--la-bottom, measured by the
+   component); the WhatsApp pill is bottom-right. */
 
-.strip {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
-  min-height: 96px;
-  margin: 28px 0;
-  padding: 10px 12px 10px 14px;
-  border: 1px solid var(--color-outline);
-  border-radius: 16px;
-  background: var(--color-surface);
-  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.08);
+.toast {
+  position: fixed;
+  z-index: 45;
+  top: calc(var(--pwa-header-height, 64px) + 10px);
+  left: 12px;
+  right: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-12px) scale(0.98);
+  transition: opacity 260ms ease, transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
   font-family: var(--font-sans), sans-serif;
-  overflow: hidden;
 }
 
 @media (min-width: 640px) {
-  .strip {
-    flex-wrap: nowrap;
-    min-height: 56px;
-    padding: 8px 10px 8px 12px;
+  .toast {
+    top: auto;
+    right: auto;
+    bottom: var(--la-bottom, 56px);
+    left: 16px;
+    width: 380px;
+    transform: translateY(12px) scale(0.98);
   }
 }
 
-.pill {
+.toast[data-open] {
+  pointer-events: auto;
+  opacity: 1;
+  transform: none;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 40px 12px 12px;
+  border: 1px solid var(--color-outline);
+  border-radius: 18px;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  box-shadow: 0 10px 30px -12px rgba(32, 33, 36, 0.35), 0 2px 6px rgba(32, 33, 36, 0.08);
+  text-decoration: none;
+}
+
+.card:hover .text {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.avatar {
+  position: relative;
   display: inline-flex;
   flex: none;
   align-items: center;
-  gap: 7px;
-  padding: 4px 10px 4px 8px;
-  border-radius: 999px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.avatarFlag {
+  width: 44px;
+  height: 44px;
+}
+
+.avatarLogo {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--color-outline);
+}
+
+.avatarLogo > img:first-child {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.avatarIcon {
   background: var(--tile-mint-bg);
   color: var(--tile-mint-ink);
-  font-size: 12px;
+}
+
+.badge {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  width: 18px;
+  height: 18px;
+  box-shadow: 0 0 0 2px var(--color-surface);
+}
+
+.flag {
+  display: inline-block;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
   font-weight: 700;
-  white-space: nowrap;
+  letter-spacing: 0.02em;
+  color: var(--tile-mint-ink);
+}
+
+.counterQuiet {
+  color: var(--color-on-surface-variant);
 }
 
 .dot {
   position: relative;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #22c55e;
 }
@@ -56,162 +144,57 @@
   animation: la-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-/* A saved snapshot, not a live read: no pulse, no green. */
-.pillQuiet {
-  background: var(--color-surface-dim);
-  color: var(--color-on-surface-variant);
-}
-
-.pillQuiet .dot {
+.counterQuiet .dot {
   background: var(--color-on-surface-variant);
 }
 
-.pillQuiet .dot::after {
+.counterQuiet .dot::after {
   display: none;
 }
 
-.message {
-  display: flex;
-  flex: 1 1 100%;
-  order: 3;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  color: var(--color-on-surface);
-  font-size: 14px;
-  line-height: 1.35;
-  text-decoration: none;
-  /* Two lines held on a phone, so a one-line item doesn't shrink the strip. */
-  min-height: 2.7em;
-  animation: la-in 380ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-
-@media (min-width: 640px) {
-  .message {
-    flex: 1 1 auto;
-    order: 0;
-    min-height: 0;
-  }
-}
-
-.message:hover .text {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.message:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
-.messageStill {
-  animation-name: la-fade;
-}
-
 .text {
-  flex: 1 1 auto;
-  min-width: 0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
   overflow: hidden;
-}
-
-@media (min-width: 640px) {
-  .text {
-    display: block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
+  font-size: 14px;
+  line-height: 1.35;
 }
 
 .text strong {
-  font-weight: 600;
+  font-weight: 650;
 }
 
-.when {
-  flex: none;
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 4px;
   font-size: 12px;
   color: var(--color-on-surface-variant);
-  white-space: nowrap;
 }
 
-.flag {
-  flex: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
+.route {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.route .flag {
   box-shadow: 0 0 0 1px var(--color-outline);
 }
 
-.stack {
-  display: inline-flex;
-  flex: none;
-}
-
-.stack .flag + .flag {
-  margin-left: -7px;
-}
-
-.icon {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--tile-mint-bg);
-  color: var(--tile-mint-ink);
-}
-
-/* The one action the strip offers; on a phone it sits beside the pill. */
-.cta {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  gap: 4px;
-  min-height: 32px;
-  margin-left: auto;
-  padding: 0 12px;
-  border-radius: 999px;
-  background: var(--color-primary);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.cta:hover {
-  filter: brightness(1.08);
-}
-
-.cta:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-@media (min-width: 640px) {
-  .cta {
-    margin-left: 0;
-  }
-}
-
-.cta + .pause {
-  margin-left: 0;
-}
-
-.pause {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  margin-left: auto;
+.close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
   border: 0;
   border-radius: 50%;
   background: transparent;
@@ -219,19 +202,14 @@
   cursor: pointer;
 }
 
-@media (min-width: 640px) {
-  .pause {
-    margin-left: 0;
-  }
-}
-
-.pause:hover {
+.close:hover {
   background: var(--color-surface-dim);
+  color: var(--color-on-surface);
 }
 
-.pause:focus-visible {
+.close:focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline-offset: 1px;
 }
 
 @keyframes la-ping {
@@ -242,27 +220,12 @@
   }
 }
 
-@keyframes la-in {
-  from {
-    opacity: 0;
-    transform: translateY(70%);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes la-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
+  .toast {
+    transform: none;
+    transition: opacity 200ms linear;
+  }
+
   .dot::after {
     display: none;
   }

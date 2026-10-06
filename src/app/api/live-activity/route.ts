@@ -16,7 +16,8 @@ import providerNames from "@/data/provider-names.json";
  * POST: a beacon from src/lib/live-activity-beacon.ts — "seen" (the reader is
  * on the site) or a comparison / choice. Whatever arrives here can appear on
  * every page, so it is checked before it is kept: same-origin only, crawlers
- * dropped, routes must be currencies we list, providers must be ones we know
+ * dropped, routes must be currencies we list, amounts 1–1,000,000 of the
+ * route's currency, providers must be ones we know
  * and do not hide (a choice without one is dropped), the country is Vercel's
  * (never the client's), one event
  * per reader, action and route per 30 minutes, 20 per IP an hour.
@@ -44,7 +45,7 @@ export async function POST(request: Request) {
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "";
   if (!ip || !checkRateLimit(`la:${ip}`).allowed) return accepted();
 
-  let body: { t?: unknown; from?: unknown; to?: unknown; provider?: unknown };
+  let body: { t?: unknown; from?: unknown; to?: unknown; amount?: unknown; provider?: unknown };
   try {
     body = JSON.parse((await request.text()).slice(0, 500));
   } catch {
@@ -66,8 +67,16 @@ export async function POST(request: Request) {
       const provider = body.t === "chose" && KNOWN_PROVIDERS.has(slug) && !HIDDEN_PROVIDER_SLUGS.has(slug) ? getProviderName(slug) : undefined;
       // A comparison names its route; a choice names a provider we know.
       if (body.t === "compared" ? !("from" in route) : !provider) return accepted();
+      // An amount only with its currency, and only one a person might send.
+      const amount = "from" in route && typeof body.amount === "number" && body.amount >= 1 && body.amount <= 1_000_000
+        ? Math.round(body.amount * 100) / 100
+        : undefined;
       await recordPresence(visitor, now);
-      await recordEvent({ at: now, country, kind: body.t, ...route, ...(provider ? { provider } : {}) }, visitor, ip);
+      await recordEvent(
+        { at: now, country, kind: body.t, ...route, ...(amount ? { amount } : {}), ...(provider ? { provider, providerSlug: slug } : {}) },
+        visitor,
+        ip,
+      );
     }
   } catch {
     // A beacon never fails the page; a store hiccup loses one event.
