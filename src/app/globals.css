@@ -87,7 +87,7 @@
   /* ─── Text Colors (warm near-black ink — editorial, restrained) ─── */
   --color-on-surface:         #1A1916;   /* Warm near-black ink */
   --color-on-surface-variant: #57544E;   /* Warm grey */
-  --color-on-surface-muted:   #837F77;   /* Warm muted grey — 4.5:1 on canvas (AA) */
+  --color-on-surface-muted:   #6B6760;   /* Warm muted grey — WCAG AA: 4.98:1 on canvas, 5.62:1 on white, 4.68:1 on container */
   --color-outline:            #E5E3DE;   /* Soft warm border */
 
   /* ─── Surfaces — warm-grey canvas, pure-white floating cards ─── */
@@ -209,7 +209,7 @@
   /* Text — soft, faint cool cast */
   --color-on-surface:         #ECEEF2;   /* off-white */
   --color-on-surface-variant: #A2A8B4;   /* cool mid-grey */
-  --color-on-surface-muted:   #767D8A;   /* muted slate — 4.5:1 on #0B0C0E (AA) */
+  --color-on-surface-muted:   #7C838F;   /* muted slate — WCAG AA: 5.13:1 on surface, 4.65:1 on container, 5.28:1 on footer */
   --color-outline:            #23262E;   /* subtle cool border */
 
   /* Surfaces — near-black with a faint cool cast, layered like the product UI */
