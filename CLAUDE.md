@@ -230,6 +230,27 @@ The site installs as an app on Android, iOS, macOS, Windows and ChromeOS.
   Tests block third-party tags, so runs never reach GA4, Clarity or Vercel
   Analytics.
 
+## Welcome back (returning visitors)
+
+A return visit (30 min without activity) opens with the visitor's last
+comparison: "Still sending money to Pakistan?", 1,300 USD → today's top payout,
+and how it moved since they looked. `src/lib/last-search.ts` holds the rules;
+`WelcomeBackManager` (layout) decides, `WelcomeBackCard` (lazy) renders.
+
+- **What is remembered** (localStorage `smc_last_search`, never sent): a pair the
+  visitor *chose* — /send-money reached with URL params or edited, the homepage
+  converter edited — never a geo default. A corridor page read (`RememberCorridor`)
+  is a weaker `page` record that never replaces a live search.
+- **The payout change** compares like with like: only /send-money records the
+  top quote (live-rate basis, as the card prices); other sources omit it.
+- **When**: first page of a return visit only, after consent, never over a
+  dialog, a focused field or the install banner (PwaManager yields to it too),
+  never on a page already showing the pair (`data-smc-corridor`). Fixed under the
+  header — the bottom is StickyBestCTA's. × or "New search" closes it for good;
+  3 unanswered visits or 60 days retire it; a new search re-arms it.
+- **Events**: `welcome_back_shown` (`kind`, `days_since`, `change`),
+  `welcome_back_clicked` (`action`: compare | new_search), `welcome_back_dismissed`.
+
 ## Data Flow
 
 1. **Scrapers** (GitHub Actions, every 6hrs) collect quotes from provider APIs and websites
@@ -274,8 +295,23 @@ Use design tokens via `var(--color-*)` in Tailwind arbitrary values, e.g. `text-
 | `/compare/[slug]` | `/compare/wise-vs-remitly` | Head-to-head comparison |
 | `/send-money/[corridor]` | `/send-money/usa-to-india` | Corridor landing page |
 | `/guides/[slug]` | `/guides/how-to-send-money-abroad` | Guide article |
-| `/go/[provider]` | `/go/wise` | Affiliate redirect |
-| `/out/[provider]` | `/out/wise` | Affiliate redirect (alt) |
+| `/go/[provider]` | `/go/wise` | Affiliate redirect — TapTap direct, every other provider via the review page |
+| `/go/[provider]/review` | `/go/wise/review?from=…` | The stop before a non-TapTap provider: Continue, TapTap cross-sell, app, WhatsApp |
+| `/out/[provider]` | `/out/wise` | Affiliate redirect (alt), same rules |
+
+**The review page (owner decision 2026-10-05).** A click to any provider but
+TapTap Send lands on `/go/<provider>/review` (the route 302s there with the whole
+query; `decideRedirect` in `redirect-decision.ts`). Its Continue goes back
+through the route with `?continue=1`, which forwards. It is a real page in the
+layout, rendered per request, noindex, under /go so robots.txt and the worker's
+bypass already cover it. Keep "Continue to <provider>" the first, obvious
+action: TapTap is offered beside the visitor's pick, never in place of it, and
+only with the quote the comparison ranks (`partnerQuoteFrom`). Events: page
+`go_review_shown` (`partner`, `origin`) + server `interstitial_impression`;
+Continue `go_review_continue` + server `interstitial_continue`; each offer
+counts its own view with source/placement `go_review` — TapTap card
+`provider_cross_sell_viewed`, WhatsApp `whatsapp_cta_viewed`, app card
+`pwa_install_prompt_shown`.
 
 ## Component Patterns
 
