@@ -20,10 +20,20 @@ const inter = Inter({
 // Display serif — the Wealthsimple-style confident headline face. Loaded
 // globally (single 400 weight, ~small woff2) so `--font-display` headings are
 // consistent on every route, not just /exchange-rates. Falls back to Georgia.
+//
+// preload:false — the homepage LCP is the sans <h1> (Inter), and the serif is
+// never above the fold there, yet next/font preloads every declared face by
+// default. That second high-priority font preload competed with the LCP-critical
+// Inter woff2 and the render-blocking CSS, inflating the hero title's render
+// delay (~3 s in PageSpeed). With preload off the serif still loads on demand via
+// @font-face, and display:swap paints the metric-matched Georgia fallback first
+// on the few routes where it is above the fold — so no LCP is delayed, only a
+// brief, shift-free swap remains.
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
+  preload: false,
   variable: "--font-instrument-serif",
   fallback: ["Georgia", "Times New Roman", "serif"],
 });
