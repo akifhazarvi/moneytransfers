@@ -2426,16 +2426,16 @@
     "date": "2026-10-06",
     "providers": {
       "lemfi": {
-        "rate": 58.6,
+        "rate": 58.76,
         "fee": 0,
-        "markup": 0.31,
-        "receiveAmount": 5860
+        "markup": 0.33,
+        "receiveAmount": 5876
       },
       "taptap-send": {
-        "rate": 58.5,
+        "rate": 58.78,
         "fee": 0,
-        "markup": 0.46,
-        "receiveAmount": 5850
+        "markup": -0.02,
+        "receiveAmount": 5878
       }
     }
   }

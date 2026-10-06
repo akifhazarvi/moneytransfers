@@ -15072,7 +15072,7 @@
       "lemfi": {
         "rate": 137.8,
         "fee": 0,
-        "markup": 0.05,
+        "markup": 0.35,
         "receiveAmount": 13780
       },
       "moneygram": {
@@ -15088,10 +15088,10 @@
         "receiveAmount": 13725
       },
       "western-union": {
-        "rate": 132.165,
+        "rate": 132.667,
         "fee": 0.99,
-        "markup": 4.19,
-        "receiveAmount": 13085.68
+        "markup": 3.83,
+        "receiveAmount": 13135.32
       },
       "dahabshiil": {
         "rate": 136.458,
@@ -15106,10 +15106,10 @@
         "receiveAmount": 13207.83
       },
       "instarem": {
-        "rate": 137.057,
+        "rate": 136.949,
         "fee": 0,
-        "markup": 0.65,
-        "receiveAmount": 13705.66
+        "markup": 0.73,
+        "receiveAmount": 13694.86
       },
       "xe": {
         "rate": 137.243,
@@ -15130,10 +15130,10 @@
         "receiveAmount": 13609.59
       },
       "remitly": {
-        "rate": 137.19,
+        "rate": 137.8,
         "fee": 0.99,
-        "markup": 0.55,
-        "receiveAmount": 13583.18
+        "markup": 0.11,
+        "receiveAmount": 13643.58
       },
       "revolut": {
         "rate": 138.06,
@@ -15142,10 +15142,10 @@
         "receiveAmount": 13488.49
       },
       "wise": {
-        "rate": 138.06,
+        "rate": 138.447,
         "fee": 3.14,
-        "markup": -0.08,
-        "receiveAmount": 13372.49
+        "markup": -0.36,
+        "receiveAmount": 13409.98
       },
       "ria": {
         "rate": 137.31,
@@ -15154,16 +15154,16 @@
         "receiveAmount": 13731
       },
       "skrill": {
-        "rate": 131.157,
+        "rate": 131.663,
         "fee": 0,
-        "markup": 4.93,
-        "receiveAmount": 13115.69
+        "markup": 4.56,
+        "receiveAmount": 13166.29
       },
       "xoom": {
-        "rate": 134.746,
+        "rate": 135.254,
         "fee": 2.99,
-        "markup": 2.32,
-        "receiveAmount": 13071.71
+        "markup": 1.96,
+        "receiveAmount": 13120.96
       }
     }
   }

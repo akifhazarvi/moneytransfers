@@ -6351,22 +6351,22 @@
     "date": "2026-10-06",
     "providers": {
       "western-union": {
-        "rate": 26.2453,
+        "rate": 26.2457,
         "fee": 0,
         "markup": -0.05,
-        "receiveAmount": 2624.53
+        "receiveAmount": 2624.57
       },
       "e-and-money": {
-        "rate": 26.2188,
+        "rate": 26.2364,
         "fee": 15.75,
-        "markup": 0.05,
-        "receiveAmount": 2208.93
+        "markup": -0.01,
+        "receiveAmount": 2210.42
       },
       "al-ansari-exchange": {
-        "rate": 26.1506,
+        "rate": 26.178,
         "fee": 18.57,
-        "markup": 0.31,
-        "receiveAmount": 2129.45
+        "markup": 0.21,
+        "receiveAmount": 2131.68
       },
       "currencyfair": {
         "rate": 26.0516,

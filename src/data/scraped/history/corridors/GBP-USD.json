@@ -22150,10 +22150,10 @@
     "date": "2026-10-06",
     "providers": {
       "lemfi": {
-        "rate": 1.312,
+        "rate": 1.318,
         "fee": 0,
-        "markup": 0.71,
-        "receiveAmount": 131.2
+        "markup": 0.77,
+        "receiveAmount": 131.8
       },
       "taptap-send": {
         "rate": 1.31,
@@ -22162,106 +22162,106 @@
         "receiveAmount": 131
       },
       "skrill": {
-        "rate": 1.25836,
+        "rate": 1.264,
         "fee": 0,
-        "markup": 4.81,
-        "receiveAmount": 125.84
+        "markup": 4.39,
+        "receiveAmount": 126.4
       },
       "instarem": {
-        "rate": 1.31315,
+        "rate": 1.3193,
         "fee": 0,
-        "markup": 0.67,
-        "receiveAmount": 131.32
+        "markup": 0.2,
+        "receiveAmount": 131.93
       },
       "lloyds": {
-        "rate": 1.27164,
+        "rate": 1.27747,
         "fee": 9.5,
-        "markup": 3.81,
-        "receiveAmount": 115.08
+        "markup": 3.37,
+        "receiveAmount": 115.61
       },
       "worldremit": {
-        "rate": 1.30408,
+        "rate": 1.31005,
         "fee": 1.99,
-        "markup": 1.35,
-        "receiveAmount": 127.81
+        "markup": 0.9,
+        "receiveAmount": 128.4
       },
       "moneygram": {
-        "rate": 1.30751,
+        "rate": 1.3105,
         "fee": 0,
-        "markup": 1.09,
-        "receiveAmount": 130.75
+        "markup": 0.87,
+        "receiveAmount": 131.05
       },
       "remitly": {
-        "rate": 1.29935,
+        "rate": 1.3052,
         "fee": 1.99,
-        "markup": 1.71,
-        "receiveAmount": 127.35
+        "markup": 1.27,
+        "receiveAmount": 127.92
       },
       "rbs": {
-        "rate": 1.29109,
+        "rate": 1.29646,
         "fee": 0,
-        "markup": 2.34,
-        "receiveAmount": 129.11
+        "markup": 1.93,
+        "receiveAmount": 129.65
       },
       "xoom": {
-        "rate": 1.24544,
+        "rate": 1.24783,
         "fee": 1.99,
-        "markup": 5.79,
-        "receiveAmount": 122.07
+        "markup": 5.61,
+        "receiveAmount": 122.3
       },
       "paypal": {
-        "rate": 1.26563,
+        "rate": 1.26578,
         "fee": 2.99,
-        "markup": 4.26,
-        "receiveAmount": 122.78
+        "markup": 4.25,
+        "receiveAmount": 122.79
       },
       "barclays": {
-        "rate": 1.28375,
+        "rate": 1.29171,
         "fee": 0,
-        "markup": 2.89,
-        "receiveAmount": 128.38
+        "markup": 2.29,
+        "receiveAmount": 129.17
       },
       "hsbc": {
-        "rate": 1.31102,
+        "rate": 1.31702,
         "fee": 0,
-        "markup": 0.83,
-        "receiveAmount": 131.1
+        "markup": 0.38,
+        "receiveAmount": 131.7
       },
       "nationwide": {
-        "rate": 1.28759,
+        "rate": 1.30054,
         "fee": 15,
-        "markup": 2.6,
-        "receiveAmount": 109.44
+        "markup": 1.62,
+        "receiveAmount": 110.55
       },
       "santander": {
-        "rate": 1.27715,
+        "rate": 1.28271,
         "fee": 25,
-        "markup": 3.39,
-        "receiveAmount": 95.79
+        "markup": 2.97,
+        "receiveAmount": 96.2
       },
       "western-union": {
-        "rate": 1.28885,
+        "rate": 1.291,
         "fee": 2.49,
-        "markup": 2.51,
-        "receiveAmount": 125.68
+        "markup": 2.34,
+        "receiveAmount": 125.89
       },
       "natwest": {
-        "rate": 1.29109,
+        "rate": 1.29646,
         "fee": 0,
-        "markup": 2.34,
-        "receiveAmount": 129.11
+        "markup": 1.93,
+        "receiveAmount": 129.65
       },
       "monese": {
-        "rate": 1.32125,
+        "rate": 1.3276,
         "fee": 3,
-        "markup": 0.06,
-        "receiveAmount": 128.16
+        "markup": -0.42,
+        "receiveAmount": 128.78
       },
       "halifax": {
-        "rate": 1.26918,
+        "rate": 1.27499,
         "fee": 9.5,
-        "markup": 3.99,
-        "receiveAmount": 114.86
+        "markup": 3.55,
+        "receiveAmount": 115.39
       }
     }
   }
