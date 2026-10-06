@@ -20145,16 +20145,16 @@
     "date": "2026-10-06",
     "providers": {
       "instarem": {
-        "rate": 67.34,
+        "rate": 67.299,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 6734
+        "receiveAmount": 6729.9
       },
       "lemfi": {
-        "rate": 67.36,
+        "rate": 67.3,
         "fee": 0,
-        "markup": -0.07,
-        "receiveAmount": 6736
+        "markup": -0.02,
+        "receiveAmount": 6730
       },
       "moneygram": {
         "rate": 66.8976,
@@ -20169,10 +20169,10 @@
         "receiveAmount": 6523.4
       },
       "western-union": {
-        "rate": 66.6278,
+        "rate": 66.7275,
         "fee": 1.99,
-        "markup": 0.76,
-        "receiveAmount": 6530.19
+        "markup": 0.61,
+        "receiveAmount": 6539.96
       },
       "currencyfair": {
         "rate": 66.6935,
@@ -20211,10 +20211,10 @@
         "receiveAmount": 6581.37
       },
       "hsbc": {
-        "rate": 65.4968,
+        "rate": 65.5343,
         "fee": 0,
-        "markup": 2.44,
-        "receiveAmount": 6549.68
+        "markup": 2.39,
+        "receiveAmount": 6553.43
       },
       "xoom": {
         "rate": 67.6817,
@@ -20223,28 +20223,34 @@
         "receiveAmount": 6768.17
       },
       "nab": {
-        "rate": 65.5301,
+        "rate": 65.4406,
         "fee": 0,
-        "markup": 2.39,
-        "receiveAmount": 6553.01
+        "markup": 2.53,
+        "receiveAmount": 6544.06
       },
       "commonwealth-bank": {
-        "rate": 65.4777,
+        "rate": 65.5717,
         "fee": 0,
-        "markup": 2.47,
-        "receiveAmount": 6547.77
+        "markup": 2.33,
+        "receiveAmount": 6557.17
       },
       "anz": {
-        "rate": 64.7735,
+        "rate": 64.8365,
         "fee": 0,
-        "markup": 3.52,
-        "receiveAmount": 6477.35
+        "markup": 3.43,
+        "receiveAmount": 6483.65
       },
       "wise": {
-        "rate": 67.3023,
+        "rate": 67.2807,
         "fee": 1.38,
-        "markup": -0.25,
-        "receiveAmount": 6637.35
+        "markup": -0.22,
+        "receiveAmount": 6635.22
+      },
+      "westpac": {
+        "rate": 64.7248,
+        "fee": 0,
+        "markup": 3.59,
+        "receiveAmount": 6472.48
       }
     }
   }

@@ -24345,16 +24345,16 @@
     "date": "2026-10-06",
     "providers": {
       "instarem": {
-        "rate": 366.204,
+        "rate": 366.056,
         "fee": 0,
         "markup": 0.35,
-        "receiveAmount": 36620.45
+        "receiveAmount": 36605.56
       },
       "moneygram": {
-        "rate": 366.765,
+        "rate": 366.723,
         "fee": 0.99,
-        "markup": -0.18,
-        "receiveAmount": 36313.37
+        "markup": -0.16,
+        "receiveAmount": 36309.23
       },
       "hsbc": {
         "rate": 353.368,
@@ -24393,10 +24393,10 @@
         "receiveAmount": 36599.4
       },
       "worldremit": {
-        "rate": 366.952,
+        "rate": 367.134,
         "fee": 0,
-        "markup": -0.23,
-        "receiveAmount": 36695.16
+        "markup": -0.28,
+        "receiveAmount": 36713.41
       },
       "xe": {
         "rate": 363.866,
@@ -24423,10 +24423,10 @@
         "receiveAmount": 36030.57
       },
       "remitly": {
-        "rate": 365.98,
+        "rate": 365.87,
         "fee": 2.99,
-        "markup": 0.04,
-        "receiveAmount": 35503.72
+        "markup": 0.07,
+        "receiveAmount": 35493.05
       },
       "revolut": {
         "rate": 365.109,
@@ -24441,28 +24441,28 @@
         "receiveAmount": 36072.4
       },
       "nationwide": {
-        "rate": 358.314,
+        "rate": 358.828,
         "fee": 15,
-        "markup": 2.13,
-        "receiveAmount": 30456.69
+        "markup": 1.99,
+        "receiveAmount": 30500.4
       },
       "xoom": {
-        "rate": 359.619,
+        "rate": 359.578,
         "fee": 0,
-        "markup": 1.78,
-        "receiveAmount": 35961.87
+        "markup": 1.79,
+        "receiveAmount": 35957.77
       },
       "skrill": {
-        "rate": 350.343,
+        "rate": 350.39,
         "fee": 0,
-        "markup": 4.31,
-        "receiveAmount": 35034.31
+        "markup": 4.3,
+        "receiveAmount": 35038.96
       },
       "wise": {
-        "rate": 367.943,
+        "rate": 367.652,
         "fee": 1.33,
-        "markup": -0.5,
-        "receiveAmount": 36304.94
+        "markup": -0.42,
+        "receiveAmount": 36276.22
       }
     }
   }

@@ -7987,34 +7987,34 @@
     "date": "2026-10-06",
     "providers": {
       "paypal": {
-        "rate": 1.02489,
+        "rate": 1.02398,
         "fee": 2.49,
-        "markup": 4.43,
-        "receiveAmount": 99.94
+        "markup": 4.51,
+        "receiveAmount": 99.85
       },
       "migros": {
-        "rate": 1.05129,
+        "rate": 1.05052,
         "fee": 0.3,
-        "markup": 1.96,
-        "receiveAmount": 104.81
+        "markup": 2.04,
+        "receiveAmount": 104.74
       },
       "western-union": {
-        "rate": 1.00701,
+        "rate": 1.00626,
         "fee": 2.99,
-        "markup": 6.09,
-        "receiveAmount": 97.69
+        "markup": 6.16,
+        "receiveAmount": 97.62
       },
       "zkb": {
-        "rate": 1.05552,
+        "rate": 1.05395,
         "fee": 0,
-        "markup": 1.57,
-        "receiveAmount": 105.55
+        "markup": 1.72,
+        "receiveAmount": 105.39
       },
       "wise": {
-        "rate": 1.06855,
+        "rate": 1.06746,
         "fee": 1.44,
-        "markup": 0.36,
-        "receiveAmount": 105.32
+        "markup": 0.46,
+        "receiveAmount": 105.21
       }
     }
   }
