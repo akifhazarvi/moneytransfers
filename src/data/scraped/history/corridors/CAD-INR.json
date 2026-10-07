@@ -18878,22 +18878,22 @@
         "receiveAmount": 6642.63
       },
       "dahabshiil": {
-        "rate": 66.836,
+        "rate": 67.1806,
         "fee": 2.99,
-        "markup": 1.06,
-        "receiveAmount": 6483.76
+        "markup": 1.28,
+        "receiveAmount": 6517.19
       },
       "paysend": {
-        "rate": 67.3778,
+        "rate": 67.8238,
         "fee": 0,
-        "markup": 0.25,
-        "receiveAmount": 6737.78
+        "markup": 0.33,
+        "receiveAmount": 6782.38
       },
       "koho": {
-        "rate": 67.5454,
+        "rate": 68.0211,
         "fee": 1.26,
-        "markup": 0.01,
-        "receiveAmount": 6669.43
+        "markup": 0.04,
+        "receiveAmount": 6716.4
       },
       "remitly": {
         "rate": 67.55,
@@ -18902,10 +18902,10 @@
         "receiveAmount": 6620.58
       },
       "ria": {
-        "rate": 67.1135,
+        "rate": 67.4255,
         "fee": 1.9,
-        "markup": 1.11,
-        "receiveAmount": 6583.83
+        "markup": 0.65,
+        "receiveAmount": 6614.44
       },
       "taptap-send": {
         "rate": 68,
@@ -18942,6 +18942,12 @@
         "fee": 2.57,
         "markup": 0.02,
         "receiveAmount": 6610.36
+      },
+      "moneygram": {
+        "rate": 67.1818,
+        "fee": 3.99,
+        "markup": 1.27,
+        "receiveAmount": 6450.12
       }
     }
   }

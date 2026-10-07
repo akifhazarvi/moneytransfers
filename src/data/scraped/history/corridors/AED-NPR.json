@@ -4409,7 +4409,7 @@
       "paysend": {
         "rate": 40.9269,
         "fee": 9,
-        "markup": 2.61,
+        "markup": 2.99,
         "receiveAmount": 3724.35
       },
       "remitly": {
@@ -4423,6 +4423,12 @@
         "fee": 0,
         "markup": 0.42,
         "receiveAmount": 4190
+      },
+      "skrill": {
+        "rate": 40.0995,
+        "fee": 0,
+        "markup": 4.95,
+        "receiveAmount": 4009.95
       }
     }
   }
