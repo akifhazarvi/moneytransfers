@@ -166,7 +166,7 @@ export default function FxMarkupChecker({
               </p>
 
               <a
-                href={`/send-money?from=${from}&to=${to}&amount=${amount}`}
+                href={`/send-money#from=${from}&to=${to}&amount=${amount}`}
                 onClick={() => trackToolCTA("fx-markup-checker", { from, to, amount, markup: result.markupPct, source })}
                 className="mt-5 inline-flex items-center justify-center h-11 px-5 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] font-semibold text-sm hover:bg-[var(--color-cta-hover)] shadow-[var(--shadow-primary)] transition-colors">
                 {bestProvider ? `Beat it — see ${from} → ${to} providers →` : `Compare ${from} → ${to} providers →`}

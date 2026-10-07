@@ -42,7 +42,7 @@ function buildSuggestions(query: string): Suggestion[] {
         label: `Send money to ${country}`,
         sublabel: `USD → ${code}`,
         flag,
-        href: `/send-money?to=${code}`,
+        href: `/send-money#to=${code}`,
       });
     }
   }
@@ -58,7 +58,7 @@ function buildSuggestions(query: string): Suggestion[] {
         label: `Compare USD to ${c.code} rates`,
         sublabel: `USD → ${c.code} · ${c.name}`,
         flag: c.flag,
-        href: `/send-money?from=USD&to=${c.code}`,
+        href: `/send-money#from=USD&to=${c.code}`,
       });
     }
   }
@@ -85,7 +85,7 @@ function buildSuggestions(query: string): Suggestion[] {
         label: `Compare ${fromCurr.code} to ${toCode}`,
         sublabel: `${fromCurr.name} → ${toCurr?.name || toCountry?.[0] || toCode}`,
         flag: toFlag,
-        href: `/send-money?from=${fromCurr.code}&to=${toCode}`,
+        href: `/send-money#from=${fromCurr.code}&to=${toCode}`,
       });
     }
   }

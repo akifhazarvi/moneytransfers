@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getProviderName, providers, type TransferQuote } from "@/data/providers";
 import { fetchQuotes } from "@/lib/fetch-quotes";
@@ -52,7 +51,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
   const worst = quotes[quotes.length - 1];
   const savings = best.receiveAmount - worst.receiveAmount;
   const corridor = `${from}-${to}`;
-  const seeAllHref = `/send-money?from=${from}&to=${to}&amount=${amount}`;
+  const seeAllHref = `/send-money#from=${from}&to=${to}&amount=${amount}`;
 
   return (
     <div className="mt-6 rounded-2xl overflow-hidden border border-[var(--color-outline)] bg-[var(--color-surface)]">
@@ -183,13 +182,13 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
         <p className="text-2xs text-[var(--color-on-surface-variant)]">
           Rates updated every 6 hours · Rankings by recipient amount received
         </p>
-        <Link
+        <a
           href={seeAllHref}
           onClick={() => trackConverterCTAClicked(corridor, amount)}
           className="text-2xs font-semibold text-[var(--color-primary)] hover:underline"
         >
           Compare all providers →
-        </Link>
+        </a>
       </div>
     </div>
   );

@@ -105,7 +105,7 @@ export default function FeeImpactCalculator({ source }: { source: string }) {
             </p>
           )}
           <a
-            href={`/send-money?from=USD&to=${to}&amount=${amount}`}
+            href={`/send-money#from=USD&to=${to}&amount=${amount}`}
             onClick={() => trackToolCTA("fee-impact", { amount, freq, to, saved: result.saved, source })}
             className="mt-5 inline-flex items-center justify-center h-11 px-5 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] font-semibold text-sm hover:bg-[var(--color-cta-hover)] shadow-[var(--shadow-primary)] transition-colors">
             See providers that cost ~0.6% →

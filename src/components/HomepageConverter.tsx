@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import CircleFlag from "@/components/CircleFlag";
@@ -132,12 +131,12 @@ export default function HomepageConverter() {
                 {toInfo?.symbol || ""}{converted.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {to}
               </p>
               <div className="flex gap-3 mt-3">
-                <Link
-                  href={`/send-money?from=${from}&to=${to}&amount=${amount}`}
+                <a
+                  href={`/send-money#from=${from}&to=${to}&amount=${amount}`}
                   className="text-2sm font-medium text-[var(--color-primary)] hover:underline"
                 >
                   {t("compareTransferProviders")} &rarr;
-                </Link>
+                </a>
               </div>
             </div>
           </>

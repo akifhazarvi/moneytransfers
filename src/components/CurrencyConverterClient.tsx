@@ -363,7 +363,7 @@ export default function CurrencyConverterClient() {
                 {/* Compare providers CTA — always visible */}
                 <div className="mt-2.5 flex items-center gap-2">
                   <a
-                    href={`/send-money?from=${fromCurrency}&to=${target.code}&amount=${amount}`}
+                    href={`/send-money#from=${fromCurrency}&to=${target.code}&amount=${amount}`}
                     onClick={() => trackConverterCTAClicked(`${fromCurrency}-${target.code}`, amount)}
                     className="flex-1 flex items-center justify-between bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-xl px-4 py-2.5 hover:bg-[var(--color-cta-hover)] transition-colors"
                   >

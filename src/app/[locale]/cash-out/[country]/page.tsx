@@ -244,18 +244,18 @@ export default async function CashOutCountryPage({
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {c.topSourceCurrencies.map((src) => (
-                  <Link
+                  <a
                     key={src}
                     // The corridor's own page where one renders, not a
                     // /send-money parameter URL that canonicalises away.
                     href={(() => {
                       const cs = getCorridorSlug(src, c.currency);
-                      return cs && corridorPageRenders(cs) ? `/send-money/${cs}` : `/send-money?from=${src}&to=${c.currency}`;
+                      return cs && corridorPageRenders(cs) ? `/send-money/${cs}` : `/send-money#from=${src}&to=${c.currency}`;
                     })()}
                     className="inline-flex items-center h-9 px-4 rounded-full bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] text-sm font-medium text-[var(--color-on-surface)] hover:ring-[var(--color-primary-light)] transition-colors"
                   >
                     Compare {src} → {c.currency} →
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>

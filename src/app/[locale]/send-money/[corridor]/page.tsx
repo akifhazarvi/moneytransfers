@@ -3008,7 +3008,7 @@ export default async function CorridorPage({ params }: Props) {
                     return {
                       href: seoSlug && corridorPageRenders(seoSlug)
                         ? `/send-money/${seoSlug}`
-                        : `/send-money?from=${c.from}&to=${c.to}`,
+                        : `/send-money#from=${c.from}&to=${c.to}`,
                       label: c.label,
                     };
                   })),
@@ -3097,7 +3097,7 @@ export default async function CorridorPage({ params }: Props) {
             Put in your own amount above.
           </p>
           {/* Anchors to the ComparisonWidget already on this page rather than
-              navigating to /send-money?from=..&to=.. — a generic copy of the tool
+              navigating to /send-money#from=..&to=.. — a generic copy of the tool
               preloaded with the corridor the reader is already looking at. That
               link was on every corridor page, so it produced ~850 self-
               referential URLs which all canonicalise back to /send-money: crawl

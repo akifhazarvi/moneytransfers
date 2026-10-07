@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
@@ -103,7 +102,7 @@ export default async function GoReviewPage({ params, searchParams }: Props) {
   // A link with no src (old /out links shared elsewhere, most AI-cited /go
   // URLs) is labelled by its route, as the route's own events are.
   if (!beacon.has("src")) beacon.set("src", `${via}_route`);
-  const backHref = route ? `/send-money?from=${route.from}&to=${route.to}&amount=${route.amount}` : "/send-money";
+  const backHref = route ? `/send-money#from=${route.from}&to=${route.to}&amount=${route.amount}` : "/send-money";
 
   return (
     <div className="go-review">
@@ -173,7 +172,7 @@ export default async function GoReviewPage({ params, searchParams }: Props) {
             {/* After the partner on phones, so Continue and TapTap both open
                 on the first screen; under Continue on desktop (review.css). */}
             <div className="go-review-extras">
-              <Link href={backHref} className="go-review-back">Back to the comparison</Link>
+              <a href={backHref} className="go-review-back">Back to the comparison</a>
               <ul className="go-review-trust">
                 <li>You finish on {name}’s own site</li>
                 <li>We never handle your money</li>

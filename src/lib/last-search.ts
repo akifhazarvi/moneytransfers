@@ -162,7 +162,7 @@ export function beginPageView(now = Date.now()): boolean {
 }
 
 export function searchHref(s: SearchPick): string {
-  return `/send-money?from=${s.from}&to=${s.to}&amount=${s.amount}`;
+  return `/send-money#from=${s.from}&to=${s.to}&amount=${s.amount}`;
 }
 
 // Names that read wrongly without an article: "money to Philippines".

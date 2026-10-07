@@ -404,12 +404,12 @@ export default function SavingsCalculator({
                 </li>
               ))}
             </ol>
-            <Link
-              href={`/send-money?from=${from}&to=${to}&amount=${priced.amount}`}
+            <a
+              href={`/send-money#from=${from}&to=${to}&amount=${priced.amount}`}
               className="mt-1 inline-flex items-center gap-1.5 min-h-10 text-sm font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
             >
               See all {quotes.length} providers on this route <ArrowRight size={14} aria-hidden="true" />
-            </Link>
+            </a>
           </div>
         )}
 

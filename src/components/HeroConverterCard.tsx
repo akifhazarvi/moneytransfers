@@ -125,7 +125,7 @@ export default function HeroConverterCard({
       return;
     }
     trackCompareSearch(fromCurrency, toCurrency, amount);
-    router.push(`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
+    router.push(`/send-money#from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
   }
 
   const loading = quotes === null;

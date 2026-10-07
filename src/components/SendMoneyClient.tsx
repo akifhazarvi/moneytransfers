@@ -13,7 +13,6 @@ import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import CryptoRailSectionClient from "@/components/CryptoRailSectionClient";
-import type { CryptoRailSectionData } from "@/lib/crypto-rail-section";
 import { currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
 import { fetchQuotes } from "@/lib/fetch-quotes";
 import { APPLY_SEARCH_EVENT, rememberSearch, type SearchPick } from "@/lib/last-search";
@@ -137,7 +136,7 @@ const allPaymentMethods = [
   "Cash",
 ];
 
-function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRailSectionData }) {
+function SendMoneyContent() {
   // Server and first client render both use the defaults; the URL is read
   // after mount. useSearchParams() here made the statically prerendered page
   // bail out to client rendering up to the Suspense boundary, so the server
@@ -151,34 +150,34 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
   // here with its pair) or the form — rather than seeing the geo default.
   // Only a chosen one is remembered for the welcome-back offer.
   const chosen = useRef(false);
+  const [routeReady, setRouteReady] = useState(false);
 
-  // URL params first (e.g. user arrived via the homepage ComparisonWidget),
-  // else geo cookies.
+  // Fragment state keeps every comparison on one canonical document. Legacy
+  // query links still work; neither form creates a server-rendered route page.
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const paramFrom = params.get("from");
-    const paramTo = params.get("to");
-    const paramAmount = params.get("amount");
-    if (paramFrom || paramTo || paramAmount) {
-      chosen.current = true;
-      if (paramFrom) setFromCurrency(paramFrom);
-      if (paramTo) setToCurrency(paramTo);
-      if (Number(paramAmount)) setAmountStr(String(Number(paramAmount)));
-      return;
-    }
-    function readCookie(name: string) {
-      return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
-    }
-    const geoCurrency      = readCookie("geo-currency");
-    const geoDefaultTo     = readCookie("geo-default-to");
-    const geoDefaultAmount = readCookie("geo-default-amount");
-    if (geoCurrency  && sendCurrencies.some((c) => c.code === geoCurrency))  setFromCurrency(geoCurrency);
-    if (geoDefaultTo && currencies.some((c) => c.code === geoDefaultTo))     setToCurrency(geoDefaultTo);
-    if (geoDefaultAmount) {
-      const parsed = Math.round(parseFloat(geoDefaultAmount));
-      if (Number.isFinite(parsed) && parsed >= 1 && parsed <= 1_000_000) setAmountStr(String(parsed));
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    const applyUrl = (url: URL) => {
+      const query = url.searchParams;
+      const fragment = new URLSearchParams(url.hash.slice(1));
+      const params = ["from", "to", "amount"].some((key) => fragment.has(key)) ? fragment : query;
+      const hasSelection = ["from", "to", "amount"].some((key) => params.has(key));
+      const readCookie = (name: string) => (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
+      const from = (hasSelection ? params.get("from") : readCookie("geo-currency"))?.toUpperCase();
+      const to = (hasSelection ? params.get("to") : readCookie("geo-default-to"))?.toUpperCase();
+      const amount = Number(hasSelection ? params.get("amount") : readCookie("geo-default-amount"));
+      chosen.current = hasSelection;
+      setFromCurrency(sendCurrencies.some((c) => c.code === from) ? from! : "USD");
+      setToCurrency(currencies.some((c) => c.code === to) ? to! : "INR");
+      setAmountStr(Number.isFinite(amount) && amount >= 1 && amount <= 1_000_000 ? String(amount) : "1000");
+      setRouteReady(true);
+    };
+    const onLocation = () => applyUrl(new URL(window.location.href));
+    onLocation();
+    window.addEventListener("hashchange", onLocation);
+    window.addEventListener("popstate", onLocation);
+    return () => {
+      window.removeEventListener("hashchange", onLocation);
+      window.removeEventListener("popstate", onLocation);
+    };
   }, []);
 
   const [sortBy, setSortBy] = useState<SortBy>("receiveAmount");
@@ -220,8 +219,9 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
   const [quotesLoading, setQuotesLoading] = useState(true);
 
   useEffect(() => {
+    if (!routeReady) return;
     const controller = new AbortController();
-    setQuotesLoading(true);
+    queueMicrotask(() => { if (!controller.signal.aborted) setQuotesLoading(true); });
     fetchQuotes(amount, fromCurrency, toCurrency, controller.signal, rates).then(
       (q) => {
         if (controller.signal.aborted) return;
@@ -230,7 +230,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
       }
     );
     return () => controller.abort();
-  }, [amount, fromCurrency, toCurrency, rates]);
+  }, [amount, fromCurrency, toCurrency, rates, routeReady]);
 
   // Remember a chosen comparison once its quotes are in. The top quote is kept
   // too: it is priced at the live rate, as the welcome-back offer prices its
@@ -271,9 +271,11 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
   const [insight, setInsight] = useState<RateInsight | null>(null);
   const [providerInsights, setProviderInsights] = useState<Record<string, ProviderInsight>>({});
   useEffect(() => {
+    if (!routeReady) return;
     let cancelled = false;
-    setInsight(null);
-    setProviderInsights({});
+    queueMicrotask(() => {
+      if (!cancelled) { setInsight(null); setProviderInsights({}); }
+    });
     fetch(`/api/rate-insight?from=${fromCurrency}&to=${toCurrency}`)
       .then((r) => (r.ok ? r.json() : { insight: null, providerInsights: {} }))
       .then((data) => {
@@ -285,7 +287,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
         if (!cancelled) { setInsight(null); setProviderInsights({}); }
       });
     return () => { cancelled = true; };
-  }, [fromCurrency, toCurrency]);
+  }, [fromCurrency, toCurrency, routeReady]);
 
   // Track corridor selection & quotes viewed
   const prevCorridor = useRef("");
@@ -736,7 +738,7 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
           routes where a stablecoin rail is genuinely a cheaper option (USD→INR,
           →NGN, →PHP …). Kept in the client so the corridor tracks the live
           from/to selection without forcing the /send-money page dynamic. */}
-      <CryptoRailSectionClient from={fromCurrency} to={toCurrency} amount={amount || 1000} initialData={initialCryptoRails} />
+      {routeReady && <CryptoRailSectionClient from={fromCurrency} to={toCurrency} amount={amount || 1000} />}
 
       {/* Compare side-by-side panel */}
       {compareList.length === 2 && (() => {
@@ -929,10 +931,10 @@ function SendMoneyContent({ initialCryptoRails }: { initialCryptoRails: CryptoRa
   );
 }
 
-export default function SendMoneyClient({ initialCryptoRails }: { initialCryptoRails: CryptoRailSectionData }) {
+export default function SendMoneyClient() {
   return (
     <Suspense fallback={<Container className="py-8 text-sm text-[var(--color-on-surface-variant)]">Loading...</Container>}>
-      <SendMoneyContent initialCryptoRails={initialCryptoRails} />
+      <SendMoneyContent />
     </Suspense>
   );
 }

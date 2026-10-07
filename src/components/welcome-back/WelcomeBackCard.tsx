@@ -170,9 +170,8 @@ export default function WelcomeBackCard({
       </div>
 
       <div className="welcome-back-actions">
-        <Link
+        <a
           href={href}
-          prefetch={false}
           className="conversion-button conversion-button--accent"
           onClick={(e) => {
             trackWelcomeBackClicked(from, to, "compare");
@@ -183,10 +182,9 @@ export default function WelcomeBackCard({
           }}
         >
           Compare again<span aria-hidden="true">→</span>
-        </Link>
+        </a>
         <Link
           href="/send-money"
-          prefetch={false}
           className="welcome-back-secondary"
           onClick={(e) => {
             closeLastSearch();

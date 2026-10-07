@@ -101,7 +101,7 @@ export default function ComparisonWidget({
       return;
     }
     trackCompareSearch(fromCurrency, toCurrency, amount);
-    router.push(`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
+    router.push(`/send-money#from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
   }
 
   function swap() {

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { useHomeSelection } from "@/components/HomeSelectionContext";
@@ -271,15 +270,15 @@ export default function HomeDynamicSection() {
             </div>
 
             <div className="text-center mt-5">
-              <Link
-                href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`}
+              <a
+                href={`/send-money#from=${fromCurrency}&to=${toCurrency}&amount=${amount}`}
                 className="inline-flex items-center gap-2 h-11 sm:h-12 bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-full font-bold text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-cta-hover)] shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)] active:shadow-none active:scale-[0.98] transition-all"
               >
                 Compare all {allQuotes.length} options
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </Link>
+              </a>
               <p className="text-2xs text-[var(--color-on-surface-muted)] mt-2">Free · No signup required</p>
             </div>
             </div>{/* end p-5 inner */}

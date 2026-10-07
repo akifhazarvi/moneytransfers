@@ -3,10 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
 import SendMoneyClient from "@/components/SendMoneyClient";
-import { getCryptoRailSectionData } from "@/lib/crypto-rail-section";
-import CircleFlag from "@/components/CircleFlag";
-import { currencies, getProviderName } from "@/data/providers";
-import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getRateInsight, rateLevelConfig } from "@/lib/rate-history";
@@ -89,11 +85,6 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
   const subheading = t.has("subheading")
     ? t("subheading", { count: SITE_STATS.liveProviders })
     : `Compare exchange rates, fees, and delivery times from ${COVERAGE.providers} to find the cheapest way to send money abroad.`;
-  // Generate default quotes server-side so Google can see them
-  const defaultQuotes = generateQuotes(1000, "USD", "INR");
-  const inrInfo = currencies.find((c) => c.code === "INR")!;
-
-
   // ── Top 10 corridors by proven demand (Bing-validated + remittance volume) ──
   // Only these are surfaced as visible links. Each resolves to a real
   // /send-money/send-money-to-{slug} corridor page (verified live). The long
@@ -142,44 +133,17 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
       </Container>
 
       {/* Interactive client widget — replaces static table once JS loads */}
-      <SendMoneyClient initialCryptoRails={getCryptoRailSectionData("USD", "INR", 1000)} />
+      <SendMoneyClient />
       <Container className="py-6">
         <PageByline updated={quoteDataDate ?? new Date().toISOString().split("T")[0]} />
       </Container>
 
-      {/* Server-rendered default quotes table — always in the HTML for SEO */}
+      {/* This is the generic tool, not an SSR result for an arbitrary route. */}
       <Container>
         <noscript>
-          <div className="mb-12">
-            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
-              Top providers for <CircleFlag code="USD" size={20} className="mx-0.5" /> USD to <CircleFlag code="INR" size={20} className="mx-0.5" /> INR
-            </h2>
-            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4">
-              Showing rates for a $1,000 USD transfer to Indian Rupees. Enable JavaScript for live rates and interactive comparison.
-            </p>
-            <table className="w-full bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] overflow-hidden text-sm">
-              <thead>
-                <tr className="bg-[var(--color-surface-dim)] border-b border-[var(--color-outline)]">
-                  <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)]">Provider</th>
-                  <th className="text-right px-4 py-3 font-medium text-[var(--color-on-surface)]">You Receive</th>
-                  <th className="text-right px-4 py-3 font-medium text-[var(--color-on-surface)]">Fee</th>
-                  <th className="text-right px-4 py-3 font-medium text-[var(--color-on-surface)]">Rate</th>
-                  <th className="text-right px-4 py-3 font-medium text-[var(--color-on-surface)]">Speed</th>
-                </tr>
-              </thead>
-              <tbody>
-                {defaultQuotes.slice(0, 10).map((q) => (
-                  <tr key={q.providerSlug} className="border-b border-[var(--color-outline)] last:border-b-0">
-                    <td className="px-4 py-3 font-medium text-[var(--color-on-surface)]">{getProviderName(q.providerSlug)}</td>
-                    <td className="px-4 py-3 text-right text-[var(--color-primary)] font-medium">{inrInfo.symbol}{q.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
-                    <td className="px-4 py-3 text-right text-[var(--color-on-surface-variant)]">{q.fee === 0 ? "Free" : `$${q.fee.toFixed(2)}`}</td>
-                    <td className="px-4 py-3 text-right font-mono text-[var(--color-on-surface)]">{q.exchangeRate.toFixed(4)}</td>
-                    <td className="px-4 py-3 text-right text-[var(--color-on-surface-variant)]">{q.transferSpeed}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <p className="mb-8 text-sm text-[var(--color-on-surface-variant)]">
+            Enable JavaScript to compare your selected currencies and amount, or choose a destination guide below for published provider comparisons.
+          </p>
         </noscript>
 
         {/* Visible SEO content — methodology and provider overview */}

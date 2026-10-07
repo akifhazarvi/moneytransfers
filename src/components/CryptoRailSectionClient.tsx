@@ -8,10 +8,10 @@ export default function CryptoRailSectionClient({ from, to, amount, initialData 
   from: string;
   to: string;
   amount: number;
-  initialData: CryptoRailSectionData;
+  initialData?: CryptoRailSectionData;
 }) {
   const [result, setResult] = useState<CryptoRailSectionData | null>(null);
-  const isInitial = from === initialData.from && to === initialData.to && amount === initialData.amount;
+  const isInitial = !!initialData && from === initialData.from && to === initialData.to && amount === initialData.amount;
 
   useEffect(() => {
     if (isInitial) return;

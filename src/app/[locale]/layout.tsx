@@ -195,14 +195,7 @@ const websiteSchema = {
   // with sitemap lastmod). Was hardcoded "2026-04-10" — a stale freshness
   // signal emitted on every page that contradicted the 6-hourly scrape cycle.
   dateModified: getDataUpdatedDate(),
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/send-money?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
+
 };
 
 /**

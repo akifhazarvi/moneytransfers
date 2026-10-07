@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import type { TransferQuote } from "@/data/providers";
 import { getProviderName } from "@/data/providers";
 import { trackFreelancerCalcUsed, trackFreelancerCalcCTA } from "@/lib/analytics";
@@ -102,7 +101,7 @@ export default function FreelancerCostCalculator({ source }: Props) {
     trackFreelancerCalcCTA(corridor, result?.annual ?? 0);
   }, [corridor, result]);
 
-  const compareHref = `/send-money?from=USD&to=${to}&amount=${avgUsd}`;
+  const compareHref = `/send-money#from=USD&to=${to}&amount=${avgUsd}`;
 
   return (
     <aside
@@ -202,20 +201,20 @@ export default function FreelancerCostCalculator({ source }: Props) {
             <p className="mt-1 text-2sm text-[var(--color-on-surface-variant)]">
               ≈ {fmtUSD(result.monthly)} per month · {fmtUSD(result.lossPerPaymentUsd)} per payment
             </p>
-            <Link
+            <a
               href={compareHref}
               onClick={handleCTA}
               className="inline-flex items-center gap-1.5 mt-4 px-5 py-2.5 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] text-2sm font-semibold hover:bg-[var(--color-cta-hover)] transition-opacity"
             >
               See the cheapest provider for USD → {to} →
-            </Link>
+            </a>
           </>
         ) : (
           <p className="text-2sm text-[var(--color-on-surface-variant)]">
             We don&apos;t have live data for this route right now.{" "}
-            <Link href={compareHref} className="text-[var(--color-primary)] font-medium hover:underline">
+            <a href={compareHref} className="text-[var(--color-primary)] font-medium hover:underline">
               Compare providers directly →
-            </Link>
+            </a>
           </p>
         )}
         <p className="mt-3 text-2xs text-[var(--color-on-surface-muted)] leading-relaxed">
