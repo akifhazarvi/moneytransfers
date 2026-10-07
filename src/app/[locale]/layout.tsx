@@ -20,10 +20,7 @@ import WelcomeBackManager from "@/components/welcome-back/WelcomeBackManager";
 import LiveActivity from "@/components/live-activity/LiveActivity";
 import OfflineNotice from "@/components/pwa/OfflineNotice";
 import SiteProviderCrossSell from "@/components/SiteProviderCrossSell";
-import SiteSavingsBar from "@/components/SiteSavingsBar";
-import { ExchangeRatesProvider } from "@/lib/useExchangeRates";
-import { REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
-import { COVERAGE, SITE_STATS } from "@/lib/site-stats";
+import { COVERAGE } from "@/lib/site-stats";
 import { seoDescription } from "@/lib/seo-title";
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -339,20 +336,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         now={new Date()}
       >
         <ThemeProvider>
-          <ExchangeRatesProvider>
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[var(--color-primary)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium focus:shadow-lg">
             Skip to main content
           </a>
           <Header />
           <OfflineNotice />
-          <SiteSavingsBar summary={{
-            providers: SITE_STATS.liveProviders,
-            bankCost: REMITTANCE_INDEX.avgBankCost,
-            specialistCost: REMITTANCE_INDEX.avgSpecialistCost,
-            amount: REMITTANCE_INDEX.amount,
-            asOf: REMITTANCE_INDEX.dataAsOf,
-            hasComparison: REMITTANCE_INDEX.banks.length > 0 && REMITTANCE_INDEX.specialists.length > 0,
-          }} />
           <main id="main-content" className="min-h-screen pb-10">
             <ErrorBoundary>{children}</ErrorBoundary>
             <SiteProviderCrossSell />
@@ -368,7 +356,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <PwaManager />
           <WelcomeBackManager />
           <LiveActivity />
-          </ExchangeRatesProvider>
         </ThemeProvider>
       </NextIntlClientProvider>
     </>
