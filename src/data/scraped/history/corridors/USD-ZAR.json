@@ -6458,10 +6458,10 @@
         "receiveAmount": 1626.53
       },
       "taptap-send": {
-        "rate": 16.12,
+        "rate": 16.56,
         "fee": 0,
-        "markup": 2.83,
-        "receiveAmount": 1612
+        "markup": 0.18,
+        "receiveAmount": 1656
       },
       "xoom": {
         "rate": 15.9472,
@@ -6470,16 +6470,16 @@
         "receiveAmount": 1515.14
       },
       "western-union": {
-        "rate": 16.2934,
+        "rate": 16.4121,
         "fee": 0.99,
-        "markup": 1.78,
-        "receiveAmount": 1613.21
+        "markup": 1.07,
+        "receiveAmount": 1624.96
       },
       "wise": {
-        "rate": 16.5902,
-        "fee": 3.99,
-        "markup": -0.01,
-        "receiveAmount": 1592.83
+        "rate": 16.699,
+        "fee": 3.96,
+        "markup": -0.66,
+        "receiveAmount": 1603.77
       }
     }
   }

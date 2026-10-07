@@ -5299,28 +5299,28 @@
         "receiveAmount": 444.73
       },
       "remitly": {
-        "rate": 4.73141,
+        "rate": 4.76431,
         "fee": 2.99,
-        "markup": 0.67,
-        "receiveAmount": 458.99
+        "markup": -0.02,
+        "receiveAmount": 462.19
       },
       "xoom": {
-        "rate": 4.56265,
+        "rate": 4.5847,
         "fee": 4.99,
-        "markup": 4.21,
-        "receiveAmount": 433.5
+        "markup": 3.75,
+        "receiveAmount": 435.59
       },
       "western-union": {
-        "rate": 4.71442,
+        "rate": 4.74843,
         "fee": 1.99,
-        "markup": 1.03,
-        "receiveAmount": 462.06
+        "markup": 0.31,
+        "receiveAmount": 465.39
       },
       "wise": {
-        "rate": 4.76327,
+        "rate": 4.79029,
         "fee": 1.84,
-        "markup": 0,
-        "receiveAmount": 467.56
+        "markup": -0.57,
+        "receiveAmount": 470.21
       }
     }
   }

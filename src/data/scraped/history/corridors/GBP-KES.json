@@ -13300,7 +13300,7 @@
       "lemfi": {
         "rate": 170.35,
         "fee": 0,
-        "markup": 1,
+        "markup": 0.65,
         "receiveAmount": 17035
       },
       "ria": {
@@ -13316,58 +13316,58 @@
         "receiveAmount": 17030
       },
       "xoom": {
-        "rate": 164.274,
+        "rate": 163.882,
         "fee": 2.99,
-        "markup": 4.53,
-        "receiveAmount": 15936.18
+        "markup": 4.76,
+        "receiveAmount": 15898.15
       },
       "western-union": {
-        "rate": 167.079,
+        "rate": 167.096,
         "fee": 1.99,
-        "markup": 2.9,
-        "receiveAmount": 16375.38
+        "markup": 2.89,
+        "receiveAmount": 16377.12
       },
       "instarem": {
-        "rate": 170.843,
+        "rate": 170.292,
         "fee": 0,
-        "markup": 0.71,
-        "receiveAmount": 17084.28
+        "markup": 1.03,
+        "receiveAmount": 17029.15
       },
       "skrill": {
-        "rate": 163.741,
+        "rate": 163.264,
         "fee": 0,
-        "markup": 4.84,
-        "receiveAmount": 16374.11
+        "markup": 5.12,
+        "receiveAmount": 16326.38
       },
       "rbs": {
-        "rate": 167.046,
+        "rate": 166.573,
         "fee": 0,
-        "markup": 2.92,
-        "receiveAmount": 16704.57
+        "markup": 3.19,
+        "receiveAmount": 16657.3
       },
       "hsbc": {
-        "rate": 167.222,
-        "fee": 0,
-        "markup": 2.82,
-        "receiveAmount": 16722.17
-      },
-      "natwest": {
-        "rate": 167.046,
-        "fee": 0,
-        "markup": 2.92,
-        "receiveAmount": 16704.57
-      },
-      "remitly": {
-        "rate": 168.923,
-        "fee": 0,
-        "markup": 1.83,
-        "receiveAmount": 16892.3
-      },
-      "barclays": {
-        "rate": 166.822,
+        "rate": 166.823,
         "fee": 0,
         "markup": 3.05,
-        "receiveAmount": 16682.17
+        "receiveAmount": 16682.27
+      },
+      "natwest": {
+        "rate": 166.573,
+        "fee": 0,
+        "markup": 3.19,
+        "receiveAmount": 16657.3
+      },
+      "remitly": {
+        "rate": 168.541,
+        "fee": 0,
+        "markup": 2.05,
+        "receiveAmount": 16854.06
+      },
+      "barclays": {
+        "rate": 166.424,
+        "fee": 0,
+        "markup": 3.28,
+        "receiveAmount": 16642.36
       }
     }
   }

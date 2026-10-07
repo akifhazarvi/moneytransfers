@@ -4287,16 +4287,16 @@
     "date": "2026-10-07",
     "providers": {
       "western-union": {
-        "rate": 90.0992,
+        "rate": 90.098,
         "fee": 15,
         "markup": -0.09,
-        "receiveAmount": 7658.43
+        "receiveAmount": 7658.33
       },
       "e-and-money": {
-        "rate": 89.8934,
+        "rate": 90.0523,
         "fee": 15.75,
-        "markup": 0.14,
-        "receiveAmount": 7573.52
+        "markup": -0.04,
+        "receiveAmount": 7586.91
       },
       "paysend": {
         "rate": 87.3649,
