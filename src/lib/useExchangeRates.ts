@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, createContext, createElement, useContext, type ReactNode } from "react";
 import { exchangeRates as staticRates } from "@/data/providers";
 
 const REFRESH_INTERVAL = 5 * 60 * 1000; // 5 minutes
@@ -10,18 +10,12 @@ interface RatesResponse {
   timestamp: number;
 }
 
-/**
- * `countdown` enables the per-second `secondsUntilRefresh` ticker. It is off by
- * default because every tick re-renders the consuming component: on
- * /send-money that was the whole comparison widget, once a second, forever,
- * for a value only the currency converter displays.
- */
-export function useExchangeRates({ countdown = false }: { countdown?: boolean } = {}) {
+/** One request schedule shared by the site strip and page-level converters. */
+function useRatesSource(enabled: boolean) {
   const [rates, setRates] = useState<Record<string, number>>(staticRates);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [isLive, setIsLive] = useState(false);
   const [nextRefresh, setNextRefresh] = useState<Date | null>(null);
-  const [secondsUntilRefresh, setSecondsUntilRefresh] = useState<number | null>(null);
 
   const [refreshing, setRefreshing] = useState(true);
   const [failed, setFailed] = useState(false);
@@ -32,6 +26,7 @@ export function useExchangeRates({ countdown = false }: { countdown?: boolean } 
   }, []);
 
   useEffect(() => {
+    if (!enabled) return;
     let cancelled = false;
     const controller = new AbortController();
 
@@ -76,21 +71,31 @@ export function useExchangeRates({ countdown = false }: { countdown?: boolean } 
       inFlight.current = false;
       clearTimeout(timer);
     };
-  }, [refreshKey]);
+  }, [refreshKey, enabled]);
 
-  // Countdown ticker
+  return { rates, lastUpdated, isLive, nextRefresh, refreshing, failed, refresh };
+}
+
+const RatesContext = createContext<ReturnType<typeof useRatesSource> | null>(null);
+
+export function ExchangeRatesProvider({ children }: { children: ReactNode }) {
+  const value = useRatesSource(true);
+  return createElement(RatesContext.Provider, { value }, children);
+}
+
+/** Per-second updates stay opt-in, so result lists do not rerender on ticks. */
+export function useExchangeRates({ countdown = false }: { countdown?: boolean } = {}) {
+  const shared = useContext(RatesContext);
+  const local = useRatesSource(shared === null);
+  const value = shared ?? local;
+  const { nextRefresh } = value;
+  const [secondsUntilRefresh, setSecondsUntilRefresh] = useState<number | null>(null);
   useEffect(() => {
     if (!countdown || !nextRefresh) return;
-
-    function tick() {
-      const diff = Math.max(0, Math.round((nextRefresh!.getTime() - Date.now()) / 1000));
-      setSecondsUntilRefresh(diff);
-    }
-
+    const tick = () => setSecondsUntilRefresh(Math.max(0, Math.ceil((nextRefresh.getTime() - Date.now()) / 1000)));
     tick();
     const timer = setInterval(tick, 1000);
     return () => clearInterval(timer);
   }, [countdown, nextRefresh]);
-
-  return { rates, lastUpdated, isLive, secondsUntilRefresh, nextRefresh, refreshing, failed, refresh };
+  return { ...value, secondsUntilRefresh };
 }
