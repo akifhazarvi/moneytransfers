@@ -106,8 +106,8 @@
 }
 
 .go-review-grid > *, .go-review-partner { min-width:0; }
-.go-review-partner .conversion-button--accent { background:var(--color-surface-dim); color:var(--color-on-surface); border:1px solid var(--color-outline); box-shadow:none; }
-.go-review-partner .conversion-button--accent:hover { background:var(--color-surface-container); }
+/* TapTap's button keeps the filled green it has everywhere else (conversion.css);
+   Continue stays first and larger, in the CTA black, so the two never read as one. */
 .go-review .conversion-button, .go-review-wa-button { white-space:normal; text-align:center; }
 .go-review .conversion-button svg { flex-shrink:0; }
 @media (min-width:601px) and (max-width:1199px) { .go-review-phone { display:none; } }
