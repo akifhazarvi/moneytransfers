@@ -37,9 +37,13 @@ import Image from "next/image";
 import { getFlagUrl } from "@/components/CircleFlag";
 import {
   fetchAllSources,
+  FEED_NAMES,
   type SourceResult,
   type AggregatedRate,
 } from "@/lib/forex-sources";
+
+/** One bar per feed in the SRC column and the legend. */
+const FEED_SLOTS = FEED_NAMES.map((_, i) => i);
 
 /* ── types ────────────────────────────────────────────────── */
 interface RateRow {
@@ -101,7 +105,13 @@ const flagUrl = getFlagUrl;
 
 /* ── component ────────────────────────────────────────────── */
 interface LiveRatesBoardProps {
-  /** Server-fetched rates keyed by currency code (base USD) — used to pre-render the board for SEO */
+  /**
+   * Server-fetched rates keyed by currency code (base USD) — used to pre-render
+   * the board for SEO. This is the XE mid-market snapshot (fetchExchangeRates),
+   * one source, so the board says so until the browser has fetched the feeds:
+   * crawlers never run that fetch, and printed "MEDIAN OF 0 SOURCES" until
+   * 2026-10-07.
+   */
   initialRates?: Record<string, number>;
 }
 
@@ -122,7 +132,7 @@ function buildInitialRows(ssrRates: Record<string, number>): RateRow[] {
         noteBuy: mid * (1 - sp * 1.1),
         sourceCount: 1,
         crossSourceSpread: 0,
-        perSource: [{ name: "Server", rate: mid }],
+        perSource: [{ name: "XE mid-market", rate: mid }],
         prevMidRate: null,
         direction: "flat" as const,
         flash: false,
@@ -248,8 +258,10 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
     return "#ff6633";
   };
 
+  // SRC fits one bar per feed: 5 × 4px + 4 × 2px gaps = 28px; 5 × 6px + 8px = 38px from sm.
   const gridCols = "grid-cols-[40px_56px_1fr_1fr_1fr_1fr_28px_28px]";
-  const gridColsSm = "sm:grid-cols-[52px_76px_1fr_1fr_1fr_1fr_36px_36px]";
+  const gridColsSm = "sm:grid-cols-[52px_76px_1fr_1fr_1fr_1fr_40px_36px]";
+  const okSources = sources.filter((s) => s.status === "ok").length;
 
   return (
     <>
@@ -341,7 +353,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
             ))}
             {sources.length > 0 && (
               <span className="led-font text-2xs text-[#8a8a8a] ml-auto">
-                {sources.filter((s) => s.status === "ok").length}/{sources.length} ONLINE
+                {okSources}/{sources.length} ONLINE
               </span>
             )}
           </div>
@@ -398,7 +410,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
             {loading ? (
               <div className="px-6 py-24 text-center">
                 <div className="inline-block w-6 h-6 border-2 border-[#222] border-t-[#e94c2e] rounded-full animate-spin" />
-                <p className="led-font text-[#8a8a8a] text-xs mt-4 tracking-wider">AGGREGATING 4 FEEDS...</p>
+                <p className="led-font text-[#8a8a8a] text-xs mt-4 tracking-wider">AGGREGATING {FEED_NAMES.length} FEEDS...</p>
               </div>
             ) : (
               <div>
@@ -461,7 +473,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                             className="flex items-center gap-0.5 cursor-pointer"
                             title={`${r.sourceCount} sources — click for detail`}
                           >
-                            {[0, 1, 2, 3].map((idx) => (
+                            {FEED_SLOTS.map((idx) => (
                               <span
                                 key={idx}
                                 className="inline-block w-1 sm:w-1.5 h-3 sm:h-4 rounded-[1px]"
@@ -537,7 +549,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                 BASE: 1.0000 {base}
               </span>
               <span className="led-font text-[#8a8a8a] text-2xs sm:text-2xs tracking-wider">
-                MEDIAN OF {sources.filter((s) => s.status === "ok").length} SOURCES
+                {sources.length > 0 ? `MEDIAN OF ${okSources} SOURCES` : "XE MID-MARKET SNAPSHOT"}
               </span>
               <span className="led-font text-[#8a8a8a] text-2xs sm:text-2xs tracking-wider hidden sm:block">
                 NEXT UPDATE: 60s
@@ -560,10 +572,10 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
               <span className="led-font text-[#9a9a9a] text-2xs tracking-wider">NO CHANGE</span>
             </div>
             <div className="flex items-center gap-1 ml-2">
-              {[1, 2, 3, 4].map((n) => (
+              {FEED_SLOTS.map((i) => i + 1).map((n) => (
                 <div key={n} className="flex items-center gap-1">
                   <div className="flex gap-[1px]">
-                    {[0, 1, 2, 3].map((idx) => (
+                    {FEED_SLOTS.map((idx) => (
                       <span key={idx} className="inline-block w-1 h-2.5 rounded-[1px]"
                             style={{ backgroundColor: idx < n ? confidenceColor(n) : "#1a1a1a" }} />
                     ))}
@@ -576,8 +588,9 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
 
           {/* ── Disclaimer ── */}
           <p className="led-font text-[#8a8a8a] text-2xs mt-4 leading-relaxed tracking-wider">
-            Mid rates aggregated (median) from 4 independent sources: ExchangeRate-API, Fawaz Ahmed CDN,
-            FloatRates, Currency-API Pages. TT = Telegraphic Transfer. CHQ = Cheque. NOTE = Cash notes.
+            Mid rates aggregated (median) from {FEED_NAMES.length} independent sources:{" "}
+            {FEED_NAMES.join(", ")}. Until they load, the board shows our XE mid-market snapshot.
+            TT = Telegraphic Transfer. CHQ = Cheque. NOTE = Cash notes.
             Buy/Sell spreads are simulated. Click the source bars on any row to see per-source breakdown.
             For informational purposes only &mdash; not financial advice.
           </p>

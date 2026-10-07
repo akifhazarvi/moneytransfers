@@ -9,6 +9,7 @@ import LazyHistoricalRateWidget from "@/components/LazyHistoricalRateWidget";
 import LiveTimestamp from "@/components/LiveTimestamp";
 import SendVerdictHero, { type VerdictData } from "@/components/SendVerdictHero";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
+import { FEED_NAMES } from "@/lib/forex-sources";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getPairRate, formatRate, getSendVerdict, RATES_AS_OF } from "@/lib/exchange-rates-today";
 import { corridorPageRenders } from "@/lib/route-map";
@@ -616,7 +617,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           )}
 
           <p className="text-center text-xs text-[var(--color-on-surface-muted)] mt-3">
-            <LiveTimestamp iso={getDataUpdatedInstant()} prefix="Updated" /> · mid-market, median of 4 sources
+            <LiveTimestamp iso={getDataUpdatedInstant()} prefix="Updated" /> · XE mid-market rates
           </p>
 
           {/* ── Compact rates ── */}
@@ -706,8 +707,9 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                 <p>
                   <strong className="text-[var(--color-on-surface)]">How we calculate this.</strong> Headline rates and charts use a
                   daily mid-market history for 60+ currencies. The &ldquo;good time to send&rdquo; score compares today&apos;s best
-                  provider rate against every day we&apos;ve tracked for that corridor. The live ticker takes the median of 4
-                  independent feeds to remove outliers.
+                  provider rate against every day we&apos;ve tracked for that corridor. Today&apos;s rates are our XE
+                  mid-market snapshot; the live board below then takes the median of{" "}{FEED_NAMES.length}{" "}independent
+                  feeds to remove outliers.
                 </p>
                 <p>
                   Sending money on this pair?{" "}

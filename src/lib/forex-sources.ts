@@ -197,6 +197,18 @@ export function aggregateRates(
 
 /* ── Public API ───────────────────────────────────────────── */
 
+/**
+ * The feeds fetchAllSources() queries, by SourceResult.name. Copy that counts or
+ * names the feeds reads this, so a sixth feed cannot leave pages saying "4".
+ */
+export const FEED_NAMES = [
+  "ExchangeRate-API",
+  "Fawaz Ahmed CDN",
+  "FloatRates",
+  "Currency-API Pages",
+  "CurrencyAPI",
+] as const;
+
 export async function fetchAllSources(base: string): Promise<{
   sources: SourceResult[];
   aggregated: Map<string, AggregatedRate>;

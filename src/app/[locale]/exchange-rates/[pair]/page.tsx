@@ -477,7 +477,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                   </p>
                 )}
                 <p className="text-xs text-[var(--color-on-surface-variant)] mt-2">
-                  Source: median of multiple independent feeds. For indicative purposes only.
+                  Source: XE mid-market rate. For indicative purposes only.
                 </p>
               </div>
             ) : (
@@ -712,7 +712,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             </h2>
             <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
               <p>
-                The mid-market rate is the midpoint between the buy and sell prices on global currency markets — it&apos;s the fairest exchange rate available. We aggregate data from 4 independent sources and take the median value, which eliminates outliers and provides a more reliable rate than any single source.
+                The mid-market rate is the midpoint between the buy and sell prices on global currency markets — it&apos;s the fairest exchange rate available. This page shows XE&apos;s mid-market rate, the same benchmark we measure every provider&apos;s markup against.
               </p>
               <p>
                 When a money transfer provider quotes you a rate, compare it against the mid-market rate shown on this page. The difference is the provider&apos;s markup — their profit on the currency conversion. On the {p.from}/{p.to} pair, the best providers typically mark up by {midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"}, while banks can mark up by 2–5%.
