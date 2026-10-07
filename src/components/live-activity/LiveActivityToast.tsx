@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
+import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PiggyBank, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronUp, TrendingUp, X } from "lucide-react";
 import { getFlagUrl } from "@/components/CircleFlag";
 import type { ActivityItem, LiveActivity } from "@/lib/live-activity";
 import { trackLiveActivityClicked, trackLiveActivityDismissed, trackLiveActivityShown } from "@/lib/analytics";
@@ -39,15 +39,11 @@ const GAP_MIN_MS = 10_000;
 const GAP_MAX_MS = 15_000;
 const FIRST_DELAY_MS = 4_000;
 const RECENT_MS = 30 * 60_000;
-/** Above this width the card sits bottom-left (see the CSS module). */
-const WIDE = "(min-width: 640px)";
-const CARD_WIDTH = 380;
+const CARD_WIDTH = 336;
 const EDGE = 16;
 const DISMISS_KEY = "smc_live_activity_off";
 /** Pages where a card would get in the way of the one thing the page is for. */
 const QUIET_PATHS = /^\/(go|out|privacy|terms|cookies)(\/|$)/;
-/** Country names that read "in the …". */
-const DEFINITE = new Set(["US", "GB", "AE", "NL", "PH", "DO", "BS", "GM", "CF", "CD", "KM", "MV", "MH", "SB", "VA", "CZ"]);
 
 const noSubscribe = () => () => {};
 const readDismissed = () => {
@@ -162,7 +158,7 @@ function Avatar({ entry }: { entry: Entry }) {
   if (entry.type === "savings") {
     return (
       <span className={`${styles.avatar} ${styles.avatarIcon}`} aria-hidden="true">
-        <PiggyBank size={20} />
+        <TrendingUp size={16} />
       </span>
     );
   }
@@ -180,6 +176,27 @@ function Avatar({ entry }: { entry: Entry }) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={logo} alt="" width={28} height={28} decoding="async" />
       <Flag code={badge} size={16} className={styles.badge} />
+    </span>
+  );
+}
+
+/** The marks belong to this event: origin, chosen provider, and destination. */
+function ActivityMarks({ entry, live }: { entry: Entry; live: boolean }) {
+  const origin = entry.type === "reader" ? entry.item.country : entry.type === "rate" ? entry.rate.from : undefined;
+  const destination = entry.type === "reader" ? entry.item.to : entry.type === "rate" ? entry.rate.to : undefined;
+  const logo = entry.type === "rate" ? entry.rate.logo : entry.type === "reader" && entry.item.kind === "chose" ? entry.item.logo : undefined;
+  return (
+    <span className={styles.marks} aria-hidden="true">
+      <span className={styles.markShadow} />
+      {origin && <span className={`${styles.mark} ${styles.originMark}`}><Flag code={origin} size={30} /></span>}
+      <span className={`${styles.mark} ${styles.mainMark}`}>
+        {logo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={logo} alt="" width={30} height={30} decoding="async" />
+        ) : destination ? <Flag code={destination} size={34} /> : <TrendingUp size={21} />}
+      </span>
+      {logo && destination && <span className={`${styles.mark} ${styles.destinationMark}`}><Flag code={destination} size={20} /></span>}
+      {live && <span className={styles.markLive} />}
     </span>
   );
 }
@@ -211,7 +228,6 @@ function Body({ entry, now }: { entry: Entry; now: number }) {
   const { item } = entry;
   const where = (
     <>
-      {DEFINITE.has(item.country) ? "the " : ""}
       <strong>{countryName(item.country)}</strong>
     </>
   );
@@ -219,18 +235,17 @@ function Body({ entry, now }: { entry: Entry; now: number }) {
   return (
     <>
       <span className={styles.text}>
-        Someone in {where}{" "}
+        {where}{" "}
         {item.kind === "chose" ? (
           <>
-            chose <strong>{item.provider ?? "a provider"}</strong>
-            {amount ? <>{" "}for {amount}</> : null}
+            visitor chose <strong>{item.provider ?? "a provider"}</strong>
           </>
         ) : item.from ? (
-          <>compared {amount ?? "rates"}</>
+          <>visitor compared {amount ?? "rates"}</>
         ) : !item.hourly && now - item.at < RECENT_MS ? (
-          "is comparing rates"
+          "visitor is comparing rates"
         ) : (
-          "compared rates"
+          "visitor compared rates"
         )}
       </span>
       <span className={styles.meta}>
@@ -241,6 +256,16 @@ function Body({ entry, now }: { entry: Entry; now: number }) {
   );
 }
 
+function compactTitle(entry: Entry): string {
+  if (entry.type === "rate") return `${entry.rate.provider} · rate update`;
+  if (entry.type === "savings") return "What comparing can save";
+  return entry.item.kind === "chose"
+    ? `${entry.item.provider ?? "A provider"} was chosen`
+    : entry.item.from && entry.item.to
+      ? `${entry.item.from} to ${entry.item.to} compared`
+      : "Someone compared rates";
+}
+
 export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: RateUpdate[]; vsBankPer1000: number | null }) {
   const pathname = usePathname() || "/";
   const path = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
@@ -249,6 +274,11 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
   const mounted = useSyncExternalStore(noSubscribe, () => true, () => false);
   const storedOff = useSyncExternalStore(noSubscribe, readDismissed, () => true);
   const [closed, setClosed] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const expandedRef = useRef(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
+  const panelId = useId();
   const [feed, setFeed] = useState<LiveActivity | null>(null);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(-1);
@@ -270,7 +300,7 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
       fetch(FEED_URL)
         .then((r) => (r.ok ? (r.json() as Promise<LiveActivity>) : null))
         .then((json) => {
-          if (!cancelled && json) setFeed(json);
+          if (!cancelled && json) { setFeed(json); setNow(Date.now()); }
         })
         .catch(() => {});
     };
@@ -303,7 +333,7 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
         return;
       }
       setNow(Date.now());
-      setLift(window.matchMedia?.(WIDE).matches ? bottomClearance() : null);
+      setLift(bottomClearance());
       setIndex((i) => i + 1);
       setOpen(true);
       if (!announced.current) {
@@ -313,7 +343,7 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
       timer = setTimeout(hide, SHOW_MS);
     };
     const hide = () => {
-      if (held.current) {
+      if (held.current || expandedRef.current) {
         timer = setTimeout(hide, 1_500);
         return;
       }
@@ -324,71 +354,126 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
     return () => clearTimeout(timer);
   }, [off, hasEntries, placement]);
 
+  // A Send bar can appear after the activity bubble: keep their bounds apart.
+  useEffect(() => {
+    if (!open || off) return;
+    let frame = 0;
+    const measure = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => setLift(bottomClearance()));
+    };
+    window.addEventListener("scroll", measure, { passive: true });
+    window.addEventListener("resize", measure);
+    const interval = setInterval(measure, 500);
+    return () => {
+      cancelAnimationFrame(frame);
+      clearInterval(interval);
+      window.removeEventListener("scroll", measure);
+      window.removeEventListener("resize", measure);
+    };
+  }, [open, off]);
+
+  useEffect(() => {
+    if (!expanded) return;
+    const closeOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !containerRef.current?.contains(event.target)) {
+        expandedRef.current = false;
+        setExpanded(false);
+      }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, [expanded]);
+
   if (!mounted || off || index < 0 || !hasEntries) return null;
   const entry = entries[index % entries.length];
-  const live = feed?.source === "live";
-  const counter = !live
-    ? "Recent activity"
-    : feed.here != null && feed.here >= 2
-      ? `Live · ${feed.here} people here now`
-      : feed.people != null && feed.people >= 2
-        ? `Live · ${feed.people} people in the last 6 hours`
-        : "Live";
+  const live = feed?.source === "live" && entry.type === "reader" && !entry.item.hourly && now - entry.item.at < RECENT_MS;
+  const currentMeta = entry.type === "reader"
+    ? `${countryName(entry.item.country)} · ${ago(entry.item.at, now, entry.item.hourly)}`
+    : entry.type === "rate" ? `${entry.rate.from} → ${entry.rate.to} · collected quotes` : "Reader choices · last 30 days";
+  const recentEntries = entries.slice(0, 3);
+  const toggleExpanded = (value: boolean) => {
+    expandedRef.current = value;
+    setExpanded(value);
+    if (value) {
+      trackLiveActivityClicked(placement, "expand");
+    }
+  };
 
   return (
     <aside
+      ref={containerRef}
       aria-label="Live activity on SendMoneyCompare"
       data-nosnippet=""
       data-open={open ? "" : undefined}
+      data-expanded={expanded ? "" : undefined}
       aria-hidden={open ? undefined : true}
+      inert={!open}
       className={styles.toast}
       style={lift != null ? ({ "--la-bottom": `${lift}px` } as CSSProperties) : undefined}
-      onMouseEnter={() => {
-        held.current = true;
+      onMouseEnter={() => { held.current = true; }}
+      onMouseLeave={() => { held.current = false; }}
+      onFocus={() => { held.current = true; }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) held.current = false;
       }}
-      onMouseLeave={() => {
-        held.current = false;
-      }}
-      onFocus={() => {
-        held.current = true;
-      }}
-      onBlur={() => {
-        held.current = false;
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && expanded) {
+          toggleExpanded(false);
+          triggerRef.current?.focus();
+          event.stopPropagation();
+        }
       }}
     >
-      <Link
-        key={index}
-        href={hrefOf(entry)}
-        tabIndex={open ? undefined : -1}
-        className={styles.card}
-        onClick={() => trackLiveActivityClicked(placement, entry.type === "reader" ? entry.item.kind : entry.type)}
-      >
-        <Avatar entry={entry} />
-        <span className={styles.body}>
-          <span className={`${styles.counter} ${live ? "" : styles.counterQuiet}`}>
-            <span className={styles.dot} aria-hidden="true" />
-            {counter}
+      {expanded && (
+        <section className={styles.panel} id={panelId} aria-label="Recent site activity">
+          <div className={styles.panelHeader}>
+            <span className={styles.eyebrow}><span className={styles.statusDot} />SITE ACTIVITY</span>
+            <span className={styles.refreshNote}>Refreshes every 30s</span>
+          </div>
+          <div className={styles.heading}>
+            <p>Good moves.<br /><span>Happening here.</span></p>
+            <span className={styles.orbit} aria-hidden="true"><span /><span /><span /></span>
+          </div>
+          {feed?.source === "live" && feed.here != null && feed.here >= 2 && (
+            <p className={styles.presence}><strong>{feed.here}</strong>{" "}visitors active in the last 5 minutes</p>
+          )}
+          <div className={styles.feed}>
+            {recentEntries.map((item, i) => (
+              <Link key={`${item.type}-${i}`} href={hrefOf(item)} className={styles.event}
+                onClick={() => { toggleExpanded(false); trackLiveActivityClicked(placement, item.type === "reader" ? item.item.kind : item.type); }}>
+                <Avatar entry={item} />
+                <span className={styles.body}><Body entry={item} now={now} /></span>
+                <ArrowUpRight size={14} className={styles.eventArrow} aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
+          <Link href="/send-money" className={styles.action}
+            onClick={() => { toggleExpanded(false); trackLiveActivityClicked(placement, "find_rate"); }}>
+            Find your rate<ArrowRight size={16} aria-hidden="true" />
+          </Link>
+          <p className={styles.footnote}>Anonymous comparisons and provider clicks.</p>
+        </section>
+      )}
+      <div className={styles.capsule}>
+        <button ref={triggerRef} type="button" className={styles.trigger}
+          aria-expanded={expanded} aria-controls={expanded ? panelId : undefined}
+          aria-label={expanded ? "Collapse site activity" : "Explore site activity"}
+          onClick={() => toggleExpanded(!expanded)}>
+          <ActivityMarks key={`${index}-${open}`} entry={entry} live={live} />
+          <span className={styles.summary} key={index}>
+            <span className={styles.summaryTitle}>{expanded ? "Site activity" : compactTitle(entry)}</span>
+            <span className={styles.summaryMeta}>{expanded ? "Tap to collapse" : currentMeta}</span>
           </span>
-          <Body entry={entry} now={now} />
-        </span>
-      </Link>
-      <button
-        type="button"
-        className={styles.close}
-        tabIndex={open ? undefined : -1}
-        aria-label="Hide live activity for this visit"
-        onClick={() => {
-          try {
-            sessionStorage.setItem(DISMISS_KEY, "1");
-          } catch {
-            // private mode: closes for this page only
-          }
-          setClosed(true);
-          trackLiveActivityDismissed(placement);
-        }}
-      >
-        <X size={14} aria-hidden="true" />
-      </button>
+          <ChevronUp size={14} className={styles.chevron} data-expanded={expanded ? "" : undefined} aria-hidden="true" />
+        </button>
+        <button type="button" className={styles.close} aria-label="Hide live activity for this visit"
+          onClick={() => {
+            try { sessionStorage.setItem(DISMISS_KEY, "1"); } catch {}
+            setClosed(true);
+            trackLiveActivityDismissed(placement);
+          }}><X size={14} aria-hidden="true" /></button>
+      </div>
     </aside>
   );
 }

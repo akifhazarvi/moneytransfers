@@ -7,7 +7,7 @@ import LiveActivityToast, { type RateUpdate } from "./LiveActivityToast";
 
 /**
  * Live activity toast, site-wide (mounted once in the layout): every 10–15
- * seconds a small card under the header shows one real thing — a reader in a
+ * seconds a compact, expandable activity capsule shows one real thing — a reader in a
  * country comparing a route or choosing a provider (first-party, via
  * /api/live-activity), the top payout on a popular route from the quotes this
  * build carries, or what readers' picks were worth over 30 days
