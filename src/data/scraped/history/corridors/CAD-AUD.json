@@ -1620,10 +1620,10 @@
     "date": "2026-10-08",
     "providers": {
       "taptap-send": {
-        "rate": 1,
+        "rate": 1.002,
         "fee": 0,
-        "markup": 0.8,
-        "receiveAmount": 100
+        "markup": 0.6,
+        "receiveAmount": 100.2
       }
     }
   }

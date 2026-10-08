@@ -9444,10 +9444,10 @@
     "date": "2026-10-08",
     "providers": {
       "instarem": {
-        "rate": 7.9904,
+        "rate": 8.022,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 799.04
+        "receiveAmount": 802.2
       },
       "moneygram": {
         "rate": 7.9128,
@@ -9474,19 +9474,19 @@
         "receiveAmount": 641.26
       },
       "wise": {
-        "rate": 8.00028,
+        "rate": 8.02917,
         "fee": 7.86,
-        "markup": 0,
-        "receiveAmount": 737.15
+        "markup": -0.36,
+        "receiveAmount": 739.81
       },
       "paypal": {
-        "rate": 7.66248,
+        "rate": 7.6637,
         "fee": 38.99,
-        "markup": 4.22,
-        "receiveAmount": 467.49
+        "markup": 4.2,
+        "receiveAmount": 467.56
       },
       "hsbc-hk": {
-        "rate": 7.87401,
+        "rate": 7.87385,
         "fee": 70,
         "markup": 1.58,
         "receiveAmount": 236.22
