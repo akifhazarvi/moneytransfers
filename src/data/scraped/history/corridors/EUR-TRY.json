@@ -14792,5 +14792,100 @@
         "receiveAmount": 4674.87
       }
     }
+  },
+  {
+    "date": "2026-10-08",
+    "providers": {
+      "moneygram": {
+        "rate": 54.6734,
+        "fee": 1.49,
+        "markup": 0.86,
+        "receiveAmount": 5385.88
+      },
+      "taptap-send": {
+        "rate": 55.3,
+        "fee": 0,
+        "markup": -0.28,
+        "receiveAmount": 5530
+      },
+      "deutsche-bank": {
+        "rate": 54.9137,
+        "fee": 36.55,
+        "markup": 0.42,
+        "receiveAmount": 3484.28
+      },
+      "xe": {
+        "rate": 54.6988,
+        "fee": 4,
+        "markup": 0.7,
+        "receiveAmount": 5251.08
+      },
+      "western-union": {
+        "rate": 54.21,
+        "fee": 0.99,
+        "markup": 1.7,
+        "receiveAmount": 5367.33
+      },
+      "dahabshiil": {
+        "rate": 53.0821,
+        "fee": 1.99,
+        "markup": 3.64,
+        "receiveAmount": 5202.58
+      },
+      "instarem": {
+        "rate": 54.7714,
+        "fee": 0,
+        "markup": 0.68,
+        "receiveAmount": 5477.14
+      },
+      "paysend": {
+        "rate": 54.7705,
+        "fee": 0,
+        "markup": 0.57,
+        "receiveAmount": 5477.05
+      },
+      "remitly": {
+        "rate": 54.41,
+        "fee": 1.99,
+        "markup": 1.34,
+        "receiveAmount": 5332.72
+      },
+      "revolut": {
+        "rate": 54.749,
+        "fee": 1,
+        "markup": 0.61,
+        "receiveAmount": 5420.15
+      },
+      "wise": {
+        "rate": 55.1404,
+        "fee": 2.98,
+        "markup": 0.01,
+        "receiveAmount": 5349.72
+      },
+      "ria": {
+        "rate": 54.0172,
+        "fee": 0.9,
+        "markup": 2.05,
+        "receiveAmount": 5353.11
+      },
+      "ing-de": {
+        "rate": 54.0058,
+        "fee": 22,
+        "markup": 2.07,
+        "receiveAmount": 4212.45
+      },
+      "commerzbank": {
+        "rate": 53.4478,
+        "fee": 12.5,
+        "markup": 3.08,
+        "receiveAmount": 4676.68
+      },
+      "sparkasse": {
+        "rate": 55.0161,
+        "fee": 42.5,
+        "markup": 0.24,
+        "receiveAmount": 3163.42
+      }
+    }
   }
 ]
