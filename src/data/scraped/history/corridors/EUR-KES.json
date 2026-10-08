@@ -17013,7 +17013,7 @@
       "lemfi": {
         "rate": 145.1,
         "fee": 0,
-        "markup": 0.17,
+        "markup": 0.4,
         "receiveAmount": 14510
       },
       "moneygram": {
@@ -17023,10 +17023,10 @@
         "receiveAmount": 14148
       },
       "skrill": {
-        "rate": 138.577,
+        "rate": 138.72,
         "fee": 0,
-        "markup": 4.75,
-        "receiveAmount": 13857.69
+        "markup": 4.65,
+        "receiveAmount": 13872.02
       },
       "taptap-send": {
         "rate": 144.5,
@@ -17035,16 +17035,16 @@
         "receiveAmount": 14450
       },
       "deutsche-bank": {
-        "rate": 142.68,
+        "rate": 142.716,
         "fee": 36.55,
-        "markup": 1.93,
-        "receiveAmount": 9053.08
+        "markup": 1.91,
+        "receiveAmount": 9055.32
       },
       "western-union": {
-        "rate": 138.092,
+        "rate": 138.009,
         "fee": 1.99,
-        "markup": 5.08,
-        "receiveAmount": 13534.42
+        "markup": 5.14,
+        "receiveAmount": 13526.26
       },
       "profee": {
         "rate": 144.685,
@@ -17059,10 +17059,10 @@
         "receiveAmount": 14238.07
       },
       "instarem": {
-        "rate": 142.133,
+        "rate": 142.443,
         "fee": 0,
-        "markup": 2.31,
-        "receiveAmount": 14213.31
+        "markup": 2.09,
+        "receiveAmount": 14244.34
       },
       "xe": {
         "rate": 142.129,
@@ -17095,10 +17095,10 @@
         "receiveAmount": 14081.78
       },
       "wise": {
-        "rate": 145.337,
+        "rate": 145.603,
         "fee": 3.55,
-        "markup": 0.1,
-        "receiveAmount": 14017.75
+        "markup": -0.08,
+        "receiveAmount": 14043.41
       },
       "ria": {
         "rate": 142.729,
@@ -17107,10 +17107,10 @@
         "receiveAmount": 14001.7
       },
       "xoom": {
-        "rate": 139.723,
+        "rate": 140.025,
         "fee": 2.99,
-        "markup": 3.96,
-        "receiveAmount": 13554.52
+        "markup": 3.75,
+        "receiveAmount": 13583.81
       }
     }
   }

@@ -6944,7 +6944,7 @@
       "lemfi": {
         "rate": 9.747,
         "fee": 0,
-        "markup": 2.01,
+        "markup": 1.75,
         "receiveAmount": 974.7
       },
       "ria": {
@@ -6954,34 +6954,34 @@
         "receiveAmount": 957.82
       },
       "taptap-send": {
-        "rate": 9.9,
+        "rate": 10,
         "fee": 0,
-        "markup": 0.71,
-        "receiveAmount": 990
+        "markup": -0.29,
+        "receiveAmount": 1000
       },
       "remitly": {
-        "rate": 9.84613,
+        "rate": 9.8217,
         "fee": 0,
-        "markup": 1.25,
-        "receiveAmount": 984.61
+        "markup": 1.49,
+        "receiveAmount": 982.17
       },
       "western-union": {
-        "rate": 9.83873,
+        "rate": 9.7942,
         "fee": 0.99,
-        "markup": 1.32,
-        "receiveAmount": 974.13
+        "markup": 1.77,
+        "receiveAmount": 969.72
       },
       "xoom": {
-        "rate": 9.57039,
+        "rate": 9.5381,
         "fee": 4.99,
-        "markup": 4.02,
-        "receiveAmount": 909.28
+        "markup": 4.34,
+        "receiveAmount": 906.21
       },
       "wise": {
-        "rate": 9.9508,
+        "rate": 9.9229,
         "fee": 6.19,
-        "markup": 0.2,
-        "receiveAmount": 933.48
+        "markup": 0.48,
+        "receiveAmount": 930.87
       }
     }
   }
