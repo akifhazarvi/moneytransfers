@@ -18,6 +18,7 @@ import { guideIsIndexable } from "@/lib/guide-status";
 import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
 import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2 } from "@/data/search-engine-routes";
+import { HUB_COPY_REVIEWED } from "@/lib/send-money-hub";
 import { corridorPageRenders } from "@/lib/route-map";
 import readerSavings from "@/data/research/reader-savings.json";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
@@ -56,6 +57,12 @@ const REVIEWED_ROUTES_DATE = "2026-09-24"; // round-2 freelance brief opened the
 const BING_DEMAND_DATE = "2026-09-27";     // Bing earners reopened (round-3 plan)
 const BING_DEMAND_WAVE_2_DATE = "2026-10-08"; // round-3 brief §3.1 + restored rate pairs
 const GUIDES_HUB_DATE = "2026-09-07";       // hub listing now driven by guideIsIndexable()
+// Round-3 brief (2026-10-08/09) content changes — §6.1: "change lastmod only
+// when the content genuinely changes", so each family that changed is restamped
+// and nothing else is.
+const IBAN_CONTENT_DATE = "2026-10-09";        // bank names readable, defunct banks dropped, country payment facts (§4.2/§4.3)
+const RATE_HISTORY_CONTENT_DATE = "2026-10-09"; // month-by-month ranges, largest moves, policy-decision table (§4.2)
+const METHODOLOGY_DATE = "2026-10-09";        // the three provider counts defined (§4.3)
 
 // Derived from the most recently modified scraped quotes file (shared with
 // the WebSite.dateModified schema in [locale]/layout.tsx — single source of
@@ -82,9 +89,24 @@ const DATA_UPDATED = getDataUpdatedDate();
 // Each constant is the date that family's template or editorial content last
 // actually changed, per git history. Bump one when you change that family —
 // the same discipline STATIC_HUB_DATE already follows.
-const CORRIDOR_CONTENT_DATE = "2026-09-19";   // consolidate receiving requirements and responsive transfer examples
-const COMPARISON_CONTENT_DATE = "2026-08-19"; // /compare, /banks, review fallback
+const CORRIDOR_CONTENT_DATE = "2026-10-09";   // round-3: H1 pair spacing, indicative quotes unranked, 3-provider title rule, eligible-only rails
+const COMPARISON_CONTENT_DATE = "2026-10-09"; // /compare, /banks, review fallback — round-3: lead-share figures, independent reviewer, provider counts
 const RATE_PAGE_CONTENT_DATE = "2026-09-01";  // /exchange-rates/* — inline quotes added
+
+/**
+ * The content date of a page's family, for lists that gather pages from many
+ * families (reviewed routes, Bing earners). Their own date records when the
+ * page was opened; a family edit after that is the later, truer lastmod.
+ */
+function familyDate(path: string, opened: string): string {
+  const family =
+    path.startsWith("/exchange-rates/history/") ? RATE_HISTORY_CONTENT_DATE
+    : path.startsWith("/iban/") ? IBAN_CONTENT_DATE
+    : path.startsWith("/send-money/") ? CORRIDOR_CONTENT_DATE
+    : /^\/(compare|companies|banks)\//.test(path) ? COMPARISON_CONTENT_DATE
+    : opened;
+  return family > opened ? family : opened;
+}
 
 function entry(path: string, lastModified: string): MetadataRoute.Sitemap[number] {
   const url = path ? `${SITE_URL}/${path}` : SITE_URL;
@@ -110,7 +132,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Static pages — always indexable, no GSC gating ──
   const staticPages: MetadataRoute.Sitemap = [
     entry("", DATA_UPDATED),
-    entry("send-money", DATA_UPDATED),
+    // The hub's editorial date, not the daily data stamp (round-3 brief §4.4D:
+    // a date that changes every day reads as automated).
+    entry("send-money", HUB_COPY_REVIEWED),
     entry("companies", DATA_UPDATED),
     entry("compare", DATA_UPDATED),
     // /compare-money-transfer is deliberately NOT listed: its canonical points
@@ -126,7 +150,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("contact", STATIC_HUB_DATE),
     entry("editorial-policy", STATIC_CONTENT_DATE),
     entry("how-we-review", STATIC_CONTENT_DATE),
-    entry("methodology", STATIC_CONTENT_DATE),
+    entry("methodology", METHODOLOGY_DATE),
     entry("privacy-policy", STATIC_CONTENT_DATE),
     entry("terms", STATIC_CONTENT_DATE),
     entry("for-ai", DATA_UPDATED),
@@ -275,12 +299,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const rateHistoryHub: MetadataRoute.Sitemap = [entry("exchange-rates/history", RATE_PAGE_CONTENT_DATE)];
   const rateHistoryPages: MetadataRoute.Sitemap = getAllInsights(2)
     .filter((i) => SITEMAP_RATE_HISTORY_SLUGS.has(corridorToSlug(i.corridor)))
-    .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, RATE_PAGE_CONTENT_DATE));
+    .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, RATE_HISTORY_CONTENT_DATE));
 
   // ── IBAN country pages ──
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
     .filter((c) => c.slug && SITEMAP_IBAN_SLUGS.has(c.slug))
-    .map((c) => entry(`iban/${c.slug}`, STATIC_HUB_DATE));
+    .map((c) => entry(`iban/${c.slug}`, IBAN_CONTENT_DATE));
 
   // ── SWIFT country pages ──
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
@@ -323,7 +347,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // history outside the demand allowlist, unreviewed companies). Duplicates
   // are dropped below, first occurrence wins, so a family's own lastmod stands.
   const reviewedPages: MetadataRoute.Sitemap = [...REVIEWED_INDEXABLE_ROUTES].map((path) =>
-    entry(path.replace(/^\//, ""), REVIEWED_ROUTES_DATE),
+    entry(path.replace(/^\//, ""), familyDate(path, REVIEWED_ROUTES_DATE)),
   );
 
   // ── Bing earners reopened 2026-09-27 (round-3 plan) ──
@@ -331,7 +355,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // reads — and never in sitemap-google.xml, which filters by googleIndexable().
   const WAVE_2 = new Set(BING_DEMAND_WAVE_2);
   const bingDemandPages: MetadataRoute.Sitemap = [...BING_DEMAND_ROUTES]
-    .map((path) => entry(path.replace(/^\//, ""), WAVE_2.has(path) ? BING_DEMAND_WAVE_2_DATE : BING_DEMAND_DATE));
+    .map((path) => entry(path.replace(/^\//, ""), familyDate(path, WAVE_2.has(path) ? BING_DEMAND_WAVE_2_DATE : BING_DEMAND_DATE)));
 
   // 2026-09-27: this is the Bing sitemap (the one robots.txt has always named).
   // Google gets sitemap-google.xml, the googleIndexable() subset of this list.
