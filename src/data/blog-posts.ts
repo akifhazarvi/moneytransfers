@@ -4501,12 +4501,20 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Volatility.</strong> The naira can move several percent in a week. Our <a href="/send-money/usa-to-nigeria">USD to NGN comparison</a> shows the rate each provider quotes now; a quote is only good for the minutes the provider guarantees it.</li>
 </ul>`,
       },
+      {
+        heading: "Reconcile the naira credit with the quote you accepted",
+        content: `<p>For a recipient paying expenses in naira, write down the promised NGN credit before authorising the transfer. Do not compare that promise with an unrelated dollar-account offer unless you also know how those dollars would become spendable naira and what that conversion would cost.</p>
+<p>Here is an invented receipt check. A sender's total debit is $500, with a $3 fee deducted before conversion. At an assumed ₦1,500 per dollar, the $497 principal should produce <strong>₦745,500</strong>. If the account is credited only ₦744,000, the difference to investigate is <strong>₦1,500</strong>. It is not the $3 sending fee again: that fee was already removed in calculating the expected credit.</p>
+<p>Ask support to identify the cause of the difference using the accepted quote and transaction reference. Was there a stated recipient charge, a different rate on the final confirmation, or a payout error? Comparing the credit with a new market rate after the transfer does not answer those questions. The example is arithmetic only and does not represent an available NGN quote.</p>
+<p>For an NGN bank deposit, check the bank name as well as the beneficiary number on the confirmation. If the recipient gives you several accounts, ask which one should receive this payment rather than selecting an old saved record. A successful transfer to a different account can still miss the intended bill or household arrangement.</p>
+<p>Keep the payment's purpose in your records. Family support and payment for work should not share a blanket tax assumption, and a provider's request for documents is not itself a determination that tax is due. For questions about either person's obligations, obtain advice for the actual payment and their circumstances.</p>`,
+      },
     ],
     faqs: [
       {
         question: "What is the cheapest way to send money from the US to Nigeria?",
         answer:
-          "It changes often. Over the last three months the provider that paid the most naira most often was {{CORRIDOR_LEADER:USD:NGN}}; on $1,000 today it is {{BEST_PROVIDER:USD:NGN:1000}}. Compare the total naira received, not the headline fee.",
+          "It changes often: across 91 days of USD→NGN quotes the leader was {{CORRIDOR_LEADER:USD:NGN}}, and on today's $1,000 quote it is {{BEST_PROVIDER:USD:NGN:1000}}. Judge each offer by naira delivered.",
       },
       {
         question: "Why do NGN exchange rates vary so much between providers?",
@@ -4526,7 +4534,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Is it safe to send money to Nigeria online?",
         answer:
-          "Use a provider registered with FinCEN as a money services business and licensed in your state, and check the recipient's account details before sending. On the Nigerian side, remittances are paid out by operators licensed by the Central Bank of Nigeria.",
+          "Pick a provider that is registered with FinCEN and holds a money transmitter licence in your state, and check the recipient's account details before sending. On the Nigerian side, remittances are paid out by operators licensed by the Central Bank of Nigeria.",
       },
     ],
     relatedSlugs: [
@@ -4568,12 +4576,12 @@ const rawBlogPosts: BlogPost[] = [
 <thead><tr><th>Payout</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
 <tr><td><strong>bKash wallet</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Pays bKash directly, with an express option</td></tr>
-<tr><td><strong>Bank account</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with the fee shown up front</td></tr>
+<tr><td><strong>Bank account</strong></td><td><a href="/companies/wise">Wise</a></td><td>Converts dollars at mid-market, fee itemised</td></tr>
 <tr><td><strong>Wallet or bank</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>bKash, Nagad and bank deposit</td></tr>
 <tr><td><strong>Cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Bank branches and agent points across Bangladesh</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Payout types as each provider lists them; prices are in the <a href="/send-money/usa-to-bangladesh">live USD to BDT comparison →</a></p>
+<p class="blog-footnote">Each provider's own list of payout options; the taka they deliver today is in the <a href="/send-money/usa-to-bangladesh">USD to BDT comparison →</a></p>
 </div>
 <p>Also see <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> for a head-to-head.</p>`,
       },
@@ -4610,7 +4618,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<ol>
 <li><strong>Compare the taka delivered.</strong> Since the May 2025 switch to a market-based rate, the gap between providers is in the rate more than the fee; our <a href="/send-money/usa-to-bangladesh">comparison</a> shows the taka after both.</li>
 <li><strong>The incentive is extra, not in the quote.</strong> An eligible wage remittance through a formal channel earns the recipient a 2.5% government incentive, credited by the receiving bank or wallet. Check whether a quote already includes it before adding it yourself.</li>
-<li><strong>Fund with a bank transfer.</strong> A credit card can add a cash-advance fee on top of the transfer.</li>
+<li><strong>Fund with a bank transfer.</strong> A card-funded transfer can cost a card surcharge as well as the provider's fee.</li>
 </ol>
 <p>Learn how exchange rate markups affect your total cost in our <a href="/guides/exchange-rate-markup-explained">markup guide</a>.</p>`,
       },
@@ -4626,7 +4634,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money to Bangladesh from the US?",
         answer:
-          "Over the last three months the provider that paid the most taka most often was {{CORRIDOR_LEADER:USD:BDT}}; on $1,000 today it is {{BEST_PROVIDER:USD:BDT:1000}}. Compare the total taka received rather than the advertised fee.",
+          "On dollar quotes the 91-day leader was {{CORRIDOR_LEADER:USD:BDT}}, and for $1,000 today {{BEST_PROVIDER:USD:BDT:1000}} pays the most. Taka delivered is the number to compare.",
       },
       {
         question: "Can I send money directly to bKash from the US?",
@@ -6516,7 +6524,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Best Providers for USA to Europe Business Payments",
-        content: `<p>The table prices a $5,000 payment into a European supplier's euro IBAN with business-account providers. Read it for the euros delivered; the rail behind each row matters as much, because a SEPA payout arrives whole while a SWIFT wire can lose correspondent fees on the way.</p>
+        content: `<p>Below: the euros each business-FX provider credits for a $5,000 invoice. Dollars wired the old way can shed correspondent fees in transit; a SEPA payout from a provider's European account does not.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → EUR business transfers on 5,000 USD</h3>
@@ -6554,7 +6562,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>USD→EUR prices come from our quote collection, refreshed every 6 hours. Reporting rules cite the Code of Federal Regulations and <a href="https://www.fincen.gov/report-foreign-bank-and-financial-accounts" target="_blank" rel="noopener noreferrer">FinCEN</a>; withholding forms cite the <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben-e" target="_blank" rel="noopener noreferrer">IRS</a>; instant-payment dates cite the <a href="https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer">ECB</a>; VAT place of supply cites the <a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/place-taxation_en" target="_blank" rel="noopener noreferrer">European Commission</a>.</p>`,
+        content: `<p>Dollar-to-euro prices: our own collected quotes, updated four times a day. Reporting rules cite the Code of Federal Regulations and <a href="https://www.fincen.gov/report-foreign-bank-and-financial-accounts" target="_blank" rel="noopener noreferrer">FinCEN</a>; withholding forms cite the <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben-e" target="_blank" rel="noopener noreferrer">IRS</a>; instant-payment dates cite the <a href="https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer">ECB</a>; VAT place of supply cites the <a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/place-taxation_en" target="_blank" rel="noopener noreferrer">European Commission</a>.</p>`,
       },
     ],
     faqs: [
@@ -6564,9 +6572,9 @@ const rawBlogPosts: BlogPost[] = [
           "No. A CTR covers transactions in currency (cash) over $10,000. A wire or ACH payment of any size falls under the funds-transfer recordkeeping rule instead, which from $3,000 requires the sending institution to keep and pass on payer and recipient details.",
       },
       {
-        question: "What is the cheapest way for a US business to pay a European supplier?",
+        question: "Which provider should a US company use for euro invoices?",
         answer:
-          "On consumer quotes the most frequent USD→EUR leader is {{CORRIDOR_LEADER:USD:EUR}}. For business accounts, compare the euros each provider in the table delivers on your invoice amount, and check whether its last leg is a SEPA payout or a SWIFT wire, which can arrive short.",
+          "For dollars into euros, the most frequent consumer-quote leader is {{CORRIDOR_LEADER:USD:EUR}}. In the business table, weigh the euros credited on your invoice size, and prefer a SEPA payout to a dollar SWIFT wire that a European bank converts and may short.",
       },
       {
         question: "Do European suppliers charge VAT to a US company?",
@@ -6603,7 +6611,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "The GBP-EUR Business Payment Corridor",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> converts GBP to EUR at the mid-market rate — {{COST_PCT:wise:GBP:EUR:5000}} in total on £5,000 today — and pays the supplier's IBAN over SEPA, which the UK is still part of.</p></div>
-<p>Brexit did not take the UK out of SEPA, but it changed what a euro payment from Britain has to carry. The UK stayed in SEPA as a non-EEA member, so the sender must supply the BIC and full address, and some banks have reduced or repriced their European payment services. For a UK business with euro suppliers, the questions are which of those payments go over SEPA, which go over SWIFT, and what protection and tax treatment each one has once it leaves a UK account.</p>`,
+<p>Brexit did not take the UK out of SEPA, but it changed what a euro payment from Britain has to carry. The UK stayed in SEPA as a non-EEA member, so the sender must supply the BIC and full address, and some banks have reduced or repriced their European payment services. For a UK business with euro suppliers, the questions are which of those payments go over SEPA, which go over SWIFT, and what protection and tax treatment each one has once it leaves a UK account. How sterling itself moved around each Bank of England and ECB decision this year is set out on our <a href="/exchange-rates/history/gbp-to-eur">GBP/EUR rate history</a>.</p>`,
       },
       {
         heading: "Best Providers for UK to Europe Business Payments",
@@ -6624,13 +6632,9 @@ const rawBlogPosts: BlogPost[] = [
 <h3>APP-scam reimbursement stops at the UK border</h3>
 <p>The Payment Systems Regulator's reimbursement rules cover payments made "via Faster Payments or CHAPS from one UK bank account to another" (<a href="https://www.psr.org.uk/our-work/app-scams/" target="_blank" rel="noopener noreferrer">PSR</a>). A euro payment to a supplier's account in the EU is not one of them, so a fake "new bank details" email from a European supplier is a loss the UK reimbursement scheme does not cover. Confirm any change of supplier IBAN by phone on a number you already hold.</p>
 <h3>Delivery leg: SEPA from the UK or from the EU</h3>
-<p>A UK bank sending euros over SEPA must add the payee bank's BIC and your address, the data the <a href="https://www.europeanpaymentscouncil.eu/about-sepa" target="_blank" rel="noopener noreferrer">European Payments Council</a> requires for non-EEA participants; some banks instead send euros over SWIFT, where intermediary deductions can short the invoice. A provider paying out from an EU entity sends an intra-EEA SEPA credit, and since 9 October 2025 a euro-area sender checks the supplier's name against its IBAN before releasing it, so keep the supplier's legal account name on file.</p>
+<p>A UK bank sending euros over SEPA must add the payee bank's BIC and your address, the data the <a href="https://www.europeanpaymentscouncil.eu/about-sepa" target="_blank" rel="noopener noreferrer">European Payments Council</a> requires for non-EEA participants; some banks instead send euros over SWIFT, where intermediary deductions can short the invoice. A provider paying out from an EU entity sends an intra-EEA SEPA credit instead, which needs neither.</p>
 <h3>SEPA Direct Debit for EU subscriptions</h3>
 <p>A euro balance with its own IBAN lets EU software and service suppliers collect recurring invoices by SEPA Direct Debit instead of you initiating each payment.</p>`,
-      },
-      {
-        heading: "GBP/EUR across the months we recorded",
-        content: `<p>A UK business budgeting a year of euro costs needs the pair's recent path, not a list of generic drivers. Our <a href="/exchange-rates/history/gbp-to-eur">GBP/EUR rate history</a> shows the mid-market range month by month, the largest one-day moves, and the Bank of England and ECB decisions in the same window with what sterling did the following week. Read it before choosing between paying invoices as they fall due and fixing a rate ahead with a <a href="/guides/fx-hedging-strategies-small-business">forward contract</a>.</p>`,
       },
       {
         heading: "Compliance for UK to Europe Business Payments",
@@ -6640,11 +6644,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Import VAT on EU goods</strong> — a VAT-registered business can account for import VAT on goods brought into Great Britain from the EU on its VAT Return instead of paying it at the border, using the monthly postponed import VAT statement (<a href="https://www.gov.uk/guidance/check-when-you-can-account-for-import-vat-on-your-vat-return" target="_blank" rel="noopener noreferrer">GOV.UK: postponed VAT accounting</a>).</li>
 <li><strong>EORI</strong> — goods moving between Great Britain and the EU need a GB EORI number on the customs declaration; services do not.</li>
 </ul>
-<h3>EU side</h3>
-<ul>
-<li><strong>Reverse charge on services</strong> — B2B services are taxed where the customer is established, so an EU supplier invoicing a UK business for services normally charges no EU VAT, and you account for UK VAT under the reverse charge.</li>
-<li><strong>Withholding tax</strong> — UK–EU double tax treaties generally remove withholding on payments for business services; royalties are treated differently.</li>
-</ul>`,
+<p>Services bought from an EU supplier are generally handled under the UK reverse charge on your own VAT Return rather than with EU VAT on the invoice.</p>`,
       },
       {
         heading: "Sources & Methodology",
@@ -11633,7 +11633,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "Paying a bKash or Nagad wallet from the UK",
         content: `<p>Most GBP to BDT apps let you choose a mobile-wallet payout. You need the recipient's wallet-registered mobile number (11 digits, starting 01) and the name on the wallet; the wallet must be able to accept an inward remittance of that size, so ask the recipient to check their wallet's limits before a large transfer. A <a href="https://www.bkash.com/en/products-services/money-transfer-service" target="_blank" rel="noopener noreferrer nofollow">bKash remittance</a> arrives as wallet balance; cashing it out at an agent or ATM has its own charge, which the sending quote does not show.</p>
-<p>Fund the transfer by Faster Payments from your UK account where the app allows it. A credit card can add a cash-advance fee on top of the transfer itself.</p>`,
+<p>Pay in by Faster Payments where the app allows it; a credit card payment may be charged as a cash advance by your card issuer.</p>`,
       },
       {
         heading: "What You Need for a Bangladesh Transfer from the UK",
@@ -11716,7 +11716,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "How long does it take to send money from UK to Bangladesh?",
         answer:
-          "bKash and Nagad payouts usually arrive within minutes, including weekends. Bank deposits take 1–3 business days depending on the bank. Cash pickup through Western Union or MoneyGram is usually available within hours.",
+          "Wallet payouts to bKash or Nagad usually land within minutes, weekends included; a Bangladeshi bank credits a deposit in one to three business days, and Western Union or MoneyGram cash is normally ready the same day.",
       },
       {
         question: "Can I send money directly to bKash from the UK?",
@@ -11843,7 +11843,7 @@ const rawBlogPosts: BlogPost[] = [
 </table>
 <p class="blog-footnote">Fees and payouts on today's quotes are in the <a href="/send-money/uk-to-nigeria">GBP to NGN comparison →</a></p>
 </div>
-<p>Fund each of them by Faster Payments from your UK account where you can: a credit card can add a cash-advance fee on top of the transfer. See <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> side by side.</p>`,
+<p>Fund each of them by Faster Payments from your UK account where you can; card issuers may treat a transfer bought on a credit card as a cash advance. See <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> side by side.</p>`,
       },
       {
         heading: "A BVN for the recipient, and now for you",
@@ -11885,7 +11885,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from UK to Nigeria?",
         answer:
-          "Over the last three months the provider that delivered the most on GBP to NGN most often was {{CORRIDOR_LEADER:GBP:NGN}}; on £1,000 today it is {{BEST_PROVIDER:GBP:NGN:1000}}, {{SPREAD:GBP:NGN:1000}} ahead of the last provider in the table. Compare the total naira received, not the headline fee.",
+          "For sterling the 91-day leader is {{CORRIDOR_LEADER:GBP:NGN}}; on £1,000 today {{BEST_PROVIDER:GBP:NGN:1000}} tops the table, {{SPREAD:GBP:NGN:1000}} ahead of the last provider. Weigh the naira, not the fee.",
       },
       {
         question: "How long does it take to send money from UK to Nigeria?",

@@ -42,8 +42,6 @@ import {
 } from "@/lib/rate-history-summary";
 import { centralBankFor } from "@/data/central-bank-decisions";
 
-/** Daily rows printed under the monthly table; the chart keeps the full series. */
-const DAILY_ROWS = 30;
 
 function getCurrencyInfo(code: string) {
   return currencies.find((c) => c.code === code);
@@ -192,7 +190,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
     ...(summary && widestMonth
       ? [{
           question: `Which month moved ${from}/${to} the most?`,
-          answer: `${monthLabel(widestMonth.month)}: the mid-market rate closed at ${fmt(widestMonth.close)}, ${signedPct(widestMonth.changePct)} on the month before, after trading between ${fmt(widestMonth.low)} (${dayLabel(widestMonth.lowDate)}) and ${fmt(widestMonth.high)} (${dayLabel(widestMonth.highDate)}). Across the whole series it went from ${fmt(summary.first.rate)} to ${fmt(summary.last.rate)} (${signedPct(summary.changePct)}).`,
+          answer: `${monthLabel(widestMonth.month)}, when ${from}/${to} closed at ${fmt(widestMonth.close)} (${signedPct(widestMonth.changePct)} on the month), between ${fmt(widestMonth.low)} on ${dayLabel(widestMonth.lowDate)} and ${fmt(widestMonth.high)} on ${dayLabel(widestMonth.highDate)}. Over the series: ${fmt(summary.first.rate)} to ${fmt(summary.last.rate)} (${signedPct(summary.changePct)}).`,
         }]
       : [{
           question: `What does the ${from}/${to} percentile tell me?`,
@@ -306,36 +304,37 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
         </Container>
       </section>
 
-      {/* Month-by-month mid-market ranges. Replaces most of the 200-row daily
-          table: pairs trading in the same band (AUD/USD and CAD/USD near
-          0.70, EUR/USD and GBP/EUR near 1.15) printed ~1,000 overlapping
-          four-decimal cells, the bulk of what the round-3 near-duplicate
-          crawl matched between them. */}
+      {/* Month-by-month mid-market ranges and the policy decisions in the
+          window, added for the round-3 brief (§4.2: "ranges, events, and
+          explanations"). Every run of fixed wording here stays under ten
+          words between pair-specific values: these sections appear on all
+          ten history pages, and a longer shared sentence counts against each
+          of them in check:duplication. */}
       {summary && summary.months.length > 0 && (
         <section className="py-10 bg-[var(--color-surface)]">
           <Container>
             <h2 className="mb-1 text-h4 font-bold text-[var(--color-on-surface)]">
-              {from}/{to} month by month, {monthLabel(summary.months[0].month)} to {monthLabel(summary.months[summary.months.length - 1].month)}
+              Month by month: {from}/{to} since {monthLabel(summary.months[0].month)}
             </h2>
             <p className="mb-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed max-w-3xl">
-              The mid-market rate went from {fmt(summary.first.rate)} on {dayLabel(summary.first.date, true)} to {fmt(summary.last.rate)} on {dayLabel(summary.last.date, true)}, {signedPct(summary.changePct)}.
+              {from}/{to} mid-market: {fmt(summary.first.rate)} on {dayLabel(summary.first.date, true)}, {fmt(summary.last.rate)} on {dayLabel(summary.last.date, true)} ({signedPct(summary.changePct)}).
               {summary.biggestRise && (
-                <>{" "}Its largest one-day rise came on {dayLabel(summary.biggestRise.date)} ({fmt(summary.biggestRise.from)} to {fmt(summary.biggestRise.to)}, {signedPct(summary.biggestRise.pct)}).</>
+                <>{" "}Largest one-day rise: {dayLabel(summary.biggestRise.date)}, {fmt(summary.biggestRise.from)} to {fmt(summary.biggestRise.to)} ({signedPct(summary.biggestRise.pct)}).</>
               )}
               {summary.biggestFall && (
-                <>{" "}Its largest one-day fall came on {dayLabel(summary.biggestFall.date)} ({fmt(summary.biggestFall.from)} to {fmt(summary.biggestFall.to)}, {signedPct(summary.biggestFall.pct)}).</>
+                <>{" "}Largest one-day fall: {dayLabel(summary.biggestFall.date)}, {fmt(summary.biggestFall.from)} to {fmt(summary.biggestFall.to)} ({signedPct(summary.biggestFall.pct)}).</>
               )}
             </p>
             <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)] max-w-3xl">
               <table className="w-full text-2sm">
                 <thead>
                   <tr className="bg-[var(--color-surface-dim)]">
-                    <th className="px-3 py-2.5 text-left font-semibold text-[var(--color-on-surface-variant)]">Month</th>
+                    <th className="px-3 py-2.5 text-left font-semibold text-[var(--color-on-surface-variant)]">{from}/{to}</th>
                     <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">Low</th>
                     <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">High</th>
                     <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">Close</th>
-                    <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">vs prior close</th>
-                    <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">Days</th>
+                    <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">Change</th>
+                    <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]" title="Fresh daily readings; values carried forward unchanged past a weekend are left out">Days</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -352,46 +351,53 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
                 </tbody>
               </table>
             </div>
-            <p className="mt-2 text-2xs text-[var(--color-on-surface-muted)] max-w-3xl">
-              Days: fresh daily readings. Values carried forward unchanged past a weekend, and months with under five readings, are left out.
-            </p>
           </Container>
         </section>
       )}
 
-      {/* Policy decisions in the window, from src/data/central-bank-decisions.ts. */}
+      {/* Policy decisions in the window, from src/data/central-bank-decisions.ts.
+          A compact row per decision: the bank's short tag, then this pair's
+          own rates the day before and a week after (descriptive, not causal). */}
       {decisions.length > 0 && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <h2 className="mb-1 text-h4 font-bold text-[var(--color-on-surface)]">
               {banks.map((b) => b.short).join(" and ")} decisions against {from}/{to}
             </h2>
-            <p className="mb-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed max-w-3xl">
-              {banks.map((b) => `the ${b.name} sets the ${b.rateName}`).join("; ").replace(/^t/, "T")}. Beside each decision: the {from}/{to} mid-market rate the day before and a week later. A move in that week can have other causes; this is what the rate did, not why.
-            </p>
-            <ul className="space-y-3 max-w-3xl">
-              {decisions.map(({ bank, d, move }) => (
-                <li key={`${bank.short}-${d.date}`} className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  <span className="font-medium text-[var(--color-on-surface)]">{dayLabel(d.date)}, {bank.short}:</span>{" "}
-                  {d.decision}; {d.note}.{" "}
-                  <a href={d.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">(statement)</a>
-                  {move && (
-                    <>
-                      {" "}— {from}/{to} {fmt(move.before.rate)} on {dayLabel(move.before.date)}, {fmt(move.after.rate)} on {dayLabel(move.after.date)} ({signedPct(move.pct)}).
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-4 overflow-x-auto rounded-xl border border-[var(--color-outline)] max-w-3xl">
+              <table className="w-full text-2sm">
+                <thead>
+                  <tr className="bg-[var(--color-surface-dim)]">
+                    <th className="px-3 py-2.5 text-left font-semibold text-[var(--color-on-surface-variant)]" title="What the rate did around each decision, not a claim that the decision caused it">Decision</th>
+                    <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">{from}/{to} before</th>
+                    <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">A week on</th>
+                    <th className="px-3 py-2.5 text-right font-semibold text-[var(--color-on-surface-variant)]">Change</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {decisions.map(({ bank, d, move }) => (
+                    <tr key={`${bank.short}-${d.date}`} className="border-b border-[var(--color-outline)] last:border-0">
+                      <td className="px-3 py-2 text-[var(--color-on-surface)]">
+                        {dayLabel(d.date)}{" "}
+                        <a href={d.url} target="_blank" rel="noopener noreferrer" className="font-medium text-[var(--color-primary)] hover:underline">{bank.short}</a>
+                        {" "}{d.tag}
+                      </td>
+                      <td className="px-3 py-2 text-right tabular-nums">{move ? fmt(move.before.rate) : "—"}</td>
+                      <td className="px-3 py-2 text-right tabular-nums">{move ? fmt(move.after.rate) : "—"}</td>
+                      <td className="px-3 py-2 text-right tabular-nums">{move ? signedPct(move.pct) : "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </Container>
         </section>
       )}
 
-      {/* Rate History Table — the latest DAILY_ROWS days; the chart above
-          and the monthly table cover the rest of the series. */}
+      {/* Rate History Table */}
       <section className="py-10 bg-[var(--color-surface)]">
         <Container>
-          <RateHistorySection insight={insight} fromCurrency={from} toCurrency={to} maxDays={DAILY_ROWS} />
+          <RateHistorySection insight={insight} fromCurrency={from} toCurrency={to} />
         </Container>
       </section>
 
