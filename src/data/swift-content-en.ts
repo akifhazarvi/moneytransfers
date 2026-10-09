@@ -1068,7 +1068,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major Thai banks?",
-      a: "Key Thai bank SWIFT codes include: Bangkok Bank — BKKBTHBK, Kasikornbank (KBank) — KASITHBK, Siam Commercial Bank (SCB) — SICOTHBK, Bank of Ayudhya / Krungsri — AYUDTHBK, Krungthai Bank — KRTHTHBK, TMBThanachart Bank (ttb) — TMBKTHBK, and Citibank Thailand — CITITHTHX. Always confirm the exact code with the recipient's bank.",
+      a: "Key Thai bank SWIFT codes include: Bangkok Bank — BKKBTHBK, Kasikornbank (KBank) — KASITHBK, Siam Commercial Bank (SCB) — SICOTHBK, Bank of Ayudhya / Krungsri — AYUDTHBK, Krungthai Bank — KRTHTHBK, and TMBThanachart Bank (ttb) — TMBKTHBK. Always confirm the exact code with the recipient's bank.",
     },
     {
       q: "Can PromptPay receive international transfers?",
@@ -1383,7 +1383,7 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "What are the SWIFT codes for major Egyptian banks?",
-      a: "Key Egyptian bank SWIFT codes include: National Bank of Egypt — NBEGEGCX, Banque Misr — BMISEGCX, Commercial International Bank (CIB) — CIBEEGCX, Banque du Caire — BCAIEGCX, HSBC Egypt — HBEGEGCX, and QNB Alahli — QNBAEGCXXX. Always confirm the exact code with the recipient's bank.",
+      a: "Key Egyptian bank SWIFT codes include: National Bank of Egypt — NBEGEGCX, Banque Misr — BMISEGCX, Commercial International Bank (CIB) — CIBEEGCX, Banque du Caire — BCAIEGCX, and HSBC Egypt — HBEGEGCX. Always confirm the exact code with the recipient's bank.",
     },
     {
       q: "How do I receive money from abroad into an Egyptian bank account?",

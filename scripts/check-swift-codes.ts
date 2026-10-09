@@ -16,7 +16,8 @@
  *   2. Every non-empty `swiftCode` in corridor-details.ts is 8 or 11
  *      characters with its section's country letters in positions 5–6. The
  *      multi-country "europe" block is exempt from the country check.
- *   3. No 12-character BIC-shaped token appears in the SWIFT or IBAN content.
+ *   3. No 12-character BIC-shaped token appears in the SWIFT or IBAN content,
+ *      and no 9- or 10-character one is quoted after a bank name ("— CODE").
  *
  * This checks structure, not existence. A code can pass and still be wrong;
  * where src/data/scraped/swift-codes.json holds the bank, prefer its code.
@@ -69,11 +70,18 @@ for (const file of walk(SRC)) {
   }
 }
 
-// 3. 12-character BIC-shaped tokens in the SWIFT/IBAN content.
+// 3. Wrong-length BIC-shaped tokens in the SWIFT/IBAN content: 12 characters
+// anywhere, and 9 or 10 where a code is quoted after a bank name ("Bank — CODE").
+// The round-3 QA (2026-10-09) found CITITHTHX (9) and QNBAEGCXXX (10) on live
+// SWIFT pages; the 12-only rule let them through. The 9/10 rule is scoped to the
+// "— CODE" form so ordinary capitalised words (PAKISTANI) never trip it.
 for (const name of ["swift-content-en.ts", "iban-content-en.ts"]) {
   const text = readFileSync(join(SRC, "data", name), "utf8");
   for (const m of text.matchAll(/\b[A-Z]{6}[A-Z0-9]{6}\b/g)) {
     errors.push(`${name}: 12-character SWIFT code ${m[0]} (a BIC has 8 or 11)`);
+  }
+  for (const m of text.matchAll(/—\s*([A-Z]{6}[A-Z0-9]{3,4})\b/g)) {
+    errors.push(`${name}: ${m[1].length}-character SWIFT code ${m[1]} (a BIC has 8 or 11)`);
   }
 }
 
