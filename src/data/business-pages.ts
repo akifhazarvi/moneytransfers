@@ -426,9 +426,9 @@ export const businessPages: BusinessPage[] = [
     slug: "vendor-payments",
     title: "International Vendor Payments",
     metaTitle:
-      "International Vendor Payments — Cheapest Way to Pay Suppliers (2026)",
+      "Vendor Payment Providers Compared: Approvals, Currency Accounts, FX",
     metaDescription:
-      "Compare the cheapest international vendor payments solutions in 2026. Make cost-effective international payments to overseas suppliers with business FX payments from Wise, OFX, XE & Revolut.",
+      "Compare providers for paying overseas vendors: approval workflows, multi-currency accounts, invoice-currency payments and FX cost — Wise, OFX, XE and Revolut.",
     heading:
       "International Vendor Payments: The Cheapest Way to Pay Overseas Suppliers in 2026",
     intro:
@@ -608,9 +608,9 @@ export const businessPages: BusinessPage[] = [
     slug: "b2b-transfers",
     title: "B2B International Money Transfers",
     metaTitle:
-      "B2B International Money Transfer — Compare Business Providers (2026)",
+      "Large B2B Transfers: Forward Contracts, Dealers & FX Risk (2026)",
     metaDescription:
-      "Compare the best providers for B2B international money transfer in 2026. Make international payments for business with 80% lower costs than banks. Business FX payments, batch processing & compliance.",
+      "Planning a large business-to-business transfer? Compare dealer support and forward contracts, see what banks charge, and manage FX risk and compliance.",
     heading:
       "B2B International Money Transfer: Compare the Best Business Providers in 2026",
     intro:

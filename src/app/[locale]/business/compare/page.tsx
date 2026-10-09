@@ -1,7 +1,7 @@
 import BusinessProviderLogo from "@/components/business/BusinessProviderLogo";
 import BusinessPartner from "@/components/business/BusinessPartner";
 import InstallSlot from "@/components/pwa/InstallSlot";
-import { seoDescription } from "@/lib/seo-title";
+import { fitTitle, seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 import Link from "@/components/EligibleLink";
@@ -43,8 +43,14 @@ const PROVIDER_COUNT = BUSINESS_PROVIDERS.length;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const title = `Best Business Payment Providers Compared (${asOfLong})`;
-  const description = `In-depth comparison of ${PROVIDER_COUNT} business payment providers — Wise Business, OFX, Airwallex, Mercury, XE, Currencies Direct — on bulk payments, approval workflows, multi-currency accounts, API, KYC, limits and live FX cost. Banks cost ${idx.bankVsSpecialistMultiple}× more than specialists.`;
+  // A feature finder and cost benchmark, not a "best providers" review: the
+  // review query belongs to /guides/business-money-transfers-provider-review
+  // (QA 2026-10-09, item 9 — no two eligible pages on one query).
+  const title = fitTitle([
+    `Business Payment Feature Matrix & Cost Benchmark (${asOfLong})`,
+    "Business Payment Feature Matrix & Cost Benchmark",
+  ]);
+  const description = `Feature matrix and cost benchmark for ${PROVIDER_COUNT} business payment providers — Wise Business, OFX, Airwallex, Mercury, XE, Currencies Direct — on bulk payments, approval workflows, multi-currency accounts, API, KYC, limits and live FX cost. Banks cost ${idx.bankVsSpecialistMultiple}× more than specialists.`;
   return {
     title: { absolute: title },
     description: seoDescription(description),
@@ -135,7 +141,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
 
       <section className="business-hero business-compare-hero"><Container>
         <p className="business-eyebrow">Business provider comparison</p>
-        <h1>Find the right tools <br />for the way you pay.</h1>
+        <h1>Compare business payment <br />providers, feature by feature.</h1>
         <p className="business-deck">Choose your payment needs. Compare {PROVIDER_COUNT} providers by feature match and measured cost.</p>
         <p className="business-small">By {author?.name ?? "Ahsan Mukhtar"} · cost data {asOfLong} · original feature inventory reviewed June 2026 · Regency FX checked 30 September 2026</p>
       </Container></section>

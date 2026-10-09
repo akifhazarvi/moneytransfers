@@ -244,7 +244,7 @@
     "importantNoteHeading": "Important note"
   },
   "companies": {
-    "metaTitle": "Best Money Transfer Companies 2026: %PROFILE_COUNT% Providers Reviewed",
+    "metaTitle": "Money Transfer Company Reviews: %PROFILE_COUNT% Providers' Fees & Ratings",
     "metaDescription": "We have reviewed %PROFILE_COUNT% providers, from Wise, Remitly and Western Union to OFX and Revolut: real fees, exchange-rate markup data and Trustpilot ratings.",
     "metaKeywords": "money transfer reviews 2026, best money transfer company, remittance providers rated, Wise review, Remitly review, Western Union review, money transfer ratings, cheapest money transfer service",
     "title": "Money Transfer Company Reviews",
@@ -477,16 +477,16 @@
     "fallbackKeywordsCorridor": "send money {fromCountry} to {toCountry}, {from} to {to}, cheapest way to send money to {toCountry}, best way to send money from {fromCountry} to {toCountry}, money transfer {toCountry}, {toCurrency} exchange rate"
   },
   "currencyConverter": {
-    "metaTitle": "Currency Converter & Markup Checker (2026)",
-    "metaDescription": "Banks hide a 2–4% markup inside the exchange rate. Check the live mid-market rate, then see what Wise, Remitly & %PROVIDER_COUNT% providers actually charge. Spot the hidden fee before you transfer.",
+    "metaTitle": "Currency Converter: Live Mid-Market Rates vs What Apps Pay Out",
+    "metaDescription": "Convert any currency at the live mid-market rate, then see what Wise, Remitly and the %PROVIDER_COUNT% providers we track pay out for the same amount.",
     "title": "Exchange Rate Markup Checker",
     "liveExchangeRates": "Live exchange rates",
     "popularCurrencyPairs": "Popular currency pairs",
     "allExchangeRatesVsUSD": "All exchange rates vs USD",
     "howCurrencyConversionWorks": "How currency conversion works",
     "aboutOurExchangeRates": "About our exchange rates",
-    "heading": "What is your bank's exchange rate really costing you?",
-    "subheading": "Banks hide a 2–4% markup inside the rate. Check the real mid-market rate, then see what each app actually pays out."
+    "heading": "Currency converter with live mid-market rates",
+    "subheading": "Convert at the mid-market rate, then see what each app actually pays out for the same amount. The gap is the markup inside your bank's rate."
   },
   "exchangeRates": {
     "metaTitle": "Exchange Rates Today — Live Mid-Market Rates & 12-Month Charts",
@@ -514,11 +514,11 @@
     "disclaimerFull": "Exchange rates shown are mid-market rates aggregated from multiple independent sources for informational purposes only. Actual rates offered by money transfer providers, banks, and currency exchange services will differ. These rates do not constitute financial advice and should not be relied upon for trading decisions. Last updated in real-time from 4 independent data feeds."
   },
   "iban": {
-    "metaTitle": "IBAN Lookup — Format, Example & Validator for 89+ Countries (2026)",
-    "metaDescription": "Free IBAN lookup for 89+ countries. Validate format, decode bank & branch, see structure examples. Covers all SEPA countries, Middle East, Asia, and Latin America.",
+    "metaTitle": "IBAN Lookup by Country & Bank: Bank Codes and Example IBANs",
+    "metaDescription": "IBAN details by country and bank: bank and branch codes, an example IBAN per country, and SEPA membership for Europe, the Middle East, Asia and Latin America.",
     "metaKeywords": "IBAN, IBAN number, international bank account number, IBAN format, IBAN structure, SEPA, BBAN, bank codes, IBAN by country, IBAN example, IBAN length",
     "title": "IBAN codes by country",
-    "heading": "<highlight>IBAN</highlight> lookup & format by country",
+    "heading": "<highlight>IBAN</highlight> lookup by country and bank",
     "countries": "countries",
     "sepaMembers": "SEPA members",
     "banksListed": "banks listed",
@@ -533,7 +533,7 @@
     "sendingMoneyAbroad": "Sending money abroad?",
     "compareProviders": "Compare providers",
     "findBestRates": "Find the best rates and lowest fees for your international transfer.",
-    "subheading": "Look up IBAN formats, examples, and bank codes for {count}+ countries. Understand IBAN structure for international transfers.",
+    "subheading": "Pick a country to see its banks, their bank codes and an example IBAN — {count}+ countries covered.",
     "ctaHeading": "Sending money abroad?",
     "ctaDescription": "Compare exchange rates, fees, and delivery times from %PROVIDER_COUNT% providers.",
     "ctaButton": "Compare providers"
