@@ -194,8 +194,22 @@ export interface DestinationGroup {
   routes: RouteLink[];
 }
 
-/** Destinations in the order the hub has always led with — measured demand. */
-const LEAD_DESTINATIONS = ["India", "Pakistan", "Philippines"];
+/**
+ * Destinations in measured-demand order: the hub has always led with the first
+ * three; the brief's Bing PageTraffic export (Oct 8 2026) puts India, Pakistan,
+ * the Philippines and then the United States (india-to-usa) ahead of every
+ * other eligible route page.
+ */
+const LEAD_DESTINATIONS = ["India", "Pakistan", "Philippines", "United States"];
+
+/**
+ * Links the directory may print. Round-3 brief §5.1 acceptance: /send-money
+ * carries at most 60–80 unique internal links; header and footer hold ~49 and
+ * the page body ~8 more, so 22 route links keeps the page at ~79. Every
+ * eligible route page also has in-content links from 3+ other eligible pages
+ * (check:link-eligibility), so a route left out here is not orphaned.
+ */
+export const HUB_DIRECTORY_LIMIT = 22;
 
 /**
  * Every Google-eligible /send-money/* page, grouped by destination country.
@@ -207,13 +221,12 @@ const LEAD_DESTINATIONS = ["India", "Pakistan", "Philippines"];
  * a page released to Google joins it on the next build and a page withdrawn
  * leaves it. Every other route stays reachable through the comparison form.
  *
- * All eligible corridor pages are listed (43 on 2026-10-08, not a hand-picked
- * subset): a submitted URL needs an internal path, and with in-content links
- * now limited to eligible pages site-wide, the hub is that path for most of
- * them. If the manifest grows far past ~50 corridor pages, cap this list by
- * demand rather than let the hub grow back into a directory.
+ * Capped at HUB_DIRECTORY_LIMIT links in demand order (lead destinations,
+ * then the destinations with the most eligible pages): the brief asks for "a
+ * justified list (e.g., Top 10 destinations + 20–30 top corridors + site
+ * sections)", not a directory. 43 corridor pages were eligible on 2026-10-08.
  */
-export function getRouteDirectory(): DestinationGroup[] {
+export function getRouteDirectory(limit: number = HUB_DIRECTORY_LIMIT): DestinationGroup[] {
   const groups = new Map<string, DestinationGroup>();
   for (const c of allCorridors) {
     const href = `/send-money/${c.slug}`;
@@ -231,9 +244,21 @@ export function getRouteDirectory(): DestinationGroup[] {
     const i = LEAD_DESTINATIONS.indexOf(g.country);
     return i === -1 ? LEAD_DESTINATIONS.length : i;
   };
-  return [...groups.values()].sort(
+  const ordered = [...groups.values()].sort(
     (a, b) => lead(a) - lead(b) || size(b) - size(a) || collator.compare(a.country, b.country),
   );
+  // Fill in demand order, country page first, until the cap is reached.
+  const capped: DestinationGroup[] = [];
+  let left = limit;
+  for (const g of ordered) {
+    if (left <= 0) break;
+    const countryPage = g.countryPage && left > 0 ? g.countryPage : null;
+    left -= countryPage ? 1 : 0;
+    const routes = g.routes.slice(0, Math.max(0, left));
+    left -= routes.length;
+    if (countryPage || routes.length) capped.push({ ...g, countryPage, routes });
+  }
+  return capped;
 }
 
 // ── FAQ ──────────────────────────────────────────────────────────────────────

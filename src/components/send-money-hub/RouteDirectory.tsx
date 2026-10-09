@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import type { DestinationGroup } from "@/lib/send-money-hub";
 
 /**
@@ -14,10 +14,10 @@ export default function RouteDirectory({ groups }: { groups: DestinationGroup[] 
       aria-label="Country and route comparison pages"
       className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8"
     >
-      <p className="text-lg font-medium text-[var(--color-on-surface)] mb-1">Country and route pages</p>
+      <p className="text-lg font-medium text-[var(--color-on-surface)] mb-1">Most-compared country and route pages</p>
       <p className="text-2sm text-[var(--color-on-surface-variant)] mb-5 leading-relaxed">
-        These destinations and routes have a page of their own, with the full provider table, rate history and what the
-        recipient needs. Any other pair can be compared with the form at the top of this page.
+        The destinations and routes readers compare most, each with a page of its own: the full provider table, rate
+        history and what the recipient needs. Any other pair can be compared with the form at the top of this page.
       </p>
       <ul className="divide-y divide-[var(--color-outline)]">
         {groups.map((g) => (

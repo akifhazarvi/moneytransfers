@@ -13,6 +13,8 @@
  *
  * Eligible = src/data/google-eligible-routes.json (= sitemap-google.xml).
  * Self-links are ignored (a page may name itself in its breadcrumb).
+ * §5.3: also fails when an eligible page has in-content links from fewer than
+ * three other eligible pages (see MIN_SUPPORT).
  * Only the canonical (unprefixed English) pages are read.
  *
  * Usage:
@@ -23,6 +25,7 @@
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { internalPagePath, isLinkEligible } from "../src/lib/link-eligibility";
+import eligibleJson from "../src/data/google-eligible-routes.json";
 
 const ROOT = join(__dirname, "..");
 const APP = join(ROOT, ".next/server/app");
@@ -92,6 +95,41 @@ for (const f of walk(APP)) {
   hubCounts.push([source, unique.size]);
 }
 
+/**
+ * §5.3: every Google-eligible page receives in-content links from at least
+ * MIN_SUPPORT other eligible pages. In-content = an anchor inside <main>,
+ * outside any <nav> or <aside> there (menus, breadcrumbs and widget rails are
+ * not content). No page streams hidden segments any more, so <main> is what a
+ * crawler reads.
+ */
+const MIN_SUPPORT = 3;
+const support = new Map<string, Set<string>>();
+for (const f of walk(APP)) {
+  let r = f.slice(APP.length).replace(/\.html$/, "");
+  if (r.startsWith("/en/")) r = r.slice(3);
+  else if (r === "/en") r = "/";
+  else continue;
+  const source = r.replace(/\/$/, "") || "/";
+  if (!isLinkEligible(source)) continue;
+  const html = readFileSync(f, "utf8");
+  const main = html.slice(html.indexOf("<main"), html.lastIndexOf("</main>"));
+  const content = main.replace(/<nav\b[\s\S]*?<\/nav>/g, "").replace(/<aside\b[\s\S]*?<\/aside>/g, "");
+  for (const m of content.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
+    const path = internalPagePath(m[1].replace(/&amp;/g, "&"));
+    if (path === null || path === source || !isLinkEligible(path)) continue;
+    const set = support.get(path) ?? new Set<string>();
+    set.add(source);
+    support.set(path, set);
+  }
+}
+const eligibleRoutes = eligibleJson.routes as string[];
+const weak = eligibleRoutes
+  .filter((p) => p !== "/")
+  .map((p) => [p, support.get(p)?.size ?? 0] as const)
+  .filter(([, n]) => n < MIN_SUPPORT)
+  .sort((a, b) => a[1] - b[1]);
+violations += weak.length;
+
 const targets = [...byTarget.entries()].sort((a, b) => b[1].sources.size - a[1].sources.size);
 const linkViolations = targets.reduce((n, [, v]) => n + v.count, 0);
 
@@ -108,6 +146,9 @@ console.log(`  /go and /out links missing nofollow sponsored: ${affTotal}`);
 for (const [rel, v] of affiliate) {
   console.log(`    rel="${rel}"  ${v.count} links on ${v.sources.size} pages, e.g. ${[...v.sources].slice(0, 3).join(", ")}`);
 }
+
+console.log(`  eligible pages with in-content links from fewer than ${MIN_SUPPORT} other eligible pages: ${weak.length}`);
+for (const [p, n] of weak.slice(0, 40)) console.log(`    ${n}  ${p}`);
 
 if (SHOW_HUBS) {
   console.log("  unique internal links per page (top 15):");

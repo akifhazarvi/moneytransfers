@@ -187,7 +187,8 @@ what enforces it. Where a rule is not automated, it says how to check it.
     `affiliateRel()`). Consequence to know: Bing-only pages now have no
     internal links and are found through `sitemap.xml` alone. *Enforced:*
     `check:link-eligibility` (postbuild; built HTML: links to non-eligible
-    pages, /go rel; `--hubs` prints unique links per page).
+    pages, /go rel, and §5.3 — every eligible page has in-content links from
+    3+ other eligible pages; `--hubs` prints unique links per page).
 
 15. **A retired URL answers once: 410, or one 301 to the same intent.** Round-3
     brief §3.2 (2026-10-08): 78 corridor 301s led to a different country's
@@ -488,7 +489,8 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   2026-10-08 `/send-money` linked all 436; owner decision with the round-3 brief
   §4.4: the hub's static HTML links only Google-eligible pages —
   `getRouteDirectory()` in `src/lib/send-money-hub.ts`, from the eligibility
-  manifest — and every other route is reached through its comparison form.)
+  manifest, capped at 22 links in demand order so the page stays ≤80 unique
+  links — and every other route is reached through its comparison form.)
   This looks like the "sitemap=no,
   robots=index" contradiction and is not: Tier 1 means editorial or 5+ providers
   quoting the route, i.e. a genuinely comparative page. Gating these on the
