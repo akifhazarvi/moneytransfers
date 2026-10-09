@@ -11,8 +11,9 @@ import { COVERAGE } from "@/lib/site-stats";
  *
  * Every /about/<slug> here is a live, sitemapped URL generated from this array
  * (sitemap.ts, about/[author]/generateStaticParams). Removing an entry 404s
- * that URL, so pair any removal with a redirect in next.config.ts — as was done
- * for /about/akif-hazarvi.
+ * that URL, so pair any removal with a 410 in src/lib/retired-urls.ts
+ * (RETIRED_AUTHOR_SLUGS) — as for /about/akif-hazarvi since 2026-10-09. Never
+ * redirect one person's page to another's (rule 15: same intent or 410).
  */
 
 export interface Author {

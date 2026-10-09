@@ -140,15 +140,9 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // The founder's author page was retired when bylines moved to the
-      // editorial team. /about/akif-hazarvi was a sitemapped, indexed URL
-      // generated from authors[], so removing the entry alone would have
-      // turned it into a hard 404 with live inbound links.
-      {
-        source: "/about/akif-hazarvi",
-        destination: "/about/ahsan-mukhtar",
-        permanent: true,
-      },
+      // /about/akif-hazarvi is retired with a 410 in src/lib/retired-urls.ts
+      // (owner, 2026-10-09: deindex and remove). It used to 301 to another
+      // author's page — a different person, so not the same intent (rule 15).
       // /comparison and /comparison/:slug are resolved in middleware
       // (src/lib/retired-urls.ts) so they reach the canonical compare page in
       // one hop — here they chained into the direction 301 (rule 15).

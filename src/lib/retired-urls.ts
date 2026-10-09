@@ -31,6 +31,9 @@ export const GONE = Symbol("gone");
  * - /news/<slug>: a merged item 301s to its survivor, a retired one is 410.
  * - /compare/<a>-vs-<b>: the non-canonical direction 301s to the canonical
  *   one (Bing Webmaster Blog, Dec 2025: consolidate variants with a 301).
+ * - /about/<author>: a retired author page is 410 (RETIRED_AUTHOR_SLUGS). The
+ *   founder's page used to 301 to another author's — a different person, so
+ *   not the same intent; owner 2026-10-09: deindex and remove.
  * - /comparison and /comparison/<slug>: the old section name. Resolved here,
  *   not in next.config redirects, which 308'd /comparison/<slug> to
  *   /compare/<slug> and so chained into the canonical-direction 301
@@ -38,6 +41,9 @@ export const GONE = Symbol("gone");
  *   /compare/wise-vs-moneygram). One hop to the canonical page, or 410 when
  *   that pairing no longer renders.
  */
+/** Author pages removed from the site: 410, never a redirect to another person. */
+const RETIRED_AUTHOR_SLUGS: ReadonlySet<string> = new Set(["akif-hazarvi"]);
+
 export function retiredAnswer(pathname: string): string | typeof GONE | null {
   const corridor = pathname.match(/^\/send-money\/([a-z0-9-]+)$/);
   if (corridor) {
@@ -63,6 +69,8 @@ export function retiredAnswer(pathname: string): string | typeof GONE | null {
     if (survivor) return `/news/${survivor}`;
     return GONE_NEWS_SLUGS.has(news[1]) ? GONE : null;
   }
+  const author = pathname.match(/^\/about\/([a-z0-9-]+)$/);
+  if (author && RETIRED_AUTHOR_SLUGS.has(author[1])) return GONE;
   if (pathname === "/comparison") return "/compare";
   const comparison = pathname.match(/^\/comparison\/([a-z0-9-]+)$/);
   if (comparison) {
