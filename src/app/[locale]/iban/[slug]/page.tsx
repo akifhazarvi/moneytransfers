@@ -571,14 +571,14 @@ export default async function IbanCountryPage({ params }: Props) {
           {/* AI-citable Quick Answer — self-contained passage for LLMs */}
           {(() => {
             const quickAnswers: Record<string, string> = {
-              germany: `A German IBAN is 22 characters long and starts with "DE" followed by two check digits, an 8-digit Bankleitzahl (BLZ, bank code), and a 10-digit account number padded with leading zeros. Example: DE89 3704 0044 0532 0130 00 (Commerzbank Köln, BLZ 37040044). Within the SEPA zone the IBAN alone is sufficient; for transfers originating outside SEPA you also need the bank's BIC/SWIFT code. Germany supports SEPA Instant Credit Transfer — funds arrive in under 10 seconds, 24/7, up to €100,000 per transaction.`,
+              germany: `A German IBAN is 22 characters long and starts with "DE" followed by two check digits, an 8-digit Bankleitzahl (BLZ, bank code), and a 10-digit account number padded with leading zeros. Example: DE89 3704 0044 0532 0130 00 (Commerzbank Köln, BLZ 37040044). Within the SEPA zone the IBAN alone is sufficient; for transfers originating outside SEPA you also need the bank's BIC/SWIFT code. German banks have had to receive SEPA instant euro transfers since 9 January 2025 and to send them since 9 October 2025, when the payee name check also began.`,
               france: `A French IBAN is 27 characters long and starts with "FR" followed by two check digits, a 5-digit bank code, a 5-digit branch code (code guichet), an 11-character account number, and a 2-digit national RIB key. Example: FR14 2004 1010 0505 0001 3M02 606. Within SEPA the IBAN alone is sufficient; non-SEPA senders also need the BIC. French banks (BNP Paribas, Société Générale, Crédit Agricole, La Banque Postale) display the IBAN on every RIB (Relevé d'Identité Bancaire).`,
               "united-kingdom": `A UK IBAN is 22 characters long and starts with "GB" followed by two check digits, a 4-letter bank code, a 6-digit sort code, and an 8-digit account number. Example: GB29 NWBK 6016 1331 9268 19 (NatWest, sort code 601613). The UK is still in SEPA, as a non-EEA member: a euro payment to a GB IBAN must name the bank's BIC and the payer's address, and some EU banks send it over SWIFT, where fees can be higher. Always give senders both the IBAN and the bank's SWIFT/BIC code, especially for high-value CHAPS-eligible transfers.`,
               spain: `A Spanish IBAN is 24 characters long and starts with "ES" followed by two check digits and the 20-digit CCC (Código Cuenta Cliente): 4-digit bank code, 4-digit branch code, 2 check digits, and 10-digit account number. Example: ES91 2100 0418 4502 0005 1332 (CaixaBank). Within SEPA the IBAN alone is sufficient for euro transfers. For payments from outside Europe, senders also need the BIC of your Spanish bank (Santander, BBVA, CaixaBank, Sabadell).`,
               italy: `An Italian IBAN is 27 characters long and starts with "IT" followed by two check digits, a 1-character CIN control letter, a 5-digit ABI bank code, a 5-digit CAB branch code, and a 12-character account number. Example: IT60 X054 2811 1010 0000 0123 456 (Banco Popolare). Within SEPA the IBAN alone is sufficient; non-SEPA senders also need the BIC. Major Italian banks (UniCredit, Intesa Sanpaolo, Banco BPM) display the full IBAN on every statement and in online banking.`,
               poland: `A Polish IBAN is 28 characters long and starts with "PL" followed by two check digits and a 24-digit NRB (Numer Rachunku Bankowego): 8-digit bank/branch code and 16-digit account number. Example: PL61 1090 1014 0000 0712 1981 2874. Polish banks issue IBANs for both PLN and EUR accounts. Poland is a SEPA member so the IBAN alone is enough for euro transfers from other SEPA countries; for PLN transfers from outside Poland, senders also need the bank's SWIFT/BIC.`,
               netherlands: `A Dutch IBAN is 18 characters long and starts with "NL" followed by two check digits, a 4-letter bank code (ABNA for ABN AMRO, INGB for ING, RABO for Rabobank), and a 10-digit account number. Example: NL91 ABNA 0417 1643 00. The Netherlands retired its legacy domestic account format entirely — every Dutch transfer now uses the IBAN. Within SEPA only the IBAN is needed; non-SEPA senders also need the BIC.`,
-              "united-arab-emirates": `A UAE IBAN is 23 characters long and starts with "AE" followed by two check digits, a 3-digit bank code, and a 16-digit account number. Example: AE07 0331 2345 6789 0123 456 (Emirates NBD, bank code 033). The UAE is not part of SEPA — all international transfers route via SWIFT. For domestic AE-to-AE transfers through the UAE Funds Transfer System (UAEFTS), only the 23-character IBAN is needed. For inbound international transfers, senders need both the IBAN and the bank's SWIFT/BIC code (Emirates NBD = EBILAEAD, ADCB = ADCBAEAD, FAB = NBADAEAA, Mashreq = BOMLAEAD).`,
+              "united-arab-emirates": `A UAE IBAN is 23 characters long and starts with "AE" followed by two check digits, a 3-digit bank code, and a 16-digit account number. Example: AE07 0331 2345 6789 0123 456 (Emirates NBD, bank code 033). The UAE is not part of SEPA — all international transfers route via SWIFT. The Central Bank of the UAE made the IBAN mandatory for payments from 19 November 2011. For inbound international transfers, senders need both the IBAN and the receiving bank's SWIFT/BIC code.`,
             };
             const answer = quickAnswers[slug];
             if (!answer || locale !== "en") return null;
@@ -755,6 +755,18 @@ export default async function IbanCountryPage({ params }: Props) {
                   </li>
                 ))}
               </ul>
+              {editorialNote.sources && editorialNote.sources.length > 0 && (
+                <p className="mt-4 text-xs text-[var(--color-on-surface-variant)]">
+                  Sources:{" "}
+                  {editorialNote.sources.map((source, i) => (
+                    <span key={source.url}>
+                      {i > 0 && "; "}
+                      <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">{source.label}</a>
+                    </span>
+                  ))}
+                  .
+                </p>
+              )}
             </Card>
           )}
         </div>

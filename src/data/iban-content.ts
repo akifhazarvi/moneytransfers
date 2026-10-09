@@ -5,6 +5,8 @@ export interface EditorialNote {
   title: string;
   intro: string;
   bullets: string[];
+  /** Regulator, central-bank or scheme-operator pages behind the bullets (followed links). */
+  sources?: { label: string; url: string }[];
 }
 
 export interface FaqItem {

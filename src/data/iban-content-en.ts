@@ -28,35 +28,45 @@ export const ibanContentEn: IbanContent = {
     ],
   },
   germany: {
-    title: "How IBAN is used in Germany",
+    title: "Germany: the Bankleitzahl inside a DE IBAN, and instant euro credits",
     intro:
-      "Germany was one of the earliest adopters of the IBAN standard, and the transition from the old Bankleitzahl (BLZ) and Kontonummer system is now complete. The eight-digit BLZ maps directly into the BBAN portion of a German IBAN, making conversion straightforward. As a core SEPA member, virtually all domestic and cross-border euro transfers in Germany use the IBAN exclusively. Germany's banking sector is one of the largest in Europe, with over 1,500 banks including the major Sparkassen (savings banks) network, cooperative banks (Volksbanken/Raiffeisenbanken), and private commercial banks.",
+      "Germany's old domestic pair, the eight-digit Bankleitzahl (BLZ) and a Kontonummer, did not disappear with SEPA: the BLZ sits whole in positions 5 to 12 of every DE IBAN, so the IBAN itself tells a sender which Sparkasse, Volksbank or private bank holds the account. What changed most recently is speed and checking, both set by the EU's Instant Payments Regulation.",
     bullets: [
-      "A German IBAN is 22 characters long: the country code DE, two check digits, the eight-digit BLZ (bank routing code), and a ten-digit account number. If your account number is shorter than ten digits, it is padded with leading zeros. Example: DE89 3704 0044 0532 0130 00, where 37040044 is the BLZ for Commerzbank Köln.",
-      "For transfers within the SEPA zone, only the IBAN is required — no BIC needed. However, when sending or receiving from outside SEPA (from the US or Asia, for example), German banks require both the IBAN and BIC/SWIFT code; a UK sender needs the BIC as well, since the UK sits in SEPA but outside the EEA. The first digit of a BLZ marks the clearing region rather than the bank — N26, registered in Berlin, has BLZ 100 110 01.",
-      "Direct debits (Lastschrift) and standing orders within Germany all rely on the IBAN. SEPA Direct Debit mandates require your IBAN plus a signed authorisation. Germany processes over 25 billion SEPA transactions per year — the largest volume in the eurozone.",
-      "Germany supports SEPA Instant Credit Transfer (SCT Inst) through most major banks. Transfers arrive in under 10 seconds, 24/7/365, with a maximum of €100,000 per transaction. Not all Sparkassen branches support instant transfers yet, so check with your specific bank.",
-      "Finding your IBAN: check your Kontoauszug (bank statement), your bank's online banking portal, or the Girocard itself — many German debit cards print the IBAN on the front. You can also calculate it from your old BLZ + Kontonummer using tools provided by the Bundesbank.",
+      "Euro-area banks, German ones included, have had to accept SEPA instant credit transfers since 9 January 2025 and to offer sending them since 9 October 2025, per the ECB's timetable for the regulation. A euro payment from another SEPA country can therefore reach a DE IBAN within seconds, at any hour, when the payer chooses instant.",
+      "Since 9 October 2025 the payer's bank also checks the name entered against the holder of the IBAN before the money leaves. A German recipient avoids a mismatch warning by giving the account name exactly as the bank records it, Umlaut and all.",
+      "Lastschrift (SEPA Direct Debit) runs on the same IBAN: a creditor collecting rent, insurance or a subscription needs your DE IBAN and a signed Lastschriftmandat, and you can ask your bank to return an authorised debit within eight weeks of the debit date.",
+      "Older German statements and invoices may still show BLZ and Kontonummer separately. Banks convert them to the IBAN, and the BLZ is a domestic code: it is not a BIC, and a sender abroad who asks for the BIC needs the bank's eight- or eleven-character BIC instead.",
+    ],
+    sources: [
+      { label: "ECB: Instant Payments Regulation timetable", url: "https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" },
     ],
   },
   france: {
-    title: "How IBAN is used in France",
+    title: "France: the RIB, and the name check on every virement",
     intro:
-      "France transitioned smoothly to IBAN because the existing RIB (Releve d'Identite Bancaire) structure maps neatly into the IBAN format. The RIB contains a bank code, branch code (code guichet), account number, and a two-digit RIB key, all of which slot directly into the 27-character French IBAN. SEPA transfers using the IBAN are the standard for both domestic and cross-border euro payments.",
+      "A French IBAN is the RIB with FR and two check digits in front: code banque, code guichet, numéro de compte and the two-digit clé RIB all sit inside its 27 characters. French landlords, employers and utilities still ask for a RIB, the bank document that prints the IBAN and BIC together.",
     bullets: [
-      "A French IBAN is 27 characters long, starting with FR, two check digits, then the five-digit bank code, five-digit branch code, eleven-character account number, and two-digit national check key. If you have a RIB from your bank, the conversion to IBAN is direct.",
-      "All major French banks — BNP Paribas, Societe Generale, Credit Agricole, and La Banque Postale — display the IBAN prominently in online banking. For receiving international transfers, providing the IBAN alone is sufficient for SEPA payments, though non-SEPA senders will also need the BIC.",
-      "When setting up a prelevement (direct debit) for French utilities, rent, or subscriptions, you will be asked to fill out a SEPA mandate form with your IBAN. Ensure the IBAN is accurate, as incorrect digits will cause the mandate to be rejected by your bank.",
+      "Since 9 October 2025 a French bank checks, before a SEPA virement leaves, that the beneficiary name typed in matches the holder of the IBAN, by asking the beneficiary's bank: first name and surname for a person, the legal or trade name for a company or association. A mismatch raises an alert, the payer can still proceed, and the check is free.",
+      "For a prélèvement SEPA (direct debit) to EDF, a water company, an insurer or a phone operator, the creditor needs your FR IBAN on a signed mandat de prélèvement; a wrong digit gets the mandate rejected by your bank.",
+      "The overseas departments (Guadeloupe, Martinique, French Guiana, Réunion and Mayotte) use FR IBANs too, while Monaco, also in SEPA, has its own MC prefix: check the first two letters when a French-speaking supplier sends bank details.",
+    ],
+    sources: [
+      { label: "INC: virements, du nouveau le 9 octobre", url: "https://www.inc-conso.fr/node/21142" },
+      { label: "ECB: Instant Payments Regulation timetable", url: "https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" },
     ],
   },
   netherlands: {
-    title: "How IBAN is used in the Netherlands",
+    title: "Netherlands: name-checked IBANs and iDEAL's move to Wero",
     intro:
-      "The Netherlands was one of the first countries to make IBAN mandatory for all bank transfers, and the domestic banking system now runs entirely on IBAN-based routing. The old Dutch account number format has been fully retired. With three dominant banks — ABN AMRO, ING, and Rabobank — covering the vast majority of personal and business accounts, the Dutch IBAN structure is consistent and well standardised.",
+      "The Netherlands retired its old domestic account numbers when SEPA arrived, so a Dutch account is known by its 18-character NL IBAN alone, and the four letters after the check digits (ABNA, INGB, RABO and so on) name the bank at a glance.",
     bullets: [
-      "A Dutch IBAN is 18 characters long, consisting of NL, two check digits, a four-letter bank code (such as ABNA, INGB, or RABO), and a ten-digit account number. The short bank code makes it easy to identify which institution holds the account.",
-      "All domestic transfers between Dutch banks use the IBAN — there is no legacy format still in operation. If you are paying a Dutch invoice or receiving salary in the Netherlands, the IBAN on the invoice or payroll form is all you need.",
-      "For incoming international transfers from outside the SEPA area, senders should include both the IBAN and the BIC/SWIFT code of the receiving Dutch bank. Within SEPA, the IBAN alone is sufficient, and transfers typically settle within one business day.",
+      "Dutch banks have checked the payee's name against the IBAN before a transfer since 2017, using SurePay's IBAN-Naam Check, years before the EU made a payee check compulsory for euro-area banks on 9 October 2025. A Dutch recipient whose account name differs from the name a payer uses (a trading name, a partner's account) will see payers warned.",
+      "iDEAL, the Dutch online-checkout payment that debits a bank account directly, is being folded into the European Wero wallet in phases from 2026, its operator says. It is a domestic checkout method; a payer abroad still pays the NL IBAN by credit transfer.",
+      "Within the EU and EEA a euro payment needs only the NL IBAN. A payer in the UK or Switzerland (inside SEPA, outside the EEA) also needs the bank's BIC, as does anyone paying from the US or Asia or in a currency other than euros.",
+    ],
+    sources: [
+      { label: "iDEAL: phasing into Wero from 2026", url: "https://ideal.nl/en/ideal-vanaf-2026-stapsgewijs-over-naar-wero" },
+      { label: "ECB: Instant Payments Regulation timetable", url: "https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" },
     ],
   },
   spain: {
@@ -115,13 +125,16 @@ export const ibanContentEn: IbanContent = {
     ],
   },
   portugal: {
-    title: "How IBAN is used in Portugal",
+    title: "Portugal: the NIB, Multibanco references and SPIN",
     intro:
-      "Portugal uses a 25-character IBAN that maps directly from the old NIB (Numero de Identificacao Bancaria), which was the standard domestic account reference. The NIB consists of a four-digit bank code, four-digit branch code, eleven-digit account number, and two check digits, all of which are embedded in the Portuguese IBAN. As a eurozone and SEPA member, Portugal relies on IBANs for all bank transfers.",
+      "A Portuguese IBAN is the 21-digit NIB (Número de Identificação Bancária) with PT50 in front, and the NIB's own two check digits are why every PT IBAN starts PT50. Domestic life in Portugal adds two other ways to pay that a sender abroad cannot use: Multibanco payment references and, since 2024, SPIN.",
     bullets: [
-      "A Portuguese IBAN starts with PT, two check digits, and then the 21-digit NIB. If you have an old NIB from a bank statement, converting it to an IBAN is straightforward. Major banks like Caixa Geral de Depositos (CGD), Millennium BCP, Novo Banco, and Santander Totta all display the IBAN in their apps and statements.",
-      "Within SEPA, only the IBAN is required for euro transfers. Portugal also uses the Multibanco network extensively for domestic payments, but for international transfers, the IBAN is always the correct reference to share with senders abroad.",
-      "Portuguese employers and government agencies (such as Seguranca Social for social benefits) require your IBAN for salary deposits and benefit payments. If you are relocating to Portugal or receiving rental income from a Portuguese property, ensure you share your PT-prefixed IBAN with all payers.",
+      "Since June 2024 the Banco de Portugal's SPIN service lets a payer in Portugal address a credit transfer or instant transfer to a mobile number (or, for a company, its NIPC) instead of the IBAN. The recipient must first link that number to the IBAN, the payer sees the account holder's name and a partly masked IBAN before confirming, and banks may not charge for it.",
+      "A Multibanco reference (entidade and referência) pays a bill or a merchant inside Portugal; it identifies a payment, not an account, and has no meaning to a bank abroad. Give a foreign payer the PT IBAN instead.",
+      "Employers, landlords and the Segurança Social ask for proof that an IBAN is yours; Portuguese banks issue a downloadable comprovativo de IBAN for that, and it is the document to send when a payer abroad asks for bank details on letterhead.",
+    ],
+    sources: [
+      { label: "Banco de Portugal: SPIN presentation (June 2024)", url: "https://www.bportugal.pt/sites/default/files/documents/2024-06/Conf_imp_SPIN_20240620_0.pdf/Conf_imp_SPIN_20240620.pdf" },
     ],
   },
   switzerland: {
@@ -137,23 +150,32 @@ export const ibanContentEn: IbanContent = {
     ],
   },
   sweden: {
-    title: "How IBAN is used in Sweden",
+    title: "Sweden: krona accounts, Bankgiro and the Riksbank's instant rail",
     intro:
-      "Sweden uses a 24-character IBAN, but the domestic banking system has historically relied on clearing numbers and the Bankgiro system for payments. The transition to IBAN for international transfers is complete, though many Swedes still use Bankgiro numbers for domestic bills and Swish for peer-to-peer payments. As an EU and SEPA member, Sweden supports IBAN-based euro transfers alongside its domestic SEK infrastructure.",
+      "Sweden is in the EU and in SEPA but keeps the krona, and that decides what lands in an SE IBAN. Krona payments inside Sweden (Swish, Bankgiro invoices, account transfers) run on Swedish infrastructure; a euro payment from abroad arrives over SEPA and is normally converted to kronor by the receiving bank unless the account is held in euros.",
     bullets: [
-      "A Swedish IBAN starts with SE, two check digits, a three-digit bank code, and a seventeen-digit account reference that includes the clearing number. The mapping from domestic clearing number to IBAN can vary between banks — Swedbank, SEB, Handelsbanken, and Nordea each have different conventions. Use your bank's online tools to confirm your exact IBAN.",
-      "For receiving international transfers in SEK, the sender needs your IBAN and your bank's BIC/SWIFT code. For euro transfers from within SEPA, the IBAN alone is sufficient. Note that Sweden uses the krona (SEK), so euro SEPA payments will be converted to SEK by your bank at their exchange rate.",
-      "Sweden's Bankgiro system remains widely used for domestic invoice payments, but it is separate from the IBAN system. If someone abroad wants to pay you, always provide your IBAN rather than a Bankgiro number, which is not recognised outside Sweden.",
+      "The Riksbank opened RIX-INST in 2022 so that banks settle payments with each other in central bank money in real time, at any hour; it runs on the Eurosystem's TIPS platform. Swish payments moved onto it from Bankgirot's system in early 2024, and the Riksbank said app users would see no difference.",
+      "The EU Instant Payments Regulation gives banks outside the euro area, Swedish ones included, until 9 January 2027 to receive instant euro credit transfers, and until 9 July 2027 to send them and to run the payee name check. Until then, whether a euro payment to a Swedish account clears in seconds depends on the receiving bank.",
+      "Swedbank, SEB, Handelsbanken and Nordea each map the domestic clearing number into the 17-digit account reference their own way, so an SE IBAN cannot be safely worked out by hand from a clearing number and account number; take it from the bank's app.",
+      "A Bankgiro number identifies a payee for Swedish invoices and is not recognised outside Sweden. Someone paying you from abroad needs the SE IBAN, plus the bank's BIC when the payment is not a euro SEPA transfer.",
+    ],
+    sources: [
+      { label: "Riksbank: service for instant payments (2022)", url: "https://www.riksbank.se/en-gb/press-and-published/notices-and-press-releases/press-releases/2022/riksbank-launches-service-for-instant-payments/" },
+      { label: "Riksbank: Swish payments moved to the Riksbank's system (2024)", url: "https://www.riksbank.se/en-gb/press-and-published/notices-and-press-releases/notices/2024/swish-payments-moved-from-bankgirots-payment-system-to-the-riksbanks/" },
+      { label: "ECB: Instant Payments Regulation timetable", url: "https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" },
     ],
   },
   poland: {
-    title: "How IBAN is used in Poland",
+    title: "Poland: the NRB, Elixir sessions and Express Elixir",
     intro:
-      "Poland uses a 28-character IBAN, one of the longer formats in Europe, built from the domestic NRB (Numer Rachunku Bankowego) standard. The NRB contains a two-digit check sum, an eight-digit bank sort code, and a sixteen-digit account number. Since Poland joined the EU, it has been a full SEPA member, and IBANs are used for all cross-border euro transfers, even though the domestic currency is the zloty (PLN).",
+      "A Polish IBAN is PL followed by the 26-digit NRB (Numer Rachunku Bankowego), whose first two digits are its own check digits and next eight identify the bank and branch. Poland keeps the zloty, and how fast a zloty payment lands depends on which of KIR's clearing systems carries it.",
     bullets: [
-      "A Polish IBAN starts with PL, two check digits, and then the 24-digit NRB. Major banks like PKO Bank Polski (PKO BP), mBank, ING Bank Slaski, Bank Pekao, and Santander Bank Polska all provide IBANs in their online banking platforms. If you have your NRB, simply prepend PL and the IBAN check digits.",
-      "For receiving euro transfers from within SEPA, only the Polish IBAN is needed. However, if someone is sending PLN from abroad, the transfer goes through SWIFT and the sender will need your IBAN plus your bank's BIC code. Be aware that some Polish banks maintain separate EUR and PLN account numbers, each with its own IBAN.",
-      "Poland's Elixir and Express Elixir systems handle domestic PLN transfers, but these are invisible to the end user — you simply provide your IBAN. For incoming remittances from countries like the UK or US, ensure the sender specifies the correct currency to avoid unnecessary conversion fees at the receiving bank.",
+      "Ordinary zloty transfers between Polish banks clear in KIR's Elixir system in three sessions on each working day and not on public holidays, so a PLN payment ordered after the last session waits for the next working day.",
+      "Express Elixir, run by KIR since June 2012, settles instant zloty transfers around the clock, public holidays included; each bank sets its own per-transfer limit and fee for it, so a large PLN payment may still go by ordinary Elixir.",
+      "Polish banks often hold a client's zloty and euro balances in separate accounts with separate IBANs. Someone paying euros from abroad should be given the euro account's IBAN, otherwise the bank converts the payment to PLN on arrival.",
+    ],
+    sources: [
+      { label: "Bank.pl: Express Elixir instant payments", url: "https://bank.pl/platnosci-natychmiastowe-express-elixir/" },
     ],
   },
   pakistan: {
@@ -211,14 +233,19 @@ export const ibanContentEn: IbanContent = {
     ],
   },
   hungary: {
-    title: "How IBAN is used in Hungary",
+    title: "Hungary: forint accounts, GIRO aliases and five-second AFR transfers",
     intro:
-      "Hungary uses a 28-character IBAN — one of the longest in Europe — reflecting the country's 24-digit domestic Giro account number format. Hungary is a SEPA member for euro payments, though it retains its own currency, the forint (HUF), with no committed timetable for euro adoption. The Magyar Nemzeti Bank (MNB) governs payment systems, and IBANs are mandatory for all cross-border transfers.",
+      "A Hungarian account number (pénzforgalmi jelzőszám) is 16 or 24 digits, written in blocks of eight; the 28-character HU IBAN is the 24-digit form with HU and two check digits in front. Hungary keeps the forint, and the Magyar Nemzeti Bank (MNB) sets the rules for forint payments between Hungarian accounts.",
     bullets: [
-      "A Hungarian IBAN starts with HU, two check digits, a three-digit bank code, four-digit branch code, sixteen-digit account number and a further check digit — the full 24 domestic digits map directly into the IBAN, so a Hungarian bank generates it from your existing account number without any real conversion.",
-      "Hungary's own instant-payment system, the Azonnali Fizetési Rendszer (AFR), predates and outpaces the EU's SEPA Instant rules: transfers up to 10 million forint (roughly €25,000) between Hungarian accounts clear in under five seconds, 24/7 — twice the EU's SEPA Instant speed requirement, and covering a currency (HUF) the EU regulation itself doesn't reach, since SEPA Instant governs euro payments only.",
-      "That split matters for anyone sending from abroad: a euro payment into a Hungarian IBAN travels the SEPA network like any other eurozone transfer, while a forint payment between two Hungarian accounts uses AFR and often doesn't need the IBAN at all — many Hungarian banking apps still accept the domestic account number directly for HUF-to-HUF transfers.",
-      "If you're sending euros to Hungary expecting them to arrive as euros, check with the receiving bank first — many Hungarian accounts are forint-only, so an incoming SEPA euro payment gets converted to HUF on arrival at whatever rate the receiving bank applies, which is a cost the sending side's SEPA transfer doesn't show you.",
+      "The MNB's instant payment system went live on 2 March 2020 to move forint between Hungarian payment accounts within seconds, 24 hours a day, every day of the year. It covers single forint transfers initiated electronically; a payment arriving from abroad is not an AFR transfer, whatever its speed.",
+      "Inside Hungary a payer can address an instant forint transfer to a mobile number, e-mail address or tax number that the recipient has registered with their bank as a secondary account identifier, which GIRO matches to the account in a central register. These aliases work only for instant transfers, so a sender outside Hungary still needs the full HU IBAN.",
+      "Hungary is outside the euro area, so the EU Instant Payments Regulation gives its banks until 9 January 2027 to receive instant euro credit transfers and until 9 July 2027 to send them.",
+      "Many Hungarian accounts are held in forints only. A SEPA euro transfer into one is converted to HUF on arrival at the receiving bank's rate, a cost the sender's SEPA confirmation does not show, so ask the recipient whether a euro account with its own IBAN exists.",
+    ],
+    sources: [
+      { label: "MNB: instant payment service", url: "https://mnb.hu/en/payments/instantpayments" },
+      { label: "GIRO: payment requests and secondary identifiers", url: "https://giro.hu/en/en-paymentrequest" },
+      { label: "ECB: Instant Payments Regulation timetable", url: "https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" },
     ],
   },
   croatia: {
@@ -272,16 +299,18 @@ export const ibanContentEn: IbanContent = {
     ],
   },
   "united-arab-emirates": {
-    title: "How IBAN is used in the United Arab Emirates",
+    title: "UAE: the 2011 IBAN switch, inward-payment rejections and Aani",
     intro:
-      "The UAE introduced mandatory IBAN use in May 2011 under a mandate from the Central Bank of the UAE (CBUAE). All bank accounts in the UAE have a 23-character IBAN, and this is the required format for all domestic interbank transfers and international wire transfers to the country. The UAE is not part of SEPA, so all cross-border payments are processed through the SWIFT network. The UAE dirham (AED) is the currency, and transactions are settled through the UAE Funds Transfer System (UAEFTS) and the new Aani instant payments system, both of which use the IBAN as the standard account identifier.",
+      "The Central Bank of the UAE made the IBAN the identifier for every UAE bank account for payments with a value date on or after 19 November 2011. From 15 June 2012, inward payments for UAE beneficiaries that arrived without an IBAN were to be rejected and returned to the remitting bank, which is why an AE IBAN is the first thing a sender abroad must get right.",
     bullets: [
-      "A UAE IBAN is 23 characters long: the country code AE, two check digits, and a three-digit bank code followed by a 16-digit account number. Emirates NBD (bank code 033), Abu Dhabi Commercial Bank — ADCB (030), First Abu Dhabi Bank — FAB (035), and Mashreq (020) are among the largest banks. Your IBAN is displayed in your online banking portal, mobile app, or printed on your bank statement.",
-      "The UAE Funds Transfer System (UAEFTS) handles all domestic AED interbank transfers and uses the IBAN as the mandatory account identifier. The system operates 24/7 and settles transfers in real time. For sending money between UAE banks locally, share your 23-character AE IBAN — no SWIFT code is needed for domestic transfers within the UAE.",
-      "For international transfers to the UAE from abroad, senders always need the recipient's full AE IBAN together with the bank's SWIFT/BIC code. Major UAE banks process inbound SWIFT transfers in a wide range of currencies, but the funds are typically held in AED. If you need to receive foreign currency without conversion, enquire with your bank about opening a foreign currency account with a separate IBAN.",
-      "Aani, the UAE's instant payments platform launched by Al Etihad Payments in October 2023, allows real-time AED transfers between any participating UAE bank using just the recipient's IBAN, mobile number, or email alias. Aani transfers are free for retail users on most banks and settle in under 10 seconds, 24/7. The platform is part of CBUAE's Financial Infrastructure Transformation programme and is gradually replacing traditional UAEFTS for retail flows.",
-      "The UAE is one of the world's largest remittance corridors — outbound transfers to India, Pakistan, Philippines, Bangladesh, Egypt, and Sri Lanka totaled over $50 billion in 2024 according to the World Bank. UAE residents looking to send money abroad use either bank wires (more expensive — $20-30 fee plus 2-4% FX markup) or licensed exchange houses (Lulu Exchange, Al Ansari, UAE Exchange) and digital providers like Wise, Remitly, and TapTap Send. For comparing live rates from your AE IBAN to common remittance destinations, see our send-money tool.",
-      "Finding your IBAN at major UAE banks: Emirates NBD shows the IBAN under 'Account Summary' in the mobile app and Liv. app. ADCB displays it under 'My Accounts' in ProTrade and the mobile banking app. FAB shows it on the account dashboard in the FAB Mobile app. Mashreq displays it under account details in the NeoBiz portal and Mashreq Neo app. Your IBAN also appears on every account statement (monthly statements PDF), on cheque books, and via SMS by texting your bank's IBAN-request shortcode.",
+      "Al Etihad Payments, a CBUAE subsidiary, launched the Aani instant payments platform on 16 October 2023 with eight participating banks, among them ADCB, Emirates NBD, First Abu Dhabi Bank and Mashreq, supporting payments of up to AED 50,000 in its first stage. Users enrol with their bank and can then be paid by mobile number; it is a domestic dirham service, not a route for money arriving from abroad.",
+      "The UAE is not in SEPA. Money from abroad arrives over SWIFT, and the sender needs the 23-character AE IBAN together with the bank's BIC; the three digits after the check digits identify the bank.",
+      "A standard UAE current account is held in dirhams. A bank that offers a dollar, euro or sterling account gives it a separate IBAN, so a recipient who wants to avoid conversion on arrival should send the payer that account's IBAN rather than the AED one.",
+    ],
+    sources: [
+      { label: "CBUAE: Al Etihad Payments launches Aani (October 2023)", url: "https://www.centralbank.ae/media/eccjvuib/al-etihad-payments-launches-aani-a-instant-payments-platform-for-digital-transactions-in-the-uae-en.pdf" },
+      { label: "Khaleej Times: UAE central bank launches IBAN (2011)", url: "https://www.khaleejtimes.com/business/uae-central-bank-launches-iban?amp=1" },
+      { label: "Mashreq: IBAN service guidelines", url: "https://www.mashreq.com/uae/business/important-guidelines/iban-service" },
     ],
   },
   "saudi-arabia": {
@@ -337,13 +366,17 @@ export const ibanContentEn: IbanContent = {
     ],
   },
   egypt: {
-    title: "How IBAN is used in Egypt",
+    title: "Egypt: the 2020 IBAN switch and InstaPay at home",
     intro:
-      "Egypt mandated IBAN adoption for all bank accounts under a directive from the Central Bank of Egypt (CBE). Egyptian bank accounts carry a 29-character IBAN prefixed with EG. Egypt is not part of SEPA; international transfers use the SWIFT network. The domestic currency is the Egyptian pound (EGP). Domestically, the Egyptian Banking System processes interbank transfers through the Egypt Real Time Gross Settlement (EG-RTGS) and Egypt ACH electronic clearing systems.",
+      "Egyptian accounts carry a 29-character EG IBAN because of a 2020 change: the Central Bank of Egypt registered with SWIFT to implement the standard in May 2020, and banks began asking for the IBAN on incoming and outgoing transfers from 30 June 2020. Short domestic account numbers were accepted for a transition period set by the CBE.",
     bullets: [
-      "An Egyptian IBAN is 29 characters long: the country code EG, two check digits, a four-digit bank code, four-digit branch code, and a 17-digit account number. Major banks include National Bank of Egypt — NBE (bank code 0019), Banque Misr (0002), Commercial International Bank — CIB (0010), and Banque du Caire (0027). Your IBAN is available in your online banking platform, mobile app, or printed on your account statement.",
-      "Egypt's EG-RTGS processes high-value domestic EGP transfers, while the ACH handles retail batch transfers, both using the full IBAN as the account identifier. For international transfers to Egypt, senders need the recipient's 29-character EG IBAN and the receiving bank's SWIFT/BIC code. CBE regulations may require that large inbound foreign currency remittances be converted to EGP at the official exchange rate.",
-      "Egypt is one of the largest recipients of remittances in the Middle East and North Africa. The CBE has introduced several incentives for bank-channel remittances, including improved exchange rates for senders directing transfers to Egyptian bank accounts via official banking channels. If you receive remittances regularly, ask your bank about any remittance-specific rate or fee benefits available for IBAN-based inbound transfers.",
+      "Inside Egypt, instant payments run on the CBE's Instant Payment Network; the InstaPay app on top of it was activated on 23 March 2022, built by Egyptian Banks Company, the CBE's technology arm. InstaPay moves Egyptian pounds between Egyptian accounts; money from abroad still arrives as an international transfer to the EG IBAN.",
+      "Egypt is not in SEPA, so a payment from Europe, the Gulf or the US travels over SWIFT and the sender needs the EG IBAN and the receiving bank's BIC. The four digits after the check digits identify the bank and the next four the branch, which lets a sender confirm the bank before paying.",
+      "A standard Egyptian account is held in pounds, so an inbound dollar, euro or riyal payment is converted at the receiving bank's rate on the day it is credited. A recipient who wants to keep foreign currency needs a foreign-currency account, which has its own IBAN.",
+    ],
+    sources: [
+      { label: "Daily News Egypt: banks switch to IBAN (July 2020)", url: "https://www.dailynewsegypt.com/2020/07/04/banks-in-egypt-switch-to-iban-standard-to-ease-cross-border-transactions/" },
+      { label: "Egyptian Streets: CBE activates InstaPay (March 2022)", url: "https://egyptianstreets.com/2022/03/27/egyptians-can-now-transfer-money-instantly-with-the-central-bank-of-egypts-new-app/" },
     ],
   },
   israel: {
@@ -459,96 +492,68 @@ export const ibanContentEn: IbanContent = {
   ],
   germany: [
     {
-      q: "What is the IBAN format for Germany?",
-      a: "A German IBAN is exactly 22 characters long. It starts with DE, 2 check digits, an 8-digit Bankleitzahl (BLZ — bank routing code), and a 10-digit account number (padded with leading zeros if shorter). Example: DE89 3704 0044 0532 0130 00.",
-    },
-    {
-      q: "How do I find my IBAN in Germany?",
-      a: "Your DE IBAN is displayed in your bank's online banking (Onlinebanking) or mobile app. Deutsche Bank, Commerzbank, Sparkassen, and Volksbanken/Raiffeisenbanken all show the 22-character IBAN on the account overview. It also appears on your Kontoauszug (bank statement) and on the front of your Girocard (debit card).",
-    },
-    {
       q: "Is Germany part of SEPA?",
       a: "Yes — Germany founded the euro and SEPA replaced its domestic Überweisung and Lastschrift formats in 2014, so a German bank treats a SEPA payment from Lisbon or Dublin like one from Munich. The DE IBAN alone is enough for a euro credit transfer from any EU or EEA bank.",
     },
     {
       q: "What is a Bankleitzahl (BLZ) and how does it relate to the IBAN?",
-      a: "The Bankleitzahl (BLZ) is the 8-digit German bank routing code that identifies the bank and branch. It maps directly into positions 5-12 of the German IBAN. In the widely used example IBAN DE89 3704 0044 0532 0130 00, the BLZ is 37040044. The old BLZ + Kontonummer system has been fully replaced by IBAN for all transfers.",
+      a: "The Bankleitzahl is the 8-digit German bank routing code. It occupies positions 5–12 of a German IBAN: in the registry example DE89 3704 0044 0532 0130 00 it is 37040044, Commerzbank in Cologne. The old BLZ-plus-Kontonummer pair has been fully replaced by the IBAN for transfers.",
     },
     {
       q: "Do I need a BIC code for transfers within Germany or the EU?",
-      a: "No. For SEPA transfers within the EU and EEA, only the DE IBAN is required. BIC codes are no longer mandatory for SEPA Credit Transfers. However, for transfers from outside SEPA (such as from the US or Asia), the sender should include your bank's SWIFT/BIC code alongside the IBAN.",
+      a: "No. For SEPA transfers within the EU and EEA only the DE IBAN is required. A payer outside SEPA, in the US or Asia for example, should add your bank's BIC, and so should a payer in the UK, which is in SEPA but outside the EEA.",
     },
     {
-      q: "How do SEPA Direct Debits (Lastschrift) work with the German IBAN?",
-      a: "SEPA Direct Debits in Germany require the debtor's IBAN and a signed SEPA mandate authorising the creditor to collect payments. This is the standard for recurring payments like rent, utilities, insurance, and subscriptions. When setting up a Lastschrift, provide your DE IBAN and sign the mandate form (Lastschriftmandat).",
+      q: "Can a euro payment reach a German account instantly?",
+      a: "Yes, when the payer's bank sends it as a SEPA instant credit transfer. German banks have had to receive instant euro transfers since 9 January 2025 and to offer sending them since 9 October 2025; the same date brought the payee name check on every euro transfer.",
     },
     {
-      q: "What are common mistakes when sharing a German IBAN?",
-      a: "Common mistakes include: confusing the 8-digit BLZ with the full IBAN, providing the Kontonummer without the DE prefix and BLZ, entering an account number that has not been properly zero-padded to 10 digits, and transposing digits in the BLZ. Always verify the full 22-character IBAN before sharing it.",
-    },
-    {
-      q: "Can Sparkassen, Volksbanken, and online banks all receive international transfers via IBAN?",
-      a: "Yes. All German banks — including Sparkassen, Volksbanken/Raiffeisenbanken, traditional commercial banks (Deutsche Bank, Commerzbank), and online banks (N26, DKB, ING Germany) — use the same 22-character DE IBAN format and can receive both SEPA and SWIFT transfers. The BLZ range identifies the specific institution.",
+      q: "Can Sparkassen, Volksbanken and online banks all receive international transfers via IBAN?",
+      a: "Yes. Sparkassen, Volksbanken and Raiffeisenbanken, commercial banks such as Deutsche Bank and Commerzbank, and online banks such as N26, DKB and ING Germany all use the same 22-character DE IBAN and receive both SEPA and SWIFT payments; the BLZ inside the IBAN identifies the institution.",
     },
   ],
   france: [
-    {
-      q: "What is the IBAN format for France?",
-      a: "A French IBAN is exactly 27 characters long. It starts with FR, 2 check digits, a 5-digit bank code, a 5-digit branch code (code guichet), an 11-character account number, and a 2-digit national check key (cle RIB). Example: FR76 3000 6000 0112 3456 7890 189.",
-    },
-    {
-      q: "How do I find my IBAN in France?",
-      a: "Your FR IBAN is displayed in your bank's online banking (espace client) or mobile app. BNP Paribas, Societe Generale, Credit Agricole, and La Banque Postale all show the 27-character IBAN on the account details page. It also appears on your RIB (Releve d'Identite Bancaire), which you can download or print from your online banking.",
-    },
     {
       q: "Is France part of SEPA?",
       a: "Yes. France is a founding member of both the euro and SEPA, and a virement SEPA from another EU or EEA bank needs only your 27-character FR IBAN. The French overseas departments — Guadeloupe, Martinique, French Guiana, Réunion and Mayotte — use FR IBANs too, while Monaco, also in SEPA, has its own MC prefix.",
     },
     {
       q: "What is a RIB and how does it relate to the French IBAN?",
-      a: "A RIB (Releve d'Identite Bancaire) is the French bank account identification document containing the bank code, branch code (code guichet), account number, and RIB key. All of these components map directly into the French IBAN. The IBAN is essentially FR + 2 check digits + the full RIB. When someone asks for your RIB, providing your IBAN is equivalent.",
+      a: "A RIB (Relevé d'Identité Bancaire) is the French document that identifies a bank account: code banque, code guichet, numéro de compte and clé RIB. All four sit inside the French IBAN, so when someone asks for your RIB, sending the document or the IBAN it prints is equivalent.",
     },
     {
       q: "Do I need a BIC code for SEPA transfers to France?",
-      a: "No. For SEPA Credit Transfers within the EU and EEA, only the FR IBAN is required. BIC is no longer mandatory for intra-SEPA transfers. A payer outside SEPA — in the US or Asia, say — should add your bank's SWIFT/BIC code, and a UK payer needs it too, as a non-EEA SEPA member.",
+      a: "No. For SEPA credit transfers within the EU and EEA only the FR IBAN is required. A payer outside SEPA — in the US or Asia, say — should add your bank's BIC, and a UK payer needs it too, as a non-EEA SEPA member.",
     },
     {
-      q: "How do direct debits (prelevement) work with the French IBAN?",
-      a: "SEPA Direct Debits (prelevement SEPA) in France require your IBAN and a signed SEPA mandate (mandat de prelevement). This is the standard for paying French utilities (EDF, water), rent, insurance premiums, and subscription services like internet and mobile phone plans. Provide your FR IBAN on the mandate form to authorise collections.",
+      q: "Why did my bank warn me the name does not match a French IBAN?",
+      a: "Since 9 October 2025 French banks check the beneficiary name against the account holder before a virement leaves. A warning means the recipient's bank holds a different name, often a company's legal name rather than its brand; confirm the details with the recipient before you proceed.",
     },
     {
       q: "What are common mistakes when sharing a French IBAN?",
-      a: "Common mistakes include: confusing the RIB key (2 digits) with the IBAN check digits, providing only the domestic account number without the FR prefix and codes, and mixing up the bank code with the branch code (code guichet). The 27-character length is among the longest in SEPA, so digit transposition errors are more likely — always verify carefully.",
+      a: "Mixing up the clé RIB (the last two digits) with the IBAN check digits after FR, sending only the domestic account number without FR and the bank and branch codes, and swapping the code banque with the code guichet. At 27 characters the French IBAN is among the longest in SEPA, so transposed digits are more likely.",
     },
   ],
   netherlands: [
     {
-      q: "What is the IBAN format for the Netherlands?",
-      a: "A Dutch IBAN is exactly 18 characters long. It starts with NL, 2 check digits, a 4-letter bank code (such as ABNA, INGB, or RABO), and a 10-digit account number. Example: NL91 ABNA 0417 1643 00.",
-    },
-    {
-      q: "How do I find my IBAN in the Netherlands?",
-      a: "Your NL IBAN is displayed in your bank's online banking or mobile app. ABN AMRO, ING, and Rabobank — the three largest Dutch banks — all show the 18-character IBAN prominently on the account overview. It also appears on bank statements, your debit card, and invoices. The old Dutch account number format has been fully retired.",
-    },
-    {
       q: "Is the Netherlands part of SEPA?",
-      a: "Yes. The Netherlands is a founding eurozone and SEPA member. All domestic and cross-border euro transfers use the IBAN exclusively. Within SEPA, only the NL IBAN is required — no BIC/SWIFT code is needed for euro credit transfers.",
+      a: "Yes. The Netherlands is a founding euro-area and SEPA member, and Dutch transfers, domestic or cross-border, use the IBAN only. Within SEPA no BIC is needed for a euro credit transfer.",
     },
     {
       q: "What do the 4-letter bank codes mean in a Dutch IBAN?",
-      a: "The 4-letter bank code in positions 5-8 of the Dutch IBAN identifies the bank: ABNA is ABN AMRO, INGB is ING, RABO is Rabobank, SNSB is SNS Bank, ASNB is ASN Bank, TRIO is Triodos Bank, KNAB is Knab, and BUNQ is bunq. This makes it easy to identify which institution holds the account at a glance.",
+      a: "The four letters in positions 5–8 identify the bank: ABNA is ABN AMRO, INGB is ING, RABO is Rabobank, SNSB is SNS Bank, ASNB is ASN Bank, TRIO is Triodos Bank, KNAB is Knab and BUNQ is bunq.",
     },
     {
       q: "Do I need a SWIFT code to receive an international transfer in the Netherlands?",
-      a: "For SEPA transfers from EU and EEA countries in EUR, only the NL IBAN is sufficient. For transfers from outside the SEPA area (such as from the US, UK, or Asia), the sender should include both the IBAN and the bank's SWIFT/BIC code. ABN AMRO's SWIFT code is ABNANL2A; ING's is INGBNL2A; Rabobank's is RABONL2U.",
+      a: "For a euro transfer from an EU or EEA country the NL IBAN is enough. A payer in the UK or Switzerland, which are in SEPA but outside the EEA, also needs your bank's BIC, and so does a payer in the US or Asia, or anyone paying in a currency other than euros.",
+    },
+    {
+      q: "Why does a payer get a name warning on my Dutch IBAN?",
+      a: "Dutch banks compare the name a payer enters with the account holder's name before the transfer goes, a check in use since 2017. A trading name, a joint account or a shortened first name can trigger a warning, so give payers the name exactly as your bank shows it.",
     },
     {
       q: "Are there still legacy Dutch account numbers in use?",
-      a: "No. The Netherlands was one of the first countries to fully retire legacy domestic account numbers. All Dutch bank transfers — domestic and international — use the IBAN exclusively. If you encounter an old-format Dutch account number, it cannot be used for transfers; you need the full 18-character NL IBAN.",
-    },
-    {
-      q: "What are common mistakes when sharing a Dutch IBAN?",
-      a: "Common mistakes include: confusing the 4-letter bank code with the SWIFT/BIC code (they are different), entering an incorrect or outdated account number, and forgetting to include the NL prefix when sharing with international senders. The relatively short 18-character format makes Dutch IBANs less prone to digit transposition than longer IBANs.",
+      a: "No. The old domestic account numbers were fully retired; an old-format number cannot be used for a transfer, and you need the full 18-character NL IBAN.",
     },
   ],
   spain: [
@@ -767,66 +772,42 @@ export const ibanContentEn: IbanContent = {
   ],
   sweden: [
     {
-      q: "What is the IBAN format for Sweden?",
-      a: "A Swedish IBAN is exactly 24 characters long. It starts with SE, 2 check digits, a 3-digit bank code, and a 17-digit account reference that incorporates the clearing number. Example: SE45 5000 0000 0583 9825 7466.",
-    },
-    {
-      q: "How do I find my IBAN in Sweden?",
-      a: "Your SE IBAN is available in your bank's internet banking (internetbank) or mobile app. Swedbank, SEB, Handelsbanken, and Nordea Sweden all display the 24-character IBAN on the account details page. The mapping from domestic clearing number to IBAN varies between banks, so use your bank's own IBAN lookup tool if unsure.",
-    },
-    {
       q: "Is Sweden part of SEPA?",
-      a: "Yes. Sweden is an EU member and a full SEPA participant. Euro transfers from other EU and EEA countries are processed via SEPA Credit Transfer. However, Sweden's currency is the Swedish krona (SEK), so incoming EUR SEPA transfers will be converted to SEK by your bank unless you hold a dedicated EUR account.",
+      a: "Yes. Sweden is in the EU and takes part in SEPA, so euro transfers from other SEPA countries arrive as SEPA credit transfers. Its currency is the krona, so an incoming euro payment is converted to SEK by your bank unless you hold a euro account.",
     },
     {
-      q: "What is the difference between a Swedish clearing number, Bankgiro, and IBAN?",
-      a: "A clearing number (4-5 digits) identifies the bank and branch for domestic transfers. Bankgiro is a separate domestic invoice payment system. The IBAN incorporates the clearing number into an international format (SE + check digits + bank code + account reference). Bankgiro numbers are not recognised outside Sweden — for international transfers, always use your SE IBAN.",
+      q: "What is the difference between a Swedish clearing number, Bankgiro and IBAN?",
+      a: "A clearing number (4–5 digits) identifies the bank and branch for domestic transfers; Bankgiro is a separate Swedish invoice-payment system; the IBAN wraps the clearing number and account into an international format. Bankgiro numbers are not recognised outside Sweden, so give a payer abroad the SE IBAN.",
     },
     {
       q: "Do I need a SWIFT code to receive an international transfer in Sweden?",
-      a: "For SEPA EUR transfers from EU and EEA countries, only the SE IBAN is required. For SEK transfers from abroad or transfers from non-SEPA countries, the sender needs both your IBAN and your bank's SWIFT/BIC code. Swedbank's SWIFT code is SWEDSESS; SEB's is ESSESESS; Handelsbanken's is HANDSESS; Nordea Sweden's is NDEASESS.",
+      a: "For a euro SEPA transfer from an EU or EEA country, the SE IBAN is enough. For kronor sent from abroad, or any payment from outside SEPA, the sender needs your IBAN and your bank's BIC, which the bank shows next to the IBAN in its app.",
     },
     {
       q: "Can I receive SEK from abroad via SEPA?",
-      a: "No. SEPA only processes EUR transfers. SEK transfers from abroad must go through SWIFT, and the sender will need your SE IBAN and your bank's SWIFT code. If someone in the EU sends you EUR via SEPA, your Swedish bank will convert it to SEK at their exchange rate.",
-    },
-    {
-      q: "What are common mistakes when sharing a Swedish IBAN?",
-      a: "Common mistakes include: providing a Bankgiro number instead of the IBAN (Bankgiro is domestic only), confusing the clearing number with the IBAN, and errors in the 17-digit account reference. The mapping between domestic clearing numbers and IBAN varies by bank, so always confirm your exact IBAN through your bank's tools.",
+      a: "No. SEPA carries euros only. Kronor from abroad travel over SWIFT, and if someone in the EU sends euros instead, your Swedish bank converts them to SEK at its own rate.",
     },
   ],
   poland: [
     {
-      q: "What is the IBAN format for Poland?",
-      a: "A Polish IBAN is exactly 28 characters long — one of the longer formats in Europe. It starts with PL, 2 check digits, and then the 24-digit NRB (Numer Rachunku Bankowego), consisting of a 2-digit checksum, an 8-digit bank sort code, and a 16-digit account number. Example: PL61 1090 1014 0000 0712 1981 2874.",
-    },
-    {
-      q: "How do I find my IBAN in Poland?",
-      a: "Your PL IBAN is available in your bank's online banking (bankowosc internetowa) or mobile app. PKO Bank Polski, mBank, ING Bank Slaski, Bank Pekao, and Santander Bank Polska all show the 28-character IBAN on the account details page. If you have your NRB (26-digit domestic number), simply prepend PL and the 2 IBAN check digits.",
-    },
-    {
       q: "Is Poland part of SEPA?",
-      a: "Yes. Poland is an EU member and a full SEPA participant. Euro transfers from other EU and EEA countries can be received via SEPA Credit Transfer. However, Poland's currency is the zloty (PLN), so EUR SEPA transfers may be converted to PLN unless you hold a dedicated EUR account. PLN transfers from abroad go through SWIFT.",
+      a: "Yes. Poland is an EU member and takes part in SEPA, so euro transfers from other SEPA countries arrive as SEPA credit transfers. Its currency is the zloty, so euros sent to a PLN account are converted unless you hold a separate euro account.",
     },
     {
       q: "What is the NRB and how does it relate to the Polish IBAN?",
-      a: "The NRB (Numer Rachunku Bankowego) is Poland's 26-digit domestic bank account number, consisting of a 2-digit checksum, 8-digit bank sort code, and 16-digit account number. The IBAN adds the PL country code and 2 IBAN check digits at the front: PL + check digits + 24-digit portion of NRB = 28 characters.",
+      a: "The NRB (Numer Rachunku Bankowego) is Poland's 26-digit domestic account number: two check digits, an eight-digit bank and branch number, and a 16-digit account number. The IBAN is PL followed by the NRB, 28 characters in all.",
     },
     {
       q: "Do I need a SWIFT code to receive transfers from abroad in Poland?",
-      a: "For SEPA EUR transfers from EU and EEA countries, only the PL IBAN is sufficient. For PLN transfers from abroad or any transfer from outside SEPA, the sender needs both your 28-character PL IBAN and your bank's SWIFT/BIC code. PKO BP's SWIFT code is BPKOPLPW; mBank's is BREXPLPW; ING Bank Slaski's is INGBPLPW.",
+      a: "For a euro SEPA transfer from an EU or EEA country, the PL IBAN is enough. For zloty sent from abroad, or any payment from outside SEPA, the sender needs the 28-character PL IBAN and your bank's BIC, shown next to the IBAN in the bank's app.",
     },
     {
       q: "Do Polish banks have separate EUR and PLN accounts?",
-      a: "Yes. Many Polish banks maintain separate EUR and PLN accounts, each with its own IBAN. If you regularly receive EUR from within the EU, ask your bank about opening a dedicated EUR account to avoid automatic PLN conversion. PKO BP, mBank, and ING all offer multi-currency account options.",
+      a: "Usually, yes: a euro account has its own IBAN. If you regularly receive euros, give payers that account's IBAN so the bank does not convert each payment to zloty.",
     },
     {
-      q: "What are common mistakes when sharing a Polish IBAN?",
-      a: "Common mistakes include: confusing the NRB domestic format with the IBAN (the NRB is 26 digits without the PL prefix), transposing digits in the long 28-character IBAN, and providing the wrong sort code. The 28-character length makes Polish IBANs more prone to transcription errors — always double-check before sharing.",
-    },
-    {
-      q: "What domestic payment systems does Poland use alongside IBAN?",
-      a: "Poland's Elixir system handles standard domestic PLN transfers and Express Elixir provides instant PLN payments — both use the IBAN internally. BLIK is Poland's popular mobile payment system for in-store and P2P payments. For international transfers, SWIFT and the PL IBAN are the required standard.",
+      q: "Why did a zloty transfer arrive the next day?",
+      a: "Ordinary PLN transfers between Polish banks clear in KIR's Elixir sessions on working days only, so one ordered after the last session, or on a holiday, waits for the next working day. Express Elixir instant transfers settle around the clock, within the limit your bank sets.",
     },
   ],
   norway: [
@@ -1002,36 +983,24 @@ export const ibanContentEn: IbanContent = {
   ],
   hungary: [
     {
-      q: "What is the IBAN format for Hungary?",
-      a: "A Hungarian IBAN is exactly 28 characters long — one of the longest in Europe. It starts with HU, 2 check digits, and then the full 24-digit domestic Giro account number, which itself includes a 3-digit bank code, 4-digit branch code, 1 check digit, a 15-digit account number, and a final check digit. Example: HU42 1177 3016 1111 1018 0000 0000.",
-    },
-    {
-      q: "Why is the Hungarian IBAN 28 characters?",
-      a: "Hungary's IBAN is 28 characters because the domestic Giro account number used for all Hungarian bank accounts is 24 digits long. The IBAN wraps the entire 24-digit domestic number with the HU country code and 2 check digits, resulting in the full 28-character format.",
-    },
-    {
       q: "Is Hungary part of SEPA?",
-      a: "Yes. Hungary is an EU member and a full SEPA participant, enabling cheap and fast euro transfers to and from other SEPA countries. Hungary's currency is the forint (HUF), so EUR SEPA transfers may be converted to HUF unless a EUR account is specified.",
+      a: "Yes. Hungary is an EU member and takes part in SEPA for euro transfers, but its currency is the forint, so a euro payment into a forint account is converted to HUF on arrival unless the recipient has a euro account with its own IBAN.",
     },
     {
-      q: "What bank codes do OTP Bank, K&H Bank, and Erste Bank Hungary use?",
-      a: "The first three digits after HU and the check digits are the bank's own code — OTP Bank's, for example, is 117, which is why OTP account numbers begin 117 — and the next four identify the branch. Your bank prints both as the first eight-digit block of the domestic account number.",
+      q: "What bank codes do OTP Bank, K&H Bank and Erste Bank Hungary use?",
+      a: "The first three digits after HU and the check digits are the bank's own code — OTP Bank's is 117, which is why OTP account numbers begin 117 — and the next four identify the branch. Your bank prints both as the first eight-digit block of the domestic account number.",
     },
     {
       q: "How do I find my IBAN at a Hungarian bank?",
-      a: "Hungarians usually know their account as two or three eight-digit blocks (the pénzforgalmi jelzőszám). The 28-character HU IBAN is that same number with HU and two check digits in front; OTP SmartBank, K&H mobilbank and Erste's George show it under the account's details.",
+      a: "Hungarians usually know their account as two or three eight-digit blocks (the pénzforgalmi jelzőszám). The 28-character HU IBAN is the 24-digit form of that number with HU and two check digits in front; OTP SmartBank, K&H mobilbank and Erste's George show it under the account's details.",
     },
     {
-      q: "What is Hungary's instant payment system and does it use IBAN?",
-      a: "Yes. Hungary's Azonnali Fizetési Rendszer (AFR), launched in March 2020, enables real-time 24/7 HUF transfers between all Hungarian banks. The AFR uses the full 28-character HU IBAN as the account identifier. All Hungarian banks are required to participate in AFR.",
+      q: "Can someone abroad pay my Hungarian mobile-number alias?",
+      a: "No. A mobile number, e-mail address or tax number registered as a secondary account identifier works only for instant forint transfers inside Hungary. A payer abroad needs the full HU IBAN and, for forints or a non-SEPA payment, the bank's BIC.",
     },
     {
       q: "Can I receive HUF from abroad via SEPA?",
-      a: "No. SEPA transfers only process EUR, not HUF. To receive HUF from outside Hungary, the sender must use a SWIFT transfer and specify HUF as the currency. The sender will need your HU IBAN and your bank's SWIFT/BIC code. Be aware that some international services do not offer HUF delivery — in that case, receiving EUR and converting locally may be the only option.",
-    },
-    {
-      q: "Do I need a BIC code for SEPA EUR transfers to Hungary?",
-      a: "Within SEPA, only the HU IBAN is required for EUR transfers — no BIC is needed. Payments in forints, or in any currency from outside SEPA such as the US, need your bank's SWIFT/BIC code alongside the IBAN — and so does a euro transfer from a UK bank.",
+      a: "No. SEPA carries euros only. Forints from abroad travel over SWIFT with HUF as the payment currency, and the sender needs your HU IBAN and your bank's BIC. Some international services do not pay out in HUF, in which case receiving euros and converting locally may be the only option.",
     },
   ],
   croatia: [
@@ -1190,52 +1159,28 @@ export const ibanContentEn: IbanContent = {
   ],
   "united-arab-emirates": [
     {
-      q: "What is the IBAN format for the UAE?",
-      a: "A UAE IBAN is exactly 23 characters long. It starts with the country code AE, 2 check digits, a 3-digit bank code, and a 16-digit account number. Example: AE07 0331 2345 6789 0123 456.",
-    },
-    {
       q: "When did the UAE start using IBAN?",
-      a: "The Central Bank of the UAE (CBUAE) mandated IBAN for all bank accounts from May 2011. Since then, every UAE bank account has a 23-character AE IBAN, and it is the required format for all domestic interbank transfers through UAEFTS and for international wire transfers.",
+      a: "The Central Bank of the UAE made the IBAN the standard identifier for all UAE bank accounts from 19 November 2011, and from 15 June 2012 inward payments for UAE beneficiaries without an IBAN were to be rejected and returned to the sending bank.",
     },
     {
       q: "Is the UAE part of SEPA?",
-      a: "No. The UAE is not part of SEPA. All international transfers to UAE bank accounts are processed through the SWIFT network. Domestic transfers are processed through the UAE Funds Transfer System (UAEFTS), which operates 24/7.",
+      a: "No. Payments into UAE accounts from abroad travel over SWIFT, so the sender needs the AE IBAN and the bank's BIC. Domestic dirham transfers between UAE banks also identify the account by its IBAN.",
     },
     {
       q: "What are the bank codes for Emirates NBD, ADCB, FAB, and Mashreq?",
-      a: "UAE bank codes (3 digits, positions 5–7 of the IBAN): Emirates NBD is 033, Abu Dhabi Commercial Bank (ADCB) is 030, First Abu Dhabi Bank (FAB) is 035, and Mashreq is 020. Smaller banks and Islamic banks also have assigned codes. The bank code identifies the institution within the 23-character IBAN.",
-    },
-    {
-      q: "How do I find my IBAN in the UAE?",
-      a: "Your AE IBAN is displayed in your bank's mobile app or online banking under account details. Emirates NBD's Liv. app, ADCB's mobile banking, FAB's mobile app, and Mashreq's NeoBiz portal all show the 23-character IBAN. It also appears on bank statements and correspondence from your bank.",
+      a: "The bank code is the three digits in positions 5–7 of the IBAN: Emirates NBD is 033, Abu Dhabi Commercial Bank (ADCB) 030, First Abu Dhabi Bank (FAB) 035 and Mashreq 020.",
     },
     {
       q: "Can I receive foreign currency in my UAE bank account?",
-      a: "Yes. Major UAE banks offer multi-currency accounts and foreign currency savings accounts that can receive USD, EUR, GBP, and other major currencies without automatic conversion to AED. These accounts typically have their own separate IBAN or a currency-designated account number. Ask your bank which IBAN to provide for each currency.",
-    },
-    {
-      q: "What do I need to give a sender to receive money in the UAE?",
-      a: "For domestic UAE transfers, your 23-character AE IBAN is sufficient — no SWIFT code is needed for UAEFTS. For international transfers from abroad, provide your full AE IBAN and your bank's SWIFT/BIC code. For example, Emirates NBD's SWIFT code is EBILAEAD; ADCB's is ADCBAEAD; FAB's is NBADAEAA.",
-    },
-    {
-      q: "How long does it take to receive an international SWIFT transfer in the UAE?",
-      a: "International SWIFT transfers to UAE banks typically take 1–3 business days, depending on the sending country, intermediary banks involved, and time zone differences. Transfers from GCC countries (Saudi Arabia, Kuwait, Qatar, Bahrain, Oman) often arrive faster due to direct correspondent banking relationships. Your bank's incoming wire cut-off time also affects same-day vs next-day processing.",
+      a: "Into a dirham account the money is converted on arrival. Banks that offer dollar, euro or sterling accounts give each its own IBAN, so give the payer the IBAN of the account in the currency they are sending.",
     },
     {
       q: "How do I validate a UAE IBAN?",
-      a: "A valid UAE IBAN must be exactly 23 characters: 'AE' + 2 check digits + 3-digit bank code + 16-digit account number. To validate: (1) confirm length is 23, (2) confirm it starts with 'AE', (3) confirm the bank code (positions 5-7) matches a registered CBUAE bank — common codes include 033 (Emirates NBD), 030 (ADCB), 035 (FAB), 020 (Mashreq), 053 (Dubai Islamic Bank), 026 (Abu Dhabi Islamic Bank). The check digits (positions 3-4) follow the ISO 13616 modulo-97 algorithm. Most UAE banks provide a free IBAN validator in their mobile app, and CBUAE publishes an official IBAN validator service at the Al Etihad Payments website.",
+      a: "Check that it is exactly 23 characters, starts with AE, and that the three-digit bank code in positions 5–7 matches the bank named on the invoice (033 Emirates NBD, 030 ADCB, 035 FAB, 020 Mashreq). The check digits in positions 3–4 follow the ISO 13616 modulo-97 rule, so a single mistyped digit fails validation.",
     },
     {
-      q: "What is Aani and how does it work with my UAE IBAN?",
-      a: "Aani is the UAE's domestic instant payment platform, launched by Al Etihad Payments (CBUAE subsidiary) in October 2023. It uses your existing 23-character AE IBAN as the underlying account identifier, but lets you send and receive AED in under 10 seconds using simpler aliases — your UAE mobile number (+971...), email address, or just the IBAN. Aani transfers are typically free for retail users on Emirates NBD, ADCB, FAB, Mashreq, ENBD, ADIB, RAKBank, and most other CBUAE-licensed banks. The platform is replacing traditional UAEFTS for retail-sized transfers and is available 24/7/365 through your bank's mobile app.",
-    },
-    {
-      q: "Can I send money from my UAE IBAN to India, Pakistan, or the Philippines?",
-      a: "Yes — outbound remittances from UAE bank accounts are one of the largest cross-border flows in the world. Emirates NBD, ADCB, FAB, and Mashreq all offer international transfers from your AE IBAN via SWIFT, but bank fees run AED 75-100 per transfer plus 2-4% FX markup. Cheaper alternatives: licensed exchange houses (Lulu Exchange, Al Ansari Exchange, UAE Exchange) often have better AED-to-INR/PKR/PHP rates with lower fees. Digital providers like Wise (multi-currency), Remitly (cash pickup networks), and TapTap Send (very low fees to specific corridors) typically beat bank wires on cost. For live rate comparison, our send-money tool shows real quotes from your UAE bank account to India, Pakistan, Philippines, Bangladesh, Egypt, and Sri Lanka.",
-    },
-    {
-      q: "Is the IBAN the same as the account number in the UAE?",
-      a: "No, but the account number is embedded inside the IBAN. Your UAE IBAN is 23 characters total — the last 16 digits are your account number (positions 8-23), preceded by the 3-digit bank code (positions 5-7), check digits (positions 3-4), and the 'AE' country code (positions 1-2). Some UAE banks display only the 16-digit account number internally (for example on cheques), while others show the full 23-character IBAN. For any interbank transfer in the UAE — whether through UAEFTS or Aani — you must use the full 23-character IBAN, not just the account number portion.",
+      q: "What is Aani and does it work with money from abroad?",
+      a: "Aani is the UAE's instant payments platform, launched by Al Etihad Payments, a CBUAE subsidiary, on 16 October 2023, with payments of up to AED 50,000 in its first stage. Enrolled users can be paid in dirhams by mobile number. It is domestic: a transfer from abroad still arrives over SWIFT to the AE IBAN.",
     },
   ],
   "saudi-arabia": [
@@ -1402,36 +1347,24 @@ export const ibanContentEn: IbanContent = {
   ],
   egypt: [
     {
-      q: "What is the IBAN format for Egypt?",
-      a: "An Egyptian IBAN is exactly 29 characters long. It starts with EG, 2 check digits, a 4-digit bank code, a 4-digit branch code, and a 17-digit account number. Example: EG38 0019 0005 0000 0000 2631 8000 2.",
-    },
-    {
-      q: "When did Egypt mandate IBAN adoption?",
-      a: "The Central Bank of Egypt (CBE) mandated IBAN for all bank accounts as part of its efforts to modernise Egypt's payment infrastructure and facilitate international transfers. All Egyptian bank accounts now carry a 29-character EG IBAN, and it is the required format for international wire transfers into the country.",
+      q: "When did Egypt switch to IBAN?",
+      a: "In mid-2020. The Central Bank of Egypt registered with SWIFT to implement the IBAN standard in May 2020, and banks began requiring the 29-character EG IBAN for incoming and outgoing transfers from 30 June 2020, accepting short account numbers for a transition period.",
     },
     {
       q: "Is Egypt part of SEPA?",
-      a: "No. Egypt is not a SEPA member. International transfers to Egypt are processed through the SWIFT network. Domestically, the CBE operates the EG-RTGS for high-value settlement and the Egypt ACH for retail transfers, both using the IBAN.",
+      a: "No. International transfers to Egypt travel over SWIFT, so a payer abroad needs the EG IBAN and the receiving bank's BIC. Domestic instant payments run on the CBE's Instant Payment Network, which the InstaPay app uses.",
     },
     {
       q: "What are the bank codes for National Bank of Egypt, CIB, and Banque Misr?",
-      a: "Egyptian bank codes (4 digits, positions 5–8 of the IBAN): National Bank of Egypt (NBE) uses 0019, Banque Misr uses 0002, Commercial International Bank (CIB) uses 0010, and Banque du Caire uses 0027. Arab African International Bank uses 0057.",
+      a: "Egyptian bank codes are the four digits in positions 5–8 of the IBAN: National Bank of Egypt uses 0019, Banque Misr 0002, Commercial International Bank (CIB) 0010 and Banque du Caire 0027.",
     },
     {
-      q: "How do I find my IBAN at an Egyptian bank?",
-      a: "Your EG IBAN is available in your bank's online banking or mobile app. CIB's mobile banking app, NBE's online banking portal, and Banque Misr's mobile app all display the 29-character IBAN. It is also printed on bank statements. You can request it at any branch or through your bank's customer service line.",
-    },
-    {
-      q: "What do I need to receive an international transfer to Egypt?",
-      a: "Provide your full 29-character EG IBAN and your bank's SWIFT/BIC code. NBE's SWIFT code is NBEGEGCX; Banque Misr's is BMISEGCX; CIB's is CIBEEGCX. The CBE may require banks to document certain large inbound transfers, so your bank may request the purpose of the transfer.",
-    },
-    {
-      q: "Are there incentives for receiving remittances to Egyptian bank accounts?",
-      a: "Yes. The CBE has introduced several remittance incentive schemes to attract foreign currency inflows through official banking channels. These have periodically included preferential exchange rates for transfers received into Egyptian bank accounts compared to cash transfers. Ask your bank about any current remittance rate programmes applicable to your incoming transfers.",
+      q: "Can I receive money from abroad through InstaPay?",
+      a: "Not directly. InstaPay moves Egyptian pounds between Egyptian bank accounts and wallets. Money from abroad reaches your EG IBAN as an international transfer, after which you can move it on with InstaPay.",
     },
     {
       q: "Will my incoming foreign currency be converted to EGP automatically?",
-      a: "Generally yes. For standard Egyptian bank accounts, inbound foreign currency transfers are converted to EGP at the receiving bank's posted exchange rate on the day of settlement. Some banks offer foreign currency accounts (in USD, EUR, or GBP) that can retain the original currency — ask your bank if this option is available if you regularly receive large amounts in a specific foreign currency.",
+      a: "Into a standard pound account, yes, at the receiving bank's rate on the day of settlement. A foreign-currency account in dollars, euros or pounds sterling keeps the original currency; ask your bank for that account's own IBAN.",
     },
   ],
   israel: [
