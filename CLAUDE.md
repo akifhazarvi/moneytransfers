@@ -41,6 +41,9 @@ npm run check:swift-codes # no spliced, mis-countried or wrong-length SWIFT code
 npm run check:rendered-text # no word glued to a value in rendered HTML, "216corridors" (postbuild)
 npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (needs a deploy)
 npm run check:pwa        # manifest installable, icons/screenshots/shortcuts exist, sw.js bypass + offline revision (prebuild)
+npm run check:redirects  # every 301 is one hop to a prerendered page; retired URLs 410 (postbuild)
+npm run check:link-eligibility # internal links point only at Google-eligible pages; /go /out are nofollow sponsored
+npm run build:google-eligible  # regenerate src/data/google-eligible-routes.json (= sitemap-google.xml; prebuild runs it)
 
 # End-to-end (Playwright, e2e/) — the installed app: manifest, worker, offline, install flows
 npm run build && npm run test:e2e        # against `next start` on :3210
@@ -78,8 +81,13 @@ what enforces it. Where a rule is not automated, it says how to check it.
    the IBAN/SWIFT allowlists), never in bulk. Measure duplication before and
    after (8-word shingles over the rendered body, `$RC` splice replayed): no
    existing page may rise more than 0.5 points or cross 30%. Currency twins
-   (send-money-to-spain / -germany / usa-to-europe are all USD→EUR) stay
-   closed. *Not automated* — the procedure is the check.
+   (send-money-to-spain / -germany are USD→EUR) stay closed unless Bing
+   already sends them people: owner decision 2026-10-08 (round-3 brief §3.1)
+   — no URL with Bing impressions in the brief's BWT export may carry a
+   generic `noindex`, twins included (usa-to-europe, india-to-uk,
+   india-to-canada, swift-codes/ireland went Bing-only in
+   `BING_DEMAND_WAVE_2`). Google is unaffected: they stay `googlebot: noindex`.
+   *Not automated* — the procedure is the check.
 4. **A heading names its page; a widget has no heading.** No H2 may appear on
    10+ indexable pages. Template headings take the subject
    (`faqHeading(title, slug)`, `sectionHeading()` in `src/lib/page-headings.ts`,
@@ -158,6 +166,18 @@ what enforces it. Where a rule is not automated, it says how to check it.
     not add one. A new page is a deliberate edit to that file. *Enforced:* the
     allowlist itself; `check:links` and `check:indexing` see only what it lets
     render.
+
+15. **A retired URL answers once: 410, or one 301 to the same intent.** Round-3
+    brief §3.2 (2026-10-08): 78 corridor 301s led to a different country's
+    page (belgium-to-cameroon → austria-to-cameroon), 9 rate pairs to the
+    /exchange-rates hub, and locale URLs into chains and 410s — Google reads
+    all of those as soft 404s. A 301 may only point at the same corridor or
+    currency pair (a rate pair → that pair's rate history is the same query);
+    anything else is 410. `src/lib/retired-urls.ts` is the one answer
+    (middleware responds with it); retired locale prefixes resolve the English
+    path first, and a locale corridor whose English page does not render is
+    410. *Enforced:* `check:redirects` (postbuild) — every redirect source is
+    one hop to a prerendered page.
 
 ## Editor & TypeScript load
 
@@ -412,7 +432,7 @@ allowlisted, not on-demand ISR.**
 | `/exchange-rates/history/[pair]` | `KEEP_HISTORY_PAIRS` ∩ pairs with ≥2 days of data | **404** (`dynamicParams=false`) |
 | `/companies/[slug]` | `providers` (16 curated) | `notFound()` |
 | `/guides/[slug]` | all built; indexable per `guideIsIndexable()` | renders, `noindex` |
-| `/exchange-rates/[pair]` | `CURRENCY_PAIRS` | renders on demand |
+| `/exchange-rates/[pair]` | `KEPT_RATE_PAIR_SLUGS` prerendered; retired pairs 301 to their own rate history or 410 (`gone-rate-pairs.ts`) | renders on demand |
 | `/iban/[slug]`, `/swift-codes/[country]`, `/banks/[slug]`, `/business/[slug]` | their data list | `notFound()` |
 
 **Never interpolate a slug into an internal href.** Ask `src/lib/route-map.ts`
