@@ -124,7 +124,8 @@ const BING_DEMAND_WAVE_1 = [
  */
 export const BING_DEMAND_WAVE_2: readonly string[] = [
   "/compare/hsbc-vs-paypal",            // 0 / 3
-  "/compare/moneygram-vs-wise",         // 0 / 1 — its own editorial article, not a redirect twin
+  // "/compare/moneygram-vs-wise" (0 / 1) — not reopened: 86.6% the same as
+  // wise-vs-moneygram (round-3 QA, Oct 9), so it 301s there instead (rule 15).
   "/compare/remitly-vs-moneygram",      // 0 / 15
   "/compare/revolut-vs-hsbc",           // 1 / 6
   "/compare/wise-vs-taptap-send",       // 0 / 2

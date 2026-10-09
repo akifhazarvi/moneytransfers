@@ -318,7 +318,7 @@ export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
   "wise-vs-xe",
   "wise-vs-westpac",
   "chase-vs-hsbc",
-  "moneygram-vs-wise",
+  // "moneygram-vs-wise" — 301s to wise-vs-moneygram since 2026-10-09 (twin, rule 15)
   "moneygram-vs-worldremit",
   "remitly-vs-worldremit",
   "wise-vs-worldremit",

@@ -223,7 +223,9 @@ export const EDITORIAL_COMPARE_SLUGS = new Set<string>([
   "remitly-vs-moneygram", "chase-vs-revolut", "wise-vs-westpac",
   "chase-vs-hsbc", "boss-money-vs-remitly", "lloyds-vs-nationwide",
   "western-union-vs-bank-of-america", "paypal-vs-xoom", "moneygram-vs-revolut",
-  "moneygram-vs-wise", "moneygram-vs-worldremit", "moneygram-vs-xoom",
+  // "moneygram-vs-wise" removed 2026-10-09: 86.6% the same page as
+  // wise-vs-moneygram (round-3 QA), the same query reversed — it now 301s there.
+  "moneygram-vs-worldremit", "moneygram-vs-xoom",
   "paypal-vs-revolut", "paypal-vs-western-union", "paypal-vs-worldremit",
   "remitly-vs-worldremit", "revolut-vs-western-union", "revolut-vs-worldremit",
   "revolut-vs-xoom", "western-union-vs-worldremit", "western-union-vs-xoom",
