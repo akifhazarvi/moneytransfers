@@ -757,23 +757,32 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               </div>
             </div>
 
-            {/* Author / Reviewer */}
+            {/* Who maintains it. An anonymous "reviewed by the Editorial Team"
+                box claimed a review no named person signed (round-3 brief
+                §4.3: name an independent reviewer or drop the claim). The
+                byline above names the author; this names the owner. */}
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
-              <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
-                Methodology reviewed by
-              </h3>
+              <p className="text-md font-medium text-[var(--color-on-surface)] mb-3">
+                Who maintains this methodology
+              </p>
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-lg font-medium text-[var(--color-primary)] shrink-0">
-                  SMC
+                  AM
                 </div>
                 <div>
                   <p className="text-sm font-medium text-[var(--color-on-surface)]">
-                    SendMoneyCompare Editorial Team
+                    <Link href="/about/ahsan-mukhtar" className="text-[var(--color-primary)] hover:underline">
+                      Ahsan Mukhtar
+                    </Link>
+                    , Founder &amp; CEO
                   </p>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
-                    Our team oversees data collection methodology, provider
-                    evaluation criteria, and editorial standards to ensure
-                    accurate and unbiased comparisons.
+                    Maintains the data collection method and the provider
+                    evaluation criteria. Questions or errors:{" "}
+                    <Link href="/contact" className="text-[var(--color-primary)] hover:underline">
+                      contact us
+                    </Link>
+                    .
                   </p>
                 </div>
               </div>
