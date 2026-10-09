@@ -15,7 +15,8 @@
  * What is asserted: in the prerendered HTML (scripts removed), no React text
  * boundary `<!-- -->` sits between a word or number and a lowercase word —
  * "France<!-- -->etiquette". Units written straight after a number (27pp,
- * 17th, 3x) are allowed.
+ * 17th, 3x) are allowed. And no heading (h1–h6) whose extracted text glues a
+ * word to "(" — "Pakistan(SAR → PKR)" (2026-10-08, every corridor H1).
  *
  * Usage: npx tsx scripts/check-rendered-text.ts   (needs a build; postbuild)
  */
@@ -41,6 +42,16 @@ function walk(dir: string, out: string[] = []): string[] {
 }
 
 const byText = new Map<string, { pages: number; example: string }>();
+/**
+ * A word glued to "(" inside a heading. The corridor H1 printed "Send money
+ * from Saudi Arabia to Pakistan(SAR → PKR)" on every corridor page until
+ * 2026-10-08: the pair sat in a display:block <span> with no space before it,
+ * so it looked right and read wrong to crawlers, screen readers and
+ * copy-paste. Heading text is joined the way a text extractor joins it (tags
+ * dropped, <br> as a space). Plural markers — "provider(s)", "bank(es)" — are
+ * not glue.
+ */
+const headingGlue = new Map<string, { pages: number; example: string }>();
 for (const file of walk(APP)) {
   const html = readFileSync(file, "utf8").replace(/<script[\s\S]*?<\/script>/g, "");
   for (const m of html.matchAll(/([A-Za-z]{2,}|\d)<!-- -->([a-z]{2,}[^<]{0,30})/g)) {
@@ -50,6 +61,30 @@ for (const file of walk(APP)) {
     hit.pages++;
     byText.set(key, hit);
   }
+  for (const h of html.matchAll(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/g)) {
+    const text = h[2].replace(/<br\s*\/?>/gi, " ").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ");
+    for (const g of text.matchAll(/([A-Za-z]{2,})\(([^)]{0,40})\)/g)) {
+      if (/^(?:s|es)$/i.test(g[2])) continue;
+      // SWIFT registry names print verbatim in capitals ("AGRANI BANK,RAMNA
+      // BRANCH,DHAKA(PHAKA)") — the registry's own spelling, not template glue.
+      if (!/[a-z]/.test(text)) continue;
+      const key = `${g[1]}(${g[2]})`.replace(/\s+/g, " ").slice(0, 40);
+      // One entry per template shape: the words either side vary per page.
+      const shape = key.replace(/[A-Za-z]+\(/, "…(").replace(/[A-Z]{3}/g, "XXX");
+      const hit = headingGlue.get(shape) ?? { pages: 0, example: `${file.slice(APP.length)}: <h${h[1]}> …${key}…` };
+      hit.pages++;
+      headingGlue.set(shape, hit);
+    }
+  }
+}
+
+if (headingGlue.size) {
+  console.error(`check:rendered-text — ${headingGlue.size} heading(s) with a word glued to "(":`);
+  for (const [, { pages, example }] of [...headingGlue].sort((a, b) => b[1].pages - a[1].pages).slice(0, 30)) {
+    console.error(`  ${String(pages).padStart(4)} page(s)  ${example}`);
+  }
+  console.error('\n  Put {" "} before the bracketed element in the JSX — see the note in this script.');
+  process.exitCode = 1;
 }
 
 if (byText.size) {
@@ -60,4 +95,5 @@ if (byText.size) {
   console.error('\n  Write `{value}{" "}word` in the JSX — see the note at the top of this script.');
   process.exit(1);
 }
-console.log("check:rendered-text ok — no word glued to the value before it");
+if (process.exitCode) process.exit(process.exitCode);
+console.log('check:rendered-text ok — no word glued to the value before it, no heading glued to "("');
