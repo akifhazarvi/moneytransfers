@@ -6,6 +6,8 @@ import Container from "@/components/Container";
 import Card from "@/components/Card";
 import CircleFlag from "@/components/CircleFlag";
 import { travelGuides } from "@/data/travel-guides";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { robotsFor } from "@/lib/seo-indexing";
 
@@ -50,6 +52,11 @@ export default async function TravelHubPage({ params }: Props) {
           <p className="text-md text-[var(--color-on-surface-variant)] max-w-2xl">
             Plan a smarter trip. For each country we cover the currency (with note images), where to exchange at the best rate, eSIM options with current prices, cultural dos and don&rsquo;ts, visa rules, and typical daily budgets. Built by the team behind SendMoneyCompare — so the money advice is grounded in real rate data, not travel-guide boilerplate.
           </p>
+          {/* Round-3 QA item 7: the hub named no author and no date. Each guide
+              prints its own date; this one is the hub's (and its lastmod). */}
+          <div className="mt-4">
+            <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/travel")} cadence={null} />
+          </div>
         </Container>
       </section>
 

@@ -15,6 +15,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { MATERIALITY_BAND_PCT } from "@/lib/rank-quotes";
 import { SITE_STATS, atLeast } from "@/lib/site-stats";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 // Revalidate every 6 hours — matches scraper cadence (parity with /compare/[slug]).
 export const revalidate = 21600;
@@ -202,6 +204,11 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
             <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-2 whitespace-normal sm:whitespace-nowrap">
               Pick any two providers. See who delivers more — live rates, fees and features, side by side.
             </p>
+            {/* Round-3 QA item 7: a named editor and the hub's content date (its
+                sitemap lastmod). The rates' own date is under the showdown. */}
+            <div className="mt-3">
+              <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/compare")} cadence={null} />
+            </div>
           </div>
           <div>
             <CompareShowdown
@@ -211,7 +218,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-2xs text-[var(--color-on-surface-variant)]">
             <span>
-              Live rates updated{" "}
+              Live rates collected{" "}
               <time dateTime={dataUpdated}>
                 {new Date(dataUpdated + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
               </time>

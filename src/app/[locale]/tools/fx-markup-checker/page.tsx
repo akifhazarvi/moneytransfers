@@ -10,6 +10,8 @@ import { getMidMarketRate } from "@/lib/unified-quotes";
 import Breadcrumb from "@/components/Breadcrumb";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import FxMarkupChecker from "@/components/FxMarkupChecker";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 export const revalidate = 21600; // 6h — tracks the scrape cadence
 
@@ -119,6 +121,10 @@ export default async function FxMarkupCheckerPage({
               Paste the exchange rate your bank or transfer provider quoted you. We compare it to the{" "}
               <strong>live mid-market rate</strong> and show the hidden markup — in % and in real money.
             </p>
+            {/* Round-3 QA item 7: a named author and the page's content date. */}
+            <div className="mt-4">
+              <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/tools/fx-markup-checker")} cadence={null} />
+            </div>
           </div>
         </Container>
       </section>

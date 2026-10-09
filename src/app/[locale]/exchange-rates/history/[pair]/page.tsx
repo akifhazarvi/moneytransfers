@@ -41,6 +41,8 @@ import {
   signedPct,
 } from "@/lib/rate-history-summary";
 import { centralBankFor } from "@/data/central-bank-decisions";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, RATE_HISTORY_CONTENT_DATE, longDay } from "@/lib/content-dates";
 
 
 function getCurrencyInfo(code: string) {
@@ -234,6 +236,17 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
               <h1 className="text-[clamp(1.5rem,5vw,2.25rem)] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.01em]">
                 {fromInfo?.name || from} to {toInfo?.name || to} Rate History
               </h1>
+              {/* Round-3 QA item 7: author and the template's content date
+                  (also its sitemap lastmod); the series' last day is the data
+                  line. The pair sits inside it and the pair line follows, so
+                  the byline adds no text run shared across the family (rule 3). */}
+              <div className="mt-2">
+                <PageByline
+                  authorSlug={EDITORIAL_AUTHOR_SLUG}
+                  updated={RATE_HISTORY_CONTENT_DATE}
+                  cadence={`${from}→${to} rates recorded through ${longDay(insight.dateRange.to)}`}
+                />
+              </div>
               <p className="text-sm text-[var(--color-on-surface-variant)] mt-1">
                 {from} → {to} · {insight.totalDays} days of data · {Object.keys(insight.sparklines).length} providers tracked
               </p>

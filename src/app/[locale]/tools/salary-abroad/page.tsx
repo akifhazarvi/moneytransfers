@@ -6,6 +6,8 @@ import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import SalaryAbroadTool from "@/components/SalaryAbroadTool";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 import { pppIndex, markupBounds, countriesByName, modelDestination, corridorSlugByPair } from "@/lib/ppp-index";
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -106,6 +108,10 @@ export default async function SalaryAbroadPage({ params }: { params: Promise<{ l
             Purchasing power across {pppIndex.countryCount} countries from official World Bank data —
             plus the part every other calculator leaves out: what it costs to move your money there.
           </p>
+          {/* Round-3 QA item 7: a named author and the page's content date. */}
+          <div className="mt-4">
+            <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/tools/salary-abroad")} cadence={null} />
+          </div>
 
           <div className="mt-6">
             <SalaryAbroadTool countries={countries} best={best} worst={worst} slugByPair={slugByPair} defaultHome="US" />

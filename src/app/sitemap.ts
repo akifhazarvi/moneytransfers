@@ -19,6 +19,8 @@ import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
 import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2 } from "@/data/search-engine-routes";
 import { HUB_COPY_REVIEWED } from "@/lib/send-money-hub";
+import { RATE_HISTORY_CONTENT_DATE, SWIFT_CONTENT_DATE, pageUpdated, shownContentDate } from "@/lib/content-dates";
+import { getTravelGuide } from "@/data/travel-guides";
 import { corridorPageRenders } from "@/lib/route-map";
 import readerSavings from "@/data/research/reader-savings.json";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
@@ -56,13 +58,13 @@ const BUSINESS_CONTENT_DATE = "2026-09-07"; // measured cost figures + live toke
 const REVIEWED_ROUTES_DATE = "2026-09-24"; // round-2 freelance brief opened these
 const BING_DEMAND_DATE = "2026-09-27";     // Bing earners reopened (round-3 plan)
 const BING_DEMAND_WAVE_2_DATE = "2026-10-08"; // round-3 brief §3.1 + restored rate pairs
-const GUIDES_HUB_DATE = "2026-09-07";       // hub listing now driven by guideIsIndexable()
 // Round-3 brief (2026-10-08/09) content changes — §6.1: "change lastmod only
 // when the content genuinely changes", so each family that changed is restamped
 // and nothing else is.
 const IBAN_CONTENT_DATE = "2026-10-09";        // bank names readable, defunct banks dropped, country payment facts (§4.2/§4.3)
-const RATE_HISTORY_CONTENT_DATE = "2026-10-09"; // month-by-month ranges, largest moves, policy-decision table (§4.2)
-const METHODOLOGY_DATE = "2026-10-09";        // the three provider counts defined (§4.3)
+// RATE_HISTORY_CONTENT_DATE, SWIFT_CONTENT_DATE and every page that prints an
+// "Updated" date read from src/lib/content-dates.ts, the same constant the page
+// shows (round-3 QA item 7; check:lastmod).
 
 // Derived from the most recently modified scraped quotes file (shared with
 // the WebSite.dateModified schema in [locale]/layout.tsx — single source of
@@ -135,26 +137,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // The hub's editorial date, not the daily data stamp (round-3 brief §4.4D:
     // a date that changes every day reads as automated).
     entry("send-money", HUB_COPY_REVIEWED),
-    entry("companies", DATA_UPDATED),
-    entry("compare", DATA_UPDATED),
+    entry("companies", pageUpdated("/companies")),
+    entry("compare", pageUpdated("/compare")),
     // /compare-money-transfer is deliberately NOT listed: its canonical points
     // at /compare (the two target the same intent and we consolidate signals
     // there). Submitting a URL that canonicalises elsewhere asks the crawler to
     // index a page we have told it not to index — Semrush flagged exactly this
     // on 2026-09-02 ("incorrect page found in sitemap.xml: non-canonical URL").
     // The page still renders and still carries its internal links.
-    entry("guides", GUIDES_HUB_DATE),
-    entry("iban", STATIC_HUB_DATE),
-    entry("swift-codes", STATIC_HUB_DATE),
+    entry("guides", pageUpdated("/guides")),
+    entry("iban", pageUpdated("/iban")),
+    entry("swift-codes", pageUpdated("/swift-codes")),
     entry("about", STATIC_HUB_DATE),
     entry("contact", STATIC_HUB_DATE),
     entry("editorial-policy", STATIC_CONTENT_DATE),
     entry("how-we-review", STATIC_CONTENT_DATE),
-    entry("methodology", METHODOLOGY_DATE),
-    entry("privacy-policy", STATIC_CONTENT_DATE),
-    entry("terms", STATIC_CONTENT_DATE),
+    entry("methodology", pageUpdated("/methodology")),
+    entry("privacy-policy", pageUpdated("/privacy-policy")),
+    entry("terms", pageUpdated("/terms")),
     entry("for-ai", DATA_UPDATED),
-    entry("remittance-cost-index", DATA_UPDATED),
+    entry("remittance-cost-index", pageUpdated("/remittance-cost-index")),
     // Provider Consistency Index (added Sep 6 2026). The site-wide statement of
     // a finding that was previously only rendered as a per-corridor widget on
     // 212 pages, none of which Google has crawled. DATA_UPDATED because the
@@ -171,7 +173,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // demand gate is for combinatorial families that already exist in bulk;
     // these are eight editorial pages with a crawlable hub, closer to the
     // static entries above. DATA_UPDATED: every figure is rebuilt per scrape.
-    entry("alternatives", DATA_UPDATED),
+    entry("alternatives", pageUpdated("/alternatives")),
     ...ALTERNATIVES_RENDERED_SLUGS.map((slug) => entry(`alternatives/${slug}`, DATA_UPDATED)),
     // Research hub (added Sep 6 2026). Six datasets existed with no page
     // asserting that this site publishes original research, and no crawlable
@@ -187,12 +189,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // remittance tax (new 1% excise, high-intent 2026 query) and the FX markup
     // checker (live mid-market reference). The Fee Impact calculator at
     // /tools/fee-impact is intentionally NOT listed — it ships dark (noindex)
-    // until we launch it. STATIC_CONTENT_DATE for the hub; DATA_UPDATED for the
-    // tools since their live-quote blocks refresh with each scrape.
-    entry("tools", STATIC_HUB_DATE),
-    entry("tools/us-remittance-tax", DATA_UPDATED),
-    entry("tools/fx-markup-checker", DATA_UPDATED),
-    entry("tools/salary-abroad", DATA_UPDATED),
+    // until we launch it. Each page's content date, not the data's: the live
+    // blocks refresh every scrape, which is what a page-level "Updated" must
+    // not track (round-3 brief §4.4D).
+    entry("tools", pageUpdated("/tools")),
+    entry("tools/us-remittance-tax", pageUpdated("/tools/us-remittance-tax")),
+    entry("tools/fx-markup-checker", pageUpdated("/tools/fx-markup-checker")),
+    entry("tools/salary-abroad", pageUpdated("/tools/salary-abroad")),
     // Crypto cash-out cluster (added Jul 3 2026, DESITEMAPPED 2026-09-01).
     // The editorial is genuinely unique — 12.2% intra-family 8-gram similarity,
     // hand-authored per country, not templated shells. But the pages are thin
@@ -213,12 +216,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("guides/how-much-can-you-save-comparing-money-transfers", readerSavings.generatedAt),
     // Dedicated guide: best apps to send money from the US — standalone page
     // with 4 schema types, OG image, and full FAQ (added 2026-06-30).
-    entry("guides/best-apps-to-send-money-from-us-2026", "2026-06-30"),
-    entry("exchange-rates", DATA_UPDATED),
+    entry("guides/best-apps-to-send-money-from-us-2026", pageUpdated("/guides/best-apps-to-send-money-from-us-2026")),
+    entry("exchange-rates", pageUpdated("/exchange-rates")),
     // Restored Jun 22 2026 — 1,410 Bing impr + 1,389 AI citations were landing
     // on this URL while it 404'd after its Jun 20 retirement. Live-computed
     // rates, statically prerendered (revalidate hourly), so DATA_UPDATED.
-    entry("currency-converter", DATA_UPDATED),
+    entry("currency-converter", pageUpdated("/currency-converter")),
     // Trust + authorship pages. All four were indexable but unsubmitted — the
     // "index:yes / sitemap:no" contradiction the May 8 2026 deindex was traced
     // to — while their siblings /privacy-policy and /terms were listed. Author
@@ -226,9 +229,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // so they belong in the submitted set rather than being noindexed.
     ...authors.map((a) => entry(`about/${a.slug}`, STATIC_CONTENT_DATE)),
     entry("corrections", STATIC_CONTENT_DATE),
-    entry("cookies", STATIC_CONTENT_DATE),
+    entry("cookies", pageUpdated("/cookies")),
     entry("disclaimer", STATIC_CONTENT_DATE),
-    entry("news", STATIC_HUB_DATE),
+    entry("news", pageUpdated("/news")),
     entry("business", BUSINESS_CONTENT_DATE),
     // Live Business/B2B payment-provider cost comparison tool. Added Jun 22 2026
     // to capture the highest-AI-citation-share B2B query cluster ("lowest fees
@@ -288,7 +291,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── News articles ──
   const newsPages: MetadataRoute.Sitemap = newsItems
     .filter((item) => newsIsIndexable(item.slug))
-    .map((item) => entry(`news/${item.slug}`, item.publishedAt));
+    // A revised story prints "Updated <updatedAt>" beside its publication date;
+    // the lastmod states the same day (check:lastmod).
+    .map((item) => entry(`news/${item.slug}`, item.updatedAt || item.publishedAt));
 
   // ── Exchange-rate pages ──
   const ratePages: MetadataRoute.Sitemap = [...SITEMAP_RATE_PAIR_SLUGS].map((pair) =>
@@ -296,7 +301,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // ── Rate history pages ──
-  const rateHistoryHub: MetadataRoute.Sitemap = [entry("exchange-rates/history", RATE_PAGE_CONTENT_DATE)];
+  const rateHistoryHub: MetadataRoute.Sitemap = [entry("exchange-rates/history", pageUpdated("/exchange-rates/history"))];
   const rateHistoryPages: MetadataRoute.Sitemap = getAllInsights(2)
     .filter((i) => SITEMAP_RATE_HISTORY_SLUGS.has(corridorToSlug(i.corridor)))
     .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, RATE_HISTORY_CONTENT_DATE));
@@ -309,7 +314,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── SWIFT country pages ──
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
     .filter((c) => SITEMAP_SWIFT_SLUGS.has(c.slug))
-    .map((c) => entry(`swift-codes/${c.slug}`, STATIC_HUB_DATE));
+    .map((c) => entry(`swift-codes/${c.slug}`, SWIFT_CONTENT_DATE));
 
   // ── B2B/business landing pages ──
   // Same as corridors: the demand allowlist no longer gates submission —
@@ -385,5 +390,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (path.startsWith("/send-money/") && !corridorPageRenders(path.slice("/send-money/".length))) return false;
       return bingIndexable(path);
     })
-    .filter((e) => !seen.has(e.url) && !!seen.add(e.url));
+    .filter((e) => !seen.has(e.url) && !!seen.add(e.url))
+    // A page that prints its content date gets that date as lastmod, whichever
+    // list it came in through (reviewed routes stamp the day they were opened,
+    // 2026-09-24, over /travel guides dated June). check:lastmod enforces it.
+    .map((e) => {
+      const shown = shownContentDate(new URL(e.url).pathname, (slug) => getTravelGuide(slug)?.updatedDate);
+      return shown ? { ...e, lastModified: shown } : e;
+    });
 }

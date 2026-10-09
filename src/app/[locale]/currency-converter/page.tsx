@@ -10,6 +10,8 @@ import { currencies, exchangeRates } from "@/data/providers";
 import { getRate } from "@/lib/rates-util";
 import { RATES_AS_OF } from "@/lib/exchange-rates-today";
 import { COVERAGE } from "@/lib/site-stats";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 // Revalidate hourly so the as-of date + rates stay fresh while the page stays
 // fully prerendered (no per-request no-store — the May 2026 deindex root cause).
@@ -87,12 +89,18 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
         <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
           {t("subheading")}
         </p>
+        {/* Round-3 QA item 7: a named editor and the page's content date (its
+            sitemap lastmod). The rates' date is the pill below — "as of", not
+            "Updated", so the page has one content date. */}
+        <div className="mb-3">
+          <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/currency-converter")} cadence={null} />
+        </div>
         <p className="inline-flex items-center gap-1.5 text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] rounded-full px-3 py-1.5 border border-[var(--color-outline)] mb-8">
           <span className="relative flex h-1.5 w-1.5 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-75" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-success)]" />
           </span>
-          Live mid-market rates · Updated {fullDate}
+          Live mid-market rates as of {fullDate}
         </p>
       </Container>
 

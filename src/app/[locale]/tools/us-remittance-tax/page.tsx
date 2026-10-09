@@ -9,6 +9,8 @@ import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import Breadcrumb from "@/components/Breadcrumb";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import UsRemittanceTaxCalculator from "@/components/UsRemittanceTaxCalculator";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 // Tax rules change rarely; rate/quotes underneath refresh via the calculator.
 export const revalidate = 86400;
@@ -128,6 +130,11 @@ export default async function UsRemittanceTaxPage({
               <strong>January 1, 2026</strong> — but only on cash-funded transfers. See what you&apos;d owe, how to
               pay <strong>$0</strong>, and the cheapest way to send after tax.
             </p>
+            {/* Round-3 QA item 7: a named author and the page's content date.
+                The tax rules' own review month is in the sources note below. */}
+            <div className="mt-4">
+              <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/tools/us-remittance-tax")} cadence={null} />
+            </div>
           </div>
         </Container>
       </section>
@@ -209,7 +216,7 @@ export default async function UsRemittanceTaxPage({
             </div>
 
             <div className="rounded-xl bg-[var(--color-surface-dim)] p-4 text-xs text-[var(--color-on-surface-muted)]">
-              <p className="font-semibold text-[var(--color-on-surface-variant)]">Sources &amp; last updated</p>
+              <p className="font-semibold text-[var(--color-on-surface-variant)]">Sources &amp; legal review</p>
               <p className="mt-1">
                 Based on the One Big Beautiful Bill Act and IRS/Treasury guidance. Primary sources:{" "}
                 <a className="underline" href="https://www.irs.gov/newsroom/treasury-irs-issue-proposed-regulations-on-the-new-remittance-transfer-tax-established-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer">

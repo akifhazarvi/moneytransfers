@@ -9,6 +9,8 @@ import { formatLocalDate } from "@/lib/format-date";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -56,6 +58,11 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
           <p className="text-sm text-[var(--color-on-surface-variant)] max-w-2xl">
             {t("subheading")}
           </p>
+          {/* Round-3 QA item 7: a named editor and the hub's content date (its
+              sitemap lastmod). Each story carries its own. */}
+          <div className="mt-3">
+            <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/news")} cadence={null} sourcesHref="/editorial-policy" sourcesLabel="Editorial policy" />
+          </div>
         </div>
 
         <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl mb-8">

@@ -12,13 +12,15 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { PageByline } from "@/components/PageByline";
 import { getAuthor } from "@/data/authors";
 import type { Metadata } from "next";
+import { pageUpdated } from "@/lib/content-dates";
 
 // Last edit to what this page says, not to its metadata or robots — bump it
 // when the content changes, never on a deploy. The IBAN formats come from a
 // March 2026 scrape that does not refresh and the hub shows no quotes, so
 // neither quoteDataDate (what /iban/[slug] passes) nor PageByline's "every 6
 // hours" cadence is true here. The registry line is: see /iban/[slug].
-const IBAN_HUB_UPDATED = "2026-05-31";
+// Lives in content-dates.ts so sitemap.ts submits the same day (check:lastmod).
+const IBAN_HUB_UPDATED = pageUpdated("/iban");
 const IBAN_AUTHOR_SLUG = "awais-imran";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

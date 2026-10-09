@@ -19,6 +19,8 @@ import { formatLocalDate } from "@/lib/format-date";
 import { providerLogo } from "@/lib/provider-logo";
 import { PROVIDER_ALTERNATIVES, MIN_SHARED_CORRIDORS } from "@/lib/provider-alternatives";
 import { INDEX_AMOUNT } from "@/lib/remittance-cost-index";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const TITLE = "Money Transfer Alternatives, Measured on Shared Routes";
@@ -74,6 +76,11 @@ export default async function AlternativesHub({
               provider is never credited for routes it does not serve, and never listed at all unless it shares at least{" "}
               {MIN_SHARED_CORRIDORS} corridors with the one you are comparing.
             </p>
+            {/* Round-3 QA item 7: a named editor and the hub's content date (its
+                sitemap lastmod); the quotes' date is the badge above. */}
+            <div className="mt-4">
+              <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/alternatives")} cadence={null} />
+            </div>
           </div>
         </Container>
       </section>

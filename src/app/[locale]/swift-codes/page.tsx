@@ -11,6 +11,8 @@ import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { INDEXED_SWIFT_SLUGS, robotsFor } from "@/lib/seo-indexing";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -92,13 +94,15 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
             <p className="text-base text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               {t("subheading")}
             </p>
-            <p className="text-2sm text-[var(--color-on-surface-variant)] mt-2">
-              By{" "}
-              <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">
-                Awais Imran
-              </Link>
-              {" · Updated June 2026 · Data verified from official bank records"}
-            </p>
+            {/* "Updated June 2026" here sat over a sitemap lastmod of March; the
+                date is now the one sitemap.ts submits (check:lastmod). */}
+            <div className="flex justify-center mt-2">
+              <PageByline
+                authorSlug={EDITORIAL_AUTHOR_SLUG}
+                updated={pageUpdated("/swift-codes")}
+                cadence="SWIFT/BIC data from the SWIFT registry"
+              />
+            </div>
           </div>
 
           {/* Quick stats */}

@@ -7,7 +7,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 import { CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import { SENDSCORE_SUMMARY } from "@/lib/sendscore-summary";
-import { getDataUpdatedDate } from "@/lib/data-freshness";
+import { PageByline } from "@/components/PageByline";
+import { METHODOLOGY_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 import { providerReviews } from "@/data/provider-reviews";
 import { companyPageRenders } from "@/lib/company-route";
 
@@ -49,9 +50,9 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "methodology" });
 
-  // Revision date of this page's text (the four provider counts were defined
-  // here on 2026-09-25), not of the data, which the header states separately.
-  const lastUpdated = "September 2026";
+  // Revision date of this page's text (the three named provider counts were
+  // defined here on 2026-10-09), not of the data. Shared with sitemap.ts.
+  const lastUpdated = pageUpdated("/methodology");
 
   return (
     <>
@@ -77,13 +78,12 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               url: "https://sendmoneycompare.com",
             },
             datePublished: "2024-06-01",
-            // Tracks the live dataset, not a hand-edited date. This page
-            // renders SITE_STATS / SENDSCORE_SUMMARY / CONSISTENCY_INDEX
-            // figures throughout, so its visible content changes on every
-            // scrape; the hardcoded "2026-03-14" that stood here claimed the
-            // page had been static for six months while those numbers moved
-            // every six hours. Same fix, same reason, as the WebSite node.
-            dateModified: getDataUpdatedDate(),
+            // The page's revision date, the one its byline shows and the
+            // sitemap submits. A dateModified that moved with every scrape
+            // (getDataUpdatedDate, until 2026-10-09) disagreed with both, and
+            // a date that changes every day reads as automated (round-3 brief
+            // §4.4D). The figures' own freshness is stated in the text.
+            dateModified: lastUpdated,
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": "https://sendmoneycompare.com/methodology",
@@ -102,10 +102,18 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               How we collect data, calculate costs, and rank providers — in full
               detail.
             </p>
-            <p className="text-xs text-[var(--color-on-surface-variant)] mt-2">
-              Last updated: {lastUpdated} · Data refresh frequency: every 6
-              hours
-            </p>
+            {/* Round-3 QA item 7: the author was named only in JSON-LD and the
+                date was month-only ("September 2026") against a sitemap
+                lastmod of October 9. One constant now feeds the byline, the
+                JSON-LD dateModified and the sitemap. */}
+            <div className="mt-3">
+              <PageByline
+                authorSlug={METHODOLOGY_AUTHOR_SLUG}
+                updated={lastUpdated}
+                sourcesHref="/editorial-policy"
+                sourcesLabel="Editorial policy"
+              />
+            </div>
           </div>
         </Container>
       </section>

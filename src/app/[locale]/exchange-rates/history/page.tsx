@@ -14,6 +14,8 @@ import {
   type RateInsight,
 } from "@/lib/rate-history";
 import { currencies } from "@/data/providers";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, longDay, pageUpdated } from "@/lib/content-dates";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
 import { COVERAGE } from "@/lib/site-stats";
@@ -65,6 +67,7 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
   setRequestLocale(locale);
 
   const allInsights = getAllInsights(2);
+  const latestDay = allInsights.map((i) => i.dateRange.to).sort().at(-1);
   const tier1Insights = TIER1
     .map((key) => allInsights.find((i) => i.corridor === key))
     .filter(Boolean) as RateInsight[];
@@ -113,6 +116,15 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
             Track how exchange rates have changed over time across {allInsights.length}+ currency corridors.
             Compare provider rates day by day and find the best time to send money abroad.
           </p>
+          {/* Round-3 QA item 7: author and the hub's content date; the series'
+              own last day is the data line beside it. */}
+          <div className="mt-3">
+            <PageByline
+              authorSlug={EDITORIAL_AUTHOR_SLUG}
+              updated={pageUpdated("/exchange-rates/history")}
+              cadence={latestDay ? `Rates recorded through ${longDay(latestDay)}` : null}
+            />
+          </div>
         </Container>
       </section>
 

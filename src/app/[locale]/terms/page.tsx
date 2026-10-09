@@ -3,6 +3,7 @@ import PolicyLinks from "@/components/PolicyLinks";
 import Link from "@/components/EligibleLink";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
+import { longDay, pageUpdated } from "@/lib/content-dates";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -35,7 +36,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
               {t("title")}
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
-              {t("lastUpdated", { date: "September 20, 2026" })}
+              {t("lastUpdated", { date: longDay(pageUpdated("/terms")) })}
             </p>
           </div>
         </Container>

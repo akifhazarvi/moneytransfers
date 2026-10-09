@@ -14,6 +14,8 @@ import { companyPageRenders, corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE, SITE_STATS } from "@/lib/site-stats";
 import { REMITTANCE_INDEX, CORRIDOR_SPREAD, type IndexRow } from "@/lib/remittance-cost-index";
 import { formatLocalDate } from "@/lib/format-date";
+import { PageByline } from "@/components/PageByline";
+import { METHODOLOGY_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -384,6 +386,12 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               {idx.minCorridors} corridors and are ranked here — {idx.specialists.length} specialists and {idx.banks.length} banks
               across {idx.corridorCount} corridors — by the true cost of the transfer: the fee plus the hidden exchange rate markup.
             </p>
+            {/* Round-3 QA item 7: the page named no author and no content date.
+                "Data refreshed" above is the figures' date; this is the page's
+                (its sitemap lastmod). */}
+            <div className="flex justify-center mt-4">
+              <PageByline authorSlug={METHODOLOGY_AUTHOR_SLUG} updated={pageUpdated("/remittance-cost-index")} cadence={null} />
+            </div>
           </div>
         </Container>
       </section>

@@ -9,6 +9,8 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import Breadcrumb from "@/components/Breadcrumb";
 import { COVERAGE } from "@/lib/site-stats";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 export const revalidate = 86400;
 
@@ -86,6 +88,10 @@ export default async function ToolsPage({
               Quick calculators to check what a transfer really costs — tax, hidden FX markup, and the cheapest way
               to send. Every tool runs on our live provider data. No signup, no email.
             </p>
+            {/* Round-3 QA item 7: a named author and the page's content date. */}
+            <div className="mt-4">
+              <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/tools")} cadence={null} />
+            </div>
           </div>
         </Container>
       </section>

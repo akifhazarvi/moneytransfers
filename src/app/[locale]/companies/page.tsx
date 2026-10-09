@@ -10,6 +10,8 @@ import RatingBadge from "@/components/RatingBadge";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -67,9 +69,14 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
       </nav>
 
       <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
-      <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
+      <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
         {t("subheading")}
       </p>
+      {/* Round-3 QA item 7: a named editor and the hub's content date (its
+          sitemap lastmod). Each review carries its own. */}
+      <div className="mb-6">
+        <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/companies")} cadence={null} />
+      </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {sorted.map((provider) => (

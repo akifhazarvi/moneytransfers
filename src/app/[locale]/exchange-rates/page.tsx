@@ -15,6 +15,8 @@ import { getPairRate, formatRate, getSendVerdict, RATES_AS_OF } from "@/lib/exch
 import { corridorPageRenders } from "@/lib/route-map";
 import { SITE_STATS, COVERAGE } from "@/lib/site-stats";
 import { getDataUpdatedInstant } from "@/lib/data-freshness";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 // Revalidate hourly so "today's rate" + the as-of date stay fresh while the
 // page stays fully prerendered (no per-request no-store — the May deindex
@@ -492,7 +494,9 @@ const webPageSchema = {
   name: "Exchange Rates Today — Is Now a Good Time to Send?",
   description: "Check whether today is a good time to send money abroad: today's mid-market rate vs the last 3 months, the best provider, and live trend charts for 60+ currencies.",
   url: "https://sendmoneycompare.com/exchange-rates",
-  dateModified: RATES_AS_OF || undefined,
+  // The page's content date (what the byline shows and the sitemap submits);
+  // the rates' date belongs to the Dataset node below.
+  dateModified: pageUpdated("/exchange-rates"),
   isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -591,6 +595,11 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
               We track exchange rates daily across {COVERAGE.corridorsTracked}. Pick yours and we&apos;ll tell you if today beats
               the last few months — and exactly how much your recipient gets.
             </p>
+            {/* Round-3 QA item 7: a named author and the page's content date.
+                The rates' own time is the "Rates collected" line below. */}
+            <div className="mt-3">
+              <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/exchange-rates")} cadence={null} />
+            </div>
           </header>
 
           {/* ── Merged: verdict + trend chart, side by side (stack on mobile) ── */}
@@ -617,7 +626,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           )}
 
           <p className="text-center text-xs text-[var(--color-on-surface-muted)] mt-3">
-            <LiveTimestamp iso={getDataUpdatedInstant()} prefix="Updated" /> · XE mid-market rates
+            <LiveTimestamp iso={getDataUpdatedInstant()} prefix="Rates collected" /> · XE mid-market rates
           </p>
 
           {/* ── Compact rates ── */}

@@ -17,12 +17,14 @@ import { generateQuotes } from "@/lib/quotes-engine";
 import { getMidMarketRate, quoteDataDate } from "@/lib/unified-quotes";
 import { getProviderName, providers } from "@/data/providers";
 import { formatLocalDate } from "@/lib/format-date";
+import { pageUpdated } from "@/lib/content-dates";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/best-apps-to-send-money-from-us-2026";
 const URL = `${SITE_URL}/${PATH}`;
 const PUBLISHED = "2026-06-30";
-const MODIFIED = "2026-09-29";
+// In content-dates.ts so sitemap.ts submits the same day (check:lastmod).
+const MODIFIED = pageUpdated("/guides/best-apps-to-send-money-from-us-2026");
 
 const author = getAuthor("awais-imran");
 

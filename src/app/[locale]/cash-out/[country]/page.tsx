@@ -11,6 +11,8 @@ import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { CASHOUT_COUNTRIES, getCashoutCountry } from "@/data/cashout-countries";
 import { getCountryOfframps, getBeatsMidMarket, isBitcoinRail } from "@/lib/crypto-rails";
 import { robotsFor } from "@/lib/seo-indexing";
+import { PageByline } from "@/components/PageByline";
+import { CASH_OUT_CONTENT_DATE, EDITORIAL_AUTHOR_SLUG, longDay } from "@/lib/content-dates";
 import { getCorridorSlug } from "@/data/corridors";
 import { corridorPageRenders } from "@/lib/route-map";
 
@@ -66,6 +68,7 @@ export default async function CashOutCountryPage({
   if (!c) notFound();
 
   const offramps = getCountryOfframps(c.currency, 1000);
+  const collectedDay = offramps.map((o) => o.rail.dateCollected).filter(Boolean).sort().at(-1);
   const beats = getBeatsMidMarket(c.currency, 1000);
   // Soft-404 guard: no live data → the page would be thin editorial only. Don't render.
   if (offramps.length === 0) notFound();
@@ -125,6 +128,19 @@ export default async function CashOutCountryPage({
             <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold text-[var(--color-on-surface)] tracking-tight text-balance">
               {c.flag} Cash out crypto in {c.country}
             </h1>
+            {/* Round-3 QA item 7: author and the template's content date (its
+                sitemap lastmod); the quotes' own collection day beside it.
+                Between the H1 and the intro, with the currency inside the
+                data line and the link, so the byline adds no run of text the
+                seven cash-out pages share (rule 3; check:duplication). */}
+            <div className="mt-3">
+              <PageByline
+                authorSlug={EDITORIAL_AUTHOR_SLUG}
+                updated={CASH_OUT_CONTENT_DATE}
+                cadence={collectedDay ? `${c.currency} off-ramp quotes collected ${longDay(collectedDay)}` : null}
+                sourcesLabel={`How we price ${c.currency} off-ramps`}
+              />
+            </div>
             <p className="mt-3 text-lg text-[var(--color-on-surface-variant)]">
               USDT, USDC{isBitcoinRail(best) ? " and Bitcoin" : ""} into {c.currency}: live all-in cost, how {c.demonym}{" "}
               recipients cash out, and {c.country}&apos;s tax position.

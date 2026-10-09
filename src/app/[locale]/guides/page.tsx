@@ -16,6 +16,8 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { COVERAGE } from "@/lib/site-stats";
 import { renderDataTokens } from "@/lib/ratings-tokens";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 /** Directory link text: the title without its "(2026)" / "in 2026" suffix,
  *  which the guide's own heading already carries (2026-09-25). */
@@ -136,6 +138,11 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           <div className="guides-hub-intro">
             <p>Clear, practical guides to moving money across borders. Understand the fees, explore your options, and make your next transfer with confidence.</p>
             <Link href="/editorial-policy"><ShieldCheck size={17} aria-hidden="true" />Independent research. Real transfer data.<ArrowUpRight size={15} aria-hidden="true" /></Link>
+            {/* Round-3 QA item 7: a named editor and the hub's content date
+                (its sitemap lastmod). Each guide carries its own. */}
+            <div className="mt-4">
+              <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/guides")} cadence={null} />
+            </div>
           </div>
         </header>
 

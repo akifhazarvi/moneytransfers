@@ -9,6 +9,8 @@ import { breadcrumbSchema } from "@/lib/structured-data";
 import { CASHOUT_COUNTRIES } from "@/data/cashout-countries";
 import { getCountryOfframps } from "@/lib/crypto-rails";
 import { robotsFor } from "@/lib/seo-indexing";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, longDay, pageUpdated } from "@/lib/content-dates";
 
 export const revalidate = 21600;
 
@@ -49,6 +51,7 @@ export default async function CashOutHubPage({
     const offramps = getCountryOfframps(c.currency, 1000);
     return { c, best: offramps[0]?.rail ?? null, exchangeCount: offramps.length };
   }).filter((x) => x.best); // only countries with live data
+  const collectedDay = cards.map((x) => x.best!.dateCollected).filter(Boolean).sort().at(-1);
 
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", href: "/" },
@@ -72,6 +75,15 @@ export default async function CashOutHubPage({
               local currency at the lowest all-in cost right now</strong> — plus how the cash-out works and the local
               tax reality.
             </p>
+            {/* Round-3 QA item 7: author and the hub's content date; the
+                off-ramp quotes' own collection day is the data line. */}
+            <div className="mt-4">
+              <PageByline
+                authorSlug={EDITORIAL_AUTHOR_SLUG}
+                updated={pageUpdated("/cash-out")}
+                cadence={collectedDay ? `Off-ramp quotes collected ${longDay(collectedDay)}` : null}
+              />
+            </div>
           </div>
         </Container>
       </section>

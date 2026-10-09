@@ -23,7 +23,7 @@ import type { Metadata } from "next";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import { PageByline } from "@/components/PageByline";
-import { quoteDataDate } from "@/lib/unified-quotes";
+import { EDITORIAL_AUTHOR_SLUG, SWIFT_CONTENT_DATE } from "@/lib/content-dates";
 
 // Someone looking up a SWIFT/BIC code is mid-transfer. If the destination is
 // itself a USD country the USD→USD corridor is meaningless, so send from GBP —
@@ -473,6 +473,22 @@ export default async function SwiftCountryPage({ params }: Props) {
                 </p>
               </div>
             </div>
+            {/* Named author and content date on every country page (round-3 QA
+                item 7). It sat inside the editorial note, so the eleven pages
+                without one (belarus, luxembourg, monaco…) had neither, and its
+                date was the quote data's — "Updated October 9" on the build day
+                over a sitemap lastmod of March. SWIFT_CONTENT_DATE is the
+                sitemap's lastmod too. Placed between the country code line and
+                the country's own sentence, with the country in the source
+                line, so the byline adds no run of text shared across the
+                family (rule 3; measured with check:duplication). */}
+            <div className="mb-4">
+              <PageByline
+                authorSlug={EDITORIAL_AUTHOR_SLUG}
+                updated={SWIFT_CONTENT_DATE}
+                cadence={`${country.name} codes from the SWIFT registry`}
+              />
+            </div>
             {/* This country's own directory in one line, replacing a templated
                 intro that read the same on all 49 SWIFT pages (2026-09-25). */}
             <p className="text-sm text-[var(--color-on-surface-variant)]">
@@ -607,14 +623,6 @@ export default async function SwiftCountryPage({ params }: Props) {
 
           {editorialNote && (
             <Card>
-              {/* Named editor + review date — flagged as missing on
-                  /swift-codes/mexico by the second validation pass. */}
-              <div className="mb-4">
-                <PageByline
-                  updated={quoteDataDate ?? new Date().toISOString().split("T")[0]}
-                  cadence="SWIFT/BIC data from the SWIFT registry"
-                />
-              </div>
               <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 {editorialNote.title}
               </h2>

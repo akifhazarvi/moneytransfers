@@ -895,7 +895,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Provider data is based on real quotes collected every 6 hours from provider APIs and websites. Use our <a href="/send-money/usa-to-india">USA to India comparison tool</a> for the latest rates for your specific amount. Regulatory information sourced from the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a>. Remittance volume data from the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. See our <a href="/methodology">methodology page</a> for how we collect and verify data.</p>
-<p>This guide is reviewed monthly and updated when provider policies, fees, or regulatory rules change. Last updated: March 2026.</p>`,
+<p>This guide is updated when provider policies, fees, or regulatory rules change; the date at the top of the page is its last revision.</p>`,
       },
     ],
 
