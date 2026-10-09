@@ -1,6 +1,7 @@
 import Link from "@/components/EligibleLink";
 import { robotsFor, bingIndexable } from "@/lib/seo-indexing";
 import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
+import { resolveProviderClaimInTitle } from "@/lib/corridor-title-claims";
 import { quoteFreshness } from "@/lib/quote-freshness";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -933,29 +934,12 @@ function resolveProviderClaim(text: string, count: number): string {
  * very same response carried a description with the clause already stripped
  * for having fewer than two. A page contradicting itself in one response is
  * worse than either version alone.
+ *
+ * Moved to src/lib/corridor-title-claims.ts (2026-10-08) when "Cheapest" and
+ * "Best" became conditional on MIN_PROVIDERS_FOR_SUPERLATIVE_TITLE (3) priced
+ * providers rather than 2 — round-3 brief §4.3, /send-money/aud-to-bdt — so
+ * check:claims --built can enforce the same threshold.
  */
-function resolveProviderClaimInTitle(text: string | undefined, count: number): string | undefined {
-  if (!text) return text;
-  if (count >= 2) return text.replace(/\b\d+\+(\s+[Pp]roviders?\b)/g, `${count}$1`);
-  return text
-    // With fewer than two priced providers the page itself says "one estimate
-    // is not enough to establish the cheapest option", so the title may not
-    // promise one (round-2 SEO brief, 2026-09-24: /send-money/aud-to-bdt).
-    .replace(/^Cheapest Way to Send Money to (.+?)(?= [—–-] | \(|$)/, "Send Money to $1: Transfer Estimate")
-    .replace(/^Cheapest Way to Send Money (.+?)(?= [—–-] | \(|$)/, "$1 Transfer Estimate")
-    .replace(/^Cheapest (\S+) to (\S+) Rates\b/, "$1 to $2 Transfer Estimate")
-    .replace(/: Cheapest Way to Send Money\b/, ": Transfer Estimate")
-    .replace(/Who's Cheapest Right Now\?/, "Transfer Estimate")
-    .replace(/\s*[—–-]\s*Compare\s+[A-Z]{3}\s+Rates\b/g, "")
-    .replace(/\b(Cheapest|Best[- ]Value)\s+/gi, "")
-    // "… — Compare 15+ Providers (2026)" and "… (2026) — Compare 15+ Providers"
-    .replace(/\s*[—–-]\s*Compare\s+\d+\+\s+[Pp]roviders?\b/g, "")
-    // bare "Compare 15+ Providers" with no dash in front of it
-    .replace(/\s*\bCompare\s+\d+\+\s+[Pp]roviders?\b/g, "")
-    .replace(/\s{2,}/g, " ")
-    .replace(/\s+([.,])/g, "$1")
-    .trim();
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { corridor: slug, locale } = await params;
@@ -1489,7 +1473,10 @@ export default async function CorridorPage({ params }: Props) {
         React comment-separator one was tested and disproved, but it is a
         hypothesis, not a diagnosed repair.
       */}
-      <article>
+      {/* data-compared-providers: the count the <title> was resolved against
+          (same quotes, same amount). check:claims --built reads it to hold a
+          "Cheapest"/"Best" title to MIN_PROVIDERS_FOR_SUPERLATIVE_TITLE. */}
+      <article data-compared-providers={comparison.compared.length}>
       {/* ─── Premium Corridor Hero — best-provider-as-hero, editorial below ─── */}
       <CorridorHero
         headingFrom={headingFrom}

@@ -56,12 +56,15 @@
  *
  * BUILT PASS (--built, postbuild): a corridor page that holds ONE estimate
  * ("…is the only estimate we hold…") must not be titled "Cheapest" or "Best" —
- * one quote cannot be the cheapest of anything (round-2 brief item 2.1).
+ * one quote cannot be the cheapest of anything (round-2 brief item 2.1). Nor
+ * may one pricing fewer than MIN_PROVIDERS_FOR_SUPERLATIVE_TITLE (3) providers,
+ * read from the page's data-compared-providers (round-3 brief §4.3).
  *
  * Usage: npx tsx scripts/check-claims.ts [--list] [--update-baseline] [--built]
  */
 import { readFileSync, readdirSync, statSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { MIN_PROVIDERS_FOR_SUPERLATIVE_TITLE, SUPERLATIVE_TITLE } from "../src/lib/corridor-title-claims";
 
 const ROOT = join(__dirname, "..");
 const SRC = join(ROOT, "src");
@@ -207,11 +210,17 @@ if (process.argv.includes("--built")) {
   for (const f of readdirSync(DIR).filter((n) => n.endsWith(".html"))) {
     const html = readFileSync(join(DIR, f), "utf8");
     const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "";
-    if (html.includes("only estimate we hold") && /\b(?:cheapest|best)\b/i.test(title)) {
+    if (html.includes("only estimate we hold") && SUPERLATIVE_TITLE.test(title)) {
       hits.push({ rule: "single-estimate-title", file: `send-money/${f}`, line: 0, text: title });
     }
+    // Round-3 brief §4.3: /send-money/aud-to-bdt kept "Cheapest Way…" with two
+    // providers. The page stamps the count its title was resolved against.
+    const compared = html.match(/data-compared-providers="(\d+)"/)?.[1];
+    if (compared !== undefined && Number(compared) < MIN_PROVIDERS_FOR_SUPERLATIVE_TITLE && SUPERLATIVE_TITLE.test(title)) {
+      hits.push({ rule: "few-providers-title", file: `send-money/${f}`, line: 0, text: `${compared} provider(s): ${title}` });
+    }
   }
-  HARD.push({ id: "single-estimate-title", re: /$^/ });
+  HARD.push({ id: "single-estimate-title", re: /$^/ }, { id: "few-providers-title", re: /$^/ });
 }
 
 const hard = hits.filter((h) => HARD.some((r) => r.id === h.rule));
