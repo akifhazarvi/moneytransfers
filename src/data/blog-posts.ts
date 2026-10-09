@@ -3842,11 +3842,7 @@ const rawBlogPosts: BlogPost[] = [
           "BDO Unibank, BPI, Metrobank, Landbank, PNB, and UnionBank are the largest banks. BDO and BPI process incoming transfers fastest. All major banks accept international remittances via SWIFT transfers and partnered services.",
       },
     ],
-    relatedSlugs: [
-      "business-payments-usa-to-philippines",
-      "fastest-way-to-send-money-internationally",
-      "send-money-to-pakistan-guide",
-    ],
+    relatedSlugs: ["business-payments-usa-to-philippines", "fastest-way-to-send-money-internationally", "send-money-to-pakistan-guide", "send-money-to-vietnam-guide", "send-money-usa-to-mexico-cost-guide"], // pinned 2026-10-09: QA-9 retitles reshuffled the auto top-up (rule 3)
   },
   // ============================
   // Send Money to Mexico Guide
@@ -6678,11 +6674,7 @@ const rawBlogPosts: BlogPost[] = [
           "Not by the UK's APP-scam reimbursement rules, which cover Faster Payments and CHAPS payments from one UK account to another. A euro payment to an account in the EU falls outside them, so verify any change of supplier bank details through a contact you already hold before paying.",
       },
     ],
-    relatedSlugs: [
-      "business-payments-usa-to-europe",
-      "bulk-international-payments-guide",
-      "xe-business-payments-review",
-    ],
+    relatedSlugs: ["business-payments-usa-to-europe", "bulk-international-payments-guide", "xe-business-payments-review", "eu-instant-payments-2026"], // pinned 2026-10-09: QA-9 retitles reshuffled the auto top-up (rule 3)
   },
 
   // ============================
@@ -11748,11 +11740,7 @@ const rawBlogPosts: BlogPost[] = [
           "No, Bangladesh does not use IBANs. For bank deposits, you need the recipient's account number, the 9-digit routing number and the bank's SWIFT code. For bKash or Nagad, the registered mobile number (11 digits starting with 01).",
       },
     ],
-    relatedSlugs: [
-      "send-money-to-bangladesh-guide",
-      "send-money-uk-to-india-guide",
-      "swift-codes-explained",
-    ],
+    relatedSlugs: ["send-money-to-bangladesh-guide", "send-money-uk-to-india-guide", "swift-codes-explained", "send-money-uae-to-india-guide", "send-money-uk-to-nigeria-guide"], // pinned 2026-10-09: QA-9 retitles reshuffled the auto top-up (rule 3)
   },
   // ============================
   // Send Money to Kenya Guide
@@ -13730,7 +13718,7 @@ const rawBlogPosts: BlogPost[] = [
             "answer": "No. Funding, conversion and verification can occur before the euro payment is sent. Use the arrival estimate for the complete transaction."
       }
 ],
-    relatedSlugs: ["send-money-to-romania-guide", "send-money-to-colombia-guide", "cheapest-way-to-send-money-internationally", "how-euribor-affects-euro-transfers"],
+    relatedSlugs: ["send-money-to-romania-guide", "send-money-to-colombia-guide", "cheapest-way-to-send-money-internationally", "how-euribor-affects-euro-transfers", "send-money-to-poland-guide", "send-money-to-south-korea-guide"], // pinned 2026-10-09: QA-9 retitles reshuffled the auto top-up (rule 3)
   },
   // ============================
   // Send Money to UK Guide

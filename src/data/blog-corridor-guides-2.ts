@@ -351,7 +351,7 @@ export const corridorGuides2: BlogPost[] = [
       { name: "Fund via ACH", text: "Pay from your bank account, then check the KES amount on the confirmation screen before you send." },
       { name: "Send and track", text: "M-Pesa arrives in seconds. Track status in the app." },
     ],
-    relatedSlugs: ["send-money-to-nigeria-guide", "cheapest-way-to-send-money-internationally", "best-money-transfer-apps"],
+    relatedSlugs: ["send-money-to-nigeria-guide", "cheapest-way-to-send-money-internationally", "best-money-transfer-apps", "how-to-send-money-from-china", "send-money-to-egypt-guide", "send-money-to-india-from-usa-guide"], // pinned 2026-10-09: QA-9 retitles reshuffled the auto top-up (rule 3)
   },
 
   // ── Egypt ──
