@@ -6553,88 +6553,67 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The USD-EUR Business Payment Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and Airwallex both pay euro invoices over SEPA from a US business account, so the supplier receives a domestic-looking transfer; the table below shows what each costs on $5,000 today. <a href="/send-money/usa-to-europe">Compare live rates</a>.</p></div>
-<p>The European Union is the United States' largest trade and investment partner, with bilateral trade in goods and services exceeding <strong>$1.3 trillion annually</strong> and mutual investment stocks of over <strong>$5.6 trillion</strong>, according to the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer">European Commission</a>.</p>
-<p>For US businesses paying European suppliers, contractors, or offices, understanding SEPA (the Single Euro Payments Area) is key. SEPA enables fast, cheap euro transfers across 41 countries and territories — and smart businesses can use FX platforms to route their USD payments via SEPA for dramatically lower costs than traditional SWIFT wires.</p>`,
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and Airwallex both pay euro invoices over SEPA from a US business account, so the supplier receives a domestic-looking transfer; the table below shows what each costs on $5,000 today.</p></div>
+<p>A US company paying a supplier in Germany, Ireland or Spain is crossing two payment systems. On the US side the money leaves by Fedwire or ACH under Bank Secrecy Act rules; on the European side it has to land in a euro account identified by an IBAN, inside SEPA. Where the conversion from dollars to euros happens, and which rail carries the last leg, decides what the supplier is credited and how much paperwork follows the payment.</p>`,
       },
       {
         heading: "Best Providers for USA to Europe Business Payments",
-        content: `<p>The table prices a $5,000 payment into a European supplier's euro IBAN with business-account providers. The rail matters as much as the rate: a SEPA payout arrives whole, while a SWIFT wire can lose correspondent fees on the way.</p>
+        content: `<p>The table prices a $5,000 payment into a European supplier's euro IBAN with business-account providers. Read it for the euros delivered; the rail behind each row matters as much, because a SEPA payout arrives whole while a SWIFT wire can lose correspondent fees on the way.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">USD → EUR business transfers on 5,000 USD</h3>
 <p>USD → EUR on a 5,000 USD supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:USD:EUR:5000}}
-<p class="blog-footnote">These are personal-account quotes on USD→EUR; check your business plan's pricing in the <a href="/business/compare">business comparison</a>, or <a href="/send-money/usa-to-europe">see today's USD to EUR rates →</a></p>
-</div>
-
-<h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Our pick for USD-EUR business payments, on price. 0% markup on the mid-market rate. Wise delivers via SEPA, meaning payments to European bank accounts often arrive same-day. Multi-currency account includes EUR IBAN for receiving European payments too. Batch payments, API, Xero/QuickBooks integration.</p>
-<h3><a href="/companies/revolut">Revolut Business</a></h3>
-<p>Excellent for businesses with European operations. Multi-currency EUR account with IBAN, team cards, expense management, and competitive FX. Free plan available. Particularly strong for SaaS and tech companies with EU customers and suppliers.</p>
-<h3><a href="/companies/ofx">OFX</a></h3>
-<p>Best for large payments ($10,000+). Forward contracts to lock EUR rates up to 12 months. No transfer fees. Dedicated dealers for negotiated rates on high-volume corridors.</p>`,
+<p class="blog-footnote">These are personal-account quotes on USD→EUR; check your business plan's pricing in the <a href="/business/compare">business comparison</a>.</p>
+</div>`,
       },
       {
-        heading: "Payment Methods Compared",
-        content: `<p>A US business paying in euros has four routes to a European IBAN:</p>
-<h3>FX Platform via SEPA (Recommended)</h3>
-<p>SEPA (Single Euro Payments Area) enables fast, cheap euro transfers across 41 countries and territories. Providers like Wise and Revolut convert your USD and deliver EUR via SEPA Credit Transfer (1 business day) or SEPA Instant (seconds). Your European recipient receives a domestic-looking EUR transfer — no SWIFT fees, no intermediary charges.</p>
-<h3>SEPA Instant</h3>
-<p>A newer SEPA scheme delivering payments in under 10 seconds, 24/7/365. Wise supports SEPA Instant for many European destinations. Not all European banks support receiving SEPA Instant yet, but adoption is growing rapidly.</p>
-<h3>SWIFT Wire Transfer</h3>
-<p>Traditional bank wire. Costs $25–$45 plus 1.5–3% FX markup. Takes 2–5 business days. Correspondent bank fees may apply. Use only when SEPA routing isn't available or for non-eurozone European countries.</p>
-<h3>EUR IBAN for Receiving</h3>
-<p>If you also receive EUR payments from European clients, open a Wise or Revolut Business account with a EUR IBAN. Clients pay you via SEPA (free for them), and you hold EUR until conversion is favorable. This is natural hedging.</p>`,
+        heading: "How a dollar invoice payment reaches a euro IBAN",
+        content: `<p>A US business has three practical routes to a European supplier's IBAN:</p>
+<h3>Convert in the US, pay out over SEPA</h3>
+<p>An FX provider debits dollars by ACH or wire, converts, and pays the euros from its own European account as a SEPA credit transfer. The supplier's bank sees an ordinary euro credit from inside SEPA. Since 9 October 2025 euro-area banks must be able to send instant euro transfers and, since 9 January 2025, to receive them, per the <a href="https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer">ECB's timetable for the Instant Payments Regulation</a>, so a SEPA payout can land in seconds.</p>
+<h3>Hold euros, pay from the balance</h3>
+<p>A multi-currency business account with euro details lets you convert when it suits you and pay several suppliers from one euro balance. Euro invoices received from European customers can be paid straight back out without converting twice.</p>
+<h3>SWIFT wire from a US bank</h3>
+<p>A bank wire in dollars or euros travels through correspondent banks. If it goes out in dollars, a bank in Europe converts it at its own rate; if any intermediary deducts a fee, the supplier is credited less than the invoice and asks you for the difference.</p>
+<p>Whichever route you use, the supplier's legal name matters: since 9 October 2025 a euro-area provider sending the SEPA leg checks the name on the payment against the account holder before releasing it, so set up each vendor record with the name on the supplier's bank account, not its brand.</p>`,
       },
       {
-        heading: "USD/EUR Exchange Rate: What Drives It",
-        content: `<p>EUR/USD is the world's most traded currency pair, accounting for roughly 23% of all FX transactions. Key factors:</p>
-<ul>
-<li><strong>ECB vs Federal Reserve policy</strong> — Interest rate differentials between the European Central Bank and the Fed are the primary driver. When the ECB is more hawkish, EUR strengthens.</li>
-<li><strong>Eurozone economic data</strong> — GDP growth, inflation, and PMI readings across Germany, France, and other major economies move EUR. German manufacturing data is particularly influential.</li>
-<li><strong>Geopolitical risk</strong> — European political events (elections, EU policy changes) and global geopolitics affect EUR. The pair can see 15–20% annual ranges.</li>
-<li><strong>Energy prices</strong> — Europe's energy import dependence means high energy prices tend to weaken EUR against USD.</li>
-</ul>
-<p>For businesses making regular EUR payments, even moderate EUR/USD moves create meaningful cost fluctuations. A 5% move on $100,000 of annual European expenses means $5,000 variance. <a href="/guides/fx-hedging-strategies-small-business">FX hedging tools</a> like forward contracts are widely available for EUR/USD.</p>`,
+        heading: "EUR/USD across the months we recorded",
+        content: `<p>For a business paying euro invoices out of dollar revenue, the rate's path matters more than any single day. Our <a href="/exchange-rates/history/eur-to-usd">EUR/USD rate history</a> sets out the mid-market range month by month and the European Central Bank and Federal Reserve decisions inside the same window, each next to what the rate did the following week. Use it to size the variance on a year of euro supplier payments before deciding whether to fix rates ahead with a <a href="/guides/fx-hedging-strategies-small-business">forward contract</a>.</p>`,
       },
       {
         heading: "Compliance for USA to Europe Business Payments",
-        content: `<p>The USA to Europe corridor has specific compliance considerations:</p>
-<h3>US Requirements</h3>
+        content: `<h3>US rules that touch a payment to Europe</h3>
 <ul>
-<li><strong>CTR</strong> — Currency Transaction Reports for transactions over $10,000, filed with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></li>
-<li><strong>FBAR</strong> — If you hold European bank accounts (including multi-currency accounts with EUR IBAN) with aggregate balances over $10,000, file FinCEN 114 annually</li>
-<li><strong>FATCA</strong> — European financial institutions report US person accounts under FATCA</li>
+<li><strong>Currency Transaction Reports are about cash.</strong> The CTR rule (<a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-C/section-1010.311" target="_blank" rel="noopener noreferrer">31 CFR 1010.311</a>) covers deposits, withdrawals and exchanges of currency over $10,000; a wire or ACH payment to a supplier does not trigger one.</li>
+<li><strong>The $3,000 funds-transfer rule.</strong> For a transmittal of funds of $3,000 or more, the sending institution keeps a record of the payer, amount, date and recipient and passes the payer's name, account and address along with the payment order (<a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-D/section-1010.410" target="_blank" rel="noopener noreferrer">31 CFR 1010.410(e)–(f)</a>). That is why a provider asks for complete supplier details on larger invoices.</li>
+<li><strong>Form W-8BEN-E from the supplier.</strong> A European company documents its foreign status for US withholding purposes on <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben-e" target="_blank" rel="noopener noreferrer">Form W-8BEN-E</a>; a European freelancer uses W-8BEN. Collect it before the first payment and keep it on file rather than sending it to the IRS.</li>
+<li><strong>FBAR if you hold euros abroad.</strong> A US person with a financial interest in or signature authority over foreign financial accounts must file an FBAR when their aggregate value exceeds $10,000 at any time in the calendar year, per <a href="https://www.fincen.gov/report-foreign-bank-and-financial-accounts" target="_blank" rel="noopener noreferrer">FinCEN</a>. Ask your provider whether its euro account details are held outside the US.</li>
 </ul>
-<h3>EU Requirements</h3>
-<ul>
-<li><strong>EU VAT</strong> — Services purchased by EU businesses from US suppliers may trigger reverse-charge VAT. If your US business sells to EU consumers, EU VAT registration may be required (via the One-Stop Shop scheme).</li>
-<li><strong>GDPR</strong> — If your payments involve personal data of EU residents, ensure GDPR compliance in your data handling</li>
-<li><strong>EU Anti-Money Laundering Directives</strong> — EU payment providers must comply with the latest AML directive. This may require enhanced due diligence for large or unusual transactions.</li>
-<li><strong>Withholding tax</strong> — Most EU countries have tax treaties with the US that reduce or eliminate withholding on business service payments. Royalties and dividends may still be subject to withholding at treaty-reduced rates.</li>
-</ul>`,
+<h3>EU VAT on what you are paying for</h3>
+<p>For services between businesses, EU VAT is due where the customer is established (<a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/place-taxation_en" target="_blank" rel="noopener noreferrer">Article 44 of the VAT Directive</a>), so a European supplier invoicing a US company for consulting or software work normally charges no EU VAT, provided it holds evidence that you are a business outside the EU. Exceptions follow the service, not the customer: work connected with property in Europe, such as a venue or a construction job, is taxed where the property is.</p>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>USD→EUR prices come from our quote collection, refreshed every 6 hours; the <a href="/send-money/usa-to-europe">USA to Europe comparison</a> has today's. US reporting duties cite <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>; SEPA scope cites the <a href="https://www.europeanpaymentscouncil.eu/about-sepa" target="_blank" rel="noopener noreferrer">European Payments Council</a>.</p>`,
+        content: `<p>USD→EUR prices come from our quote collection, refreshed every 6 hours. Reporting rules cite the Code of Federal Regulations and <a href="https://www.fincen.gov/report-foreign-bank-and-financial-accounts" target="_blank" rel="noopener noreferrer">FinCEN</a>; withholding forms cite the <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben-e" target="_blank" rel="noopener noreferrer">IRS</a>; instant-payment dates cite the <a href="https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer">ECB</a>; VAT place of supply cites the <a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/place-taxation_en" target="_blank" rel="noopener noreferrer">European Commission</a>.</p>`,
       },
     ],
     faqs: [
       {
-        question: "What is SEPA and why does it matter for US-Europe payments?",
+        question: "Does a large payment to a European supplier trigger a Currency Transaction Report?",
         answer:
-          "SEPA (Single Euro Payments Area) is a payment integration initiative covering 41 countries and territories. It allows euro transfers between any SEPA bank within 1 business day (or seconds via SEPA Instant) at minimal cost. Smart FX platforms convert your USD and deliver via SEPA, avoiding expensive SWIFT wires.",
+          "No. A CTR covers transactions in currency (cash) over $10,000. A wire or ACH payment of any size falls under the funds-transfer recordkeeping rule instead, which from $3,000 requires the sending institution to keep and pass on payer and recipient details.",
       },
       {
         question: "What is the cheapest way for a US business to pay a European supplier?",
         answer:
-          "On consumer quotes the most frequent USD→EUR leader is {{CORRIDOR_LEADER:USD:EUR}}. For business accounts, compare Wise Business and Revolut Business in the table — both pay out over SEPA — against a bank wire's fee and markup; OFX negotiates on larger amounts.",
+          "On consumer quotes the most frequent USD→EUR leader is {{CORRIDOR_LEADER:USD:EUR}}. For business accounts, compare the euros each provider in the table delivers on your invoice amount, and check whether its last leg is a SEPA payout or a SWIFT wire, which can arrive short.",
       },
       {
-        question: "Do I need an IBAN to send money to Europe?",
+        question: "Do European suppliers charge VAT to a US company?",
         answer:
-          "Yes. European bank accounts use IBAN (International Bank Account Number) format. Your European recipient will provide their IBAN, which includes the country code, check digits, and bank/account details. All SEPA transfers require an IBAN.",
+          "For most business services, no: EU VAT on B2B services is due where the customer is established, so a supplier invoicing a US business normally charges none once it has evidence you are a business outside the EU. Services tied to property in Europe are an exception.",
       },
     ],
     relatedSlugs: [
@@ -6666,76 +6645,59 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "The GBP-EUR Business Payment Corridor",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> converts GBP to EUR at the mid-market rate — {{COST_PCT:wise:GBP:EUR:5000}} in total on £5,000 today — and pays the supplier's IBAN over SEPA, which the UK is still part of.</p></div>
-<p>The EU remains the UK's largest trading partner, with bilateral trade exceeding <strong>£560 billion annually</strong>. However, post-Brexit changes have added new complexity — and cost — to cross-border payments. The UK stayed in SEPA, but UK payments now count as non-EEA — the sender must supply the BIC and full address — and some banks have reduced or repriced their European payment services.</p>
-<p>The good news: specialist FX platforms still offer UK businesses seamless access to SEPA. <a href="/companies/wise">Wise Business</a> and <a href="/companies/revolut">Revolut Business</a>, both UK-headquartered, maintain EU-licensed entities that route GBP-to-EUR payments via SEPA — delivering the same speed and cost as pre-Brexit.</p>`,
+<p>Brexit did not take the UK out of SEPA, but it changed what a euro payment from Britain has to carry. The UK stayed in SEPA as a non-EEA member, so the sender must supply the BIC and full address, and some banks have reduced or repriced their European payment services. For a UK business with euro suppliers, the questions are which of those payments go over SEPA, which go over SWIFT, and what protection and tax treatment each one has once it leaves a UK account.</p>`,
       },
       {
         heading: "Best Providers for UK to Europe Business Payments",
         content: `<p>The table prices a £5,000 payment into a eurozone supplier's IBAN, business-account providers only. Since the UK stayed in SEPA, what separates them is the rail each one uses and whether it collects the BIC and address a non-EEA SEPA payment needs.</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: GBP → EUR Business Transfers (£10,000)</h3>
+<h3 style="margin-top: 0;">GBP → EUR business transfers on £5,000</h3>
 <p>GBP → EUR on a 5,000 GBP supplier payment, business-FX providers only ({{QUOTE_DATE}}).</p>
 {{BUSINESS_QUOTE_TABLE:GBP:EUR:5000}}
-<p class="blog-footnote">Personal-account prices on GBP→EUR; business plans differ, so confirm yours in the <a href="/business/compare">business comparison</a>, or open <a href="/send-money/usa-to-europe">live euro rates →</a></p>
+<p class="blog-footnote">Personal-account prices on GBP→EUR; business plans differ, so confirm yours in the <a href="/business/compare">business comparison</a>.</p>
 </div>
-
-<h3><a href="/companies/wise">Wise Business</a></h3>
-<p>Our pick for UK-Europe business payments, on price. 0% markup on the mid-market rate. Wise routes via SEPA through their EU-licensed entity, so payments arrive same-day or next-day. EUR IBAN included for receiving European client payments. Batch payments, Xero/QuickBooks integration, and API access.</p>
-<h3><a href="/companies/revolut">Revolut Business</a></h3>
-<p>UK-headquartered with an EU banking license in Lithuania. Multi-currency EUR account with full SEPA access. Competitive rates, team cards, expense management, and a free plan for small businesses. Particularly strong for UK businesses with regular EU transactions.</p>
-<h3><a href="/companies/ofx">OFX</a></h3>
-<p>Best for large transfers (£10,000+). Forward contracts to lock GBP/EUR rates, dedicated dealers, and no transfer fees. Strong for importers and manufacturers with predictable European costs.</p>`,
+<p>Wise Business and Revolut Business, both UK-headquartered, also hold EU licences, so a sterling payment can be converted in London and delivered from inside the EU as an ordinary euro credit.</p>`,
       },
       {
-        heading: "Payment Methods Compared",
-        content: `<p>From a UK account, a euro invoice can be paid four ways:</p>
-<h3>FX Platform via SEPA (Recommended)</h3>
-<p>Despite Brexit, UK businesses can still access SEPA through providers that hold EU licenses. Wise and Revolut convert GBP via Faster Payments and deliver EUR via SEPA Credit Transfer or SEPA Instant. The recipient sees a standard SEPA payment — no additional cost or delay on their end.</p>
-<h3>UK Faster Payments → SEPA</h3>
-<p>The fastest route: fund via Faster Payments (instant, free), convert, and deliver via SEPA (same-day or instant). Total time: hours or even seconds with SEPA Instant.</p>
-<h3>SWIFT</h3>
-<p>Still available but increasingly unnecessary for eurozone payments. Banks charge £5–£30 per transfer plus their FX markup. Post-Brexit, some UK banks have increased SWIFT fees to Europe. Avoid unless required by the recipient's bank.</p>
-<h3>International Direct Debit</h3>
-<p>SEPA Direct Debit allows European suppliers to pull funds from your EUR account (if you hold one via Wise or Revolut). Useful for recurring subscription payments to EU SaaS providers.</p>`,
+        heading: "From a UK account to a eurozone supplier: rails and protection",
+        content: `<h3>Funding leg: Faster Payments or CHAPS</h3>
+<p>Most providers are funded by a sterling Faster Payment from your business account; CHAPS suits a large same-day amount. Both are domestic sterling rails, which matters for the next point.</p>
+<h3>APP-scam reimbursement stops at the UK border</h3>
+<p>The Payment Systems Regulator's reimbursement rules cover payments made "via Faster Payments or CHAPS from one UK bank account to another" (<a href="https://www.psr.org.uk/our-work/app-scams/" target="_blank" rel="noopener noreferrer">PSR</a>). A euro payment to a supplier's account in the EU is not one of them, so a fake "new bank details" email from a European supplier is a loss the UK reimbursement scheme does not cover. Confirm any change of supplier IBAN by phone on a number you already hold.</p>
+<h3>Delivery leg: SEPA from the UK or from the EU</h3>
+<p>A UK bank sending euros over SEPA must add the payee bank's BIC and your address, the data the <a href="https://www.europeanpaymentscouncil.eu/about-sepa" target="_blank" rel="noopener noreferrer">European Payments Council</a> requires for non-EEA participants; some banks instead send euros over SWIFT, where intermediary deductions can short the invoice. A provider paying out from an EU entity sends an intra-EEA SEPA credit, and since 9 October 2025 a euro-area sender checks the supplier's name against its IBAN before releasing it, so keep the supplier's legal account name on file.</p>
+<h3>SEPA Direct Debit for EU subscriptions</h3>
+<p>A euro balance with its own IBAN lets EU software and service suppliers collect recurring invoices by SEPA Direct Debit instead of you initiating each payment.</p>`,
       },
       {
-        heading: "GBP/EUR Exchange Rate: What Drives It",
-        content: `<p>GBP/EUR is one of the most important currency pairs for UK businesses. Key factors:</p>
-<ul>
-<li><strong>Bank of England vs ECB policy</strong> — Interest rate differentials between the BoE and ECB drive the pair. Higher UK rates relative to Europe push GBP/EUR higher (fewer euros per pound).</li>
-<li><strong>Post-Brexit trade dynamics</strong> — Ongoing UK-EU trade frictions, regulatory divergence, and any new trade deal developments affect the pair.</li>
-<li><strong>UK economic data</strong> — UK GDP, inflation, and employment data move GBP. The pair is particularly sensitive to Bank of England rate decisions.</li>
-<li><strong>European political risk</strong> — EU elections, fiscal policy disputes, and southern European debt concerns can weaken EUR.</li>
-</ul>
-<p>GBP/EUR typically moves 5–10% annually. For a UK business spending £500,000/year on European suppliers, that's £25,000–£50,000 variance. <a href="/guides/fx-hedging-strategies-small-business">FX hedging</a> with forward contracts from OFX or XE is strongly recommended.</p>`,
+        heading: "GBP/EUR across the months we recorded",
+        content: `<p>A UK business budgeting a year of euro costs needs the pair's recent path, not a list of generic drivers. Our <a href="/exchange-rates/history/gbp-to-eur">GBP/EUR rate history</a> shows the mid-market range month by month, the largest one-day moves, and the Bank of England and ECB decisions in the same window with what sterling did the following week. Read it before choosing between paying invoices as they fall due and fixing a rate ahead with a <a href="/guides/fx-hedging-strategies-small-business">forward contract</a>.</p>`,
       },
       {
         heading: "Compliance for UK to Europe Business Payments",
-        content: `<p>The UK to Europe corridor has specific compliance considerations:</p>
-<h3>UK Requirements</h3>
+        content: `<h3>UK side</h3>
 <ul>
-<li><strong>FCA regulation</strong> — All payment providers must be authorized by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority</a></li>
-<li><strong>UK VAT on EU purchases</strong> — Post-Brexit, UK businesses importing goods from the EU must pay UK import VAT (20%) and may need to deal with customs declarations. Services are generally handled via the reverse charge mechanism.</li>
-<li><strong>Making Tax Digital (MTD)</strong> — Ensure your cross-border transactions are properly recorded in your MTD-compliant software</li>
+<li><strong>FCA register</strong> — check that the provider is authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority</a> before the first payment.</li>
+<li><strong>Import VAT on EU goods</strong> — a VAT-registered business can account for import VAT on goods brought into Great Britain from the EU on its VAT Return instead of paying it at the border, using the monthly postponed import VAT statement (<a href="https://www.gov.uk/guidance/check-when-you-can-account-for-import-vat-on-your-vat-return" target="_blank" rel="noopener noreferrer">GOV.UK: postponed VAT accounting</a>).</li>
+<li><strong>EORI</strong> — goods moving between Great Britain and the EU need a GB EORI number on the customs declaration; services do not.</li>
 </ul>
-<h3>EU Requirements</h3>
+<h3>EU side</h3>
 <ul>
-<li><strong>EU VAT</strong> — The reverse charge mechanism still applies for most B2B services between UK and EU businesses, meaning no VAT is charged on the invoice</li>
-<li><strong>EORI numbers</strong> — Required for goods trade between the UK and EU post-Brexit</li>
-<li><strong>Withholding tax</strong> — UK-EU tax treaties generally eliminate withholding on business service payments</li>
+<li><strong>Reverse charge on services</strong> — B2B services are taxed where the customer is established, so an EU supplier invoicing a UK business for services normally charges no EU VAT, and you account for UK VAT under the reverse charge.</li>
+<li><strong>Withholding tax</strong> — UK–EU double tax treaties generally remove withholding on payments for business services; royalties are treated differently.</li>
 </ul>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Prices here come from our GBP→EUR quote collection, refreshed every 6 hours; check <a href="/send-money/usa-to-europe">live euro rates</a> before a large payment. UK firm rules cite the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>; SEPA membership and the non-EEA data rules cite the <a href="https://www.europeanpaymentscouncil.eu/about-sepa" target="_blank" rel="noopener noreferrer">European Payments Council</a>.</p>`,
+        content: `<p>Prices here come from our GBP→EUR quote collection, refreshed every 6 hours. Reimbursement scope cites the <a href="https://www.psr.org.uk/our-work/app-scams/" target="_blank" rel="noopener noreferrer">Payment Systems Regulator</a>; import VAT cites <a href="https://www.gov.uk/guidance/check-when-you-can-account-for-import-vat-on-your-vat-return" target="_blank" rel="noopener noreferrer">GOV.UK</a>; UK firm rules cite the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>; SEPA membership and the non-EEA data rules cite the <a href="https://www.europeanpaymentscouncil.eu/about-sepa" target="_blank" rel="noopener noreferrer">European Payments Council</a>.</p>`,
       },
     ],
     faqs: [
       {
         question: "Can UK businesses still use SEPA after Brexit?",
         answer:
-          "Yes. The UK remained in SEPA, so UK banks can send SEPA Credit Transfers, though not all offer them for business accounts and each payment must carry the payee's BIC and your address. FX platforms like Wise Business and Revolut Business also route your GBP-to-EUR payment through their EU entities via SEPA, so the European recipient receives a standard SEPA transfer at the same speed and cost as before Brexit.",
+          "Yes. The UK remained in SEPA, so UK banks can send SEPA Credit Transfers, though not all offer them for business accounts and each payment must carry the payee's BIC and your address. FX platforms like Wise Business and Revolut Business also route your GBP-to-EUR payment through their EU entities via SEPA, so the European recipient receives a standard SEPA transfer.",
       },
       {
         question: "What is the cheapest way for a UK business to pay a European supplier?",
@@ -6743,9 +6705,9 @@ const rawBlogPosts: BlogPost[] = [
           "On consumer quotes the most frequent GBP→EUR leader is {{CORRIDOR_LEADER:GBP:EUR}}. Among business accounts, Wise Business costs {{COST_PCT:wise:GBP:EUR:5000}} in total on £5,000 today, Revolut Business prices by plan, and OFX negotiates on larger amounts.",
       },
       {
-        question: "How has Brexit affected UK-EU business payments?",
+        question: "Is a payment to an EU supplier covered if I am tricked into sending it?",
         answer:
-          "UK banks kept SEPA access — the UK stayed in its geographical scope — but UK payments now count as non-EEA, so they need the BIC and the payer's address, and some banks send euros over SWIFT, which is slower and dearer. FX platforms with EU licences also provide full SEPA access. The main impact is on goods trade (customs, VAT), not the payment rails themselves. For services, the reverse charge mechanism still works.",
+          "Not by the UK's APP-scam reimbursement rules, which cover Faster Payments and CHAPS payments from one UK account to another. A euro payment to an account in the EU falls outside them, so verify any change of supplier bank details through a contact you already hold before paying.",
       },
     ],
     relatedSlugs: [
