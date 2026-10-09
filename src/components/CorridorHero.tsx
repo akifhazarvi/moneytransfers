@@ -101,10 +101,11 @@ export default function CorridorHero({
             <div className="max-w-2xl">
               <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold text-white leading-[1.04] tracking-tight">
                 {isCountryPage ? `${headingPrefix} ${headingTo}` : `${headingPrefix} ${headingFrom} to ${headingTo}`}
-                {/* The suffix span is display:block, so the gap is invisible —
-                    but without it the heading's text is "Pakistan(SAR → PKR)"
-                    for crawlers, screen readers and copy-paste (rule 10). */}
-                {headingSuffix && " "}
+                {/* The suffix span is display:block, so the joiner is invisible —
+                    but without it the heading's text is "PakistanCompare SAR →
+                    PKR rates" for crawlers, screen readers and copy-paste
+                    (rule 10). */}
+                {headingSuffix && <span className="sr-only">: </span>}
                 {headingSuffix && (
                   <span className="block text-white/55 text-2xl sm:text-3xl lg:text-4xl font-medium mt-2">
                     {headingSuffix}

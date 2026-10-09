@@ -172,7 +172,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-india": {
     title: "Cheapest Way to Send Money USA to India — USD→INR Rates (2026)",
     description:
-      "Compare USD to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
+      "Compare today's USD to INR quotes from 15+ providers side by side: rupees delivered, fees and delivery speed. Quotes refresh every 6 hours.",
     ogTitle: "USA→India: Who Gives the Best USD→INR Rate?",
     ogDescription:
       "Compare USD to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
@@ -212,7 +212,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-india": {
     title: "Cheapest Way to Send Money UK to India — GBP→INR Rates (2026)",
     description:
-      "Compare GBP to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
+      "Compare today's GBP to INR quotes from 15+ providers side by side: rupees delivered, fees and delivery speed. Quotes refresh every 6 hours.",
     ogTitle: "UK→India: Who Gives the Best GBP→INR Rate?",
     ogDescription:
       "Compare GBP to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
@@ -653,7 +653,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-pakistan": {
     title: "Cheapest Way to Send Money to Pakistan (2026) — Compare 15+ Providers",
     description:
-      "Compare the cheapest ways to send money to Pakistan. Live PKR rates from Wise, ACE, Remitly & WorldRemit — JazzCash and Easypaisa delivery. Updated every 6 hrs.",
+      "Compare today's PKR quotes from 15+ providers side by side: rupees delivered, fees and speed for JazzCash, Easypaisa and bank deposit. Updated every 6 hrs.",
     ogTitle: "Send Money to Pakistan — Who Gives the Most PKR?",
     ogDescription:
       "Live PKR rates from 15+ providers. JazzCash, Easypaisa, and bank deposit options compared. Find the cheapest way to send money to Pakistan.",
@@ -663,7 +663,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-india": {
     title: "Cheapest Way to Send Money to India (2026) — Compare INR Rates",
     description:
-      "Compare the cheapest and fastest ways to send money to India. Live INR rates from 15+ providers — UPI, IMPS, bank deposit. Updated every 6 hrs.",
+      "Compare today's INR quotes from 15+ providers side by side: rupees delivered, fees and speed for UPI, IMPS and bank deposit. Updated every 6 hrs.",
     ogTitle: "Send Money to India — Who Gives the Most INR?",
     ogDescription:
       "Live INR rates from 15+ providers. UPI and IMPS instant delivery. Find the cheapest way to send money to India today.",
@@ -673,7 +673,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-philippines": {
     title: "Cheapest Way to Send Money to the Philippines (2026) — GCash & Bank",
     description:
-      "Compare the cheapest ways to send money to the Philippines with no fees. Live PHP rates from 10+ providers — GCash, bank deposit, cash pickup. Updated every 6 hrs.",
+      "Compare today's PHP quotes from 10+ providers side by side: pesos delivered, fees and speed for GCash, bank deposit and cash pickup. Updated every 6 hrs.",
     ogTitle: "Send Money to Philippines — Who's Cheapest Right Now?",
     ogDescription:
       "Live PHP rates from 10+ providers. GCash delivery in minutes. Find the cheapest way to send money to the Philippines.",
@@ -1253,11 +1253,14 @@ export default async function CorridorPage({ params }: Props) {
   const routeFromTo = headingFrom ? `from ${headingFrom} to ${headingTo}` : `to ${headingTo}`;
   const routeLabel = headingFrom ? `${headingFrom} to ${headingTo}` : `transfers to ${headingTo}`;
   const headingPrefix = isCountryPage ? "Send money to" : isCurrencyCorridor ? "Convert" : "Send money from";
-  const headingSuffix = isCountryPage
+  // The H1 names this page's query — comparing providers' quotes — so it no
+  // longer reads like the destination guide beside it ("How to Send Money to
+  // India: …"). QA 2026-10-09, item 9: no two eligible pages on one query.
+  const headingSuffix = isCurrencyCorridor
     ? null
-    : isCurrencyCorridor
-    ? null
-    : `(${fromCurrency} → ${toCurrency})`;
+    : isCountryPage
+    ? `Compare ${toCurrency} rates by provider`
+    : `Compare ${fromCurrency} → ${toCurrency} rates by provider`;
 
   const comparison = corridorComparisonSummary(quotes, sampleAmount, fromCurrency, toCurrency, getProviderName);
   // Fewer than two comparable offers: nothing to compare, so the sections
