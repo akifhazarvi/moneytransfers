@@ -189,6 +189,39 @@ const NOT_A_BANK = new Set<string>([
 ]);
 
 /**
+ * Banks that no longer exist under that name — merged, absorbed or wound
+ * down. A "major banks" list that offers them is out of date (round-3 brief
+ * §4.3 / QA item 7: facts verified). Matched on the display name; the entry is
+ * dropped, never relabelled, because its registry record belongs to the old
+ * institution.
+ */
+const DEFUNCT_BANKS = new Set<string>([
+  "Credit Suisse (now UBS)", // merged into UBS AG, May 2024
+  "Equa Bank", // merged into Raiffeisenbank (Czech Republic), 2022
+  "Getin Noble Bank", // resolution 2022; business moved to VeloBank
+  "Idea Bank", // merged into Getin Noble Bank, 2021
+  "Wirecard Bank", // Wirecard insolvency 2020; the bank was wound down
+  "MKB Bank", // merged into MBH Bank, 2023
+  "Budapest Bank", // merged into MBH Bank, 2023
+  "KBC Bank Ireland", // left the Irish market, 2023
+  "Ulster Bank Ireland", // withdrew from Ireland, 2023
+  "National Bank of Abu Dhabi", // merged with First Gulf Bank into First Abu Dhabi Bank, 2017
+  "First Gulf Bank", // merged with NBAD into First Abu Dhabi Bank, 2017
+  "UBI Banca", // absorbed by Intesa Sanpaolo, 2021
+  "Banco Popular Español", // absorbed by Banco Santander, 2018
+  "Bankia", // merged into CaixaBank, 2021
+  "Liberbank", // merged into Unicaja Banco, 2021
+  "Credito Valtellinese", // absorbed by Crédit Agricole Italia, 2022
+  "Société Générale Expressbank", // merged into DSK Bank, 2020
+  "Sberbank Banka", // became N Banka (2022), merged into NLB, 2023
+  "Abanka", // merged into Nova KBM, 2021
+  "Takarékbank", // merged into MBH Bank, 2023
+  "Noor Islamic Bank", // merged into Dubai Islamic Bank, 2020
+  "Union National Bank", // merged into Abu Dhabi Commercial Bank, 2019
+  "International Bank of Qatar", // merged with Barwa Bank (now Dukhan Bank), 2019
+]);
+
+/**
  * Whole bank lists filed under the wrong country by the scrape. /iban/mauritania
  * (MR, MRU) listed State Bank of Mauritius, The Mauritius Commercial Bank and
  * AfrAsia Bank — all Mauritius (MU) banks.
@@ -252,7 +285,7 @@ export function bankDisplayName(raw: string): string {
 
 /**
  * A country's bank list as the IBAN page shows it: readable names, entries that
- * are not banks dropped, and duplicates the registry carried under two
+ * are not banks (or no longer exist) dropped, and duplicates the registry carried under two
  * spellings ("Postbank" / "Deutsche Postbank", "Millenium Bcp" / "Banco
  * Comercial Portugues") collapsed into one.
  */
@@ -263,6 +296,7 @@ export function displayBankList<T extends { name: string; slug: string }>(countr
   for (const bank of banks) {
     if (NOT_A_BANK.has(bank.name)) continue;
     const name = bankDisplayName(bank.name);
+    if (DEFUNCT_BANKS.has(name)) continue;
     const key = name.toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
