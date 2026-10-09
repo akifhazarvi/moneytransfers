@@ -1071,6 +1071,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // ── Helpers ──
 
+/**
+ * An indicative quote (a broker's estimate at a fixed markup off mid-market,
+ * buildIndicativeQuotes in quotes-engine.ts) is appended after the ranked rows
+ * and can print a larger payout than the rows above it: /send-money/uk-to-india
+ * listed Regency FX as #32 at ₹126,866 under Santander's ₹120,602. Unlabelled,
+ * that reads as a broken sort. It is not ranked, so it shows no rank number and
+ * says so; check:corridor-sort excludes these rows by their data-indicative.
+ */
+function IndicativeRowNote() {
+  return (
+    <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">
+      Indicative estimate · not ranked
+    </p>
+  );
+}
+
 function getCurrencySymbol(code: string): string {
   return currencies.find((c) => c.code === code)?.symbol || code;
 }
@@ -1644,12 +1660,21 @@ export default async function CorridorPage({ params }: Props) {
                 const borderTop = i === 0 ? "" : "border-t border-[var(--color-outline)]";
 
                 return (
-                  <div key={q.providerSlug} className={`${rowBg} ${borderTop} sm:border-t sm:border-[var(--color-outline)] ${isBest ? "sm:border-t-0" : ""}`}>
+                  // data-ranked-row / data-receive / data-indicative: read by
+                  // scripts/check-corridor-sort.ts, which asserts the ranked rows
+                  // descend by payout (round-3 brief, worksheet 11).
+                  <div
+                    key={q.providerSlug}
+                    data-ranked-row="main"
+                    data-receive={q.receiveAmount}
+                    data-indicative={q.isIndicative ? "1" : undefined}
+                    className={`${rowBg} ${borderTop} sm:border-t sm:border-[var(--color-outline)] ${isBest ? "sm:border-t-0" : ""}`}
+                  >
                     {/* Mobile layout — two rows */}
                     <div className="sm:hidden px-4 py-3">
                       <div className="flex items-start gap-3">
                         <span className={`text-2sm font-medium tabular-nums shrink-0 w-5 text-center mt-1.5 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
-                          {i + 1}
+                          {q.isIndicative ? "–" : i + 1}
                         </span>
                         <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-white border border-[var(--color-outline)]/40">
                           <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" />
@@ -1661,6 +1686,7 @@ export default async function CorridorPage({ params }: Props) {
                               : name}
                           </p>
                           <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5 truncate">{q.transferSpeed}</p>
+                          {q.isIndicative && <IndicativeRowNote />}
                           {tiedAhead && <TiedNote rating={q.rating} />}
                           {isBest && (
                             <span className="inline-block mt-1 text-2xs text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
@@ -1725,7 +1751,7 @@ export default async function CorridorPage({ params }: Props) {
                     {/* Desktop layout */}
                     <div className="hidden sm:grid sm:grid-cols-[36px_1fr_110px_90px_130px_112px] gap-2 items-center px-6 py-3">
                       <span className={`text-2sm font-medium ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
-                        {i + 1}
+                        {q.isIndicative ? "–" : i + 1}
                       </span>
                       <div className="flex items-center gap-2.5 min-w-0">
                         <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)] relative">
@@ -1750,6 +1776,7 @@ export default async function CorridorPage({ params }: Props) {
                               </span>
                             )}
                           </div>
+                          {q.isIndicative && <IndicativeRowNote />}
                           {tiedAhead && <TiedNote rating={q.rating} />}
                           {badgeByProvider[q.providerSlug] && (
                             <div className="mt-0.5">
@@ -2247,9 +2274,16 @@ export default async function CorridorPage({ params }: Props) {
                             </thead>
                             <tbody>
                               {exQuotes.map((q, i) => (
-                                <tr key={q.providerSlug} className={`border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}>
+                                <tr
+                                  key={q.providerSlug}
+                                  data-ranked-row={`example-${amount}`}
+                                  data-receive={q.receiveAmount}
+                                  data-indicative={q.isIndicative ? "1" : undefined}
+                                  className={`border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}
+                                >
                                   <th scope="row" className="px-4 py-2.5 font-medium">
                                     <span className={i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}>{getProviderName(q.providerSlug)}</span>
+                                    {q.isIndicative && <IndicativeRowNote />}
                                     <span className="block sm:hidden text-2xs font-normal text-[var(--color-on-surface-variant)]">{q.exchangeRate.toFixed(2)} · {q.transferSpeed}</span>
                                   </th>
                                   <td className="px-3 py-2.5 text-right tabular-nums whitespace-nowrap">{q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}</td>
@@ -2395,6 +2429,8 @@ export default async function CorridorPage({ params }: Props) {
                   return (
                     <div
                       key={br.providerSlug}
+                      data-ranked-row="banks"
+                      data-receive={br.receiveAmount}
                       className={`px-3 sm:px-6 py-3 sm:py-4 ${isBestBank ? "bg-[var(--color-success-surface-dim)] border-b-2 border-[var(--color-success-dark)]/20" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"}`}
                     >
                       {/* Desktop layout */}
