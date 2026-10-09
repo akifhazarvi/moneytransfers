@@ -358,8 +358,13 @@ function DefaultComparison({
               );
             })()}
             <div className="flex flex-wrap items-center gap-4 text-2sm text-[var(--color-on-surface-variant)]">
+              {/* Round-3 QA: "Reviewed by Awais Imran" named a reviewer and no
+                  author. Awais writes the comparison articles (authors.ts), and
+                  no fact-checker is recorded for them, so the line names the
+                  author only — as on /companies, a reviewer is shown only when
+                  one is recorded and is not the author. */}
               <span>
-                Reviewed by{" "}
+                By{" "}
                 <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">Awais Imran</Link>
               </span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
