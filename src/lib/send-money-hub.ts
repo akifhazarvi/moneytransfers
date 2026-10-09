@@ -268,11 +268,6 @@ export function getHubFaqs(data: HubData): HubFaq[] {
           : "") +
         `We collect new quotes about every ${data.refreshHours} hours and rebuild this page when they arrive. The rate a provider confirms before you pay is the one that applies, so treat the table as a guide to who to check, not a price promise.`,
     },
-    {
-      question: "My route has no page of its own. Can I still compare it?",
-      answer:
-        "Yes. Pages exist for the routes listed below, but the form at the top of this page compares any sending and receiving currency we hold quotes for, at any amount. Routes without a page are priced the same way.",
-    },
   ];
   return faqs;
 }
