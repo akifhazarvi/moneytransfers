@@ -260,14 +260,6 @@ export function getHubFaqs(data: HubData): HubFaq[] {
       answer:
         "Providers set their exchange-rate margin and fees route by route, depending on their payout partners in the destination country, their cost of buying each currency and how hard they compete there. A provider's price on one route tells you little about its price on the next, which is why this page compares routes rather than brands.",
     },
-    {
-      question: "How current are the rates in the example table?",
-      answer:
-        (data.oldest && data.latest
-          ? `The quotes in the table were collected between ${utcLong(data.oldest)} and ${utcLong(data.latest)}. `
-          : "") +
-        `We collect new quotes about every ${data.refreshHours} hours and rebuild this page when they arrive. The rate a provider confirms before you pay is the one that applies, so treat the table as a guide to who to check, not a price promise.`,
-    },
   ];
   return faqs;
 }

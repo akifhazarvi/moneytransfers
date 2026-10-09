@@ -80,7 +80,7 @@ export default function ExampleRouteTable({ data }: { data: HubData }) {
             return (
               <tr
                 key={q.providerSlug}
-                className="grid grid-cols-2 gap-x-4 gap-y-1.5 px-4 py-4 border-t border-[var(--color-outline)] md:table-row md:p-0"
+                className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-1.5 px-4 py-4 border-t border-[var(--color-outline)] md:table-row md:p-0"
               >
                 <th scope="row" className="col-span-1 text-left font-normal md:table-cell md:px-6 md:py-3 md:align-middle">
                   <div className="flex items-center gap-2.5 min-w-0">

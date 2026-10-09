@@ -72,38 +72,35 @@ export default function HubContent({ faqs }: { faqs: HubFaq[] }) {
         <div className={`${PROSE} max-w-3xl`}>
           <h3 className={H3}>Start with the destination</h3>
           <p>
-            Prices are set route by route. A provider near the top from the United States to India can sit lower from the
-            United Kingdom to India, and payout options differ by country: bank deposit, mobile wallet, cash pickup or a
-            card. Decide how your recipient will collect the money, then compare only providers that pay out that way.
+            Prices are set route by route: a provider near the top from the United States to India can sit lower from the
+            United Kingdom. Payout options differ by country too, so decide how your recipient will collect the money (bank
+            deposit, mobile wallet or cash pickup) and compare only providers that pay out that way.
           </p>
           <h3 className={H3}>Exchange rate or fee: count both</h3>
           <p>
-            A provider earns on two lines: the fee it shows you and the margin inside its exchange rate, which it rarely
-            states. Convert the fee into the recipient&rsquo;s currency, add the gap between the provider&rsquo;s rate and
-            the mid-market rate multiplied by your amount, and you have the real price. Our{" "}
+            A provider earns on the fee it shows you and on the margin inside its exchange rate, which it rarely states. The
+            fee plus the gap between its rate and the mid-market rate, times your amount, is the real price. Our{" "}
             <A href="/tools/fx-markup-checker">FX markup checker</A>{" "}
             does that arithmetic for a quote you already hold.
           </p>
           <h3 className={H3}>Speed or price</h3>
           <p>
-            Many providers charge more when you pay by card or choose instant delivery than when you fund by bank transfer
-            and accept a slower payout. If the money is not needed today, check whether the slower option pays more on your
-            route. If it is urgent, compare only providers that deliver in minutes.
+            Many providers charge more for card payment or instant delivery than for a bank-funded, slower payout. If the
+            money is not needed today, check whether the slower option pays more on your route.
           </p>
           <h3 className={H3}>Limits and documents</h3>
           <p>
-            Providers cap what you can send per transfer, per day and per month, and the cap usually depends on the country
-            you send from and how far you have verified your identity. Large sums can bring requests for proof of where the
-            money came from. Check{" "}
+            Providers cap what you can send per transfer and per day, depending on the country you send from and how far you
+            have verified your identity. Check{" "}
             <A href="/guides/money-transfer-limits-by-provider-country">limits by provider and country</A>{" "}
             before comparing a large amount: splitting a transfer means paying a fee on each part.
           </p>
           <h3 className={H3}>Security and licensing</h3>
           <p>
-            Use a provider licensed where you send from: in the UK an FCA-authorised payment or e-money institution, in the
-            US a money transmitter licensed by your state and registered with FinCEN, elsewhere the local equivalent. Our{" "}
+            Use a provider licensed where you send from: an FCA-authorised payment or e-money institution in the UK, a
+            state-licensed money transmitter registered with FinCEN in the US, or the local equivalent. Our{" "}
             <A href="/guides/money-transfer-safety-guide">transfer safety guide</A>{" "}
-            shows how to look a provider up on the regulator&rsquo;s register before your first transfer.
+            shows how to check the regulator&rsquo;s register.
           </p>
         </div>
       </section>
@@ -112,8 +109,8 @@ export default function HubContent({ faqs }: { faqs: HubFaq[] }) {
         <h2 className={H2}>Mistakes that make a transfer abroad cost more</h2>
         <ul className={`${PROSE} max-w-3xl list-disc pl-5`}>
           <li>
-            <strong className="text-[var(--color-on-surface)]">Judging by the fee alone.</strong> A transfer with no fee and
-            a wide rate margin can deliver less than one with a fee and a tight rate, as the example above shows.
+            <strong className="text-[var(--color-on-surface)]">Judging by the fee alone.</strong> No fee and a wide rate
+            margin can deliver less than a fee and a tight rate, as the example above shows.
           </li>
           <li>
             <strong className="text-[var(--color-on-surface)]">Borrowing a quote from another route.</strong> A good rate
@@ -121,7 +118,7 @@ export default function HubContent({ faqs }: { faqs: HubFaq[] }) {
           </li>
           <li>
             <strong className="text-[var(--color-on-surface)]">Comparing at the wrong amount.</strong> Flat fees weigh most
-            on small transfers and percentage fees on large ones, so the order changes with the amount. Enter your real one.
+            on small transfers and percentage fees on large ones, so the order changes with the amount.
           </li>
           <li>
             <strong className="text-[var(--color-on-surface)]">Counting on a first-transfer rate.</strong> Promotional rates
@@ -129,8 +126,7 @@ export default function HubContent({ faqs }: { faqs: HubFaq[] }) {
           </li>
           <li>
             <strong className="text-[var(--color-on-surface)]">Typing recipient details in a hurry.</strong> A wrong account
-            number, IFSC code, IBAN or wallet number can delay the payout or send it to someone else, and recovering it is
-            slow and not guaranteed.
+            number, IFSC code, IBAN or wallet number can send the money to someone else, and recovery is not guaranteed.
           </li>
         </ul>
       </section>
@@ -139,11 +135,9 @@ export default function HubContent({ faqs }: { faqs: HubFaq[] }) {
         <h2 className={H2}>How this country-by-country comparison is built</h2>
         <div className={`${PROSE} max-w-3xl`}>
           <p>
-            Quotes come first from providers&rsquo; own price APIs and transfer calculators; where a provider publishes
-            neither, gaps are filled from comparison aggregators, and the more direct source wins unless the other is more
-            than a day fresher. Every quote is restated as what the recipient gets for the amount you send, and markups are
-            measured against XE&rsquo;s mid-market rate. Quotes more than three days behind the freshest, or that cannot be
-            true, such as a rate better than mid-market on a freely traded currency, are left out.{" "}
+            Quotes come first from providers&rsquo; own price APIs and calculators, with gaps filled from comparison
+            aggregators. Each is restated as what the recipient gets for the amount you send, and markups are measured
+            against XE&rsquo;s mid-market rate. Quotes more than three days behind the newest, or that cannot be true, are left out.{" "}
             <A href="/how-we-review">How we review providers</A>{" "}
             covers the editorial side, and{" "}
             <A href="/methodology">our methodology</A>{" "}
@@ -151,8 +145,8 @@ export default function HubContent({ faqs }: { faqs: HubFaq[] }) {
           </p>
           <p>
             <strong className="text-[var(--color-on-surface)]">How we make money.</strong> Some providers pay us a
-            commission when you click Send and then open an account or make a transfer. The order is computed from payouts
-            and is the same whether a provider pays us or not, and the price the provider charges you does not change.
+            commission when you click Send and then open an account or make a transfer. The order is computed from payouts,
+            the same whether a provider pays us or not, and the price you pay does not change.
           </p>
           {author && reviewer && (
             <p>
