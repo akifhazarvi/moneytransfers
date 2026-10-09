@@ -1,6 +1,7 @@
 import InstallSlot from "@/components/pwa/InstallSlot";
 import { notFound } from "next/navigation";
 import { guideIsIndexable } from "@/lib/guide-status";
+import { robotsFor } from "@/lib/seo-indexing";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
@@ -176,6 +177,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // deindex. Pages stay built and internally linked either way; set
     // contentStatus: "published" on the post to make one indexable.
     ...(locale === "en" && !guideIsIndexable(post) && { robots: { index: false, follow: true } }),
+    // Per-engine (2026-10-08): an indexable guide that is hidden from Google
+    // serves `googlebot: noindex` — the same answer the X-Robots-Tag gives.
+    ...(locale === "en" && guideIsIndexable(post) && robotsFor(`/guides/${slug}`) && { robots: robotsFor(`/guides/${slug}`) }),
   };
 }
 

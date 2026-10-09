@@ -4,12 +4,8 @@ import { routing } from "./i18n/routing";
 import { getGeoDefaults } from "./data/geo-corridors";
 import { xRobotsTagFor } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
-import { getCompareCanonicalSlug } from "./lib/compare-canonical";
-import { GONE_CORRIDOR_SLUGS, DUPLICATE_CORRIDOR_REDIRECTS } from "./lib/gone-corridors";
-import { GONE_SWIFT_SLUGS } from "./lib/gone-swift";
-import { GONE_RATE_PAIR_SLUGS } from "./lib/gone-rate-pairs";
-import { GONE_COMPANY_SLUGS } from "./lib/gone-companies";
-import { GONE_NEWS_SLUGS, NEWS_REDIRECTS } from "./lib/gone-news";
+import { corridorPageRenders } from "./lib/gone-corridors";
+import { GONE, retiredAnswer } from "./lib/retired-urls";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -119,6 +115,10 @@ function isLegitBot(request: NextRequest): boolean {
 // permanent redirect instead of next-intl's temporary prefix removal.
 const KILLED_LOCALE_PREFIXES = /^\/(en|es|fr|pt)(\/|$)/;
 
+function gone(): NextResponse {
+  return new NextResponse("Gone", { status: 410 });
+}
+
 export default function middleware(request: NextRequest) {
   // Redirect www to non-www (canonical domain)
   const host = request.headers.get("host") || "";
@@ -129,91 +129,29 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  // 301 retired-locale URLs to their English equivalent. Must run BEFORE
-  // intlMiddleware so next-intl never sees the locale prefix.
-  if (KILLED_LOCALE_PREFIXES.test(request.nextUrl.pathname)) {
+  // Retired URLs answer in ONE response: 410, or a single 301 to a live page
+  // with the same intent. Round-3 freelance brief §3.2 (2026-10-08) found
+  // locale URLs that 301'd into a second redirect (chain) or into a 410/404
+  // (dead end); resolving the English path here first makes both impossible.
+  // Must run BEFORE intlMiddleware so next-intl never sees a locale prefix.
+  const path0 = request.nextUrl.pathname;
+  if (KILLED_LOCALE_PREFIXES.test(path0)) {
+    const english = path0.replace(KILLED_LOCALE_PREFIXES, "/");
+    const answer = retiredAnswer(english);
+    // A locale corridor whose English page does not render would 301 into a
+    // 404 (/fr/send-money/hong-kong-to-nigeria did): 410 it instead.
+    const corridor = english.match(/^\/send-money\/([a-z0-9-]+)$/);
+    if (answer === GONE || (!answer && corridor && !corridorPageRenders(corridor[1]))) return gone();
     const url = request.nextUrl.clone();
-    url.pathname = request.nextUrl.pathname.replace(KILLED_LOCALE_PREFIXES, "/");
+    url.pathname = answer ?? english;
     return NextResponse.redirect(url, 301);
   }
-
-  // 410 Gone for retired corridor pages. Must run BEFORE intlMiddleware (the
-  // site is single-locale `as-needed`, so /send-money/<slug> is unprefixed) and
-  // before bot-blocking, so crawlers get the 410 with no rendered body — the
-  // cleanest signal that these thin pages are intentionally retired. See
-  // src/lib/gone-corridors.ts for why these 53 were chosen.
-  const goneMatch = request.nextUrl.pathname.match(/^\/send-money\/([a-z0-9-]+)$/);
-  // A duplicate pair-mate consolidates into its surviving twin rather than
-  // dying — 301 beats 410 whenever an equivalent page exists, and these are
-  // equivalent by construction (same currency pair, same table). Checked before
-  // the 410 so the redirect wins. See DUPLICATE_CORRIDOR_REDIRECTS.
-  if (goneMatch) {
-    const consolidatesTo = DUPLICATE_CORRIDOR_REDIRECTS.get(goneMatch[1]);
-    if (consolidatesTo) {
-      const url = request.nextUrl.clone();
-      url.pathname = `/send-money/${consolidatesTo}`;
-      return NextResponse.redirect(url, 301);
-    }
-  }
-  if (goneMatch && GONE_CORRIDOR_SLUGS.has(goneMatch[1])) {
-    return new NextResponse("Gone", { status: 410 });
-  }
-
-  // 410 Gone for retired SWIFT country pages — same rationale and placement as
-  // the corridor block above. See src/lib/gone-swift.ts for the selection rule
-  // (noindexed AND under 600 rendered words); 57 of 107 retired.
-  const goneSwift = request.nextUrl.pathname.match(/^\/swift-codes\/([a-z0-9-]+)$/);
-  if (goneSwift && GONE_SWIFT_SLUGS.has(goneSwift[1])) {
-    return new NextResponse("Gone", { status: 410 });
-  }
-
-  // 301 retired /exchange-rates/[pair] deep-dives to the hub. 301 not 410:
-  // unlike a retired corridor, the hub carries the same rate for this pair, so
-  // there is a genuine equivalent to consolidate into. See gone-rate-pairs.ts.
-  const goneRate = request.nextUrl.pathname.match(/^\/exchange-rates\/([a-z0-9-]+)$/);
-  if (goneRate && GONE_RATE_PAIR_SLUGS.has(goneRate[1])) {
+  const answer = retiredAnswer(path0);
+  if (answer === GONE) return gone();
+  if (answer) {
     const url = request.nextUrl.clone();
-    url.pathname = "/exchange-rates";
+    url.pathname = answer;
     return NextResponse.redirect(url, 301);
-  }
-
-  // 410 Gone for retired provider review pages — same rationale and placement as
-  // the two blocks above. See src/lib/gone-companies.ts.
-  const goneCompany = request.nextUrl.pathname.match(/^\/companies\/([a-z0-9-]+)$/);
-  if (goneCompany && GONE_COMPANY_SLUGS.has(goneCompany[1])) {
-    return new NextResponse("Gone", { status: 410 });
-  }
-
-  // Retired news items: 301 a duplicate into its surviving twin, else 410.
-  // See src/lib/gone-news.ts.
-  const goneNews = request.nextUrl.pathname.match(/^\/news\/([a-zA-Z0-9-]+)$/);
-  if (goneNews) {
-    const consolidatesTo = NEWS_REDIRECTS.get(goneNews[1]);
-    if (consolidatesTo) {
-      const url = request.nextUrl.clone();
-      url.pathname = `/news/${consolidatesTo}`;
-      return NextResponse.redirect(url, 301);
-    }
-    if (GONE_NEWS_SLUGS.has(goneNews[1])) {
-      return new NextResponse("Gone", { status: 410 });
-    }
-  }
-
-  // 301 non-canonical /compare/X-vs-Y directions to the canonical direction.
-  // Previously both directions rendered 200 with a <link rel="canonical">
-  // pointing at the winner; that works for Google but is fragile for Bing
-  // and AI crawlers (Copilot, ChatGPT, Perplexity). Per Bing Webmaster Blog
-  // Dec 2025, "Use 301 redirects to consolidate URL variants" — a 301 is
-  // an unambiguous dedup signal that LLMs honor when picking grounding URLs.
-  const compareMatch = request.nextUrl.pathname.match(/^\/compare\/([a-z0-9-]+)$/);
-  if (compareMatch) {
-    const slug = compareMatch[1];
-    const canonicalSlug = getCompareCanonicalSlug(slug);
-    if (canonicalSlug !== slug) {
-      const url = request.nextUrl.clone();
-      url.pathname = `/compare/${canonicalSlug}`;
-      return NextResponse.redirect(url, 301);
-    }
   }
 
   // No UA-based 403 here any more (removed 2026-09-20 — see the note at the

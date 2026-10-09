@@ -17,7 +17,7 @@ import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
-import { BING_DEMAND_ROUTES } from "@/data/search-engine-routes";
+import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2 } from "@/data/search-engine-routes";
 import { corridorPageRenders } from "@/lib/route-map";
 import readerSavings from "@/data/research/reader-savings.json";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
@@ -54,6 +54,7 @@ const STATIC_CONTENT_DATE = "2026-03-01";
 const BUSINESS_CONTENT_DATE = "2026-09-07"; // measured cost figures + live tokens
 const REVIEWED_ROUTES_DATE = "2026-09-24"; // round-2 freelance brief opened these
 const BING_DEMAND_DATE = "2026-09-27";     // Bing earners reopened (round-3 plan)
+const BING_DEMAND_WAVE_2_DATE = "2026-10-08"; // round-3 brief §3.1 + restored rate pairs
 const GUIDES_HUB_DATE = "2026-09-07";       // hub listing now driven by guideIsIndexable()
 
 // Derived from the most recently modified scraped quotes file (shared with
@@ -328,8 +329,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Bing earners reopened 2026-09-27 (round-3 plan) ──
   // Served `googlebot: noindex`, so they belong in this sitemap — the one Bing
   // reads — and never in sitemap-google.xml, which filters by googleIndexable().
+  const WAVE_2 = new Set(BING_DEMAND_WAVE_2);
   const bingDemandPages: MetadataRoute.Sitemap = [...BING_DEMAND_ROUTES]
-    .map((path) => entry(path.replace(/^\//, ""), BING_DEMAND_DATE));
+    .map((path) => entry(path.replace(/^\//, ""), WAVE_2.has(path) ? BING_DEMAND_WAVE_2_DATE : BING_DEMAND_DATE));
 
   // 2026-09-27: this is the Bing sitemap (the one robots.txt has always named).
   // Google gets sitemap-google.xml, the googleIndexable() subset of this list.

@@ -58,8 +58,11 @@ const REDIRECT_PATHS = [
   // owner decision that quality outranks the ranking exemption, so this
   // redirect now lands on a 410 by design. The forfeited GSC evidence (28
   // impressions, avg position 3.5) is recorded in gone-corridors.ts.
-  "/fr/send-money/germany-to-pakistan",
-  "/fr/send-money/usa-to-japan",
+  // "/fr/send-money/germany-to-pakistan" and "/fr/send-money/usa-to-japan" —
+  // removed 2026-10-08. Both 301'd into a different country's corridor
+  // (france-to-pakistan, send-money-to-japan); the round-3 brief §3.2 rule is
+  // same-intent or 410, and neither appears in the 2026-09-20 GSC
+  // re-verification (ranking-corridors.ts). They answer 410 by design now.
   "/es/exchange-rates/history/usd-to-hnl",
   "/es",
   "/fr",

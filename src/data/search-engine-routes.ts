@@ -40,7 +40,8 @@
  * plain arrays: no route-map or data imports, which would bloat the edge bundle.
  */
 
-export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([
+/** First wave, 2026-09-27 (sitemap lastmod BING_DEMAND_DATE). */
+const BING_DEMAND_WAVE_1 = [
   // banks
   "/banks",
   // compare
@@ -101,12 +102,81 @@ export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([
   "/swift-codes/turkiye",
   "/swift-codes/united-arab-emirates",
   "/swift-codes/united-states",
-]);
+];
+
+/**
+ * Second wave, 2026-10-08 — round-3 freelance brief §3.1 (worksheet 02).
+ * Every URL that was noindexed for ALL engines while the brief's Bing
+ * PageTraffic export shows it earning Bing impressions. Acceptance: "no URL
+ * receiving Bing traffic has a general noindex directive". Google sees no
+ * change (these stay `googlebot: noindex`; the freelancer's Googlebot crawl
+ * already counts them non-indexable), so this is a Bing-only reopening.
+ *
+ * Owner decision 2026-10-08: this includes the currency twins the first wave
+ * kept closed (usa-to-europe, india-to-uk, india-to-canada, swift-codes/
+ * ireland) — rule 3's twin exception yields to the brief for pages with Bing
+ * demand, because the duplicate measure it protected is a Google concern and
+ * Google is unaffected.
+ *
+ * Plus the five /exchange-rates pair pages restored the same day as Bing
+ * earners (gone-rate-pairs.ts).
+ * Bing clicks / impressions from the brief's export in the comments.
+ */
+export const BING_DEMAND_WAVE_2: readonly string[] = [
+  "/compare/hsbc-vs-paypal",            // 0 / 3
+  "/compare/moneygram-vs-wise",         // 0 / 1 — its own editorial article, not a redirect twin
+  "/compare/remitly-vs-moneygram",      // 0 / 15
+  "/compare/revolut-vs-hsbc",           // 1 / 6
+  "/compare/wise-vs-taptap-send",       // 0 / 2
+  "/companies/lemfi",                   // 0 / 27
+  "/exchange-rates/aud-to-inr",         // 3 / 2,571 (was a 301 to the hub)
+  "/exchange-rates/gbp-to-eur",         // 3 / 772
+  "/exchange-rates/gbp-to-pkr",         // 3 / 722 (was a 301 to the hub)
+  "/exchange-rates/usd-to-brl",         // 0 / 62
+  "/exchange-rates/usd-to-cny",         // 2 / 52 (was a 301 to the hub)
+  "/exchange-rates/usd-to-mxn",         // 1 / 25 (was a 301 to the hub)
+  "/exchange-rates/usd-to-php",         // 14 / 2,397 (was a 301 to the hub)
+  "/send-money/australia-to-uk",        // 0 / 14
+  "/send-money/china-to-australia",     // 0 / 2
+  "/send-money/china-to-uk",            // 0 / 1
+  "/send-money/china-to-usa",           // 0 / 4
+  "/send-money/france-to-uk",           // 0 / 1
+  "/send-money/india-to-canada",        // 1 / 7
+  "/send-money/india-to-uk",            // 2 / 2
+  "/send-money/saudi-arabia-to-egypt",  // 0 / 11
+  "/send-money/saudi-arabia-to-philippines", // 0 / 11
+  "/send-money/send-money-to-colombia", // 0 / 12
+  "/send-money/send-money-to-dominican-republic", // 0 / 13
+  "/send-money/send-money-to-egypt",    // 0 / 12
+  "/send-money/send-money-to-ethiopia", // 0 / 1
+  "/send-money/send-money-to-hungary",  // 0 / 12
+  "/send-money/send-money-to-indonesia", // 0 / 12
+  "/send-money/send-money-to-jamaica",  // 0 / 1
+  "/send-money/send-money-to-morocco",  // 0 / 24
+  "/send-money/send-money-to-nigeria",  // 0 / 20
+  "/send-money/send-money-to-romania",  // 0 / 12
+  "/send-money/send-money-to-uk",       // 0 / 2
+  "/send-money/uae-to-india",           // 1 / 56
+  "/send-money/uae-to-philippines",     // 0 / 15
+  "/send-money/uk-to-nigeria",          // 0 / 2
+  "/send-money/usa-to-europe",          // 1 / 194
+  "/send-money/usa-to-ghana",           // 2 / 1
+  "/send-money/usa-to-mexico",          // 0 / 76
+  "/swift-codes/ireland",               // 4 / 467
+];
+
+export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_DEMAND_WAVE_1, ...BING_DEMAND_WAVE_2]);
 
 /** Section prefixes whose child pages are hidden from Googlebot. Hubs are not. */
 export const GOOGLE_HIDDEN_PREFIXES: readonly string[] = ["/companies/", "/compare/", "/banks/"];
 
 export const GOOGLE_HIDDEN_ROUTES: ReadonlySet<string> = new Set<string>([
+  // guides — 2026-10-08, round-3 brief §3.1: the three guides that were
+  // noindexed for every engine get the same Google-only exclusion as the rest
+  // (Bing indexes them; guideIsIndexable() admits Google-hidden guides).
+  "/guides/business-payments-australia-to-india",
+  "/guides/business-payments-canada-to-usa",
+  "/guides/large-business-transfers-from-china-cny",
   // cash-out
   "/cash-out/brazil",
   "/cash-out/kenya",

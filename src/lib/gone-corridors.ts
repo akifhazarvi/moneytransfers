@@ -575,67 +575,46 @@ export const GONE_CORRIDOR_SLUGS: ReadonlySet<string> = new Set(
 );
 
 /**
- * Duplicate pair-mates that should 301 to their surviving twin, not 410.
+ * Duplicate pair-mates that 301 to a surviving twin — none, since 2026-10-08.
  *
- * build-corridor-uniqueness.ts has always emitted a `redirectTo` for every
- * surplus corridor — the stronger page on the same currency pair — but nothing
- * ever read it, so all 413 were folded into the 410 set. That contradicts this
- * file's own rule: 410 is for pages with "no sensible live equivalent to
- * redirect to", and a duplicate pair-mate has one by definition. It also
- * discards whatever signal the retired URL held instead of consolidating it.
+ * From 2026-09 every surplus pair-mate 301'd to the stronger page on the same
+ * currency pair (belgium-to-cameroon → austria-to-cameroon, usa-to-germany →
+ * send-money-to-europe). The round-3 freelance brief (§3.2, worksheet 03)
+ * found 78 of these many-to-one — 11 URLs into austria-to-cameroon, 11 into
+ * austria-to-ethiopia, 10 into germany-to-china — and every one a different
+ * country from the one requested: "Google treats such redirects as soft 404s
+ * and does not pass link equity through them. A 301 is acceptable only when
+ * the destination addresses the same query (the same corridor or currency
+ * pair). If there is no equivalent, return 410." A Belgian sender's page is not
+ * an Austrian sender's page, so they are all 410 now (they were already in
+ * GONE_CORRIDOR_SLUGS; this map only ever outranked that).
  *
- * Found via check:ranking, which had /fr/send-money/germany-to-pakistan and
- * /fr/send-money/usa-to-japan failing as "redirect target returns 410" — two
- * URLs the ranking list names, answering 410 while their twins
- * (france-to-pakistan, send-money-to-japan) serve 200.
+ * The /fr/send-money/germany-to-pakistan and /fr/send-money/usa-to-japan
+ * ranking-redirect checks that motivated the map go with it: neither appears
+ * in the 2026-09-20 GSC re-verification (ranking-corridors.ts), and both
+ * redirected into a different corridor.
  *
- * Only targets that actually render are used, so a redirect can never point at
- * another retired page. Anything left over stays in the 410 set above.
- *
- * RETIRED_SLUGS and CURRENCY_PAIR_SLUGS are deliberately NOT here: those have
- * no equivalent twin, which is exactly why they are 410.
+ * Kept as an (empty) export so the middleware's order of checks stays
+ * explicit: a future same-intent consolidation goes here, never a lookalike.
  */
-export const DUPLICATE_CORRIDOR_REDIRECTS: ReadonlyMap<string, string> = new Map(
-  SURPLUS
-    .filter(
-      (s): s is typeof s & { redirectTo: string } =>
-        typeof (s as { redirectTo?: string }).redirectTo === "string" &&
-        !!(s as { redirectTo?: string }).redirectTo,
-    )
-    .filter((s) => !RANKING_CORRIDOR_SLUGS.has(s.slug))
-    // A hand-retired slug stays 410 even if the generator also names it a
-    // duplicate. The 2026-08-31 Eurozone block above decided that deliberately —
-    // "301 reads as 'content moved', which contradicts scaled-content
-    // remediation" — and that decision outranks the generator. Currently a
-    // no-op (zero overlap), asserted so it cannot quietly stop being one.
-    .filter((s) => !RETIRED_SLUGS.has(s.slug))
-    // The target must survive every retirement rule AND still render, or we
-    // would 301 into a 410 or a 404. The tier check mirrors
-    // route-map.corridorPageRenders — asserted here rather than imported,
-    // because route-map imports this module. uae-to-malaysia pointed at
-    // aed-to-myr, which is retired by tier rather than by any of the sets
-    // below, and only the tier check catches it.
-    .filter((s) => {
-      if (
-        RETIRED_SLUGS.has(s.redirectTo) ||
-        DUPLICATE_PAIR_SLUGS.has(s.redirectTo) ||
-        CURRENCY_PAIR_SLUGS.has(s.redirectTo)
-      ) {
-        return false;
-      }
-      const target = CORRIDOR_BY_SLUG.get(s.redirectTo);
-      if (!target) return false;
-      // Outside the page ceiling the target never renders.
-      if (!CORRIDOR_PAGE_ALLOWLIST.has(target.slug)) return false;
-      if (RANKING_CORRIDOR_SLUGS.has(target.slug)) return true;
-      return (
-        getCorridorTier(
-          target.slug,
-          target.fromCurrency,
-          target.toCurrency,
-          target.isCountryPage,
-        ) <= 2
-      );
-    })
-    .map((s) => [s.slug, s.redirectTo] as const),
-);
+export const DUPLICATE_CORRIDOR_REDIRECTS: ReadonlyMap<string, string> = new Map();
+
+/**
+ * Does /send-money/<slug> render? The one answer, shared by route-map (links,
+ * sitemap) and middleware (a retired-locale URL whose English page does not
+ * render answers 410 instead of 301-ing into a 404 — brief §3.2 found
+ * /fr/send-money/hong-kong-to-nigeria doing that). Mirrors generateStaticParams
+ * in src/app/[locale]/send-money/[corridor]/page.tsx. Lives here, not in
+ * route-map, because route-map imports this module and middleware must not
+ * import route-map (it pulls every guide and news body into the edge bundle).
+ */
+export function corridorPageRenders(slug: string | undefined | null): boolean {
+  if (!slug) return false;
+  if (GONE_CORRIDOR_SLUGS.has(slug)) return false;
+  // A ceiling: new scraped routes add quotes, never pages.
+  if (!CORRIDOR_PAGE_ALLOWLIST.has(slug)) return false;
+  const c = CORRIDOR_BY_SLUG.get(slug);
+  if (!c) return false;
+  if (RANKING_CORRIDOR_SLUGS.has(slug)) return true;
+  return getCorridorTier(slug, c.fromCurrency, c.toCurrency, c.isCountryPage) <= 2;
+}

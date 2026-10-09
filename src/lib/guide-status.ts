@@ -23,6 +23,7 @@
 import type { BlogPost } from "@/data/blog-posts";
 import { SITEMAP_GUIDE_SLUGS } from "@/lib/sitemap-allowlists";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
+import { GOOGLE_HIDDEN_ROUTES } from "@/data/search-engine-routes";
 
 /**
  * True when the guide should carry `index, follow` AND appear in sitemap.xml.
@@ -35,6 +36,11 @@ export function guideIsIndexable(post: Pick<BlogPost, "slug" | "contentStatus">)
   // 2026-09-24: the round-2 freelance brief opened these regardless of status
   // (owner decision). See src/data/reviewed-indexable-routes.ts.
   if (REVIEWED_INDEXABLE_ROUTES.has(`/guides/${post.slug}`)) return true;
+  // 2026-10-08, round-3 brief §3.1: a Google-hidden guide is indexable for
+  // Bing (sitemap.xml, `robots: index`) and hidden from Google by
+  // googleIndexable() — robotsFor() gives it `googlebot: noindex` in the meta
+  // and xRobotsTagFor() in the header, never a generic noindex.
+  if (GOOGLE_HIDDEN_ROUTES.has(`/guides/${post.slug}`)) return true;
   switch (post.contentStatus) {
     case "published":
       return true;
