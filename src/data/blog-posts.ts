@@ -12364,16 +12364,14 @@ const rawBlogPosts: BlogPost[] = [
 <p>All major Polish banks support SEPA receiving in both EUR and PLN. For SWIFT transfers (from UK, US, Canada), some banks charge a receiving fee of PLN 20–50. Ask your recipient to check with their bank.</p>`,
       },
       {
-        heading: "SEPA Transfers: Why They Matter for Poland",
-        content: `<p>Poland is a full SEPA member, which makes EUR transfers from EU/EEA countries fast and cheap:</p>
-<h3>SEPA Credit Transfer (Standard)</h3>
-<p>Settles within 1 business day. Fee: typically €0–1 from any EU bank. Available 24/7 for submission, but processing only on business days.</p>
-<h3>SEPA Instant Credit Transfer</h3>
-<p>Settles in <strong>under 10 seconds, 24/7/365</strong>. Most major Polish banks now support SEPA Instant receiving. Maximum €100,000 per transfer. Check if your sending bank supports SEPA Instant — if so, this is the fastest way to get EUR into Poland.</p>
-<h3>UK Senders After Brexit</h3>
-<p>Brexit did not take the UK out of SEPA, but it never applied to złoty anyway: a GBP→PLN transfer from a UK bank goes over SWIFT, which is slower and dearer. For low fees from the UK, use <a href="/companies/wise">Wise</a> or <a href="/companies/revolut">Revolut</a> — they pay out in Poland over local rails, giving you fast delivery and low fees.</p>
-<h3>EUR Account vs PLN Account</h3>
-<p>If your recipient has a EUR account at their Polish bank (most banks offer multi-currency accounts), send EUR directly via SEPA — zero conversion cost. If they only have a PLN account, the bank will convert at their rate. For better rates, send via Wise or Revolut which convert to PLN before depositing.</p>`,
+        heading: "Złoty rails: Elixir, Express Elixir and euro instant from 2027",
+        content: `<p>How fast money lands in Poland depends on the currency it arrives in and the rail that carries it on the Polish side.</p>
+<h3>Zloty: Elixir sessions or Express Elixir</h3>
+<p>Ordinary PLN transfers between Polish banks clear in KIR's Elixir system in three sessions on each working day and not on public holidays, so a payout made after the last session reaches the account the next working day. Express Elixir, run by KIR since June 2012, settles instant PLN transfers around the clock, holidays included, within the limit and fee each bank sets (<a href="https://bank.pl/platnosci-natychmiastowe-express-elixir/" target="_blank" rel="noopener noreferrer">Bank.pl</a>). A provider that pays out over Express Elixir can credit a PLN account on a Sunday; one that uses Elixir cannot.</p>
+<h3>Euros: SEPA, with instant later than in the euro area</h3>
+<p>Poland takes part in SEPA, so a euro transfer from another SEPA country reaches a Polish euro account as a SEPA credit transfer. Because Poland is outside the euro area, the EU Instant Payments Regulation gives its banks until 9 January 2027 to receive instant euro credit transfers and until 9 July 2027 to send them and to run the payee name check, later than the 2025 dates that applied to banks in Germany or Ireland (<a href="https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer">ECB</a>).</p>
+<h3>EUR account or PLN account</h3>
+<p>If your recipient has a euro account at their Polish bank, a euro SEPA transfer arrives without conversion. Into a PLN account, the receiving bank converts at its own rate, so compare that with a provider that converts to złoty before paying out.</p>`,
       },
       {
         heading: "Fees, Exchange Rates, and Tips for Regular Senders",

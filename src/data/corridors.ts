@@ -1761,7 +1761,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Are there limits on how much I can send from Australia to Pakistan?",
-        a: "Transfer limits vary by provider and your verification level. Most providers allow AUD 5,000–30,000 per transaction after full identity verification. Wise allows up to AUD 1,500,000 per transfer for fully verified accounts. Western Union and MoneyGram have lower per-transaction limits but allow frequent transfers. On the Pakistan side, the State Bank of Pakistan does not restrict incoming remittances — there is no cap on how much can be received from abroad. Under Australian regulations, AUSTRAC requires providers to report international transfers of AUD 10,000 or more (or the equivalent in foreign currency). This is a reporting requirement, not a restriction — your transfer will still be processed. For large transfers exceeding AUD 50,000, specialist providers like OFX and XE typically offer better exchange rates, lower fees, and dedicated support compared to standard consumer services.",
+        a: "Transfer limits vary by provider and your verification level. Most providers allow AUD 5,000–30,000 per transaction after full identity verification. Wise allows up to AUD 1,500,000 per transfer for fully verified accounts. Western Union and MoneyGram have lower per-transaction limits but allow frequent transfers. On the Pakistan side, the State Bank of Pakistan does not restrict incoming remittances — there is no cap on how much can be received from abroad. Under Australian rules, the provider reports each international transfer to AUSTRAC as an IFTI regardless of amount, and cash of A$10,000 or more as a threshold transaction; both are reporting requirements, not restrictions. For large transfers exceeding AUD 50,000, specialist providers like OFX and XE typically offer better exchange rates, lower fees, and dedicated support compared to standard consumer services.",
       },
     ],
   },
@@ -4619,9 +4619,9 @@ export const corridors: Corridor[] = [
     toFlag: "🇧🇩",
     sampleAmount: 1000,
     intro:
-      "Australia is home to a Bangladeshi community of around 95,000 people (Australian Bureau of Statistics, 2021 census), and AUD-to-BDT is one of the more active South Asian remittance corridors out of Australia. Choosing the right provider can mean the difference between A$1,000 arriving as roughly BDT 70,000 with a bank wire vs. closer to BDT 73,000–74,000 with a specialist service.",
+      "Australia is home to a Bangladeshi community of around 95,000 people (Australian Bureau of Statistics, 2021 census), and AUD-to-BDT is one of the more active South Asian remittance corridors out of Australia. Most of that community's transfers start as a PayID or Osko payment from an Australian bank and end in a bKash wallet or a Bangladeshi bank account, so the AUD leg is fast and the cost sits in the taka rate.",
     context:
-      "Bangladesh receives upwards of US$22 billion in remittances each year (World Bank annual remittances data), and the Bangladesh Bank applies a 2.5% government cash incentive on inward remittances received through official banking channels — paid by the receiving bank on disbursement. That incentive only applies if the money arrives through a regulated provider, not the informal hundi market, so it's a real reason to stick with a licensed transfer service even when the headline cost looks higher.",
+      "Since 14 May 2025 the taka has traded at a market-based rate, after Bangladesh Bank dropped its crawling peg under its IMF programme, so the BDT each provider quotes follows the market day to day. On top of the transfer, Bangladesh pays a 2.5% government cash incentive on eligible inward remittances received through official channels, credited by the receiving bank or wallet. That incentive only applies if the money arrives through a regulated provider, not the informal hundi market, so it's a real reason to stick with a licensed transfer service even when the headline cost looks higher.",
     feesNote:
       "Most specialist providers on this corridor charge A$0–A$4 per transfer with exchange rate markups under 1%. Australian banks typically charge A$10–A$30 per international wire plus a 2.5–4% markup on the AUD/BDT rate. On a A$1,000 transfer, that bank markup alone can mean BDT 1,500–3,000 less reaching your recipient, which usually outweighs any flat-fee difference.",
     deliveryNote:
@@ -4634,7 +4634,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Can I send to bKash from Australia?",
-        a: "Yes — bKash is the most widely supported delivery method for inbound transfers to Bangladesh. Several Australian-licensed providers offer direct top-up to bKash wallets, with funds typically arriving in minutes. bKash has over 65 million registered accounts and a network of more than 300,000 agent points across Bangladesh where recipients can cash out. Your recipient only needs their bKash-registered mobile number to receive the funds. Nagad (the Bangladesh Post Office's mobile financial service, with 75+ million registered users) is supported by some providers as an alternative.",
+        a: "Yes — bKash is the most widely supported delivery method for inbound transfers to Bangladesh. Several Australian-licensed providers pay bKash wallets directly, with funds typically arriving in minutes; your recipient only needs their bKash-registered mobile number, and cashing out at an agent carries bKash's own charge. Nagad, the Bangladesh Post Office's mobile financial service, is supported by some providers as an alternative.",
       },
       {
         q: "How long does an Australia to Bangladesh transfer take?",
@@ -4646,7 +4646,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "What Australian regulations apply to money transfers to Bangladesh?",
-        a: "All money transfer providers operating in Australia must register with AUSTRAC as remittance service providers under the Anti-Money Laundering and Counter-Terrorism Financing Act 2006. Transfers over A$10,000 (or any pattern of smaller transfers structured to avoid the threshold) are automatically reported to AUSTRAC — this is routine compliance, not a tax. You can still send larger amounts; expect the provider to ask for identity verification and the purpose of the transfer. The AUSTRAC public register lets you confirm any provider's status before sending.",
+        a: "All money transfer providers operating in Australia must register with AUSTRAC as remittance service providers under the Anti-Money Laundering and Counter-Terrorism Financing Act 2006. Your provider reports every international funds transfer instruction to AUSTRAC whatever its size; the A$10,000 threshold applies only to physical cash. This is routine compliance, not a tax. You can still send larger amounts; expect the provider to ask for identity verification and the purpose of the transfer. The AUSTRAC public register lets you confirm any provider's status before sending.",
       },
       {
         q: "What details do I need to send money from Australia to a Bangladeshi bank account?",
