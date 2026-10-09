@@ -1,7 +1,7 @@
 import { seoDescription } from "@/lib/seo-title";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";

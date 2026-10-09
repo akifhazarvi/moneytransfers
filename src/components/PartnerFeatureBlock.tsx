@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import { ArrowRight, Star } from "lucide-react";
 import Container from "@/components/Container";
@@ -86,7 +86,7 @@ export default function PartnerFeatureBlock({ source, variant = "section", quote
     </div>}
     <div className="conversion-spotlight-actions">
       <ProviderLink href={href} provider="taptap-send" source={source} corridor={corridor} className="conversion-button conversion-button--accent">{cta} <ArrowRight size={16} aria-hidden="true" /></ProviderLink>
-      <Link href="/companies/taptap-send" className="conversion-text-link">Read our TapTap Send review</Link>
+      <Link href="/companies/taptap-send" unlinked="hide" className="conversion-text-link">Read our TapTap Send review</Link>
     </div>
     <p className="conversion-disclosure">Sponsored: TapTap Send pays us when you sign up. Payment never moves a provider up our comparison.</p>
   </aside>;

@@ -21,6 +21,7 @@ import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index"
 import { CONSISTENCY_ROWS, CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import ibanStructures from "@/data/scraped/iban-structures.json";
 import { ibanPageRenders } from "@/lib/route-map";
+import { gateBodyLinks, isLinkEligible } from "@/lib/link-eligibility";
 import { computeBusinessFxIndex, BUSINESS_FX_SLUGS, type BusinessFxIndex } from "@/lib/business-fx-index";
 import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
@@ -696,7 +697,8 @@ function linkifyTableProviders(html: string): string {
     if (/href="\/(?:go|out)\//.test(inner)) return match;   // already affiliate-linked
     const text = inner.replace(/<[^>]+>/g, "").trim();
     const slug = LINKABLE.get(text.toLowerCase());
-    if (!slug || !companyPageRenders(slug)) return match;
+    // A review link only where Google may index the review (CLAUDE.md rule 14).
+    if (!slug || !companyPageRenders(slug) || !isLinkEligible(`/companies/${slug}`)) return match;
     if (/<a\b/i.test(inner)) return match;
     return `<td${attrs}><a href="/companies/${slug}">${inner}</a></td>`;
   });
@@ -1116,5 +1118,7 @@ export function renderDataTokens(html: string): string {
   // Last, so it sees tables emitted by the tokens above as well as authored ones.
   out = linkifyTableProviders(out);
 
-  return out;
+  // Every body rendered through here links only to Google-eligible pages and
+  // marks affiliate links nofollow sponsored (CLAUDE.md rule 14).
+  return gateBodyLinks(out);
 }

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 
 export default function AffiliateDisclosure() {
   return (

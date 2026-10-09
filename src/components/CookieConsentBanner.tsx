@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 
 const COOKIE_NAME = "smc_consent";
 const COOKIE_DAYS = 365;

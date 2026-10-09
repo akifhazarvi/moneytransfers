@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
+import { isLinkEligible } from "@/lib/link-eligibility";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -34,6 +35,12 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { fitTitle, seoDescription } from "@/lib/seo-title";
 import { COVERAGE } from "@/lib/site-stats";
 import { robotsFor } from "@/lib/seo-indexing";
+
+
+/** The related corridor page, when it renders and Google may index it (rule 14). */
+function linkableCorridor(slug: string | undefined): boolean {
+  return Boolean(slug) && corridorPageRenders(slug) && isLinkEligible(`/send-money/${slug}`);
+}
 
 export const revalidate = 86400; // 24h — content is editorial, not live
 
@@ -242,12 +249,12 @@ export default async function TravelCountryPage({ params }: Props) {
               Convert to {guide.currencyName} ({guide.currencySymbol} {guide.currency})
             </h2>
             <p className="text-2sm text-[var(--color-on-surface-variant)]">
-              Live mid-market rate. Planning a bigger transfer? <Link href={corridorPageRenders(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"} className="text-[var(--color-primary)] underline">Compare money transfer providers for {guide.countryName}</Link>.
+              Live mid-market rate. Planning a bigger transfer? <Link href={linkableCorridor(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"} className="text-[var(--color-primary)] underline">Compare money transfer providers for {guide.countryName}</Link>.
             </p>
           </div>
           <TravelConverter
             destinationCurrency={guide.currency}
-            corridorHref={corridorPageRenders(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : undefined}
+            corridorHref={linkableCorridor(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : undefined}
             countryName={guide.countryName}
           />
 
@@ -567,7 +574,7 @@ export default async function TravelCountryPage({ params }: Props) {
               Compare live rates across {COVERAGE.providers} in real time. We show you what {guide.currency}{" "}actually lands in the recipient&rsquo;s account — not just the advertised fee.
             </p>
             <Link
-              href={corridorPageRenders(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"}
+              href={linkableCorridor(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"}
               className="inline-flex items-center px-6 py-3 bg-[var(--color-cta)] text-[var(--color-cta-text)] text-md font-medium rounded-full hover:bg-[var(--color-cta-hover)] transition-colors"
             >
               Compare money transfers for {guide.countryName} &rarr;

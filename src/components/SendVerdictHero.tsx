@@ -14,7 +14,7 @@
  */
 
 import { useState, useCallback, useEffect, useRef } from "react";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import CircleFlag from "./CircleFlag";
 import { getProviderName } from "@/data/providers";
 import { getGoUrl } from "@/lib/affiliate";

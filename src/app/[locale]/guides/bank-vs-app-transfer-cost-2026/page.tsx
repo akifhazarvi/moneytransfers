@@ -1,6 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { setRequestLocale } from "next-intl/server";
 import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";

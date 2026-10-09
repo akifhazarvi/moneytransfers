@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { eligibleHref } from "@/lib/link-eligibility";
 import { type ReactNode } from "react";
 
 interface Props {
@@ -9,7 +10,10 @@ interface Props {
   id?: string;
 }
 
-export default function Card({ children, href, className = "", highlight = false, id }: Props) {
+export default function Card({ children, href: rawHref, className = "", highlight = false, id }: Props) {
+  // A card to a page Google may not index renders as a plain card, without
+  // the link or its hover lift (CLAUDE.md rule 14).
+  const href = eligibleHref(rawHref);
   // Cards float on the warm-grey canvas via shadow, not a hard border. The
   // hairline is near-invisible — present when you look, absent when you don't.
   const base =

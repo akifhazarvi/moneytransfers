@@ -23,7 +23,7 @@
  * here when a human has actually reviewed the page.
  */
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { getAuthor } from "@/data/authors";
 import { formatLocalDate } from "@/lib/format-date";
 

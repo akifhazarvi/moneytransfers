@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { ArrowUpRight, BookOpen, GraduationCap, Star, Globe2, Briefcase, BarChart3, Clock3 } from "lucide-react";
 
 /** Keep the listing payload small: article HTML never crosses the client boundary. */

@@ -3,7 +3,7 @@ import { robotsFor } from "@/lib/seo-indexing";
 import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { notFound } from "next/navigation";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
 

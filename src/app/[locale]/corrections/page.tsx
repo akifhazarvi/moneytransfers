@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";

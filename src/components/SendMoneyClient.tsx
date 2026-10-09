@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback, useLayoutEffect } from "react";
 import { rankQuotes, tiedAboveLargerPayout } from "@/lib/rank-quotes";
 import { createPortal } from "react-dom";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { Fragment } from "react";
 import { useTranslations } from "next-intl";
 import { trackCompareSearch, trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
@@ -868,7 +868,7 @@ function SendMoneyContent() {
                     <a
                       href={getGoUrl(q.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: amount, clickref: "comparison" })}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="nofollow sponsored noopener noreferrer"
                       data-pc="1"
                       onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, 0, "comparison")}
                       className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] shadow-sm hover:shadow transition-all"

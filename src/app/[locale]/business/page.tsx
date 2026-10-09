@@ -1,6 +1,6 @@
 import BusinessProviderLogo from "@/components/business/BusinessProviderLogo";
 import { seoDescription } from "@/lib/seo-title";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import InstallSlot from "@/components/pwa/InstallSlot";
 import BusinessBenchmark from "@/components/business/BusinessBenchmark";

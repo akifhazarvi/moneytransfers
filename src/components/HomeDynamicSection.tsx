@@ -196,7 +196,7 @@ export default function HomeDynamicSection() {
                           aria-label={`Continue with ${name}`}
                           href={sendUrl}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="nofollow sponsored noopener noreferrer"
                           data-pc="1"
                           onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, i + 1, "home_live_example")}
                           className={`flex items-center justify-center gap-1.5 w-full min-h-12 text-sm font-bold rounded-full transition-all active:scale-95 ${
@@ -240,7 +240,7 @@ export default function HomeDynamicSection() {
                           aria-label={`Continue with ${name}`}
                           href={sendUrl}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="nofollow sponsored noopener noreferrer"
                           data-pc="1"
                           onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, i + 1, "home_live_example")}
                           className={`inline-flex items-center justify-center gap-1.5 w-full min-h-12 px-3 text-xs font-bold rounded-full transition-all active:scale-95 whitespace-nowrap ${

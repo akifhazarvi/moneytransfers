@@ -1,5 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
+import { eligibleHref, isLinkEligible } from "@/lib/link-eligibility";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
@@ -355,8 +356,10 @@ export default async function SwiftCountryPage({ params }: Props) {
   // was for) and rotate the other three slots through the rest by the current
   // country's own position. Same six links per page, deterministic per country,
   // but the rail now reaches the whole set instead of the same head.
+  // Only countries whose SWIFT page Google may index (CLAUDE.md rule 14),
+  // filtered before the window so the rail keeps its six slots.
   const ranked = allCountries
-    .filter((c) => c.slug !== slug)
+    .filter((c) => c.slug !== slug && isLinkEligible(`/swift-codes/${c.slug}`))
     .sort((a, b) => b.branches.length - a.branches.length);
   const rotatable = ranked;
   const offset = allCountries.findIndex((c) => c.slug === slug);
@@ -366,7 +369,7 @@ export default async function SwiftCountryPage({ params }: Props) {
   // sitemap" — so ask route-map what still renders rather than shipping a link
   // into a 410.
   const swiftCorridorLinks = (swiftCorridors[slug] ?? []).filter((c) =>
-    corridorPageRenders(c.href.replace("/send-money/", "")),
+    corridorPageRenders(c.href.replace("/send-money/", "")) && isLinkEligible(c.href),
   );
 
   // No fixed anchors: the three largest networks headed every page's rail,
@@ -641,7 +644,7 @@ export default async function SwiftCountryPage({ params }: Props) {
           </Card>
 
           {/* Related countries */}
-          <Card>
+          {related.length > 0 && <Card>
             <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
               {t("otherCountries")}
             </h3>
@@ -662,7 +665,7 @@ export default async function SwiftCountryPage({ params }: Props) {
                 </Link>
               ))}
             </div>
-          </Card>
+          </Card>}
 
           {/* Popular money transfers */}
           {swiftCorridorLinks.length > 0 && (
@@ -707,12 +710,15 @@ export default async function SwiftCountryPage({ params }: Props) {
                   : t("ibanDescription", { country: country.name });
               })()}
             </p>
-            <Link
-              href={ibanPageRenders(swiftToIbanSlug[slug]) ? `/iban/${swiftToIbanSlug[slug]}` : "/iban"}
-              className="text-2sm text-[var(--color-primary)] hover:underline"
-            >
-              {ibanPageRenders(swiftToIbanSlug[slug]) ? `${country.name} IBAN format` : t("findIbanFormats")} &rarr;
-            </Link>
+            {(() => {
+              // The country's IBAN page where Google may index it, else the hub.
+              const ibanHref = ibanPageRenders(swiftToIbanSlug[slug]) ? eligibleHref(`/iban/${swiftToIbanSlug[slug]}`) : null;
+              return (
+                <Link href={ibanHref ?? "/iban"} className="text-2sm text-[var(--color-primary)] hover:underline">
+                  {ibanHref ? `${country.name} IBAN format` : t("findIbanFormats")} &rarr;
+                </Link>
+              );
+            })()}
           </Card>
         </div>
       </div>

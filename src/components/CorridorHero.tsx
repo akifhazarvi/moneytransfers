@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { ArrowRight, Sparkles } from "lucide-react";
 import CircleFlag from "@/components/CircleFlag";
 import LiveTimestamp from "@/components/LiveTimestamp";
@@ -211,7 +211,7 @@ export default function CorridorHero({
                 <a
                   href={getGoUrl(best.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: sampleAmount, clickref: "corridor_hero" })}
                   target="_blank"
-                  rel="noopener noreferrer sponsored"
+                  rel="nofollow sponsored noopener noreferrer"
                   data-pc="1"
                   onClick={() => trackProviderClicked(best.providerSlug, `${fromCurrency}-${toCurrency}`, 1, "corridor_hero")}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-success-dark)] py-3 text-sm font-semibold text-white shadow-[var(--shadow-success)] hover:bg-[var(--color-success-hover)] hover:shadow-[var(--shadow-success-lg)] active:scale-[0.99] transition-all"

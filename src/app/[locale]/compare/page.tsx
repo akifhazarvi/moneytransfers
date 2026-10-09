@@ -1,5 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import Image from "next/image";
 import { providers } from "@/data/providers";

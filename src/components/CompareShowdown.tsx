@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { Trophy, ArrowRight } from "lucide-react";
 import { providers, type Provider, type TransferQuote } from "@/data/providers";
 import { fetchQuotes } from "@/lib/fetch-quotes";

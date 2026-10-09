@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import { ArrowRight, ChevronDown, Star } from "lucide-react";
 import { providers, getProviderName, type TransferQuote } from "@/data/providers";
@@ -58,7 +58,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
       {provider?.paymentMethods.length ? <p><strong>Pay with:</strong> {provider.paymentMethods.join(" · ")}</p> : null}
       {quote.promoNote && <p>{quote.promoNote}</p>}
       {providerInsight && sparklineData && <ProviderRateInsightLine insight={providerInsight} sparklineData={sparklineData} toCurrency={quote.receiveCurrency} />}
-      {companyPageRenders(quote.providerSlug) && <Link href={`/companies/${quote.providerSlug}`} className="conversion-text-link">Read our {name} review <ArrowRight size={14} aria-hidden="true" /></Link>}
+      {companyPageRenders(quote.providerSlug) && <Link href={`/companies/${quote.providerSlug}`} unlinked="hide" className="conversion-text-link">Read our {name} review <ArrowRight size={14} aria-hidden="true" /></Link>}
     </div>
   );
 

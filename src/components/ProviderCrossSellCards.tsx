@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import ProviderLink from "@/components/ProviderLink";
 import { getGoUrl } from "@/lib/affiliate";
@@ -83,7 +83,7 @@ export default function ProviderCrossSellCards({ partners, source, placement, in
               {/* Not on the page-end module: that one closes 118+ pages, and
                   three identical review links were most of its words. */}
               {placement !== "page-end" && (
-              <Link className="partner-review" href={`/companies/${partner.slug}`} onClick={() => trackCrossSellNavigation("review", source, placement, partner.slug, corridor)}>
+              <Link className="partner-review" unlinked="hide" href={`/companies/${partner.slug}`} onClick={() => trackCrossSellNavigation("review", source, placement, partner.slug, corridor)}>
                 Read {partner.name} review <ArrowRight size={14} aria-hidden="true" />
               </Link>
               )}

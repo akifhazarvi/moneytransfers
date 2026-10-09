@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import { getTranslations } from "next-intl/server";
 

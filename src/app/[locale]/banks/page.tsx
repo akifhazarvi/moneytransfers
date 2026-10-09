@@ -7,7 +7,7 @@
 import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import Breadcrumb from "@/components/Breadcrumb";

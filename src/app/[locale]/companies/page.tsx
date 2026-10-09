@@ -1,5 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import { listableProviders } from "@/data/providers";
 import Container from "@/components/Container";

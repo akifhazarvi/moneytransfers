@@ -16,7 +16,7 @@
 import Image from "next/image";
 import { robotsFor } from "@/lib/seo-indexing";
 import { getDataUpdatedISO, getDataUpdatedInstant } from "@/lib/data-freshness";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { notFound } from "next/navigation";
 import { ArrowRight, AlertCircle, TrendingDown } from "lucide-react";
 import Container from "@/components/Container";

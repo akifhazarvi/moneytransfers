@@ -164,7 +164,7 @@ export default function GuidePageNudge({ from, to, amount, slug, only }: Props) 
             <a
               href={sendUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow sponsored noopener noreferrer"
               data-pc="1"
               onClick={() => {
                 trackProviderClicked(best.providerSlug, corridor, 1, `guide_nudge`);

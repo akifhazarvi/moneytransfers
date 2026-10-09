@@ -1,6 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import type { Metadata } from "next";
 import Container from "@/components/Container";
 import { Sparkline } from "@/components/RateInsight";

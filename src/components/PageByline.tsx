@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { authors } from "@/data/authors";
 
 /**

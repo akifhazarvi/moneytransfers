@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { robotsFor, bingIndexable } from "@/lib/seo-indexing";
 import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
 import { quoteFreshness } from "@/lib/quote-freshness";
@@ -82,6 +82,7 @@ import { SITE_STATS } from "@/lib/site-stats";
 import { formatLocalDate } from "@/lib/format-date";
 import { getCorridorEditorial } from "@/data/corridor-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
+import { compareHashHref, eligibleHref, isLinkEligible } from "@/lib/link-eligibility";
 
 // Resolve data tokens, then flatten to plain text for JSON-LD values.
 const plainTokens = (text: string): string =>
@@ -91,6 +92,13 @@ const plainTokens = (text: string): string =>
 // takes a different window of the same ordered list. Slicing the head instead
 // gives every page the identical five links and starves the tail of the list
 // of inbound links entirely.
+/** A corridor page this template may link: it renders and Google may index it
+ *  (CLAUDE.md rule 14). Rails filter on it before slicing, so they fill with
+ *  linkable routes instead of losing their slots to unlinked text. */
+function linkableCorridor(slug: string): boolean {
+  return corridorPageRenders(slug) && isLinkEligible(`/send-money/${slug}`);
+}
+
 function rotate<T>(list: readonly T[], seed: string): T[] {
   if (list.length === 0) return [];
   let h = 0;
@@ -1333,7 +1341,7 @@ export default async function CorridorPage({ params }: Props) {
         c.fromCountry !== corridor.fromCountry &&
         !c.isCurrencyCorridor &&
         !c.isCountryPage &&
-        corridorPageRenders(c.slug),
+        linkableCorridor(c.slug),
     )
     .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)));
 
@@ -1590,7 +1598,7 @@ export default async function CorridorPage({ params }: Props) {
                     >
                       Send with {getProviderName(r.best.providerSlug)}
                     </ProviderLink>
-                    <Link href={`/send-money/${r.routes[0].slug}`} className="text-sm text-[var(--color-primary)] hover:underline whitespace-nowrap">
+                    <Link href={`/send-money/${r.routes[0].slug}`} fallbackHref={compareHashHref(r.from, toCurrency, r.amount)} className="text-sm text-[var(--color-primary)] hover:underline whitespace-nowrap">
                       All {r.count} →
                     </Link>
                   </div>
@@ -1991,7 +1999,7 @@ export default async function CorridorPage({ params }: Props) {
 
               {providers.find((p) => p.slug === best.providerSlug) && (
                 <div className="flex gap-3">
-                  <PrimaryButton href={companyPageRenders(best.providerSlug) ? `/companies/${best.providerSlug}` : "/companies"} size="sm">
+                  <PrimaryButton href={`/companies/${best.providerSlug}`} size="sm">
                     Read full review
                   </PrimaryButton>
                   <ProviderLink
@@ -2063,7 +2071,7 @@ export default async function CorridorPage({ params }: Props) {
                     {rateInsight.providerConsistency.summary}
                   </p>
                 )}
-                {corridorRelatedNews[slug] && (
+                {corridorRelatedNews[slug] && isLinkEligible(`/news/${corridorRelatedNews[slug].slug}`) && (
                   <div className="pt-3 border-t border-[var(--color-outline)]">
                     <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
                       In the news
@@ -2164,7 +2172,7 @@ export default async function CorridorPage({ params }: Props) {
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
                 Before sending from {corridor.fromCountry}, confirm these details with your recipient in {corridor.toCountry}: {countryDetails.recipientRequirements.filter((req) => req.required).map((req) => req.label).join(", ")}.
               </p>
-              <Link href={`/send-money/${destinationHubSlug}`} className="text-sm text-[var(--color-primary)] underline">Receiving requirements and examples for {corridor.toCountry}</Link>
+              <Link href={`/send-money/${destinationHubSlug}`} unlinked="hide" className="text-sm text-[var(--color-primary)] underline">Receiving requirements and examples for {corridor.toCountry}</Link>
             </div>
           </Container>
         </section>
@@ -2725,9 +2733,9 @@ export default async function CorridorPage({ params }: Props) {
             {/* /exchange-rates/history/[pair] sets dynamicParams=false and keeps a
                 small allowlist, so this link only exists for pairs that render —
                 it was unconditional, producing 620 links to 404s. */}
-            <div className="mt-4" hidden={!rateHistoryHref(`${fromCurrency.toLowerCase()}-to-${toCurrency.toLowerCase()}`)}>
+            <div className="mt-4" hidden={!eligibleHref(rateHistoryHref(`${fromCurrency.toLowerCase()}-to-${toCurrency.toLowerCase()}`))}>
               <Link
-                href={rateHistoryHref(`${fromCurrency.toLowerCase()}-to-${toCurrency.toLowerCase()}`) ?? "/exchange-rates/history"}
+                href={eligibleHref(rateHistoryHref(`${fromCurrency.toLowerCase()}-to-${toCurrency.toLowerCase()}`)) ?? "/exchange-rates/history"}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-primary)] hover:underline"
               >
                 See full {fromCurrency}/{toCurrency} rate history and charts
@@ -2874,7 +2882,7 @@ export default async function CorridorPage({ params }: Props) {
           // generateStaticParams and the route sets dynamicParams=false, so
           // linking one is a link to a 404. This rail alone accounted for a
           // large share of the 2,100 corridor→404 links found on 2026-09-02.
-          .filter((c) => corridorPageRenders(c.slug))
+          .filter((c) => linkableCorridor(c.slug))
           .slice(0, 8);
         if (relatedCorridors.length === 0) return null;
         return (
@@ -2915,7 +2923,7 @@ export default async function CorridorPage({ params }: Props) {
           .replace(/[^a-z0-9-]/g, "");
         const countryPageSlug = `send-money-to-${countrySlug}`;
         // Defined in the corridor data is not the same as prerendered.
-        if (!corridorPageRenders(countryPageSlug)) return null;
+        if (!linkableCorridor(countryPageSlug)) return null;
         return (
           <section className="py-6 bg-[var(--color-primary-surface)] border-t border-[var(--color-outline)]">
             <Container>
@@ -2957,7 +2965,7 @@ export default async function CorridorPage({ params }: Props) {
             // sender even though both use EUR. The label would otherwise lie.
             links: allCorridors
               .filter((c) => c.fromCountry === corridor.fromCountry && c.toCountry !== corridor.toCountry && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
-              .filter((c) => corridorPageRenders(c.slug))
+              .filter((c) => linkableCorridor(c.slug))
               .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)))
               .slice(0, 5)
               .map((c) => ({
@@ -2971,7 +2979,7 @@ export default async function CorridorPage({ params }: Props) {
             // as "France → Belgium" would be misleading even though both use EUR.
             links: allCorridors
               .filter((c) => c.toCountry === corridor.toCountry && c.fromCountry !== corridor.fromCountry && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
-              .filter((c) => corridorPageRenders(c.slug))
+              .filter((c) => linkableCorridor(c.slug))
               .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)))
               .slice(0, 5)
               .map((c) => ({
@@ -3006,9 +3014,9 @@ export default async function CorridorPage({ params }: Props) {
                   .map((c) => {
                     const seoSlug = getCorridorSlug(c.from, c.to);
                     return {
-                      href: seoSlug && corridorPageRenders(seoSlug)
+                      href: seoSlug && linkableCorridor(seoSlug)
                         ? `/send-money/${seoSlug}`
-                        : `/send-money#from=${c.from}&to=${c.to}`,
+                        : compareHashHref(c.from, c.to),
                       label: c.label,
                     };
                   })),

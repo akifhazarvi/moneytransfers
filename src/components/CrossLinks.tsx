@@ -1,5 +1,6 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
+import { isLinkEligible } from "@/lib/link-eligibility";
 
 interface LinkItem {
   href: string;
@@ -16,7 +17,12 @@ interface CrossLinksProps {
   background?: "white" | "dim";
 }
 
-export default function CrossLinks({ sections, background = "dim" }: CrossLinksProps) {
+export default function CrossLinks({ sections: allSections, background = "dim" }: CrossLinksProps) {
+  // Navigation only: a link to a page Google may not index is dropped, not
+  // shown as dead text, and a section left empty goes with it (rule 14).
+  const sections = allSections
+    .map((section) => ({ ...section, links: section.links.filter((link) => isLinkEligible(link.href)) }))
+    .filter((section) => section.links.length > 0);
   if (sections.length === 0) return null;
 
   const bg =

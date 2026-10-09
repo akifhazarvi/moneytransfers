@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import type { BusinessFxIndex } from "@/lib/business-fx-index";
 export default function BusinessBenchmark({ index }: { index: BusinessFxIndex }) {
   const max = Math.max(index.bankAvgCostPct, index.specialistAvgCostPct, .01);

@@ -1,6 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
 import Badge from "@/components/Badge";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { getLatestNews, newsItems } from "@/data/news";

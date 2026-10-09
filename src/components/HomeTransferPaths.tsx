@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { ArrowUpRight, Building2, Landmark, BookOpen } from "lucide-react";
 
 export default function HomeTransferPaths() {

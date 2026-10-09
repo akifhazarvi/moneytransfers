@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { seoDescription } from "@/lib/seo-title";

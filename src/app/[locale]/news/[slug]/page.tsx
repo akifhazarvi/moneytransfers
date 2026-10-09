@@ -1,6 +1,6 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { newsItems, getNewsItem } from "@/data/news";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";

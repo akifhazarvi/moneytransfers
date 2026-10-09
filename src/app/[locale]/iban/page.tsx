@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { robotsFor } from "@/lib/seo-indexing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";

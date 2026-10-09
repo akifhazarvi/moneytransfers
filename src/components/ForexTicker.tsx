@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 
 // Inline fallback rates (approx mid-market, USD base) shown for a few ms
 // until /api/exchange-rates returns. Avoids bundling the full scraped JSON.

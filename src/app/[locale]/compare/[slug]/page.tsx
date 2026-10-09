@@ -1,5 +1,5 @@
 import { comparisonDecisionNotes } from "@/data/comparison-decision-notes";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { robotsFor } from "@/lib/seo-indexing";
 import { postalAddress } from "@/lib/postal-address";
 import { quoteDataDate } from "@/lib/unified-quotes";
@@ -28,6 +28,7 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { getCompareEditorial } from "@/data/compare-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
+import { isLinkEligible } from "@/lib/link-eligibility";
 
 
 interface Props {
@@ -394,7 +395,7 @@ function DefaultComparison({
                     line: the feature table below carries those, and the card
                     copy repeated them on every comparison of the provider. */}
                 <div className="flex gap-3">
-                  <Link href={`/companies/${provider.slug}`} className="text-2sm text-[var(--color-primary)] font-medium hover:underline">
+                  <Link href={`/companies/${provider.slug}`} unlinked="hide" className="text-2sm text-[var(--color-primary)] font-medium hover:underline">
                     Full review
                   </Link>
                   <ProviderLink
@@ -522,8 +523,8 @@ function DefaultComparison({
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{decisionNote.check}</p>
               <p className="mt-4 text-sm"><a href={decisionNote.source} target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">Provider receiving and transfer information</a></p>
               <div className="flex gap-4 mt-4 text-sm">
-                <Link href={`/companies/${a.slug}`} className="text-[var(--color-primary)] hover:underline">{a.name} fees and features</Link>
-                <Link href={`/companies/${b.slug}`} className="text-[var(--color-primary)] hover:underline">{b.name} fees and features</Link>
+                <Link href={`/companies/${a.slug}`} unlinked="hide" className="text-[var(--color-primary)] hover:underline">{a.name} fees and features</Link>
+                <Link href={`/companies/${b.slug}`} unlinked="hide" className="text-[var(--color-primary)] hover:underline">{b.name} fees and features</Link>
               </div>
             </section>
           )}
@@ -769,6 +770,7 @@ function DefaultComparison({
                   </div>
                 </div>
                 <div className="flex gap-2">
+                  {isLinkEligible(`/companies/${provider.slug}`) && <>
                   <Link
                     href={`/companies/${provider.slug}`}
                     className="text-xs text-[var(--color-primary)] font-medium hover:underline"
@@ -776,6 +778,7 @@ function DefaultComparison({
                     Full review
                   </Link>
                   <span className="text-[var(--color-outline)]">|</span>
+                  </>}
                   <ProviderLink
                     href={getGoUrl(provider.slug)}
                     provider={provider.slug}
@@ -799,7 +802,7 @@ function DefaultComparison({
             <Card className="!p-4">
               <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Related comparisons</h3>
               <ul className="space-y-2">
-                {relatedComparisons.slice(0, 3).map((rc) => (
+                {relatedComparisons.filter((rc) => isLinkEligible(`/compare/${rc.slug}`)).slice(0, 3).map((rc) => (
                   <li key={rc.slug}>
                     <Link href={`/compare/${rc.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
                       {rc.label}

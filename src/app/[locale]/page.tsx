@@ -1,7 +1,8 @@
 import HomeTransferPaths from "@/components/HomeTransferPaths";
 import "@/app/home.css";
 import InstallSlot from "@/components/pwa/InstallSlot";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
+import { compareHashHref } from "@/lib/link-eligibility";
 import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
@@ -98,17 +99,19 @@ const featuredProviders = featuredProviderSlugs
 // All ten are now head-term corridors from HEAD_CORRIDOR_SLUGS: high commercial
 // intent, indexable, and already in the sitemap, so the homepage link and the
 // sitemap entry finally point the same way. See project_home_links_audit_may21.
-const TOP_CORRIDORS: { slug: string; label: string; flag: string }[] = [
-  { slug: "usa-to-india", label: "USA → India", flag: "🇮🇳" },
-  { slug: "usa-to-mexico", label: "USA → Mexico", flag: "🇲🇽" },
-  { slug: "usa-to-philippines", label: "USA → Philippines", flag: "🇵🇭" },
-  { slug: "usa-to-pakistan", label: "USA → Pakistan", flag: "🇵🇰" },
-  { slug: "uk-to-india", label: "UK → India", flag: "🇮🇳" },
-  { slug: "uk-to-pakistan", label: "UK → Pakistan", flag: "🇵🇰" },
-  { slug: "uk-to-nigeria", label: "UK → Nigeria", flag: "🇳🇬" },
-  { slug: "uae-to-india", label: "UAE → India", flag: "🇮🇳" },
-  { slug: "uae-to-pakistan", label: "UAE → Pakistan", flag: "🇵🇰" },
-  { slug: "saudi-arabia-to-india", label: "Saudi Arabia → India", flag: "🇮🇳" },
+// from/to: where a route's page is not Google-eligible, its pill opens the
+// comparison for the pair instead (CLAUDE.md rule 14).
+const TOP_CORRIDORS: { slug: string; label: string; flag: string; from: string; to: string }[] = [
+  { slug: "usa-to-india", label: "USA → India", flag: "🇮🇳", from: "USD", to: "INR" },
+  { slug: "usa-to-mexico", label: "USA → Mexico", flag: "🇲🇽", from: "USD", to: "MXN" },
+  { slug: "usa-to-philippines", label: "USA → Philippines", flag: "🇵🇭", from: "USD", to: "PHP" },
+  { slug: "usa-to-pakistan", label: "USA → Pakistan", flag: "🇵🇰", from: "USD", to: "PKR" },
+  { slug: "uk-to-india", label: "UK → India", flag: "🇮🇳", from: "GBP", to: "INR" },
+  { slug: "uk-to-pakistan", label: "UK → Pakistan", flag: "🇵🇰", from: "GBP", to: "PKR" },
+  { slug: "uk-to-nigeria", label: "UK → Nigeria", flag: "🇳🇬", from: "GBP", to: "NGN" },
+  { slug: "uae-to-india", label: "UAE → India", flag: "🇮🇳", from: "AED", to: "INR" },
+  { slug: "uae-to-pakistan", label: "UAE → Pakistan", flag: "🇵🇰", from: "AED", to: "PKR" },
+  { slug: "saudi-arabia-to-india", label: "Saudi Arabia → India", flag: "🇮🇳", from: "SAR", to: "INR" },
 ];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -542,10 +545,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5 max-w-5xl mx-auto">
-              {TOP_CORRIDORS.map(({ slug, label, flag }) => (
+              {TOP_CORRIDORS.map(({ slug, label, flag, from, to }) => (
                 <Link
                   key={slug}
                   href={`/send-money/${slug}`}
+                  fallbackHref={compareHashHref(from, to)}
                   className="text-2sm sm:text-sm px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-full bg-[var(--color-surface)] shadow-[var(--shadow-xs)] text-[var(--color-on-surface)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 hover:text-[var(--color-primary)] transition-all text-center truncate"
                 >
                   <span className="mr-1.5" aria-hidden="true">{flag}</span>{label}

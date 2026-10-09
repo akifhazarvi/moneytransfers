@@ -3,7 +3,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import CurrencyConverterClient from "@/components/CurrencyConverterClient";
 import { currencies, exchangeRates } from "@/data/providers";

@@ -1,5 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck } from "lucide-react";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
@@ -232,36 +232,12 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         </p>
       </div>
 
-      {/* Cross-links */}
-      <div className="mt-12 pt-8">
-        <div className="grid sm:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkTools")}</h3>
-            <ul className="space-y-2">
-              <li><Link href="/send-money" className="text-sm text-[var(--color-primary)] hover:underline">{t("compareRatesCalculator")}</Link></li>
-              <li><Link href="/compare" className="text-sm text-[var(--color-primary)] hover:underline">{t("headToHeadComparisons")}</Link></li>
-              <li><Link href="/guides/bank-vs-app-transfer-cost-2026" className="text-sm text-[var(--color-primary)] hover:underline">Bank vs App Cost Index</Link></li>
-              <li><Link href="/remittance-cost-index" className="text-sm text-[var(--color-primary)] hover:underline">Remittance Cost Index</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkTopProviders")}</h3>
-            <ul className="space-y-2">
-              <li><Link href="/companies/wise" className="text-sm text-[var(--color-primary)] hover:underline">{t("wiseReview")}</Link></li>
-              <li><Link href="/companies/remitly" className="text-sm text-[var(--color-primary)] hover:underline">{t("remitlyReview")}</Link></li>
-              <li><Link href="/companies" className="text-sm text-[var(--color-primary)] hover:underline">{t("allProviderReviews")}</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkPopularCorridors")}</h3>
-            <ul className="space-y-2">
-              <li><Link href="/send-money/usa-to-india" className="text-sm text-[var(--color-primary)] hover:underline">{t("usaToIndia")}</Link></li>
-              <li><Link href="/send-money/usa-to-pakistan" className="text-sm text-[var(--color-primary)] hover:underline">{t("usaToPakistan")}</Link></li>
-              <li><Link href="/send-money/usa-to-philippines" className="text-sm text-[var(--color-primary)] hover:underline">{t("usaToPhilippines")}</Link></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      {/* The "Cross-links" block that closed this page (tools, top provider
+          reviews, three popular corridors) was removed 2026-10-08 (round-3
+          brief §5.1): /send-money, /compare and /companies are in the header,
+          the bank-vs-app index is in the featured grid above, and the two
+          reviews are Bing-only pages a link may not point at (rule 14). The
+          hub's job is the guide index; it keeps the links to its children. */}
     </Container>
     </>
   );

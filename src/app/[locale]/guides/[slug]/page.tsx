@@ -2,7 +2,8 @@ import InstallSlot from "@/components/pwa/InstallSlot";
 import { notFound } from "next/navigation";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { robotsFor } from "@/lib/seo-indexing";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
+import { isLinkEligible } from "@/lib/link-eligibility";
 import Image from "next/image";
 import Container from "@/components/Container";
 import GuideContents from "@/components/GuideContents";
@@ -89,7 +90,9 @@ function getExploreLinks(tags: string[], category: string): { href: string; labe
     const words = tag.toLowerCase().split(/[\s,/-]+/);
     for (const word of words) {
       const match = TAG_CORRIDOR_MAP[word];
-      if (match && !seen.has(match.href)) {
+      // Only pages Google may index (CLAUDE.md rule 14), checked before the
+      // slot is taken so an unlinkable route does not use one of the five.
+      if (match && !seen.has(match.href) && isLinkEligible(match.href)) {
         dynamic.push(match);
         seen.add(match.href);
       }

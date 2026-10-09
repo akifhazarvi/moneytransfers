@@ -1,5 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 

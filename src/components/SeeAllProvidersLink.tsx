@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { trackSeeAllProviders, trackSeeAllProvidersHeader } from "@/lib/analytics";
 
 interface Props {

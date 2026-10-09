@@ -10,7 +10,7 @@
  * `computeSendScore`, not here.
  */
 
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 
 import type { SendScore, SendScoreBand } from "@/lib/send-score";
 import type { ProviderConsistency } from "@/lib/provider-consistency";

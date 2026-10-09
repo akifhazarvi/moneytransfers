@@ -1,6 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { setRequestLocale } from "next-intl/server";
 import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
@@ -952,7 +952,7 @@ export default async function BestAppsFromUSPage({
               <ul className="space-y-2">
                 {TOP_PICKS.slice(0, 5).map((p) => (
                   <li key={p.slug}>
-                    <Link href={`/companies/${p.slug}`} className="text-sm text-[var(--color-primary)] hover:underline">
+                    <Link href={`/companies/${p.slug}`} unlinked="hide" className="text-sm text-[var(--color-primary)] hover:underline">
                       {p.name} review →
                     </Link>
                   </li>

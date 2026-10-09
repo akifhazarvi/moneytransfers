@@ -9,7 +9,7 @@
  */
 import type { Metadata } from "next";
 import { robotsFor } from "@/lib/seo-indexing";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";

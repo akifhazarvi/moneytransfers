@@ -57,3 +57,45 @@ export function unlinkIneligible(html: string): string {
     isLinkEligible(href) ? whole : inner,
   );
 }
+
+/**
+ * The comparison for a currency pair — the eligible stand-in for a corridor
+ * page Google may not index (the reader still lands on that route's quotes).
+ * A hash, not a query: route selections stay out of crawlable URLs.
+ */
+export function compareHashHref(from?: string | null, to?: string | null, amount?: number | null): string {
+  if (!from || !to) return "/send-money";
+  return `/send-money#from=${from}&to=${to}${amount ? `&amount=${amount}` : ""}`;
+}
+
+/** True for an affiliate redirect (/go/…, /out/…), relative or absolute. */
+export function isAffiliateHref(href: string | null | undefined): boolean {
+  return Boolean(href && /^(https:\/\/sendmoneycompare\.com)?\/(go|out)\//.test(href.trim()));
+}
+
+/**
+ * The rel an affiliate link carries (round-3 brief §5.4): always
+ * `nofollow sponsored noopener`, plus `noreferrer` when the link already had
+ * it. Pass the rel the call site would otherwise have used.
+ */
+export function affiliateRel(existing = ""): string {
+  const had = new Set(existing.split(/\s+/).filter(Boolean));
+  return ["nofollow", "sponsored", "noopener", ...(had.has("noreferrer") ? ["noreferrer"] : [])].join(" ");
+}
+
+/**
+ * The link pass every rendered HTML body goes through (renderDataTokens and
+ * sanitizeHtml both end with it): ineligible internal anchors become their
+ * text, and every /go/ or /out/ anchor gets the affiliate rel. Idempotent.
+ */
+export function gateBodyLinks(html: string): string {
+  if (!html.includes("<a")) return html;
+  return unlinkIneligible(html).replace(/<a\b([^>]*)>/gi, (whole, attrs: string) => {
+    const href = attrs.match(/\bhref=(["'])(.*?)\1/i)?.[2];
+    if (!isAffiliateHref(href)) return whole;
+    const relMatch = attrs.match(/\srel=(["'])(.*?)\1/i);
+    const rel = affiliateRel(relMatch?.[2] ?? "");
+    const rest = relMatch ? attrs.replace(relMatch[0], "") : attrs;
+    return `<a${rest} rel="${rel}">`;
+  });
+}

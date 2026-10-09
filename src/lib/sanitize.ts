@@ -1,4 +1,5 @@
 import { formatEditorialTables } from "./editorial-tables";
+import { gateBodyLinks } from "./link-eligibility";
 
 /**
  * Sanitizes HTML content to prevent XSS.
@@ -18,5 +19,7 @@ export function sanitizeHtml(html: string): string {
     // Remove javascript: and data: URIs
     .replace(/href\s*=\s*["']?\s*javascript:[^"'\s>]*/gi, 'href="#"')
     .replace(/src\s*=\s*["']?\s*data:[^"'\s>]*/gi, "");
-  return formatEditorialTables(clean);
+  // Internal links only to Google-eligible pages; affiliate links nofollow
+  // sponsored (CLAUDE.md rule 14).
+  return gateBodyLinks(formatEditorialTables(clean));
 }

@@ -1,7 +1,7 @@
 import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import LiveRatesBoard from "./LiveRatesBoard";
 import { KEPT_RATE_PAIR_SLUGS } from "@/lib/gone-rate-pairs";
 import TodayRates from "./TodayRates";

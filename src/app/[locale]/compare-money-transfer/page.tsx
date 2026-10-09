@@ -13,7 +13,7 @@
  */
 
 import { seoDescription } from "@/lib/seo-title";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Star } from "lucide-react";
@@ -486,7 +486,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                     <strong>Why:</strong> {item.why}
                   </p>
                   <div className="flex gap-2">
-                    <Link href={`/companies/${provider.slug}`} className="text-2sm font-medium text-[var(--color-primary)] hover:underline">
+                    <Link href={`/companies/${provider.slug}`} unlinked="hide" className="text-2sm font-medium text-[var(--color-primary)] hover:underline">
                       Read {provider.name} review →
                     </Link>
                   </div>

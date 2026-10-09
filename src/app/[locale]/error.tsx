@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
 

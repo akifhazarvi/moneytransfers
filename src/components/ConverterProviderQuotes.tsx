@@ -159,7 +159,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
               <a
                 href={href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow sponsored noopener noreferrer"
                 onClick={() => trackConverterProviderClicked(q.providerSlug, corridor, i + 1)}
                 className={`shrink-0 inline-flex items-center gap-1.5 h-9 px-4 text-2sm font-semibold rounded-full transition-all shadow-sm hover:shadow ${
                   isBest

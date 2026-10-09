@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { getGlobalBeatsMidMarket, cryptoRailCorridors, isBitcoinRail } from "@/lib/crypto-rails";
 import { cashoutSlugForCurrency } from "@/data/cashout-countries";
 

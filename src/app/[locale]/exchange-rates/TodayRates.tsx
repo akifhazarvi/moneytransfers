@@ -8,7 +8,7 @@
  * crawlers and Bing index every rate.
  */
 
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import CircleFlag from "@/components/CircleFlag";
 import RateSparkline from "@/components/RateSparkline";
 import { getPairRate, formatRate, getHistoryCurrencies } from "@/lib/exchange-rates-today";

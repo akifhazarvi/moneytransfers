@@ -5,7 +5,7 @@ import GuideContents, { type GuideSection } from "@/components/GuideContents";
 import GuideReadingProgress from "@/components/GuideReadingProgress";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { getPartnerQuote, DEFAULT_PARTNER_CORRIDOR } from "@/lib/partner-quote";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { ArrowLeft } from "lucide-react";
 
 function headingText(node: ReactNode): string {

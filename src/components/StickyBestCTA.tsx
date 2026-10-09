@@ -124,7 +124,7 @@ export default function StickyBestCTA({
           <a
             href={providerUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow sponsored noopener noreferrer"
             onClick={onClick}
             className="inline-flex items-center gap-1.5 bg-[var(--color-success-dark)] hover:bg-[var(--color-success-hover)] text-white text-xs sm:text-sm font-semibold h-10 sm:h-11 px-3 sm:px-5 rounded-full shadow-sm transition-colors shrink-0 whitespace-nowrap"
           >

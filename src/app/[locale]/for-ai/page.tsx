@@ -5,7 +5,7 @@
 // Internal app-router pages still use <Link>.
 import { DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import { providers, currencies, listableProviders } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";

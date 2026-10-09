@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { ArrowRight } from "lucide-react";
 import ProviderLink from "@/components/ProviderLink";
 import ConversionImpression from "@/components/ConversionImpression";
@@ -200,7 +200,7 @@ export default function SavingsCalculator({
           >
             {partner ? `Send ${fmtSend(priced.amount, from)} with TapTap` : "Check TapTap Send rates"} <ArrowRight size={16} aria-hidden="true" />
           </ProviderLink>
-          <Link href="/companies/taptap-send" className="conversion-text-link">Read our TapTap Send review</Link>
+          <Link href="/companies/taptap-send" unlinked="hide" className="conversion-text-link">Read our TapTap Send review</Link>
         </div>
         <p className="mt-2 text-2xs text-[var(--color-on-surface-variant)]">
           Sponsored: TapTap Send pays us when you sign up. Payment never moves a provider up our comparison.

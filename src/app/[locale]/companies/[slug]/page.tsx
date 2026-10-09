@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
+import { isLinkEligible } from "@/lib/link-eligibility";
 import { robotsFor } from "@/lib/seo-indexing";
 import { postalAddress } from "@/lib/postal-address";
 import { GONE_COMPANY_SLUGS } from "@/lib/gone-companies";
@@ -124,12 +125,13 @@ export default async function CompanyPage({ params }: Props) {
   // "any four other providers" produced 370 links to 404s across these pages.
   const otherProviders = providers
     .filter((p) => p.slug !== slug)
-    .filter((p) => comparePageHref(`${slug}-vs-${p.slug}`))
+    // Rendered AND Google-eligible (CLAUDE.md rule 14), before the slice.
+    .filter((p) => isLinkEligible(comparePageHref(`${slug}-vs-${p.slug}`) ?? ""))
     .slice(0, 4);
 
   // News articles mentioning this provider — sorted newest first
   const providerNews = newsItems
-    .filter((n) => n.providerSlugs?.includes(slug))
+    .filter((n) => n.providerSlugs?.includes(slug) && isLinkEligible(`/news/${n.slug}`))
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     // Two, not four: the same headlines listed on every provider they mention
     // were repeated text across nine profiles (2026-09-25).
@@ -137,7 +139,7 @@ export default async function CompanyPage({ params }: Props) {
 
   const providerCorridors = PROVIDER_CORRIDOR_POOL.flatMap((corridorSlug, order) => {
     const c = getCorridor(corridorSlug);
-    if (!c || !corridorPageRenders(corridorSlug)) return [];
+    if (!c || !corridorPageRenders(corridorSlug) || !isLinkEligible(`/send-money/${corridorSlug}`)) return [];
     const rank = generateQuotes(c.sampleAmount, c.fromCurrency, c.toCurrency).findIndex((q) => q.providerSlug === slug);
     if (rank < 0) return [];
     return [{ rank, order, href: `/send-money/${corridorSlug}`, label: `${c.fromCountry} to ${c.toCountry}` }];
@@ -499,7 +501,7 @@ function DefaultReview({
               <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
               <ComparisonWidget compact defaultFrom={widgetRoute[0]} defaultTo={widgetRoute[1]} />
             </Card>
-            <Card>
+            {otherProviders.length > 0 && <Card>
               <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">{provider.name} head-to-heads</h3>
               <div className="space-y-2">
                 {otherProviders.map((other) => (
@@ -515,7 +517,7 @@ function DefaultReview({
                   </Link>
                 ))}
               </div>
-            </Card>
+            </Card>}
             {providerNews.length > 0 && (
               <Card>
                 <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">

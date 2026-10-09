@@ -4,7 +4,7 @@ import InstallSlot from "@/components/pwa/InstallSlot";
 import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";

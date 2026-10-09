@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { useEffect, useId, useRef, useState } from "react";
 import CircleFlag from "@/components/CircleFlag";
 import { getProviderName, type TransferQuote } from "@/data/providers";

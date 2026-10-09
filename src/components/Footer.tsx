@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/Container";
+import { isLinkEligible } from "@/lib/link-eligibility";
 import { useTranslations } from "next-intl";
 import LazyTrustpilot from "@/components/LazyTrustpilot";
 import InstallAppButton from "@/components/pwa/InstallAppButton";
@@ -8,6 +9,18 @@ import { FOOTER_IBAN_LINKS, FOOTER_SWIFT_LINKS } from "@/data/footer-reference-l
 type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean; label?: string };
 type StaticLink = { href: string; label: string };
 
+/**
+ * Site footer — on every page, so every link in it is a site-wide link.
+ *
+ * Round-3 freelance brief §5.1 (owner decision 2026-10-08): the footer links
+ * only Google-eligible pages and key sections (CLAUDE.md rule 14). Removed
+ * that day: seven /companies/* reviews and six /compare/* head-to-heads
+ * (Bing-only, googlebot noindex — 8,151 links site-wide) and
+ * /compare-money-transfer (canonicalises to /compare, which it now links).
+ * Every list below also passes through isLinkEligible, so a page withdrawn
+ * from Google drops out of the footer on the next build, and one released
+ * comes back by being added here.
+ */
 export default function Footer() {
   const t = useTranslations("footer");
 
@@ -16,7 +29,7 @@ export default function Footer() {
     {
       titleKey: "products",
       links: [
-        { href: "/compare-money-transfer", labelKey: "compareMoneyTransfer" },
+        { href: "/compare", labelKey: "compareMoneyTransfer" },
         { href: "/send-money", labelKey: "sendMoney" },
         { href: "/companies", labelKey: "allReviews" },
         { href: "/exchange-rates", labelKey: "exchangeRatesLink" },
@@ -94,32 +107,8 @@ export default function Footer() {
   // ── IBAN and SWIFT country pages (Bing data, May 26) ─────────────────
   // Listed in src/data/footer-reference-links.ts, which seo-indexing.ts also
   // reads: a page in the footer is an index candidate.
-  const ibanCountries: StaticLink[] = [...FOOTER_IBAN_LINKS];
-  const swiftCountries: StaticLink[] = [...FOOTER_SWIFT_LINKS];
-
-  // ── Provider reviews (Bing-validated): drop revolut + xe (0 Bing impr) ───
-  const providerReviews: StaticLink[] = [
-    { href: "/companies/remitly", label: "Remitly Review" },
-    { href: "/companies/xoom", label: "Xoom Review" },
-    { href: "/companies/wise", label: "Wise Review" },
-    { href: "/companies/worldremit", label: "WorldRemit Review" },
-    { href: "/companies/ofx", label: "OFX Review" },
-    { href: "/companies/taptap-send", label: "TapTap Send Review" },
-    { href: "/companies/western-union", label: "Western Union Review" },
-  ];
-
-  // ── Popular comparisons (Bing-validated): drop xe pairs, add MG vs WU ────
-  const popularComparisons: StaticLink[] = [
-    // Canonical ordering. The reverse slug 301s here via getCompareCanonicalSlug,
-    // and this link sits in the footer of every page — 1,330 internal links into
-    // a redirect hop in the 2026-09-02 crawl.
-    { href: "/compare/western-union-vs-moneygram", label: "MoneyGram vs Western Union" },
-    { href: "/compare/wise-vs-remitly", label: "Wise vs Remitly" },
-    { href: "/compare/wise-vs-paypal", label: "Wise vs PayPal" },
-    { href: "/compare/remitly-vs-western-union", label: "Remitly vs Western Union" },
-    { href: "/compare/wise-vs-western-union", label: "Wise vs Western Union" },
-    { href: "/compare/paypal-vs-revolut", label: "PayPal vs Revolut" },
-  ];
+  const ibanCountries: StaticLink[] = FOOTER_IBAN_LINKS.filter((link) => isLinkEligible(link.href));
+  const swiftCountries: StaticLink[] = FOOTER_SWIFT_LINKS.filter((link) => isLinkEligible(link.href));
 
   const legalLinks: TranslatedLink[] = [
     // No rel="nofollow" on our own legal pages. These are indexable pages we
@@ -139,7 +128,7 @@ export default function Footer() {
       <Container className="py-14 sm:py-20">
         {/* ── Layer 1 — 4 lean columns ─────────────────────────────────── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 mb-10 sm:mb-14">
-          {primaryColumns.map((section) => (
+          {primaryColumns.map((section) => ({ ...section, links: section.links.filter((link) => isLinkEligible(link.href)) })).map((section) => (
             <div key={section.titleKey}>
               <p className="text-xs font-semibold text-white/55 uppercase tracking-[0.12em] mb-5">
                 {t(section.titleKey)}
@@ -191,34 +180,6 @@ export default function Footer() {
             </ul>
           </FooterDisclosure>
 
-          <FooterDisclosure label={`Provider reviews & comparisons (${providerReviews.length + popularComparisons.length})`}>
-            <div className="pt-3 grid grid-cols-1 gap-y-4">
-              <div>
-                <p className="text-2xs font-semibold text-white/55 uppercase tracking-[0.12em] mb-2">Reviews</p>
-                <ul className="flex flex-wrap gap-x-5 gap-y-2">
-                  {providerReviews.map((link) => (
-                    <li key={link.href}>
-                      <Link href={link.href} className="text-2sm text-white/65 hover:text-white transition-colors">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p className="text-2xs font-semibold text-white/55 uppercase tracking-[0.12em] mb-2">Head-to-head</p>
-                <ul className="flex flex-wrap gap-x-5 gap-y-2">
-                  {popularComparisons.map((link) => (
-                    <li key={link.href}>
-                      <Link href={link.href} className="text-2sm text-white/65 hover:text-white transition-colors">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </FooterDisclosure>
         </div>
 
         {/* ── Layer 3 — brand + legal + trust ──────────────────────────── */}
@@ -239,7 +200,7 @@ export default function Footer() {
 
             {/* Legal — inline, separated by dots (Apple style) */}
             <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-white/55">
-              {legalLinks.map((link, i) => (
+              {legalLinks.filter((link) => isLinkEligible(link.href)).map((link, i, shown) => (
                 <span key={link.labelKey} className="flex items-center gap-1.5">
                   <Link
                     href={link.href}
@@ -247,7 +208,7 @@ export default function Footer() {
                   >
                     {t(link.labelKey)}
                   </Link>
-                  {i < legalLinks.length - 1 && <span aria-hidden="true" className="text-white/30">·</span>}
+                  {i < shown.length - 1 && <span aria-hidden="true" className="text-white/30">·</span>}
                 </span>
               ))}
             </nav>

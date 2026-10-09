@@ -5,7 +5,7 @@ import { seoDescription } from "@/lib/seo-title";
 import { robotsFor } from "@/lib/seo-indexing";
 import Breadcrumb from "@/components/Breadcrumb";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { BUSINESS_FX_SLUGS } from "@/lib/business-fx-index";

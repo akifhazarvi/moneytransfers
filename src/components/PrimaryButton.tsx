@@ -1,5 +1,6 @@
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { type ReactNode } from "react";
+import { affiliateRel, isAffiliateHref, isLinkEligible } from "@/lib/link-eligibility";
 
 interface BaseProps {
   children: ReactNode;
@@ -45,6 +46,14 @@ export default function PrimaryButton(props: Props) {
   const classes = `${base} ${variantMap[variant]} ${sizeMap[size]} ${className}`.trim();
 
   if ("href" in props && props.href) {
+    // Affiliate redirects carry nofollow sponsored (CLAUDE.md rule 14).
+    if (isAffiliateHref(props.href)) {
+      return (
+        <a href={props.href} target="_blank" rel={affiliateRel("noopener noreferrer")} className={classes}>
+          {children}
+        </a>
+      );
+    }
     if ((props as LinkProps).external) {
       return (
         <a href={props.href} target="_blank" rel="noopener noreferrer nofollow" className={classes}>
@@ -52,6 +61,9 @@ export default function PrimaryButton(props: Props) {
         </a>
       );
     }
+    // A button to a page Google may not index has nowhere to send the reader
+    // that we may link to: render nothing rather than a dead button.
+    if (!isLinkEligible(props.href)) return null;
     return (
       <Link href={props.href} className={classes}>
         {children}

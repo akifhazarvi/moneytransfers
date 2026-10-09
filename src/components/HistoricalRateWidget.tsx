@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useCallback } from "react";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { getProviderName, currencies } from "@/data/providers";
 import { useGeoSelection } from "@/lib/useGeoSelection";
 import {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ArrowUpRight, ChevronUp, TrendingUp, X } from "lucide-react";
 import { getFlagUrl } from "@/components/CircleFlag";

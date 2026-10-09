@@ -1,6 +1,7 @@
 import { seoDescription } from "@/lib/seo-title";
+import { isLinkEligible } from "@/lib/link-eligibility";
 import { internalPathRenders } from "@/lib/route-map-rates";
-import Link from "next/link";
+import Link from "@/components/EligibleLink";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
@@ -418,11 +419,14 @@ export default async function IbanCountryPage({ params }: Props) {
   // declaration order meant countries declared late — czechia among them — were
   // linked from no sibling page. Rotate the six-slot window by the current
   // country's own position so the rail covers the pool, deterministically.
+  // Only countries whose IBAN page Google may index (CLAUDE.md rule 14),
+  // filtered before the window so the rail keeps its six slots.
   const relatedPool = wiseCountries.filter(
     (c) =>
       c.slug &&
       c.slug !== slug &&
-      (c.sepa === country.sepa || c.currency === country.currency)
+      (c.sepa === country.sepa || c.currency === country.currency) &&
+      isLinkEligible(`/iban/${c.slug}`)
   );
   const ibanOffset = wiseCountries.findIndex((c) => c.slug === slug);
   const related =
@@ -756,13 +760,13 @@ export default async function IbanCountryPage({ params }: Props) {
               in the main column already carry every row. */}
 
           {/* Popular corridors for this country */}
-          {ibanCorridors[slug] && ibanCorridors[slug].some((c) => internalPathRenders(c.href)) && (
+          {ibanCorridors[slug] && ibanCorridors[slug].some((c) => internalPathRenders(c.href) && isLinkEligible(c.href)) && (
             <Card>
               <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
                 Popular money transfers
               </h3>
               <ul className="space-y-2">
-                {ibanCorridors[slug].filter((c) => internalPathRenders(c.href)).map((corridor) => (
+                {ibanCorridors[slug].filter((c) => internalPathRenders(c.href) && isLinkEligible(c.href)).map((corridor) => (
                   <li key={corridor.href}>
                     <Link
                       href={corridor.href}
