@@ -44,6 +44,7 @@ npm run check:link-eligibility # internal links only to Google-eligible pages; /
 npm run check:pwa        # manifest installable, icons/screenshots/shortcuts exist, sw.js bypass + offline revision (prebuild)
 npm run check:redirects  # every 301 is one hop to a prerendered page; retired URLs 410 (postbuild)
 npm run check:corridor-sort # every corridor provider list descends by payout (postbuild)
+npm run check:lastmod    # a sitemap-google.xml lastmod equals the page's visible "Updated" date (postbuild)
 npm run check:link-eligibility # internal links point only at Google-eligible pages; /go /out are nofollow sponsored
 npm run build:google-eligible  # regenerate src/data/google-eligible-routes.json (= sitemap-google.xml; prebuild runs it)
 
@@ -214,6 +215,24 @@ what enforces it. Where a rule is not automated, it says how to check it.
     path first, and a locale corridor whose English page does not render is
     410. *Enforced:* `check:redirects` (postbuild) — every redirect source is
     one hop to a prerendered page.
+
+16. **A date says when the content changed, and the sitemap agrees.** Round-3
+    QA (2026-10-09): 16 SWIFT pages printed the build time as "Updated" while
+    their lastmod said March, and 40 eligible pages had no date or author.
+    One content date per page family lives in `src/lib/content-dates.ts`; the
+    page's byline and `sitemap.ts` both read it. Never "today", build time or
+    the 6-hourly data stamp as "Updated" — live figures get their own line
+    ("Rates collected …"). Bump a family's date only when what it says
+    changes. *Enforced:* `check:lastmod` (postbuild).
+17. **Google gets Bing earners back in dated batches, never in bulk.**
+    Round-3 brief §3.4: release 10–20 QA-passed pages every 7–10 days,
+    highest Bing demand first. `GOOGLE_RELEASE_BATCHES` in
+    `search-engine-routes.ts` (one entry per batch, never edited after
+    release) makes a page googleIndexable ahead of the hidden lists: it loses
+    `googlebot: noindex`, joins sitemap-google.xml and the link manifest
+    (its links return, rule 14). A batch whose page lacks 3 in-content links
+    from eligible pages fails `check:link-eligibility`. Log each release in
+    GSC monitoring (days 5/14/28/45).
 
 ## Editor & TypeScript load
 
