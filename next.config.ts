@@ -4,6 +4,13 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  // The build's date (UTC, YYYY-MM-DD), inlined into every bundle so pages,
+  // sitemaps and middleware compare GOOGLE_RELEASE_BATCHES dates against the
+  // same day (search-engine-routes.ts). Set SMC_BUILD_DATE to build "as of" a
+  // later day, e.g. to verify a scheduled release before it is due.
+  env: {
+    SMC_BUILD_DATE: process.env.SMC_BUILD_DATE || new Date().toISOString().slice(0, 10),
+  },
   trailingSlash: false,
   productionBrowserSourceMaps: false,
   turbopack: {

@@ -231,8 +231,12 @@ what enforces it. Where a rule is not automated, it says how to check it.
     release) makes a page googleIndexable ahead of the hidden lists: it loses
     `googlebot: noindex`, joins sitemap-google.xml and the link manifest
     (its links return, rule 14). A batch whose page lacks 3 in-content links
-    from eligible pages fails `check:link-eligibility`. Log each release in
-    GSC monitoring (days 5/14/28/45).
+    from eligible pages fails `check:link-eligibility`. A batch takes effect in
+    the first build dated on/after its `released` day (`SMC_BUILD_DATE`, inlined
+    by next.config.ts; the 6-hourly scrape commits rebuild production), so it can
+    be committed ahead. Verify one before its day with
+    `SMC_BUILD_DATE=<day> npm run build`. Log each release in GSC monitoring
+    (days 5/14/28/45). Batch 1 (17 IBAN/SWIFT pages) is dated 2026-10-14.
 
 ## Editor & TypeScript load
 

@@ -184,9 +184,52 @@ export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_
  * One entry per batch, never edited after release (it is the change log GSC is
  * measured against). Withdrawing a page = removing it here, with a note.
  */
-export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; readonly routes: readonly string[] }[] = [];
+export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; readonly routes: readonly string[] }[] = [
+  {
+    // Batch 1 — every Priority-1 page (Bing clicks ≥5, brief worksheet 05) that
+    // passed the live QA of 2026-10-09: 200, self-canonical, no placeholder,
+    // own data, dated byline, no ≥40% pair with an eligible page. Held back:
+    // /banks (no date/author yet), /swift-codes/thailand (fixed a wrong-length
+    // code — next batch), /compare/western-union-vs-moneygram (verdict text
+    // rewritten — next batch), /compare/paypal-vs-revolut (passes QA but only
+    // the /compare hub links to it in content; check:link-eligibility requires
+    // 3 — next batch with contextual links). Bing clicks in the comments.
+    released: "2026-10-14",
+    routes: [
+      "/iban/denmark",            // 30
+      "/swift-codes/pakistan",    // 27
+      "/swift-codes/canada",      // 22
+      "/swift-codes/malaysia",    // 21
+      "/iban/finland",            // 17
+      "/swift-codes/united-states", // 15
+      "/swift-codes/indonesia",   // 12
+      "/swift-codes/australia",   // 11
+      "/iban/greece",             // 11
+      "/swift-codes/brazil",      // 10
+      "/swift-codes/south-africa", // 9
+      "/swift-codes/india",       // 8
+      "/iban/norway",             // 8
+      "/iban/israel",             // 7
+      "/iban/brazil",             // 6
+      "/iban/austria",            // 6
+      "/iban/kuwait",             // 5
+    ],
+  },
+];
 
-export const GOOGLE_RELEASED_ROUTES: ReadonlySet<string> = new Set(GOOGLE_RELEASE_BATCHES.flatMap((b) => b.routes));
+/**
+ * A batch takes effect in the first build dated on or after `released` — the
+ * site rebuilds on every 6-hourly scrape commit, so a batch committed ahead of
+ * its date goes live within hours of it with nobody pushing anything (owner,
+ * 2026-10-09: "do as he said" — the brief's day-5 start). SMC_BUILD_DATE is
+ * inlined by next.config.ts so middleware, pages and both sitemaps agree on the
+ * day; build scripts (prebuild's link manifest) fall back to today, the same day.
+ */
+const BUILD_DATE: string = process.env.SMC_BUILD_DATE || new Date().toISOString().slice(0, 10);
+
+export const GOOGLE_RELEASED_ROUTES: ReadonlySet<string> = new Set(
+  GOOGLE_RELEASE_BATCHES.filter((b) => b.released <= BUILD_DATE).flatMap((b) => b.routes),
+);
 
 /** Section prefixes whose child pages are hidden from Googlebot. Hubs are not. */
 export const GOOGLE_HIDDEN_PREFIXES: readonly string[] = ["/companies/", "/compare/", "/banks/"];
