@@ -1308,7 +1308,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td>Total cost on $1,000</td><td>~$5–$25</td><td>~$15–$50+</td></tr>
 </table>
 
-<p><strong>Bottom line:</strong> Remitly is typically 2–3x cheaper than Western Union for the same transfer. The difference comes mainly from the exchange rate — Western Union's markup is roughly double Remitly's.</p>`,
+<p><strong>Bottom line:</strong> the gap between Remitly and Western Union depends on the route, the amount and the payout method, and most of it sits in the exchange rate rather than the fee — compare both on your route before you send.</p>`,
       },
       {
         id: "exchange-rates",
