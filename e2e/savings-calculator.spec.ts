@@ -37,5 +37,5 @@ test("savings estimates never relabel stale quotes and recover from failed reque
   await expect(calculator.getByText("+600 INR", { exact: true })).toBeVisible();
   await page.locator("#sc-freq").selectOption("1");
   await expect(calculator.getByText("+50 INR", { exact: true }).first()).toBeVisible();
-  await expect(calculator.getByRole("link", { name: /See all 3 providers/ })).toHaveAttribute("href", "/send-money?from=USD&to=INR&amount=500");
+  await expect(calculator.getByRole("link", { name: /See all 3 providers/ })).toHaveAttribute("href", "/send-money#from=USD&to=INR&amount=500");
 });

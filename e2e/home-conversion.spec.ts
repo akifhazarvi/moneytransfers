@@ -6,7 +6,8 @@ test("homepage comparison carries the amount into results", async ({ page }) => 
   await expect(form).toContainText("Recipient gets · estimated");
   await form.getByRole("textbox", { name: "Amount to send" }).fill("2500");
   await form.getByRole("button", { name: "Compare transfers", exact: true }).click();
-  await page.waitForURL(/\/send-money\?.*amount=2500/);
+  // Route selections travel in the fragment, not a crawlable query (b2c4e6adf).
+  await page.waitForURL(/\/send-money#.*amount=2500/);
   await expect.poll(() => trackedEventParams(page, "compare_search")).toEqual(expect.arrayContaining([
     expect.objectContaining({ amount: 2500 }),
   ]));
