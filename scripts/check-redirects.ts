@@ -53,9 +53,14 @@ const sources = new Set<string>([
   ...[...NEWS_REDIRECTS.keys()].map((k) => `/news/${k}`),
   ...[...DUPLICATE_CORRIDOR_REDIRECTS.keys()].map((k) => `/send-money/${k}`),
 ]);
+sources.add("/comparison");
 for (const p of rendered) {
   const m = p.match(/^\/compare\/(.+)-vs-(.+)$/);
-  if (m) sources.add(`/compare/${m[2]}-vs-${m[1]}`);
+  if (m) {
+    sources.add(`/compare/${m[2]}-vs-${m[1]}`);
+    sources.add(`/comparison/${m[1]}-vs-${m[2]}`);
+    sources.add(`/comparison/${m[2]}-vs-${m[1]}`);
+  }
 }
 for (const s of [...sources]) {
   sources.add(`/fr${s}`);

@@ -149,16 +149,9 @@ const nextConfig: NextConfig = {
         destination: "/about/ahsan-mukhtar",
         permanent: true,
       },
-      {
-        source: "/comparison",
-        destination: "/compare",
-        permanent: true,
-      },
-      {
-        source: "/comparison/:slug",
-        destination: "/compare/:slug",
-        permanent: true,
-      },
+      // /comparison and /comparison/:slug are resolved in middleware
+      // (src/lib/retired-urls.ts) so they reach the canonical compare page in
+      // one hop — here they chained into the direction 301 (rule 15).
       {
         source: "/.well-known/llms.txt",
         destination: "/llms.txt",

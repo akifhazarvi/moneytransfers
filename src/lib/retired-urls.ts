@@ -8,7 +8,8 @@ import { GONE_SWIFT_SLUGS } from "./gone-swift";
 import { GONE_RATE_PAIR_SLUGS, RATE_PAIR_REDIRECTS, RATE_HISTORY_REDIRECTS } from "./gone-rate-pairs";
 import { GONE_COMPANY_SLUGS } from "./gone-companies";
 import { GONE_NEWS_SLUGS, NEWS_REDIRECTS } from "./gone-news";
-import { getCompareCanonicalSlug } from "./compare-canonical";
+import { getCompareCanonicalSlug, EDITORIAL_COMPARE_SLUGS } from "./compare-canonical";
+import { SITEMAP_COMPARISON_SLUGS } from "./sitemap-allowlists";
 
 export const GONE = Symbol("gone");
 
@@ -30,6 +31,12 @@ export const GONE = Symbol("gone");
  * - /news/<slug>: a merged item 301s to its survivor, a retired one is 410.
  * - /compare/<a>-vs-<b>: the non-canonical direction 301s to the canonical
  *   one (Bing Webmaster Blog, Dec 2025: consolidate variants with a 301).
+ * - /comparison and /comparison/<slug>: the old section name. Resolved here,
+ *   not in next.config redirects, which 308'd /comparison/<slug> to
+ *   /compare/<slug> and so chained into the canonical-direction 301
+ *   (/comparison/moneygram-vs-wise → /compare/moneygram-vs-wise →
+ *   /compare/wise-vs-moneygram). One hop to the canonical page, or 410 when
+ *   that pairing no longer renders.
  */
 export function retiredAnswer(pathname: string): string | typeof GONE | null {
   const corridor = pathname.match(/^\/send-money\/([a-z0-9-]+)$/);
@@ -55,6 +62,12 @@ export function retiredAnswer(pathname: string): string | typeof GONE | null {
     const survivor = NEWS_REDIRECTS.get(news[1]);
     if (survivor) return `/news/${survivor}`;
     return GONE_NEWS_SLUGS.has(news[1]) ? GONE : null;
+  }
+  if (pathname === "/comparison") return "/compare";
+  const comparison = pathname.match(/^\/comparison\/([a-z0-9-]+)$/);
+  if (comparison) {
+    const canonical = getCompareCanonicalSlug(comparison[1]);
+    return EDITORIAL_COMPARE_SLUGS.has(canonical) || SITEMAP_COMPARISON_SLUGS.has(canonical) ? `/compare/${canonical}` : GONE;
   }
   const compare = pathname.match(/^\/compare\/([a-z0-9-]+)$/);
   if (compare) {
