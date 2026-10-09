@@ -5,6 +5,7 @@
  * leaves that earn the long-tail branded queries.
  */
 import { seoDescription } from "@/lib/seo-title";
+import { COVERAGE } from "@/lib/site-stats";
 import { robotsFor } from "@/lib/seo-indexing";
 import Image from "next/image";
 import Link from "@/components/EligibleLink";
@@ -63,7 +64,7 @@ export default async function BanksHubPage() {
             </h1>
             <p className="text-lg text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
               We continuously scrape live international transfer quotes from major banks and
-              compare them against Wise, Remitly, OFX, and 30+ specialist providers on the same
+              compare them against Wise, Remitly, OFX, and the rest of the{" "}{COVERAGE.providers}{" "}we track on the same
               corridor, same amount, same day. Pick your bank to see exactly what it costs you to
               send money abroad — and how much you&rsquo;d save by switching.
             </p>

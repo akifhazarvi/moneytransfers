@@ -11,6 +11,7 @@
 import appRatingsData from "@/data/scraped/app-store-ratings.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 import { SITE_STATS, atLeast } from "./site-stats";
+import { resolveRouteProviderTokens } from "./provider-counts";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getMidMarketRate, quoteDataDate, providerNames } from "@/lib/unified-quotes";
 import { providers, type TransferQuote } from "@/data/providers";
@@ -935,8 +936,13 @@ export function renderDataTokens(html: string): string {
   // across 80+ corridors"), which produced four different provider counts and
   // a corridor count 10x below the truth. These read from site-stats, so a
   // sentence written today still describes the site a year from now.
-  // {{PROVIDER_COUNT}} -> "90+"
+  // The three provider counts (site-stats.ts, THE THREE PROVIDER COUNTS):
+  // {{PROVIDER_COUNT}} -> "90+"        counter 1, providers we track
+  // {{ROUTE_PROVIDERS:USD,GBP:PKR}}   counter 2, "14 providers" quoting the route
+  // {{REVIEWED_COUNT}} -> "53"         counter 3, providers we have reviewed
   out = out.split("{{PROVIDER_COUNT}}").join(atLeast(SITE_STATS.liveProviders));
+  out = out.split("{{REVIEWED_COUNT}}").join(String(SITE_STATS.reviewedProviders));
+  out = resolveRouteProviderTokens(out);
   out = out.split("{{CORRIDOR_COUNT}}").join(atLeast(SITE_STATS.comparableCorridors));
   out = out.split("{{CURRENCY_COUNT}}").join(atLeast(SITE_STATS.currencies));
   // Mirrors the scrape cron. Copy stating a refresh interval should read this

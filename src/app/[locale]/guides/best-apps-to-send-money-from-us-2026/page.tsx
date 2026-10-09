@@ -576,7 +576,7 @@ export default async function BestAppsFromUSPage({
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-[var(--color-on-surface-variant)]">
             <Badge color="green">✓ Independent rankings</Badge>
             <Badge color="blue">Live rate data · Every 6h</Badge>
-            <Badge color="blue">{COVERAGE.providers} compared</Badge>
+            <Badge color="blue">{COVERAGE.providers} tracked</Badge>
           </div>
 
           {/* Quick-answer box — the AI-citable passage */}
@@ -621,7 +621,7 @@ export default async function BestAppsFromUSPage({
 
           {/* Stats row */}
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <StatBox value={atLeast(SITE_STATS.liveProviders)} label="Providers compared" />
+            <StatBox value={atLeast(SITE_STATS.trackedProviders)} label="Providers tracked" />
             <StatBox value="190+" label="Countries covered" />
             <StatBox value="Every 6h" label="Data refresh rate" />
             <StatBox value="0" label="Paid rankings" />
@@ -661,7 +661,7 @@ export default async function BestAppsFromUSPage({
               Want the cheapest option for your exact transfer?
             </p>
             <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
-              Enter your amount and destination to get live quotes from all 8 providers side-by-side.
+              Enter your amount and destination to get live quotes from every provider quoting your route, side by side.
             </p>
             <Link
               href="/send-money"

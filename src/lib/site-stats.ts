@@ -35,6 +35,7 @@
 
 import { quotesByCorridor, allProviderSlugs } from "./unified-quotes";
 import { providers, listableProviders, currencies, sendCurrencies } from "@/data/providers";
+import { companyPageRenders } from "./company-route";
 import wiseComparisonQuotes from "@/data/scraped/wise-comparison-quotes.json";
 import midMarket from "@/data/scraped/xe-midmarket-rates.json";
 import siteDerived from "@/data/scraped/site-derived.json";
@@ -100,8 +101,43 @@ const comparable = corridorDepth.filter((d) => d >= 2).length;
  */
 const liveQuoteCount = corridorKeys.reduce((n, k) => n + quotesByCorridor[k].length, 0);
 
+/**
+ * THE THREE PROVIDER COUNTS — the only provider counts copy may print.
+ *
+ * The round-3 brief (§4.3, 2026-10-08) found "90+ providers" on 78 pages, "97
+ * providers" on 3, and "67", "65", "10+", "15", "18", "21" elsewhere: each
+ * correct about something, none saying what. Every provider count now names
+ * which of these it is:
+ *
+ *   1. TRACKED  — `trackedProviders`: distinct providers with a live quote
+ *      anywhere in our data. Printed rounded down by atLeast() ("90+"), so it
+ *      survives a provider dropping out between scrapes.
+ *      Wording: "we track 90+ providers". Sources: COVERAGE.providers,
+ *      {{PROVIDER_COUNT}}, %PROVIDER_COUNT%.
+ *   2. COMPARED — per query, never site-wide: the providers with a comparable
+ *      (non-indicative) estimate for the route and amount a page is about,
+ *      i.e. the rows its comparison prints. Corridor pages count
+ *      corridorComparisonSummary(...).compared; prose uses
+ *      {{ROUTE_PROVIDERS:FROM[,FROM…]:TO[:AMOUNT]}} ("14 providers") or
+ *      {{PROVIDER_TALLY:FROM:TO:AMOUNT}} — src/lib/provider-counts.ts.
+ *      Wording: "14 providers quote this route".
+ *   3. REVIEWED — `reviewedProviders`: providers with a /companies review page
+ *      we list (listed, and the page renders). Wording: "we have reviewed N
+ *      providers". Sources: COVERAGE.providersReviewed, {{REVIEWED_COUNT}},
+ *      %PROFILE_COUNT%.
+ *
+ * Anything else is a subset of 1 and must name its population: "67 of the
+ * providers we track have enough contested days to rank" (consistency index),
+ * "64 providers priced at $1,000" (cost index), "97 providers in the quote
+ * archive since March" (history keeps providers that have stopped quoting, so
+ * it can exceed today's tracked count). /methodology publishes all three.
+ */
 export const SITE_STATS = {
-  /** Providers with a `/companies/[slug]` page that renders. */
+  /** Counter 1 — see THE THREE PROVIDER COUNTS. Same value as liveProviders. */
+  trackedProviders: allProviderSlugs.size,
+  /** Counter 3 — /companies review pages we list (hidden and retired ones excluded). */
+  reviewedProviders: listableProviders().filter((p) => companyPageRenders(p.slug)).length,
+  /** Entries in the `providers` array, including hidden and retired ones. Not a published count. */
   curatedProviders: providers.length,
   // `listableProviders` is a function, not an array — calling `.length` on it
   // returns its arity (0), which is why this is invoked.
@@ -170,7 +206,10 @@ export function atLeast(n: number): string {
 
 /** Pre-formatted phrases for the claims that appear most often in copy. */
 export const COVERAGE = {
+  /** Counter 1, tracked: "we track 90+ providers". */
   providers: `${atLeast(SITE_STATS.liveProviders)} providers`,
+  /** Counter 3, reviewed: "we have reviewed 53 providers". Exact — it is a list we curate. */
+  providersReviewed: `${SITE_STATS.reviewedProviders} providers`,
   corridors: `${atLeast(SITE_STATS.comparableCorridors)} corridors`,
   currencies: `${atLeast(SITE_STATS.currencies)} currencies`,
   /** For "we TRACK N corridors" — the dataset, not the comparable subset. */

@@ -557,7 +557,7 @@ export const newsItems: NewsItem[] = [
 <p>If you send money to Mexico regularly, here's how to maximise what your recipient receives:</p>
 <ul>
 <li><strong>Switch to digital</strong> — If you still send cash at an agent, switching to an app saves 3–5% per transfer plus avoids the 1% tax.</li>
-<li><strong>Compare at your exact amount</strong> — Provider rankings change at different amounts. Our <a href="/send-money/usa-to-mexico">USA to Mexico comparison tool</a> shows live rates from 10+ providers.</li>
+<li><strong>Compare at your exact amount</strong> — Provider rankings change at different amounts. Our <a href="/send-money/usa-to-mexico">USA to Mexico comparison tool</a> shows live rates from {{ROUTE_PROVIDERS:USD:MXN}}.</li>
 </ul>
 
 <p>The $62 billion corridor going digital isn't just a story about Mexico — it's a preview of where every major remittance route is heading. For a broader view, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report and our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
@@ -624,7 +624,7 @@ export const newsItems: NewsItem[] = [
 <p>Both must open naira settlement accounts with Nigerian banks by the May 1 deadline. <a href="/companies/wise">Wise</a> already uses the mid-market rate, so its conversion may be more transparent. <a href="/companies/western-union">Western Union</a> has cash pickup networks across Nigeria that will now pay out in naira only.</p>
 
 <h3>What is the cheapest way to send money to Nigeria from the UK after May 2026?</h3>
-<p>Once all providers settle in naira, compare the total received amount (after fees and FX conversion) rather than the exchange rate alone. Use our <a href="/send-money/uk-to-nigeria">UK to Nigeria comparison tool</a> for live rates across 10+ providers.</p>`,
+<p>Once all providers settle in naira, compare the total received amount (after fees and FX conversion) rather than the exchange rate alone. Use our <a href="/send-money/uk-to-nigeria">UK to Nigeria comparison tool</a> for live rates across {{ROUTE_PROVIDERS:GBP:NGN}}.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-27",
     source: "Central Bank of Nigeria / Nairametrics / TechNext24 / Zawya",

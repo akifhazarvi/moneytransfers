@@ -17,9 +17,9 @@ export const newGuidesJul2026: BlogPost[] = [
     slug: "best-apps-send-money-uk-to-nigeria-2026",
     title: "Best Apps to Send Money UK to Nigeria July 2026: Lemfi vs TapTap Send vs Wise",
     metaDescription:
-      "July 2026 GBP→NGN rate update: Lemfi now edges Wise on UK-to-Nigeria for most amounts. We ranked 8 providers by naira received — not just fee — with live data.",
+      "July 2026 GBP→NGN rate update: Lemfi now edges Wise on UK-to-Nigeria for most amounts. We ranked {{ROUTE_PROVIDERS:GBP:NGN}} by naira received — not just fee — with live data.",
     excerpt:
-      "GBP→NGN rates shifted in July 2026 — Lemfi now leads Wise for UK-to-Nigeria on most amounts under £3,000. We compare 8 providers by naira received, speed, and cash pickup availability.",
+      "GBP→NGN rates shifted in July 2026 — Lemfi now leads Wise for UK-to-Nigeria on most amounts under £3,000. We compare {{ROUTE_PROVIDERS:GBP:NGN}} by naira received, speed, and cash pickup availability.",
     category: "Guides",
     readTime: "10 min read",
     publishedAt: "2026-07-01",

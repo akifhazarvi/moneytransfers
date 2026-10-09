@@ -20,7 +20,7 @@ export const corridorGuides2: BlogPost[] = [
     metaDescription:
       "Send AED to PKR in 2026: live rates from Remitly, TapTap Send, ACE, Al Ansari, LuLu, Western Union. Plus RDA, JazzCash, RAAST, and Buna integration.",
     excerpt:
-      "Pakistanis in the UAE sent home $7B+ in 10 months of FY26 — second only to Saudi Arabia. On AED 3,000 the gap between cheapest and most expensive provider is roughly PKR 18,000 (7.9%). Here's the full 15-provider comparison, RDA explainer, RAAST/Buna update, and Eid timing guide.",
+      "Pakistanis in the UAE sent home $7B+ in 10 months of FY26 — second only to Saudi Arabia. On AED 3,000 the gap between cheapest and most expensive provider is roughly PKR 18,000 (7.9%). Here's the full comparison of {{ROUTE_PROVIDERS:AED:PKR:3000}}, RDA explainer, RAAST/Buna update, and Eid timing guide.",
     category: "Corridors",
     readTime: "15 min read",
     publishedAt: "2026-03-18",
@@ -34,7 +34,7 @@ export const corridorGuides2: BlogPost[] = [
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On AED 3,000 (~USD 815), the cheapest of the {{PROVIDER_TALLY:AED:PKR:3000}} providers quoting this route right now is <strong>{{BEST_PROVIDER:AED:PKR:3000}}</strong>, delivering <strong>{{BEST_RECEIVE:AED:PKR:3000}}</strong> — against {{MID_RECEIVE:AED:PKR:3000}} at the interbank mid-market of {{MID_RATE:AED:PKR}} PKR/AED. The gap between the cheapest and dearest provider on that amount is <strong>{{SPREAD:AED:PKR:3000}}</strong>, so the choice matters more than the timing. <a href="/companies/ace-money-transfer">ACE Money Transfer</a> is the strongest all-in-one option, covering JazzCash, Easypaisa, bank, cash, SadaPay and NayaPay in one app; <a href="/companies/wise">Wise</a> pays the mid-market rate net of its fee, which pulls ahead above roughly AED 5,000. JazzCash and Easypaisa wallets receive funds in minutes via Pakistan's RAAST network. Quotes as at {{QUOTE_DATE}} — <a href="/send-money/uae-to-pakistan">compare live UAE to Pakistan rates →</a></p></div>
 <p class="text-sm">Promotional first-transfer rates are excluded from these figures. Several providers on this corridor advertise an introductory rate above mid-market for a first transfer only; what you see above is the standard rate a returning sender gets.</p>
 <p>Pakistanis in the UAE sent home <strong>$33.86 billion in 10 months of FY26</strong> (July 2025–April 2026), with the UAE specifically contributing approximately <strong>20.6%</strong> — roughly <strong>$7 billion year-to-date and on track for $8.4 billion annualised</strong>. That makes the UAE the <strong>second-largest source country</strong> for Pakistan remittances after Saudi Arabia (<a href="https://www.sbp.org.pk/ecodata/index2.asp" target="_blank" rel="noopener noreferrer">State Bank of Pakistan</a>, April 2026).</p>
-<p>This corridor has changed materially in the past 12 months: <strong>RAAST cross-border via Buna</strong> went live in August 2024, the Pakistan Remittance Initiative (PRI) was restructured on July 1 2025, and the <strong>Roshan Digital Account (RDA)</strong> scheme hit a record <strong>$321 million inflow in April 2026 alone</strong>. This guide is the definitive walkthrough: 15 providers compared on AED 3,000 and AED 10,000, the JazzCash/Easypaisa/RAAST/bank deposit deep-dive, RDA and PRI explainers, and Eid Al-Adha 2026 timing.</p>`,
+<p>This corridor has changed materially in the past 12 months: <strong>RAAST cross-border via Buna</strong> went live in August 2024, the Pakistan Remittance Initiative (PRI) was restructured on July 1 2025, and the <strong>Roshan Digital Account (RDA)</strong> scheme hit a record <strong>$321 million inflow in April 2026 alone</strong>. This guide is the definitive walkthrough: {{ROUTE_PROVIDERS:AED:PKR:3000}} compared on AED 3,000 and AED 10,000, the JazzCash/Easypaisa/RAAST/bank deposit deep-dive, RDA and PRI explainers, and Eid Al-Adha 2026 timing.</p>`,
       },
       {
         heading: "Receiving on JazzCash: The Limit That Bounces a Normal Remittance",
@@ -205,7 +205,7 @@ export const corridorGuides2: BlogPost[] = [
       {
         heading: "Top 7 Tips for UAE-to-Pakistan Senders",
         content: `<ol>
-<li><strong>Compare on every transfer, especially on AED 3,000+.</strong> The 4.5–7.9% gap on AED 3,000 = PKR 10,000–18,000 — the single biggest lever you have. <a href="/send-money/uae-to-pakistan">Compare 15+ providers live →</a></li>
+<li><strong>Compare on every transfer, especially on AED 3,000+.</strong> The 4.5–7.9% gap on AED 3,000 = PKR 10,000–18,000 — the single biggest lever you have. <a href="/send-money/uae-to-pakistan">Compare {{ROUTE_PROVIDERS:AED:PKR:3000}} live →</a></li>
 <li><strong>Default to JazzCash or Easypaisa for amounts under AED 5,000.</strong> Instant credit, no recipient bank visit, supported by TapTap Send / Wise / Remitly / ACE / WorldRemit.</li>
 <li><strong>Check the rate above AED 5,000.</strong> A fixed fee matters less on a large transfer, so the exchange rate decides who delivers more: compare the rupees received, not the fee.</li>
 <li><strong>Open an RDA if you're saving, not just sending.</strong> 7–11% PKR yields on Naya Pakistan Certificates beat sending money to a relative's bank account at 0%. Free debit card when funded by remittance.</li>
@@ -252,7 +252,7 @@ export const corridorGuides2: BlogPost[] = [
     metaDescription:
       "Compare the cheapest and fastest ways to send money from USA to Kenya in 2026. Sendwave, Wise, Remitly, and WorldRemit compared for USD to KES M-Pesa.",
     excerpt:
-      "Kenya's M-Pesa makes mobile money delivery instant and cheap. We compared 6+ providers to find the best USD-to-KES rates.",
+      "Kenya's M-Pesa makes mobile money delivery instant and cheap. We compared {{ROUTE_PROVIDERS:USD:KES}} to find the best USD-to-KES rates.",
     category: "Corridors",
     readTime: "10 min read",
     publishedAt: "2026-03-18",
@@ -359,7 +359,7 @@ export const corridorGuides2: BlogPost[] = [
     slug: "send-money-to-egypt-guide",
     title: "Send Money to Egypt 2026: USD to EGP Rates & Cheapest Fees",
     metaDescription:
-      "Send USD to EGP in 2026 after Egypt's currency reforms. Compare fees and rates from 10+ providers — bank deposit, Vodafone Cash, and InstaPay options.",
+      "Send USD to EGP in 2026 after Egypt's currency reforms. Compare fees and rates from {{ROUTE_PROVIDERS:USD:EGP}} — bank deposit, Vodafone Cash, and InstaPay options.",
     excerpt:
       "Two years after Egypt floated the pound, USD→EGP transfers are cheap, fast and legal. On $1,000 the cheapest provider delivers EGP 52,400 vs EGP 50,200 for the most expensive — here's how to keep every Egyptian pound.",
     category: "Corridors",
@@ -571,9 +571,9 @@ export const corridorGuides2: BlogPost[] = [
     slug: "send-money-to-jamaica-guide",
     title: "Send Money to Jamaica: Cheapest Ways & Rates in 2026",
     metaDescription:
-      "Compare cheapest ways to send money to Jamaica in 2026. USD, GBP, and CAD to JMD fees, rates, and delivery speed from 7+ providers. Cash pickup compared.",
+      "Compare cheapest ways to send money to Jamaica in 2026. USD, GBP, and CAD to JMD fees, rates, and delivery speed from {{ROUTE_PROVIDERS:USD,GBP,CAD:JMD}}. Cash pickup compared.",
     excerpt:
-      "Jamaica depends heavily on remittances, and cash pickup is still king. We compared 7+ providers for USD to JMD transfers.",
+      "Jamaica depends heavily on remittances, and cash pickup is still king. We compared {{ROUTE_PROVIDERS:USD:JMD}} for USD to JMD transfers.",
     category: "Corridors",
     readTime: "9 min read",
     publishedAt: "2026-03-18",
@@ -658,9 +658,9 @@ export const corridorGuides2: BlogPost[] = [
     slug: "send-money-to-sri-lanka-guide",
     title: "Send Money to Sri Lanka: Cheapest Ways & Rates in 2026",
     metaDescription:
-      "Compare cheapest ways to send money to Sri Lanka in 2026. USD, GBP, EUR to LKR fees, rates, and delivery speed from 7+ providers including Dialog eZ Cash.",
+      "Compare cheapest ways to send money to Sri Lanka in 2026. USD, GBP, EUR to LKR fees, rates, and delivery speed from {{ROUTE_PROVIDERS:USD,GBP,EUR:LKR}}, plus Dialog eZ Cash.",
     excerpt:
-      "Sri Lanka's remittance corridor is critical for families across the island. We compared 7+ providers for USD, GBP, and EUR to LKR transfers.",
+      "Sri Lanka's remittance corridor is critical for families across the island. We compared {{ROUTE_PROVIDERS:USD,GBP,EUR:LKR}} for USD, GBP, and EUR to LKR transfers.",
     category: "Corridors",
     readTime: "10 min read",
     publishedAt: "2026-03-18",

@@ -9,6 +9,7 @@ import { CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import { SENDSCORE_SUMMARY } from "@/lib/sendscore-summary";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { providerReviews } from "@/data/provider-reviews";
+import { companyPageRenders } from "@/lib/company-route";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -115,7 +116,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
           <div className="max-w-3xl mx-auto">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
-                { value: atLeast(SITE_STATS.liveProviders), label: "Providers with live quotes" },
+                { value: atLeast(SITE_STATS.trackedProviders), label: "Providers tracked" },
                 { value: atLeast(SITE_STATS.comparableCorridors), label: "Corridors compared (2+ providers)" },
                 { value: `${SITE_STATS.refreshHours} hrs`, label: "Data refresh cycle" },
                 { value: atLeast(SITE_STATS.currencies), label: "Currencies supported" },
@@ -131,17 +132,24 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                 each page picked its own denominator; every count we publish now
                 has a name here and is computed in src/lib/site-stats.ts. */}
             <dl className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-xs text-[var(--color-on-surface-variant)]">
+              {/* The three provider counts (site-stats.ts, THE THREE PROVIDER
+                  COUNTS). Every provider count on the site is one of them and
+                  says which: tracked, compared for a route, or reviewed. */}
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Providers with live quotes — {SITE_STATS.liveProviders}</dt>
-                <dd>Distinct providers appearing in our current quote data, including banks quoted through comparison feeds. Elsewhere on the site this is rounded down to {atLeast(SITE_STATS.liveProviders)}, so the claim survives a provider dropping out between scrapes.</dd>
+                <dt className="font-semibold text-[var(--color-on-surface)]">1. Providers tracked — {SITE_STATS.trackedProviders}</dt>
+                <dd>Distinct providers with a live quote anywhere in our data, including banks quoted through comparison feeds. Elsewhere on the site this is rounded down to {atLeast(SITE_STATS.trackedProviders)} (&ldquo;we track {atLeast(SITE_STATS.trackedProviders)}{" "}providers&rdquo;), so the claim survives a provider dropping out between scrapes. Our indexes rank subsets of it and say so: the Provider Consistency Index ranks the {CONSISTENCY_INDEX.rows.length}{" "}with enough contested days.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Provider profiles — {SITE_STATS.curatedProviders}</dt>
-                <dd>Providers with a profile page at /companies: regulation, fees, limits and features, recorded by our editors from each provider&rsquo;s published terms.</dd>
+                <dt className="font-semibold text-[var(--color-on-surface)]">2. Providers compared — per route</dt>
+                <dd>The providers with a comparable estimate for the route and amount a page is about: the rows its comparison prints (&ldquo;14 providers quote this route&rdquo;). It changes from page to page and with every refresh, so it is never quoted as a site-wide figure.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Full editorial reviews — {providerReviews.length}</dt>
-                <dd>Profiles that also carry a written verdict, who the service suits and the alternatives worth comparing.</dd>
+                <dt className="font-semibold text-[var(--color-on-surface)]">3. Providers reviewed — {SITE_STATS.reviewedProviders}</dt>
+                <dd>Providers with a review page at /companies that we list: regulation, fees, limits and features, recorded by our editors from each provider&rsquo;s published terms.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Full editorial reviews — {providerReviews.filter((r) => companyPageRenders(r.slug)).length}</dt>
+                <dd>Reviewed providers whose page also carries a written verdict, who the service suits and the alternatives worth comparing — a subset of the providers reviewed.</dd>
               </div>
               <div>
                 <dt className="font-semibold text-[var(--color-on-surface)]">Providers we sent test transfers with — {providerReviews.filter((r) => /\b(sent|conducted)\b[^.]*\btest transfers\b/i.test(r.howWeTested)).length}</dt>

@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import { providersComparedPhrase } from "@/lib/provider-counts";
 import { robotsFor } from "@/lib/seo-indexing";
 import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
@@ -315,13 +316,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // The richer detail after the cut still feeds AI/Bing snippet selection.
     "usd-to-brl": {
       title: `USD to BRL Today: Live Dollar to Real Rate (${year})`,
-      description: `How much is 1 USD in Brazilian Real today? Find the cheapest USD→BRL transfer in seconds — live mid-market rate updated every 60s, plus the real reais Wise, Remitly, Xoom & 10+ providers deliver after markup.`,
+      description: `How much is 1 USD in Brazilian Real today? Find the cheapest USD→BRL transfer in seconds — live mid-market rate updated every 60s, plus the reais ${providersComparedPhrase(["USD"], "BRL")} — Wise, Remitly and Xoom among them — deliver after markup.`,
       ogTitle: `1 USD to BRL Today — Live Dollar to Real Rate (${month} ${year})`,
-      ogDesc: `Live USD to Brazilian Real rate + what 10+ providers actually pay. See who delivers the most reais per dollar today, plus PIX delivery options.`,
+      ogDesc: `Live USD to Brazilian Real rate + what ${providersComparedPhrase(["USD"], "BRL")} actually pay. See who delivers the most reais per dollar today, plus PIX delivery options.`,
     },
     "gbp-to-eur": {
       title: `GBP to EUR Today — How Much Is £1,000 in Euros?`,
-      description: `How much is £1,000 in euros today? Compare the cheapest UK→Europe transfers — live GBP/EUR rate updated every 60s, plus what Wise, Revolut & 10+ providers actually deliver after FX markup.`,
+      description: `How much is £1,000 in euros today? Compare the cheapest UK→Europe transfers — live GBP/EUR rate updated every 60s, plus what ${providersComparedPhrase(["GBP"], "EUR")} — Wise and Revolut among them — actually deliver after FX markup.`,
       ogTitle: `GBP to EUR Today — Live Pound to Euro Rate + Cheapest UK→EU Providers`,
       ogDesc: `Live GBP/EUR mid-market rate + what UK-to-Europe transfer providers actually offer. Skip the 3% bank markup — see who gives you the most euros per pound.`,
     },

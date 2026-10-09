@@ -526,9 +526,9 @@ export const corridorGuidesIndia: BlogPost[] = [
     title:
       "Send Money from USA to India: Cheapest Providers 2026",
     metaDescription:
-      "Compare 10+ providers for sending money from USA to India in 2026. Real fee data, IFSC code guide, IMPS vs UPI vs cash pickup, and NRI account rules.",
+      "Compare {{ROUTE_PROVIDERS:USD:INR}} for sending money from USA to India in 2026. Real fee data, IFSC code guide, IMPS vs UPI vs cash pickup, and NRI account rules.",
     excerpt:
-      "India receives over $125 billion in remittances annually — yet most senders overpay by 3–5%. We compared 10+ providers on real USD-to-INR quotes to find the cheapest, fastest, and most reliable ways to send money to India from the US.",
+      "India receives over $125 billion in remittances annually — yet most senders overpay by 3–5%. We compared {{ROUTE_PROVIDERS:USD:INR}} on real USD-to-INR quotes to find the cheapest, fastest, and most reliable ways to send money to India from the US.",
     category: "Corridors",
     readTime: "14 min read",
     publishedAt: "2026-03-22",
@@ -953,7 +953,7 @@ export const corridorGuidesIndia: BlogPost[] = [
     howToSteps: [
       {
         name: "Compare providers",
-        text: "Enter your amount on the USA to India comparison tool to see real-time INR received from 10+ providers.",
+        text: "Enter your amount on the USA to India comparison tool to see real-time INR received from every provider quoting USD to INR.",
       },
       {
         name: "Create an account",

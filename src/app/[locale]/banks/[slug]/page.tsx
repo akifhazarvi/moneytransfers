@@ -14,6 +14,7 @@
  * Google rewards.
  */
 import Image from "next/image";
+import { COVERAGE } from "@/lib/site-stats";
 import { robotsFor } from "@/lib/seo-indexing";
 import { getDataUpdatedISO, getDataUpdatedInstant } from "@/lib/data-freshness";
 import Link from "@/components/EligibleLink";
@@ -86,7 +87,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     stats.largestLossExample && stats.largestLossExample.lossPct > 0
       ? ` Real example: on ${getCurrencySymbol(stats.largestLossExample.sendCurrency)}${stats.largestLossExample.sendAmount.toLocaleString()} ${bank.name} delivers ${stats.largestLossExample.lossPct.toFixed(1)}% less than ${stats.largestLossExample.bestDigitalProvider}.`
       : "";
-  const description = `${bank.name} international transfer fees (${year}) — live data scraped daily from ${stats.corridorCount} currency corridors.${lossLine} Compare against Wise, Remitly and 30+ specialist providers.`;
+  const description = `${bank.name} international transfer fees (${year}) — live data scraped daily from ${stats.corridorCount} currency corridors.${lossLine} Compare against Wise, Remitly and the rest of the ${COVERAGE.providers} we track.`;
   return {
     // bank.headline is the visible <h1>; seoTitle keeps the <title> distinct
     // and inside 70 chars (chase/hsbc were 79 and 74).

@@ -106,7 +106,7 @@ const STUDIES: Study[] = [
     title: "Day-of-week FX markup study",
     href: "/guides/best-day-to-send-money-abroad",
     finding: `Weekends are marginally cheaper, not dearer: a mean markup of ${weekend.weekendMean.toFixed(2)}% at weekends against ${weekend.weekdayMean.toFixed(2)}% on weekdays, a difference of ${Math.abs(weekend.weekendDeltaPp).toFixed(3)} percentage points. Which provider you choose is a far larger lever than which day you send.`,
-    basis: `${nf(weekend.observations)} quote observations from ${nf(weekend.snapshots)} snapshots across ${weekend.providers.length} providers, ${weekend.dataRange.from} to ${weekend.dataRange.to}, corrected for uneven sampling with outliers quarantined rather than dropped silently.`,
+    basis: `${nf(weekend.observations)} quote observations from ${nf(weekend.snapshots)} snapshots of the ${weekend.providers.length} providers in our quote archive (it keeps providers that have since stopped quoting), ${weekend.dataRange.from} to ${weekend.dataRange.to}, corrected for uneven sampling with outliers quarantined rather than dropped silently.`,
     dataAsOf: weekend.generatedAt,
   },
   {

@@ -192,7 +192,7 @@ export default async function BestDayToSendMoneyPage({ params }: { params: Promi
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
             <Stat value={obs} label="quote observations" />
             <Stat value={String(wm.snapshots)} label="daily snapshots" />
-            <Stat value={String(wm.providers.length)} label="providers measured" />
+            <Stat value={String(wm.providers.length)} label="providers in the quote archive" />
             <Stat value={`${spreadMultiple}×`} label={`spread between cheapest and dearest provider`} />
           </div>
 

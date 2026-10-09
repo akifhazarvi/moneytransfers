@@ -77,6 +77,7 @@ import { dataComparisonGuides } from "./blog-data-comparisons";
 import { freelanceGuides } from "./blog-freelance-guides";
 import { costTransparencyGuides } from "./blog-cost-transparency";
 import { SITE_STATS, atLeast } from "@/lib/site-stats";
+import { resolveRouteProviderTokens } from "@/lib/provider-counts";
 
 const rawBlogPosts: BlogPost[] = [
   ...costTransparencyGuides,
@@ -1397,7 +1398,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-india-guide",
     title: "Best Ways to Send Money to India (2026)",
     metaDescription:
-      "Compare the cheapest ways to send money to India in 2026. Real INR rates from 10+ providers — UPI, IMPS, bank deposit. USD, GBP, EUR, and AUD corridors.",
+      "Compare the cheapest ways to send money to India in 2026. Real INR rates from {{ROUTE_PROVIDERS:USD,GBP,EUR,AUD:INR}} — UPI, IMPS, bank deposit. USD, GBP, EUR, and AUD corridors.",
     excerpt:
       "Plan an INR payment from the US, UK, Canada or elsewhere: compare the right source currency, agree the rupee payout and reconcile what reaches the recipient.",
     category: "Corridors",
@@ -3273,9 +3274,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-pakistan-guide",
     title: "Best Way to Send Money to Pakistan 2026 — Cheapest Rates",
     metaDescription:
-      "Compare the cheapest ways to send money to Pakistan in 2026. USD, GBP, EUR to PKR rates, JazzCash/Easypaisa delivery, fees, and times from 10+ providers.",
+      "Compare the cheapest ways to send money to Pakistan in 2026. USD, GBP, EUR to PKR rates, JazzCash/Easypaisa delivery, fees, and times from {{ROUTE_PROVIDERS:USD,GBP,EUR:PKR}}.",
     excerpt:
-      "Pakistan is one of the world's top remittance destinations. We compared 10+ providers across multiple source currencies to find the best way to send money to Pakistan.",
+      "Pakistan is one of the world's top remittance destinations. We compared {{ROUTE_PROVIDERS:USD,GBP,EUR:PKR}} across multiple source currencies to find the best way to send money to Pakistan.",
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-03-14",
@@ -3286,9 +3287,9 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Pakistan: A Top Remittance Destination",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market USD/GBP to PKR exchange rate with 0% markup and a fee of ~$6–$8 on $1,000. That does not make it automatically cheapest on this route — check the comparison above for the current leader. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering in minutes to bank accounts, JazzCash, or Easypaisa. <a href="/companies/ace-money-transfer">ACE Money Transfer</a> specialises in this corridor; on measured payouts the most frequent leader is {{CORRIDOR_LEADER:GBP:PKR}}. On a typical $1,000 transfer, specialist providers deliver <strong>PKR 5,000–15,000 more</strong> than US or UK banks. <a href="/send-money/usa-to-pakistan">Compare live USD to PKR rates</a> from 10+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market USD/GBP to PKR exchange rate with 0% markup and a fee of ~$6–$8 on $1,000. That does not make it automatically cheapest on this route — check the comparison above for the current leader. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering in minutes to bank accounts, JazzCash, or Easypaisa. <a href="/companies/ace-money-transfer">ACE Money Transfer</a> specialises in this corridor; on measured payouts the most frequent leader is {{CORRIDOR_LEADER:GBP:PKR}}. On a typical $1,000 transfer, specialist providers deliver <strong>PKR 5,000–15,000 more</strong> than US or UK banks. <a href="/send-money/usa-to-pakistan">Compare live USD to PKR rates</a> from {{ROUTE_PROVIDERS:USD:PKR}}.</p></div>
 <p>Pakistan received over <strong>$30 billion in remittances</strong> in 2025, according to the <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan</a>, making it one of the top five remittance-receiving countries globally. The US, Saudi Arabia, UAE, and UK are the largest source countries, with millions of Pakistani expatriates sending money home regularly.</p>
-<p>The Pakistan corridor is highly competitive, with 10+ providers vying for market share. This competition benefits senders — but it also means you need to compare carefully, because the difference between the best and worst option can be <strong>PKR 5,000–15,000 on a $1,000 transfer</strong>. Over a year of monthly transfers, that's <strong>PKR 60,000–180,000</strong> saved by choosing the right provider.</p>`,
+<p>The Pakistan corridor is highly competitive: {{ROUTE_PROVIDERS:USD:PKR}} quote USD to PKR alone. This competition benefits senders — but it also means you need to compare carefully, because the difference between the best and worst option can be <strong>PKR 5,000–15,000 on a $1,000 transfer</strong>. Over a year of monthly transfers, that's <strong>PKR 60,000–180,000</strong> saved by choosing the right provider.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Pakistan",
@@ -3671,9 +3672,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-philippines-guide",
     title: "Send Money to the Philippines: Cheapest Ways 2026",
     metaDescription:
-      "Compare the cheapest ways to send money to the Philippines. Real PHP rates from 10+ providers — GCash, bank deposit, and cash pickup options. Updated 2026.",
+      "Compare the cheapest ways to send money to the Philippines. Real PHP rates from {{ROUTE_PROVIDERS:USD:PHP}} — GCash, bank deposit, and cash pickup options. Updated 2026.",
     excerpt:
-      "About 5 million Filipino Americans live in the US. We compared 10+ providers to find the cheapest USD to PHP transfer options including GCash and cash pickup.",
+      "About 5 million Filipino Americans live in the US. We compared {{ROUTE_PROVIDERS:USD:PHP}} to find the cheapest USD to PHP transfer options including GCash and cash pickup.",
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-03-15",
@@ -3848,7 +3849,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-brazil-guide",
     title: "Send Money to Brazil 2026: PIX, IOF Tax & Cheapest Providers",
     metaDescription:
-      "Send money to Brazil cheaper: 10+ providers compared on USD to BRL with PIX delivery. The 0.38% IOF tax explained with real US–Brazil examples.",
+      "Send money to Brazil cheaper: {{ROUTE_PROVIDERS:USD:BRL}} compared on USD to BRL with PIX delivery. The 0.38% IOF tax explained with real US–Brazil examples.",
     excerpt:
       "Brazil received over USD 4 billion in US remittances last year. We unpacked PIX delivery, the 0.38% IOF tax that surprises every first-time sender, and which of the 10+ available providers actually delivers the most reais per dollar.",
     category: "Corridors",
@@ -4218,7 +4219,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "USA to Mexico: A $60.7 Billion Corridor — Here's How to Send for Less",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For most people sending money from the USA to Mexico, a money transfer app like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> paired with a direct <strong>SPEI deposit</strong> to your recipient's CLABE number is the usual combination — often arriving in minutes for under $10 total; on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:MXN}} cost on a $500 transfer. Bank-to-bank wires are the most expensive route, typically costing $50-$120 more for the same amount. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates</a> from 10+ providers before you send.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For most people sending money from the USA to Mexico, a money transfer app like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> paired with a direct <strong>SPEI deposit</strong> to your recipient's CLABE number is the usual combination — often arriving in minutes for under $10 total; on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:MXN}} cost on a $500 transfer. Bank-to-bank wires are the most expensive route, typically costing $50-$120 more for the same amount. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates</a> from {{ROUTE_PROVIDERS:USD:MXN}} before you send.</p></div>
 <p>Mexico is the single largest remittance corridor in the world, receiving <strong>$60.7 billion</strong> from the United States in 2025 — 97% of its $62.5 billion total — according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a>. With that much money moving between the two countries, senders have more options than almost any other corridor — and that's both an opportunity and a trap.</p>
 <p>The opportunity: competition keeps fees low and choice high. The trap: not every option is created equal, and the "convenient" choice — your bank, or the agent on the corner — is often the most expensive by a wide margin. This guide breaks down <strong>six real ways</strong> to send money from the US to Mexico, what each one actually costs on a typical $500 transfer, and how to pick the right one for your situation — whether your recipient has a bank account, a debit card, a smartphone, or none of the above.</p>`,
       },
@@ -4410,9 +4411,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-nigeria-guide",
     title: "Cheapest Way to Send Money to Nigeria (2026)",
     metaDescription:
-      "Compare the cheapest ways to send money to Nigeria. Real USD to NGN rates from 10+ providers. Bank deposit, cash pickup, and mobile wallets compared.",
+      "Compare the cheapest ways to send money to Nigeria. Real USD to NGN rates from {{ROUTE_PROVIDERS:USD:NGN}}. Bank deposit, cash pickup, and mobile wallets compared.",
     excerpt:
-      "Nigeria is Africa's largest remittance market. We compared 10+ providers to find the cheapest USD to NGN options, with tips on navigating naira exchange rate differences.",
+      "Nigeria is Africa's largest remittance market. We compared {{ROUTE_PROVIDERS:USD:NGN}} to find the cheapest USD to NGN options, with tips on navigating naira exchange rate differences.",
     category: "Corridors",
     readTime: "10 min read",
     publishedAt: "2026-03-15",
@@ -4568,9 +4569,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-bangladesh-guide",
     title: "Send Money to Bangladesh: Cheapest Ways & Rates 2026",
     metaDescription:
-      "Compare the cheapest ways to send money to Bangladesh from the US. Real USD to BDT rates from 8+ providers — bank deposit, bKash, Nagad, and cash pickup.",
+      "Compare the cheapest ways to send money to Bangladesh from the US. Real USD to BDT rates from {{ROUTE_PROVIDERS:USD:BDT}} — bank deposit, bKash, Nagad, and cash pickup.",
     excerpt:
-      "Bangladesh is a top-10 remittance destination. We compared 8+ providers to find the cheapest USD to BDT transfers including bKash, Nagad, and bank deposit options.",
+      "Bangladesh is a top-10 remittance destination. We compared {{ROUTE_PROVIDERS:USD:BDT}} to find the cheapest USD to BDT transfers including bKash, Nagad, and bank deposit options.",
     category: "Corridors",
     readTime: "9 min read",
     publishedAt: "2026-03-15",
@@ -4581,7 +4582,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Bangladesh: A Top-10 Remittance Destination",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The most-used apps for Bangladesh are <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee with Express bKash delivery in seconds), <a href="/companies/instarem">Instarem</a> (competitive BDT rates), and <a href="/companies/wise">Wise</a> (~$7 fee, 0% markup — best for $1,000+ transfers). bKash and Nagad mobile wallets make receiving money fast even in rural areas. <a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a> from 8+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The most-used apps for Bangladesh are <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee with Express bKash delivery in seconds), <a href="/companies/instarem">Instarem</a> (competitive BDT rates), and <a href="/companies/wise">Wise</a> (~$7 fee, 0% markup — best for $1,000+ transfers). bKash and Nagad mobile wallets make receiving money fast even in rural areas. <a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a> from {{ROUTE_PROVIDERS:USD:BDT}}.</p></div>
 <p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025, according to the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>, making it one of the top remittance-receiving countries globally. The US, Saudi Arabia, UAE, and Malaysia are the largest source countries.</p>
 <p>The USD to BDT corridor has a growing number of providers competing for market share. Mobile financial services — particularly <strong>bKash</strong> and <strong>Nagad</strong> — have transformed how Bangladeshis receive money from abroad, making transfers faster and more accessible than ever, especially in rural areas.</p>`,
       },
@@ -4813,7 +4814,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-canada-to-india-guide",
     title: "Send Money from Canada to India: Best Ways in 2026",
     metaDescription:
-      "Compare the cheapest ways to send money from Canada to India. Real CAD to INR rates from 9+ providers — Interac e-Transfer, bank deposit, and UPI.",
+      "Compare the cheapest ways to send money from Canada to India. Real CAD to INR rates from {{ROUTE_PROVIDERS:CAD:INR}} — Interac e-Transfer, bank deposit, and UPI.",
     excerpt:
       "Canada is home to over 1.8 million people of Indian origin. We compare live CAD to INR quotes from every provider we price, including Interac e-Transfer funding and UPI delivery.",
     category: "Corridors",
@@ -10866,7 +10867,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-nepal-guide",
     title: "Best Way to Send Money to Nepal 2026: Cheapest NPR Rates",
     metaDescription:
-      "Compare the cheapest and fastest ways to send money to Nepal in 2026. Live NPR rates from 10+ providers — eSewa, Khalti, bank deposit, cash pickup.",
+      "Compare the cheapest and fastest ways to send money to Nepal in 2026. Live NPR rates — eSewa, Khalti, bank deposit, cash pickup.",
     excerpt:
       "Nepal received $10.6 billion in remittances in 2025 — over 22% of GDP. We compared every major provider to find who delivers the most Nepali Rupees for your money.",
     category: "Corridors",
@@ -11157,7 +11158,7 @@ const rawBlogPosts: BlogPost[] = [
     contentStatus: "published",
     title: "Cheapest Way to Send Money to Morocco: MAD Rates 2026",
     metaDescription:
-      "Compare the cheapest ways to send money to Morocco. Live MAD rates from 10+ providers — bank deposit vs CashPlus pickup. Europe, US, and Gulf corridors.",
+      "Compare the cheapest ways to send money to Morocco. Live MAD rates from {{ROUTE_PROVIDERS:EUR,USD,GBP:MAD}} — bank deposit vs CashPlus pickup. Europe, US, and Gulf corridors.",
     excerpt:
       "Morocco received $12 billion in remittances in 2025, primarily from France, Spain, Italy and the Gulf. Here's how to get the best MAD rate and avoid overpaying.",
     category: "Corridors",
@@ -11406,7 +11407,7 @@ const rawBlogPosts: BlogPost[] = [
     contentStatus: "draft",
     title: "Cheapest Way to Send Money to Romania: RON Rates 2026",
     metaDescription:
-      "Compare cheapest ways to send money to Romania. SEPA instant transfers available. EUR vs RON delivery, real rates from 10+ providers. UK, EU, US corridors.",
+      "Compare cheapest ways to send money to Romania. SEPA instant transfers available. EUR vs RON delivery, real rates from {{ROUTE_PROVIDERS:GBP,EUR,USD:RON}}. UK, EU, US corridors.",
     excerpt:
       "Romania received $9 billion in remittances in 2025, mostly from Italy, Spain, UK and Germany. SEPA makes EUR transfers near-instant — here's how to get the best deal.",
     category: "Corridors",
@@ -11664,9 +11665,9 @@ const rawBlogPosts: BlogPost[] = [
     contentStatus: "published",
     title: "Send Money from UK to Bangladesh: Best Ways in 2026",
     metaDescription:
-      "Compare the cheapest ways to send money from the UK to Bangladesh. Real GBP to BDT rates from 8+ providers — bKash, Nagad, bank deposit, and cash pickup.",
+      "Compare the cheapest ways to send money from the UK to Bangladesh. Real GBP to BDT rates from {{ROUTE_PROVIDERS:GBP:BDT}} — bKash, Nagad, bank deposit, and cash pickup.",
     excerpt:
-      "The UK is one of Bangladesh's top remittance sources. We compared 8+ providers to find the cheapest GBP to BDT transfers, including bKash instant delivery and the 2.5% government incentive.",
+      "The UK is one of Bangladesh's top remittance sources. We compared {{ROUTE_PROVIDERS:GBP:BDT}} to find the cheapest GBP to BDT transfers, including bKash instant delivery and the 2.5% government incentive.",
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-03-27",
@@ -11677,7 +11678,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "UK to Bangladesh: A Major Remittance Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On £1,000 today, {{BEST_PROVIDER:GBP:BDT:1000}} pays the most taka ({{BEST_RECEIVE:GBP:BDT:1000}}), and over the last three months the most frequent leader on GBP to BDT was {{CORRIDOR_LEADER:GBP:BDT}}. <a href="/companies/wise">Wise</a> charges {{FEE:wise:GBP:BDT:1000}} with a {{MARKUP:wise:GBP:BDT:1000}} margin over mid-market on the same amount. <a href="/companies/remitly">Remitly</a>'s bKash Express is the quickest way to put taka in a wallet. For cash pickup in smaller towns, <a href="/companies/western-union">Western Union</a> has the widest agent network. On a typical £1,000 transfer, specialist providers deliver ৳3,000–৳7,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Recipients also get a <strong>2.5% government incentive</strong> on remittances through formal channels — worth an extra ৳3,500+ on a £1,000 transfer. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates</a> from 8+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On £1,000 today, {{BEST_PROVIDER:GBP:BDT:1000}} pays the most taka ({{BEST_RECEIVE:GBP:BDT:1000}}), and over the last three months the most frequent leader on GBP to BDT was {{CORRIDOR_LEADER:GBP:BDT}}. <a href="/companies/wise">Wise</a> charges {{FEE:wise:GBP:BDT:1000}} with a {{MARKUP:wise:GBP:BDT:1000}} margin over mid-market on the same amount. <a href="/companies/remitly">Remitly</a>'s bKash Express is the quickest way to put taka in a wallet. For cash pickup in smaller towns, <a href="/companies/western-union">Western Union</a> has the widest agent network. On a typical £1,000 transfer, specialist providers deliver ৳3,000–৳7,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Recipients also get a <strong>2.5% government incentive</strong> on remittances through formal channels — worth an extra ৳3,500+ on a £1,000 transfer. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates</a> from {{ROUTE_PROVIDERS:GBP:BDT}}.</p></div>
 <p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025 according to <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>, and the UK is the <strong>second-largest source</strong> after Saudi Arabia. Over 600,000 British Bangladeshis — concentrated in London, Birmingham, and Luton — send money home regularly to support families, fund education, and invest in property.</p>
 <p>The GBP to BDT corridor is well-served by specialist providers who undercut high-street banks by a wide margin. On a £1,000 transfer, the difference between the best specialist provider and a typical UK bank can be <strong>৳3,000–৳7,000</strong>. Combined with the 2.5% government incentive, formal channels deliver significantly more value than either bank transfers or informal hawala networks.</p>`,
       },
@@ -11930,9 +11931,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-uk-to-nigeria-guide",
     title: "Send Money from UK to Nigeria: Best Ways & Rates 2026",
     metaDescription:
-      "Compare cheapest ways to send money from the UK to Nigeria. Real GBP to NGN rates from 8+ providers — bank deposit, cash pickup, and mobile wallet options.",
+      "Compare cheapest ways to send money from the UK to Nigeria. Real GBP to NGN rates from {{ROUTE_PROVIDERS:GBP:NGN}} — bank deposit, cash pickup, and mobile wallet options.",
     excerpt:
-      "The UK is Nigeria's second-largest remittance source. We compared 8+ providers to find the cheapest GBP to NGN transfers, including Naira delivery options and how to navigate the CBN exchange rate.",
+      "The UK is Nigeria's second-largest remittance source. We compared {{ROUTE_PROVIDERS:GBP:NGN}} to find the cheapest GBP to NGN transfers, including Naira delivery options and how to navigate the CBN exchange rate.",
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-03-29",
@@ -11943,7 +11944,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "UK to Nigeria: A High-Volume Remittance Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market GBP to NGN rate with 0% markup and a fee of approximately £5 on a £1,000 transfer, but the provider that actually delivered the most on GBP to NGN was {{CORRIDOR_LEADER:GBP:NGN}}. <a href="/companies/lemfi">LemFi</a> (formerly LemMoney) is a strong competitor on this corridor with zero-fee transfers and competitive Naira rates. For cash pickup, <a href="/companies/western-union">Western Union</a> has the widest agent network across all 36 Nigerian states. On a typical £1,000 transfer, specialist providers deliver <strong>₦50,000–₦150,000 more</strong> than UK high-street banks, which charge higher fees and mark up the exchange rate by 2–4%. <a href="/send-money/uk-to-nigeria">Compare live GBP to NGN rates</a> from 8+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market GBP to NGN rate with 0% markup and a fee of approximately £5 on a £1,000 transfer, but the provider that actually delivered the most on GBP to NGN was {{CORRIDOR_LEADER:GBP:NGN}}. <a href="/companies/lemfi">LemFi</a> (formerly LemMoney) is a strong competitor on this corridor with zero-fee transfers and competitive Naira rates. For cash pickup, <a href="/companies/western-union">Western Union</a> has the widest agent network across all 36 Nigerian states. On a typical £1,000 transfer, specialist providers deliver <strong>₦50,000–₦150,000 more</strong> than UK high-street banks, which charge higher fees and mark up the exchange rate by 2–4%. <a href="/send-money/uk-to-nigeria">Compare live GBP to NGN rates</a> from {{ROUTE_PROVIDERS:GBP:NGN}}.</p></div>
 <p>Nigeria received over <strong>$19 billion in diaspora remittances</strong> in 2025 according to the <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a>, making it Africa's largest remittance recipient and the 6th largest globally. The UK is the <strong>second-largest source country</strong> after the US, with over 250,000 Nigerian-born residents in England and Wales.</p>
 <p>The GBP to NGN corridor presents a unique challenge: Nigeria's exchange rate system has historically had multiple rates (official CBN rate, NAFEM market rate, and parallel market rate). Since the 2023 reforms, the rates have largely converged, but understanding which rate your provider uses remains critical. The difference between the best and worst provider can be <strong>₦50,000–₦150,000 on a £1,000 transfer</strong>.</p>`,
       },
@@ -12097,9 +12098,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-south-africa-guide",
     title: "Cheapest Way to Send Money to South Africa: ZAR Rates 2026",
     metaDescription:
-      "Compare cheapest ways to send money to South Africa. Real ZAR rates from 10+ providers — FNB eWallet, Capitec, bank deposit, and cash pickup.",
+      "Compare cheapest ways to send money to South Africa. Real ZAR rates from {{ROUTE_PROVIDERS:USD,GBP,AUD:ZAR}} — FNB eWallet, Capitec, bank deposit, and cash pickup.",
     excerpt:
-      "South Africa is sub-Saharan Africa's largest remittance market. We compared 10+ providers to find the cheapest USD, GBP, and AUD to ZAR transfers, including FNB eWallet and Shoprite cash collection.",
+      "South Africa is sub-Saharan Africa's largest remittance market. We compared {{ROUTE_PROVIDERS:USD,GBP,AUD:ZAR}} to find the cheapest USD, GBP, and AUD to ZAR transfers, including FNB eWallet and Shoprite cash collection.",
     category: "Corridors",
     readTime: "13 min read",
     publishedAt: "2026-03-31",
@@ -12110,7 +12111,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "South Africa: Sub-Saharan Africa's Largest Economy",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup and a fee of ~$7 on $1,000. That does not make it automatically cheapest on this route — check the comparison above for the current leader. <a href="/companies/worldremit">WorldRemit</a> is excellent for FNB eWallet and cash pickup at Shoprite. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. On a typical $1,000 transfer, specialist providers deliver <strong>R500–R1,500 more</strong> than bank wires. South Africa's Big 5 banks (FNB, Standard Bank, Absa, Nedbank, Capitec) all accept international transfers. <a href="/send-money/send-money-to-south-africa">Compare live USD to ZAR rates</a> from 10+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup and a fee of ~$7 on $1,000. That does not make it automatically cheapest on this route — check the comparison above for the current leader. <a href="/companies/worldremit">WorldRemit</a> is excellent for FNB eWallet and cash pickup at Shoprite. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. On a typical $1,000 transfer, specialist providers deliver <strong>R500–R1,500 more</strong> than bank wires. South Africa's Big 5 banks (FNB, Standard Bank, Absa, Nedbank, Capitec) all accept international transfers. <a href="/send-money/send-money-to-south-africa">Compare live USD to ZAR rates</a> from {{ROUTE_PROVIDERS:USD:ZAR}}.</p></div>
 <div class="blog-callout-blue-sm"><p><strong>Key data:</strong> SendMoneyCompare data shows specialist providers deliver R500–R1,500 more than bank wires on a $1,000 transfer to South Africa. FNB eWallet enables instant delivery to any South African mobile phone without a bank account, accessible via 300,000+ FNB ATMs.</p></div>
 <p>South Africa is sub-Saharan Africa's most developed financial market, with a well-regulated banking system and growing digital payment infrastructure. The country receives remittances primarily from the <strong>USA, UK, Australia, Canada, and other African countries</strong>.</p>
 <p>What makes the South Africa corridor unique: the South African Rand (ZAR) is one of the most traded emerging market currencies, with deep liquidity and tight spreads. This means specialist providers can offer much better rates than banks — but the ZAR is also volatile, with 5–10% swings in a quarter being common. Timing your transfer and comparing providers on the day you send matters more here than on stable corridors.</p>`,
@@ -12305,9 +12306,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-colombia-guide",
     title: "Cheapest Way to Send Money to Colombia 2026: COP Rates",
     metaDescription:
-      "Compare the cheapest ways to send money to Colombia. Real COP rates from 10+ providers — Nequi, Daviplata, Bancolombia, and Efecty cash pickup options.",
+      "Compare the cheapest ways to send money to Colombia. Real COP rates from {{ROUTE_PROVIDERS:USD,EUR,GBP:COP}} — Nequi, Daviplata, Bancolombia, and Efecty cash pickup options.",
     excerpt:
-      "Colombia received $10.5 billion in remittances in 2023. We compared 10+ providers to find the cheapest USD, EUR, and GBP to COP transfers, including Nequi instant delivery.",
+      "Colombia received $10.5 billion in remittances in 2023. We compared {{ROUTE_PROVIDERS:USD,EUR,GBP:COP}} to find the cheapest USD, EUR, and GBP to COP transfers, including Nequi instant delivery.",
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-04-10",
@@ -12318,14 +12319,14 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Colombia's Remittance Market: Digital Wallets Leading the Way",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market USD to COP rate with 0% markup and fees of $4–7 on a $1,000 transfer, but the provider that actually delivered the most on USD to COP was {{CORRIDOR_LEADER:USD:COP}}. <a href="/companies/remitly">Remitly</a> is a close competitor with fees as low as $0–4 and direct Nequi delivery. For cash pickup, <a href="/companies/western-union">Western Union</a> has 10,000+ Efecty locations across Colombia. On a typical $1,000 transfer, specialist providers deliver <strong>COP 50,000–200,000 more</strong> than traditional banks. <a href="/send-money/send-money-to-colombia">Compare live COP rates</a> from 10+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market USD to COP rate with 0% markup and fees of $4–7 on a $1,000 transfer, but the provider that actually delivered the most on USD to COP was {{CORRIDOR_LEADER:USD:COP}}. <a href="/companies/remitly">Remitly</a> is a close competitor with fees as low as $0–4 and direct Nequi delivery. For cash pickup, <a href="/companies/western-union">Western Union</a> has 10,000+ Efecty locations across Colombia. On a typical $1,000 transfer, specialist providers deliver <strong>COP 50,000–200,000 more</strong> than traditional banks. <a href="/send-money/send-money-to-colombia">Compare live COP rates</a> from {{ROUTE_PROVIDERS:USD,EUR,GBP:COP}}.</p></div>
 <p>Colombia received over <strong>$10.5 billion in remittances</strong> in 2023, according to <a href="https://www.banrep.gov.co/" target="_blank" rel="noopener noreferrer">Banco de la República</a>, with the United States accounting for roughly half. Spain, Chile, and Ecuador are the other major source countries, reflecting Colombia's diverse diaspora of over 5 million abroad.</p>
 <p>What makes Colombia unique among Latin American remittance destinations is the <strong>rapid adoption of digital wallets</strong>. Nequi (owned by Bancolombia) and Daviplata (owned by Davivienda) now have <strong>over 30 million combined users</strong> — in a country of 52 million. Combined with the Transfiya instant interbank network and the PSE online payment system, Colombia's financial infrastructure means transfers can arrive in minutes rather than days.</p>
 <p>The Colombian peso (COP) is a managed-float currency that has shown <strong>5–15% annual fluctuation</strong> against the USD, ranging from COP 3,700 to COP 4,800 per dollar between 2022–2025. This volatility means the difference between providers can be significant — comparing at the time of sending is essential.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Colombia",
-        content: `<p>We compared 10+ providers on the USD to COP corridor. Here's who stands out:</p>
+        content: `<p>We compared {{ROUTE_PROVIDERS:USD:COP}} on the USD to COP corridor. Here's who stands out:</p>
 <div class="table-wrapper"><table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
@@ -12466,9 +12467,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-poland-guide",
     title: "Cheapest Way to Send Money to Poland: PLN Rates 2026",
     metaDescription:
-      "Compare cheapest ways to send money to Poland. SEPA transfers from EU, real PLN rates from 10+ providers. UK-to-Poland and US-to-Poland corridors compared.",
+      "Compare cheapest ways to send money to Poland. SEPA transfers from EU, real PLN rates from {{ROUTE_PROVIDERS:GBP,EUR,USD:PLN}}. UK-to-Poland and US-to-Poland corridors compared.",
     excerpt:
-      "Poland is Central Europe's largest economy with 800,000+ Poles in the UK alone. We compared 10+ providers to find the cheapest GBP, EUR, and USD to PLN transfers including SEPA instant.",
+      "Poland is Central Europe's largest economy with 800,000+ Poles in the UK alone. We compared {{ROUTE_PROVIDERS:GBP,EUR,USD:PLN}} to find the cheapest GBP, EUR, and USD to PLN transfers including SEPA instant.",
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-04-10",
@@ -12479,14 +12480,14 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Poland: Central Europe's Largest Remittance Destination",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup. That does not make it automatically cheapest on this route — check the comparison above for the current leader. From the UK, Wise charges approximately £4–5 on a £1,000 GBP to PLN transfer. <a href="/companies/revolut">Revolut</a> offers free transfers between Revolut accounts and competitive rates for SEPA bank transfers. From the EU, any SEPA transfer is near-free — just watch the EUR→PLN conversion margin. On a typical £1,000 transfer, specialist providers deliver <strong>PLN 100–300 more</strong> than UK high-street banks. <a href="/send-money/send-money-to-poland">Compare live PLN rates</a> from 10+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup. That does not make it automatically cheapest on this route — check the comparison above for the current leader. From the UK, Wise charges approximately £4–5 on a £1,000 GBP to PLN transfer. <a href="/companies/revolut">Revolut</a> offers free transfers between Revolut accounts and competitive rates for SEPA bank transfers. From the EU, any SEPA transfer is near-free — just watch the EUR→PLN conversion margin. On a typical £1,000 transfer, specialist providers deliver <strong>PLN 100–300 more</strong> than UK high-street banks. <a href="/send-money/send-money-to-poland">Compare live PLN rates</a> from {{ROUTE_PROVIDERS:GBP,EUR,USD:PLN}}.</p></div>
 <p>Poland is <strong>Central Europe's largest economy</strong> and a major remittance destination, receiving billions annually from its large diaspora across Western Europe and North America. The UK is the single largest source, with <strong>over 800,000 Polish-born residents</strong> in Britain — the largest non-British nationality group. Germany, Ireland, and the Netherlands are other major sending countries.</p>
 <p>As an EU member since 2004, Poland benefits from <strong>SEPA (Single Euro Payments Area)</strong> for EUR transfers — making euro payments from any EU/EEA country fast and cheap. However, Poland uses the <strong>złoty (PLN)</strong> as its domestic currency, not the euro. This means most transfers involve a currency conversion from EUR, GBP, or USD to PLN, and the conversion rate is where providers differ most.</p>
 <p>The PLN has been relatively stable against the EUR (ranging PLN 4.25–4.75 per EUR in 2024–2025) but more volatile against GBP and USD. The difference between the best and worst provider on GBP→PLN can be <strong>PLN 100–300 on a £1,000 transfer</strong>.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Poland",
-        content: `<p>We compared 10+ providers across GBP, EUR, and USD to PLN corridors:</p>
+        content: `<p>We compared {{ROUTE_PROVIDERS:GBP,EUR,USD:PLN}} across GBP, EUR, and USD to PLN corridors:</p>
 <div class="table-wrapper"><table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
@@ -12623,9 +12624,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-uae-to-india-guide",
     title: "Send Money from UAE to India 2026 (AED to INR)",
     metaDescription:
-      "Compare cheapest ways to send money from UAE to India. Real AED to INR rates from 10+ providers — bank deposit, UPI, and cash pickup options for NRIs.",
+      "Compare cheapest ways to send money from UAE to India. Real AED to INR rates from {{ROUTE_PROVIDERS:AED:INR}} — bank deposit, UPI, and cash pickup options for NRIs.",
     excerpt:
-      "The UAE is India's second-largest remittance source. We compared 10+ providers to find the cheapest AED to INR transfers, including UPI instant delivery and exchange house alternatives.",
+      "The UAE is India's second-largest remittance source. We compared {{ROUTE_PROVIDERS:AED:INR}} to find the cheapest AED to INR transfers, including UPI instant delivery and exchange house alternatives.",
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-04-04",
@@ -13217,9 +13218,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-vietnam-guide",
     title: "Send Money to Vietnam: Cheapest Ways & VND Rates 2026",
     metaDescription:
-      "Compare the cheapest ways to send money to Vietnam. Real USD/AUD to VND rates from 8+ providers — bank deposit, ZaloPay, cash pickup options compared.",
+      "Compare the cheapest ways to send money to Vietnam. Real USD/AUD to VND rates from {{ROUTE_PROVIDERS:USD,AUD:VND}} — bank deposit, ZaloPay, cash pickup options compared.",
     excerpt:
-      "Vietnam receives $18+ billion in annual remittances. We compared 8+ providers to find the cheapest USD, AUD, and GBP to VND transfers.",
+      "Vietnam receives $18+ billion in annual remittances. We compared {{ROUTE_PROVIDERS:USD,AUD,GBP:VND}} to find the cheapest USD, AUD, and GBP to VND transfers.",
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-04-08",
@@ -13336,9 +13337,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-turkey-guide",
     title: "Send Money to Turkey: Cheapest Ways & TRY Rates 2026",
     metaDescription:
-      "Compare the cheapest ways to send money to Turkey. Real EUR, USD, GBP to TRY rates from 8+ providers — bank deposit, cash pickup, and TRY volatility tips.",
+      "Compare the cheapest ways to send money to Turkey. Real EUR, USD, GBP to TRY rates from {{ROUTE_PROVIDERS:EUR,USD,GBP:TRY}} — bank deposit, cash pickup, and TRY volatility tips.",
     excerpt:
-      "Turkey's lira has been one of the most volatile major currencies. We compared 8+ providers to find the cheapest EUR, USD, and GBP to TRY transfers.",
+      "Turkey's lira has been one of the most volatile major currencies. We compared {{ROUTE_PROVIDERS:EUR,USD,GBP:TRY}} to find the cheapest EUR, USD, and GBP to TRY transfers.",
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-04-08",
@@ -13643,7 +13644,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "money-transfer-limits-by-provider-country",
     title: "International Transfer Limits by Provider (2026)",
     metaDescription:
-      "Guide to international money transfer limits in 2026. Per-transaction, daily, and annual limits for Wise, Remitly, Western Union, and 10+ providers.",
+      "Guide to international money transfer limits in 2026. Per-transaction, daily, and annual limits for Wise, Remitly, Western Union and other providers.",
     excerpt:
       "Every provider and every country has different transfer limits. Here's a complete breakdown of how much you can send, what affects your limits, and how to increase them.",
     category: "Education",
@@ -13895,9 +13896,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-uk-guide",
     title: "Cheapest Way to Send Money to the UK 2026: GBP Rates",
     metaDescription:
-      "Compare the cheapest ways to send money to the UK. Real GBP rates from 10+ providers. Faster Payments in minutes. USD, EUR, AUD, and CAD corridors.",
+      "Compare the cheapest ways to send money to the UK. Real GBP rates from {{ROUTE_PROVIDERS:USD,EUR,AUD,CAD:GBP}}. Faster Payments in minutes. USD, EUR, AUD, and CAD corridors.",
     excerpt:
-      "The UK is one of the world's top remittance destinations. We compared 10+ providers to find the cheapest USD, EUR, AUD, and CAD to GBP transfers, including Faster Payments instant delivery.",
+      "The UK is one of the world's top remittance destinations. We compared {{ROUTE_PROVIDERS:USD,EUR,AUD,CAD:GBP}} to find the cheapest USD, EUR, AUD, and CAD to GBP transfers, including Faster Payments instant delivery.",
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-04-11",
@@ -13908,7 +13909,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Sending Money to the UK: Fast, Competitive, and Well-Connected",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup and fees of $5–7 on $1,000 from the US; on measured payouts the most frequent leader on USD→GBP is {{CORRIDOR_LEADER:USD:GBP}}. Delivery via the UK's <strong>Faster Payments Service (FPS)</strong> arrives in minutes, 24/7, including weekends and bank holidays. From the EU, <a href="/companies/revolut">Revolut</a> and <a href="/companies/wise">Wise</a> tie at the top — Revolut is free Revolut-to-Revolut on weekdays, Wise is the most predictable across all banks. UK high-street banks (Barclays, HSBC, Lloyds, NatWest) typically add a 2–4% FX markup on the rate, so a £1,000 inbound transfer through your bank loses you £20–£40 versus a specialist provider. <a href="/send-money/send-money-to-uk">Compare live GBP rates from 10+ providers →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market exchange rate with 0% markup and fees of $5–7 on $1,000 from the US; on measured payouts the most frequent leader on USD→GBP is {{CORRIDOR_LEADER:USD:GBP}}. Delivery via the UK's <strong>Faster Payments Service (FPS)</strong> arrives in minutes, 24/7, including weekends and bank holidays. From the EU, <a href="/companies/revolut">Revolut</a> and <a href="/companies/wise">Wise</a> tie at the top — Revolut is free Revolut-to-Revolut on weekdays, Wise is the most predictable across all banks. UK high-street banks (Barclays, HSBC, Lloyds, NatWest) typically add a 2–4% FX markup on the rate, so a £1,000 inbound transfer through your bank loses you £20–£40 versus a specialist provider. <a href="/send-money/send-money-to-uk">Compare live GBP rates from {{ROUTE_PROVIDERS:USD,EUR,AUD,CAD:GBP}} →</a></p></div>
 <p>The UK is one of the world's most connected financial centers and a top-tier remittance destination, receiving inflows from the <strong>US, EU, India, Pakistan, Australia, Canada, the UAE, and Hong Kong</strong>. According to the <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">World Bank's KNOMAD</a> data, the UK is also the seventh-largest remittance <em>sender</em> globally — but inbound flows from diaspora workers, returning expats, and family transfers consistently rank in the top 15 worldwide.</p>
 <p>The infrastructure helps. The <strong>Faster Payments Service (FPS)</strong> — operated by <a href="https://www.wearepay.uk/" target="_blank" rel="noopener noreferrer">Pay.UK</a> — enables instant GBP transfers <strong>24/7, including weekends and bank holidays</strong>. Most digital providers route through FPS for the final-mile leg, which means a transfer initiated from the US at 10pm Pacific can hit a Barclays or Monzo account in London within minutes. Compare that with the US ACH system (1–3 business days) or older EU SWIFT routing (2–4 business days) and you understand why the UK is one of the easiest countries in the world to send money to.</p>
 <p>SEPA only ever carried euros, so domestic GBP payments run on Faster Payments, Brexit or not — and EU→UK is still highly competitive because most digital providers maintain GBP nostro accounts and convert EUR→GBP at near mid-market. Where Brexit hurts is on bank-to-bank SWIFT transfers: SEPA Instant reaches only the few UK banks that have joined it, so a German bank wiring directly to a UK bank can still take 1–2 days and add 1–3% in correspondent fees. The fix is simple: use a specialist (Wise, Revolut, OFX) instead of your bank.</p>
@@ -14070,9 +14071,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-south-korea-guide",
     title: "Cheapest Way to Send Money to South Korea: KRW Rates 2026",
     metaDescription:
-      "Compare cheapest ways to send money to South Korea. Real KRW rates from 10+ providers. Bank deposit to KB, Shinhan, Hana. US, Australia, Japan corridors.",
+      "Compare cheapest ways to send money to South Korea. Real KRW rates from {{ROUTE_PROVIDERS:USD,AUD,JPY:KRW}}. Bank deposit to KB, Shinhan, Hana. US, Australia, Japan corridors.",
     excerpt:
-      "South Korea's banking system is modern and well-connected, but KRW rates vary significantly between providers. We compared 10+ providers to find the cheapest transfers.",
+      "South Korea's banking system is modern and well-connected, but KRW rates vary significantly between providers. We compared {{ROUTE_PROVIDERS:USD,AUD,JPY:KRW}} to find the cheapest transfers.",
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-04-11",
@@ -14245,9 +14246,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-australia-guide",
     title: "Cheapest Way to Send Money to Australia: AUD Rates 2026",
     metaDescription:
-      "Compare cheapest ways to send money to Australia. Real AUD rates from 10+ providers. NPP instant delivery. UK, US, NZ, and India corridors compared.",
+      "Compare cheapest ways to send money to Australia. Real AUD rates from {{ROUTE_PROVIDERS:GBP,USD,NZD,INR:AUD}}. NPP instant delivery. UK, US, NZ, and India corridors compared.",
     excerpt:
-      "Australia has excellent payment infrastructure with NPP instant transfers. We compared 10+ providers to find the cheapest GBP, USD, NZD, and INR to AUD transfers.",
+      "Australia has excellent payment infrastructure with NPP instant transfers. We compared {{ROUTE_PROVIDERS:GBP,USD,NZD,INR:AUD}} to find the cheapest GBP, USD, NZD, and INR to AUD transfers.",
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-04-11",
@@ -14258,7 +14259,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Sending Money to Australia: Modern Infrastructure, Competitive Rates",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Australia is <a href="/companies/wise">Wise</a> — mid-market exchange rate with 0% markup and fees of £4–5 on £1,000 from the UK or $5–7 on $1,000 from the US. <a href="/companies/ofx">OFX</a> (Sydney-headquartered) is best for AU $10,000+ transfers with zero fees and dedicated dealer support. Delivery via Australia's <strong>New Payments Platform (NPP)</strong> with <strong>PayID</strong> or BSB + account number can arrive in seconds, 24/7 — including weekends. The big four Australian banks (Commonwealth, Westpac, ANZ, NAB) typically add a 3–5% FX markup on inbound conversions, so a £1,000 transfer through your bank loses you AU $50–80 versus a specialist. <a href="/send-money/send-money-to-australia">Compare live AUD rates from 10+ providers →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Australia is <a href="/companies/wise">Wise</a> — mid-market exchange rate with 0% markup and fees of £4–5 on £1,000 from the UK or $5–7 on $1,000 from the US. <a href="/companies/ofx">OFX</a> (Sydney-headquartered) is best for AU $10,000+ transfers with zero fees and dedicated dealer support. Delivery via Australia's <strong>New Payments Platform (NPP)</strong> with <strong>PayID</strong> or BSB + account number can arrive in seconds, 24/7 — including weekends. The big four Australian banks (Commonwealth, Westpac, ANZ, NAB) typically add a 3–5% FX markup on inbound conversions, so a £1,000 transfer through your bank loses you AU $50–80 versus a specialist. <a href="/send-money/send-money-to-australia">Compare live AUD rates from {{ROUTE_PROVIDERS:GBP,USD,NZD,INR:AUD}} →</a></p></div>
 <p>Australia has one of the world's most modern domestic payment systems. The <strong>New Payments Platform (NPP)</strong>, launched in 2018 and operated by NPP Australia, enables instant AUD transfers <strong>24/7, including weekends, public holidays, and overnight</strong>. Most NPP transfers settle in under 30 seconds and use <strong>PayID</strong> — a recipient identifier linked to a phone number, email, or ABN, removing the need to remember a 16-digit BSB + account combination.</p>
 <p>For inbound international transfers, the picture is different: NPP doesn't directly handle cross-border payments, so all foreign currency conversions land in an Australian bank account via the partner bank's domestic AUD rails. Wise, OFX, Revolut, and most other specialists hold pre-positioned AUD in Australian partner banks, which means once the source funds clear, the AUD push to the recipient takes minutes — not days.</p>
 <p>Australia is the world's <strong>14th-largest remittance recipient</strong> by some measures, with major inbound corridors from the <strong>UK</strong> (1.2 million British-born residents and the strongest cultural-financial link outside the EU), the <strong>US</strong>, <strong>New Zealand</strong> (the trans-Tasman corridor — Australia and NZ have visa-free movement and significant cross-border employment), <strong>India</strong> (one of the fastest-growing migrant communities), <strong>China</strong>, and the <strong>Philippines</strong>. According to the <a href="https://www.abs.gov.au/" target="_blank" rel="noopener noreferrer">Australian Bureau of Statistics</a>, more than 30% of Australians were born overseas — driving consistent personal-remittance flows in both directions.</p>
@@ -14444,9 +14445,9 @@ const rawBlogPosts: BlogPost[] = [
     slug: "send-money-to-ethiopia-guide",
     title: "Cheapest Way to Send Money to Ethiopia 2026: ETB Rates",
     metaDescription:
-      "Compare the cheapest ways to send money to Ethiopia. Real ETB rates from 10+ providers. Bank deposit, cash pickup, and mobile money options compared.",
+      "Compare the cheapest ways to send money to Ethiopia. Real ETB rates from {{ROUTE_PROVIDERS:USD,GBP,AED:ETB}}. Bank deposit, cash pickup, and mobile money options compared.",
     excerpt:
-      "Ethiopia is Africa's second-largest remittance market. We compared 10+ providers to find the cheapest USD, GBP, and AED to ETB transfers, including telebirr mobile money delivery.",
+      "Ethiopia is Africa's second-largest remittance market. We compared {{ROUTE_PROVIDERS:USD,GBP,AED:ETB}} to find the cheapest USD, GBP, and AED to ETB transfers, including telebirr mobile money delivery.",
     category: "Corridors",
     readTime: "10 min read",
     publishedAt: "2026-04-11",
@@ -15179,7 +15180,7 @@ const rawBlogPosts: BlogPost[] = [
 <ol>
 <li><strong>Total annual inflows</strong> — Pakistan's remittances are tracked monthly by the <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan</a> and annually by the World Bank's KNOMAD database.</li>
 <li><strong>Average cost of sending</strong> — the World Bank publishes corridor-level send costs quarterly via Remittance Prices Worldwide (RPW).</li>
-<li><strong>Actual price spread today</strong> — the live difference between the cheapest and most expensive providers on Pakistan corridors, which we scrape continuously across 15+ providers.</li>
+<li><strong>Actual price spread today</strong> — the live difference between the cheapest and most expensive providers on Pakistan corridors, which we scrape continuously ({{ROUTE_PROVIDERS:AED,GBP,USD:PKR}} on the AED, GBP and USD routes today).</li>
 </ol>
 <p>This article walks through that model, anchors it to <strong>live May 2026 quotes</strong> on the four busiest send-currency corridors into Pakistan, and shows what a 1% national efficiency gain would actually buy.</p>`,
       },
@@ -17033,8 +17034,11 @@ const rawBlogPosts: BlogPost[] = [
  */
 function resolveCoverage(text: string): string {
   if (!text.includes("{{")) return text;
-  return text
+  // The three provider counts (site-stats.ts): tracked, compared on a route
+  // ({{ROUTE_PROVIDERS:…}}, provider-counts.ts), reviewed.
+  return resolveRouteProviderTokens(text)
     .split("{{PROVIDER_COUNT}}").join(atLeast(SITE_STATS.liveProviders))
+    .split("{{REVIEWED_COUNT}}").join(String(SITE_STATS.reviewedProviders))
     .split("{{CORRIDOR_COUNT}}").join(atLeast(SITE_STATS.comparableCorridors))
     .split("{{CURRENCY_COUNT}}").join(atLeast(SITE_STATS.currencies))
     .split("{{REFRESH_HOURS}}").join(String(SITE_STATS.refreshHours));

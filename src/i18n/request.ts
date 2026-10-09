@@ -18,9 +18,12 @@ function resolveCoverage(value: unknown): unknown {
     if (!value.includes("%")) return value;
     return value
       .split("%PROVIDER_COUNT%").join(atLeast(SITE_STATS.liveProviders))
-      // Provider profiles at /companies — a different, smaller set than the
-      // providers with live quotes (methodology defines both). Exact.
-      .split("%PROFILE_COUNT%").join(String(SITE_STATS.curatedProviders))
+      // Counter 3, reviewed: the /companies reviews we list — a different,
+      // smaller set than the providers we track (site-stats.ts, THE THREE
+      // PROVIDER COUNTS; /methodology defines both). Exact. Was the raw
+      // `providers` length, which counted a retired and a hidden profile the
+      // /companies hub does not list.
+      .split("%PROFILE_COUNT%").join(String(SITE_STATS.reviewedProviders))
       .split("%CORRIDOR_COUNT%").join(atLeast(SITE_STATS.comparableCorridors))
       // Exact, not atLeast(): a quote count is cited verbatim, and rounding
       // "13,366 live quotes" to "13,000+" throws away the specificity that
