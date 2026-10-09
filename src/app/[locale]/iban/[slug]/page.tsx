@@ -431,7 +431,8 @@ export default async function IbanCountryPage({ params }: Props) {
   );
   const ibanOffset = wiseCountries.findIndex((c) => c.slug === slug);
 
-  // Transfers for this country: the hand-picked routes, then any other
+  // Transfers for this country: the hand-picked routes (one per href — most
+  // euro entries used to list "USA to Europe transfers" twice), then any other
   // corridor page into or out of it that Google may index (rule 14, brief
   // §5.3 — the IBAN page is the contextual link for e.g. belgium-to-morocco).
   const pickedRoutes = (ibanCorridors[slug] ?? []).filter((c) => internalPathRenders(c.href) && isLinkEligible(c.href));
