@@ -1631,10 +1631,10 @@
     "date": "2026-10-09",
     "providers": {
       "taptap-send": {
-        "rate": 3.8,
+        "rate": 3.83,
         "fee": 0,
-        "markup": 0.43,
-        "receiveAmount": 380
+        "markup": -0.36,
+        "receiveAmount": 383
       }
     }
   }
