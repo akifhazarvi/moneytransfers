@@ -282,4 +282,9 @@ export const GOOGLE_HIDDEN_ROUTES: ReadonlySet<string> = new Set<string>([
   "/send-money/bahrain-to-bangladesh",
   "/send-money/bahrain-to-pakistan",
   "/send-money/india-to-croatia",
+  // 2026-10-09, round-3 brief §4.2: 40% pair with switzerland-to-egypt (a
+  // ranking URL, so it stays). One indicative quote and no Bing demand leave
+  // nothing to differentiate it with — "retain one for Google and apply
+  // Google-only noindex to the other". Bing keeps it.
+  "/send-money/czech-republic-to-germany",
 ]);
