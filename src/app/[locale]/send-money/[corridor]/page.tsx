@@ -1511,6 +1511,7 @@ export default async function CorridorPage({ params }: Props) {
         worst={hubMode ? undefined : worst}
         quotes={hubMode ? [] : comparison.compared}
         dataUpdatedISO={freshness.latest}
+        midRateISO={SITE_STATS.midMarketUpdatedAt}
         isCountryPage={isCountryPage}
         headingPrefix={headingPrefix}
         headingSuffix={headingSuffix}

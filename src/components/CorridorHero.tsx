@@ -25,6 +25,8 @@ interface Props {
   worst: TransferQuote | undefined;
   quotes: TransferQuote[];
   dataUpdatedISO?: string;
+  /** When the mid-market rate was collected — shown when no measured quote dates the page. */
+  midRateISO?: string;
   isCountryPage?: boolean;
   headingPrefix: string;
   headingSuffix?: string | null;
@@ -64,6 +66,7 @@ export default function CorridorHero({
   worst,
   quotes,
   dataUpdatedISO,
+  midRateISO,
   isCountryPage,
   headingPrefix,
   headingSuffix,
@@ -120,14 +123,28 @@ export default function CorridorHero({
                   <CircleFlag code={toCurrencyCode} size={20} priority={true} />
                   <span className="font-medium tabular-nums text-white/90">{toCurrency}</span>
                 </span>
-                <span className="text-white/25">|</span>
-                <span className="inline-flex items-center gap-2">
-                  <span className="relative flex h-1.5 w-1.5 shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-60" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-success)]" />
-                  </span>
-                  {dataUpdatedISO ? <LiveTimestamp iso={dataUpdatedISO} prefix="Pricing observed" className="tabular-nums" /> : <span>Pricing date unavailable</span>}
-                </span>
+                {/* A page priced only by an indicative estimate (computed from
+                    the mid-market rate, no collected quote) or by no quote at
+                    all printed "Pricing date unavailable" while the rate it
+                    shows has a known collection time (round-3 QA item 7:
+                    czech-republic-to-germany, switzerland-to-egypt,
+                    send-money-to-algeria). Say which date it is instead. */}
+                {(dataUpdatedISO || (midRateISO && midRate > 0)) && (
+                  <>
+                    <span className="text-white/25">|</span>
+                    <span className="inline-flex items-center gap-2">
+                      <span className="relative flex h-1.5 w-1.5 shrink-0">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-60" />
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-success)]" />
+                      </span>
+                      {dataUpdatedISO ? (
+                        <LiveTimestamp iso={dataUpdatedISO} prefix="Pricing observed" className="tabular-nums" />
+                      ) : (
+                        <LiveTimestamp iso={midRateISO!} prefix="Mid-market rate collected" className="tabular-nums" />
+                      )}
+                    </span>
+                  </>
+                )}
                 {midRate > 0 && (
                   <>
                     <span className="text-white/25 hidden sm:inline">|</span>
