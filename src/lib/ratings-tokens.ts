@@ -716,6 +716,10 @@ export function renderDataTokens(html: string): string {
   if (out.includes("{{APP_RATINGS_TABLE}}")) {
     out = out.split("{{APP_RATINGS_TABLE}}").join(renderAppRatingsTable());
   }
+  // {{APP_RATINGS_COUNT}} -> "16": the rows of that table, so prose that says
+  // how many providers the store ratings cover names its own population
+  // (THE THREE PROVIDER COUNTS in site-stats.ts) instead of a bare "16".
+  out = out.split("{{APP_RATINGS_COUNT}}").join(String(appRatings.length));
 
   if (out.includes("{{FOUR_WAY_COST_TABLE}}")) {
     out = out.split("{{FOUR_WAY_COST_TABLE}}").join(renderFourWayCostTable());

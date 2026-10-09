@@ -54,8 +54,8 @@ export const GUIDE_TOPICS: Record<string, string> = {
   "compare-exchange-rates-multiple-currencies": "Multi-currency rate comparison",
   "currency-converter-vs-bank-app-travel": "Converter or bank app",
   "how-to-send-money-to-india-2026": "Sending money to India",
-  "send-money-to-india-guide": "India transfer options",
-  "wire-transfer-guide": "Wire transfer fees",
+  "send-money-to-india-guide": "India transfer checklist",
+  "wire-transfer-guide": "How wire transfers work",
   "send-money-to-pakistan-guide": "Sending money to Pakistan",
   "send-money-to-mexico-guide": "Sending money to Mexico",
   "send-money-to-nigeria-guide": "Sending money to Nigeria",
@@ -69,7 +69,7 @@ export const GUIDE_TOPICS: Record<string, string> = {
   "send-money-to-nepal-guide": "Sending money to Nepal",
   "send-money-to-morocco-guide": "Sending money to Morocco",
   "send-money-to-romania-guide": "Sending money to Romania",
-  "send-money-to-kenya-guide": "Sending money to Kenya",
+  "send-money-to-kenya-guide": "Receiving money in Kenya",
   "send-money-to-south-africa-guide": "Sending money to South Africa",
   "send-money-to-colombia-guide": "Sending money to Colombia",
   "send-money-to-poland-guide": "Sending money to Poland",
@@ -95,6 +95,19 @@ export const GUIDE_TOPICS: Record<string, string> = {
   // guide's own heading follows — "…to India" + "Send Money from UAE to Pakistan".
   "send-money-uae-to-pakistan-guide": "UAE to Pakistan transfers",
   "business-money-transfers-provider-review": "Business transfer providers",
+  // 2026-10-09 retitles (QA item 9: each guide targets its own query, so the
+  // headlines grew a subject clause of 7+ words).
+  "send-money-to-philippines-guide": "Sending money to the Philippines",
+  "send-money-to-india-from-usa-guide": "Dollars to an Indian account",
+  "top-money-transfer-apps-usa-to-india-2026": "USA to India app reviews",
+  "send-money-uk-to-india-guide": "UK to India requirements",
+  "send-money-uk-to-nigeria-guide": "UK to Nigeria rules",
+  "send-money-usa-to-mexico-cost-guide": "USA to Mexico methods",
+  "b2b-international-payments-guide": "B2B SWIFT and local rails",
+  "bulk-international-payments-guide": "Bulk payment setup",
+  "how-to-send-large-amounts-internationally": "Moving a large sum",
+  "multi-currency-account-wars-2026": "Wise, Revolut, Fineco and Airwallex",
+  "send-money-home-ramadan-eid-2026": "Ramadan and Eid remittances",
 };
 
 /** The subject a guide's section headings use: its topic, else its headline's first clause. */

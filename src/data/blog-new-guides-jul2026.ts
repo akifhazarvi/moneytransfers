@@ -174,11 +174,12 @@ export const newGuidesJul2026: BlogPost[] = [
   // ============================================================
   {
     slug: "b2b-international-payments-guide",
-    title: "B2B International Payments 2026: Stop Overpaying on SWIFT Wires",
+    title: "SWIFT Wires vs Local Rails for B2B Payments: Where Businesses Overpay",
+    metaTitle: "B2B SWIFT Wire Costs vs Local Rails: Cutting Business FX Fees",
     metaDescription:
-      "Paying overseas suppliers or contractors in 2026? SWIFT wires cost 3–5×more than specialist apps. We compare Wise Business, Airwallex, Payoneer and more.",
+      "What a SWIFT wire costs a business — fees, intermediary charges, rate margin — and when local rails via Wise Business, Airwallex or Payoneer cost less.",
     excerpt:
-      "Global B2B cross-border payments hit $58.9 trillion in 2026 — and most businesses are still paying 3–5% in hidden bank fees. Here's how to cut that cost to under 1%.",
+      "Most business payments abroad still travel as SWIFT wires, with a fee at each bank and a margin in the rate. Here is where that money goes, and how paying over local rails cuts it.",
     category: "Business",
     readTime: "12 min read",
     publishedAt: "2026-07-01",
@@ -726,11 +727,12 @@ export const newGuidesJul2026: BlogPost[] = [
   // ============================================================
   {
     slug: "send-money-to-nigeria-from-usa-uk-canada-australia",
-    title: "Send Money to Nigeria 2026: Best Rates from USA, UK, Canada & Australia",
+    title: "Which App Sends the Most Naira? Nigeria Transfers from the USA, UK, Canada and Australia",
+    metaTitle: "Nigeria Transfer Apps by Sending Country: USD, GBP, CAD, AUD",
     metaDescription:
-      "Compare GBP, USD, CAD, and AUD to NGN rates side-by-side. Best apps to send money to Nigeria from USA, UK, Canada, and Australia — July 2026 live data.",
+      "Which app delivers the most naira depends on where you send from. Lemfi, TapTap Send, Remitly and Wise compared from the USA, UK, Canada and Australia.",
     excerpt:
-      "Nigeria's diaspora spans 4 continents — but the best app depends on where you're sending from. We built the only side-by-side comparison of NGN rates from the US, UK, Canada, and Australia.",
+      "The app that pays the most naira from London is not always the one that wins from Houston or Toronto. This guide compares NGN payouts by sending country and explains why the rate differs between apps.",
     category: "Guides",
     readTime: "11 min read",
     publishedAt: "2026-07-01",

@@ -24,11 +24,12 @@ export const corridorGuidesIndia: BlogPost[] = [
     slug: "how-to-send-money-to-india-2026",
     contentStatus: "published",
     title:
-      "How to Send Money to India Internationally (2026 Guide)",
+      "How to Send Money to India from the USA, UK, Gulf, Canada and Australia (2026)",
+    metaTitle: "How to Send Money to India: Country-by-Country Guide (2026)",
     metaDescription:
-      "How to send money to India in 2026 — compare top providers from USA, UK, Canada, Australia & UAE. Real fee data, IMPS vs UPI, and IFSC codes.",
+      "How to send money to India from the USA, UK, UAE, Canada and Australia: what each route needs, IMPS vs UPI vs NEFT, the steps online and Indian tax rules.",
     excerpt:
-      "India receives over $125 billion in remittances every year — more than any other country on earth. Whether you're sending from the USA, UK, Gulf, or anywhere else, this guide breaks down every corridor, every major provider, and every delivery method so you get the most rupees for your money.",
+      "India receives more remittances than any other country, from senders on every continent. This guide takes each sending country in turn, then explains India's payment rails, the steps to send online and the tax rules.",
     category: "Corridors",
     readTime: "18 min read",
     publishedAt: "2026-06-03",
@@ -524,11 +525,12 @@ export const corridorGuidesIndia: BlogPost[] = [
   {
     slug: "send-money-to-india-from-usa-guide",
     title:
-      "Send Money from USA to India: Cheapest Providers 2026",
+      "How to Send Money from the USA to India: IFSC Codes, UPI, NRE Accounts and Limits",
+    metaTitle: "How to Send Money from USA to India: IFSC, UPI & Limits (2026)",
     metaDescription:
-      "Compare {{ROUTE_PROVIDERS:USD:INR}} for sending money from USA to India in 2026. Real fee data, IFSC code guide, IMPS vs UPI vs cash pickup, and NRI account rules.",
+      "Sending money from the USA to India step by step: IFSC codes, IMPS vs UPI vs NEFT, NRE vs NRO accounts, US and Indian tax rules, and how much you can send.",
     excerpt:
-      "India receives over $125 billion in remittances annually — yet most senders overpay by 3–5%. We compared {{ROUTE_PROVIDERS:USD:INR}} on real USD-to-INR quotes to find the cheapest, fastest, and most reliable ways to send money to India from the US.",
+      "What you need to send dollars to an Indian account: the IFSC code, the right rail (IMPS, UPI or NEFT), an NRE or NRO account, the tax rules on both sides and the limits. For today's USD to INR quotes, use the live comparison.",
     category: "Corridors",
     readTime: "14 min read",
     publishedAt: "2026-03-22",

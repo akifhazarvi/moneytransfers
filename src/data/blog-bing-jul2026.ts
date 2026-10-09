@@ -16,8 +16,9 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
   {
     slug: "bank-wire-transfer-fees-2026",
     title: "Bank Wire Transfer Fees 2026: Chase vs Wells Fargo vs Bank of America vs HSBC",
+    metaTitle: "International Wire Fees by Bank 2026: Chase, Wells Fargo, BofA, HSBC",
     metaDescription:
-      "Comparing wire transfer fees at major banks in 2026? Chase charges $50, Wells Fargo $45, Bank of America $45 for international wires — plus a margin on the rate. Live comparison inside.",
+      "What Chase, Wells Fargo, Bank of America, HSBC and UK banks charge for an international wire in 2026 — the flat fee, plus the margin hidden in the rate.",
     excerpt:
       "Chase charges $50 for an international wire. Wells Fargo charges $45. Bank of America charges $45. But the flat fee is just half the story — the margin on the exchange rate usually costs more. We broke it all down.",
     category: "Research",
