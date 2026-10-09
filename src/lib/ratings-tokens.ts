@@ -879,21 +879,38 @@ export function renderDataTokens(html: string): string {
     },
   );
 
-  // {{LED:wise}} -> "48 of 128", {{WINRATE:wise}} -> "32.4%",
-  // {{SHORTFALL:wise}} -> "2.75%".
+  // {{LED:wise}} -> "23 of 97", {{LEADRATE:wise}} -> "23.7%",
+  // {{WINRATE:wise}} -> "21.7%", {{SHORTFALL:wise}} -> "3.05%".
   //
   // The comparison editorial quotes each provider's measured record, and a win
   // rate without its denominator is the whole trap: OFX's 12.8% is measured on
   // five corridors and Wise's 32.4% on 128, so the smaller number is the better
   // one. LED renders the denominator with the figure so the two cannot be
-  // separated in prose, and all three read from the consistency index rather
+  // separated in prose, and all of them read from the consistency index rather
   // than being typed into copy that would go stale silently.
-  out = out.replace(/\{\{(LED|WINRATE|SHORTFALL):([a-z0-9-]+)\}\}/g, (match, kind: string, slug: string) => {
+  //
+  // TWO DIFFERENT PERCENTAGES — never set one beside the other's fraction.
+  //   LEADRATE  corridors led / corridors quoted: the share of the "X of Y" that
+  //             {{LED}} prints, computed from the same two integers, so
+  //             "led {{LED}} — {{LEADRATE}} of them" is always arithmetic.
+  //   WINRATE   contested DAYS won / contested days quoted — the "win rate"
+  //             column on /provider-consistency. It is NOT LED's share: Wise led
+  //             23 of 97 corridors (23.7%) while winning 21.7% of its days.
+  //             Prose must say so: "won {{WINRATE}} of the days it quoted".
+  // /companies/wise printed "led 23 of 97 … a 21.7% win rate" until 2026-10-08
+  // (round-3 brief §4.3: 23/97 = 23.7%), because WINRATE sat where LEADRATE
+  // belonged. Every editorial sentence pairing LED with a percentage now uses
+  // LEADRATE, and WINRATE only ever appears worded as days.
+  out = out.replace(/\{\{(LED|LEADRATE|WINRATE|SHORTFALL):([a-z0-9-]+)\}\}/g, (match, kind: string, slug: string) => {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
     if (!row) return match;
     switch (kind) {
       case "LED":
         return `${row.corridorsLed} of ${row.corridorsQuoted}`;
+      case "LEADRATE":
+        return row.corridorsQuoted > 0
+          ? `${((row.corridorsLed / row.corridorsQuoted) * 100).toFixed(1)}%`
+          : match;
       case "WINRATE":
         return `${row.winRate.toFixed(1)}%`;
       case "SHORTFALL":

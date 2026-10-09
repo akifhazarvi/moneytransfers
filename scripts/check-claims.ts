@@ -30,6 +30,10 @@
  *   avg-markup      "0.42% avg markup". Use {{AVG_MARKUP_PCT:slug}} (a median).
  *   licence         any NC / SA / ND Creative Commons licence. Everything we
  *                   publish is CC BY 4.0, so a citation's terms are never in doubt.
+ *   winrate-unlabelled  {{WINRATE:slug}} not worded as days. It is the share of
+ *                   contested days won, not the share of {{LED}}'s corridors —
+ *                   "led 23 of 97 … a 21.7% win rate" (23/97 = 23.7%). Beside a
+ *                   corridor count use {{LEADRATE:slug}}.
  *
  * RATCHET — legacy debt that may shrink but never grow (scripts/claims-baseline.json):
  *   markup-figure   hand-typed markup figures in prose: "within 0.5–1% of the
@@ -124,6 +128,15 @@ const HARD: Rule[] = [
   // fix for a GSC "missing license" warning that later pages copied. NC deters
   // the commercial newsrooms and AI companies we want citing the data.
   { id: "licence", re: /creativecommons\.org\/licenses\/by-(?:nc|sa|nd)\b|\bCC[- ]BY[- ](?:NC|SA|ND)\b/gi },
+  // {{WINRATE}} is the share of contested DAYS won, not the share of the
+  // corridors {{LED}} prints. "Wise led 23 of 97 … a 21.7% win rate" read as
+  // 23/97 (= 23.7%) on /companies/wise until 2026-10-08 (round-3 brief §4.3).
+  // Beside a corridor count use {{LEADRATE}}; WINRATE must name its days.
+  {
+    id: "winrate-unlabelled",
+    re: /\{\{WINRATE:[a-z0-9-]+\}\}/g,
+    allow: (before, _m, after) => /\bdays?\b/i.test(after.slice(0, 50)) || /\bdays?\b[^.]{0,40}$/i.test(before),
+  },
 ];
 
 const RATCHET: Rule[] = [
