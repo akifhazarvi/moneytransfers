@@ -462,14 +462,18 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   `/compare-money-transfer` is indexable but unsubmitted because it
   canonicalises to `/compare`.
 - **The largest exception is Tier 1 corridors, and it is deliberate.** ~362
-  `/send-money/*` pages are `index, follow` while absent from the sitemap, and
-  `/send-money` links all 436 of them. This looks like the "sitemap=no,
+  `/send-money/*` pages are `index, follow` while absent from the sitemap. (Until
+  2026-10-08 `/send-money` linked all 436; owner decision with the round-3 brief
+  §4.4: the hub's static HTML links only Google-eligible pages —
+  `getRouteDirectory()` in `src/lib/send-money-hub.ts`, from the eligibility
+  manifest — and every other route is reached through its comparison form.)
+  This looks like the "sitemap=no,
   robots=index" contradiction and is not: Tier 1 means editorial or 5+ providers
   quoting the route, i.e. a genuinely comparative page. Gating these on the
   demand allowlist was tried and reverted — it cut indexable corridors 1,176 → 100
   and suppressed 827 pages that earn their place on data richness rather than on
   already having been found. Read `shouldNoindex()` in `corridor-tiers.ts` before
-  concluding the hub link block or those pages are a bug; the reasoning is there,
+  concluding those pages are a bug; the reasoning is there,
   and it is the same chicken-and-egg argument that governs guide promotion.
 - **Reviewed routes override the duplication gate (2026-09-24).**
   `src/data/reviewed-indexable-routes.ts` holds the 234 URLs the round-2

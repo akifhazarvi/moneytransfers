@@ -289,7 +289,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>AUD → INR</strong>: Instarem or Remitly — competitive in the Australia corridor</li>
 <li><strong>CAD → INR</strong>: Wise or Remitly. See the <a href="/send-money/canada-to-india">Canada to India</a> corridor page.</li>
 </ul>
-<p>Always compare at your exact amount — rankings shift significantly between $100 and $10,000. Use our <a href="/send-money">comparison tool</a> with your real transfer details.</p>`,
+<p>Always compare at your exact amount — rankings shift significantly between $100 and $10,000. Use our <a href="/send-money">comparison of providers by destination country</a> with your real transfer details.</p>`,
       },
       {
         heading: "How Can You Reduce Transfer Costs?",
@@ -411,7 +411,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Common Mistakes to Avoid",
         content: `<ul>
 <li><strong>Only comparing fees</strong> — A "$0 fee" transfer can still be expensive if the exchange rate has a large markup. Always compare the total amount received. See <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a>.</li>
-<li><strong>Using your bank by default</strong> — Banks charge 2–4x more than specialist transfer services. Always check alternatives using our <a href="/send-money">comparison tool</a>.</li>
+<li><strong>Using your bank by default</strong> — Banks charge 2–4x more than specialist transfer services. Always check alternatives: <a href="/send-money">compare money transfer providers by country</a> before you send.</li>
 <li><strong>Wrong recipient details</strong> — Incorrect account numbers or names cause delays and return fees. Double-check everything.</li>
 <li><strong>Ignoring exchange rate timing</strong> — Rates change constantly. If you're not in a rush, set a rate alert for a better rate.</li>
 <li><strong>Not verifying your account first</strong> — Complete ID verification before you need to send money. Rush verification can delay urgent transfers.</li>
@@ -572,7 +572,7 @@ const rawBlogPosts: BlogPost[] = [
 {{MARKUP_BY_CORRIDOR}}
 <p>Read the two markup columns together. The <strong>median</strong> is what the field charges on that route — the midpoint across every provider quoting it, so it moves with the market rather than with one provider's promotion. The <strong>worst</strong> column is the price of choosing badly: on GBP to PKR the gap between the typical provider and the most expensive one is several times the median itself, and on a £2,000 transfer that difference is real money rather than a rounding error.</p>
 <p>A caveat we would rather state than hide: our markup is measured against a mid-market reference rate, and on a few thin or heavily managed pairs that reference is not reliable enough to publish. Where the measured median comes out negative — USD to NGN is the standing example — the reading says our benchmark is wrong for that pair, not that the market is paying people to send money. Those routes are excluded from the table above automatically rather than printed as bargains.</p>
-<p>The practical takeaway: use the provider medians earlier on this page to shortlist two or three candidates, then check the live rate for your actual corridor and amount in the <a href="/send-money">comparison table</a> before sending. The medians tell you who to check, not what you'll get.</p>`,
+<p>The practical takeaway: use the provider medians earlier on this page to shortlist two or three candidates, then check the live rate for your actual corridor and amount in our <a href="/send-money">country-by-country provider comparison</a> before sending. The medians tell you who to check, not what you'll get.</p>`,
       },
       {
         heading: "What the benchmark can and cannot establish",
@@ -9402,7 +9402,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>No correspondent bank deductions</strong> — Services that use local payment rails instead of SWIFT deliver the exact amount shown at checkout.</li>
 <li><strong>Guaranteed delivery amount</strong> — The amount your recipient gets should match what's shown when you confirm the transfer.</li>
 </ol>
-<p>Use our <a href="/send-money">comparison tool</a> to see the real total cost across {{PROVIDER_COUNT}} providers for your specific transfer. For more on finding the best deal, read our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
+<p><a href="/send-money">Compare money transfer providers by country</a> to see the real total cost across {{PROVIDER_COUNT}} providers for your specific transfer. For more on finding the best deal, read our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",

@@ -552,14 +552,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 </Link>
               ))}
             </div>
-            <div className="text-center mt-5 sm:mt-6">
-              <Link
-                href="/send-money"
-                className="text-sm font-medium text-[var(--color-primary)] hover:underline"
-              >
-                Browse all corridors &rarr;
+            {/* /send-money no longer lists every corridor (round-3 brief §4.4),
+                so "Browse all corridors" became untrue; the anchor now says
+                what the page does. */}
+            <p className="text-center mt-5 sm:mt-6 text-sm text-[var(--color-on-surface-variant)]">
+              Sending somewhere else?{" "}
+              <Link href="/send-money" className="font-medium text-[var(--color-primary)] hover:underline">
+                Compare money transfer providers by country
               </Link>
-            </div>
+              , at the amount you plan to send.
+            </p>
           </div>
         </Container>
       </section>

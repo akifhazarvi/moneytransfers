@@ -4,7 +4,7 @@ import { useState, useMemo, useRef, useEffect, useCallback, useLayoutEffect } fr
 import { rankQuotes, tiedAboveLargerPayout } from "@/lib/rank-quotes";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { Fragment, Suspense } from "react";
+import { Fragment } from "react";
 import { useTranslations } from "next-intl";
 import { trackCompareSearch, trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
 import Container from "@/components/Container";
@@ -613,9 +613,12 @@ function SendMoneyContent() {
       {/* Results header — minimal, Google Flights "About these results" style */}
       <div id="comparison-results" tabIndex={-1} className="flex items-center justify-between mb-2 scroll-mt-24" aria-live="polite">
         <div className="flex items-center gap-2">
-          <span className="text-xs text-[var(--color-on-surface-variant)]">
-            {filteredQuotes.length} providers
-          </span>
+          {/* No count until quotes arrive: the server render said "0 providers". */}
+          {!quotesLoading && (
+            <span className="text-xs text-[var(--color-on-surface-variant)]">
+              {filteredQuotes.length} providers
+            </span>
+          )}
           {isLive && (
             <span className="inline-flex items-center gap-1 text-[10px] text-[var(--color-success)] font-medium">
               <span className="w-1 h-1 rounded-full bg-[var(--color-success)] animate-pulse" />
@@ -931,10 +934,12 @@ function SendMoneyContent() {
   );
 }
 
+/**
+ * No Suspense boundary: nothing here suspends since the URL moved to an effect,
+ * and the boundary's "Loading..." fallback was what the static HTML showed in
+ * the form's place — the widget itself streamed in a hidden div at the end of
+ * the document (round-3 brief §4.4). Rendered inline, the form is in the HTML.
+ */
 export default function SendMoneyClient() {
-  return (
-    <Suspense fallback={<Container className="py-8 text-sm text-[var(--color-on-surface-variant)]">Loading...</Container>}>
-      <SendMoneyContent />
-    </Suspense>
-  );
+  return <SendMoneyContent />;
 }
