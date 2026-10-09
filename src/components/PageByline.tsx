@@ -33,7 +33,10 @@ export function PageByline({
   sourcesLabel?: string;
 }) {
   const author = authors.find((a) => a.slug === authorSlug);
-  const reviewer = reviewerSlug ? authors.find((a) => a.slug === reviewerSlug) : undefined;
+  // A page "reviewed" by its own author claims an independent check that did
+  // not happen (round-3 brief §4.3, /companies/wise). Same person → no line.
+  const reviewer =
+    reviewerSlug && reviewerSlug !== authorSlug ? authors.find((a) => a.slug === reviewerSlug) : undefined;
   const dot = <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />;
 
   return (

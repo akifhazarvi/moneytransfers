@@ -10,6 +10,7 @@ import { providers } from "@/data/providers";
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;
 import { getProviderReview } from "@/data/provider-reviews";
+import { getAuthorByName } from "@/data/authors";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
@@ -259,7 +260,13 @@ function DefaultReview({
         <div className="mb-6">
           <PageByline
             updated={review?.publishSections ? review.updatedAt : quoteDataDate ?? new Date().toISOString().split("T")[0]}
-            reviewerSlug={review?.publishSections ? undefined : "awais-imran"}
+            // Round-3 brief §4.3: profiles read "By Awais Imran · Reviewed by
+            // Awais Imran" — a writer reviewing his own page is not a review.
+            // The reviewer is now the review's recorded fact-checker
+            // (provider-reviews.ts `factChecker`; authors.ts: Ahsan fact-checks
+            // provider reviews). A provider with no recorded fact-checker
+            // names no reviewer, and PageByline drops one equal to the author.
+            reviewerSlug={getAuthorByName(review?.factChecker ?? "")?.slug}
             {...(review?.publishSections ? { cadence: null, sourcesHref: "#company-brief", sourcesLabel: "Sources and evidence" } : {})}
           />
         </div>
