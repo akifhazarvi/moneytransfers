@@ -40,6 +40,7 @@ npm run check:claims     # no scores, "Best Overall", unmeasured "cheapest", typ
 npm run check:swift-codes # no spliced, mis-countried or wrong-length SWIFT codes (prebuild)
 npm run check:rendered-text # no word glued to a value in rendered HTML, "216corridors" (postbuild)
 npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (needs a deploy)
+npm run check:link-eligibility # internal links only to Google-eligible pages; /go /out nofollow sponsored (rule 14)
 npm run check:pwa        # manifest installable, icons/screenshots/shortcuts exist, sw.js bypass + offline revision (prebuild)
 npm run check:redirects  # every 301 is one hop to a prerendered page; retired URLs 410 (postbuild)
 npm run check:link-eligibility # internal links point only at Google-eligible pages; /go /out are nofollow sponsored
@@ -166,6 +167,27 @@ what enforces it. Where a rule is not automated, it says how to check it.
     not add one. A new page is a deliberate edit to that file. *Enforced:* the
     allowlist itself; `check:links` and `check:indexing` see only what it lets
     render.
+
+14. **An internal link points only at a Google-eligible page.** Owner
+    decision 2026-10-08 (round-3 brief §5.1–5.4), strict: the eligible set is
+    `sitemap-google.xml`, written to `src/data/google-eligible-routes.json` in
+    prebuild. A link to anything else — Bing-only pages (`/companies/*`,
+    `/compare/*`, `/banks/*`, most IBAN/SWIFT/corridor pages), pages noindexed
+    everywhere, redirects, 404/410 — renders its anchor text as plain text, or
+    points at the closest eligible page serving the same purpose (a corridor
+    page → `/send-money#from=…&to=…`, `compareHashHref()`). Never `nofollow` an
+    internal link instead. How: components import `@/components/EligibleLink`,
+    never `next/link` (`fallbackHref`, `unlinked="hide"` for arrows and "Read
+    review" buttons); rails filter with `isLinkEligible()` *before* slicing;
+    HTML bodies pass through `renderDataTokens()`/`sanitizeHtml()`, which end
+    with `gateBodyLinks()`. Nothing is hard-coded: when a page is released to
+    Google it joins the eligible list on the next build and every link to it
+    comes back by itself. Every `/go/` and `/out/` anchor carries
+    `rel="nofollow sponsored noopener"` (+ `noreferrer` where it had it;
+    `affiliateRel()`). Consequence to know: Bing-only pages now have no
+    internal links and are found through `sitemap.xml` alone. *Enforced:*
+    `check:link-eligibility` (postbuild; built HTML: links to non-eligible
+    pages, /go rel; `--hubs` prints unique links per page).
 
 15. **A retired URL answers once: 410, or one 301 to the same intent.** Round-3
     brief §3.2 (2026-10-08): 78 corridor 301s led to a different country's
