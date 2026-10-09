@@ -292,7 +292,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
                   <Link
                     href={`/go/${p.slug}`}
                     target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    rel="nofollow sponsored noopener noreferrer"
                     className="conversion-button conversion-button--accent"
                   >
                     Visit {p.name}

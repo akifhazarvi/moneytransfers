@@ -1,6 +1,7 @@
 import { seoDescription } from "@/lib/seo-title";
 import { notFound } from "next/navigation";
 import Link from "@/components/EligibleLink";
+import { isLinkEligible } from "@/lib/link-eligibility";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
@@ -250,7 +251,8 @@ export default async function CashOutCountryPage({
                     // /send-money parameter URL that canonicalises away.
                     href={(() => {
                       const cs = getCorridorSlug(src, c.currency);
-                      return cs && corridorPageRenders(cs) ? `/send-money/${cs}` : `/send-money#from=${src}&to=${c.currency}`;
+                      // ...and only one Google may index (CLAUDE.md rule 14).
+                      return cs && corridorPageRenders(cs) && isLinkEligible(`/send-money/${cs}`) ? `/send-money/${cs}` : `/send-money#from=${src}&to=${c.currency}`;
                     })()}
                     className="inline-flex items-center h-9 px-4 rounded-full bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] text-sm font-medium text-[var(--color-on-surface)] hover:ring-[var(--color-primary-light)] transition-colors"
                   >
