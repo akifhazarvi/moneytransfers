@@ -3872,7 +3872,7 @@
       "lemfi": {
         "rate": 578,
         "fee": 0,
-        "markup": 0.97,
+        "markup": 1.35,
         "receiveAmount": 57800
       },
       "ria": {
@@ -3882,16 +3882,16 @@
         "receiveAmount": 56737.9
       },
       "taptap-send": {
-        "rate": 574,
+        "rate": 580,
         "fee": 0,
-        "markup": 1.66,
-        "receiveAmount": 57400
+        "markup": 0.63,
+        "receiveAmount": 58000
       },
       "western-union": {
-        "rate": 498.635,
+        "rate": 497.622,
         "fee": 3.99,
-        "markup": 14.57,
-        "receiveAmount": 47873.91
+        "markup": 14.74,
+        "receiveAmount": 47776.66
       }
     }
   }

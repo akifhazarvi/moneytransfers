@@ -1,18 +1,18 @@
 {
   "dataAsOf": "2026-10-09",
-  "corridorsScored": 202,
+  "corridorsScored": 204,
   "corridorsWithAnyScore": 1031,
-  "singleProviderReadings": 829,
+  "singleProviderReadings": 827,
   "bands": {
-    "exceptional": 14,
-    "great": 70,
-    "good": 38,
-    "typical": 27,
-    "poor": 53
+    "exceptional": 18,
+    "great": 72,
+    "good": 36,
+    "typical": 21,
+    "poor": 57
   },
-  "goodOrBetterPct": 60,
+  "goodOrBetterPct": 62,
   "confidence": {
-    "high": 202,
+    "high": 204,
     "medium": 0,
     "low": 0
   },
@@ -20,37 +20,37 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 82,
+      "score": 83,
       "band": "great",
       "headline": "Great time to send",
-      "explanation": "Best rate +0.78% vs the 30-day average, near the 90-day high. Rates are improving — +0.55% week on week. Today's best beats the median provider by +1.74%.",
+      "explanation": "Best rate +0.78% vs the 30-day average, near the 90-day high. Rates are improving — +0.55% week on week. Today's best beats the median provider by +1.86%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 97.06048124864563,
+          "score": 97.402991545632,
           "detail": "near the 90-day high"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 62.93821431694288,
+          "score": 63.071139271417366,
           "detail": "+0.78% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 90.72744203881004,
-          "detail": "today's best beats the median provider by +1.74%"
+          "score": 95.15358606535774,
+          "detail": "today's best beats the median provider by +1.86%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 63.814199963350916,
+          "score": 63.839966726303224,
           "detail": "improving — +0.55% week on week"
         }
       ],

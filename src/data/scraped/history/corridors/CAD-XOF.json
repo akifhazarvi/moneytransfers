@@ -2479,14 +2479,14 @@
       "lemfi": {
         "rate": 410,
         "fee": 0,
-        "markup": 0.18,
+        "markup": 0.03,
         "receiveAmount": 41000
       },
       "taptap-send": {
-        "rate": 409,
+        "rate": 411,
         "fee": 0,
-        "markup": 0.43,
-        "receiveAmount": 40900
+        "markup": -0.06,
+        "receiveAmount": 41100
       }
     }
   }

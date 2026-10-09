@@ -19662,16 +19662,16 @@
     "date": "2026-10-09",
     "providers": {
       "instarem": {
-        "rate": 0.7538,
+        "rate": 0.756,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 75.38
+        "receiveAmount": 75.6
       },
       "lemfi": {
-        "rate": 0.7505,
+        "rate": 0.752,
         "fee": 0,
-        "markup": 0.58,
-        "receiveAmount": 75.05
+        "markup": 0.65,
+        "receiveAmount": 75.2
       },
       "moneygram": {
         "rate": 0.7543,
@@ -19698,10 +19698,10 @@
         "receiveAmount": 72.52
       },
       "western-union": {
-        "rate": 0.7475,
+        "rate": 0.745574,
         "fee": 0.99,
-        "markup": 0.98,
-        "receiveAmount": 74.01
+        "markup": 1.23,
+        "receiveAmount": 73.82
       },
       "currencyfair": {
         "rate": 0.750364,
@@ -19710,10 +19710,10 @@
         "receiveAmount": 72.54
       },
       "worldremit": {
-        "rate": 0.733942,
+        "rate": 0.735637,
         "fee": 1.99,
-        "markup": 2.77,
-        "receiveAmount": 71.93
+        "markup": 2.55,
+        "receiveAmount": 72.1
       },
       "paysend": {
         "rate": 0.742577,
@@ -19734,28 +19734,28 @@
         "receiveAmount": 74.72
       },
       "wise": {
-        "rate": 0.754859,
+        "rate": 0.756888,
         "fee": 1.42,
-        "markup": 0,
-        "receiveAmount": 74.41
+        "markup": -0.27,
+        "receiveAmount": 74.61
       },
       "chase": {
-        "rate": 0.733354,
+        "rate": 0.735047,
         "fee": 5,
-        "markup": 2.85,
-        "receiveAmount": 69.67
+        "markup": 2.63,
+        "receiveAmount": 69.83
       },
       "wells-fargo": {
-        "rate": 0.732202,
+        "rate": 0.733893,
         "fee": 0,
-        "markup": 3,
-        "receiveAmount": 73.22
+        "markup": 2.78,
+        "receiveAmount": 73.39
       },
       "paypal": {
-        "rate": 0.724265,
+        "rate": 0.725088,
         "fee": 4.99,
-        "markup": 4.06,
-        "receiveAmount": 68.81
+        "markup": 3.95,
+        "receiveAmount": 68.89
       }
     }
   }
