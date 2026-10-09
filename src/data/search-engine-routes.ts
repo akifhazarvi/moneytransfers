@@ -168,6 +168,26 @@ export const BING_DEMAND_WAVE_2: readonly string[] = [
 
 export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_DEMAND_WAVE_1, ...BING_DEMAND_WAVE_2]);
 
+/**
+ * Google release batches — round-3 brief §3.4 (2026-10-08): pages Bing already
+ * sends people to are released to Google "in batches of 10–20 URLs at
+ * intervals of 7–10 days, rather than all at once, to observe GSC's response",
+ * each only after it passes the QA checklist (worksheet 12).
+ *
+ * A route listed here is Google-eligible from the deploy that adds it:
+ * googleIndexable() admits it ahead of GOOGLE_HIDDEN_*, so it loses
+ * `googlebot: noindex` (meta and header), joins sitemap-google.xml, and joins
+ * src/data/google-eligible-routes.json — which brings back every internal link
+ * to it (rule 14). check:link-eligibility then requires 3+ in-content links to
+ * it from other eligible pages, so a release cannot ship as an orphan.
+ *
+ * One entry per batch, never edited after release (it is the change log GSC is
+ * measured against). Withdrawing a page = removing it here, with a note.
+ */
+export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; readonly routes: readonly string[] }[] = [];
+
+export const GOOGLE_RELEASED_ROUTES: ReadonlySet<string> = new Set(GOOGLE_RELEASE_BATCHES.flatMap((b) => b.routes));
+
 /** Section prefixes whose child pages are hidden from Googlebot. Hubs are not. */
 export const GOOGLE_HIDDEN_PREFIXES: readonly string[] = ["/companies/", "/compare/", "/banks/"];
 

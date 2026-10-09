@@ -108,7 +108,7 @@ import indexableRoutes from "@/data/scraped/indexable-routes.json";
 import { RANKING_CORRIDOR_SLUGS } from "./ranking-corridors";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 import { FOOTER_IBAN_LINKS, FOOTER_SWIFT_LINKS } from "@/data/footer-reference-links";
-import { BING_DEMAND_ROUTES, GOOGLE_HIDDEN_PREFIXES, GOOGLE_HIDDEN_ROUTES } from "@/data/search-engine-routes";
+import { BING_DEMAND_ROUTES, GOOGLE_HIDDEN_PREFIXES, GOOGLE_HIDDEN_ROUTES, GOOGLE_RELEASED_ROUTES } from "@/data/search-engine-routes";
 
 /**
  * 2026-09-26: the IBAN and SWIFT pages the footer links on every page.
@@ -234,6 +234,10 @@ function googleHidden(path: string): boolean {
 /** Index candidate for Google: submitted in sitemap-google.xml. */
 export function googleIndexable(pathname: string): boolean {
   const path = cleanPath(pathname);
+  // A §3.4 release batch (search-engine-routes.ts) outranks the hidden lists:
+  // the page passed QA and is released to Google on purpose. It must already
+  // be a Bing earner (bingIndexable), so it is in sitemap.xml and renders.
+  if (GOOGLE_RELEASED_ROUTES.has(path) && bingIndexable(path)) return true;
   return routeIsIndexable(path) && !googleHidden(path);
 }
 
