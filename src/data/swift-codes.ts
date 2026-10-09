@@ -32,11 +32,32 @@ export interface SwiftCountry {
 
 let _data: SwiftCountry[] | null = null;
 
+/**
+ * Registry spellings tidied for display (round-3 QA, 2026-10-09): a name the
+ * registry wraps in quotes ("'BANK MOSCOW-MINSK' JSC", 20 banks) loses the
+ * quotes, and a word glued to a closing parenthesis ("ALBARAKA BANK
+ * (PAKISTAN)LIMITED", 8) gets its space. Only a LEADING quoted name is
+ * unwrapped, so possessives such as "PEOPLE'S BANK" keep their apostrophe.
+ * Slugs and codes are untouched — URLs and BICs do not change.
+ */
+function tidyBankName(name: string): string {
+  return name
+    .replace(/^\s*['‘’"]+\s*(.+?)['‘’"]+(?=\s|,|$)/, "$1")
+    .replace(/\)(?=[A-Za-z])/g, ") ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 function loadData(): SwiftCountry[] {
   if (_data) return _data;
   try {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    _data = require("./scraped/swift-codes.json") as SwiftCountry[];
+    const raw = require("./scraped/swift-codes.json") as SwiftCountry[];
+    _data = raw.map((c) => ({
+      ...c,
+      banks: c.banks.map((b) => ({ ...b, name: tidyBankName(b.name) })),
+      branches: (c.branches ?? []).map((br) => ({ ...br, bankName: tidyBankName(br.bankName) })),
+    }));
   } catch {
     _data = [];
   }
