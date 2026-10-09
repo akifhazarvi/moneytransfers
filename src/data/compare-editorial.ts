@@ -276,7 +276,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     limits: `Agent-level pricing is not something we observe. Both networks vary fees by corridor, payout method and funding method, and cash pickup availability depends on the specific agent. Confirm the quote, the collection location and the identification the recipient will need before sending.`,
     verdict: {
-      costExplanation: `MoneyGram's fees start lower, at $1.99 against Western Union's typically higher opening fee, but Western Union wins outright on {{LED:western-union}} of the corridors we price against just {{LED:moneygram}} for MoneyGram, which won {{WINRATE:moneygram}} of the contested days it quoted. Average shortfall tells a gentler story for MoneyGram, at {{SHORTFALL:moneygram}} against {{SHORTFALL:western-union}}, so it's rarely first but rarely far off either.`,
+      costExplanation: `Western Union led {{LED:western-union}} of the corridors we price ({{LEADRATE:western-union}}) and MoneyGram {{LED:moneygram}} ({{LEADRATE:moneygram}}); MoneyGram won {{WINRATE:moneygram}} of the contested days it quoted. When not first, MoneyGram averaged {{SHORTFALL:moneygram}} behind the best payout and Western Union {{SHORTFALL:western-union}}.`,
       speedExplanation: `Both are cash networks built for same-day collection, and neither is meaningfully faster than the other on the corridors we track — the real speed variable is which network's nearest agent is actually staffed and open, not a published delivery window.`,
       coverageExplanation: `Western Union quotes 130 currencies against MoneyGram's roughly 50 and caps transfers at $50,000 against MoneyGram's $10,000 — a real ceiling difference for anyone sending a larger amount through a cash network rather than a bank transfer.`,
       bottomLine: `Price is close to the least useful way to choose between these two. Both have spent the better part of a century building physical agent networks, and the question that actually decides a transfer is which network has a staffed counter near the person collecting it — something no comparison table, including this one, can answer for your specific town.`,
@@ -775,7 +775,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:taptap-send}} for TapTap Send. TapTap Send's average shortfall when it isn't cheapest is {{SHORTFALL:taptap-send}}, against {{SHORTFALL:wise}} for Wise — a tight gap consistent with two providers both pricing close to the mid-market rate.`,
     workedExample: {
       heading: "A worked example: $1,000 to India",
-      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:taptap-send:USD:INR:1000}}, with {{CHEAPER:wise:taptap-send:USD:INR:1000}} delivering more — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:taptap-send:USD:INR:1000}} for TapTap Send. The margin here is one of the tightest on the site; a different corridor or amount can plausibly invert it, so check your own before assuming this ordering holds.`,
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:taptap-send:USD:INR:1000}}, with {{CHEAPER:wise:taptap-send:USD:INR:1000}} delivering more — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:taptap-send:USD:INR:1000}} for TapTap Send. A different corridor or amount can invert it, so check your own before assuming this ordering holds.`,
     },
     pickA: {
       heading: "Pick Wise for bank deposits and larger amounts",
@@ -787,7 +787,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     limits: `TapTap Send's fee-free claim applies to most but not all corridors — some carry a small fee — and Wise's fee varies by currency and funding method. Confirm your specific corridor's terms before sending.`,
     verdict: {
-      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:taptap-send}} for TapTap Send, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:taptap-send}} — one of the tightest cost gaps tracked on this site, since both price close to the mid-market rate rather than building in a wide spread.`,
+      costExplanation: `Wise led {{LED:wise}} of the corridors we price ({{LEADRATE:wise}}) and TapTap Send {{LED:taptap-send}} ({{LEADRATE:taptap-send}}). When not first, Wise averaged {{SHORTFALL:wise}} behind the best payout and TapTap Send {{SHORTFALL:taptap-send}}. TapTap Send serves fewer sending countries, so on many routes only one of the two quotes at all.`,
       speedExplanation: `TapTap Send settles in under three minutes for 95% of transfers, ahead of Wise's instant-to-two-day window. For a genuinely urgent transfer, TapTap Send's speed is the more consistent of the two.`,
       coverageExplanation: `Wise's $1,000,000 ceiling and 50 currencies suit a larger, bank-account transfer; TapTap Send's $10,000 cap and mobile money delivery suit a smaller, faster remittance to a recipient who may not bank.`,
       bottomLine: `This is one of the closer cost matches on the site, so the decision usually comes down to payout method and speed rather than price. TapTap Send wins on speed and mobile money reach; Wise wins on transfer size and the ability to verify the rate against a published mid-market quote.`,
@@ -811,7 +811,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "Wise charges a variable fee from 0.41% with 0% markup; TapTap Send charges $0 on most corridors with roughly 0.7% built into the rate — one of the tightest cost gaps on the site either way.",
+      "Wise charges a visible fee and converts at the mid-market rate; TapTap Send charges no fee on most corridors and builds its margin into the rate — compare the amount received, not the fee.",
       "TapTap Send settles in under three minutes for 95% of transfers; Wise's window is instant to two days.",
       "TapTap Send offers mobile money delivery Wise doesn't have at all; Wise pays to a bank account only.",
       "Wise's $1,000,000 ceiling is a hundred times TapTap Send's $10,000 cap — this pair has a real size mismatch despite the close pricing.",
@@ -1170,7 +1170,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     limits: `Agent-level pricing is not something we observe. Confirm your corridor, payout method and MoneyGram's or Remitly's coverage of your destination before sending.`,
     verdict: {
-      costExplanation: `Remitly led {{LED:remitly}} of the corridors we price against {{LED:moneygram}} for MoneyGram, which won {{WINRATE:moneygram}} of the contested days it quoted against a digital-first specialist. Average shortfalls of {{SHORTFALL:remitly}} and {{SHORTFALL:moneygram}} confirm the gap is real, not just a matter of who wins outright.`,
+      costExplanation: `Remitly led {{LED:remitly}} of the corridors we price ({{LEADRATE:remitly}}) and MoneyGram {{LED:moneygram}} ({{LEADRATE:moneygram}}); MoneyGram won {{WINRATE:moneygram}} of the contested days it quoted. When not first, Remitly averaged {{SHORTFALL:remitly}} behind the best payout and MoneyGram {{SHORTFALL:moneygram}}. Which is cheaper on a given day depends on the route — compare both on yours.`,
       speedExplanation: `Remitly's express tier settles in minutes; MoneyGram's speed varies more by corridor and agent. For a corridor Remitly prices sharply, it's also typically the faster of the two.`,
       coverageExplanation: `MoneyGram's roughly 200 countries beat Remitly's 100, built over eight decades of agent relationships. Remitly answers with sharper pricing and a higher Trustpilot rating on the corridors it does serve.`,
       bottomLine: `On Remitly's core remittance corridors, it's usually the better-priced and faster option. Outside that list, MoneyGram's older, wider network is more likely to reach the destination at all.`,

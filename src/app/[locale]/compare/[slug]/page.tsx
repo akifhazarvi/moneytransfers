@@ -650,9 +650,17 @@ function DefaultComparison({
             </h2>
             <div className="space-y-4 mb-6">
               {/* Cost verdict */}
-              <div className={`rounded-xl p-5 ${verdict.costWinner === "tie" ? "bg-[var(--color-surface-dim)]" : "bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/20"}`}>
+              {/* The generated winner is today's head-to-head on a few sample
+                  routes; editorial text reports the long-run record (corridors
+                  led, days won). Printing the first as the heading of the second
+                  read as a contradiction (round-3 QA, 2026-10-09: "Cost winner:
+                  MoneyGram" over "Remitly led 5 of 108 … 0 of 60 for MoneyGram"),
+                  so an editorial card names the pair and lets its figures speak. */}
+              <div className={`rounded-xl p-5 ${editorial || verdict.costWinner === "tie" ? "bg-[var(--color-surface-dim)]" : "bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/20"}`}>
                 <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
-                  {verdict.costWinner === "tie" ? "Cost: Too close to call" : `Cost winner: ${verdict.costWinner === "a" ? a.name : b.name}`}
+                  {editorial
+                    ? `Cost: ${a.name} vs ${b.name} on measured quotes`
+                    : verdict.costWinner === "tie" ? "Cost: Too close to call" : `Cost winner: ${verdict.costWinner === "a" ? a.name : b.name}`}
                 </h3>
                 {editorial ? (
                   <p
