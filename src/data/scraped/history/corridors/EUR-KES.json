@@ -17124,10 +17124,10 @@
         "receiveAmount": 14510
       },
       "moneygram": {
-        "rate": 142.765,
+        "rate": 142.778,
         "fee": 0.9,
-        "markup": 1.65,
-        "receiveAmount": 14148
+        "markup": 1.91,
+        "receiveAmount": 14149.28
       },
       "taptap-send": {
         "rate": 144.5,
@@ -17148,10 +17148,10 @@
         "receiveAmount": 13529.23
       },
       "worldremit": {
-        "rate": 143.804,
+        "rate": 144.145,
         "fee": 0.99,
-        "markup": 0.94,
-        "receiveAmount": 14238.07
+        "markup": 0.97,
+        "receiveAmount": 14271.76
       },
       "instarem": {
         "rate": 142.683,
@@ -17160,22 +17160,22 @@
         "receiveAmount": 14268.33
       },
       "xe": {
-        "rate": 142.129,
+        "rate": 142.633,
         "fee": 4,
-        "markup": 2.09,
-        "receiveAmount": 13644.41
+        "markup": 2.01,
+        "receiveAmount": 13692.79
       },
       "paysend": {
-        "rate": 144.55,
+        "rate": 144.825,
         "fee": 0,
-        "markup": 0.42,
-        "receiveAmount": 14455.02
+        "markup": 0.5,
+        "receiveAmount": 14482.46
       },
       "sendwave": {
-        "rate": 143.804,
+        "rate": 144.145,
         "fee": 0.49,
-        "markup": 0.94,
-        "receiveAmount": 14309.98
+        "markup": 0.97,
+        "receiveAmount": 14343.84
       },
       "remitly": {
         "rate": 142.6,
@@ -17184,10 +17184,10 @@
         "receiveAmount": 13976.23
       },
       "revolut": {
-        "rate": 144.133,
+        "rate": 144.281,
         "fee": 2.3,
-        "markup": 0.71,
-        "receiveAmount": 14081.78
+        "markup": 0.88,
+        "receiveAmount": 14096.27
       },
       "wise": {
         "rate": 145.98,
@@ -17212,6 +17212,12 @@
         "fee": 2.99,
         "markup": 4.09,
         "receiveAmount": 13578.51
+      },
+      "profee": {
+        "rate": 144.827,
+        "fee": 2.8,
+        "markup": 0.5,
+        "receiveAmount": 14077.2
       }
     }
   }

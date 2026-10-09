@@ -19056,22 +19056,22 @@
         "receiveAmount": 6637.54
       },
       "dahabshiil": {
-        "rate": 67.1999,
+        "rate": 67.0853,
         "fee": 2.99,
-        "markup": 1,
-        "receiveAmount": 6519.06
+        "markup": 1.35,
+        "receiveAmount": 6507.94
       },
       "paysend": {
-        "rate": 67.6962,
+        "rate": 67.8304,
         "fee": 0,
-        "markup": 0.27,
-        "receiveAmount": 6769.62
+        "markup": 0.26,
+        "receiveAmount": 6783.04
       },
       "koho": {
-        "rate": 67.8669,
+        "rate": 68.0015,
         "fee": 1.26,
         "markup": 0.01,
-        "receiveAmount": 6701.18
+        "receiveAmount": 6714.47
       },
       "remitly": {
         "rate": 67.66,
@@ -19120,6 +19120,12 @@
         "fee": 2.57,
         "markup": -0.06,
         "receiveAmount": 6625.13
+      },
+      "moneygram": {
+        "rate": 67.2337,
+        "fee": 3.99,
+        "markup": 1.13,
+        "receiveAmount": 6455.11
       }
     }
   }
