@@ -4424,35 +4424,25 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Nigeria: Africa's Largest Remittance Market",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best providers for sending money to Nigeria are <a href="/companies/wise">Wise</a> (0% markup, most transparent on this volatile corridor), <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee, Express delivery to GTBank/Access/Zenith), and <a href="/companies/worldremit">WorldRemit</a> (supports bank deposit and mobile money). Comparing is critical — we've seen differences of ₦50,000+ on a $1,000 USD to NGN transfer on the same day. <a href="/send-money/usa-to-nigeria">Compare live rates</a> before every transfer.</p></div>
-<p>Nigeria received over <strong>$20 billion in remittances</strong> in 2025, according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>, making it Africa's top remittance destination. The United States is the largest source, followed by the UK and Canada.</p>
-<p>The USD to NGN corridor is unlike any other. Nigeria's exchange rate history — with periods of multiple official and parallel rates — means the naira amount your recipient gets can vary <strong>dramatically</strong> between providers. We've seen differences of ₦50,000+ on a $1,000 transfer on the same day. Comparing is not optional here — it's critical.</p>`,
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On $1,000 today {{BEST_PROVIDER:USD:NGN:1000}} pays the most naira ({{BEST_RECEIVE:USD:NGN:1000}}), and over the last three months the most frequent USD→NGN leader was {{CORRIDOR_LEADER:USD:NGN}}. Best and worst quotes on that amount sit {{SPREAD:USD:NGN:1000}} apart, which is why the naira route is worth comparing on the day you send. <a href="/send-money/usa-to-nigeria">Compare live rates</a>.</p></div>
+<p>What sets the naira corridor apart is who sets the rate. Since a Central Bank of Nigeria circular of 31 January 2024 (TED/FEM/FPC/GEN/001/003), licensed International Money Transfer Operators may quote the naira they pay out at prevailing rates in the Nigerian Foreign Exchange Market, on a willing-buyer, willing-seller basis. That replaced a September 2023 rule that kept their quotes within 2.5% either side of the previous day's closing rate (<a href="https://techpoint.africa/2024/02/01/cbn-eliminates-exchange-rate-cap/" target="_blank" rel="noopener noreferrer">Techpoint Africa report of the circular</a>). Each provider now prices its own naira, so the payout gap between them is set by the market rather than by a band.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Nigeria",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for USD to NGN</h3>
+<h3 style="margin-top: 0;">Providers by how they pay out in Nigeria</h3>
 <table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<thead><tr><th>Payout</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with 0% markup — most transparent on a volatile corridor</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery to GTBank, Access, and Zenith Bank accounts</td></tr>
-<tr><td><strong>Transfers under $500</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee with competitive NGN rates for transfers under $500</td></tr>
-<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Thousands of agent locations in Lagos, Abuja, Port Harcourt, and beyond</td></tr>
+<tr><td><strong>Bank account</strong></td><td><a href="/companies/wise">Wise</a></td><td>Converts at the mid-market rate and shows its fee up front</td></tr>
+<tr><td><strong>Bank account, express</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express delivery to accounts at major banks such as GTBank, Access and Zenith</td></tr>
+<tr><td><strong>Bank or mobile money</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Pays bank accounts and mobile wallets</td></tr>
+<tr><td><strong>Cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent network in Lagos, Abuja, Port Harcourt and beyond</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/usa-to-nigeria">Compare live rates →</a></p>
+<p class="blog-footnote">Payout types as each provider lists them; prices are in the <a href="/send-money/usa-to-nigeria">live USD to NGN comparison →</a></p>
 </div>
-
-<p>For a $1,000 USD to NGN transfer:</p>
-<ul>
-<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, mid-market rate — transparent pricing, consistent value</li>
-<li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–$3.99 fee, competitive NGN rate — Express delivery to bank accounts</li>
-<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good rates, supports bank deposit and mobile money</li>
-<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but massive agent network across Nigeria</li>
-<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide cash pickup coverage, competitive for small amounts</li>
-</ul>
-<p><strong>Critical:</strong> On this corridor more than any other, the exchange rate IS the cost. A provider with "$0 fee" but a 5% rate markup costs far more than one charging $7 at the mid-market rate. Always <a href="/send-money/usa-to-nigeria">compare the total NGN your recipient receives</a>. See also <a href="/compare/wise-vs-remitly">Wise vs Remitly</a> for a head-to-head breakdown.</p>`,
+<p>On this corridor the exchange rate is most of the cost: a provider with no fee and a weak naira rate can deliver less than one that charges a fee at a better rate, so compare the naira your recipient receives. See also <a href="/compare/wise-vs-remitly">Wise vs Remitly</a>.</p>`,
       },
       {
         heading: "What You Need for a Nigeria Transfer",
@@ -4503,55 +4493,40 @@ const rawBlogPosts: BlogPost[] = [
 <p><strong>Note:</strong> Nigerian banks occasionally delay international transfer processing due to CBN compliance checks. Transfers to Tier 1 banks (Access, GTBank, Zenith, First Bank, UBA) are generally processed faster.</p>`,
       },
       {
-        heading: "Understanding the Naira Exchange Rate",
-        content: `<p>The Nigerian naira (NGN) has a complex exchange rate history. Here's what you need to know:</p>
-<ul>
-<li><strong>Exchange rate unification:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a> moved toward a unified exchange rate in 2023, but differences between providers remain larger than on most corridors.</li>
-<li><strong>Provider rate differences:</strong> Different providers source naira at different rates depending on their banking partners and CBN allocation. Always compare multiple providers on the same day.</li>
-<li><strong>Volatility:</strong> The naira can move 2–5% in a single week. If you have flexibility, set up rate alerts and transfer when the rate is favourable.</li>
-<li><strong>Dollar accounts vs naira:</strong> Some Nigerian banks offer domiciliary (dollar) accounts. If your recipient has one, they can receive USD directly — useful when the naira rate is unfavourable.</li>
-</ul>
-<p>For more on how exchange rates affect your transfer cost, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
-      },
-      {
-        heading: "Reconcile the naira credit with the quote you accepted",
-        content: `<p>For a recipient paying expenses in naira, write down the promised NGN credit before authorising the transfer. Do not compare that promise with an unrelated dollar-account offer unless you also know how those dollars would become spendable naira and what that conversion would cost.</p>
-<p>Here is an invented receipt check. A sender's total debit is $500, with a $3 fee deducted before conversion. At an assumed ₦1,500 per dollar, the $497 principal should produce <strong>₦745,500</strong>. If the account is credited only ₦744,000, the difference to investigate is <strong>₦1,500</strong>. It is not the $3 sending fee again: that fee was already removed in calculating the expected credit.</p>
-<p>Ask support to identify the cause of the difference using the accepted quote and transaction reference. Was there a stated recipient charge, a different rate on the final confirmation, or a payout error? Comparing the credit with a new market rate after the transfer does not answer those questions. The example is arithmetic only and does not represent an available NGN quote.</p>
-<p>For an NGN bank deposit, check the bank name as well as the beneficiary number on the confirmation. If the recipient gives you several accounts, ask which one should receive this payment rather than selecting an old saved record. A successful transfer to a different account can still miss the intended bill or household arrangement.</p>
-<p>Keep the payment's purpose in your records. Family support and payment for work should not share a blanket tax assumption, and a provider's request for documents is not itself a determination that tax is due. For questions about either person's obligations, obtain advice for the actual payment and their circumstances.</p>`,
-      },
-      {
-        heading: "How to read the NGN comparison on this page",
-        content: `<p>The comparison shows the offers in our dataset for the chosen sending currency and amount. Its order is based on quoted payout; it does not establish that a service supports every funding method, recipient account or purpose. Follow through to confirm the same NGN delivery option with the provider.</p>
-<p>The receipt example above uses a fixed hypothetical rate to explain a shortfall. It is independent of market forecasts and is not a provider performance claim. The <a href="/methodology">collection methodology</a> explains our timestamps and comparison limits; retain your own final confirmation as the record of what you agreed to buy.</p>`,
+        heading: "How the naira rate on your quote is set",
+        content: `<ul>
+<li><strong>From a band to the market.</strong> Under the CBN's January 2024 circular, a remittance operator's naira payout rate follows the Nigerian Foreign Exchange Market rather than a band around the previous day's close, so two operators can price the same dollar differently on the same morning.</li>
+<li><strong>Naira for most payouts.</strong> Remittance operators pay most transfers out in naira, into an account or as cash; if your recipient keeps a domiciliary (dollar) account, ask the provider whether that payout is available on your route before assuming it.</li>
+<li><strong>NUBAN and BVN.</strong> A Nigerian bank account is identified by its 10-digit NUBAN, and the account holder's Bank Verification Number links it to their identity; a name that does not match the account can hold up the credit.</li>
+<li><strong>Volatility.</strong> The naira can move several percent in a week. Our <a href="/send-money/usa-to-nigeria">USD to NGN comparison</a> shows the rate each provider quotes now; a quote is only good for the minutes the provider guarantees it.</li>
+</ul>`,
       },
     ],
     faqs: [
       {
         question: "What is the cheapest way to send money from the US to Nigeria?",
         answer:
-          "The cheapest provider changes frequently due to naira volatility. Wise, Remitly, and WorldRemit are consistently competitive. Always compare the total NGN amount received — exchange rate differences on this corridor can be worth ₦50,000+ on a $1,000 transfer.",
+          "It changes often. Over the last three months the provider that paid the most naira most often was {{CORRIDOR_LEADER:USD:NGN}}; on $1,000 today it is {{BEST_PROVIDER:USD:NGN:1000}}. Compare the total naira received, not the headline fee.",
       },
       {
         question: "Why do NGN exchange rates vary so much between providers?",
         answer:
-          "Nigeria's exchange rate market has undergone significant reform. Different providers source naira through different banking channels, resulting in larger rate spreads than most corridors. This makes comparing providers on the same day essential.",
+          "Since January 2024 the Central Bank of Nigeria has let remittance operators quote naira payout rates at prevailing market rates instead of within 2.5% of the previous day's close, so each operator prices its own naira. That leaves wider gaps between providers than on most corridors.",
       },
       {
         question: "How long does a money transfer to Nigeria take?",
         answer:
-          "Bank deposits take 1–3 business days depending on the provider and receiving bank. Cash pickup through Western Union or MoneyGram is usually available within hours. Express options from Remitly can deliver same-day to major banks.",
+          "Bank deposits take 1–3 business days depending on the provider and receiving bank. Cash pickup through Western Union or MoneyGram is usually available within hours. Express options can deliver same-day to major banks.",
       },
       {
         question: "Do I need an IBAN to send money to Nigeria?",
         answer:
-          "No, Nigeria does not use IBANs. You need the recipient's 10-digit NUBAN (bank account number) and the bank's SWIFT code for wire transfers. For cash pickup, you just need the recipient's name and a valid ID.",
+          "No, Nigeria does not use IBANs. You need the recipient's 10-digit NUBAN and their name exactly as the bank holds it, plus the bank's SWIFT code for a bank wire. For cash pickup, the recipient's name and a valid ID.",
       },
       {
         question: "Is it safe to send money to Nigeria online?",
         answer:
-          "Yes, when using regulated providers. All major services (Wise, Remitly, WorldRemit, Western Union) are licensed by FinCEN in the US and use bank-grade encryption. Verify recipient details carefully before sending.",
+          "Use a provider registered with FinCEN as a money services business and licensed in your state, and check the recipient's account details before sending. On the Nigerian side, remittances are paid out by operators licensed by the Central Bank of Nigeria.",
       },
     ],
     relatedSlugs: [
@@ -4582,35 +4557,25 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Bangladesh: A Top-10 Remittance Destination",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The most-used apps for Bangladesh are <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee with Express bKash delivery in seconds), <a href="/companies/instarem">Instarem</a> (competitive BDT rates), and <a href="/companies/wise">Wise</a> (~$7 fee, 0% markup — best for $1,000+ transfers). bKash and Nagad mobile wallets make receiving money fast even in rural areas. <a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a> from {{ROUTE_PROVIDERS:USD:BDT}}.</p></div>
-<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025, according to the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>, making it one of the top remittance-receiving countries globally. The US, Saudi Arabia, UAE, and Malaysia are the largest source countries.</p>
-<p>The USD to BDT corridor has a growing number of providers competing for market share. Mobile financial services — particularly <strong>bKash</strong> and <strong>Nagad</strong> — have transformed how Bangladeshis receive money from abroad, making transfers faster and more accessible than ever, especially in rural areas.</p>`,
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On $1,000 today {{BEST_PROVIDER:USD:BDT:1000}} pays the most taka ({{BEST_RECEIVE:USD:BDT:1000}}), and over the last three months the most frequent USD→BDT leader was {{CORRIDOR_LEADER:USD:BDT}}. bKash and Nagad wallets put taka in reach even in rural areas. <a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a>.</p></div>
+<p>The taka your recipient gets has floated more freely since 14 May 2025, when Bangladesh Bank's governor announced a market-based exchange rate with immediate effect, replacing the crawling peg, to meet the conditions of its IMF programme (<a href="https://www.dhakatribune.com/business/381204/bd-receive-3.5bn-june-from-multiple-donors" target="_blank" rel="noopener noreferrer">Dhaka Tribune</a>). Providers now price taka off that market rate, so their quotes can move apart within a day, and the comparison below is worth checking on the day you send.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Bangladesh",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for USD to BDT</h3>
+<h3 style="margin-top: 0;">USD to BDT providers by payout</h3>
 <table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<thead><tr><th>Payout</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Wallet delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>$0–$3.99 fee, competitive BDT rate, direct bKash delivery in seconds</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to bKash — near-instant delivery to 60M+ registered accounts</td></tr>
-<tr><td><strong>Mid-market rate (large amounts)</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — most transparent for $1,000+ transfers</td></tr>
-<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Extensive network at bank branches and agent points across Bangladesh</td></tr>
+<tr><td><strong>bKash wallet</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Pays bKash directly, with an express option</td></tr>
+<tr><td><strong>Bank account</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with the fee shown up front</td></tr>
+<tr><td><strong>Wallet or bank</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>bKash, Nagad and bank deposit</td></tr>
+<tr><td><strong>Cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Bank branches and agent points across Bangladesh</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/usa-to-bangladesh">Compare live rates →</a></p>
+<p class="blog-footnote">Payout types as each provider lists them; prices are in the <a href="/send-money/usa-to-bangladesh">live USD to BDT comparison →</a></p>
 </div>
-
-<p>For a $1,000 USD to BDT transfer:</p>
-<ul>
-<li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–$3.99 fee, good BDT rate — supports bKash delivery and Express speed</li>
-<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup — transparent pricing, best for larger amounts</li>
-<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Competitive rates with bKash, Nagad, and bank deposit options</li>
-<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but extensive cash pickup network across Bangladesh</li>
-<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide agent network, popular for cash pickup</li>
-</ul>
-<p><a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a> to find the best deal on the day you send. Also see <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> for a detailed head-to-head.</p>`,
+<p>Also see <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> for a head-to-head.</p>`,
       },
       {
         heading: "Choose the receiving account before collecting the details",
@@ -4641,13 +4606,11 @@ const rawBlogPosts: BlogPost[] = [
 <p><strong>Best for speed and reach:</strong> bKash. With 60+ million accounts and 350,000+ agents, it reaches parts of Bangladesh that bank branches cannot.</p>`,
       },
       {
-        heading: "Fees and Exchange Rate Tips",
+        heading: "Taka rates and the incentive on a dollar transfer",
         content: `<ol>
-<li><strong>Compare the total BDT received.</strong> Use our <a href="/send-money/usa-to-bangladesh">comparison tool</a> to see the actual taka amount after all fees and rate markups.</li>
-<li><strong>Consider bKash for small regular amounts.</strong> Lower minimum transfers and instant delivery make bKash ideal for weekly or biweekly remittances.</li>
-<li><strong>Fund with bank transfer.</strong> Credit card surcharges of 1.5%–3% add unnecessary cost.</li>
-<li><strong>Bangladesh Bank incentives:</strong> The <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> offers a 2.5% cash incentive on inbound remittances through formal channels — an additional reason to use licensed providers rather than informal channels.</li>
-<li><strong>Avoid US banks for remittances.</strong> Wire fees of $25–$50 plus 3%+ exchange rate markup make banks the most expensive option by far.</li>
+<li><strong>Compare the taka delivered.</strong> Since the May 2025 switch to a market-based rate, the gap between providers is in the rate more than the fee; our <a href="/send-money/usa-to-bangladesh">comparison</a> shows the taka after both.</li>
+<li><strong>The incentive is extra, not in the quote.</strong> An eligible wage remittance through a formal channel earns the recipient a 2.5% government incentive, credited by the receiving bank or wallet. Check whether a quote already includes it before adding it yourself.</li>
+<li><strong>Fund with a bank transfer.</strong> A credit card can add a cash-advance fee on top of the transfer.</li>
 </ol>
 <p>Learn how exchange rate markups affect your total cost in our <a href="/guides/exchange-rate-markup-explained">markup guide</a>.</p>`,
       },
@@ -4658,27 +4621,22 @@ const rawBlogPosts: BlogPost[] = [
 <p>On an eligible principal of ৳40,000, a separately credited 2.5% incentive would be ৳1,000, for ৳41,000 before other deductions. If the confirmation already promises ৳41,000 including that incentive, adding another ৳1,025 would overstate what is due. This is an arithmetic example, not a guarantee of eligibility or a credit date.</p>
 <p>Payment purpose also matters for tax and recordkeeping. Overseas wages, a family gift and payment for work performed in Bangladesh are not interchangeable descriptions. Save the provider receipt and the recipient statement; ask a qualified adviser about the actual circumstances rather than treating every foreign payment as automatically tax-free.</p>`,
       },
-      {
-        heading: "Evidence behind the payout checks",
-        content: `<p>This guide uses the linked bKash service page for wallet receiving and cash-out conditions, and Xe's explanation for the scope of the wage-remittance incentive. Neither source establishes the cheapest provider for every sending country.</p>
-<p>The ৳50,000 withdrawal comparison and ৳40,000 incentive calculation are hypothetical examples designed to distinguish account credit from usable proceeds. For current offers, select your origin currency in the <a href="/send-money">transfer comparison</a>; a USD quote should not be used to estimate the cost of sending pounds or dirhams. Read <a href="/methodology">how we collect and rank quotes</a> for the dataset's limitations.</p>`,
-      },
     ],
     faqs: [
       {
         question: "What is the cheapest way to send money to Bangladesh from the US?",
         answer:
-          "Remitly and WorldRemit typically offer the best total value for USD to BDT transfers, especially with bKash delivery. Wise is best for larger amounts due to its 0% markup. Always compare the total taka received rather than just the advertised fee.",
+          "Over the last three months the provider that paid the most taka most often was {{CORRIDOR_LEADER:USD:BDT}}; on $1,000 today it is {{BEST_PROVIDER:USD:BDT:1000}}. Compare the total taka received rather than the advertised fee.",
       },
       {
         question: "Can I send money directly to bKash from the US?",
         answer:
-          "Yes. Remitly, WorldRemit, and several other providers support direct bKash transfers. The recipient gets the money instantly on their bKash account and can withdraw from any of 350,000+ agent points across Bangladesh.",
+          "Yes. Several US apps pay bKash wallets directly; the recipient gets wallet balance within minutes and can spend it or cash out at an agent or ATM, which carries bKash's own charge.",
       },
       {
         question: "How long does it take to send money to Bangladesh?",
         answer:
-          "bKash and Nagad transfers are near-instant. Bank deposits take 1–3 business days depending on the bank. Cash pickup through Western Union or MoneyGram is usually available within hours.",
+          "bKash and Nagad payouts are near-instant. Bank deposits take 1–3 business days depending on the bank. Cash pickup through Western Union or MoneyGram is usually available within hours.",
       },
       {
         question: "Do I need an IBAN to send money to Bangladesh?",
@@ -4686,9 +4644,9 @@ const rawBlogPosts: BlogPost[] = [
           "No, Bangladesh does not use IBANs. For bank deposits, you need the account number, routing number, and the bank's SWIFT code. For bKash, you just need the recipient's mobile number.",
       },
       {
-        question: "Does the Bangladesh government incentivise remittances?",
+        question: "Why did taka rates start moving more in 2025?",
         answer:
-          "An eligible inward wage remittance may receive a 2.5% incentive. Confirm eligibility, the payment classification and whether the advertised payout already includes it; do not add the incentive twice.",
+          "Bangladesh Bank moved from a crawling peg to a market-based exchange rate on 14 May 2025, under its IMF programme, so providers' taka rates now follow the market day to day.",
       },
     ],
     relatedSlugs: [
@@ -11640,9 +11598,8 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "UK to Bangladesh: A Major Remittance Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On £1,000 today, {{BEST_PROVIDER:GBP:BDT:1000}} pays the most taka ({{BEST_RECEIVE:GBP:BDT:1000}}), and over the last three months the most frequent leader on GBP to BDT was {{CORRIDOR_LEADER:GBP:BDT}}. <a href="/companies/wise">Wise</a> charges {{FEE:wise:GBP:BDT:1000}} with a {{MARKUP:wise:GBP:BDT:1000}} margin over mid-market on the same amount. <a href="/companies/remitly">Remitly</a>'s bKash Express is the quickest way to put taka in a wallet. For cash pickup in smaller towns, <a href="/companies/western-union">Western Union</a> has the widest agent network. On a typical £1,000 transfer, specialist providers deliver ৳3,000–৳7,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Recipients also get a <strong>2.5% government incentive</strong> on remittances through formal channels — worth an extra ৳3,500+ on a £1,000 transfer. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates</a> from {{ROUTE_PROVIDERS:GBP:BDT}}.</p></div>
-<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025 according to <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>, and the UK is the <strong>second-largest source</strong> after Saudi Arabia. Over 600,000 British Bangladeshis — concentrated in London, Birmingham, and Luton — send money home regularly to support families, fund education, and invest in property.</p>
-<p>The GBP to BDT corridor is well-served by specialist providers who undercut high-street banks by a wide margin. On a £1,000 transfer, the difference between the best specialist provider and a typical UK bank can be <strong>৳3,000–৳7,000</strong>. Combined with the 2.5% government incentive, formal channels deliver significantly more value than either bank transfers or informal hawala networks.</p>`,
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On £1,000 today, {{BEST_PROVIDER:GBP:BDT:1000}} pays the most taka ({{BEST_RECEIVE:GBP:BDT:1000}}), and over the last three months the most frequent leader on GBP to BDT was {{CORRIDOR_LEADER:GBP:BDT}}. <a href="/companies/wise">Wise</a> charges {{FEE:wise:GBP:BDT:1000}} with a {{MARKUP:wise:GBP:BDT:1000}} margin over mid-market on the same amount. A bKash payout puts taka in a wallet within minutes; a bank deposit takes 1–3 business days. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates</a>.</p></div>
+<p>Sterling sent to Bangladesh through a licensed provider can earn the recipient a government cash incentive on top of the transfer, which an informal hundi payment never does. That incentive, more than any headline fee, is why the formal channel usually wins for British Bangladeshi families, from Tower Hamlets to Birmingham and Luton, and why the details below matter.</p>`,
       },
       {
         heading: "Best Providers for GBP to BDT Transfers",
@@ -11674,24 +11631,9 @@ const rawBlogPosts: BlogPost[] = [
 <p>Check our <a href="/send-money/uk-to-bangladesh">GBP to BDT comparison</a> for today's live rates. <a href="/compare/wise-vs-remitly">See how Wise compares to Remitly</a> side by side.</p>`,
       },
       {
-        heading: "Step-by-Step: How to Send Money from UK to Bangladesh",
-        content: `<p>Sending money for the first time? Here's exactly what to do:</p>
-<ol>
-<li><strong>Choose a provider.</strong> Use our <a href="/send-money/uk-to-bangladesh">GBP to BDT comparison</a> to compare live rates and total BDT received. Focus on the total amount your recipient gets, not just the headline fee.</li>
-<li><strong>Create an account.</strong> Sign up with the address you live at in the UK and your date of birth; a passport or photocard licence clears most identity checks the same day. Ask your recipient first whether they want bKash, Nagad or their bank.</li>
-<li><strong>Choose a delivery method.</strong> Options include:
-<ul>
-<li><strong>bKash</strong> — Fastest. Delivers in seconds to the recipient's bKash wallet. They can withdraw cash from 350,000+ agents or spend directly.</li>
-<li><strong>Nagad</strong> — Similar to bKash. Delivers instantly to Nagad wallet.</li>
-<li><strong>Bank deposit</strong> — 1–3 business days. Requires account number and routing number.</li>
-<li><strong>Cash pickup</strong> — Available within hours at Western Union/MoneyGram agents.</li>
-</ul>
-</li>
-<li><strong>Enter recipient details.</strong> For bKash/Nagad: their registered mobile number (11 digits starting with 01). For bank deposit: account number, routing number, and bank name. For cash pickup: full name matching their NID.</li>
-<li><strong>Pay from your UK account.</strong> A Faster Payments transfer usually clears in minutes and most providers take it free; a debit card is quicker to set up on a first transfer. Leave the credit card out: a card surcharge plus a possible cash-advance fee can cost more than the whole taka gain from picking the better provider.</li>
-<li><strong>Confirm and track.</strong> You'll receive a confirmation email and tracking link. bKash transfers typically show as completed within seconds.</li>
-</ol>
-<p><strong>Pro tip:</strong> Fund via <strong>UK Faster Payments</strong> (bank transfer). It's free, instant during banking hours, and avoids the credit card surcharges that can wipe out savings from a competitive exchange rate.</p>`,
+        heading: "Paying a bKash or Nagad wallet from the UK",
+        content: `<p>Most GBP to BDT apps let you choose a mobile-wallet payout. You need the recipient's wallet-registered mobile number (11 digits, starting 01) and the name on the wallet; the wallet must be able to accept an inward remittance of that size, so ask the recipient to check their wallet's limits before a large transfer. A <a href="https://www.bkash.com/en/products-services/money-transfer-service" target="_blank" rel="noopener noreferrer nofollow">bKash remittance</a> arrives as wallet balance; cashing it out at an agent or ATM has its own charge, which the sending quote does not show.</p>
+<p>Fund the transfer by Faster Payments from your UK account where the app allows it. A credit card can add a cash-advance fee on top of the transfer itself.</p>`,
       },
       {
         heading: "What You Need for a Bangladesh Transfer from the UK",
@@ -11743,40 +11685,22 @@ const rawBlogPosts: BlogPost[] = [
 <p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Transfers to DBBL, Islami Bank, and BRAC Bank typically process faster than smaller or state-owned banks.</p>`,
       },
       {
-        heading: "What UK Banks Cost on Taka Transfers",
-        content: `<p>UK high-street banks do not appear in our GBP to BDT quotes, so this guide does not put a figure on them. Among the specialists we price, {{BEST_PROVIDER:GBP:BDT:1000}} pays the most taka on £1,000 today; where we do hold bank quotes, on other routes, banks come out {{BANK_SAVINGS_PCT}} dearer than specialists on $1,000.</p>
-<p>The <a href="/send-money/uk-to-bangladesh">live GBP to BDT table</a> lists every provider, fee and payout.</p>`,
-      },
-      {
         heading: "The 2.5% Government Incentive: What UK Senders Need to Know",
-        content: `<p>One of Bangladesh's most unique remittance features is the <strong>2.5% cash incentive</strong> paid by <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> on all inbound remittances through formal channels.</p>
-<h3>How It Works</h3>
+        content: `<p>Bangladesh pays a cash incentive on inward remittances that arrive through formal channels, banks, licensed transfer providers and the mobile-wallet operators they pay into. It started at 2% in 2019 and has been 2.5% since 2022, and the government said in the proposed FY2026-27 budget that the 2.5% rate would continue (<a href="https://www.tbsnews.net/node/1460256" target="_blank" rel="noopener noreferrer">The Business Standard</a>).</p>
 <ul>
-<li>When you send money through a licensed provider (Wise, Remitly, WorldRemit, Western Union, etc.), the recipient automatically receives an <strong>extra 2.5%</strong> on top of the transferred amount.</li>
-<li>On a £1,000 transfer (roughly ৳140,000), that's approximately <strong>৳3,500 extra</strong> — paid directly by the government, not deducted from your transfer.</li>
-<li>The incentive is credited to the recipient's bank account or mobile wallet, usually within a few days of the transfer arriving.</li>
-</ul>
-<h3>Why It Matters</h3>
-<p>The Bangladesh government introduced this incentive to encourage remittances through <strong>formal banking channels</strong> rather than informal hawala/hundi networks. For UK senders, this means:</p>
-<ul>
-<li><strong>Your recipient gets more.</strong> The 2.5% bonus makes formal transfers competitive even with informal channels that may offer slightly better headline rates.</li>
-<li><strong>It's automatic.</strong> No need to apply — the incentive is processed by the receiving bank or mobile financial service provider.</li>
-<li><strong>It applies to all formal channels.</strong> Whether you use Wise, Remitly, Western Union, or a direct bank wire, the recipient qualifies.</li>
-</ul>
-<p>Over 12 monthly transfers of £1,000, the incentive adds up to approximately <strong>৳42,000</strong> — essentially a free month's transfer.</p>`,
+<li><strong>It is paid to the recipient, by the receiving bank or wallet,</strong> on top of the taka your provider delivers; it is not deducted from your transfer and does not appear in the sending quote.</li>
+<li><strong>Documents.</strong> Bangladesh Bank has let recipients claim it without papers on remittances of up to $5,000 or Tk 5 lakh; above that, banks have at times asked for the sender's wage documents (<a href="https://thefinancialexpress.com.bd/economy/bangladesh/bb-relaxes-conditions-for-remittance-incentives-1589369241" target="_blank" rel="noopener noreferrer">The Financial Express</a>). Ask the receiving bank before a large transfer.</li>
+<li><strong>Eligibility follows the purpose.</strong> The incentive is aimed at wage remittances from Bangladeshis working abroad; a payment classified as something else may not qualify, so do not count it twice when comparing quotes.</li>
+</ul>`,
       },
       {
         heading: "Tax Rules for UK Senders and Bangladeshi Recipients",
-        content: `<p>Important rules for UK to Bangladesh transfers:</p>
-<ul>
-<li><strong>UK tax:</strong> sending your own taxed income to family in Bangladesh is not a taxable event for HMRC, and there is nothing to report unless you are claiming a relief on it.</li>
-<li><strong>For recipients in Bangladesh:</strong> Remittances from abroad are <strong>not subject to income tax</strong> in Bangladesh. The 2.5% incentive is also tax-free.</li>
-<li><strong>NID requirement:</strong> Recipients may need to provide their National Identity Card (NID) number for bank deposits and cash pickups above certain thresholds set by Bangladesh Bank.</li>
-<li><strong>Licensing at both ends:</strong> on the UK side, look the provider up on the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> register before a first transfer; on the Bangladesh side, bKash and Nagad operate as mobile financial services supervised by Bangladesh Bank.</li>
-<li><strong>Formal channels encouraged:</strong> The Bangladeshi government actively promotes formal remittance channels over informal hawala/hundi networks, supported by the 2.5% incentive scheme. Using informal channels means losing the incentive and having no consumer protection.</li>
+        content: `<ul>
+<li><strong>UK side:</strong> sending your own taxed income to family in Bangladesh is not taxed again by HMRC. Look the provider up on the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA register</a> before a first transfer.</li>
+<li><strong>Bangladesh side:</strong> bKash and Nagad are mobile financial services supervised by <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>, and the recipient may be asked for their National ID for bank deposits and cash pickups.</li>
+<li><strong>Hundi:</strong> an informal transfer forfeits the incentive and any consumer protection.</li>
 </ul>
-<p>This is general information — consult a tax professional for your specific situation.</p>
-`,
+<p>This is general information; consult a tax professional for your situation.</p>`,
       },
       {
         heading: "Sources & Methodology",
@@ -11787,32 +11711,27 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from UK to Bangladesh?",
         answer:
-          "Across the last three months the provider that paid the most taka most often was {{CORRIDOR_LEADER:GBP:BDT}}; on today's £1,000 quote it is {{BEST_PROVIDER:GBP:BDT:1000}}. Best and worst quotes on that amount are {{SPREAD:GBP:BDT:1000}} apart, which is why the ranking above is worth checking before each transfer rather than sticking with one app. For amounts over £5,000, XE offers no-fee transfers with competitive rates. Always compare the total taka received, not just the headline fee.",
+          "Across the last three months the provider that paid the most taka most often was {{CORRIDOR_LEADER:GBP:BDT}}; on today's £1,000 quote it is {{BEST_PROVIDER:GBP:BDT:1000}}. Best and worst quotes on that amount are {{SPREAD:GBP:BDT:1000}} apart, which is why the ranking above is worth checking before each transfer. Compare the total taka received, not the headline fee.",
       },
       {
         question: "How long does it take to send money from UK to Bangladesh?",
         answer:
-          "bKash and Nagad transfers arrive in seconds, even on weekends. Bank deposits take 1–3 business days depending on the bank — DBBL and Islami Bank tend to be faster. Cash pickup through Western Union or MoneyGram is usually available within hours.",
+          "bKash and Nagad payouts usually arrive within minutes, including weekends. Bank deposits take 1–3 business days depending on the bank. Cash pickup through Western Union or MoneyGram is usually available within hours.",
       },
       {
         question: "Can I send money directly to bKash from the UK?",
         answer:
-          "Yes. Remitly, WorldRemit, and several other providers support direct bKash transfers from the UK. The recipient gets the money instantly on their bKash account and can withdraw from any of 350,000+ agent points across Bangladesh or spend directly via the bKash app.",
+          "Yes. Several UK apps pay bKash wallets directly; you need the recipient's bKash-registered mobile number and name. Cashing out at an agent or ATM carries bKash's own charge.",
       },
       {
         question: "What is the 2.5% remittance incentive in Bangladesh?",
         answer:
-          "Bangladesh Bank pays a 2.5% cash incentive on all inbound remittances received through formal banking channels. On a £1,000 transfer (roughly ৳140,000), your recipient gets approximately ৳3,500 extra, paid by the government. It's automatic — no application needed. This incentive only applies to formal channels, not informal hawala transfers.",
+          "A government cash incentive, paid to the recipient by the receiving bank or wallet, on inward remittances through formal channels: 2% from 2019 and 2.5% since 2022, with the proposed FY2026-27 budget keeping it. Recipients have been able to claim it without documents on amounts up to $5,000 or Tk 5 lakh.",
       },
       {
         question: "Do I need an IBAN to send money to Bangladesh?",
         answer:
-          "No, Bangladesh does not use IBANs. For bank deposits, you need the recipient's account number, 9-digit routing number, and the bank's SWIFT code. For bKash or Nagad, you just need their registered mobile number (11 digits starting with 01).",
-      },
-      {
-        question: "Are UK banks expensive for Bangladesh transfers?",
-        answer:
-          "Yes. High-street banks (HSBC, Barclays, Lloyds, NatWest) typically charge £15–£30 in fees plus 2.5–4% exchange rate markup. On a £1,000 transfer, your family could receive ৳7,000–৳8,000 less than using a specialist provider like Wise or Remitly. Over a year of monthly transfers, that's ৳84,000+ lost to bank charges.",
+          "No, Bangladesh does not use IBANs. For bank deposits, you need the recipient's account number, the 9-digit routing number and the bank's SWIFT code. For bKash or Nagad, the registered mobile number (11 digits starting with 01).",
       },
     ],
     relatedSlugs: [
@@ -11906,72 +11825,31 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "UK to Nigeria: A High-Volume Remittance Corridor",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market GBP to NGN rate with 0% markup and a fee of approximately £5 on a £1,000 transfer, but the provider that actually delivered the most on GBP to NGN was {{CORRIDOR_LEADER:GBP:NGN}}. <a href="/companies/lemfi">LemFi</a> (formerly LemMoney) is a strong competitor on this corridor with zero-fee transfers and competitive Naira rates. For cash pickup, <a href="/companies/western-union">Western Union</a> has the widest agent network across all 36 Nigerian states. On a typical £1,000 transfer, specialist providers deliver <strong>₦50,000–₦150,000 more</strong> than UK high-street banks, which charge higher fees and mark up the exchange rate by 2–4%. <a href="/send-money/uk-to-nigeria">Compare live GBP to NGN rates</a> from {{ROUTE_PROVIDERS:GBP:NGN}}.</p></div>
-<p>Nigeria received over <strong>$19 billion in diaspora remittances</strong> in 2025 according to the <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a>, making it Africa's largest remittance recipient and the 6th largest globally. The UK is the <strong>second-largest source country</strong> after the US, with over 250,000 Nigerian-born residents in England and Wales.</p>
-<p>The GBP to NGN corridor presents a unique challenge: Nigeria's exchange rate system has historically had multiple rates (official CBN rate, NAFEM market rate, and parallel market rate). Since the 2023 reforms, the rates have largely converged, but understanding which rate your provider uses remains critical. The difference between the best and worst provider can be <strong>₦50,000–₦150,000 on a £1,000 transfer</strong>.</p>`,
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On £1,000 today {{BEST_PROVIDER:GBP:NGN:1000}} pays the most naira ({{BEST_RECEIVE:GBP:NGN:1000}}), and the provider that most often delivered the most on GBP to NGN over the last three months was {{CORRIDOR_LEADER:GBP:NGN}}. For cash pickup, <a href="/companies/western-union">Western Union</a> has an agent network across Nigeria. <a href="/send-money/uk-to-nigeria">Compare live GBP to NGN rates</a>.</p></div>
+<p>The 2021 Census counted 270,768 people born in Nigeria living in England and Wales, up from 191,183 in 2011 (<a href="https://www.ons.gov.uk/aboutus/transparencyandgovernance/freedomofinformationfoi/2021censusstatisticsnigeriansintheuk" target="_blank" rel="noopener noreferrer">ONS</a>). Most of their transfers start as a sterling Faster Payment into a UK-regulated app and end as naira in a Nigerian bank account, so the two ends have separate rules: the FCA's on the way out, the Central Bank of Nigeria's on the way in.</p>`,
       },
       {
         heading: "Best Providers for GBP to NGN Transfers",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for GBP to NGN</h3>
+<h3 style="margin-top: 0;">GBP to NGN providers by payout</h3>
 <table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<thead><tr><th>Payout</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee — consistently transparent</td></tr>
-<tr><td><strong>Best for Nigeria Corridor</strong></td><td><a href="/companies/lemfi">LemFi</a></td><td>Zero-fee, competitive NGN rates — built specifically for African diaspora</td></tr>
-<tr><td><strong>Best Zero-Fee + Speed</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, {{AVG_MARKUP_PCT:taptap-send}} median markup — 95% of transfers under 3 minutes</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Bank deposit in minutes, mobile wallet delivery available</td></tr>
-<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations across all 36 Nigerian states</td></tr>
+<tr><td><strong>Bank account</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with the fee shown up front</td></tr>
+<tr><td><strong>Bank account</strong></td><td><a href="/companies/lemfi">LemFi</a></td><td>App built for African diaspora transfers; no transfer fee</td></tr>
+<tr><td><strong>Bank account</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>No transfer fee, {{AVG_MARKUP_PCT:taptap-send}} median markup across the routes we price it on</td></tr>
+<tr><td><strong>Cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations across Nigeria</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/uk-to-nigeria">Compare live GBP to NGN rates →</a></p>
+<p class="blog-footnote">Fees and payouts on today's quotes are in the <a href="/send-money/uk-to-nigeria">GBP to NGN comparison →</a></p>
 </div>
-
-<p>For a £1,000 transfer to Nigeria:</p>
-<ul>
-<li><strong><a href="/companies/wise">Wise</a></strong>: ~£5 fee, 0% markup (mid-market rate) — best for transparency and larger amounts</li>
-<li><strong><a href="/companies/lemfi">LemFi</a></strong>: Zero fees, competitive NGN rates — purpose-built for UK-Africa transfers. Strong on the Nigeria corridor.</li>
-<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Charges no fee to Nigeria, with a {{AVG_MARKUP_PCT:taptap-send}} median markup across the routes we price it on. You can pay by UK debit card, bank transfer, Google Pay or Apple Pay, and it reports 95% of transfers landing within 3 minutes.</li>
-<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good rates with bank deposit, cash pickup, and mobile wallet delivery options</li>
-<li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive rates with Express delivery in minutes</li>
-<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but unmatched cash pickup network — over 10,000 agent locations across Nigeria</li>
-<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide agent network, popular for cash pickup</li>
-</ul>
-<p>Check our <a href="/send-money/uk-to-nigeria">GBP to NGN comparison</a> for today's live rates. <a href="/compare/wise-vs-remitly">See how Wise compares to Remitly</a> side by side.</p>`,
+<p>Fund each of them by Faster Payments from your UK account where you can: a credit card can add a cash-advance fee on top of the transfer. See <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> side by side.</p>`,
       },
       {
-        heading: "Step-by-Step: How to Send Money from UK to Nigeria",
-        content: `<p>Here's exactly how to send your first transfer:</p>
-<ol>
-<li><strong>Choose a provider.</strong> Use our <a href="/send-money/uk-to-nigeria">GBP to NGN comparison</a> to compare live rates. Focus on the total Naira your recipient gets — not just the advertised fee.</li>
-<li><strong>Create an account.</strong> Register with your UK address and date of birth, then verify with a passport or UK photocard driving licence — usually within minutes. Have your recipient's NUBAN and bank ready before you start.</li>
-<li><strong>Choose a delivery method:</strong>
-<ul>
-<li><strong>Bank deposit</strong> — Most common. Delivers to any Nigerian bank account (NUBAN format). 1–2 business days, some providers same-day.</li>
-<li><strong>Cash pickup</strong> — Recipient collects at agent locations across Nigeria. Available within minutes/hours.</li>
-<li><strong>Mobile wallet (OPay, PalmPay)</strong> — Growing option. Instant delivery to mobile money wallets.</li>
-</ul>
-</li>
-<li><strong>Enter recipient details.</strong> For bank deposit: recipient's full name, bank name, and 10-digit NUBAN account number. For cash pickup: full name matching their government-issued ID.</li>
-<li><strong>Fund the transfer.</strong> Pay via UK bank transfer (Faster Payments — free and instant), debit card, or credit card. <strong>Avoid credit cards</strong> — surcharges of 1.5–3% wipe out savings.</li>
-<li><strong>Confirm and track.</strong> You'll receive a tracking link. Bank deposits typically credit within 1–2 business days.</li>
-</ol>`,
-      },
-      {
-        heading: "Understanding Nigeria's Exchange Rate",
-        content: `<p>Nigeria's Naira has experienced significant changes since the 2023 exchange rate reforms. Here's what UK senders need to know:</p>
-<h3>The Rate Convergence</h3>
-<p>Before June 2023, Nigeria had multiple exchange rates — an artificially low official CBN rate (~₦461/$), a NAFEM market rate, and a parallel ("black market") rate that was often double the official rate. The CBN unified the rates in 2023, allowing the Naira to float more freely.</p>
-<p>In 2026, the official and market rates have largely converged, but there can still be a gap of 5–10% between the best and worst provider rates on any given day. This makes <strong>comparing providers essential</strong> — the Naira rate your provider uses determines how much your recipient gets.</p>
-
-<h3>What This Means for You</h3>
-<ul>
-<li><strong>Rates change daily.</strong> GBP/NGN can move 2–5% in a week. Check rates before each transfer.</li>
-<li><strong>Provider differences are large.</strong> On £1,000, the difference between the best and worst provider can be ₦50,000–₦150,000.</li>
-<li><strong>Use the mid-market rate as your benchmark.</strong> Wise shows this rate transparently. Compare other providers against it.</li>
-<li><strong>Set rate alerts.</strong> If you have flexibility on timing, set alerts and transfer when GBP/NGN is favorable.</li>
-</ul>
-<p>For more on how exchange rate markups affect your transfer, read our <a href="/guides/exchange-rate-markup-explained">markup explainer</a>.</p>`,
+        heading: "A BVN for the recipient, and now for you",
+        content: `<p>Every Nigerian bank account is tied to its holder's Bank Verification Number, so a GBP to NGN bank deposit lands only in an account whose BVN-linked name matches the name you give the provider.</p>
+<p>On 13 May 2025 the Central Bank of Nigeria and NIBSS launched the Non-Resident BVN, which lets Nigerians abroad enrol remotely and then open an account with a Nigerian bank of their choice (<a href="https://nibss-plc.com.ng/nrbvn" target="_blank" rel="noopener noreferrer">NIBSS: NRBVN</a>). For a UK sender that opens a second route: paying sterling into your own Nigerian account and moving naira on from there, instead of paying each recipient directly.</p>
+<p>The naira rate itself is set by each provider. Since January 2024 the CBN has let remittance operators price naira payouts at prevailing market rates rather than within a band, which is why quotes on the same day differ; our <a href="/guides/send-money-to-nigeria-guide">Nigeria guide</a> covers that change.</p>`,
       },
       {
         heading: "Top Banks in Nigeria for Receiving Transfers",
@@ -11991,60 +11869,48 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "UK Banks vs Specialists: The Naira Gap",
-        content: `<p>We hold no live quotes from UK high-street banks on GBP to NGN, so they are not priced here. What we can measure is how far apart the specialists sit: on £1,000 today, {{BEST_PROVIDER:GBP:NGN:1000}} delivers the most ({{BEST_RECEIVE:GBP:NGN:1000}}), {{SPREAD:GBP:NGN:1000}} more than the provider at the bottom of the table. On the corridors where we do collect bank quotes, specialists cost {{BANK_SAVINGS_PCT}} less than banks on a $1,000 transfer.</p>
-<p>See every provider we price in the <a href="/send-money/uk-to-nigeria">live GBP to NGN comparison</a>.</p>`,
+        content: `<p>We hold no live quotes from UK high-street banks on GBP to NGN, so they are not priced here. What we can measure is how far apart the specialists sit: on £1,000 today, {{BEST_PROVIDER:GBP:NGN:1000}} delivers the most ({{BEST_RECEIVE:GBP:NGN:1000}}), {{SPREAD:GBP:NGN:1000}} more than the provider at the bottom of the table. On the corridors where we do collect bank quotes, specialists cost {{BANK_SAVINGS_PCT}} less than banks on a $1,000 transfer.</p>`,
       },
       {
         heading: "Tax and Regulation for UK to Nigeria Transfers",
-        content: `<p>Important rules for UK to Nigeria transfers:</p>
-<ul>
-<li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments.</li>
-<li><strong>For recipients in Nigeria:</strong> Remittances from abroad are generally <strong>not subject to income tax</strong> in Nigeria. The Federal Inland Revenue Service (FIRS) does not treat personal remittances as taxable income.</li>
-<li><strong>CBN regulations:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria</a> requires recipients to provide a valid ID (National Identity Number or BVN — Bank Verification Number) for bank deposits above certain thresholds.</li>
-<li><strong>BVN requirement:</strong> Nigerian bank accounts are linked to the Bank Verification Number (BVN) system. Your recipient needs an active BVN to receive international transfers into their bank account.</li>
-<li><strong>FCA regulation:</strong> All UK-based transfer providers must be authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a>. Check the FCA register if you're unsure about a provider.</li>
-<li><strong>Formal channels only:</strong> Using unlicensed providers or informal channels exposes you to legal risk and fraud. Always use FCA-regulated providers.</li>
+        content: `<ul>
+<li><strong>UK side:</strong> sending your own taxed income to family is not taxed again by HMRC. Check that the provider is authorised on the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA register</a> before a first transfer.</li>
+<li><strong>Nigerian side:</strong> inbound remittances are paid by operators licensed by the <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria</a>, into BVN-linked accounts or as cash against ID.</li>
+<li><strong>Informal channels:</strong> an unlicensed agent offering a better street rate is outside both regulators' reach if the money never arrives.</li>
 </ul>
-<p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>.</p>`,
-      },
-      {
-        heading: "A close GBP quote needs the complete naira calculation",
-        content: `<p>Two UK offers can look almost identical and still reverse order once the fee is included. Assume a fixed £500 debit. Offer A deducts £3 and converts the remaining £497 at ₦1,600 per pound, producing <strong>₦795,200</strong>. Offer B has no fee but offers ₦1,590 per pound, producing <strong>₦795,000</strong>.</p>
-<p>A's apparent ten-naira rate advantage produces only ₦200 more in the recipient's account after its fee. All of these figures are invented to demonstrate the arithmetic. They are not current sterling-to-naira rates or quotes from any named provider.</p>
-<p>With such a narrow payout difference, also check the arrival estimate and the funding method each offer requires. A quote funded by a UK bank payment and one requiring a card may involve different steps for you. Choose using the complete confirmation rather than assuming the rate difference alone is decisive.</p>
-<p>The provider comparison on this guide uses our collected offers, separately from that example. <a href="/methodology">Our methodology</a> explains the observations and their limits. Save the accepted GBP debit and NGN payout together so a subsequent market movement is not confused with a change in what the provider promised.</p>`,
+<p>This is general information; consult a tax adviser about business payments or large amounts.</p>`,
       },
     ],
     faqs: [
       {
         question: "What is the cheapest way to send money from UK to Nigeria?",
         answer:
-          "The provider that actually delivered the most on GBP to NGN was {{CORRIDOR_LEADER:GBP:NGN}}. Wise uses the mid-market rate with a ~£5 fee. LemFi offers zero-fee transfers with competitive Naira rates. TapTap Send charges zero fees with a ~0.7% markup and delivers 95% of transfers in under 3 minutes — Nigeria is one of their core corridors. WorldRemit and Remitly are also competitive. Always compare the total Naira received, not just the headline fee — provider differences on this corridor can be ₦50,000–₦150,000 on £1,000.",
+          "Over the last three months the provider that delivered the most on GBP to NGN most often was {{CORRIDOR_LEADER:GBP:NGN}}; on £1,000 today it is {{BEST_PROVIDER:GBP:NGN:1000}}, {{SPREAD:GBP:NGN:1000}} ahead of the last provider in the table. Compare the total naira received, not the headline fee.",
       },
       {
         question: "How long does it take to send money from UK to Nigeria?",
         answer:
-          "Bank deposits take 1–2 business days for most providers. Some providers offer same-day delivery to major banks (GTBank, Zenith, Access). Cash pickup through Western Union or MoneyGram is available within minutes/hours. Mobile wallet transfers (OPay, PalmPay) are near-instant.",
+          "Bank deposits take 1–2 business days for most providers, and some deliver same-day to major banks. Cash pickup through Western Union or MoneyGram is available within minutes or hours.",
       },
       {
         question: "Do I need the recipient's IBAN to send money to Nigeria?",
         answer:
-          "No, Nigeria does not use IBANs. For bank deposits, you need the recipient's 10-digit NUBAN (Nigeria Uniform Bank Account Number), their bank name, and their full name as registered with the bank. For SWIFT wire transfers from UK banks, you also need the bank's SWIFT code.",
+          "No, Nigeria does not use IBANs. You need the recipient's 10-digit NUBAN, their bank and their name as the bank holds it. For a SWIFT wire from a UK bank you also need the bank's SWIFT code.",
       },
       {
-        question: "Why are GBP to NGN rates so different between providers?",
+        question: "Can I get a BVN from the UK?",
         answer:
-          "Nigeria's exchange rate has historically had multiple tiers. Although rates have largely converged since the 2023 reforms, providers source Naira at different rates and apply different markups. This creates larger provider-to-provider differences than on most corridors. Always compare using our live rate tool before sending.",
+          "Yes. Since 13 May 2025 the Non-Resident BVN, run by NIBSS with the Central Bank of Nigeria, lets Nigerians abroad enrol for a BVN remotely and then open a Nigerian bank account without visiting a branch.",
       },
       {
         question: "Is money sent to Nigeria taxable?",
         answer:
-          "Personal remittances from abroad are generally not taxable in Nigeria. The Federal Inland Revenue Service does not treat family support payments as income. For UK senders, HMRC does not tax outgoing personal transfers. Consult a tax professional for large amounts or business-related payments.",
+          "Family support sent from your own taxed income is not taxed again by HMRC. For the recipient's position in Nigeria, or for business payments, take advice on the actual payment.",
       },
       {
         question: "What is LemFi and is it safe for Nigeria transfers?",
         answer:
-          "LemFi (formerly LemMoney) is an FCA-regulated fintech built specifically for African diaspora transfers. It offers zero-fee GBP to NGN transfers with competitive rates. LemFi is authorised by the UK Financial Conduct Authority, making it as regulated as Wise or Revolut.",
+          "LemFi (formerly LemMoney) is a transfer app built for African diaspora customers. Check its authorisation on the FCA register before your first transfer, as you would for any provider.",
       },
     ],
     relatedSlugs: [
@@ -14419,10 +14285,9 @@ const rawBlogPosts: BlogPost[] = [
     featuredImage: "/images/blog/send-money-to-ethiopia.jpg",
     sections: [
       {
-        heading: "Ethiopia: Africa's Second-Largest Remittance Market",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Ethiopia is <a href="/companies/worldremit">WorldRemit</a> or <a href="/companies/remitly">Remitly</a> — both offer competitive ETB rates with bank deposit, cash pickup, and mobile money (telebirr) delivery. <a href="/companies/wise">Wise</a> offers the mid-market rate but delivery options are limited. For cash pickup, <a href="/companies/western-union">Western Union</a> has the widest network including rural areas. <a href="/send-money/send-money-to-ethiopia">Compare live ETB rates</a>.</p></div>
-<p>Ethiopia received approximately <strong>$5 billion in remittances</strong> in 2025, making it <strong>Africa's second-largest remittance recipient</strong> after Nigeria. The Ethiopian diaspora — estimated at 3+ million — is concentrated in the <strong>US</strong> (largest source), <strong>Saudi Arabia</strong>, <strong>UAE</strong>, <strong>Israel</strong>, and <strong>UK</strong>.</p>
-<p>Ethiopia's foreign exchange market has unique characteristics. The National Bank of Ethiopia (NBE) liberalized the birr (ETB) in 2024, allowing a managed float after decades of strict controls. This devaluation meant ETB rates moved significantly — making provider comparison more critical than ever. The parallel market premium has largely closed since liberalization, but rates still vary 2-5% between providers.</p>`,
+        heading: "Ethiopia: a birr that floats since July 2024",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/worldremit">WorldRemit</a> and <a href="/companies/remitly">Remitly</a> both pay Ethiopian bank accounts, cash pickup and telebirr wallets; <a href="/companies/western-union">Western Union</a> has the widest cash network outside Addis Ababa. <a href="/send-money/send-money-to-ethiopia">Compare live ETB rates</a> before sending.</p></div>
+<p>On 29 July 2024 the National Bank of Ethiopia replaced its managed exchange rate with a market-based one (Directive FXD/01/2024): banks may now buy and sell foreign currency with clients and with each other at freely negotiated rates, the NBE intervenes only in limited cases, and the directive repealed every earlier foreign-exchange directive (<a href="https://www.ey.com/en_gl/technical/tax-alerts/ethiopia-makes-major-changes-to-foreign-exchange-regime" target="_blank" rel="noopener noreferrer">EY tax alert, August 2024</a>). The birr a provider quotes is therefore its own market price, not an official rate plus a margin.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Ethiopia",
@@ -14458,13 +14323,12 @@ const rawBlogPosts: BlogPost[] = [
 <p>Major banks: Commercial Bank of Ethiopia (CBETETAA), Dashen Bank, Awash Bank, Bank of Abyssinia (BUSEETAA).</p>`,
       },
       {
-        heading: "ETB Exchange Rate: What You Need to Know",
-        content: `<p>The Ethiopian birr was devalued and moved to a managed float in <strong>July 2024</strong> as part of a reform package agreed with the IMF. Key implications for senders:</p>
-<ul>
-<li><strong>Rates change daily:</strong> Unlike the previous fixed-rate regime, ETB now fluctuates. Compare rates at the time of sending.</li>
-<li><strong>Parallel market largely closed:</strong> The gap between official and parallel rates was 40-50% before liberalization. It's now under 5%.</li>
-<li><strong>Provider rates vary:</strong> Different providers access different ETB rates. The spread between best and worst can be 2-5% on a given day.</li>
-<li><strong>NBE monitoring:</strong> The National Bank of Ethiopia still monitors the exchange rate and intervenes to prevent excessive volatility.</li>
+        heading: "What the 2024 directive changed for money sent to Ethiopia",
+        content: `<ul>
+<li><strong>Foreign-currency accounts for remittances.</strong> Ethiopians, resident and non-resident, can use foreign-currency accounts for transfers received through international remittance service providers, according to the <a href="https://www.trade.gov/market-intelligence/ethiopia-finance-launches-new-forex-directive" target="_blank" rel="noopener noreferrer">US International Trade Administration's summary of the directive</a>, so a recipient need not convert every transfer to birr on arrival.</li>
+<li><strong>No surrender to the central bank.</strong> The surrender requirement to the NBE ended for banks and exporters; before the reform, banks had to pass a share of private-transfer receipts to the NBE.</li>
+<li><strong>Non-bank dealers.</strong> Licensed non-bank businesses may now deal in foreign currency at market rates, with NBE authorisation.</li>
+<li><strong>Daily movement.</strong> With a floating birr, the rate on your quote can differ from yesterday's; compare on the day you send.</li>
 </ul>`,
       },
       {
@@ -14486,10 +14350,26 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     faqs: [
-      { question: "What is the cheapest way to send money to Ethiopia?", answer: "WorldRemit and Remitly offer the best combination of rates and delivery options. Wise has the best exchange rate (mid-market, 0% markup) but delivery is limited to bank deposit. For cash pickup in rural areas, Western Union has the widest network." },
-      { question: "Can I send money to telebirr from abroad?", answer: "Yes. Remitly and WorldRemit support direct telebirr delivery from the US, UK, and several other countries. You need the recipient's registered telebirr mobile number (+251 format). Funds arrive within minutes." },
-      { question: "How long does a transfer to Ethiopia take?", answer: "telebirr/mobile money: minutes. Cash pickup: within hours. Bank deposit: 1-3 business days (can be slower due to NBE processing). SWIFT wire: 3-5 business days." },
-      { question: "Is money received in Ethiopia taxable?", answer: "Personal remittances from abroad are not subject to Ethiopian income tax. However, Ethiopia requires all foreign currency received to be surrendered to the banking system within 30 days — your recipient's bank will convert ETB at the prevailing rate or credit a foreign currency account if they have one." },
+      {
+        question: "What is the cheapest way to send money to Ethiopia?",
+        answer:
+          "It depends on the payout your recipient needs. Compare the birr delivered in our live ETB comparison for bank deposit, cash pickup or telebirr; the order changes as each provider prices the floating birr.",
+      },
+      {
+        question: "Can I send money to telebirr from abroad?",
+        answer:
+          "Yes. Several providers pay telebirr wallets directly; you need the recipient's telebirr-registered mobile number (+251 format).",
+      },
+      {
+        question: "How long does a transfer to Ethiopia take?",
+        answer:
+          "telebirr and mobile money: minutes. Cash pickup: within hours. Bank deposit: 1–3 business days. A SWIFT wire: 3–5 business days.",
+      },
+      {
+        question: "Can my recipient keep the money in dollars?",
+        answer:
+          "Since the National Bank of Ethiopia's July 2024 directive, resident and non-resident Ethiopians can use foreign-currency accounts for transfers received through international remittance providers. Ask the provider whether it can pay into such an account on your route.",
+      },
     ],
     relatedSlugs: ["send-money-to-nigeria-guide", "send-money-to-kenya-guide", "send-money-to-south-africa-guide", "cheapest-way-to-send-money-internationally"],
   },
