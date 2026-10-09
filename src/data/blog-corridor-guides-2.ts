@@ -569,9 +569,10 @@ export const corridorGuides2: BlogPost[] = [
   // ── Jamaica ──
   {
     slug: "send-money-to-jamaica-guide",
-    title: "Send Money to Jamaica: Cheapest Ways & Rates in 2026",
+    title: "Jamaica Payouts: Cash Pickup or Bank Deposit",
+    metaTitle: "How to Send Money to Jamaica: Cash Pickup, Bank & JMD (2026)",
     metaDescription:
-      "Compare cheapest ways to send money to Jamaica in 2026. USD, GBP, and CAD to JMD fees, rates, and delivery speed from {{ROUTE_PROVIDERS:USD,GBP,CAD:JMD}}. Cash pickup compared.",
+      "Cash pickup or bank deposit in Jamaica from the US, UK and Canada: JMD fees, rates and speed from {{ROUTE_PROVIDERS:USD,GBP,CAD:JMD}}.",
     excerpt:
       "Jamaica depends heavily on remittances, and cash pickup is still king. We compared {{ROUTE_PROVIDERS:USD:JMD}} for USD to JMD transfers.",
     category: "Corridors",
@@ -656,9 +657,10 @@ export const corridorGuides2: BlogPost[] = [
   // ── Sri Lanka ──
   {
     slug: "send-money-to-sri-lanka-guide",
-    title: "Send Money to Sri Lanka: Cheapest Ways & Rates in 2026",
+    title: "Sri Lanka Payouts: Bank, Cash and eZ Cash",
+    metaTitle: "How to Send Money to Sri Lanka: Bank, Cash & eZ Cash (2026)",
     metaDescription:
-      "Compare cheapest ways to send money to Sri Lanka in 2026. USD, GBP, EUR to LKR fees, rates, and delivery speed from {{ROUTE_PROVIDERS:USD,GBP,EUR:LKR}}, plus Dialog eZ Cash.",
+      "Fees, LKR rates and delivery speed on USD, GBP and EUR routes to Sri Lanka from {{ROUTE_PROVIDERS:USD,GBP,EUR:LKR}}, plus Dialog eZ Cash.",
     excerpt:
       "Sri Lanka's remittance corridor is critical for families across the island. We compared {{ROUTE_PROVIDERS:USD,GBP,EUR:LKR}} for USD, GBP, and EUR to LKR transfers.",
     category: "Corridors",

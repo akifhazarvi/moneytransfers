@@ -47,6 +47,13 @@ export function guideSubject(title: string): string {
  * its siblings do not end on.
  */
 export const GUIDE_TOPICS: Record<string, string> = {
+  "send-money-canada-to-india-guide": "India transfers from Canada",
+  "send-money-to-bangladesh-guide": "Sending money to Bangladesh",
+  "send-money-uk-to-bangladesh-guide": "Bangladesh transfers from Britain",
+  "send-money-to-jamaica-guide": "Sending money to Jamaica",
+  "send-money-to-vietnam-guide": "Sending money to Vietnam",
+  "send-money-to-turkey-guide": "Sending money to Turkey",
+  "send-money-to-sri-lanka-guide": "Sending money to Sri Lanka",
   "remittance-cost-transparency-study": "Transfer cost transparency",
   "receive-international-payments-freelancer": "Freelancer payment apps",
   "wise-vs-remitly-vs-xoom-vs-xe": "Wise, Remitly, Xoom and XE",

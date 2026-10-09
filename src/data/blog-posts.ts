@@ -4048,9 +4048,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-mexico-guide",
-    title: "Cheapest Way to Send Money to Mexico (2026)",
+    title: "Mexico Payouts: SPEI, OXXO and Bank Deposit",
+    metaTitle: "How to Send Money to Mexico: SPEI, OXXO Cash Pickup & Bank (2026)",
     metaDescription:
-      "Find the cheapest online money transfer to Mexico, with live USD to MXN quotes from every provider we price — SPEI instant deposits, OXXO cash pickup and bank transfer.",
+      "SPEI instant deposits, OXXO cash pickup or bank transfer: what a Mexico payout needs, with live USD to MXN quotes from every provider we price.",
     excerpt:
       "Mexico received $62.5 billion in remittances in 2025, 97% of it from the US. We compared providers to find the cheapest USD to MXN transfers with SPEI, OXXO, and bank options.",
     category: "Corridors",
@@ -4555,9 +4556,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-bangladesh-guide",
-    title: "Send Money to Bangladesh: Cheapest Ways & Rates 2026",
+    title: "Bangladesh Payouts: bKash, Nagad and Bank",
+    metaTitle: "How to Send Money to Bangladesh: bKash, Nagad & Bank (2026)",
     metaDescription:
-      "Compare the cheapest ways to send money to Bangladesh from the US. Real USD to BDT rates from {{ROUTE_PROVIDERS:USD:BDT}} — bank deposit, bKash, Nagad, and cash pickup.",
+      "bKash, Nagad, bank deposit or cash pickup from the US to Bangladesh, with real USD to BDT rates from {{ROUTE_PROVIDERS:USD:BDT}}.",
     excerpt:
       "Bangladesh is a top-10 remittance destination. We compared {{ROUTE_PROVIDERS:USD:BDT}} to find the cheapest USD to BDT transfers including bKash, Nagad, and bank deposit options.",
     category: "Corridors",
@@ -4784,9 +4786,10 @@ const rawBlogPosts: BlogPost[] = [
   },
   {
     slug: "send-money-canada-to-india-guide",
-    title: "Send Money from Canada to India: Best Ways in 2026",
+    title: "Canada to India: Interac, UPI and Bank Deposit",
+    metaTitle: "Send Money from Canada to India: Interac, UPI & Bank Deposit (2026)",
     metaDescription:
-      "Compare the cheapest ways to send money from Canada to India. Real CAD to INR rates from {{ROUTE_PROVIDERS:CAD:INR}} — Interac e-Transfer, bank deposit, and UPI.",
+      "Interac e-Transfer funding, UPI and bank deposit on the CAD to INR route, with real rates from {{ROUTE_PROVIDERS:CAD:INR}}.",
     excerpt:
       "Canada is home to over 1.8 million people of Indian origin. We compare live CAD to INR quotes from every provider we price, including Interac e-Transfer funding and UPI delivery.",
     category: "Corridors",
@@ -9526,7 +9529,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "bank-vs-app-vs-agent-cost-comparison",
-    contentStatus: "draft",
+    contentStatus: "published",
     title:
       "Bank, App or Cash Agent: Which Suits You?",
     metaTitle: "Bank, App or Cash Agent? Choosing How to Send Money Abroad",
@@ -10791,9 +10794,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-nepal-guide",
-    title: "Best Way to Send Money to Nepal 2026: Cheapest NPR Rates",
+    title: "Nepal Payouts: eSewa, Khalti, Bank and Cash",
+    metaTitle: "How to Send Money to Nepal: eSewa, Khalti, Bank & Cash (2026)",
     metaDescription:
-      "Compare the cheapest and fastest ways to send money to Nepal in 2026. Live NPR rates — eSewa, Khalti, bank deposit, cash pickup.",
+      "eSewa, Khalti, bank deposit or cash pickup in Nepal, with live NPR rates and delivery times in 2026.",
     excerpt:
       "Nepal received $10.6 billion in remittances in 2025 — over 22% of GDP. We compared every major provider to find who delivers the most Nepali Rupees for your money.",
     category: "Corridors",
@@ -11082,9 +11086,10 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "send-money-to-morocco-guide",
     contentStatus: "published",
-    title: "Cheapest Way to Send Money to Morocco: MAD Rates 2026",
+    title: "Morocco Payouts: Bank Deposit vs CashPlus",
+    metaTitle: "How to Send Money to Morocco: Bank Deposit vs CashPlus (2026)",
     metaDescription:
-      "Compare the cheapest ways to send money to Morocco. Live MAD rates from {{ROUTE_PROVIDERS:EUR,USD,GBP:MAD}} — bank deposit vs CashPlus pickup. Europe, US, and Gulf corridors.",
+      "Bank deposit or CashPlus pickup in Morocco, with live MAD rates from {{ROUTE_PROVIDERS:EUR,USD,GBP:MAD}} on Europe, US and Gulf routes.",
     excerpt:
       "Morocco received $12 billion in remittances in 2025, primarily from France, Spain, Italy and the Gulf. Here's how to get the best MAD rate and avoid overpaying.",
     category: "Corridors",
@@ -11331,9 +11336,10 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "send-money-to-romania-guide",
     contentStatus: "draft",
-    title: "Cheapest Way to Send Money to Romania: RON Rates 2026",
+    title: "Romania Transfers: SEPA Instant, EUR or RON",
+    metaTitle: "Send Money to Romania: SEPA Instant, EUR vs RON Payouts (2026)",
     metaDescription:
-      "Compare cheapest ways to send money to Romania. SEPA instant transfers available. EUR vs RON delivery, real rates from {{ROUTE_PROVIDERS:GBP,EUR,USD:RON}}. UK, EU, US corridors.",
+      "SEPA instant transfers and the EUR-or-RON payout choice for Romania, with real rates from {{ROUTE_PROVIDERS:GBP,EUR,USD:RON}} on UK, EU and US routes.",
     excerpt:
       "Romania received $9 billion in remittances in 2025, mostly from Italy, Spain, UK and Germany. SEPA makes EUR transfers near-instant — here's how to get the best deal.",
     category: "Corridors",
@@ -11589,9 +11595,10 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "send-money-uk-to-bangladesh-guide",
     contentStatus: "published",
-    title: "Send Money from UK to Bangladesh: Best Ways in 2026",
+    title: "UK to Bangladesh: bKash, Nagad and Incentive",
+    metaTitle: "UK to Bangladesh Transfers: bKash, Nagad & Remittance Incentive",
     metaDescription:
-      "Compare the cheapest ways to send money from the UK to Bangladesh. Real GBP to BDT rates from {{ROUTE_PROVIDERS:GBP:BDT}} — bKash, Nagad, bank deposit, and cash pickup.",
+      "bKash, Nagad, bank deposit or cash pickup from Britain to Bangladesh, plus the remittance incentive, with GBP to BDT rates from {{ROUTE_PROVIDERS:GBP:BDT}}.",
     excerpt:
       "The UK is one of Bangladesh's top remittance sources. We compared {{ROUTE_PROVIDERS:GBP:BDT}} to find the cheapest GBP to BDT transfers, including bKash instant delivery and the 2.5% government incentive.",
     category: "Corridors",
@@ -11928,9 +11935,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-south-africa-guide",
-    title: "Cheapest Way to Send Money to South Africa: ZAR Rates 2026",
+    title: "South Africa Payouts: eWallet, Capitec, Bank",
+    metaTitle: "Send Money to South Africa: FNB eWallet, Capitec & Bank (2026)",
     metaDescription:
-      "Compare cheapest ways to send money to South Africa. Real ZAR rates from {{ROUTE_PROVIDERS:USD,GBP,AUD:ZAR}} — FNB eWallet, Capitec, bank deposit, and cash pickup.",
+      "FNB eWallet, Capitec, bank deposit or cash pickup in South Africa, with real ZAR rates from {{ROUTE_PROVIDERS:USD,GBP,AUD:ZAR}}.",
     excerpt:
       "South Africa is sub-Saharan Africa's largest remittance market. We compared {{ROUTE_PROVIDERS:USD,GBP,AUD:ZAR}} to find the cheapest USD, GBP, and AUD to ZAR transfers, including FNB eWallet and Shoprite cash collection.",
     category: "Corridors",
@@ -12136,9 +12144,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-colombia-guide",
-    title: "Cheapest Way to Send Money to Colombia 2026: COP Rates",
+    title: "Colombia Payouts: Nequi, Daviplata, Efecty",
+    metaTitle: "How to Send Money to Colombia: Nequi, Daviplata & Efecty (2026)",
     metaDescription:
-      "Compare the cheapest ways to send money to Colombia. Real COP rates from {{ROUTE_PROVIDERS:USD,EUR,GBP:COP}} — Nequi, Daviplata, Bancolombia, and Efecty cash pickup options.",
+      "Nequi, Daviplata, Bancolombia or Efecty cash pickup in Colombia, with real COP rates from {{ROUTE_PROVIDERS:USD,EUR,GBP:COP}}.",
     excerpt:
       "Colombia received $10.5 billion in remittances in 2023. We compared {{ROUTE_PROVIDERS:USD,EUR,GBP:COP}} to find the cheapest USD, EUR, and GBP to COP transfers, including Nequi instant delivery.",
     category: "Corridors",
@@ -12297,9 +12306,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-poland-guide",
-    title: "Cheapest Way to Send Money to Poland: PLN Rates 2026",
+    title: "Poland Transfers: Elixir, Express Elixir, SEPA",
+    metaTitle: "How to Send Money to Poland: Elixir, Express Elixir & SEPA (2026)",
     metaDescription:
-      "Compare cheapest ways to send money to Poland. SEPA transfers from EU, real PLN rates from {{ROUTE_PROVIDERS:GBP,EUR,USD:PLN}}. UK-to-Poland and US-to-Poland corridors compared.",
+      "Elixir and Express Elixir in zloty, or SEPA from the EU, with real PLN rates from {{ROUTE_PROVIDERS:GBP,EUR,USD:PLN}}.",
     excerpt:
       "Poland is Central Europe's largest economy with 800,000+ Poles in the UK alone. We compared {{ROUTE_PROVIDERS:GBP,EUR,USD:PLN}} to find the cheapest GBP, EUR, and USD to PLN transfers including SEPA instant.",
     category: "Corridors",
@@ -13047,9 +13057,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-vietnam-guide",
-    title: "Send Money to Vietnam: Cheapest Ways & VND Rates 2026",
+    title: "Vietnam Payouts: Bank, ZaloPay, Cash Pickup",
+    metaTitle: "How to Send Money to Vietnam: Bank, ZaloPay & Cash Pickup (2026)",
     metaDescription:
-      "Compare the cheapest ways to send money to Vietnam. Real USD/AUD to VND rates from {{ROUTE_PROVIDERS:USD,AUD:VND}} — bank deposit, ZaloPay, cash pickup options compared.",
+      "Bank deposit, ZaloPay or cash pickup in Vietnam, with real USD and AUD to VND rates from {{ROUTE_PROVIDERS:USD,AUD:VND}}.",
     excerpt:
       "Vietnam receives $18+ billion in annual remittances. We compared {{ROUTE_PROVIDERS:USD,AUD,GBP:VND}} to find the cheapest USD, AUD, and GBP to VND transfers.",
     category: "Corridors",
@@ -13166,9 +13177,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-turkey-guide",
-    title: "Send Money to Turkey: Cheapest Ways & TRY Rates 2026",
+    title: "Turkey Payouts: Bank, Cash Pickup, Lira Risk",
+    metaTitle: "How to Send Money to Turkey: Bank, Cash Pickup & TRY Swings (2026)",
     metaDescription:
-      "Compare the cheapest ways to send money to Turkey. Real EUR, USD, GBP to TRY rates from {{ROUTE_PROVIDERS:EUR,USD,GBP:TRY}} — bank deposit, cash pickup, and TRY volatility tips.",
+      "Bank deposit or cash pickup in Turkey, and what lira volatility means for timing, with EUR, USD and GBP rates from {{ROUTE_PROVIDERS:EUR,USD,GBP:TRY}}.",
     excerpt:
       "Turkey's lira has been one of the most volatile major currencies. We compared {{ROUTE_PROVIDERS:EUR,USD,GBP:TRY}} to find the cheapest EUR, USD, and GBP to TRY transfers.",
     category: "Corridors",
@@ -13666,7 +13678,8 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-spain-guide",
-    title: "Cheapest Way to Send Money to Spain 2026: EUR & SEPA Rates",
+    title: "Spain Transfers: SEPA and Euro Payouts",
+    metaTitle: "How to Send Money to Spain: SEPA, Euro Payouts & UK Banks (2026)",
     metaDescription:
       "Sending money to Spain: compare euro payouts, understand SEPA pricing and check UK bank options. Includes a worked GBP-to-EUR rent-payment example.",
     excerpt:
@@ -13725,9 +13738,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-uk-guide",
-    title: "Cheapest Way to Send Money to the UK 2026: GBP Rates",
+    title: "UK Payouts: Faster Payments in Minutes",
+    metaTitle: "Send Money to the UK: Faster Payments from USD, EUR, AUD & CAD",
     metaDescription:
-      "Compare the cheapest ways to send money to the UK. Real GBP rates from {{ROUTE_PROVIDERS:USD,EUR,AUD,CAD:GBP}}. Faster Payments in minutes. USD, EUR, AUD, and CAD corridors.",
+      "Faster Payments land in a UK account in minutes. Real GBP rates from {{ROUTE_PROVIDERS:USD,EUR,AUD,CAD:GBP}} on USD, EUR, AUD and CAD routes.",
     excerpt:
       "The UK is one of the world's top remittance destinations. We compared {{ROUTE_PROVIDERS:USD,EUR,AUD,CAD:GBP}} to find the cheapest USD, EUR, AUD, and CAD to GBP transfers, including Faster Payments instant delivery.",
     category: "Corridors",
@@ -13900,9 +13914,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-south-korea-guide",
-    title: "Cheapest Way to Send Money to South Korea: KRW Rates 2026",
+    title: "South Korea Payouts: KB, Shinhan, Hana",
+    metaTitle: "Send Money to South Korea: KB, Shinhan & Hana Deposits (2026)",
     metaDescription:
-      "Compare cheapest ways to send money to South Korea. Real KRW rates from {{ROUTE_PROVIDERS:USD,AUD,JPY:KRW}}. Bank deposit to KB, Shinhan, Hana. US, Australia, Japan corridors.",
+      "Bank deposits to KB, Shinhan or Hana, with real KRW rates from {{ROUTE_PROVIDERS:USD,AUD,JPY:KRW}} on US, Australia and Japan routes.",
     excerpt:
       "South Korea's banking system is modern and well-connected, but KRW rates vary significantly between providers. We compared {{ROUTE_PROVIDERS:USD,AUD,JPY:KRW}} to find the cheapest transfers.",
     category: "Corridors",
@@ -14075,9 +14090,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-australia-guide",
-    title: "Cheapest Way to Send Money to Australia: AUD Rates 2026",
+    title: "Australia Payouts: NPP Instant Deposits",
+    metaTitle: "How to Send Money to Australia: NPP Instant Bank Deposits (2026)",
     metaDescription:
-      "Compare cheapest ways to send money to Australia. Real AUD rates from {{ROUTE_PROVIDERS:GBP,USD,NZD,INR:AUD}}. NPP instant delivery. UK, US, NZ, and India corridors compared.",
+      "NPP delivers to Australian accounts in seconds. Real AUD rates from {{ROUTE_PROVIDERS:GBP,USD,NZD,INR:AUD}} on UK, US, NZ and India routes.",
     excerpt:
       "Australia has excellent payment infrastructure with NPP instant transfers. We compared {{ROUTE_PROVIDERS:GBP,USD,NZD,INR:AUD}} to find the cheapest GBP, USD, NZD, and INR to AUD transfers.",
     category: "Corridors",
@@ -14274,9 +14290,10 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-ethiopia-guide",
-    title: "Cheapest Way to Send Money to Ethiopia 2026: ETB Rates",
+    title: "Ethiopia Payouts: Bank, Cash and Mobile Money",
+    metaTitle: "How to Send Money to Ethiopia: Bank, Cash Pickup & Mobile Money",
     metaDescription:
-      "Compare the cheapest ways to send money to Ethiopia. Real ETB rates from {{ROUTE_PROVIDERS:USD,GBP,AED:ETB}}. Bank deposit, cash pickup, and mobile money options compared.",
+      "Bank deposit, cash pickup or mobile money in Ethiopia, and what each needs from the recipient, with real ETB rates from {{ROUTE_PROVIDERS:USD,GBP,AED:ETB}}.",
     excerpt:
       "Ethiopia is Africa's second-largest remittance market. We compared {{ROUTE_PROVIDERS:USD,GBP,AED:ETB}} to find the cheapest USD, GBP, and AED to ETB transfers, including telebirr mobile money delivery.",
     category: "Corridors",
@@ -15588,7 +15605,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "best-money-transfer-apps-china-yuan",
-    contentStatus: "draft",
+    contentStatus: "published",
     title: "CNY Outbound Transfer Apps Compared: SkyRemit, Wise, UnionPay",
     metaTitle: "Apps to Send Money from China Compared: SkyRemit, Wise, UnionPay",
     metaDescription:
