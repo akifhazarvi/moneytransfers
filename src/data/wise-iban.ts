@@ -37,8 +37,20 @@ export interface WiseCountryPage {
 
 import ibanData from "./scraped/wise-iban-data.json";
 import pageData from "./scraped/wise-country-pages.json";
+import { displayBankList } from "@/lib/bank-display-name";
 
-export const wiseCountries: WiseCountryIban[] = ibanData as WiseCountryIban[];
+/**
+ * Bank names are cleaned on read, not in the scraped file (CLAUDE.md rule 9):
+ * the registry's "Ing Belgium Nv/Sa, Brussels" and "Sparkasse Kolnbonn" become
+ * "ING Belgium" and "Sparkasse KölnBonn", non-banks and duplicate spellings
+ * drop out (round-3 brief §4.3). Every consumer — the IBAN page's bank card,
+ * its FAQ, its meta description's bank count and the /iban hub total — reads
+ * this list, so they agree with each other.
+ */
+export const wiseCountries: WiseCountryIban[] = (ibanData as WiseCountryIban[]).map((c) => ({
+  ...c,
+  banks: displayBankList(c.slug, c.banks),
+}));
 export const wiseCountryPages: WiseCountryPage[] = pageData as WiseCountryPage[];
 
 export function getWiseCountry(code: string): WiseCountryIban | undefined {

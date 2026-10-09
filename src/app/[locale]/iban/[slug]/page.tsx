@@ -682,9 +682,11 @@ export default async function IbanCountryPage({ params }: Props) {
                     className="flex items-center gap-3 p-3 bg-[var(--color-surface-dim)] rounded-lg"
                   >
                     <div className="w-8 h-8 bg-[var(--color-surface)] rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-xs font-medium text-[var(--color-primary)] shrink-0">
-                      {bank.name.charAt(0)}
+                      {bank.name.charAt(0).toUpperCase()}
                     </div>
-                    <span className="text-sm text-[var(--color-on-surface)] truncate">{bank.name}</span>
+                    {/* Wraps rather than truncates: "Bpost Banque Bpost Bank Bp…"
+                        was one of the round-3 brief's §4.3 examples. */}
+                    <span className="text-sm text-[var(--color-on-surface)] min-w-0 break-words">{bank.name}</span>
                   </div>
                 ))}
               </div>
