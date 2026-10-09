@@ -108,6 +108,7 @@ export const GUIDE_TOPICS: Record<string, string> = {
   "how-to-send-large-amounts-internationally": "Moving a large sum",
   "multi-currency-account-wars-2026": "Wise, Revolut, Fineco and Airwallex",
   "send-money-home-ramadan-eid-2026": "Ramadan and Eid remittances",
+  "send-money-to-nigeria-from-usa-uk-canada-australia": "Naira apps by sending country",
 };
 
 /** The subject a guide's section headings use: its topic, else its headline's first clause. */

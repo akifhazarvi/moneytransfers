@@ -74,7 +74,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "us-remittance-excise-tax-takes-effect-2026",
-    title: "1% US Remittance Excise Tax in Force Since January 1, 2026",
+    title: "US Remittance Excise Tax in Force Since January 2026",
     metaTitle: "US 1% Remittance Excise Tax: In Force Since January 1, 2026",
     excerpt:
       "A federal excise tax on cash-funded international transfers went live in January 2026. Here's what it means for senders, providers, and the broader remittance market.",
@@ -104,8 +104,8 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "revolut-files-us-bank-charter-2026",
-    title: "Revolut Files for a US National Bank Charter, Plans $500M US Investment (March 2026)",
-    metaTitle: "Revolut Applies for a US National Bank Charter (March 2026)",
+    title: "Revolut Files for a US National Bank Charter (March 2026)",
+    metaTitle: "Revolut US Bank Charter Filing: OCC, FDIC and a $500M Plan",
     excerpt:
       "Revolut files for a US national bank charter with the OCC and FDIC in March 2026, with about $500M of US investment planned. What this means for Revolut's 70M+ customers and US money transfers.",
     image: "/images/news/revolut-us-charter.jpg",
@@ -573,7 +573,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "nigeria-cbn-naira-only-remittance-rule-2026",
     title:
-      "CBN Directive: Money Transfer Operators Must Settle Nigeria Remittances in Naira from May 1",
+      "CBN Directive: Nigeria Remittances to Settle in Naira",
     metaTitle: "CBN Naira-Only Remittance Rule for IMTOs (March 2026 News)",
     excerpt:
       "From May 1, money transfer operators must settle remittances to Nigeria through naira accounts, which the Nigerian press reads as the end of dollar payouts. What it means for senders, and what to do before the deadline.",

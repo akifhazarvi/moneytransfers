@@ -174,7 +174,7 @@ export const newGuidesJul2026: BlogPost[] = [
   // ============================================================
   {
     slug: "b2b-international-payments-guide",
-    title: "SWIFT Wires vs Local Rails for B2B Payments: Where Businesses Overpay",
+    title: "B2B Payments: SWIFT Wires vs Local Rails",
     metaTitle: "B2B SWIFT Wire Costs vs Local Rails: Cutting Business FX Fees",
     metaDescription:
       "What a SWIFT wire costs a business — fees, intermediary charges, rate margin — and when local rails via Wise Business, Airwallex or Payoneer cost less.",
@@ -727,8 +727,8 @@ export const newGuidesJul2026: BlogPost[] = [
   // ============================================================
   {
     slug: "send-money-to-nigeria-from-usa-uk-canada-australia",
-    title: "Which App Sends the Most Naira? Nigeria Transfers from the USA, UK, Canada and Australia",
-    metaTitle: "Nigeria Transfer Apps by Sending Country: USD, GBP, CAD, AUD",
+    title: "Nigeria Transfer Apps Compared by Sending Country",
+    metaTitle: "Which App Sends the Most Naira? USA, UK, Canada, Australia",
     metaDescription:
       "Which app delivers the most naira depends on where you send from. Lemfi, TapTap Send, Remitly and Wise compared from the USA, UK, Canada and Australia.",
     excerpt:

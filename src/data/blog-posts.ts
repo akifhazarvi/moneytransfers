@@ -1134,8 +1134,8 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "best-money-transfer-apps",
-    title: "Money Transfer Apps Reviewed: Wise, TapTap Send, Instarem, XE, Remitly and OFX (2026)",
-    metaTitle: "Money Transfer App Reviews 2026: Six Apps on Cost and Ratings",
+    title: "Money Transfer App Reviews: Six Apps Compared",
+    metaTitle: "Money Transfer App Reviews 2026: Wise, TapTap Send, Remitly & More",
     metaDescription:
       "Six transfer apps reviewed on measured cost and Trustpilot and app-store ratings — Wise, TapTap Send, Instarem, XE, Remitly and OFX — plus the ones to avoid.",
     excerpt:
@@ -1397,7 +1397,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-india-guide",
-    title: "Sending Money to India: A Checklist for Currency, Recipient Details and Purpose",
+    title: "India Transfer Checklist: Currency, Recipient Details, Purpose",
     metaTitle: "Send Money to India Checklist: Recipient, IFSC & Purpose Records",
     metaDescription:
       "What to settle before sending money to India: which currency to send from, the recipient's account and IFSC details, the payout method and a purpose record.",
@@ -2091,7 +2091,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "wire-transfer-guide",
-    title: "How International Wire Transfers Work: SWIFT, Timing and What You Need",
+    title: "How International Wire Transfers Work: SWIFT, Timing and Steps",
     metaTitle: "How Wire Transfers Work: SWIFT Routing, Timing & Steps",
     metaDescription:
       "What a wire transfer is, how SWIFT routes it between banks, how long it takes, the details you need to send one, and when ACH, SEPA or an app costs less.",
@@ -2983,7 +2983,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "send-money-home-ramadan-eid-2026",
     contentStatus: "archived",
-    title: "Sending Money Home for Ramadan and Eid 2026: Zakat, Sadaqah and Arriving Before Eid",
+    title: "Ramadan and Eid 2026: Sending Zakat and Money Home",
     metaTitle: "Ramadan & Eid 2026 Transfers: Zakat, Sadaqah and Timing",
     metaDescription:
       "Ramadan and Eid are the busiest weeks for remittances. How to send Zakat and Sadaqah, what the season does to costs, and how to make sure it lands before Eid.",
@@ -3276,12 +3276,12 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-pakistan-guide",
-    title: "How to Send Money to Pakistan: JazzCash, Easypaisa, Bank Deposit and Tax Rules",
+    title: "How to Send Money to Pakistan: Payouts, Tax Rules",
     metaTitle: "How to Send Money to Pakistan: Payout Options, Documents & Tax",
     metaDescription:
       "What a Pakistan transfer needs, how JazzCash, Easypaisa, bank and cash payouts compare on speed, how the PKR rate works, and the tax and regulatory rules.",
     excerpt:
-      "Pakistan is one of the world's top remittance destinations. This guide covers what you and your recipient need, how each payout method works and the tax rules for regular senders. For today's PKR quotes, use the live comparison.",
+      "Pakistan is one of the world's top remittance destinations. This guide covers what you and your recipient need, how each payout method works and the tax rules for regular senders.",
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-03-14",
@@ -3675,12 +3675,12 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-philippines-guide",
-    title: "How to Send Money to the Philippines: GCash, Bank Deposit and Pickup Rules",
+    title: "How to Send Money to the Philippines",
     metaTitle: "How to Send Money to the Philippines: GCash, Banks & BSP Rules",
     metaDescription:
       "What a Philippine payout needs — account number, GCash number or ID — plus GCash limits, how fast pesos land, dollar accounts and the BSP rules.",
     excerpt:
-      "What your recipient in the Philippines needs to give you, how GCash, bank and pawnshop payouts differ in limits and speed, and the rules on the Philippine side. For today's PHP quotes, use the live comparison.",
+      "What your recipient in the Philippines needs to give you, how GCash, bank and pawnshop payouts differ in limits and speed, and the rules on the Philippine side.",
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-03-15",
@@ -3853,12 +3853,12 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-brazil-guide",
-    title: "How to Send Money to Brazil: PIX, the IOF Tax and What Recipients Need",
+    title: "How to Send Money to Brazil: PIX, IOF Tax",
     metaTitle: "How to Send Money to Brazil: PIX and the 0.38% IOF Tax (2026)",
     metaDescription:
       "How PIX delivery works, why a 0.38% IOF tax applies, what your recipient's Brazilian bank needs, and the mistakes that cost first-time senders money.",
     excerpt:
-      "PIX made transfers into Brazil fast; the 0.38% IOF tax made them taxed. Here is how both work, what your recipient's bank needs and the mistakes first-time senders make. For today's BRL quotes, use the live comparison.",
+      "PIX made transfers into Brazil fast; the 0.38% IOF tax made them taxed. Here is how both work, what your recipient's bank needs and the mistakes first-time senders make.",
     category: "Corridors",
     readTime: "13 min read",
     publishedAt: "2026-05-01",
@@ -4200,7 +4200,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "send-money-usa-to-mexico-cost-guide",
     contentStatus: "published",
-    title: "Six Ways to Send Money from the USA to Mexico: Apps, SPEI, Cash Pickup, Cards, Wallets and Wires",
+    title: "Six Ways to Send Money from USA to Mexico",
     metaTitle: "6 Ways to Send Money from the USA to Mexico, Compared by Method",
     metaDescription:
       "Six ways to send money from the USA to Mexico — apps, wires, cash pickup, SPEI, debit cards and mobile wallets — and which method suits which sender.",
@@ -4417,12 +4417,12 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-nigeria-guide",
-    title: "How to Send Money to Nigeria: Recipient Details, Payout Methods and the Naira Rate",
+    title: "How to Send Money to Nigeria: Payouts, Naira Rate",
     metaTitle: "How to Send Money to Nigeria: Bank Details, Payouts & Naira Rate",
     metaDescription:
       "What a Nigeria transfer needs, how bank, cash pickup and wallet payouts work, how the naira rate on your quote is set, and how to check what arrived.",
     excerpt:
-      "Nigeria is Africa's largest remittance market. This guide covers the details your recipient must give you, the payout methods and their speed, and how the naira rate on a quote is set. For today's NGN quotes, use the live comparison.",
+      "Nigeria is Africa's largest remittance market. This guide covers the details your recipient must give you, the payout methods and their speed, and how the naira rate on a quote is set.",
     category: "Corridors",
     readTime: "10 min read",
     publishedAt: "2026-03-15",
@@ -4678,7 +4678,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-uk-to-india-guide",
-    title: "How to Send Money from the UK to India: Requirements, Timing and Checks",
+    title: "How to Send Money from the UK to India",
     metaTitle: "Sending Money from the UK to India: What You Need & How Long",
     metaDescription:
       "What you need to send pounds to an Indian account, how long the UK funding and Indian payout steps take, a worked £1,000 example and checks on a UK provider.",
@@ -7925,7 +7925,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "eu-instant-payments-2026",
-    title: "EU Instant Payments Explained: What 10-Second Euro Transfers Mean for Senders",
+    title: "EU Instant Payments Explained: What Changes for Senders",
     metaTitle: "How EU Instant Payments Work for People Sending Money to Europe",
     metaDescription:
       "How SEPA Instant works, what the EU rules require of banks, and when an instant euro transfer beats a fintech app on cost for sending money to Europe.",
@@ -8072,7 +8072,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "multi-currency-account-wars-2026",
-    title: "Wise vs Revolut vs FinecoBank vs Airwallex: Which Multi-Currency Account Fits?",
+    title: "Wise, Revolut, FinecoBank or Airwallex: Which Account Fits?",
     metaTitle: "Wise vs Revolut vs FinecoBank vs Airwallex: Multi-Currency Accounts",
     metaDescription:
       "Four multi-currency accounts side by side — Wise, Revolut, FinecoBank and Airwallex — on currencies held, conversion costs, cards and who each one suits.",
@@ -9536,7 +9536,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "bank-vs-app-vs-agent-cost-comparison",
     contentStatus: "draft",
     title:
-      "Bank, App or Cash Agent: Which Way of Sending Money Abroad Suits You?",
+      "Bank, App or Cash Agent: Which Suits You?",
     metaTitle: "Bank, App or Cash Agent? Choosing How to Send Money Abroad",
     metaDescription:
       "How a bank transfer, a transfer app and a cash agent differ on fees, exchange-rate margin, speed and access to cash, and which suits which kind of sender.",
@@ -10148,7 +10148,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "bulk-international-payments-guide",
     contentStatus: "published",
-    title: "How to Set Up Bulk International Payments: CSV Uploads, APIs and Payroll",
+    title: "How to Set Up Bulk International Payments",
     metaTitle: "How to Make Bulk International Payments: CSV vs API Setup",
     metaDescription:
       "How to set up batch international payments: CSV upload or API, what each costs per payment, the compliance checks, and how international payroll differs.",
@@ -11759,8 +11759,8 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-kenya-guide",
-    title: "Receiving Money in Kenya: M-PESA, Bank or Cash and What Your Recipient Needs",
-    metaTitle: "Receiving Money in Kenya: M-PESA, Bank & Cash Pickup Checks",
+    title: "Receiving Money in Kenya: M-PESA, Bank or Cash",
+    metaTitle: "How to Receive Money in Kenya: M-PESA, Bank & Cash Checks",
     metaDescription:
       "How money is received in Kenya: choosing M-PESA, a bank or cash collection, confirming the wallet details, withdrawal costs and a worked household budget.",
     excerpt:
@@ -11825,12 +11825,12 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-uk-to-nigeria-guide",
-    title: "How to Send Money from the UK to Nigeria: BVN Rules, Receiving Banks and Tax",
+    title: "How to Send Money from the UK to Nigeria",
     metaTitle: "UK to Nigeria Transfers: BVN, Receiving Banks & Tax Rules",
     metaDescription:
       "What a UK to Nigeria transfer needs: the recipient's BVN (and now yours), which Nigerian banks receive, why UK banks pay fewer naira, and the tax rules.",
     excerpt:
-      "The UK is Nigeria's second-largest remittance source. This guide covers the BVN rules on both sides, the Nigerian banks that receive, how UK banks compare with specialists, and the tax rules. For today's GBP to NGN quotes, use the live comparison.",
+      "The UK is Nigeria's second-largest remittance source. This guide covers the BVN rules on both sides, the Nigerian banks that receive, how UK banks compare with specialists, and the tax rules.",
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-03-29",
@@ -12854,7 +12854,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "how-to-send-large-amounts-internationally",
-    title: "How to Send a Large Amount Abroad: Property, Inheritance and Forward Contracts",
+    title: "How to Send a Large Amount Abroad",
     metaTitle: "How to Send Large Sums Abroad: Property, Inheritance & FX Contracts",
     metaDescription:
       "Moving $10,000–$500,000 abroad for a property, an inheritance or a relocation: how costs change with size, forward contracts, reporting rules and security.",
@@ -15601,7 +15601,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "best-money-transfer-apps-china-yuan",
     contentStatus: "draft",
-    title: "CNY Outbound Transfer Apps Compared: SkyRemit, Wise, UnionPay and Chinese Bank Apps",
+    title: "CNY Outbound Transfer Apps Compared: SkyRemit, Wise, UnionPay",
     metaTitle: "Apps to Send Money from China Compared: SkyRemit, Wise, UnionPay",
     metaDescription:
       "SkyRemit, Wise, UnionPay, Panda Remit and Chinese bank apps compared for sending CNY out of China: fees, limits and what each one is actually good for.",
@@ -16117,7 +16117,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "top-money-transfer-apps-usa-to-india-2026",
     contentStatus: "published",
-    title: "USA to India Money Transfer Apps Reviewed: Wise, TapTap Send, Remitly and More (2026)",
+    title: "USA to India Money Transfer Apps Reviewed (2026)",
     metaTitle: "USA to India Transfer Apps Reviewed: Ratings, Speed & Rupees",
     metaDescription:
       "Seven USA-to-India apps reviewed — Wise, TapTap Send, Remitly, Instarem, Xoom, Western Union and Revolut — on rupees delivered, Trustpilot score and speed.",

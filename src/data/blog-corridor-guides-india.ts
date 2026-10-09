@@ -24,7 +24,7 @@ export const corridorGuidesIndia: BlogPost[] = [
     slug: "how-to-send-money-to-india-2026",
     contentStatus: "published",
     title:
-      "How to Send Money to India from the USA, UK, Gulf, Canada and Australia (2026)",
+      "How to Send Money to India, Country by Country",
     metaTitle: "How to Send Money to India: Country-by-Country Guide (2026)",
     metaDescription:
       "How to send money to India from the USA, UK, UAE, Canada and Australia: what each route needs, IMPS vs UPI vs NEFT, the steps online and Indian tax rules.",
@@ -525,12 +525,12 @@ export const corridorGuidesIndia: BlogPost[] = [
   {
     slug: "send-money-to-india-from-usa-guide",
     title:
-      "How to Send Money from the USA to India: IFSC Codes, UPI, NRE Accounts and Limits",
+      "How to Send Money from the USA to India",
     metaTitle: "How to Send Money from USA to India: IFSC, UPI & Limits (2026)",
     metaDescription:
       "Sending money from the USA to India step by step: IFSC codes, IMPS vs UPI vs NEFT, NRE vs NRO accounts, US and Indian tax rules, and how much you can send.",
     excerpt:
-      "What you need to send dollars to an Indian account: the IFSC code, the right rail (IMPS, UPI or NEFT), an NRE or NRO account, the tax rules on both sides and the limits. For today's USD to INR quotes, use the live comparison.",
+      "What you need to send dollars to an Indian account: the IFSC code, the right rail (IMPS, UPI or NEFT), an NRE or NRO account, the tax rules on both sides and the limits.",
     category: "Corridors",
     readTime: "14 min read",
     publishedAt: "2026-03-22",
