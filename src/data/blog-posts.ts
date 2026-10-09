@@ -4424,7 +4424,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Nigeria: Africa's Largest Remittance Market",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On $1,000 today {{BEST_PROVIDER:USD:NGN:1000}} pays the most naira ({{BEST_RECEIVE:USD:NGN:1000}}), and over the last three months the most frequent USD→NGN leader was {{CORRIDOR_LEADER:USD:NGN}}. Best and worst quotes on that amount sit {{SPREAD:USD:NGN:1000}} apart, which is why the naira route is worth comparing on the day you send. <a href="/send-money/usa-to-nigeria">Compare live rates</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On $1,000 today {{BEST_PROVIDER:USD:NGN:1000}} pays the most naira ({{BEST_RECEIVE:USD:NGN:1000}}); across three months of naira quotes the leader was {{CORRIDOR_LEADER:USD:NGN}}. Best and worst quotes on that amount sit {{SPREAD:USD:NGN:1000}} apart, which is why the naira route is worth comparing on the day you send. <a href="/send-money/usa-to-nigeria">Compare live rates</a>.</p></div>
 <p>What sets the naira corridor apart is who sets the rate. Since a Central Bank of Nigeria circular of 31 January 2024 (TED/FEM/FPC/GEN/001/003), licensed International Money Transfer Operators may quote the naira they pay out at prevailing rates in the Nigerian Foreign Exchange Market, on a willing-buyer, willing-seller basis. That replaced a September 2023 rule that kept their quotes within 2.5% either side of the previous day's closing rate (<a href="https://techpoint.africa/2024/02/01/cbn-eliminates-exchange-rate-cap/" target="_blank" rel="noopener noreferrer">Techpoint Africa report of the circular</a>). Each provider now prices its own naira, so the payout gap between them is set by the market rather than by a band.</p>`,
       },
       {
@@ -4565,7 +4565,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Bangladesh: A Top-10 Remittance Destination",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On $1,000 today {{BEST_PROVIDER:USD:BDT:1000}} pays the most taka ({{BEST_RECEIVE:USD:BDT:1000}}), and over the last three months the most frequent USD→BDT leader was {{CORRIDOR_LEADER:USD:BDT}}. bKash and Nagad wallets put taka in reach even in rural areas. <a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On $1,000 today {{BEST_PROVIDER:USD:BDT:1000}} pays the most taka ({{BEST_RECEIVE:USD:BDT:1000}}). Our three-month taka record puts {{CORRIDOR_LEADER:USD:BDT}} in front most often. bKash and Nagad wallets put taka in reach even in rural areas. <a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a>.</p></div>
 <p>The taka your recipient gets has floated more freely since 14 May 2025, when Bangladesh Bank's governor announced a market-based exchange rate with immediate effect, replacing the crawling peg, to meet the conditions of its IMF programme (<a href="https://www.dhakatribune.com/business/381204/bd-receive-3.5bn-june-from-multiple-donors" target="_blank" rel="noopener noreferrer">Dhaka Tribune</a>). Providers now price taka off that market rate, so their quotes can move apart within a day, and the comparison below is worth checking on the day you send.</p>`,
       },
       {
