@@ -110,11 +110,11 @@ export default function ExampleRouteTable({ data }: { data: HubData }) {
                   <span className="md:hidden text-[var(--color-on-surface-variant)]">Fee{" "}</span>
                   {q.fee === 0 ? "No fee" : `${sendSymbol}${money(q.fee)}`}
                 </td>
-                <td className="text-2sm md:table-cell md:px-3 md:py-3 md:align-middle">
+                <td className="col-span-2 text-2sm md:table-cell md:px-3 md:py-3 md:align-middle">
                   <span className="md:hidden text-[var(--color-on-surface-variant)]">Delivery{" "}</span>
                   {q.transferSpeed}
                 </td>
-                <td className="text-right md:text-left text-2xs text-[var(--color-on-surface-variant)] md:table-cell md:px-3 md:py-3 md:align-middle">
+                <td className="col-span-2 text-left text-2xs text-[var(--color-on-surface-variant)] md:table-cell md:px-3 md:py-3 md:align-middle">
                   {q.dateCollected ? (
                     <>
                       <span className="md:hidden">Collected{" "}</span>
