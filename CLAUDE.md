@@ -43,6 +43,7 @@ npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (
 npm run check:link-eligibility # internal links only to Google-eligible pages; /go /out nofollow sponsored (rule 14)
 npm run check:pwa        # manifest installable, icons/screenshots/shortcuts exist, sw.js bypass + offline revision (prebuild)
 npm run check:redirects  # every 301 is one hop to a prerendered page; retired URLs 410 (postbuild)
+npm run check:corridor-sort # every corridor provider list descends by payout (postbuild)
 npm run check:link-eligibility # internal links point only at Google-eligible pages; /go /out are nofollow sponsored
 npm run build:google-eligible  # regenerate src/data/google-eligible-routes.json (= sitemap-google.xml; prebuild runs it)
 
@@ -116,14 +117,26 @@ what enforces it. Where a rule is not automated, it says how to check it.
    the count may fall, never rise; so may the "(example)" table cells that
    hold invented payouts. *Enforced:* `check:claims` (prebuild), and
    `check:claims --built` (postbuild) for rule 6.
-6. **A single estimate is never "Cheapest" or "Best".** A corridor page that
-   holds one quote may not say either in its `<title>`. *Enforced:*
-   `check:claims --built`.
+6. **"Cheapest" or "Best" in a title needs three priced providers.** A
+   corridor page compared on fewer than 3 quotes (`MIN_PROVIDERS_FOR_SUPERLATIVE_TITLE`
+   in `corridor-title-claims.ts`, round-3 brief §4.3: /send-money/aud-to-bdt
+   said "Cheapest Way" on two) says neither in its `<title>` or og title; the
+   provider list is sorted by payout (rating breaks ties inside 0.1%,
+   indicative quotes are not ranked). *Enforced:* `check:claims --built`
+   (`few-providers-title`, via `data-compared-providers`) and
+   `check:corridor-sort` (postbuild).
 7. **Figures come from data, markups as medians.** See SEO Conventions: tokens
    in `ratings-tokens.ts` or `site-stats.ts`; `markupMedianPct`, never the
    mean. A field rendered without `renderDataTokens()` (provider reviews,
    `providers.ts` pros, non-editorial compare articles) cannot hold a token,
    so it cannot hold a figure a dataset knows either — drop the figure.
+   Provider counts are three different numbers and always say which
+   (`site-stats.ts`, "THE THREE PROVIDER COUNTS", published on /methodology):
+   *tracked* (any live quote, printed "90+"), *compared* for this route
+   (`{{ROUTE_PROVIDERS:…}}`), *reviewed* (`{{REVIEWED_COUNT}}`). A lead share
+   is `{{LEADRATE:slug}}` (corridors led ÷ compared); `{{WINRATE}}` is days won
+   and must be worded as days (`check:claims` `winrate-unlabelled`) — mixing
+   the two printed "23 of 97 … 21.7%" on /companies/wise.
 8. **SWIFT codes come from the directory.** A new or rewritten code is shown
    only when `src/data/scraped/swift-codes.json` (or `bank-details.json`)
    holds it for that bank, matched both ways on distinctive name words, or the
