@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PolicyLinks from "@/components/PolicyLinks";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
@@ -254,6 +255,7 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
               </p>
             </div>
           </div>
+          <PolicyLinks current="/research" />
         </Container>
       </section>
 

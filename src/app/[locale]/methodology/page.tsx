@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import PolicyLinks from "@/components/PolicyLinks";
 import Link from "@/components/EligibleLink";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -799,6 +800,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               </p>
             </div>
           </div>
+          <PolicyLinks current="/methodology" />
         </Container>
       </section>
     </>

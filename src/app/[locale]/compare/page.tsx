@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import PolicyLinks from "@/components/PolicyLinks";
 import Link from "@/components/EligibleLink";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import Image from "next/image";
@@ -410,6 +411,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
               </ul>
             </div>
           </div>
+          <PolicyLinks current="/compare" />
         </Container>
       </section>
     </>

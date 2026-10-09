@@ -9,7 +9,9 @@ import Container from "@/components/Container";
 import GuideContents from "@/components/GuideContents";
 import GuideReadingProgress from "@/components/GuideReadingProgress";
 import { ArrowLeft, BookOpen, Clock3 } from "lucide-react";
-import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog-posts";
+import { blogPosts, getBlogPost } from "@/data/blog-posts";
+import { relatedGuides } from "@/lib/related-guides";
+import { linkableCorridorsFor, routeCountriesIn } from "@/lib/corridor-links";
 import { getAuthorByName } from "@/data/authors";
 
 // Revalidate every 24 hours — editorial content changes infrequently
@@ -192,7 +194,9 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getBlogPost(slug);
   if (!post) notFound();
 
-  const relatedPosts = getRelatedPosts(slug);
+  const relatedPosts = relatedGuides(slug);
+  const routeCountries = routeCountriesIn(`${post.title} ${slug}`);
+  const guideRoutes = routeCountries.to.length ? linkableCorridorsFor({ to: routeCountries.to, from: routeCountries.from, seed: slug }, 3) : [];
   const exploreLinks = getExploreLinks(post.tags, post.category);
 
   const sectionIds = post.sections.map((s) => slugifyHeading(s.heading));
@@ -547,7 +551,22 @@ export default async function BlogPostPage({ params }: Props) {
               </section>
             )}
 
-
+            {/* The routes this guide is about, where their corridor pages may be
+                linked (round-3 brief §5.3, rule 14): a guide named for a
+                destination ("to Morocco", "uk-to-india") links the comparison
+                pages for it. Short route names only (rule 3); not a heading. */}
+            {guideRoutes.length > 0 && (
+              <p className="mt-8 text-sm text-[var(--color-on-surface-variant)]">
+                Compare live quotes on{" "}
+                {guideRoutes.map((r, i) => (
+                  <span key={r.slug}>
+                    {i > 0 && (i === guideRoutes.length - 1 ? " and " : ", ")}
+                    <Link href={r.href} className="text-[var(--color-primary)] hover:underline">{r.label}</Link>
+                  </span>
+                ))}
+                .
+              </p>
+            )}
 
           </article>
 

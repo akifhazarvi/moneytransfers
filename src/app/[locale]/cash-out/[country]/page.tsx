@@ -282,6 +282,13 @@ export default async function CashOutCountryPage({
               <Link className="underline" href="/cash-out">All cash-out countries</Link> ·{" "}
               <Link className="underline" href="/remittance-cost-index">Crypto vs bank cost index</Link> ·{" "}
               <Link className="underline" href="/tools/fx-markup-checker">FX Markup Checker</Link>
+              {/* Sibling cash-out guides Google may index (brief §5.3, rule 14). */}
+              {CASHOUT_COUNTRIES.filter((o) => o.slug !== c.slug && isLinkEligible(`/cash-out/${o.slug}`)).map((o) => (
+                <span key={o.slug}>
+                  {" "}·{" "}
+                  <Link className="underline" href={`/cash-out/${o.slug}`}>Cash out in {o.country}</Link>
+                </span>
+              ))}
             </p>
           </div>
         </Container>

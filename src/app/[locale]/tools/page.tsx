@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import PolicyLinks from "@/components/PolicyLinks";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import Link from "@/components/EligibleLink";
@@ -107,6 +108,7 @@ export default async function ToolsPage({
             Looking for the cheapest provider for your corridor?{" "}
             <Link className="underline" href="/send-money">Compare all {COVERAGE.providers} →</Link>
           </p>
+          <PolicyLinks current="/tools" />
         </Container>
       </section>
     </>

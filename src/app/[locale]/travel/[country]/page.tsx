@@ -579,6 +579,31 @@ export default async function TravelCountryPage({ params }: Props) {
             >
               Compare money transfers for {guide.countryName} &rarr;
             </Link>
+            {/* Three neighbouring destinations, rotated by this guide's place
+                in the list, so each travel guide is linked from three others
+                (round-3 brief §5.3). Country names only, to keep shared text
+                down (rule 3). */}
+            {(() => {
+              const slugs = getAllTravelGuideSlugs().filter((s) => isLinkEligible(`/travel/${s}`) || s === guide.slug);
+              const at = slugs.indexOf(guide.slug);
+              const others = slugs.filter((s) => s !== guide.slug);
+              if (others.length === 0) return null;
+              const next = Array.from({ length: Math.min(3, others.length) }, (_, i) => others[((at < 0 ? 0 : at) + i) % others.length]);
+              return (
+                <p className="mt-6 text-sm text-[var(--color-on-surface-variant)]">
+                  Travel money in other countries:{" "}
+                  {next.map((s, i) => (
+                    <span key={s}>
+                      {i > 0 && ", "}
+                      <Link href={`/travel/${s}`} className="text-[var(--color-primary)] hover:underline">{getTravelGuide(s)?.countryName ?? s}</Link>
+                    </span>
+                  ))}
+                  , or{" "}
+                  <Link href="/travel" className="text-[var(--color-primary)] hover:underline">every travel money guide</Link>
+                  .
+                </p>
+              );
+            })()}
           </div>
         </Container>
       </section>

@@ -1,6 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import { notFound } from "next/navigation";
 import Link from "@/components/EligibleLink";
+import { isLinkEligible } from "@/lib/link-eligibility";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { newsItems, getNewsItem } from "@/data/news";
@@ -341,6 +342,43 @@ export default async function NewsArticlePage({ params }: Props) {
                 )}
               </div>
             )}
+
+            {/* Earlier coverage (round-3 brief §5.3): two other stories, so that
+                with the /news index every story Google may index is linked from
+                the content of three pages. Picked a half-cycle apart (story
+                i+1 and i+1+n/2 in date order), so no two pages share a pair
+                and no run of anchors repeats across pages; anchors are the
+                headline's first words, not the headline (rule 3). A styled
+                label, not a heading (rule 4). */}
+            {(() => {
+              const pool = [...newsItems]
+                .filter((n) => isLinkEligible(`/news/${n.slug}`) || n.slug === slug)
+                .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug));
+              const others = pool.filter((n) => n.slug !== slug);
+              if (others.length === 0) return null;
+              const at = Math.max(0, pool.findIndex((n) => n.slug === slug));
+              const half = Math.max(1, Math.floor(others.length / 2));
+              const picks = [...new Set([at % others.length, (at + half) % others.length])].map((i) => others[i]);
+              const short = (title: string) => {
+                const lead = title.split(/[:—–(|]/)[0].trim().split(/\s+/);
+                return lead.length > 6 ? `${lead.slice(0, 6).join(" ")}…` : lead.join(" ");
+              };
+              return (
+                <div className="mt-8 pt-5 border-t border-[var(--color-outline)]">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-on-surface-variant)] mb-3">Earlier coverage</p>
+                  <ul className="space-y-2">
+                    {picks.map((n) => (
+                      <li key={n.slug}>
+                        <Link href={`/news/${n.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
+                          {short(n.title)}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/news" className="mt-3 inline-block text-2sm font-medium text-[var(--color-primary)] hover:underline">All money transfer news</Link>
+                </div>
+              );
+            })()}
           </article>
 
           {/* Sidebar */}

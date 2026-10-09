@@ -1,6 +1,7 @@
 import { seoDescription } from "@/lib/seo-title";
 import Link from "@/components/EligibleLink";
 import { eligibleHref, isLinkEligible } from "@/lib/link-eligibility";
+import { linkableCorridorsFor } from "@/lib/corridor-links";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
@@ -368,9 +369,15 @@ export default async function SwiftCountryPage({ params }: Props) {
   // "do not generate them at all (404/410); remove from internal links and the
   // sitemap" — so ask route-map what still renders rather than shipping a link
   // into a 410.
-  const swiftCorridorLinks = (swiftCorridors[slug] ?? []).filter((c) =>
+  const pickedRoutes = (swiftCorridors[slug] ?? []).filter((c) =>
     corridorPageRenders(c.href.replace("/send-money/", "")) && isLinkEligible(c.href),
   );
+  // ...then any other corridor page into or out of this country that Google
+  // may index (rule 14, brief §5.3 — e.g. austria-to-sri-lanka from Sri Lanka).
+  const swiftCorridorLinks = [
+    ...pickedRoutes,
+    ...linkableCorridorsFor({ countries: [country.name], exclude: pickedRoutes.map((c) => c.href) }, 5 - Math.min(pickedRoutes.length, 3)).map((c) => ({ label: c.slug.startsWith("send-money-to-") ? c.label : `${c.label} transfers`, href: c.href })),
+  ].filter((c, i, all) => all.findIndex((x) => x.href === c.href) === i).slice(0, 5);
 
   // No fixed anchors: the three largest networks headed every page's rail,
   // the same "Luxembourg 491 banks, Bangladesh 80 banks…" on all of them. A

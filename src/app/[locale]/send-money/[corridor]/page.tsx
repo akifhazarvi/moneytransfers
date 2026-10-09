@@ -83,6 +83,7 @@ import { formatLocalDate } from "@/lib/format-date";
 import { getCorridorEditorial } from "@/data/corridor-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import { compareHashHref, eligibleHref, isLinkEligible } from "@/lib/link-eligibility";
+import { LINKABLE_COUNTRY_PAGES } from "@/lib/corridor-links";
 
 // Resolve data tokens, then flatten to plain text for JSON-LD values.
 const plainTokens = (text: string): string =>
@@ -2023,8 +2024,11 @@ export default async function CorridorPage({ params }: Props) {
            its CTA is a "how it works" path, not an affiliate link, so it never
            competes with provider_clicked. ─── */}
       {/* Crypto rails are properties of the payout currency, so sender pages
-          with a destination page leave them to it (2026-09-25). */}
-      {!hubMode && !destinationHubSlug && (
+          with a destination page leave them to it (2026-09-25) — and the
+          destination page, hub mode included, carries them (2026-10-08: with
+          both excluded, /cash-out/india and /philippines had no corridor
+          linking them). */}
+      {!destinationHubSlug && (
       <section className="py-2 bg-[var(--color-surface-dim)]">
         <Container>
           <CryptoRailSection from={fromCurrency} to={toCurrency} amount={sampleAmount} />
@@ -2909,6 +2913,33 @@ export default async function CorridorPage({ params }: Props) {
                   </Link>
                 ))}
               </div>
+            </Container>
+          </section>
+        );
+      })()}
+
+      {/* ─── Other country pages ─── three neighbours in the list of country
+           pages Google may index, rotated by this page's place in it, so each
+           is linked from the body of three others (round-3 brief §5.3). Country
+           names only, to keep shared text down (rule 3); not a heading. */}
+      {isCountryPage && (() => {
+        const at = LINKABLE_COUNTRY_PAGES.findIndex((c) => c.slug === slug);
+        const pool = LINKABLE_COUNTRY_PAGES.filter((c) => c.slug !== slug);
+        if (pool.length === 0) return null;
+        const next = Array.from({ length: Math.min(3, pool.length) }, (_, i) => pool[((at < 0 ? 0 : at) + i) % pool.length]);
+        return (
+          <section className="py-6 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+            <Container>
+              <p className="text-sm text-[var(--color-on-surface-variant)]">
+                Other countries we compare:{" "}
+                {next.map((c, i) => (
+                  <span key={c.slug}>
+                    {i > 0 && ", "}
+                    <Link href={c.href} className="text-[var(--color-primary)] hover:underline">{c.label}</Link>
+                  </span>
+                ))}
+                .
+              </p>
             </Container>
           </section>
         );

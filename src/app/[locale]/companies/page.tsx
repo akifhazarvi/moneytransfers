@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import PolicyLinks from "@/components/PolicyLinks";
 import Link from "@/components/EligibleLink";
 import Image from "next/image";
 import { listableProviders } from "@/data/providers";
@@ -163,6 +164,7 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
           guides and corridors only. No corridor is in scope, so the no-quote
           variant renders: site-wide measured facts, no per-route numbers. */}
       <PartnerFeatureBlock source="taptap_spotlight:companies" variant="card" />
+      <PolicyLinks current="/companies" />
     </Container>
   );
 }

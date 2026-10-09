@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
+import PolicyLinks from "@/components/PolicyLinks";
 // This page is the AI front-door. It uses raw <a> tags for static files
 // (/llms.txt, /openapi.json, /ai.txt) and API routes (/api/ai) because
 // next/link would attempt client-side navigation, which 404s on non-pages.
@@ -379,6 +380,7 @@ export default function ForAIPage() {
             </p>
           </section>
         </article>
+        <PolicyLinks current="/for-ai" />
       </Container>
     </>
   );

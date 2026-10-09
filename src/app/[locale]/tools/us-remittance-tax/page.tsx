@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import PolicyLinks from "@/components/PolicyLinks";
 import Container from "@/components/Container";
 import Link from "@/components/EligibleLink";
 import type { Metadata } from "next";
@@ -228,6 +229,7 @@ export default async function UsRemittanceTaxPage({
               <Link className="underline" href="/send-money">Compare all providers</Link>
             </p>
           </div>
+          <PolicyLinks current="/tools/us-remittance-tax" />
         </Container>
       </section>
     </>

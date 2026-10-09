@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import PolicyLinks from "@/components/PolicyLinks";
 import Image from "next/image";
 import Link from "@/components/EligibleLink";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
@@ -287,6 +288,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               </p>
             </div>
           </div>
+          <PolicyLinks current="/about" />
         </Container>
       </section>
     </>

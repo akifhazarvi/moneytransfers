@@ -170,7 +170,10 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
         {archive.length > 0 && (
-          <nav aria-label="News archive" className="mt-12 border-t border-[var(--color-outline)] pt-8">
+          // A section, not a nav: the archive is this hub's content — the
+          // index of its children — not site navigation (brief §5.3 counts
+          // in-content links outside nav/aside).
+          <section aria-label="News archive" className="mt-12 border-t border-[var(--color-outline)] pt-8">
             <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">Archive</h2>
             <ul className="grid gap-2 sm:grid-cols-2">
               {archive.map((item) => (
@@ -184,7 +187,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
                 </li>
               ))}
             </ul>
-          </nav>
+          </section>
         )}
       </Container>
     </div>

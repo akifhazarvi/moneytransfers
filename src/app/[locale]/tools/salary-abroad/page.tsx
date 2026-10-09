@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import PolicyLinks from "@/components/PolicyLinks";
 import type { Metadata } from "next";
 import Link from "@/components/EligibleLink";
 import { setRequestLocale } from "next-intl/server";
@@ -203,6 +204,7 @@ export default async function SalaryAbroadPage({ params }: { params: Promise<{ l
             </Link>
           </div>
         </div>
+        <PolicyLinks current="/tools/salary-abroad" />
       </Container>
     </>
   );

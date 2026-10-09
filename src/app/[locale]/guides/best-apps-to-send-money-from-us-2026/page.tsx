@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import PolicyLinks from "@/components/PolicyLinks";
 import type { Metadata } from "next";
 import Link from "@/components/EligibleLink";
 import { setRequestLocale } from "next-intl/server";
@@ -1022,6 +1023,7 @@ export default async function BestAppsFromUSPage({
             </Link>
             .
           </p>
+          <PolicyLinks current="/guides/best-apps-to-send-money-from-us-2026" />
         </GuideResearchLayout>
     </>
   );

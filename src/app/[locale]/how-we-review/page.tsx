@@ -1,4 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
+import PolicyLinks from "@/components/PolicyLinks";
 import Container from "@/components/Container";
 import Link from "@/components/EligibleLink";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
@@ -305,6 +306,7 @@ export default async function HowWeReviewPage({ params }: Props) {
               </p>
             </div>
           </div>
+          <PolicyLinks current="/how-we-review" />
         </Container>
       </section>
     </>

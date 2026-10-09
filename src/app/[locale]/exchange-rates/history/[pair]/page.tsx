@@ -4,10 +4,19 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 // Revalidate every 6 hours — matches scraper cadence
+
+/** Currency outlook guides, linked from the rate history of their currency. */
+const FORECAST_GUIDES: Record<string, string> = {
+  GBP: "/guides/gbp-forecast-2026",
+  EUR: "/guides/euro-forecast-2026",
+  USD: "/guides/us-dollar-forecast-2026",
+};
+
 export const revalidate = 21600;
 import Container from "@/components/Container";
 import CircleFlag from "@/components/CircleFlag";
 import CrossLinks from "@/components/CrossLinks";
+import { linkableCorridorsFor } from "@/lib/corridor-links";
 import { RateInsightBanner, RateHistorySection } from "@/components/RateInsight";
 import HistoricalRateChart from "@/components/HistoricalRateChart";
 import {
@@ -302,12 +311,22 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
                   })),
                 }]
               : []),
+            // Corridor pages that pay in or out in this pair's currencies and
+            // that Google may index (round-3 brief §5.3, rule 14).
+            {
+              title: `Send ${from} or ${to}`,
+              links: linkableCorridorsFor({ currencies: [to, from], seed: `${from}-${to}` }, 4).map((c) => ({ href: c.href, label: c.label })),
+            },
             {
               title: "Related",
               links: [
                 { href: `/exchange-rates`, label: "Live Exchange Rates" },
                 { href: "/send-money", label: "Compare Providers" },
                 { href: "/exchange-rates/history", label: "All Rate History" },
+                // The reverse pair and the outlook for either currency, where
+                // Google may index them (brief §5.3; CrossLinks drops the rest).
+                { href: `/exchange-rates/history/${to.toLowerCase()}-to-${from.toLowerCase()}`, label: `${to} → ${from} history` },
+                ...[from, to].flatMap((c) => FORECAST_GUIDES[c] ? [{ href: FORECAST_GUIDES[c], label: `${c} outlook` }] : []),
               ],
             },
           ]}

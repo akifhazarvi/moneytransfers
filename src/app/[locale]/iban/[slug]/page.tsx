@@ -1,5 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
 import { isLinkEligible } from "@/lib/link-eligibility";
+import { linkableCorridorsFor } from "@/lib/corridor-links";
 import { internalPathRenders } from "@/lib/route-map-rates";
 import Link from "@/components/EligibleLink";
 import { notFound } from "next/navigation";
@@ -429,6 +430,15 @@ export default async function IbanCountryPage({ params }: Props) {
       isLinkEligible(`/iban/${c.slug}`)
   );
   const ibanOffset = wiseCountries.findIndex((c) => c.slug === slug);
+
+  // Transfers for this country: the hand-picked routes, then any other
+  // corridor page into or out of it that Google may index (rule 14, brief
+  // §5.3 — the IBAN page is the contextual link for e.g. belgium-to-morocco).
+  const pickedRoutes = (ibanCorridors[slug] ?? []).filter((c) => internalPathRenders(c.href) && isLinkEligible(c.href));
+  const routeLinks = [
+    ...pickedRoutes,
+    ...linkableCorridorsFor({ countries: [name], exclude: pickedRoutes.map((c) => c.href) }, 5 - Math.min(pickedRoutes.length, 3)).map((c) => ({ label: c.slug.startsWith("send-money-to-") ? c.label : `${c.label} transfers`, href: c.href })),
+  ].filter((c, i, all) => all.findIndex((x) => x.href === c.href) === i).slice(0, 5);
   const related =
     relatedPool.length <= 6
       ? relatedPool
@@ -760,13 +770,13 @@ export default async function IbanCountryPage({ params }: Props) {
               in the main column already carry every row. */}
 
           {/* Popular corridors for this country */}
-          {ibanCorridors[slug] && ibanCorridors[slug].some((c) => internalPathRenders(c.href) && isLinkEligible(c.href)) && (
+          {routeLinks.length > 0 && (
             <Card>
               <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
                 Popular money transfers
               </h3>
               <ul className="space-y-2">
-                {ibanCorridors[slug].filter((c) => internalPathRenders(c.href) && isLinkEligible(c.href)).map((corridor) => (
+                {routeLinks.map((corridor) => (
                   <li key={corridor.href}>
                     <Link
                       href={corridor.href}
