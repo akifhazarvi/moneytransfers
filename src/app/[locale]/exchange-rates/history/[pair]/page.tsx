@@ -373,7 +373,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
               {decisions.map(({ bank, d, move }) => (
                 <li key={`${bank.short}-${d.date}`} className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   <span className="font-medium text-[var(--color-on-surface)]">{dayLabel(d.date)}, {bank.short}:</span>{" "}
-                  {d.decision}; {d.reason}{" "}
+                  {d.decision}; {d.note}.{" "}
                   <a href={d.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">(statement)</a>
                   {move && (
                     <>
