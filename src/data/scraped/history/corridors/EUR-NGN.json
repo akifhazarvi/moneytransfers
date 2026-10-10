@@ -16194,5 +16194,94 @@
         "receiveAmount": 148378.91
       }
     }
+  },
+  {
+    "date": "2026-10-10",
+    "providers": {
+      "instarem": {
+        "rate": 1488.25,
+        "fee": 0,
+        "markup": 0.1,
+        "receiveAmount": 148825.03
+      },
+      "lemfi": {
+        "rate": 1515,
+        "fee": 0,
+        "markup": -1.58,
+        "receiveAmount": 151500
+      },
+      "moneygram": {
+        "rate": 1493.08,
+        "fee": 0.99,
+        "markup": -0.02,
+        "receiveAmount": 147829.5
+      },
+      "taptap-send": {
+        "rate": 1516,
+        "fee": 0,
+        "markup": -1.64,
+        "receiveAmount": 151600
+      },
+      "western-union": {
+        "rate": 1506.95,
+        "fee": 0.99,
+        "markup": -1.04,
+        "receiveAmount": 149202.64
+      },
+      "dahabshiil": {
+        "rate": 1499.92,
+        "fee": 1.99,
+        "markup": -0.48,
+        "receiveAmount": 147007.63
+      },
+      "profee": {
+        "rate": 1514.07,
+        "fee": 2,
+        "markup": -1.43,
+        "receiveAmount": 148378.91
+      },
+      "worldremit": {
+        "rate": 1513.55,
+        "fee": 0.99,
+        "markup": -1.39,
+        "receiveAmount": 149856.83
+      },
+      "paysend": {
+        "rate": 1520,
+        "fee": 0,
+        "markup": -1.83,
+        "receiveAmount": 151999.9
+      },
+      "sendwave": {
+        "rate": 1513.55,
+        "fee": 0.99,
+        "markup": -1.39,
+        "receiveAmount": 149856.83
+      },
+      "remitly": {
+        "rate": 1516.45,
+        "fee": 0,
+        "markup": -1.67,
+        "receiveAmount": 151645
+      },
+      "ria": {
+        "rate": 1495.23,
+        "fee": 0.9,
+        "markup": -0.25,
+        "receiveAmount": 148177.15
+      },
+      "xoom": {
+        "rate": 1470.43,
+        "fee": 0.49,
+        "markup": 1.41,
+        "receiveAmount": 146322.36
+      },
+      "wise": {
+        "rate": 1521.81,
+        "fee": 1.72,
+        "markup": -2.03,
+        "receiveAmount": 149563.49
+      }
+    }
   }
 ]

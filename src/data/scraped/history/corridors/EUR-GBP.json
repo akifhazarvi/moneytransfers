@@ -14688,5 +14688,94 @@
         "receiveAmount": 83.43
       }
     }
+  },
+  {
+    "date": "2026-10-10",
+    "providers": {
+      "instarem": {
+        "rate": 0.8456,
+        "fee": 0,
+        "markup": 0.09,
+        "receiveAmount": 84.56
+      },
+      "remitly": {
+        "rate": 0.8405,
+        "fee": 1.99,
+        "markup": 0.71,
+        "receiveAmount": 82.38
+      },
+      "taptap-send": {
+        "rate": 0.846,
+        "fee": 0,
+        "markup": 0.06,
+        "receiveAmount": 84.6
+      },
+      "paypal": {
+        "rate": 0.811373,
+        "fee": 3.99,
+        "markup": 4.15,
+        "receiveAmount": 77.9
+      },
+      "xoom": {
+        "rate": 0.7739,
+        "fee": 1.99,
+        "markup": 8.58,
+        "receiveAmount": 75.85
+      },
+      "sparkasse": {
+        "rate": 0.842254,
+        "fee": 42.5,
+        "markup": 0.5,
+        "receiveAmount": 48.43
+      },
+      "moneygram": {
+        "rate": 0.829667,
+        "fee": 1.99,
+        "markup": 1.99,
+        "receiveAmount": 81.32
+      },
+      "commerzbank": {
+        "rate": 0.838888,
+        "fee": 12.5,
+        "markup": 0.9,
+        "receiveAmount": 73.4
+      },
+      "monese": {
+        "rate": 0.8457,
+        "fee": 4,
+        "markup": 0.1,
+        "receiveAmount": 81.19
+      },
+      "ing-de": {
+        "rate": 0.839247,
+        "fee": 22,
+        "markup": 0.86,
+        "receiveAmount": 65.46
+      },
+      "deutsche-bank": {
+        "rate": 0.8419,
+        "fee": 36.55,
+        "markup": 0.55,
+        "receiveAmount": 53.42
+      },
+      "western-union": {
+        "rate": 0.820862,
+        "fee": 2.99,
+        "markup": 3.03,
+        "receiveAmount": 79.63
+      },
+      "skrill": {
+        "rate": 0.8061,
+        "fee": 0,
+        "markup": 4.77,
+        "receiveAmount": 80.61
+      },
+      "wise": {
+        "rate": 0.8466,
+        "fee": 1.45,
+        "markup": -0.01,
+        "receiveAmount": 83.43
+      }
+    }
   }
 ]
