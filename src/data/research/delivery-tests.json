@@ -1,0 +1,194 @@
+{
+  "updatedAt": "2026-10-09",
+  "method": {
+    "what": "Transfers we sent ourselves, timed from each provider's own in-app status timeline",
+    "timeResolution": "minute, as the app displays it: durationMinutes 0 = the same displayed minute (under 60 s), 1 = the next minute (1-119 s)",
+    "timeZone": "device-local; the screenshots do not record it, which leaves durations unaffected",
+    "endpoint": "the provider's own last event ('Transfer was successful', 'We paid out', 'Your transfer's complete'). The recipient's bank or wallet credit was not timed independently",
+    "privacy": "names, phone numbers, account numbers and card digits are not recorded; the redacted screenshots are kept outside the repository"
+  },
+  "transfers": [
+    {
+      "id": "t01",
+      "provider": "taptapsend",
+      "from": "USD",
+      "to": "PKR",
+      "amountShown": "$72.72",
+      "fee": 1.99,
+      "funding": "card",
+      "payout": "mobile wallet (JazzCash)",
+      "sentDate": "2026-10-07",
+      "dateConfirmed": false,
+      "dateNote": "the app shows 'Last Wednesday': 2026-10-07 or 2026-09-30",
+      "weekday": "Wednesday",
+      "timeline": [
+        { "event": "Submitted", "local": "07:52" },
+        { "event": "Transfer was successful", "local": "07:53" }
+      ],
+      "durationMinutes": 1,
+      "outcome": "delivered"
+    },
+    {
+      "id": "t02",
+      "provider": "taptapsend",
+      "from": "USD",
+      "to": "EUR",
+      "amountShown": "$150.00",
+      "fee": 0,
+      "funding": "card",
+      "payout": "bank account (Germany)",
+      "sentDate": "2026-10-02",
+      "dateConfirmed": true,
+      "weekday": "Friday",
+      "timeline": [
+        { "event": "Submitted", "local": "14:19" },
+        { "event": "Transfer was successful", "local": "14:19" }
+      ],
+      "durationMinutes": 0,
+      "outcome": "delivered"
+    },
+    {
+      "id": "t03",
+      "provider": "taptapsend",
+      "from": "USD",
+      "to": "PKR",
+      "amountShown": "$400.00",
+      "fee": 0,
+      "funding": "card",
+      "payout": "bank account",
+      "sentDate": "2026-06-11",
+      "dateConfirmed": true,
+      "weekday": "Thursday",
+      "timeline": [
+        { "event": "Submitted", "local": "05:38" },
+        { "event": "Transfer was successful", "local": "05:39" }
+      ],
+      "durationMinutes": 1,
+      "outcome": "delivered"
+    },
+    {
+      "id": "t04",
+      "provider": "wise",
+      "from": "USD",
+      "to": "PKR",
+      "amountShown": "PKR 350",
+      "funding": "direct debit",
+      "payout": null,
+      "sentDate": "2025-11-05",
+      "dateConfirmed": true,
+      "weekday": "Wednesday",
+      "timeline": [
+        { "event": "You set up your transfer", "local": "14:30" },
+        { "event": "We received your USD", "local": "14:30" },
+        { "event": "We paid out your PKR", "local": "14:46" },
+        { "event": "Your transfer's complete", "local": "14:46" }
+      ],
+      "durationMinutes": 16,
+      "outcome": "delivered"
+    },
+    {
+      "id": "t05",
+      "provider": "wise",
+      "from": "USD",
+      "to": "PKR",
+      "amountShown": "PKR 275.77",
+      "funding": "direct debit",
+      "payout": null,
+      "sentDate": "2025-10-17",
+      "dateConfirmed": true,
+      "weekday": "Friday",
+      "timeline": [
+        { "event": "You set up your transfer", "local": "08:41" },
+        { "event": "We received your USD", "local": "08:41" },
+        { "event": "We paid out your PKR", "local": "08:41" },
+        { "event": "Your transfer's complete", "local": "08:41" }
+      ],
+      "durationMinutes": 0,
+      "outcome": "delivered"
+    },
+    {
+      "id": "t06",
+      "provider": "wise",
+      "from": "USD",
+      "to": "EUR",
+      "amountShown": "EUR 200",
+      "funding": null,
+      "payout": "bank account",
+      "sentDate": "2025-08-28",
+      "dateConfirmed": true,
+      "weekday": "Thursday",
+      "timeline": [
+        { "event": "You set up your transfer", "local": "2025-08-28 15:06" },
+        { "event": "We received your USD", "local": "2025-08-28 15:06" },
+        { "event": "Your transfer was sent back to us", "local": "2025-08-28 15:06" },
+        { "event": "We paid out your EUR again", "local": "2025-08-28 22:37" },
+        { "event": "Transfer successfully sent to your bank", "local": "2025-08-29 01:01" }
+      ],
+      "durationMinutes": 595,
+      "retryAfterMinutes": 451,
+      "outcome": "returned",
+      "providerNote": "Keep in mind — It can take up to 2 working days for your bank to credit the account."
+    },
+    {
+      "id": "t07",
+      "provider": "wise",
+      "from": "EUR",
+      "to": "USD",
+      "amountShown": "USD 500",
+      "funding": null,
+      "payout": null,
+      "sentDate": "2024-10-30",
+      "dateConfirmed": true,
+      "weekday": "Wednesday",
+      "timeline": [
+        { "event": "You set up your transfer", "local": "09:19" },
+        { "event": "We received your EUR", "local": "09:20" },
+        { "event": "We paid out your USD", "local": "09:20" },
+        { "event": "Your transfer's complete", "local": "09:20" }
+      ],
+      "durationMinutes": 1,
+      "outcome": "delivered"
+    },
+    {
+      "id": "t08",
+      "provider": "wise",
+      "from": "EUR",
+      "to": "PKR",
+      "amountShown": "PKR 200,000",
+      "funding": null,
+      "payout": null,
+      "sentDate": "2023-12-26",
+      "dateConfirmed": true,
+      "weekday": "Tuesday",
+      "dayNote": "26 December, a bank holiday across much of Europe",
+      "timeline": [
+        { "event": "You set up your transfer", "local": "07:44" },
+        { "event": "We received your EUR", "local": "07:44" },
+        { "event": "We paid out your PKR", "local": "07:44" },
+        { "event": "Your transfer's complete", "local": "07:44" }
+      ],
+      "durationMinutes": 0,
+      "outcome": "delivered"
+    },
+    {
+      "id": "t09",
+      "provider": "wise",
+      "from": "EUR",
+      "to": "GBP",
+      "amountShown": "GBP 135",
+      "funding": null,
+      "payout": null,
+      "sentDate": "2024-06-11",
+      "dateConfirmed": true,
+      "weekday": "Tuesday",
+      "timeline": [
+        { "event": "You set up your transfer", "local": "12:38" },
+        { "event": "We received your EUR", "local": "12:39" },
+        { "event": "We paid out your GBP", "local": "12:39" },
+        { "event": "Your transfer's complete", "local": "12:39" }
+      ],
+      "durationMinutes": 1,
+      "outcome": "delivered"
+    }
+  ]
+}

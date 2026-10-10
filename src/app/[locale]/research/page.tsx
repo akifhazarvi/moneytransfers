@@ -15,6 +15,7 @@ import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 import weekendMarkup from "@/data/scraped/weekend-markup.json";
 import pppIndex from "@/data/scraped/ppp-index.json";
 import { readerSavings, periodLabel } from "@/lib/reader-savings";
+import { DELIVERY_SPEED, DELIVERY_TESTS, speedStudyFinding } from "@/lib/delivery-speed";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -72,6 +73,14 @@ const STUDIES: Study[] = [
     finding: `Of ${nf(readerSavings.totals.pricedDecisions)} provider choices readers made on our comparison in ${periodLabel()}, ${Math.round(readerSavings.totals.shareAboveMedian * 100)}% paid more than the median provider on that corridor and day, and the chosen provider paid a median $${(readerSavings.totals.medianVsBankPer1000 ?? 0).toFixed(2)} more per $1,000 than the median bank quote.`,
     basis: `${nf(readerSavings.totals.decisions)} Google Analytics provider choices across ${readerSavings.totals.corridors} corridors, ${readerSavings.clicksMeta.window.from} to ${readerSavings.clicksMeta.window.to}, each priced against the quote snapshot archived for its corridor that day. Choices that cannot be priced fairly are counted and named, not dropped silently.`,
     dataAsOf: readerSavings.generatedAt,
+  },
+  {
+    title: "Delivery speed: promised vs paid out",
+    href: "/guides/fastest-way-to-send-money-internationally",
+    finding: speedStudyFinding(),
+    basis: `${nf(DELIVERY_SPEED.wise.quotes)} delivery estimates from Wise's own calculator and the times Monito and RemitRoutes publish, archived from ${DELIVERY_SPEED.archive.from} to ${DELIVERY_SPEED.archive.to}, plus ${DELIVERY_TESTS.length} transfers we sent and timed from each app's own status timeline. Everything archived is a promise; the tests time the provider's last step, not the recipient bank's credit.`,
+    dataAsOf: DELIVERY_SPEED.generatedAt,
+    csv: "/api/data/delivery-speed",
   },
   {
     title: "Provider Consistency Index",

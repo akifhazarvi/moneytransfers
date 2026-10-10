@@ -29,6 +29,7 @@ import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 import CORRIDOR_LEADERS from "@/data/scraped/corridor-leaders.json";
 import { getRateInsight } from "@/lib/rate-history";
 import { getBankAggregateStats, getBankCorridorQuotes } from "@/lib/bank-comparisons";
+import { renderSpeedTokens } from "@/lib/delivery-speed";
 
 export interface StoreRating {
   score: number | null;
@@ -1139,6 +1140,9 @@ export function renderDataTokens(html: string): string {
     .join(`${businessFx().specialistAvgCostPct.toFixed(2)}%`);
   out = out.split("{{AVG_BANK_COST}}").join(`$${REMITTANCE_INDEX.avgBankCost.toFixed(2)}`);
   out = out.split("{{AVG_SPECIALIST_COST}}").join(`$${REMITTANCE_INDEX.avgSpecialistCost.toFixed(2)}`);
+
+  // Delivery speed: archived promises and our timed test transfers (delivery-speed.ts).
+  out = renderSpeedTokens(out);
 
   if (out.includes("{{")) out = renderQuoteTokens(out);
 

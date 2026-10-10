@@ -94,119 +94,127 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "fastest-way-to-send-money-internationally",
-    title: "Fastest Way to Send Money Internationally (2026 Ranked)",
+    title: "Fastest Way to Send Money Internationally: Promised vs Paid Out (2026)",
+    metaTitle: "Fastest Way to Send Money Internationally: We Timed It (2026)",
     metaDescription:
-      "Which apps send money abroad fastest in 2026? We ranked top providers by real delivery speed — Wise, Remitly, TapTap Send, Xoom. Many deliver in minutes.",
+      "We timed real transfers with TapTap Send and Wise and tracked months of delivery promises. When \"instant\" holds, when it slips, and how to send faster.",
     excerpt:
-      "Need money delivered now, not in 3 days? We ranked the fastest international transfer apps by real delivery speed — and explain why some 'instant' transfers still take days.",
+      "We sent money ourselves and set each app's own timeline against what was advertised, alongside months of Wise's delivery estimates. The day, the amount and a bounced payout change the answer.",
     category: "Guides",
     readTime: "9 min read",
     publishedAt: "2026-06-06",
-    updatedAt: "2026-09-02",
+    updatedAt: "2026-10-09",
     author: "Awais Imran",
-    tags: ["fastest transfer", "instant transfer", "money transfer apps", "speed", "international transfers"],
+    tags: ["fastest transfer", "instant transfer", "delivery time", "test transfers", "international transfers"],
     featuredImage: "/images/blog/fastest-way-to-send-money.jpg",
     sections: [
       {
         heading: "What Is the Fastest Way to Send Money Internationally?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The fastest way to send money internationally in 2026 is through a specialist transfer app that offers an "express" or instant delivery option funded by debit card. Based on our analysis of {{PROVIDER_COUNT}} providers, <strong><a href="/companies/remitly">Remitly</a></strong> (Express delivery in minutes on major corridors, across a 175+ country network; Remitly reports over 90% of transfers arriving in under an hour, most in seconds), <strong><a href="/companies/taptap-send">TapTap Send</a></strong> (95% of transfers delivered in under 3 minutes), and <strong><a href="/companies/wise">Wise</a></strong> (~60% of transfers arrive instantly, the rest within hours) are the fastest options for most corridors. <strong><a href="/companies/xoom">Xoom</a></strong> (a PayPal service) and <strong><a href="/companies/paysend">Paysend</a></strong> also deliver to cards and wallets in minutes. Speed depends on three things: the provider's delivery method, how you pay, and the destination's local payment rails. <a href="/send-money">Compare live speed and cost</a> for your exact transfer.</p></div>
-<p>When you need money to arrive <em>now</em> — a family emergency, a missed rent payment, a supplier deadline — cost stops being the only thing that matters. The good news: in 2026, the fastest providers are also among the cheapest, so you rarely have to choose.</p>
-<p>We analyzed <strong>real quotes and published delivery estimates</strong> from {{PROVIDER_COUNT}} providers to rank them by how fast money actually lands in the recipient's account, wallet, or hand — not just the marketing promise.</p>`,
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Use a provider that pays out over the receiving country's instant payment system, pay by debit card, check the recipient's details, and send on a weekday. When we sent money ourselves with TapTap Send and Wise, {{SPEED_TESTS_FAST}} of our {{SPEED_TESTS_TOTAL}} transfers were marked paid out within two minutes of being set up; the slowest successful one took {{SPEED_TESTS_SLOWEST_DELIVERED}}, and one Wise payout bounced and went out {{SPEED_TEST_TIME:t06}} after we set it up. The promise moves with the calendar too: Wise promises delivery within a day on {{SPEED_WISE_DAY_WITHIN_DAY:Monday}} of its quotes for {{SPEED_WISE_AMOUNT}} dollars, pounds or euros asked on a Monday, and on {{SPEED_WISE_DAY_WITHIN_DAY:Saturday}} asked on a Saturday. <a href="/send-money">Compare providers for your route</a>.</p></div>
+<p>Most "fastest app" lists repeat what providers advertise. This guide sets those promises against two things we can check: transfers we sent and timed ourselves, and the delivery estimates our comparison has archived from providers and comparison sites since {{SPEED_ARCHIVE_FROM}}.</p>`,
       },
       {
-        heading: "Fastest International Money Transfer Apps — Ranked by Delivery Speed",
-        content: `<p>Here are the providers that deliver fastest across the most popular corridors. "Typical speed" reflects the express/instant option funded by debit card — the fastest path each provider offers.</p>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">Fastest Money Transfer Apps (2026)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Typical Speed (Express)</th><th>Delivery To</th><th>Best For</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Seconds to a few hours</td><td>Bank account</td><td>~60% of transfers arrive instantly; 0% rate markup</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Minutes (Express) — 90%+ under an hour</td><td>Bank, cash pickup, wallet</td><td>175+ countries, widest fast-cash network</td></tr>
-<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>Under 3 minutes (95% of transfers)</td><td>Bank, mobile wallet</td><td>Africa &amp; Asia corridors, often $0 fee</td></tr>
-<tr><td><strong><a href="/companies/xoom">Xoom</a></strong></td><td>Minutes (to card/wallet)</td><td>Bank, cash, wallet</td><td>PayPal-backed, strong Latin America &amp; Philippines</td></tr>
-<tr><td><strong><a href="/companies/paysend">Paysend</a></strong></td><td>Minutes (card-to-card)</td><td>Debit card, wallet</td><td>Card-to-card delivery, flat fee</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut</a></strong></td><td>Instant (Revolut-to-Revolut)</td><td>Revolut account / bank</td><td>Free instant transfers between Revolut users</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Speeds reflect the fastest delivery option per provider; actual times vary by corridor, funding method and verification. <a href="/send-money">Compare live rates and speed →</a></p>
-</div>
-<p>Want the cheapest provider rather than the fastest? See our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest way to send money internationally</a> guide, or the full <a href="/guides/best-money-transfer-apps">best money transfer apps</a> ranking by total cost.</p>`,
+        heading: "We Sent the Money Ourselves: Promised vs Paid Out",
+        content: `<p>These are transfers from our own accounts with TapTap Send and Wise, the apps we already used, not a sample picked for this guide. Each time comes from the app's own status timeline, read to the minute from the transfer's history screen. Names and account details are left out.</p>
+{{SPEED_TEST_TABLE}}
+<p>Where we hold the promise, it held. Monito listed TapTap Send as "Instant" on USD&rarr;PKR and USD&rarr;EUR around each of our sends, and each one paid out within two minutes. That promise is a comparison site's, not TapTap's: TapTap Send's own calculator publishes no delivery time.</p>
+<p>The payout method made no difference on these routes. A JazzCash mobile wallet, Pakistani and German bank accounts, and a Wise EUR&rarr;PKR transfer sent on 26 December, a bank holiday across much of Europe, all completed in the same minute or the next.</p>
+<p>The one slow transfer did not crawl; it failed and was retried. Wise's payout to a euro bank account came back the minute it was sent, and Wise sent it again {{SPEED_TEST_RETRY:t06}} later. The timeline does not say why it was returned.</p>
+<p class="blog-footnote">TapTap Send is one of the providers we have an affiliate partnership with: we may earn a commission when you send through our links (<a href="/disclaimer">disclosure</a>). It is in this table because we use it, and every transfer we timed is published, including the one that went wrong. We have not yet timed Remitly, Western Union, Ria or the other providers we compare.</p>`,
       },
       {
-        heading: "Why Are Some 'Instant' Transfers Still Slow?",
-        content: `<p class="citable-passage">An international transfer is only as fast as its slowest step. Three factors decide real-world speed: <strong>(1) how you fund it</strong> — debit card is near-instant, bank transfer (ACH/SEPA) can add 1–3 days; <strong>(2) the delivery method</strong> — mobile wallets and cash pickup are faster than bank deposits; and <strong>(3) the destination's payment rails</strong> — countries with real-time systems like India's UPI, the EU's instant SEPA, or the UK's Faster Payments settle in seconds, while others still batch-process.</p>
-<p>This is why the same app can deliver in 30 seconds to one country and 2 days to another. A provider that promises "instant" is describing the best case — usually a debit-card-funded transfer to a wallet or card on a corridor with modern rails.</p>
+        heading: "When Wise's Own Delivery Promise Changes: Day, Amount and Route",
+        content: `<p>Wise is the one provider in our data whose calculator returns a live delivery estimate with every quote, so it is the one promise we can follow over time: {{SPEED_WISE_QUOTES}} estimates on {{SPEED_WISE_ROUTES}} routes since {{SPEED_WISE_FROM}}. Three things move it.</p>
+<p><strong>The day you send.</strong> Fast routes stay fast at the weekend: for a transfer of {{SPEED_WISE_AMOUNT}} dollars, pounds or euros, {{SPEED_WISE_DAY_WITHIN_HOUR:Monday}} of Wise's promises are within an hour when asked on a Monday and {{SPEED_WISE_DAY_WITHIN_HOUR:Saturday}} on a Saturday. The slower routes are what slip. Asked on a Monday, {{SPEED_WISE_DAY_WITHIN_DAY:Monday}} of promises are within a day; on a Friday {{SPEED_WISE_DAY_WITHIN_DAY:Friday}}, and on a Saturday {{SPEED_WISE_DAY_WITHIN_DAY:Saturday}}, when many receiving banks do not settle payments.</p>
+{{SPEED_WEEKDAY_TABLE}}
+<p><strong>The amount.</strong> To the Philippines, Wise promised USD&rarr;PHP within a minute on {{SPEED_PHP_SMALL:USD}} of quotes at $100 and on {{SPEED_PHP_LARGE:USD}} at $1,000, where the median promise is {{SPEED_PHP_LARGE_MEDIAN:USD}}; GBP&rarr;PHP behaves the same way. InstaPay, the Philippines' instant transfer system, takes at most &#8369;50,000 per personal transfer (<a href="https://www.securitybank.com/online-banking/instapay" target="_blank" rel="noopener noreferrer">Security Bank's InstaPay terms</a>), and $1,000 is more than that, so the money goes by a slower route.</p>
+<p><strong>The route.</strong> On {{SPEED_WISE_NEAR_INSTANT_ROUTES}} of the {{SPEED_WISE_MAJOR_ROUTES}} routes we follow from dollars, pounds, euros and other major currencies, Wise promised delivery within a minute on at least {{SPEED_WISE_NEAR_INSTANT_SHARE}} of quotes. Its longest median promises are {{SPEED_WISE_SLOWEST}}.</p>
+<p>Wise also publishes a measured figure for its own transfers: 75% arrive in under 20 seconds and 96% within 24 hours (<a href="https://www.mfn.se/one/a/wise/wise-debuts-us-listing-on-nasdaq-5795282c" target="_blank" rel="noopener noreferrer">Wise, May 2026</a>). That figure is weighted by where its customers actually send, mostly busy routes where the promise is near-instant; ours counts every route and every hour equally, so the two are not comparable. TapTap Send says 95% of its transfers are delivered in under 3 minutes, based on its own data from December 2025 (<a href="https://www.taptapsend.com/en/send-money-to/nigeria" target="_blank" rel="noopener noreferrer nofollow">TapTap Send</a>), and Remitly's chief executive has said that 90% of its transactions are delivered in less than an hour (<a href="https://schwabnetwork.beehiiv.com/p/market-minute-d600dd5d1d0e2293" target="_blank" rel="noopener noreferrer">Schwab Network, November 2024</a>). None of these figures is independently audited.</p>`,
+      },
+      {
+        heading: "Why Delivery Times Disagree From Site to Site",
+        content: `<p>Ask three places how long the same provider takes on the same route and you can get three answers. Over the past week, on {{SPEED_DISAGREE_PCT}} of the {{SPEED_DISAGREE_PAIRS}} provider-and-route pairs that two of our sources describe, their typical delivery times did not overlap and sat a day or more apart.</p>
+{{SPEED_SOURCE_TABLE}}
+<p>Wise shows the gap most clearly. Its own calculator promises USD&rarr;PKR and USD&rarr;EUR within a minute on almost every quote, our own Wise transfers to Pakistan paid out within minutes, and the comparison sources quote the same transfers at hours to days.</p>
+<p>Some of the difference is method: a source may assume you pay by bank transfer, or pick a different payout. Either way, treat any single "speed" figure, including the one beside a quote on a comparison site, as one source's promise rather than a measurement.</p>`,
+      },
+      {
+        heading: "'Complete' Isn't 'In the Account': The Last Step Nobody Times",
+        content: `<p>Every time in our table is the provider's own last step. When Wise re-sent our returned transfer, its screen added: "It can take up to 2 working days for your bank to credit the account."</p>
+<p class="citable-passage">The delay usually sits after the provider, at the receiving bank. Swift reports that 90% of cross-border payments over its network reach the destination bank within an hour, but only 43% reach the customer's account in that time (<a href="https://www.silicon.co.uk/press-release/swift-cross-border-payment-processing-speed-stretches-further-ahead-of-g20-target" target="_blank" rel="noopener noreferrer">Swift, October 2024</a>). Countries whose banks credit through a real-time system close that gap, which is why the same app can take minutes to one country and days to another.</p>
 <ul>
-<li><strong>Funding method</strong> — Paying by debit card, mobile wallet or app balance is fastest; most major apps now take Apple Pay and Google Pay, which clear as quickly as a card. Bank transfers (ACH in the US, SEPA in Europe) are cheaper but can add a day or more before the provider even starts the transfer. Australian senders have a faster bank option: <a href="/companies/remitly">Remitly</a> supports PayTo, which debits the account over Australia's real-time rails instead of waiting on a direct debit.</li>
-<li><strong>First-transfer verification</strong> — Your <em>first</em> transfer with any provider is often slower because of identity and anti-fraud checks. After that, transfers speed up.</li>
-<li><strong>Cut-off times &amp; weekends</strong> — Transfers initiated late Friday may not settle until Monday if either end relies on bank processing.</li>
-<li><strong>Destination rails</strong> — India (<a href="/send-money/usa-to-india">UPI</a>), the Philippines (InstaPay), the EU (instant SEPA — see our <a href="/guides/eu-instant-payments-2026">EU Instant Payments 2026</a> guide), and the UK (Faster Payments) are among the fastest receiving markets.</li>
-</ul>
-<p>According to the <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a>, providers must disclose the date funds will be available before you pay — always check that estimate, not just the headline "instant" claim.</p>`,
+<li><strong>Brazil, Pix:</strong> a payment that is not settled within 40 seconds is rejected (<a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/IX_ManualdeTemposdoPix.pdf" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a>).</li>
+<li><strong>Euro area, SEPA Instant:</strong> a maximum execution time of 10 seconds (<a href="https://www.europeanpaymentscouncil.eu/what-we-do/sepa-instant-credit-transfer" target="_blank" rel="noopener noreferrer">European Payments Council</a>). Our <a href="/guides/eu-instant-payments-2026">EU instant payments guide</a> covers which banks must offer it.</li>
+<li><strong>Mexico, SPEI:</strong> a payment should not take more than 30 seconds after approval (<a href="https://www.banxico.org.mx/services/interbanking-electronic-payme.html" target="_blank" rel="noopener noreferrer">Banco de M&eacute;xico</a>). Compare providers on <a href="/send-money/usa-to-mexico">USA to Mexico</a>.</li>
+<li><strong>India, UPI and IMPS; the Philippines, InstaPay; the UK, Faster Payments:</strong> real-time domestic systems, so transfers to <a href="/send-money/usa-to-india">India</a>, the <a href="/send-money/usa-to-philippines">Philippines</a> or the UK can land in minutes once the provider pays out.</li>
+</ul>`,
       },
       {
-        heading: "Fastest Way to Send Money by Corridor (US-Led)",
-        content: `<p>Speed leaders shift by destination because local payment rails differ. Here are the fastest options on the most popular routes from the US:</p>
-<ul>
-<li><strong>USA → India</strong>: Remitly Express or Wise — both deliver to UPI/bank in minutes. See the <a href="/send-money/usa-to-india">USA to India</a> corridor page.</li>
-<li><strong>USA → Philippines</strong>: Remitly and Xoom deliver to GCash/Maya wallets and cash pickup in minutes. Full <a href="/send-money/usa-to-philippines">USA to Philippines</a> comparison.</li>
-<li><strong>USA → Mexico</strong>: Remitly and Xoom — cash pickup at thousands of locations within minutes. Compare on <a href="/send-money/usa-to-mexico">USA to Mexico</a>.</li>
-<li><strong>USA → Nigeria / Africa</strong>: TapTap Send and Remitly deliver to mobile wallets in under 3 minutes, often fee-free.</li>
-<li><strong>USD → EUR (Europe)</strong>: Wise — instant SEPA means most euro transfers land in seconds.</li>
-</ul>
-<p>For UK senders, the fastest routes mirror this — Wise and Remitly lead on <a href="/send-money/uk-to-india">UK to India</a>, <a href="/send-money/uk-to-nigeria">UK to Nigeria</a>, and <a href="/send-money/uk-to-bangladesh">UK to Bangladesh</a>. Always confirm at your exact amount — speed tiers and fees change between a $200 and a $5,000 transfer.</p>`,
+        heading: "When Transfers Go Wrong: Bounces and Missed Promises",
+        content: `<p>A transfer that misses its promise is often not slow, it is stuck: returned by the receiving bank, held for identity checks, or waiting on the sender. Our returned Wise payout is one example. Delays also make up a large share of complaints. US consumers who file a complaint with the CFPB choose the issue themselves, and "money was not available when promised" is one of the options:</p>
+{{SPEED_CFPB_TABLE}}
+<p>The table includes TapTap Send, a commercial partner of ours. Speed claims are also something regulators check: in 2023 the CFPB found that Sendwave's claims that transfers would arrive "instantly", in "30 seconds" or "within seconds" were false and misleading for many consumers (<a href="https://files.consumerfinance.gov/f/documents/cfpb-0012-chime-inc-dba-sendwave-consent-order_2023-10.pdf" target="_blank" rel="noopener noreferrer">CFPB consent order</a>).</p>
+<p>Under US rules, a provider must tell you before you pay the date your money will be available (<a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">CFPB</a>). Screenshot that screen: it is your reference if the money is late.</p>`,
       },
       {
-        heading: "Does Faster Cost More?",
-        content: `<p class="citable-passage">In 2026, the fastest international transfer is usually not the most expensive. Apps like Remitly, Wise and TapTap Send offer minutes-fast delivery at the same low fees as their standard option — the speed comes from the delivery rail and funding method, not a premium charge. The exception is card-funded transfers, where the card processing fee (typically 1–3%) buys speed over a slower, cheaper bank transfer.</p>
-<p>A few rules of thumb:</p>
-<ol>
-<li><strong>Debit card funding</strong> = fastest, with a small card fee. Best when you genuinely need speed.</li>
-<li><strong>Bank/ACH funding</strong> = cheapest, but adds processing time. Best when a day's delay is fine.</li>
-<li><strong>Cash pickup</strong> = fast for the recipient but sometimes carries a higher markup than a bank deposit. Compare the <a href="/guides/exchange-rate-markup-explained">exchange rate markup</a>, not just the fee.</li>
-</ol>
-<p><strong>New in 2026:</strong> A <a href="/guides/us-remittance-tax-2026">1% US remittance tax</a> applies to cash-funded transfers from the US, but digital app transfers are exempt — another reason fast app-based transfers beat cash wires on both speed and cost.</p>`,
+        heading: "How to Get Money There Fastest",
+        content: `<ol>
+<li><strong>Send early in the week.</strong> {{SPEED_WISE_DAY_WITHIN_DAY:Monday}} of Wise's Monday promises are within a day, against {{SPEED_WISE_DAY_WITHIN_DAY:Friday}} on a Friday and {{SPEED_WISE_DAY_WITHIN_DAY:Saturday}} on a Saturday. The difference is on routes that rely on the receiving bank's working days.</li>
+<li><strong>Pay by debit card or app balance.</strong> A bank transfer has to reach the provider before it can send anything. Our card-funded TapTap transfers paid out within two minutes.</li>
+<li><strong>Choose a payout the receiving country settles instantly:</strong> UPI in India, Pix in Brazil, SPEI in Mexico, SEPA Instant in the euro area, Faster Payments in the UK, or a mobile wallet such as JazzCash in Pakistan.</li>
+<li><strong>Mind the amount on capped systems.</strong> Above &#8369;50,000, a Philippine transfer cannot use InstaPay, and Wise's promise for $1,000 to the Philippines is a median {{SPEED_PHP_LARGE_MEDIAN:USD}}.</li>
+<li><strong>Check the recipient's name and account number against their bank.</strong> Our returned payout was marked sent {{SPEED_TEST_TIME:t06}} after we set it up.</li>
+<li><strong>Verify your identity before you need to send.</strong> Your first transfer with a provider can be held for identity checks.</li>
+<li><strong>Screenshot the promised time before you pay,</strong> and ask the recipient when their bank or wallet showed the money.</li>
+</ol>`,
       },
       {
-        heading: "Sources & Methodology",
-        content: `<p>Speed estimates in this article are based on providers' published delivery times and real quotes collected from provider APIs and websites via automated scraping every 6 hours. Actual delivery times vary by corridor, funding method, verification status, and bank processing — always check the provider's stated availability date before you pay.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">CFPB remittance disclosure rules</a>, and provider-published delivery commitments. Use our <a href="/send-money">comparison tool</a> for live rates and speed.</p>`,
+        heading: "Does a Faster Transfer Cost More?",
+        content: `<p class="citable-passage">Usually not: the fast route and the cheap route are often the same, because the speed comes from the payout system and how you pay, not from a premium tier. In our tests, TapTap Send charged a small flat fee only on its smallest transfer; most of what separates providers is the exchange rate. The exception is paying by credit card, which some providers and card issuers charge extra for.</p>
+<p>So compare the total cost, including the <a href="/guides/exchange-rate-markup-explained">exchange rate markup</a>, not just the fee, and choose speed only where the two differ. For the lowest total cost on your route, see the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest way to send money internationally</a>, or the <a href="/guides/best-money-transfer-apps">cost ranking of transfer apps</a>.</p>
+<p><strong>New in 2026:</strong> a <a href="/guides/us-remittance-tax-2026">1% US remittance tax</a> applies to cash-funded transfers from the US, while transfers funded from a bank account or a US debit or credit card are exempt.</p>`,
+      },
+      {
+        heading: "How We Timed Transfers and Read the Promises",
+        content: `<p><strong>Test transfers.</strong> Sent from our own accounts and timed from each provider's status timeline, to the minute, from "set up" to the provider's last step. We did not time when the receiving bank or wallet credited the money. Each transfer is set against what our archive recorded for that provider and route within 3 days of the send date. Transfers before {{SPEED_ARCHIVE_FROM}} predate the archive.</p>
+<p><strong>Promises.</strong> Our comparison collects quotes from providers' own calculators and from comparison sources several times a day and keeps every delivery estimate they publish. "Within a minute" means an estimate of "Instant" or at most one minute. The day is the UTC day the quote was collected, and a business day counts as 24 hours. Two sources "disagree" when their typical ranges do not overlap and sit at least a day apart.</p>
+<p><strong>Complaints.</strong> Counts come from the CFPB Consumer Complaint Database (public domain), international money transfers only, from {{SPEED_CFPB_FROM}}.</p>
+<p>The test transfers are available as a <a href="/api/data/delivery-speed">CSV download</a> under CC BY 4.0. For how we price quotes, see our <a href="/methodology">methodology</a>; for more studies from the same archive, see <a href="/research">research</a>.</p>`,
       },
     ],
     faqs: [
       {
         question: "What is the fastest way to send money internationally?",
         answer:
-          "The fastest way is a specialist transfer app with an express/instant option funded by debit card. <a href=\"/companies/remitly\">Remitly</a> Express delivers in minutes on major corridors, from a 175+ country network, with over 90% of its transfers arriving in under an hour, <a href=\"/companies/taptap-send\">TapTap Send</a> delivers 95% of transfers in under 3 minutes, and <a href=\"/companies/wise\">Wise</a> delivers around 60% of transfers instantly. Speed depends on funding method and destination — <a href=\"/send-money\">compare live speed</a> for your corridor.",
+          "Use a provider that pays out over the receiving country's instant payment system (UPI, Pix, SPEI, SEPA Instant, Faster Payments or a mobile wallet), pay by debit card, and send on a weekday. When we sent money ourselves with TapTap Send and Wise, {{SPEED_TESTS_FAST}} of our {{SPEED_TESTS_TOTAL}} transfers were marked paid out within two minutes of being set up. <a href=\"/send-money\">Compare providers for your route</a>.",
       },
       {
         question: "Which app sends money the fastest?",
         answer:
-          "For most corridors, <a href=\"/companies/remitly\">Remitly</a> (Express), <a href=\"/companies/taptap-send\">TapTap Send</a>, and <a href=\"/companies/wise\">Wise</a> are the fastest. <a href=\"/companies/xoom\">Xoom</a> and <a href=\"/companies/paysend\">Paysend</a> also deliver to cards and wallets in minutes. Revolut transfers between Revolut users are instant and free. The fastest app varies by destination — see our full ranking above.",
+          "No app is fastest everywhere: the route, the day and the amount matter more than the brand. Wise's own estimate is within a minute on most busy routes and days on others, and it lengthens at the weekend. In our own tests, TapTap Send and Wise both paid out within minutes to Pakistan. We have not yet timed Remitly, Western Union or Ria.",
       },
       {
-        question: "Can I send money internationally instantly?",
+        question: "Does the day I send money make a difference?",
         answer:
-          "Yes — to many destinations. Transfers to mobile wallets or debit cards on corridors with real-time payment rails (India's UPI, EU instant SEPA, UK Faster Payments, Philippines InstaPay) can settle in seconds to minutes when funded by debit card. Bank-funded transfers are cheaper but slower. Your first transfer with any provider may be slower due to identity verification.",
+          "On some routes. Where the receiving country settles instantly, the day makes little difference. Elsewhere it does: Wise promises delivery within a day on {{SPEED_WISE_DAY_WITHIN_DAY:Monday}} of its quotes for {{SPEED_WISE_AMOUNT}} dollars, pounds or euros asked on a Monday and on {{SPEED_WISE_DAY_WITHIN_DAY:Saturday}} asked on a Saturday, because many receiving banks do not settle at weekends. For whether the day changes the exchange rate, see the <a href=\"/guides/best-day-to-send-money-abroad\">best day to send money abroad</a>.",
       },
       {
         question: "Why is my international transfer taking so long?",
         answer:
-          "Three things slow transfers down: paying by bank transfer instead of debit card (adds 1–3 days), first-time identity verification, and the destination country's payment rails. Transfers initiated late Friday may not clear until Monday. Check the provider's stated availability date — under <a href=\"https://www.consumerfinance.gov/sending-money/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">CFPB rules</a> they must disclose when funds will arrive.",
+          "Common causes are a weekend or holiday at the receiving bank, identity checks on a first transfer, paying by bank transfer instead of card, and a payout returned because the recipient's details did not match. A transfer the provider marks complete can still take time to show in the recipient's account: Swift reports that 90% of payments over its network reach the receiving bank within an hour, but 43% reach the customer's account in that time (<a href=\"https://www.silicon.co.uk/press-release/swift-cross-border-payment-processing-speed-stretches-further-ahead-of-g20-target\" target=\"_blank\" rel=\"noopener noreferrer\">Swift, October 2024</a>). Under <a href=\"https://www.consumerfinance.gov/sending-money/\" target=\"_blank\" rel=\"noopener noreferrer\">CFPB rules</a>, US providers must tell you before you pay when the money will be available.",
       },
       {
         question: "Is the fastest transfer also the most expensive?",
         answer:
-          "Usually not. In 2026 the fastest apps (Remitly, Wise, TapTap Send) offer minutes-fast delivery at the same low fees as their standard option. The main exception is debit-card funding, which adds a 1–3% card fee in exchange for speed. Compare the total cost including <a href=\"/guides/exchange-rate-markup-explained\">exchange rate markup</a>, not just the fee.",
+          "Usually not. Speed comes from the payout system and how you pay, and most of the cost difference between providers is in the exchange rate. Compare the total cost, including the <a href=\"/guides/exchange-rate-markup-explained\">exchange rate markup</a>, not just the fee.",
       },
     ],
     howToSteps: [
-      { name: "Choose a fast provider", text: "Pick an app with an express or instant option for your corridor — Remitly, Wise, TapTap Send or Xoom for most routes." },
-      { name: "Fund by debit card for speed", text: "Pay by debit card or app balance rather than bank transfer — bank/ACH funding is cheaper but adds 1–3 days." },
-      { name: "Choose the fastest delivery method", text: "Select mobile wallet, debit card, or cash pickup over a standard bank deposit where speed matters." },
-      { name: "Complete verification early", text: "Finish identity checks before you need to send — your first transfer is often slower due to anti-fraud review." },
-      { name: "Check the stated arrival time", text: "Confirm the provider's disclosed availability date before paying, and avoid late-Friday transfers that may wait for Monday processing." },
+      { name: "Pick a route the receiving country settles instantly", text: "Choose a payout over an instant system such as UPI, Pix, SPEI, SEPA Instant, Faster Payments or a mobile wallet." },
+      { name: "Pay by debit card or app balance", text: "A bank-transfer payment has to reach the provider before it can send anything." },
+      { name: "Send on a weekday", text: "Delivery promises lengthen at the weekend, when many receiving banks do not settle payments." },
+      { name: "Check the recipient's details", text: "Match the name and account number to the recipient's bank; a returned payout can take hours to go out again." },
+      { name: "Keep the promised time", text: "Screenshot the delivery date before you pay and ask the recipient when the money showed in their account." },
     ],
     relatedSlugs: [
       "cheapest-way-to-send-money-internationally",
