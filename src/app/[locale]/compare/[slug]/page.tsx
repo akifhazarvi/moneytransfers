@@ -3,6 +3,7 @@ import Link from "@/components/EligibleLink";
 import { robotsFor } from "@/lib/seo-indexing";
 import { postalAddress } from "@/lib/postal-address";
 import { quoteDataDate } from "@/lib/unified-quotes";
+import { COMPARISON_CONTENT_DATE, longDay } from "@/lib/content-dates";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { providers } from "@/data/providers";
@@ -368,9 +369,14 @@ function DefaultComparison({
                 <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">Awais Imran</Link>
               </span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <time dateTime={dataUpdatedDate}>
-                Updated {new Date(dataUpdatedDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
-              </time>
+              {/* "Updated" is when this comparison's text last changed, shared
+                  with sitemap.ts (rule 16); the quotes say when they were
+                  collected on their own line. */}
+              <time dateTime={COMPARISON_CONTENT_DATE}>Updated {longDay(COMPARISON_CONTENT_DATE)}</time>
+              <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
+              <span>
+                Rates collected <time dateTime={dataUpdatedDate}>{longDay(dataUpdatedDate)}</time>
+              </span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">Our methodology</Link>
             </div>

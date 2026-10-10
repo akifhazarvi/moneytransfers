@@ -44,7 +44,7 @@ npm run check:link-eligibility # internal links only to Google-eligible pages; /
 npm run check:pwa        # manifest installable, icons/screenshots/shortcuts exist, sw.js bypass + offline revision (prebuild)
 npm run check:redirects  # every 301 is one hop to a prerendered page; retired URLs 410 (postbuild)
 npm run check:corridor-sort # every corridor provider list descends by payout (postbuild)
-npm run check:lastmod    # a sitemap-google.xml lastmod equals the page's visible "Updated" date (postbuild)
+npm run check:lastmod    # a lastmod (sitemap.xml and sitemap-google.xml) equals the page's visible "Updated" date (postbuild)
 npm run check:link-eligibility # internal links point only at Google-eligible pages; /go /out are nofollow sponsored
 npm run build:google-eligible  # regenerate src/data/google-eligible-routes.json (= sitemap-google.xml; prebuild runs it)
 
@@ -230,7 +230,9 @@ what enforces it. Where a rule is not automated, it says how to check it.
     page's byline and `sitemap.ts` both read it. Never "today", build time or
     the 6-hourly data stamp as "Updated" — live figures get their own line
     ("Rates collected …"). Bump a family's date only when what it says
-    changes. *Enforced:* `check:lastmod` (postbuild).
+    changes. A page that prints a data date as "Updated" fails the build the
+    first time a scrape moves it (/iban/*, 2026-10-10). *Enforced:*
+    `check:lastmod` (postbuild, both sitemaps).
 17. **Google gets Bing earners back in dated batches, never in bulk.**
     Round-3 brief §3.4: release 10–20 QA-passed pages every 7–10 days,
     highest Bing demand first. `GOOGLE_RELEASE_BATCHES` in

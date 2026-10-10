@@ -16,7 +16,7 @@
 import Image from "next/image";
 import { COVERAGE } from "@/lib/site-stats";
 import { robotsFor } from "@/lib/seo-indexing";
-import { getDataUpdatedISO, getDataUpdatedInstant } from "@/lib/data-freshness";
+import { getDataUpdatedInstant } from "@/lib/data-freshness";
 import Link from "@/components/EligibleLink";
 import { notFound } from "next/navigation";
 import { ArrowRight, AlertCircle, TrendingDown } from "lucide-react";
@@ -48,8 +48,11 @@ import { providerLogo } from "@/lib/provider-logo";
 import { getBankEditorial } from "@/data/bank-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import { PageByline } from "@/components/PageByline";
+import { COMPARISON_CONTENT_DATE } from "@/lib/content-dates";
 
 /** Distinct table amount per bank page — see table-amounts.ts. */
+/** The day /banks/* launched (fcbeaaed7) — the Article datePublished. */
+const BANK_PAGES_PUBLISHED = "2026-05-22";
 const BANK_TABLE_AMOUNTS = assignTableAmounts(getAllPilotBankSlugs(), (b) => b, () => "bank", "banks");
 
 // Revalidate every 6 hours to match scraper cadence — these pages are
@@ -121,7 +124,6 @@ export default async function BankPage({ params }: Props) {
   const stats = getBankAggregateStats(slug);
   const editorial = getBankEditorial(slug);
   const recommendedProvider = providers.find((p) => p.slug === bank.recommendedAlternative.slug);
-  const dataFreshness = getDataUpdatedISO();
 
   // Pick the most "headline-worthy" loss row for the hero callout
   const heroExample = stats.largestLossExample;
@@ -143,8 +145,10 @@ export default async function BankPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: bank.headline,
-    datePublished: dataFreshness,
-    dateModified: dataFreshness,
+    // Content dates, not the six-hourly data stamp (rule 16): the pages
+    // launched 2026-05-22 (fcbeaaed7); dateModified is the visible "Updated".
+    datePublished: BANK_PAGES_PUBLISHED,
+    dateModified: COMPARISON_CONTENT_DATE,
     author: {
       "@type": "Organization",
       name: "SendMoneyCompare",
@@ -197,7 +201,7 @@ export default async function BankPage({ params }: Props) {
                 <p className="text-sm text-[var(--color-on-surface-variant)] mt-2">
                   {bank.country} · Founded {bank.founded} · Live data
                   {" · "}
-                  <LiveTimestamp iso={getDataUpdatedInstant()} />
+                  <LiveTimestamp iso={getDataUpdatedInstant()} prefix="Rates collected" />
                 </p>
               </div>
             </div>
@@ -260,7 +264,7 @@ export default async function BankPage({ params }: Props) {
             {/* Named editor + review date — flagged as missing on the two
                 brief-listed bank pages by the second validation pass. */}
             <div className="mb-6">
-              <PageByline updated={dataFreshness.slice(0, 10)} cadence={null} />
+              <PageByline updated={COMPARISON_CONTENT_DATE} cadence={null} />
             </div>
             <h2 className="text-h3 font-normal text-[var(--color-on-surface)] mb-4">
               How {bank.name} charges for international transfers

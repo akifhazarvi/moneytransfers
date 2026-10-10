@@ -8,7 +8,7 @@ import { newsItems } from "@/data/news";
 import { businessPages } from "@/data/business-pages";
 import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
-import { providerReviews } from "@/data/provider-reviews";
+import { getProviderReview, providerReviews } from "@/data/provider-reviews";
 import { authors } from "@/data/authors";
 import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
@@ -19,7 +19,15 @@ import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
 import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2 } from "@/data/search-engine-routes";
 import { HUB_COPY_REVIEWED } from "@/lib/send-money-hub";
-import { IBAN_CONTENT_DATE, RATE_HISTORY_CONTENT_DATE, SWIFT_CONTENT_DATE, pageUpdated, shownContentDate } from "@/lib/content-dates";
+import {
+  COMPARISON_CONTENT_DATE,
+  IBAN_CONTENT_DATE,
+  RATE_HISTORY_CONTENT_DATE,
+  SWIFT_CONTENT_DATE,
+  companyContentDate,
+  pageUpdated,
+  shownContentDate,
+} from "@/lib/content-dates";
 import { getTravelGuide } from "@/data/travel-guides";
 import { corridorPageRenders } from "@/lib/route-map";
 import readerSavings from "@/data/research/reader-savings.json";
@@ -91,7 +99,8 @@ const DATA_UPDATED = getDataUpdatedDate();
 // actually changed, per git history. Bump one when you change that family —
 // the same discipline STATIC_HUB_DATE already follows.
 const CORRIDOR_CONTENT_DATE = "2026-10-09";   // round-3: H1 pair spacing, indicative quotes unranked, 3-provider title rule, eligible-only rails
-const COMPARISON_CONTENT_DATE = "2026-10-09"; // /compare, /banks, review fallback — round-3: lead-share figures, independent reviewer, provider counts
+// COMPARISON_CONTENT_DATE (/compare, /banks, /companies profiles) lives in
+// content-dates.ts: those pages print it as their "Updated" date.
 const RATE_PAGE_CONTENT_DATE = "2026-09-01";  // /exchange-rates/* — inline quotes added
 
 /**
@@ -270,10 +279,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Provider reviews ──
   const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));
-  const reviewDateMap = new Map(providerReviews.map((r) => [r.slug, r.updatedAt || COMPARISON_CONTENT_DATE]));
   const providerPages: MetadataRoute.Sitemap = providers
     .filter((p) => reviewedSlugs.has(p.slug) && SITEMAP_PROVIDER_SLUGS.has(p.slug))
-    .map((p) => entry(`companies/${p.slug}`, reviewDateMap.get(p.slug) || COMPARISON_CONTENT_DATE));
+    .map((p) => entry(`companies/${p.slug}`, companyContentDate(getProviderReview(p.slug))));
 
   // ── Head-to-head comparison pages ──
   const comparisonPages: MetadataRoute.Sitemap = [...SITEMAP_COMPARISON_SLUGS].map((slug) =>
@@ -394,7 +402,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // list it came in through (reviewed routes stamp the day they were opened,
     // 2026-09-24, over /travel guides dated June). check:lastmod enforces it.
     .map((e) => {
-      const shown = shownContentDate(new URL(e.url).pathname, (slug) => getTravelGuide(slug)?.updatedDate);
+      const shown = shownContentDate(new URL(e.url).pathname, (slug) => getTravelGuide(slug)?.updatedDate, getProviderReview);
       return shown ? { ...e, lastModified: shown } : e;
     });
 }

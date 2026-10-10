@@ -32,6 +32,17 @@ export const METHODOLOGY_AUTHOR_SLUG = "ahsan-mukhtar";
 export const SWIFT_CONTENT_DATE = "2026-10-09";
 /** /iban/[country] — bank names readable, defunct banks dropped, country payment facts (brief §4.2/§4.3). */
 export const IBAN_CONTENT_DATE = "2026-10-09";
+/**
+ * /compare/[slug], /banks/[slug] and every /companies/[slug] profile without a
+ * published review — round-3: lead-share figures, measured company figures,
+ * provider counts (brief §4.3).
+ */
+export const COMPARISON_CONTENT_DATE = "2026-10-09";
+
+/** /companies/[slug]: a published review carries its own date; a profile is the template's. */
+export function companyContentDate(review?: { updatedAt: string; publishSections?: boolean }): string {
+  return review?.publishSections ? review.updatedAt : COMPARISON_CONTENT_DATE;
+}
 /** /exchange-rates/history/[pair] — month-by-month ranges and policy-decision table (brief §4.2). */
 export const RATE_HISTORY_CONTENT_DATE = "2026-10-09";
 /** /cash-out/[country] — corridor pills follow rule 14; sibling cash-out guides linked. */
@@ -73,12 +84,19 @@ export function pageUpdated(path: DatedPage): string {
 
 /**
  * The date a submitted URL's page shows, when it shows one — sitemap.ts uses
- * it as that URL's lastmod. Travel guides carry their own date in the data.
+ * it as that URL's lastmod. Travel guides and company reviews carry their own
+ * date in the data, which the caller looks up (this file imports no dataset).
  */
-export function shownContentDate(path: string, travelDate?: (slug: string) => string | undefined): string | undefined {
+export function shownContentDate(
+  path: string,
+  travelDate?: (slug: string) => string | undefined,
+  companyReview?: (slug: string) => { updatedAt: string; publishSections?: boolean } | undefined,
+): string | undefined {
   if (path in PAGE_UPDATED) return PAGE_UPDATED[path as DatedPage];
   if (path.startsWith("/swift-codes/")) return SWIFT_CONTENT_DATE;
   if (path.startsWith("/iban/")) return IBAN_CONTENT_DATE;
+  if (path.startsWith("/compare/") || path.startsWith("/banks/")) return COMPARISON_CONTENT_DATE;
+  if (path.startsWith("/companies/")) return companyContentDate(companyReview?.(path.slice("/companies/".length)));
   if (path.startsWith("/exchange-rates/history/")) return RATE_HISTORY_CONTENT_DATE;
   if (path.startsWith("/cash-out/")) return CASH_OUT_CONTENT_DATE;
   if (path.startsWith("/travel/")) return travelDate?.(path.slice("/travel/".length));

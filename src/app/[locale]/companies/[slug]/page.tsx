@@ -34,7 +34,7 @@ import { fitTitle } from "@/lib/seo-title";
 import { comparePageHref, alternativesPageRenders, companyPageRenders, corridorPageRenders } from "@/lib/route-map";
 import { getCorridor } from "@/data/corridors";
 import { PageByline } from "@/components/PageByline";
-import { quoteDataDate } from "@/lib/unified-quotes";
+import { companyContentDate } from "@/lib/content-dates";
 import { getCompanyEditorial } from "@/data/company-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import PropertyTransferIllustration from "@/components/PropertyTransferIllustration";
@@ -259,7 +259,9 @@ function DefaultReview({
             one gives E-E-A-T nothing to read. */}
         <div className="mb-6">
           <PageByline
-            updated={review?.publishSections ? review.updatedAt : quoteDataDate ?? new Date().toISOString().split("T")[0]}
+            // The content date, shared with sitemap.ts (rule 16) — not the
+            // quote data, which the default cadence line describes.
+            updated={companyContentDate(review)}
             // Round-3 brief §4.3: profiles read "By Awais Imran · Reviewed by
             // Awais Imran" — a writer reviewing his own page is not a review.
             // The reviewer is now the review's recorded fact-checker

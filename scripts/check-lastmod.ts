@@ -13,7 +13,13 @@
  * constant shared with sitemap.ts (src/lib/content-dates.ts); this keeps them
  * from drifting apart again.
  *
- * What is asserted: for every URL in the built sitemap-google.xml whose
+ * Both sitemaps are read (2026-10-10). Reading only sitemap-google.xml left
+ * the Bing-only families unchecked: 109 /companies, /compare and /banks pages
+ * printed the six-hourly data date as "Updated" over a fixed lastmod in
+ * sitemap.xml — the sitemap Bing reads, where the site earns — and each would
+ * have failed this check only on the day a release batch moved it to Google.
+ *
+ * What is asserted: for every URL in the built sitemap.xml or sitemap-google.xml whose
  * prerendered HTML shows "Updated <date>" or "Last updated: <date>" ("Month D, YYYY",
  * "YYYY-MM-DD", "D Month YYYY", or month-only "Month YYYY"), every such date
  * equals the lastmod day (month-only: the same month). Pages that show no
@@ -33,8 +39,8 @@ const APP = process.env.CHECK_APP_DIR || join(__dirname, "..", ".next/server/app
 const REPORT_ONLY = process.argv.includes("--report");
 const SITE = "https://sendmoneycompare.com";
 
-const smBody = join(APP, "sitemap-google.xml.body");
-if (!existsSync(smBody)) {
+const SITEMAPS = ["sitemap.xml", "sitemap-google.xml"] as const;
+if (SITEMAPS.some((s) => !existsSync(join(APP, `${s}.body`)))) {
   console.error("check:lastmod needs a build first — run `npm run build`.");
   process.exit(1);
 }
@@ -70,15 +76,27 @@ function visibleText(html: string): string {
     .replace(/\s+/g, " ");
 }
 
-const entries = [...readFileSync(smBody, "utf8").matchAll(/<loc>(.*?)<\/loc>\s*(?:<lastmod>(.*?)<\/lastmod>)?/g)].map((m) => ({
-  path: m[1].slice(SITE.length) || "/",
-  lastmod: (m[2] ?? "").slice(0, 10),
-}));
-
 const mismatches: string[] = [];
 const undated: string[] = [];
 const unrendered: string[] = [];
 let matched = 0;
+
+// One lastmod per URL: a URL in both sitemaps must carry the same date in each.
+const lastmods = new Map<string, string>();
+let googleUrls = 0;
+for (const sitemap of SITEMAPS) {
+  const body = readFileSync(join(APP, `${sitemap}.body`), "utf8");
+  for (const m of body.matchAll(/<loc>(.*?)<\/loc>\s*(?:<lastmod>(.*?)<\/lastmod>)?/g)) {
+    const path = m[1].slice(SITE.length) || "/";
+    const lastmod = (m[2] ?? "").slice(0, 10);
+    if (sitemap === "sitemap-google.xml") googleUrls++;
+    const prior = lastmods.get(path);
+    if (prior === undefined) lastmods.set(path, lastmod);
+    else if (prior !== lastmod) mismatches.push(`${path}: sitemap.xml lastmod ${prior || "(none)"}, sitemap-google.xml ${lastmod || "(none)"}`);
+  }
+}
+const entries = [...lastmods].map(([path, lastmod]) => ({ path, lastmod }));
+
 for (const { path, lastmod } of entries) {
   const file = join(APP, path === "/" ? "en.html" : `en${path}.html`);
   if (!existsSync(file)) {
@@ -96,7 +114,7 @@ for (const { path, lastmod } of entries) {
 }
 
 console.log(
-  `check:lastmod — ${entries.length} URLs in sitemap-google.xml: ${matched} match their visible "Updated" date, ` +
+  `check:lastmod — ${entries.length} URLs in sitemap.xml + sitemap-google.xml (${googleUrls} Google): ${matched} match their visible "Updated" date, ` +
     `${mismatches.length} disagree, ${undated.length} show none, ${unrendered.length} not prerendered.`,
 );
 if (undated.length) console.log(`  no visible "Updated" date (${undated.length}): ${undated.join(" ")}`);
