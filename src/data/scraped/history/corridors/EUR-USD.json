@@ -13807,7 +13807,7 @@
       "lemfi": {
         "rate": 1.12,
         "fee": 0,
-        "markup": 0.01,
+        "markup": 0.03,
         "receiveAmount": 112
       },
       "taptap-send": {
@@ -13817,10 +13817,10 @@
         "receiveAmount": 111
       },
       "moneygram": {
-        "rate": 1.10551,
+        "rate": 1.1062,
         "fee": 1.99,
-        "markup": 1.31,
-        "receiveAmount": 108.35
+        "markup": 1.25,
+        "receiveAmount": 108.42
       },
       "western-union": {
         "rate": 1.09002,
