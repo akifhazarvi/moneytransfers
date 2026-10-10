@@ -113,7 +113,14 @@ what enforces it. Where a rule is not automated, it says how to check it.
    `{{AVG_MARKUP_PCT:slug}}`, `{{TRUSTPILOT:slug}}` — or label an editorial
    pick "Editor's pick". Never say the UK left SEPA: the EPC kept it in
    SEPA's scope after Brexit as a non-EEA member (BIC + payer address
-   required) — ~30 passages said otherwise until 2026-09-29. Hand-typed markup figures ("within 0.5–1% of
+   required) — ~30 passages said otherwise until 2026-09-29. Speed is a promise
+   unless we timed it: never invent a delivery time (`|| "1-3 business days"`
+   printed on 6% of quotes until 2026-10-09; use `SPEED_NOT_PUBLISHED`), and a
+   provider's speed statistic ("95% of transfers in under 3 minutes") is ITS
+   claim — attribute it and link its source (`speed-fallback` hard,
+   `speed-statistic` ratchet). Our own timed transfers live in
+   `src/data/research/delivery-tests.json` and time the provider's last step,
+   not the recipient's bank. Hand-typed markup figures ("within 0.5–1% of
    mid-market") are legacy debt on a ratchet (`scripts/claims-baseline.json`):
    the count may fall, never rise; so may the "(example)" table cells that
    hold invented payouts. *Enforced:* `check:claims` (prebuild), and

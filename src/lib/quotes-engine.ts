@@ -12,6 +12,7 @@
  * or the dataset.
  */
 import { providers, getExchangeRate, HIDDEN_PROVIDER_SLUGS, type Provider, type TransferQuote } from "@/data/providers";
+import { SPEED_NOT_PUBLISHED } from "@/lib/delivery-labels";
 import { rankQuotes } from "@/lib/rank-quotes";
 import {
   quotesByCorridor,
@@ -145,7 +146,8 @@ export function generateQuotes(
         exchangeRate: Math.round(providerRate * 10000) / 10000,
         fee: Math.round(fee * 100) / 100,
         receiveAmount: Math.round(receiveAmount * 100) / 100,
-        transferSpeed: estimate.deliveryEstimate || sq.deliveryEstimate || provider?.transferSpeed || "1-3 business days",
+        // A source's published estimate, else the provider's own published line; never an invented one.
+        transferSpeed: estimate.deliveryEstimate || sq.deliveryEstimate || provider?.transferSpeed || SPEED_NOT_PUBLISHED,
         rating,
         ratingIsTrustpilot: tp?.score != null,
         ratingLabel,

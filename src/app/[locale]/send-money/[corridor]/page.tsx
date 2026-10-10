@@ -2461,7 +2461,7 @@ export default async function CorridorPage({ params }: Props) {
                         <div className="hidden md:flex items-center gap-6 flex-1 min-w-0">
                           <div className="w-[110px] shrink-0">
                             <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Speed</p>
-                            <p className="text-2sm text-[var(--color-on-surface)] mt-0.5">{br.deliveryEstimate || "1-3 days"}</p>
+                            <p className="text-2sm text-[var(--color-on-surface)] mt-0.5">{br.deliveryEstimate || "\u2014"}</p>
                           </div>
                           <div className="w-[80px] shrink-0">
                             <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Fee</p>
@@ -2510,7 +2510,7 @@ export default async function CorridorPage({ params }: Props) {
                             </div>
                           </div>
                           <div className="flex items-center gap-3 mt-1.5 text-2xs text-[var(--color-on-surface-variant)]">
-                            <span>{br.deliveryEstimate || "1-3 days"}</span>
+                            <span>{br.deliveryEstimate || "\u2014"}</span>
                             <span className="w-px h-3 bg-[var(--color-outline)]" />
                             <span className={br.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{br.fee === 0 ? "Free" : `${sendSymbol}${br.fee.toFixed(2)}`} fee</span>
                             <span className="w-px h-3 bg-[var(--color-outline)]" />

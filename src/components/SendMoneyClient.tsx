@@ -23,6 +23,7 @@ import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
 import RatingBadge from "@/components/RatingBadge";
 import { providerLogo } from "@/lib/provider-logo";
+import { SPEED_NOT_PUBLISHED } from "@/lib/delivery-labels";
 
 type SortBy = "receiveAmount" | "fee" | "rating" | "deals";
 type SpeedFilter = "" | "instant" | "same-day" | "1-2-days" | "3-plus-days";
@@ -314,6 +315,9 @@ function SendMoneyContent() {
     if (speedFilter) {
       result = result.filter((q) => {
         const s = q.transferSpeed.toLowerCase();
+        // No published time: matches no specific speed band (as the old
+        // invented "1-3 business days" fallback did not).
+        if (q.transferSpeed === SPEED_NOT_PUBLISHED) return speedFilter === "3-plus-days";
         switch (speedFilter) {
           case "instant": return s.includes("instant") || s.includes("minute");
           case "same-day": return s.includes("instant") || s.includes("minute") || s.includes("same");

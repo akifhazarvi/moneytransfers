@@ -140,9 +140,23 @@ const HARD: Rule[] = [
     re: /\{\{WINRATE:[a-z0-9-]+\}\}/g,
     allow: (before, _m, after) => /\bdays?\b/i.test(after.slice(0, 50)) || /\bdays?\b[^.]{0,40}$/i.test(before),
   },
+  // `|| "1-3 business days"`: a delivery time invented for any quote whose
+  // source published none — 6% of the comparison's quotes at $1,000 until
+  // 2026-10-09. Fall back to SPEED_NOT_PUBLISHED (src/lib/delivery-labels.ts).
+  { id: "speed-fallback", re: /\|\|\s*"\d+\s*-\s*\d+\s+(?:business\s+)?days"/g },
 ];
 
 const RATCHET: Rule[] = [
+  // "95% of transfers delivered in under 3 minutes": a provider's speed
+  // statistic stated as our fact. TapTap Send and Wise do publish such figures
+  // (self-reported, dated), so the fix is attribution with a linked source,
+  // as in /guides/fastest-way-to-send-money-internationally — a link within
+  // the sentence passes. ~35 unattributed copies pre-date the rule (2026-10-09).
+  {
+    id: "speed-statistic",
+    re: /\b\d{1,3}%\s+of\s+(?:its\s+|their\s+|all\s+)?(?:transfers|transactions|payments)\b[^.<]{0,60}?\b(?:minutes?|seconds?|instant(?:ly)?|hours?)\b/gi,
+    allow: (_b, _m, after) => /<a href=\\?"https?:\/\//.test(after),
+  },
   // "₦2,050,000 (example)": invented figures in a table dressed as a comparison.
   // Replace with {{QUOTE_TABLE:…}} or {{BEST_PROVIDER:…}}/{{BEST_RECEIVE:…}}.
   { id: "invented-example", re: /\(example\)<\/td>/g },
@@ -241,7 +255,7 @@ const errors: string[] = [];
 for (const h of hard) errors.push(`${h.rule}: ${h.file}:${h.line}  …${h.text}…`);
 for (const [id, n] of Object.entries(counts)) {
   const max = baseline[id] ?? 0;
-  if (n > max) errors.push(`${id}: ${n} hand-typed figures, baseline ${max} — new content must use a data token`);
+  if (n > max) errors.push(`${id}: ${n} hand-typed figures, baseline ${max} — new content must use a data token${id === "speed-statistic" ? " or link the provider's own source" : ""}`);
   else if (n < max) console.log(`check:claims — ${id} fell ${max} → ${n}; lower the baseline with --update-baseline`);
 }
 
