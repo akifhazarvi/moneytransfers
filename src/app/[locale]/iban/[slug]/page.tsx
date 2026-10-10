@@ -22,7 +22,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { INDEXED_IBAN_SLUGS as indexedIbanCountries, robotsFor } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 import { PageByline } from "@/components/PageByline";
-import { quoteDataDate } from "@/lib/unified-quotes";
+import { IBAN_CONTENT_DATE } from "@/lib/content-dates";
 
 // Default sending currency for the inline comparison. USD is the largest
 // outbound remittance market and the site's default quote currency; the widget
@@ -546,10 +546,12 @@ export default async function IbanCountryPage({ params }: Props) {
                 69 countries are registry members whose length matches the
                 registry spec, and every example IBAN validates (checksum,
                 BBAN format, length) against ibantools 4.5.4's registry specs.
-                The date stays quoteDataDate: this page carries live quotes. */}
+                "Updated" is the content date, shared with sitemap.ts (rule 16):
+                the live quotes below print their own "priced" date. The data
+                stamp here failed check:lastmod on the first scrape of Oct 10. */}
             <div className="mb-4">
               <PageByline
-                updated={quoteDataDate ?? new Date().toISOString().split("T")[0]}
+                updated={IBAN_CONTENT_DATE}
                 cadence="IBAN formats match the SWIFT IBAN Registry"
               />
             </div>

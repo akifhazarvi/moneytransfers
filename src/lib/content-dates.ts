@@ -30,6 +30,8 @@ export const METHODOLOGY_AUTHOR_SLUG = "ahsan-mukhtar";
 
 /** /swift-codes/[country] — country corridor links in the content (brief §5.3). */
 export const SWIFT_CONTENT_DATE = "2026-10-09";
+/** /iban/[country] — bank names readable, defunct banks dropped, country payment facts (brief §4.2/§4.3). */
+export const IBAN_CONTENT_DATE = "2026-10-09";
 /** /exchange-rates/history/[pair] — month-by-month ranges and policy-decision table (brief §4.2). */
 export const RATE_HISTORY_CONTENT_DATE = "2026-10-09";
 /** /cash-out/[country] — corridor pills follow rule 14; sibling cash-out guides linked. */
@@ -76,6 +78,7 @@ export function pageUpdated(path: DatedPage): string {
 export function shownContentDate(path: string, travelDate?: (slug: string) => string | undefined): string | undefined {
   if (path in PAGE_UPDATED) return PAGE_UPDATED[path as DatedPage];
   if (path.startsWith("/swift-codes/")) return SWIFT_CONTENT_DATE;
+  if (path.startsWith("/iban/")) return IBAN_CONTENT_DATE;
   if (path.startsWith("/exchange-rates/history/")) return RATE_HISTORY_CONTENT_DATE;
   if (path.startsWith("/cash-out/")) return CASH_OUT_CONTENT_DATE;
   if (path.startsWith("/travel/")) return travelDate?.(path.slice("/travel/".length));

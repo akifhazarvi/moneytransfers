@@ -19,7 +19,7 @@ import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
 import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2 } from "@/data/search-engine-routes";
 import { HUB_COPY_REVIEWED } from "@/lib/send-money-hub";
-import { RATE_HISTORY_CONTENT_DATE, SWIFT_CONTENT_DATE, pageUpdated, shownContentDate } from "@/lib/content-dates";
+import { IBAN_CONTENT_DATE, RATE_HISTORY_CONTENT_DATE, SWIFT_CONTENT_DATE, pageUpdated, shownContentDate } from "@/lib/content-dates";
 import { getTravelGuide } from "@/data/travel-guides";
 import { corridorPageRenders } from "@/lib/route-map";
 import readerSavings from "@/data/research/reader-savings.json";
@@ -61,8 +61,7 @@ const BING_DEMAND_WAVE_2_DATE = "2026-10-08"; // round-3 brief §3.1 + restored 
 // Round-3 brief (2026-10-08/09) content changes — §6.1: "change lastmod only
 // when the content genuinely changes", so each family that changed is restamped
 // and nothing else is.
-const IBAN_CONTENT_DATE = "2026-10-09";        // bank names readable, defunct banks dropped, country payment facts (§4.2/§4.3)
-// RATE_HISTORY_CONTENT_DATE, SWIFT_CONTENT_DATE and every page that prints an
+// IBAN_CONTENT_DATE, RATE_HISTORY_CONTENT_DATE, SWIFT_CONTENT_DATE and every page that prints an
 // "Updated" date read from src/lib/content-dates.ts, the same constant the page
 // shows (round-3 QA item 7; check:lastmod).
 
