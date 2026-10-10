@@ -20585,15 +20585,15 @@
     "date": "2026-10-10",
     "providers": {
       "instarem": {
-        "rate": 67.558,
+        "rate": 67.5242,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 6755.8
+        "markup": 0.05,
+        "receiveAmount": 6752.42
       },
       "lemfi": {
         "rate": 67.53,
         "fee": 0,
-        "markup": -0.08,
+        "markup": 0.09,
         "receiveAmount": 6753
       },
       "moneygram": {
@@ -20621,10 +20621,10 @@
         "receiveAmount": 6541.5
       },
       "remitly": {
-        "rate": 67.54,
+        "rate": 67.56,
         "fee": 0.99,
-        "markup": -0.1,
-        "receiveAmount": 6687.14
+        "markup": -0.13,
+        "receiveAmount": 6689.12
       },
       "revolut": {
         "rate": 67.1283,
@@ -20639,10 +20639,10 @@
         "receiveAmount": 6511.02
       },
       "taptap-send": {
-        "rate": 67.51,
+        "rate": 67.55,
         "fee": 1.99,
-        "markup": -0.05,
-        "receiveAmount": 6616.66
+        "markup": -0.11,
+        "receiveAmount": 6620.58
       },
       "nab": {
         "rate": 65.264,

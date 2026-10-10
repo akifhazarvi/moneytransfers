@@ -1,29 +1,29 @@
 {
   "dataAsOf": "2026-10-10",
-  "corridorsScored": 204,
+  "corridorsScored": 206,
   "corridorsWithAnyScore": 1032,
-  "singleProviderReadings": 828,
+  "singleProviderReadings": 826,
   "bands": {
-    "exceptional": 15,
-    "great": 70,
-    "good": 40,
-    "typical": 24,
-    "poor": 55
+    "exceptional": 17,
+    "great": 65,
+    "good": 44,
+    "typical": 22,
+    "poor": 58
   },
   "goodOrBetterPct": 61,
   "confidence": {
-    "high": 204,
+    "high": 206,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 197,
+  "medianDaysObserved": 196,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 84,
+      "score": 85,
       "band": "great",
       "headline": "Great time to send",
-      "explanation": "Best rate +0.76% vs the 30-day average, near the 90-day high. Rates are improving — +0.54% week on week. Today's best beats the median provider by +1.93%.",
+      "explanation": "Best rate +0.76% vs the 30-day average, near the 90-day high. Rates are improving — +0.54% week on week. Today's best beats the median provider by +2.30%.",
       "components": [
         {
           "key": "range",
@@ -43,8 +43,8 @@
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 97.4235063388225,
-          "detail": "today's best beats the median provider by +1.93%"
+          "score": 100,
+          "detail": "today's best beats the median provider by +2.30%"
         },
         {
           "key": "trend",

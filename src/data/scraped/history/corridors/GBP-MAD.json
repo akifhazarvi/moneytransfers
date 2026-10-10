@@ -3029,10 +3029,10 @@
     "date": "2026-10-10",
     "providers": {
       "lemfi": {
-        "rate": 12.86,
+        "rate": 13,
         "fee": 0,
-        "markup": 0.37,
-        "receiveAmount": 1286
+        "markup": -0.71,
+        "receiveAmount": 1300
       },
       "taptap-send": {
         "rate": 12.95,

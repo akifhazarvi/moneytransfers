@@ -7036,16 +7036,16 @@
     "date": "2026-10-10",
     "providers": {
       "lemfi": {
-        "rate": 9.747,
-        "fee": 0,
-        "markup": 0.08,
-        "receiveAmount": 974.7
-      },
-      "taptap-send": {
         "rate": 9.83,
         "fee": 0,
         "markup": -0.77,
         "receiveAmount": 983
+      },
+      "taptap-send": {
+        "rate": 9.82,
+        "fee": 0,
+        "markup": -0.67,
+        "receiveAmount": 982
       },
       "western-union": {
         "rate": 9.6918,
@@ -7060,10 +7060,10 @@
         "receiveAmount": 963.96
       },
       "xoom": {
-        "rate": 9.37144,
+        "rate": 9.3798,
         "fee": 4.99,
-        "markup": 3.93,
-        "receiveAmount": 890.38
+        "markup": 3.84,
+        "receiveAmount": 891.17
       },
       "wise": {
         "rate": 9.7534,
