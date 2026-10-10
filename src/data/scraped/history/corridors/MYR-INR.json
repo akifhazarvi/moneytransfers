@@ -3733,14 +3733,14 @@
       "western-union": {
         "rate": 23.5105,
         "fee": 5,
-        "markup": 0.7,
+        "markup": 0.54,
         "receiveAmount": 2233.5
       },
       "instarem": {
-        "rate": 23.6538,
+        "rate": 23.6608,
         "fee": 0.55,
-        "markup": 0.1,
-        "receiveAmount": 2352.37
+        "markup": -0.1,
+        "receiveAmount": 2353.07
       }
     }
   }
