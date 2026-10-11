@@ -233,6 +233,9 @@ const affiliateLinks: Record<string, string> = {
   bbva: "https://www.bbva.es/",
   lacaixa: "https://www.caixabank.es/",
   sabadell: "https://www.bancsabadell.com/",
+  // First quoted 2026-10-10 (Wise comparison + RemitRoutes); both 200 that day.
+  "banco-santander-es": "https://www.bancosantander.es/",
+  sparkasse: "https://www.sparkasse.de/",
   "ing-de": "https://www.ing.de/",
   "hang-seng": "https://www.hangseng.com/",
   "china-construction-bank-hk": "https://www.asia.ccb.com/",
