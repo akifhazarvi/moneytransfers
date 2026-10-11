@@ -1,13 +1,24 @@
 /**
- * Ria Money Transfer Scraper (Hybrid: Browser Auth + API Calls)
+ * Ria Money Transfer Scraper (session token + API calls)
  *
- * Strategy: Use ONE Playwright page load to extract the Bearer JWT token
- * from Ria's homepage, then call their Calculate API directly for all corridors.
+ * Strategy: get a Bearer JWT from Ria's public session endpoint, then call
+ * their Calculate API directly for all corridors. A Playwright page load of
+ * the homepage, which used to be the only way to get the token, is the fallback.
  *
- * This is ~10x faster than browser-per-corridor since only 1 page load is needed.
+ * WHY THE SESSION ENDPOINT (2026-10-11)
+ * From 2026-10-09 every CI run captured no token: www.riamoneytransfer.com
+ * now loads Cloudflare's bot-detection script, and the homepage's calculator
+ * never called Initialize from GitHub's runners, so all 66 corridors were
+ * skipped three days running and Ria's rows aged past the 72h stale gate.
+ * The token the homepage uses comes from
+ * GET public.riamoneytransfer.com/public/authorization/session, returned in a
+ * `bearer` response header; that host is not behind Cloudflare and answers a
+ * plain request. One session token prices every send country: GBP→INR,
+ * EUR→TRY and AUD→PHP returned the same rate, promo rate, fee and total with
+ * it as with the per-region homepage token (checked 2026-10-11).
  *
  * API: POST https://public.riamoneytransfer.com/MoneyTransferCalculator/Calculate
- * Auth: Bearer JWT (extracted from page load, expires ~20min)
+ * Auth: Bearer JWT (session endpoint or page load, expires ~20min)
  * Required headers: authorization, client-type, culturecode, appversion
  */
 import {
@@ -108,8 +119,37 @@ const LOCALE_MAP: Record<string, string> = {
   SG: "en-sg", NZ: "en-nz",
 };
 
+const API_UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36";
+
 /**
- * Step 1: Extract Bearer JWT from a single browser page load.
+ * Step 1: a Bearer JWT from the public session endpoint (see the header), else
+ * from a browser page load of the region's homepage.
+ */
+async function getBearerToken(locale: string): Promise<{ token: string; cookies: string } | null> {
+  try {
+    const res = await fetch("https://public.riamoneytransfer.com/public/authorization/session", {
+      headers: {
+        "User-Agent": API_UA,
+        Accept: "application/json",
+        Origin: "https://www.riamoneytransfer.com",
+        Referer: "https://www.riamoneytransfer.com/",
+      },
+      signal: AbortSignal.timeout(15000),
+    });
+    const bearer = res.headers.get("bearer");
+    if (res.ok && bearer) {
+      console.log(`  ✓ Got Bearer token from the session endpoint (${bearer.length} chars)`);
+      return { token: `Bearer ${bearer}`, cookies: "" };
+    }
+    console.log(`  ⚠ Session endpoint answered ${res.status}${bearer ? "" : " without a bearer header"} — trying the homepage`);
+  } catch (err) {
+    console.log(`  ⚠ Session endpoint failed: ${(err as Error).message?.slice(0, 80)} — trying the homepage`);
+  }
+  return extractBearerToken(locale);
+}
+
+/**
+ * Fallback: extract the Bearer JWT from a single browser page load.
  * The token is sent as Authorization header on the Initialize call.
  */
 async function extractBearerToken(locale: string = "en-us"): Promise<{ token: string; cookies: string } | null> {
@@ -197,11 +237,11 @@ async function fetchRiaQuote(
         CultureCode: locale.replace("-", "-").toUpperCase().replace(/^(..)-(..)/,
           (_, a, b) => `${a.toLowerCase()}-${b.toUpperCase()}`),
         AppVersion: "4.0",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+        "User-Agent": API_UA,
         Accept: "application/json",
         Origin: "https://www.riamoneytransfer.com",
         Referer: "https://www.riamoneytransfer.com/",
-        Cookie: cookies,
+        ...(cookies ? { Cookie: cookies } : {}),
       },
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(15000),
@@ -260,11 +300,13 @@ async function fetchRiaQuote(
 }
 
 async function main() {
-  console.log("=== Ria Money Transfer Scraper (Hybrid Auth + API) ===\n");
+  console.log("=== Ria Money Transfer Scraper (Session Auth + API) ===\n");
   console.log(`Corridors: ${CORRIDORS.length}`);
   console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}\n`);
 
-  // Group corridors by send country — each region needs its own JWT
+  // Group corridors by send country — a fresh JWT per region keeps each one
+  // well inside the token's ~20-minute life (and the homepage fallback needs
+  // the region's own page).
   const byRegion = new Map<string, typeof CORRIDORS>();
   for (const corridor of CORRIDORS) {
     const locale = LOCALE_MAP[corridor.countryFrom] || "en-us";
@@ -281,7 +323,7 @@ async function main() {
   for (const [locale, corridors] of byRegion) {
     console.log(`\n━━━ Region: ${locale} (${corridors.length} corridors) ━━━`);
 
-    const auth = await extractBearerToken(locale);
+    const auth = await getBearerToken(locale);
     if (!auth) {
       console.log(`  ✗ Skipping ${locale} — failed to get JWT`);
       failCount += corridors.length * SEND_AMOUNTS.length;
