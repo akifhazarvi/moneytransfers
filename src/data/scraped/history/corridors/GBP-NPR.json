@@ -11349,7 +11349,7 @@
       "moneygram": {
         "rate": 204.355,
         "fee": 0.99,
-        "markup": 0.23,
+        "markup": 0.28,
         "receiveAmount": 20233.19
       },
       "taptap-send": {
@@ -11361,26 +11361,26 @@
       "western-union": {
         "rate": 203.133,
         "fee": 0.5,
-        "markup": 0.83,
+        "markup": 0.88,
         "receiveAmount": 20211.72
       },
       "transfergo": {
-        "rate": 200.372,
+        "rate": 200.22,
         "fee": 0,
-        "markup": 2.18,
-        "receiveAmount": 20037.2
+        "markup": 2.3,
+        "receiveAmount": 20021.96
       },
       "worldremit": {
         "rate": 203.582,
         "fee": 0.99,
-        "markup": 0.61,
+        "markup": 0.66,
         "receiveAmount": 20156.61
       },
       "instarem": {
-        "rate": 203.65,
+        "rate": 203.665,
         "fee": 0,
-        "markup": 0.58,
-        "receiveAmount": 20364.99
+        "markup": 0.62,
+        "receiveAmount": 20366.53
       },
       "xe": {
         "rate": 203.129,
@@ -11389,34 +11389,34 @@
         "receiveAmount": 19703.49
       },
       "paysend": {
-        "rate": 203.409,
+        "rate": 203.44,
         "fee": 1,
-        "markup": 0.69,
-        "receiveAmount": 20137.48
+        "markup": 0.73,
+        "receiveAmount": 20140.52
       },
       "remitly": {
         "rate": 203.53,
         "fee": 0.99,
-        "markup": 0.63,
+        "markup": 0.68,
         "receiveAmount": 20151.51
       },
       "revolut": {
-        "rate": 202.452,
+        "rate": 202.31,
         "fee": 2.1,
-        "markup": 1.16,
-        "receiveAmount": 19820.05
+        "markup": 1.28,
+        "receiveAmount": 19806.16
       },
       "wise": {
-        "rate": 204.846,
+        "rate": 204.825,
         "fee": 2.39,
-        "markup": -0.01,
-        "receiveAmount": 19995
+        "markup": 0.05,
+        "receiveAmount": 19993
       },
       "skrill": {
-        "rate": 200.759,
+        "rate": 200.813,
         "fee": 0,
-        "markup": 1.99,
-        "receiveAmount": 20075.93
+        "markup": 2.01,
+        "receiveAmount": 20081.25
       }
     }
   }

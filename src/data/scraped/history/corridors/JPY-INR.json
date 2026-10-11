@@ -2771,14 +2771,20 @@
       "instarem": {
         "rate": 0.607,
         "fee": 0,
-        "markup": 0.67,
+        "markup": 0.7,
         "receiveAmount": 60.7
       },
       "revolut": {
-        "rate": 0.607175,
+        "rate": 0.607273,
         "fee": 1,
-        "markup": 0.64,
-        "receiveAmount": 60.11
+        "markup": 0.66,
+        "receiveAmount": 60.12
+      },
+      "xe": {
+        "rate": 0.60332,
+        "fee": 0,
+        "markup": 1.3,
+        "receiveAmount": 60.33
       }
     }
   }

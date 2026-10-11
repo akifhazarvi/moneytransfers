@@ -6994,19 +6994,19 @@
       "moneygram": {
         "rate": 12.1924,
         "fee": 8,
-        "markup": 1.07,
+        "markup": 1.1,
         "receiveAmount": 1121.7
       },
       "western-union": {
         "rate": 12.2688,
         "fee": 5,
-        "markup": 0.45,
+        "markup": 0.48,
         "receiveAmount": 1165.54
       },
       "currencyfair": {
         "rate": 12.238,
         "fee": 9.81,
-        "markup": 0.7,
+        "markup": 0.73,
         "receiveAmount": 1103.75
       },
       "wise": {
@@ -7014,6 +7014,12 @@
         "fee": 8.36,
         "markup": 0.42,
         "receiveAmount": 1124.52
+      },
+      "xe": {
+        "rate": 12.0884,
+        "fee": 30,
+        "markup": 1.95,
+        "receiveAmount": 846.18
       }
     }
   }

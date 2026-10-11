@@ -12360,7 +12360,7 @@
       "moneygram": {
         "rate": 52.2812,
         "fee": 4.99,
-        "markup": 3.87,
+        "markup": 3.73,
         "receiveAmount": 4967.24
       },
       "skrill": {
@@ -12372,26 +12372,26 @@
       "western-union": {
         "rate": 53.4,
         "fee": 1.2,
-        "markup": 1.81,
+        "markup": 1.67,
         "receiveAmount": 5275.92
       },
       "remitly": {
-        "rate": 53.59,
+        "rate": 53.49,
         "fee": 2.99,
-        "markup": 1.46,
-        "receiveAmount": 5198.77
+        "markup": 1.5,
+        "receiveAmount": 5189.06
       },
       "revolut": {
-        "rate": 53.9422,
+        "rate": 53.9509,
         "fee": 1.75,
-        "markup": 0.81,
-        "receiveAmount": 5299.83
+        "markup": 0.65,
+        "receiveAmount": 5300.68
       },
       "ria": {
-        "rate": 53.6374,
+        "rate": 53.7518,
         "fee": 1.99,
-        "markup": 1.44,
-        "receiveAmount": 5257
+        "markup": 1.23,
+        "receiveAmount": 5268.22
       },
       "bank-of-new-zealand-nz": {
         "rate": 52.9362,
@@ -12410,6 +12410,12 @@
         "fee": 1.73,
         "markup": 0.7,
         "receiveAmount": 5310.43
+      },
+      "xe": {
+        "rate": 53.8874,
+        "fee": 4,
+        "markup": 0.77,
+        "receiveAmount": 5173.19
       }
     }
   }
