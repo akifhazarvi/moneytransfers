@@ -1713,5 +1713,22 @@
         "receiveAmount": 707500
       }
     }
+  },
+  {
+    "date": "2026-10-12",
+    "providers": {
+      "remitly": {
+        "rate": 6935.24,
+        "fee": 0,
+        "markup": 1.64,
+        "receiveAmount": 693524
+      },
+      "taptap-send": {
+        "rate": 7075,
+        "fee": 0,
+        "markup": -0.34,
+        "receiveAmount": 707500
+      }
+    }
   }
 ]

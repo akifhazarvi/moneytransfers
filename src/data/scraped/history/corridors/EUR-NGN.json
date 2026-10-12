@@ -16372,5 +16372,94 @@
         "receiveAmount": 149875.03
       }
     }
+  },
+  {
+    "date": "2026-10-12",
+    "providers": {
+      "instarem": {
+        "rate": 1480.96,
+        "fee": 0,
+        "markup": 0.1,
+        "receiveAmount": 148095.76
+      },
+      "lemfi": {
+        "rate": 1519,
+        "fee": 0,
+        "markup": -1.85,
+        "receiveAmount": 151900
+      },
+      "moneygram": {
+        "rate": 1493.62,
+        "fee": 0.99,
+        "markup": -0.22,
+        "receiveAmount": 147883.23
+      },
+      "taptap-send": {
+        "rate": 1520,
+        "fee": 0,
+        "markup": -1.92,
+        "receiveAmount": 152000
+      },
+      "western-union": {
+        "rate": 1506.67,
+        "fee": 0.99,
+        "markup": -1.02,
+        "receiveAmount": 149175.3
+      },
+      "dahabshiil": {
+        "rate": 1490.29,
+        "fee": 1.99,
+        "markup": 0.01,
+        "receiveAmount": 146063.07
+      },
+      "profee": {
+        "rate": 1513.82,
+        "fee": 2,
+        "markup": -1.57,
+        "receiveAmount": 148353.97
+      },
+      "worldremit": {
+        "rate": 1511.18,
+        "fee": 0.99,
+        "markup": -1.39,
+        "receiveAmount": 149622.07
+      },
+      "paysend": {
+        "rate": 1520.04,
+        "fee": 0,
+        "markup": -1.99,
+        "receiveAmount": 152004.37
+      },
+      "sendwave": {
+        "rate": 1511.18,
+        "fee": 0.99,
+        "markup": -1.39,
+        "receiveAmount": 149622.07
+      },
+      "remitly": {
+        "rate": 1520.46,
+        "fee": 0,
+        "markup": -1.95,
+        "receiveAmount": 152046
+      },
+      "ria": {
+        "rate": 1494.93,
+        "fee": 0.9,
+        "markup": -0.23,
+        "receiveAmount": 148147.68
+      },
+      "xoom": {
+        "rate": 1469.4,
+        "fee": 0.49,
+        "markup": 1.48,
+        "receiveAmount": 146220.18
+      },
+      "wise": {
+        "rate": 1526.95,
+        "fee": 1.72,
+        "markup": -2.38,
+        "receiveAmount": 150068.65
+      }
+    }
   }
 ]
