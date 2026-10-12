@@ -438,6 +438,73 @@ export function renderRatingsDate(): string {
   return latest ? longDate(latest) : renderQuoteDate();
 }
 
+/**
+ * A provider-quote token whose provider has no valid quote today.
+ *
+ * WHY
+ * {{RECEIVE:taptap-send:CAD:INR:1000}} reads one provider's live row. On
+ * 2026-10-12 TapTap's CAD→INR came back at a round 68, better than
+ * mid-market, so the quote integrity gate quarantined it; the token had
+ * nothing to read, stayed literal, and check:assets failed four production
+ * builds in a row on a data commit. A data gap is not an authoring error:
+ * the claim around the figure is dropped for that build (the sentence, or
+ * the list item it sits in), and it returns with the next valid quote.
+ * A token naming an unknown provider or currency is still a typo, and is
+ * still left literal for check:assets to fail.
+ */
+const UNPRICED = "\u0000UNPRICED\u0000";
+const unpricedLogged = new Set<string>();
+
+function unpriced(match: string, slugs: string[], from: string, to: string): string {
+  const known =
+    slugs.every((s) => s in providerNames || providers.some((p) => p.slug === s)) &&
+    [from, to].every((c) => currencies.some((x) => x.code === c) || sendCurrencies.some((x) => x.code === c));
+  if (!known) return match;
+  if (!unpricedLogged.has(match)) {
+    unpricedLogged.add(match);
+    console.warn(`[ratings-tokens] no valid quote for ${match}; the claim around it is dropped this build`);
+  }
+  return UNPRICED;
+}
+
+// Sources, not instances: a shared /g regex carries lastIndex between calls.
+const BLOCK_OPEN = String.raw`<(?:p|li|td|th|div|h[1-6]|blockquote)(?:\s[^>]*)?>|<br\s*\/?>`;
+const SENTENCE_END = String.raw`[.!?](?=\s|<|$)`;
+
+/**
+ * Removes the claim around each UNPRICED marker: its list item; in a table
+ * cell, the cell reads "—"; otherwise its sentence.
+ */
+function dropUnpricedClaims(html: string): string {
+  let out = html;
+  for (let i = out.indexOf(UNPRICED); i !== -1; i = out.indexOf(UNPRICED)) {
+    const liOpen = Math.max(out.lastIndexOf("<li>", i), out.lastIndexOf("<li ", i));
+    const liEnd = out.indexOf("</li>", i);
+    if (liOpen > out.lastIndexOf("</li>", i) && liEnd !== -1) {
+      out = out.slice(0, liOpen) + out.slice(liEnd + "</li>".length);
+      continue;
+    }
+    let start = 0;
+    let block = "";
+    for (const m of out.slice(0, i).matchAll(new RegExp(BLOCK_OPEN, "gi"))) {
+      if (m.index! + m[0].length >= start) [start, block] = [m.index! + m[0].length, m[0]];
+    }
+    const tail = out.slice(i);
+    const close = tail.search(/<\/(?:p|li|td|th|div|h[1-6]|blockquote)>/i);
+    if (/^<t[dh]/i.test(block) && close !== -1) {
+      out = out.slice(0, start) + "—" + out.slice(i + close);
+      continue;
+    }
+    for (const m of out.slice(0, i).matchAll(new RegExp(SENTENCE_END, "g"))) start = Math.max(start, m.index! + 1);
+    const stop = new RegExp(SENTENCE_END).exec(tail);
+    const endRel = stop && (close === -1 || stop.index < close) ? stop.index + 1 : close === -1 ? tail.length : close;
+    const head = out.slice(0, start);
+    const rest = out.slice(i + endRel).replace(/^\s+/, head.endsWith(">") ? "" : " ");
+    out = (head + rest).replace(/<p>\s*<\/p>/g, "");
+  }
+  return out;
+}
+
 function renderQuoteTokens(html: string): string {
   let out = html;
 
@@ -446,7 +513,7 @@ function renderQuoteTokens(html: string): string {
     (match, kind: string, slug: string, from: string, to: string, amt: string) => {
       const amount = Number(amt);
       const q = quoteFor(slug, from, to, amount);
-      if (!q) return match;
+      if (!q) return unpriced(match, [slug], from, to);
       switch (kind) {
         case "RECEIVE":
           return fmtMoney(to, q.receiveAmount);
@@ -469,7 +536,7 @@ function renderQuoteTokens(html: string): string {
       const amount = Number(amt);
       const qa = quoteFor(a, from, to, amount);
       const qb = quoteFor(b, from, to, amount);
-      if (!qa || !qb) return match;
+      if (!qa || !qb) return unpriced(match, [a, b], from, to);
       const aWins = qa.receiveAmount >= qb.receiveAmount;
       switch (kind) {
         case "CHEAPER":
@@ -1145,6 +1212,7 @@ export function renderDataTokens(html: string): string {
   out = renderSpeedTokens(out);
 
   if (out.includes("{{")) out = renderQuoteTokens(out);
+  if (out.includes(UNPRICED)) out = dropUnpricedClaims(out);
 
   // Last, so it sees tables emitted by the tokens above as well as authored ones.
   out = linkifyTableProviders(out);
