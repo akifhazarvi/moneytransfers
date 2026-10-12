@@ -1,5 +1,5 @@
 import Link from "@/components/EligibleLink";
-import { aboveMarketLabel } from "@/lib/above-market";
+import { unrankedLabel } from "@/lib/unranked-quotes";
 import { robotsFor, bingIndexable } from "@/lib/seo-indexing";
 import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
 import { resolveProviderClaimInTitle } from "@/lib/corridor-title-claims";
@@ -1080,10 +1080,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  * that reads as a broken sort. It is not ranked, so it shows no rank number and
  * says so; check:corridor-sort excludes these rows by their data-indicative.
  */
-function IndicativeRowNote({ quote }: { quote: { aboveMarket?: boolean; aboveMarketPct?: number } }) {
+function IndicativeRowNote({ quote }: { quote: Parameters<typeof unrankedLabel>[0] }) {
   return (
     <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">
-      {quote.aboveMarket ? `${aboveMarketLabel(quote)} · not ranked` : "Indicative estimate · not ranked"}
+      {quote.unranked ? `${unrankedLabel(quote)} · not ranked` : "Indicative estimate · not ranked"}
     </p>
   );
 }

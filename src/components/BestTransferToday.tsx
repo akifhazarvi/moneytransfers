@@ -3,7 +3,7 @@ import { getProviderName, providers } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getTranslations } from "next-intl/server";
 import { providerLogo } from "@/lib/provider-logo";
-import { aboveMarketLabel } from "@/lib/above-market";
+import { unrankedLabel } from "@/lib/unranked-quotes";
 
 interface BestTransferTodayProps {
   // Required so getTranslations reads the locale from params, not headers() —
@@ -116,7 +116,7 @@ export default async function BestTransferToday({
               {/* Rate — hidden on mobile. Indicative quotes flag the rate as
                   estimated (we have mid-market, not the broker's actual spread). */}
               <p className={`hidden sm:block text-2sm sm:text-sm text-right tabular-nums ${q.isIndicative ? "text-[var(--color-on-surface-variant)]" : "text-[var(--color-on-surface)]"}`}>
-                {q.exchangeRate.toFixed(2)}{q.isIndicative ? <span className="ml-1 text-2xs italic text-[var(--color-on-surface-variant)]">{q.aboveMarket ? aboveMarketLabel(q, "short").toLowerCase() : "est."}</span> : null}
+                {q.exchangeRate.toFixed(2)}{q.isIndicative ? <span className="ml-1 text-2xs italic text-[var(--color-on-surface-variant)]">{q.unranked ? unrankedLabel(q, "short").toLowerCase() : "est."}</span> : null}
               </p>
 
               {/* Fee — for account-managed FX brokers the fee is genuinely £0
@@ -143,9 +143,9 @@ export default async function BestTransferToday({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <p className="text-2sm text-[var(--color-on-surface)]">
-            {highlighted.aboveMarket ? (
+            {highlighted.unranked ? (
               <>
-                <strong>{getProviderName(highlightSlug!)}</strong>: {aboveMarketLabel(highlighted).toLowerCase()}, so it is shown but not ranked.
+                <strong>{getProviderName(highlightSlug!)}</strong>: {unrankedLabel(highlighted).toLowerCase()}, so it is shown but not ranked.
               </>
             ) : highlighted.isIndicative ? (
               <>

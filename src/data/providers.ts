@@ -47,11 +47,14 @@ export interface TransferQuote {
   // and route the user to the partner for an actual quote — same pattern
   // RemitFinder and other comparison sites use for account-managed FX brokers.
   isIndicative?: boolean;
-  /** Priced better than the mid-market rate: shown with ABOVE_MARKET_NOTE and,
-   *  like an indicative row, never ranked (isIndicative is set too). Renderers
-   *  check this first so the row says "above market", not "indicative". */
+  /** Shown as collected but never ranked (isIndicative is set too, so every
+   *  "best" surface skips it): above-market, implausible or stale. Renderers
+   *  label it with unrankedLabel() (src/lib/unranked-quotes.ts) instead of
+   *  "indicative". */
+  unranked?: "above-market" | "implausible" | "stale";
+  /** True for unranked === "above-market" (kept for the token renderer). */
   aboveMarket?: boolean;
-  /** How many percent better than mid-market an aboveMarket row is (positive). */
+  /** How many percent better than mid-market an above-market row is (positive). */
   aboveMarketPct?: number;
   /** Informational promo note (e.g. a better first-transfer rate). The
    * comparison rate stays standard; this is surfaced as a small badge. */

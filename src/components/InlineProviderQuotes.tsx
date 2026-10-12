@@ -13,7 +13,7 @@ import { crossSellComparisonHref } from "@/lib/provider-cross-sell";
 import { getCorridorSlug } from "@/data/corridors";
 import { corridorPageRenders } from "@/lib/route-map";
 import { quoteFreshness } from "@/lib/quote-freshness";
-import { aboveMarketLabel } from "@/lib/above-market";
+import { unrankedLabel } from "@/lib/unranked-quotes";
 
 interface Props {
   from?: string;
@@ -114,11 +114,11 @@ export default function InlineProviderQuotes({
                       this pair — SiteLiner counted each row as duplicate
                       text on 40–135 pages. Speed is the provider's own claim
                       and lives on its profile; the column is labelled once. */}
-                  <p>{q.isIndicative && !q.aboveMarket ? "Fee confirmed by provider" : `Fee ${sendSymbol}${formatAmount(q.fee)}`}</p>
+                  <p>{q.isIndicative && !q.unranked ? "Fee confirmed by provider" : `Fee ${sendSymbol}${formatAmount(q.fee)}`}</p>
                 </div>
               </div>
               <div className="inline-quotes-payout">
-                {(q.isIndicative || i === 0) && <span>{q.aboveMarket ? aboveMarketLabel(q, "short") : q.isIndicative ? "Indicative payout" : "Recipient gets"}</span>}
+                {(q.isIndicative || i === 0) && <span>{q.unranked ? unrankedLabel(q, "short") : q.isIndicative ? "Indicative payout" : "Recipient gets"}</span>}
                 <strong>{recvSymbol}{formatAmount(q.receiveAmount)}</strong>
                 <small>{to}</small>
               </div>

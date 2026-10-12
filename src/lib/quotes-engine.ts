@@ -14,14 +14,15 @@
 import { providers, getExchangeRate, HIDDEN_PROVIDER_SLUGS, type Provider, type TransferQuote } from "@/data/providers";
 import { SPEED_NOT_PUBLISHED } from "@/lib/delivery-labels";
 import { rankQuotes } from "@/lib/rank-quotes";
-import { aboveMarketLabel } from "@/lib/above-market";
+import { unrankedLabel } from "@/lib/unranked-quotes";
 import {
   quotesByCorridor,
   quotesByCorridorAmount,
-  aboveMarketByCorridor,
+  unrankedByCorridor,
   findNearestAmount,
   trustpilotIndex,
   type NormalizedQuote,
+  type UnrankedReason,
 } from "@/lib/unified-quotes";
 import { buildPricePoints, estimatePricing, feeModelFor, type PricePoint } from "@/lib/fee-model";
 
@@ -175,13 +176,13 @@ export function generateQuotes(
     // pinned at mid-market and would otherwise win on receiveAmount and
     // claim the "Best Deal" badge.
     const indicative = buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate);
-    const above = aboveMarketQuotes(amount, fromCurrency, toCurrency, baseRate, new Set(providerQuoteMap.keys()));
-    return [...rankQuotes(listable(quotes)), ...listable(above), ...listable(indicative)];
+    const unranked = unrankedQuotes(amount, fromCurrency, toCurrency, baseRate, new Set(providerQuoteMap.keys()));
+    return [...rankQuotes(listable(quotes)), ...listable(unranked), ...listable(indicative)];
   }
 
   // No scraped data for this corridor — still surface indicative-only quotes
   return listable([
-    ...aboveMarketQuotes(amount, fromCurrency, toCurrency, baseRate, new Set()),
+    ...unrankedQuotes(amount, fromCurrency, toCurrency, baseRate, new Set()),
     ...buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate),
   ]);
 }
@@ -260,30 +261,63 @@ function indicativeMarkup(fromCurrency: string, toCurrency: string): number {
 
 
 /**
- * Rows priced better than the mid-market rate, for providers with no valid row
- * on the corridor. Owner decision 2026-10-12: show every quote we collect.
- * These used to be dropped (quote-integrity "beats-interbank": 346 rows, 39 of
- * them TapTap routes, the day TapTap's CAD→INR read a flat 68 against a 67.13
- * mid). They are shown labelled and never ranked: isIndicative is set as well,
- * so every "best", leader, badge and savings surface — all of which skip
- * indicative rows — leaves them out, the same as the broker estimates.
+ * Rows the integrity guards keep out of the ranking (unrankedByCorridor:
+ * above-market, implausible, stale), for providers with no valid row on the
+ * corridor. Owner decision 2026-10-12: never hide a quote. They are shown as
+ * collected, labelled, and never ranked: isIndicative is set as well, so every
+ * "best", leader, badge and savings surface — all of which skip indicative
+ * rows — leaves them out, the same as the broker estimates.
  */
-function aboveMarketQuotes(
+const UNRANKED_CAUTION: UnrankedReason[] = ["implausible", "stale", "above-market"];
+
+function unrankedQuotes(
   amount: number,
   fromCurrency: string,
   toCurrency: string,
   baseRate: number,
   priced: Set<string>,
 ): TransferQuote[] {
-  const rows = (aboveMarketByCorridor[`${fromCurrency}_${toCurrency}`] ?? []).filter((r) => !priced.has(r.providerSlug));
+  const rows = (unrankedByCorridor[`${fromCurrency}_${toCurrency}`] ?? []).filter((r) => !priced.has(r.providerSlug));
   if (rows.length === 0 || !baseRate || baseRate <= 0) return [];
   const out: TransferQuote[] = [];
   for (const [slug, points] of buildPricePoints(rows)) {
-    const sq = rows.find((r) => r.providerSlug === slug)!;
-    const q = priceProvider(sq, points, amount, fromCurrency, toCurrency, baseRate);
+    const own = rows.filter((r) => r.providerSlug === slug);
+    // The most cautious reason any of the provider's rows carries.
+    const unranked = UNRANKED_CAUTION.find((reason) => own.some((r) => r.unranked === reason))!;
+    const sq = own.find((r) => r.unranked === unranked)!;
+    // Priced at this amount from its own curve, like every row; a curve too
+    // broken to price (a fee above the amount) falls back to the row collected
+    // at exactly this amount, as collected.
+    const exact = own.find((r) => r.sendAmount === amount && r.unranked === unranked);
+    const q =
+      priceProvider(sq, points, amount, fromCurrency, toCurrency, baseRate) ??
+      (exact
+        ? {
+            dateCollected: exact.dateCollected,
+            providerSlug: slug,
+            sendAmount: amount,
+            sendCurrency: fromCurrency,
+            receiveCurrency: toCurrency,
+            exchangeRate: exact.exchangeRate,
+            fee: exact.fee,
+            receiveAmount: Math.max(0, exact.receiveAmount),
+            transferSpeed: exact.deliveryEstimate || SPEED_NOT_PUBLISHED,
+            rating: trustpilotIndex[slug]?.score ?? providers.find((p) => p.slug === slug)?.rating ?? 3.5,
+            ratingIsTrustpilot: trustpilotIndex[slug]?.score != null,
+            ratingLabel: toRatingLabel(trustpilotIndex[slug]?.score ?? providers.find((p) => p.slug === slug)?.rating ?? 3.5),
+          }
+        : null);
     if (!q) continue;
-    const aboveMarketPct = Math.round(((q.exchangeRate - baseRate) / baseRate) * 10000) / 100;
-    out.push({ ...q, isIndicative: true, aboveMarket: true, aboveMarketPct, promoNote: aboveMarketLabel({ aboveMarketPct }) });
+    const aboveMarketPct =
+      unranked === "above-market" ? Math.round(((q.exchangeRate - baseRate) / baseRate) * 10000) / 100 : undefined;
+    const labelled = { unranked, aboveMarketPct, dateCollected: q.dateCollected };
+    out.push({
+      ...q,
+      isIndicative: true,
+      unranked,
+      ...(unranked === "above-market" ? { aboveMarket: true, aboveMarketPct } : {}),
+      promoNote: unrankedLabel(labelled),
+    });
   }
   return out.sort((a, b) => b.receiveAmount - a.receiveAmount);
 }

@@ -55,6 +55,8 @@ export interface NormalizedQuote {
   /** Short promo note (e.g. a better first-transfer rate) to surface on the
    * card. The comparison rate stays the standard rate; this only informs. */
   promoNote?: string;
+  /** Set on rows in unrankedByCorridor: why the row is shown but not ranked. */
+  unranked?: UnrankedReason;
 }
 
 // --- Trustpilot ratings ---
@@ -272,11 +274,22 @@ export const allProviderSlugs = new Set<string>();
 /** Rows rejected by the integrity guards, by reason — surfaced for /scrape-debug. */
 export const quarantineCounts: Record<string, number> = {};
 /**
- * Rows priced better than the mid-market rate ("beats-interbank"), kept out of
- * quotesByCorridor — every leader, median and ranking reads that index — and
- * shown by generateQuotes as labelled, unranked rows (owner decision 2026-10-12).
+ * Rows the integrity guards keep out of quotesByCorridor — every leader,
+ * median and ranking reads that index — which generateQuotes still shows, as
+ * collected, labelled and unranked. Owner decision 2026-10-12: never hide a
+ * quote. Each row says why it is unranked:
+ *   above-market  priced better than mid-market (quote-integrity beats-interbank)
+ *   implausible   a fee or markup far outside any real price (fee-/markup-absurd)
+ *   stale         more than 72h behind the freshest row (a scraper that stopped)
+ * Not kept, because they are not quotes: rows with no rate, and the
+ * mid-rate placeholders a scraper wrote when the provider gave no quote.
  */
-export const aboveMarketByCorridor: Record<string, NormalizedQuote[]> = {};
+export type UnrankedReason = "above-market" | "implausible" | "stale";
+export const unrankedByCorridor: Record<string, NormalizedQuote[]> = {};
+
+function keepUnranked(q: NormalizedQuote, unranked: UnrankedReason): void {
+  (unrankedByCorridor[`${q.sendCurrency}_${q.receiveCurrency}`] ??= []).push({ ...q, unranked });
+}
 
 /**
  * The most recent `dateCollected` across every quote we loaded, as YYYY-MM-DD.
@@ -317,6 +330,7 @@ function addQuotes(
     // comparison table.
     if (q.dateCollected && freshestCollectedMs - Date.parse(q.dateCollected) > STALE_AFTER_MS) {
       quarantineCounts.stale = (quarantineCounts.stale ?? 0) + 1;
+      keepUnranked(q, "stale");
       continue;
     }
 
@@ -326,10 +340,8 @@ function addQuotes(
     const reason = implausibilityReason(q);
     if (reason) {
       quarantineCounts[reason] = (quarantineCounts[reason] ?? 0) + 1;
-      if (reason === "beats-interbank") {
-        const key = `${q.sendCurrency}_${q.receiveCurrency}`;
-        (aboveMarketByCorridor[key] ??= []).push(q);
-      }
+      if (reason === "beats-interbank") keepUnranked(q, "above-market");
+      else if (reason === "fee-absurd" || reason === "markup-absurd") keepUnranked(q, "implausible");
       continue;
     }
 

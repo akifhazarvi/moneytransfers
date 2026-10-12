@@ -30,7 +30,7 @@ import CORRIDOR_LEADERS from "@/data/scraped/corridor-leaders.json";
 import { getRateInsight } from "@/lib/rate-history";
 import { getBankAggregateStats, getBankCorridorQuotes } from "@/lib/bank-comparisons";
 import { renderSpeedTokens } from "@/lib/delivery-speed";
-import { aboveMarketLabel } from "@/lib/above-market";
+import { unrankedLabel } from "@/lib/unranked-quotes";
 
 export interface StoreRating {
   score: number | null;
@@ -311,15 +311,16 @@ function quoteFor(slug: string, from: string, to: string, amount: number): Trans
 
 const allQuoteCache = new Map<string, TransferQuote[]>();
 /**
- * The provider's above-market row (shown labelled, never ranked) when it has no
- * ranked one. Only single-provider tokens read it, and they print the label with
- * the figure; comparisons and best/worst tokens never see it.
+ * The provider's unranked row (above-market, implausible or stale — shown
+ * labelled, never ranked) when it has no ranked one. Only single-provider tokens
+ * read it, and they print the label with the figure; comparisons and best/worst
+ * tokens never see it.
  */
-function aboveMarketQuoteFor(slug: string, from: string, to: string, amount: number): TransferQuote | undefined {
+function unrankedQuoteFor(slug: string, from: string, to: string, amount: number): TransferQuote | undefined {
   const key = `${from}_${to}_${amount}`;
   let all = allQuoteCache.get(key);
   if (!all) allQuoteCache.set(key, (all = generateQuotes(amount, from, to)));
-  return all.find((q) => q.providerSlug === slug && q.aboveMarket);
+  return all.find((q) => q.providerSlug === slug && q.unranked);
 }
 
 function symbolFor(code: string): string {
@@ -461,7 +462,7 @@ export function renderRatingsDate(): string {
  * mid-market, so the quote integrity gate quarantined it; the token had
  * nothing to read, stayed literal, and check:assets failed four production
  * builds in a row on a data commit. (Such rows are now shown, labelled —
- * aboveMarketQuoteFor — so this covers a provider with no row at all.) A data gap is not an authoring error:
+ * unrankedQuoteFor — so this covers a provider with no row at all.) A data gap is not an authoring error:
  * the claim around the figure is dropped for that build (the sentence, or
  * the list item it sits in), and it returns with the next valid quote.
  * A token naming an unknown provider or currency is still a typo, and is
@@ -527,9 +528,9 @@ function renderQuoteTokens(html: string): string {
     /\{\{(RECEIVE|FEE|MARKUP|COST|COST_PCT):([a-z0-9-]+):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
     (match, kind: string, slug: string, from: string, to: string, amt: string) => {
       const amount = Number(amt);
-      const q = quoteFor(slug, from, to, amount) ?? aboveMarketQuoteFor(slug, from, to, amount);
+      const q = quoteFor(slug, from, to, amount) ?? unrankedQuoteFor(slug, from, to, amount);
       if (!q) return unpriced(match, [slug], from, to);
-      const note = q.aboveMarket ? aboveMarketLabel(q, "token") : "";
+      const note = q.unranked ? unrankedLabel(q, "token") : "";
       switch (kind) {
         case "RECEIVE":
           return fmtMoney(to, q.receiveAmount) + note;
