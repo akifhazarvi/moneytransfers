@@ -17445,10 +17445,10 @@
         "receiveAmount": 14510
       },
       "moneygram": {
-        "rate": 143.216,
+        "rate": 143.128,
         "fee": 0.9,
-        "markup": 1.44,
-        "receiveAmount": 14192.75
+        "markup": 1.33,
+        "receiveAmount": 14183.99
       },
       "taptap-send": {
         "rate": 144.1,
@@ -17469,16 +17469,16 @@
         "receiveAmount": 13547.9
       },
       "profee": {
-        "rate": 144.588,
+        "rate": 144.311,
         "fee": 2.8,
-        "markup": 0.5,
-        "receiveAmount": 14053.96
+        "markup": 0.51,
+        "receiveAmount": 14027.06
       },
       "worldremit": {
-        "rate": 143.919,
+        "rate": 143.835,
         "fee": 0.99,
-        "markup": 0.96,
-        "receiveAmount": 14249.41
+        "markup": 0.84,
+        "receiveAmount": 14241.12
       },
       "instarem": {
         "rate": 142.326,
@@ -17487,16 +17487,16 @@
         "receiveAmount": 14232.6
       },
       "paysend": {
-        "rate": 144.586,
+        "rate": 144.328,
         "fee": 0,
         "markup": 0.5,
-        "receiveAmount": 14458.58
+        "receiveAmount": 14432.76
       },
       "sendwave": {
-        "rate": 143.919,
+        "rate": 143.835,
         "fee": 0.49,
-        "markup": 0.96,
-        "receiveAmount": 14321.37
+        "markup": 0.84,
+        "receiveAmount": 14313.04
       },
       "remitly": {
         "rate": 142.13,
@@ -17505,10 +17505,10 @@
         "receiveAmount": 13930.16
       },
       "revolut": {
-        "rate": 144.326,
-        "fee": 3.3,
-        "markup": 0.68,
-        "receiveAmount": 13956.34
+        "rate": 143.941,
+        "fee": 2.3,
+        "markup": 0.77,
+        "receiveAmount": 14063.03
       },
       "wise": {
         "rate": 145.451,
@@ -17517,10 +17517,10 @@
         "receiveAmount": 14028.75
       },
       "ria": {
-        "rate": 142.607,
+        "rate": 142.518,
         "fee": 1.9,
-        "markup": 1.87,
-        "receiveAmount": 13989.78
+        "markup": 1.93,
+        "receiveAmount": 13981.04
       },
       "skrill": {
         "rate": 138.479,
@@ -17533,6 +17533,12 @@
         "fee": 2.99,
         "markup": 3.86,
         "receiveAmount": 13553.53
+      },
+      "xe": {
+        "rate": 141.972,
+        "fee": 4,
+        "markup": 2.13,
+        "receiveAmount": 13629.29
       }
     }
   }
