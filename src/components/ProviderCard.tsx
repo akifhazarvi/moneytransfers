@@ -13,6 +13,7 @@ import { providerLogo } from "@/lib/provider-logo";
 import { companyPageRenders } from "@/lib/company-route";
 import ProviderLink from "@/components/ProviderLink";
 import TiedNote from "@/components/TiedNote";
+import { aboveMarketLabel } from "@/lib/above-market";
 
 interface Props {
   quote: TransferQuote;
@@ -65,14 +66,14 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   if (compact) {
     return (
       <article className="conversion-row" data-provider={quote.providerSlug}>
-        <span className="conversion-row-rank" aria-label={`Rank ${rank}`}>{rank}</span>
+        <span className="conversion-row-rank" aria-label={quote.isIndicative ? "Not ranked" : `Rank ${rank}`}>{quote.isIndicative ? "–" : rank}</span>
         <div className="conversion-row-brand">
           <Image src={providerLogo(quote.providerSlug, provider?.logo)} alt="" width={32} height={32} className="conversion-logo" />
           <div>
             <p className="conversion-row-name">{name}</p>
             <p className="conversion-row-meta">
               {quote.ratingIsTrustpilot && quote.rating > 0 && <span className="conversion-row-tp" title="Trustpilot rating"><Star size={11} aria-hidden="true" />{quote.rating.toFixed(1)}<span className="sr-only"> on Trustpilot</span></span>}{" "}
-              {quote.isIndicative ? "Indicative" : quote.transferSpeed}
+              {quote.aboveMarket ? `${aboveMarketLabel(quote, "short")} · not ranked` : quote.isIndicative ? "Indicative" : quote.transferSpeed}
             </p>
           </div>
         </div>

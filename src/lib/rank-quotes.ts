@@ -44,11 +44,16 @@ const MATERIALITY_BAND = 0.001; // 0.10%
  * The affiliate disclosure states the band and its size; changing
  * MATERIALITY_BAND without updating that copy makes the site's own claims false.
  */
-export function rankQuotes<T extends { receiveAmount: number; providerSlug: string; rating?: number }>(
+export function rankQuotes<T extends { receiveAmount: number; providerSlug: string; rating?: number; isIndicative?: boolean }>(
   quotes: T[],
 ): T[] {
+  // Indicative rows (broker estimates pinned at mid, above-market promos) are
+  // shown but never ranked: they follow every ranked row, by payout. The engine
+  // already ordered them so; the /send-money "Best value" re-sort ranked them by
+  // payout with everything else, which would hand a promo the top slot.
+  const unranked = quotes.filter((q) => q.isIndicative).sort((a, b) => b.receiveAmount - a.receiveAmount);
   const ratingOf = (q: T) => q.rating ?? 0;
-  const byPayout = [...quotes].sort((a, b) => b.receiveAmount - a.receiveAmount);
+  const byPayout = quotes.filter((q) => !q.isIndicative).sort((a, b) => b.receiveAmount - a.receiveAmount);
   const ranked: T[] = [];
   const pool = [...byPayout];
   while (pool.length) {
@@ -66,7 +71,7 @@ export function rankQuotes<T extends { receiveAmount: number; providerSlug: stri
       a.providerSlug.localeCompare(b.providerSlug);
     ranked.push(...band.sort(byMerit));
   }
-  return ranked;
+  return [...ranked, ...unranked];
 }
 
 /** The materiality band as a percentage, for copy that has to state it. */

@@ -271,6 +271,12 @@ export const quotesByCorridorAmount: Record<string, NormalizedQuote[]> = {};
 export const allProviderSlugs = new Set<string>();
 /** Rows rejected by the integrity guards, by reason — surfaced for /scrape-debug. */
 export const quarantineCounts: Record<string, number> = {};
+/**
+ * Rows priced better than the mid-market rate ("beats-interbank"), kept out of
+ * quotesByCorridor — every leader, median and ranking reads that index — and
+ * shown by generateQuotes as labelled, unranked rows (owner decision 2026-10-12).
+ */
+export const aboveMarketByCorridor: Record<string, NormalizedQuote[]> = {};
 
 /**
  * The most recent `dateCollected` across every quote we loaded, as YYYY-MM-DD.
@@ -320,6 +326,10 @@ function addQuotes(
     const reason = implausibilityReason(q);
     if (reason) {
       quarantineCounts[reason] = (quarantineCounts[reason] ?? 0) + 1;
+      if (reason === "beats-interbank") {
+        const key = `${q.sendCurrency}_${q.receiveCurrency}`;
+        (aboveMarketByCorridor[key] ??= []).push(q);
+      }
       continue;
     }
 

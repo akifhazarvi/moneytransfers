@@ -1,4 +1,5 @@
 import Link from "@/components/EligibleLink";
+import { aboveMarketLabel } from "@/lib/above-market";
 import { robotsFor, bingIndexable } from "@/lib/seo-indexing";
 import { corridorComparisonSummary } from "@/lib/corridor-comparison-summary";
 import { resolveProviderClaimInTitle } from "@/lib/corridor-title-claims";
@@ -1079,10 +1080,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  * that reads as a broken sort. It is not ranked, so it shows no rank number and
  * says so; check:corridor-sort excludes these rows by their data-indicative.
  */
-function IndicativeRowNote() {
+function IndicativeRowNote({ quote }: { quote: { aboveMarket?: boolean; aboveMarketPct?: number } }) {
   return (
     <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">
-      Indicative estimate · not ranked
+      {quote.aboveMarket ? `${aboveMarketLabel(quote)} · not ranked` : "Indicative estimate · not ranked"}
     </p>
   );
 }
@@ -1690,7 +1691,7 @@ export default async function CorridorPage({ params }: Props) {
                               : name}
                           </p>
                           <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5 truncate">{q.transferSpeed}</p>
-                          {q.isIndicative && <IndicativeRowNote />}
+                          {q.isIndicative && <IndicativeRowNote quote={q} />}
                           {tiedAhead && <TiedNote rating={q.rating} />}
                           {isBest && (
                             <span className="inline-block mt-1 text-2xs text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
@@ -1780,7 +1781,7 @@ export default async function CorridorPage({ params }: Props) {
                               </span>
                             )}
                           </div>
-                          {q.isIndicative && <IndicativeRowNote />}
+                          {q.isIndicative && <IndicativeRowNote quote={q} />}
                           {tiedAhead && <TiedNote rating={q.rating} />}
                           {badgeByProvider[q.providerSlug] && (
                             <div className="mt-0.5">
@@ -2287,7 +2288,7 @@ export default async function CorridorPage({ params }: Props) {
                                 >
                                   <th scope="row" className="px-4 py-2.5 font-medium">
                                     <span className={i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}>{getProviderName(q.providerSlug)}</span>
-                                    {q.isIndicative && <IndicativeRowNote />}
+                                    {q.isIndicative && <IndicativeRowNote quote={q} />}
                                     <span className="block sm:hidden text-2xs font-normal text-[var(--color-on-surface-variant)]">{q.exchangeRate.toFixed(2)} · {q.transferSpeed}</span>
                                   </th>
                                   <td className="px-3 py-2.5 text-right tabular-nums whitespace-nowrap">{q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}</td>

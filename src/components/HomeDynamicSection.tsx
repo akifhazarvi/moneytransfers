@@ -12,6 +12,7 @@ import TiedNote from "@/components/TiedNote";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { trackProviderClicked } from "@/lib/analytics";
 import { providerLogo } from "@/lib/provider-logo";
+import { aboveMarketLabel } from "@/lib/above-market";
 
 export default function HomeDynamicSection() {
   const { fromCurrency, toCurrency, amount } = useHomeSelection();
@@ -159,7 +160,7 @@ export default function HomeDynamicSection() {
                   const name = getProviderName(q.providerSlug);
                   const provider = providers.find((p) => p.slug === q.providerSlug);
                   const logo = providerLogo(q.providerSlug, provider?.logo);
-                  const isBest = i === 0;
+                  const isBest = i === 0 && !q.isIndicative;
                   const sendUrl = getGoUrl(q.providerSlug, {
                     sourceCurrency: q.sendCurrency,
                     targetCurrency: q.receiveCurrency,
@@ -228,7 +229,7 @@ export default function HomeDynamicSection() {
                           </div>
                         </div>
                         <p className={`text-sm text-right tabular-nums ${q.isIndicative ? "text-[var(--color-on-surface-variant)]" : "text-[var(--color-on-surface)]"}`}>
-                          {q.exchangeRate.toFixed(2)}{q.isIndicative && <span className="ml-0.5 text-2xs italic">est.</span>}
+                          {q.exchangeRate.toFixed(2)}{q.isIndicative && <span className="ml-0.5 text-2xs italic">{q.aboveMarket ? aboveMarketLabel(q, "short").toLowerCase() : "est."}</span>}
                         </p>
                         <p className={`text-sm text-right tabular-nums ${q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
                           {q.fee.toFixed(2)}

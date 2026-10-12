@@ -47,6 +47,12 @@ export interface TransferQuote {
   // and route the user to the partner for an actual quote — same pattern
   // RemitFinder and other comparison sites use for account-managed FX brokers.
   isIndicative?: boolean;
+  /** Priced better than the mid-market rate: shown with ABOVE_MARKET_NOTE and,
+   *  like an indicative row, never ranked (isIndicative is set too). Renderers
+   *  check this first so the row says "above market", not "indicative". */
+  aboveMarket?: boolean;
+  /** How many percent better than mid-market an aboveMarket row is (positive). */
+  aboveMarketPct?: number;
   /** Informational promo note (e.g. a better first-transfer rate). The
    * comparison rate stays standard; this is surfaced as a small badge. */
   promoNote?: string;

@@ -14,14 +14,16 @@
 import { providers, getExchangeRate, HIDDEN_PROVIDER_SLUGS, type Provider, type TransferQuote } from "@/data/providers";
 import { SPEED_NOT_PUBLISHED } from "@/lib/delivery-labels";
 import { rankQuotes } from "@/lib/rank-quotes";
+import { aboveMarketLabel } from "@/lib/above-market";
 import {
   quotesByCorridor,
   quotesByCorridorAmount,
+  aboveMarketByCorridor,
   findNearestAmount,
   trustpilotIndex,
   type NormalizedQuote,
 } from "@/lib/unified-quotes";
-import { buildPricePoints, estimatePricing, feeModelFor } from "@/lib/fee-model";
+import { buildPricePoints, estimatePricing, feeModelFor, type PricePoint } from "@/lib/fee-model";
 
 // exchangeRates / getExchangeRate live in @/data/providers (client-safe, sourced
 // from the small XE rates file). generateQuotes uses getExchangeRate for its
@@ -46,6 +48,73 @@ function withinTransferLimits(provider: Provider | undefined, amount: number): b
   if (provider.maxTransfer != null && amount > provider.maxTransfer) return false;
   if (provider.minTransfer != null && amount < provider.minTransfer) return false;
   return true;
+}
+
+/** One provider's row at the requested amount, priced from its own observed
+ * fee/markup curve; null when there is no defensible number or the provider
+ * would refuse the amount. */
+function priceProvider(
+  sq: NormalizedQuote,
+  points: PricePoint[],
+  amount: number,
+  fromCurrency: string,
+  toCurrency: string,
+  baseRate: number,
+): TransferQuote | null {
+  const provider = providers.find((p) => p.slug === sq.providerSlug);
+
+  // Fees are NOT uniformly flat: ~45% of provider+corridor pairs are flat
+  // (TapTap Send, LemFi, Paysend, Ria) but ~36% scale with the amount (Wise,
+  // OFX, Western Union, Remitly, Instarem). Treating every fee as flat let a
+  // fee scraped at $100 stand in at $50,000 and understated the cheapest-
+  // looking providers by up to ~100x. estimatePricing derives both fee and
+  // markup from the provider's own observed curve at THIS amount.
+  const estimate = estimatePricing(points, amount, feeModelFor(sq.providerSlug));
+
+  // No defensible number for this amount — drop the provider rather than
+  // show a fabricated price. Better a shorter honest table than a wrong
+  // "cheapest" badge.
+  if (!estimate || estimate.confidence === "unsupported") return null;
+
+  // Don't recommend a provider that would refuse the transfer. These limits
+  // were previously only used in editorial copy, so the table happily
+  // crowned TapTap Send (max $10k), Remitly ($10k) and WorldRemit ($10k) as
+  // "cheapest" for a $50,000 send the user could never actually make.
+  // Only filter on an explicit published limit — null means no stated cap,
+  // and providers with no record at all (aggregator-only slugs) are left
+  // alone since we have nothing to judge them by. Real limits also vary by
+  // corridor and verification level, so this is a headline-limit guard, not
+  // a precise eligibility check.
+  if (!withinTransferLimits(provider, amount)) return null;
+
+  const markupPct = estimate.markup / 100;
+  const providerRate = baseRate * (1 - markupPct);
+  const fee = estimate.fee;
+  // Clamp so a flat fee larger than a tiny send can't yield a negative
+  // payout — the recipient gets nothing, not a negative amount.
+  const receiveAmount = Math.max(0, amount - fee) * providerRate;
+
+  // Use Trustpilot rating if available, otherwise provider default or 3.5
+  const tp = trustpilotIndex[sq.providerSlug];
+  const rating = tp?.score ?? provider?.rating ?? 3.5;
+  const ratingLabel = toRatingLabel(rating);
+
+  return {
+    dateCollected: estimate.dateCollected,
+    providerSlug: sq.providerSlug,
+    sendAmount: amount,
+    sendCurrency: fromCurrency,
+    receiveCurrency: toCurrency,
+    exchangeRate: Math.round(providerRate * 10000) / 10000,
+    fee: Math.round(fee * 100) / 100,
+    receiveAmount: Math.round(receiveAmount * 100) / 100,
+    // A source's published estimate, else the provider's own published line; never an invented one.
+    transferSpeed: estimate.deliveryEstimate || sq.deliveryEstimate || provider?.transferSpeed || SPEED_NOT_PUBLISHED,
+    rating,
+    ratingIsTrustpilot: tp?.score != null,
+    ratingLabel,
+    ...(estimate.promoNote || sq.promoNote ? { promoNote: estimate.promoNote ?? sq.promoNote } : {}),
+  };
 }
 
 export function generateQuotes(
@@ -98,72 +167,23 @@ export function generateQuotes(
     const pricePoints = buildPricePoints(corridorQuotes);
 
     for (const sq of providerQuoteMap.values()) {
-      const provider = providers.find((p) => p.slug === sq.providerSlug);
-
-      // Fees are NOT uniformly flat: ~45% of provider+corridor pairs are flat
-      // (TapTap Send, LemFi, Paysend, Ria) but ~36% scale with the amount (Wise,
-      // OFX, Western Union, Remitly, Instarem). Treating every fee as flat let a
-      // fee scraped at $100 stand in at $50,000 and understated the cheapest-
-      // looking providers by up to ~100x. estimatePricing derives both fee and
-      // markup from the provider's own observed curve at THIS amount.
-      const points = pricePoints.get(sq.providerSlug) ?? [];
-      const estimate = estimatePricing(points, amount, feeModelFor(sq.providerSlug));
-
-      // No defensible number for this amount — drop the provider rather than
-      // show a fabricated price. Better a shorter honest table than a wrong
-      // "cheapest" badge.
-      if (!estimate || estimate.confidence === "unsupported") continue;
-
-      // Don't recommend a provider that would refuse the transfer. These limits
-      // were previously only used in editorial copy, so the table happily
-      // crowned TapTap Send (max $10k), Remitly ($10k) and WorldRemit ($10k) as
-      // "cheapest" for a $50,000 send the user could never actually make.
-      // Only filter on an explicit published limit — null means no stated cap,
-      // and providers with no record at all (aggregator-only slugs) are left
-      // alone since we have nothing to judge them by. Real limits also vary by
-      // corridor and verification level, so this is a headline-limit guard, not
-      // a precise eligibility check.
-      if (!withinTransferLimits(provider, amount)) continue;
-
-      const markupPct = estimate.markup / 100;
-      const providerRate = baseRate * (1 - markupPct);
-      const fee = estimate.fee;
-      // Clamp so a flat fee larger than a tiny send can't yield a negative
-      // payout — the recipient gets nothing, not a negative amount.
-      const receiveAmount = Math.max(0, amount - fee) * providerRate;
-
-      // Use Trustpilot rating if available, otherwise provider default or 3.5
-      const tp = trustpilotIndex[sq.providerSlug];
-      const rating = tp?.score ?? provider?.rating ?? 3.5;
-      const ratingLabel = toRatingLabel(rating);
-
-      quotes.push({
-        dateCollected: estimate.dateCollected,
-        providerSlug: sq.providerSlug,
-        sendAmount: amount,
-        sendCurrency: fromCurrency,
-        receiveCurrency: toCurrency,
-        exchangeRate: Math.round(providerRate * 10000) / 10000,
-        fee: Math.round(fee * 100) / 100,
-        receiveAmount: Math.round(receiveAmount * 100) / 100,
-        // A source's published estimate, else the provider's own published line; never an invented one.
-        transferSpeed: estimate.deliveryEstimate || sq.deliveryEstimate || provider?.transferSpeed || SPEED_NOT_PUBLISHED,
-        rating,
-        ratingIsTrustpilot: tp?.score != null,
-        ratingLabel,
-        ...(estimate.promoNote || sq.promoNote ? { promoNote: estimate.promoNote ?? sq.promoNote } : {}),
-      });
+      const q = priceProvider(sq, pricePoints.get(sq.providerSlug) ?? [], amount, fromCurrency, toCurrency, baseRate);
+      if (q) quotes.push(q);
     }
 
     // Indicative quotes always sit after real scraped quotes — they're
     // pinned at mid-market and would otherwise win on receiveAmount and
     // claim the "Best Deal" badge.
     const indicative = buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate);
-    return [...rankQuotes(listable(quotes)), ...listable(indicative)];
+    const above = aboveMarketQuotes(amount, fromCurrency, toCurrency, baseRate, new Set(providerQuoteMap.keys()));
+    return [...rankQuotes(listable(quotes)), ...listable(above), ...listable(indicative)];
   }
 
   // No scraped data for this corridor — still surface indicative-only quotes
-  return listable(buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate));
+  return listable([
+    ...aboveMarketQuotes(amount, fromCurrency, toCurrency, baseRate, new Set()),
+    ...buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate),
+  ]);
 }
 
 // Providers withheld from every comparison list. One gate here covers all of
@@ -236,6 +256,36 @@ function indicativeMarkup(fromCurrency: string, toCurrency: string): number {
     INDICATIVE_MAJOR_CURRENCIES.has(fromCurrency) &&
     INDICATIVE_MAJOR_CURRENCIES.has(toCurrency);
   return bothMajor ? 0.005 : 0.008;
+}
+
+
+/**
+ * Rows priced better than the mid-market rate, for providers with no valid row
+ * on the corridor. Owner decision 2026-10-12: show every quote we collect.
+ * These used to be dropped (quote-integrity "beats-interbank": 346 rows, 39 of
+ * them TapTap routes, the day TapTap's CAD→INR read a flat 68 against a 67.13
+ * mid). They are shown labelled and never ranked: isIndicative is set as well,
+ * so every "best", leader, badge and savings surface — all of which skip
+ * indicative rows — leaves them out, the same as the broker estimates.
+ */
+function aboveMarketQuotes(
+  amount: number,
+  fromCurrency: string,
+  toCurrency: string,
+  baseRate: number,
+  priced: Set<string>,
+): TransferQuote[] {
+  const rows = (aboveMarketByCorridor[`${fromCurrency}_${toCurrency}`] ?? []).filter((r) => !priced.has(r.providerSlug));
+  if (rows.length === 0 || !baseRate || baseRate <= 0) return [];
+  const out: TransferQuote[] = [];
+  for (const [slug, points] of buildPricePoints(rows)) {
+    const sq = rows.find((r) => r.providerSlug === slug)!;
+    const q = priceProvider(sq, points, amount, fromCurrency, toCurrency, baseRate);
+    if (!q) continue;
+    const aboveMarketPct = Math.round(((q.exchangeRate - baseRate) / baseRate) * 10000) / 100;
+    out.push({ ...q, isIndicative: true, aboveMarket: true, aboveMarketPct, promoNote: aboveMarketLabel({ aboveMarketPct }) });
+  }
+  return out.sort((a, b) => b.receiveAmount - a.receiveAmount);
 }
 
 function buildIndicativeQuotes(
