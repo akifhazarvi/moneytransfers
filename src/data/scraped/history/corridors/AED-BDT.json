@@ -5457,10 +5457,10 @@
     "date": "2026-10-12",
     "providers": {
       "western-union": {
-        "rate": 33.5312,
+        "rate": 33.565,
         "fee": 0,
-        "markup": 0.09,
-        "receiveAmount": 3353.12
+        "markup": -0.01,
+        "receiveAmount": 3356.5
       },
       "e-and-money": {
         "rate": 33.5356,

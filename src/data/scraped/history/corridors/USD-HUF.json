@@ -5271,34 +5271,34 @@
     "date": "2026-10-12",
     "providers": {
       "paypal": {
-        "rate": 311.553,
+        "rate": 311.161,
         "fee": 4.99,
-        "markup": 4.4,
-        "receiveAmount": 29600.62
+        "markup": 4.52,
+        "receiveAmount": 29563.43
       },
       "xoom": {
-        "rate": 312.233,
+        "rate": 313.523,
         "fee": 4.99,
-        "markup": 4.19,
-        "receiveAmount": 29665.27
+        "markup": 3.79,
+        "receiveAmount": 29787.84
       },
       "western-union": {
-        "rate": 321.078,
+        "rate": 321.749,
         "fee": 0.99,
-        "markup": 1.48,
-        "receiveAmount": 31789.89
+        "markup": 1.27,
+        "receiveAmount": 31856.39
       },
       "remitly": {
-        "rate": 323.022,
+        "rate": 324.192,
         "fee": 0.99,
-        "markup": 0.88,
-        "receiveAmount": 31982.4
+        "markup": 0.52,
+        "receiveAmount": 32098.29
       },
       "wise": {
-        "rate": 325.85,
+        "rate": 326.608,
         "fee": 1.45,
-        "markup": 0.01,
-        "receiveAmount": 32112.52
+        "markup": -0.22,
+        "receiveAmount": 32187.22
       }
     }
   }
