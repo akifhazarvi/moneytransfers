@@ -2442,16 +2442,16 @@
     "date": "2026-10-13",
     "providers": {
       "taptap-send": {
-        "rate": 2.12,
+        "rate": 2.11,
         "fee": 0,
-        "markup": 5.94,
-        "receiveAmount": 212
+        "markup": 6.38,
+        "receiveAmount": 211
       },
       "wise": {
-        "rate": 2.26321,
-        "fee": 10.92,
-        "markup": -0.42,
-        "receiveAmount": 201.61
+        "rate": 2.25149,
+        "fee": 10.01,
+        "markup": 0.1,
+        "receiveAmount": 202.61
       }
     }
   }

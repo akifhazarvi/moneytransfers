@@ -2442,16 +2442,16 @@
     "date": "2026-10-13",
     "providers": {
       "pandaremit": {
-        "rate": 0.2128,
+        "rate": 0.2126,
         "fee": 80,
-        "markup": 0.99,
-        "receiveAmount": 4.26
+        "markup": 1.08,
+        "receiveAmount": 4.25
       },
       "wise": {
-        "rate": 0.214166,
+        "rate": 0.213973,
         "fee": 20.95,
-        "markup": 0.35,
-        "receiveAmount": 16.93
+        "markup": 0.44,
+        "receiveAmount": 16.91
       }
     }
   }

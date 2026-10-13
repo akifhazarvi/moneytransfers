@@ -10611,7 +10611,7 @@
       "lemfi": {
         "rate": 159.87,
         "fee": 0,
-        "markup": 1.24,
+        "markup": 0.92,
         "receiveAmount": 15987
       },
       "moneygram": {
@@ -10639,10 +10639,10 @@
         "receiveAmount": 15647.92
       },
       "western-union": {
-        "rate": 160.988,
+        "rate": 160.995,
         "fee": 0.99,
-        "markup": 0.34,
-        "receiveAmount": 15939.41
+        "markup": 0.33,
+        "receiveAmount": 15940.11
       },
       "xe": {
         "rate": 178,
@@ -10657,16 +10657,16 @@
         "receiveAmount": 15406.16
       },
       "wise": {
-        "rate": 160.989,
+        "rate": 160.956,
         "fee": 8.21,
-        "markup": 0.34,
-        "receiveAmount": 14777.18
+        "markup": 0.36,
+        "receiveAmount": 14774.15
       },
       "xoom": {
-        "rate": 147.677,
+        "rate": 147.646,
         "fee": 2.99,
-        "markup": 8.58,
-        "receiveAmount": 14326.1
+        "markup": 8.6,
+        "receiveAmount": 14323.16
       }
     }
   }
