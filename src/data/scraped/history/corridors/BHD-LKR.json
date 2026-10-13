@@ -1268,5 +1268,22 @@
         "receiveAmount": 86473.67
       }
     }
+  },
+  {
+    "date": "2026-10-13",
+    "providers": {
+      "western-union": {
+        "rate": 876.274,
+        "fee": 1,
+        "markup": 0.46,
+        "receiveAmount": 86751.09
+      },
+      "taptap-send": {
+        "rate": 872.59,
+        "fee": 0.9,
+        "markup": 0.88,
+        "receiveAmount": 86473.67
+      }
+    }
   }
 ]
