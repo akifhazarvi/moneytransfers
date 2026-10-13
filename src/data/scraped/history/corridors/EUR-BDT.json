@@ -15779,7 +15779,7 @@
       "lemfi": {
         "rate": 137.4,
         "fee": 0,
-        "markup": -0.02,
+        "markup": 0.35,
         "receiveAmount": 13740
       },
       "moneygram": {
@@ -15798,7 +15798,7 @@
         "rate": 131.986,
         "fee": 0.99,
         "markup": 3.92,
-        "receiveAmount": 13067.89
+        "receiveAmount": 13067.95
       },
       "dahabshiil": {
         "rate": 134.237,
@@ -15813,10 +15813,10 @@
         "receiveAmount": 13168.14
       },
       "instarem": {
-        "rate": 136.033,
+        "rate": 136.442,
         "fee": 0,
-        "markup": 0.97,
-        "receiveAmount": 13603.28
+        "markup": 0.67,
+        "receiveAmount": 13644.19
       },
       "xe": {
         "rate": 137.133,
@@ -15849,10 +15849,10 @@
         "receiveAmount": 13407.4
       },
       "wise": {
-        "rate": 137.349,
+        "rate": 137.768,
         "fee": 3.14,
-        "markup": 0.01,
-        "receiveAmount": 13303.62
+        "markup": -0.29,
+        "receiveAmount": 13344.21
       },
       "ria": {
         "rate": 137.2,
@@ -15861,16 +15861,16 @@
         "receiveAmount": 13720
       },
       "skrill": {
-        "rate": 130.947,
+        "rate": 131.301,
         "fee": 0,
-        "markup": 4.67,
-        "receiveAmount": 13094.74
+        "markup": 4.42,
+        "receiveAmount": 13130.12
       },
       "xoom": {
-        "rate": 134.687,
+        "rate": 134.644,
         "fee": 2.99,
-        "markup": 1.95,
-        "receiveAmount": 13066.01
+        "markup": 1.98,
+        "receiveAmount": 13061.8
       }
     }
   }

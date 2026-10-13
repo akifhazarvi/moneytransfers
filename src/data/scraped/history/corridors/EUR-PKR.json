@@ -18200,28 +18200,28 @@
     "date": "2026-10-13",
     "providers": {
       "moneygram": {
-        "rate": 309.261,
+        "rate": 309.533,
         "fee": 0.99,
-        "markup": -0.1,
-        "receiveAmount": 30619.89
+        "markup": -0.19,
+        "receiveAmount": 30646.84
       },
       "taptap-send": {
-        "rate": 308.7,
+        "rate": 310.2,
         "fee": 0.99,
-        "markup": 0.08,
-        "receiveAmount": 30564.39
+        "markup": -0.4,
+        "receiveAmount": 30712.9
       },
       "deutsche-bank": {
-        "rate": 305.423,
+        "rate": 306.063,
         "fee": 36.55,
-        "markup": 1.14,
-        "receiveAmount": 19379.1
+        "markup": 0.93,
+        "receiveAmount": 19419.69
       },
       "western-union": {
-        "rate": 304.322,
+        "rate": 304.393,
         "fee": 0.99,
-        "markup": 1.5,
-        "receiveAmount": 30130.92
+        "markup": 1.47,
+        "receiveAmount": 30137.96
       },
       "dahabshiil": {
         "rate": 310.409,
@@ -18242,10 +18242,10 @@
         "receiveAmount": 29754.68
       },
       "instarem": {
-        "rate": 307.309,
+        "rate": 308.08,
         "fee": 0,
-        "markup": 0.53,
-        "receiveAmount": 30730.87
+        "markup": 0.28,
+        "receiveAmount": 30807.98
       },
       "xe": {
         "rate": 307.472,
@@ -18284,22 +18284,22 @@
         "receiveAmount": 30603.73
       },
       "skrill": {
-        "rate": 294.531,
+        "rate": 295.374,
         "fee": 0,
-        "markup": 4.67,
-        "receiveAmount": 29453.09
+        "markup": 4.39,
+        "receiveAmount": 29537.41
       },
       "xoom": {
-        "rate": 302.814,
+        "rate": 302.435,
         "fee": 0,
-        "markup": 1.99,
-        "receiveAmount": 30281.37
+        "markup": 2.11,
+        "receiveAmount": 30243.53
       },
       "wise": {
-        "rate": 309.077,
+        "rate": 309.922,
         "fee": 1.91,
-        "markup": -0.04,
-        "receiveAmount": 30317.36
+        "markup": -0.31,
+        "receiveAmount": 30400.25
       }
     }
   }

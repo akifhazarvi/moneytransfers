@@ -9727,10 +9727,10 @@
     "date": "2026-10-13",
     "providers": {
       "instarem": {
-        "rate": 7.9914,
+        "rate": 7.9935,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 799.14
+        "receiveAmount": 799.35
       },
       "moneygram": {
         "rate": 7.9206,
@@ -9763,22 +9763,22 @@
         "receiveAmount": 639
       },
       "wise": {
-        "rate": 8.00042,
+        "rate": 7.99977,
         "fee": 7.86,
-        "markup": -0.01,
-        "receiveAmount": 737.16
+        "markup": 0,
+        "receiveAmount": 737.1
       },
       "paypal": {
-        "rate": 7.6606,
+        "rate": 7.65824,
         "fee": 38.99,
-        "markup": 4.24,
-        "receiveAmount": 467.37
+        "markup": 4.27,
+        "receiveAmount": 467.23
       },
       "hsbc-hk": {
-        "rate": 7.87266,
+        "rate": 7.8732,
         "fee": 70,
-        "markup": 1.59,
-        "receiveAmount": 236.18
+        "markup": 1.58,
+        "receiveAmount": 236.2
       }
     }
   }
