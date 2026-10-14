@@ -21373,15 +21373,15 @@
     "date": "2026-10-14",
     "providers": {
       "instarem": {
-        "rate": 0.892,
+        "rate": 0.8977,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 89.2
+        "markup": 0.14,
+        "receiveAmount": 89.77
       },
       "lemfi": {
         "rate": 0.8846,
         "fee": 0,
-        "markup": 1,
+        "markup": 1.61,
         "receiveAmount": 88.46
       },
       "moneygram": {
@@ -21415,10 +21415,10 @@
         "receiveAmount": 87.88
       },
       "western-union": {
-        "rate": 0.884843,
+        "rate": 0.885358,
         "fee": 0.99,
-        "markup": 0.81,
-        "receiveAmount": 87.61
+        "markup": 0.75,
+        "receiveAmount": 87.66
       },
       "xoom": {
         "rate": 0.8103,
@@ -21439,10 +21439,10 @@
         "receiveAmount": 86.1
       },
       "remitly": {
-        "rate": 0.8878,
+        "rate": 0.8934,
         "fee": 2.99,
-        "markup": 0.48,
-        "receiveAmount": 86.13
+        "markup": -0.15,
+        "receiveAmount": 86.67
       },
       "revolut": {
         "rate": 0.88996,
@@ -21451,28 +21451,28 @@
         "receiveAmount": 88.33
       },
       "wise": {
-        "rate": 0.893495,
+        "rate": 0.899119,
         "fee": 1.35,
-        "markup": -0.16,
-        "receiveAmount": 88.14
+        "markup": -0.79,
+        "receiveAmount": 88.7
       },
       "wells-fargo": {
-        "rate": 0.8661,
+        "rate": 0.87202,
         "fee": 0,
-        "markup": 2.91,
-        "receiveAmount": 86.61
+        "markup": 2.24,
+        "receiveAmount": 87.2
       },
       "chase": {
-        "rate": 0.867558,
+        "rate": 0.873489,
         "fee": 5,
-        "markup": 2.74,
-        "receiveAmount": 82.42
+        "markup": 2.08,
+        "receiveAmount": 82.98
       },
       "paypal": {
-        "rate": 0.856732,
+        "rate": 0.857041,
         "fee": 4.99,
-        "markup": 3.96,
-        "receiveAmount": 81.4
+        "markup": 3.92,
+        "receiveAmount": 81.43
       }
     }
   }

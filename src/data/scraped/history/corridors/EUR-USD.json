@@ -14163,7 +14163,7 @@
       "lemfi": {
         "rate": 1.115,
         "fee": 0,
-        "markup": 0.37,
+        "markup": -0.25,
         "receiveAmount": 111.5
       },
       "taptap-send": {
@@ -14173,76 +14173,76 @@
         "receiveAmount": 110
       },
       "instarem": {
-        "rate": 1.11065,
+        "rate": 1.10345,
         "fee": 0,
-        "markup": 0.93,
-        "receiveAmount": 111.07
+        "markup": 1.57,
+        "receiveAmount": 110.34
       },
       "sparkasse": {
-        "rate": 1.1137,
+        "rate": 1.10669,
         "fee": 42.5,
-        "markup": 0.65,
-        "receiveAmount": 64.04
+        "markup": 1.28,
+        "receiveAmount": 63.63
       },
       "xoom": {
-        "rate": 1.03839,
+        "rate": 1.03374,
         "fee": 1.99,
-        "markup": 7.37,
-        "receiveAmount": 101.77
+        "markup": 7.79,
+        "receiveAmount": 101.32
       },
       "paypal": {
-        "rate": 1.07046,
+        "rate": 1.0706,
         "fee": 3.99,
-        "markup": 4.51,
-        "receiveAmount": 102.77
+        "markup": 4.5,
+        "receiveAmount": 102.79
       },
       "monese": {
-        "rate": 1.119,
+        "rate": 1.11205,
         "fee": 3,
-        "markup": 0.18,
-        "receiveAmount": 108.54
+        "markup": 0.8,
+        "receiveAmount": 107.87
       },
       "commerzbank": {
-        "rate": 1.10884,
+        "rate": 1.10162,
         "fee": 12.5,
-        "markup": 1.09,
-        "receiveAmount": 97.02
+        "markup": 1.73,
+        "receiveAmount": 96.39
       },
       "skrill": {
-        "rate": 1.06619,
+        "rate": 1.05885,
         "fee": 0,
-        "markup": 4.89,
-        "receiveAmount": 106.62
+        "markup": 5.55,
+        "receiveAmount": 105.88
       },
       "deutsche-bank": {
-        "rate": 1.1146,
+        "rate": 1.11405,
         "fee": 36.55,
-        "markup": 0.57,
-        "receiveAmount": 70.72
+        "markup": 0.62,
+        "receiveAmount": 70.69
       },
       "ing-de": {
-        "rate": 1.10795,
+        "rate": 1.10097,
         "fee": 22,
-        "markup": 1.17,
-        "receiveAmount": 86.42
+        "markup": 1.79,
+        "receiveAmount": 85.88
       },
       "moneygram": {
-        "rate": 1.10234,
+        "rate": 1.0954,
         "fee": 1.99,
-        "markup": 1.67,
-        "receiveAmount": 108.04
+        "markup": 2.29,
+        "receiveAmount": 107.36
       },
       "remitly": {
-        "rate": 1.1102,
+        "rate": 1.1025,
         "fee": 2.99,
-        "markup": 0.97,
-        "receiveAmount": 107.7
+        "markup": 1.65,
+        "receiveAmount": 106.95
       },
       "western-union": {
-        "rate": 1.08918,
+        "rate": 1.08903,
         "fee": 0.99,
-        "markup": 2.84,
-        "receiveAmount": 107.84
+        "markup": 2.85,
+        "receiveAmount": 107.82
       }
     }
   }
