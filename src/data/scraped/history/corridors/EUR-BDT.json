@@ -15896,16 +15896,16 @@
         "receiveAmount": 13079.24
       },
       "dahabshiil": {
-        "rate": 134.237,
+        "rate": 134.21,
         "fee": 1.99,
-        "markup": 2.84,
-        "receiveAmount": 13156.56
+        "markup": 3.03,
+        "receiveAmount": 13153.91
       },
       "worldremit": {
-        "rate": 137.154,
+        "rate": 137.626,
         "fee": 3.99,
-        "markup": 0.73,
-        "receiveAmount": 13168.14
+        "markup": 0.56,
+        "receiveAmount": 13213.45
       },
       "instarem": {
         "rate": 136.68,
@@ -15914,22 +15914,22 @@
         "receiveAmount": 13667.95
       },
       "xe": {
-        "rate": 137.133,
+        "rate": 137.183,
         "fee": 4,
-        "markup": 0.74,
-        "receiveAmount": 13164.8
+        "markup": 0.88,
+        "receiveAmount": 13169.56
       },
       "paysend": {
-        "rate": 137.632,
+        "rate": 137.964,
         "fee": 0,
-        "markup": 0.38,
-        "receiveAmount": 13763.17
+        "markup": 0.31,
+        "receiveAmount": 13796.44
       },
       "sendwave": {
-        "rate": 137.044,
+        "rate": 137.515,
         "fee": 0.99,
-        "markup": 0.81,
-        "receiveAmount": 13568.7
+        "markup": 0.64,
+        "receiveAmount": 13615.38
       },
       "remitly": {
         "rate": 137.5,
@@ -15938,10 +15938,10 @@
         "receiveAmount": 13613.88
       },
       "revolut": {
-        "rate": 137.23,
+        "rate": 137.443,
         "fee": 2.3,
-        "markup": 0.67,
-        "receiveAmount": 13407.4
+        "markup": 0.69,
+        "receiveAmount": 13428.17
       },
       "wise": {
         "rate": 138.051,
@@ -15950,10 +15950,10 @@
         "receiveAmount": 13371.62
       },
       "ria": {
-        "rate": 137.2,
+        "rate": 137.26,
         "fee": 0,
-        "markup": 0.68,
-        "receiveAmount": 13720
+        "markup": 0.64,
+        "receiveAmount": 13726
       },
       "skrill": {
         "rate": 131.44,
@@ -15966,6 +15966,12 @@
         "fee": 2.99,
         "markup": 2.45,
         "receiveAmount": 13072.65
+      },
+      "moneygram": {
+        "rate": 135.295,
+        "fee": 1.99,
+        "markup": 2.24,
+        "receiveAmount": 13260.24
       }
     }
   }

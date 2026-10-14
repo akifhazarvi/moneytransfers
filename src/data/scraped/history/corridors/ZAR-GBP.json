@@ -3054,16 +3054,22 @@
     "date": "2026-10-14",
     "providers": {
       "worldremit": {
-        "rate": 0.04489,
+        "rate": 0.04482,
         "fee": 7.5,
-        "markup": 2,
+        "markup": 2.07,
         "receiveAmount": 4.15
       },
       "mukuru": {
-        "rate": 0.045037,
+        "rate": 0.045077,
         "fee": 25,
-        "markup": 1.68,
+        "markup": 1.51,
         "receiveAmount": 3.38
+      },
+      "skrill": {
+        "rate": 0.0436,
+        "fee": 0,
+        "markup": 4.74,
+        "receiveAmount": 4.36
       }
     }
   }

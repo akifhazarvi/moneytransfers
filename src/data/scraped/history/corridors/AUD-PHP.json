@@ -22645,28 +22645,28 @@
         "receiveAmount": 4272.99
       },
       "currencyfair": {
-        "rate": 43.495,
-        "fee": 1.84,
-        "markup": 0.62,
-        "receiveAmount": 4269.47
+        "rate": 43.82,
+        "fee": 1.83,
+        "markup": 0.57,
+        "receiveAmount": 4301.81
       },
       "xe": {
-        "rate": 43.3904,
-        "fee": 5,
-        "markup": 0.86,
-        "receiveAmount": 4122.08
+        "rate": 43.5356,
+        "fee": 1.99,
+        "markup": 1.22,
+        "receiveAmount": 4266.92
       },
       "paysend": {
-        "rate": 43.0193,
+        "rate": 43.3077,
         "fee": 2.9,
-        "markup": 1.71,
-        "receiveAmount": 4177.17
+        "markup": 1.73,
+        "receiveAmount": 4205.18
       },
       "singx": {
-        "rate": 43.5978,
+        "rate": 43.9256,
         "fee": 6,
-        "markup": 0.38,
-        "receiveAmount": 4098.19
+        "markup": 0.33,
+        "receiveAmount": 4129.01
       },
       "remitly": {
         "rate": 43.56,
@@ -22675,10 +22675,10 @@
         "receiveAmount": 4356
       },
       "revolut": {
-        "rate": 43.5313,
+        "rate": 43.8302,
         "fee": 0.41,
-        "markup": 0.54,
-        "receiveAmount": 4335.29
+        "markup": 0.55,
+        "receiveAmount": 4365.05
       },
       "wise": {
         "rate": 43.9549,
@@ -22733,6 +22733,12 @@
         "fee": 0,
         "markup": 4.3,
         "receiveAmount": 4206.65
+      },
+      "moneygram": {
+        "rate": 43.6071,
+        "fee": 0.99,
+        "markup": 1.06,
+        "receiveAmount": 4317.54
       }
     }
   }

@@ -15055,10 +15055,10 @@
     "date": "2026-10-14",
     "providers": {
       "ria": {
-        "rate": 3104.17,
+        "rate": 3091.46,
         "fee": 2.99,
-        "markup": 2.54,
-        "receiveAmount": 301135.73
+        "markup": 2.94,
+        "receiveAmount": 299902.34
       },
       "taptap-send": {
         "rate": 3170,
@@ -15067,10 +15067,10 @@
         "receiveAmount": 317000
       },
       "boss-money": {
-        "rate": 3147.81,
+        "rate": 3134.93,
         "fee": 1.99,
-        "markup": 1.31,
-        "receiveAmount": 308516.76
+        "markup": 1.48,
+        "receiveAmount": 307254.73
       },
       "western-union": {
         "rate": 3083.8,
@@ -15079,16 +15079,16 @@
         "receiveAmount": 302243.6
       },
       "xoom": {
-        "rate": 2935.99,
+        "rate": 2923.95,
         "fee": 0,
-        "markup": 7.82,
-        "receiveAmount": 293598.51
+        "markup": 8.2,
+        "receiveAmount": 292395.28
       },
       "worldremit": {
-        "rate": 3120.97,
+        "rate": 3108.56,
         "fee": 1.99,
-        "markup": 2.15,
-        "receiveAmount": 305886.06
+        "markup": 2.31,
+        "receiveAmount": 304669.96
       },
       "instarem": {
         "rate": 3158.37,
@@ -15097,16 +15097,16 @@
         "receiveAmount": 315836.56
       },
       "xe": {
-        "rate": 3149.8,
+        "rate": 3136.89,
         "fee": 4,
-        "markup": 1.25,
-        "receiveAmount": 302380.42
+        "markup": 1.42,
+        "receiveAmount": 301141.15
       },
       "paysend": {
-        "rate": 3143.73,
+        "rate": 3127.85,
         "fee": 0,
-        "markup": 1.44,
-        "receiveAmount": 314373.46
+        "markup": 1.7,
+        "receiveAmount": 312784.97
       },
       "remitly": {
         "rate": 3064.02,
@@ -15119,6 +15119,12 @@
         "fee": 3.29,
         "markup": 0.1,
         "receiveAmount": 307732.19
+      },
+      "moneygram": {
+        "rate": 3105.38,
+        "fee": 1.99,
+        "markup": 2.41,
+        "receiveAmount": 304358.12
       }
     }
   }
