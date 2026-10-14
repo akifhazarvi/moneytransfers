@@ -3144,16 +3144,16 @@
     "date": "2026-10-14",
     "providers": {
       "taptap-send": {
-        "rate": 4.09,
+        "rate": 4.08,
         "fee": 0,
-        "markup": -0.2,
-        "receiveAmount": 409
+        "markup": 0.05,
+        "receiveAmount": 408
       },
       "wise": {
-        "rate": 4.08497,
+        "rate": 4.08417,
         "fee": 1.39,
-        "markup": -0.07,
-        "receiveAmount": 402.82
+        "markup": -0.05,
+        "receiveAmount": 402.74
       }
     }
   }

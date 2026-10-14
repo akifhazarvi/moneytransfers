@@ -7641,28 +7641,28 @@
     "date": "2026-10-14",
     "providers": {
       "westpac-nz": {
-        "rate": 0.415577,
+        "rate": 0.415715,
         "fee": 0,
-        "markup": 1.93,
-        "receiveAmount": 41.56
+        "markup": 1.9,
+        "receiveAmount": 41.57
       },
       "bank-of-new-zealand-nz": {
-        "rate": 0.417078,
+        "rate": 0.417115,
         "fee": 0,
         "markup": 1.57,
         "receiveAmount": 41.71
       },
       "kiwibank": {
-        "rate": 0.416278,
+        "rate": 0.416503,
         "fee": 20,
-        "markup": 1.76,
-        "receiveAmount": 33.3
+        "markup": 1.71,
+        "receiveAmount": 33.32
       },
       "paypal": {
-        "rate": 0.403798,
+        "rate": 0.403737,
         "fee": 6.99,
-        "markup": 4.71,
-        "receiveAmount": 37.56
+        "markup": 4.72,
+        "receiveAmount": 37.55
       }
     }
   }
