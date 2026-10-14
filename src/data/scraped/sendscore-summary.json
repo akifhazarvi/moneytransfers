@@ -4,11 +4,11 @@
   "corridorsWithAnyScore": 1034,
   "singleProviderReadings": 831,
   "bands": {
-    "exceptional": 10,
-    "great": 55,
-    "good": 50,
-    "typical": 37,
-    "poor": 51
+    "exceptional": 12,
+    "great": 58,
+    "good": 45,
+    "typical": 40,
+    "poor": 48
   },
   "goodOrBetterPct": 57,
   "confidence": {
@@ -20,37 +20,37 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 50,
+      "score": 48,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.85% vs the 30-day average, 33% up the 90-day range. Rates are flat over the past week. Today's best beats the median provider by +2.14%.",
+      "explanation": "Best rate -0.94% vs the 30-day average, 29% up the 90-day range. Rates are flat over the past week. Today's best beats the median provider by +2.37%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 33.032733579016096,
-          "detail": "33% up the 90-day range"
+          "score": 29.004985909386406,
+          "detail": "29% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 35.8171214986863,
-          "detail": "-0.85% vs the 30-day average"
+          "score": 34.25444962765807,
+          "detail": "-0.94% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
           "score": 100,
-          "detail": "today's best beats the median provider by +2.14%"
+          "detail": "today's best beats the median provider by +2.37%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 49.83466873931435,
+          "score": 49.53266054036968,
           "detail": "flat over the past week"
         }
       ],

@@ -22015,16 +22015,16 @@
     "date": "2026-10-14",
     "providers": {
       "instarem": {
-        "rate": 62.6539,
+        "rate": 62.7248,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 6265.39
+        "receiveAmount": 6272.48
       },
       "lemfi": {
-        "rate": 62.74,
+        "rate": 61.88,
         "fee": 1,
-        "markup": 0.1,
-        "receiveAmount": 6211.26
+        "markup": 1.58,
+        "receiveAmount": 6126.12
       },
       "moneygram": {
         "rate": 62.2638,
@@ -22039,10 +22039,10 @@
         "receiveAmount": 6121.29
       },
       "taptap-send": {
-        "rate": 62.3,
+        "rate": 62.4,
         "fee": 0,
-        "markup": 0.8,
-        "receiveAmount": 6230
+        "markup": 0.64,
+        "receiveAmount": 6240
       },
       "boss-money": {
         "rate": 62.3887,
@@ -22051,10 +22051,10 @@
         "receiveAmount": 6083.52
       },
       "western-union": {
-        "rate": 61.0502,
+        "rate": 61.1684,
         "fee": 1.99,
-        "markup": 2.79,
-        "receiveAmount": 5983.53
+        "markup": 2.6,
+        "receiveAmount": 5995.11
       },
       "currencyfair": {
         "rate": 62.475,
@@ -22087,10 +22087,10 @@
         "receiveAmount": 6148.41
       },
       "remitly": {
-        "rate": 60.87,
+        "rate": 60.94,
         "fee": 0,
-        "markup": 3.08,
-        "receiveAmount": 6087
+        "markup": 2.97,
+        "receiveAmount": 6094
       },
       "revolut": {
         "rate": 62.5023,
@@ -22099,22 +22099,22 @@
         "receiveAmount": 6203.35
       },
       "wise": {
-        "rate": 62.8024,
+        "rate": 62.8708,
         "fee": 1.57,
-        "markup": 0,
-        "receiveAmount": 6181.64
+        "markup": -0.11,
+        "receiveAmount": 6188.37
       },
       "wells-fargo": {
-        "rate": 60.8246,
+        "rate": 60.8844,
         "fee": 0,
-        "markup": 3.15,
-        "receiveAmount": 6082.46
+        "markup": 3.05,
+        "receiveAmount": 6088.44
       },
       "paypal": {
-        "rate": 60.1814,
+        "rate": 60.2073,
         "fee": 4.99,
-        "markup": 4.17,
-        "receiveAmount": 5717.84
+        "markup": 4.13,
+        "receiveAmount": 5720.29
       }
     }
   }

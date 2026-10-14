@@ -1752,10 +1752,10 @@
     "date": "2026-10-14",
     "providers": {
       "remitly": {
-        "rate": 9,
+        "rate": 9.0016,
         "fee": 5,
-        "markup": 1.53,
-        "receiveAmount": 855
+        "markup": 1.52,
+        "receiveAmount": 855.15
       },
       "taptap-send": {
         "rate": 9.1,
