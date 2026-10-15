@@ -97,6 +97,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: DEFAULT_OG_IMAGES,
     },
     alternates: getAlternates(`companies/${slug}`, locale),
+    ...(review && {
+      authors: [{ name: review.reviewer, url: `/about/${getAuthorByName(review.reviewer)?.slug ?? "awais-imran"}` }],
+    }),
   };
 }
 
@@ -628,6 +631,20 @@ function DefaultReview({
           { "@type": "ListItem", position: 3, name: provider.name, item: `https://sendmoneycompare.com/companies/${slug}` },
         ],
       }) }} />
+      {review && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": review.reviewer,
+          "url": `https://sendmoneycompare.com/about/${getAuthorByName(review.reviewer)?.slug ?? "awais-imran"}`,
+          "jobTitle": getAuthorByName(review.reviewer)?.role,
+        },
+        "datePublished": review.publishedAt,
+        "dateModified": review.updatedAt,
+        "itemReviewed": {
+          "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
+        },
+      }) }} />}
     </>
   );
 }
