@@ -22,6 +22,7 @@ import { COVERAGE } from "@/lib/site-stats";
 import ProviderLink from "@/components/ProviderLink";
 import { getGoUrl } from "@/lib/affiliate";
 import { CONSISTENCY_INDEX, CONSISTENCY_ROWS, TOP_LEADER } from "@/lib/consistency-index";
+import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
 
 /**
  * What we can honestly say about Wise being "Best Rate".
@@ -153,8 +154,22 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     getTranslations({ locale, namespace: "whyTrust" }),
   ]);
 
+  // Bank vs transfer-service cost on 1,000, from the same index as
+  // /guides/bank-vs-app-transfer-cost-2026. The answers said "banks add a
+  // 3–5% markup plus a $25–$50 wire fee" and "specialists cost under 1%";
+  // measured medians (fee + markup) were 2.94% and 1.88% on 2026-10-15.
+  const bankVsApp = computeBankVsAppIndex();
+  const bankFigures = {
+    bvaRoutes: bankVsApp.corridorCount,
+    bankMedian: `${bankVsApp.bankMedianCostPct.toFixed(1)}%`,
+    appMedian: `${bankVsApp.appMedianCostPct.toFixed(1)}%`,
+    bankVsCheapest: `${bankVsApp.bankVsCheapestMedianPct.toFixed(1)}%`,
+    bankPer1k: Math.round(bankVsApp.bankMedianCostPct * 10),
+    appPer1k: Math.round(bankVsApp.appMedianCostPct * 10),
+  };
+
   const faqs = [
-    { q: tFaq("q1"), a: tFaq("a1") },
+    { q: tFaq("q1"), a: tFaq("a1", bankFigures) },
     { q: tFaq("q2"), a: tFaq("a2") },
     { q: tFaq("q3"), a: tFaq("a3") },
     { q: tFaq("q4"), a: tFaq("a4") },
@@ -162,7 +177,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     // "Wise consistently ranks highest" was an adjective nothing measures; the
     // answer now states the consistency index's leader, recomputed every build.
     { q: tFaq("q6"), a: tFaq("a6", { leader: TOP_LEADER.providerName, led: TOP_LEADER.corridorsLed, corridors: CONSISTENCY_INDEX.comparableCorridors }) },
-    { q: tFaq("q7"), a: tFaq("a7") },
+    { q: tFaq("q7"), a: tFaq("a7", bankFigures) },
     { q: tFaq("q8"), a: tFaq("a8") },
   ];
 

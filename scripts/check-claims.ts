@@ -37,7 +37,7 @@
  *
  * RATCHET — legacy debt that may shrink but never grow (scripts/claims-baseline.json):
  *   markup-figure   hand-typed markup figures in prose: "within 0.5–1% of the
- *                   mid-market rate", "a 2–4% markup". Hundreds sit in the
+ *                   mid-market rate", "a 2–4% markup", "a markup of 3–5%". Hundreds sit in the
  *                   March corridor descriptions; rewriting them in bulk is
  *                   the duplication risk the corridor rules forbid. New
  *                   content must use {{MARKUP:…}}, {{AVG_MARKUP_PCT:…}} or
@@ -175,9 +175,14 @@ const RATCHET: Rule[] = [
       NO_SINGLE.test(before) ||
       /\b(?:which|who|whichever|what|that|some|any)\s+(?:\w+\s+){0,2}(?:(?:often|usually|typically|tends? to)\s+)?$/i.test(before),
   },
+  // Both word orders. Until 2026-10-16 only "3–5% markup" counted, so "a markup
+  // of 3–5%" and "markup (…, usually 0.3%–4%)" went unseen — and rewording one
+  // into the other (Okara PR #81, homepage FAQ) failed the build as a "new"
+  // figure. The reverse order stays inside one sentence (no "." or digit
+  // between "markup" and the range).
   {
     id: "markup-figure",
-    re: /within\s+(?:about\s+|roughly\s+|~)?\d+(?:\.\d+)?\s*%?(?:\s*[–-]\s*\d+(?:\.\d+)?\s*)?%\s+of\s+(?:the\s+)?(?:mid-market|interbank|real)|\b\d+(?:\.\d+)?\s*%?\s*[–-]\s*\d+(?:\.\d+)?\s*%\s*(?:exchange[- ]rate\s+|FX\s+)?mark-?ups?\b/gi,
+    re: /within\s+(?:about\s+|roughly\s+|~)?\d+(?:\.\d+)?\s*%?(?:\s*[–-]\s*\d+(?:\.\d+)?\s*)?%\s+of\s+(?:the\s+)?(?:mid-market|interbank|real)|\b\d+(?:\.\d+)?\s*%?\s*[–-]\s*\d+(?:\.\d+)?\s*%\s*(?:(?:exchange[- ])?rate\s+|FX\s+)?mark-?ups?\b|\bmark-?ups?\b[^.%\d]{0,80}?\b\d+(?:\.\d+)?\s*%?\s*[–-]\s*\d+(?:\.\d+)?\s*%/gi,
   },
 ];
 
