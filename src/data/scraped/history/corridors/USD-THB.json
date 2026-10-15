@@ -11693,10 +11693,10 @@
     "date": "2026-10-15",
     "providers": {
       "remitly": {
-        "rate": 33.06,
+        "rate": 33.07,
         "fee": 1.99,
-        "markup": 1.47,
-        "receiveAmount": 3240.21
+        "markup": 1.44,
+        "receiveAmount": 3241.19
       },
       "ria": {
         "rate": 32.9551,
@@ -11705,22 +11705,22 @@
         "receiveAmount": 3232.9
       },
       "taptap-send": {
-        "rate": 33.45,
+        "rate": 33.11,
         "fee": 1.99,
-        "markup": 0.3,
-        "receiveAmount": 3278.43
+        "markup": 1.32,
+        "receiveAmount": 3245.11
       },
       "worldremit": {
-        "rate": 32.9994,
+        "rate": 33.0187,
         "fee": 2.99,
-        "markup": 1.65,
-        "receiveAmount": 3201.28
+        "markup": 1.59,
+        "receiveAmount": 3203.14
       },
       "instarem": {
-        "rate": 33.2511,
+        "rate": 33.2735,
         "fee": 0,
-        "markup": 0.9,
-        "receiveAmount": 3325.11
+        "markup": 0.83,
+        "receiveAmount": 3327.35
       },
       "xoom": {
         "rate": 32.0817,
@@ -11729,28 +11729,28 @@
         "receiveAmount": 3048.08
       },
       "paypal": {
-        "rate": 32.125,
+        "rate": 32.1312,
         "fee": 4.99,
-        "markup": 4.25,
-        "receiveAmount": 3052.19
+        "markup": 4.23,
+        "receiveAmount": 3052.78
       },
       "western-union": {
-        "rate": 32.8047,
+        "rate": 32.8253,
         "fee": 1.99,
-        "markup": 2.23,
-        "receiveAmount": 3215.19
+        "markup": 2.16,
+        "receiveAmount": 3217.21
       },
       "wells-fargo": {
-        "rate": 32.441,
+        "rate": 32.4599,
         "fee": 0,
-        "markup": 3.31,
-        "receiveAmount": 3244.1
+        "markup": 3.25,
+        "receiveAmount": 3245.99
       },
       "wise": {
-        "rate": 33.499,
+        "rate": 33.531,
         "fee": 2.87,
-        "markup": 0.16,
-        "receiveAmount": 3253.76
+        "markup": 0.06,
+        "receiveAmount": 3256.87
       }
     }
   }
