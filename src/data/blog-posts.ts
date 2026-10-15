@@ -3875,7 +3875,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Sending Money to Brazil: PIX Made It Fast, IOF Made It Taxed",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> uses the mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000, delivered via PIX — but on measured payouts the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:BRL}}. <a href="/companies/remitly">Remitly</a> Express is competitive on smaller amounts (USD 100–500) with frequent zero-fee promotions. Brazil charges a <strong>0.38% IOF tax</strong> on every inbound foreign-currency conversion — automatically deducted by the receiving Brazilian bank, applied to all providers including Wise, Remitly, Xoom, and US bank wires alike. On USD 1,000 that is roughly <strong>BRL 19</strong> deducted unavoidably. PIX delivery (Brazil's instant payment rail launched 2020, now used by 160+ million Brazilians) means transfers settle within seconds 24/7. <a href="/send-money/usa-to-mexico">Compare live USD to BRL rates →</a></p></div>
 <p>The US–Brazil corridor doesn't fit the typical "remittance to a developing country" template. Brazil isn't poor: it's the world's <strong>ninth-largest economy</strong> by GDP and operates one of the most modern domestic payment systems on the planet. <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a> launched <strong>PIX</strong> in November 2020, and within four years it became the dominant way Brazilians move money — over <strong>160 million users</strong> (roughly 80% of all adults) and over 5 billion transactions per month, more than the country's debit card and TED transfers combined.</p>
-<p>Two structural facts shape this corridor in 2026. First, PIX has changed receive-side delivery from "1–2 business days via TED" to "seconds, 24/7" for most US digital providers (Wise, Remitly, Xoom, Boss Money, Western Union all now route final-mile through PIX). Second, Brazil charges a 0.38% <strong>IOF</strong> (Imposto sobre Operações Financeiras) on every inbound USD→BRL conversion — a federal tax automatically deducted at the moment of FX. It's small in percentage terms but it's the single most-asked-about line item from first-time senders, because it appears as a deduction on the recipient's bank statement that doesn't show up in the provider's quote screen.</p>
+<p>Two structural facts shape this corridor in 2026. First, PIX has changed receive-side delivery from "1–2 business days via TED" to "seconds, 24/7" for most US digital providers (Wise, Remitly, Xoom, Boss Money, Western Union all now route final-mile through PIX). Second, Brazil charges a 0.38% <strong>IOF</strong> (Imposto sobre Operações Financeiras) on every inbound USD→BRL conversion — a federal tax automatically deducted at the moment of FX. It's small in percentage terms but it's the single most-asked-about line item from first-time senders, because it appears as a deduction on the recipient's bank statement that doesn't show up in the provider's quote screen. <a href="/compare/remitly-vs-western-union">Remitly vs Western Union</a> sets two of them side by side.</p>
 <p>This guide covers exactly what to expect: which providers actually win on USD→BRL today, how PIX delivery works end-to-end, what the IOF tax is and why you can't avoid it, the diaspora-economics realities of the Florida-Massachusetts-New York Brazilian-American corridors, and the common mistakes that cost first-time senders BRL 50–200 per transfer.</p>`,
       },
       {
@@ -5139,7 +5139,7 @@ const rawBlogPosts: BlogPost[] = [
 </ul>
 
 <h3>Best For</h3>
-<p>E-commerce businesses already in the PayPal ecosystem, and freelancers invoicing international clients who prefer to pay via PayPal.</p>
+<p>E-commerce businesses already in the PayPal ecosystem, and freelancers invoicing international clients who prefer to pay via PayPal. Weighing it against Revolut Business? See <a href="/compare/paypal-vs-revolut">PayPal vs Revolut</a>.</p>
 
 <h3>Limitations</h3>
 <p>Very expensive for currency conversion (5% markup is 10x more than Wise). Poor exchange rates. High fees for receiving payments. Holds on new accounts can freeze funds for weeks.</p>
@@ -5960,6 +5960,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><strong>Bank wire (SWIFT)</strong></td><td>$25–50</td><td>1.5–3% markup</td><td>2–5 days</td><td>Large invoices, formal clients</td></tr>
 </tbody>
 </table>
+<p>Choosing between the two most freelancers already hold? <a href="/compare/paypal-vs-revolut">PayPal vs Revolut</a> sets their fees and exchange rates side by side.</p>
 </div>
 
 <h3>The Wise Business Advantage</h3>
@@ -13976,7 +13977,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong><a href="/companies/instarem">InstaReM</a></strong>: Singapore HQ, well-tuned for AUD/SGD → Asian currency conversions. Often runs zero-fee promotions on AUD outbound</li>
 <li><strong><a href="/companies/wise">Wise</a></strong>: Mid-market AUD/KRW with PayID or BSB+account funding. Slightly cheaper than InstaReM on $5,000+ transfers</li>
 </ul>
-<p>Avoid Westpac, ANZ, Commonwealth Bank for routine transfers — they typically add 3–5% FX markup on KRW.</p>
+<p>Avoid Westpac, ANZ, Commonwealth Bank for routine transfers — they typically add 3–5% FX markup on KRW. <a href="/compare/wise-vs-westpac">Wise vs Westpac</a> shows the gap against a specialist.</p>
 
 <h3>From Japan (JPY → KRW)</h3>
 <p>The proximity corridor. Japan→Korea is heavily commercial (cross-border business, tourism, family). Wise leads on transparency. Japanese banks (MUFG, SMBC, Mizuho) charge a flat fee of ¥3,000–5,500 per outbound wire plus 1–2% FX markup — Wise is roughly half the total cost on a ¥100,000 transfer. Local fintech alternatives like <strong>Smiles Mobile Remittance</strong> (Coinstar) and <strong>SBI Remit</strong> are competitive with Wise on this specific corridor.</p>
@@ -15264,7 +15265,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Why I Ran This Test",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> TapTap Send charges no fee above $250 and credits in seconds via Apple Pay — which is why it is worth knowing about despite being less familiar than the others here. On measured payouts, the corridor's most frequent leader is {{CORRIDOR_LEADER:USD:PKR}}. It is not always the outright winner: on $1,000 today it delivers {{RECEIVE:taptap-send:USD:PKR:1000}} against {{BEST_PROVIDER:USD:PKR:1000}} at {{BEST_RECEIVE:USD:PKR:1000}}, with <a href="/companies/wise">Wise</a> at {{RECEIVE:wise:USD:PKR:1000}}. The leaders sit close together and swap places; the spread across all {{PROVIDER_TALLY:USD:PKR:1000}} providers is {{SPREAD:USD:PKR:1000}}, so the decision that matters is avoiding the bottom of the table, not picking between the top two. <a href="/send-money/usa-to-pakistan">Compare live USD to PKR rates →</a></p></div>
 <p>I've been tracking the USD to PKR corridor for a while on SendMoneyCompare. Ria, XE, Wise, and Remitly dominate the conversation — they're the names you see in every Pakistani diaspora forum thread about sending money home.</p>
-<p>But the comparison data kept showing TapTap Send near the top of our leaderboard on this corridor, and I noticed something interesting: it accepts Apple Pay. For anyone who's watched a Remitly "Express" transfer spin for 20 minutes while waiting for a bank debit to clear, that's a meaningful difference.</p>
+<p>But the comparison data kept showing TapTap Send near the top of our leaderboard on this corridor, and I noticed something interesting: it accepts Apple Pay. For anyone who's watched a Remitly "Express" transfer spin for 20 minutes while waiting for a bank debit to clear, that's a meaningful difference. (<a href="/compare/remitly-vs-taptap-send">Remitly vs TapTap Send</a> has the head-to-head numbers.)</p>
 <p>So I ran a real test. I opened accounts on all five services and sent money through each one. Here's exactly what happened.</p>`,
       },
       {

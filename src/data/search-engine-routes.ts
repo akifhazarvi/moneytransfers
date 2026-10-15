@@ -215,6 +215,68 @@ export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; reado
       "/iban/kuwait",             // 5
     ],
   },
+  {
+    // Batch 2 — 7 days after batch 1 (brief §3.4: 10–20 URLs every 7–10 days).
+    // The four Priority-1 pages held back from batch 1, now fixed: /banks has a
+    // dated byline, /swift-codes/thailand lost its wrong-length code, the
+    // western-union-vs-moneygram verdict no longer contradicts its figures,
+    // paypal-vs-revolut gained contextual links. Then the highest-demand
+    // pages of the 2026-10-09 live QA's batch-2 list. Bing clicks in comments.
+    released: "2026-10-21",
+    routes: [
+      "/banks",                             // 20
+      "/swift-codes/thailand",              // 11
+      "/compare/western-union-vs-moneygram", // 5
+      "/compare/paypal-vs-revolut",         // 5
+      "/iban/turkey",                       // 4
+      "/swift-codes/united-arab-emirates",  // 4
+      "/compare/wise-vs-revolut",           // 4
+      "/compare/wise-vs-paypal",            // 4
+      "/swift-codes/hong-kong",             // 4
+      "/companies/taptap-send",             // 3
+      "/swift-codes/new-zealand",           // 3
+      "/swift-codes/japan",                 // 3
+      "/banks/hsbc",                        // 3
+      "/iban/qatar",                        // 3
+      "/swift-codes/nigeria",               // 2
+      "/iban/ukraine",                      // 2
+      "/iban/croatia",                      // 2
+      "/compare/wise-vs-westpac",           // 2
+      "/companies/xoom",                    // 1
+      "/companies/instarem",                // 1
+    ],
+  },
+  {
+    // Batch 3 — 7 days after batch 2. The rest of the QA batch-2 list, then its
+    // batch-3 list by Bing demand. Held for a re-QA'd batch 4 after GSC shows
+    // how batches 1–3 land: compare/chase-vs-revolut, compare/paypal-vs-worldremit,
+    // and — no eligible guide compares them in context, so they lack the 3
+    // in-content links QA item 8 asks for — compare/remitly-vs-paypal and
+    // compare/paypal-vs-western-union.
+    released: "2026-10-28",
+    routes: [
+      "/iban/cyprus",                       // 1
+      "/iban/jordan",                       // 1
+      "/compare/remitly-vs-western-union",  // 1
+      "/iban/costa-rica",                   // 1
+      "/compare/remitly-vs-taptap-send",    // 1
+      "/iban/uk",                           // 0 (595 impressions)
+      "/companies/worldremit",              // 0 (288)
+      "/swift-codes/singapore",             // 0 (228)
+      "/companies/wise",                    // 0 (132)
+      "/send-money/saudi-arabia-to-pakistan", // 0 (102)
+      "/iban/georgia",                      // 0 (86)
+      "/swift-codes/south-korea",           // 0 (79)
+      "/swift-codes/netherlands",           // 0 (69)
+      "/iban/lithuania",                    // 0 (54)
+      "/swift-codes/morocco",               // 0 (54)
+      "/iban/slovakia",
+      "/banks/chase",
+      "/compare/wise-vs-worldremit",
+      "/swift-codes/turkiye",
+      "/banks/barclays",
+    ],
+  },
 ];
 
 /**

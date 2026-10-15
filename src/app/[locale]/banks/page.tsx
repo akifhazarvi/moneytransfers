@@ -12,6 +12,8 @@ import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import Breadcrumb from "@/components/Breadcrumb";
+import { PageByline } from "@/components/PageByline";
+import { COMPARISON_CONTENT_DATE, EDITORIAL_AUTHOR_SLUG } from "@/lib/content-dates";
 import {
   PILOT_BANKS,
   getBankAggregateStats,
@@ -63,11 +65,14 @@ export default async function BanksHubPage() {
               Bank International Transfer Fees — Live Cost Data ({new Date().getFullYear()})
             </h1>
             <p className="text-lg text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
-              We continuously scrape live international transfer quotes from major banks and
+              We collect international transfer quotes from major banks and
               compare them against Wise, Remitly, OFX, and the rest of the{" "}{COVERAGE.providers}{" "}we track on the same
               corridor, same amount, same day. Pick your bank to see exactly what it costs you to
               send money abroad — and how much you&rsquo;d save by switching.
             </p>
+            {/* Round-3 QA item 7: a dated byline. The date is the family's
+                content date, the same one sitemap.ts gives /banks. */}
+            <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={COMPARISON_CONTENT_DATE} cadence={null} />
           </div>
         </Container>
       </section>
