@@ -43,8 +43,30 @@ export default async function BusinessHubPage({ params }: { params: Promise<{ lo
     { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
     { "@type": "ListItem", position: 2, name: "Business payments", item: "https://sendmoneycompare.com/business" },
   ] };
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Find a better fit for the way you pay",
+    "description": "Compare business payment providers by features, eligibility and observed FX costs. Explore supplier payments, batch payouts and business transfer guides.",
+    "url": "https://sendmoneycompare.com/business",
+    "author": {
+      "@type": "Person",
+      "name": "Ahsan Mukhtar",
+      "url": "https://sendmoneycompare.com/about/ahsan-mukhtar",
+      "jobTitle": "Founder & CEO",
+      "sameAs": ["https://www.linkedin.com/in/ahsan-mukhtar/"],
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SendMoneyCompare",
+      "url": "https://sendmoneycompare.com",
+    },
+    "dateModified": "2026-10-09",
+  };
   return <>
+    <link rel="author" href="/about/ahsan-mukhtar" />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <section className="business-hero"><Container><div className="business-hero-grid">
       <div><p className="business-eyebrow">International business payments</p><h1>Find a better fit <br />for the way you pay.</h1><p className="business-deck">Compare costs, payment tools and account requirements. Build a shortlist around your business.</p>
         <div className="business-actions"><Link href="/business/compare#finder" className="conversion-button conversion-button--accent">Compare business providers <span aria-hidden="true">→</span></Link><a href="#business-guides" className="business-text-link">Explore payment guides</a></div>
@@ -71,7 +93,7 @@ export default async function BusinessHubPage({ params }: { params: Promise<{ lo
       <section className="business-section business-faq" aria-labelledby="business-faq-title"><h2 id="business-faq-title">Before you choose a provider</h2>{[
         ["Is the lowest benchmark cost the best choice for my business?", "Not necessarily. The benchmark averages observed costs across routes at a fixed amount. Your currencies, volume, eligibility and required payment tools may lead to a different shortlist."],
         ["Can I complete a payment on this website?", "No. Use this site to compare and research. Account opening, verification and payment take place with your chosen provider."],
-        ["What should I prepare before asking for a quote?", "Have your sending and receiving currencies, amount, payment deadline and recipient type ready. Check the provider’s business verification requirements before committing to a time-sensitive payment."],
+        ["What should I prepare before asking for a quote?", "Have your sending and receiving currencies, amount, payment deadline and recipient type ready. Check the provider's business verification requirements before committing to a time-sensitive payment."],
       ].map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</section>
       <details className="business-more-research"><summary>More business payment research and routes</summary><div className="business-research-links">{[
         ["business-international-payments-guide", "International business payments guide"], ["exchange-rate-markup-explained", "Exchange rate markup explained"], ["multi-currency-accounts-exchange-rates", "Multi-currency accounts"], ["lowest-fx-fees-business-payments-2026", "Business FX fee research"], ["how-to-pay-international-suppliers", "Paying international suppliers"], ["international-payroll-pay-remote-teams", "International payroll"], ["wire-transfer-guide", "Wire transfer guide"],
