@@ -19590,10 +19590,10 @@
         "receiveAmount": 6675.18
       },
       "moneygram": {
-        "rate": 66.1777,
+        "rate": 66.0404,
         "fee": 3.99,
-        "markup": 1.07,
-        "receiveAmount": 6353.72
+        "markup": 1.13,
+        "receiveAmount": 6340.54
       },
       "western-union": {
         "rate": 66.5959,
@@ -19602,22 +19602,22 @@
         "receiveAmount": 6527.07
       },
       "dahabshiil": {
-        "rate": 66.3105,
+        "rate": 66.4026,
         "fee": 2.99,
-        "markup": 0.88,
-        "receiveAmount": 6432.78
+        "markup": 0.59,
+        "receiveAmount": 6441.72
       },
       "paysend": {
-        "rate": 66.7377,
+        "rate": 66.6716,
         "fee": 0,
-        "markup": 0.24,
-        "receiveAmount": 6673.77
+        "markup": 0.19,
+        "receiveAmount": 6667.16
       },
       "koho": {
-        "rate": 66.9065,
-        "fee": 1.26,
-        "markup": -0.02,
-        "receiveAmount": 6606.35
+        "rate": 66.8396,
+        "fee": 1.24,
+        "markup": -0.07,
+        "receiveAmount": 6601.08
       },
       "remitly": {
         "rate": 66.56,
@@ -19626,10 +19626,10 @@
         "receiveAmount": 6523.55
       },
       "ria": {
-        "rate": 66.2659,
+        "rate": 66.1056,
         "fee": 1.9,
-        "markup": 0.9,
-        "receiveAmount": 6500.68
+        "markup": 1.14,
+        "receiveAmount": 6484.96
       },
       "taptap-send": {
         "rate": 66.85,
@@ -19666,6 +19666,12 @@
         "fee": 2.58,
         "markup": 0.03,
         "receiveAmount": 6512.39
+      },
+      "skrill": {
+        "rate": 64.9131,
+        "fee": 1,
+        "markup": 2.82,
+        "receiveAmount": 6426.4
       }
     }
   }

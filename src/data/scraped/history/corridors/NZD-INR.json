@@ -12600,28 +12600,28 @@
     "date": "2026-10-15",
     "providers": {
       "western-union": {
-        "rate": 52.5687,
+        "rate": 52.2811,
         "fee": 1.2,
-        "markup": 1.61,
-        "receiveAmount": 5193.79
+        "markup": 1.91,
+        "receiveAmount": 5165.38
       },
       "remitly": {
-        "rate": 52.78,
+        "rate": 52.65,
         "fee": 2.99,
         "markup": 1.22,
-        "receiveAmount": 5120.19
+        "receiveAmount": 5107.58
       },
       "revolut": {
-        "rate": 53.237,
+        "rate": 53.0822,
         "fee": 0.75,
-        "markup": 0.36,
-        "receiveAmount": 5283.77
+        "markup": 0.41,
+        "receiveAmount": 5268.41
       },
       "ria": {
-        "rate": 52.7948,
+        "rate": 52.544,
         "fee": 1.99,
-        "markup": 1.15,
-        "receiveAmount": 5174.42
+        "markup": 1.62,
+        "receiveAmount": 5149.83
       },
       "bank-of-new-zealand-nz": {
         "rate": 52.3758,
@@ -12640,6 +12640,12 @@
         "fee": 1.74,
         "markup": 0.05,
         "receiveAmount": 5245.39
+      },
+      "moneygram": {
+        "rate": 51.1195,
+        "fee": 4.99,
+        "markup": 4.09,
+        "receiveAmount": 4856.86
       }
     }
   }

@@ -10759,7 +10759,7 @@
       "boss-money": {
         "rate": 171.5,
         "fee": 2.49,
-        "markup": -5.77,
+        "markup": -6.11,
         "receiveAmount": 16722.97
       },
       "western-union": {
@@ -10771,14 +10771,14 @@
       "xe": {
         "rate": 178,
         "fee": 5,
-        "markup": -9.78,
+        "markup": -10.13,
         "receiveAmount": 16910
       },
       "remitly": {
-        "rate": 158.82,
+        "rate": 158.88,
         "fee": 2.99,
-        "markup": 2.05,
-        "receiveAmount": 15407.13
+        "markup": 1.7,
+        "receiveAmount": 15412.95
       },
       "wise": {
         "rate": 161.091,
@@ -10791,6 +10791,12 @@
         "fee": 2.99,
         "markup": 8.78,
         "receiveAmount": 14324.88
+      },
+      "moneygram": {
+        "rate": 173.033,
+        "fee": 2.99,
+        "markup": -7.06,
+        "receiveAmount": 16785.95
       }
     }
   }
