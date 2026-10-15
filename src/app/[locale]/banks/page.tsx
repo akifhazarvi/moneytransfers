@@ -37,9 +37,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const year = new Date().getFullYear();
   return {
-    // Was 93 chars: everything after "Compared" was truncated in the SERP, so
-    // the bank names it was carrying never rendered anyway.
-    title: `Bank International Transfer Fees Compared (${year}) | SendMoneyCompare`,
+    // Was 93 chars, then 67 chars: "International" pushed past the ~60-char
+    // SERP display limit and was cut. Removing it keeps keyword relevance.
+    title: `Bank Transfer Fees Compared (${year}) | SendMoneyCompare`,
     description: seoDescription(`How much do major banks really charge for international transfers? Live data showing what HSBC, Wells Fargo, Chase, Lloyds and Barclays customers pay vs Wise, Remitly and specialist providers on the same corridor and amount.`),
     alternates: getAlternates("banks", locale),
     // 2026-09-20: indexability is measured — robotsFor() consults the
