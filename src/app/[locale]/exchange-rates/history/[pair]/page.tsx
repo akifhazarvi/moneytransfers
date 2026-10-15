@@ -228,9 +228,9 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
             <div className="flex items-center gap-1 shrink-0">
-              <CircleFlag code={from} size={28} />
+              <CircleFlag code={from} size={28} priority={true} />
               <span className="text-base text-[var(--color-on-surface-muted)]">→</span>
-              <CircleFlag code={to} size={28} />
+              <CircleFlag code={to} size={28} priority={true} />
             </div>
             <div className="min-w-0">
               <h1 className="text-[clamp(1.5rem,5vw,2.25rem)] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.01em]">
