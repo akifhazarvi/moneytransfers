@@ -1,9 +1,11 @@
 import Container from "@/components/Container";
 import PolicyLinks from "@/components/PolicyLinks";
 import Link from "@/components/EligibleLink";
+import Image from "next/image";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getAuthor } from "@/data/authors";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -26,8 +28,37 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "editorialPolicy" });
 
+  const editor = getAuthor("awais-imran");
+
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Editorial Policy",
+    url: "https://sendmoneycompare.com/editorial-policy",
+    author: {
+      "@type": "Person",
+      "@id": "https://sendmoneycompare.com/about/awais-imran#person",
+      name: "Awais Imran",
+      jobTitle: "Editor-in-Chief",
+      url: "https://sendmoneycompare.com/about/awais-imran",
+      ...(editor?.linkedin && { sameAs: [editor.linkedin] }),
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": "https://sendmoneycompare.com/#organization",
+      name: "SendMoneyCompare",
+      url: "https://sendmoneycompare.com",
+    },
+    dateModified: "2026-10-15",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
+
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -213,6 +244,37 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
                 .
               </p>
             </div>
+
+            {editor && (
+              <div className="border border-[var(--color-outline)] rounded-xl p-6 flex items-start gap-5">
+                {editor.photo ? (
+                  <Image
+                    src={editor.photo}
+                    alt={editor.name}
+                    width={64}
+                    height={64}
+                    className="w-16 h-16 rounded-full object-cover shrink-0"
+                  />
+                ) : (
+                  <div className="w-16 h-16 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-xl font-medium text-[var(--color-primary)] shrink-0">
+                    {editor.initials}
+                  </div>
+                )}
+                <div>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] mb-1">Written and maintained by</p>
+                  <Link
+                    href={`/about/${editor.slug}`}
+                    className="text-sm font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)]"
+                  >
+                    {editor.name}
+                  </Link>
+                  <p className="text-2sm text-[var(--color-primary)] mb-2">{editor.role}</p>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                    {editor.byline}
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
           <PolicyLinks current="/editorial-policy" />
         </Container>
