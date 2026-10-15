@@ -12457,64 +12457,64 @@
     "date": "2026-10-15",
     "providers": {
       "lemfi": {
-        "rate": 0.6183,
+        "rate": 0.6213,
         "fee": 0,
-        "markup": 1.44,
-        "receiveAmount": 61.83
+        "markup": 1.06,
+        "receiveAmount": 62.13
       },
       "taptap-send": {
-        "rate": 0.624,
+        "rate": 0.625,
         "fee": 0,
-        "markup": 0.53,
-        "receiveAmount": 62.4
-      },
-      "remitly": {
-        "rate": 0.624994,
-        "fee": 0,
-        "markup": 0.38,
+        "markup": 0.37,
         "receiveAmount": 62.5
       },
-      "td-bank": {
-        "rate": 0.609839,
+      "remitly": {
+        "rate": 0.625423,
         "fee": 0,
-        "markup": 2.79,
-        "receiveAmount": 60.98
+        "markup": 0.31,
+        "receiveAmount": 62.54
+      },
+      "td-bank": {
+        "rate": 0.610234,
+        "fee": 0,
+        "markup": 2.73,
+        "receiveAmount": 61.02
       },
       "rbc": {
-        "rate": 0.608388,
+        "rate": 0.610458,
         "fee": 0,
-        "markup": 3.02,
-        "receiveAmount": 60.84
+        "markup": 2.69,
+        "receiveAmount": 61.05
       },
       "instarem": {
-        "rate": 0.624593,
+        "rate": 0.624704,
         "fee": 0,
-        "markup": 0.44,
-        "receiveAmount": 62.46
+        "markup": 0.42,
+        "receiveAmount": 62.47
       },
       "xoom": {
-        "rate": 0.593029,
+        "rate": 0.594542,
         "fee": 2.99,
-        "markup": 5.47,
-        "receiveAmount": 57.53
+        "markup": 5.23,
+        "receiveAmount": 57.68
       },
       "bmo": {
-        "rate": 0.598585,
+        "rate": 0.599279,
         "fee": 0,
-        "markup": 4.58,
-        "receiveAmount": 59.86
+        "markup": 4.47,
+        "receiveAmount": 59.93
       },
       "paypal": {
-        "rate": 0.602909,
+        "rate": 0.602455,
         "fee": 2.99,
-        "markup": 3.9,
-        "receiveAmount": 58.49
+        "markup": 3.97,
+        "receiveAmount": 58.44
       },
       "western-union": {
-        "rate": 0.612062,
+        "rate": 0.612853,
         "fee": 1.99,
-        "markup": 2.44,
-        "receiveAmount": 59.99
+        "markup": 2.31,
+        "receiveAmount": 60.07
       }
     }
   }

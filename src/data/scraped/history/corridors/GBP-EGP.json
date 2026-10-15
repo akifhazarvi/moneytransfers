@@ -3114,16 +3114,16 @@
     "date": "2026-10-15",
     "providers": {
       "lemfi": {
-        "rate": 69.73,
+        "rate": 70.4,
         "fee": 0,
-        "markup": 0.88,
-        "receiveAmount": 6973
+        "markup": 0.71,
+        "receiveAmount": 7040
       },
       "taptap-send": {
-        "rate": 70.2,
+        "rate": 70.42,
         "fee": 0,
-        "markup": 0.21,
-        "receiveAmount": 7020
+        "markup": -0.1,
+        "receiveAmount": 7042
       }
     }
   }
