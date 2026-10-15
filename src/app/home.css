@@ -51,3 +51,4 @@
 .home-receive-row { flex-wrap:wrap; }
 .home-receive-value { margin-left:auto; }
 @media(max-width:360px) { .home-receive-value { font-size:20px; } }
+.home-scroll-x { -webkit-overflow-scrolling: touch; }
