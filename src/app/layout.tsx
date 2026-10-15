@@ -152,6 +152,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://open.er-api.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://hatscripts.github.io" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
       </head>
       <body className="antialiased">
         {/* AdSense loader — rendered on every page EXCEPT the home route, so
