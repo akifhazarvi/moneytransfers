@@ -91,8 +91,6 @@ const HERO_CORRIDORS = [
   { from: "USD", to: "JMD", label: "USD → JMD" },
   { from: "USD", to: "JOD", label: "USD → JOD" },
   { from: "USD", to: "KGS", label: "USD → KGS" },
-  { from: "USD", to: "GHS", label: "USD → GHS" },
-  { from: "USD", to: "EGP", label: "USD → EGP" },
   // GBP — 55 destinations
   { from: "GBP", to: "INR", label: "GBP → INR" },
   { from: "GBP", to: "PKR", label: "GBP → PKR" },
@@ -120,7 +118,6 @@ const HERO_CORRIDORS = [
   { from: "GBP", to: "RON", label: "GBP → RON" },
   { from: "GBP", to: "THB", label: "GBP → THB" },
   { from: "GBP", to: "TRY", label: "GBP → TRY" },
-  { from: "GBP", to: "UAH", label: "GBP → UAH" },
   { from: "GBP", to: "VND", label: "GBP → VND" },
   { from: "GBP", to: "ZAR", label: "GBP → ZAR" },
   { from: "GBP", to: "BRL", label: "GBP → BRL" },
@@ -594,6 +591,10 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             <p className="mt-3 text-[15px] sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed">
               We track exchange rates daily across {COVERAGE.corridorsTracked}. Pick yours and we&apos;ll tell you if today beats
               the last few months — and exactly how much your recipient gets.
+            </p>
+            <p className="mt-2 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              The mid-market rate — the midpoint of global currency markets — is the fairest reference point, before any bank or
+              transfer service adds their markup. Comparing that markup across providers is how you find the real best deal for your corridor.
             </p>
             {/* Round-3 QA item 7: a named author and the page's content date.
                 The rates' own time is the "Rates collected" line below. */}
