@@ -169,6 +169,71 @@ export default async function HowWeReviewPage({ params }: Props) {
 
             <div>
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                Editorial independence
+              </h2>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  SendMoneyCompare earns referral fees when you visit a provider
+                  through our links. This is stated on every page. These fees do
+                  not influence our rankings, scores, or editorial decisions — a
+                  provider cannot pay for a higher position in our comparison
+                  tables or a more favourable review.
+                </p>
+                <p>
+                  Our comparison tables rank providers by the amount the
+                  recipient actually receives for a fixed send amount, calculated
+                  in real time from our live rate data. A provider we do not
+                  monetise can and does lead a corridor table. Our editorial team
+                  applies the same five criteria to every provider regardless of
+                  whether an affiliate relationship exists.
+                </p>
+                <p>
+                  Review scores are computed from the data, not set editorially.
+                  An affiliate whose fees rise will see their score fall on the
+                  next data update. We do not accept sponsored reviews, paid
+                  placements, or promotional content presented as editorial
+                  assessment.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                When a provider is excluded
+              </h2>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  We do not list every provider we are aware of. A provider may
+                  be excluded from our platform if:
+                </p>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>
+                    It cannot be verified as licensed in a jurisdiction we cover
+                  </li>
+                  <li>
+                    Our data shows exchange rates we cannot reconcile with what a
+                    real customer would receive
+                  </li>
+                  <li>
+                    A regulator has issued a public warning or enforcement action
+                    against it
+                  </li>
+                  <li>
+                    It does not meet our minimum coverage threshold for the
+                    routes we compare
+                  </li>
+                </ul>
+                <p>
+                  Exclusion is a data and compliance decision, not an editorial
+                  one. We keep a list of providers we track but do not publish;
+                  if a provider later meets the criteria, it is added
+                  automatically on the next data refresh.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Scoring criteria
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 leading-relaxed">
