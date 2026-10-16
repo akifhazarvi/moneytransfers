@@ -27,6 +27,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const th = "text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]";
+const td = "px-4 py-3";
+const tdMono = "px-4 py-3 font-mono text-xs";
+
 export default async function CookiePolicyPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -43,6 +47,9 @@ export default async function CookiePolicyPage({ params }: Props) {
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("lastUpdated", { date: longDay(pageUpdated("/cookies")) })}
             </p>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
+              This policy explains which cookies and browser storage SendMoneyCompare uses, why we use them, and how you can control them. We do not use advertising cookies, remarketing cookies, or any cross-site tracking technology.
+            </p>
           </div>
         </Container>
       </section>
@@ -56,17 +63,15 @@ export default async function CookiePolicyPage({ params }: Props) {
                 {t("whatAreCookies")}
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>{t("whatAreCookiesDesc")}</p>
                 <p>
-                  Cookies are small text files that are stored on your device when you
-                  visit a website. This page also covers browser storage like
-                  localStorage and sessionStorage, which work similarly.
+                  Cookies contain a small amount of data — typically a randomly generated identifier or a user preference — and are sent back to the site on each visit. They cannot run code or access files elsewhere on your device.
                 </p>
                 <p>
-                  We do not use advertising cookies, remarketing cookies, or any
-                  cross-site tracking. We use Google Analytics with a first-party
-                  analytics cookie to count visitors accurately. In the UK, EU, EEA
-                  and Switzerland this cookie is only set after you accept it via our
-                  consent banner; elsewhere it is enabled by default.
+                  This policy also covers <strong>browser storage</strong> (localStorage and sessionStorage), which stores data locally in your browser without sending it to a server. We use these to remember your comparison preferences and currency selections across page loads.
+                </p>
+                <p>
+                  We do not use advertising cookies, remarketing cookies, or any cross-site tracking. We use Google Analytics with a first-party analytics cookie to count visitors accurately. In the UK, EU, EEA and Switzerland this cookie is only set after you accept it via our consent banner; elsewhere it is enabled by default.
                 </p>
               </div>
             </div>
@@ -81,50 +86,49 @@ export default async function CookiePolicyPage({ params }: Props) {
                   <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     {t("essentialCookies")}
                   </h3>
+                  <p className="mb-3">{t("essentialCookiesDesc")}</p>
                   <p className="mb-3">
-                    These are required for the site to function correctly or to remember
-                    your preferences. None of them identify you or track you across
-                    other websites.
+                    These cookies and storage entries are required for the site to function correctly or to remember your preferences. None of them identify you personally or track you across other websites.
                   </p>
                   <div className="overflow-x-auto">
                     <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
                       <thead>
                         <tr className="bg-[var(--color-surface-dim)]">
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("cookieName")}</th>
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("purpose")}</th>
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("duration")}</th>
+                          <th className={th}>{t("cookieName")}</th>
+                          <th className={th}>{t("purpose")}</th>
+                          <th className={th}>{t("duration")}</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">geo-country</td>
-                          <td className="px-4 py-3">Edge-detected country code, used to show the right currency defaults</td>
-                          <td className="px-4 py-3">30 days (cookie)</td>
+                          <td className={tdMono}>geo-country</td>
+                          <td className={td}>Edge-detected country code, used to show the right currency defaults</td>
+                          <td className={td}>30 days (cookie)</td>
                         </tr>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">geo-currency</td>
-                          <td className="px-4 py-3">Remembers your preferred send currency</td>
-                          <td className="px-4 py-3">30 days (cookie)</td>
+                          <td className={tdMono}>geo-currency</td>
+                          <td className={td}>Remembers your preferred send currency</td>
+                          <td className={td}>30 days (cookie)</td>
                         </tr>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">theme</td>
-                          <td className="px-4 py-3">Stores your light/dark mode preference</td>
-                          <td className="px-4 py-3">Persistent (localStorage)</td>
+                          <td className={tdMono}>theme</td>
+                          <td className={td}>Stores your light/dark mode preference</td>
+                          <td className={td}>Persistent (localStorage)</td>
                         </tr>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">converter-prefs</td>
-                          <td className="px-4 py-3">Remembers your currency converter selections</td>
-                          <td className="px-4 py-3">Persistent (localStorage)</td>
+                          <td className={tdMono}>converter-prefs</td>
+                          <td className={td}>Remembers your currency converter selections</td>
+                          <td className={td}>Persistent (localStorage)</td>
                         </tr>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">smc_last_search, smc_last_active</td>
-                          <td className="px-4 py-3">Remembers your last comparison so we can offer to reopen it when you come back. Kept only in your browser</td>
-                          <td className="px-4 py-3">Offered for 60 days (localStorage)</td>
+                          <td className={tdMono}>smc_last_search, smc_last_active</td>
+                          <td className={td}>Remembers your last comparison so we can offer to reopen it when you come back. Kept only in your browser</td>
+                          <td className={td}>Offered for 60 days (localStorage)</td>
                         </tr>
                         <tr>
-                          <td className="px-4 py-3 font-mono text-xs">sticky_cta_dismissed, bot_dismissed, exit_intent_*</td>
-                          <td className="px-4 py-3">Remembers if you dismissed a UI element so we don&apos;t re-show it</td>
-                          <td className="px-4 py-3">Until tab closes (sessionStorage)</td>
+                          <td className={tdMono}>sticky_cta_dismissed, bot_dismissed, exit_intent_*</td>
+                          <td className={td}>Remembers if you dismissed a UI element so we don&apos;t re-show it</td>
+                          <td className={td}>Until tab closes (sessionStorage)</td>
                         </tr>
                       </tbody>
                     </table>
@@ -135,7 +139,8 @@ export default async function CookiePolicyPage({ params }: Props) {
                   <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     {t("analyticsCookies")}
                   </h3>
-                  <p>
+                  <p className="mb-3">{t("analyticsCookiesDesc")}</p>
+                  <p className="mb-3">
                     We use Google Analytics 4 with first-party cookies
                     (<span className="font-mono text-xs">_ga</span>,{" "}
                     <span className="font-mono text-xs">_ga_*</span>) that store a
@@ -146,30 +151,30 @@ export default async function CookiePolicyPage({ params }: Props) {
                     tracking data is collected. In the UK, EU, EEA and Switzerland
                     these cookies are only set after you accept them.
                   </p>
-                  <div className="overflow-x-auto mt-4">
+                  <div className="overflow-x-auto">
                     <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
                       <thead>
                         <tr className="bg-[var(--color-surface-dim)]">
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("cookieName")}</th>
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("purpose")}</th>
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("duration")}</th>
+                          <th className={th}>{t("cookieName")}</th>
+                          <th className={th}>{t("purpose")}</th>
+                          <th className={th}>{t("duration")}</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">_ga</td>
-                          <td className="px-4 py-3">Google Analytics visitor ID, used to count unique visitors</td>
-                          <td className="px-4 py-3">2 years (cookie)</td>
+                          <td className={tdMono}>_ga</td>
+                          <td className={td}>Google Analytics visitor ID, used to count unique visitors</td>
+                          <td className={td}>2 years (cookie)</td>
                         </tr>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">_ga_*</td>
-                          <td className="px-4 py-3">Google Analytics session state for the property</td>
-                          <td className="px-4 py-3">2 years (cookie)</td>
+                          <td className={tdMono}>_ga_*</td>
+                          <td className={td}>Google Analytics session state for the property</td>
+                          <td className={td}>2 years (cookie)</td>
                         </tr>
                         <tr>
-                          <td className="px-4 py-3 font-mono text-xs">smc_consent</td>
-                          <td className="px-4 py-3">Remembers your analytics consent choice (UK/EU/EEA/CH)</td>
-                          <td className="px-4 py-3">1 year (cookie)</td>
+                          <td className={tdMono}>smc_consent</td>
+                          <td className={td}>Remembers your analytics consent choice (UK/EU/EEA/CH)</td>
+                          <td className={td}>1 year (cookie)</td>
                         </tr>
                       </tbody>
                     </table>
@@ -184,9 +189,10 @@ export default async function CookiePolicyPage({ params }: Props) {
                 {t("managingPreferences")}
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>{t("managingPreferencesDesc")}</p>
                 <p>
                   Because we don&apos;t use tracking or advertising cookies, there is no
-                  consent banner to manage. You can still clear the essential cookies
+                  consent banner to manage for most visitors. You can still clear the essential cookies
                   and browser storage listed above at any time via your browser
                   settings — the site will simply re-create them with defaults on your
                   next visit.
@@ -209,8 +215,10 @@ export default async function CookiePolicyPage({ params }: Props) {
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  Most browsers allow you to control cookies through their settings. Here
-                  are links to cookie management instructions for popular browsers:
+                  Most browsers allow you to view, block, and delete cookies through their settings. Blocking all cookies will prevent some site features — such as remembering your currency preference — from working correctly.
+                </p>
+                <p>
+                  Here are links to cookie management instructions for popular browsers:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>
@@ -244,8 +252,7 @@ export default async function CookiePolicyPage({ params }: Props) {
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  We may update this Cookie Policy from time to time. Any changes will be
-                  posted on this page with an updated &quot;Last updated&quot; date.
+                  We may update this Cookie Policy from time to time to reflect changes in the cookies we use or for other operational, legal, or regulatory reasons. Any changes will be posted on this page with an updated &quot;Last updated&quot; date. We encourage you to review this page periodically.
                 </p>
               </div>
             </div>
