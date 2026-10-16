@@ -35,7 +35,7 @@ const corrections = [
     type: "Correction" as const,
     description:
       "Fixed schema.org structured data: changed author type from Organization to Person across all article pages, replaced deprecated Product schema with FinancialService for provider pages, and added missing datePublished fields to Article schemas.",
-    affectedPages: ["/companies/*", "/guides/*", "/compare/*"],
+    affectedPages: ["/companies", "/guides", "/compare"],
   },
   {
     date: "2026-03-14",
@@ -49,7 +49,7 @@ const corrections = [
     type: "Content update" as const,
     description:
       "Updated all blog post author attributions from 'SendMoneyCompare Team' to individual author names for improved E-E-A-T compliance.",
-    affectedPages: ["/guides/*"],
+    affectedPages: ["/guides"],
   },
 ];
 
@@ -72,11 +72,14 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
               Corrections & Updates
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
-              We are committed to accuracy and transparency. This page documents corrections, data updates,
-              and significant editorial changes made to our content. If you spot an error, please email{" "}
+              Financial comparison data must be accurate. When we find an error in our editorial
+              content — whether a fee range, an exchange rate figure, a provider feature, or a
+              factual claim — we correct it promptly and document the change here. We do not
+              silently edit published content. If you spot something wrong, email{" "}
               <a href="mailto:info@sendmoneycompare.com" className="text-[var(--color-primary)] hover:underline">
                 info@sendmoneycompare.com
-              </a>.
+              </a>{" "}
+              with the page URL and the details.
             </p>
           </div>
         </Container>
@@ -101,8 +104,8 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
                     {item.affectedPages.map((page) => (
                       <Link
                         key={page}
-                        href={page.includes("*") ? "#" : page}
-                        className={`text-xs text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] px-2.5 py-1 rounded-full ${page.includes("*") ? "cursor-default" : "hover:text-[var(--color-primary)]"}`}
+                        href={page}
+                        className="text-xs text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] px-2.5 py-1 rounded-full hover:text-[var(--color-primary)]"
                       >
                         {page}
                       </Link>
@@ -120,9 +123,17 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
                   it promptly and document the change here. We do not silently edit published content.
                 </p>
                 <p>
-                  Data corrections (exchange rates, fees, provider details) are logged when they affect the accuracy
-                  of our editorial content. Routine data updates from our automated scraping system occur every 6 hours
-                  and are not individually logged here.
+                  We distinguish three types of change. A <strong className="text-[var(--color-on-surface)]">Correction</strong> fixes
+                  a factual error: a wrong fee, a misattributed provider feature, or an inaccurate claim about a regulation or
+                  service. A <strong className="text-[var(--color-on-surface)]">Data update</strong> reflects new information
+                  we have gathered — for example, after running fresh test transfers or when a provider announces a fee change.
+                  A <strong className="text-[var(--color-on-surface)]">Content update</strong> improves the depth, clarity, or
+                  accuracy of editorial text without correcting a specific factual error.
+                </p>
+                <p>
+                  Routine exchange rate and quote data refreshes from our automated scraping system occur every 6 hours
+                  and are not individually logged here — only changes to editorial content and provider reviews appear
+                  in this log.
                 </p>
                 <p>
                   To report an error or suggest a correction, email{" "}
@@ -132,13 +143,6 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
                   with the page URL and details of the issue.
                 </p>
               </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-[var(--color-outline)]">
-              <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-3">Corrections Log</h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)]">
-                We have not needed to issue formal corrections to date. All data is verified every 6 hours via automated scraping, and editorial content is reviewed before publication. If you find an error, please contact us at info@sendmoneycompare.com.
-              </p>
             </div>
           </div>
           <PolicyLinks current="/corrections" />
