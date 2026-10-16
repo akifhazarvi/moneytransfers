@@ -76,11 +76,41 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       <section className="py-12">
         <Container>
           <div className="max-w-3xl mx-auto space-y-10">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                <h2 className="text-sm font-medium text-[var(--color-on-surface)] mb-1">{t("generalInquiries")}</h2>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{t("generalInquiriesDesc")}</p>
+              </div>
+              <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                <h2 className="text-sm font-medium text-[var(--color-on-surface)] mb-1">{t("dataCorrections")}</h2>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{t("dataCorrectionsDesc")}</p>
+              </div>
+              <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                <h2 className="text-sm font-medium text-[var(--color-on-surface)] mb-1">{t("partnershipInquiries")}</h2>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{t("partnershipInquiriesDesc")}</p>
+              </div>
+              <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                <h2 className="text-sm font-medium text-[var(--color-on-surface)] mb-1">{t("pressMedia")}</h2>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{t("pressMediaDesc")}</p>
+              </div>
+            </div>
+
+            <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                For all inquiries, contact us at{" "}
+                <span className="font-medium text-[var(--color-on-surface)]">
+                  info@sendmoneycompare.com
+                </span>
+                .
+              </p>
+            </div>
+
             <div>
-              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-2">
                 SendMoneyCompare
               </h2>
-              {/* Round-2 SEO brief §2.5: no registered legal entity, so name the operator. */}
+              {/* Round-2 SEO brief \u00a72.5: no registered legal entity, so name the operator. */}
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
                 Operated by{" "}
                 <Link href="/about/ahsan-mukhtar" className="text-[var(--color-primary)] hover:underline">Ahsan Mukhtar</Link>,
@@ -91,28 +121,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 Denver, CO 80204<br />
                 United States
               </address>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=370+W+12th+Ave+Denver+CO+80204"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-2 text-sm text-[var(--color-primary)] hover:underline"
-              >
-                View address on Google Maps
-              </a>
-              <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
+              <p className="mt-2 text-sm text-[var(--color-on-surface-variant)]">
                 <a href="tel:+447393367304" className="text-[var(--color-primary)] hover:underline">
                   +44 7393 367304
                 </a>
-              </p>
-            </div>
-            <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                For all general queries, data corrections, partnerships, and
-                press inquiries, contact us at{" "}
-                <span className="font-medium text-[var(--color-on-surface)]">
-                  info@sendmoneycompare.com
-                </span>
-                .
               </p>
             </div>
 
@@ -121,9 +133,9 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 {t("responseTimesHeading")}
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                We aim to respond to all inquiries within 1\u20132 business days.
+                We aim to respond to general inquiries within 1\u20132 business days.
                 Data correction reports are prioritised and typically addressed
-                within 24 hours.
+                within 3 business days.
               </p>
             </div>
 
@@ -151,6 +163,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 </p>
               </div>
             </div>
+
             <div>
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 About Our Team
