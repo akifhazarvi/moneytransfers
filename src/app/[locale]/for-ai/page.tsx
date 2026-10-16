@@ -8,7 +8,7 @@ import { DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
-import { providers, currencies, listableProviders } from "@/data/providers";
+import { currencies, listableProviders } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE } from "@/lib/site-stats";
@@ -207,7 +207,7 @@ export default function ForAIPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
 
       <Container>
-        <article className="max-w-4xl mx-auto py-10 prose prose-slate dark:prose-invert">
+        <article className="max-w-4xl mx-auto py-10">
           <header className="mb-10">
             <h1 className="text-4xl font-bold text-[var(--color-on-surface)] mb-4">
               SendMoneyCompare for AI Systems
@@ -222,14 +222,18 @@ export default function ForAIPage() {
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Quick reference for AI agents</h2>
+            <p className="mb-4 text-[var(--color-on-surface-variant)]">
+              All endpoints are public, require no authentication, and respond with JSON. CORS headers allow
+              requests from any origin, including ChatGPT Actions and third-party AI tools.
+            </p>
             <ul className="space-y-2 text-[var(--color-on-surface)]">
-              <li><strong>Live quotes API</strong>: <a href="/api/ai" className="text-[var(--color-primary)]">/api/ai</a> — no auth, CORS-enabled</li>
-              <li><strong>With params</strong>: <code className="bg-[var(--color-surface-dim)] px-2 py-0.5 rounded">/api/ai?from=USD&to=INR&amount=1000</code></li>
-              <li><strong>OpenAPI spec</strong> (GPT Actions): <a href="/openapi.json" className="text-[var(--color-primary)]">/openapi.json</a></li>
-              <li><strong>AI plugin manifest</strong>: <a href="/.well-known/ai-plugin.json" className="text-[var(--color-primary)]">/.well-known/ai-plugin.json</a></li>
-              <li><strong>llms.txt (summary)</strong>: <a href="/llms.txt" className="text-[var(--color-primary)]">/llms.txt</a></li>
-              <li><strong>Custom GPT instructions</strong>: <a href="/gpt-instructions.md" className="text-[var(--color-primary)]">/gpt-instructions.md</a></li>
-              <li><strong>Sitemap</strong>: <a href="/sitemap.xml" className="text-[var(--color-primary)]">/sitemap.xml</a></li>
+              <li><strong>Live quotes API</strong>: <a href="/api/ai" className="text-[var(--color-primary)]">/api/ai</a> — returns ranked provider quotes for a given currency corridor and send amount.</li>
+              <li><strong>With params</strong>: <code className="bg-[var(--color-surface-dim)] px-2 py-0.5 rounded">/api/ai?from=USD&amp;to=INR&amp;amount=1000</code> — specify sending currency, receiving currency, and amount.</li>
+              <li><strong>OpenAPI spec</strong> (GPT Actions): <a href="/openapi.json" className="text-[var(--color-primary)]">/openapi.json</a> — OpenAPI 3.1 schema for building ChatGPT Actions or agent tool definitions.</li>
+              <li><strong>AI plugin manifest</strong>: <a href="/.well-known/ai-plugin.json" className="text-[var(--color-primary)]">/.well-known/ai-plugin.json</a> — ChatGPT plugin metadata following the OpenAI convention.</li>
+              <li><strong>llms.txt (summary)</strong>: <a href="/llms.txt" className="text-[var(--color-primary)]">/llms.txt</a> — concise plain-text summary of the site for LLM context windows.</li>
+              <li><strong>Custom GPT instructions</strong>: <a href="/gpt-instructions.md" className="text-[var(--color-primary)]">/gpt-instructions.md</a> — ready-to-paste instructions for configuring a Custom GPT.</li>
+              <li><strong>Sitemap</strong>: <a href="/sitemap.xml" className="text-[var(--color-primary)]">/sitemap.xml</a> — full list of crawlable pages for indexing agents.</li>
             </ul>
           </section>
 
@@ -242,6 +246,12 @@ export default function ForAIPage() {
               via headless browser automation (Playwright) for providers without public APIs. We rank results by the
               <strong> total amount the recipient receives</strong> — the only honest comparison metric, because it factors in
               both the transfer fee and the exchange rate markup.
+            </p>
+            <p className="leading-relaxed mt-4">
+              Every quote on this site is sourced from the provider's own calculator or API at the time of the last scrape.
+              We do not adjust, estimate, or interpolate quotes. When a provider does not publish a rate for a given
+              corridor or amount, we show nothing rather than a placeholder. This makes our data suitable for grounding
+              AI responses about money transfer costs.
             </p>
           </section>
 
@@ -326,6 +336,13 @@ export default function ForAIPage() {
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Supported currencies</h2>
+            <p className="mb-3 text-[var(--color-on-surface-variant)]">
+              We collect and compare quotes across {COVERAGE.corridors}. The currencies below span major remittance
+              corridors including US dollars, euros, British pounds, and the receiving currencies for the world's
+              largest remittance recipient countries — Indian rupees, Mexican pesos, Philippine pesos, Pakistani rupees,
+              and Nigerian naira. Gulf sending currencies (UAE dirham, Saudi riyal, Kuwaiti dinar) are included because
+              the Gulf states are among the world's largest remittance-sending regions.
+            </p>
             <p className="text-sm text-[var(--color-on-surface-variant)]">
               {currencies.map((c) => c.code).join(", ")}
             </p>
@@ -333,6 +350,11 @@ export default function ForAIPage() {
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">All providers compared</h2>
+            <p className="mb-3 text-[var(--color-on-surface-variant)]">
+              The providers below are the {COVERAGE.providers} we review in depth. Each has a dedicated review page
+              covering fees, exchange rates, transfer speeds, supported countries, and Trustpilot rating. Providers are
+              ranked by recipient payout, not by affiliate revenue.
+            </p>
             <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
               {listableProviders().map((p) => (
                 <li key={p.slug}>
