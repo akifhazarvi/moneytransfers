@@ -34,15 +34,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-function getFlag(code: string): string {
-  if (!code || code.length !== 2) return "";
-  return code
-    .toUpperCase()
-    .split("")
-    .map((c) => String.fromCodePoint(0x1f1e6 + c.charCodeAt(0) - 65))
-    .join("");
-}
-
 export default async function SwiftCodesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -243,12 +234,50 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
                 Some countries (like the US) don&apos;t use IBANs and rely on routing numbers instead.
               </p>
               <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+                8-character vs 11-character codes
+              </h3>
+              <p>
+                An 8-character SWIFT code (no branch suffix) refers to the bank&apos;s primary or head office. An
+                11-character code includes an additional 3-character branch identifier. When the branch digits
+                are &ldquo;XXX&rdquo; the code routes to the bank&apos;s head office by convention. If you are
+                unsure which to use, the 8-character code (or the XXX variant) almost always works for incoming
+                international wires.
+              </p>
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+                What happens if you use the wrong SWIFT code?
+              </h3>
+              <p>
+                A mistyped SWIFT code typically causes one of three outcomes: the payment is returned to your
+                account within a few business days (most common), it is held by an intermediary bank until
+                corrected, or — in rare cases — it reaches a different bank entirely. Banks charge amendment or
+                recall fees that can range from $15 to $50 or more. Always verify the code with the recipient
+                before initiating a large transfer.
+              </p>
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 Where to find your SWIFT code
               </h3>
               <p>
                 You can find your bank&apos;s SWIFT code on your bank statement, in your online banking portal,
-                or by searching our database above. You can also contact your bank directly and ask for their
-                SWIFT/BIC code for receiving international transfers.
+                or by searching our directory above. You can also contact your bank directly and ask for their
+                SWIFT/BIC code for receiving international transfers. The official SWIFT registry is maintained
+                by{" "}
+                <a href="https://www.swift.com" target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">
+                  swift.com
+                </a>
+                , though the lookup there requires registration.
+              </p>
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+                SWIFT codes and transfer costs
+              </h3>
+              <p>
+                Traditional bank wire transfers via SWIFT can carry fees at every hop — your sending bank, one or
+                more correspondent banks, and the recipient&apos;s bank each may deduct a charge. Specialist
+                money transfer services like Wise, Remitly and OFX route payments outside the SWIFT network or
+                negotiate flat correspondent fees, often delivering more of your money to the recipient. Use our{" "}
+                <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
+                  comparison tool
+                </Link>{" "}
+                to see live exchange rates and fees side by side before you send.
               </p>
             </div>
           </div>
