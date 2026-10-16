@@ -67,7 +67,6 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
 
   const person = (a: typeof author) => a && { "@type": "Person", name: a.name, url: `${SITE}/about/${a.slug}` };
   const webPageSchema = {
-    "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${SITE}/send-money#webpage`,
     url: `${SITE}/send-money`,
@@ -80,25 +79,37 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
     dateModified: data.collectedAt,
   };
   const itemListSchema = {
-    "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Country and route comparison pages",
     itemListElement: directory
       .flatMap((g) => [...(g.countryPage ? [g.countryPage] : []), ...g.routes])
       .map((link, i) => ({ "@type": "ListItem", position: i + 1, name: link.label, url: `${SITE}${link.href}` })),
   };
+  const { "@context": _faqCtx, ...faqSchemaBody } = faqSchema(faqs);
 
   return (
     <div className="bg-[var(--color-surface-dim)] min-h-screen pt-2">
-      {[webPageSchema, itemListSchema, faqSchema(faqs)].map((schema, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      ))}
+      {/* All structured data in one @graph block: fewer script tags, cleaner HTML. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [webPageSchema, itemListSchema, faqSchemaBody],
+          }),
+        }}
+      />
       <Container>
         <header className="conversion-hero conversion-hero--compare">
           <h1>{H1}</h1>
           <p>
             Pick the currency you pay in and the one your recipient receives. Each provider is priced on the same
             transfer, so the amount that arrives is the number to compare.
+          </p>
+          <p>
+            The tool covers the United States, United Kingdom, Europe, Canada and Australia as origins, with
+            destinations across Asia, Africa, Latin America and beyond. Select your sending country, receiving
+            country and amount to see providers ranked for your exact route, ordered by what the recipient gets.
           </p>
         </header>
       </Container>
