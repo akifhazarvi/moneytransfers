@@ -311,6 +311,50 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
         </Container>
       </section>
 
+      {/* FAQ */}
+      <section className="py-12">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-6">
+              Provider Consistency Index: your questions answered
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  q: "Which money transfer provider is cheapest most often?",
+                  a: `${TOP_LEADER.providerName} leads the largest share of the ${idx.comparableCorridors} corridors we measure — but only ${TOP_LEADER.corridorsLed} of them, which is ${TOP_LEADER_SHARE}% of all corridors. No provider leads a majority. The right choice depends on your specific corridor; use the comparison on each corridor page to see today's best rate for your route.`,
+                },
+                {
+                  q: "Why does the cheapest provider change from day to day?",
+                  a: `Exchange rates float continuously, and providers set their margins independently. A provider may secure better wholesale rates on a given day through currency hedging or their own balance-sheet position, only for a competitor to match or beat them the next. On ${ROTATION_RATE}% of corridors in this index, the provider cheapest today is not the one that wins most often — which is why checking the current comparison before each transfer saves more than picking a "usually cheapest" brand and never looking again.`,
+                },
+                {
+                  q: "How is the win rate in this index calculated?",
+                  a: `A win is counted only on a contested day — a day when at least two providers quoted the same corridor. The win rate is the share of those contested days on which a given provider delivered the most to the recipient. Winning on a day when no competitor quoted earns nothing. This makes the metric a genuine competitive measure rather than a count of days a provider happened to be available.`,
+                },
+                {
+                  q: "Is a high win rate always better than a low win rate?",
+                  a: `Not necessarily. A provider that leads 35% of days but loses by an average of 0.05% is often a better practical choice than one that leads 60% of days but loses by 1.5% when it does not win. The "Loses by" column in the table above captures this: it shows the average shortfall against the day's winner, so you can weigh breadth against cost on losing days together.`,
+                },
+                {
+                  q: "How many corridors and providers does this index cover?",
+                  a: `The index currently covers ${idx.comparableCorridors} corridors with a genuine contested record out of ${nf(idx.pairsTracked)} currency pairs tracked. Of those, ${CONSISTENCY_ROWS.length} providers have quoted on 30 or more contested days and are ranked. The full table — including providers outside the top ${TABLE_LIMIT} shown here — is available as a CSV download.`,
+                },
+                {
+                  q: "How often is the index updated?",
+                  a: `Provider quotes are collected every six hours. The consistency index is rebuilt at each data refresh, so the corridors led and win-rate figures reflect the trailing ${idx.maxWindowDays}-day window as of the date shown at the top of this page. The "usually cheapest" line on each corridor page is produced by the same calculation, so the two cannot disagree.`,
+                },
+              ].map(({ q, a }) => (
+                <div key={q} className="border-b border-[var(--color-outline)] pb-5 last:border-0 last:pb-0">
+                  <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{q}</h3>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Methodology — its own anchor so a citation can point at it. */}
       <section id="methodology" className="py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
         <Container>
@@ -393,6 +437,50 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
           { label: "How we review and rank providers", href: "/how-we-review" },
           { label: "Remittance Cost Index — the same providers ranked by cost", href: "/remittance-cost-index" },
         ]}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Which money transfer provider is cheapest most often?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `${TOP_LEADER.providerName} leads the largest share of the ${idx.comparableCorridors} corridors measured — ${TOP_LEADER.corridorsLed} of them, which is ${TOP_LEADER_SHARE}% of all corridors. No provider leads a majority. The right choice depends on the specific corridor.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Why does the cheapest provider change from day to day?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `Exchange rates float continuously, and providers set their margins independently. On ${ROTATION_RATE}% of corridors in this index, the provider cheapest today is not the one that wins most often.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How is the win rate in this index calculated?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "A win is counted only on a contested day — a day when at least two providers quoted the same corridor. The win rate is the share of those contested days on which a given provider delivered the most to the recipient.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How often is the index updated?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `Provider quotes are collected every six hours. The consistency index is rebuilt at each data refresh, reflecting the trailing ${idx.maxWindowDays}-day window.`,
+                },
+              },
+            ],
+          }),
+        }}
       />
 
       <script
