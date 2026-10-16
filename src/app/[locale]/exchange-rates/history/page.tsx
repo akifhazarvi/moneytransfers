@@ -207,13 +207,9 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
           (current best, avg, trend, level), which crawlers read inline. */}
       <section className="py-10 bg-[var(--color-surface)]">
         <Container>
-          <details className="group">
-            <summary className="flex items-center justify-between cursor-pointer list-none text-h4 font-normal text-[var(--color-on-surface)] mb-6 hover:text-[var(--color-primary)] transition-colors">
-              <span>All currency corridors with rate history</span>
-              <svg className="w-5 h-5 shrink-0 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
+          <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-6">
+            All currency corridors with rate history
+          </h2>
           <div className="space-y-8">
             {sortedGroups.map(([from, insights]) => {
               const fromInfo = getCurrencyInfo(from);
@@ -293,7 +289,6 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
               );
             })}
           </div>
-          </details>
         </Container>
       </section>
 
@@ -321,6 +316,43 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
               <li><strong>Provider consistency</strong> — Some providers are cheapest most days; others fluctuate. Check the &quot;Best rate X of Y days&quot; badge.</li>
               <li><strong>Trend direction</strong> — An upward trend means rates are improving; a downward trend means the receiving currency is weakening.</li>
             </ul>
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-6">Understanding rate levels</h3>
+            <p>
+              Each corridor is labelled with a rate level based on where today&apos;s best provider rate sits
+              relative to its own 90-day history. A <strong>Great</strong> rate means the current best rate is
+              in the top quarter of its range — now is an unusually good time to send. A <strong>Low</strong>
+              rate means the corridor is in the bottom quarter — waiting a few days may yield a better outcome.
+              <strong> Typical</strong> and <strong>Good</strong> sit between those extremes.
+            </p>
+            <p>
+              Rate levels are corridor-specific, not absolute. A USD → INR rate of 83 might be Great in a
+              period when the rupee has weakened, but Typical in a stronger rupee environment. Always read
+              the label in the context of the sparkline trend: a Great rate that has been falling over the
+              past week carries more uncertainty than one that has been stable.
+            </p>
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-6">Why provider rates vary from mid-market</h3>
+            <p>
+              The mid-market rate — the midpoint between buy and sell prices on the interbank market — is what
+              you see on Google or XE.com. No retail provider passes it on in full: each adds a margin to
+              cover costs and profit. What differs is how large that margin is and whether it is taken as a
+              percentage spread on the rate, a flat fee, or both.
+            </p>
+            <p>
+              Specialist remittance services like Wise or Remitly typically charge a small, transparent fee
+              and pass the mid-market rate through directly. Bank wire transfers and traditional operators
+              typically build their margin into the exchange rate itself, making it harder to see the true cost.
+              Tracking provider rates historically shows not just who is cheapest today, but who is consistently
+              cheapest across market conditions — a more useful signal when choosing where to send regularly.
+            </p>
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-6">How we collect rate history</h3>
+            <p>
+              Our scrapers run every six hours and record the rate each provider quotes for a standard transfer
+              amount on each currency corridor. We store the best rate available that day — across all providers
+              we track — and rebuild each corridor&apos;s time series nightly. The data goes back as far as the
+              provider has been in our comparison; for major corridors that can be more than 90 days of daily
+              snapshots. Rates reflect what a sender would actually receive, after fees, for the standard
+              amount — not an illustrative mid-market figure.
+            </p>
           </div>
         </Container>
       </section>
