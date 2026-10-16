@@ -112,6 +112,18 @@ const faqs = [
     q: "How much cheaper are specialists than banks for business FX?",
     a: `On the corridors we measure live, sending ${amt} costs ${idx.specialistAvgCostPct}% on average through a business-FX specialist versus ${idx.bankAvgCostPct}% through a high-street bank — making banks roughly ${idx.bankVsSpecialistMultiple}× more expensive. The gap is almost entirely the exchange-rate markup banks build into the rate, which stays hidden behind "no fee" wording.`,
   },
+  {
+    q: "What is the difference between a business payment provider and a business bank account?",
+    a: `A business bank account holds deposits protected by a national guarantee scheme (FDIC in the US, FSCS in the UK up to the applicable limit). A business payment provider — Wise Business, OFX, Airwallex, XE, Currencies Direct, Regency FX — is authorised to transfer money internationally but safeguards your funds differently: it ringfences client money in segregated accounts at regulated banks rather than offering deposit insurance. Mercury sits between the two — it is a fintech whose deposits sit at partner banks carrying FDIC coverage. For international payments specifically, the practical differences are fee transparency (payment providers separate the exchange-rate markup from the transfer fee), multi-currency balances, and workflow controls that business bank accounts typically charge extra for or don't offer.`,
+  },
+  {
+    q: "Can a sole trader or freelancer use these business payment providers?",
+    a: `Most providers on this page accept sole traders and self-employed individuals alongside incorporated businesses. Wise Business, OFX, Airwallex and Currencies Direct all onboard sole traders, though account limits and KYC requirements vary by volume tier. Mercury is primarily designed for incorporated US companies and requires a registered US entity. Regency FX focuses on SMEs and corporates. When you apply as a sole trader you typically need a government-issued ID, evidence of business activity (recent client invoices, a business registration number or a professional website), and a description of your expected payment patterns and currencies.`,
+  },
+  {
+    q: "What documents do I need to open a business FX account?",
+    a: `Requirements vary by provider, jurisdiction and business type, but a standard application covers: government-issued photo ID for each director and beneficial owner holding 25% or more of the company; proof of company registration (a certificate of incorporation, Companies House filing or equivalent); a description of your business activities and the currencies and corridors you plan to use; and recent bank statements or financial accounts to support your stated payment volumes. Some providers complete onboarding entirely online; others run a manual compliance review for higher-volume accounts or regulated industries (financial services, crypto, healthcare). Confirm current requirements directly with the provider before applying, as onboarding rules can change.`,
+  },
 ];
 const faqSchema = {
   "@context": "https://schema.org",
@@ -167,6 +179,37 @@ export default async function BusinessComparePage({ params }: { params: Promise<
 
       <Container>
         <article className="mx-auto max-w-5xl py-10">
+
+          {/* ── 00 · INTRODUCTION ── */}
+          <div className="mb-10 prose-content space-y-3 text-[var(--color-on-surface-variant)] leading-relaxed">
+            <p>
+              Business payment providers handle international transfers differently from high-street banks.
+              A bank typically builds its exchange-rate margin into the rate it quotes — you see a transfer
+              fee line, but the spread stays invisible. Dedicated payment providers separate the rate, the
+              fee and any fixed charges into line items, and they hold multi-currency balances so a finance
+              team can pay suppliers in EUR, GBP or USD from one account rather than triggering a wire every
+              time. Most also layer in workflow controls — role-based access, approval chains, batch uploads,
+              API access — that consumer remittance apps don't offer.
+            </p>
+            <p>
+              The right provider depends on how your business actually moves money. A founder paying a
+              single overseas contractor once a month cares mainly about rate and simplicity. A finance
+              controller approving supplier invoices across three currencies every week needs role separation,
+              an audit trail and a batch-upload path that avoids re-keying hundreds of rows. An e-commerce
+              operator collecting payments in USD, EUR and GBP benefits most from local account details — a
+              UK sort code and account number, a US routing number, a eurozone IBAN — so buyers pay in their
+              own currency domestically and the FX conversion sits on your side of the transaction.
+            </p>
+            <p>
+              This page compares {PROVIDER_COUNT}{" "}providers across those dimensions: feature coverage from
+              bulk payments and approval workflows to multi-currency accounts and API access; measured FX
+              cost — the true all-in cost of sending {amt} — updated every 6 hours from live quotes; plus
+              KYC requirements, transfer limits and the regulatory standing of each provider. Use the feature
+              finder below to filter for your specific workflow, or scroll through the full matrix to see
+              every dimension side by side.
+            </p>
+          </div>
+
           {/* ── 01 · INTERACTIVE FINDER ── */}
           <div id="finder" className="mt-2 scroll-mt-28">
             <BusinessCompareTool
