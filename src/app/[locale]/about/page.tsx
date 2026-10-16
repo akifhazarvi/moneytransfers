@@ -94,10 +94,64 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   money. No sponsored placements, no hidden agendas — just transparent data.
                 </p>
                 <p>
-                  Today, SendMoneyCompare compares {COVERAGE.corridors} where two or more providers quote, publishes in-depth
+                  Today, SendMoneyCompare covers {COVERAGE.corridors} where two or more providers quote, publishes in-depth
                   provider reviews, and updates quote data every 6 hours. Millions of
                   people use comparison sites like ours to make smarter decisions about
                   international transfers every year.
+                </p>
+                <p>
+                  International money transfer is one of the most opaque corners of personal finance.
+                  Exchange rate markups are rarely advertised — providers display a headline fee,
+                  then apply a spread between the interbank rate and the rate they give you.
+                  On popular corridors like USD to INR or GBP to EUR, that spread can easily
+                  exceed the flat fee in total cost. Our platform measures the combined impact
+                  so you can compare providers on an equal footing.
+                </p>
+                <p>
+                  Since we launched in 2024, we have helped hundreds of thousands of people
+                  find better rates for transfers to family, businesses, and savings abroad.
+                  Our data has been cited in personal finance guides and used by researchers
+                  studying the cost of international remittances. We publish our full{" "}
+                  <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">
+                    methodology
+                  </Link>{" "}
+                  so anyone can verify how we collect and rank data.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                How our comparison works
+              </h2>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  Every six hours, our scrapers pull live quotes directly from provider APIs
+                  and websites — the same rates you would see if you visited each provider
+                  yourself. We store each quote alongside its timestamp so we can detect
+                  stale data and quarantine rows that fall more than 72 hours behind the
+                  freshest quote on a corridor.
+                </p>
+                <p>
+                  We rank providers by how much the recipient gets for a fixed send amount —
+                  the total outlay, not just the transfer fee. This means a provider that
+                  charges no flat fee but applies a 3% exchange rate markup is ranked below
+                  one that charges a $3 flat fee but passes the interbank rate through. The
+                  number that matters is what lands in your recipient&apos;s account.
+                </p>
+                <p>
+                  Affiliate relationships are disclosed and do not influence rankings. A
+                  provider we do not earn a commission from will appear at the top of our
+                  results if it delivers the most money. Our{" "}
+                  <Link href="/editorial-policy" className="text-[var(--color-primary)] hover:underline">
+                    editorial policy
+                  </Link>{" "}
+                  sets out these rules in full, and our{" "}
+                  <Link href="/how-we-review" className="text-[var(--color-primary)] hover:underline">
+                    review process
+                  </Link>{" "}
+                  explains how we evaluate providers beyond price — including regulation,
+                  transfer speed, and customer service quality.
                 </p>
               </div>
             </div>
@@ -177,6 +231,20 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   in fintech, product management, and data engineering. Our editorial content
                   is written by people who have personally used the providers we review.
                 </p>
+                <p>
+                  We hold ourselves to the same standards we apply to the providers we
+                  evaluate: our data sources are named, our methodology is public, and our
+                  editorial decisions are documented in writing. When a provider changes its
+                  fee structure or launches a new corridor, we update our data within the
+                  next 6-hour scrape cycle — and our editorial team reviews the change
+                  before it affects a published ranking or review.
+                </p>
+                <p>
+                  Our reviewers run real test quotes before publishing a provider review
+                  and revisit each review when material facts change. We do not accept
+                  payment for review content, and providers are not shown review drafts
+                  before publication.
+                </p>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                 <Link
@@ -214,6 +282,39 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     coverage.
                   </p>
                 </Link>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                Who we help
+              </h2>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  Our users are as varied as the corridors we cover. Many are diaspora members
+                  supporting family back home — Pakistani-Americans sending USD to PKR,
+                  Indian expats in the Gulf sending AED or SAR to INR, Filipinos in the
+                  UK and US sending remittances home each month. For these senders, even a
+                  0.5% difference in exchange rate translates into meaningful money over
+                  the course of a year.
+                </p>
+                <p>
+                  We also serve people making larger, less frequent transfers: expats moving
+                  savings between countries, property buyers needing a large foreign-currency
+                  payment, and small businesses paying overseas suppliers or staff. The
+                  stakes are higher on a single large transfer, and a 1% difference on a
+                  $50,000 payment is $500 that could stay in your pocket.
+                </p>
+                <p>
+                  Our{" "}
+                  <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
+                    comparison tool
+                  </Link>{" "}
+                  is available for any amount and any of the {COVERAGE.currencies} we track.
+                  You enter what you want to send, choose your destination currency, and see
+                  a ranked list of providers with the exact amount your recipient would
+                  receive from each one — updated within the past six hours.
+                </p>
               </div>
             </div>
 
