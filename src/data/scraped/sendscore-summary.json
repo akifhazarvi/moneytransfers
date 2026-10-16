@@ -4,13 +4,13 @@
   "corridorsWithAnyScore": 1034,
   "singleProviderReadings": 828,
   "bands": {
-    "exceptional": 11,
+    "exceptional": 13,
     "great": 53,
-    "good": 55,
-    "typical": 37,
-    "poor": 50
+    "good": 56,
+    "typical": 48,
+    "poor": 36
   },
-  "goodOrBetterPct": 58,
+  "goodOrBetterPct": 59,
   "confidence": {
     "high": 206,
     "medium": 0,
@@ -23,34 +23,34 @@
       "score": 41,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -1.07% vs the 30-day average, 22% up the 90-day range. Rates are falling — -0.66% week on week. Today's best beats the median provider by +1.88%.",
+      "explanation": "Best rate -1.09% vs the 30-day average, 21% up the 90-day range. Rates are falling — -0.66% week on week. Today's best beats the median provider by +2.56%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 21.786256232386766,
-          "detail": "22% up the 90-day range"
+          "score": 20.78040320832446,
+          "detail": "21% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 32.1706291840147,
-          "detail": "-1.07% vs the 30-day average"
+          "score": 31.780158560257025,
+          "detail": "-1.09% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 95.7500107420613,
-          "detail": "today's best beats the median provider by +1.88%"
+          "score": 100,
+          "detail": "today's best beats the median provider by +2.56%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 33.489664832602976,
+          "score": 33.414384816902974,
           "detail": "falling — -0.66% week on week"
         }
       ],

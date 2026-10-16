@@ -17869,7 +17869,7 @@
       "lemfi": {
         "rate": 145.1,
         "fee": 0,
-        "markup": 0.53,
+        "markup": 0.78,
         "receiveAmount": 14510
       },
       "moneygram": {
@@ -17879,28 +17879,28 @@
         "receiveAmount": 14174.98
       },
       "skrill": {
-        "rate": 138.9,
+        "rate": 139.456,
         "fee": 0,
-        "markup": 4.78,
-        "receiveAmount": 13890
+        "markup": 4.39,
+        "receiveAmount": 13945.59
       },
       "taptap-send": {
-        "rate": 144.5,
+        "rate": 145.2,
         "fee": 0,
-        "markup": 0.94,
-        "receiveAmount": 14450
+        "markup": 0.46,
+        "receiveAmount": 14520
       },
       "deutsche-bank": {
-        "rate": 141.986,
+        "rate": 142.902,
         "fee": 36.55,
-        "markup": 2.66,
-        "receiveAmount": 9009.02
+        "markup": 2.03,
+        "receiveAmount": 9067.14
       },
       "western-union": {
-        "rate": 138.599,
+        "rate": 138.895,
         "fee": 1.99,
-        "markup": 4.98,
-        "receiveAmount": 13584.13
+        "markup": 4.78,
+        "receiveAmount": 13613.06
       },
       "profee": {
         "rate": 145.288,
@@ -17915,10 +17915,10 @@
         "receiveAmount": 14294.28
       },
       "instarem": {
-        "rate": 142.769,
+        "rate": 143.297,
         "fee": 0,
-        "markup": 2.12,
-        "receiveAmount": 14276.93
+        "markup": 1.76,
+        "receiveAmount": 14329.73
       },
       "xe": {
         "rate": 143.014,
@@ -17951,10 +17951,10 @@
         "receiveAmount": 14151.84
       },
       "wise": {
-        "rate": 145.962,
+        "rate": 146.241,
         "fee": 3.55,
-        "markup": -0.07,
-        "receiveAmount": 14078.03
+        "markup": -0.26,
+        "receiveAmount": 14104.94
       },
       "ria": {
         "rate": 143.002,
@@ -17963,10 +17963,10 @@
         "receiveAmount": 14028.47
       },
       "xoom": {
-        "rate": 140.067,
+        "rate": 140.176,
         "fee": 2.99,
-        "markup": 3.98,
-        "receiveAmount": 13587.87
+        "markup": 3.9,
+        "receiveAmount": 13598.45
       }
     }
   }

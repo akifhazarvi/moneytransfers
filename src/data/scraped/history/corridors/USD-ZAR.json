@@ -6833,10 +6833,10 @@
         "receiveAmount": 1613.2
       },
       "western-union": {
-        "rate": 16.2787,
+        "rate": 16.2197,
         "fee": 0.99,
-        "markup": 0.95,
-        "receiveAmount": 1611.76
+        "markup": 1.31,
+        "receiveAmount": 1605.91
       },
       "xoom": {
         "rate": 15.8128,
@@ -6845,10 +6845,10 @@
         "receiveAmount": 1502.37
       },
       "wise": {
-        "rate": 16.4338,
+        "rate": 16.4355,
         "fee": 4.02,
-        "markup": 0.01,
-        "receiveAmount": 1577.32
+        "markup": 0,
+        "receiveAmount": 1577.48
       }
     }
   }

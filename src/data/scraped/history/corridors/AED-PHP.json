@@ -6701,16 +6701,16 @@
     "date": "2026-10-16",
     "providers": {
       "western-union": {
-        "rate": 17.1954,
+        "rate": 17.1416,
         "fee": 10,
-        "markup": -0.22,
-        "receiveAmount": 1547.58
+        "markup": 0.1,
+        "receiveAmount": 1542.74
       },
       "e-and-money": {
-        "rate": 17.1602,
+        "rate": 17.1575,
         "fee": 15.75,
-        "markup": -0.01,
-        "receiveAmount": 1445.75
+        "markup": 0,
+        "receiveAmount": 1445.52
       },
       "currencyfair": {
         "rate": 17.024,
@@ -6725,16 +6725,16 @@
         "receiveAmount": 1536.14
       },
       "remitly": {
-        "rate": 17.06,
+        "rate": 17.04,
         "fee": 5,
-        "markup": 0.57,
-        "receiveAmount": 1620.7
+        "markup": 0.69,
+        "receiveAmount": 1618.8
       },
       "taptap-send": {
-        "rate": 17.05,
+        "rate": 17.1,
         "fee": 0,
-        "markup": 0.63,
-        "receiveAmount": 1705
+        "markup": 0.34,
+        "receiveAmount": 1710
       },
       "skrill": {
         "rate": 16.3453,
