@@ -1058,26 +1058,26 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "chase-vs-hsbc": {
-    theDecision: `Chase and HSBC don't overlap on any of the standard corridors we price side by side — Chase's quotes are concentrated in USD-denominated outbound transfers, HSBC's in GBP-denominated ones, so the two banks are rarely priced on the exact same currency pair and amount in our data. That's a genuine finding about how these two banks serve different sending markets, not a gap in our coverage. What's comparable is the model: both are full-service banks with wire-transfer pricing built around branch relationships rather than app-first cost competition, and both are meaningfully more expensive than a specialist on a like-for-like transfer.`,
+    theDecision: `Chase and HSBC don't overlap on any of the standard corridors we price side by side — Chase's quotes are concentrated in USD-denominated outbound transfers, HSBC's in GBP-denominated ones, so the two banks are rarely priced on the exact same currency pair and amount in our data. That's a genuine finding about how these two banks serve different sending markets, not a gap in our coverage. What's comparable is the model: both are full-service banks with wire-transfer pricing built around branch relationships rather than app-first cost competition, and both are meaningfully more expensive than a specialist on a like-for-like transfer. Someone comparing Chase and HSBC is usually already a customer of one and weighing whether the other offers a materially better deal for a specific transfer. In practice, the two serve different sending markets — the comparison that matters for most senders is not Chase versus HSBC but either bank versus a specialist for the same corridor.`,
     measuredRecord: `Because Chase and HSBC don't share a priced corridor in our sample set, a head-to-head win/loss count isn't available for this pair the way it is for others on this site. Compared separately against the market: Chase's average shortfall against the corridor leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}}. Both trail specialists by a wide margin, consistent with bank wire pricing generally.`,
     workedExample: {
       heading: "Why there's no worked example for this pair",
-      body: `Chase quotes the USD-outbound corridors we track (USD→INR, USD→MXN); HSBC's quotes here are on GBP-outbound corridors (GBP→EUR, GBP→PKR). The two never land on the same currency pair and amount in our sample set, so we can't show a real side-by-side figure the way we can for pairs that do overlap. If you're choosing between an HSBC and a Chase wire for the same trip, get a live quote from each for your actual sending currency — this page's usefulness is in the model comparison below, not a number.`,
+      body: `Chase quotes the USD-outbound corridors we track (USD→INR, USD→MXN); HSBC's quotes here are on GBP-outbound corridors (GBP→EUR, GBP→PKR). The two never land on the same currency pair and amount in our sample set, so we can't show a real side-by-side figure the way we can for pairs that do overlap. If you're choosing between an HSBC and a Chase wire for the same transfer, get a live quote from each for your actual sending currency — this page's usefulness is in the model comparison below, not a single number. Both banks publish live rates through their online banking platforms before you commit, so the most reliable data point is always your own corridor at your own amount.`,
     },
     pickA: {
       heading: "Pick Chase if you already bank there and send in USD",
-      body: `Chase's case is convenience for an existing customer: $5 for a domestic wire, $40-$50 for an international one, plus a 2-4% markup. It supports transfers to $250,000 and settles in 1-5 business days. The wire fee and markup are both higher than a specialist's, so this is a relationship-convenience choice, not a cost-competitive one.`,
+      body: `Chase's case is convenience for an existing customer sending USD internationally. Transfers are initiated through Chase Online or the mobile app without setting up a separate account, backed by JPMorgan Chase's correspondent banking network. The trade-off is straightforward: the relationship convenience comes at a higher all-in cost than a specialist would charge on the same corridor. Chase supports transfers up to $250,000 and settles in 1-5 business days. For customers who prefer to consolidate their financial life with one institution and aren't optimising primarily for cost, that is a reasonable position — for anyone whose primary concern is what the recipient actually receives, a specialist will deliver more on the corridors both serve.`,
     },
     pickB: {
       heading: "Pick HSBC if you're a Premier customer or sending GBP",
-      body: `HSBC's case depends heavily on account tier: HSBC-to-HSBC transfers are free with no markup, and Premier customers get the mid-market rate on any transfer. Standard-tier customers pay £4-£9 plus up to 2.5% markup. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA.`,
+      body: `HSBC's case depends heavily on account tier. Premier customers — who qualify with a minimum balance, mortgage or income threshold — pay no markup on international transfers, and HSBC-to-HSBC transfers are free with no markup for any account holder. Standard-tier customers pay a fee plus a markup on the exchange rate, bringing costs in line with other bank wires rather than specialist apps. HSBC also has a broader global branch and correspondent-banking footprint than Chase, which matters for transfers to markets Chase doesn't price directly. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA. If you're already an HSBC Premier customer, the account tier effectively makes HSBC competitive on the corridors it prices — that is a genuine advantage over any standard-tier bank wire, Chase included.`,
     },
-    limits: `Chase and HSBC don't share a priced corridor in our sample, so figures for each are shown separately rather than head-to-head. Confirm your own account tier's actual rate with each bank directly.`,
+    limits: `Chase and HSBC don't share a priced corridor in our sample, so figures for each are shown separately rather than head-to-head. The most reliable comparison for your actual transfer is a live quote from both banks at your sending amount and currency. Account tier has an outsized impact on HSBC's pricing — Premier conditions and qualifying thresholds vary by country, and confirming your own tier's terms with HSBC directly is worth doing before assuming any quoted rate applies to you. Chase's wire pricing applies uniformly to account holders and doesn't have an equivalent free tier for international transfers.`,
     verdict: {
-      costExplanation: `No shared corridor exists in our sample to compare these two directly. Chase's average shortfall against the leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}} — both a bank-wire premium over a specialist, measured separately rather than against each other.`,
+      costExplanation: `No shared corridor exists in our sample to compare these two directly. Chase's average shortfall against the leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}} — both a bank-wire premium over a specialist, measured separately rather than against each other. HSBC Premier customers are the exception: they pay no markup, which changes the comparison materially for anyone who qualifies.`,
       speedExplanation: `Chase settles in 1-5 business days; HSBC in same-day to 3 business days. Neither offers an express, minutes-level option the way a digital remittance specialist does.`,
       coverageExplanation: `Both reach around 200 countries through correspondent banking relationships. Chase supports 100 currencies against HSBC's 60; HSBC has no upper transfer limit against Chase's $250,000 cap.`,
-      bottomLine: `This page exists to compare two bank-wire models rather than to declare a winner — the two rarely serve the same sending currency in our data. If you're an existing customer of either, the relationship convenience may outweigh the cost; if you're choosing from scratch, both trail a digital specialist by a wide margin.`,
+      bottomLine: `This page exists to compare two bank-wire models rather than to declare a winner — the two rarely serve the same sending currency in our data. If you're an existing customer of either, the relationship convenience may outweigh the cost; if you're choosing from scratch, both trail a digital specialist by a wide margin on the corridors we measure.`,
     },
     faqs: [
       {
@@ -1096,12 +1096,21 @@ export const compareEditorial: Record<string, CompareEditorial> = {
         q: "Should I switch banks just to get a better transfer rate?",
         a: "Usually not — a specialist provider (Wise, Remitly, or a broker like OFX depending on the amount) will typically beat either bank's standard rate without requiring you to open a new account at all.",
       },
+      {
+        q: "Does HSBC Premier actually make a difference for international transfers?",
+        a: "Yes — HSBC Premier customers pay no markup on international transfers, which makes HSBC competitive on the corridors it prices. Standard-tier customers pay a markup that puts HSBC in line with other bank wires rather than specialist apps. Whether qualifying for Premier makes sense depends on your broader relationship with the bank, not just the transfer cost.",
+      },
+      {
+        q: "Can I send money with Chase if the recipient doesn't have a Chase account?",
+        a: "Yes — Chase international wire transfers go to any bank account worldwide, not only other Chase accounts. The free HSBC-to-HSBC case is specific to HSBC: standard-tier HSBC customers sending to non-HSBC accounts pay the normal fee and markup.",
+      },
     ],
     keyDifferences: [
       "Chase and HSBC don't share a priced corridor in our sample: Chase's quotes are USD-outbound, HSBC's are GBP-outbound.",
-      "HSBC-to-HSBC transfers are free with no markup, and Premier customers pay no markup on any transfer; Chase's pricing doesn't have an equivalent free tier.",
+      "HSBC-to-HSBC transfers are free with no markup, and Premier customers pay no markup on any transfer; Chase's pricing doesn't have an equivalent free tier for international transfers.",
       "HSBC has no published upper transfer limit; Chase caps at $250,000.",
       "Chase settles in 1-5 business days; HSBC in same-day to 3 business days — neither offers a minutes-level express option.",
+      "HSBC's pricing varies substantially by account tier; confirming your own tier's terms directly with HSBC is the only reliable way to know your actual rate.",
     ],
   },
 
