@@ -72,6 +72,12 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
           <p>
             From central bank policy changes that move exchange rates, to new instant payment mandates that speed up delivery times, to provider-specific updates on fees and coverage — our news coverage focuses on the practical impact for people who send money internationally.
           </p>
+          <p>
+            Regulatory shifts are a constant in this space: G20 targets to lower the global average remittance cost below 3%, the EU&rsquo;s SEPA Instant Payments Regulation, FCA guidance on pricing transparency in the UK, and CFPB disclosure rules in the US all shape what providers can charge and how quickly they can move money. When a policy change creates a real saving opportunity — or a new compliance cost — we explain what it means in practice before providers update their pricing pages.
+          </p>
+          <p>
+            Provider updates are equally frequent. New corridors, fee reductions, changed exchange rate policies, and product launches from the 60+ services we track can shift which option is cheapest for a given route. We cover announcements from major providers across bank transfers, mobile wallets, and cash pickup networks, and flag changes that affect the routes our readers use most.
+          </p>
         </div>
 
         {/* Featured article */}
@@ -169,10 +175,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
               href="/guides"
               className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-medium text-[var(--color-primary)] border border-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-surface)] transition-colors shrink-0"
             >
-              {t("browseGuides")}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+              {t("browseGuides")} &rarr;
             </Link>
           </div>
         </div>
