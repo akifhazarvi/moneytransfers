@@ -36,20 +36,82 @@ const dataAsOfLabel = formatLocalDate(s.dataAsOf);
 const example = s.example;
 const maxBand = Math.max(...BAND_ORDER.map((b) => s.bands[b]), 1);
 
+const BAND_GUIDANCE: Record<string, { meaning: string; action: string }> = {
+  exceptional: {
+    meaning:
+      "Today's rates are near the best recorded over the past 90 days, above the 30-day average, and the market has been moving in your favour this week.",
+    action:
+      "Strong conditions. If your transfer is not time-sensitive, this is a good window to act — exceptionally favourable days cluster rather than last.",
+  },
+  great: {
+    meaning:
+      "Rates are in the upper portion of the 90-day range and above the 30-day average. Competition between providers is healthy.",
+    action:
+      "Good time to send. Compare providers to capture the spread — on great days the gap between the top and median provider is typically wider than usual.",
+  },
+  good: {
+    meaning:
+      "Today sits modestly above the 30-day average and in the upper half of the 90-day range. No standout pressure in either direction.",
+    action: "Reasonable to proceed. Use the comparison to find today's leader rather than timing the market further.",
+  },
+  typical: {
+    meaning:
+      "Rates are near the 30-day average and in the middle of the 90-day range. Nothing unusual is happening.",
+    action:
+      "Neutral conditions. If the amount is large, a day or two of patience may be worthwhile; for routine transfers, proceed.",
+  },
+  poor: {
+    meaning:
+      "Today is in the lower portion of the 90-day range, below the 30-day average, or the market has been falling this week — often more than one of these at once.",
+    action:
+      "Consider waiting if the transfer is flexible. A poor score does not mean rates will recover quickly, but it does mean today is weak against recent history.",
+  },
+};
+
+const FAQ = [
+  {
+    q: "What does SendScore actually measure?",
+    a: "SendScore measures how good today is for sending money on a specific currency corridor, compared with the past 90 days of recorded provider rates. It does not measure mid-market exchange rates — it measures what the providers you can actually use would give you.",
+  },
+  {
+    q: "How often is SendScore updated?",
+    a: "Provider rates are recorded every six hours. SendScore is recomputed each time fresh rates arrive, so the score you see reflects today's quotes, not yesterday's.",
+  },
+  {
+    q: "Why does a corridor sometimes show no score?",
+    a: "A score requires at least seven days of recorded rates. New corridors we have recently started tracking do not yet have enough history to score reliably. Once a corridor passes the seven-day threshold, a score appears — initially labelled low confidence.",
+  },
+  {
+    q: "What does 'low confidence' mean?",
+    a: "A corridor with 7–29 days of data produces a score, but the 90-day range has not fully formed. The score is shown with a low-confidence label so you know the baseline is shorter than usual. Corridors with 30 or more days are medium confidence; 90 or more days are high confidence.",
+  },
+  {
+    q: "Can I use SendScore to predict whether rates will improve?",
+    a: "No. Every component is backward-looking. A poor score means today is weak against recorded history, not that waiting will be rewarded. Currency markets are not mean-reverting on short timescales in any predictable way.",
+  },
+  {
+    q: "Why does my corridor show a single-provider reading?",
+    a: "When only one provider quotes a corridor, there is no field to compare against. Rather than present the clamp as a finding, the score is labelled a single-provider reading and held at the neutral band. The distribution on this page excludes these readings.",
+  },
+  {
+    q: "Does SendScore tell me which provider to use?",
+    a: "Not directly. SendScore answers 'when' — whether today is a good day to send on your corridor. For 'who', the comparison on each corridor page ranks providers by what they actually pay out right now. The Provider Consistency Index answers which providers deliver the most over time.",
+  },
+  {
+    q: "Is SendScore available for every currency pair?",
+    a: `SendScore requires a genuine comparison — more than one provider quoting the same corridor — plus at least seven days of recorded data. Today, ${s.corridorsScored} corridors meet both criteria and carry a published score.`,
+  },
+];
+
 export default async function SendScorePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
 
   return (
     <>
-      {/* Hero — the definition first, in one sentence, because that is what a
-          reader or a retrieval system is here for. */}
-      <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-16 pb-14">
+      <section className="bg-[var(--color-surface-dim)] pt-16 pb-14 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
-              Scores refreshed <time dateTime={s.dataAsOf}>{dataAsOfLabel}</time>
-            </span>
             <h1 className="text-3xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px]">
               What is <span className="text-[var(--color-primary)]">SendScore</span>?
             </h1>
@@ -60,12 +122,14 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
               the field, and which way the market moved this week. Today, {s.goodOrBetterPct}% of the{" "}
               {s.corridorsScored}{" "}corridors we can score read &ldquo;good&rdquo; or better.
             </p>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mt-3">
+              Scores refreshed <time dateTime={s.dataAsOf}>{dataAsOfLabel}</time>
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* Why it needs our data */}
-      <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-10">
+      <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)] py-10">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-3">
@@ -82,7 +146,6 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
         </Container>
       </section>
 
-      {/* How it is calculated */}
       <section id="how-it-works" className="py-12">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -117,7 +180,6 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
         </Container>
       </section>
 
-      {/* Worked example */}
       {example && (
         <section className="py-12 bg-[var(--color-surface-dim)] border-y border-[var(--color-outline)]">
           <Container>
@@ -176,7 +238,6 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
         </section>
       )}
 
-      {/* Distribution */}
       <section className="py-12">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -209,7 +270,77 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
         </Container>
       </section>
 
-      {/* Limits — its own anchor, because this is the part a careful citation needs. */}
+      <section id="bands" className="py-12 bg-[var(--color-surface-dim)] border-y border-[var(--color-outline)]">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-2">
+              What each band means — and what to do
+            </h2>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-6 leading-relaxed">
+              Each band describes how today ranks against the recorded history for that specific corridor. The action
+              guidance below reflects what the data typically supports — it is not a guarantee about future rates.
+            </p>
+            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl divide-y divide-[var(--color-outline)]">
+              {BAND_ORDER.map((band) => {
+                const g = BAND_GUIDANCE[band];
+                return (
+                  <div key={band} className="px-5 py-4">
+                    <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-1">{BAND_LABELS[band]}</h3>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-1">{g.meaning}</p>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                      <strong className="text-[var(--color-on-surface)]">What to do:</strong> {g.action}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section id="how-to-use" className="py-12">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-4">
+              How to use SendScore when timing a transfer
+            </h2>
+            <div className="space-y-4 text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p>
+                <strong className="text-[var(--color-on-surface)]">Start with the corridor score, not the number.</strong>{" "}
+                The label — exceptional, great, good, typical, poor — is the useful output. The number (0–100) exists
+                so you can compare two corridors or watch a single one over time; used in isolation it implies a
+                precision the inputs do not support.
+              </p>
+              <p>
+                <strong className="text-[var(--color-on-surface)]">Pair it with the comparison.</strong> SendScore
+                tells you whether the corridor is in a good window; the{" "}
+                <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
+                  live comparison
+                </Link>{" "}
+                tells you which provider pays the most right now. An exceptional score on a corridor where providers
+                are clustered tightly means less than one where they are spread — the competitiveness component
+                reflects this.
+              </p>
+              <p>
+                <strong className="text-[var(--color-on-surface)]">For large transfers, check the trend component.</strong>{" "}
+                A score marked &ldquo;falling market&rdquo; in the explanation is one where this week is weaker than
+                last. On a large transfer, a falling trend may outweigh a still-good absolute position. The explanation
+                sentence under each score is assembled from the same components and will say so explicitly.
+              </p>
+              <p>
+                <strong className="text-[var(--color-on-surface)]">Do not over-index on the score.</strong> Corridor
+                rates on most major routes move within a narrow band week to week. An exceptional score may mean you
+                are capturing an extra 0.3% — meaningful on a large transfer, negligible on a small one. The{" "}
+                <Link href="/provider-consistency" className="text-[var(--color-primary)] hover:underline">
+                  Provider Consistency Index
+                </Link>{" "}
+                shows that choosing the right provider reliably matters more than timing.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <section id="limitations" className="py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -269,13 +400,29 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
         </Container>
       </section>
 
-      {/* Defining the metric as a named thing, so it can be referenced. Dataset
-          rather than a LocalBusiness subclass, and no aggregateRating claimed. */}
+      <section id="faq" className="py-12 border-t border-[var(--color-outline)]">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-6">
+              Frequently asked questions
+            </h2>
+            <div className="space-y-6">
+              {FAQ.map((item) => (
+                <div key={item.q}>
+                  <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-1">{item.q}</h3>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <DataProvenance
         dataAsOf={s.dataAsOf}
         computedFrom="Each corridor is scored from its own recorded provider rates, using the four weighted components set out above. Corridors with only one provider quoting are excluded from the published distribution rather than counted as neutral."
         sources={[
-          { label: "SendMoneyCompare quote archive — every provider\u2019s live quotes, recorded every six hours", href: "/methodology" },
+          { label: "SendMoneyCompare quote archive — every provider's live quotes, recorded every six hours", href: "/methodology" },
           { label: "Provider Consistency Index — who delivers the most, over time", href: "/provider-consistency" },
           { label: "How we review and rank providers", href: "/how-we-review" },
         ]}
@@ -299,6 +446,24 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
             },
             dateModified: s.dataAsOf,
             variableMeasured: SENDSCORE_WEIGHTS.map((c) => c.label),
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQ.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.a,
+              },
+            })),
           }),
         }}
       />
