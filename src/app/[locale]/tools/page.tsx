@@ -15,8 +15,6 @@ import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 export const revalidate = 86400;
 
 const SITE_URL = "https://sendmoneycompare.com";
-// 84 chars previously — the brand suffix was truncated away, so it cost us
-// characters without ever rendering.
 const TITLE = "Free Money Transfer Tools — Tax & FX Markup Calculators";
 const DESCRIPTION =
   "Free calculators for international transfers: work out the 2026 US remittance tax, reveal the hidden FX markup on any quote, and find the cheapest way to send. No signup.";
@@ -88,7 +86,6 @@ export default async function ToolsPage({
               Quick calculators to check what a transfer really costs — tax, hidden FX markup, and the cheapest way
               to send. Every tool runs on our live provider data. No signup, no email.
             </p>
-            {/* Round-3 QA item 7: a named author and the page's content date. */}
             <div className="mt-4">
               <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/tools")} cadence={null} />
             </div>
@@ -114,6 +111,61 @@ export default async function ToolsPage({
             Looking for the cheapest provider for your corridor?{" "}
             <Link className="underline" href="/send-money">Compare all {COVERAGE.providers} →</Link>
           </p>
+
+          <div className="mt-10 max-w-3xl space-y-8 text-[var(--color-on-surface-variant)]">
+            <div>
+              <h2 className="text-xl font-bold text-[var(--color-on-surface)]">About these calculators</h2>
+              <p className="mt-2 text-sm leading-relaxed">
+                International money transfers hide costs in two places: fees shown upfront, and the exchange-rate
+                margin added on top of the mid-market rate. Most calculators show one or the other. These tools
+                show both, and let you see exactly what arrives at the other end — before you commit to a provider.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-base font-bold text-[var(--color-on-surface)]">US Remittance Tax Calculator</h3>
+              <p className="mt-2 text-sm leading-relaxed">
+                The One Big Beautiful Bill Act introduced a 1% excise tax on international money transfers from the
+                United States, effective 2026. The calculator takes the amount you plan to send, identifies whether
+                the tax applies to your transfer, and shows the exact dollar cost. It also explains which payment
+                methods and senders are exempt — including US citizens sending to FATCA-covered accounts — so you
+                can plan to reduce the tax to zero if your situation qualifies.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-base font-bold text-[var(--color-on-surface)]">FX Markup Checker</h3>
+              <p className="mt-2 text-sm leading-relaxed">
+                When a transfer company quotes you an exchange rate, it is almost always worse than the mid-market
+                rate — the rate you see on Google or Reuters. The difference is the FX markup, and it compounds with
+                the transfer fee to set the true cost of your transfer. This tool fetches the current mid-market rate
+                and calculates exactly how much of your money disappears into the spread, expressed both as a
+                percentage and as a currency amount, so you can compare providers on a level footing.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-base font-bold text-[var(--color-on-surface)]">Salary Abroad Calculator</h3>
+              <p className="mt-2 text-sm leading-relaxed">
+                Purchasing power varies dramatically across countries, and most cost-of-living tools ignore the
+                ongoing FX cost of earning in one currency and spending in another. This calculator combines World
+                Bank purchasing-power-parity data for 83 countries with live exchange rates to show what a salary
+                is genuinely worth abroad — both in local spending power and after the exchange-rate overhead that
+                affects anyone paid in a foreign currency.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-base font-bold text-[var(--color-on-surface)]">How we keep the data current</h3>
+              <p className="mt-2 text-sm leading-relaxed">
+                All three tools draw on the same live quote database that powers our provider comparison — refreshed
+                automatically so figures reflect today&rsquo;s rates, not yesterday&rsquo;s. Mid-market rates are
+                sourced from XE. Tax rules are updated whenever legislation changes. No registration is required to
+                use any tool, and no data you enter is stored or shared.
+              </p>
+            </div>
+          </div>
+
           <PolicyLinks current="/tools" />
         </Container>
       </section>
