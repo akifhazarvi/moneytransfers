@@ -124,7 +124,7 @@ const COMPARE_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Are these affiliate links?",
-    a: "Some are. When you click “Send with” we may earn a commission at no cost to you. It never changes which provider the tool shows as cheaper — the winner is decided purely by the live receive amount. See our methodology for exactly how we rank.",
+    a: "Some are. When you click \u201cSend with\u201d we may earn a commission at no cost to you. It never changes which provider the tool shows as cheaper — the winner is decided purely by the live receive amount. See our methodology for exactly how we rank.",
   },
 ];
 
@@ -172,6 +172,14 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
     url: "https://sendmoneycompare.com/compare",
     isAccessibleForFree: true,
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+    author: {
+      "@type": "Person",
+      name: "Awais Imran",
+      url: "https://sendmoneycompare.com/about/awais-imran",
+      jobTitle: "Editor-in-Chief",
+      sameAs: "https://www.linkedin.com/in/awsimran/",
+    },
+    dateModified: pageUpdated("/compare"),
   };
 
   return (
