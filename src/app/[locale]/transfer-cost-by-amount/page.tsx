@@ -316,13 +316,62 @@ export default async function TransferCostByAmountPage({ params }: { params: Pro
         </Container>
       </section>
 
+      {/* FAQ */}
+      <section className="py-12">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-6">
+              Questions about transfer costs by amount
+            </h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">
+                  Why does the cheapest provider change depending on how much I send?
+                </h3>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                  Most providers charge a combination of a fixed fee and an exchange-rate markup. When the fixed fee is
+                  large relative to the amount sent, it becomes a much bigger share of a small transfer than a large one.
+                  A provider whose pricing is mostly a flat fee will look competitive at{" "}
+                  {money(idx.headlineAmount)} but expensive at {money(idx.smallAmount)}. A provider with no fixed fee but a
+                  slightly wider percentage margin scales more evenly and often wins on smaller amounts.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">
+                  How is true total cost calculated?
+                </h3>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                  True total cost measures the gap between what a transfer at the mid-market exchange rate would deliver
+                  and what the provider actually delivers, expressed as a percentage of the amount sent. It combines the
+                  upfront fee and the exchange-rate markup into one figure, so a provider with no fee but a wide spread
+                  is treated the same as one with a fee and a narrow spread. This is the same definition used across all
+                  our research pages, so figures here and on the Remittance Cost Index are directly comparable.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">
+                  Should I use a different comparison for small versus large transfers?
+                </h3>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                  Yes. Most published rankings are priced at {money(idx.headlineAmount)} or a similarly large round
+                  figure. If you regularly send {money(idx.smallAmount)} or less, those lists may point you to the wrong
+                  provider. The safest approach is to enter your actual amount in the comparison tool — it prices every
+                  provider at whatever you type — and check who wins on your specific corridor at your specific amount
+                  before sending.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <DataProvenance
         dataAsOf={REMITTANCE_INDEX.dataAsOf}
         computedFrom={`Every quote at ${money(idx.smallAmount)} and ${money(idx.headlineAmount)} in the archive is costed with the same function the Remittance Cost Index uses, then averaged per provider per tier. Providers below ${idx.minQuotesPerTier} quotes at either tier are excluded rather than shown with a noisy delta.`}
         csvHref={CSV_URL}
         sources={[
           {
-            label: "SendMoneyCompare quote archive — every provider’s live quotes, recorded every six hours",
+            label: "SendMoneyCompare quote archive — every provider's live quotes, recorded every six hours",
             href: "/methodology",
           },
           { label: "Remittance Cost Index — the same cost definition, priced at $1,000", href: "/remittance-cost-index" },
