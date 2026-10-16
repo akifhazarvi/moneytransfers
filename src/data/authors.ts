@@ -39,24 +39,30 @@ export const authors: Author[] = [
     role: "Founder & CEO",
     initials: "AM",
     photo: "/images/authors/ahsan-mukhtar.jpeg",
-    bio: `Ahsan Mukhtar is the founder and CEO of SendMoneyCompare, an independent comparison platform for international money transfers. He set up the company to bring the same price transparency to sending money abroad that comparison sites brought to insurance and utilities.
+    bio: `Ahsan Mukhtar is the founder and CEO of SendMoneyCompare, an independent comparison platform for international money transfers. He set up the company to bring the same price transparency to sending money abroad that comparison sites brought to insurance and utilities — where the best price for a product is visible at a glance, rather than buried in calculator pages across a dozen provider websites.
 
-Every provider ranking on SendMoneyCompare is produced from real transfer data collected from provider APIs and websites every 6 hours, and the order is computed from what a recipient actually receives — not chosen by hand. No provider can buy a higher ranking, and whether a provider pays us plays no part in the order; where payouts fall within 0.1% of each other the higher-rated provider is listed first, disclosed on every comparison.
+His founding insight was that the cost of sending money abroad is almost entirely opaque at the point of decision. A sender choosing between providers sees advertised exchange rates, flat fees, and percentage markups stated in different ways, making it difficult to compare like for like. SendMoneyCompare's approach is to compute a single figure — the amount the recipient actually receives for a fixed amount sent — and rank providers on that number, with full disclosure of the fee and the exchange rate applied to each quote.
 
-Ahsan fact-checks the provider reviews before publication, checking the fee structures, exchange-rate markups and delivery times in each review against the platform's own scraped quote history rather than against provider marketing. Where a review's figure and the dataset disagree, the dataset wins or the claim comes out. Day-to-day editorial sits with the editor-in-chief.
+Every provider ranking on SendMoneyCompare is produced from real transfer data collected from provider APIs and websites every six hours. The order is computed from what a recipient actually receives, not chosen by hand, and whether a provider pays the site plays no part in the result. Where payouts fall within 0.1% of each other, the higher-rated provider appears first, and that rule is disclosed on every comparison page.
 
-He also leads outreach with publishers, diaspora communities and financial educators, with the aim of helping more people find transparent comparison data when sending money abroad. Ahsan holds a background in marketing and business development across financial services and consumer technology.`,
+Ahsan fact-checks the provider reviews before publication, verifying fee structures, exchange-rate markups and delivery times against the platform's own scraped quote history rather than against provider marketing. Where a review's figure and the dataset disagree, the dataset wins or the claim is removed. Day-to-day editorial sits with the editor-in-chief.
+
+He leads outreach with publishers, diaspora communities and financial educators, with the aim of helping more people find transparent comparison data when sending money abroad. This work includes partnerships with community organisations, financial literacy publishers, and media outlets covering personal finance and international remittances.
+
+Ahsan holds a background in marketing and business development across financial services and consumer technology. Before founding SendMoneyCompare he worked on growth for companies operating in multi-currency, cross-border and fintech markets, giving him a direct view of how providers price international transfers and how little of that pricing is ordinarily visible to senders.`,
     expertise: [
-      "Remittance and money transfer markets",
-      "Provider ranking methodology and disclosure",
+      "Remittance and international money transfer markets",
+      "Provider ranking methodology and pricing transparency",
       "Fact-checking against primary transfer data",
-      "Business development in fintech",
-      "Publisher and community outreach",
+      "Business development in fintech and financial services",
+      "Publisher, diaspora and community outreach",
+      "Cross-border payments and multi-currency product strategy",
     ],
     credentials: [
       "Founded SendMoneyCompare and owns its ranking methodology",
       "Fact-checks every provider review against the platform's scraped quote history",
-      "Background in marketing and BD across financial services",
+      "Built an automated data pipeline collecting live quotes from 60+ money transfer providers",
+      "Background in marketing and business development across financial services and consumer technology",
     ],
     linkedin: "https://www.linkedin.com/in/ahsan-mukhtar/",
     articlesWritten: 36,
