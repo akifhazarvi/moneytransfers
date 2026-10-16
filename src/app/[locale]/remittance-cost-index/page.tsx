@@ -193,104 +193,59 @@ function costTone(cost: number): string {
 function RankingTable({ rows, limit }: { rows: IndexRow[]; limit: number }) {
   const shown = rows.slice(0, limit);
   return (
-    <>
-      {/* Desktop table */}
-      <div className="hidden md:block bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl overflow-hidden shadow-[var(--shadow-sm)]">
-        <div className="grid grid-cols-[40px_1fr_100px_100px_110px_90px] gap-2 px-6 py-3 bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-          <span>#</span>
-          <span>Provider</span>
-          <span className="text-right">Avg fee</span>
-          <span className="text-right">Avg markup</span>
-          <span className="text-right">Cost per $1,000</span>
-          <span className="text-right">Corridors</span>
-        </div>
-        {shown.map((p, i) => {
-          const tp = trustpilotMap.get(p.slug);
-          return (
-            <div
-              key={p.slug}
-              className={`grid grid-cols-[40px_1fr_100px_100px_110px_90px] gap-2 items-center px-6 py-3 border-t border-[var(--color-outline)] ${
-                i < 3 ? "bg-[var(--color-primary-surface)]/30" : ""
-              }`}
-            >
-              <span className={`text-sm font-bold ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
-                {i + 1}
-              </span>
-              <div className="flex items-center gap-3 min-w-0">
-                {p.logo && (
-                  <Image src={p.logo} alt={`${p.name} logo`} width={28} height={28} className="rounded-full shrink-0 bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
-                )}
-                <div className="min-w-0">
-                  {companyPageRenders(p.slug) ? (
-                    <Link href={`/companies/${p.slug}`} className="text-sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
-                      {p.name}
-                    </Link>
-                  ) : (
-                    <span className="text-sm font-semibold text-[var(--color-on-surface)]">{p.name}</span>
-                  )}
-                  {tp?.score && (
-                    <div className="text-2xs text-[var(--color-on-surface-variant)]">
-                      {tp.score}/5 ({tp.totalReviews?.toLocaleString()} reviews)
+    <div className="overflow-x-auto rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)]">
+      <table className="w-full text-sm min-w-[560px]">
+        <thead>
+          <tr className="bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+            <th className="px-5 py-3 text-left w-9">#</th>
+            <th className="px-5 py-3 text-left">Provider</th>
+            <th className="px-5 py-3 text-right">Avg fee</th>
+            <th className="px-5 py-3 text-right">Avg markup</th>
+            <th className="px-5 py-3 text-right">Cost per $1,000</th>
+            <th className="px-5 py-3 text-right">Corridors</th>
+          </tr>
+        </thead>
+        <tbody className="bg-[var(--color-surface)] divide-y divide-[var(--color-outline)]">
+          {shown.map((p, i) => {
+            const tp = trustpilotMap.get(p.slug);
+            return (
+              <tr key={p.slug} className={i < 3 ? "bg-[var(--color-primary-surface)]/30" : ""}>
+                <td className={`px-5 py-3 font-bold ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"`}>
+                  {i + 1}
+                </td>
+                <td className="px-5 py-3">
+                  <div className="flex items-center gap-3">
+                    {p.logo && (
+                      <Image src={p.logo} alt={`${p.name} logo`} width={28} height={28} className="rounded-full shrink-0 bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
+                    )}
+                    <div>
+                      {companyPageRenders(p.slug) ? (
+                        <Link href={`/companies/${p.slug}`} className="font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                          {p.name}
+                        </Link>
+                      ) : (
+                        <span className="font-semibold text-[var(--color-on-surface)]">{p.name}</span>
+                      )}
+                      {tp?.score && (
+                        <div className="text-2xs text-[var(--color-on-surface-variant)]">
+                          {tp.score}/5 ({tp.totalReviews?.toLocaleString()} reviews)
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              </div>
-              <span className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">{p.avgFeePct.toFixed(2)}%</span>
-              <span className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">{p.avgMarkupPct.toFixed(2)}%</span>
-              <span className={`text-sm font-semibold text-right tabular-nums ${costTone(p.costPerAmount)}`}>
-                ${p.costPerAmount.toFixed(2)}
-              </span>
-              <span className="text-2sm text-[var(--color-on-surface-variant)] text-right tabular-nums">{p.corridors}</span>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Mobile cards */}
-      <div className="md:hidden space-y-3">
-        {shown.map((p, i) => (
-          <div
-            key={p.slug}
-            className={`rounded-2xl border border-[var(--color-outline)] p-4 ${
-              i < 3 ? "bg-[var(--color-primary-surface)]/30" : "bg-[var(--color-surface)]"
-            }`}
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <span className={`text-lg font-bold w-7 ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
-                {i + 1}
-              </span>
-              {p.logo && (
-                <Image src={p.logo} alt={p.name} width={32} height={32} className="rounded-full bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
-              )}
-              <div>
-                {companyPageRenders(p.slug) ? (
-                  <Link href={`/companies/${p.slug}`} className="text-md font-semibold text-[var(--color-on-surface)]">
-                    {p.name}
-                  </Link>
-                ) : (
-                  <span className="text-md font-semibold text-[var(--color-on-surface)]">{p.name}</span>
-                )}
-                <div className="text-2xs text-[var(--color-on-surface-variant)]">{p.corridors} corridors</div>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-2 text-center">
-              <div className="bg-[var(--color-surface-dim)] rounded-lg px-2 py-2">
-                <div className="text-2xs text-[var(--color-on-surface-variant)]">Fee</div>
-                <div className="text-sm font-semibold text-[var(--color-on-surface)]">{p.avgFeePct.toFixed(2)}%</div>
-              </div>
-              <div className="bg-[var(--color-surface-dim)] rounded-lg px-2 py-2">
-                <div className="text-2xs text-[var(--color-on-surface-variant)]">Markup</div>
-                <div className="text-sm font-semibold text-[var(--color-on-surface)]">{p.avgMarkupPct.toFixed(2)}%</div>
-              </div>
-              <div className="bg-[var(--color-surface-dim)] rounded-lg px-2 py-2">
-                <div className="text-2xs text-[var(--color-on-surface-variant)]">Per $1,000</div>
-                <div className={`text-sm font-bold ${costTone(p.costPerAmount)}`}>${p.costPerAmount.toFixed(2)}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
+                  </div>
+                </td>
+                <td className="px-5 py-3 text-right tabular-nums text-[var(--color-on-surface)]">{p.avgFeePct.toFixed(2)}%</td>
+                <td className="px-5 py-3 text-right tabular-nums text-[var(--color-on-surface)]">{p.avgMarkupPct.toFixed(2)}%</td>
+                <td className={`px-5 py-3 text-right tabular-nums font-semibold ${costTone(p.costPerAmount)}`}>
+                  ${p.costPerAmount.toFixed(2)}
+                </td>
+                <td className="px-5 py-3 text-right tabular-nums text-[var(--color-on-surface-variant)]">{p.corridors}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -444,8 +399,31 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
         </Container>
       </section>
 
+      {/* Global context */}
+      <section className="py-14 bg-[var(--color-surface)]">
+        <Container>
+          <div className="max-w-3xl mx-auto space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+              Why remittance costs matter
+            </h2>
+            <p>
+              Remittances — money sent by migrants to family back home — totalled over $860 billion worldwide in 2023, according to World Bank estimates. For many lower-income countries, remittance flows exceed foreign direct investment and in some cases represent more than 10% of GDP. Small percentage differences in transfer fees and exchange rate markups translate directly into less money arriving at a household that depends on it.
+            </p>
+            <p>
+              The global average cost of sending $200 has hovered between 6% and 7% for years, well above the Sustainable Development Goal target of 3%. That gap exists because the market is opaque: providers quote fees prominently but bury the exchange rate markup — the most expensive part of most transfers — inside a rate the sender sees only after entering their amount. This index is built to surface that hidden cost.
+            </p>
+            <p>
+              We measure the <strong className="text-[var(--color-on-surface)]">total true cost</strong>: what the recipient receives versus what they would receive if the transfer had been done at the mid-market rate with no markup and no fee. The fee you see plus the markup you do not see is what a sender actually pays. Comparing providers on fee alone, or on the receive amount without anchoring it to mid-market, understates the cost gap and can reverse the ranking.
+            </p>
+            <p>
+              The index ranks {idx.providers.length} providers — {idx.specialists.length} money transfer specialists and {idx.banks.length} banks — who each quoted a $1,000 transfer on at least {idx.minCorridors} corridors in our latest dataset. Specialists and banks are ranked separately because a bank priced on five corridors should not be compared directly against a specialist priced on three hundred.
+            </p>
+          </div>
+        </Container>
+      </section>
+
       {/* Specialist rankings */}
-      <section className="py-14">
+      <section className="py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-2">
@@ -460,7 +438,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       </section>
 
       {/* Bank rankings */}
-      <section className="py-14 bg-[var(--color-surface-dim)]">
+      <section className="py-14 bg-[var(--color-surface)]">
         <Container>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-2">
