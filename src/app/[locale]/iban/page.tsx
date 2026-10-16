@@ -136,9 +136,7 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
               "Real IBAN examples",
             ].map((item) => (
               <span key={item} className="flex items-center gap-1.5">
-                <svg className="w-4 h-4 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
+                <span className="text-[var(--color-success)]" aria-hidden="true">✓</span>
                 {item}
               </span>
             ))}
@@ -268,6 +266,34 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 When sending money internationally, providing the correct IBAN ensures your transfer reaches the
                 right account quickly. Incorrect IBANs can result in delays, returned payments, and additional fees.
               </p>
+
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+                How to read an IBAN
+              </h3>
+              <p>
+                Every IBAN follows the same pattern. Take the German IBAN <code className="text-xs bg-[var(--color-surface)] px-1 py-0.5 rounded border border-[var(--color-outline)]">DE44 5001 0517 5407 3249 31</code> as an example:
+              </p>
+              <ul className="list-none space-y-1 pl-0">
+                <li><strong className="text-[var(--color-on-surface)]">DE</strong> — two-letter ISO country code (Germany)</li>
+                <li><strong className="text-[var(--color-on-surface)]">44</strong> — two check digits, calculated from the rest of the IBAN to catch typos</li>
+                <li><strong className="text-[var(--color-on-surface)]">50010517</strong> — eight-digit bank code (Bankleitzahl) identifying the branch</li>
+                <li><strong className="text-[var(--color-on-surface)]">5407324931</strong> — ten-digit domestic account number</li>
+              </ul>
+              <p>
+                Spaces shown in the print format (groups of four characters) are for readability only — they are stripped when sending electronically.
+              </p>
+
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+                How to find your IBAN
+              </h3>
+              <p>
+                Your IBAN appears on your bank statement, in your bank&apos;s mobile app (usually under account details or settings),
+                and on the back of your debit card in some countries. If you cannot find it there, log in to online banking
+                and look for &ldquo;account details&rdquo; or &ldquo;IBAN.&rdquo; Your bank can also provide it on request.
+                In countries that use IBANs, the format is fixed — you can verify a number is plausible by checking
+                it has the correct length for its country code (see each country page for the exact length).
+              </p>
+
               <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 IBAN vs SWIFT/BIC code
               </h3>
@@ -276,6 +302,29 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 For international transfers, you typically need both. The IBAN ensures the money reaches the right
                 account, while the SWIFT code routes the payment to the correct bank. Some countries, like the
                 United States, do not use IBANs and rely on routing numbers instead.
+              </p>
+
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+                Common IBAN mistakes to avoid
+              </h3>
+              <p>
+                The most frequent errors when using an IBAN are transposing digits, copying a print-format number
+                with spaces into a field that does not strip them, and using an outdated IBAN after a bank merger
+                or account change. Always copy your IBAN directly from your bank statement or app rather than
+                typing it from memory. A single wrong character can send the payment to a different account or
+                cause it to be returned, sometimes with a fee charged by the receiving bank.
+              </p>
+
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+                When do you need an IBAN?
+              </h3>
+              <p>
+                You need to provide an IBAN whenever you receive an international wire transfer from a country
+                that supports the standard — essentially anywhere in Europe, much of the Middle East, and a
+                growing number of countries in Africa, Asia, and the Americas. Within the SEPA zone, an IBAN
+                is also required for domestic euro payments. If someone is sending you money from outside the
+                IBAN network (for example from the US or Canada), share your SWIFT/BIC code and account number
+                instead; the sender&apos;s bank will handle the routing.
               </p>
             </div>
           </div>
