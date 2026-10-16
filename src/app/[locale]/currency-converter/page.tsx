@@ -6,7 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import CurrencyConverterClient from "@/components/CurrencyConverterClient";
-import { currencies, exchangeRates } from "@/data/providers";
+import { exchangeRates } from "@/data/providers";
 import { getRate } from "@/lib/rates-util";
 import { RATES_AS_OF } from "@/lib/exchange-rates-today";
 import { COVERAGE } from "@/lib/site-stats";
@@ -78,9 +78,6 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "currencyConverter" });
 
-  // Pre-compute static rates for SEO
-  const defaultRate = getRate(exchangeRates, "USD", "EUR");
-
   return (
     <>
       {/* Server-rendered SEO heading */}
@@ -148,70 +145,45 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
         </div>
       </Container>
 
-      {/* Server-rendered SEO content — visible to crawlers */}
-      <Container>
-        <div className="sr-only">
-          <h2>Live exchange rates ({monthYear})</h2>
-          <p>As of {fullDate}, 1 USD = {defaultRate.toFixed(4)} EUR (mid-market rate). Rates update every 60 seconds during market hours.</p>
-
-          <h2>Popular currency pairs</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>From</th>
-                <th>To</th>
-                <th>Exchange Rate</th>
-              </tr>
-            </thead>
-            <tbody>
-              {popularPairs.map((pair) => {
-                const pairRate = getRate(exchangeRates, pair.from, pair.to);
-                return (
-                  <tr key={`${pair.from}-${pair.to}`}>
-                    <td>{pair.from}</td>
-                    <td>{pair.to}</td>
-                    <td>1 {pair.from} = {pairRate.toFixed(4)} {pair.to}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-
-          <h2>All exchange rates vs USD</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Currency</th>
-                <th>Code</th>
-                <th>Rate (1 USD =)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {currencies.filter((c) => c.code !== "USD").map((c) => (
-                <tr key={c.code}>
-                  <td>{c.name}</td>
-                  <td>{c.code}</td>
-                  <td>{c.symbol}{(exchangeRates[c.code] ?? 0).toFixed(4)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          <h2>How currency conversion works</h2>
-          <p>
-            Our currency converter uses the mid-market exchange rate — the midpoint between buy and sell rates
-            on the global currency markets. This is the fairest rate available and is the rate banks use when
-            trading between themselves. When you send money internationally, providers typically add a markup
-            to this rate, which is how they make money on currency conversion.
+      {/* Popular rates quick-reference — visible to users and crawlers */}
+      <Container className="pb-12">
+        <div className="max-w-[1000px]">
+          <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold tracking-tight text-[var(--color-on-surface)] mb-1">
+            Popular currency rates today
+          </h2>
+          <p className="text-sm text-[var(--color-on-surface-variant)] mb-5">
+            Mid-market rates as of {fullDate}. These are the interbank rates — add a provider&apos;s markup to see what you&apos;ll actually pay.
           </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {popularPairs.map((pair) => {
+              const pairRate = getRate(exchangeRates, pair.from, pair.to);
+              return (
+                <div
+                  key={`${pair.from}-${pair.to}`}
+                  className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-4 py-3"
+                >
+                  <p className="text-xs font-medium text-[var(--color-on-surface-variant)] mb-0.5">
+                    {pair.from} → {pair.to}
+                  </p>
+                  <p className="text-sm font-semibold text-[var(--color-on-surface)]">
+                    1 {pair.from} = {pairRate.toFixed(4)} {pair.to}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
 
-          <h2>About our exchange rates</h2>
-          <p>
-            Exchange rates are sourced from leading financial data providers and updated every 60 seconds during
-            market hours. The rates on this page reflect the live mid-market rate as of {fullDate}. Rates shown are
-            mid-market rates and may differ from the rates offered by individual money transfer providers. Always
-            check the exact rate and total cost with your chosen provider before making a transfer.
-          </p>
+          <div className="mt-10 pt-8 border-t border-[var(--color-outline)]">
+            <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold tracking-tight text-[var(--color-on-surface)] mb-3">
+              How currency conversion works
+            </h2>
+            <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-4 max-w-[720px]">
+              Our converter uses the mid-market exchange rate — the midpoint between buy and sell prices on the global currency market, and the rate banks use when trading with each other. It is the fairest benchmark available. When you send money internationally, providers add a markup on top of this rate; that difference is how they make money on currency conversion.
+            </p>
+            <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed max-w-[720px]">
+              Rates on this page are sourced from leading financial data providers and updated every 60 seconds during market hours. They reflect the mid-market rate as of {fullDate} and may differ from the rate offered by individual money transfer providers. Always check the exact rate and total cost with your chosen provider before making a transfer.
+            </p>
+          </div>
         </div>
       </Container>
       {/* Paid partner spotlight. Missed by the Sep 18 rollout, which covered
