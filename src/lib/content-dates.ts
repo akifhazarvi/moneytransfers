@@ -65,12 +65,13 @@ const PAGE_UPDATED = {
   "/news": "2026-10-09",                     // archive became a section (brief §5.3)
   "/compare": "2026-10-09",                  // per-page see-also line (brief §5.3)
   "/travel": "2026-09-26",                   // destination summaries no longer repeated
-  "/remittance-cost-index": "2026-09-29",    // Dataset licence CC BY 4.0
+  "/remittance-cost-index": "2026-10-17",    // ranking as one table; "Why remittance costs matter" (World Bank, cited)
   "/alternatives": "2026-09-20",             // published
   "/currency-converter": "2026-09-21",       // TapTap spotlight
   "/methodology": "2026-10-09",              // three named provider counts (brief §4.3)
   "/privacy-policy": "2026-09-20",
   "/terms": "2026-09-20",
+  "/disclaimer": "2026-10-17",               // what we are and are not; regulator check; data caveats as prose
   "/cookies": "2026-04-24",
   "/guides/best-apps-to-send-money-from-us-2026": "2026-09-29",
 } as const;

@@ -4,6 +4,8 @@ import Link from "@/components/EligibleLink";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { longDay, pageUpdated } from "@/lib/content-dates";
+import { COVERAGE } from "@/lib/site-stats";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -34,6 +36,9 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
             <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
+            <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
+              {t("lastUpdated", { date: longDay(pageUpdated("/disclaimer")) })}
+            </p>
           </div>
         </Container>
       </section>
@@ -53,6 +58,12 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
                   independent comparison platform — we are not a bank, money transfer
                   operator, payment institution, or financial adviser.
                 </p>
+                <p>
+                  We operate solely as a comparison service. We collect rate and fee quotes
+                  from the {COVERAGE.providers}{" "}we track and present them side by side so
+                  you can make an informed choice. We do not process transfers, hold funds,
+                  or act as an intermediary between senders and recipients.
+                </p>
               </div>
             </div>
 
@@ -67,6 +78,14 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
                   investment advice, or a recommendation to use any particular money
                   transfer service. We present data to help you compare options, but the
                   decision of which provider to use is yours alone.
+                </p>
+                <p>
+                  We do not take into account your personal circumstances, financial
+                  situation, or transfer requirements when presenting comparison data.
+                  Exchange rate decisions, the timing of transfers, and the selection of
+                  a provider are personal financial decisions that may have tax, legal,
+                  or regulatory implications depending on where you live and where you
+                  are sending money.
                 </p>
                 <p>
                   If you need personalised financial advice, please consult a qualified
@@ -85,40 +104,24 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
                   While we strive to keep exchange rates, fees, and provider information
                   as accurate and current as possible, the data on our website is
                   collected at periodic intervals and may not reflect the exact rates
-                  available at the time of your transfer. Key points to keep in mind:
+                  available at the time of your transfer.
                 </p>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {[
-                    {
-                      title: t("ratesIndicativeTitle"),
-                      desc: t("ratesIndicativeDesc"),
-                    },
-                    {
-                      title: t("feesMayVaryTitle"),
-                      desc: t("feesMayVaryDesc"),
-                    },
-                    {
-                      title: t("coverageLimitationsTitle"),
-                      desc: t("coverageLimitationsDesc"),
-                    },
-                    {
-                      title: t("thirdPartyDataTitle"),
-                      desc: t("thirdPartyDataDesc"),
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="bg-[var(--color-surface-dim)] rounded-xl p-5"
-                    >
-                      <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <p>
+                  <strong className="font-medium text-[var(--color-on-surface)]">{t("ratesIndicativeTitle")}.</strong>{" "}
+                  {t("ratesIndicativeDesc")}
+                </p>
+                <p>
+                  <strong className="font-medium text-[var(--color-on-surface)]">{t("feesMayVaryTitle")}.</strong>{" "}
+                  {t("feesMayVaryDesc")}
+                </p>
+                <p>
+                  <strong className="font-medium text-[var(--color-on-surface)]">{t("coverageLimitationsTitle")}.</strong>{" "}
+                  {t("coverageLimitationsDesc")}
+                </p>
+                <p>
+                  <strong className="font-medium text-[var(--color-on-surface)]">{t("thirdPartyDataTitle")}.</strong>{" "}
+                  {t("thirdPartyDataDesc")}
+                </p>
               </div>
             </div>
 
@@ -136,7 +139,9 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
                 <p>
                   Affiliate partnerships never influence our rankings or editorial content.
                   All providers are ranked by objective criteria — primarily how much money
-                  your recipient receives. For full transparency, see our{" "}
+                  your recipient receives. Providers with which we have an affiliate
+                  relationship are subject to the same ranking methodology as those without.
+                  For full transparency, see our{" "}
                   <Link
                     href="/editorial-policy"
                     className="text-[var(--color-primary)] hover:underline"
@@ -161,6 +166,12 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
                   responsibility for any provider&apos;s services, actions, or conduct. Any
                   transaction you make is between you and the provider — SendMoneyCompare
                   is not a party to that transaction.
+                </p>
+                <p>
+                  Regulatory status, terms of service, fee structures, and available
+                  corridors can change. Although we aim to reflect current information,
+                  we recommend verifying a provider&apos;s authorisation directly with the
+                  relevant regulator before sending funds, particularly for large amounts.
                 </p>
                 <p>
                   If you experience issues with a provider, you should contact the
