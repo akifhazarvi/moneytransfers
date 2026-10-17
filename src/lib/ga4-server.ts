@@ -27,7 +27,7 @@ const ENDPOINT = `https://www.google-analytics.com/mp/collect`;
  */
 export type GeoHints = {
   country?: string; // ISO 3166-1 alpha-2 (e.g. "US"), from x-vercel-ip-country
-  region?: string;  // ISO 3166-2 subdivision (e.g. "US-CA"), from x-vercel-ip-country-region
+  region?: string;  // subdivision from x-vercel-ip-country-region ("CA"); prefixed with the country below
   city?: string;    // from x-vercel-ip-city (URL-encoded by Vercel — decode before passing)
 };
 
@@ -53,7 +53,9 @@ export async function gaServerEvent(
     geo?.country || geo?.region || geo?.city
       ? {
           country_id: geo.country,
-          region_id: geo.region,
+          // Vercel's x-vercel-ip-country-region is only the subdivision part
+          // ("CA"); GA4 wants the full ISO 3166-2 code ("US-CA").
+          region_id: geo.region && geo.country && !geo.region.includes("-") ? `${geo.country}-${geo.region}` : geo.region,
           city: geo.city,
         }
       : undefined;

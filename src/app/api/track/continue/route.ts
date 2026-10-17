@@ -6,9 +6,10 @@ import { isValidProviderSlug } from "@/lib/affiliate";
 /**
  * Beacon target for the review page (/go/<provider>/review, which since
  * 2026-10-05 sits between a click and every provider but TapTap):
- *   ?event=impression → `interstitial_impression`, once per page render in a
- *                       browser that ran our JS (crawlers that never render it
- *                       are not counted)
+ *   ?event=impression → `interstitial_impression`, once per review page, on
+ *                       the visitor's first pointer, touch, wheel or key
+ *                       (ReviewContinue). Not on render: rendered-and-left
+ *                       visits were browser-spoofing bots (91%, Oct 2026).
  *   (default)         → `interstitial_continue`, the Continue click
  * Server-side, so both survive ad blockers and declined consent: impressions
  * → continues is the funnel for every redirect we hold. The notes below date

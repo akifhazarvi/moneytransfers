@@ -26,16 +26,22 @@ const GA4_ATTRIBUTION_PARAMS = new Set([
   "marketing_tactic",
 ]);
 
-/** Re-key any GA4-reserved attribution param to a `cta_`-prefixed twin. */
+/**
+ * Re-key any GA4-reserved attribution param to a `cta_`-prefixed twin, and
+ * drop params with no value. An empty string reaches GA4 as a real value, so
+ * a click with no corridor reported as corridor "" (16 provider_clicked rows,
+ * Oct 1–10 2026) instead of "(not set)", and NaN arrives as null.
+ */
 export function forGa4<T extends Record<string, unknown>>(params: T): T;
 export function forGa4<T extends Record<string, unknown>>(params: T | undefined): T | undefined;
 export function forGa4<T extends Record<string, unknown>>(params: T | undefined): T | undefined {
   if (!params) return params;
   let safe: Record<string, unknown> | undefined;
-  for (const key of Object.keys(params)) {
-    if (!GA4_ATTRIBUTION_PARAMS.has(key)) continue;
+  for (const [key, value] of Object.entries(params)) {
+    const empty = value === undefined || value === "" || (typeof value === "number" && !Number.isFinite(value));
+    if (!empty && !GA4_ATTRIBUTION_PARAMS.has(key)) continue;
     safe ??= { ...params };
-    safe[`cta_${key}`] = safe[key];
+    if (!empty) safe[`cta_${key}`] = value;
     delete safe[key];
   }
   return (safe as T | undefined) ?? params;

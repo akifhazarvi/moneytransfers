@@ -1,7 +1,7 @@
 "use client";
 
-import { Suspense, useEffect, useRef } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { startPresence } from "@/lib/live-activity-beacon";
 
 // Fires a GA4 page_view on every Next.js App Router soft navigation.
@@ -15,9 +15,17 @@ import { startPresence } from "@/lib/live-activity-beacon";
 // The initial landing pageview is still fired by the gtag config
 // (send_page_view:true), so we skip the first effect run to avoid
 // double-counting.
+//
+// THIS IS THE ONLY SOFT-NAVIGATION PAGE_VIEW. The stream's enhanced
+// measurement option "Page changes based on browser history events" must stay
+// OFF in GA4 Admin: with it on (it was, until 2026-10-11), every soft
+// navigation counted twice — /guides showed 151 views from 27 people on one URL.
+//
+// Keyed on the pathname, not the query: a query-only change is the same page
+// rewriting its own URL (/compare's history.replaceState on load and on every
+// provider pick, which Next 16 surfaces through useSearchParams), not a visit.
 function Tracker() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const isFirstRun = useRef(true);
   // Track the previous URL so we can pass page_referrer on each SPA navigation.
   // Without this, GA4 sees soft-nav page_views with no referrer and re-attributes
@@ -35,38 +43,23 @@ function Tracker() {
     }
     if (typeof window === "undefined" || typeof window.gtag !== "function") return;
 
-    const qs = searchParams?.toString();
-    const url = qs ? `${pathname}?${qs}` : pathname;
-
-    // Carry AI-search attribution (set in sessionStorage by the inline gtag
-     // bootstrap in [locale]/layout.tsx) onto every soft-nav page_view too —
-     // otherwise mid-session pageviews land with empty source/medium and GA4
-     // re-buckets them into (not set) rather than the original referral.
-    let aiSrc: string | null = null;
-    try { aiSrc = sessionStorage.getItem("first_ai_src"); } catch { /* sessionStorage may be unavailable */ }
-
+    // No campaign_* params: GA4 sets a session's source once, at its start, and
+    // classifies AI assistants itself (the AI Assistant channel). Stamping
+    // campaign_source "chatgpt" / medium "referral" on every page view, as this
+    // did until 2026-10-11, filed ChatGPT and Copilot visits under Referral.
     window.gtag("event", "page_view", {
       page_location: window.location.href,
-      page_path: url,
+      page_path: `${window.location.pathname}${window.location.search}`,
       page_title: document.title,
       page_referrer: previousUrl.current || document.referrer || "",
-      ...(aiSrc
-        ? { campaign_source: aiSrc, campaign_medium: "referral", campaign_name: "ai_search" }
-        : {}),
     });
 
     previousUrl.current = window.location.href;
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
 
-// useSearchParams forces dynamic rendering; wrap in Suspense so the layout
-// can still statically render the rest of the tree.
 export default function GA4PageviewTracker() {
-  return (
-    <Suspense fallback={null}>
-      <Tracker />
-    </Suspense>
-  );
+  return <Tracker />;
 }

@@ -30,7 +30,10 @@ export async function GET(
   const { searchParams } = new URL(request.url);
   const from = searchParams.get("from") || undefined;
   const to = searchParams.get("to") || undefined;
-  const amount = searchParams.get("amount") ? Number(searchParams.get("amount")) : undefined;
+  // A malformed ?amount= ("1,000", "abc") is NaN: it reached GA4 as null and
+  // the partner URL as "NaN". Unparseable or non-positive means no amount.
+  const amountParam = Number(searchParams.get("amount"));
+  const amount = Number.isFinite(amountParam) && amountParam > 0 ? amountParam : undefined;
   const src = searchParams.get("src") || undefined;
   const aiSrc = searchParams.get("ai_src") || undefined;
   const referer = request.headers.get("referer") || "";

@@ -125,9 +125,20 @@ export default function CompareShowdown({
     params.set("b", b);
     const url = `${window.location.pathname}?${params.toString()}`;
     window.history.replaceState(null, "", url);
-    trackCompareSelected(a, b, `${fromCurrency}_${toCurrency}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [a, b]);
+
+  // compare_selected counts a visitor's pick, so it fires from the pickers and
+  // the swap, not from the effect above: that one also runs on mount with the
+  // default pair and again when URL params apply, and logged a selection on
+  // every /compare load that nobody made.
+  const pickA = useCallback((slug: string) => {
+    setA(slug);
+    trackCompareSelected(slug, b, `${fromCurrency}-${toCurrency}`);
+  }, [b, fromCurrency, toCurrency]);
+  const pickB = useCallback((slug: string) => {
+    setB(slug);
+    trackCompareSelected(a, slug, `${fromCurrency}-${toCurrency}`);
+  }, [a, fromCurrency, toCurrency]);
 
   const provA = useMemo(() => providers.find((p) => p.slug === a), [a]);
   const provB = useMemo(() => providers.find((p) => p.slug === b), [b]);
@@ -263,7 +274,8 @@ export default function CompareShowdown({
   const swap = useCallback(() => {
     setA(b);
     setB(a);
-  }, [a, b]);
+    trackCompareSelected(b, a, `${fromCurrency}-${toCurrency}`);
+  }, [a, b, fromCurrency, toCurrency]);
 
   if (!provA || !provB) return null;
 
@@ -336,7 +348,7 @@ export default function CompareShowdown({
       <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 items-center">
         <div>
           <span className="block text-2xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1.5">Provider A</span>
-          <ProviderPicker value={a} onChange={setA} excludeSlug={b} />
+          <ProviderPicker value={a} onChange={pickA} excludeSlug={b} />
         </div>
         <button
           type="button"
@@ -350,7 +362,7 @@ export default function CompareShowdown({
         </button>
         <div>
           <span className="block text-2xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1.5">Provider B</span>
-          <ProviderPicker value={b} onChange={setB} excludeSlug={a} accent="neutral" />
+          <ProviderPicker value={b} onChange={pickB} excludeSlug={a} accent="neutral" />
         </div>
       </div>
 
@@ -477,7 +489,7 @@ export default function CompareShowdown({
                   href={getGoUrl(p.slug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: amount })}
                   provider={p.slug}
                   source={src}
-                  corridor={`${fromCurrency}_${toCurrency}`}
+                  corridor={`${fromCurrency}-${toCurrency}`}
                   // min-h-11 (44px): py-2.5 over text-sm resolved to exactly
                   // 40px, under the 44px WCAG 2.5.5 / iOS minimum. This is the
                   // affiliate click — the site's north-star conversion — so an

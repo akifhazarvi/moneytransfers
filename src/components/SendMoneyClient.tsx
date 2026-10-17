@@ -196,14 +196,23 @@ function SendMoneyContent() {
     );
   }, []);
 
+  // The pair is logged (and the panel scrolled to) when the visitor completes
+  // it, not again on every currency change while two are ticked: with the
+  // currencies in the deps, each change re-fired compare_selected and pulled
+  // the page down to the panel. The ref keeps the corridor current without
+  // making it a trigger.
+  const compareCorridor = useRef(`${fromCurrency}-${toCurrency}`);
+  useEffect(() => {
+    compareCorridor.current = `${fromCurrency}-${toCurrency}`;
+  }, [fromCurrency, toCurrency]);
   useEffect(() => {
     if (compareList.length === 2) {
-      trackCompareSelected(compareList[0], compareList[1], `${fromCurrency}-${toCurrency}`);
+      trackCompareSelected(compareList[0], compareList[1], compareCorridor.current);
       setTimeout(() => {
         document.getElementById("compare-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
     }
-  }, [compareList, fromCurrency, toCurrency]);
+  }, [compareList]);
 
   // Filters
   const [speedFilter, setSpeedFilter] = useState<SpeedFilter>("");

@@ -72,7 +72,7 @@ const PAGE_UPDATED = {
   "/privacy-policy": "2026-09-20",
   "/terms": "2026-09-20",
   "/disclaimer": "2026-10-17",               // what we are and are not; regulator check; data caveats as prose
-  "/cookies": "2026-04-24",
+  "/cookies": "2026-10-17",                  // smc_internal disclosed
   "/guides/best-apps-to-send-money-from-us-2026": "2026-09-29",
 } as const;
 

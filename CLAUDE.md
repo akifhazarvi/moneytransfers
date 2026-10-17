@@ -464,7 +464,45 @@ only with the quote the comparison ranks (`partnerQuoteFrom`). Events: page
 Continue `go_review_continue` + server `interstitial_continue`; each offer
 counts its own view with source/placement `go_review` — TapTap card
 `provider_cross_sell_viewed`, WhatsApp `whatsapp_cta_viewed`, app card
-`pwa_install_prompt_shown`.
+`pwa_install_prompt_shown`. A view counts on the visitor's first pointer,
+touch, wheel or key, never on render, and GA loads there only on the same
+signals (no 4s timer, no scroll): rendered-and-left visits are the China /
+Singapore browser-spoofing bots that hit /go directly — 91% of
+`go_review_shown` and half of all GA4 sessions in Oct 5–10 2026. The
+reached-the-provider count is `interstitial_continue` (server beacon); the
+client `go_review_continue` is lost when Continue is the first tap.
+
+## GA4 measurement
+
+Audit 2026-10-11 (property 284608262; Composio's GA4 token is read-only, so
+Admin changes are made in the GA4 UI).
+
+- **Soft-navigation page views come only from `GA4PageviewTracker`**, keyed on
+  the pathname (a query-only change is a page rewriting its own URL, e.g.
+  /compare). Enhanced measurement "Page changes based on browser history
+  events" stays OFF — with it on every soft navigation counted twice.
+- **Key events:** `provider_clicked`, `compare_search`, `interstitial_continue`.
+  `quotes_viewed` fires on render without a click (44% bots in Sep–Oct 2026);
+  it is an event, not a key event.
+- **Never send `source`, `medium`, `campaign` raw** (`forGa4()` renames them to
+  `cta_*`) and never stamp `campaign_*` on hits: GA4 sets a session's source at
+  its start and has its own AI Assistant channel. Server events that sent
+  `source` raw before 2026-10-05 still colour returning visitors' direct
+  sessions ("results", "guide_table") until ~Jan 2027.
+- **Empty values are dropped** by `forGa4()` ("" and NaN would report as a value).
+  A param GA4 should report needs an event-scoped custom dimension; they are
+  not retroactive. `value` is GA4's monetary/Event value param: use it only for
+  a number (`web_vitals`), never for a label.
+- **GA4 runs only on sendmoneycompare.com** (GTAG_INLINE). Our own browsers:
+  open any page once with `?smc_internal=1` (`=0` undoes) → `traffic_type=internal`,
+  dropped by the "Internal Traffic" data filter.
+- **Web Vitals:** `WebVitalsReporter` → `web_vitals` (`metric_name`,
+  `metric_rating`, `value` = ms, CLS ×1000). Average = Event value ÷ Event count
+  per `metric_name`. LCP/FCP/CLS events under those bare names come from other
+  sites reusing our measurement id — filter reports to our hostname.
+- **Reading GA4:** never quote totalUsers (server /go events mint users); judge
+  on `provider_clicked`; exclude China/Singapore and sessions landing on /go/
+  for anything dated before the 2026-10-11 deploy.
 
 ## Component Patterns
 

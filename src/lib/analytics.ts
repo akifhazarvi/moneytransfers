@@ -40,7 +40,7 @@ function gtagEvent(name: string, params?: EventParams) {
  * every meaningful interaction so the two tools stay at parity.
  *
  * The ONLY events kept GA4-only (via gtagEvent) are the genuinely high-volume
- * ones — scroll_depth and internal_link_click — where mirroring to Vercel
+ * ones — scroll_depth and web_vitals — where mirroring to Vercel
  * adds cost/noise on the Pro event quota without analytical value. Everything
  * a person deliberately does goes dual.
  */
@@ -124,14 +124,10 @@ export function trackCrossSellNavigation(action: "review" | "compare", source: s
   dual("provider_cross_sell_navigation", { action, source, placement, provider, corridor });
 }
 
-/** User clicks "Full review" on a provider */
-export function trackReviewClicked(provider: string, corridorStr: string) {
-  dual("review_clicked", { provider, corridor: corridorStr });
-}
-
-/** User applies a filter */
+/** User applies a filter. `filter_value`, not `value`: GA4 reads `value` as the
+ * event's monetary value (the Event value metric), and these are labels. */
 export function trackFilterApplied(filterType: string, value: string) {
-  dual("filter_applied", { filter_type: filterType, value });
+  dual("filter_applied", { filter_type: filterType, filter_value: value });
 }
 
 /** User changes the sort order */
@@ -197,29 +193,23 @@ export function trackScrollDepth(slug: string, depth: number) {
   gtagEvent("scroll_depth", { slug, depth_percent: depth });
 }
 
-/** User clicks an internal cross-link */
-export function trackInternalLinkClick(from: string, to: string) {
-  gtagEvent("internal_link_click", { from_page: from, to_page: to });
-}
-
-/** User expands an FAQ accordion */
-export function trackFAQExpanded(question: string, page: string) {
-  dual("faq_expanded", { question: question.slice(0, 100), page });
-}
-
-/** User copies IBAN/SWIFT reference data */
-export function trackDataCopied(dataType: string, country: string) {
-  dual("data_copied", { data_type: dataType, country });
-}
-
-/** Affiliate redirect fired (server-side beacon or client) */
-export function trackAffiliateRedirect(provider: string, from?: string, to?: string, amount?: string) {
-  dual("affiliate_redirect", { provider, from: from || "", to: to || "", amount: amount || "" });
-}
-
-/** User clicks CTA on a head-to-head comparison page */
-export function trackComparisonCTA(providerA: string, providerB: string, action: string) {
-  dual("comparison_cta", { provider_a: providerA, provider_b: providerB, action });
+/**
+ * One Core Web Vital from a real page load (WebVitalsReporter). GA4 only: one
+ * event per metric per page load is too many for Vercel's custom-event quota,
+ * and Speed Insights is Vercel's own channel for this. `value` is the metric
+ * as an integer (milliseconds; CLS x1000, the convention Google's web-vitals
+ * guide uses), so Event value / Event count is the average for each
+ * metric_name; metric_rating (good | needs-improvement | poor) gives the
+ * pass rate without a custom metric.
+ */
+export function trackWebVital(name: string, value: number, rating: string, id: string, navigationType: string) {
+  gtagEvent("web_vitals", {
+    metric_name: name,
+    metric_rating: rating,
+    metric_id: id,
+    navigation_type: navigationType,
+    value: Math.round(name === "CLS" ? value * 1000 : value),
+  });
 }
 
 /** User clicks the sidebar "Compare Rates →" CTA on a guide page */

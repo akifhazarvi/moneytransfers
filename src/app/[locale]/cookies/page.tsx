@@ -171,9 +171,14 @@ export default async function CookiePolicyPage({ params }: Props) {
                           <td className={td}>Google Analytics session state for the property</td>
                           <td className={td}>2 years (cookie)</td>
                         </tr>
-                        <tr>
+                        <tr className="border-b border-[var(--color-outline)]">
                           <td className={tdMono}>smc_consent</td>
                           <td className={td}>Remembers your analytics consent choice (UK/EU/EEA/CH)</td>
+                          <td className={td}>1 year (cookie)</td>
+                        </tr>
+                        <tr>
+                          <td className={tdMono}>smc_internal</td>
+                          <td className={td}>Marks our own team&apos;s browsers so their visits are left out of analytics. Set only by a link we use ourselves</td>
                           <td className={td}>1 year (cookie)</td>
                         </tr>
                       </tbody>
