@@ -1131,3 +1131,11 @@ html[data-app-mode="true"] .pwa-secondary-chrome { display: none !important; }
 .welcome-back-actions .conversion-button { flex:1 1 160px; white-space:normal; text-align:center; min-height:44px; padding:10px 16px; gap:8px; font-size:14px; }
 .welcome-back-secondary { display:inline-flex; align-items:center; min-height:44px; padding:0 6px; border-radius:10px; font-size:13px; font-weight:500; color:var(--color-on-surface); text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
 
+
+/* Comparison lists show their top 10 (+ TapTap when it ranks lower); the rest
+   stay in the HTML, hidden until "Show N more providers" sets data-expanded.
+   CSS, not React state, so the first paint is already the short list.
+   src/lib/comparison-cap.ts, src/components/ProviderListCollapse.tsx */
+[data-provider-list]:not([data-expanded="true"]) [data-collapsed-row] {
+  display: none;
+}

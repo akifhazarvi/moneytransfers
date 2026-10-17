@@ -29,6 +29,8 @@ import CorridorHero from "@/components/CorridorHero";
 import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
+import ProviderListCollapse from "@/components/ProviderListCollapse";
+import { collapsedProviders } from "@/lib/comparison-cap";
 import CrossLinks from "@/components/CrossLinks";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import MobileDetailsRail from "@/components/MobileDetailsRail";
@@ -1216,6 +1218,7 @@ export default async function CorridorPage({ params }: Props) {
   // two figures print side by side and it reads as a sort bug — so the row says
   // why. See tiedAboveLargerPayout.
   const tiedMarks = tiedAboveLargerPayout(quotes);
+  const collapsedRows = collapsedProviders(quotes.map((q) => q.providerSlug));
 
   // Soft-404 guard. A corridor with zero provider quotes has no comparison table
   // to show — editorial prose alone is exactly the thin shell Google flags as a
@@ -1641,7 +1644,15 @@ export default async function CorridorPage({ params }: Props) {
           )}
 
           {quotes.length > 0 ? (
-            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
+            // Top 10 (+ TapTap) shown, the rest one tap away and still in the
+            // HTML — owner decision 2026-10-17, src/lib/comparison-cap.ts.
+            <ProviderListCollapse
+              hiddenCount={collapsedRows.size}
+              placement="corridor"
+              corridor={`${fromCurrency}-${toCurrency}`}
+              className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden"
+              buttonClassName="flex w-full items-center justify-center gap-1.5 border-t border-[var(--color-outline)] py-3.5 text-sm font-medium text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--color-primary)]"
+            >
               {/* Desktop header — hidden on mobile */}
               <div className="hidden sm:grid sm:grid-cols-[36px_1fr_110px_90px_130px_112px] gap-2 px-6 py-3 bg-[var(--color-surface-container)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                 <span>#</span>
@@ -1673,6 +1684,7 @@ export default async function CorridorPage({ params }: Props) {
                     data-ranked-row="main"
                     data-receive={q.receiveAmount}
                     data-indicative={q.isIndicative ? "1" : undefined}
+                    data-collapsed-row={collapsedRows.has(q.providerSlug) ? "" : undefined}
                     className={`${rowBg} ${borderTop} sm:border-t sm:border-[var(--color-outline)] ${isBest ? "sm:border-t-0" : ""}`}
                   >
                     {/* Mobile layout — two rows */}
@@ -1837,7 +1849,7 @@ export default async function CorridorPage({ params }: Props) {
                   </div>
                 );
               })}
-            </div>
+            </ProviderListCollapse>
           ) : (
             <Card>
               <p className="text-sm text-[var(--color-on-surface-variant)] text-center py-4">

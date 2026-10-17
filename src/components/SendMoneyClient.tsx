@@ -9,6 +9,8 @@ import { useTranslations } from "next-intl";
 import { trackCompareSearch, trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
+import ProviderListCollapse from "@/components/ProviderListCollapse";
+import { collapsedProviders } from "@/lib/comparison-cap";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import CurrencyPicker from "@/components/CurrencyPicker";
@@ -399,6 +401,8 @@ function SendMoneyContent() {
 
     return sorted;
   }, [quotes, speedFilter, feeFilter, ratingFilter, paymentMethod, referralFilter, selectedProviders, sortBy]);
+  // Rows behind "Show N more providers" for the list as filtered and sorted.
+  const collapsedRows = useMemo(() => collapsedProviders(filteredQuotes.map((q) => q.providerSlug)), [filteredQuotes]);
 
   const sendCurrency = currencies.find((c) => c.code === fromCurrency);
   const receiveCurrency = currencies.find((c) => c.code === toCurrency);
@@ -653,7 +657,17 @@ function SendMoneyContent() {
             ))}
           </div>
         ) : filteredQuotes.length > 0 ? (
-          <div className="conversion-results">
+          // Top 10 (+ TapTap) shown, the rest one tap away — owner decision
+          // 2026-10-17, src/lib/comparison-cap.ts. Keyed on the search so a
+          // new corridor or amount starts collapsed again.
+          <ProviderListCollapse
+            key={`${fromCurrency}-${toCurrency}-${amount}-${sortBy}`}
+            hiddenCount={collapsedRows.size}
+            placement="send_money"
+            corridor={`${fromCurrency}-${toCurrency}`}
+            className="conversion-results"
+            buttonClassName="flex w-full items-center justify-center gap-1.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] py-3 text-sm font-medium text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]"
+          >
             {(() => {
               const worstReceive = filteredQuotes[filteredQuotes.length - 1]?.receiveAmount ?? 0;
               // Only meaningful under the default "Best value" order, which is
@@ -678,6 +692,7 @@ function SendMoneyContent() {
                   sparklineData={insight?.sparklines[quote.providerSlug]}
                   tiedAhead={tiedMarks.has(quote.providerSlug)}
                   badge={insight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug)}
+                  collapsed={collapsedRows.has(quote.providerSlug)}
                 />
                 {/* The ranked result answers the search first; a clearly labelled
                     partner placement follows it without changing the ranking. */}
@@ -691,7 +706,7 @@ function SendMoneyContent() {
                 </Fragment>
               ));
             })()}
-          </div>
+          </ProviderListCollapse>
         ) : quotes.length === 0 ? (
           // NO DATA for this corridor+amount — a different failure from "your
           // filters excluded everything", and the two must not share a message.

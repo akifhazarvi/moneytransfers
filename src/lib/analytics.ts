@@ -98,6 +98,11 @@ export function trackProviderExpanded(provider: string, rank: number, corridorSt
   dual("provider_expanded", { provider, rank, corridor: corridorStr });
 }
 
+/** "Show N more providers" — a comparison list opened past its top 10 (src/lib/comparison-cap.ts). */
+export function trackComparisonExpanded(placement: string, corridorStr: string, hiddenCount: number) {
+  dual("comparison_expanded", { placement, corridor: corridorStr, hidden_count: hiddenCount });
+}
+
 /** User clicks "Send with [Provider]" — PRIMARY CONVERSION
  *
  * Fires the client-side engagement event. The /go/ redirect that follows also

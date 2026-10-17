@@ -472,6 +472,13 @@ counts its own view with source/placement `go_review` — TapTap card
 - **Server components**: Everything else (Footer, Card, Container, PrimaryButton, etc.)
 - Cards use `rounded-2xl` with subtle shadows. Buttons use `rounded-full`.
 - External links: `target="_blank" rel="noopener noreferrer nofollow"`
+- **A comparison list shows 10 providers** (owner decision 2026-10-17). Rows
+  past `COMPARISON_VISIBLE_ROWS` stay rendered — in the HTML on corridor pages,
+  so crawlers and `check:corridor-sort` read the whole list — and CSS hides
+  them until "Show N more providers" (`ProviderListCollapse`, event
+  `comparison_expanded`). TapTap stays visible at its real rank when it ranks
+  lower. Ask `collapsedProviders()` in `src/lib/comparison-cap.ts`; never
+  shorten a list by filtering rows out (no quote is ever dropped).
 
 ## Git & Deployment
 

@@ -38,9 +38,11 @@ interface Props {
    * conversion, so it is never moved behind the details toggle.
    */
   compact?: boolean;
+  /** Starts hidden behind "Show N more providers" (src/lib/comparison-cap.ts); still rendered. */
+  collapsed?: boolean;
 }
 
-export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, providerInsight, sparklineData, tiedAhead, isBestValue = rank === 1, compact = false }: Props) {
+export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, providerInsight, sparklineData, tiedAhead, isBestValue = rank === 1, compact = false, collapsed = false }: Props) {
   const [expanded, setExpanded] = useState(false);
   const detailsId = useId();
   const provider = providers.find(p => p.slug === quote.providerSlug);
@@ -65,7 +67,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
 
   if (compact) {
     return (
-      <article className="conversion-row" data-provider={quote.providerSlug}>
+      <article className="conversion-row" data-provider={quote.providerSlug} data-collapsed-row={collapsed ? "" : undefined}>
         <span className="conversion-row-rank" aria-label={quote.isIndicative ? "Not ranked" : `Rank ${rank}`}>{quote.isIndicative ? "–" : rank}</span>
         <div className="conversion-row-brand">
           <Image src={providerLogo(quote.providerSlug, provider?.logo)} alt="" width={32} height={32} className="conversion-logo" />
@@ -96,7 +98,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   }
 
   return (
-    <article className={`conversion-result${isBestValue ? " conversion-result--best" : ""}`} data-provider={quote.providerSlug}>
+    <article className={`conversion-result${isBestValue ? " conversion-result--best" : ""}`} data-provider={quote.providerSlug} data-collapsed-row={collapsed ? "" : undefined}>
       <div className="conversion-result-brand">
         <Image src={providerLogo(quote.providerSlug, provider?.logo)} alt="" width={48} height={48} className="conversion-logo" />
         <div>
