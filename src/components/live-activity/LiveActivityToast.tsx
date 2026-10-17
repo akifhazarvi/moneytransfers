@@ -8,6 +8,7 @@ import { getFlagUrl } from "@/components/CircleFlag";
 import type { ActivityItem, LiveActivity } from "@/lib/live-activity";
 import { trackLiveActivityClicked, trackLiveActivityDismissed, trackLiveActivityShown } from "@/lib/analytics";
 import styles from "./LiveActivity.module.css";
+import LiveActivityBanner from "./LiveActivityBanner";
 
 export interface RateUpdate {
   from: string;
@@ -45,7 +46,16 @@ const DISMISS_KEY = "smc_live_activity_off";
 /** Pages where a card would get in the way of the one thing the page is for. */
 const QUIET_PATHS = /^\/(go|out|privacy|terms|cookies)(\/|$)/;
 
+/** Below this width phones get the slim banner (LiveActivityBanner) instead of the capsule. */
+const WIDE = "(min-width: 640px)";
+
 const noSubscribe = () => () => {};
+const subscribeWide = (onChange: () => void) => {
+  const mq = window.matchMedia(WIDE);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+};
+const readNarrow = () => !window.matchMedia(WIDE).matches;
 const readDismissed = () => {
   try {
     return sessionStorage.getItem(DISMISS_KEY) === "1";
@@ -273,6 +283,7 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
   const placement = placementOf(pathname);
   const mounted = useSyncExternalStore(noSubscribe, () => true, () => false);
   const storedOff = useSyncExternalStore(noSubscribe, readDismissed, () => true);
+  const narrow = useSyncExternalStore(subscribeWide, readNarrow, () => false);
   const [closed, setClosed] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const expandedRef = useRef(false);
@@ -316,7 +327,7 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
   // One card at a time: show for SHOW_MS, then a 10–15 second gap. Never over
   // a field being typed in, a dialog, or the welcome-back card.
   useEffect(() => {
-    if (off || !hasEntries) return;
+    if (off || !hasEntries || narrow) return;
     let timer: ReturnType<typeof setTimeout>;
     const blocked = () => {
       const el = document.activeElement;
@@ -352,7 +363,7 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
     };
     timer = setTimeout(show, FIRST_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [off, hasEntries, placement]);
+  }, [off, hasEntries, placement, narrow]);
 
   // A Send bar can appear after the activity bubble: keep their bounds apart.
   useEffect(() => {
@@ -384,6 +395,19 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
     document.addEventListener("pointerdown", closeOutside);
     return () => document.removeEventListener("pointerdown", closeOutside);
   }, [expanded]);
+
+  const dismiss = () => {
+    try { sessionStorage.setItem(DISMISS_KEY, "1"); } catch {}
+    setClosed(true);
+    trackLiveActivityDismissed(placement);
+  };
+
+  // Phones: one slim always-on banner at the bottom instead of the capsule
+  // (owner, 2026-10-06; shipped 2026-10-17). It runs its own 5–7 s cycle.
+  if (narrow) {
+    if (!mounted || off || !hasEntries) return null;
+    return <LiveActivityBanner entries={entries} feed={feed} placement={placement} onDismiss={dismiss} />;
+  }
 
   if (!mounted || off || index < 0 || !hasEntries) return null;
   const entry = entries[index % entries.length];
@@ -468,11 +492,7 @@ export default function LiveActivityToast({ rates, vsBankPer1000 }: { rates: Rat
           <ChevronUp size={14} className={styles.chevron} data-expanded={expanded ? "" : undefined} aria-hidden="true" />
         </button>
         <button type="button" className={styles.close} aria-label="Hide live activity for this visit"
-          onClick={() => {
-            try { sessionStorage.setItem(DISMISS_KEY, "1"); } catch {}
-            setClosed(true);
-            trackLiveActivityDismissed(placement);
-          }}><X size={14} aria-hidden="true" /></button>
+          onClick={dismiss}><X size={14} aria-hidden="true" /></button>
       </div>
     </aside>
   );

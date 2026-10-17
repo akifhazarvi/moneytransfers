@@ -275,11 +275,16 @@ ago" (provider logo with the reader's circular flag as a badge), "InstaReM
 pays ₹96,164 for $1,000 · top of 20 quotes", "Readers' picks paid a median
 $31 more per $1,000 than banks". Its top line is the counter: "Live · 3
 people here now" (last 5 minutes, the reader included, so from 2), else "Live
-· 14 people in the last 6 hours". Phones: full width under the header (the
-bottom is the Send bar's). Wide screens: bottom-left, lifted above whatever
-is docked there when it shows — forex ticker, Send bar, guide nudge, cookie
-banner (`.pwa-lift`, `[data-forex-ticker]`); the WhatsApp pill is
-bottom-right. Never over a focused field, a dialog or the welcome-back card;
+· 14 people in the last 6 hours". Wide screens: bottom-left, lifted above
+whatever is docked there when it shows — forex ticker, Send bar, guide nudge,
+cookie banner (`.pwa-lift`, `[data-forex-ticker]`); the WhatsApp pill is
+bottom-right. **Phones (<640px, owner 2026-10-06, shipped 2026-10-17): one
+slim banner instead** (`LiveActivityBanner`, 34px, one line) at the lowest
+spot nothing docked uses — 8px from the bottom, or just above the Send bar
+and pills. Always on: the next item every 5–7 seconds, each shown once per
+visit (sessionStorage), the last one staying when they run out. Stacked
+Instagram-style bubbles were tried and rejected: too big, and they sat on a
+Send button. Never over a focused field, a dialog or the welcome-back card;
 never on /go, /out, /privacy, /terms, /cookies; × hides it for the visit.
 Mounted once in the layout: `src/components/live-activity/`.
 
