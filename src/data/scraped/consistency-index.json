@@ -3,7 +3,7 @@
   "comparableCorridors": 212,
   "pairsTracked": 1044,
   "contestedCorridorDays": 17469,
-  "providerDayObservations": 123064,
+  "providerDayObservations": 123084,
   "maxWindowDays": 91,
   "rows": [
     {
@@ -11,9 +11,9 @@
       "providerName": "TapTap Send",
       "corridorsLed": 63,
       "corridorsQuoted": 157,
-      "wins": 5323,
+      "wins": 5325,
       "quotedDays": 13080,
-      "winRate": 40.7,
+      "winRate": 40.71,
       "avgShortfallPct": 0.58,
       "leadRate": 40.13
     },
@@ -33,31 +33,31 @@
       "providerName": "InstaReM",
       "corridorsLed": 36,
       "corridorsQuoted": 79,
-      "wins": 3012,
+      "wins": 3011,
       "quotedDays": 7077,
-      "winRate": 42.56,
+      "winRate": 42.55,
       "avgShortfallPct": 0.53,
       "leadRate": 45.57
     },
     {
       "providerSlug": "wise",
       "providerName": "Wise",
-      "corridorsLed": 22,
+      "corridorsLed": 23,
       "corridorsQuoted": 97,
-      "wins": 1867,
+      "wins": 1869,
       "quotedDays": 8585,
-      "winRate": 21.75,
+      "winRate": 21.77,
       "avgShortfallPct": 3.03,
-      "leadRate": 22.68
+      "leadRate": 23.71
     },
     {
       "providerSlug": "paysend",
       "providerName": "Paysend",
       "corridorsLed": 14,
       "corridorsQuoted": 55,
-      "wins": 993,
+      "wins": 991,
       "quotedDays": 4985,
-      "winRate": 19.92,
+      "winRate": 19.88,
       "avgShortfallPct": 2.25,
       "leadRate": 25.45
     },
@@ -88,9 +88,9 @@
       "providerName": "Remitly",
       "corridorsLed": 6,
       "corridorsQuoted": 108,
-      "wins": 415,
+      "wins": 416,
       "quotedDays": 8619,
-      "winRate": 4.81,
+      "winRate": 4.83,
       "avgShortfallPct": 3.02,
       "leadRate": 5.56
     },
@@ -102,28 +102,28 @@
       "wins": 145,
       "quotedDays": 370,
       "winRate": 39.19,
-      "avgShortfallPct": 0.8,
+      "avgShortfallPct": 0.79,
       "leadRate": 60
     },
     {
       "providerSlug": "revolut",
       "providerName": "Revolut",
-      "corridorsLed": 3,
+      "corridorsLed": 2,
       "corridorsQuoted": 38,
-      "wins": 255,
+      "wins": 251,
       "quotedDays": 3437,
-      "winRate": 7.42,
-      "avgShortfallPct": 2.06,
-      "leadRate": 7.89
+      "winRate": 7.3,
+      "avgShortfallPct": 2.07,
+      "leadRate": 5.26
     },
     {
       "providerSlug": "ria",
       "providerName": "Ria Money Transfer",
       "corridorsLed": 2,
       "corridorsQuoted": 66,
-      "wins": 248,
+      "wins": 249,
       "quotedDays": 5290,
-      "winRate": 4.69,
+      "winRate": 4.71,
       "avgShortfallPct": 2.97,
       "leadRate": 3.03
     },
@@ -221,8 +221,8 @@
       "corridorsLed": 0,
       "corridorsQuoted": 58,
       "wins": 255,
-      "quotedDays": 2494,
-      "winRate": 10.22,
+      "quotedDays": 2502,
+      "winRate": 10.19,
       "avgShortfallPct": 2.54,
       "leadRate": 0
     },
@@ -231,9 +231,9 @@
       "providerName": "TransferGo",
       "corridorsLed": 0,
       "corridorsQuoted": 9,
-      "wins": 81,
+      "wins": 82,
       "quotedDays": 816,
-      "winRate": 9.93,
+      "winRate": 10.05,
       "avgShortfallPct": 1.29,
       "leadRate": 0
     },
@@ -245,7 +245,7 @@
       "wins": 36,
       "quotedDays": 454,
       "winRate": 7.93,
-      "avgShortfallPct": 4.87,
+      "avgShortfallPct": 4.88,
       "leadRate": 0
     },
     {
@@ -278,7 +278,7 @@
       "wins": 8,
       "quotedDays": 727,
       "winRate": 1.1,
-      "avgShortfallPct": 11.72,
+      "avgShortfallPct": 11.71,
       "leadRate": 0
     },
     {
@@ -298,8 +298,8 @@
       "corridorsLed": 0,
       "corridorsQuoted": 60,
       "wins": 41,
-      "quotedDays": 5357,
-      "winRate": 0.77,
+      "quotedDays": 5367,
+      "winRate": 0.76,
       "avgShortfallPct": 3.17,
       "leadRate": 0
     },
@@ -342,7 +342,7 @@
       "corridorsLed": 0,
       "corridorsQuoted": 41,
       "wins": 10,
-      "quotedDays": 3134,
+      "quotedDays": 3136,
       "winRate": 0.32,
       "avgShortfallPct": 4.11,
       "leadRate": 0
@@ -755,6 +755,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 64,
-  "stableCorridors": 148
+  "rotatingCorridors": 68,
+  "stableCorridors": 144
 }
