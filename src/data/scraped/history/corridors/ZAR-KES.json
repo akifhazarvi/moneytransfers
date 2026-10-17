@@ -3018,16 +3018,22 @@
     "date": "2026-10-17",
     "providers": {
       "worldremit": {
-        "rate": 7.56609,
+        "rate": 7.55606,
         "fee": 0,
-        "markup": 4.11,
-        "receiveAmount": 756.61
+        "markup": 4.05,
+        "receiveAmount": 755.61
       },
       "mukuru": {
-        "rate": 7.7322,
+        "rate": 7.7643,
         "fee": 4,
-        "markup": 2.01,
-        "receiveAmount": 742.29
+        "markup": 1.41,
+        "receiveAmount": 745.37
+      },
+      "skrill": {
+        "rate": 7.5067,
+        "fee": 0,
+        "markup": 4.68,
+        "receiveAmount": 750.67
       }
     }
   }
