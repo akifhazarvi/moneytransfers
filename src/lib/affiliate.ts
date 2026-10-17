@@ -314,13 +314,26 @@ const SEND_CURRENCY_TO_COUNTRY: Record<string, string> = {
   CHF: "CH",
 };
 
-// Instarem's calculator reads source/destination currency, amount and the
-// sending country from query params, pre-filling the quote on landing.
-// Wrapped in Partnerize's `/destination:` segment like the Wise deep link.
+// Verified 2026-10-17 against the rendered calculator, not just HTTP status.
+// Japan's page defaults to USD, so JPY is deliberately excluded. Shared
+// currencies (EUR, USD) cannot identify the recipient country unambiguously.
+const INSTAREM_DESTINATIONS: Record<string, string> = {
+  INR: "india", PHP: "philippines", PKR: "pakistan", BDT: "bangladesh",
+  NPR: "nepal", LKR: "sri-lanka", VND: "vietnam", CNY: "china",
+  IDR: "indonesia", MYR: "malaysia", THB: "thailand", AUD: "australia",
+  CAD: "canada", SGD: "singapore", HKD: "hong-kong", NZD: "new-zealand",
+  GBP: "united-kingdom", NGN: "nigeria", KES: "kenya", GHS: "ghana",
+  UGX: "uganda", BRL: "brazil", COP: "colombia", MXN: "mexico", PEN: "peru",
+};
+
+// country_code selects the sender; the landing-page path selects the receiver.
+// The public calculator ignores source_amount and destination_currency.
+// Amount remains tracking metadata until Instarem provides a supported prefill.
 function buildInstaremDeepLink(params: AffiliateParams): string {
   const base = affiliateLinks.instarem;
 
-  const dest = new URL("https://www.instarem.com/en-us/");
+  const target = params.targetCurrency ? INSTAREM_DESTINATIONS[params.targetCurrency.toUpperCase()] : undefined;
+  const dest = new URL(`https://www.instarem.com/en-us/${target ? `send-money-to-${target}/` : ""}`);
   if (params.sourceCurrency) {
     const src = params.sourceCurrency.toUpperCase();
     dest.searchParams.set("source_currency", src);
@@ -330,8 +343,8 @@ function buildInstaremDeepLink(params: AffiliateParams): string {
   if (params.targetCurrency) {
     dest.searchParams.set("destination_currency", params.targetCurrency.toUpperCase());
   }
-  if (params.sourceAmount) {
-    dest.searchParams.set("source_amount", String(params.sourceAmount));
+  if (Number.isFinite(params.sourceAmount) && params.sourceAmount! > 0) {
+    dest.searchParams.set("smc_amount", String(params.sourceAmount));
   }
   // UTMs + click ID on the inner destination URL (prf.hn wrapper is left untouched)
   for (const [k, v] of Object.entries(UTM_PARAMS)) {
@@ -339,8 +352,9 @@ function buildInstaremDeepLink(params: AffiliateParams): string {
   }
   if (params.clickId) dest.searchParams.set("smc_click_id", params.clickId);
 
-  const withDest = `${base}/destination:${encodeURIComponent(dest.toString())}`;
-  return appendClickref(withDest, params.clickref);
+  // Partnerize consumes everything after /destination: as the destination.
+  // Tracking path segments must precede it or they become part of that URL.
+  return `${appendClickref(base, params.clickref)}/destination:${encodeURIComponent(dest.toString())}`;
 }
 
 // TorFX and Currencies Direct are the same partner group and share a landing-page
@@ -427,7 +441,13 @@ function buildRemitlyDeepLink(params: AffiliateParams): string {
   if (!send || !dest) return tracked;
 
   const u = new URL(tracked);
-  u.searchParams.set("u", `https://www.remitly.com/${send}/en/money-transfer/send-money-to-${dest}`);
+  const landing = new URL(`https://www.remitly.com/${send}/en/money-transfer/send-money-to-${dest}`);
+  // Verified against the live calculator and through Impact on 2026-10-17.
+  // smc_amount on the tracking URL is metadata; the calculator reads amount.
+  if (Number.isFinite(params.sourceAmount) && params.sourceAmount! > 0) {
+    landing.searchParams.set("amount", String(params.sourceAmount));
+  }
+  u.searchParams.set("u", landing.toString());
   return u.toString();
 }
 
@@ -444,8 +464,7 @@ function buildWiseDeepLink(params: AffiliateParams): string {
   }
   if (params.clickId) dest.searchParams.set("smc_click_id", params.clickId);
 
-  const withDest = `${base}/destination:${encodeURIComponent(dest.toString())}`;
-  return appendClickref(withDest, params.clickref);
+  return `${appendClickref(base, params.clickref)}/destination:${encodeURIComponent(dest.toString())}`;
 }
 
 /**
