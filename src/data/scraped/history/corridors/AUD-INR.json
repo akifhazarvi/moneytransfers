@@ -21465,16 +21465,16 @@
     "date": "2026-10-18",
     "providers": {
       "instarem": {
-        "rate": 65.94,
+        "rate": 65.907,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 6594
+        "markup": 0.05,
+        "receiveAmount": 6590.7
       },
       "lemfi": {
-        "rate": 65.5,
+        "rate": 65.49,
         "fee": 0,
-        "markup": 0.78,
-        "receiveAmount": 6550
+        "markup": 0.75,
+        "receiveAmount": 6549
       },
       "moneygram": {
         "rate": 65.5726,
@@ -21531,10 +21531,10 @@
         "receiveAmount": 6468.66
       },
       "nab": {
-        "rate": 63.6862,
+        "rate": 63.72,
         "fee": 0,
-        "markup": 3.53,
-        "receiveAmount": 6368.62
+        "markup": 3.47,
+        "receiveAmount": 6372
       },
       "anz": {
         "rate": 63.6887,
