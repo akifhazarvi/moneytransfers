@@ -237,21 +237,20 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
                 8-character vs 11-character codes
               </h3>
               <p>
-                An 8-character SWIFT code (no branch suffix) refers to the bank&apos;s primary or head office. An
-                11-character code includes an additional 3-character branch identifier. When the branch digits
-                are &ldquo;XXX&rdquo; the code routes to the bank&apos;s head office by convention. If you are
-                unsure which to use, the 8-character code (or the XXX variant) almost always works for incoming
-                international wires.
+                An 8-character SWIFT code (no branch suffix) refers to the bank&apos;s primary office. An
+                11-character code adds a 3-character branch identifier; &ldquo;XXX&rdquo; in that position also
+                means the primary office. If the recipient&apos;s bank gives no branch code, the 8-character code or
+                its XXX form is the one to use — but where the bank names a specific branch code for incoming
+                payments, use that.
               </p>
               <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 What happens if you use the wrong SWIFT code?
               </h3>
               <p>
-                A mistyped SWIFT code typically causes one of three outcomes: the payment is returned to your
-                account within a few business days (most common), it is held by an intermediary bank until
-                corrected, or — in rare cases — it reaches a different bank entirely. Banks charge amendment or
-                recall fees that can range from $15 to $50 or more. Always verify the code with the recipient
-                before initiating a large transfer.
+                A code that does not exist is rejected before the payment leaves. A valid code for the wrong bank is
+                the costly mistake: the payment travels, the receiving bank cannot match the account, and it comes
+                back — usually less the charges deducted along the way, and your own bank may add an amendment or
+                recall fee. Confirm the code with the recipient&apos;s bank details before a large transfer.
               </p>
               <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 Where to find your SWIFT code
@@ -259,25 +258,29 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
               <p>
                 You can find your bank&apos;s SWIFT code on your bank statement, in your online banking portal,
                 or by searching our directory above. You can also contact your bank directly and ask for their
-                SWIFT/BIC code for receiving international transfers. The official SWIFT registry is maintained
-                by{" "}
-                <a href="https://www.swift.com" target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">
-                  swift.com
+                SWIFT/BIC code for receiving international transfers. The official registry is kept by{" "}
+                <a
+                  href="https://www.swift.com/standards/data-standards/bic-business-identifier-code"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-primary)] hover:underline"
+                >
+                  SWIFT
                 </a>
-                , though the lookup there requires registration.
+                , the authority that issues the codes.
               </p>
               <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 SWIFT codes and transfer costs
               </h3>
               <p>
-                Traditional bank wire transfers via SWIFT can carry fees at every hop — your sending bank, one or
-                more correspondent banks, and the recipient&apos;s bank each may deduct a charge. Specialist
-                money transfer services like Wise, Remitly and OFX route payments outside the SWIFT network or
-                negotiate flat correspondent fees, often delivering more of your money to the recipient. Use our{" "}
+                A SWIFT wire can pass through one or more correspondent banks between the two banks, and each may
+                deduct a charge from the amount, so the recipient can get less than you sent before any exchange
+                rate is applied. Many money transfer services pay out through the destination country&apos;s local
+                payment system instead, where no correspondent sits in the chain. Use our{" "}
                 <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
                   comparison tool
                 </Link>{" "}
-                to see live exchange rates and fees side by side before you send.
+                to see what the recipient gets from each provider, fees and exchange rate included, before you send.
               </p>
             </div>
           </div>

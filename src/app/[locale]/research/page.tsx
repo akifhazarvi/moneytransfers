@@ -93,7 +93,7 @@ const STUDIES: Study[] = [
   {
     title: "Bank vs App Transfer Cost Index",
     href: "/guides/bank-vs-app-transfer-cost-2026",
-    finding: `Banks cost ${bankVsApp.bankVsAppMultiple.toFixed(2)}\u00d7 what specialist apps cost on the same corridors \u2014 ${bankVsApp.bankAvgCostPct.toFixed(2)}% of the amount sent against ${bankVsApp.appAvgCostPct.toFixed(2)}%. Against the cheapest provider on the same corridor, a bank transfer loses ${bankVsApp.bankVsCheapestMeanPct.toFixed(2)}% on average.`,
+    finding: `Banks cost ${bankVsApp.bankVsAppMultiple.toFixed(2)}× what specialist apps cost on the same corridors — ${bankVsApp.bankAvgCostPct.toFixed(2)}% of the amount sent against ${bankVsApp.appAvgCostPct.toFixed(2)}%. Against the cheapest provider on the same corridor, a bank transfer loses ${bankVsApp.bankVsCheapestMeanPct.toFixed(2)}% on average.`,
     basis: `${nf(bankVsApp.bankQuoteCount)} bank quotes and ${nf(bankVsApp.appQuoteCount)} specialist quotes at $${nf(bankVsApp.amount)}, across ${bankVsApp.corridorCount} corridors and ${bankVsApp.bankCount} banks.`,
     dataAsOf: bankVsApp.dataAsOf,
     csv: "/api/data/bank-vs-app-cost",
@@ -108,7 +108,7 @@ const STUDIES: Study[] = [
     // self-description that site-stats.ts exists to prevent. This one counts
     // corridors carrying any quote at the headline amount; that one counts
     // corridors with two or more providers competing over time.
-    basis: `${REMITTANCE_INDEX.providers.length} providers priced across ${nf(REMITTANCE_INDEX.corridorCount)} corridors carrying at least one quote at the headline amount \u2014 a wider base than the ${CONSISTENCY_INDEX.comparableCorridors} corridors with a sustained multi-provider record. True total cost = the gap between what a mid-market transfer would deliver and what the provider actually delivers, so it captures the fee and the markup together.`,
+    basis: `${REMITTANCE_INDEX.providers.length} providers priced across ${nf(REMITTANCE_INDEX.corridorCount)} corridors carrying at least one quote at the headline amount — a wider base than the ${CONSISTENCY_INDEX.comparableCorridors} corridors with a sustained multi-provider record. True total cost = the gap between what a mid-market transfer would deliver and what the provider actually delivers, so it captures the fee and the markup together.`,
     dataAsOf: REMITTANCE_INDEX.dataAsOf,
   },
   {
@@ -121,16 +121,16 @@ const STUDIES: Study[] = [
   {
     title: "Transfer cost by amount",
     href: "/transfer-cost-by-amount",
-    finding: `Sending $${AMOUNT_TIER_INDEX.smallAmount} costs ${AMOUNT_TIER_INDEX.meanSmallPct.toFixed(2)}% of the amount against ${AMOUNT_TIER_INDEX.meanHeadlinePct.toFixed(2)}% at $${AMOUNT_TIER_INDEX.headlineAmount.toLocaleString("en-US")}, and the cheapest provider is not the same at both \u2014 ${AMOUNT_TIER_INDEX.cheapestSmall?.name} at the smaller amount, ${AMOUNT_TIER_INDEX.cheapestHeadline?.name} at the larger.`,
-    basis: `${AMOUNT_TIER_INDEX.providersCompared} providers with ${AMOUNT_TIER_INDEX.minQuotesPerTier}+ usable quotes at both amounts. No $10,000 tier is published \u2014 only 11 providers quote at that amount, roughly one per corridor.`,
+    finding: `Sending $${AMOUNT_TIER_INDEX.smallAmount} costs ${AMOUNT_TIER_INDEX.meanSmallPct.toFixed(2)}% of the amount against ${AMOUNT_TIER_INDEX.meanHeadlinePct.toFixed(2)}% at $${AMOUNT_TIER_INDEX.headlineAmount.toLocaleString("en-US")}, and the cheapest provider is not the same at both — ${AMOUNT_TIER_INDEX.cheapestSmall?.name} at the smaller amount, ${AMOUNT_TIER_INDEX.cheapestHeadline?.name} at the larger.`,
+    basis: `${AMOUNT_TIER_INDEX.providersCompared} providers with ${AMOUNT_TIER_INDEX.minQuotesPerTier}+ usable quotes at both amounts. No $10,000 tier is published — only 11 providers quote at that amount, roughly one per corridor.`,
     dataAsOf: REMITTANCE_INDEX.dataAsOf,
     csv: "/api/data/transfer-cost-by-amount",
   },
   {
     title: "SendScore",
     href: "/sendscore",
-    finding: `Of the ${SENDSCORE_SUMMARY.corridorsScored} corridors where enough providers compete to score one, ${SENDSCORE_SUMMARY.goodOrBetterPct}% currently read \"good\" or better as a time to send.`,
-    basis: `A 0\u2013100 rating from four weighted components, computed from a median of ${SENDSCORE_SUMMARY.medianDaysObserved} days of recorded provider rates per corridor. Single-provider corridors are excluded from the distribution rather than counted as neutral.`,
+    finding: `Of the ${SENDSCORE_SUMMARY.corridorsScored} corridors where enough providers compete to score one, ${SENDSCORE_SUMMARY.goodOrBetterPct}% currently read "good" or better as a time to send.`,
+    basis: `A 0–100 rating from four weighted components, computed from a median of ${SENDSCORE_SUMMARY.medianDaysObserved} days of recorded provider rates per corridor. Single-provider corridors are excluded from the distribution rather than counted as neutral.`,
     dataAsOf: SENDSCORE_SUMMARY.dataAsOf,
   },
   {
@@ -151,28 +151,18 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
   return (
     <>
       {/* Hero */}
-      <section className="bg-[var(--color-surface-dim)] pt-16 pb-14 border-b border-[var(--color-outline)]">
+      <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-16 pb-14">
         <Container>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px]">
               Original <span className="text-[var(--color-primary)]">research</span>
             </h1>
-            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
               Every six hours we record what each money transfer provider would actually deliver to a recipient, on
               every corridor we track. The archive behind these studies holds{" "}
               <strong className="text-[var(--color-on-surface)]">{nf(weekend.observations)}</strong> quote observations
               going back to {formatLocalDate(weekend.dataRange.from)}. These {STUDIES.length} datasets are what comes
-              out of it \u2014 each with its method, its limits, and the figures it actually supports.
-            </p>
-            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-4 max-w-2xl leading-relaxed">
-              Unlike annual industry surveys, every figure here is recomputed from the live archive whenever it
-              refreshes. A study cannot claim a number the underlying data no longer shows \u2014 each card&apos;s headline
-              is read directly from the dataset it describes, not typed in by hand.
-            </p>
-            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-4 max-w-2xl leading-relaxed">
-              The questions these studies answer: how much does comparing providers save a typical sender, whether the
-              day or timing of a transfer materially changes costs, which providers win most often and on which
-              corridors, and how far bank transfer costs sit above specialist alternatives on the same routes.
+              out of it — each with its method, its limits, and the figures it actually supports.
             </p>
           </div>
         </Container>
@@ -182,10 +172,6 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
       <section className="py-12">
         <Container>
           <div className="max-w-3xl mx-auto space-y-5">
-            <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed pb-2">
-              Each entry below states its key finding, the measurement basis, and the refresh date of the data behind
-              it. Where the underlying table is available as a download, a CSV link appears alongside the study link.
-            </p>
             {STUDIES.map((s) => (
               <article
                 key={s.href}
@@ -237,9 +223,9 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
                 >
                   CC BY 4.0
                 </a>
-                . Quote the figures, reproduce the tables or build on the data \u2014 commercial use included \u2014 and cite
+                . Quote the figures, reproduce the tables or build on the data — commercial use included — and cite
                 SendMoneyCompare with a link to the study page. Each
-                study states the date of the data behind it \u2014 please cite that date rather than the date you read it,
+                study states the date of the data behind it — please cite that date rather than the date you read it,
                 because the figures move with the scrape.
               </p>
               <p>
@@ -259,13 +245,6 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
                   public quotes endpoint for AI assistants
                 </Link>
                 .
-              </p>
-              <p>
-                <strong className="text-[var(--color-on-surface)]">Academic and press use.</strong> The CC BY 4.0
-                licence means no permission request is needed for academic papers, news articles or commercial reports.
-                When citing a figure, use the data-as-of date shown on its card rather than today&apos;s date \u2014
-                because the numbers update with every archive refresh, the date you read it is not the date the figure
-                is from.
               </p>
               <p>
                 <strong className="text-[var(--color-on-surface)]">Method and corrections.</strong> How the underlying
@@ -293,7 +272,7 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
         dataAsOf={CONSISTENCY_INDEX.dataAsOf}
         computedFrom="Each dataset is recomputed from the quote archive whenever the archive refreshes. The headline on every card above is read from the dataset it describes rather than written into this page, so a card cannot outlive the finding behind it."
         sources={[
-          { label: "SendMoneyCompare quote archive \u2014 every provider\u2019s live quotes, recorded every six hours", href: "/methodology" },
+          { label: "SendMoneyCompare quote archive — every provider\u2019s live quotes, recorded every six hours", href: "/methodology" },
           { label: "World Bank PPP conversion factors and GNI indicators", href: "https://data.worldbank.org/indicator/PA.NUS.PPP", external: true },
           { label: "Our methodology and cost definitions", href: "/methodology" },
         ]}

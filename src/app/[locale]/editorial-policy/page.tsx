@@ -6,6 +6,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getAuthor } from "@/data/authors";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -28,28 +29,31 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "editorialPolicy" });
 
-  const editor = getAuthor("awais-imran");
+  const editor = getAuthor(EDITORIAL_AUTHOR_SLUG);
 
   const pageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Editorial Policy",
     url: "https://sendmoneycompare.com/editorial-policy",
-    author: {
-      "@type": "Person",
-      "@id": "https://sendmoneycompare.com/about/awais-imran#person",
-      name: "Awais Imran",
-      jobTitle: "Editor-in-Chief",
-      url: "https://sendmoneycompare.com/about/awais-imran",
-      ...(editor?.linkedin && { sameAs: [editor.linkedin] }),
-    },
+    ...(editor && {
+      author: {
+        "@type": "Person",
+        "@id": `https://sendmoneycompare.com/about/${editor.slug}#person`,
+        name: editor.name,
+        jobTitle: editor.role,
+        url: `https://sendmoneycompare.com/about/${editor.slug}`,
+        ...(editor.linkedin && { sameAs: [editor.linkedin] }),
+      },
+    }),
     publisher: {
       "@type": "Organization",
       "@id": "https://sendmoneycompare.com/#organization",
       name: "SendMoneyCompare",
       url: "https://sendmoneycompare.com",
     },
-    dateModified: "2026-10-15",
+    // The page's content date, the one sitemap.ts submits (content-dates.ts).
+    dateModified: pageUpdated("/editorial-policy"),
   };
 
   return (

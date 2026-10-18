@@ -145,14 +145,15 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
         </div>
       </Container>
 
-      {/* Popular rates quick-reference — visible to users and crawlers */}
+      {/* Popular rates quick-reference — replaced an sr-only block (Oct 2026):
+          text shown to crawlers and hidden from readers is the wrong trade. */}
       <Container className="pb-12">
         <div className="max-w-[1000px]">
           <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold tracking-tight text-[var(--color-on-surface)] mb-1">
-            Popular currency rates today
+            Mid-market rates for popular pairs
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mb-5">
-            Mid-market rates as of {fullDate}. These are the interbank rates — add a provider&apos;s markup to see what you&apos;ll actually pay.
+            XE mid-market rates as of {fullDate}: the reference before any markup, so a provider&apos;s rate is usually lower.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {popularPairs.map((pair) => {
@@ -171,18 +172,6 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
                 </div>
               );
             })}
-          </div>
-
-          <div className="mt-10 pt-8 border-t border-[var(--color-outline)]">
-            <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold tracking-tight text-[var(--color-on-surface)] mb-3">
-              How currency conversion works
-            </h2>
-            <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-4 max-w-[720px]">
-              Our converter uses the mid-market exchange rate — the midpoint between buy and sell prices on the global currency market, and the rate banks use when trading with each other. It is the fairest benchmark available. When you send money internationally, providers add a markup on top of this rate; that difference is how they make money on currency conversion.
-            </p>
-            <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed max-w-[720px]">
-              Rates on this page are sourced from leading financial data providers and updated every 60 seconds during market hours. They reflect the mid-market rate as of {fullDate} and may differ from the rate offered by individual money transfer providers. Always check the exact rate and total cost with your chosen provider before making a transfer.
-            </p>
           </div>
         </div>
       </Container>

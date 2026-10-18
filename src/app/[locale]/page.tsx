@@ -103,16 +103,16 @@ const featuredProviders = featuredProviderSlugs
 // from/to: where a route's page is not Google-eligible, its pill opens the
 // comparison for the pair instead (CLAUDE.md rule 14).
 const TOP_CORRIDORS: { slug: string; label: string; flag: string; from: string; to: string }[] = [
-  { slug: "usa-to-india", label: "USA \u2192 India", flag: "\uD83C\uDDEE\uD83C\uDDF3", from: "USD", to: "INR" },
-  { slug: "usa-to-mexico", label: "USA \u2192 Mexico", flag: "\uD83C\uDDF2\uD83C\uDDFD", from: "USD", to: "MXN" },
-  { slug: "usa-to-philippines", label: "USA \u2192 Philippines", flag: "\uD83C\uDDF5\uD83C\uDDED", from: "USD", to: "PHP" },
-  { slug: "usa-to-pakistan", label: "USA \u2192 Pakistan", flag: "\uD83C\uDDF5\uD83C\uDDF0", from: "USD", to: "PKR" },
-  { slug: "uk-to-india", label: "UK \u2192 India", flag: "\uD83C\uDDEE\uD83C\uDDF3", from: "GBP", to: "INR" },
-  { slug: "uk-to-pakistan", label: "UK \u2192 Pakistan", flag: "\uD83C\uDDF5\uD83C\uDDF0", from: "GBP", to: "PKR" },
-  { slug: "uk-to-nigeria", label: "UK \u2192 Nigeria", flag: "\uD83C\uDDF3\uD83C\uDDEC", from: "GBP", to: "NGN" },
-  { slug: "uae-to-india", label: "UAE \u2192 India", flag: "\uD83C\uDDEE\uD83C\uDDF3", from: "AED", to: "INR" },
-  { slug: "uae-to-pakistan", label: "UAE \u2192 Pakistan", flag: "\uD83C\uDDF5\uD83C\uDDF0", from: "AED", to: "PKR" },
-  { slug: "saudi-arabia-to-india", label: "Saudi Arabia \u2192 India", flag: "\uD83C\uDDEE\uD83C\uDDF3", from: "SAR", to: "INR" },
+  { slug: "usa-to-india", label: "USA → India", flag: "🇮🇳", from: "USD", to: "INR" },
+  { slug: "usa-to-mexico", label: "USA → Mexico", flag: "🇲🇽", from: "USD", to: "MXN" },
+  { slug: "usa-to-philippines", label: "USA → Philippines", flag: "🇵🇭", from: "USD", to: "PHP" },
+  { slug: "usa-to-pakistan", label: "USA → Pakistan", flag: "🇵🇰", from: "USD", to: "PKR" },
+  { slug: "uk-to-india", label: "UK → India", flag: "🇮🇳", from: "GBP", to: "INR" },
+  { slug: "uk-to-pakistan", label: "UK → Pakistan", flag: "🇵🇰", from: "GBP", to: "PKR" },
+  { slug: "uk-to-nigeria", label: "UK → Nigeria", flag: "🇳🇬", from: "GBP", to: "NGN" },
+  { slug: "uae-to-india", label: "UAE → India", flag: "🇮🇳", from: "AED", to: "INR" },
+  { slug: "uae-to-pakistan", label: "UAE → Pakistan", flag: "🇵🇰", from: "AED", to: "PKR" },
+  { slug: "saudi-arabia-to-india", label: "Saudi Arabia → India", flag: "🇮🇳", from: "SAR", to: "INR" },
 ];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -132,7 +132,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t("description"),
       type: "website",
       url: ogUrl,
-      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "SendMoneyCompare \u2014 Compare International Money Transfers" }],
+      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "SendMoneyCompare — Compare International Money Transfers" }],
     },
     alternates: getAlternates("", locale),
   };
@@ -199,7 +199,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const homePageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Compare Money Transfers \u2014 Best Rates & Lowest Fees",
+    name: "Compare Money Transfers — Best Rates & Lowest Fees",
     description: `Compare fees, exchange rates, and delivery times from ${COVERAGE.providers} across ${COVERAGE.corridors}. Updated every 6 hours with live data.`,
     url: "https://sendmoneycompare.com",
     isPartOf: { "@id": "https://sendmoneycompare.com/#website" },
@@ -218,7 +218,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     "@context": "https://schema.org",
     "@type": "VideoObject",
     name: "Wise vs Remitly vs WorldRemit: Which is Actually Cheapest?",
-    description: "Head-to-head comparison of Wise, Remitly, and WorldRemit on a $1,000 international transfer \u2014 real fees, exchange rates, and delivery times.",
+    description: "Head-to-head comparison of Wise, Remitly, and WorldRemit on a $1,000 international transfer — real fees, exchange rates, and delivery times.",
     thumbnailUrl: ["https://img.youtube.com/vi/AKRQH9xbR18/hqdefault.jpg"],
     uploadDate: "2026-04-19T00:00:00+00:00",
     contentUrl: "https://www.youtube.com/shorts/AKRQH9xbR18",
@@ -262,16 +262,20 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeVideoSchema) }}
       />
-      {/* \u2500\u2500\u2500 HERO + DYNAMIC SECTIONS \u2500\u2500\u2500 wrapped in shared selection context */}
+      {/* ─── HERO + DYNAMIC SECTIONS ─── wrapped in shared selection context */}
       <HomeSelectionProvider defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount}>
         <section className="home-hero" aria-labelledby="home-title">
           <div className="home-hero-grid">
             <div className="home-hero-copy">
               <p className="home-eyebrow">International money transfers, made clearer</p>
               <h1 id="home-title">{tHero("title")} <span>{tHero("titleHighlight")}</span></h1>
-              <p className="home-hero-description">We track {COVERAGE.providers} across {COVERAGE.corridors}, refreshing fees and exchange rates every six hours. Compare rate markup and transfer fees together \u2014 and see exactly what your recipient receives.</p>
+              {/* One line on purpose: below 900px the copy stacks above the
+                  converter, and a 200-character coverage sentence (Okara #77)
+                  pushed it ~80px down on phones. The counts are in the trust
+                  strip and FAQ on this page. */}
+              <p className="home-hero-description">Compare fees and exchange rates. See what your recipient gets.</p>
               <ul className="home-hero-assurances" aria-label="About this comparison"><li>Free to compare</li><li>No account needed</li><li>Fees and rates together</li></ul>
-              <Link className="home-method-link" href="/methodology">How we compare providers <span aria-hidden="true">\u2197</span></Link>
+              <Link className="home-method-link" href="/methodology">How we compare providers <span aria-hidden="true">↗</span></Link>
             </div>
             <div className="home-hero-tool">
               <div className="home-tool-heading"><span>Start with your transfer</span><span>01 / Compare</span></div>
@@ -281,16 +285,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
         </section>
 
-      {/* \u2500\u2500\u2500 BEST ROUTES + LIVE EXAMPLE \u2014 reactive to widget selection \u2500\u2500\u2500 */}
+      {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
         <LazyHomeDynamicSection />
       </HomeSelectionProvider>
       <Container><InstallSlot placement="home-after-comparison" /><HomeTransferPaths /></Container>
 
-      {/* \u2500\u2500\u2500 TRUST STRIP + WHY TRUST US \u2014 collapsed on mobile to keep Send CTAs near the fold \u2500\u2500\u2500 */}
+      {/* ─── TRUST STRIP + WHY TRUST US — collapsed on mobile to keep Send CTAs near the fold ─── */}
       <MobileDetailsRail label={`Why trust SendMoneyCompare`}>
       <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)] py-6 sm:py-12">
         <Container>
-          {/* Top row \u2014 quick chips (mobile: scroll, desktop: row) */}
+          {/* Top row — quick chips (mobile: scroll, desktop: row) */}
           <div className="flex sm:hidden items-center gap-2 overflow-x-auto -mx-4 px-4 scrollbar-hide mb-5 home-scroll-x">
             {trustItems.map((item) => (
               <span key={item.text} className="shrink-0 inline-flex items-center gap-1.5 text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] rounded-full px-3 py-1.5 border border-[var(--color-outline)]">
@@ -340,7 +344,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </a>
           </div>
 
-          {/* Why Trust Us \u2014 compressed 2x2 grid (kept for E-E-A-T / AI Overviews) */}
+          {/* Why Trust Us — compressed 2x2 grid (kept for E-E-A-T / AI Overviews) */}
           <div className="max-w-4xl mx-auto pt-6 sm:pt-8 border-t border-[var(--color-outline)]">
             <h2 className="text-base sm:text-lg font-semibold text-[var(--color-on-surface)] text-center mb-4 sm:mb-6">
               {tWhy("title")}
@@ -368,7 +372,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
       </MobileDetailsRail>
 
-      {/* \u2500\u2500\u2500 3. HOW IT WORKS \u2014 collapsed on mobile \u2500\u2500\u2500 */}
+      {/* ─── 3. HOW IT WORKS — collapsed on mobile ─── */}
       <MobileDetailsRail label="How it works">
       <section id="how-it-works" className="py-6 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>
@@ -410,9 +414,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
       </MobileDetailsRail>
 
-      {/* \u2500\u2500\u2500 PROVIDERS \u2014 Top + By Use Case + All Reviewed + Comparisons.
+      {/* ─── PROVIDERS — Top + By Use Case + All Reviewed + Comparisons.
            Collapsed on mobile so live results stay closer to the fold;
-           preserved in DOM for internal link equity (per May 20 audit). \u2500\u2500\u2500 */}
+           preserved in DOM for internal link equity (per May 20 audit). ─── */}
       <MobileDetailsRail label="Top providers, reviews & comparisons">
       <section id="providers" className="py-8 sm:py-14">
         <Container>
@@ -494,7 +498,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {[
                 // "Consistently the lowest total cost for most corridors" was the site
                 // contradicting its own dataset: Wise leads 44 of 212 comparable
-                // corridors \u2014 the most of any provider, but a fifth of them, with Ria
+                // corridors — the most of any provider, but a fifth of them, with Ria
                 // and TapTap Send close behind. Derived from the consistency index so
                 // the claim tracks the measurement instead of drifting from it.
                 { badge: "Best Rate", provider: "Wise", reason: `Uses the real mid-market rate with fees from 0.41%. ${wiseLeadClaim}`, slug: "wise", href: "/companies/wise", color: "var(--color-primary)" },
@@ -503,14 +507,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", slug: "ofx", href: "/companies/ofx", color: "var(--color-primary)" },
                 { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", slug: "revolut", href: "/companies/revolut", color: "var(--color-success)" },
                 // MoneyGram held this slot on "trusted since 1940" while leading 0 of the 216
-                // comparable corridors. TapTap leads 40 \u2014 second only to Wise \u2014 and quotes 152,
+                // comparable corridors. TapTap leads 40 — second only to Wise — and quotes 152,
                 // the widest footprint we measure. Swapped on the data, same as the guide.
-                { badge: "Widest Coverage", provider: "TapTap Send", reason: `Cheapest on ${taptapLed} corridors \u2014 second only to Wise \u2014 across the widest footprint we measure. Free above $250, and 95% arrive in under 3 minutes.`, slug: "taptap-send", href: "/companies/taptap-send", color: "var(--color-success)" },
+                { badge: "Widest Coverage", provider: "TapTap Send", reason: `Cheapest on ${taptapLed} corridors — second only to Wise — across the widest footprint we measure. Free above $250, and 95% arrive in under 3 minutes.`, slug: "taptap-send", href: "/companies/taptap-send", color: "var(--color-success)" },
               ].map((item) => (
                 // A card, not a single <Link>: the homepage carried ZERO affiliate
                 // links, so every one of these sent a ready-to-send visitor to a
-                // review instead. The name still opens the review \u2014 top of funnel is
-                // where research belongs \u2014 and the action sits beside it. An <a>
+                // review instead. The name still opens the review — top of funnel is
+                // where research belongs — and the action sits beside it. An <a>
                 // cannot nest inside a <Link>, hence the wrapper is a div.
                 <div
                   key={item.provider}
@@ -544,7 +548,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
           </div>
 
-          {/* \u2500\u2500 Top corridors \u2014 replaces prior 25-link comparisons rail and \u2500\u2500
+          {/* ── Top corridors — replaces prior 25-link comparisons rail and ──
               16-link reviews rail. May 21 GSC audit showed all 41 of those links
               had 0 impressions/28d (deindex aftermath). This tight 10-link rail
               concentrates home-page authority on 5 head-term corridors that
@@ -571,7 +575,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 </Link>
               ))}
             </div>
-            {/* /send-money no longer lists every corridor (round-3 brief \u00a74.4),
+            {/* /send-money no longer lists every corridor (round-3 brief §4.4),
                 so "Browse all corridors" became untrue; the anchor now says
                 what the page does. */}
             <p className="text-center mt-5 sm:mt-6 text-sm text-[var(--color-on-surface-variant)]">
@@ -586,12 +590,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
       </MobileDetailsRail>
 
-      {/* \u2500\u2500\u2500 MOST-READ GUIDES \u2014 the four highest-traffic guides on the site.
+      {/* ─── MOST-READ GUIDES — the four highest-traffic guides on the site.
            Replaced the three "From our data" cards on 2026-09-12: the homepage
            block now points at the pages people actually read (GA4 pageviews,
            90d to 2026-09-11) rather than at three research/tool pages, which
-           keep their footer links. Picks are data-gated \u2014 re-pull GA4 before
-           swapping one, do not swap on taste. \u2500\u2500\u2500 */}
+           keep their footer links. Picks are data-gated — re-pull GA4 before
+           swapping one, do not swap on taste. ─── */}
       <section className="py-8 sm:py-12 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="text-center mb-6 max-w-2xl mx-auto">
@@ -611,7 +615,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               >
                 <p className="text-sm font-bold text-[var(--color-on-surface)]">{g.title}</p>
                 <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">{g.blurb}</p>
-                <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">{g.cta} \u2192</span>
+                <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">{g.cta} →</span>
               </Link>
             ))}
           </div>
@@ -623,7 +627,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
-      {/* \u2500\u2500\u2500 FAQ \u2014 collapsed on mobile; FAQPage schema preserved in DOM \u2500\u2500\u2500 */}
+      {/* ─── FAQ — collapsed on mobile; FAQPage schema preserved in DOM ─── */}
       <MobileDetailsRail label="Frequently asked questions">
       <section id="faq" className="py-8 sm:py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
@@ -683,7 +687,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
 
       {/* The sponsored TapTap card moved up into HomeDynamicSection (2026-09-30):
-          last on the page it sat ~2,500px down, and it quoted USD\u2192INR whatever
+          last on the page it sat ~2,500px down, and it quoted USD→INR whatever
           route the reader had picked. It now sits above the live table,
           priced on the selected route. */}
 

@@ -152,15 +152,8 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
                   basis for making any financial decision.
                 </p>
                 <p>
-                  This disclaimer applies to all content on the Website, including
-                  provider rankings, comparison tables, exchange rate data, fee estimates,
-                  and editorial articles. Rankings reflect the payout amount at a given
-                  moment and do not account for your specific transfer needs, tax position,
-                  or regulatory situation.
-                </p>
-                <p>
                   If you require personalised financial advice, please consult a qualified
-                  and regulated financial adviser in your jurisdiction.
+                  and regulated financial adviser.
                 </p>
               </div>
             </div>
@@ -308,14 +301,6 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
                   (including legal fees) arising from your use of the Website or your
                   violation of these Terms.
                 </p>
-                <p>
-                  This indemnification obligation survives any termination or expiry of
-                  these Terms and applies to claims brought by third parties as well as
-                  any regulatory or government investigations related to your use of the
-                  Website. We reserve the right to assume exclusive control of any matter
-                  subject to indemnification, and you agree to cooperate with our defence
-                  of such claims.
-                </p>
               </div>
             </div>
 
@@ -331,19 +316,6 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
                   these Terms or your use of the Website shall be subject to the exclusive
                   jurisdiction of the courts located in Denver, Colorado.
                 </p>
-                <p>
-                  Before initiating formal legal proceedings, we encourage you to contact
-                  us at{" "}
-                  <a
-                    href="mailto:info@sendmoneycompare.com"
-                    className="text-[var(--color-primary)] hover:underline"
-                  >
-                    info@sendmoneycompare.com
-                  </a>{" "}
-                  so that we may attempt to resolve any dispute informally. Nothing in
-                  this section prevents either party from seeking injunctive or other
-                  equitable relief from a court of competent jurisdiction.
-                </p>
               </div>
             </div>
 
@@ -358,19 +330,6 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
                   that provision shall be limited or eliminated to the minimum extent
                   necessary, and the remaining provisions shall remain in full force and
                   effect.
-                </p>
-                <p>
-                  These Terms, together with our{" "}
-                  <Link href="/privacy" className="text-[var(--color-primary)] hover:underline">
-                    Privacy Policy
-                  </Link>{" "}
-                  and{" "}
-                  <Link href="/cookies" className="text-[var(--color-primary)] hover:underline">
-                    Cookie Policy
-                  </Link>
-                  , constitute the entire agreement between you and SendMoneyCompare
-                  regarding your use of the Website and supersede any prior agreements or
-                  understandings, whether written or oral, on the same subject matter.
                 </p>
               </div>
             </div>

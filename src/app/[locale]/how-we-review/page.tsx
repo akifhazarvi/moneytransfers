@@ -2,6 +2,7 @@ import { seoDescription } from "@/lib/seo-title";
 import PolicyLinks from "@/components/PolicyLinks";
 import Container from "@/components/Container";
 import Link from "@/components/EligibleLink";
+import { MATERIALITY_BAND_PCT } from "@/lib/rank-quotes";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -167,67 +168,82 @@ export default async function HowWeReviewPage({ params }: Props) {
               </div>
             </div>
 
+            {/* Added by a bot PR on 2026-10-16 and rewritten 2026-10-18: it said
+                quotes were ranked "in real time", that review scores fall when
+                fees rise (no review score is computed from fees), that we take
+                no paid placements (TapTap Send's are labelled "Sponsored"), and
+                that providers are excluded on licensing and coverage rules the
+                code does not run. What follows is what rank-quotes.ts,
+                quote-integrity.ts and HIDDEN_PROVIDER_SLUGS actually do. */}
             <div>
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
-                Editorial independence
+                What referral fees change in a review, and what they don&apos;t
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  SendMoneyCompare earns referral fees when you visit a provider
-                  through our links. This is stated on every page. These fees do
-                  not influence our rankings, scores, or editorial decisions — a
-                  provider cannot pay for a higher position in our comparison
-                  tables or a more favourable review.
+                  SendMoneyCompare earns a referral fee from some providers when
+                  you reach them through our links, as the footer of every page
+                  says. That fee plays no part in where a provider appears:
+                  comparison tables are ordered by what your recipient receives
+                  for the amount you send, from quotes we collect every six
+                  hours, and where two payouts are within{" "}
+                  {MATERIALITY_BAND_PCT}% of each other the provider with the
+                  higher customer rating is listed first. A provider that pays
+                  us nothing is ranked by the same rule, and the criteria below
+                  are applied to every provider whether or not we earn from it.
                 </p>
                 <p>
-                  Our comparison tables rank providers by the amount the
-                  recipient actually receives for a fixed send amount, calculated
-                  in real time from our live rate data. A provider we do not
-                  monetise can and does lead a corridor table. Our editorial team
-                  applies the same five criteria to every provider regardless of
-                  whether an affiliate relationship exists.
-                </p>
-                <p>
-                  Review scores are computed from the data, not set editorially.
-                  An affiliate whose fees rise will see their score fall on the
-                  next data update. We do not accept sponsored reviews, paid
-                  placements, or promotional content presented as editorial
-                  assessment.
+                  Paid placement exists, and it is labelled. TapTap Send pays us
+                  when a reader signs up, and the blocks that promote it say
+                  &ldquo;Sponsored&rdquo; and sit outside the comparison&apos;s
+                  order, never as a row moved up within it. When you click
+                  through to another provider, a page before that
+                  provider&apos;s site may offer TapTap Send next to your
+                  choice, with its quote for the same route; continuing to the
+                  provider you picked stays the first option.
                 </p>
               </div>
             </div>
 
             <div>
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
-                When a provider is excluded
+                When a provider&apos;s quote is shown but not ranked
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  We do not list every provider we are aware of. A provider may
-                  be excluded from our platform if:
+                  A quote that looks wrong is not dropped. One that cannot be a
+                  standing price is shown after the ranked rows, with a label
+                  saying why, and is never ranked:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>
-                    It cannot be verified as licensed in a jurisdiction we cover
+                    It beats the mid-market rate, which is what a promotional
+                    rate or a data error looks like
                   </li>
                   <li>
-                    Our data shows exchange rates we cannot reconcile with what a
-                    real customer would receive
+                    Its fee or markup is so far outside any real price that a
+                    misread field is the likelier explanation
                   </li>
                   <li>
-                    A regulator has issued a public warning or enforcement action
-                    against it
+                    It was collected more than 72 hours before our freshest
+                    quote, which means that provider&apos;s collection stopped
                   </li>
                   <li>
-                    It does not meet our minimum coverage threshold for the
-                    routes we compare
+                    It is an indicative rate from a broker that prices by account
+                    manager rather than through a public calculator
                   </li>
                 </ul>
                 <p>
-                  Exclusion is a data and compliance decision, not an editorial
-                  one. We keep a list of providers we track but do not publish;
-                  if a provider later meets the criteria, it is added
-                  automatically on the next data refresh.
+                  Separately, a provider can be withheld from provider lists by
+                  an editorial decision; its review page stays online. The full
+                  rules are on our{" "}
+                  <Link
+                    href="/methodology"
+                    className="text-[var(--color-primary)] hover:underline"
+                  >
+                    methodology page
+                  </Link>
+                  .
                 </p>
               </div>
             </div>

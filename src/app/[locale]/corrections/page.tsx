@@ -35,7 +35,7 @@ const corrections = [
     type: "Correction" as const,
     description:
       "Fixed schema.org structured data: changed author type from Organization to Person across all article pages, replaced deprecated Product schema with FinancialService for provider pages, and added missing datePublished fields to Article schemas.",
-    affectedPages: ["/companies", "/guides", "/compare"],
+    affectedPages: ["/companies/*", "/guides/*", "/compare/*"],
   },
   {
     date: "2026-03-14",
@@ -49,7 +49,7 @@ const corrections = [
     type: "Content update" as const,
     description:
       "Updated all blog post author attributions from 'SendMoneyCompare Team' to individual author names for improved E-E-A-T compliance.",
-    affectedPages: ["/guides"],
+    affectedPages: ["/guides/*"],
   },
 ];
 
@@ -72,14 +72,11 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
               Corrections & Updates
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
-              Financial comparison data must be accurate. When we find an error in our editorial
-              content — whether a fee range, an exchange rate figure, a provider feature, or a
-              factual claim — we correct it promptly and document the change here. We do not
-              silently edit published content. If you spot something wrong, email{" "}
+              We are committed to accuracy and transparency. This page documents corrections, data updates,
+              and significant editorial changes made to our content. If you spot an error, please email{" "}
               <a href="mailto:info@sendmoneycompare.com" className="text-[var(--color-primary)] hover:underline">
                 info@sendmoneycompare.com
-              </a>{" "}
-              with the page URL and the details.
+              </a>.
             </p>
           </div>
         </Container>
@@ -101,15 +98,25 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
                     {item.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-3">
-                    {item.affectedPages.map((page) => (
-                      <Link
-                        key={page}
-                        href={page}
-                        className="text-xs text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] px-2.5 py-1 rounded-full hover:text-[var(--color-primary)]"
-                      >
-                        {page}
-                      </Link>
-                    ))}
+                    {item.affectedPages.map((page) =>
+                      // A wildcard names a page family, not a page: a label, never a link.
+                      page.includes("*") ? (
+                        <span
+                          key={page}
+                          className="text-xs text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] px-2.5 py-1 rounded-full"
+                        >
+                          {page}
+                        </span>
+                      ) : (
+                        <Link
+                          key={page}
+                          href={page}
+                          className="text-xs text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] px-2.5 py-1 rounded-full hover:text-[var(--color-primary)]"
+                        >
+                          {page}
+                        </Link>
+                      ),
+                    )}
                   </div>
                 </div>
               ))}

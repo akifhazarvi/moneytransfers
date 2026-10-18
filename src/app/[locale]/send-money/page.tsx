@@ -85,7 +85,8 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
       .flatMap((g) => [...(g.countryPage ? [g.countryPage] : []), ...g.routes])
       .map((link, i) => ({ "@type": "ListItem", position: i + 1, name: link.label, url: `${SITE}${link.href}` })),
   };
-  const { "@context": _faqCtx, ...faqSchemaBody } = faqSchema(faqs);
+  // One @context for the @graph below; JSON.stringify drops the undefined one.
+  const faqSchemaBody = { ...faqSchema(faqs), "@context": undefined };
 
   return (
     <div className="bg-[var(--color-surface-dim)] min-h-screen pt-2">
@@ -106,11 +107,9 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
             Pick the currency you pay in and the one your recipient receives. Each provider is priced on the same
             transfer, so the amount that arrives is the number to compare.
           </p>
-          <p>
-            The tool covers the United States, United Kingdom, Europe, Canada and Australia as origins, with
-            destinations across Asia, Africa, Latin America and beyond. Select your sending country, receiving
-            country and amount to see providers ranked for your exact route, ordered by what the recipient gets.
-          </p>
+          {/* One paragraph: it is what `.conversion-hero > p:last-child` styles,
+              and a second one (Okara #89) pushed the comparison ~150px down on
+              phones while naming origins that left out the Gulf senders. */}
         </header>
       </Container>
 

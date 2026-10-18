@@ -77,7 +77,7 @@ function hasFeature(p: Provider, keyword: string): boolean {
  */
 export function usesMidMarketRate(p: Provider): boolean {
   // A single "0%" value, not the low end of a range or tier: LemFi's "0% - 2%
-  // above mid-market", Koho's "0% - 0.5%" and HSBC's "0% (Premier) to 2.5%
+  // above mid-market", Koho's "0% - 0.5%" and HSBC's former "0% (Premier) to 2.5%
   // (standard)" all open with 0% and none of them is it. Exactly one
   // percentage in the string, and it is zero.
   const s = p.exchangeRateMarkup.trim();

@@ -72,12 +72,6 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
           <p>
             From central bank policy changes that move exchange rates, to new instant payment mandates that speed up delivery times, to provider-specific updates on fees and coverage — our news coverage focuses on the practical impact for people who send money internationally.
           </p>
-          <p>
-            Regulatory shifts are a constant in this space: G20 targets to lower the global average remittance cost below 3%, the EU&rsquo;s SEPA Instant Payments Regulation, FCA guidance on pricing transparency in the UK, and CFPB disclosure rules in the US all shape what providers can charge and how quickly they can move money. When a policy change creates a real saving opportunity — or a new compliance cost — we explain what it means in practice before providers update their pricing pages.
-          </p>
-          <p>
-            Provider updates are equally frequent. New corridors, fee reductions, changed exchange rate policies, and product launches from the 60+ services we track can shift which option is cheapest for a given route. We cover announcements from major providers across bank transfers, mobile wallets, and cash pickup networks, and flag changes that affect the routes our readers use most.
-          </p>
         </div>
 
         {/* Featured article */}

@@ -13,17 +13,6 @@ const FORECAST_GUIDES: Record<string, string> = {
   USD: "/guides/us-dollar-forecast-2026",
 };
 
-/** Pair-specific context rendered only on that pair's history page. */
-const PAIR_CONTEXT: Record<string, { heading: string; intro: string; detail: string }> = {
-  "USD-HNL": {
-    heading: "USD and the Honduran lempira",
-    intro:
-      "The Honduran lempira operates under a managed float: the Banco Central de Honduras (BCH) adjusts the reference exchange rate through daily foreign-currency auctions rather than allowing the market to move it freely. The gradual, step-like drift in this chart is a deliberate policy outcome, distinguishing USD/HNL from the sharper day-to-day swings of freely-floating pairs.",
-    detail:
-      "Because the BCH controls the reference rate, most of the variation between providers in the table above reflects each provider's fee margin rather than access to a different underlying rate. That makes USD-to-Honduras one of the more transparent corridors to compare: every provider starts from the same regulated reference, so a lower fee passes directly through to the recipient's HNL amount.",
-  },
-};
-
 export const revalidate = 21600;
 import Container from "@/components/Container";
 import CircleFlag from "@/components/CircleFlag";
@@ -195,21 +184,6 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
       question: "Does a higher EUR/JPY observation help someone buying yen?",
       answer: "A higher yen-per-euro figure buys more yen with the same euro amount. The reverse payment has the opposite objective, so do not read this chart as a JPY-to-EUR recommendation. Historical highs show what was observed, not a rate you can reserve or a forecast of the next movement.",
     },
-  ] : from === "USD" && to === "HNL" ? [
-    {
-      question: "Why does USD/HNL move gradually rather than sharply?",
-      answer:
-        "The Banco Central de Honduras (BCH) operates a managed float, conducting daily foreign-currency auctions to set the reference rate rather than letting the market move it freely. That policy produces the steady, step-like drift in this chart instead of the sharp intraday swings seen for freely-floating currencies like EUR or GBP.",
-    },
-    {
-      question: "What HNL range did we record over this period?",
-      answer: `Provider rates ran from ${insight.stats.worstRate.toFixed(4)} (${getProviderName(insight.stats.worstRateProvider)}, ${dayLabel(insight.stats.worstRateDate, true)}) to ${insight.stats.bestRate.toFixed(4)} (${getProviderName(insight.stats.bestRateProvider)}, ${dayLabel(insight.stats.bestRateDate, true)}) HNL per USD over ${insight.totalDays} days, averaging ${insight.stats.avgRate.toFixed(4)}.`,
-    },
-    {
-      question: "Why do providers quote different HNL amounts for the same USD?",
-      answer:
-        "Because the BCH publishes a narrow reference rate, the main driver of variation between providers is each provider's fee margin. A lower margin passes a larger HNL amount to the recipient. The table above shows live provider payouts against the same mid-market reference, so the difference between rows is a direct read of each provider's cost on this corridor.",
-    },
   ] : [
     {
       question: `What range did we record for ${from}/${to}?`,
@@ -342,30 +316,6 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
           </div>
         </Container>
       </section>
-
-      {/* Pair-specific context — only rendered for pairs in PAIR_CONTEXT;
-          the conditional keeps this text off every other history page. */}
-      {(() => {
-        const ctx = PAIR_CONTEXT[`${from}-${to}`];
-        if (!ctx) return null;
-        return (
-          <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
-            <Container>
-              <div className="max-w-3xl">
-                <h2 className="mb-3 text-h4 font-bold text-[var(--color-on-surface)]">
-                  {ctx.heading}
-                </h2>
-                <p className="text-md text-[var(--color-on-surface)] leading-relaxed">
-                  {ctx.intro}
-                </p>
-                <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  {ctx.detail}
-                </p>
-              </div>
-            </Container>
-          </section>
-        );
-      })()}
 
       {/* Month-by-month mid-market ranges and the policy decisions in the
           window, added for the round-3 brief (§4.2: "ranges, events, and

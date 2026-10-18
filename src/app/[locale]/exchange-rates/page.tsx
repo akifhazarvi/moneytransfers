@@ -589,12 +589,8 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
               Exchange Rates Today: Is Now a Good Time to Send?
             </h1>
             <p className="mt-3 text-[15px] sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed">
-              Today&apos;s exchange rates are tracked across {COVERAGE.corridorsTracked}. Pick your corridor and we&apos;ll tell you if now
-              is a good time to send, how today compares to the last few months, and exactly how much your recipient gets.
-            </p>
-            <p className="mt-2 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
-              The mid-market rate — the midpoint of global currency markets — is the fairest reference point, before any bank or
-              transfer service adds their markup. Comparing that markup across providers is how you find the real best deal for your corridor.
+              Today&apos;s exchange rates across {COVERAGE.corridorsTracked}, tracked daily. Pick yours and we&apos;ll tell you if
+              today beats the last few months — and exactly how much your recipient gets.
             </p>
             {/* Round-3 QA item 7: a named author and the page's content date.
                 The rates' own time is the "Rates collected" line below. */}

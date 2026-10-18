@@ -17,6 +17,7 @@ import { MATERIALITY_BAND_PCT } from "@/lib/rank-quotes";
 import { SITE_STATS, atLeast } from "@/lib/site-stats";
 import { PageByline } from "@/components/PageByline";
 import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
+import { getAuthor } from "@/data/authors";
 
 // Revalidate every 6 hours — matches scraper cadence (parity with /compare/[slug]).
 export const revalidate = 21600;
@@ -134,6 +135,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
   const t = await getTranslations({ locale, namespace: "compare" });
   const matchups = buildMatchups();
   const dataUpdated = getDataFreshnessDate();
+  const editor = getAuthor(EDITORIAL_AUTHOR_SLUG);
 
   const itemListSchema = {
     "@context": "https://schema.org",
@@ -172,13 +174,17 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
     url: "https://sendmoneycompare.com/compare",
     isAccessibleForFree: true,
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
-    author: {
-      "@type": "Person",
-      name: "Awais Imran",
-      url: "https://sendmoneycompare.com/about/awais-imran",
-      jobTitle: "Editor-in-Chief",
-      sameAs: "https://www.linkedin.com/in/awsimran/",
-    },
+    // The byline's author, by the @id /about/<slug> declares — not a typed copy.
+    ...(editor && {
+      author: {
+        "@type": "Person",
+        "@id": `https://sendmoneycompare.com/about/${editor.slug}#person`,
+        name: editor.name,
+        url: `https://sendmoneycompare.com/about/${editor.slug}`,
+        jobTitle: editor.role,
+        ...(editor.linkedin && { sameAs: [editor.linkedin] }),
+      },
+    }),
     dateModified: pageUpdated("/compare"),
   };
 

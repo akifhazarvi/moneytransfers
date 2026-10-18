@@ -305,13 +305,14 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 How to read an IBAN
               </h3>
               <p>
-                Every IBAN follows the same pattern. Take the German IBAN <code className="text-xs bg-[var(--color-surface)] px-1 py-0.5 rounded border border-[var(--color-outline)]">DE44 5001 0517 5407 3249 31</code> as an example:
+                Every IBAN follows the same pattern. Take the SWIFT IBAN Registry&apos;s German example,{" "}
+                <code className="text-xs bg-[var(--color-surface)] px-1 py-0.5 rounded border border-[var(--color-outline)]">DE89 3704 0044 0532 0130 00</code>:
               </p>
               <ul className="list-none space-y-1 pl-0">
                 <li><strong className="text-[var(--color-on-surface)]">DE</strong> — two-letter ISO country code (Germany)</li>
-                <li><strong className="text-[var(--color-on-surface)]">44</strong> — two check digits, calculated from the rest of the IBAN to catch typos</li>
-                <li><strong className="text-[var(--color-on-surface)]">50010517</strong> — eight-digit bank code (Bankleitzahl) identifying the branch</li>
-                <li><strong className="text-[var(--color-on-surface)]">5407324931</strong> — ten-digit domestic account number</li>
+                <li><strong className="text-[var(--color-on-surface)]">89</strong> — two check digits, calculated from the rest of the IBAN to catch typos</li>
+                <li><strong className="text-[var(--color-on-surface)]">37040044</strong> — eight-digit bank code (Bankleitzahl) identifying the bank</li>
+                <li><strong className="text-[var(--color-on-surface)]">0532013000</strong> — ten-digit domestic account number</li>
               </ul>
               <p>
                 Spaces shown in the print format (groups of four characters) are for readability only — they are stripped when sending electronically.
@@ -321,11 +322,10 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 How to find your IBAN
               </h3>
               <p>
-                Your IBAN appears on your bank statement, in your bank&apos;s mobile app (usually under account details or settings),
-                and on the back of your debit card in some countries. If you cannot find it there, log in to online banking
-                and look for &ldquo;account details&rdquo; or &ldquo;IBAN.&rdquo; Your bank can also provide it on request.
-                In countries that use IBANs, the format is fixed — you can verify a number is plausible by checking
-                it has the correct length for its country code (see each country page for the exact length).
+                Your IBAN appears on your bank statement and in your bank&apos;s app or online banking, usually under
+                &ldquo;account details&rdquo;. Your bank can also provide it on request. Each country&apos;s IBAN has a
+                fixed length, so the checker at the top of this page can tell you whether a number has the right
+                length and check digits for its country code.
               </p>
 
               <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
@@ -342,23 +342,24 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 Common IBAN mistakes to avoid
               </h3>
               <p>
-                The most frequent errors when using an IBAN are transposing digits, copying a print-format number
-                with spaces into a field that does not strip them, and using an outdated IBAN after a bank merger
-                or account change. Always copy your IBAN directly from your bank statement or app rather than
-                typing it from memory. A single wrong character can send the payment to a different account or
-                cause it to be returned, sometimes with a fee charged by the receiving bank.
+                The check digits catch a single mistyped character and most swapped pairs, so a typo is usually
+                rejected before the payment leaves. What they cannot catch is a valid IBAN that belongs to someone
+                else: an old IBAN after a bank merger or account change, a number copied from the wrong document, or
+                one sent by a fraudster posing as the recipient. Copy the IBAN from the recipient&apos;s own bank
+                details and confirm the account holder&apos;s name, because a payment that reaches the wrong valid
+                account is hard to recover.
               </p>
 
               <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 When do you need an IBAN?
               </h3>
               <p>
-                You need to provide an IBAN whenever you receive an international wire transfer from a country
-                that supports the standard — essentially anywhere in Europe, much of the Middle East, and a
-                growing number of countries in Africa, Asia, and the Americas. Within the SEPA zone, an IBAN
-                is also required for domestic euro payments. If someone is sending you money from outside the
-                IBAN network (for example from the US or Canada), share your SWIFT/BIC code and account number
-                instead; the sender&apos;s bank will handle the routing.
+                It depends on where the receiving account is, not where the money comes from. If the account is in
+                one of the{" "}{ibanStructures.length}{" "}countries that issue IBANs, the sender needs that IBAN —
+                even when paying from the US or Canada, where accounts have none. If the account is in a country
+                without IBANs, such as the US, Canada, Australia or India, the sender uses the local account details
+                and the bank&apos;s SWIFT/BIC code instead. Within SEPA, euro payments — domestic ones included — are
+                made to an IBAN.
               </p>
             </div>
           </div>

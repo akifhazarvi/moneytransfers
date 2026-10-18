@@ -38,7 +38,7 @@ npm run check:indexing   # sitemap ⇔ robots ⇔ canonical agree; sitemap-googl
 npm run check:headings   # no H2 shared by 10+ indexable pages (postbuild)
 npm run check:claims     # no scores, "Best Overall", unmeasured "cheapest", typed ratings (pre + postbuild)
 npm run check:swift-codes # no spliced, mis-countried or wrong-length SWIFT codes (prebuild)
-npm run check:rendered-text # no word glued to a value in rendered HTML, "216corridors" (postbuild)
+npm run check:rendered-text # no word glued to a value in rendered HTML, "216corridors"; no literal "—" (postbuild)
 npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (needs a deploy)
 npm run check:link-eligibility # internal links only to Google-eligible pages; /go /out nofollow sponsored (rule 14)
 npm run check:pwa        # manifest installable, icons/screenshots/shortcuts exist, sw.js bypass + offline revision (prebuild)
@@ -167,7 +167,11 @@ what enforces it. Where a rule is not automated, it says how to check it.
     expression, and an expression ending a line loses the line break — so
     `{n} corridors` shipped as "216corridors" on /methodology and
     `{country} etiquette` as "Franceetiquette" on every /travel page. Write
-    `{value}{" "}word`. *Enforced:* `check:rendered-text` (postbuild).
+    `{value}{" "}word`. Type a character in JSX text, never its escape:
+    `—` is decoded inside a JS string but printed as-is in text, which
+    put "fees together — and" on the homepage hero and "₹82,784.97"
+    on /methodology (Okara bot, 2026-10-15/16). *Enforced:*
+    `check:rendered-text` (postbuild).
 11. **After a deploy that changes URLs or indexing:** run
     `npm run ping:indexnow` (Bing and the IndexNow engines), and confirm GSC
     still lists only `sitemap-google.xml`.

@@ -17,6 +17,12 @@
  * "France<!-- -->etiquette". Units written straight after a number (27pp,
  * 17th, 3x) are allowed. And no heading (h1–h6) whose extracted text glues a
  * word to "(" — "Pakistan(SAR → PKR)" (2026-10-08, every corridor H1).
+ * And no literal "—" in visible text: JSX text does not decode a JS
+ * escape, so `fees together — and` printed the backslash on the homepage
+ * hero, four guide cards, /contact and /methodology ("₹82,500.00")
+ * after a bot rewrote the characters as escapes (Okara #77, #82, #114,
+ * 2026-10-15/16). Inside a JS string the escape is fine; in text, type the
+ * character.
  *
  * Usage: npx tsx scripts/check-rendered-text.ts   (needs a build; postbuild)
  */
@@ -52,8 +58,26 @@ const byText = new Map<string, { pages: number; example: string }>();
  * not glue.
  */
 const headingGlue = new Map<string, { pages: number; example: string }>();
-for (const file of walk(APP)) {
+/** A JS escape printed as text: "—", "₹". Keyed by the escape. */
+const literalEscapes = new Map<string, { pages: number; example: string }>();
+// The homepage is built beside the locale folder, as en.html.
+const HOME = `${APP}.html`;
+for (const file of [...(existsSync(HOME) ? [HOME] : []), ...walk(APP)]) {
   const html = readFileSync(file, "utf8").replace(/<script[\s\S]*?<\/script>/g, "");
+  const visible = html.replace(/<style[\s\S]*?<\/style>/g, "").replace(/<[^>]+>/g, " ");
+  const seen = new Set<string>();
+  for (const m of visible.matchAll(/\\u[0-9a-fA-F]{4}/g)) {
+    const key = m[0].toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const at = m.index ?? 0;
+    const hit = literalEscapes.get(key) ?? {
+      pages: 0,
+      example: `${file === HOME ? "/" : file.slice(APP.length)}: …${visible.slice(Math.max(0, at - 30), at + 20).replace(/\s+/g, " ").trim()}…`,
+    };
+    hit.pages++;
+    literalEscapes.set(key, hit);
+  }
   for (const m of html.matchAll(/([A-Za-z]{2,}|\d)<!-- -->([a-z]{2,}[^<]{0,30})/g)) {
     if (/^\d$/.test(m[1]) && UNITS.test(m[2])) continue;
     const key = m[2].slice(0, 24);
@@ -87,6 +111,15 @@ if (headingGlue.size) {
   process.exitCode = 1;
 }
 
+if (literalEscapes.size) {
+  console.error(`check:rendered-text — ${literalEscapes.size} JS escape(s) printed as visible text:`);
+  for (const [, { pages, example }] of [...literalEscapes].sort((a, b) => b[1].pages - a[1].pages).slice(0, 30)) {
+    console.error(`  ${String(pages).padStart(4)} page(s)  ${example}`);
+  }
+  console.error("\n  JSX text does not decode \\uXXXX — type the character (—, →, ’) instead.");
+  process.exitCode = 1;
+}
+
 if (byText.size) {
   console.error(`check:rendered-text — ${byText.size} word(s) glued to the value before them:`);
   for (const [, { pages, example }] of [...byText].sort((a, b) => b[1].pages - a[1].pages).slice(0, 30)) {
@@ -96,4 +129,4 @@ if (byText.size) {
   process.exit(1);
 }
 if (process.exitCode) process.exit(process.exitCode);
-console.log('check:rendered-text ok — no word glued to the value before it, no heading glued to "("');
+console.log('check:rendered-text ok — no word glued to the value before it, no heading glued to "(", no literal \\u escape');

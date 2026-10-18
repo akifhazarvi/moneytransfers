@@ -2501,7 +2501,7 @@ export const providerReviews: ProviderReview[] = [
     faqs: [
       {
         q: "Is ACE Money Transfer safe and legitimate?",
-        a: "Yes. ACE Money Transfer has been operating since 2002 — over 20 years of continuous service. It is regulated by the Financial Conduct Authority (FCA) in the UK, FinCEN in the US, and AUSTRAC in Australia. Customer funds are safeguarded in accordance with FCA regulations. ACE has a physical presence in Manchester, UK, and maintains banking partnerships with major Pakistani banks (HBL, MCB, UBL, Standard Chartered Pakistan). The company serves hundreds of thousands of customers and has strong brand recognition in the Pakistani and South Asian diaspora community.",
+        a: "Yes. ACE Money Transfer has been operating since 2002 — over 20 years of continuous service. It is authorised by the Financial Conduct Authority (FCA) in the UK under reference 506692, and names the Central Bank of Ireland, AUSTRAC in Australia and FINTRAC in Canada as its other regulators. Customer funds are safeguarded in accordance with FCA regulations. ACE has a physical presence in Manchester, UK, and maintains banking partnerships with major Pakistani banks (HBL, MCB, UBL, Standard Chartered Pakistan). The company serves hundreds of thousands of customers and has strong brand recognition in the Pakistani and South Asian diaspora community.",
       },
       {
         q: "Does ACE Money Transfer have the best rate for Pakistan?",

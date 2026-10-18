@@ -47,9 +47,6 @@ export default async function CookiePolicyPage({ params }: Props) {
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("lastUpdated", { date: longDay(pageUpdated("/cookies")) })}
             </p>
-            <p className="text-sm text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
-              This policy explains which cookies and browser storage SendMoneyCompare uses, why we use them, and how you can control them. We do not use advertising cookies, remarketing cookies, or any cross-site tracking technology.
-            </p>
           </div>
         </Container>
       </section>
@@ -63,15 +60,17 @@ export default async function CookiePolicyPage({ params }: Props) {
                 {t("whatAreCookies")}
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                <p>{t("whatAreCookiesDesc")}</p>
                 <p>
-                  Cookies contain a small amount of data — typically a randomly generated identifier or a user preference — and are sent back to the site on each visit. They cannot run code or access files elsewhere on your device.
+                  Cookies are small text files that are stored on your device when you
+                  visit a website. This page also covers browser storage like
+                  localStorage and sessionStorage, which work similarly.
                 </p>
                 <p>
-                  This policy also covers <strong>browser storage</strong> (localStorage and sessionStorage), which stores data locally in your browser without sending it to a server. We use these to remember your comparison preferences and currency selections across page loads.
-                </p>
-                <p>
-                  We do not use advertising cookies, remarketing cookies, or any cross-site tracking. We use Google Analytics with a first-party analytics cookie to count visitors accurately. In the UK, EU, EEA and Switzerland this cookie is only set after you accept it via our consent banner; elsewhere it is enabled by default.
+                  We do not use advertising cookies, remarketing cookies, or any
+                  cross-site tracking. We use Google Analytics with a first-party
+                  analytics cookie to count visitors accurately. In the UK, EU, EEA
+                  and Switzerland this cookie is only set after you accept it via our
+                  consent banner; elsewhere it is enabled by default.
                 </p>
               </div>
             </div>
@@ -86,9 +85,10 @@ export default async function CookiePolicyPage({ params }: Props) {
                   <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     {t("essentialCookies")}
                   </h3>
-                  <p className="mb-3">{t("essentialCookiesDesc")}</p>
                   <p className="mb-3">
-                    These cookies and storage entries are required for the site to function correctly or to remember your preferences. None of them identify you personally or track you across other websites.
+                    These are required for the site to function correctly or to remember
+                    your preferences. None of them identify you or track you across
+                    other websites.
                   </p>
                   <div className="overflow-x-auto">
                     <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
@@ -139,8 +139,7 @@ export default async function CookiePolicyPage({ params }: Props) {
                   <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     {t("analyticsCookies")}
                   </h3>
-                  <p className="mb-3">{t("analyticsCookiesDesc")}</p>
-                  <p className="mb-3">
+                  <p>
                     We use Google Analytics 4 with first-party cookies
                     (<span className="font-mono text-xs">_ga</span>,{" "}
                     <span className="font-mono text-xs">_ga_*</span>) that store a
@@ -151,7 +150,7 @@ export default async function CookiePolicyPage({ params }: Props) {
                     tracking data is collected. In the UK, EU, EEA and Switzerland
                     these cookies are only set after you accept them.
                   </p>
-                  <div className="overflow-x-auto">
+                  <div className="overflow-x-auto mt-4">
                     <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
                       <thead>
                         <tr className="bg-[var(--color-surface-dim)]">
@@ -194,10 +193,10 @@ export default async function CookiePolicyPage({ params }: Props) {
                 {t("managingPreferences")}
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                <p>{t("managingPreferencesDesc")}</p>
                 <p>
                   Because we don&apos;t use tracking or advertising cookies, there is no
-                  consent banner to manage for most visitors. You can still clear the essential cookies
+                  consent banner to manage outside the UK, EU, EEA and Switzerland, where
+                  one asks before analytics cookies are set. You can still clear the essential cookies
                   and browser storage listed above at any time via your browser
                   settings — the site will simply re-create them with defaults on your
                   next visit.
@@ -257,7 +256,8 @@ export default async function CookiePolicyPage({ params }: Props) {
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  We may update this Cookie Policy from time to time to reflect changes in the cookies we use or for other operational, legal, or regulatory reasons. Any changes will be posted on this page with an updated &quot;Last updated&quot; date. We encourage you to review this page periodically.
+                  We may update this Cookie Policy from time to time. Any changes will be
+                  posted on this page with an updated &quot;Last updated&quot; date.
                 </p>
               </div>
             </div>

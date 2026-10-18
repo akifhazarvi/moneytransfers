@@ -222,18 +222,14 @@ export default function ForAIPage() {
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Quick reference for AI agents</h2>
-            <p className="mb-4 text-[var(--color-on-surface-variant)]">
-              All endpoints are public, require no authentication, and respond with JSON. CORS headers allow
-              requests from any origin, including ChatGPT Actions and third-party AI tools.
-            </p>
             <ul className="space-y-2 text-[var(--color-on-surface)]">
-              <li><strong>Live quotes API</strong>: <a href="/api/ai" className="text-[var(--color-primary)]">/api/ai</a> — returns ranked provider quotes for a given currency corridor and send amount.</li>
-              <li><strong>With params</strong>: <code className="bg-[var(--color-surface-dim)] px-2 py-0.5 rounded">/api/ai?from=USD&amp;to=INR&amp;amount=1000</code> — specify sending currency, receiving currency, and amount.</li>
+              <li><strong>Live quotes API</strong>: <a href="/api/ai" className="text-[var(--color-primary)]">/api/ai</a> — no auth, CORS-enabled for ChatGPT; without parameters it returns provider summaries and popular corridors.</li>
+              <li><strong>With params</strong>: <code className="bg-[var(--color-surface-dim)] px-2 py-0.5 rounded">/api/ai?from=USD&amp;to=INR&amp;amount=1000</code> — ranked quotes for that sending currency, receiving currency and amount.</li>
               <li><strong>OpenAPI spec</strong> (GPT Actions): <a href="/openapi.json" className="text-[var(--color-primary)]">/openapi.json</a> — OpenAPI 3.1 schema for building ChatGPT Actions or agent tool definitions.</li>
               <li><strong>AI plugin manifest</strong>: <a href="/.well-known/ai-plugin.json" className="text-[var(--color-primary)]">/.well-known/ai-plugin.json</a> — ChatGPT plugin metadata following the OpenAI convention.</li>
               <li><strong>llms.txt (summary)</strong>: <a href="/llms.txt" className="text-[var(--color-primary)]">/llms.txt</a> — concise plain-text summary of the site for LLM context windows.</li>
               <li><strong>Custom GPT instructions</strong>: <a href="/gpt-instructions.md" className="text-[var(--color-primary)]">/gpt-instructions.md</a> — ready-to-paste instructions for configuring a Custom GPT.</li>
-              <li><strong>Sitemap</strong>: <a href="/sitemap.xml" className="text-[var(--color-primary)]">/sitemap.xml</a> — full list of crawlable pages for indexing agents.</li>
+              <li><strong>Sitemap</strong>: <a href="/sitemap.xml" className="text-[var(--color-primary)]">/sitemap.xml</a> — the pages we submit for indexing.</li>
             </ul>
           </section>
 
@@ -248,10 +244,12 @@ export default function ForAIPage() {
               both the transfer fee and the exchange rate markup.
             </p>
             <p className="leading-relaxed mt-4">
-              Every quote on this site is sourced from the provider's own calculator or API at the time of the last scrape.
-              We do not adjust, estimate, or interpolate quotes. When a provider does not publish a rate for a given
-              corridor or amount, we show nothing rather than a placeholder. This makes our data suitable for grounding
-              AI responses about money transfer costs.
+              Where a provider&apos;s own API or calculator gives us a quote, that quote wins unless another source&apos;s
+              is more than 24 hours fresher; comparison feeds fill the rest. Every row is restated to what the recipient
+              gets for the same total outlay, whatever fee convention its source uses. A provider that returns no quote
+              is left off that route rather than shown with a placeholder, and a quote that cannot be a standing price —
+              better than the mid-market rate, or a fee or markup far outside any real one — is shown after the ranked
+              rows, unranked.
             </p>
           </section>
 
@@ -261,7 +259,7 @@ export default function ForAIPage() {
               <li><strong>Data collection</strong>: automated scrapers every 6 hours (API integrations, Playwright browser, Cheerio HTML parsing).</li>
               <li><strong>Source priority</strong>: Direct API &gt; Comparison aggregator &gt; Third-party API &gt; Fallback.</li>
               <li><strong>Ranking metric</strong>: total amount the recipient receives (after fees + FX markup).</li>
-              <li><strong>Exchange rate benchmark</strong>: ECB, ExchangeRate.host, Open Exchange Rates.</li>
+              <li><strong>Exchange rate benchmark</strong>: XE mid-market rates collected every 6 hours, or the mid-market rate a quote source publishes with its quote.</li>
               <li><strong>Trustpilot ratings</strong>: overlaid from scraped Trustpilot data.</li>
             </ol>
             <p className="mt-4">
@@ -337,11 +335,8 @@ export default function ForAIPage() {
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Supported currencies</h2>
             <p className="mb-3 text-[var(--color-on-surface-variant)]">
-              We collect and compare quotes across {COVERAGE.corridors}. The currencies below span major remittance
-              corridors including US dollars, euros, British pounds, and the receiving currencies for the world's
-              largest remittance recipient countries — Indian rupees, Mexican pesos, Philippine pesos, Pakistani rupees,
-              and Nigerian naira. Gulf sending currencies (UAE dirham, Saudi riyal, Kuwaiti dinar) are included because
-              the Gulf states are among the world's largest remittance-sending regions.
+              Currencies selectable in the comparison. Quotes are compared on {COVERAGE.corridors}, the currency pairs
+              where two or more providers quote.
             </p>
             <p className="text-sm text-[var(--color-on-surface-variant)]">
               {currencies.map((c) => c.code).join(", ")}
@@ -351,9 +346,9 @@ export default function ForAIPage() {
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">All providers compared</h2>
             <p className="mb-3 text-[var(--color-on-surface-variant)]">
-              The providers below are the {COVERAGE.providers} we review in depth. Each has a dedicated review page
-              covering fees, exchange rates, transfer speeds, supported countries, and Trustpilot rating. Providers are
-              ranked by recipient payout, not by affiliate revenue.
+              The providers in our directory, each with a profile of its regulation, fees, limits and features. The
+              comparison itself prices the {COVERAGE.providers} we track and ranks them by what the recipient receives;
+              whether a provider pays us plays no part in its position.
             </p>
             <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
               {listableProviders().map((p) => (

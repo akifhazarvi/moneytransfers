@@ -64,6 +64,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) return {};
   const review = getProviderReview(slug);
+  // Only a writer authors.ts knows: an unmatched name gets no author rather
+  // than someone else's page.
+  const reviewAuthor = review ? getAuthorByName(review.reviewer) : undefined;
   const year = new Date().getFullYear();
   const tp = trustpilotIndex[slug];
   // Uniform meta formula across the whole /companies category, sized to
@@ -97,8 +100,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: DEFAULT_OG_IMAGES,
     },
     alternates: getAlternates(`companies/${slug}`, locale),
-    ...(review && {
-      authors: [{ name: review.reviewer, url: `/about/${getAuthorByName(review.reviewer)?.slug ?? "awais-imran"}` }],
+    ...(reviewAuthor && {
+      authors: [{ name: reviewAuthor.name, url: `/about/${reviewAuthor.slug}` }],
     }),
   };
 }
@@ -220,6 +223,7 @@ function DefaultReview({
     WIDGET_ROUTES.find(([from, to]) => generateQuotes(1000, from, to).some((q) => q.providerSlug === provider.slug)) ??
     WIDGET_ROUTES[0];
   const review = getProviderReview(provider.slug);
+  const reviewAuthor = review ? getAuthorByName(review.reviewer) : undefined;
   const profile = generateProviderProfile(provider, {
     score: tp?.score ?? undefined,
     reviews: tp?.totalReviews ?? undefined,
@@ -619,9 +623,6 @@ function DefaultReview({
         // both pages shipped full duplicate entities.
         "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
         name: provider.name, description: provider.description, url: provider.website,
-        // sameAs links the entity to the provider's official site for Google
-        // entity disambiguation — connects this page to the real-world business.
-        sameAs: [provider.website],
         // Trustpilot ratings remain attributed in the visible review. Google's
         // review-snippet guidelines exclude ratings sourced from other sites.
         ...(postalAddress(provider.headquarters) && { address: postalAddress(provider.headquarters) }),
@@ -634,16 +635,19 @@ function DefaultReview({
           { "@type": "ListItem", position: 3, name: provider.name, item: `https://sendmoneycompare.com/companies/${slug}` },
         ],
       }) }} />
-      {review && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      {review && reviewAuthor && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "Review",
         "author": {
           "@type": "Person",
-          "name": review.reviewer,
-          "url": `https://sendmoneycompare.com/about/${getAuthorByName(review.reviewer)?.slug ?? "awais-imran"}`,
-          "jobTitle": getAuthorByName(review.reviewer)?.role,
+          "@id": `https://sendmoneycompare.com/about/${reviewAuthor.slug}#person`,
+          "name": reviewAuthor.name,
+          "url": `https://sendmoneycompare.com/about/${reviewAuthor.slug}`,
+          "jobTitle": reviewAuthor.role,
         },
         "datePublished": review.publishedAt,
-        "dateModified": review.updatedAt,
+        // The byline's "Updated" date (rule 16), not the review file's own
+        // updatedAt, which a profile page does not print.
+        "dateModified": companyContentDate(review),
         "itemReviewed": {
           "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
         },

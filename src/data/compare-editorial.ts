@@ -671,35 +671,35 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "hsbc-vs-paypal": {
-    theDecision: `These two serve completely different purposes that happen to overlap on "sending money abroad." HSBC is a full-service bank: free transfers between HSBC accounts, £4-£9 otherwise, with a markup that ranges from 0% for Premier customers down to 2.5% for standard accounts. PayPal is a payments account with an FX feature bolted on: a 5% fee (capped at $4.99) plus a 3-4% markup, every time, regardless of account tier. If you and the recipient both bank with HSBC, this isn't really a contest. If not, it's a question of how expensive convenience is.`,
-    measuredRecord: `PayPal led on {{LED:paypal}} of the corridors we price against {{LED:hsbc}} for HSBC. PayPal's average shortfall when it isn't cheapest is {{SHORTFALL:paypal}}; HSBC's is {{SHORTFALL:hsbc}}. Read this with the tier caveat in mind: our HSBC quotes reflect standard retail pricing, not the 0% Premier rate — a Premier customer's real result would sit meaningfully closer to the leaders than the figure here suggests.`,
+    theDecision: `These two serve completely different purposes that happen to overlap on "sending money abroad." HSBC is a full-service bank: HSBC UK charges no fee between HSBC accounts and £5 for most other international payments, waived for Premier customers, and every transfer converts at the HSBC Exchange Rate, which includes a currency conversion charge. PayPal is a payments account with an FX feature bolted on: a 5% fee (capped at $4.99) plus a 3-4% markup, every time, regardless of account tier. If you and the recipient both bank with HSBC, the fee disappears but the margin in the rate does not. Either way, it's a question of how expensive convenience is.`,
+    measuredRecord: `PayPal led on {{LED:paypal}} of the corridors we price against {{LED:hsbc}} for HSBC. PayPal's average shortfall when it isn't cheapest is {{SHORTFALL:paypal}}; HSBC's is {{SHORTFALL:hsbc}}. Our HSBC quotes reflect standard retail pricing. A Premier customer is spared HSBC's £5 fee, but HSBC applies its exchange rate, conversion charge included, to Premier transfers too.`,
     workedExample: {
       heading: "A worked example: £1,000 to euros",
-      body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:hsbc:paypal:GBP:EUR:1000}}, with {{CHEAPER:hsbc:paypal:GBP:EUR:1000}} delivering more — {{COST_PCT:hsbc:GBP:EUR:1000}} all-in for HSBC against {{COST_PCT:paypal:GBP:EUR:1000}} for PayPal. This is standard-tier HSBC pricing; an HSBC Premier account pays no markup at all, which would change this comparison more than any other variable on this page.`,
+      body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:hsbc:paypal:GBP:EUR:1000}}, with {{CHEAPER:hsbc:paypal:GBP:EUR:1000}} delivering more — {{COST_PCT:hsbc:GBP:EUR:1000}} all-in for HSBC against {{COST_PCT:paypal:GBP:EUR:1000}} for PayPal. This is standard-tier HSBC pricing; an HSBC Premier account drops the £5 fee but not the conversion charge in HSBC's rate.`,
     },
     pickA: {
       heading: "Pick HSBC if you're a Premier customer or sending HSBC-to-HSBC",
-      body: `HSBC's case depends entirely on your account tier and the recipient's bank. HSBC-to-HSBC transfers are free with no markup; Premier customers get the mid-market rate on any transfer. Outside those two conditions, standard HSBC pricing (£4-£9 plus up to 2.5% markup) is not obviously competitive with a specialist. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA, and has been operating since 1865.`,
+      body: `HSBC's case depends on your account tier and the recipient's bank. HSBC UK charges no fee for HSBC-to-HSBC payments and waives its £5 international payment fee for Premier customers; every transfer still converts at the HSBC Exchange Rate, which <a href="https://www.hsbc.co.uk/international/money-transfer/" target="_blank" rel="noopener noreferrer nofollow">HSBC says includes a currency conversion charge</a>. Outside those two conditions, standard HSBC pricing is not obviously competitive with a specialist. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA, and has been operating since 1865.`,
     },
     pickB: {
       heading: "Pick PayPal only where the payment already lives there",
       body: `PayPal's case is the same as everywhere else it appears on this site: an invoice, a refund, or a counterparty who won't accept anything but a PayPal payment. It reaches 200 countries and needs only an email address, against HSBC's requirement that the recipient hold a bank account. Choosing PayPal as a deliberate remittance route, rather than because the payment already lives there, is the expensive option on this page for most standard-tier senders.`,
     },
-    limits: `HSBC's markup depends heavily on account tier (Premier vs standard) in a way our quotes cannot fully capture, and PayPal's consumer and business pricing differ. Confirm your own account tier's actual rate before relying on either figure.`,
+    limits: `HSBC's fee depends on account tier and the recipient's bank in a way our quotes cannot fully capture, and PayPal's consumer and business pricing differ. Confirm the rate your own account is offered before relying on either figure.`,
     verdict: {
-      costExplanation: `PayPal led {{LED:paypal}} of the corridors we price against {{LED:hsbc}} for HSBC, with average shortfalls of {{SHORTFALL:paypal}} and {{SHORTFALL:hsbc}}. HSBC's result reflects standard retail pricing; Premier customers pay no markup at all, a tier difference no other pair on this site has to account for.`,
+      costExplanation: `PayPal led {{LED:paypal}} of the corridors we price against {{LED:hsbc}} for HSBC, with average shortfalls of {{SHORTFALL:paypal}} and {{SHORTFALL:hsbc}}. HSBC's result reflects standard retail pricing; Premier customers skip the £5 fee, not the conversion charge in HSBC's rate.`,
       speedExplanation: `HSBC quotes same-day to three business days; PayPal settles instantly to another PayPal balance but takes longer once the money needs to reach a bank account. Neither is reliably faster than the other once the payout method is matched.`,
       coverageExplanation: `HSBC reaches 200 countries and 60 currencies through its own branch network; PayPal reaches 200 countries with just an email address needed from the recipient, though only 25 currencies. Neither has a transfer limit that binds a typical personal transfer.`,
-      bottomLine: `Account tier decides more of this page than either company's general pricing does. An HSBC Premier customer, or anyone sending HSBC-to-HSBC, should stop reading and use HSBC. Everyone else is choosing between a standard-tier bank markup and PayPal's flat combination of fee and markup, and neither is cheap next to a specialist.`,
+      bottomLine: `Account tier decides more of this page than either company's general pricing does. An HSBC Premier customer, or anyone sending HSBC-to-HSBC, pays no HSBC fee, only the margin in HSBC's rate, and that is the figure to set against PayPal's fee and markup. Everyone else is choosing between a standard-tier bank markup and PayPal's flat combination of fee and markup, and neither is cheap next to a specialist.`,
     },
     faqs: [
       {
         q: "Is HSBC actually free to use?",
-        a: "Only between two HSBC accounts, or for Premier-tier customers on any transfer. Standard-tier customers sending to a non-HSBC account pay £4-£9 plus a markup of up to 2.5%, which is the pricing reflected in the figures on this page.",
+        a: "Free of HSBC's fee between two HSBC accounts, for euro payments within the EEA, and for Premier and Private Banking customers; other international payments cost £5. No tier avoids the exchange rate: HSBC says its rate includes a currency conversion charge. The figures on this page are standard retail pricing.",
       },
       {
         q: "What does HSBC Premier change about this comparison?",
-        a: "Premier customers get the mid-market exchange rate with no markup, which would move HSBC from behind the leaders to among them. Our quotes reflect standard retail pricing since that's what most senders actually pay — check your own account tier before assuming either result applies to you.",
+        a: "It removes HSBC's £5 international payment fee. It does not change the exchange rate: HSBC applies its rate, which includes a currency conversion charge, to Premier transfers too. Our quotes reflect standard retail pricing since that's what most senders actually pay — check the rate HSBC shows you before assuming either result applies to you.",
       },
       {
         q: "Why would anyone use PayPal instead of a bank for a bank-to-bank transfer?",
@@ -707,11 +707,11 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Does HSBC charge the same fee everywhere?",
-        a: "No — the £4-£9 range and the markup both vary by corridor, amount and account tier. Confirm the fee schedule for your specific account and destination in HSBC's own transfer tool before committing.",
+        a: "No — HSBC UK charges nothing between HSBC accounts or for euro payments within the EEA, and £5 for other international payments unless you're a Premier or Private Banking customer. Confirm the fee and the rate for your account and destination in HSBC's own transfer tool before committing.",
       },
     ],
     keyDifferences: [
-      "HSBC-to-HSBC transfers are free with no markup; standard-tier transfers to other banks cost £4-£9 plus up to 2.5% markup, while Premier customers pay no markup on any transfer.",
+      "HSBC UK charges no fee between HSBC accounts and £5 for most other international payments, waived for Premier customers; every tier converts at the HSBC Exchange Rate, which includes a currency conversion charge.",
       "PayPal charges a flat combination of fee (5%, capped at $4.99) and markup (3-4%) regardless of account tier or destination bank.",
       "HSBC needs the recipient to hold a bank account; PayPal needs only an email address, which is the practical argument for PayPal's reach.",
       "Neither has a transfer limit that binds a typical personal remittance — this pair is decided by rate and account tier, not by size.",
@@ -1058,25 +1058,25 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "chase-vs-hsbc": {
-    theDecision: `Chase and HSBC don't overlap on any of the standard corridors we price side by side — Chase's quotes are concentrated in USD-denominated outbound transfers, HSBC's in GBP-denominated ones, so the two banks are rarely priced on the exact same currency pair and amount in our data. That's a genuine finding about how these two banks serve different sending markets, not a gap in our coverage. What's comparable is the model: both are full-service banks with wire-transfer pricing built around branch relationships rather than app-first cost competition, and both are meaningfully more expensive than a specialist on a like-for-like transfer. Someone comparing Chase and HSBC is usually already a customer of one and weighing whether the other offers a materially better deal for a specific transfer. In practice, the two serve different sending markets — the comparison that matters for most senders is not Chase versus HSBC but either bank versus a specialist for the same corridor.`,
+    theDecision: `Chase and HSBC don't overlap on any of the standard corridors we price side by side — Chase's quotes are concentrated in USD-denominated outbound transfers, HSBC's in GBP-denominated ones, so the two banks are rarely priced on the exact same currency pair and amount in our data. That's a genuine finding about how these two banks serve different sending markets, not a gap in our coverage. What's comparable is the model: both are full-service banks with wire-transfer pricing built around branch relationships rather than app-first cost competition, and both are meaningfully more expensive than a specialist on a like-for-like transfer.`,
     measuredRecord: `Because Chase and HSBC don't share a priced corridor in our sample set, a head-to-head win/loss count isn't available for this pair the way it is for others on this site. Compared separately against the market: Chase's average shortfall against the corridor leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}}. Both trail specialists by a wide margin, consistent with bank wire pricing generally.`,
     workedExample: {
       heading: "Why there's no worked example for this pair",
-      body: `Chase quotes the USD-outbound corridors we track (USD→INR, USD→MXN); HSBC's quotes here are on GBP-outbound corridors (GBP→EUR, GBP→PKR). The two never land on the same currency pair and amount in our sample set, so we can't show a real side-by-side figure the way we can for pairs that do overlap. If you're choosing between an HSBC and a Chase wire for the same transfer, get a live quote from each for your actual sending currency — this page's usefulness is in the model comparison below, not a single number. Both banks publish live rates through their online banking platforms before you commit, so the most reliable data point is always your own corridor at your own amount.`,
+      body: `Chase quotes the USD-outbound corridors we track (USD→INR, USD→MXN); HSBC's quotes here are on GBP-outbound corridors (GBP→EUR, GBP→PKR). The two never land on the same currency pair and amount in our sample set, so we can't show a real side-by-side figure the way we can for pairs that do overlap. If you're choosing between an HSBC and a Chase wire for the same transfer, get a live quote from each for your actual sending currency — this page's usefulness is in the model comparison below, not a number.`,
     },
     pickA: {
       heading: "Pick Chase if you already bank there and send in USD",
-      body: `Chase's case is convenience for an existing customer sending USD internationally. Transfers are initiated through Chase Online or the mobile app without setting up a separate account, backed by JPMorgan Chase's correspondent banking network. The trade-off is straightforward: the relationship convenience comes at a higher all-in cost than a specialist would charge on the same corridor. Chase supports transfers up to $250,000 and settles in 1-5 business days. For customers who prefer to consolidate their financial life with one institution and aren't optimising primarily for cost, that is a reasonable position — for anyone whose primary concern is what the recipient actually receives, a specialist will deliver more on the corridors both serve.`,
+      body: `Chase's case is convenience for an existing customer sending USD: the wire starts in Chase Online or the app, with no new account to open. It supports transfers to $250,000 and settles in 1-5 business days. Chase Private Client Checking waives Chase's wire fee, though not the spread in Chase's exchange rate. The all-in cost is still higher than a specialist's on the same corridor, so this is a relationship-convenience choice, not a cost-competitive one.`,
     },
     pickB: {
       heading: "Pick HSBC if you're a Premier customer or sending GBP",
-      body: `HSBC's case depends heavily on account tier. Premier customers — who qualify with a minimum balance, mortgage or income threshold — pay no markup on international transfers, and HSBC-to-HSBC transfers are free with no markup for any account holder. Standard-tier customers pay a fee plus a markup on the exchange rate, bringing costs in line with other bank wires rather than specialist apps. HSBC also has a broader global branch and correspondent-banking footprint than Chase, which matters for transfers to markets Chase doesn't price directly. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA. If you're already an HSBC Premier customer, the account tier effectively makes HSBC competitive on the corridors it prices — that is a genuine advantage over any standard-tier bank wire, Chase included.`,
+      body: `HSBC's case depends on account tier. HSBC UK charges no fee for HSBC-to-HSBC payments, euro payments within the EEA or Global Money Account payments, and £5 for other international payments, waived for Premier and Private Banking customers. Every tier converts at the HSBC Exchange Rate, which <a href="https://www.hsbc.co.uk/international/money-transfer/" target="_blank" rel="noopener noreferrer nofollow">HSBC says includes a currency conversion charge</a>: Premier removes the fee, not the markup. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA.`,
     },
-    limits: `Chase and HSBC don't share a priced corridor in our sample, so figures for each are shown separately rather than head-to-head. The most reliable comparison for your actual transfer is a live quote from both banks at your sending amount and currency. Account tier has an outsized impact on HSBC's pricing — Premier conditions and qualifying thresholds vary by country, and confirming your own tier's terms with HSBC directly is worth doing before assuming any quoted rate applies to you. Chase's wire pricing applies uniformly to account holders and doesn't have an equivalent free tier for international transfers.`,
+    limits: `Chase and HSBC don't share a priced corridor in our sample, so figures for each are shown separately rather than head-to-head. Confirm your own account tier's actual rate with each bank directly.`,
     verdict: {
-      costExplanation: `No shared corridor exists in our sample to compare these two directly. Chase's average shortfall against the leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}} — both a bank-wire premium over a specialist, measured separately rather than against each other. HSBC Premier customers are the exception: they pay no markup, which changes the comparison materially for anyone who qualifies.`,
+      costExplanation: `No shared corridor exists in our sample to compare these two directly. Chase's average shortfall against the leader is {{SHORTFALL:chase}}; HSBC's is {{SHORTFALL:hsbc}} — both a bank-wire premium over a specialist, measured separately rather than against each other.`,
       speedExplanation: `Chase settles in 1-5 business days; HSBC in same-day to 3 business days. Neither offers an express, minutes-level option the way a digital remittance specialist does.`,
-      coverageExplanation: `Both reach around 200 countries through correspondent banking relationships. Chase supports 100 currencies against HSBC's 60; HSBC has no upper transfer limit against Chase's $250,000 cap.`,
+      coverageExplanation: `Both reach around 200 countries through correspondent banking relationships. Chase supports 100 currencies against HSBC's 60; HSBC UK lets you send up to £50,000 online against Chase's $250,000 cap.`,
       bottomLine: `This page exists to compare two bank-wire models rather than to declare a winner — the two rarely serve the same sending currency in our data. If you're an existing customer of either, the relationship convenience may outweigh the cost; if you're choosing from scratch, both trail a digital specialist by a wide margin on the corridors we measure.`,
     },
     faqs: [
@@ -1086,31 +1086,26 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Is a bank wire ever cheaper than a specialist app?",
-        a: "Rarely, on the corridors we measure — both Chase and HSBC trail digital specialists by a wide margin on standard retail pricing. The exception is HSBC Premier customers, who pay no markup at all, or HSBC-to-HSBC transfers, which are free.",
+        a: "Rarely, on the corridors we measure — both Chase and HSBC trail digital specialists by a wide margin on standard retail pricing. A top account tier (HSBC Premier, Chase Private Client) removes the bank's transfer fee, but not the margin in its exchange rate.",
       },
       {
         q: "Which bank has the higher transfer limit?",
-        a: "HSBC has no published upper limit; Chase caps at $250,000. For a transfer near either figure, confirm the current policy with the bank directly, since large-transfer handling often involves additional verification.",
+        a: "HSBC UK lets you send up to £50,000 online and £10,000 by phone (Premier customers have a higher phone limit); Chase caps at $250,000. For a transfer near either figure, confirm the current policy with the bank directly, since large-transfer handling often involves additional verification.",
       },
       {
         q: "Should I switch banks just to get a better transfer rate?",
         a: "Usually not — a specialist provider (Wise, Remitly, or a broker like OFX depending on the amount) will typically beat either bank's standard rate without requiring you to open a new account at all.",
       },
       {
-        q: "Does HSBC Premier actually make a difference for international transfers?",
-        a: "Yes — HSBC Premier customers pay no markup on international transfers, which makes HSBC competitive on the corridors it prices. Standard-tier customers pay a markup that puts HSBC in line with other bank wires rather than specialist apps. Whether qualifying for Premier makes sense depends on your broader relationship with the bank, not just the transfer cost.",
-      },
-      {
-        q: "Can I send money with Chase if the recipient doesn't have a Chase account?",
-        a: "Yes — Chase international wire transfers go to any bank account worldwide, not only other Chase accounts. The free HSBC-to-HSBC case is specific to HSBC: standard-tier HSBC customers sending to non-HSBC accounts pay the normal fee and markup.",
+        q: "Does HSBC Premier make a difference for international transfers?",
+        a: "It removes the £5 fee HSBC UK charges standard customers on a payment to another bank outside the EEA, or in a currency other than euros. It does not remove the currency conversion charge HSBC includes in its exchange rate, so a Premier transfer still costs the gap between HSBC's rate and the mid-market rate. Whether Premier is worth qualifying for depends on your wider relationship with the bank, not on this fee.",
       },
     ],
     keyDifferences: [
       "Chase and HSBC don't share a priced corridor in our sample: Chase's quotes are USD-outbound, HSBC's are GBP-outbound.",
-      "HSBC-to-HSBC transfers are free with no markup, and Premier customers pay no markup on any transfer; Chase's pricing doesn't have an equivalent free tier for international transfers.",
-      "HSBC has no published upper transfer limit; Chase caps at $250,000.",
+      "Both waive their own transfer fee on a top tier — HSBC for Premier and Private Banking customers (and on HSBC-to-HSBC payments), Chase for Private Client Checking — and neither waives the margin in its exchange rate.",
+      "HSBC UK lets you send up to £50,000 online; Chase caps at $250,000.",
       "Chase settles in 1-5 business days; HSBC in same-day to 3 business days — neither offers a minutes-level express option.",
-      "HSBC's pricing varies substantially by account tier; confirming your own tier's terms directly with HSBC is the only reliable way to know your actual rate.",
     ],
   },
 
@@ -1451,39 +1446,39 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "revolut-vs-hsbc": {
-    theDecision: `Revolut is a digital-first account with a 0% weekday markup; HSBC is a full-service bank whose markup ranges from 0% for Premier customers to 2.5% for standard accounts. On a weekday, within Revolut's free allowance, it's hard for a standard-tier HSBC transfer to compete. The comparison narrows sharply for an HSBC Premier customer, or for an HSBC-to-HSBC transfer, which is free with no markup at all.`,
-    measuredRecord: `Revolut led on {{LED:revolut}} of the corridors we price against {{LED:hsbc}} for HSBC. HSBC's average shortfall when it isn't cheapest is {{SHORTFALL:hsbc}}, against {{SHORTFALL:revolut}} for Revolut — a gap that reflects standard-tier HSBC pricing rather than the Premier rate.`,
+    theDecision: `Revolut is a digital-first account with a 0% weekday markup; HSBC is a full-service bank that converts every transfer at the HSBC Exchange Rate, which includes a currency conversion charge, and charges £5 for most international payments to other banks unless you're a Premier customer. On a weekday, within Revolut's free allowance, it's hard for a standard-tier HSBC transfer to compete. An HSBC Premier customer, or an HSBC-to-HSBC transfer, avoids the fee but not the margin in the rate.`,
+    measuredRecord: `Revolut led on {{LED:revolut}} of the corridors we price against {{LED:hsbc}} for HSBC. HSBC's average shortfall when it isn't cheapest is {{SHORTFALL:hsbc}}, against {{SHORTFALL:revolut}} for Revolut — a gap measured on standard-tier HSBC pricing.`,
     workedExample: {
       heading: "A worked example: £1,000 to euros",
-      body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:revolut:hsbc:GBP:EUR:1000}}, with {{CHEAPER:revolut:hsbc:GBP:EUR:1000}} delivering more — {{COST_PCT:revolut:GBP:EUR:1000}} all-in for Revolut against {{COST_PCT:hsbc:GBP:EUR:1000}} for HSBC. This reflects Revolut's weekday rate and HSBC's standard tier; either variable moving — a weekend transfer, or an HSBC Premier account — changes the result.`,
+      body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:revolut:hsbc:GBP:EUR:1000}}, with {{CHEAPER:revolut:hsbc:GBP:EUR:1000}} delivering more — {{COST_PCT:revolut:GBP:EUR:1000}} all-in for Revolut against {{COST_PCT:hsbc:GBP:EUR:1000}} for HSBC. This reflects Revolut's weekday rate and HSBC's standard tier; a weekend transfer moves Revolut's side, and an HSBC Premier account removes HSBC's fee but not the conversion charge in its rate.`,
     },
     pickA: {
       heading: "Pick HSBC if you're a Premier customer or sending HSBC-to-HSBC",
-      body: `HSBC's case depends entirely on account tier: free and markup-free between two HSBC accounts, or the mid-market rate for Premier customers on any transfer. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA, and has operated since 1865.`,
+      body: `HSBC's case depends on account tier and the recipient's bank: no HSBC fee between two HSBC accounts or for Premier customers, though every transfer converts at the HSBC Exchange Rate, which <a href="https://www.hsbc.co.uk/international/money-transfer/" target="_blank" rel="noopener noreferrer nofollow">HSBC says includes a currency conversion charge</a>. It's regulated by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a>, the PRA and the HKMA, and has operated since 1865.`,
     },
     pickB: {
       heading: "Pick Revolut for weekday transfers and app-based convenience",
       body: `Revolut is the better instrument for most standard-tier senders: free up to £1,000 a month at the interbank rate on weekdays, then 0.5%. Revolut-to-Revolut transfers are instant and free. The constraint is the weekend markup and the requirement that the recipient hold a Revolut account for the fastest route.`,
     },
-    limits: `HSBC's markup depends heavily on account tier in a way our quotes cannot fully capture, and Revolut's free allowance and weekend markup depend on plan tier. Confirm your own account terms before relying on either figure.`,
+    limits: `HSBC's fee depends on account tier and the recipient's bank in a way our quotes cannot fully capture, and Revolut's free allowance and weekend markup depend on plan tier. Confirm your own account terms before relying on either figure.`,
     verdict: {
-      costExplanation: `Revolut led {{LED:revolut}} of the corridors we price against {{LED:hsbc}} for HSBC, with average shortfalls of {{SHORTFALL:revolut}} and {{SHORTFALL:hsbc}}. HSBC's result reflects standard retail pricing — Premier customers pay no markup at all.`,
+      costExplanation: `Revolut led {{LED:revolut}} of the corridors we price against {{LED:hsbc}} for HSBC, with average shortfalls of {{SHORTFALL:revolut}} and {{SHORTFALL:hsbc}}. HSBC's result reflects standard retail pricing — Premier customers skip the fee, not the margin in HSBC's rate.`,
       speedExplanation: `Revolut-to-Revolut transfers are instant; HSBC settles same-day to three business days. For a transfer to an external account, both depend on the receiving bank's own processing time.`,
-      coverageExplanation: `HSBC's 200 countries and 60 currencies run through its own branch network; Revolut's 150 countries and 36 currencies run through the app, with no upper transfer limit against HSBC's similarly unlimited standard.`,
-      bottomLine: `Account tier and day of the week decide more of this page than either company's general reputation does. A weekday Revolut transfer within the free allowance is hard to beat for a standard-tier sender; an HSBC Premier customer, or an HSBC-to-HSBC transfer, changes the comparison entirely.`,
+      coverageExplanation: `HSBC's 200 countries and 60 currencies run through its own branch network; Revolut's 150 countries and 36 currencies run through the app, with no upper transfer limit; HSBC UK lets you send up to £50,000 online.`,
+      bottomLine: `Account tier and day of the week decide more of this page than either company's general reputation does. A weekday Revolut transfer within the free allowance is hard to beat for a standard-tier sender; an HSBC Premier customer, or an HSBC-to-HSBC transfer, removes HSBC's fee but still pays the margin in its rate.`,
     },
     faqs: [
       {
         q: "Does HSBC Premier change this comparison?",
-        a: "Substantially — Premier customers pay no markup on any transfer, which would move HSBC from behind Revolut to competitive with it. Our figures reflect standard retail pricing, since that's what most senders actually pay.",
+        a: "Less than it might seem. Premier removes HSBC's £5 international payment fee, but HSBC applies its exchange rate, which includes a currency conversion charge, to Premier transfers too. Our figures reflect standard retail pricing, since that's what most senders actually pay.",
       },
       {
         q: "Why does the day of the week matter for Revolut but not HSBC?",
-        a: "Revolut's markup is 0% on weekdays and 0.5-1% on weekends, because the underlying interbank FX market is closed then. HSBC's pricing doesn't have an equivalent weekend effect — its markup depends on account tier, not the day you send.",
+        a: "Revolut's markup is 0% on weekdays and 0.5-1% on weekends, because the underlying interbank FX market is closed then. HSBC publishes no weekend surcharge — its fee depends on account tier and the recipient's bank, not the day you send.",
       },
       {
         q: "Is HSBC-to-HSBC really free?",
-        a: "Yes, with no markup, regardless of account tier. If both you and the recipient bank with HSBC, that's typically the cheapest route on this page, ahead of even Revolut's free weekday allowance.",
+        a: "Free of HSBC's fee, yes, on every account tier. Not free of the exchange rate: when the payment converts currency, HSBC uses its own rate, which includes a currency conversion charge. Compare what the recipient gets against Revolut before assuming the fee-free route is cheaper.",
       },
       {
         q: "What happens after Revolut's free monthly allowance?",
@@ -1491,8 +1486,8 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "Revolut's markup is 0% on weekdays, 0.5-1% on weekends; HSBC's ranges from 0% (Premier or HSBC-to-HSBC) to 2.5% (standard tier), with no weekend effect.",
-      "Revolut gives a free £1,000 monthly allowance, then 0.5%; HSBC charges £4-£9 per transfer at standard tier, or nothing between two HSBC accounts.",
+      "Revolut's markup is 0% on weekdays, 0.5-1% on weekends; HSBC converts at its own rate, which includes a currency conversion charge on every tier, with no published weekend surcharge.",
+      "Revolut gives a free £1,000 monthly allowance, then 0.5%; HSBC UK charges £5 for most international payments at standard tier, and nothing between two HSBC accounts or for Premier customers.",
       "Revolut-to-Revolut transfers are instant; HSBC settles same-day to three business days.",
       "HSBC's 200-country branch network exceeds Revolut's 150-country app-based reach.",
     ],

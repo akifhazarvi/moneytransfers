@@ -11,6 +11,7 @@ import { PageByline } from "@/components/PageByline";
 import { METHODOLOGY_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 import { providerReviews } from "@/data/provider-reviews";
 import { companyPageRenders } from "@/lib/company-route";
+import { MATERIALITY_BAND_PCT } from "@/lib/rank-quotes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -63,7 +64,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
             "@context": "https://schema.org",
             "@type": "Article",
             headline:
-              "Methodology \u2014 How We Collect Data & Rank Providers",
+              "Methodology — How We Collect Data & Rank Providers",
             description:
               "A detailed explanation of how SendMoneyCompare collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
             author: {
@@ -82,7 +83,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
             // sitemap submits. A dateModified that moved with every scrape
             // (getDataUpdatedDate, until 2026-10-09) disagreed with both, and
             // a date that changes every day reads as automated (round-3 brief
-            // \u00a74.4D). The figures' own freshness is stated in the text.
+            // §4.4D). The figures' own freshness is stated in the text.
             dateModified: lastUpdated,
             mainEntityOfPage: {
               "@type": "WebPage",
@@ -99,7 +100,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               {t("title")}
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
-              How we collect data, calculate costs, and rank providers \u2014 in full
+              How we collect data, calculate costs, and rank providers — in full
               detail.
             </p>
             {/* Round-3 QA item 7: the author was named only in JSON-LD and the
@@ -144,39 +145,39 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   COUNTS). Every provider count on the site is one of them and
                   says which: tracked, compared for a route, or reviewed. */}
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">1. Providers tracked \u2014 {SITE_STATS.trackedProviders}</dt>
+                <dt className="font-semibold text-[var(--color-on-surface)]">1. Providers tracked — {SITE_STATS.trackedProviders}</dt>
                 <dd>Distinct providers with a live quote anywhere in our data, including banks quoted through comparison feeds. Elsewhere on the site this is rounded down to {atLeast(SITE_STATS.trackedProviders)} (&ldquo;we track {atLeast(SITE_STATS.trackedProviders)}{" "}providers&rdquo;), so the claim survives a provider dropping out between scrapes. Our indexes rank subsets of it and say so: the Provider Consistency Index ranks the {CONSISTENCY_INDEX.rows.length}{" "}with enough contested days.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">2. Providers compared \u2014 per route</dt>
+                <dt className="font-semibold text-[var(--color-on-surface)]">2. Providers compared — per route</dt>
                 <dd>The providers with a comparable estimate for the route and amount a page is about: the rows its comparison prints (&ldquo;14 providers quote this route&rdquo;). It changes from page to page and with every refresh, so it is never quoted as a site-wide figure.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">3. Providers reviewed \u2014 {SITE_STATS.reviewedProviders}</dt>
+                <dt className="font-semibold text-[var(--color-on-surface)]">3. Providers reviewed — {SITE_STATS.reviewedProviders}</dt>
                 <dd>Providers with a review page at /companies that we list: regulation, fees, limits and features, recorded by our editors from each provider&rsquo;s published terms.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Full editorial reviews \u2014 {providerReviews.filter((r) => companyPageRenders(r.slug)).length}</dt>
-                <dd>Reviewed providers whose page also carries a written verdict, who the service suits and the alternatives worth comparing \u2014 a subset of the providers reviewed.</dd>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Full editorial reviews — {providerReviews.filter((r) => companyPageRenders(r.slug)).length}</dt>
+                <dd>Reviewed providers whose page also carries a written verdict, who the service suits and the alternatives worth comparing — a subset of the providers reviewed.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Providers we sent test transfers with \u2014 {providerReviews.filter((r) => /\b(sent|conducted)\b[^.]*\btest transfers\b/i.test(r.howWeTested)).length}</dt>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Providers we sent test transfers with — {providerReviews.filter((r) => /\b(sent|conducted)\b[^.]*\btest transfers\b/i.test(r.howWeTested)).length}</dt>
                 <dd>Reviewed providers whose review documents our own test transfers: corridors, dates and funding methods. The other reviews are based on collected quotes and, for LemFi and Unplex, the providers&rsquo; public rate APIs.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Corridors compared \u2014 {SITE_STATS.comparableCorridors}</dt>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Corridors compared — {SITE_STATS.comparableCorridors}</dt>
                 <dd>Currency pairs where two or more providers quote, so a comparison actually exists. This is the number our copy uses.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Corridors tracked \u2014 {SITE_STATS.corridorsWithData}</dt>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Corridors tracked — {SITE_STATS.corridorsWithData}</dt>
                 <dd>Currency pairs with at least one quote. Describes the size of the dataset, never how many routes we compare.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Rate-history pairs \u2014 {SITE_STATS.historyPairs}</dt>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Rate-history pairs — {SITE_STATS.historyPairs}</dt>
                 <dd>Currency pairs with a published daily rate history page.</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--color-on-surface)]">Currencies supported \u2014 {SITE_STATS.currencies}</dt>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Currencies supported — {SITE_STATS.currencies}</dt>
                 <dd>Currencies selectable anywhere in the comparison tool.</dd>
               </div>
             </dl>
@@ -197,7 +198,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   Our mission is to provide transparent, data-driven comparisons
                   of international money transfer services. We believe people
                   sending money abroad deserve to see the true cost of every
-                  transfer \u2014 including hidden exchange rate markups \u2014 so they can
+                  transfer — including hidden exchange rate markups — so they can
                   make informed choices.
                 </p>
                 <p>
@@ -251,21 +252,19 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                     priority weighting before being served to users.
                   </p>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
-                    When two sources quote the same provider on the same corridor,
-                    the higher-priority source wins \u2014 unless the lower-priority
-                    source is more than 24 hours fresher, in which case the
-                    fresher data takes precedence. This prevents a stale API
-                    integration from being preferred over a more recently scraped
-                    figure.
+                    When two sources quote the same provider at the same amount
+                    on the same corridor, the higher-priority source wins — unless
+                    the other is more than 24 hours fresher, in which case the
+                    fresher quote takes precedence. This keeps a source that has
+                    stopped updating from outranking a recent quote.
                   </p>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    <strong>Source priority (highest to lowest):</strong> Direct
-                    provider API &gt; Partner comparison API &gt; Third-party
-                    aggregator &gt; Automated browser quote &gt; Gap-fill
-                    estimates. Gap-fill rows are used only on corridors where no
-                    higher-priority source covers the provider, and they are never
-                    used for the providers whose own APIs or scrapers already
-                    supply us with data on any corridor.
+                    <strong>Source priority (highest to lowest):</strong> the
+                    provider&apos;s own API or calculator &gt; Wise&apos;s
+                    comparison API &gt; Monito &gt; Exiap &gt; RemitRoutes.
+                    RemitRoutes fills gaps only: its row for a provider is dropped
+                    wherever any better source quotes that provider on the same
+                    corridor, at any amount.
                   </p>
                 </div>
 
@@ -286,58 +285,53 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Every incoming quote passes a set of automated integrity checks
-                  before it can influence a comparison ranking. Rows that fail a
-                  check are quarantined \u2014 retained in the raw dataset for auditing
-                  but excluded from the rankings shown to users.
+                  before it can influence a comparison ranking. A quote that fails
+                  one is still shown, after the ranked rows and labelled with the
+                  reason, but it is never ranked.
                 </p>
                 <p>
                   <strong className="text-[var(--color-on-surface)]">Beating the interbank rate:</strong>{" "}
                   No legitimate retail money transfer provider can consistently
-                  offer a recipient more than the mid-market rate \u2014 doing so would
+                  offer a recipient more than the mid-market rate — doing so would
                   mean the provider absorbs a loss on every transaction. If a
-                  quote&apos;s implied exchange rate exceeds our mid-market
-                  benchmark by more than a defined tolerance, the row is
-                  quarantined as a probable promotional or error rate. We maintain
-                  a separate list of currencies where official and market rates
-                  legitimately diverge (for example, currencies with capital
-                  controls); quotes on those corridors are evaluated against the
-                  parallel market rate instead.
+                  quote&apos;s exchange rate beats our mid-market benchmark by
+                  more than a small tolerance, it is labelled as a likely
+                  promotional rate or data error and left unranked. Currencies
+                  with a parallel market, where the official rate understates
+                  what a dollar actually buys, are exempt from this check: on
+                  those corridors a provider can legitimately pay more than the
+                  official mid.
                 </p>
                 <p>
                   <strong className="text-[var(--color-on-surface)]">Stale data:</strong>{" "}
-                  Each quote row carries the UTC timestamp of its most recent
-                  fetch. If a row falls more than 72 hours behind the freshest
-                  data for the same provider on the same corridor, it is
-                  quarantined as stale. The provider will appear as unavailable
-                  for that route rather than showing an outdated rate, because an
-                  old rate can be worse for the user than no rate at all.
+                  Each quote row carries the time it was collected. A row more
+                  than 72 hours older than the freshest quote we hold means that
+                  provider&apos;s collection has stopped; it is shown with the
+                  date it was collected and left unranked, rather than competing
+                  with current rates.
                 </p>
                 <p>
                   <strong className="text-[var(--color-on-surface)]">Promotional and first-transfer rates:</strong>{" "}
                   Some providers offer a significantly better rate for a new
                   customer&apos;s first transfer, or for a limited promotional
-                  window. We identify these rows and store them separately. The
-                  headline rate shown in comparison tables is always the standard
-                  rate; promotional rates are labelled as such and displayed
-                  alongside the standard rate where they apply.
+                  window. Where a source reports both, we store the promotional
+                  rate separately: the comparison rate is the standard one, and
+                  the promotion appears as a note beside it.
                 </p>
                 <p>
                   <strong className="text-[var(--color-on-surface)]">Placeholder quotes:</strong>{" "}
-                  A scraper that cannot retrieve a live quote for a given corridor
-                  records nothing \u2014 it does not insert a fallback figure. A
-                  provider that gives no quote is absent from the comparison for
-                  that route, rather than appearing with a mid-market rate and a
-                  zero fee, which would misrepresent its true cost.
+                  A scraper that cannot retrieve a live quote for a corridor
+                  records nothing. It does not insert a fallback figure such as
+                  the mid-market rate with a zero fee, which would misrepresent
+                  the provider&apos;s cost.
                 </p>
                 <p>
                   <strong className="text-[var(--color-on-surface)]">Fee shape validation:</strong>{" "}
-                  Some providers publish tiered fee schedules where the fee
-                  depends on the send amount, while others charge a flat fee
-                  regardless of amount. Our scrapers and parsers are built to
-                  read both structures. A fee of zero from a provider that
-                  publishes non-zero fees in its own documentation is flagged as
-                  a parse gap and logged for review, rather than being accepted
-                  silently.
+                  A fee schedule can be tiered by amount or flat. Where a
+                  provider publishes both (TapTap Send does), the scraper reads
+                  both, and a schedule it cannot read is logged in the run
+                  rather than stored as a zero fee. Quotes collected before that
+                  fix are restated with the provider&apos;s published flat fee.
                 </p>
               </div>
             </div>
@@ -387,11 +381,9 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                 <p>
                   To calculate a provider&apos;s exchange rate markup, we compare
                   their offered rate against the <strong>mid-market rate</strong>{" "}
-                  \u2014 the midpoint between buy and sell rates on global currency
+                  — the midpoint between buy and sell rates on global currency
                   markets. This is widely considered the &quot;real&quot;
-                  exchange rate, and it is the same benchmark that EU law
-                  (Regulation 2019/518) requires providers to use when disclosing
-                  their currency conversion charges to customers.
+                  exchange rate.
                 </p>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
                   <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
@@ -399,32 +391,22 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   </h3>
                   <ul className="list-disc pl-5 space-y-2 text-2sm text-[var(--color-on-surface-variant)]">
                     <li>
-                      <strong>European Central Bank (ECB)</strong> \u2014 official
-                      reference rates published daily at approximately 16:00 CET.
-                      The ECB rate is our primary reference for EUR-based pairs
-                      and is the benchmark EU law specifies for markup disclosure.
+                      <strong>The quote source&apos;s own mid-market rate</strong>{" "}
+                      — where a comparison feed publishes the mid-market rate it
+                      priced against, the markup is measured against that, so the
+                      quote and its benchmark come from the same moment.
                     </li>
                     <li>
-                      <strong>ExchangeRate.host</strong> \u2014 aggregated
-                      mid-market rate API used for near-real-time rates outside
-                      ECB publishing hours and for currency pairs the ECB does
-                      not cover.
-                    </li>
-                    <li>
-                      <strong>Open Exchange Rates</strong> \u2014 widely used FX
-                      data provider, used as a cross-check and fallback where
-                      the primary sources diverge by more than a defined
-                      tolerance.
+                      <strong>XE mid-market rates</strong> — collected every six
+                      hours alongside the provider quotes, for every other quote.
                     </li>
                   </ul>
                 </div>
                 <p>
-                  By cross-referencing multiple sources, we ensure our benchmark
-                  rate is accurate and resilient to any single data feed
-                  experiencing outages or delays. The markup percentage we
+                  The markup percentage we
                   publish for a provider on a given corridor is always the
                   provider&apos;s rate measured against the mid-market rate, never
-                  against another provider&apos;s rate \u2014 comparing two retail
+                  against another provider&apos;s rate — comparing two retail
                   rates against each other would obscure how much both deviate
                   from the true market price.
                 </p>
@@ -441,26 +423,34 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   The cost of an international transfer has two components, and
                   looking at either one in isolation is misleading:
                 </p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>
-                    <strong>Transfer fee:</strong> The flat or percentage-based
-                    fee a provider charges to process your transfer. This is
-                    usually stated upfront \u2014 e.g., &quot;$2.99 fee&quot; or
-                    &quot;1% of send amount.&quot;
-                  </li>
-                  <li>
-                    <strong>Exchange rate markup:</strong> The difference between
-                    the provider&apos;s exchange rate and the mid-market rate.
-                    This is often the larger cost, but many providers don&apos;t
-                    disclose it explicitly.
-                  </li>
-                </ul>
               </div>
-              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed mt-4">
+              <div className="grid sm:grid-cols-2 gap-4 my-4">
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                    1. Transfer fee
+                  </h3>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                    The flat or percentage-based fee a provider charges to
+                    process your transfer. This is usually stated upfront —
+                    e.g., &quot;$2.99 fee&quot; or &quot;1% of send amount.&quot;
+                  </p>
+                </div>
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                    2. Exchange rate markup
+                  </h3>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                    The difference between the provider&apos;s exchange rate and
+                    the mid-market rate. This is often the larger cost, but many
+                    providers don&apos;t disclose it explicitly.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>Our formula for ranking is straightforward:</p>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 font-mono text-2sm text-[var(--color-on-surface)]">
                   <p>
-                    Receive amount = (Send amount \u2212 Transfer fee) \u00d7 Provider
+                    Receive amount = (Send amount − Transfer fee) × Provider
                     exchange rate
                   </p>
                   <p className="mt-2 text-[var(--color-on-surface-variant)]">
@@ -477,15 +467,15 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   <div className="space-y-2 text-2sm text-[var(--color-on-surface-variant)]">
                     <p>
                       <strong>Provider A:</strong> $4.99 fee, rate of 83.20
-                      INR/USD \u2192 Recipient gets ($1,000 \u2212 $4.99) \u00d7 83.20 ={" "}
+                      INR/USD → Recipient gets ($1,000 − $4.99) × 83.20 ={" "}
                       <strong className="text-[var(--color-success)]">
-                        \u20b982,784.97
+                        ₹82,784.97
                       </strong>
                     </p>
                     <p>
                       <strong>Provider B:</strong> $0 fee, rate of 82.50
-                      INR/USD \u2192 Recipient gets ($1,000 \u2212 $0) \u00d7 82.50 ={" "}
-                      <strong>\u20b982,500.00</strong>
+                      INR/USD → Recipient gets ($1,000 − $0) × 82.50 ={" "}
+                      <strong>₹82,500.00</strong>
                     </p>
                     <p className="mt-2">
                       Despite charging a fee, Provider A delivers more money
@@ -513,7 +503,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   In our comparison tables, providers are ranked by{" "}
-                  <strong>receive amount</strong> \u2014 the total amount your
+                  <strong>receive amount</strong> — the total amount your
                   recipient gets in the destination currency after all fees and
                   exchange rate markups.
                 </p>
@@ -521,7 +511,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                 <ul className="list-disc pl-5 space-y-2">
                   <li>
                     <strong>Corridor-specific:</strong> A provider that&apos;s
-                    cheapest for USD \u2192 INR may not be cheapest for GBP \u2192 EUR.
+                    cheapest for USD → INR may not be cheapest for GBP → EUR.
                     Rankings change based on the currencies involved.
                   </li>
                   <li>
@@ -541,19 +531,19 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   </li>
                 </ul>
                 <p>
-                  Where two providers deliver receive amounts within 0.1% of each
-                  other \u2014 a difference that is within normal rate-movement noise
-                  \u2014 their relative order is decided by SendScore on that corridor,
-                  which reflects consistency of value over time rather than a
-                  single snapshot. Indicative quotes (where a provider has
-                  published a rate but not confirmed it for the specific transfer)
-                  are displayed but not ranked; they do not compete for the top
-                  position.
+                  Where two providers deliver receive amounts within{" "}
+                  {MATERIALITY_BAND_PCT}% of each other — less than rates
+                  typically move between our updates — the provider with the
+                  higher customer rating is listed first. Indicative quotes
+                  (brokers that price by account manager rather than through a
+                  public calculator) and quotes flagged by the integrity checks
+                  above are shown after the ranked rows and never compete for the
+                  top position.
                 </p>
               </div>
             </div>
 
-            {/* The disclosure standard we rank against \u2014 added 2026-09-20.
+            {/* The disclosure standard we rank against — added 2026-09-20.
                 This page explained our formula but never named the standard it
                 implements, so the ranking read as a house rule rather than as
                 the figure two regulators already require a provider to state.
@@ -575,7 +565,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 space-y-4">
                   <div>
                     <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
-                      United States \u2014 CFPB Remittance Transfer Rule
+                      United States — CFPB Remittance Transfer Rule
                     </h3>
                     <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       Regulation E requires a provider to disclose, before you
@@ -612,8 +602,8 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                       </a>
                       , disclosed before the payment is initiated. That is the
                       same calculation behind every markup percentage on this
-                      site: provider rate measured against the ECB reference
-                      rate, never against another provider&apos;s rate.
+                      site: provider rate measured against a mid-market
+                      reference, never against another provider&apos;s rate.
                     </p>
                   </div>
                 </div>
@@ -633,7 +623,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               </div>
             </div>
 
-            {/* Metrics we publish \u2014 added 2026-09-06. This page described how
+            {/* Metrics we publish — added 2026-09-06. This page described how
                 costs are calculated and ranked, but never mentioned the two
                 named metrics the site actually publishes, so neither had a
                 definition a reader could reach from here. */}
@@ -687,50 +677,51 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  Beyond cost rankings, we evaluate providers across four
-                  additional dimensions to give users a complete picture of each
-                  service.
+                  Beyond cost rankings, we evaluate providers across additional
+                  criteria to give users a complete picture:
                 </p>
-                <p>
-                  <strong className="text-[var(--color-on-surface)]">Regulation:</strong>{" "}
-                  We verify each provider&apos;s regulatory status with the bodies
-                  that govern money transmission in their key markets: the
-                  Financial Conduct Authority (FCA) in the UK, FinCEN and state
-                  money transmitter licences in the US, ASIC in Australia, and
-                  the relevant authority in each jurisdiction where the provider
-                  operates. We check both that a licence exists and that it
-                  covers the specific activity \u2014 transmitting funds \u2014 rather than
-                  a related but distinct activity such as holding electronic
-                  money.
-                </p>
-                <p>
-                  <strong className="text-[var(--color-on-surface)]">Transfer speed:</strong>{" "}
-                  We record the delivery window a provider publishes for each
-                  payment method on each corridor \u2014 same-day, next-day, or
-                  2\u20135 business days \u2014 taken directly from the provider&apos;s
-                  own disclosure. Where we have conducted our own test transfers,
-                  documented on each provider&apos;s review page, we record the
-                  actual elapsed time from payment confirmation to recipient
-                  credit. We do not publish a delivery estimate where the
-                  provider has not disclosed one.
-                </p>
-                <p>
-                  <strong className="text-[var(--color-on-surface)]">Coverage:</strong>{" "}
-                  We record the number of supported source countries, destination
-                  countries, currencies, and delivery methods \u2014 bank transfer,
-                  mobile wallet, and cash pickup \u2014 for each provider. Coverage
-                  data comes from each provider&apos;s publicly stated supported
-                  markets and is updated when we detect changes during our
-                  regular review cycle.
-                </p>
-                <p>
-                  <strong className="text-[var(--color-on-surface)]">Customer reviews:</strong>{" "}
-                  We collect Trustpilot review scores automatically for each
-                  reviewed provider and display them alongside our data. We never
-                  hand-type a rating \u2014 only scores fetched programmatically from
-                  the platform are shown, and the fetch timestamp is recorded so
-                  the score&apos;s age is transparent to the reader.
-                </p>
+                <div className="grid sm:grid-cols-2 gap-4 my-4">
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                      Regulation
+                    </h3>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                      We verify each provider&apos;s regulatory status with
+                      bodies such as the FCA (UK), FinCEN (US), ASIC
+                      (Australia), and others.
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                      Transfer speed
+                    </h3>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                      Delivery times in comparison tables are the providers&apos;
+                      own estimates. The test transfers we timed, documented in
+                      the reviews that include them, time the provider&apos;s
+                      last step, not the recipient&apos;s bank.
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                      Coverage
+                    </h3>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                      We record the number of supported countries, currencies,
+                      and delivery methods (bank transfer, mobile wallet, cash
+                      pickup).
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
+                      Customer reviews
+                    </h3>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                      We scrape Trustpilot ratings daily and display them
+                      alongside our data to reflect real customer experiences.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -765,10 +756,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                     single winner, we identify which provider is better for
                     specific use cases (e.g., &quot;better for small
                     transfers,&quot; &quot;better for cash pickup,&quot;
-                    &quot;better for business payments&quot;). A verdict labels
-                    an editorial pick, not a data rank \u2014 the two are always
-                    presented separately so the reader can see both the measured
-                    cost outcome and the editorial judgement.
+                    &quot;better for business payments&quot;).
                   </li>
                 </ul>
               </div>
@@ -854,7 +842,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Who maintains it. An anonymous "reviewed by the Editorial Team"
                 box claimed a review no named person signed (round-3 brief
-                \u00a74.3: name an independent reviewer or drop the claim). The
+                §4.3: name an independent reviewer or drop the claim). The
                 byline above names the author; this names the owner. */}
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
               <p className="text-md font-medium text-[var(--color-on-surface)] mb-3">
@@ -895,28 +883,28 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                 >
                   How We Review Providers
                 </Link>{" "}
-                \u2014 our scoring criteria and rating scale.{" "}
+                — our scoring criteria and rating scale.{" "}
                 <Link
                   href="/editorial-policy"
                   className="text-[var(--color-primary)] hover:underline"
                 >
                   Editorial Policy
                 </Link>{" "}
-                \u2014 how we maintain independence.{" "}
+                — how we maintain independence.{" "}
                 <Link
                   href="/companies"
                   className="text-[var(--color-primary)] hover:underline"
                 >
                   Provider Directory
                 </Link>{" "}
-                \u2014 all tracked providers.{" "}
+                — all tracked providers.{" "}
                 <Link
                   href="/send-money"
                   className="text-[var(--color-primary)] hover:underline"
                 >
                   Compare Rates
                 </Link>{" "}
-                \u2014 see live comparisons.
+                — see live comparisons.
               </p>
             </div>
           </div>

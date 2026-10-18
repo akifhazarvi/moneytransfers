@@ -318,40 +318,21 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
             </ul>
             <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-6">Understanding rate levels</h3>
             <p>
-              Each corridor is labelled with a rate level based on where today&apos;s best provider rate sits
-              relative to its own 90-day history. A <strong>Great</strong> rate means the current best rate is
-              in the top quarter of its range — now is an unusually good time to send. A <strong>Low</strong>
-              rate means the corridor is in the bottom quarter — waiting a few days may yield a better outcome.
-              <strong> Typical</strong> and <strong>Good</strong> sit between those extremes.
-            </p>
-            <p>
-              Rate levels are corridor-specific, not absolute. A USD → INR rate of 83 might be Great in a
-              period when the rupee has weakened, but Typical in a stronger rupee environment. Always read
-              the label in the context of the sparkline trend: a Great rate that has been falling over the
-              past week carries more uncertainty than one that has been stable.
-            </p>
-            <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-6">Why provider rates vary from mid-market</h3>
-            <p>
-              The mid-market rate — the midpoint between buy and sell prices on the interbank market — is what
-              you see on Google or XE.com. No retail provider passes it on in full: each adds a margin to
-              cover costs and profit. What differs is how large that margin is and whether it is taken as a
-              percentage spread on the rate, a flat fee, or both.
-            </p>
-            <p>
-              Specialist remittance services like Wise or Remitly typically charge a small, transparent fee
-              and pass the mid-market rate through directly. Bank wire transfers and traditional operators
-              typically build their margin into the exchange rate itself, making it harder to see the true cost.
-              Tracking provider rates historically shows not just who is cheapest today, but who is consistently
-              cheapest across market conditions — a more useful signal when choosing where to send regularly.
+              The level compares the latest day&apos;s best payout with the corridor&apos;s own recorded range — the
+              worst and best daily payouts in the window, up to 12 months. In the top quarter of that range the
+              corridor reads <strong>Great</strong>, then <strong>Good</strong>, <strong>Typical</strong>, and in the
+              bottom quarter <strong>Low</strong>. A level describes the past sample; it does not predict the next
+              rate, and it says nothing across corridors — a Great on one pair and a Low on another are each
+              measured against their own history.
             </p>
             <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-6">How we collect rate history</h3>
             <p>
-              Our scrapers run every six hours and record the rate each provider quotes for a standard transfer
-              amount on each currency corridor. We store the best rate available that day — across all providers
-              we track — and rebuild each corridor&apos;s time series nightly. The data goes back as far as the
-              provider has been in our comparison; for major corridors that can be more than 90 days of daily
-              snapshots. Rates reflect what a sender would actually receive, after fees, for the standard
-              amount — not an illustrative mid-market figure.
+              Our scrapers collect provider quotes every six hours, and every run is archived. For each corridor
+              and day we keep each provider&apos;s quote for sending 100 units of the source currency — the latest
+              run of the day wins — restated as what the recipient gets after the fee. The best of those quotes
+              is the day&apos;s &quot;Current Best&quot; in the table above. The whole series is rebuilt from the
+              archive on every run, under the same rules the live comparison uses to drop quotes that cannot be
+              true.
             </p>
           </div>
         </Container>

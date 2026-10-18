@@ -43,30 +43,17 @@ export default async function BusinessHubPage({ params }: { params: Promise<{ lo
     { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
     { "@type": "ListItem", position: 2, name: "Business payments", item: "https://sendmoneycompare.com/business" },
   ] };
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Find a better fit for the way you pay",
-    "description": "Compare business payment providers by features, eligibility and observed FX costs. Explore supplier payments, batch payouts and business transfer guides.",
-    "url": "https://sendmoneycompare.com/business",
-    "author": {
-      "@type": "Person",
-      "name": "Ahsan Mukhtar",
-      "url": "https://sendmoneycompare.com/about/ahsan-mukhtar",
-      "jobTitle": "Founder & CEO",
-      "sameAs": ["https://www.linkedin.com/in/ahsan-mukhtar/"],
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "SendMoneyCompare",
-      "url": "https://sendmoneycompare.com",
-    },
-    "dateModified": "2026-10-09",
-  };
+  // The visible "By Ahsan Mukhtar" byline, machine-readable. A hub is a
+  // WebPage, not an Article, and it has no content date of its own (none in
+  // content-dates.ts), so none is claimed here. The Person and Organization are
+  // declared on /about and in the layout; referenced by @id, not re-typed.
+  const webPage = { "@context": "https://schema.org", "@type": "WebPage", name: "Business payments", url: "https://sendmoneycompare.com/business",
+    author: { "@type": "Person", "@id": "https://sendmoneycompare.com/about/ahsan-mukhtar#person", name: "Ahsan Mukhtar", url: "https://sendmoneycompare.com/about/ahsan-mukhtar" },
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" } };
   return <>
     <link rel="author" href="/about/ahsan-mukhtar" />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }} />
     <section className="business-hero"><Container><div className="business-hero-grid">
       <div><p className="business-eyebrow">International business payments</p><h1>Find a better fit <br />for the way you pay.</h1><p className="business-deck">Compare costs, payment tools and account requirements. Build a shortlist around your business.</p>
         <div className="business-actions"><Link href="/business/compare#finder" className="conversion-button conversion-button--accent">Compare business providers <span aria-hidden="true">→</span></Link><a href="#business-guides" className="business-text-link">Explore payment guides</a></div>
@@ -89,13 +76,12 @@ export default async function BusinessHubPage({ params }: { params: Promise<{ lo
           ["03", "Whether you can use it", "Confirm company eligibility, supported destinations, verification documents and payment limits directly with the provider."],
         ].map(([n, title, text]) => <div key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></div>)}</div>
       </section>
-      <section className="business-section business-trust" aria-labelledby="business-research-title"><div><p className="business-eyebrow">Research you can inspect</p><h2 id="business-research-title">See what sits behind the shortlist.</h2><p>Our cost benchmark uses observed quotes. Feature profiles are a separate editorial comparison; their review date and provider details are shown in the tool.</p><p>For the broader landscape of cross-border payment costs, see the <a href="https://www.bis.org/cpmi/cross_border.htm" target="_blank" rel="noopener noreferrer">BIS Committee on Payments and Market Infrastructures cross-border payments programme</a>.</p><p className="business-small">By <Link href="/about/ahsan-mukhtar">Ahsan Mukhtar</Link> · <Link href="/editorial-policy">Editorial policy</Link></p></div><div className="business-evidence-links"><Link href="/business/compare#matrix">Compare payment features <span>→</span></Link><Link href="/business/compare#cost">Inspect the cost benchmark <span>→</span></Link><Link href="/methodology">Read our methodology <span>→</span></Link></div></section>
+      <section className="business-section business-trust" aria-labelledby="business-research-title"><div><p className="business-eyebrow">Research you can inspect</p><h2 id="business-research-title">See what sits behind the shortlist.</h2><p>Our cost benchmark uses observed quotes. Feature profiles are a separate editorial comparison; their review date and provider details are shown in the tool.</p><p className="business-small">By <Link href="/about/ahsan-mukhtar">Ahsan Mukhtar</Link> · <Link href="/editorial-policy">Editorial policy</Link></p></div><div className="business-evidence-links"><Link href="/business/compare#matrix">Compare payment features <span>→</span></Link><Link href="/business/compare#cost">Inspect the cost benchmark <span>→</span></Link><Link href="/methodology">Read our methodology <span>→</span></Link></div></section>
       <section className="business-section business-faq" aria-labelledby="business-faq-title"><h2 id="business-faq-title">Before you choose a provider</h2>{[
         ["Is the lowest benchmark cost the best choice for my business?", "Not necessarily. The benchmark averages observed costs across routes at a fixed amount. Your currencies, volume, eligibility and required payment tools may lead to a different shortlist."],
         ["Can I complete a payment on this website?", "No. Use this site to compare and research. Account opening, verification and payment take place with your chosen provider."],
-      ].map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
-      <details><summary>What should I prepare before asking for a quote?</summary><p>Have your sending and receiving currencies, amount, payment deadline and recipient type ready. Check the provider&apos;s business verification requirements before committing to a time-sensitive payment. Cross-border payment providers in the US are regulated as money service businesses under <a href="https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act" target="_blank" rel="noopener noreferrer">FinCEN&apos;s Bank Secrecy Act</a>, which requires identity and business verification for new accounts.</p></details></section>
-      <section className="business-section business-sources" aria-labelledby="business-sources-title"><h2 id="business-sources-title">Sources</h2><ul><li><a href="https://www.fincen.gov/resources/statutes-and-regulations/bank-secrecy-act" target="_blank" rel="noopener noreferrer">FinCEN — Bank Secrecy Act (BSA) regulations for money service businesses</a></li><li><a href="https://www.bis.org/cpmi/cross_border.htm" target="_blank" rel="noopener noreferrer">BIS CPMI — Cross-border payments programme</a></li><li><a href="https://www.federalreserve.gov/paymentsystems/international-payments.htm" target="_blank" rel="noopener noreferrer">Federal Reserve — International Payments</a></li></ul></section>
+        ["What should I prepare before asking for a quote?", "Have your sending and receiving currencies, amount, payment deadline and recipient type ready. Check the provider’s business verification requirements before committing to a time-sensitive payment."],
+      ].map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</section>
       <details className="business-more-research"><summary>More business payment research and routes</summary><div className="business-research-links">{[
         ["business-international-payments-guide", "International business payments guide"], ["exchange-rate-markup-explained", "Exchange rate markup explained"], ["multi-currency-accounts-exchange-rates", "Multi-currency accounts"], ["lowest-fx-fees-business-payments-2026", "Business FX fee research"], ["how-to-pay-international-suppliers", "Paying international suppliers"], ["international-payroll-pay-remote-teams", "International payroll"], ["wire-transfer-guide", "Wire transfer guide"],
         ["business-payments-usa-to-uk", "US to UK business payments"], ["business-payments-usa-to-india", "US to India business payments"], ["business-payments-usa-to-europe", "US to Europe business payments"], ["business-payments-usa-to-mexico", "US to Mexico business payments"], ["business-payments-usa-to-canada", "US to Canada business payments"], ["business-payments-uk-to-europe", "UK to Europe business payments"], ["business-payments-uk-to-india", "UK to India business payments"], ["business-payments-usa-to-philippines", "US to Philippines business payments"], ["business-payments-usa-to-china", "US to China business payments"],

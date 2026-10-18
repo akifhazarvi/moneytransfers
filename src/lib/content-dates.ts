@@ -51,9 +51,9 @@ export const CASH_OUT_CONTENT_DATE = "2026-10-09";
 // ── Single pages ──
 
 const PAGE_UPDATED = {
-  "/exchange-rates": "2026-10-07",           // names the real rate source (no "median of 0 sources")
-  "/exchange-rates/history": "2026-09-20",   // rate pages collapsed to one hub; a false claim dropped
-  "/swift-codes": "2026-09-20",              // editorial byline separated from the commercial role
+  "/exchange-rates": "2026-10-18",           // "Exchange Rates Today" headline
+  "/exchange-rates/history": "2026-10-18",   // corridor table shown; rate levels and collection described as built
+  "/swift-codes": "2026-10-18",              // 8 vs 11 characters, a wrong code, correspondent charges
   "/iban": "2026-10-18",                     // IBAN checker; what an IBAN number is vs an account number
   "/cash-out": "2026-09-25",                 // round-2 technical SEO brief
   "/tools": "2026-10-09",                    // per-page see-also line (brief §5.3)
@@ -67,12 +67,14 @@ const PAGE_UPDATED = {
   "/travel": "2026-09-26",                   // destination summaries no longer repeated
   "/remittance-cost-index": "2026-10-17",    // ranking as one table; "Why remittance costs matter" (World Bank, cited)
   "/alternatives": "2026-09-20",             // published
-  "/currency-converter": "2026-09-21",       // TapTap spotlight
-  "/methodology": "2026-10-09",              // three named provider counts (brief §4.3)
-  "/privacy-policy": "2026-09-20",
+  "/currency-converter": "2026-10-18",       // popular-pair rates shown instead of an sr-only block
+  "/methodology": "2026-10-18",              // source tiers, integrity checks, benchmark and tie-break as the code runs them
+  "/how-we-review": "2026-10-18",            // referral fees and sponsored placement; quotes shown but not ranked
+  "/editorial-policy": "2026-10-15",         // editor byline and WebPage JSON-LD
+  "/privacy-policy": "2026-10-18",            // Microsoft Clarity and the IP-country default disclosed
   "/terms": "2026-09-20",
   "/disclaimer": "2026-10-17",               // what we are and are not; regulator check; data caveats as prose
-  "/cookies": "2026-10-17",                  // smc_internal disclosed
+  "/cookies": "2026-10-18",                  // consent banner scope stated; "cannot be disabled" dropped
   "/guides/best-apps-to-send-money-from-us-2026": "2026-09-29",
 } as const;
 

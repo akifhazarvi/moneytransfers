@@ -37,9 +37,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const year = new Date().getFullYear();
   return {
-    // Was 93 chars, then 67 chars: "International" pushed past the ~60-char
-    // SERP display limit and was cut. Removing it keeps keyword relevance.
-    title: `Bank Transfer Fees Compared (${year}) | SendMoneyCompare`,
+    // Was 93 chars: everything after "Compared" was truncated in the SERP, so
+    // the bank names it was carrying never rendered anyway. Keep
+    // "International" (rule 18): it is the query this Bing earner answers, and
+    // 67 chars is inside Bing's ~85. A 2026-10-15 cut to "Bank Transfer Fees"
+    // was reverted.
+    title: `Bank International Transfer Fees Compared (${year}) | SendMoneyCompare`,
     description: seoDescription(`How much do major banks really charge for international transfers? Live data showing what HSBC, Wells Fargo, Chase, Lloyds and Barclays customers pay vs Wise, Remitly and specialist providers on the same corridor and amount.`),
     alternates: getAlternates("banks", locale),
     // 2026-09-20: indexability is measured — robotsFor() consults the
@@ -132,179 +135,21 @@ export default async function BanksHubPage() {
         </Container>
       </section>
 
-      <section className="py-12 bg-[var(--color-surface)]">
-        <Container>
-          <div className="max-w-3xl space-y-8">
-            <div>
-              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
-                The two-part cost most banks don&rsquo;t advertise
-              </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                Banks typically present international transfer costs as a flat wire fee — but that
-                fee is rarely the largest part of what you pay. The exchange rate a bank applies to
-                convert your money is almost always set above the mid-market rate (the rate you see
-                on Google or XE), and that spread is where most of the cost lives. On a large
-                transfer, the FX margin can cost several times more than the wire fee itself — yet
-                only the wire fee appears on the bank&rsquo;s pricing page.
-              </p>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mt-3">
-                This matters because comparing banks solely on their wire fee is misleading. A
-                bank that charges no wire fee but applies a wide exchange rate margin can cost
-                significantly more than a bank charging a £10 or $30 wire fee at a tighter rate.
-                Our comparison shows both components together so the total cost is visible.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
-                What the mid-market rate is — and why it matters
-              </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                The mid-market rate is the midpoint between the buy and sell prices on the
-                interbank currency market — the rate Reuters, Bloomberg and Google display. It is
-                not a retail rate; banks and currency exchanges all add a margin on top of it when
-                they convert money for customers. That margin is their profit on the currency
-                conversion, and it is typically not itemised on receipts or transfer confirmations.
-              </p>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mt-3">
-                Specialist providers such as Wise and OFX pass the mid-market rate directly to
-                senders and charge a transparent, fixed fee instead. This makes their total cost
-                directly comparable in a way that bank rates, which bundle margin into the exchange
-                rate, are not. Every comparison on this site restates each quote to a single
-                &ldquo;recipient gets&rdquo; figure for a fixed outlay, so that bank and specialist
-                quotes stand on the same footing.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
-                SWIFT and SEPA: the two networks most bank transfers use
-              </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                Most international bank transfers travel over one of two messaging networks.
-                SEPA (Single Euro Payments Area) covers transfers within the Eurozone and the
-                wider SEPA zone — typically faster and lower-cost than SWIFT because they move
-                directly between participating institutions. SWIFT is used for transfers outside the
-                SEPA zone, such as from the UK or US to Asia, Africa or the Americas.
-              </p>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mt-3">
-                SWIFT payments may pass through one or more correspondent banks before reaching
-                the recipient&rsquo;s account. Each correspondent can deduct its own handling charge
-                from the transferred amount, which means the recipient can receive less than the
-                sender was quoted — a cost that is invisible at the point of sending. Specialist
-                providers avoid correspondent chains by routing payments differently, which is one
-                reason their all-in quotes often compare favourably even before the exchange rate
-                difference is considered.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
-                How to read the live comparison on each bank page
-              </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                Each bank page shows live quotes collected from the Wise comparison feed, placed
-                alongside quotes from digital providers on the same corridor and send amount. The
-                &ldquo;loss vs cheapest provider&rdquo; figure shown above is how much less you
-                would receive, in the destination currency, compared to the provider that currently
-                quotes the highest payout on that route. It updates whenever the comparison feed
-                refreshes — every six hours.
-              </p>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mt-3">
-                The comparison uses a standard send amount for each corridor so that quotes are
-                directly comparable. Exchange rate margins and transfer fees are both included in
-                the &ldquo;recipient gets&rdquo; figure — there is no separate column for hidden
-                costs. If a provider charges a fee on top of its exchange rate, both are already
-                reflected in the payout shown.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
-          <div className="max-w-3xl space-y-6">
-            <div>
-              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
-                Frequently asked questions
-              </h2>
-
-              <div className="space-y-5">
-                <div>
-                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-1">
-                    Why do banks charge more for international transfers than specialist providers?
-                  </h3>
-                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Banks built their international payment infrastructure around correspondent
-                    banking — a chain of intermediary banks that pass payments between countries.
-                    Each link in the chain adds cost and delays. Specialist providers built newer
-                    infrastructure that holds local currency balances in the countries they serve,
-                    moving value internally rather than sending money across borders each time.
-                    The operational cost is lower, and they pass most of that saving to the sender.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-1">
-                    Does my bank&rsquo;s wire fee include the exchange rate cost?
-                  </h3>
-                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    No. The wire fee your bank quotes is the cost to send the payment instruction.
-                    The exchange rate cost — the gap between the rate your bank applies and the
-                    mid-market rate — is separate, and is almost never itemised. To find the true
-                    total cost of a bank transfer, you need to compare the amount your recipient
-                    would receive against what a mid-market-rate provider would deliver for the
-                    same outlay. Our comparison does this calculation automatically.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-1">
-                    How often does the data update?
-                  </h3>
-                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    We refresh quotes from all providers — including banks — every six hours via
-                    automated scrapers. Exchange rates move continuously, so the figures on any
-                    comparison page are accurate to within a few hours. The comparison always shows
-                    the date and time of the most recent data pull so you can judge how current
-                    the quote is before acting on it.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-1">
-                    My bank is not listed. Can I still compare it?
-                  </h3>
-                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    We currently publish detailed cost pages for the banks where we hold enough
-                    live data to make the comparison meaningful. If your bank is not listed, you
-                    can still use the main{" "}
-                    <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
-                      send money comparison
-                    </Link>{" "}
-                    to see quotes from specialist providers for your corridor — enter the amount
-                    and currencies, and the results will show what each provider pays out for your
-                    specific transfer.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-[var(--color-outline)]">
-              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
-                How we collect this data
-              </h2>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                Bank quotes come from the Wise comparison API — a public price-comparison feed Wise
-                publishes alongside its competitors for regulatory transparency. We scrape it every
-                6 hours and store the result. Digital-provider quotes come from a combination of
-                direct provider APIs (Wise, OFX, TapTap Send, Instarem, Xoom, Remitly, ACE) and the
-                same Wise feed for everything else. The &ldquo;loss vs cheapest&rdquo; calculation is a
-                like-for-like compare: same corridor, same amount, same day. We do not edit, smooth,
-                or selectively present the numbers.
-              </p>
-            </div>
+          <div className="max-w-3xl">
+            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
+              How we collect this data
+            </h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+              Bank quotes come from the Wise comparison API — a public price-comparison feed Wise
+              publishes alongside its competitors for regulatory transparency. We scrape it every
+              6 hours and store the result. Digital-provider quotes come from a combination of
+              direct provider APIs (Wise, OFX, TapTap Send, Instarem, Xoom, Remitly, ACE) and the
+              same Wise feed for everything else. The &ldquo;loss vs cheapest&rdquo; calculation is a
+              like-for-like compare: same corridor, same amount, same day. We do not edit, smooth,
+              or selectively present the numbers.
+            </p>
           </div>
         </Container>
       </section>

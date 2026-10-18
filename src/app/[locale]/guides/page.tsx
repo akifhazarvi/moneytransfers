@@ -26,7 +26,7 @@ function hubLabel(title: string): string {
   // The full title is the guide's own heading; repeating it here (and in the
   // same order as other guides' related lists) made this page 38% duplicate.
   const noYear = title.replace(/\s*\((?:in\s+)?20\d\d\)/gi, "").replace(/\s+(?:in\s+)?20\d\d\b/gi, "").trim();
-  const main = noYear.split(/\s+[\u2014\u2013]\s+|:\s+/)[0].trim();
+  const main = noYear.split(/\s+[—–]\s+|:\s+/)[0].trim();
   return main.split(/\s+/).length >= 3 ? main : noYear;
 }
 
@@ -63,7 +63,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
     { slug: "bank-vs-app-transfer-cost-2026", title: "Banks vs Apps: International Transfer Costs Compared", excerpt: "Compare what banks and specialist apps charge across our tracked corridors. Explore the data, methodology, and full cost breakdown.", category: "Research", readTime: "", publishedAt: "2026-06-21", updatedAt: bankVsApp.dataAsOf.slice(0, 10) },
     { slug: "best-day-to-send-money-abroad", title: "Is It Cheaper to Send Money on a Weekday?", excerpt: "We analysed millions of quotes to see how exchange rate markups change through the week, and which providers charge more at weekends.", category: "Research", readTime: "", publishedAt: "2026-08-14", updatedAt: weekendMarkup.generatedAt.slice(0, 10) },
     { slug: "fx-cost-vs-purchasing-power", title: "Transfer Fees vs Purchasing Power: What Moving Abroad Really Costs", excerpt: "How far your money goes abroad depends on more than an exchange rate. Explore the relationship between transfer costs and local buying power.", category: "Research", readTime: "", publishedAt: "2026-08-15", updatedAt: pppIndex.generatedAt.slice(0, 10) },
-    { slug: "gbp-forecast-2026", title: "GBP Forecast 2026: What's Next for the Pound?", excerpt: "A data-led look at sterling, the forces moving it, and what exchange rate changes mean for your next international transfer.", category: "Education", readTime: "", publishedAt: "2026-07-03", updatedAt: "2026-07-03" },
+    { slug: "gbp-forecast-2026", title: "GBP Forecast 2026: What’s Next for the Pound?", excerpt: "A data-led look at sterling, the forces moving it, and what exchange rate changes mean for your next international transfer.", category: "Education", readTime: "", publishedAt: "2026-07-03", updatedAt: "2026-07-03" },
   ];
 
   // Project to just the card fields before crossing into the client component.
@@ -136,7 +136,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
             <h1>Know more.<br /><span>Send smarter.</span></h1>
           </div>
           <div className="guides-hub-intro">
-            <p>Clear, practical guides to sending money internationally — written by researchers who compare real provider quotes every day. Understand exchange rate markups, avoid unnecessary fees, and choose the right provider for your route.</p>
+            <p>Clear, practical guides to moving money across borders. Understand the fees, explore your options, and make your next transfer with confidence.</p>
             <Link href="/editorial-policy"><ShieldCheck size={17} aria-hidden="true" />Independent research. Real transfer data.<ArrowUpRight size={15} aria-hidden="true" /></Link>
             {/* Round-3 QA item 7: a named editor and the hub's content date
                 (its sitemap lastmod). Each guide carries its own. */}
@@ -175,7 +175,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
                 <span className="guide-research-number">04</span><div><h3>Transfer fees meet the cost of living</h3><p>Exchange rates & purchasing power</p></div><ArrowUpRight size={18} aria-hidden="true" />
               </Link>
               <Link href="/guides/gbp-forecast-2026">
-                <span className="guide-research-number">05</span><div><h3>What's next for the pound?</h3><p>A data-led GBP outlook for 2026</p></div><ArrowUpRight size={18} aria-hidden="true" />
+                <span className="guide-research-number">05</span><div><h3>What’s next for the pound?</h3><p>A data-led GBP outlook for 2026</p></div><ArrowUpRight size={18} aria-hidden="true" />
               </Link>
             </div>
           </section>
@@ -236,12 +236,6 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         </p>
         <p>
           Whether you are sending a one-time payment or making regular transfers to family abroad, these guides cover everything from finding the cheapest provider for your specific route, to understanding hidden costs like exchange rate markups, to navigating compliance requirements for large transfers. Each guide includes up-to-date pricing data from our comparison engine.
-        </p>
-        <p>
-          Our research desk publishes original data studies alongside the practical guides: how exchange rate markups shift between weekdays and weekends, how bank wire costs compare to specialist app fees across dozens of corridors, and how local purchasing power affects the real value of what you send. We update these studies whenever new quote data changes the picture.
-        </p>
-        <p>
-          To get the most from this library, start with the guide that matches your corridor or question, then cross-check against our live comparison tool for today&rsquo;s provider quotes. Rates change daily, so guide figures are a benchmark — the comparison shows what providers are charging right now. If you are sending a large amount, the compliance and large-transfer guides cover documentation requirements and transfer limits that apply above typical thresholds.
         </p>
       </div>
 
