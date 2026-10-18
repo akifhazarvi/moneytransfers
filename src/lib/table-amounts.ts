@@ -8,8 +8,11 @@
  * different amounts. Each family draws from its own residue (…50, …25, …75)
  * so it cannot collide with another family, nor with the guides' round
  * amounts (src/lib/guide-quote-corridor.ts) or news (news/[slug]/page.tsx).
+ * Rate pair pages (one page per corridor) take the first "rates" amount: their
+ * tables at 1,000 matched every corridor page and guide pricing the same route
+ * (2026-10-18), the largest block those pages shared.
  */
-const RESIDUE = { iban: 50, swift: 25, banks: 75 } as const;
+const RESIDUE = { iban: 50, swift: 25, banks: 75, rates: 10 } as const;
 const RESERVED = new Set([350, 450, 650, 750]); // taken by guides and news
 
 export type TableFamily = keyof typeof RESIDUE;
@@ -35,4 +38,9 @@ export function assignTableAmounts<T>(items: readonly T[], idOf: (t: T) => strin
     seen.set(group, n + 1);
   }
   return out;
+}
+
+/** The first amount of a family, for pages that are the only one on their corridor. */
+export function firstTableAmount(family: TableFamily): number {
+  return nth(family, 0);
 }

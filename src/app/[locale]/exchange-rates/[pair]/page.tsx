@@ -21,6 +21,7 @@ import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
 import { corridorPageRenders } from "@/lib/route-map";
 import { compareHashHref } from "@/lib/link-eligibility";
+import { firstTableAmount } from "@/lib/table-amounts";
 import { rateHistoryHref } from "@/lib/route-map-rates";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 
@@ -101,24 +102,24 @@ const editorialContent: Record<string, PairEditorial> = {
     tip: "Compare the provider's rate against the mid-market rate shown above. On USD to PKR, some providers mark up the rate by 2–4%, which on a $500 transfer could cost you PKR 3,000–6,000.",
   },
   "usd-to-php": {
-    intro: "The Philippines receives over $35 billion in remittances annually, making the USD/PHP corridor one of the busiest in the world. The Bangko Sentral ng Pilipinas (BSP) allows the peso to float relatively freely, though it intervenes to smooth excessive volatility. GCash and Maya (formerly PayMaya) have transformed the receiving side, letting recipients access funds instantly via mobile wallet.",
+    intro: "The Bangko Sentral ng Pilipinas (BSP) leaves the peso to market forces: its exchange-rate primer says that under a market-determined framework the BSP does not set the rate, and the peso's value comes from the supply of and demand for foreign exchange. BSP counts money sent home by Filipinos abroad in two ways. Cash remittances sent by land-based and sea-based workers through the banking system reached $35.63 billion in 2025, up 3.3%, while personal remittances, which add informal channels and remittances in kind, came to $39.62 billion. In January to August 2026, cash remittances totalled $23.42 billion, 2.2% more than a year earlier and slower than 2025's growth, with August alone at $3.03 billion.",
     bullets: [
-      "GCash and Maya wallet payouts are near-instant and increasingly preferred over bank deposits",
-      "Cash pickup remains important — Cebuana Lhuillier and M Lhuillier have thousands of locations nationwide",
-      "Competition on this corridor is fierce, keeping markups lower than many Asian routes",
-      "BSP interest rate decisions and US Fed policy are the main rate drivers",
+      "BSP's primer says its role in the currency market is limited to tempering sharp fluctuations and keeping order, and BSP publishes a daily Reference Exchange Rate Bulletin that prints the BSP Reference Rate beside the previous day's PDS closing rate",
+      "The US sent 39.7% of 2025 cash remittances in BSP's country table, down from 40.9% in 2023, and US flows grew 0.9% against 3.3% overall; BSP notes the US looks like the main source partly because banks attribute funds to the most immediate source, often a US correspondent bank",
+      "BSP describes InstaPay as moving pesos almost instantly, 24/7, between BSP-supervised banks and non-bank e-money issuers, up to PHP 50,000 per transaction, with the receiver not charged; PESONet clears in batches with no limit and pays the full amount within the same banking day if sent before the cut-off",
+      "GCash, run by BSP-regulated G-Xchange, Inc., says a remittance from one of its official partners either arrives instantly with an SMS confirmation or has to be claimed in the app with a reference number, and it tells recipients to transact only through partners on its official list",
     ],
-    tip: "If your recipient has GCash, prioritise providers that support wallet payout — it's faster than bank deposit and avoids any inter-bank delays.",
+    tip: "If the pesos are going to a Maya wallet, ask your recipient to finish Maya's free account upgrade and check their account limits before you send: Maya says an account has to be upgraded before it can receive international remittances, so a quote is only useful once the wallet can take the money.",
   },
   "usd-to-mxn": {
-    intro: "Mexico is the largest recipient of remittances from the United States: $62.5 billion arrived in 2025, 97% of it from the US, down 3.9% from the 2024 record (Banxico). The USD/MXN rate is highly liquid and influenced by US-Mexico trade flows, Banxico (Bank of Mexico) interest rate decisions, oil prices, and broader risk sentiment. Mexico's SPEI instant payment system means bank deposits arrive within seconds once processed.",
+    intro: "The peso has floated freely since 22 December 1994, when Mexico's Foreign Exchange Commission dropped the trading band in place since November 1991, and Banco de México (Banxico) says the market has set the rate ever since, with any operations of its own run through pre-announced mechanisms and transparent rules. Banxico still holds international reserves so it can supply dollars if markets turn disorderly, Deputy Governor Gabriel Cuadra said in an October 2025 speech. Remittances are one of the dollar flows feeding that market: Banxico's report of 3 February 2026 counted 61,791 million dollars received in 2025, down 4.6% from 64,746 million in 2024, with December alone bringing 5,322 million. The rate at the top of this page moves through the day with supply and demand, and Mexico's official reference rate is a separate figure.",
     bullets: [
-      "SPEI enables near-instant bank deposits — most providers deliver within minutes during business hours",
-      "Oxxo cash pickup is popular for recipients without bank accounts (available via Western Union, Remitly)",
-      "The peso has strengthened significantly since 2023, making it a more expensive corridor for USD senders",
-      "Funding via ACH typically saves $3–5 compared to debit card funding",
+      "Banxico publishes the FIX reference rate from 12:00 on every banking day, as an average of wholesale market quotes for trades settling two banking days later; it appears in the Diario Oficial de la Federación the next banking day and is used to settle dollar debts payable in Mexico",
+      "FIX, published since 11 November 1991, is a reference rather than a rate anyone must use: Banxico says private parties may use it in currency deals but are free to agree any other reference, so a provider's quote can differ from both FIX and the mid-market figure above",
+      "US tax code section 4475 adds a 1% excise tax to remittance transfers made after 31 December 2025 and paid for with banknotes or paper instruments such as money orders; the sender owes it, the provider collects it, and proposed IRS rules would charge it on the amount the recipient gets, not on fees",
+      "Banxico's Comprobante Electrónico de Pago (CEP) backs a completed SPEI payment and carries a digital seal: it is looked up with the tracking key (clave de rastreo) and other payment details, downloads as PDF or XML, can be checked in Banxico's own validator, and cannot be generated until the receiving bank credits the account",
     ],
-    tip: "Mexico's SPEI system makes this one of the fastest corridors in the world. If speed is your priority, choose a provider that supports SPEI payout — your recipient could have the money in minutes.",
+    tip: "Check how you will fund the transfer before you pay: the IRS explains that section 4475 excludes money drawn from an account at a covered financial institution, or charged to a credit or debit card issued in the United States, from the 1% tax. Ask the provider for the SPEI tracking key and the institution that sent the payment in Mexico, since Banxico's CEP lookup asks for both.",
   },
   "usd-to-ngn": {
     intro: "Nigeria's naira has undergone dramatic reforms since mid-2023, when the Central Bank of Nigeria (CBN) unified its multiple exchange rate windows. The USD/NGN rate is now more market-determined, though it remains volatile. Nigeria receives over $20 billion in annual remittances, primarily from the US, UK, and Gulf states.",
@@ -131,14 +132,14 @@ const editorialContent: Record<string, PairEditorial> = {
     tip: "On a volatile corridor like USD to NGN, rate lock timing matters enormously. Ask whether the provider locks the rate when you initiate or when they process — on a bad day, that gap could cost you 3–5%.",
   },
   "gbp-to-eur": {
-    intro: "The GBP/EUR exchange rate is the most important currency pair for UK residents sending money to Europe. Since Brexit, the rate has traded in a relatively stable range, though Bank of England and ECB interest rate decisions continue to drive medium-term moves. The EU's 2026 instant payments mandate means euro transfers now settle in under 10 seconds.",
+    intro: "GBP/EUR has two policy calendars behind it, one in London and one in Frankfurt, and two central banks that publish a daily rate for it. The European Central Bank posts its euro foreign exchange reference rates, sterling included, at around 16:00 CET every working day except TARGET closing days, based on a concertation between European central banks at about 14:10 CET. The ECB says these rates are published for information purposes only and strongly discourages using them for transactions. The Bank of England's statistical database also shows a daily sterling-euro rate, and the Bank states that its exchange rates are not official and are no more authoritative than those of any commercial bank in the London market. So neither figure is a dealing price; treat each as a yardstick when you check a live quote.",
     bullets: [
-      "SEPA instant payments mean euro-denominated transfers arrive in seconds, 24/7",
-      "Post-Brexit, UK banks no longer offer fee-free euro transfers — specialist providers are almost always cheaper",
-      "Wise and Revolut dominate this corridor with markups as low as 0.3–0.5%",
-      "The ECB and BoE's relative interest rate paths are the main rate driver — watch for policy divergence",
+      "The Bank of England's Monetary Policy Committee sets Bank Rate for sterling at eight meetings a year, aiming to return inflation to its 2% target; the Bank's decision published on 17 September 2026 held Bank Rate at 3.75%, with UK inflation at 3.1%",
+      "The European Central Bank says its Governing Council sets the key interest rates for the euro area, and it decided in March 2024 to keep steering policy through the deposit facility rate, which rose to 2.25% from 17 June 2026 and to 2.50% from 16 September 2026, after a year at 2.00%",
+      "The European Payments Council's December 2025 list of SEPA countries keeps the United Kingdom inside SEPA's geographical scope as a non-EEA country; under the EPC's SEPA Credit Transfer rulebook, a euro transfer involving a UK payment provider must carry the payer's address, and the sending provider may ask for the recipient bank's BIC",
+      "The ECB's guide to the EU Instant Payments Regulation, which covers euro credit transfers within the EU, says euro-area banks have had to receive instant euro payments since 9 January 2025, and to send them and offer Verification of Payee, a free check of the payee's name against the account, since 9 October 2025",
     ],
-    tip: "For regular transfers to Europe (rent, mortgage, family support), consider a multi-currency account with Wise or Revolut — you can convert when the rate is favourable and hold euros until needed.",
+    tip: "Before booking a large transfer, look up the next decision date on both calendars: the Bank of England shows its next Bank Rate announcement on its interest-rate page, and the ECB publishes its Governing Council's monetary policy meeting dates well over a year ahead. Compare your quote with the live mid-market rate at the moment you send, not with a rate you saw before an announcement.",
   },
   "gbp-to-inr": {
     intro: "The UK has one of the largest Indian diaspora populations outside India, making GBP to INR one of the busiest remittance corridors globally. The rate is influenced by both BoE and RBI monetary policy, UK-India trade relations, and oil prices (which affect India's current account). Competition on this corridor has driven markups down significantly in recent years.",
@@ -161,14 +162,14 @@ const editorialContent: Record<string, PairEditorial> = {
     tip: "For large transfers (£10,000+), consider a forward contract from a specialist like TorFX or OFX — you can lock in today's rate for delivery up to 12 months ahead.",
   },
   "gbp-to-pkr": {
-    intro: "The UK is home to over 1.5 million people of Pakistani heritage, making GBP to PKR one of the highest-volume remittance corridors from Britain. The rate combines sterling's sensitivity to UK economic data with the PKR's ongoing volatility as Pakistan's economy restructures under IMF programmes.",
+    intro: "The State Bank of Pakistan (SBP) describes Pakistan's system as a market-based flexible exchange rate, in which the rupee is set by demand and supply and its trend generally reflects the country's balance of payments and other macroeconomic indicators. SBP calls the exchange rate the first line of defence against external shocks, and calls home remittances one of the country's key sources of foreign exchange. SBP's country-wise workers' remittances table records $41.58 billion sent to Pakistan in fiscal 2025-26 (July 2025 to June 2026), of which $6.33 billion, about 15%, came from the UK; only Saudi Arabia and the UAE sent more. UK inflows grew 7.1% on fiscal 2024-25, against 8.6% for remittances from all countries.",
     bullets: [
-      "Cash pickup through JazzCash, Easypaisa, and UBL Omni is widely used alongside bank deposits",
-      "Funding via UK Faster Payments is free with most providers and processes within seconds",
-      "FCA-regulated providers offer better consumer protection than informal hawala channels",
-      "PKR volatility means checking the rate on the day of transfer can save significant amounts",
+      "SBP says its interventions in the currency market are limited to avoiding disorderly conditions and building reserves \"without suppressing any underlying trend\", and that authorized dealers in the interbank market are free to quote their own buying and selling rates",
+      "In July to September 2026, SBP's table shows $1.63 billion from the UK out of $10.88 billion, again about 15%; it has assigned each transfer to the remitter's original country since July 2019 and has counted Roshan Digital Account conversions since September 2020",
+      "The Pakistan Remittance Initiative, set up in 2009 by SBP, the Ministry of Finance and the Ministry of Overseas Pakistanis, runs what SBP calls the PRI Channel: pre-funded, direct arrangements between Pakistani and foreign institutions linked by API connections, plus a call centre for remittance questions and complaints",
+      "SBP's Roshan Digital Account lets non-resident Pakistanis bank in Pakistan without visiting a branch and, SBP says, send funds, profit included, back abroad without its prior approval; its investment options include GBP-denominated Naya Pakistan Certificates, and by September 2026 SBP counted 975,602 accounts and $14.16 billion paid in",
     ],
-    tip: "Avoid converting through a third currency (GBP→USD→PKR). Use a provider that offers direct GBP to PKR conversion to avoid double conversion fees.",
+    tip: "If you have points from the Sohni Dharti Remittance Program, the SBP scheme that rewarded remittances sent through banks and exchange companies with free services from public bodies, use them in time: SBP stopped awarding points from 1 July 2026, and points earned until 30 June 2026 stay redeemable with its public-sector partners until 30 June 2027, according to the programme's page at 1LINK.",
   },
   "eur-to-usd": {
     intro: "EUR/USD is the single most traded currency pair in the world, accounting for roughly 23% of all forex volume. For eurozone residents sending money to the US, this means extremely tight spreads and competitive rates from specialist providers. ECB and Fed monetary policy divergence is the dominant rate driver.",
@@ -261,24 +262,24 @@ const editorialContent: Record<string, PairEditorial> = {
     tip: "If AUD is near multi-year lows against USD, consider locking in a forward contract for future regular payments — OFX and TorFX offer these for up to 12 months ahead.",
   },
   "usd-to-brl": {
-    intro: "The USD/BRL rate is among the most volatile of any major emerging market currency pair. Brazil's real is sensitive to fiscal policy, commodity prices (especially iron ore and soybeans), political risk, and Banco Central do Brasil's Selic rate decisions. For US residents sending money to Brazil, the wide rate swings mean timing can make a significant difference — but Brazil's PIX instant payment system makes the receiving experience seamless once funds arrive.",
+    intro: "The Brazilian real has floated since the Banco Central do Brasil's Communiqué 6,565 of 18 January 1999, and Brazil's foreign-exchange law, Law 14,286 of 2021, says the exchange rate is freely agreed between authorised institutions and their clients. The same law allows foreign-exchange operations only through institutions the central bank has authorised, and the central bank's Resolution BCB 277 of 2022 requires a payment from abroad to arrive through one of them or another channel the law provides. So the rate behind a transfer from the US is set by whoever converts the dollars, not by the central bank. What the central bank does publish each business day is PTAX, a reference rate built from its accredited dealers' quotes in the interbank market.",
     bullets: [
-      "BRL can move 3–5% in a single week during periods of political or fiscal uncertainty",
-      "PIX instant payments mean Brazilian bank deposits arrive in seconds, 24/7",
-      "Some providers charge higher fees on emerging market corridors — compare the total cost carefully",
-      "The Selic rate (Brazil's benchmark) and US Fed policy divergence are key medium-term drivers",
+      "Resolution BCB 45 of 2020 builds PTAX from four two-minute dealer polls each business day, starting at random in the ten minutes after 10:00, 11:00, 12:00 and 13:00 Brasília time; each poll drops the two highest and two lowest quotes, and the average of the four is published with the last poll, shortly after 13:00",
+      "Each authorised institution prices its own exchange, and Resolution BCB 277 requires it to tell a client the Valor Efetivo Total (VET) before a spot exchange of up to US$100,000: one reais-per-dollar figure that folds in the rate, the taxes on the exchange and any fee",
+      "Decree 6,306, Brazil's IOF regulation as amended by Decree 12,499 of 11 June 2025, taxes inbound foreign-exchange operations at 0.38% unless another clause applies, such as the zero rate for export revenue from goods and services; the tax is charged on the reais amount and collected by the authorised institution",
+      "Resolution BCB 277 requires the reais to be credited to a deposit or payment account at a central-bank-authorised institution or a payment institution that joined Pix, though up to R$10,000 can be paid by any means, including cash; the central bank says Pix, its instant payment system, is free for individuals and runs 24/7",
     ],
-    tip: "On volatile corridors like USD to BRL, always compare the all-in cost — some providers offer a 'good' rate but add a hidden fee that makes them expensive overall. Check both the rate and the fee before sending.",
+    tip: "If the dollars reach a Brazilian institution as a foreign-currency payment order, Resolution BCB 277 requires it to tell the recipient at once and to say the order can be converted in full or in parts. Before converting, ask for the VET and compare it with the live mid-market rate here or the day's PTAX; the gap is the cost of the exchange, tax included.",
   },
   "usd-to-cny": {
-    intro: "USD/CNY (US Dollar to Chinese Yuan Renminbi) is one of the most politically sensitive currency pairs in the world. The People's Bank of China manages the yuan within a daily trading band around a centrally-set fixing rate, meaning the rate does not move freely like most major currencies. For US residents sending money to China, this managed float means less volatility than other corridors, but also fewer provider options due to China's strict capital controls.",
+    intro: "The yuan is not a free float against the dollar: each business day the China Foreign Exchange Trade System (CFETS) publishes a central parity rate, and interbank trading prices may move no more than 2 percent either side of it, according to the IMF's 2025 Article IV report on China. That band was widened from 1 percent to 2 percent by a People's Bank of China (PBOC) announcement effective 17 March 2014. The IMF describes the official arrangement as managed floating with reference to a basket of currencies, classifies the regime in practice as crawl-like, and records the PBOC's position that the band will be changed in an orderly manner as markets develop. For a sender in the US, the onshore rate behind a CNY quote is tied to a figure published each morning, and Chinese rules decide what happens to dollars once they land.",
     bullets: [
-      "The PBoC sets a daily fixing rate and allows CNY to trade within a ±2% band around it",
-      "Capital controls limit the routes available — not all providers support USD to CNY",
-      "WeChat Pay and Alipay are widely used for receiving funds, but require Chinese residency to use fully",
-      "Bank-to-bank SWIFT transfers are the most common delivery method for international CNY transfers",
+      "CFETS publishes the yuan's central parity and trading band at 9:15 a.m. Beijing time, and under a CFETS notice of December 2022 they apply to every interbank spot trade agreed that trading day, which runs from 9:30 a.m. until 3:00 a.m. the next morning",
+      "Offshore yuan (CNH) and onshore yuan (CNY) trade in separate markets: the Hong Kong Monetary Authority treats them as separate currencies in its banking returns, and a 2015 Bank for International Settlements study found the offshore rate frequently diverges from the onshore one, so check which of the two a quote is priced in",
+      "Converting incoming dollars into yuan is a foreign exchange settlement: under 2020 guidelines from the State Administration of Foreign Exchange (SAFE), each person has an annual facilitation quota of USD 50,000 equivalent for it, usable at a bank with valid ID alone, plus a separate quota for purchases, SAFE's Tianjin branch confirmed in July 2026",
+      "Larger sums can still be converted: replying to a 2023 National People's Congress proposal on remittances from overseas Chinese, SAFE said genuine current-account funds can be handled with documents showing the transaction behind them, and that it supports banks offering conversion through online and mobile banking",
     ],
-    tip: "Check that your provider explicitly supports CNY delivery to mainland China (not just CNH — the offshore yuan). The two rates can differ, and not all providers offer onshore CNY transfers.",
+    tip: "Inside the daily trading band, Chinese banks may set the rates they give customers against the dollar without any limit on the spread, the IMF notes, citing a 2014 PBOC notice. If the money lands as dollars, the recipient's bank sets the conversion rate on the day, which no US quote shows in advance; a quote that pays out yuan can be compared line by line.",
   },
 };
 
@@ -325,7 +326,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `GBP to EUR Today — How Much Is £1,000 in Euros?`,
       description: `How much is £1,000 in euros today? Compare the cheapest UK→Europe transfers — live GBP/EUR rate updated every 60s, plus what ${providersComparedPhrase(["GBP"], "EUR")} — Wise and Revolut among them — actually deliver after FX markup.`,
       ogTitle: `GBP to EUR Today — Live Pound to Euro Rate + Cheapest UK→EU Providers`,
-      ogDesc: `Live GBP/EUR mid-market rate + what UK-to-Europe transfer providers actually offer. Skip the 3% bank markup — see who gives you the most euros per pound.`,
+      ogDesc: `Live GBP/EUR mid-market rate + what UK-to-Europe transfer providers actually offer. See who gives you the most euros per pound today.`,
     },
   };
 
@@ -384,8 +385,42 @@ export default async function ExchangeRatePairPage({ params }: Props) {
   const inverseRate = midRate ? 1 / midRate : null;
 
   // Get provider quotes for this corridor
-  const quotes = p.corridor ? generateQuotes(1000, p.from, p.to).slice(0, 8) : [];
+  // See table-amounts.ts: 1,000 printed the same rows as every corridor page
+  // and guide on this route.
+  const tableAmount = firstTableAmount("rates");
+  const amountLabel = tableAmount.toLocaleString("en-US");
+  const quotes = p.corridor ? generateQuotes(tableAmount, p.from, p.to).slice(0, 8) : [];
   const editorial = editorialContent[pair];
+
+  // What today's measured quotes for the table amount say about this pair. Until
+  // 2026-10-18 the explainer, the cost FAQ and its schema printed hand-typed
+  // ranges ("the best providers typically mark up by 0.2–0.8%, banks 2–5%")
+  // that were the same on every pair page and measured nothing.
+  const cost = (() => {
+    const measured = generateQuotes(tableAmount, p.from, p.to).filter((q) => !q.isIndicative && q.receiveAmount > 0);
+    if (measured.length === 0 || !midRate) return null;
+    const markups = measured.map((q) => (1 - q.exchangeRate / midRate) * 100).sort((a, b) => a - b);
+    const mid = Math.floor(markups.length / 2);
+    const median = markups.length % 2 ? markups[mid] : (markups[mid - 1] + markups[mid]) / 2;
+    const fees = measured.map((q) => q.fee);
+    const payouts = measured.map((q) => q.receiveAmount);
+    const fmt = (n: number, d = 2) => n.toLocaleString("en-US", { maximumFractionDigits: d });
+    const leader = measured.reduce((a, b) => (b.receiveAmount > a.receiveAmount ? b : a)).providerSlug;
+    return {
+      leader,
+      count: measured.length,
+      medianMarkup: `${median.toFixed(2)}%`,
+      feeRange: Math.min(...fees) === Math.max(...fees) ? `${fmt(Math.min(...fees))} ${p.from}` : `${fmt(Math.min(...fees))} to ${fmt(Math.max(...fees))} ${p.from}`,
+      best: `${fmt(Math.max(...payouts), 0)} ${p.to}`,
+      worst: `${fmt(Math.min(...payouts), 0)} ${p.to}`,
+      gap: `${fmt(Math.max(...payouts) - Math.min(...payouts), 0)} ${p.to}`,
+    };
+  })();
+  const costSentence = cost
+    ? cost.count > 1
+      ? `Across today's ${cost.count} quotes for ${amountLabel} ${p.from}, the median provider's rate sits ${cost.medianMarkup} below the mid-market rate and fees run from ${cost.feeRange}, so your recipient gets between ${cost.worst} and ${cost.best}: a ${cost.gap} gap on the same transfer.`
+      : `Only one provider quotes ${amountLabel} ${p.from} to ${p.to} in our data today: its rate sits ${cost.medianMarkup} below the mid-market rate, with a fee of ${cost.feeRange}, and your recipient gets ${cost.best}.`
+    : `No provider quotes ${p.from} to ${p.to} in our data today, so there is no measured cost to show.`;
 
   // Related pairs (same base or quote currency, excluding self).
   // This used to take .slice(0, 6) of declaration order, so every USD page
@@ -505,7 +540,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
           <InlineProviderQuotes
             from={p.from}
             to={p.to}
-            amount={1000}
+            amount={tableAmount}
             source={`rate:${pair}`}
             heading={`Nobody gets the mid-market rate — here is what you actually get`}
             subheading={`Live ${p.from}→${p.to} all-in costs, updated every 6 hours.`}
@@ -546,7 +581,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             const monthYear = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
             const bestQuote = quotes[0];
             const quickAnswers: Record<string, string> = {
-              "usd-to-brl": `The USD to BRL exchange rate today is 1 US dollar = ${fmtRate(midRate)} Brazilian reais (mid-market rate, ${monthYear}).${bestQuote ? ` To actually send USD to Brazil, ${getProviderName(bestQuote.providerSlug)} offers the best provider rate right now at ${bestQuote.exchangeRate.toFixed(4)} — delivering ${bestQuote.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 0 })} BRL on a $1,000 transfer (fee ${bestQuote.fee === 0 ? "free" : "$" + bestQuote.fee.toFixed(2)}).` : ""} Providers add a 0.3–4% markup on top of the mid-market rate, so comparing rates before sending can save ${p.to === "BRL" ? "R$" : ""}10–40 per $1,000.`,
+              "usd-to-brl": `The USD to BRL exchange rate today is 1 US dollar = ${fmtRate(midRate)} Brazilian reais (mid-market rate, ${monthYear}).${bestQuote ? ` To actually send USD to Brazil, ${getProviderName(bestQuote.providerSlug)} offers the best provider rate right now at ${bestQuote.exchangeRate.toFixed(4)} — delivering ${bestQuote.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 0 })} BRL on a $${amountLabel} transfer (fee ${bestQuote.fee === 0 ? "free" : "$" + bestQuote.fee.toFixed(2)}).` : ""}${cost ? ` ${costSentence}` : ""}`,
             };
             const answer = quickAnswers[pair];
             if (!answer) return null;
@@ -588,7 +623,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 Compare {p.from} to {p.to} Transfer Rates
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
-                What you&apos;d actually receive sending 1,000 {p.from} via each provider today.
+                What you&apos;d actually receive sending {amountLabel}{" "}{p.from} via each provider today.
               </p>
 
               {/* Mobile — stacked card per provider */}
@@ -657,7 +692,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 <div className="mt-4 pt-4 border-t border-[var(--color-outline)]">
                   <Link
                     href={`/send-money/${p.corridor}`}
-                    fallbackHref={compareHashHref(p.from, p.to, 1000)}
+                    fallbackHref={compareHashHref(p.from, p.to, tableAmount)}
                     className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-primary)] hover:underline"
                   >
                     Compare all providers for {p.fromName} to {p.toName}
@@ -699,7 +734,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                     {p.from}/{p.to} Rate History
                   </h2>
                   <p className="text-sm text-[var(--color-on-surface-variant)]">
-                    Track how provider rates have changed over time. See which providers consistently offer the best {p.from} to {p.to} rates.
+                    Track how provider rates have changed over time, and which provider led the {p.from} to {p.to}{" "}route on each day.
                   </p>
                 </div>
                 <Link
@@ -722,11 +757,9 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             </h2>
             <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
               <p>
-                The mid-market rate is the midpoint between the buy and sell prices on global currency markets — it&apos;s the fairest exchange rate available. This page shows XE&apos;s mid-market rate, the same benchmark we measure every provider&apos;s markup against.
+                The {p.from}/{p.to}{" "}figure at the top is XE&apos;s mid-market rate, the midpoint of buy and sell prices, and the benchmark each provider&apos;s markup below is measured against.
               </p>
-              <p>
-                When a money transfer provider quotes you a rate, compare it against the mid-market rate shown on this page. The difference is the provider&apos;s markup — their profit on the currency conversion. On the {p.from}/{p.to} pair, the best providers typically mark up by {midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"}, while banks can mark up by 2–5%.
-              </p>
+              <p>{costSentence}</p>
             </div>
           </div>
 
@@ -793,12 +826,14 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 {
                   q: `Which provider offers the best ${p.fromName} to ${p.toName} rate?`,
                   a: quotes.length > 0
-                    ? `Based on today's quotes, ${getProviderName(quotes[0].providerSlug)} is offering the best ${p.from} to ${p.to} rate — sending 1,000 ${p.from} gives your recipient ${quotes[0].receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${p.to}. Rankings shift daily, so compare the full table above before every transfer.${editorial ? " " + editorial.tip : ""}`
-                    : `The best ${p.from} to ${p.to} provider varies day to day. Specialist providers like Wise, Revolut, and OFX consistently beat banks on rate — compare above before every transfer.${editorial ? " " + editorial.tip : ""}`,
+                    ? `Based on today's quotes, ${getProviderName(quotes[0].providerSlug)} is offering the best ${p.from} to ${p.to} rate — sending ${amountLabel} ${p.from} gives your recipient ${quotes[0].receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${p.to}. Rankings shift daily, so compare the full table above before every transfer.${editorial ? " " + editorial.tip : ""}`
+                    : cost
+                      ? `Based on today's quotes, ${getProviderName(cost.leader)} delivers the most ${p.to} for ${amountLabel} ${p.from} (${cost.best}). The order moves with the rate, so compare before you send.${editorial ? " " + editorial.tip : ""}`
+                      : `No provider quotes ${p.from} to ${p.to} in our data today, so there is no measured leader to name.`,
                 },
                 {
                   q: `How much does it cost to convert ${p.fromName} to ${p.toName}?`,
-                  a: `The total cost of a ${p.from} to ${p.to} transfer has two parts: the exchange rate markup (the gap between the mid-market rate and the provider's rate) and any flat fee. The best specialist providers on this corridor typically charge a markup of ${midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"} plus a small flat fee, while banks can add 2–5% in markup. The table above shows you exactly how much ${p.to} your recipient would receive from each provider on a 1,000 ${p.from} transfer.`,
+                  a: `Two parts: the markup in the provider's exchange rate and any fee. ${costSentence}`,
                 },
               ].map((faq, i) => (
                 <div key={i} className="py-4">
@@ -853,7 +888,9 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                   "@type": "Answer",
                   text: quotes.length > 0
                     ? `Based on today's quotes, ${getProviderName(quotes[0].providerSlug)} is offering the best rate for ${p.from} to ${p.to}. Rankings shift daily — always compare before sending.`
-                    : `Specialist providers like Wise, Revolut, and OFX consistently beat banks on ${p.from} to ${p.to}. Always compare before sending.`,
+                    : cost
+                      ? `Based on today's quotes, ${getProviderName(cost.leader)} delivers the most ${p.to} for ${amountLabel} ${p.from}. The order moves with the rate, so compare before you send.`
+                      : `No provider quotes ${p.from} to ${p.to} in our data today.`,
                 },
               },
               {
@@ -861,7 +898,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 name: `How much does it cost to convert ${p.fromName} to ${p.toName}?`,
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: `The total cost has two parts: the exchange rate markup and any flat fee. The best providers on ${p.from}/${p.to} typically charge ${midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"} in markup plus a small flat fee, while banks can add 2–5%.`,
+                  text: `Two parts: the markup in the provider's exchange rate and any fee. ${costSentence}`,
                 },
               },
             ],
