@@ -1,6 +1,17 @@
 /** Focused decisions for the comparisons flagged by the September 26 crawl.
  * These replace repeated generated verdicts, FAQs and provider checklists. */
-export const comparisonDecisionNotes: Record<string, { heading: string; decision: string; check: string; source: string }> = {
+export interface ComparisonDecisionNote {
+  heading: string;
+  decision: string;
+  check: string;
+  source: string;
+  /** How the two companies differ structurally, from their own terms and regulators (HTML, through renderDataTokens). */
+  pairNote?: { heading: string; body: string };
+  /** This pair's own questions, shown instead of the generated FAQs (HTML answers). */
+  faqs?: { q: string; a: string }[];
+}
+
+export const comparisonDecisionNotes: Record<string, ComparisonDecisionNote> = {
   "xe-vs-western-union": {
     "heading": "Choose the receiving counter before the exchange rate",
     "decision": "Xe and Western Union can both offer cash collection, depending on the route. Start with the exact pickup location the recipient can reach. A Western Union office is not automatically an Xe collection partner, and a quote for bank credit is not a cash quote.",

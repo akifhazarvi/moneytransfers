@@ -216,7 +216,10 @@ function DefaultComparison({
     return (slug: string) =>
       n ? `Won ${slug === a.slug ? m.winsA.length : m.winsB.length} of ${n} routes here` : null;
   })();
-  const hasFaqs = (editorial ? editorial.faqs : faqs).length > 0;
+  // A decision note may carry the pair's own FAQs; they replace the generated
+  // ones, which read the same on every page featuring either provider.
+  const noteFaqs = editorial ? undefined : decisionNote?.faqs;
+  const hasFaqs = (editorial ? editorial.faqs : noteFaqs ?? faqs).length > 0;
   // A decision note replaces the generated blocks outright, but sits beside
   // hand-written editorial rather than over it: on wise-vs-western-union and
   // wise-vs-moneygram the note replaced ~1,000 words written for that pair.
@@ -303,13 +306,13 @@ function DefaultComparison({
         />
       ))}
       {/* FAQ schema only for the questions actually rendered below. */}
-      {!noteReplaces && hasFaqs && <script
+      {(!noteReplaces || noteFaqs) && hasFaqs && <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: (editorial ? editorial.faqs.map((f) => ({ q: f.q, a: renderDataTokens(f.a) })) : faqs).map((faq) => ({
+            mainEntity: ((editorial?.faqs ?? noteFaqs)?.map((f) => ({ q: f.q, a: renderDataTokens(f.a) })) ?? faqs).map((faq) => ({
               "@type": "Question",
               name: faq.q,
               acceptedAnswer: { "@type": "Answer", text: faq.a },
@@ -540,6 +543,16 @@ function DefaultComparison({
               </div>
             </section>
           )}
+
+          {!editorial && decisionNote?.pairNote && (
+            <section className="mb-10">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">{decisionNote.pairNote.heading}</h2>
+              <div
+                className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3"
+                dangerouslySetInnerHTML={{ __html: renderDataTokens(decisionNote.pairNote.body) }}
+              />
+            </section>
+          )}
           {!noteReplaces && <>
           {/* Hand-written editorial for this pair — content brief §4.
               Rendered INSTEAD of the generated pros/cons and "when to choose"
@@ -598,8 +611,8 @@ function DefaultComparison({
                   <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                     {editorial.pairNote.heading}
                   </h2>
-                  <p
-                    className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                  <div
+                    className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3"
                     dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.pairNote.body) }}
                   />
                 </section>
@@ -741,14 +754,15 @@ function DefaultComparison({
               </div>
             )}
           </section>
+          </>}
 
           {/* FAQs */}
-          {hasFaqs && <section id="faqs" className="mb-10">
+          {(!noteReplaces || noteFaqs) && hasFaqs && <section id="faqs" className="mb-10">
             <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-6">
               {a.name} vs {b.name}: your questions
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
-              {(editorial ? editorial.faqs : faqs).map((faq) => (
+              {(editorial ? editorial.faqs : noteFaqs ?? faqs).map((faq) => (
                 <details key={faq.q} className="group py-4">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                     {faq.q}
@@ -759,7 +773,7 @@ function DefaultComparison({
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  {editorial ? (
+                  {editorial || noteFaqs ? (
                     <p
                       className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8"
                       dangerouslySetInnerHTML={{ __html: renderDataTokens(faq.a) }}
@@ -773,8 +787,6 @@ function DefaultComparison({
               ))}
             </div>
           </section>}
-
-          </>}
 
           {/* CTA */}
           <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
