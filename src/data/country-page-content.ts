@@ -1029,7 +1029,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What bank details do I need to send money to Nigeria?",
         answer:
-          "You need the recipient's 10-digit NUBAN (Nigeria Uniform Bank Account Number), the bank name, and the bank's SWIFT code. Key SWIFT codes: GTBank (GTBINGLA), Zenith Bank (ZEIBNGLA), Access Bank (ABNGNGLA), UBA (UNAFNGLA), First Bank (FBNINGLA). Nigeria does not use IBAN.",
+          "You need the recipient's 10-digit NUBAN (Nigeria Uniform Bank Account Number), the bank name, and the bank's SWIFT code. Access Bank's is ABNGNGLA in the SWIFT directory; ask the recipient for their own bank's code. Nigeria does not use IBAN.",
       },
       {
         question: "Can I send money to OPay or Palmpay in Nigeria?",
@@ -1039,7 +1039,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "Why do NGN exchange rates differ so much between providers?",
         answer:
-          "Even after the 2023 CBN FX unification, Nigerian naira rates can vary 3–8% between providers due to different liquidity sources, timing of rate locks, and risk margins. Some providers source NGN from banks at the official NAFEX rate, while others may have direct arrangements. The gap between best and worst providers on any given day remains substantial — comparison is essential.",
+          "Even after the 2023 CBN FX unification, Nigerian naira rates can vary 3–8% between providers due to different liquidity sources, timing of rate locks, and risk margins. Under the CBN's IMTO guidelines, operators pay out in naira at the prevailing Nigerian Foreign Exchange Market (NFEM) rate, which each quotes on a willing-buyer, willing-seller basis, so the rate still differs between providers. The gap between best and worst providers on any given day remains substantial — comparison is essential.",
       },
       {
         question: "Is there a limit on how much I can send to Nigeria?",
@@ -1348,7 +1348,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
     countryName: "Europe",
     currency: "EUR",
     intro:
-      "Sending money to Europe (the Eurozone) benefits from the SEPA payment network — the most advanced regional payment system in the world. SEPA covers 36 countries and enables EUR transfers to arrive within 10 seconds via SEPA Instant Credit Transfer (SCT Inst), at near-zero cost between participating banks. EUR is the world's second most traded currency, meaning exchange rates are highly competitive.",
+      "Sending money to Europe (the Eurozone) benefits from the SEPA payment network, whose geographical scope covers 41 countries and territories on the European Payments Council's list. EU rules give a SEPA Instant Credit Transfer (SCT Inst) 10 seconds to reach the payee's account. EUR is the world's second most traded currency, meaning exchange rates are highly competitive.",
     highlights: [
       "SEPA Instant Credit Transfer (SCT Inst) settles EUR transfers between participating banks in under 10 seconds, 24/7/365. Over 60% of European banks now support SEPA Instant.",
       "All Eurozone bank accounts use IBAN (International Bank Account Number). IBANs are country-specific: DE for Germany, FR for France, ES for Spain, IT for Italy, NL for Netherlands, etc. The format and length vary by country.",
