@@ -47,8 +47,22 @@ import { displayBankList } from "@/lib/bank-display-name";
  * its FAQ, its meta description's bank count and the /iban hub total — reads
  * this list, so they agree with each other.
  */
+/**
+ * Countries the scraped Wise flag still marks non-SEPA although the EPC's list
+ * of countries in the SEPA schemes' geographical scope (EPC409-09 v8.0, 24
+ * December 2025) includes them: Andorra from 1 March 2019 (its five banks
+ * adhered that week, per Andorran Banking); Montenegro and Albania (EPC Board,
+ * 21 November 2024) and North Macedonia and Moldova (6 March 2025), live from
+ * October 2025, when the Commission counted 40 of their banks in the schemes;
+ * Serbia (22 May 2025), where the NBS said on 15 July 2026 that 18 of its 19
+ * banks had adhered to SEPA Credit Transfer. /iban/serbia answered "Is Serbia
+ * part of SEPA? No." until 2026-10-18. iban-structures.json already agrees.
+ */
+const EPC_SEPA_SCOPE_ADDED = new Set(["AD", "AL", "ME", "MK", "MD", "RS"]);
+
 export const wiseCountries: WiseCountryIban[] = (ibanData as WiseCountryIban[]).map((c) => ({
   ...c,
+  sepa: c.sepa || EPC_SEPA_SCOPE_ADDED.has(c.countryCode.toUpperCase()),
   banks: displayBankList(c.slug, c.banks),
 }));
 export const wiseCountryPages: WiseCountryPage[] = pageData as WiseCountryPage[];
