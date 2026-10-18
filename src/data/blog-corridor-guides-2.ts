@@ -17,6 +17,7 @@ export const corridorGuides2: BlogPost[] = [
   {
     slug: "send-money-uae-to-pakistan-guide",
     title: "Send Money from UAE to Pakistan 2026: AED to PKR Rates",
+    metaTitle: "Send Money from UAE to Pakistan in 2026: AED to PKR Rates",
     metaDescription:
       "Send AED to PKR in 2026: live rates from Remitly, TapTap Send, ACE, Al Ansari, LuLu, Western Union. Plus RDA, JazzCash, RAAST, and Buna integration.",
     excerpt:
@@ -358,6 +359,7 @@ export const corridorGuides2: BlogPost[] = [
   {
     slug: "send-money-to-egypt-guide",
     title: "Send Money to Egypt 2026: USD to EGP Rates & Cheapest Fees",
+    metaTitle: "Send Money to Egypt 2026: USD to EGP Rates and Fees Compared",
     metaDescription:
       "Send USD to EGP in 2026 after Egypt's currency reforms. Compare fees and rates from {{ROUTE_PROVIDERS:USD:EGP}} — bank deposit, Vodafone Cash, and InstaPay options.",
     excerpt:

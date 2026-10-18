@@ -246,6 +246,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
   {
     slug: "ofx-review-2026",
     title: "OFX Review 2026: Is It the Cheapest Option for Large International Transfers?",
+    metaTitle: "OFX Review 2026: Is It Cheapest for Large International Transfers?",
     metaDescription:
       "OFX review 2026: zero transfer fees, but is the exchange rate competitive? We tested OFX on $5,000–$50,000 transfers across 6 corridors. Honest verdict inside.",
     excerpt:

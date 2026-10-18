@@ -45,6 +45,8 @@ export interface BankMeta {
   founded: number;
   /** Human-readable headline angle used in H1 + meta */
   headline: string;
+  /** <title> when seoTitle(headline) would drop what the page is about */
+  metaTitle?: string;
   /** Description of the bank's international-transfer product */
   productNote: string;
   /** The bank's own published international transfer fee page if relevant */
@@ -91,6 +93,7 @@ export const PILOT_BANKS: Record<string, BankMeta> = {
     primaryCurrency: "USD",
     founded: 1799,
     headline: "Chase International Wire Transfer Fees — How Much You're Actually Losing (2026)",
+    metaTitle: "Chase International Wire Fees: How Much You're Actually Losing",
     productNote:
       "Chase charges $40 for an international wire sent online in US dollars, $5 for one sent online in a foreign currency ($0 from $5,000), and $50 when a banker sends it. On foreign-currency wires Chase sets the exchange rate itself, including a spread it does not list as a fee — you only see it by comparing the amount received against the mid-market rate.",
     // Chase's fee schedule for personal accounts (effective 2026-06-14): the
@@ -108,6 +111,7 @@ export const PILOT_BANKS: Record<string, BankMeta> = {
     primaryCurrency: "GBP",
     founded: 1765,
     headline: "Lloyds Bank International Transfer Fees — Real Cost vs Wise on a £1,000 Send (2026)",
+    metaTitle: "Lloyds Bank International Transfer Fees vs Wise on £1,000",
     productNote:
       "Lloyds charges £9.50 for an international SEPA payment and up to £20 for a SWIFT payment, plus an exchange rate margin typically 2.8-4.5% above the mid-market rate. Internet Banking customers pay slightly less than branch customers but the FX margin is the same.",
     sourcePage: "https://www.lloydsbank.com/international-banking/sending-money-abroad.html",
@@ -122,6 +126,7 @@ export const PILOT_BANKS: Record<string, BankMeta> = {
     primaryCurrency: "GBP",
     founded: 1690,
     headline: "Barclays International Transfer Fees — What £1,000 to India Actually Costs (2026)",
+    metaTitle: "Barclays International Transfer Fees: What £1,000 to India Costs",
     productNote:
       "Barclays Online International Payment costs £25 (£15 if you use Barclays International Banking with a Premier or Wealth relationship), plus an FX margin typically 2.0-3.0% above mid-market. Cheaper than Lloyds or Santander on like-for-like, but still substantially more than specialist providers.",
     sourcePage: "https://www.barclays.co.uk/international-banking/international-payments/",

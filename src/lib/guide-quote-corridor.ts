@@ -105,6 +105,10 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   // Top Bing entry point. Readers arrive mid-wire, so match the guide to the
   // classic SWIFT corridor rather than falling through to the USD→INR default.
   "swift-codes-explained": { from: "USD", to: "EUR", amount: 1000, heading: "Skip the SWIFT wire fee — top USD → EUR providers" },
+  // IBAN readers are paying into a European account; GBP → EUR is the largest
+  // IBAN route from outside the eurozone, and it keeps this table distinct from
+  // the USD → EUR one the SWIFT and wire guides print.
+  "iban-numbers-explained": { from: "GBP", to: "EUR", amount: 1000, heading: "Paying an IBAN? Live GBP → EUR rates" },
   "how-to-send-money-abroad": { from: "USD", to: "INR", amount: 1000, heading: "Live USD → INR rates — top providers today" },
   "cheapest-way-to-send-money-internationally": { from: "USD", to: "INR", amount: 1000, heading: "Today's cheapest USD → INR providers" },
   "money-transfer-safety-guide": { from: "USD", to: "INR", amount: 1000, heading: "Top regulated USD → INR providers" },

@@ -11,7 +11,7 @@ import CircleFlag from "@/components/CircleFlag";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
-import { assignTableAmounts } from "@/lib/table-amounts";
+import { ibanComparison } from "@/lib/iban-comparison";
 import {
   wiseCountries,
   getWiseCountryBySlug,
@@ -23,27 +23,6 @@ import { INDEXED_IBAN_SLUGS as indexedIbanCountries, robotsFor } from "@/lib/seo
 import type { Metadata } from "next";
 import { PageByline } from "@/components/PageByline";
 import { IBAN_CONTENT_DATE } from "@/lib/content-dates";
-
-// Default sending currency for the inline comparison. USD is the largest
-// outbound remittance market and the site's default quote currency; the widget
-// is skipped entirely when it would produce a same-currency corridor.
-const SEND_FROM_CURRENCY = "USD";
-/**
- * Euro countries whose largest sending market is the UK quote GBP→EUR instead:
- * every euro IBAN page quoting USD→EUR printed the same provider rows, the bulk
- * of what France, Ireland, Portugal and Spain shared (round-3 duplicate crawl).
- */
-const GBP_SENDER_SLUGS = new Set(["ireland", "spain", "portugal", "france", "cyprus", "malta"]);
-function sendFromFor(slug: string): string {
-  return GBP_SENDER_SLUGS.has(slug) ? "GBP" : SEND_FROM_CURRENCY;
-}
-/** Distinct table amount per page on a shared currency — see table-amounts.ts. */
-const IBAN_TABLE_AMOUNTS = assignTableAmounts(
-  wiseCountries.filter((c) => c.slug),
-  (c) => c.slug!,
-  (c) => `${sendFromFor(c.slug!)}-${c.currency}`,
-  "iban",
-);
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -413,6 +392,7 @@ export default async function IbanCountryPage({ params }: Props) {
 
   const name = getCountryName(country.countryCode, slug);
   const countryCode = country.countryCode;
+  const comparison = ibanComparison(slug, country.currency);
   const editorialNote = getIbanEditorial(locale, slug);
   const countryFaqsList = getIbanFaqs(locale, slug);
 
@@ -605,11 +585,11 @@ export default async function IbanCountryPage({ params }: Props) {
               ~1,170 sessions per 90 days and converted under 1%. Someone
               looking up an IBAN is mid-transfer; the comparison belongs here,
               right after the reference facts they came for, not in the footer. */}
-          {country.currency !== sendFromFor(slug) && (
+          {comparison && (
             <InlineProviderQuotes
-              from={sendFromFor(slug)}
-              to={country.currency}
-              amount={IBAN_TABLE_AMOUNTS.get(slug) ?? 1050}
+              from={comparison.from}
+              to={comparison.to}
+              amount={comparison.amount}
               source={`iban:${slug}`}
               heading={`Sending money to ${name}? Compare live rates`}
             />
@@ -804,7 +784,7 @@ export default async function IbanCountryPage({ params }: Props) {
                   </li>
                 ))}
                 <li>
-                  <Link href="/send-money" className="text-2sm text-[var(--color-primary)] hover:underline">
+                  <Link href={comparison?.href ?? "/send-money"} className="text-2sm text-[var(--color-primary)] hover:underline">
                     Compare all providers →
                   </Link>
                 </li>
@@ -849,7 +829,10 @@ export default async function IbanCountryPage({ params }: Props) {
           Sending money to {name}?
         </h2>
         <div className="mb-6" />
-        <PrimaryButton href="/send-money" size="lg">
+        {/* Continues the route and amount of the live table above rather than
+            resetting to a geo default (it went to bare /send-money until
+            2026-10-18). */}
+        <PrimaryButton href={comparison?.href ?? "/send-money"} size="lg">
           Compare providers
         </PrimaryButton>
       </div>

@@ -16,6 +16,7 @@ export const newGuidesJul2026: BlogPost[] = [
   {
     slug: "best-apps-send-money-uk-to-nigeria-2026",
     title: "Best Apps to Send Money UK to Nigeria July 2026: Lemfi vs TapTap Send vs Wise",
+    metaTitle: "Best Apps to Send Money UK to Nigeria 2026: LemFi, TapTap Send, Wise",
     metaDescription:
       "July 2026 GBP→NGN rate update: Lemfi now edges Wise on UK-to-Nigeria for most amounts. We ranked {{ROUTE_PROVIDERS:GBP:NGN}} by naira received — not just fee — with live data.",
     excerpt:
@@ -594,6 +595,7 @@ export const newGuidesJul2026: BlogPost[] = [
   {
     slug: "average-remittance-fees-2026",
     title: "Average Remittance Fees 2026: World Bank Data vs. What Apps Actually Charge",
+    metaTitle: "Average Remittance Fees 2026: World Bank Data vs What Apps Charge",
     metaDescription:
       "World Bank data puts the global average remittance fee at 6.49%. Our live data shows specialist apps average under 1%. We break down the numbers by channel and corridor.",
     excerpt:

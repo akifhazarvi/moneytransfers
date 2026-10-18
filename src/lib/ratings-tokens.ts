@@ -22,7 +22,8 @@ import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index"
 import { CONSISTENCY_ROWS, CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import ibanStructures from "@/data/scraped/iban-structures.json";
 import { ibanPageRenders } from "@/lib/route-map";
-import { gateBodyLinks, isLinkEligible } from "@/lib/link-eligibility";
+import { compareHashHref, gateBodyLinks, isLinkEligible } from "@/lib/link-eligibility";
+import { RECEIVING_BANK_DETAILS } from "@/data/receiving-bank-details";
 import { computeBusinessFxIndex, BUSINESS_FX_SLUGS, type BusinessFxIndex } from "@/lib/business-fx-index";
 import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
@@ -240,6 +241,10 @@ ${body}
 //        only, so the two figures differ slightly and each must say which it is.
 //   {{RATINGS_DATE}}                       6 September 2026 (Trustpilot scrape)
 //   {{IBAN_FORMAT_TABLE}}                  89-country IBAN length/example table
+//   {{IBAN_LENGTH_RANGE}}                  "from 15 characters (Norway) to 33 (Russia)"
+//   {{IBAN_COUNTRY_COUNT}}                 89 (countries in the IBAN format list)
+//   {{BANK_DETAILS_TABLE}}                 what a recipient in 14 countries gives a sender,
+//        IBAN length from the same list, a comparison link per row
 //   {{LEADS:wise}}                         44 of the 212 corridors we can compare
 //   {{LEADER_MAP}}                         a table of who actually leads, by
 //        provider, with the corridor count and examples — the answer to "which
@@ -431,6 +436,32 @@ export function renderIbanFormatTable(): string {
     })
     .join("");
   return `<div class="overflow-x-auto"><table><thead><tr><th>Country</th><th>Code</th><th>Length</th><th>Example IBAN</th><th>SEPA</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+type IbanRow = { country: string; code: string; length: number };
+const IBAN_ROWS = ibanStructures as IbanRow[];
+
+/**
+ * Shortest and longest IBAN in the format list. The IBAN guide said "from 15
+ * characters (Norway) to 34 characters (Jordan)": 34 is the standard's
+ * ceiling, and a Jordanian IBAN is 30.
+ */
+export function renderIbanLengthRange(): string {
+  const sorted = IBAN_ROWS.slice().sort((a, b) => a.length - b.length);
+  const min = sorted[0];
+  const max = sorted[sorted.length - 1];
+  return `from ${min.length} characters (${min.country}) to ${max.length} (${max.country})`;
+}
+
+export function renderBankDetailsTable(): string {
+  const lengthOf = new Map(IBAN_ROWS.map((r) => [r.code, r.length]));
+  const rows = RECEIVING_BANK_DETAILS.map((r) => {
+    const len = r.ibanCode ? lengthOf.get(r.ibanCode) : undefined;
+    const iban = len ? `Yes, ${len} characters` : "No";
+    const compare = `<a href="${compareHashHref(r.from, r.currency, 1000)}">${r.from} → ${r.currency}</a>`;
+    return `<tr><td>${r.country}</td><td>${iban}</td><td>${r.local}</td><td>${compare}</td></tr>`;
+  }).join("");
+  return `<div class="overflow-x-auto"><table><thead><tr><th>Sending to</th><th>IBAN?</th><th>What the recipient gives you</th><th>Compare</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 export function renderQuoteDate(): string {
@@ -1090,6 +1121,15 @@ export function renderDataTokens(html: string): string {
   );
   if (out.includes("{{IBAN_FORMAT_TABLE}}")) {
     out = out.split("{{IBAN_FORMAT_TABLE}}").join(renderIbanFormatTable());
+  }
+  if (out.includes("{{IBAN_LENGTH_RANGE}}")) {
+    out = out.split("{{IBAN_LENGTH_RANGE}}").join(renderIbanLengthRange());
+  }
+  if (out.includes("{{IBAN_COUNTRY_COUNT}}")) {
+    out = out.split("{{IBAN_COUNTRY_COUNT}}").join(String(IBAN_ROWS.length));
+  }
+  if (out.includes("{{BANK_DETAILS_TABLE}}")) {
+    out = out.split("{{BANK_DETAILS_TABLE}}").join(renderBankDetailsTable());
   }
 
   // Bank-vs-specialist gap. The cheapest-transfer guide asserted specialists

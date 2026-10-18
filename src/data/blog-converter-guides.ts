@@ -19,6 +19,7 @@ export const converterGuides: BlogPost[] = [
     slug: "traveling-multiple-countries-currency-guide",
     contentStatus: "draft",
     title: "Multi-Country Travel: How to Track All Your Exchange Rates",
+    metaTitle: "Multi-Country Travel: Tracking Your Exchange Rates | SendMoneyCompare",
     metaDescription:
       "Planning a multi-country trip? Learn how to monitor exchange rates for 5, 10, or 20 currencies at once and know what your money is worth everywhere.",
     excerpt:

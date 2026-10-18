@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     // bank.headline is the visible <h1>; seoTitle keeps the <title> distinct
     // and inside 70 chars (chase/hsbc were 79 and 74).
-    title: seoTitle(bank.headline),
+    title: seoTitle(bank.headline, bank.metaTitle),
     description: seoDescription(description),
     keywords: `${bank.name} international transfer fee, ${bank.name} wire transfer cost, ${bank.name} exchange rate, ${bank.name} vs wise, send money abroad ${bank.name}`,
     openGraph: {

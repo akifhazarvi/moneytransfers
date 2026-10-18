@@ -12,9 +12,11 @@
  *      carried the differentiator (the corridor, the year, the currency pair).
  *
  * The fix is a deterministic degradation ladder rather than 146 hand-written
- * strings: prefer an explicit editorial title, else brand the H1, else keep the
- * first clause of the H1. Every branch is checked against MAX_TITLE, so no
- * template can regress past the limit again — see `npm run check:assets`.
+ * strings: prefer an explicit editorial title, else brand the H1, else drop its
+ * parenthetical, else keep its first clause. Every branch is checked against
+ * MAX_TITLE, so no template can regress past the limit again, and
+ * `npm run check:assets` fails a derived title that keeps too little of its
+ * headline (`titleKeepsHeadline` below).
  *
  * This module owns SERP text generally: `seoDescription` below applies the
  * same idea to meta descriptions.
@@ -77,13 +79,12 @@ export function seoTitle(h1: string, explicit?: string): string {
   const branded = `${base}${BRAND_SUFFIX}`;
   if (branded.length <= MAX_TITLE) return branded;
 
-  const clause = firstClause(base);
-  if (clause) {
-    const brandedClause = `${clause}${BRAND_SUFFIX}`;
-    if (brandedClause.length <= MAX_TITLE) return brandedClause;
-    if (clause.length <= MAX_TITLE) return clause;
-  }
-
+  // Drop the "(2026)" before dropping a clause. The clause carries the words
+  // people search; the parenthetical rarely does. Cutting to the first clause
+  // first turned "What Is a SWIFT Code? Find Your Bank's BIC Code (2026)" into
+  // "What Is a SWIFT Code? | SendMoneyCompare" on 2026-09-02, and the 44
+  // guides cut that way lost 41% of their Bing visits in two weeks while the
+  // untouched guides held level (Bing readout 2026-10-18).
   const bare = stripParentheticals(base);
   if (bare !== base) {
     const brandedBare = `${bare}${BRAND_SUFFIX}`;
@@ -91,7 +92,56 @@ export function seoTitle(h1: string, explicit?: string): string {
     if (bare.length <= MAX_TITLE) return bare;
   }
 
+  // Last resort before a word cut. check:assets fails a page whose derived
+  // title loses most of its headline this way: give it a metaTitle instead.
+  const clause = firstClause(base);
+  if (clause) {
+    const brandedClause = `${clause}${BRAND_SUFFIX}`;
+    if (brandedClause.length <= MAX_TITLE) return brandedClause;
+    if (clause.length <= MAX_TITLE) return clause;
+  }
+
   return fitTitle([base]);
+}
+
+/**
+ * Words that carry no search intent on their own: articles, prepositions,
+ * question words, years and months, and the brand.
+ */
+const NON_CONTENT_WORDS = new Set([
+  "a", "an", "the", "to", "of", "for", "and", "or", "in", "on", "at", "by", "with", "from", "into",
+  "vs", "versus", "is", "it", "its", "your", "you", "how", "what", "why", "when", "which", "who",
+  "can", "do", "does", "are", "our", "we", "this", "that", "sendmoneycompare",
+  "january", "february", "march", "april", "may", "june", "july", "august", "september",
+  "october", "november", "december",
+]);
+
+function contentWords(s: string): Set<string> {
+  return new Set(
+    s
+      .toLowerCase()
+      .replace(/[’']s\b/g, "")
+      .split(/[^a-z0-9]+/)
+      .filter((w) => w && !NON_CONTENT_WORDS.has(w) && !/^(19|20)\d\d$/.test(w)),
+  );
+}
+
+/** Below this share a derived title has dropped what the page is about. */
+export const MIN_HEADLINE_SHARE = 0.6;
+
+/**
+ * Share of the headline's content words a <title> keeps (1 = all of them).
+ * check:assets fails a derived title under MIN_HEADLINE_SHARE, so the next
+ * template that cuts "Find Your Bank's BIC Code" off a SWIFT guide is caught
+ * at build time rather than in a Bing export six weeks later.
+ */
+export function titleKeepsHeadline(h1: string, title: string): number {
+  const head = contentWords(h1);
+  if (head.size === 0) return 1;
+  const kept = contentWords(title);
+  let n = 0;
+  for (const w of head) if (kept.has(w)) n++;
+  return n / head.size;
 }
 
 /** Meta descriptions truncate around here in both Google and Bing. */

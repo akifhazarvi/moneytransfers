@@ -7,6 +7,10 @@ import SectionHeader from "@/components/SectionHeader";
 import PrimaryButton from "@/components/PrimaryButton";
 import CircleFlag from "@/components/CircleFlag";
 import { wiseCountries, getSepaCountries } from "@/data/wise-iban";
+import { ibanStructures } from "@/data/iban";
+import { ibanComparison } from "@/lib/iban-comparison";
+import { isLinkEligible } from "@/lib/link-eligibility";
+import IbanChecker, { type IbanCheckerCountry } from "@/components/IbanChecker";
 import { getCountryByAlpha2 } from "@/data/countries";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { PageByline } from "@/components/PageByline";
@@ -54,6 +58,24 @@ const regionMap: Record<string, string[]> = {
   "Asia & Pacific": ["PK", "KZ", "GE", "AZ", "TL"],
   "Caribbean": ["VG"],
 };
+
+/**
+ * What the checker needs per country, projected server-side so the client gets
+ * 89 small rows rather than the format and bank datasets. Length comes from the
+ * iban.com registry list (89 countries); the page link and the comparison
+ * route from the 66 countries with an IBAN page.
+ */
+const CHECKER_COUNTRIES: IbanCheckerCountry[] = ibanStructures.map((s) => {
+  const page = wiseCountries.find((c) => c.countryCode === s.code && c.slug);
+  const pageHref = page ? `/iban/${page.slug}` : null;
+  return {
+    code: s.code,
+    name: s.country,
+    length: s.length,
+    pageHref: pageHref && isLinkEligible(pageHref) ? pageHref : null,
+    compareHref: page ? (ibanComparison(page.slug!, page.currency)?.href ?? null) : null,
+  };
+});
 
 function getCountryName(code: string, slug: string): string {
   const country = getCountryByAlpha2(code);
@@ -140,6 +162,15 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 {item}
               </span>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* IBAN checker — the tool the guides and the header link promise. */}
+      <section className="pt-10">
+        <Container>
+          <div className="max-w-3xl">
+            <IbanChecker countries={CHECKER_COUNTRIES} source="iban_hub" />
           </div>
         </Container>
       </section>
@@ -253,7 +284,10 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
               <p>
                 An <strong className="text-[var(--color-on-surface)]">International Bank Account Number (IBAN)</strong> is
                 a standardised format for identifying bank accounts across national borders. It was originally developed to
-                facilitate payments within the European Union but is now used in over 80 countries worldwide.
+                facilitate payments within the European Union; our format list covers{" "}{ibanStructures.length}{" "}countries
+                that issue one. An IBAN number does not replace your account: it is your domestic bank code and account
+                number (the BBAN) with a country code and two check digits added in front, so a bank abroad can route the
+                payment and catch a mistyped digit before it is sent.
               </p>
               <p>
                 An IBAN consists of up to 34 alphanumeric characters: a two-letter country code, two check digits,

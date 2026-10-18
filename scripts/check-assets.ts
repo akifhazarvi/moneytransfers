@@ -21,7 +21,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { KNOWN_LOGOS } from "../src/lib/provider-logo";
-import { MAX_TITLE, MAX_DESCRIPTION } from "../src/lib/seo-title";
+import { MAX_TITLE, MAX_DESCRIPTION, MIN_HEADLINE_SHARE, seoTitle, titleKeepsHeadline } from "../src/lib/seo-title";
 import { SITE_STATS } from "../src/lib/site-stats";
 import { blogPosts } from "../src/data/blog-posts";
 import { renderDataTokens } from "../src/lib/ratings-tokens";
@@ -29,6 +29,7 @@ import { corridorDeepBlocks } from "../src/data/corridor-deep-content";
 import { corridorEditorialNotes } from "../src/data/corridor-editorial-notes";
 import { newsItems } from "../src/data/news";
 import { corridors } from "../src/data/corridors";
+import { PILOT_BANKS } from "../src/lib/bank-comparisons";
 
 const ROOT = join(__dirname, "..");
 const WRITE = process.argv.includes("--write");
@@ -141,6 +142,31 @@ for (const key of MUST_FIT) {
   const rendered = render(tpl);
   if (rendered.length > MAX_TITLE) {
     failures.push(`title template ${key} renders ${rendered.length} chars (> ${MAX_TITLE}): "${rendered}"`);
+  }
+}
+
+// ── 3b. a derived <title> keeps what the page is about ───────────────────
+// seoTitle() cuts a long headline to fit. On 2026-09-02 it cut 44 guides to
+// their first clause ("What Is a SWIFT Code? | SendMoneyCompare" lost "Find
+// Your Bank's BIC Code"), and those guides lost 41% of their Bing visits in
+// two weeks while the untouched ones held level. A page whose derived title
+// keeps less than MIN_HEADLINE_SHARE of its headline's words needs a
+// hand-written metaTitle.
+const titled: [string, string, string | undefined][] = [
+  ...blogPosts.map((p) => [`guide ${p.slug}`, p.title, p.metaTitle] as [string, string, string | undefined]),
+  ...newsItems.map((n) => [`news ${n.slug}`, n.title, n.metaTitle] as [string, string, string | undefined]),
+  ...Object.values(PILOT_BANKS).map((b) => [`bank ${b.slug}`, b.headline, b.metaTitle] as [string, string, string | undefined]),
+];
+let derivedTitles = 0;
+for (const [where, h1, explicit] of titled) {
+  if (explicit?.trim() && explicit.trim().length <= MAX_TITLE) continue;
+  derivedTitles++;
+  const title = seoTitle(h1, explicit);
+  const share = titleKeepsHeadline(h1, title);
+  if (share < MIN_HEADLINE_SHARE) {
+    failures.push(
+      `${where}: derived title keeps ${Math.round(share * 100)}% of its headline (< ${Math.round(MIN_HEADLINE_SHARE * 100)}%) — add a metaTitle. "${h1}" → "${title}"`,
+    );
   }
 }
 
@@ -263,5 +289,6 @@ if (failures.length) {
 console.log(
   `check:assets ok — ${onDisk.length} logos in sync, ${seen.size} literal asset paths resolve, ` +
     `${MUST_FIT.length} title templates within ${MAX_TITLE} chars, ` +
+    `${derivedTitles} derived titles keep their headline, ` +
     `${DESC_MUST_FIT.length} description templates within ${MAX_DESCRIPTION}`,
 );

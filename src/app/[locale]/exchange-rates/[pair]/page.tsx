@@ -20,6 +20,7 @@ import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
 import { corridorPageRenders } from "@/lib/route-map";
+import { compareHashHref } from "@/lib/link-eligibility";
 import { rateHistoryHref } from "@/lib/route-map-rates";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 
@@ -645,10 +646,15 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                   </tbody>
                 </table>
               </div>
-              {p.corridor && corridorPageRenders(p.corridor) && (
+              {/* The corridor page where Google may index it, else the same pair
+                  and amount on /send-money (rule 14 fallback). Until 2026-10-18
+                  this showed only when a corridor page rendered, and as plain
+                  text when that page was Bing-only — most of them. */}
+              {(
                 <div className="mt-4 pt-4 border-t border-[var(--color-outline)]">
                   <Link
-                    href={corridorPageRenders(p.corridor) ? `/send-money/${p.corridor}` : "/send-money"}
+                    href={p.corridor && corridorPageRenders(p.corridor) ? `/send-money/${p.corridor}` : compareHashHref(p.from, p.to, 1000)}
+                    fallbackHref={compareHashHref(p.from, p.to, 1000)}
                     className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-primary)] hover:underline"
                   >
                     Compare all providers for {p.fromName} to {p.toName}

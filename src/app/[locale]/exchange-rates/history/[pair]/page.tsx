@@ -1,5 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
 import Link from "@/components/EligibleLink";
+import { compareHashHref } from "@/lib/link-eligibility";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -321,7 +322,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
             </div>
             <div className="flex items-center gap-3 shrink-0">
               <Link
-                href="/send-money"
+                href={compareHashHref(from, to, 1000)}
                 className="text-2sm font-medium text-[var(--color-primary)] hover:underline"
               >
                 Compare all providers
@@ -514,7 +515,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
               title: "Related",
               links: [
                 { href: `/exchange-rates`, label: "Live Exchange Rates" },
-                { href: "/send-money", label: "Compare Providers" },
+                { href: compareHashHref(from, to, 1000), label: `Compare ${from} to ${to} providers` },
                 { href: "/exchange-rates/history", label: "All Rate History" },
                 // The reverse pair and the outlook for either currency, where
                 // Google may index them (brief §5.3; CrossLinks drops the rest).

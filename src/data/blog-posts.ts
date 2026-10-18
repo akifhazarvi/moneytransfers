@@ -1029,28 +1029,17 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "6 min read",
     publishedAt: "2026-02-15",
-    updatedAt: "2026-09-07",
+    updatedAt: "2026-10-18",
     author: "Awais Imran",
     tags: ["IBAN", "bank account", "international transfer", "Europe", "validation"],
     featuredImage: "/images/blog/iban-numbers-explained.jpg",
     sections: [
       {
-        heading: "What Is an IBAN?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An IBAN (International Bank Account Number) is a standardized bank account number format used in 80+ countries, containing up to 34 characters including a country code, check digits, bank code, and account number. IBANs are required for transfers to Europe and many other regions. Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/xe">XE</a> accept IBANs directly and handle routing automatically. See our <a href="/send-money/usa-to-europe">UK to Europe</a> corridor page for IBAN-based transfer options.</p></div>
-<p>An <strong>IBAN</strong> (International Bank Account Number) is a standardized format for bank account numbers used in over 80 countries. The IBAN standard is maintained under <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer">ISO 13616</a> by the International Organization for Standardization. It was created to reduce errors in international transfers by providing a uniform way to identify bank accounts globally. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry provides IBAN structure details for all participating countries.</p>
-<p>An IBAN contains the country code, check digits (for validation), bank code, and account number — all in a single string of up to 34 characters. When sending to Europe (e.g., <a href="/send-money/usa-to-europe">UK to Europe</a>), you'll almost always need the recipient's IBAN.</p>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Providers for International Transfers</h3>
-<table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Accepts IBANs, 0% markup, 70+ countries</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Simple IBAN entry, Express delivery option</td></tr>
-<tr><td><strong>No transfer fee</strong></td><td><a href="/companies/xe">XE</a></td><td>No fees, rate alerts, handles IBAN routing</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
-</div>`,
+        heading: "What Is an IBAN Number?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An IBAN number (International Bank Account Number) is a bank account written in one international format: a two-letter country code, two check digits, then the domestic bank code and account number. Its length is fixed per country, {{IBAN_LENGTH_RANGE}}, and the format list on this page covers {{IBAN_COUNTRY_COUNT}} countries. You need the recipient's IBAN to send to a bank account in Europe, the Gulf states, Pakistan, Turkey or Egypt; the United States, Canada, Australia, India and Mexico use their own bank codes instead, listed in the table further down.</p></div>
+<p>An <strong>IBAN</strong> (International Bank Account Number) is a standardized format for bank account numbers. The IBAN standard is maintained under <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer">ISO 13616</a> by the International Organization for Standardization. It was created to reduce errors in international transfers by providing a uniform way to identify bank accounts globally. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry provides IBAN structure details for all participating countries.</p>
+<p>An IBAN does not replace your account number; it wraps it. The country code and check digits come first, then the BBAN: the bank code and account number exactly as they are used at home. That is why people with an account number still get asked for an "IBAN number": the IBAN is the version a bank abroad can route, and its check digits catch a mistyped character before the money leaves. When sending to Europe (e.g. <a href="/send-money/usa-to-europe">USA to Europe</a>), you will almost always need the recipient's IBAN.</p>
+<p>A correct IBAN decides whether the money arrives; the provider decides how much of it arrives. <a href="/send-money">Compare what the recipient gets</a> on your route before you send.</p>`,
       },
       {
         heading: "How to Read an IBAN",
@@ -1067,7 +1056,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>France:</strong> FR76 3000 6000 0112 3456 7890 189 (27 characters)</li>
 <li><strong>Pakistan:</strong> PK36 SCBL 0000 0011 2345 6702 (24 characters)</li>
 </ul>
-<p>IBAN lengths vary by country — from 15 characters (Norway) to 34 characters (Jordan).</p>`,
+<p>IBAN lengths are fixed per country, {{IBAN_LENGTH_RANGE}}.</p>`,
       },
       {
         heading: "Which Countries Use IBANs?",
@@ -1091,7 +1080,14 @@ const rawBlogPosts: BlogPost[] = [
 <h3>IBAN format by country</h3>
 <p>Every country we hold a validated structure for, with its IBAN length and a worked example. Country names link to the full format breakdown, local bank codes and validation rules where we have a page for them.</p>
 {{IBAN_FORMAT_TABLE}}
-<p class="text-sm">Lengths are fixed per country: a Luxembourg IBAN is always 20 characters, a French one always 27. If yours is a different length, it is wrong — check it with our <a href="/iban">IBAN validator</a> before sending.</p>`,
+<p class="text-sm">Lengths are fixed per country: a Luxembourg IBAN is always 20 characters, a French one always 27. If yours is a different length, it is wrong — check it with our <a href="/iban#iban-checker">IBAN checker</a> before sending.</p>`,
+      },
+      {
+        heading: "Bank Details You Need for an International Transfer",
+        content: `<p>Whatever the country, a sender needs the recipient's full name as it appears on the account, the bank's name, and the account identifier that country uses. The identifier is what differs:</p>
+{{BANK_DETAILS_TABLE}}
+<p>IBAN lengths come from the same format list as the table above. A US routing number is nine digits (<a href="https://www.aba.com/about-us/routing-number" target="_blank" rel="noopener noreferrer">American Bankers Association</a>); an Indian IFSC is 11 characters, the first four identifying the bank (<a href="https://www.rbi.org.in/Scripts/FAQView.aspx?Id=60" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>). A provider may ask for more on some routes, such as the recipient's address or the purpose of the payment.</p>
+<p>Each Compare link opens the comparison for that route at 1,000 units of the sending currency; change the amount there.</p>`,
       },
       {
         heading: "How to Find Your IBAN",
@@ -1100,7 +1096,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Online banking</strong> — Look in your account details or settings page</li>
 <li><strong>Bank statement</strong> — Usually printed at the top of your statement</li>
 <li><strong>Bank app</strong> — Tap on your account for full details</li>
-<li><strong>Use our IBAN validator</strong> — Enter your bank details and we'll generate and validate your IBAN</li>
+<li><strong>Check it</strong> — paste it into our <a href="/iban#iban-checker">IBAN checker</a> to confirm the country code, length and check digits</li>
 <li><strong>Contact your bank</strong> — Call or visit a branch</li>
 </ol>
 <p>Once you have the IBAN, use our <a href="/send-money">comparison tool</a> to find the cheapest way to send money to that account. Also read our guide to <a href="/guides/swift-codes-explained">SWIFT codes</a> — you'll often need both for European transfers.</p>`,
@@ -1109,7 +1105,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "IBAN Validation: How to Check an IBAN Is Correct",
         content: `<p>IBANs have built-in error detection through check digits. You can validate an IBAN in two ways:</p>
 <ol>
-<li><strong>Use our IBAN validator tool</strong> — Instantly checks if an IBAN is valid and identifies the bank and country</li>
+<li><strong>Use our <a href="/iban#iban-checker">IBAN checker</a></strong> — confirms the country code, the length and the check digits, in your browser. It cannot confirm that the account exists or who holds it.</li>
 <li><strong>Manual check</strong> — Verify the country code matches where the recipient banks, and that the length matches the expected length for that country. See the <a href="https://www.iban.com/structure" target="_blank" rel="noopener noreferrer nofollow">IBAN.com structure guide</a> for country-specific lengths.</li>
 </ol>
 <p><strong>Common IBAN errors:</strong></p>
@@ -1123,6 +1119,16 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     faqs: [
+      {
+        question: "Is an IBAN the same as an account number?",
+        answer:
+          "No, but it contains it. An IBAN is your domestic bank code and account number with a two-letter country code and two check digits added in front. Banks abroad ask for the IBAN because they can route it and check it; your bank shows it in your account details or online banking.",
+      },
+      {
+        question: "What bank details do I need to receive an international transfer?",
+        answer:
+          "Your full name as it appears on the account, your bank's name, and the identifier your country uses: the IBAN in IBAN countries (plus the bank's SWIFT/BIC from outside SEPA), a routing number and account number in the US, a BSB and account number in Australia, an IFSC and account number in India, or a CLABE in Mexico. The table in this guide lists each country's details.",
+      },
       {
         question: "Does the US have IBANs?",
         answer:
@@ -2108,7 +2114,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "16 min read",
     publishedAt: "2026-03-18",
-    updatedAt: "2026-09-29",
+    updatedAt: "2026-10-18",
     author: "Awais Imran",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "ACH", "SEPA", "wire transfer alternatives", "bank wire", "wire transfer services"],
     featuredImage: "/images/blog/wire-transfer-guide.jpg",
@@ -2123,6 +2129,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>International wire transfers</strong> \u2014 Sent across borders, primarily using the <strong>SWIFT network</strong> (Society for Worldwide Interbank Financial Telecommunication). These take 1\u20135 business days and can cost $25\u2013$65 or more per transfer.</li>
 </ul>
 <p>Wire transfers are different from ACH transfers, which are slower but cheaper batch-processed transfers within the US. They\u2019re also distinct from modern fintech transfers offered by services like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>, which use their own networks to deliver funds at a fraction of the cost.</p>
+<p><strong>A telegraphic transfer (TT) is the same payment.</strong> Banks in Australia, Singapore and other markets call an international wire a telegraphic transfer, or TT: a bank-to-bank payment sent over the SWIFT network, needing the same recipient details and charged the same way (see <a href="https://australianmutual.bank/banking/travel-and-foreign-exchange/send-receive-money/telegraphic-transfer" target="_blank" rel="noopener noreferrer nofollow">Australian Mutual Bank</a> and <a href="https://uob.com.sg/corporate/transaction-banking/payables-solutions/telegraphic-transfers.page" target="_blank" rel="noopener noreferrer nofollow">UOB</a>). Everything below about international wires applies to a TT, including the cheaper alternatives in the <a href="/send-money">live comparison</a>.</p>
 <p>Despite being expensive, wire transfers remain widely used for large transactions \u2014 property purchases, business payments, and situations where guaranteed, traceable delivery matters most.</p>
 <p>For background on changes to payment infrastructure, read our <a href="/news/swift-75-percent-payments-ten-minutes-fsb-stablecoins-thunes-2026">coverage of SWIFT payment speeds and stablecoin settlement</a>. Distinguish the time a payment reaches the receiving bank from the time the recipient can use it.</p>`,
       },
@@ -2345,6 +2352,11 @@ const rawBlogPosts: BlogPost[] = [
           "The cheapest way to send money internationally is to avoid traditional bank wires altogether. Specialist providers like <a href=\"/companies/wise\">Wise</a> (0% FX markup, visible fee), <a href=\"/companies/taptap-send\">TapTap Send</a> ({{AVG_MARKUP_PCT:taptap-send}} median markup) and <a href=\"/companies/instarem\">Instarem</a> ({{AVG_MARKUP_PCT:instarem}}) cost less than banks: in our index a bank\u2019s all-in cost averages {{AVG_BANK_COST}} per $1,000 sent, against {{AVG_SPECIALIST_COST}} for a specialist. <a href=\"/send-money\">Compare live rates</a> to find the cheapest option for your transfer.",
       },
       {
+        question: "Is a telegraphic transfer the same as a wire transfer?",
+        answer:
+          "Yes. Telegraphic transfer (TT) is the name banks in Australia, Singapore and other markets use for an international wire: a bank-to-bank payment sent over the SWIFT network. It needs the same details (the recipient's name, their account number or IBAN, and the receiving bank's SWIFT/BIC code) and is charged the same way: a sending fee, a margin in the exchange rate, and sometimes an intermediary bank's charge.",
+      },
+      {
         question: "What is the difference between a wire transfer and a bank transfer?",
         answer:
           "Bank transfer is a general term that covers several methods including wire transfers, ACH transfers, SEPA transfers, and Faster Payments. A wire transfer specifically refers to a point-to-point electronic transfer using networks like Fedwire (domestic US) or SWIFT (international). Wire transfers are faster but more expensive than ACH or SEPA transfers. In everyday conversation, people often use bank transfer and wire transfer interchangeably.",
@@ -2415,6 +2427,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "best-money-transfer-services",
     title: "Best Money Transfer Services 2026: Features, Reach and Cost",
+    metaTitle: "Best Money Transfer Services 2026: Features, Reach & Cost",
     metaDescription:
       "8 money transfer services compared by what each does best — cash pickup, large sums, speed, coverage — with rate margins measured across {{CORRIDOR_COUNT}} corridors.",
     excerpt:
@@ -2623,6 +2636,7 @@ const rawBlogPosts: BlogPost[] = [
     contentStatus: "draft",
     title:
       "Money Transfer Promo Codes July 2026: Best First-Time Deals Ranked",
+    metaTitle: "Money Transfer Promo Codes 2026: First-Time Deals Ranked",
     metaDescription:
       "Best money transfer promo codes and first-time user deals in July 2026. Remitly ($25 off), WorldRemit (3FREE), ACE (fee-free first transfer), Wise, Ria and more — verified and ranked.",
     excerpt:
@@ -5763,6 +5777,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "fx-hedging-strategies-small-business",
     contentStatus: "draft",
     title: "FX Hedging for Small Business: Forwards & Limit Orders",
+    metaTitle: "FX Hedging for Small Business: Forwards and Limit Orders",
     metaDescription:
       "Learn how to protect your business from exchange rate volatility. Understand forward contracts, limit orders, and multi-currency accounts for FX hedging.",
     excerpt:
@@ -6034,6 +6049,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-usa-to-canada",
     contentStatus: "draft",
     title: "USA to Canada Business Payments: USD to CAD Guide 2026",
+    metaTitle: "USA to Canada Business Payments: USD to CAD Guide",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Canadian suppliers, contractors, and employees. USD to CAD transfer fees, rates, and compliance guide 2026.",
     excerpt:
@@ -6278,6 +6294,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-usa-to-india",
     contentStatus: "published",
     title: "USA to India Business Payments: USD to INR Guide 2026",
+    metaTitle: "USA to India Business Payments: USD to INR Guide",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Indian suppliers, IT contractors, and development teams. USD to INR business transfer fees and compliance.",
     excerpt:
@@ -6408,6 +6425,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-usa-to-mexico",
     contentStatus: "draft",
     title: "USA to Mexico Business Payments: USD to MXN Guide 2026",
+    metaTitle: "USA to Mexico Business Payments: USD to MXN Guide",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Mexican suppliers, factories, and contractors. USD to MXN business transfer fees and CUSMA compliance guide.",
     excerpt:
@@ -6523,6 +6541,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-usa-to-europe",
     contentStatus: "draft",
     title: "USA to Europe Business Payments: USD to EUR Guide 2026",
+    metaTitle: "USA to Europe Business Payments: USD to EUR Guide",
     metaDescription:
       "Compare the cheapest ways for US businesses to pay European suppliers and contractors. USD to EUR transfer fees, SEPA payments, and compliance.",
     excerpt:
@@ -6614,6 +6633,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-uk-to-europe",
     contentStatus: "draft",
     title: "UK to Europe Business Payments: GBP to EUR Guide 2026",
+    metaTitle: "UK to Europe Business Payments: GBP to EUR Guide",
     metaDescription:
       "Compare cheapest ways for UK businesses to pay European suppliers and contractors post-Brexit. GBP to EUR transfer fees, SEPA access, and compliance guide.",
     excerpt:
@@ -6696,6 +6716,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-uk-to-india",
     contentStatus: "draft",
     title: "UK to India Business Payments: GBP to INR Guide 2026",
+    metaTitle: "UK to India Business Payments: GBP to INR Guide",
     metaDescription:
       "Compare the cheapest ways for UK businesses to pay Indian IT teams, suppliers, and contractors. GBP to INR transfer fees, rates, and compliance.",
     excerpt:
@@ -6809,6 +6830,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-usa-to-philippines",
     contentStatus: "draft",
     title: "USA to Philippines Business Payments: USD to PHP Guide 2026",
+    metaTitle: "USA to Philippines Business Payments: USD to PHP Guide",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Filipino BPO teams, virtual assistants, and contractors. USD to PHP transfer fees and compliance guide 2026.",
     excerpt:
@@ -6925,6 +6947,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-usa-to-australia",
     contentStatus: "draft",
     title: "USA to Australia Business Payments: USD to AUD Guide 2026",
+    metaTitle: "USA to Australia Business Payments: USD to AUD Guide",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Australian partners, contractors, and suppliers. USD to AUD transfer fees and compliance guide.",
     excerpt:
@@ -7037,6 +7060,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-usa-to-china",
     contentStatus: "published",
     title: "USA to China Business Payments: USD to CNY Guide 2026",
+    metaTitle: "USA to China Business Payments: USD to CNY Guide",
     metaDescription:
       "How to pay Chinese suppliers and manufacturers. Compare USD to CNY methods, understand RMB regulations, and navigate US-China business transfer compliance.",
     excerpt:
@@ -7172,6 +7196,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-canada-to-usa",
     contentStatus: "draft",
     title: "Canada to USA Business Payments: CAD to USD Guide 2026",
+    metaTitle: "Canada to USA Business Payments: CAD to USD Guide",
     metaDescription:
       "Compare cheapest ways for Canadian businesses to pay US suppliers, SaaS vendors, and contractors. CAD to USD fees, rates, and compliance guide.",
     excerpt:
@@ -7286,6 +7311,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "business-payments-australia-to-india",
     contentStatus: "draft",
     title: "Australia to India Business Payments: AUD to INR Guide 2026",
+    metaTitle: "Australia to India Business Payments: AUD to INR Guide",
     metaDescription:
       "Compare cheapest ways for Australian businesses to pay Indian IT teams, contractors, and suppliers. AUD to INR fees, rates, and compliance guide.",
     excerpt:
@@ -9689,6 +9715,7 @@ const rawBlogPosts: BlogPost[] = [
     contentStatus: "archived",
     title:
       "Ramadan 2026 Money Transfer Deals: Fee Waivers & Promo Codes",
+    metaTitle: "Ramadan 2026 Money Transfer Deals: Fee Waivers and Promo Codes",
     metaDescription:
       "Every Ramadan 2026 money transfer deal in one place. Fee waivers, bonus rates, and promo codes from Remitly, WorldRemit, and ACE — updated through Eid.",
     excerpt:
@@ -9808,6 +9835,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "pakistan-rupee-forecast-2026",
     title: "Pakistan Rupee Forecast 2026: GBP & USD to PKR Outlook",
+    metaTitle: "Pakistan Rupee Forecast 2026: USD and GBP to PKR Outlook",
     metaDescription:
       "Pakistan rupee forecast 2026: GBP to PKR and USD to PKR predictions, quarterly tables, IMF impact, and cheapest ways to send money to Pakistan.",
     excerpt:
@@ -10548,6 +10576,7 @@ const rawBlogPosts: BlogPost[] = [
     slug: "xe-business-payments-review",
     contentStatus: "published",
     title: "Xe Business Payments Review 2026: Features, Fees & Verdict",
+    metaTitle: "Xe Business Payments Review 2026: Features, Fees and Verdict",
     metaDescription:
       "Xe Business review: multi-currency accounts, batch payments to 190+ countries in 145+ currencies, FX hedging, ERP integrations, and 24/7 dealer support.",
     excerpt:
@@ -14525,6 +14554,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "gbp-forecast-2026",
     title: "British Pound Forecast 2026–2027: Will GBP Go Up or Down?",
+    metaTitle: "British Pound Forecast 2026–2027: Will GBP Rise or Fall?",
     metaDescription:
       "Expert GBP forecast for 2026–2027 with Bank of England rate data, Goldman Sachs and JPMorgan predictions, and what it means for UK senders and recipients.",
     excerpt:
@@ -14772,6 +14802,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "xe-tax-season-cross-border-money-2026",
     title: "Moving Money for Tax Season 2026: Why XE Works for Expats",
+    metaTitle: "Tax Season 2026: Why XE Works for Expats Moving Money",
     metaDescription:
       "Tax season 2026 cross-border guide: using XE for same-currency transfers, forward contracts, and large payments across the US, UK, EU, and Australia.",
     excerpt:

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { robotsFor } from "@/lib/seo-indexing";
 import Link from "@/components/EligibleLink";
-import { isLinkEligible } from "@/lib/link-eligibility";
+import { isLinkEligible, routeBareCompareLinks } from "@/lib/link-eligibility";
 import Image from "next/image";
 import Container from "@/components/Container";
 import GuideContents from "@/components/GuideContents";
@@ -207,6 +207,13 @@ export default async function BlogPostPage({ params }: Props) {
     .map((section, i) => ({ id: sectionIds[i], title: section.heading }))
     .filter((c) => !/^sources\b/i.test(c.title));
   const inlineQuoteCorridor = guideQuoteCorridor(post);
+  // A bare "compare" link in the body continues the inline table's route and
+  // amount. Business guides keep the bare link: their table is scoped to
+  // business providers, and /send-money ranks remittance apps.
+  const routeCompareLinks = (html: string) =>
+    inlineQuoteCorridor.business
+      ? html
+      : routeBareCompareLinks(html, inlineQuoteCorridor.from, inlineQuoteCorridor.to, inlineQuoteCorridor.amount);
   // Real count, so the denominator can separate "widget was thin" from "widget
   // was ignored". It was hard-coded to 0, which made the parameter useless.
   const inlineQuoteScoped = (() => {
@@ -401,7 +408,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </h2>
                 <div
                   className="prose-content prose-custom"
-                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(renderDataTokens(section.content)) }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(routeCompareLinks(renderDataTokens(section.content))) }}
                 />
 
                 {/* Freelancer-cost calculator — only on the freelancer guide, after the "what it costs" section */}
@@ -499,7 +506,7 @@ export default async function BlogPostPage({ params }: Props) {
                       </summary>
                       <div
                         className="px-5 pb-5 pt-1 text-md text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)] prose-custom"
-                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(renderDataTokens(faq.answer)) }}
+                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(routeCompareLinks(renderDataTokens(faq.answer))) }}
                       />
                     </details>
                   ))}

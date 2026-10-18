@@ -54,7 +54,7 @@ const PAGE_UPDATED = {
   "/exchange-rates": "2026-10-07",           // names the real rate source (no "median of 0 sources")
   "/exchange-rates/history": "2026-09-20",   // rate pages collapsed to one hub; a false claim dropped
   "/swift-codes": "2026-09-20",              // editorial byline separated from the commercial role
-  "/iban": "2026-05-31",                     // last edit to the hub's text (was IBAN_HUB_UPDATED)
+  "/iban": "2026-10-18",                     // IBAN checker; what an IBAN number is vs an account number
   "/cash-out": "2026-09-25",                 // round-2 technical SEO brief
   "/tools": "2026-10-09",                    // per-page see-also line (brief §5.3)
   "/tools/us-remittance-tax": "2026-10-09",  // per-page see-also line (brief §5.3)

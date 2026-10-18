@@ -68,6 +68,18 @@ export function compareHashHref(from?: string | null, to?: string | null, amount
   return `/send-money#from=${from}&to=${to}${amount ? `&amount=${amount}` : ""}`;
 }
 
+/**
+ * Point a body's bare "compare" links (href="/send-money") at the route and
+ * amount the page already prices, so a reader who follows one lands on the
+ * comparison they were reading about, not a geo default. Links that already
+ * name a route, corridor page or fragment are left alone.
+ */
+export function routeBareCompareLinks(html: string, from?: string | null, to?: string | null, amount?: number | null): string {
+  const href = compareHashHref(from, to, amount);
+  if (href === "/send-money") return html;
+  return html.replace(/href=(["'])\/send-money\1/g, (_m, q: string) => `href=${q}${href}${q}`);
+}
+
 /** True for an affiliate redirect (/go/…, /out/…), relative or absolute. */
 export function isAffiliateHref(href: string | null | undefined): boolean {
   return Boolean(href && /^(https:\/\/sendmoneycompare\.com)?\/(go|out)\//.test(href.trim()));

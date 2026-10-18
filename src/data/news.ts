@@ -236,6 +236,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "embedded-finance-regulation-tightening-2026",
     title: "Embedded Finance Payouts: Who Holds the Money When a Withdrawal Fails",
+    metaTitle: "Embedded Finance Payouts: Who Holds Your Money When a Withdrawal Fails",
     excerpt:
       "Embedded finance puts an app between customers and financial institutions. A marketplace payout example explains why regulation focuses on who holds funds and handles failures.",
     image: "/images/news/embedded-finance-regulation.jpg",
@@ -390,6 +391,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "gcash-free-middle-east-transfers-philippines-ofw-2026",
     title: "GCash Drops All Fees for Filipino Transfers to the Middle East — Philippine Congress Pushes for Sector-Wide Waiver",
+    metaTitle: "GCash Drops All Fees on Filipino Middle East Transfers: Congress Push",
     excerpt:
       "GCash is waiving fees for Filipinos in the Gulf sending money home, and separately making transfers from the Philippines to the UAE, Saudi Arabia, Qatar and Oman free through March 31. Meanwhile, the Philippine House adopted a resolution urging all providers to waive OFW remittance fees.",
     image: "/images/news/gcash-ofw-fee-waiver-2026.svg",
@@ -709,6 +711,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "liberation-day-tariffs-remittance-impact-2026",
     title: "One Year After Liberation Day: How Trump's Tariffs Changed the Cost of Sending Money Abroad",
+    metaTitle: "Trump's Tariffs One Year On: How the Cost of Sending Money Changed",
     excerpt:
       "The DXY dollar index fell to 99.9, the Indian rupee hit record lows, and the Supreme Court struck down IEEPA tariffs. Here's what one year of trade war means for your international transfers.",
     image: "/images/news/central-bank-super-week.jpg",
@@ -933,6 +936,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "fca-safeguarding-rules-money-transfer-2026",
     title: "Is Your Money Safe with Wise and Revolut? New FCA Safeguarding Rules Explained (May 2026)",
+    metaTitle: "Is Your Money Safe with Wise and Revolut? FCA Safeguarding Rules 2026",
     excerpt:
       "New FCA rules taking effect May 7, 2026 require Wise, Revolut, and all UK payment firms to ring-fence customer money with daily reconciliation, annual audits, and wind-down plans. Here's what it means for your transfers.",
     content: `<h2>What's changing on May 7, 2026?</h2>
@@ -992,6 +996,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "eu-instant-payments-mandatory-2026",
     title: "EU Instant Payments Now Mandatory: Eurozone Banks Must Offer 10-Second Euro Transfers",
+    metaTitle: "EU Instant Payments Now Mandatory: 10-Second Euro Transfers Explained",
     excerpt:
       "The EU Instant Payments Regulation (EU 2024/886) is now in full force for eurozone banks. Eurozone banks must now offer euro transfers that settle within 10 seconds, 24/7, at no extra charge. Here's what it means for sending money to Europe.",
     content: `<h2>What's the EU Instant Payments Regulation?</h2>
@@ -1124,6 +1129,7 @@ export const newsItems: NewsItem[] = [
     slug: "pakistan-record-41-billion-remittance-2026",
     title:
       "Pakistan Remittances on Track for Record $41 Billion: Cheapest Way to Send GBP to PKR",
+    metaTitle: "Pakistan's Record $41 Billion Remittances: How to Send GBP to PKR",
     excerpt:
       "Pakistan is on track for a record $41 billion in remittances in fiscal 2025-26, up from $38.3B in FY25. UK→Pakistan alone hit $532M in February. Here's how the top providers compare on GBP to PKR right now.",
     image: "/images/news/pakistan-record-remittance-2026.svg",
