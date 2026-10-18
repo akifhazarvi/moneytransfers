@@ -43,6 +43,25 @@ export const COMPARISON_CONTENT_DATE = "2026-10-09";
 export function companyContentDate(review?: { updatedAt: string; publishSections?: boolean }): string {
   return review?.publishSections ? review.updatedAt : COMPARISON_CONTENT_DATE;
 }
+/**
+ * A family page whose own content changed after its family's date. Bumping
+ * the family would date every sibling that did not change; leaving it would
+ * understate this page. The page and its lastmod both read familyPageDate().
+ */
+const FAMILY_PAGE_UPDATED: Record<string, string> = {
+  "/iban/uk": "2026-10-18",                 // UK in SEPA after Brexit, sources, four FAQs
+  "/swift-codes/ireland": "2026-10-18",     // CAT gift tax, Verification of Payee, Ulster Bank and KBC balances
+  "/banks/barclays": "2026-10-18",          // Barclays' published charges, four FAQs
+  "/banks/lloyds": "2026-10-18",            // Lloyds' published charges, four FAQs
+  "/compare/wise-vs-revolut": "2026-10-18", // rewritten from each company's own pages
+};
+
+/** A family page's date: its own when it changed after the family's. */
+export function familyPageDate(path: string, familyDate: string): string {
+  const own = FAMILY_PAGE_UPDATED[path];
+  return own && own > familyDate ? own : familyDate;
+}
+
 /** /exchange-rates/history/[pair] — month-by-month ranges and policy-decision table (brief §4.2). */
 export const RATE_HISTORY_CONTENT_DATE = "2026-10-09";
 /** /cash-out/[country] — corridor pills follow rule 14; sibling cash-out guides linked. */
@@ -97,9 +116,9 @@ export function shownContentDate(
   companyReview?: (slug: string) => { updatedAt: string; publishSections?: boolean } | undefined,
 ): string | undefined {
   if (path in PAGE_UPDATED) return PAGE_UPDATED[path as DatedPage];
-  if (path.startsWith("/swift-codes/")) return SWIFT_CONTENT_DATE;
-  if (path.startsWith("/iban/")) return IBAN_CONTENT_DATE;
-  if (path.startsWith("/compare/") || path.startsWith("/banks/")) return COMPARISON_CONTENT_DATE;
+  if (path.startsWith("/swift-codes/")) return familyPageDate(path, SWIFT_CONTENT_DATE);
+  if (path.startsWith("/iban/")) return familyPageDate(path, IBAN_CONTENT_DATE);
+  if (path.startsWith("/compare/") || path.startsWith("/banks/")) return familyPageDate(path, COMPARISON_CONTENT_DATE);
   if (path.startsWith("/companies/")) return companyContentDate(companyReview?.(path.slice("/companies/".length)));
   if (path.startsWith("/exchange-rates/history/")) return RATE_HISTORY_CONTENT_DATE;
   if (path.startsWith("/cash-out/")) return CASH_OUT_CONTENT_DATE;
