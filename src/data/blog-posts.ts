@@ -14688,63 +14688,66 @@ const rawBlogPosts: BlogPost[] = [
     category: "Reviews",
     readTime: "9 min read",
     publishedAt: "2026-04-16",
-    updatedAt: "2026-04-16",
+    updatedAt: "2026-10-18",
     author: "Awais Imran",
     tags: ["Revolut", "foreign transaction fees", "currency exchange", "travel money", "card fees"],
     featuredImage: "/images/blog/revolut-fx-fees.jpg",
     sections: [
       {
         heading: "Does Revolut Charge Foreign Transaction Fees?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/revolut">Revolut</a> charges <strong>no foreign transaction fees on card payments abroad</strong> in most cases — you pay at the interbank rate. But there are four hidden costs: (1) a <strong>0.5-1% weekend markup</strong> when FX markets are closed, (2) a <strong>monthly FX limit</strong> on free exchange (£1,000 on Standard, £3,000 on Plus, £10,000 on Premium, unlimited on Metal), (3) a <strong>1% "fair usage" fee</strong> once you exceed the limit, and (4) <strong>ATM withdrawal limits</strong> (£200/month free on Standard, then 2% fee). For pure card spending abroad on weekdays under your plan's limit, Revolut is genuinely free.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/revolut">Revolut</a> charges <strong>no separate foreign transaction fee on card payments abroad</strong>: it converts at its own Revolut exchange rate and, on weekdays within your plan's monthly limit, adds no exchange fee on top. What you can pay depends on your plan: (1) a <strong>weekend exchange fee</strong> of 1% on Standard and 0.5% on Plus (none on Premium, Metal or Ultra), (2) a <strong>monthly fair usage limit</strong> of £1,000 on Standard and £3,000 on Plus (no limit on Premium, Metal or Ultra), (3) a <strong>fair usage fee</strong> above that limit of 1% on Standard and 0.5% on Plus, and (4) <strong>ATM fees</strong> of 2% (minimum £1) once you pass the free allowance, which on Standard is 5 withdrawals or £200 a month. Spend on weekdays and stay under your plan's limit, and Revolut adds no fee of its own.</p></div>
 <p>Revolut is one of the most popular money apps for travelers and expats. The "no fees" marketing is mostly true — but the details matter. Here's exactly when you pay and when you don't.</p>
-<p class="text-sm"><strong>Where these figures come from.</strong> The plan limits, weekend markup and ATM thresholds below were read from Revolut's own published fee schedule and plan comparison pages, last checked in September 2026. Revolut changes these without notice and they differ by country of registration, so check the fee schedule inside your own app before relying on a number here. Trustpilot: {{TRUSTPILOT:revolut}}.</p>
-<p class="text-sm">Card FX is separate from <em>sending</em> money, which is what we measure directly. On the Revolut transfers we price, its exchange-rate markup is {{AVG_MARKUP:revolut}}, its all-in cost averages 0.85% of the amount sent, and it is cheapest on {{LEADS:revolut}} (<a href="/provider-consistency">how we measure that</a>). If you are moving money to someone else's account rather than spending on card, compare it against <a href="/companies/wise">Wise</a> and the rest on your <a href="/send-money">actual corridor</a>.</p>`,
+<p class="text-sm"><strong>Where these figures come from.</strong> The plan prices, exchange limits, weekend fees and ATM allowances below are Revolut's UK figures, read from its plan comparison page, fee schedules and help centre on 18 October 2026. Revolut changes these without notice and they differ by country of registration, so check the fee schedule inside your own app before relying on a number here. Trustpilot: {{TRUSTPILOT:revolut}}.</p>
+<p class="text-sm">Card FX is separate from <em>sending</em> money, which is what we measure directly. On the Revolut transfers we price, its exchange-rate markup is {{AVG_MARKUP:revolut}}, its all-in cost on a 1,000-unit transfer averages {{AVGCOST:revolut}} across the {{COSTCORRIDORS:revolut}} corridors in our cost index, and it is cheapest on {{LEADS:revolut}} (<a href="/provider-consistency">how we measure that</a>). If you are moving money to someone else's account rather than spending on card, compare it against <a href="/companies/wise">Wise</a> and the rest on your <a href="/send-money">actual corridor</a>.</p>`,
       },
       {
         heading: "The Weekend Markup: Revolut's Biggest Hidden Cost",
-        content: `<p>Between <strong>Friday 11pm GMT and Sunday 11pm GMT</strong>, FX markets are closed. To offer exchange during this window, Revolut adds a markup to protect against rate movement:</p>
+        content: `<p>From <strong>17:00 Friday to 18:00 Sunday, US Eastern Time</strong> (22:00 Friday to 23:00 Sunday in the UK for most of the year), currency markets are closed and Revolut charges an extra fee on every exchange. How much depends on your plan:</p>
 <div class="table-wrapper"><table>
-<thead><tr><th>Currency</th><th>Weekday Fee</th><th>Weekend Fee</th></tr></thead>
+<thead><tr><th>Plan</th><th>Weekend exchange fee</th></tr></thead>
 <tbody>
-<tr><td>Major currencies (USD, EUR, GBP, AUD, CAD, JPY, CHF)</td><td>0%</td><td><strong>+1.0%</strong></td></tr>
-<tr><td>Non-major currencies (all others)</td><td>0%</td><td><strong>+1.0%</strong></td></tr>
-<tr><td>Ruble, Ukrainian hryvnia, Thai baht</td><td>+1.0% weekday</td><td><strong>+2.0%</strong></td></tr>
+<tr><td>Standard</td><td><strong>1%</strong></td></tr>
+<tr><td>Plus</td><td><strong>0.5%</strong></td></tr>
+<tr><td>Premium, Metal, Ultra</td><td>No weekend fee</td></tr>
 </tbody></table></div>
-<p><strong>Practical tip:</strong> If you're traveling and need to convert €500 EUR → USD:</p>
+<p><strong>Example:</strong> at today's mid-market rate, €1,000 is worth about {{MID_RECEIVE:EUR:USD:1000}}. Exchange it on a Saturday and the weekend fee takes:</p>
 <ul>
-<li><strong>Tuesday:</strong> You get ~{{MID_RECEIVE:EUR:USD:500}} (interbank rate)</li>
-<li><strong>Saturday:</strong> You get ~{{MID_RECEIVE:EUR:USD:495}} (1% markup = {{MID_RECEIVE:EUR:USD:5}} lost)</li>
+<li><strong>Standard (1%):</strong> about {{MID_RECEIVE:EUR:USD:10}}, leaving roughly {{MID_RECEIVE:EUR:USD:990}}</li>
+<li><strong>Plus (0.5%):</strong> about {{MID_RECEIVE:EUR:USD:5}}, leaving roughly {{MID_RECEIVE:EUR:USD:995}}</li>
+<li><strong>Premium, Metal, Ultra:</strong> nothing extra</li>
 </ul>
-<p>Always convert on Monday-Friday. If you know you'll spend abroad on the weekend, top up your foreign currency balance during the week.</p>`,
+<p>On Standard or Plus, exchange on a weekday. If you know you'll spend abroad over a weekend, top up your foreign currency balance during the week: a card payment taken from a balance you already hold needs no exchange, so no weekend fee applies.</p>`,
       },
       {
         heading: "Monthly FX Limits by Plan",
-        content: `<p>Every Revolut plan has a free FX limit. Exceed it, and you pay 1% "fair usage" fee on the excess:</p>
+        content: `<p>Standard and Plus come with a monthly <strong>fair usage limit</strong> on exchanges. Go over it and Revolut charges a fair usage fee on the excess; Premium, Metal and Ultra have no limit. The limit resets each rolling month and counts currency, crypto and commodity exchanges together, including the conversion behind a card payment in a currency you don't hold.</p>
 <div class="table-wrapper"><table>
-<thead><tr><th>Plan</th><th>Monthly Price</th><th>Free FX Limit</th><th>Over Limit</th></tr></thead>
+<thead><tr><th>Plan</th><th>Monthly Price</th><th>Fair Usage Limit</th><th>Fee Above the Limit</th></tr></thead>
 <tbody>
-<tr><td><strong>Standard</strong> (free)</td><td>£0</td><td>£1,000</td><td>+1%</td></tr>
-<tr><td><strong>Plus</strong></td><td>£3.99</td><td>£3,000</td><td>+1%</td></tr>
-<tr><td><strong>Premium</strong></td><td>£7.99</td><td>£10,000</td><td>+0.5%</td></tr>
-<tr><td><strong>Metal</strong></td><td>£14.99</td><td>Unlimited</td><td>0%</td></tr>
-<tr><td><strong>Ultra</strong></td><td>£45</td><td>Unlimited</td><td>0%</td></tr>
+<tr><td><strong>Standard</strong> (free)</td><td>£0</td><td>£1,000</td><td>1%</td></tr>
+<tr><td><strong>Plus</strong></td><td>£3.99</td><td>£3,000</td><td>0.5%</td></tr>
+<tr><td><strong>Premium</strong></td><td>£8.99</td><td>No limit</td><td>None</td></tr>
+<tr><td><strong>Metal</strong></td><td>£16.99</td><td>No limit</td><td>None</td></tr>
+<tr><td><strong>Ultra</strong></td><td>£60</td><td>No limit</td><td>None</td></tr>
 </tbody></table></div>
-<p><strong>Example:</strong> If you're on Standard and exchange £5,000 in a month:</p>
+<p><strong>Example:</strong> exchange £5,000 in a month.</p>
 <ul>
-<li>First £1,000: free</li>
-<li>Remaining £4,000: 1% fee = £40</li>
+<li>Standard: the first £1,000 is within the limit; 1% on the other £4,000 = £40</li>
+<li>Plus: the first £3,000 is within the limit; 0.5% on the other £2,000 = £10</li>
+<li>Premium, Metal, Ultra: no fair usage fee</li>
 </ul>
-<p>If you regularly exchange over £3,000/month, Plus or Premium pays for itself.</p>`,
+<p>On exchange fees alone, Plus (£3.99) pays for itself once a Standard user would go about £400 over the £1,000 limit, and Premium (£8.99) costs less than Plus once you exchange more than about £4,000 a month. Weekend fees tilt it further toward the paid plans.</p>`,
       },
       {
         heading: "ATM Withdrawal Fees Abroad",
         content: `<div class="table-wrapper"><table>
-<thead><tr><th>Plan</th><th>Monthly Free ATM</th><th>Over Limit</th></tr></thead>
+<thead><tr><th>Plan</th><th>Free Each Rolling Month</th><th>Over Limit</th></tr></thead>
 <tbody>
-<tr><td>Standard</td><td>£200</td><td>2% (min £1)</td></tr>
+<tr><td>Standard</td><td>5 withdrawals or £200, whichever comes first</td><td>2% (min £1)</td></tr>
 <tr><td>Plus</td><td>£200</td><td>2% (min £1)</td></tr>
 <tr><td>Premium</td><td>£400</td><td>2% (min £1)</td></tr>
 <tr><td>Metal</td><td>£800</td><td>2% (min £1)</td></tr>
+<tr><td>Ultra</td><td>£2,000</td><td>2% (min £1)</td></tr>
 </tbody></table></div>
 <p>Withdrawing £500 at an ATM abroad on Standard = £200 free + £6 fee on the excess. Use card payments instead whenever possible.</p>`,
       },
@@ -14754,21 +14757,21 @@ const rawBlogPosts: BlogPost[] = [
 <div class="table-wrapper"><table>
 <thead><tr><th>Provider</th><th>FX Markup</th><th>Card Fee</th><th>ATM Fee</th><th>Total Cost</th></tr></thead>
 <tbody>
-<tr><td><strong>Revolut Standard</strong></td><td>0%</td><td>0%</td><td>0% (under £200)</td><td><strong>£0</strong></td></tr>
+<tr><td><strong>Revolut Standard</strong></td><td>No added fee (Revolut rate)</td><td>0%</td><td>0% (first 5 withdrawals or £200)</td><td><strong>£0 in fees</strong></td></tr>
 <tr><td><strong><a href="/companies/wise">Wise</a> debit card</strong></td><td>0.35-0.5%</td><td>0%</td><td>£1.50 per ATM</td><td>£3-5</td></tr>
 <tr><td>Typical UK bank debit card</td><td>2.99%</td><td>£1 per transaction</td><td>£4 + 2.99%</td><td>£35-50</td></tr>
 <tr><td>Typical UK credit card</td><td>2.99%</td><td>0%</td><td>5% cash advance</td><td>£30-40</td></tr>
 </tbody></table></div>
-<p><strong>Verdict:</strong> For under £1,000/month of FX and weekday usage, Revolut Standard is genuinely the cheapest option for travelers. Wise is a close second and often cleaner for business use.</p>`,
+<p><strong>Verdict:</strong> For under £1,000 a month of weekday spending, Revolut Standard adds no fee of its own, against the 2.99% non-sterling fee typical of UK bank cards. Wise is a close alternative and often cleaner for business use.</p>`,
       },
       {
         heading: "How to Use Revolut Abroad Without Fees",
         content: `<ol>
-<li><strong>Convert on weekdays.</strong> Never top up foreign currency Friday night to Sunday night. The 1% weekend markup eats your savings.</li>
+<li><strong>Convert on weekdays (Standard and Plus).</strong> Exchanges from 17:00 Friday to 18:00 Sunday, US Eastern Time, cost 1% extra on Standard and 0.5% on Plus. Premium, Metal and Ultra pay no weekend fee.</li>
 <li><strong>Know your plan's FX limit.</strong> Standard = £1,000/month. If you're exchanging more, upgrade to Plus (£3,000 for £3.99/month) — it pays for itself at £400+ of overage.</li>
-<li><strong>Use card payments, not ATMs.</strong> Card spending is unlimited free. ATM withdrawals are capped.</li>
+<li><strong>Use card payments, not ATMs.</strong> ATM withdrawals are free only up to your plan's monthly allowance; card payments have no such allowance. On Standard and Plus, the conversion behind a card payment still counts toward your exchange limit.</li>
 <li><strong>Top up in bulk.</strong> If you know you're traveling for 2 weeks in Japan, convert £1,000 to JPY on a Wednesday before the trip. Spend from the JPY balance on the card.</li>
-<li><strong>Check the actual rate.</strong> In the app, tap the currency pair and verify the rate matches Google's. If it's more than 0.3% off, you're on weekend pricing.</li>
+<li><strong>Check the rate before you exchange.</strong> The app shows the rate, any fee and the total cost before you confirm an exchange. Compare that rate with the mid-market rate; on Standard or Plus at a weekend, the extra fee shows up here.</li>
 <li><strong>Avoid DCC (Dynamic Currency Conversion).</strong> If an ATM or card terminal asks "Do you want to pay in GBP or EUR?" — always choose the <strong>local currency (EUR)</strong>. If you choose GBP, the merchant converts at a terrible rate.</li>
 </ol>`,
       },
@@ -14783,15 +14786,15 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Fee data sourced directly from Revolut's official pricing pages (checked April 2026). Comparison rates from live provider APIs updated every 6 hours. External references: <a href="https://www.revolut.com/legal/fees/" target="_blank" rel="noopener noreferrer nofollow">Revolut Fees</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> regulatory disclosures. <a href="/send-money">Compare live rates</a> from {{PROVIDER_COUNT}} providers.</p>`,
+        content: `<p>Revolut's fees, limits and plan prices here are its UK figures, checked on 18 October 2026 against its <a href="https://www.revolut.com/en-GB/our-pricing-plans/" target="_blank" rel="noopener noreferrer nofollow">plan comparison</a>, its <a href="https://www.revolut.com/en-GB/legal/standard-fees/" target="_blank" rel="noopener noreferrer nofollow">Standard</a> and <a href="https://www.revolut.com/en-GB/legal/plus-fees/" target="_blank" rel="noopener noreferrer nofollow">Plus</a> fee schedules, and its help page on <a href="https://help.revolut.com/en-GB/help/wealth/exchanging-money/how-much-does-it-cost-to-make-an-exchange/will-i-be-charged-for-exchanging-foreign-currencies/" target="_blank" rel="noopener noreferrer nofollow">currency exchange fees and limits</a>. Comparison rates come from live provider APIs updated every 6 hours. <a href="/send-money">Compare live rates</a> from {{PROVIDER_COUNT}} providers.</p>`,
       },
     ],
     faqs: [
-      { question: "Does Revolut charge foreign transaction fees on card payments?", answer: "No, not in most cases. Card payments abroad in supported currencies have 0% FX markup on weekdays, up to your plan's monthly limit (£1,000 on Standard). The main exceptions are: 1% weekend markup (Friday 11pm - Sunday 11pm GMT), 1% fair usage fee over your plan limit, and ATM fees above £200/month." },
-      { question: "When does Revolut apply the weekend markup?", answer: "From Friday 11pm GMT to Sunday 11pm GMT, Revolut adds a 1% markup on major currencies (USD, EUR, GBP, etc.) and 2% on exotic currencies like RUB and THB. This covers the risk from FX markets being closed. Always convert on weekdays." },
-      { question: "What is the monthly FX limit on Revolut?", answer: "Standard: £1,000/month. Plus: £3,000. Premium: £10,000. Metal: unlimited. Over the limit, Standard/Plus users pay 1% fair usage fee; Premium pays 0.5%. Metal and Ultra have no limits." },
-      { question: "Is Revolut cheaper than Wise for card spending abroad?", answer: "For travel card spending on weekdays under £1,000/month, Revolut Standard is marginally cheaper (0% vs Wise 0.35-0.5%). Above that threshold, or for weekend use, Wise becomes cheaper. For transfers (not card spending), Wise is almost always cheaper thanks to the mid-market rate with no weekend markup." },
-      { question: "How much can I withdraw from ATMs with Revolut Standard?", answer: "£200/month at 0% fee. Over that, 2% fee (minimum £1). Premium increases this to £400/month and Metal to £800/month. For ATM-heavy usage, Metal pays for itself at ~£1,500/month of ATM withdrawals." },
+      { question: "Does Revolut charge foreign transaction fees on card payments?", answer: "No separate fee. Card payments abroad convert at Revolut's own exchange rate, with no exchange fee added on weekdays while you stay within your plan's monthly limit (£1,000 on Standard, £3,000 on Plus, none on Premium, Metal or Ultra). You can pay extra at weekends (1% on Standard, 0.5% on Plus), above the limit (the same rates), and on ATM withdrawals past your free allowance (2%, minimum £1)." },
+      { question: "When does Revolut apply the weekend markup?", answer: "From 17:00 Friday to 18:00 Sunday, US Eastern Time (22:00 Friday to 23:00 Sunday UK time for most of the year), while currency markets are closed. Standard customers pay 1% extra on every exchange in that window and Plus customers 0.5%; Premium, Metal and Ultra pay no weekend fee. On Standard or Plus, exchange on weekdays." },
+      { question: "What is the monthly FX limit on Revolut?", answer: "Standard: £1,000 a month, then a 1% fair usage fee. Plus: £3,000, then 0.5%. Premium, Metal and Ultra: no limit and no fair usage fee. The limit resets each rolling month and counts currency, crypto and commodity exchanges together." },
+      { question: "Is Revolut cheaper than Wise for card spending abroad?", answer: "For weekday card spending within your plan's limit, Revolut adds no fee of its own, while Wise charges a conversion fee (0.35-0.5%). Above the limit on Standard or Plus, or at weekends on those plans, Wise can work out cheaper. For transfers to someone else's account, compare both on your actual corridor: Wise uses the mid-market rate with no weekend fee." },
+      { question: "How much can I withdraw from ATMs with Revolut Standard?", answer: "5 withdrawals or £200 a rolling month, whichever comes first, with no Revolut fee. After that, 2% per withdrawal (minimum £1). Plus allows £200, Premium £400, Metal £800 and Ultra £2,000. Metal's extra £600 a month of free withdrawals is worth £12 at 2%, less than its £16.99 monthly fee, so it rarely pays for itself on ATM fees alone unless you make many small withdrawals." },
       { question: "What is DCC and why should I avoid it?", answer: "DCC (Dynamic Currency Conversion) is when an ATM or card terminal asks 'Do you want to pay in your home currency or the local currency?' Always choose the LOCAL currency. If you choose your home currency, the merchant applies a terrible exchange rate (typically 3-8% worse) on top of any other fees. Let Revolut handle the conversion at its much better rate." },
     ],
     relatedSlugs: ["wise-vs-remitly-comparison", "best-money-transfer-apps", "best-money-transfer-apps-expats-2026", "multi-currency-accounts-exchange-rates", "exchange-rate-markup-explained", "how-to-buy-spacex-nvidia-stock-using-revolut"],
