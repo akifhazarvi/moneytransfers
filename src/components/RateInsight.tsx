@@ -349,9 +349,11 @@ export function ProviderRateInsightLine({
   sparklineData: SparklinePoint[];
   toCurrency: string;
 }) {
+  // success-dark, not success: the best provider's row is
+  // --color-success-surface-dim, where --color-success reads 4.26:1 (AA is 4.5).
   const trendColor =
     insight.trendDirection === "up"
-      ? "var(--color-success)"
+      ? "var(--color-success-dark)"
       : insight.trendDirection === "down"
         ? "var(--color-danger)"
         : "var(--color-on-surface-muted)";
@@ -359,7 +361,7 @@ export function ProviderRateInsightLine({
     insight.trendDirection === "up" ? "↑" : insight.trendDirection === "down" ? "↓" : "→";
   const vsAvgColor =
     insight.currentVsAvg > 0.05
-      ? "var(--color-success)"
+      ? "var(--color-success-dark)"
       : insight.currentVsAvg < -0.05
         ? "var(--color-danger)"
         : "var(--color-on-surface-muted)";

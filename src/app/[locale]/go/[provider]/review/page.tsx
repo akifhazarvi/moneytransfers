@@ -36,6 +36,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Continue to ${providerDisplayName(provider)}`,
     robots: { index: false, follow: false },
+    // Replaces the layout's alternates, which name the homepage as canonical
+    // and hreflang target: a noindex page must not claim to be a copy of /.
+    alternates: {},
   };
 }
 
