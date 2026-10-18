@@ -19673,13 +19673,13 @@
       "currencyfair": {
         "rate": 94.307,
         "fee": 1.27,
-        "markup": 0.77,
+        "markup": 0.75,
         "receiveAmount": 9310.93
       },
       "paysend": {
         "rate": 94.7609,
         "fee": 0,
-        "markup": 0.29,
+        "markup": 0.28,
         "receiveAmount": 9476.09
       },
       "remitly": {
@@ -19691,7 +19691,7 @@
       "revolut": {
         "rate": 94.7979,
         "fee": 1.75,
-        "markup": 0.25,
+        "markup": 0.24,
         "receiveAmount": 9313.89
       },
       "wells-fargo": {
@@ -19717,6 +19717,18 @@
         "fee": 1.58,
         "markup": 0.02,
         "receiveAmount": 9351.25
+      },
+      "moneygram": {
+        "rate": 94.7515,
+        "fee": 0.99,
+        "markup": 0.29,
+        "receiveAmount": 9381.35
+      },
+      "xe": {
+        "rate": 94.6153,
+        "fee": 1.99,
+        "markup": 0.43,
+        "receiveAmount": 9273.25
       }
     }
   }

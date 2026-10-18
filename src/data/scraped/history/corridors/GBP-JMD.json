@@ -9800,33 +9800,33 @@
     "date": "2026-10-18",
     "providers": {
       "hsbc": {
-        "rate": 203.828,
+        "rate": 203.792,
         "fee": 20.01,
         "markup": 3.5,
-        "receiveAmount": 16304.16
+        "receiveAmount": 16301.3
       },
       "moneygram": {
         "rate": 210.017,
         "fee": 2.49,
-        "markup": 0.57,
+        "markup": 0.55,
         "receiveAmount": 20478.72
       },
       "paysend": {
         "rate": 209.725,
         "fee": 1,
-        "markup": 0.71,
+        "markup": 0.69,
         "receiveAmount": 20762.79
       },
       "remitly": {
-        "rate": 206.88,
+        "rate": 206.9,
         "fee": 1.99,
-        "markup": 2.05,
-        "receiveAmount": 20276.31
+        "markup": 2.03,
+        "receiveAmount": 20278.27
       },
       "revolut": {
         "rate": 209.235,
         "fee": 3.3,
-        "markup": 0.94,
+        "markup": 0.92,
         "receiveAmount": 20233
       },
       "taptap-send": {
@@ -9844,19 +9844,19 @@
       "western-union": {
         "rate": 207.888,
         "fee": 2.99,
-        "markup": 1.58,
+        "markup": 1.56,
         "receiveAmount": 20167.2
       },
       "wise": {
         "rate": 210.943,
         "fee": 10.83,
-        "markup": 0.13,
+        "markup": 0.11,
         "receiveAmount": 18809.79
       },
       "xe": {
         "rate": 209.306,
         "fee": 3,
-        "markup": 0.91,
+        "markup": 0.89,
         "receiveAmount": 20302.66
       }
     }

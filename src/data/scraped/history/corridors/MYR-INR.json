@@ -3899,14 +3899,20 @@
       "western-union": {
         "rate": 23.1064,
         "fee": 5,
-        "markup": 0.7,
+        "markup": 0.75,
         "receiveAmount": 2195.11
       },
       "instarem": {
         "rate": 23.238,
         "fee": 0.55,
-        "markup": 0.13,
+        "markup": 0.18,
         "receiveAmount": 2311.02
+      },
+      "skrill": {
+        "rate": 22.1596,
+        "fee": 0,
+        "markup": 4.81,
+        "receiveAmount": 2215.96
       }
     }
   }

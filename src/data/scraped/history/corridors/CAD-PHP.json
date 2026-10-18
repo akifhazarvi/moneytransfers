@@ -22457,7 +22457,7 @@
       "moneygram": {
         "rate": 43.9633,
         "fee": 3.49,
-        "markup": 1.31,
+        "markup": 1.29,
         "receiveAmount": 4242.9
       },
       "western-union": {
@@ -22467,39 +22467,39 @@
         "receiveAmount": 4346.05
       },
       "dahabshiil": {
-        "rate": 43.6631,
+        "rate": 43.6699,
         "fee": 1.99,
-        "markup": 1.98,
-        "receiveAmount": 4279.42
+        "markup": 1.95,
+        "receiveAmount": 4280.09
       },
       "worldremit": {
         "rate": 43.9308,
         "fee": 3.99,
-        "markup": 1.38,
+        "markup": 1.36,
         "receiveAmount": 4217.8
       },
       "xe": {
         "rate": 44.065,
         "fee": 5,
-        "markup": 1.08,
+        "markup": 1.06,
         "receiveAmount": 4186.18
       },
       "paysend": {
         "rate": 44.4458,
         "fee": 3,
-        "markup": 0.23,
+        "markup": 0.2,
         "receiveAmount": 4311.24
       },
       "koho": {
         "rate": 44.5,
         "fee": 1.64,
-        "markup": 0.11,
+        "markup": 0.08,
         "receiveAmount": 4377.02
       },
       "sendwave": {
         "rate": 44.0421,
         "fee": 0.99,
-        "markup": 1.13,
+        "markup": 1.11,
         "receiveAmount": 4360.6
       },
       "remitly": {
@@ -22549,6 +22549,12 @@
         "fee": 0,
         "markup": 6.49,
         "receiveAmount": 4165.13
+      },
+      "skrill": {
+        "rate": 42.4204,
+        "fee": 0.5,
+        "markup": 4.75,
+        "receiveAmount": 4220.83
       }
     }
   }
