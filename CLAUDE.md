@@ -32,7 +32,7 @@ npm run scrape:all-api   # API-only scrapers (fast)
 npm run scrape:reviews   # Trustpilot ratings
 
 # Guards — prebuild and postbuild run these automatically; a failure fails the build
-npm run check:assets     # logo manifest ↔ public/logos, asset paths, title-template length
+npm run check:assets     # logo manifest ↔ public/logos, asset paths, title length, derived titles keep their headline (rule 18)
 npm run check:links      # every internal link resolves to a page the build rendered
 npm run check:indexing   # sitemap ⇔ robots ⇔ canonical agree; sitemap-google.xml ⊂ sitemap.xml
 npm run check:headings   # no H2 shared by 10+ indexable pages (postbuild)
@@ -80,8 +80,10 @@ what enforces it. Where a rule is not automated, it says how to check it.
    there; the Google one lives in GSC).
    *Enforced:* `check:indexing` (subset, and no Googlebot noindex in it).
 3. **Reopen a page only on evidence, and measure it first.** A page joins
-   `BING_DEMAND_ROUTES` on demand data (≥3 Bing sessions in 90 days in GA4, or
-   the IBAN/SWIFT allowlists), never in bulk. Measure duplication before and
+   `BING_DEMAND_ROUTES` on demand data (≥3 Bing sessions in 90 days in GA4, ≥3
+   AI-assistant sessions — chatgpt.com, copilot, perplexity — since ChatGPT
+   search and Copilot ground on Bing's index (owner decision 2026-10-18, wave
+   3), or the IBAN/SWIFT allowlists), never in bulk. Measure duplication before and
    after (8-word shingles over the rendered body, `$RC` splice replayed): no
    existing page may rise more than 0.5 points or cross 30%. Currency twins
    (send-money-to-spain / -germany are USD→EUR) stay closed unless Bing
@@ -246,6 +248,17 @@ what enforces it. Where a rule is not automated, it says how to check it.
     be committed ahead. Verify one before its day with
     `SMC_BUILD_DATE=<day> npm run build`. Log each release in GSC monitoring
     (days 5/14/28/45). Batch 1 (17 IBAN/SWIFT pages) is dated 2026-10-14.
+18. **A title keeps the words people search.** Bing readout 2026-10-18: on
+    2026-09-02 `seoTitle()` cut 44 guides to the first clause of their
+    headline ("What Is a SWIFT Code? Find Your Bank's BIC Code (2026)" →
+    "What Is a SWIFT Code? | SendMoneyCompare"), and those guides lost 41% of
+    their Bing visits in two weeks while the 79 untouched guides held level
+    (+3%). The ladder now drops a "(2026)" before a clause, and a derived
+    title that keeps under 60% of its headline's content words fails the
+    build: write a `metaTitle` (guides, news) or `BankMeta.metaTitle`. Never
+    ship a site-wide title or robots change without a held-out group to
+    measure it against. *Enforced:* `check:assets` (`titleKeepsHeadline`,
+    prebuild).
 
 ## Editor & TypeScript load
 
@@ -515,6 +528,12 @@ Admin changes are made in the GA4 UI).
 - **Server components**: Everything else (Footer, Card, Container, PrimaryButton, etc.)
 - Cards use `rounded-2xl` with subtle shadows. Buttons use `rounded-full`.
 - External links: `target="_blank" rel="noopener noreferrer nofollow"`
+- **A "compare" link continues the route the page prices.** When a page knows
+  its route and amount (an IBAN country page, a rate pair, a guide's inline
+  table), its compare links go to `compareHashHref(from, to, amount)`, never a
+  bare `/send-money`, which resets to a geo default. Guide bodies get this from
+  `routeBareCompareLinks()` (guide-quote-corridor route; business guides keep
+  the bare link); IBAN surfaces read `ibanComparison()` in `src/lib/iban-comparison.ts`.
 - **A comparison list shows 10 providers** (owner decision 2026-10-17). Rows
   past `COMPARISON_VISIBLE_ROWS` stay rendered — in the HTML on corridor pages,
   so crawlers and `check:corridor-sort` read the whole list — and CSS hides
@@ -646,7 +665,8 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
 - **`<title>` is not the `<h1>`.** Use `seoTitle(h1, explicit?)` or
   `fitTitle([...candidates])` from `src/lib/seo-title.ts`: titles cap at 70
   characters and must differ from the on-page headline. Hand-written titles go
-  in `metaTitle` on the post/page data.
+  in `metaTitle` on the post/page data. A derived title must keep the
+  headline's search words (rule 18).
 - **Descriptions cap at 160 characters.** Wrap the metadata `description` in
   `seoDescription(text, explicit?)` — it cuts at the last sentence that still
   uses most of the budget, else the last word, so the snippet ends where we
