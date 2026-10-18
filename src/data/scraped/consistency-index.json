@@ -11,9 +11,9 @@
       "providerName": "TapTap Send",
       "corridorsLed": 61,
       "corridorsQuoted": 157,
-      "wins": 5351,
+      "wins": 5352,
       "quotedDays": 13096,
-      "winRate": 40.86,
+      "winRate": 40.87,
       "avgShortfallPct": 0.58,
       "leadRate": 38.85
     },
@@ -33,9 +33,9 @@
       "providerName": "InstaReM",
       "corridorsLed": 37,
       "corridorsQuoted": 79,
-      "wins": 3017,
+      "wins": 3018,
       "quotedDays": 7078,
-      "winRate": 42.63,
+      "winRate": 42.64,
       "avgShortfallPct": 0.52,
       "leadRate": 46.84
     },
@@ -55,9 +55,9 @@
       "providerName": "Paysend",
       "corridorsLed": 14,
       "corridorsQuoted": 55,
-      "wins": 978,
+      "wins": 980,
       "quotedDays": 4985,
-      "winRate": 19.62,
+      "winRate": 19.66,
       "avgShortfallPct": 2.27,
       "leadRate": 25.45
     },
@@ -88,9 +88,9 @@
       "providerName": "Remitly",
       "corridorsLed": 5,
       "corridorsQuoted": 108,
-      "wins": 418,
+      "wins": 417,
       "quotedDays": 8622,
-      "winRate": 4.85,
+      "winRate": 4.84,
       "avgShortfallPct": 3.02,
       "leadRate": 4.63
     },
@@ -165,9 +165,9 @@
       "providerName": "HSBC",
       "corridorsLed": 1,
       "corridorsQuoted": 21,
-      "wins": 84,
+      "wins": 83,
       "quotedDays": 1864,
-      "winRate": 4.51,
+      "winRate": 4.45,
       "avgShortfallPct": 6.06,
       "leadRate": 4.76
     },
@@ -282,17 +282,6 @@
       "leadRate": 0
     },
     {
-      "providerSlug": "moneygram",
-      "providerName": "MoneyGram",
-      "corridorsLed": 0,
-      "corridorsQuoted": 60,
-      "wins": 43,
-      "quotedDays": 5366,
-      "winRate": 0.8,
-      "avgShortfallPct": 3.18,
-      "leadRate": 0
-    },
-    {
       "providerSlug": "natwest",
       "providerName": "NatWest",
       "corridorsLed": 0,
@@ -301,6 +290,17 @@
       "quotedDays": 1001,
       "winRate": 0.8,
       "avgShortfallPct": 1.86,
+      "leadRate": 0
+    },
+    {
+      "providerSlug": "moneygram",
+      "providerName": "MoneyGram",
+      "corridorsLed": 0,
+      "corridorsQuoted": 60,
+      "wins": 41,
+      "quotedDays": 5366,
+      "winRate": 0.76,
+      "avgShortfallPct": 3.18,
       "leadRate": 0
     },
     {
@@ -388,7 +388,7 @@
       "wins": 0,
       "quotedDays": 80,
       "winRate": 0,
-      "avgShortfallPct": 18.16,
+      "avgShortfallPct": 18.15,
       "leadRate": 0
     },
     {
@@ -755,6 +755,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 58,
-  "stableCorridors": 155
+  "rotatingCorridors": 60,
+  "stableCorridors": 153
 }

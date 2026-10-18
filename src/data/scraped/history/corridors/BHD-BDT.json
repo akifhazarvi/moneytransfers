@@ -1969,16 +1969,16 @@
     "date": "2026-10-18",
     "providers": {
       "western-union": {
-        "rate": 326.452,
+        "rate": 326.717,
         "fee": 1,
-        "markup": 0.62,
-        "receiveAmount": 32318.78
+        "markup": 0.54,
+        "receiveAmount": 32344.98
       },
       "taptap-send": {
-        "rate": 328.5,
+        "rate": 329,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 32850
+        "markup": -0.16,
+        "receiveAmount": 32900
       }
     }
   }
