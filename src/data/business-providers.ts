@@ -264,12 +264,12 @@ export const BUSINESS_PROVIDERS: BusinessProvider[] = [
       speed: "99.6% of 2025 domestic payments arrived in ≤1 business day; USD intl wires 1–3 days.",
       reach: "Pays 40+ currencies across 200+ countries/regions (USD account base).",
       minimum: "No minimum.",
-      eligibility: "Requires a US-registered company (founders can be non-US); rejects PO box / registered-agent addresses; some founder countries unsupported.",
+      eligibility: "Requires a US-registered company; founders may live abroad, except in countries on Mercury's prohibited list (Pakistan, Nigeria and Bangladesh among them); rejects PO box / registered-agent addresses.",
       batchLimit: "Mass payments via API; Bill Pay for AP batches.",
     },
     trust: {
       regulators: "Fintech (not itself a bank); banking via partners Choice Financial Group, Column N.A. & Evolve (Members FDIC).",
-      kyc: "KYB on US entity: formation docs, EIN, ownership, genuine US business address (no PO box / registered-agent). Some founder countries unsupported.",
+      kyc: "KYB on US entity: formation docs, EIN, ownership, genuine US business address (no PO box / registered-agent). Founders living in a prohibited country are refused.",
       limits: "No minimum; standard wire/ACH ceilings. USD intl wires free; non-USD flat 1%.",
       fraud: "TOTP 2FA, data encryption, fraud monitoring and dark-web scanning; separation-of-duties approval rules.",
       fundsProtection: "Up to $5M FDIC via sweep network (spread across ~20 partner banks).",
@@ -279,6 +279,10 @@ export const BUSINESS_PROVIDERS: BusinessProvider[] = [
     pros: ["Free USD wires + ACH; banking + payments combined", "Best-in-class approval rules (incl. separation of duties, approve in Slack)", "Up to $5M FDIC via sweep; read/write API"],
     cons: ["Requires a US entity — not for non-US companies", "Flat 1% FX on non-USD (pricier than specialists at scale)", "No forward contracts / hedging"],
     hasReview: false,
+    reviewedAt: "18 October 2026",
+    sources: [
+      { label: "Prohibited countries", url: "https://support.mercury.com/hc/en-us/articles/28771710754580-Prohibited-countries" },
+    ],
     features: {
       bulkPayments: { level: "full", note: "Mass payments via read/write API + Bill Pay." },
       approvals: { level: "full", note: "Multi-layer $-based rules; approve in Slack/app; separation of duties." },

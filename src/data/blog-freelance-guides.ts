@@ -33,7 +33,7 @@ export const freelanceGuides: BlogPost[] = [
     category: "Business",
     readTime: "9 min",
     publishedAt: "2026-09-07",
-    updatedAt: "2026-09-07",
+    updatedAt: "2026-10-18",
     author: "Ahsan Mukhtar",
     tags: ["freelancers", "receiving payments", "multi-currency accounts", "invoicing", "business"],
     sections: [
@@ -115,6 +115,7 @@ export const freelanceGuides: BlogPost[] = [
 <li><strong>Send-only — no local receiving details:</strong> AED, ARS, BDT, CLP, CNY, COP, CRC, EGP, GEL, GHS, KES, KRW, LKR, MAD, NGN, NPR, PKR, TZS, UGX, UYU, VND and ZAR.</li>
 </ul>
 <p>That second list is the one that matters, and it is where most of the advice written on this subject quietly stops applying. If you are a freelancer in Nigeria, Pakistan, Kenya, Egypt or South Africa, you generally cannot give a client local details in your own currency through this route. Your realistic options are to <strong>receive in a currency you can hold</strong> — usually USD, EUR or GBP — and convert on your own terms when you withdraw, or to use a provider with a domestic payout licence in your country. Receiving in a hard currency and converting yourself is still far better than letting a correspondent chain do it, but it is a different plan from the one above, and the withdrawal step is where your cost now sits. Check that step before you commit.</p>
+<p>A common workaround is to form a US LLC so clients can pay a US business account. The company is the easy part; the account is not. Mercury, listed above, does not open accounts for founders who live in Pakistan or Nigeria (<a href="https://support.mercury.com/hc/en-us/articles/28771710754580-Prohibited-countries" target="_blank" rel="noopener noreferrer nofollow">Mercury's prohibited countries</a>, checked October 2026), and several US business accounts accept only owners who live in the US. Global Solo's <a href="https://www.globalsolo.global/data/banking-access-index" target="_blank" rel="noopener noreferrer">Banking Access Index</a> records, for founders living in eight countries including Pakistan and India, which US business accounts publish an acceptance, which publish a restriction and which say nothing, with a link to each provider's own page. Check your country there before you pay to form the company.</p>
 <p>Two things to verify for your own situation, because they vary by the country your account is registered in rather than by the currency: whether local details are offered to residents of your country at all, and whether receiving them requires identity or business verification you can complete. Both are decided at signup, so test with a small payment before you send a client new details on an invoice.</p>`,
       },
       {
