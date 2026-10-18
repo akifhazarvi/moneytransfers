@@ -17,7 +17,9 @@
  *     - the IBAN and SWIFT Bing-demand allowlists (INDEXED_*_SLUGS and
  *       SITEMAP_*_SLUGS, Bing WMT ≥5 impressions) — the freelancer's priority
  *       families, and templates de-duplicated 2026-09-26;
- *     - /exchange-rates/history/usd-to-hnl, a ranking URL.
+ *     - /exchange-rates/history/usd-to-hnl, a ranking URL;
+ *     - (wave 3, 2026-10-18) GA4 AI-assistant landing pages with ≥3 sessions
+ *       in 90 days: the assistants ground on Bing's index.
  *   Corridor and compare allowlist entries WITHOUT recent GA4 sessions (49
  *   corridors, 17 compare pairs) were measured and left out: many are currency
  *   twins (send-money-to-spain / -germany / usa-to-europe are all USD→EUR, 80%
@@ -166,7 +168,26 @@ export const BING_DEMAND_WAVE_2: readonly string[] = [
   "/swift-codes/ireland",               // 4 / 467
 ];
 
-export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_DEMAND_WAVE_1, ...BING_DEMAND_WAVE_2]);
+/**
+ * Third wave, 2026-10-18 — AI-assistant referrals as demand evidence (rule 3,
+ * as amended that day). ChatGPT search and Copilot ground on Bing's index, so
+ * a generic noindex hides a page from the assistants too. AI-assistant
+ * sessions (chatgpt.com, copilot, perplexity) fell from 61 a week in late July
+ * to 3-4 by October, and these were five of the pages they had been sending
+ * people to, each noindexed for every engine. Same threshold as Bing: 3+
+ * sessions in 90 days (GA4, Jul 18–Oct 17 2026, CN/SG excluded). Google is
+ * unaffected: they stay `googlebot: noindex`.
+ * AI sessions / key events in the comments.
+ */
+export const BING_DEMAND_WAVE_3: readonly string[] = [
+  "/send-money/saudi-arabia-to-india",  // 15 / 8
+  "/send-money/send-money-to-mexico",   // 10 / 5
+  "/send-money/send-money-to-turkey",   // 5 / 0
+  "/send-money/send-money-to-honduras", // 3 / 3
+  "/send-money/usa-to-ethiopia",        // 3 / 3
+];
+
+export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_DEMAND_WAVE_1, ...BING_DEMAND_WAVE_2, ...BING_DEMAND_WAVE_3]);
 
 /**
  * Google release batches — round-3 brief §3.4 (2026-10-08): pages Bing already

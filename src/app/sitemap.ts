@@ -17,7 +17,7 @@ import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
-import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2 } from "@/data/search-engine-routes";
+import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2, BING_DEMAND_WAVE_3 } from "@/data/search-engine-routes";
 import { HUB_COPY_REVIEWED } from "@/lib/send-money-hub";
 import {
   COMPARISON_CONTENT_DATE,
@@ -66,6 +66,7 @@ const BUSINESS_CONTENT_DATE = "2026-09-07"; // measured cost figures + live toke
 const REVIEWED_ROUTES_DATE = "2026-09-24"; // round-2 freelance brief opened these
 const BING_DEMAND_DATE = "2026-09-27";     // Bing earners reopened (round-3 plan)
 const BING_DEMAND_WAVE_2_DATE = "2026-10-08"; // round-3 brief §3.1 + restored rate pairs
+const BING_DEMAND_WAVE_3_DATE = "2026-10-18"; // AI-assistant referral evidence (rule 3)
 // Round-3 brief (2026-10-08/09) content changes — §6.1: "change lastmod only
 // when the content genuinely changes", so each family that changed is restamped
 // and nothing else is.
@@ -366,8 +367,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Served `googlebot: noindex`, so they belong in this sitemap — the one Bing
   // reads — and never in sitemap-google.xml, which filters by googleIndexable().
   const WAVE_2 = new Set(BING_DEMAND_WAVE_2);
+  const WAVE_3 = new Set(BING_DEMAND_WAVE_3);
+  const waveDate = (path: string) =>
+    WAVE_3.has(path) ? BING_DEMAND_WAVE_3_DATE : WAVE_2.has(path) ? BING_DEMAND_WAVE_2_DATE : BING_DEMAND_DATE;
   const bingDemandPages: MetadataRoute.Sitemap = [...BING_DEMAND_ROUTES]
-    .map((path) => entry(path.replace(/^\//, ""), familyDate(path, WAVE_2.has(path) ? BING_DEMAND_WAVE_2_DATE : BING_DEMAND_DATE)));
+    .map((path) => entry(path.replace(/^\//, ""), familyDate(path, waveDate(path))));
 
   // 2026-09-27: this is the Bing sitemap (the one robots.txt has always named).
   // Google gets sitemap-google.xml, the googleIndexable() subset of this list.
