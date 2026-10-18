@@ -1,3 +1,4 @@
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 import Link from "next/link";
 import Container from "@/components/Container";
 import { isLinkEligible } from "@/lib/link-eligibility";
@@ -126,6 +127,7 @@ export default function Footer() {
   return (
     <footer className="text-white bg-[var(--color-footer)]">
       <Container className="py-14 sm:py-20">
+        <div className="mb-6"><CookieSettingsButton className="min-h-11 text-sm text-white/80 hover:text-white" /></div>
         {/* ── Layer 1 — 4 lean columns ─────────────────────────────────── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 mb-10 sm:mb-14">
           {primaryColumns.map((section) => ({ ...section, links: section.links.filter((link) => isLinkEligible(link.href)) })).map((section) => (

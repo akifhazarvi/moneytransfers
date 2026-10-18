@@ -1,5 +1,6 @@
 "use client";
 
+import { useAnalyticsConsent } from "@/lib/use-analytics-consent";
 import { useEffect, useRef, useState } from "react";
 
 /**
@@ -8,11 +9,12 @@ import { useEffect, useRef, useState } from "react";
  * ~30KB of unused JS on initial page load.
  */
 export default function LazyTrustpilot() {
+  const allowed = useAnalyticsConsent();
   const ref = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (loaded || !ref.current) return;
+    if (!allowed || loaded || !ref.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -31,7 +33,7 @@ export default function LazyTrustpilot() {
 
     observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [loaded]);
+  }, [loaded, allowed]);
 
   return <div ref={ref} />;
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { CONSENT_EVENT } from "@/lib/consent";
 import { startPresence } from "@/lib/live-activity-beacon";
 
 // Fires a GA4 page_view on every Next.js App Router soft navigation.
@@ -33,8 +34,13 @@ function Tracker() {
   const previousUrl = useRef<string>("");
 
   useEffect(() => {
+    window.addEventListener(CONSENT_EVENT, startPresence);
+    return () => window.removeEventListener(CONSENT_EVENT, startPresence);
+  }, []);
+
+  useEffect(() => {
     // The live activity strip's "here now" and "last 6 hours" counts — not
-    // GA4, so it runs whether or not gtag has loaded or been consented to.
+    // GA4; its own consent gate also applies to these first-party counts.
     startPresence();
     if (isFirstRun.current) {
       isFirstRun.current = false;

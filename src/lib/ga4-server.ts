@@ -1,18 +1,5 @@
-/**
- * Server-side GA4 tracking via Measurement Protocol.
- *
- * Fires events from the server (API routes, middleware) that always arrive
- * regardless of whether the client has gtag loaded, ad blockers, or consent
- * toggled on. Critical for tracking affiliate redirects which otherwise
- * disappear entirely for ad-block users (~25% of all clicks industry-wide).
- *
- * Setup:
- *   1. In GA4 Admin → Data Streams → your web stream → Measurement Protocol API secrets
- *   2. Create a secret and add to Vercel env as GA4_API_SECRET
- *   3. The measurement ID is already hard-coded below (same as the client gtag ID)
- *
- * Without GA4_API_SECRET, events are silently skipped — no errors thrown.
- */
+import { requestAnalyticsAllowed } from "@/lib/consent";
+/** Server GA4 respects the same explicit analytics choice as the browser. */
 
 import { forGa4 } from "@/lib/ga4-params";
 
@@ -21,7 +8,7 @@ const ENDPOINT = `https://www.google-analytics.com/mp/collect`;
 
 /**
  * Send a GA4 server-side event.
- * Use the user's anonymized ID from cookies when available (client_id) so the
+ * Use the user's pseudonymous ID from cookies when available (client_id) so the
  * server event correlates with client sessions in GA4 reports. Otherwise GA4
  * treats it as a separate anonymous user.
  */
@@ -36,7 +23,9 @@ export async function gaServerEvent(
   params: Record<string, string | number | boolean> = {},
   clientId?: string,
   geo?: GeoHints,
+  request?: Request,
 ): Promise<void> {
+  if (!requestAnalyticsAllowed(request)) return;
   const apiSecret = process.env.GA4_API_SECRET;
   if (!apiSecret) return; // env not configured — skip silently
 

@@ -11,9 +11,8 @@ import { isValidProviderSlug } from "@/lib/affiliate";
  *                       (ReviewContinue). Not on render: rendered-and-left
  *                       visits were browser-spoofing bots (91%, Oct 2026).
  *   (default)         → `interstitial_continue`, the Continue click
- * Server-side, so both survive ad blockers and declined consent: impressions
- * → continues is the funnel for every redirect we hold. The notes below date
- * from the earlier standalone-HTML interstitial; continue's meaning is unchanged.
+ * The shared server sink checks explicit analytics permission. Rejection is
+ * never bypassed by sending the event through this endpoint.
  *
  * WHY THIS EXISTS — the tracking gap it closes:
  * The /go + /out routes fire `affiliate_redirect` / `provider_clicked_server`

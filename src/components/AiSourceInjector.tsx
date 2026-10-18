@@ -1,5 +1,6 @@
 "use client";
 
+import { analyticsAllowed, CONSENT_EVENT } from "@/lib/consent";
 import { useEffect } from "react";
 
 // Intercepts all /go/ link clicks and appends two query params so the
@@ -22,14 +23,20 @@ export default function AiSourceInjector() {
     // Resolve the GA4 client_id once on mount and cache it. gtag('get') is
     // async (callback-based); we kick it off early so it's ready by click time.
     let clientId: string | null = null;
+    function resolveClientId() {
+    clientId = null;
+    if (!analyticsAllowed()) return;
     try {
       const g = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
       if (typeof g === "function") {
         g("get", "G-HJH07QEJ30", "client_id", (id: string) => {
-          if (id) clientId = id;
+          if (id && analyticsAllowed()) clientId = id;
         });
       }
     } catch { /* gtag unavailable */ }
+    }
+    resolveClientId();
+    window.addEventListener(CONSENT_EVENT, resolveClientId);
 
     // Cache of pre-fetched click-tokens, keyed by provider slug. A token is
     // minted on pointerdown/hover (before the click resolves) so it's ready to
@@ -92,7 +99,7 @@ export default function AiSourceInjector() {
       if (href.includes("click_id=")) return;
 
       let aiSrc: string | null = null;
-      try { aiSrc = sessionStorage.getItem("first_ai_src"); } catch { /* unavailable */ }
+      try { if (analyticsAllowed()) aiSrc = sessionStorage.getItem("first_ai_src"); } catch { /* unavailable */ }
 
       // Always add a unique click_id so the server affiliate_redirect event is
       // individually identifiable — this is the per-click proof partners (e.g.
@@ -102,7 +109,7 @@ export default function AiSourceInjector() {
       const extra = new URLSearchParams();
       extra.set("click_id", clickId);
       if (aiSrc) extra.set("ai_src", aiSrc);
-      if (clientId) extra.set("cid", clientId);
+      if (clientId && analyticsAllowed()) extra.set("cid", clientId);
 
       // Signed click-token proving this is a genuine on-site click. Pre-fetched
       // on pointerdown; if it didn't arrive in time we stamp nothing and the
@@ -125,6 +132,7 @@ export default function AiSourceInjector() {
     document.addEventListener("pointerenter", handlePointerDown, true);
     document.addEventListener("click", handleClick);
     return () => {
+      window.removeEventListener(CONSENT_EVENT, resolveClientId);
       document.removeEventListener("pointerdown", handlePointerDown, true);
       document.removeEventListener("pointerenter", handlePointerDown, true);
       document.removeEventListener("click", handleClick);

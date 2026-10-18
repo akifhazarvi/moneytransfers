@@ -315,7 +315,8 @@ Mounted once in the layout: `src/components/live-activity/`.
   no client library. `src/lib/activity-store.ts` says what is kept and the
   command budget (Free = 500K/month). Without the env vars every write no-ops
   and the strip runs on the GA4 history alone, grey pill, "Recent activity".
-- **Only people count, and every item is real.** Nothing is sent until the
+- **Only people count, and every item is real.** Nothing is sent without
+  analytics consent (see *Consent*), nor until the
   page has been visible 3 seconds AND the reader scrolled, tapped or typed;
   `navigator.webdriver` never sends (our e2e runs set it). Amounts come from
   the comparison (`trackQuotesViewed`/`trackCompareSearch`); a choice carries
@@ -496,10 +497,39 @@ Singapore browser-spoofing bots that hit /go directly — 91% of
 reached-the-provider count is `interstitial_continue` (server beacon); the
 client `go_review_continue` is lost when Continue is the first tap.
 
+## Consent (worldwide opt-in, owner decision 2026-10-18)
+
+Every visitor, everywhere, chooses before optional tracking runs; until
+2026-10-18 analytics defaulted on outside the UK/EU/EEA/CH and Clarity ran
+with no consent at all. `src/lib/consent.ts` holds the rules; the cookie is
+`smc_consent=v2.<analytics>.<replay>` (180 days), and a legacy automatic
+grant is not consent. Footer and /cookies "Cookie settings"
+(`CookieSettingsButton`) reopen the choice; withdrawal clears `_ga*`,
+`smc_vid`, `_clck`/`_clsk` and reloads. GPC / Do Not Track override a grant.
+
+- **Analytics** (GA4 Basic Consent Mode — no Google request and no replay of
+  earlier events before acceptance; Vercel Analytics; server GA4 from /go,
+  /out and /api/track; the live-activity beacon; `smc_vid`) needs the
+  analytics choice. **Replay** (Clarity) is a separate choice; Clarity's
+  advertising storage is always denied.
+- **Redirects never depend on it.** /go and /out forward every click with its
+  `click_id`; without consent they skip the visitor id and the GA4/Vercel
+  events, and only `qualified_redirect` is counted.
+- **What a reading means:** counts fall from 2026-10-18 for every visitor who
+  doesn't accept, so GA4 and Vercel before and after that day are not
+  comparable. Daily aggregate totals (displays, choices, qualified redirects;
+  no id, page or referrer; 90 days) are in Redis:
+  `node --env-file=.env.local scripts/report-consent-metrics.mjs`.
+- **AdSense is paused** (`AdSenseLoader` renders nothing): analytics consent is
+  not advertising consent. It returns only with a Google-certified CMP.
+- Tests: `node scripts/consent.test.cjs`, `e2e/consent.spec.ts`. Report and
+  screenshots: `reports/consent-2026-10-18/`.
+
 ## GA4 measurement
 
 Audit 2026-10-11 (property 284608262; Composio's GA4 token is read-only, so
-Admin changes are made in the GA4 UI).
+Admin changes are made in the GA4 UI). Since 2026-10-18 GA4 sees only visitors
+who accepted analytics (see *Consent*).
 
 - **Soft-navigation page views come only from `GA4PageviewTracker`**, keyed on
   the pathname (a query-only change is a page rewriting its own URL, e.g.

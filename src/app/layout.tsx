@@ -89,12 +89,7 @@ export const metadata: Metadata = {
         "da153f9e-905b-492c-bbbf-d06ad999817e",
         "2276c799-86ca-46e3-b42c-95f3654f39c0",
       ],
-      // AdSense site verification. Google's snippet check crawls the homepage,
-      // but AdSenseLoader deliberately loads adsbygoogle.js ONLY on /guides/*
-      // and /news/* articles (thin-content allowlist), so the crawler finds no
-      // ad code and verification fails. This meta verifies on every page
-      // WITHOUT loading the ad script, so the allowlist stays intact.
-      // Must match ADSENSE_CLIENT in components/AdSenseLoader.tsx.
+      // Keep site verification while ad tags are paused pending a separate CMP.
       "google-adsense-account": "ca-pub-4359442444470890",
     },
   },

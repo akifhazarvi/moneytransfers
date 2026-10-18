@@ -1,3 +1,4 @@
+import { requestAnalyticsAllowed } from "@/lib/consent";
 import { NextResponse } from "next/server";
 import { activityStoreEnabled, recordEvent, recordPresence, visitorId } from "@/lib/activity-store";
 import { getLiveActivity } from "@/lib/live-activity";
@@ -37,7 +38,7 @@ export async function GET() {
 const accepted = () => new NextResponse(null, { status: 204 });
 
 export async function POST(request: Request) {
-  if (!activityStoreEnabled) return accepted();
+  if (!activityStoreEnabled || !requestAnalyticsAllowed(request)) return accepted();
   const site = request.headers.get("sec-fetch-site");
   if (site && site !== "same-origin") return accepted();
   const userAgent = request.headers.get("user-agent") || "";

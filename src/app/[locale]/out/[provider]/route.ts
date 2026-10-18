@@ -1,3 +1,4 @@
+import { requestAnalyticsAllowed } from "@/lib/consent";
 import { NextResponse } from "next/server";
 import { getAffiliateUrl, isValidProviderSlug } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
@@ -39,24 +40,15 @@ export async function GET(
   const referer = request.headers.get("referer") || "";
   const userAgent = request.headers.get("user-agent") || "";
 
-  // Server-side GA4 event — always fires regardless of ad blockers / consent.
-  // Prefer the live GA4 client_id forwarded by AiSourceInjector as ?cid= so the
-  // event stitches onto the originating session (and its real traffic source)
-  // instead of landing in GA4's "Unassigned" channel. Fall back to the _ga
-  // cookie (now set first-party), then to a fabricated id inside gaServerEvent.
-  // page_referrer (passed below) is the secondary signal GA4 uses to derive
-  // Source/Medium when no session matches.
-  // Stable-id resolution + mint-if-missing for external/direct clicks — see
-  // the /go route for the full rationale. Minting here means a first-touch
-  // external clicker (e.g. from an AI assistant) becomes a real, trackable
-  // person instead of a fabricated throwaway id.
+  // Identity is available only after explicit analytics permission.
+  const canTrack = requestAnalyticsAllowed(request);
   const cookieHeader = request.headers.get("cookie") || "";
-  const existingVid = cookieHeader.match(/smc_vid=([^;]+)/)?.[1];
-  const cidParam = searchParams.get("cid");
-  const vid = existingVid || crypto.randomUUID();
-  const mintedVid = !existingVid;
+  const existingVid = canTrack ? cookieHeader.match(/(?:^|;\s*)smc_vid=([^;]+)/)?.[1] : undefined;
+  const cidParam = canTrack ? searchParams.get("cid") : null;
+  const vid = canTrack ? existingVid || crypto.randomUUID() : "";
+  const mintedVid = canTrack && !existingVid;
   const clientId =
-    cidParam || vid || clientIdFromCookie(cookieHeader.match(/_ga=([^;]+)/)?.[1]);
+    cidParam || vid || (canTrack ? clientIdFromCookie(cookieHeader.match(/(?:^|;\s*)_ga=([^;]+)/)?.[1]) : undefined);
   const idSource = cidParam ? "cid" : existingVid ? "vid_cookie" : "vid_minted";
   const geo = {
     country: request.headers.get("x-vercel-ip-country") || undefined,

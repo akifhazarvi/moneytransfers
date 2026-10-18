@@ -1,3 +1,5 @@
+import { countConsentMetric } from "@/lib/consent-metrics";
+import { requestAnalyticsAllowed } from "@/lib/consent";
 import { track as vercelServerTrack } from "@vercel/analytics/server";
 import { gaServerEvent, type GeoHints } from "@/lib/ga4-server";
 
@@ -51,9 +53,14 @@ export async function serverTrack(
 ): Promise<void> {
   const unforwardedCrawler = params.is_bot === true && params.outcome !== "redirect";
   if (unforwardedCrawler) return;
+  // Preserve an aggregate operational total without creating a visitor profile.
+  if (eventName === "affiliate_redirect" && params.outcome === "redirect" && params.genuine_click === true && params.is_bot !== true) {
+    await countConsentMetric("qualified_redirect");
+  }
+  if (!requestAnalyticsAllowed(request)) return;
 
   // GA4 (Measurement Protocol) — already handles its own try/catch + env guard.
-  void gaServerEvent(eventName, params, clientId, geo);
+  void gaServerEvent(eventName, params, clientId, geo, request);
 
   if (VERCEL_GA4_ONLY.has(eventName) || !request) return;
   // Vercel Analytics (server). Its server track accepts only string/number/

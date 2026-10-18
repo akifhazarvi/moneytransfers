@@ -1,3 +1,4 @@
+import { requestAnalyticsAllowed } from "@/lib/consent";
 import { NextResponse } from "next/server";
 import { getAffiliateUrl, isValidProviderSlug } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
@@ -41,34 +42,15 @@ export async function GET(
   const referer = request.headers.get("referer") || "";
   const userAgent = request.headers.get("user-agent") || "";
 
-  // Server-side tracking — fires even when the user has an ad blocker or
-  // declined cookies, so we never miss an affiliate conversion.
-  //
-  // Resolve a STABLE id for this person, in priority order:
-  //  1. ?cid= — the live GA4 client_id forwarded by AiSourceInjector (best:
-  //     stitches the redirect onto the exact originating GA session).
-  //  2. smc_vid — our first-party stable visitor id (set in middleware for
-  //     ~everyone). This is what kills the fabricated-id leak: even when the
-  //     user blocks GA or hasn't accepted cookies, this id is present, so the
-  //     redirect attaches to a real person instead of GA4 "Unassigned".
-  //  3. _ga cookie — for any caller without the above.
-  //  4. fabricated id (inside gaServerEvent) — now a near-never last resort.
+  // Identity is available only after explicit analytics permission.
+  const canTrack = requestAnalyticsAllowed(request);
   const cookieHeader = request.headers.get("cookie") || "";
-  const existingVid = cookieHeader.match(/smc_vid=([^;]+)/)?.[1];
-  const gaCookie = cookieHeader.match(/_ga=([^;]+)/)?.[1];
-  const cidParam = searchParams.get("cid");
+  const existingVid = canTrack ? cookieHeader.match(/(?:^|;\s*)smc_vid=([^;]+)/)?.[1] : undefined;
+  const gaCookie = canTrack ? cookieHeader.match(/(?:^|;\s*)_ga=([^;]+)/)?.[1] : undefined;
+  const cidParam = canTrack ? searchParams.get("cid") : null;
 
-  // CRITICAL for external/direct clicks: many /go hits come straight from an
-  // AI assistant or a cited link — the person never loaded a page on our site,
-  // so middleware never set smc_vid, and there's no consent banner to accept.
-  // Previously these all got a fabricated throwaway id (the bulk of the 5,504
-  // "Unassigned" leak). Here we MINT a stable smc_vid when it's missing and set
-  // it on the redirect response below — so even a first-touch external clicker
-  // becomes a real, trackable person, and is recognized if they ever return.
-  // First-party, opaque, non-PII, functional to the redirect itself — no
-  // consent gate needed (same legitimate basis as running the redirect).
-  const vid = existingVid || crypto.randomUUID();
-  const mintedVid = !existingVid; // set the cookie on the response only if new
+  const vid = canTrack ? existingVid || crypto.randomUUID() : "";
+  const mintedVid = canTrack && !existingVid; // set the cookie on the response only if new
   const clientId = cidParam || vid || clientIdFromCookie(gaCookie);
 
   // How we identified this click — lets us MEASURE that the leak is closed

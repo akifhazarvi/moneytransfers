@@ -1,11 +1,11 @@
 "use client";
 
-// Loaded eagerly (not dynamic) so Vercel Analytics tracks page views from the
-// very first render. Dynamic import with ssr:false was causing bounced users
-// (<2s on page) to be missed entirely — the analytics script hadn't finished
-// loading before they left.
+// Mount immediately once permission is available; never load before opt-in.
 import { Analytics } from "@vercel/analytics/react";
+import { useAnalyticsConsent } from "@/lib/use-analytics-consent";
+import { analyticsAllowed } from "@/lib/consent";
 
 export default function LazyAnalytics() {
-  return <Analytics />;
+  const allowed = useAnalyticsConsent();
+  return allowed ? <Analytics beforeSend={event => analyticsAllowed() ? event : null} /> : null;
 }

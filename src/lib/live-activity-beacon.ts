@@ -1,3 +1,4 @@
+import { analyticsAllowed } from "@/lib/consent";
 /**
  * Tells /api/live-activity what a reader is doing, for the live activity
  * strip: "seen" while they read, and the comparisons and choices analytics.ts
@@ -33,6 +34,7 @@ const amounts = new Map<string, number>();
 const engaged = () => interacted && shownSince > 0 && Date.now() - shownSince >= ENGAGED_AFTER_MS;
 
 function send(payload: Payload) {
+  if (!analyticsAllowed()) return;
   const body = JSON.stringify(payload);
   try {
     if (navigator.sendBeacon?.(URL_, new Blob([body], { type: "application/json" }))) return;
@@ -64,7 +66,7 @@ function heartbeat() {
 
 /** Start counting this reader. Safe to call on every navigation. */
 export function startPresence() {
-  if (typeof window === "undefined" || navigator.webdriver) return;
+  if (typeof window === "undefined" || navigator.webdriver || !analyticsAllowed()) return;
   beats = 0;
   if (started) {
     heartbeat();
@@ -91,7 +93,7 @@ export function startPresence() {
 
 /** A comparison or a choice. Held until the reader is engaged, then sent once. */
 export function sendActivity(payload: Exclude<Payload, { t: "seen" }>) {
-  if (typeof window === "undefined" || navigator.webdriver) return;
+  if (typeof window === "undefined" || navigator.webdriver || !analyticsAllowed()) return;
   const route = `${payload.from ?? ""}-${payload.to ?? ""}`;
   if (payload.t === "compared" && payload.amount) amounts.set(route, payload.amount);
   // A click on Send is engagement by definition, and the page is about to go.

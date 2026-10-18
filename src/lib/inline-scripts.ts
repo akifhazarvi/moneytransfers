@@ -22,110 +22,84 @@
  * scripts/check-inline-script-hashes.ts verifies they're in sync at build.
  */
 
-export const GTAG_INLINE = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
-(function(){
-  // Persistent first-party GA4 cookie (the _ga client_id) so the same human is
-  // counted as ONE user across page loads and return visits. Previously
-  // client_storage:'none' kept the id in memory only, which re-minted a new
-  // client_id constantly and inflated the user count (787 users / 31 sessions).
-  // Cookies are now allowed; consent is geo-gated (banner for UK/EU/EEA/CH).
-  // Off for automation and off the production host: localhost dev servers and
-  // *.vercel.app previews were sending hits into the live property.
-  var host=location.hostname;
-  if(navigator.webdriver===true||(host!=='sendmoneycompare.com'&&host.slice(-21)!=='.sendmoneycompare.com')){window['ga-disable-G-HJH07QEJ30']=true;return;}
-  var geo=(document.cookie.match(/(?:^|; )geo-country=([A-Z]{2})/)||[])[1]||'';
-  var consentCountries={AT:1,BE:1,BG:1,HR:1,CY:1,CZ:1,DK:1,EE:1,FI:1,FR:1,DE:1,GR:1,HU:1,IE:1,IT:1,LV:1,LT:1,LU:1,MT:1,NL:1,PL:1,PT:1,RO:1,SK:1,SI:1,ES:1,SE:1,GB:1,IS:1,LI:1,NO:1,CH:1};
-  // Honor a stored choice (smc_consent) if present; else default by geo.
-  // UK/EU/EEA/CH default to 'denied' until the CookieConsentBanner grants it;
-  // everyone else is 'granted' so analytics + the _ga cookie work immediately.
-  var stored=(document.cookie.match(/(?:^|; )smc_consent=(granted|denied)/)||[])[1]||'';
-  var analytics=stored||(consentCountries[geo]?'denied':'granted');
-  gtag('consent','default',{
-    'analytics_storage':analytics,
-    'ad_storage':'denied',
-    'ad_user_data':'denied',
-    'ad_personalization':'denied'
-  });
-  gtag('js',new Date());
-  // Our own visits (owner, freelancers): open any page once with
-  // ?smc_internal=1 (=0 undoes it) and this browser's hits carry
-  // traffic_type=internal for a year, which GA4's "Internal Traffic" data
-  // filter drops. search.google.com and vercel.com clicks carried ~28 key
-  // events in 28 days to Oct 10 2026 with no filter defined.
-  var internal=(location.search.match(/[?&]smc_internal=([01])/)||[])[1];
-  if(internal){document.cookie='smc_internal='+internal+';path=/;max-age='+(internal==='1'?31536000:0)+';SameSite=Lax;Secure';}
-  if(/(?:^|; )smc_internal=1/.test(document.cookie)){gtag('set',{traffic_type:'internal'});}
-  // Fire the landing pageview. For UK/EU users defaulting to 'denied', GA4
-  // buffers/drops it; CookieConsentBanner re-sends it after they accept.
-  var cfg={send_page_view:true};
-  if(geo){cfg.country=geo;gtag('set','user_properties',{geo_country:geo});}
-  // AI-assistant visits: remember which assistant sent this tab, for the /go
-  // route's ai_src (AiSourceInjector) and the ai_referrer user property. The
-  // session's source is left to GA4, which has its own AI Assistant channel:
-  // setting campaign_source/medium 'referral' here, as until 2026-10-11, moved
-  // ChatGPT and Copilot visits out of it and into Referral.
-  try{
-    var ref=document.referrer||'';
-    var refHost='';try{refHost=ref?new URL(ref).hostname.toLowerCase():'';}catch(e){}
-    var aiHosts={'chatgpt.com':'chatgpt','chat.openai.com':'chatgpt','perplexity.ai':'perplexity','www.perplexity.ai':'perplexity','copilot.microsoft.com':'copilot','gemini.google.com':'gemini','claude.ai':'claude','you.com':'you','phind.com':'phind'};
-    var aiSource=(refHost && aiHosts[refHost]!==undefined)?aiHosts[refHost]:null;
-    var prevAi=null;try{prevAi=sessionStorage.getItem('first_ai_src');}catch(e){}
-    if(aiSource){try{sessionStorage.setItem('first_ai_src',aiSource);}catch(e){}}
-    var src=aiSource||prevAi;
-    if(src){gtag('set','user_properties',{ai_referrer:src});}
-  }catch(e){}
-  // Installed-app usage. Every hit carries display_mode, so page views,
-  // provider_clicked and the rest split by browser vs installed app from the
-  // very first page_view of an app session (PwaManager mounts too late for it).
-  try{
-    var dm=(navigator.standalone===true||matchMedia('(display-mode: standalone)').matches)?'standalone':matchMedia('(display-mode: minimal-ui)').matches?'minimal-ui':'browser';
-    gtag('set',{display_mode:dm});
-    if(dm!=='browser')gtag('set','user_properties',{app_display_mode:dm});
-  }catch(e){}
-  gtag('config','G-HJH07QEJ30',cfg);
-  var loaded=false;
-  function loadGA(){
+// Basic Consent Mode: no Google request or pre-consent event replay.
+// Worldwide explicit opt-in also covers missing/stale geolocation.
+export const GTAG_INLINE = `(function(){
+  var id='G-HJH07QEJ30',host=location.hostname,started=false,loaded=false;
+  var production=host==='sendmoneycompare.com'||host.slice(-21)==='.sendmoneycompare.com';
+  function allowed(){return !navigator.globalPrivacyControl&&navigator.doNotTrack!=='1'&&/(?:^|;\\s*)smc_consent=v2\\.granted\\.(?:granted|denied)(?:;|$)/.test(document.cookie);}
+  window.dataLayer=window.dataLayer||[];
+  function push(){window.dataLayer.push(arguments);}
+  window.gtag=function(){
+    if(arguments[0]==='consent'){push.apply(null,arguments);return;}
+    if(!allowed()||navigator.webdriver===true||!production)return;
+    if(!started)load();
+    push.apply(null,arguments);
+  };
+  push('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+  function load(){
+    if(!allowed()||!production||navigator.webdriver===true)return;
+    if(!started){
+      started=true;
+      push('consent','update',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+      push('js',new Date());
+      var internal=(location.search.match(/[?&]smc_internal=([01])/)||[])[1];
+      if(internal)document.cookie='smc_internal='+internal+';path=/;max-age='+(internal==='1'?31536000:0)+';SameSite=Lax;Secure';
+      if(/(?:^|; )smc_internal=1/.test(document.cookie))push('set',{traffic_type:'internal'});
+      try{
+        var h=document.referrer?new URL(document.referrer).hostname.toLowerCase():'';
+        var ai={'chatgpt.com':'chatgpt','chat.openai.com':'chatgpt','perplexity.ai':'perplexity','www.perplexity.ai':'perplexity','copilot.microsoft.com':'copilot','gemini.google.com':'gemini','claude.ai':'claude','you.com':'you','phind.com':'phind'};
+        if(ai[h])sessionStorage.setItem('first_ai_src',ai[h]);
+        var src=sessionStorage.getItem('first_ai_src');if(src)push('set','user_properties',{ai_referrer:src});
+        var dm=navigator.standalone===true||matchMedia('(display-mode: standalone)').matches?'standalone':matchMedia('(display-mode: minimal-ui)').matches?'minimal-ui':'browser';
+        push('set',{display_mode:dm});
+        if(dm!=='browser')push('set','user_properties',{app_display_mode:dm});
+        var geo=(document.cookie.match(/(?:^|; )geo-country=([A-Z]{2})/)||[])[1];
+        if(geo)push('set','user_properties',{geo_country:geo});
+      }catch(e){}
+      // Exactly one current-page view when consent becomes available.
+      push('config',id,{send_page_view:true,page_location:location.href,page_title:document.title,allow_google_signals:false,allow_ad_personalization_signals:false,cookie_expires:15552000});
+    }
     if(loaded)return;loaded=true;
-    var s=document.createElement('script');
-    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30';
-    document.head.appendChild(s);
-    evts.forEach(function(e){removeEventListener(e,loadGA,opts)});
+    var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(s);
   }
-  // The /go review page loads GA only on a human signal: no 4s timer and no
-  // scroll. Browser-spoofing bots that hit /go directly sat past the timer and
-  // scroll programmatically; from Oct 5 2026 they were half of all sessions.
-  var path=location.pathname;
-  var review=path.indexOf('/go/')===0||path.indexOf('/out/')===0;
-  var evts=review?['pointerdown','pointermove','keydown','touchstart','wheel']:['pointerdown','keydown','scroll','touchstart'];
-  var opts={passive:true,once:true};
-  evts.forEach(function(e){addEventListener(e,loadGA,opts)});
-  if(!review)setTimeout(loadGA,4000);
+  function update(){
+    window['ga-disable-'+id]=!allowed();
+    if(allowed())load();
+    else if(started)push('consent','update',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+  }
+  window['ga-disable-'+id]=!allowed()||!production||navigator.webdriver===true;
+  addEventListener('smc:consent-changed',update);
+  var review=/\\/(?:go|out)\\//.test(location.pathname);
+  var events=review?['pointerdown','pointermove','keydown','touchstart','wheel']:['pointerdown','keydown','scroll','touchstart'];
+  events.forEach(function(e){addEventListener(e,load,{passive:true,once:true});});
+  if(!review)setTimeout(load,4000);
 })();`;
 
 export const THEME_INLINE = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`;
 
-// Microsoft Clarity — session recordings + heatmaps (project x2rwjue57c). The
-// stock loader, except the tag is injected on the visitor's FIRST INTERACTION
-// (pointer move/down, touch, scroll, key) instead of at parse time. The queue
-// stub is still defined immediately, so clarity(...) calls made earlier are
-// kept. Why: loaded eagerly, Clarity's tag and its c.clarity.ms -> c.bing.com
-// ID sync set third-party cookies (CLID, MUID, MR, SM, ANONCHK, SRM_B) during
-// every page load. Lighthouse fails "Uses third-party cookies" and "Issues
-// logged" on them (Best Practices 78 on /send-money, 2026-09-29), and the tag
-// was a ~150 ms long task in the load window. A session with no interaction
-// at all has nothing for a heatmap or a replay to show. Clarity is a
-// behavioral tool, not an ad tag: it needs no consent 'default' wiring and runs
-// on every rendered HTML page (including the /go + /out interstitials, which
-// embed the SAME string). Requires clarity.ms in the middleware CSP script-src,
-// connect-src (beacon) and img-src (1x1 pixel). Editing this string breaks CSP —
-// regenerate CLARITY_INLINE_SHA256 (scripts/check-inline-script-hashes.ts).
-export const CLARITY_INLINE = `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};var e=["pointermove","pointerdown","touchstart","scroll","keydown"],o={capture:true,passive:true},d=0;function g(){if(d)return;d=1;e.forEach(function(n){c.removeEventListener(n,g,o)});t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)}e.forEach(function(n){c.addEventListener(n,g,o)})})(window,document,"clarity","script","x2rwjue57c");`;
+// Replay is separately opt-in; advertising consent always remains denied.
+export const CLARITY_INLINE = `(function(w,d){
+  var loaded=false,host=location.hostname;
+  function allowed(){return !navigator.globalPrivacyControl&&navigator.doNotTrack!=='1'&&/(?:^|;\\s*)smc_consent=v2\\.(?:granted|denied)\\.granted(?:;|$)/.test(d.cookie);}
+  function update(){
+    if(navigator.webdriver===true||(host!=='sendmoneycompare.com'&&host.slice(-21)!=='.sendmoneycompare.com'))return;
+    if(!allowed()){if(loaded)w.clarity('consentv2',{analytics_Storage:'denied',ad_Storage:'denied'});return;}
+    if(loaded)return;
+    loaded=true;
+    w.clarity=w.clarity||function(){(w.clarity.q=w.clarity.q||[]).push(arguments);};
+    w.clarity('consentv2',{analytics_Storage:'granted',ad_Storage:'denied'});
+    var s=d.createElement('script');s.async=true;s.src='https://www.clarity.ms/tag/x2rwjue57c';d.head.appendChild(s);
+  }
+  w.addEventListener('smc:consent-changed',update);
+  ['pointermove','pointerdown','touchstart','scroll','keydown'].forEach(function(e){w.addEventListener(e,update,{passive:true,once:true});});
+})(window,document);`;
 
 // SHA-256 hashes of the strings above, base64-encoded. Used by middleware
 // CSP. Verified by scripts/check-inline-script-hashes.ts at build time.
-export const GTAG_INLINE_SHA256 = "8/IwEb1XTYbSJfDq49G0CAcYnEoW6eATDq/KwgpN24g=";
+export const GTAG_INLINE_SHA256 = "AnYM+0Tj4RVrguVPWPcvdSW9Axv5auOKtaZYL/LATYc=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";
-export const CLARITY_INLINE_SHA256 = "++mvwM8fPwDGPivgHvk3pkHcSGFy9J/LGlYmUAUU1ls=";
+export const CLARITY_INLINE_SHA256 = "NoQUAYRPvHlcc+B+FtNVIvwAPmP8xKQLCeaSKKCxR7E=";
 
 // PWA install capture. Chrome/Edge/Samsung fire `beforeinstallprompt` once the
 // manifest is parsed, which can be before React hydrates. A listener added in a

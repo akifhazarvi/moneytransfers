@@ -1,3 +1,4 @@
+import { analyticsAllowed } from "@/lib/consent";
 /**
  * Event taxonomy for SendMoneyCompare.
  *
@@ -14,10 +15,8 @@
  *   Vercel Analytics still receives it as `source`.
  * - Corridor values are hyphen-joined "USD-INR" so GA4 regex filtering works.
  *
- * Respect cookie consent: analytics_storage starts "denied"; the gtag call
- * is a no-op until the user accepts cookies. Vercel Analytics is cookieless
- * and fires for all users — so dual-sinked events are visible for EU/UK
- * traffic too, not just for consent-granted users.
+ * Both analytics sinks require explicit analytics permission. Events before
+ * consent are discarded, never buffered for later replay.
  */
 
 import { track as vercelTrack } from "@vercel/analytics";
@@ -30,6 +29,7 @@ type EventParams = Record<string, string | number | boolean | undefined>;
 // GA4 re-keys `source` & co. to `cta_source` & co.: see src/lib/ga4-params.ts.
 
 function gtagEvent(name: string, params?: EventParams) {
+  if (!analyticsAllowed()) return;
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     window.gtag("event", name, forGa4(params));
   }
@@ -45,6 +45,7 @@ function gtagEvent(name: string, params?: EventParams) {
  * a person deliberately does goes dual.
  */
 function dual(name: string, params?: EventParams) {
+  if (!analyticsAllowed()) return;
   gtagEvent(name, params);
   // Vercel Analytics doesn't accept undefined values — strip them.
   const cleaned: Record<string, string | number | boolean | null> = {};
