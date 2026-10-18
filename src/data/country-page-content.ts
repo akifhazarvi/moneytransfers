@@ -10,6 +10,8 @@
 export interface CountryPageFAQ {
   question: string;
   answer: string;
+  /** Lead the answer with the comparison's own measured answer (live quotes). */
+  answerFromComparison?: true;
 }
 
 export interface CountryPageContent {
@@ -571,7 +573,8 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Mexico from the US?",
         answer:
-          "Wise, Remitly, and Xe consistently rank as the cheapest for USD-to-MXN transfers. Remitly's Economy option (1–3 business days) is often the absolute cheapest. Ria Money Transfer is also very competitive and offers cash pickup at OXXO convenience stores. For larger amounts, OFX offers preferential rates with no flat fee. Always compare total MXN received — rates vary 1–4% between providers.",
+          "Compare the pesos your recipient receives, not the advertised fee: a low or zero fee can sit beside a weaker exchange rate. If you pay in cash, a money order or a cashier's check, the 1% US remittance tax is added; paying from a bank account or a US-issued card avoids it.",
+        answerFromComparison: true,
       },
       {
         question: "How long does a money transfer to Mexico take?",

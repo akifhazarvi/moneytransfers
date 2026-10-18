@@ -388,7 +388,7 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
   "saudi-arabia-to-india": {
     title: "What matters on the Saudi Arabia to India corridor",
     summary:
-      "Saudi Arabia is one of the top two sources of India's $125 billion annual remittance inflow. The SAR to INR corridor is intensely competitive, with exchange houses, banks, and digital providers all vying for the 2.5 million Indian expats sending money home.",
+      "Saudi Arabia is the second-largest Gulf source of the money India receives from abroad, after the UAE, in the RBI's 2023-24 remittances survey. SAR to INR transfers run through Saudi banks' remittance services and SAMA-licensed exchange centres, and on the Indian side through banks and the RBI's Rupee Drawing Arrangement.",
     bullets: [
       "Al Rajhi Bank, Saudi National Bank (SNB), and Arab National Bank (ANB) all offer remittance services with India delivery. However, digital providers and exchange houses like Lulu Exchange typically offer better SAR/INR rates.",
       "IMPS delivery to Indian bank accounts (HDFC, SBI, ICICI, Axis, Kotak) arrives within minutes and is available from multiple Saudi providers. This is the fastest and most convenient delivery method.",

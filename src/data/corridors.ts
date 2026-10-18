@@ -1126,7 +1126,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Are there limits on remittances from Saudi Arabia?",
-        a: "Saudi Arabia requires Iqama (residence permit) holders to verify their identity for transfers. Most providers allow up to SAR 20,000–50,000 per transaction. Annual limits may apply based on your employment contract and salary certificate.",
+        a: "Saudi Arabia requires Iqama (residence permit) holders to verify their identity for transfers. Licensed exchange centres tie how much you can send to your salary, and on the Indian side MTSS transfers carry their own cap while the Rupee Drawing Arrangement has none; the SAMA and RBI section below sets out both.",
       },
     ],
   },
@@ -1204,7 +1204,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Are there any special requirements for sending money from KSA?",
-        a: "You need a valid Iqama (residence permit) and may need a salary certificate. Most providers require identity verification. Transfer limits vary by provider, typically SAR 20,000–50,000 per transaction.",
+        a: "You need a valid Iqama (residence permit) and may need a salary certificate. Most providers require identity verification. SAMA's rules for licensed exchange centres cap a member's transfers at one month's salary, up to SAR 50,000 a month and SAR 500,000 a year; a bank's own remittance service may set different limits.",
       },
     ],
   },
@@ -5115,7 +5115,7 @@ function generateCountryPages(): Corridor[] {
       : `${to.name} is a major remittance destination. Whether you're supporting family, paying for services, or sending a gift, choosing the right provider can save you significantly. Banks typically charge 3–5% in hidden exchange rate markups, while specialist services offer rates much closer to the mid-market rate. Use our comparison to find the best deal today.`;
 
     const faqs: Corridor["faqs"] = curated
-      ? curated.faqs.map((f) => ({ q: f.question, a: f.answer }))
+      ? curated.faqs.map((f) => ({ q: f.question, a: f.answer, answerFromComparison: f.answerFromComparison }))
       : [
           // Uncurated country pages answer from their quotes (2026-09-25).
           { q: `What is the cheapest way to send money to ${to.name}?`, a: "", answerFromComparison: true },
