@@ -619,6 +619,9 @@ function DefaultReview({
         // both pages shipped full duplicate entities.
         "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
         name: provider.name, description: provider.description, url: provider.website,
+        // sameAs links the entity to the provider's official site for Google
+        // entity disambiguation — connects this page to the real-world business.
+        sameAs: [provider.website],
         // Trustpilot ratings remain attributed in the visible review. Google's
         // review-snippet guidelines exclude ratings sourced from other sites.
         ...(postalAddress(provider.headquarters) && { address: postalAddress(provider.headquarters) }),
