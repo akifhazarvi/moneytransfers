@@ -586,11 +586,11 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
               <span className="text-[var(--color-on-surface-variant)]">Exchange Rates</span>
             </nav>
             <h1 className="text-3xl sm:text-[2.6rem] font-bold text-[var(--color-on-surface)] tracking-tight leading-[1.1]">
-              Is now a good time to send?
+              Exchange Rates Today: Is Now a Good Time to Send?
             </h1>
             <p className="mt-3 text-[15px] sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed">
-              We track exchange rates daily across {COVERAGE.corridorsTracked}. Pick yours and we&apos;ll tell you if today beats
-              the last few months — and exactly how much your recipient gets.
+              Today&apos;s exchange rates are tracked across {COVERAGE.corridorsTracked}. Pick your corridor and we&apos;ll tell you if now
+              is a good time to send, how today compares to the last few months, and exactly how much your recipient gets.
             </p>
             <p className="mt-2 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
               The mid-market rate — the midpoint of global currency markets — is the fairest reference point, before any bank or
