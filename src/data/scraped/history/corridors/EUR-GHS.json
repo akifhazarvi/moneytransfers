@@ -15209,7 +15209,7 @@
       "lemfi": {
         "rate": 13.0667,
         "fee": 0,
-        "markup": 0.23,
+        "markup": -0.15,
         "receiveAmount": 1306.67
       },
       "moneygram": {
@@ -15225,10 +15225,10 @@
         "receiveAmount": 1306.67
       },
       "western-union": {
-        "rate": 13.0667,
+        "rate": 13.012,
         "fee": 0.99,
-        "markup": 0.24,
-        "receiveAmount": 1293.74
+        "markup": 0.65,
+        "receiveAmount": 1288.32
       },
       "dahabshiil": {
         "rate": 13.2099,
@@ -15249,10 +15249,10 @@
         "receiveAmount": 1293.73
       },
       "instarem": {
-        "rate": 12.7312,
+        "rate": 12.6778,
         "fee": 0,
-        "markup": 2.8,
-        "receiveAmount": 1273.12
+        "markup": 3.2,
+        "receiveAmount": 1267.78
       },
       "xe": {
         "rate": 13.0217,
@@ -15273,10 +15273,10 @@
         "receiveAmount": 1306.67
       },
       "remitly": {
-        "rate": 13.0368,
+        "rate": 12.9911,
         "fee": 1.99,
-        "markup": 0.46,
-        "receiveAmount": 1277.74
+        "markup": 0.81,
+        "receiveAmount": 1273.26
       },
       "revolut": {
         "rate": 12.9779,
@@ -15285,10 +15285,10 @@
         "receiveAmount": 1265.35
       },
       "wise": {
-        "rate": 13.0985,
+        "rate": 13.0436,
         "fee": 3.2,
-        "markup": -0.01,
-        "receiveAmount": 1267.93
+        "markup": 0.41,
+        "receiveAmount": 1262.62
       },
       "ria": {
         "rate": 13.0545,

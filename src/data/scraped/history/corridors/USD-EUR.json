@@ -21801,15 +21801,15 @@
     "date": "2026-10-18",
     "providers": {
       "instarem": {
-        "rate": 0.8884,
+        "rate": 0.892,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 88.84
+        "receiveAmount": 89.2
       },
       "lemfi": {
         "rate": 0.8815,
         "fee": 0,
-        "markup": 0.95,
+        "markup": 1.24,
         "receiveAmount": 88.15
       },
       "moneygram": {
@@ -21843,10 +21843,10 @@
         "receiveAmount": 87.05
       },
       "western-union": {
-        "rate": 0.8814,
+        "rate": 0.885062,
         "fee": 0.99,
-        "markup": 0.94,
-        "receiveAmount": 87.27
+        "markup": 0.53,
+        "receiveAmount": 87.63
       },
       "xoom": {
         "rate": 0.8078,
@@ -21867,10 +21867,10 @@
         "receiveAmount": 85.83
       },
       "remitly": {
-        "rate": 0.8842,
+        "rate": 0.8875,
         "fee": 2.99,
-        "markup": 0.62,
-        "receiveAmount": 85.78
+        "markup": 0.25,
+        "receiveAmount": 86.1
       },
       "revolut": {
         "rate": 0.888075,
@@ -21879,28 +21879,28 @@
         "receiveAmount": 87.25
       },
       "wise": {
-        "rate": 0.889798,
+        "rate": 0.893096,
         "fee": 1.35,
-        "markup": 0,
-        "receiveAmount": 87.78
+        "markup": -0.38,
+        "receiveAmount": 88.1
       },
       "paypal": {
-        "rate": 0.851829,
+        "rate": 0.855368,
         "fee": 4.99,
-        "markup": 4.26,
-        "receiveAmount": 80.93
+        "markup": 3.87,
+        "receiveAmount": 81.27
       },
       "wells-fargo": {
-        "rate": 0.863038,
+        "rate": 0.866624,
         "fee": 0,
-        "markup": 3,
-        "receiveAmount": 86.3
+        "markup": 2.6,
+        "receiveAmount": 86.66
       },
       "chase": {
-        "rate": 0.863638,
+        "rate": 0.867226,
         "fee": 5,
-        "markup": 2.94,
-        "receiveAmount": 82.05
+        "markup": 2.53,
+        "receiveAmount": 82.39
       }
     }
   }
