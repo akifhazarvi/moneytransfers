@@ -428,6 +428,18 @@ export const swiftContentEn: SwiftContent = {
       q: "Can I receive non-EUR currencies directly in a Dutch bank account?",
       a: "Some Dutch banks (especially ABN AMRO, ING, and Rabobank) offer multi-currency accounts that can hold USD, GBP, and other currencies. If you hold a standard EUR account, any incoming non-EUR transfer will be automatically converted to euros at the bank's exchange rate. For regular foreign currency receipts, a multi-currency account avoids this automatic conversion.",
     },
+    {
+      q: "Will my bank show the Dutch account holder's name before I send?",
+      a: "For a digital euro transfer from a SEPA country, it should. The <a href=\"https://www.betaalvereniging.nl/en/knowledge-base/iban-and-bic/iban-name-check/\" target=\"_blank\" rel=\"noopener noreferrer\">Dutch Payments Association</a> says banks in all 41 SEPA countries have had to compare name and IBAN since October 2025. A match shows a green tick, a near match a warning with the name the Dutch bank holds, and a clear mismatch a warning without it. If you confirm anyway, your bank may not then block the transfer.",
+    },
+    {
+      q: "How can I check that a Dutch bank named on an invoice is real?",
+      a: "Search the <a href=\"https://www.dnb.nl/en/public-register/register-of-banks/\" target=\"_blank\" rel=\"noopener noreferrer\">register of banks</a> kept by De Nederlandsche Bank (DNB), the Dutch central bank. It lists every bank licensed in the Netherlands and foreign banks operating there under a European passport, refreshed each business day at 06:00. A separate <a href=\"https://www.dnb.nl/en/public-register/dutch-deposit-guarantee-scheme-register/\" target=\"_blank\" rel=\"noopener noreferrer\">deposit guarantee register</a> shows which Dutch banks the Dutch scheme protects.",
+    },
+    {
+      q: "Can a euro payment from elsewhere in Europe reach a Dutch account in seconds?",
+      a: "Yes, as a SEPA instant payment. The Instant Payments Regulation, as the <a href=\"https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/instant_payments_regulation.en.html\" target=\"_blank\" rel=\"noopener noreferrer\">ECB's implementation table</a> sets out, required euro-area banks, Dutch ones included, to accept instant payments from 9 January 2025 and to offer sending from 9 October 2025. Dutch banks started earlier: the <a href=\"https://www.betaalvereniging.nl/en/knowledge-base/account-to-account-payments/instant-payments/\" target=\"_blank\" rel=\"noopener noreferrer\">Dutch Payments Association</a> says the largest introduced them jointly in 2019, and they are now standard for almost all individual transfers inside the Netherlands.",
+    },
   ],
 
   "hong-kong": [
