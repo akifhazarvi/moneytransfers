@@ -6433,7 +6433,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Business",
     readTime: "10 min read",
     publishedAt: "2026-03-16",
-    updatedAt: "2026-03-16",
+    updatedAt: "2026-10-18",
     author: "Ahsan Mukhtar",
     tags: ["business", "USA to Mexico", "USD to MXN", "B2B payments", "nearshoring", "CUSMA"],
     featuredImage: "/images/blog/send-money-to-mexico.jpg",
@@ -6486,6 +6486,21 @@ const rawBlogPosts: BlogPost[] = [
 <p>MXN can be more volatile than CAD or GBP — swings of 10–20% in a year are possible. For businesses with significant MXN exposure, <a href="/guides/fx-hedging-strategies-small-business">FX hedging</a> is essential.</p>`,
       },
       {
+        heading: "Paying a Mexican supplier's CFDI: fields, payment receipts and IVA",
+        content: `<p>A Mexican supplier bills you with a CFDI, the electronic invoice registered with SAT, and several of its fields change because the client is abroad. SAT's <a href="http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Anexo_20_Guia_de_llenado_CFDI.pdf" target="_blank" rel="noopener noreferrer">Anexo 20 filling guide</a> (CFDI 4.0, published 16 January 2026) sets them out:</p>
+<table><thead><tr><th>CFDI field</th><th>For a US client</th></tr></thead><tbody>
+<tr><td>Receptor RFC</td><td>XEXX010101000, the generic RFC for foreign residents</td></tr>
+<tr><td>RegimenFiscalReceptor</td><td>616, "Sin obligaciones fiscales"</td></tr>
+<tr><td>UsoCFDI</td><td>S01, "Sin efectos fiscales"</td></tr>
+<tr><td>ResidenciaFiscal</td><td>USA</td></tr>
+<tr><td>NumRegIdTrib</td><td>Your US tax number; SAT's <a href="http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm" target="_blank" rel="noopener noreferrer">country catalogue</a> checks it as nine digits</td></tr>
+<tr><td>Moneda / TipoCambio</td><td>USD is allowed; an exchange rate is then required</td></tr>
+</tbody></table>
+<p>A definitive export of goods under customs code A1 is marked Exportacion 02, which requires the Comercio Exterior complement, and that complement makes your tax number mandatory.</p>
+<p>An invoice issued as PPD (pago en parcialidades o diferido) is paid after it is issued. The supplier then issues a second CFDI, the Recibo Electrónico de Pago, for each payment or one per month, no later than the fifth calendar day of the following month. Unless your contract says how payments are applied, SAT's <a href="http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Guia_llenado_pagos.pdf" target="_blank" rel="noopener noreferrer">payments guide</a> gives you five calendar days after paying to tell the supplier which invoices the money covers and how much goes to each; otherwise it goes to the oldest unpaid ones. A remittance note listing invoice numbers avoids a mismatch. The receipt can record the SPEI clave de rastreo and, when the paying bank is abroad, that bank's name.</p>
+<p>Whether the invoice adds IVA at 16% depends on what you buy. Article 29 of Mexico's <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf" target="_blank" rel="noopener noreferrer">IVA law</a> applies 0% to goods exported definitively, to services used abroad in the categories it lists (including technical assistance, maquila for export, advertising, commissions, financing, call centres and certain IT services) and to independent personal services used entirely abroad by a foreign resident with no establishment in Mexico. A service outside those categories is not on the list, so a 16% line is not automatically a mistake. For IT services the law adds payment conditions: the invoice must show the foreign client's tax number, and payment must be electronic, come from accounts at financial institutions abroad and reach the provider's account at a Mexican bank. If your payment reaches a developer by SPEI through a transfer service rather than as a wire from your US bank, they should check with their accountant that the route meets the "accounts abroad" condition before billing at 0%.</p>`,
+      },
+      {
         heading: "Compliance for USA to Mexico Business Payments",
         content: `<p>The USA to Mexico corridor has specific compliance considerations:</p>
 <h3>CUSMA / USMCA</h3>
@@ -6511,6 +6526,16 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     faqs: [
+      {
+        question: "Can a Mexican contractor or supplier be paid in US dollars?",
+        answer:
+          "A Mexican company can, if its bank offers a dollar account; an individual often cannot. Banxico's <a href=\"https://www.banxico.org.mx/marco-normativo/normativa-emitida-por-el-banco-de-mexico/circular-3-2012/%7B4E0281A4-7AD8-1462-BC79-7F2925F3171D%7D.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Circular 3/2012</a> (article 46) lets Mexican banks take foreign-currency demand deposits from companies domiciled in Mexico, but from individuals only if they live within 20 kilometres of the northern border or in Baja California or Baja California Sur. A bank cannot open a dollar account for a freelancer in Guadalajara or Mexico City, so pay them in pesos to their CLABE. If a company invoices you in USD, its CFDI states the exchange rate; if you pay in dollars, its payment receipt records the rate on the day the money arrived.",
+      },
+      {
+        question: "Do I need a Form W-8BEN-E from a Mexican supplier?",
+        answer:
+          "Ask for one before the first payment. IRS <a href=\"https://www.irs.gov/publications/p515\" target=\"_blank\" rel=\"noopener noreferrer\">Publication 515</a> says a foreign entity uses Form W-8BEN-E to establish its foreign status, claim a treaty rate where one applies, and claim exemption from Form 1099 reporting and backup withholding on income not subject to chapter 3 withholding. Chapter 3 withholding, generally 30%, applies to US-source FDAP income, and income is US-source when the services it pays for were performed in the United States, wherever the contract was made or payment is sent. Under that rule, work done in Mexico is foreign-source. The supplier gives the form to you, not the IRS; <a href=\"https://www.irs.gov/instructions/iw8bene\" target=\"_blank\" rel=\"noopener noreferrer\">without it</a> you may have to withhold at 30% or the backup rate. Individual contractors use Form W-8BEN.",
+      },
       {
         question: "What is the cheapest way for a US business to pay a Mexican supplier?",
         answer:
