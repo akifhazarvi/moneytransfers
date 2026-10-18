@@ -177,6 +177,8 @@ const organizationSchema = {
     "https://x.com/money_send74620",
     "https://www.facebook.com/profile.php?id=61591170073730",
     "https://www.instagram.com/sendmoneycompare/",
+    // Channel verified 2026-10-18 (200, og:title "SendMoneyCompare").
+    "https://www.youtube.com/@SendMoneyCompare",
   ],
   publishingPrinciples: `${SITE_URL}/editorial-policy`,
   correctionsPolicy: `${SITE_URL}/corrections`,
