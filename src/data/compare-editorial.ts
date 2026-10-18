@@ -54,6 +54,12 @@ export interface CompareEditorial {
   secondExample?: CompareEditorialSection;
   /** A third case, only where it tests something the first two do not (a different payout market). */
   thirdExample?: CompareEditorialSection;
+  /**
+   * Something only this pair raises, verified from the providers' and
+   * regulators' own pages (e.g. bank deposit vs safeguarded e-money).
+   * Renders as its own section before "When to choose".
+   */
+  pairNote?: CompareEditorialSection;
   /** Where each genuinely wins, written for this pair only. */
   pickA: CompareEditorialSection;
   pickB: CompareEditorialSection;
@@ -144,7 +150,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "Wise's fee is a visible 0.41%-and-up charge with zero markup; Remitly's fee looks smaller ($0-$3.99) but its markup — {{AVG_MARKUP_PCT:remitly}} at the median in our data — is where the real cost sits, which is why the total more often favours Wise despite the sticker fee looking similar.",
+      "Wise's fee is a visible charge that varies by currency, and Wise says it uses the mid-market rate; Remitly's fee looks smaller ($0-$3.99) but its markup — {{AVG_MARKUP_PCT:remitly}} at the median in our data — is where the real cost sits, which is why the total more often favours Wise despite the sticker fee looking similar.",
       "Remitly settles in minutes on its express tier; Wise's window is instant to two days but applies uniformly, without an express upcharge.",
       "Wise caps out at $1,000,000 against Remitly's $300,000 US ceiling — real headroom for a large one-off transfer that Remitly's remittance-sized limit doesn't match.",
       "Cash pickup, mobile money and home delivery exist only on Remitly's side; Wise's only payout is a bank deposit.",
@@ -152,7 +158,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "wise-vs-paypal": {
-    theDecision: `These two are not competitors so much as different categories that happen to overlap. PayPal is a payments account that can send money abroad; Wise is a cross-border transfer service. The distinction shows up in the pricing model: PayPal charges a percentage fee of 5% (minimum $0.99, capped at $4.99) and then adds 3–4% inside the exchange rate, while Wise charges a visible fee from 0.41% and applies no markup at all. Two separate charges, one of them hidden, against one visible charge. The decision is usually settled by whether the recipient already uses PayPal and whether convenience is worth the spread.`,
+    theDecision: `These two are not competitors so much as different categories that happen to overlap. PayPal is a payments account that can send money abroad; Wise is a cross-border transfer service. The distinction shows up in the pricing model: PayPal charges a percentage fee of 5% (minimum $0.99, capped at $4.99) and then adds 3–4% inside the exchange rate, while Wise charges a visible sending fee that varies by currency and says it uses the mid-market rate. Two separate charges, one of them hidden, against one visible charge. The decision is usually settled by whether the recipient already uses PayPal and whether convenience is worth the spread.`,
     measuredRecord: `This is the widest cost gap of any pair on the site. PayPal led on {{LED:paypal}} of the corridors we price and, when it is not the leader, trails by {{SHORTFALL:paypal}} on average — the largest average shortfall we record for any provider. Wise led {{LED:wise}} with an average shortfall of {{SHORTFALL:wise}}. PayPal's <a href="https://www.trustpilot.com/review/paypal.com" target="_blank" rel="noopener noreferrer nofollow">Trustpilot rating</a> is also the lowest in our provider set by a wide margin. None of that makes PayPal unusable; it makes it an expensive way to move money internationally, which is a different claim.`,
     workedExample: {
       heading: "A worked example: £1,000 to euros",
@@ -180,7 +186,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     faqs: [
       {
         q: "Why is PayPal so much more expensive than Wise for the same transfer?",
-        a: "PayPal charges twice: a percentage fee up front (5%, capped at $4.99) and then a 3-4% markup hidden inside the exchange rate. Wise charges once — a visible fee from 0.41% — and passes on the mid-market rate with no markup at all. Neither charge is disclosed as clearly as the other.",
+        a: "PayPal charges twice: a percentage fee up front (5%, capped at $4.99) and then a 3-4% markup hidden inside the exchange rate. Wise charges once — a visible sending fee that varies by currency — and says it uses the mid-market rate. Neither charge is disclosed as clearly as the other.",
       },
       {
         q: "Does PayPal's $4.99 fee cap make it cheap on large transfers?",
@@ -232,7 +238,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     faqs: [
       {
         q: "Why does Revolut cost more on weekends?",
-        a: "The interbank FX market is closed on weekends, so Revolut applies a 0.5-1% markup instead of passing through the live interbank rate it uses on weekdays. If the transfer isn't urgent, waiting until Monday is the single cheapest thing you can do on this comparison.",
+        a: "Revolut says it may charge a fee on exchanges made from 17:00 Friday to 18:00 Sunday Eastern Time: 1% on its Standard plan, 0.5% on Plus, and nothing on Premium, Metal or Ultra. On Standard or Plus, converting on a weekday avoids it.",
       },
       {
         q: "What happens after I use Revolut's free £1,000 monthly allowance?",
@@ -771,7 +777,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "wise-vs-taptap-send": {
-    theDecision: `Both charge close to nothing and both use close to the mid-market rate, which makes this one of the tighter comparisons on the site rather than a clear-cut winner. Wise charges a variable fee from 0.41% with 0% markup; TapTap Send charges $0 on most corridors with roughly 0.7% built into the rate. The practical difference is reach and payout: Wise is bank deposit only across 80 countries, while TapTap Send adds mobile money across a smaller but more remittance-focused 80-country list, and settles in under three minutes on 95% of transfers.`,
+    theDecision: `Both charge close to nothing and both use close to the mid-market rate, which makes this one of the tighter comparisons on the site rather than a clear-cut winner. Wise's fee depends on the currency, on what it calls the mid-market rate; TapTap Send charges $0 on most corridors with roughly 0.7% built into the rate. The practical difference is reach and payout: Wise is bank deposit only across 80 countries, while TapTap Send adds mobile money across a smaller but more remittance-focused 80-country list, and settles in under three minutes on 95% of transfers.`,
     measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:taptap-send}} for TapTap Send. TapTap Send's average shortfall when it isn't cheapest is {{SHORTFALL:taptap-send}}, against {{SHORTFALL:wise}} for Wise — a tight gap consistent with two providers both pricing close to the mid-market rate.`,
     workedExample: {
       heading: "A worked example: $1,000 to India",
@@ -867,7 +873,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "wise-vs-xe": {
-    theDecision: `Both are transparent, fee-based services with no cash pickup — the real question is transfer size and speed rather than trust or transparency. Wise charges a variable fee from 0.41% with 0% markup and settles instant to two days. XE charges no fee at all, recovers cost through a 0.5-1.5% markup, and settles in one to four business days, with pricing built to reward larger amounts. For a typical remittance-sized transfer, Wise's speed and flat 0% markup usually win; for a large planned transfer, XE's no-fee model closes the gap.`,
+    theDecision: `Both are transparent, fee-based services with no cash pickup — the real question is transfer size and speed rather than trust or transparency. Wise adds a currency-dependent fee to the mid-market rate it says it uses, and settles instant to two days. XE charges no fee at all, recovers cost through a 0.5-1.5% markup, and settles in one to four business days, with pricing built to reward larger amounts. For a typical remittance-sized transfer, Wise's speed and flat 0% markup usually win; for a large planned transfer, XE's no-fee model closes the gap.`,
     measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:xe}} for XE. Wise's average shortfall when it isn't cheapest is {{SHORTFALL:wise}}, against {{SHORTFALL:xe}} for XE — consistent with Wise's 0% markup outperforming XE's markup-only model at the transfer sizes we price.`,
     workedExample: {
       heading: "A worked example: $1,000 to India",
@@ -907,7 +913,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "Wise charges a variable fee from 0.41% with 0% markup; XE charges no fee at all but a 0.5-1.5% markup, priced to reward larger transfers.",
+      "Wise: a fee set per currency over its stated mid-market rate. XE: no fee at all but a 0.5-1.5% markup, priced to reward larger transfers.",
       "Wise settles instant to two days; XE has no express option and quotes one to four business days.",
       "XE's 130 currencies is the widest list on this site, against Wise's 50.",
       "Wise's $1,000,000 ceiling exceeds XE's $500,000, though neither binds a typical personal transfer.",
@@ -962,52 +968,61 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     ],
   },
   "wise-vs-revolut": {
-    theDecision: `Both are digital-first and both price close to the mid-market rate on weekdays, which makes this one of the tighter cost comparisons on the site. Wise charges a variable fee from 0.41% with a flat 0% markup, every day. Revolut matches that 0% markup on weekdays but adds a 0.5-1% markup on weekends, when the underlying FX market is closed — and gives a free £1,000 monthly allowance before its 0.5% fee applies. The day of the week is a real lever here in a way it is on almost no other comparison on this site.`,
-    measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:revolut}} for Revolut. Revolut's average shortfall when it isn't cheapest is {{SHORTFALL:revolut}}, against {{SHORTFALL:wise}} for Wise — a tight gap consistent with both pricing close to the mid-market rate on weekdays.`,
+    // Rewritten 2026-10-18 from the providers' own pages: the old copy's
+    // "Revolut adds a 0.5-1% markup on weekends" (it is a plan-dependent fee),
+    // "£1,000 free, then 0.5%" (1% on Standard), "interbank rate" (Revolut sets
+    // its own rate) and "Wise from 0.41%" (now from 0.24%) were all wrong.
+    theDecision: `Wise <a href="https://wise.com/gb/pricing/" target="_blank" rel="noopener noreferrer nofollow">says it uses only the mid-market rate</a> and charges a sending fee that varies by currency, from 0.24%; a transfer set up while currency markets are closed, from 5pm Friday New York time, <a href="https://wise.com/help/articles/2448203/whats-a-guaranteed-rate" target="_blank" rel="noopener noreferrer nofollow">gets Friday's last rate</a>. Revolut <a href="https://www.revolut.com/en-GB/legal/standard-fees/" target="_blank" rel="noopener noreferrer nofollow">sets its own exchange rate</a> and <a href="https://help.revolut.com/en-GB/help/wealth/exchanging-money/how-much-does-it-cost-to-make-an-exchange/will-i-be-charged-for-exchanging-foreign-currencies/" target="_blank" rel="noopener noreferrer nofollow">says</a> Standard customers pay no extra exchange fee on weekdays for the first £1,000 a month, then 1%. From 17:00 Friday to 18:00 Sunday Eastern Time its exchange fee is 1% on Standard and 0.5% on Plus, and nothing on Premium, Metal or Ultra. International payments other than euros within SEPA also carry a transfer fee, shown in the app. On Standard and Plus, the day you convert changes the price.`,
+    measuredRecord: `Wise led on {{LED:wise}} of the corridors we price against {{LED:revolut}} for Revolut. Revolut's average shortfall when it isn't cheapest is {{SHORTFALL:revolut}}, against {{SHORTFALL:wise}} for Wise.`,
     workedExample: {
       heading: "A worked example: $1,000 to India",
-      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:revolut:USD:INR:1000}}, with {{CHEAPER:wise:revolut:USD:INR:1000}} delivering more — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:revolut:USD:INR:1000}} for Revolut. This is a snapshot: Revolut's weekend markup means the same transfer sent on a Saturday costs more than shown here, a timing effect Wise doesn't have.`,
+      body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:wise:revolut:USD:INR:1000}}, with {{CHEAPER:wise:revolut:USD:INR:1000}} delivering more — {{COST_PCT:wise:USD:INR:1000}} all-in for Wise against {{COST_PCT:revolut:USD:INR:1000}} for Revolut. This is a weekday snapshot: Revolut's weekend exchange fee on its Standard and Plus plans means the same conversion on a Saturday can cost more than shown here.`,
     },
     pickA: {
-      heading: "Pick Wise for consistent pricing any day of the week",
-      body: `Wise's 0% markup applies every day, which matters if you can't control when you send. It supports transfers to $1,000,000, holds balances in 50 currencies, and is regulated by the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC.`,
+      heading: "Pick Wise when you can't choose the day you send",
+      body: `Wise publishes no weekend fee on its UK pricing page, and a transfer set up over the weekend gets Friday's last rate, so the price does not depend on the day. It offers account details to receive in 22 currencies and is regulated by the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> and ASIC.`,
     },
     pickB: {
-      heading: "Pick Revolut for weekday transfers within the free allowance",
-      body: `Revolut is the better instrument on a weekday, within the £1,000 monthly free allowance — genuinely free, at the interbank rate. Revolut-to-Revolut transfers are instant and cost nothing. The constraint is the weekend markup and the requirement that the recipient hold a Revolut account for the fastest, free route.`,
+      heading: "Pick Revolut for weekday conversions within your plan's allowance",
+      body: `On a weekday and within the monthly allowance (£1,000 on Standard, £3,000 on Plus), Revolut says it adds no extra exchange fee. International payments outside euros within SEPA carry a separate transfer fee shown in the app, and the weekend exchange fee applies on Standard and Plus.`,
     },
-    limits: `Revolut's free allowance and weekend markup depend on your plan tier. Quotes are collected at a point in time — if timing matters to you, that's a real variable this page can't fully capture in a single snapshot.`,
+    limits: `Revolut's allowance and weekend exchange fee depend on your plan. Quotes are collected at a point in time, so a conversion on a different day or above the allowance can price differently from the snapshot here.`,
     verdict: {
-      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:revolut}} for Revolut, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:revolut}} — one of the tighter cost gaps on the site, since both price close to the mid-market rate on weekdays.`,
-      speedExplanation: `Revolut-to-Revolut transfers land instantly; Wise's instant-to-two-day window applies to any bank deposit regardless of whether the recipient holds a Wise account. Neither has a consistent speed edge once the recipient's account type is matched.`,
-      coverageExplanation: `Wise's $1,000,000 ceiling and 50 currencies suit a larger transfer; Revolut's free monthly allowance and no published upper limit suit smaller, more frequent sending between two Revolut users.`,
-      bottomLine: `Timing is the real variable on this page. A weekday Revolut transfer within the free allowance is hard to beat; the same transfer on a weekend, or above the allowance, moves the advantage toward Wise's flat 0% markup.`,
+      costExplanation: `Wise led {{LED:wise}} of the corridors we price against {{LED:revolut}} for Revolut, with average shortfalls of {{SHORTFALL:wise}} and {{SHORTFALL:revolut}}.`,
+      speedExplanation: `We don't time either provider's transfers. Both show their own delivery estimate before you confirm, and that estimate is the one to compare.`,
+      coverageExplanation: `Wise offers account details to receive in 22 currencies; Revolut lists local details for UK customers in GBP, USD and PLN, with other currencies arriving through its SWIFT details.`,
+      bottomLine: `Plan and timing are the real variables on this page. On Revolut's Standard and Plus plans, a weekend conversion or one above the monthly allowance adds a Revolut fee; Wise's UK pricing has no weekend fee, though a weekend transfer gets Friday's rate.`,
+    },
+    pairNote: {
+      heading: "Wise and Revolut: bank deposit or safeguarded e-money?",
+      body: `The two are now different kinds of firm in the UK. Revolut <a href="https://www.revolut.com/en-GB/blog/post/is-revolut-a-fully-licensed-bank-in-the-uk/" target="_blank" rel="noopener noreferrer nofollow">says</a> Revolut Bank UK Ltd has been a fully licensed bank since March 2026, authorised by the Prudential Regulation Authority and regulated by the PRA and FCA, and the <a href="https://register.fca.org.uk/s/firm?id=0014G000030ehU6QAI" target="_blank" rel="noopener noreferrer">FCA register</a> lists it as able to hold customer deposits. Eligible balances there are covered by the Financial Services Compensation Scheme, <a href="https://www.fscs.org.uk/check/check-your-money-is-protected/" target="_blank" rel="noopener noreferrer">up to £120,000 per person per firm</a>. Revolut is moving customers across in stages: accounts not yet moved stay e-money accounts with Revolut Ltd, safeguarded rather than FSCS-protected, and the entity name under Account details in the app shows which one holds yours. Wise Payments Ltd is an <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">authorised e-money institution</a>, not a bank. Wise <a href="https://wise.com/help/articles/4IusAofIppsIGPcs7sEIXI/how-our-uk-entity-wise-payments-ltd-safeguards-customer-funds" target="_blank" rel="noopener noreferrer nofollow">says</a> its e-money and payment services are not covered by the FSCS, and that it safeguards customer money as a mix of cash in banks, government bonds and a guarantee from authorised insurers. If a safeguarding firm fails, the <a href="https://www.fca.org.uk/consumers/using-payment-service-providers" target="_blank" rel="noopener noreferrer">FCA says</a> you should get most of your money back, though it may take time and may not be the full amount; <a href="https://www.fca.org.uk/news/press-releases/payment-safeguarding-rules-changes" target="_blank" rel="noopener noreferrer">rules in force since 7 May 2026</a> add daily safeguarding checks and annual audits.`,
     },
     faqs: [
       {
-        q: "Does Revolut's weekend markup apply to every transfer?",
-        a: "It applies whenever the underlying FX market is closed, typically Saturday and Sunday. If your transfer isn't urgent, waiting until Monday for the interbank weekday rate is the cheapest lever available on this comparison.",
+        q: "When does Revolut's weekend exchange fee apply?",
+        a: "Revolut says it may charge a fee on exchanges made from 17:00 Friday to 18:00 Sunday Eastern Time: 1% on its Standard plan, 0.5% on Plus, and nothing on Premium, Metal or Ultra. If the transfer can wait and you are on Standard or Plus, converting on a weekday avoids it.",
       },
       {
-        q: "What happens after I use Revolut's free monthly allowance?",
-        a: "Transfers above £1,000 a month are charged at 0.5%, which is still competitive against Wise's fee-from-0.41% model — check both for your specific amount rather than assuming one is always cheaper.",
+        q: "What happens after I use Revolut's monthly exchange allowance?",
+        a: "Revolut's fee page sets the allowance at £1,000 a month on Standard, with a 1% fair usage fee on exchanges above it, and £3,000 on Plus, with 0.5% above it. International payments are charged separately: Revolut added fixed fees on 14 October 2026 and shows the fee in the app before you send.",
       },
       {
         q: "Is Wise ever cheaper than Revolut on a weekday?",
-        a: "It can be — both price close to the mid-market rate on weekdays, so the actual leader varies by corridor and amount. This is one of the closer comparisons on the site precisely because neither has a structural pricing advantage during the week.",
+        a: "It can be. Wise charges a sending fee and uses the mid-market rate; Revolut sets its own rate and adds a transfer fee on international payments, so the leader varies by corridor and amount. The live table on this page compares the amount each delivers today.",
       },
       {
-        q: "Do I need a Revolut account to receive money for free?",
-        a: "Yes — Revolut-to-Revolut transfers are the free, instant route. Sending to an external bank account still uses Revolut's weekday interbank rate or weekend markup, but loses the instant, zero-cost advantage of staying inside the app.",
+        q: "Does the recipient need a Revolut account?",
+        a: "No. Revolut can pay out to bank accounts, and Revolut's fees for international payments are shown in the app before you send. A transfer to another Revolut user stays inside Revolut, so check the app for whether a fee applies to your route.",
       },
     ],
     keyDifferences: [
-      "Wise's 0% markup applies every day; Revolut matches it on weekdays but adds a 0.5-1% markup on weekends when the FX market is closed.",
-      "Revolut gives a free £1,000 monthly allowance before its 0.5% fee applies; Wise charges a variable fee from 0.41% on every transfer regardless of amount.",
-      "Revolut-to-Revolut transfers are instant and free; Wise's instant-to-two-day window applies to any bank deposit.",
-      "Wise's $1,000,000 ceiling exceeds anything Revolut publishes for a standard transfer, though Revolut has no stated upper limit either.",
+      "Wise says it uses the mid-market rate every day; Revolut sets its own rate and adds a weekend exchange fee on its Standard (1%) and Plus (0.5%) plans.",
+      "Revolut's Standard plan has a £1,000 monthly exchange allowance, then a 1% fee; Wise charges a sending fee that varies by currency.",
+      "Revolut Bank UK is a licensed bank with FSCS-protected deposits for migrated customers; Wise is an e-money institution whose customer money is safeguarded, not FSCS-protected.",
+      "Wise offers receiving account details in 22 currencies; Revolut lists local UK-customer details in GBP, USD and PLN.",
     ],
   },
+
 
   "paypal-vs-moneygram": {
     theDecision: `PayPal is a payments account with an FX feature; MoneyGram is a cash-agent network with digital and card funding options. The pricing models differ in structure: PayPal charges a percentage fee (5%, capped at $4.99) plus a 3-4% markup, while MoneyGram charges a flat fee from $1.99 plus a 1-3% markup. MoneyGram's model tends to be cheaper on smaller amounts where PayPal's percentage fee bites hardest; the gap narrows as the amount grows toward PayPal's $4.99 cap.`,

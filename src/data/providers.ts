@@ -131,8 +131,8 @@ export const providers: Provider[] = [
       "API for developers",
       "Batch payments",
     ],
-    feeStructure: "Variable fee from 0.41%",
-    exchangeRateMarkup: "0% (mid-market rate)",
+    feeStructure: "Varies by currency, from 0.24%",
+    exchangeRateMarkup: "Mid-market rate",
   },
   {
     slug: "remitly",
@@ -378,7 +378,7 @@ export const providers: Provider[] = [
       "Crypto and stock trading available",
     ],
     cons: [
-      "Weekend markup of 0.5-1%",
+      "Weekend exchange fee on lower plans",
       "Free tier has monthly limits",
       "Customer support can be slow",
     ],
@@ -389,8 +389,8 @@ export const providers: Provider[] = [
       "Stock trading",
       "Savings vaults",
     ],
-    feeStructure: "Free up to £1,000/month, then 0.5%",
-    exchangeRateMarkup: "0% weekdays, 0.5-1% weekends",
+    feeStructure: "£1,000/month, then 1% (Standard)",
+    exchangeRateMarkup: "Own rate; weekend fee",
   },
   {
     slug: "paypal",

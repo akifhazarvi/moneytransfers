@@ -3,7 +3,7 @@ import Link from "@/components/EligibleLink";
 import { robotsFor } from "@/lib/seo-indexing";
 import { postalAddress } from "@/lib/postal-address";
 import { quoteDataDate } from "@/lib/unified-quotes";
-import { COMPARISON_CONTENT_DATE, longDay } from "@/lib/content-dates";
+import { COMPARISON_CONTENT_DATE, familyPageDate, longDay } from "@/lib/content-dates";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { providers } from "@/data/providers";
@@ -202,6 +202,7 @@ function DefaultComparison({
   const { corridorData, verdict, faqs, keyDifferences } = content;
   const relatedComparisons = getRelatedComparisons(a, b);
   const dataUpdatedDate = getDataFreshnessDate();
+  const contentDate = familyPageDate(`/compare/${a.slug}-vs-${b.slug}`, COMPARISON_CONTENT_DATE);
   // The closing calculator opens on the route where this pair differs most,
   // not USD→INR on every comparison: more useful, and it stops the widget's
   // text being identical across all 52 pages.
@@ -372,7 +373,7 @@ function DefaultComparison({
               {/* "Updated" is when this comparison's text last changed, shared
                   with sitemap.ts (rule 16); the quotes say when they were
                   collected on their own line. */}
-              <time dateTime={COMPARISON_CONTENT_DATE}>Updated {longDay(COMPARISON_CONTENT_DATE)}</time>
+              <time dateTime={contentDate}>Updated {longDay(contentDate)}</time>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <span>
                 Rates collected <time dateTime={dataUpdatedDate}>{longDay(dataUpdatedDate)}</time>
@@ -591,6 +592,18 @@ function DefaultComparison({
                   </div>
                 )}
               </section>
+
+              {editorial?.pairNote && (
+                <section className="mb-10">
+                  <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                    {editorial.pairNote.heading}
+                  </h2>
+                  <p
+                    className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: renderDataTokens(editorial.pairNote.body) }}
+                  />
+                </section>
+              )}
 
               <section id="when-to-use" className="mb-10">
                 <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
