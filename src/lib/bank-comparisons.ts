@@ -113,9 +113,9 @@ export const PILOT_BANKS: Record<string, BankMeta> = {
     headline: "Lloyds Bank International Transfer Fees — Real Cost vs Wise on a £1,000 Send (2026)",
     metaTitle: "Lloyds Bank International Transfer Fees vs Wise on £1,000",
     productNote:
-      "Lloyds charges £9.50 for an international SEPA payment and up to £20 for a SWIFT payment, plus an exchange rate margin typically 2.8-4.5% above the mid-market rate. Internet Banking customers pay slightly less than branch customers but the FX margin is the same.",
+      "Lloyds charges personal customers no fee for international payments in euro and £9.50 for others, by any channel, and converts at its standard exchange rate, which it says includes a margin over the wholesale rate (Lloyds help pages, April 2026).",
     sourcePage: "https://www.lloydsbank.com/international-banking/sending-money-abroad.html",
-    recommendedAlternative: { slug: "wise", label: "Wise — typically saves £40-70 on a £1,000 transfer to India" },
+    recommendedAlternative: { slug: "wise", label: "Wise" },
   },
   "barclays": {
     slug: "barclays",
@@ -128,9 +128,9 @@ export const PILOT_BANKS: Record<string, BankMeta> = {
     headline: "Barclays International Transfer Fees — What £1,000 to India Actually Costs (2026)",
     metaTitle: "Barclays International Transfer Fees: What £1,000 to India Costs",
     productNote:
-      "Barclays Online International Payment costs £25 (£15 if you use Barclays International Banking with a Premier or Wealth relationship), plus an FX margin typically 2.0-3.0% above mid-market. Cheaper than Lloyds or Santander on like-for-like, but still substantially more than specialist providers.",
+      "Barclays charges no fee for international payments made in its app or Online Banking and £25 in a branch or by Telephone Banking; SEPA Credit Transfers cost £0. It converts at its reference exchange rate plus a currency conversion charge (Barclays personal tariff).",
     sourcePage: "https://www.barclays.co.uk/international-banking/international-payments/",
-    recommendedAlternative: { slug: "wise", label: "Wise — typically saves £25-40 on a £1,000 transfer to India" },
+    recommendedAlternative: { slug: "wise", label: "Wise" },
   },
 };
 

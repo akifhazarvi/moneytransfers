@@ -48,7 +48,7 @@ import { providerLogo } from "@/lib/provider-logo";
 import { getBankEditorial } from "@/data/bank-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import { PageByline } from "@/components/PageByline";
-import { COMPARISON_CONTENT_DATE } from "@/lib/content-dates";
+import { COMPARISON_CONTENT_DATE, familyPageDate } from "@/lib/content-dates";
 
 /** Distinct table amount per bank page — see table-amounts.ts. */
 /** The day /banks/* launched (fcbeaaed7) — the Article datePublished. */
@@ -148,7 +148,7 @@ export default async function BankPage({ params }: Props) {
     // Content dates, not the six-hourly data stamp (rule 16): the pages
     // launched 2026-05-22 (fcbeaaed7); dateModified is the visible "Updated".
     datePublished: BANK_PAGES_PUBLISHED,
-    dateModified: COMPARISON_CONTENT_DATE,
+    dateModified: familyPageDate(`/banks/${slug}`, COMPARISON_CONTENT_DATE),
     author: {
       "@type": "Organization",
       name: "SendMoneyCompare",
@@ -263,7 +263,7 @@ export default async function BankPage({ params }: Props) {
             {/* Named editor + review date — flagged as missing on the two
                 brief-listed bank pages by the second validation pass. */}
             <div className="mb-6">
-              <PageByline updated={COMPARISON_CONTENT_DATE} cadence={null} />
+              <PageByline updated={familyPageDate(`/banks/${slug}`, COMPARISON_CONTENT_DATE)} cadence={null} />
             </div>
             <h2 className="text-h3 font-normal text-[var(--color-on-surface)] mb-4">
               How {bank.name} charges for international transfers
@@ -501,7 +501,10 @@ export default async function BankPage({ params }: Props) {
                   q: `Why don't ${bank.name} customers just switch?`,
                   a: `For Premier and Advance account holders, staying isn't just inertia — Global Money genuinely offers free transfers on many currency pairs, competitive with specialist pricing. For a standard HSBC account, the reasons are the same as at most banks: the FX margin is baked into the rate rather than shown as a fee, transfers are bundled with an existing relationship, and recipient-side requirements historically meant the sender's own bank was the path of least resistance.`,
                 }] : []),
-              ].map((faq) => (
+                // Bank-specific questions from bank-editorial.ts, with their
+                // source links (2026-10-18: Barclays, Lloyds).
+                ...(editorial?.faqs ?? []).map((f) => ({ q: f.q, a: "", html: renderDataTokens(f.a) })),
+              ].map((faq: { q: string; a: string; html?: string }) => (
                 <details key={faq.q} className="group py-4">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                     {faq.q}
@@ -519,9 +522,16 @@ export default async function BankPage({ params }: Props) {
                       />
                     </svg>
                   </summary>
-                  <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
-                    {faq.a}
-                  </p>
+                  {faq.html ? (
+                    <p
+                      className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8"
+                      dangerouslySetInnerHTML={{ __html: faq.html }}
+                    />
+                  ) : (
+                    <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                      {faq.a}
+                    </p>
+                  )}
                 </details>
               ))}
             </div>
