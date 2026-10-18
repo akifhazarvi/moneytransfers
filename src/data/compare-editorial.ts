@@ -210,7 +210,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "paypal-vs-revolut": {
-    theDecision: `Both of these are accounts first and transfer services second, which makes this a comparison between two conveniences rather than two remittance products. Revolut gives you the interbank rate with no markup on weekdays and free transfers up to £1,000 a month, then 0.5%; the catch is the weekend, when a 0.5–1% markup applies because the underlying FX market is closed. PayPal charges 5% (min $0.99, max $4.99) and adds 3–4% to the rate every day of the week. The practical decision is whether both parties can hold a Revolut account, and whether you can wait until Monday.`,
+    theDecision: `Both of these are accounts first and transfer services second, which makes this a comparison between two conveniences rather than two remittance products. Revolut converts at its own rate and, on the Standard plan, adds no exchange fee on weekdays for the first £1,000 a month, then a 1% fair usage fee; the catch is the weekend, when Standard adds 1% and Plus 0.5%. PayPal charges 5% (min $0.99, max $4.99) and adds 3–4% to the rate every day of the week. The practical decision is whether both parties can hold a Revolut account, and whether you can wait until Monday.`,
     measuredRecord: `Neither provider leads often: Revolut was the usual leader on {{LED:revolut}} of the corridors we price, PayPal on {{LED:paypal}}. What separates them is how far back they sit when they lose. Revolut's average shortfall is {{SHORTFALL:revolut}} — close to the front, and among the tightest we record — while PayPal's is {{SHORTFALL:paypal}}, the widest of any provider we track. Read that together: Revolut rarely wins because specialist services undercut it at the margin, but it is never far off. PayPal is consistently far off. Revolut also carries the higher <a href="https://www.trustpilot.com/review/revolut.com" target="_blank" rel="noopener noreferrer nofollow">Trustpilot rating</a> of the two by a wide margin.`,
     workedExample: {
       heading: "A worked example: £1,000 to euros",
@@ -218,7 +218,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     secondExample: {
       heading: "A second corridor: $1,000 to Mexico",
-      body: `Outside Europe the gap widens rather than narrows: on $1,000 USD→MXN, {{CHEAPER:paypal:revolut:USD:MXN:1000}} delivers {{RECEIVE_DIFF:paypal:revolut:USD:MXN:1000}} more, at {{COST_PCT:revolut:USD:MXN:1000}} all-in against {{COST_PCT:paypal:USD:MXN:1000}} for PayPal. Revolut's weekday interbank rate holds up well outside the euro corridors it's most associated with; PayPal's 3–4% markup applies the same way everywhere, which is the more consistent (and more expensive) of the two patterns.`,
+      body: `Outside Europe the gap widens rather than narrows: on $1,000 USD→MXN, {{CHEAPER:paypal:revolut:USD:MXN:1000}} delivers {{RECEIVE_DIFF:paypal:revolut:USD:MXN:1000}} more, at {{COST_PCT:revolut:USD:MXN:1000}} all-in against {{COST_PCT:paypal:USD:MXN:1000}} for PayPal. Revolut's weekday rate holds up well outside the euro corridors it's most associated with; PayPal's 3–4% markup applies the same way everywhere, which is the more consistent (and more expensive) of the two patterns.`,
     },
     pickA: {
       heading: "Pick PayPal only where the transaction already lives there",
@@ -226,23 +226,23 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickB: {
       heading: "Pick Revolut when both sides hold the app and it is a weekday",
-      body: `Revolut is the better instrument for anyone moving money regularly between countries they live and work in, rather than sending remittances to a third party. Free allowance to £1,000 a month, the interbank rate on weekdays, balances in 36 currencies, no upper transfer limit, and regulation by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a> and ECB. Revolut-to-Revolut transfers land instantly and cost nothing. The constraint is that this only works when the recipient is willing to hold an account too — which is precisely the constraint PayPal does not have.`,
+      body: `Revolut is the better instrument for anyone moving money regularly between countries they live and work in, rather than sending remittances to a third party. No exchange fee on weekdays within the Standard plan's £1,000 monthly allowance, balances in 36 currencies, no upper transfer limit, and regulation by the <a href="https://register.fca.org.uk" target="_blank" rel="noopener noreferrer">FCA</a> and ECB. Revolut-to-Revolut transfers land instantly and cost nothing. The constraint is that this only works when the recipient is willing to hold an account too — which is precisely the constraint PayPal does not have.`,
     },
     limits: `Revolut's free allowance and weekend markup depend on your plan tier, PayPal's pricing differs between personal and business accounts, and card funding adds a further charge on both. Quotes are collected by currency pair, so confirm your own eligibility and the applicable schedule before sending.`,
     verdict: {
-      costExplanation: `Revolut's weekday rate is the interbank rate with no markup up to £1,000 a month, then 0.5% — the tightest margin tracked on this site. PayPal charges 5% plus a 3-4% markup regardless of day or amount, which is why its average shortfall of {{SHORTFALL:paypal}} is the widest we record for any provider on the site.`,
+      costExplanation: `On a weekday within the Standard plan's £1,000 monthly allowance, Revolut adds no exchange fee to its own rate; above the allowance a 1% fair usage fee applies. PayPal charges 5% plus a 3-4% markup regardless of day or amount, which is why its average shortfall is {{SHORTFALL:paypal}}.`,
       speedExplanation: `Revolut-to-Revolut transfers land instantly, matching PayPal's balance-to-balance speed, but only when both sides hold the app. Where the recipient doesn't have Revolut, delivery depends on the destination bank's own processing time; PayPal's instant settlement has no such condition attached.`,
       coverageExplanation: `PayPal reaches 200 countries against Revolut's 150 and needs only an email address, where Revolut needs the recipient to open an account. That's the entire coverage argument for PayPal here — everything else favours Revolut once both sides are willing to install the app.`,
-      bottomLine: `The day of the week is a genuine lever here in a way it isn't on almost any other comparison on this site: a Revolut transfer sent on a weekday at the interbank rate is a different transfer, price-wise, than the same amount sent on a Saturday. Time it right and Revolut wins comfortably; PayPal's price doesn't move regardless of when you send.`,
+      bottomLine: `The day of the week is a genuine lever here in a way it isn't on almost any other comparison on this site: on Revolut's Standard or Plus plan, a transfer converted on a weekday is a different transfer, price-wise, than the same amount converted on a Saturday. Time it right and Revolut wins comfortably; PayPal's price doesn't move regardless of when you send.`,
     },
     faqs: [
       {
         q: "Why does Revolut cost more on weekends?",
-        a: "Revolut says it may charge a fee on exchanges made from 17:00 Friday to 18:00 Sunday Eastern Time: 1% on its Standard plan, 0.5% on Plus, and nothing on Premium, Metal or Ultra. On Standard or Plus, converting on a weekday avoids it.",
+        a: "Between Friday evening and Sunday evening, US Eastern Time, Revolut's fee pages add 1% to a conversion on the Standard plan and 0.5% on Plus; Premium, Metal and Ultra pay no weekend fee.",
       },
       {
         q: "What happens after I use Revolut's free £1,000 monthly allowance?",
-        a: "Transfers above the free allowance are charged at 0.5%, which is still well below PayPal's combined fee-and-markup cost on the same amount. The allowance resets monthly and favours smaller, recurring transfers rather than being a one-time promotion.",
+        a: "On Standard, conversions above £1,000 in a month carry a 1% fair usage fee, and Plus raises the allowance to £3,000 with 0.5% above it. The allowance resets monthly, so it suits smaller, recurring transfers more than one large payment.",
       },
       {
         q: "Is PayPal ever the cheaper option in your data?",
@@ -254,7 +254,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "Revolut's markup is 0% on weekdays up to £1,000 a month, then 0.5% — PayPal's 3-4% markup applies every day regardless of amount or plan.",
+      "Revolut adds no exchange fee on weekdays within the Standard plan's £1,000 monthly allowance, then 1% — PayPal's 3-4% markup applies every day regardless of amount or plan.",
       "Revolut-to-Revolut transfers are instant and free; sending to an external bank adds the destination bank's own processing time, which PayPal's balance transfer doesn't depend on.",
       "PayPal reaches 200 countries against Revolut's 150, and needs nothing from the recipient beyond an email address — Revolut needs an account.",
       "Revolut has no published upper transfer limit; PayPal's practical ceiling is set by its own risk and compliance policies rather than one published figure.",
@@ -927,9 +927,13 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "A worked example: $1,000 to India",
       body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:remitly:taptap-send:USD:INR:1000}}, with {{CHEAPER:remitly:taptap-send:USD:INR:1000}} delivering more — {{COST_PCT:remitly:USD:INR:1000}} all-in for Remitly against {{COST_PCT:taptap-send:USD:INR:1000}} for TapTap Send. Check TapTap Send's coverage for your specific corridor first — its list is narrower than Remitly's, so the price advantage only matters where it actually serves the route.`,
     },
+    pairNote: {
+      heading: "How TapTap Send and Remitly protect money they hold in the UK",
+      body: "<p>In the UK neither company is a bank. Taptap Send UK Limited is authorised by the FCA under the Electronic Money Regulations 2011 (firm reference number 900842), according to <a href=\"https://www.taptapsend.com/licenses\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">TapTap Send's licence page</a>, and Remitly U.K., Ltd is authorised as an electronic money institution (FCA register no. 1047222), according to <a href=\"https://www.remitly.com/gb/en\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Remitly's UK site</a>. Both say the FSCS does not cover your money and that they safeguard it instead. The <a href=\"https://www.fca.org.uk/consumers/using-payment-service-providers\" target=\"_blank\" rel=\"noopener noreferrer\">FCA</a> says such firms must either put customer money in a separate safeguarding account with a bank or protect it with an insurance policy or similar guarantee, and the two companies describe different routes. <a href=\"https://help.taptapsend.com/en/getting-started/is-it-safe-to-send-money-with-taptap-send\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">TapTap Send says</a> it keeps your money in a safe bank account while the transfer is processed, that the money can only be used to pay your recipient, and that in practice it pays the recipient before debiting your card in nearly all cases. <a href=\"https://www.remitly.com/gb/en/home/agreement\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Remitly's UK agreement</a> says it holds a banking instrument from JPMorgan Chase Bank N.A., acting through its London branch, so that your money is returned if Remitly becomes insolvent.</p><p>They also explain their pricing in different terms. <a href=\"https://www.remitly.com/us/en/home/agreement\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Remitly's US agreement</a> says it and its payout partners may make money from the gap between the rate at which they buy currency and the rate you are given. <a href=\"https://help.taptapsend.com/en/fees-and-pricing/how-do-exchange-rates-work-on-taptap-send\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">TapTap Send says</a> its rates vary by destination with the local currency market, available liquidity and its local banking partners, and that it deducts nothing after you confirm, although a local provider may take a handling or cash-out fee.</p>",
+    },
     pickA: {
       heading: "Pick Remitly for broader coverage and larger amounts",
-      body: `Remitly is the better instrument when the destination is outside TapTap Send's core corridor list, or the amount is large — Remitly's $300,000 US ceiling dwarfs TapTap Send's $10,000. It also offers home delivery, a payout method TapTap Send doesn't have.`,
+      body: `Remitly is the better instrument when the destination is outside TapTap Send's core corridor list, or the amount is large — Remitly's $300,000 US ceiling dwarfs TapTap Send's $10,000.`,
     },
     pickB: {
       heading: "Pick TapTap Send where it serves the corridor",
@@ -953,17 +957,25 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Which is better for a large family transfer, like a wedding or tuition payment?",
-        a: "Remitly, given TapTap Send's $10,000 ceiling — Remitly's $300,000 US limit is far higher, and it adds home delivery as a payout option TapTap Send doesn't offer.",
+        a: "Remitly, given TapTap Send's $10,000 ceiling — Remitly's $300,000 US limit is far higher.",
       },
       {
         q: "Do both offer mobile money delivery?",
         a: "Yes, both support mobile money on the corridors where it's the normal way to receive funds, alongside cash pickup and bank deposit. Availability varies by specific destination country and network on both providers.",
       },
+      {
+        q: "What does a TapTap Send cash pickup recipient need to bring?",
+        a: "<a href=\"https://help.taptapsend.com/en/recipient-help/why-didnt-my-recipient-receive-a-redemption-code\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">TapTap Send says</a> the recipient needs the redemption code it sends by SMS or WhatsApp, a valid government-issued photo ID and the sender's name. If the message never arrives, the sender can open the transfer in the app's history and share the code from the delivery confirmation screen.",
+      },
+      {
+        q: "Is TapTap Send licensed to send money from the US?",
+        a: "Yes. TapTap Send Payments Co. (NMLS ID 2108069) is licensed as a money transmitter by the New York Department of Financial Services, and <a href=\"https://www.taptapsend.com/licenses\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">its licence page</a> lists each state licence with the regulator to contact. <a href=\"https://help.taptapsend.com/en/legal-and-rights/what-are-my-rights-when-sending-money-from-the-united-states\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Its help centre</a> says US senders can cancel within 30 minutes of sending, as long as the funds have not already reached the recipient's account or been picked up.",
+      },
     ],
     keyDifferences: [
       "TapTap Send's median markup in our data is {{AVG_MARKUP_PCT:taptap-send}}; Remitly charges $0-$3.99 with a median markup of {{AVG_MARKUP_PCT:remitly}}.",
       "Remitly's 100-country reach and $300,000 ceiling beat TapTap Send's narrower, diaspora-focused list and $10,000 cap.",
-      "Remitly offers home delivery, a payout method TapTap Send doesn't have; both offer cash pickup and mobile money.",
+      "Both pay out to bank accounts, mobile money and cash pickup, depending on the destination; TapTap Send's cash pickup is collected at a partner with a redemption code and photo ID.",
       "TapTap Send settles in under three minutes for 95% of transfers, matching or beating Remitly's express tier on the corridors it serves.",
     ],
   },
@@ -1179,6 +1191,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "A worked example: $1,000 to India",
       body: `On $1,000 USD→INR the gap is {{RECEIVE_DIFF:remitly:moneygram:USD:INR:1000}}, with {{CHEAPER:remitly:moneygram:USD:INR:1000}} delivering more — {{COST_PCT:remitly:USD:INR:1000}} all-in for Remitly against {{COST_PCT:moneygram:USD:INR:1000}} for MoneyGram. Both price cash pickup differently from bank deposit, so quote your actual payout method before treating either figure as final.`,
     },
+    pairNote: {
+      heading: "Collecting and cancelling: MoneyGram's counter rules and Remitly's terms",
+      body: "<p>At a MoneyGram counter the paperwork falls to the receiver. <a href=\"https://www.moneygram.com/us/en/help-center/faq/send-receive/receive-money-at-location/how-do-i-receive-money-in-person-via-cash-pickup-sent-through-moneygram\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">MoneyGram's help centre</a> says they bring the reference number from the sender's receipt or confirmation email and a valid photo ID (passport, national ID or residence permit), fill in a Receive Form if asked, and hand both to the agent. Remitly runs no counters of its own: <a href=\"https://www.remitly.com/us/en/home/agreement\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">its US agreement</a> says recipients may need to show valid identification and quote a reference number to the bank or outlet paying them, and that Remitly cancels a cash pickup nobody collects within 60 calendar days (or a different period a partner or local rule sets), refunding the amount, taxes and its service fee where it can.</p><p>Cancelling works differently too. A MoneyGram sender can cancel online, in the app or at the agent location where the money was sent, which <a href=\"https://www.moneygram.com/us/en/help-center/faq/send-receive/cancel-transaction/how-long-will-it-take-to-receive-my-refund-for-a-canceled-transfer\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">pays the refund in cash</a>, until the receiver collects it or it reaches their account. <a href=\"https://www.moneygram.com/us/en/help-center/faq/send-receive/cancel-transaction/how-do-i-cancel-a-money-transfer\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">MoneyGram says</a> a cancellation within one hour of paying earns a full refund; after that, for up to 180 days, it returns the send amount but keeps the fees. Remitly's agreement lets you try to cancel at any point before the money is picked up or deposited, and when Remitly can stop the transfer it refunds its fee along with the amount.</p><p>MoneyGram Payment Systems, Inc. (NMLS #898432) names the state regulators to contact, from Alaska to Washington, on its <a href=\"https://www.moneygram.com/us/en/help-center/legal-notice\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">legal notices page</a>. In April 2022 the New York Attorney General and the Consumer Financial Protection Bureau (CFPB) sued MoneyGram, alleging it failed to deliver funds on time or refund them promptly. After the CFPB withdrew, MoneyGram settled with New York in June 2025, agreeing to a $250,000 penalty and to transfer funds and process refunds on time, <a href=\"https://ag.ny.gov/press-release/2025/attorney-general-james-secures-250000-moneygram-violating-consumer-protection\" target=\"_blank\" rel=\"noopener noreferrer\">the Attorney General's office says</a>.</p>",
+    },
     pickA: {
       heading: "Pick Remitly for its established remittance corridors",
       body: `Remitly is the sharper instrument on the routes it actually specialises in, with express delivery in minutes and a Trustpilot rating meaningfully ahead of MoneyGram's. The constraint is its narrower, 100-country list against MoneyGram's roughly 200.`,
@@ -1210,6 +1226,14 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       {
         q: "Is MoneyGram's fee actually lower than Remitly's?",
         a: "The starting fees are similar (both from around $2-4), so the real difference tends to come from the exchange rate markup rather than the headline fee. Compare the all-in cost for your specific corridor rather than the fee alone.",
+      },
+      {
+        q: "Does the receiver's name have to match their ID exactly at MoneyGram?",
+        a: "In practice, yes. <a href=\"https://www.moneygram.com/us/en/help-center/faq/send-receive/general-questions/does-the-receivers-name-have-to-match-their-government-issued-id-exactly\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">MoneyGram says</a> many agent locations will not pay out a transfer if the name on the receiver's identification does not match exactly, so type the name as it appears on their passport or national ID, and check it with them before you send.",
+      },
+      {
+        q: "What can I do if MoneyGram never forwards the money?",
+        a: "For California senders, <a href=\"https://www.moneygram.com/us/en/help-center/legal-notice\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">MoneyGram's legal notices</a> include a right to a refund if MoneyGram Payment Systems does not forward the money, or commit an equivalent amount to your recipient, within 10 days of receiving it, unless you told it otherwise. The request has to be made in writing to its Complaints Management office in Dallas.",
       },
     ],
     keyDifferences: [
@@ -1275,6 +1299,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       heading: "A worked example: £1,000 to euros",
       body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:remitly:paypal:GBP:EUR:1000}}, with {{CHEAPER:remitly:paypal:GBP:EUR:1000}} delivering more — {{COST_PCT:remitly:GBP:EUR:1000}} all-in for Remitly against {{COST_PCT:paypal:GBP:EUR:1000}} for PayPal. PayPal's fee cap means the gap narrows on larger transfers, but its markup keeps scaling with the amount regardless.`,
     },
+    pairNote: {
+      heading: "PayPal moves money between two accounts; Remitly pays it out locally",
+      body: "<p>The two services leave your recipient in different positions. <a href=\"https://www.paypal.com/us/legalhub/paypal/useragreement-full\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">PayPal's US user agreement</a>, in its version of 14 September 2026, treats money sent to family as a “personal transaction” from one PayPal account to another. Someone without an eligible PayPal account has to open one to claim it, and if they never do, PayPal refunds you. <a href=\"https://www.remitly.com/us/en/home/agreement\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Remitly's US agreement</a> describes a chain of payout partners instead: local banks and other third-party outlets, which it calls Service Providers, make the money available to the person you are paying. In the UK, <a href=\"https://www.remitly.com/gb/en/home/agreement\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Remitly's terms</a> add that its customer portal, on the website or in the app, is a tool for sending money and not an account, so nothing can be stored there.</p><p>Who converts the currency differs as well. When a PayPal payment is funded by a debit or credit card and needs converting, the agreement says you authorise PayPal to do it in place of your card issuer, although you may have the right to have the issuer convert it instead. When you pay from your PayPal balance or from a bank account linked to it, the agreement leaves the conversion to PayPal in every case, at a rate it sets that includes a currency conversion spread it applies and keeps.</p><p>PayPal's error rights cover a defined set of payments. Its “Remittance Transfer” protections apply to a personal payment of $15 or more, sent with Send Money from a personal account and received in a PayPal account outside the US; paying a merchant does not count. You have 180 days from the date PayPal said the money would be available to report a problem. Remitly's clock runs 180 days from the day you submit the transfer, and when a transfer cannot go through because of a mistake in the details you gave, Remitly asks you to fix it and may cancel it, with a full refund, if you have not acted within 72 hours.</p><p>Where money sits matters if a company fails. PayPal says it is not a bank and does not take deposits. US dollar balances it places with its Program Banks can qualify for pass-through FDIC insurance, which covers the failure of those banks rather than of PayPal; other balances are unsecured claims against PayPal. The FCA authorises <a href=\"https://www.paypal.com/uk/legalhub/paypal/useragreement-full\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">PayPal UK Ltd</a> as an e-money institution under firm reference number 994790, and its terms say a UK PayPal account is an e-money account, not a bank account, and is outside the Financial Services Compensation Scheme. On licensing, PayPal, Inc. (<a href=\"https://www.paypal.com/us/webapps/mpp/licenses\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">NMLS ID 910457</a>) and Remitly, Inc. (<a href=\"https://www.remitly.com/us/en/home/licenses\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">NMLS No. 1028236</a>) each hold a money transmitter licence from the New York State Department of Financial Services.</p>",
+    },
     pickA: {
       heading: "Pick Remitly for essentially any deliberate remittance",
       body: `Remitly is the cheaper, more flexible instrument on the corridors we measure — cash pickup, mobile money and home delivery are options PayPal doesn't have at all, and its pricing is built specifically to compete on remittance cost rather than payments convenience.`,
@@ -1306,6 +1334,14 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       {
         q: "Why compare these two at all if the gap is this wide?",
         a: "Because PayPal is a common default for anyone who already has an account, and it's worth showing clearly how much that convenience costs against a purpose-built remittance app before assuming PayPal is a reasonable choice for sending money abroad.",
+      },
+      {
+        q: "Can I use a PayPal personal payment or Remitly to pay for goods?",
+        a: "Not under either company's consumer terms. <a href=\"https://www.paypal.com/us/legalhub/paypal/useragreement-full\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">PayPal's user agreement</a> says you must not send money as a personal transaction when you are paying for goods or services; it keeps a separate goods and services option for purchases. <a href=\"https://www.remitly.com/us/en/home/agreement\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Remitly's US agreement</a> offers its consumer service only for personal, family or household purposes, says business use breaches it, and points businesses to a separate Remitly Business Account.",
+      },
+      {
+        q: "If a PayPal or Remitly transfer is refunded, what do I get back?",
+        a: "If your recipient declines a PayPal personal payment, <a href=\"https://www.paypal.com/us/legalhub/paypal/useragreement-full\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">PayPal says</a> the money, including any fees you were charged, goes back to the card, PayPal Credit or balance you paid with; money paid from a bank account that cannot be returned there lands in your PayPal balance. <a href=\"https://www.remitly.com/us/en/home/agreement\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Remitly credits refunds</a> to the payment method you used, in US dollars only, and does not adjust them for exchange-rate moves since you sent.",
       },
     ],
     keyDifferences: [
@@ -1461,11 +1497,15 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "revolut-vs-hsbc": {
-    theDecision: `Revolut is a digital-first account with a 0% weekday markup; HSBC is a full-service bank that converts every transfer at the HSBC Exchange Rate, which includes a currency conversion charge, and charges £5 for most international payments to other banks unless you're a Premier customer. On a weekday, within Revolut's free allowance, it's hard for a standard-tier HSBC transfer to compete. An HSBC Premier customer, or an HSBC-to-HSBC transfer, avoids the fee but not the margin in the rate.`,
+    theDecision: `Revolut is an app-based account that converts at its own rate and, on a weekday within the plan's monthly allowance, adds no exchange fee; HSBC is a full-service bank that converts every transfer at the HSBC Exchange Rate, which includes a currency conversion charge, and charges £5 for most international payments to other banks unless you're a Premier customer. On a weekday, within Revolut's free allowance, it's hard for a standard-tier HSBC transfer to compete. An HSBC Premier customer, or an HSBC-to-HSBC transfer, avoids the fee but not the margin in the rate.`,
     measuredRecord: `Revolut led on {{LED:revolut}} of the corridors we price against {{LED:hsbc}} for HSBC. HSBC's average shortfall when it isn't cheapest is {{SHORTFALL:hsbc}}, against {{SHORTFALL:revolut}} for Revolut — a gap measured on standard-tier HSBC pricing.`,
     workedExample: {
       heading: "A worked example: £1,000 to euros",
       body: `On £1,000 GBP→EUR the gap is {{RECEIVE_DIFF:revolut:hsbc:GBP:EUR:1000}}, with {{CHEAPER:revolut:hsbc:GBP:EUR:1000}} delivering more — {{COST_PCT:revolut:GBP:EUR:1000}} all-in for Revolut against {{COST_PCT:hsbc:GBP:EUR:1000}} for HSBC. This reflects Revolut's weekday rate and HSBC's standard tier; a weekend transfer moves Revolut's side, and an HSBC Premier account removes HSBC's fee but not the conversion charge in its rate.`,
+    },
+    pairNote: {
+      heading: "HSBC UK's shared banking licence and Revolut's separate bank",
+      body: "<p>Both now appear on the <a href=\"https://www.bankofengland.co.uk/prudential-regulation/authorisations/which-firms-does-the-pra-regulate\" target=\"_blank\" rel=\"noopener noreferrer\">Bank of England's October 2026 list</a> of UK-incorporated banks authorised to accept deposits: HSBC UK Bank plc (firm reference 765112) and Revolut Bank UK Ltd (981170). They are built differently. HSBC UK is one of the ring-fenced bodies the Bank of England names for the HSBC group, and the <a href=\"https://www.fscs.org.uk/making-a-claim/customer-info/banking-licences/\" target=\"_blank\" rel=\"noopener noreferrer\">FSCS</a> uses HSBC as its example of brands sharing a licence: fd, first direct, first direct bank and fd bank all sit under the same one. FSCS cover runs up to £120,000 per person per banking licence, so money at HSBC and at first direct counts toward a single limit. Revolut Bank UK has a licence of its own, so eligible deposits there are counted apart from anything held with HSBC.</p>",
     },
     pickA: {
       heading: "Pick HSBC if you're a Premier customer or sending HSBC-to-HSBC",
@@ -1473,7 +1513,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickB: {
       heading: "Pick Revolut for weekday transfers and app-based convenience",
-      body: `Revolut is the better instrument for most standard-tier senders: free up to £1,000 a month at the interbank rate on weekdays, then 0.5%. Revolut-to-Revolut transfers are instant and free. The constraint is the weekend markup and the requirement that the recipient hold a Revolut account for the fastest route.`,
+      body: `Revolut is the better instrument for most standard-tier senders: on the Standard plan it adds no exchange fee on weekdays for the first £1,000 converted each month, and a 1% fair usage fee above that. Revolut-to-Revolut transfers are instant and free. The constraint is the weekend markup and the requirement that the recipient hold a Revolut account for the fastest route.`,
     },
     limits: `HSBC's fee depends on account tier and the recipient's bank in a way our quotes cannot fully capture, and Revolut's free allowance and weekend markup depend on plan tier. Confirm your own account terms before relying on either figure.`,
     verdict: {
@@ -1489,7 +1529,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Why does the day of the week matter for Revolut but not HSBC?",
-        a: "Revolut's markup is 0% on weekdays and 0.5-1% on weekends, because the underlying interbank FX market is closed then. HSBC publishes no weekend surcharge — its fee depends on account tier and the recipient's bank, not the day you send.",
+        a: "Revolut's fee pages add 1% to a weekend conversion on Standard and 0.5% on Plus; Premium, Metal and Ultra pay no weekend fee. HSBC publishes no weekend surcharge — its fee depends on account tier and the recipient's bank, not the day you send.",
       },
       {
         q: "Is HSBC-to-HSBC really free?",
@@ -1497,12 +1537,20 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "What happens after Revolut's free monthly allowance?",
-        a: "Transfers above £1,000 a month are charged at 0.5%, still competitive against standard-tier HSBC pricing. Compare both for your specific amount rather than assuming the free-allowance figure applies indefinitely.",
+        a: "On Standard, conversions above £1,000 in a month carry a 1% fair usage fee; Plus raises the allowance to £3,000 with a 0.5% fee above it, and Premium, Metal and Ultra have no allowance cap. Compare both for your specific amount rather than assuming the free-allowance figure applies indefinitely.",
+      },
+      {
+        q: "Can I cancel an HSBC international payment after sending it?",
+        a: "Usually not once it has gone. <a href=\"https://www.hsbc.co.uk/international/money-transfer/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">HSBC says</a> it can't cancel a payment you asked it to make immediately, while a future-dated or recurring payment can be cancelled up to 23:59 UK time on the day before it is due. Global Money only makes immediate payments, so there is no scheduled payment to cancel.",
+      },
+      {
+        q: "What happens if an HSBC international payment is rejected?",
+        a: "HSBC lists an invalid account number, a closed receiving account and a failed check at the receiving bank among the reasons a payment comes back. <a href=\"https://www.hsbc.co.uk/international/money-transfer/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">When it does</a>, HSBC returns the money to your account converted at the HSBC exchange rate at that time, so the amount can be more or less than you sent.",
       },
     ],
     keyDifferences: [
-      "Revolut's markup is 0% on weekdays, 0.5-1% on weekends; HSBC converts at its own rate, which includes a currency conversion charge on every tier, with no published weekend surcharge.",
-      "Revolut gives a free £1,000 monthly allowance, then 0.5%; HSBC UK charges £5 for most international payments at standard tier, and nothing between two HSBC accounts or for Premier customers.",
+      "Revolut converts at its own rate and adds a weekend fee on Standard and Plus; HSBC converts at its own rate, which includes a currency conversion charge on every tier, with no published weekend surcharge.",
+      "Revolut's Standard plan converts £1,000 a month before a 1% fair usage fee; HSBC UK charges £5 for most international payments at standard tier, and nothing between two HSBC accounts or for Premier customers.",
       "Revolut-to-Revolut transfers are instant; HSBC settles same-day to three business days.",
       "HSBC's 200-country branch network exceeds Revolut's 150-country app-based reach.",
     ],

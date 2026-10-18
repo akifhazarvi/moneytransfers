@@ -54,6 +54,21 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/banks/barclays": "2026-10-18",          // Barclays' published charges, four FAQs
   "/banks/lloyds": "2026-10-18",            // Lloyds' published charges, four FAQs
   "/compare/wise-vs-revolut": "2026-10-18", // rewritten from each company's own pages
+  "/compare/remitly-vs-paypal": "2026-10-18",     // pair note: where the money goes, refunds, licences
+  "/compare/remitly-vs-moneygram": "2026-10-18",  // pair note: collecting and cancelling
+  "/compare/remitly-vs-taptap-send": "2026-10-18", // pair note: UK safeguarding; TapTap cash pickup corrected
+  "/compare/revolut-vs-hsbc": "2026-10-18",       // pair note: banking licences; Revolut's plan fees corrected
+  "/compare/paypal-vs-revolut": "2026-10-18",     // Revolut's plan fees corrected
+  "/swift-codes/netherlands": "2026-10-18",       // name check, DNB register, instant payments
+  "/iban/costa-rica": "2026-10-18",               // SINPE, Pagos al Exterior, SINPE Móvil
+  "/iban/lithuania": "2026-10-18",                // CENTROlink, Verification of Payee, litas
+  "/iban/slovakia": "2026-10-18",                 // payment symbols, SIPS and TIPS
+  "/iban/serbia": "2026-10-18",                   // in SEPA since May 2026; NBS IPS; dinar accounts
+  "/iban/andorra": "2026-10-18",                  // in SEPA (EPC list), was shown as not
+  "/iban/albania": "2026-10-18",
+  "/iban/montenegro": "2026-10-18",
+  "/iban/north-macedonia": "2026-10-18",
+  "/iban/moldova": "2026-10-18",
 };
 
 /** A family page's date: its own when it changed after the family's. */
