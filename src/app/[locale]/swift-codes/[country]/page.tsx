@@ -23,7 +23,7 @@ import type { Metadata } from "next";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import { PageByline } from "@/components/PageByline";
-import { EDITORIAL_AUTHOR_SLUG, SWIFT_CONTENT_DATE } from "@/lib/content-dates";
+import { EDITORIAL_AUTHOR_SLUG, SWIFT_CONTENT_DATE, familyPageDate } from "@/lib/content-dates";
 
 // Someone looking up a SWIFT/BIC code is mid-transfer. If the destination is
 // itself a USD country the USD→USD corridor is meaningless, so send from GBP —
@@ -485,7 +485,7 @@ export default async function SwiftCountryPage({ params }: Props) {
             <div className="mb-4">
               <PageByline
                 authorSlug={EDITORIAL_AUTHOR_SLUG}
-                updated={SWIFT_CONTENT_DATE}
+                updated={familyPageDate(`/swift-codes/${slug}`, SWIFT_CONTENT_DATE)}
                 cadence={`${country.name} codes from the SWIFT registry`}
               />
             </div>

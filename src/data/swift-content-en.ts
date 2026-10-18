@@ -134,7 +134,7 @@ export const swiftContentEn: SwiftContent = {
     bullets: [
       "For EUR transfers from within the SEPA zone, the recipient's Irish IBAN (starting with IE) is sufficient. SEPA transfers are typically free or very low cost and settle within one business day. There is no need to provide a SWIFT/BIC code for these payments.",
       "If you are sending from outside SEPA (such as the US, Canada, or Australia) or sending in a non-EUR currency, you will need the recipient bank's SWIFT code. AIB, Bank of Ireland, and PTSB each have their own BIC codes, and using the wrong one will cause delays or failed payments.",
-      "Ireland's banking landscape has consolidated in recent years, with Ulster Bank and KBC exiting the market. Recipients who previously held accounts at these banks have migrated to AIB, Bank of Ireland, or PTSB. Ensure the recipient provides their current bank details, as old SWIFT codes for closed banks will no longer work.",
+      "Ireland's banking landscape has consolidated in recent years, with Ulster Bank and KBC exiting the market. Their current accounts were closed, so a recipient who banked with either now has an IBAN and SWIFT code at whichever bank they moved to. Ask for their current details: codes for the closed banks no longer work.",
     ],
   },
   "new-zealand": {
@@ -773,11 +773,23 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "Have Ulster Bank and KBC SWIFT codes stopped working in Ireland?",
-      a: "Yes. Ulster Bank and KBC Bank Ireland have exited the Irish market, and their SWIFT codes no longer process payments. Customers who held accounts at these banks have migrated to AIB, Bank of Ireland, or Permanent TSB. If you previously received international transfers at Ulster Bank or KBC, you must provide the sender with your new bank's SWIFT code and IBAN.",
+      a: "Yes. Ulster Bank and KBC Bank Ireland have exited the Irish market, and their SWIFT codes no longer process payments. Their current accounts were closed, and customers moved to banks of their own choosing (KBC sent residual current-account balances to Bank of Ireland). If you previously received international transfers at Ulster Bank or KBC, you must provide the sender with your new bank's SWIFT code and IBAN.",
     },
     {
       q: "Can I receive non-EUR currencies directly in my Irish bank account?",
       a: "Most standard Irish bank accounts are EUR-denominated. Some banks (particularly AIB and Bank of Ireland for business accounts) offer multi-currency capabilities. If you hold a standard EUR account, incoming non-EUR transfers will be converted at the bank's exchange rate. For regular foreign currency receipts, ask your bank about multi-currency account options.",
+    },
+    {
+      q: "Is money sent to Ireland from family abroad taxed as a gift?",
+      a: "It can fall under Capital Acquisitions Tax (CAT), which <a href=\"https://revenue.ie/en/gains-gifts-and-inheritance/completing-gift-or-inheritance-tax-return-it38/index.aspx\" target=\"_blank\" rel=\"noopener noreferrer\">Revenue</a> applies when the giver or the receiver is resident or ordinarily resident in Ireland, so a gift from abroad to an Irish resident is in scope (an exception can apply to someone foreign domiciled). The first <a href=\"https://revenue.ie/en/gains-gifts-and-inheritance/cat-exemptions/small-gift-exemption/index.aspx\" target=\"_blank\" rel=\"noopener noreferrer\">€3,000 from each giver</a> in a calendar year is exempt, as is <a href=\"https://www.revenue.ie/en/gains-gifts-and-inheritance/cat-exemptions/support-maintenance-education-payments/index.aspx\" target=\"_blank\" rel=\"noopener noreferrer\">support or education money</a> for the giver's child under 18, or 18 to 25 in full-time education, if normal and reasonable for the giver. Other gifts since 5 December 1991 add up against a threshold that from 7 October 2026 is <a href=\"https://www.revenue.ie/en/gains-gifts-and-inheritance/cat-thresholds-rates-and-aggregation-rules/cat-thresholds.aspx\" target=\"_blank\" rel=\"noopener noreferrer\">€420,000 from a parent, €44,000 from a sibling, grandparent, aunt or uncle, and €22,000 from most others</a>. A return is due past 80% of the threshold; tax above it is <a href=\"https://www.revenue.ie/en/gains-gifts-and-inheritance/cat-thresholds-rates-and-aggregation-rules/cat-rates.aspx\" target=\"_blank\" rel=\"noopener noreferrer\">33%</a>.",
+    },
+    {
+      q: "Why might someone paying my Irish IBAN see a \"name does not match\" warning?",
+      a: "Since 9 October 2025, Verification of Payee, brought in by the EU Instant Payments Regulation, compares the name and IBAN a payer enters with the details on your account, the <a href=\"https://www.centralbank.ie/InstantPayments\" target=\"_blank\" rel=\"noopener noreferrer\">Central Bank of Ireland</a> explains. The payer sees a match, a close or partial match, no match, or \"service unavailable\", which can mean the IBAN is not in scope. They can still go ahead, but the Central Bank warns that doing so could mean paying someone they did not intend to pay. Give senders the account name exactly as your bank holds it. The check applies to SEPA credit transfers, instant and standard; a SWIFT wire from the US, Canada or Australia is not a SEPA payment, so it is not checked this way.",
+    },
+    {
+      q: "I had an Ulster Bank or KBC account in Ireland. Where did the money left in it go?",
+      a: "Ulster Bank Ireland DAC returned its banking licence to the Central Bank of Ireland on 27 June 2025 and now operates as <a href=\"https://www.ulydien.ie/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Ulydien DAC</a>. Unclaimed balances from its closed accounts and uncashed drafts, including foreign currency drafts, were moved to <a href=\"https://www.ulydien.ie/trust.html\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Ulydien Trust Company Limited</a>; residents of Ireland, the UK, Europe, the US, Canada or Australia can reclaim online with proof of identity and address, a PPSN and the bank account the money should go to. KBC Bank Ireland, renamed Exicon DAC, returned its licence on 30 April 2024. Its current accounts were closed, and <a href=\"https://www.kbc.com/en/kbc-ireland/welcome/information-on-accounts-that-have-closed-or-transferred/general-info.html\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">any residual balance went to Bank of Ireland</a> on 3 November 2023. If someone sent money to one of these old IBANs, the sender's bank or provider is the one to trace it.",
     },
   ],
 

@@ -17,14 +17,26 @@ export const ibanContentEn: IbanContent = {
       "When users struggle to find the correct receiving details, the fastest fix is usually to ask the beneficiary bank for its exact international payment instructions rather than relying on domestic payment details shown in the banking app.",
     ],
   },
-  "united-kingdom": {
+  // Keyed "uk", the slug the page renders (wise-iban-data maps GB to "uk").
+  // Keyed "united-kingdom" until 2026-10-18, so none of this ever showed.
+  uk: {
     title: "How IBAN works in the United Kingdom",
     intro:
-      "The UK adopted the IBAN format relatively late compared to most of Europe, and many British account holders are still more familiar with their six-digit sort code and eight-digit account number. Since the UK left the EU and SEPA, IBANs remain valid for receiving international wires, but domestic payments run through BACS, Faster Payments, and CHAPS rather than the SEPA network.",
+      "Many British account holders know their six-digit sort code and eight-digit account number better than their IBAN. The IBAN wraps both for payments from abroad, while domestic payments still run on Bacs, Faster Payments and CHAPS, which use the sort code and account number.",
     bullets: [
       "A UK IBAN is 22 characters long and embeds both the sort code and account number after the GB country code and two check digits. If someone abroad asks for your IBAN, you can derive it from your sort code and account number or find it in your online banking portal.",
       "The UK stayed inside SEPA after Brexit, but as a country outside the EEA: a euro payment from an EU bank to a GB IBAN has to carry the receiving bank's BIC and the payer's full address, and some banks still send it over SWIFT instead. If the sender's fees matter, ask their bank which route it will use.",
-      "For inbound GBP transfers, make sure the sender has both your IBAN and your bank's SWIFT/BIC code. Some non-UK banks will reject the payment if only the IBAN is provided, particularly for high-value CHAPS-eligible transfers.",
+      "For a payment from outside SEPA, the sender needs your bank's SWIFT/BIC as well as the IBAN.",
+    ],
+    sources: [
+      { label: "Pay.UK: sort code information", url: "https://www.wearepay.uk/what-we-do/payment-systems/access-to-payment-systems/getting-started/sort-code-information/" },
+      { label: "Pay.UK: Extended Industry Sort Code Directory", url: "https://www.wearepay.uk/what-we-do/industry-services/extended-industry-sort-code-directory/" },
+      { label: "Pay.UK: Confirmation of Payee", url: "https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/" },
+      { label: "PSR: Confirmation of Payee requirements (Specific Direction 17)", url: "https://www.psr.org.uk/our-work/app-scams/confirmation-of-payee/confirmation-of-payee-requirements-under-specific-direction-17/" },
+      { label: "EPC: countries in the SEPA schemes (v8.0, Dec 2025)", url: "https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2025-12/EPC409-09%20EPC%20List%20of%20SEPA%20Scheme%20Countries%20v8.0.pdf" },
+      { label: "EPC: SEPA Direct Debit Core Rulebook 2025", url: "https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2024-11/EPC016-06%202025%20SDD%20Core%20Rulebook%20version%201.0.pdf" },
+      { label: "EPC Board decision on Brexit, 7 March 2019", url: "https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2019-03/EPC065-19%20EPC%20Board%20Decision%20Paper%20on%20Brexit%20v1.0%20-%207%20March.pdf" },
+      { label: "EUR-Lex: Regulation (EU) No 260/2012", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012R0260" },
     ],
   },
   germany: {
@@ -460,7 +472,7 @@ export const ibanContentEn: IbanContent = {
       a: "Denmark uses the Danish krone (DKK), which is pegged to the euro within a narrow band. If you receive a EUR SEPA transfer, your Danish bank will convert it to DKK at their exchange rate. Compare the rate your bank offers with the mid-market rate to understand the conversion cost. If you regularly receive EUR, ask your bank about opening a dedicated EUR account.",
     },
   ],
-  "united-kingdom": [
+  uk: [
     {
       q: "What is the IBAN format for the United Kingdom?",
       a: "A UK IBAN is exactly 22 characters long. It starts with GB, 2 check digits, a 4-character bank code, a 6-digit sort code, and an 8-digit account number. Example: GB29 NWBK 6016 1331 9268 19.",
@@ -471,7 +483,7 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Is the UK part of SEPA?",
-      a: "Yes. The European Payments Council kept the UK in SEPA's geographical scope after Brexit (Board decision of 7 March 2019), so UK banks can send and receive SEPA Credit Transfers in euro. Because the UK is outside the EEA, those payments must include the BIC and the payer's address, and not every UK bank offers them: some route euro payments over SWIFT, where fees are usually higher.",
+      a: "Yes. After Brexit the UK stayed inside SEPA's geographical scope by decision of the European Payments Council's Board on 7 March 2019, so UK banks can send and receive SEPA Credit Transfers in euro. Because the UK is outside the EEA, those payments must include the BIC and the payer's address, and not every UK bank offers them: some route euro payments over SWIFT, where fees are usually higher.",
     },
     {
       q: "What is the difference between sort code/account number and IBAN in the UK?",
@@ -479,15 +491,31 @@ export const ibanContentEn: IbanContent = {
     },
     {
       q: "Do I need a SWIFT code as well as my IBAN to receive international transfers in the UK?",
-      a: "Yes. A sender outside SEPA needs both, and so does a euro sender inside it, because the UK takes part in SEPA from outside the EEA — give both your 22-character GB IBAN and your bank's SWIFT/BIC code. For example, Barclays' SWIFT code is BARCGB22; HSBC's is MIDLGB22; Lloyds' is LOYDGB21; NatWest's is NWBKGB2L.",
+      a: "Yes. A sender outside SEPA needs both, and so does a euro sender inside it, because the UK takes part in SEPA from outside the EEA — pair your 22-character GB IBAN with your bank's SWIFT/BIC: Barclays uses BARCGB22, HSBC MIDLGB22, Lloyds LOYDGB21 and NatWest NWBKGB2L.",
     },
     {
       q: "What are common mistakes when using a UK IBAN?",
-      a: "Common mistakes include: providing only the sort code and account number without the GB prefix and check digits, confusing the 4-letter bank code with the SWIFT code, and entering incorrect digits from the sort code. Some EU senders may also mistakenly try to send via SEPA to a UK IBAN, which may be rejected post-Brexit — they should use SWIFT instead.",
+      a: "Common mistakes include: providing only the sort code and account number without the GB prefix and check digits, confusing the 4-letter bank code with the SWIFT code, and entering incorrect digits from the sort code. EU senders also leave out the BIC or the payer's address, which a SEPA payment to the UK must carry because the UK takes part in SEPA from outside the EEA.",
     },
     {
       q: "Can I receive EUR in a UK bank account?",
-      a: "Most standard UK accounts are denominated in GBP, so incoming EUR transfers will be converted to GBP by your bank at their exchange rate. Some UK banks (particularly HSBC, Barclays, and digital banks like Wise and Revolut) offer multi-currency or EUR-denominated accounts. If you regularly receive EUR, opening a dedicated EUR account can avoid conversion fees.",
+      a: "Most standard UK accounts are denominated in GBP, so incoming EUR transfers will be converted to GBP by your bank at their exchange rate. Some UK banks (particularly HSBC and Barclays) and app-based providers such as Wise and Revolut offer multi-currency or EUR-denominated accounts. If you regularly receive EUR, opening a dedicated EUR account can avoid conversion fees.",
+    },
+    {
+      q: "Does every GB IBAN belong to a bank on the UK's payment systems?",
+      a: "No. Pay.UK, which manages the UK's sort code rules, says sort codes may also be assigned to firms that need them only to issue GB IBANs for international payments, and that the sort code inside an IBAN does not necessarily belong to a firm taking part in UK payment systems. A firm without direct access can instead be given a sort code by a direct participant acting as its sponsor. In a GB IBAN, the six digits after the four letters are that sort code. Pay.UK's sort code directory, the EISCD, records which clearings each sort code takes part in: Bacs, Faster Payments, CHAPS or cheques. If a UK payer cannot pay those digits by Faster Payments, ask the recipient which payment types the account accepts.",
+    },
+    {
+      q: "Why do Jersey, Guernsey and Isle of Man bank accounts have GB IBANs?",
+      a: "Because the European Payments Council's list of SEPA countries gives Jersey, Guernsey and the Isle of Man their own country codes in BICs (JE, GG and IM) but GB in IBANs, with the pound as their currency. They are separate SEPA territories, inside SEPA's scope since 1 May 2016, and the EPC names their own regulators, the Jersey and Guernsey Financial Services Commissions and the Isle of Man Financial Services Authority, as the bodies whose licensed deposit-takers are eligible for its schemes. A GB IBAN therefore does not show that an account is held in the UK itself. If it matters which jurisdiction holds the account, look at the country code in the bank's BIC and at the bank address in the payment details.",
+    },
+    {
+      q: "Does Confirmation of Payee check a payment sent to my GB IBAN from abroad?",
+      a: "No. Confirmation of Payee is the UK's account-name check, launched in 2020, and Pay.UK describes it as a service for UK domestic payments. The Payment Systems Regulator's Specific Direction 17, which extended it to more firms, covers payments sent over CHAPS and Faster Payments and exempts any payment where the payer's or the payee's account is outside the UK. A bank abroad paying your GB IBAN therefore gets no Confirmation of Payee result from your UK bank; any name check is set by the sender's own bank and country. UK payers who use your sort code and account number do get the check, which also says whether the account is personal or business, so give your account name exactly as your bank holds it.",
+    },
+    {
+      q: "Can an EU company refuse my GB IBAN for a direct debit?",
+      a: "It can. The EU rule against IBAN discrimination, Article 9 of the SEPA Regulation (260/2012), protects payment accounts located within the Union, and the European Payments Council assumes that EEA legislation, including that regulation, only fully applies between institutions in the EU and EEA. The UK is a non-EEA SEPA country, so the rule does not oblige a company to accept a GB IBAN. For a UK account, the EPC's SEPA Direct Debit rulebook makes your postal address mandatory on the mandate, and the company may ask for your bank's BIC; from 22 November 2026 the address must be structured or hybrid. Your bank must also be in the scheme: in March 2019 the EPC counted 84 UK firms in SEPA Credit Transfer, 40 in SEPA Direct Debit Core.",
     },
   ],
   germany: [
