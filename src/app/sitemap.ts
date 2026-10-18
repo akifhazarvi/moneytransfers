@@ -237,7 +237,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // pages carry the E-E-A-T signal Google looks for on YMYL finance content,
     // so they belong in the submitted set rather than being noindexed.
     ...authors.map((a) => entry(`about/${a.slug}`, STATIC_CONTENT_DATE)),
-    entry("corrections", STATIC_CONTENT_DATE),
+    entry("corrections", pageUpdated("/corrections")),
     entry("cookies", pageUpdated("/cookies")),
     entry("disclaimer", STATIC_CONTENT_DATE),
     entry("news", pageUpdated("/news")),

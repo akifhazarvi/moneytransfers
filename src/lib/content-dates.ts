@@ -73,6 +73,7 @@ const PAGE_UPDATED = {
   "/editorial-policy": "2026-10-15",         // editor byline and WebPage JSON-LD
   "/privacy-policy": "2026-10-18",            // Microsoft Clarity and the IP-country default disclosed
   "/terms": "2026-09-20",
+  "/corrections": "2026-10-18",              // log brought up to date: September–October corrections
   "/disclaimer": "2026-10-17",               // what we are and are not; regulator check; data caveats as prose
   "/cookies": "2026-10-18",                  // consent banner scope stated; "cannot be disabled" dropped
   "/guides/best-apps-to-send-money-from-us-2026": "2026-09-29",
