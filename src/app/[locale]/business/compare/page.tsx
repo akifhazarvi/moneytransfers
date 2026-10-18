@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     `Business Payment Feature Matrix & Cost Benchmark (${asOfLong})`,
     "Business Payment Feature Matrix & Cost Benchmark",
   ]);
-  const description = `Feature matrix and cost benchmark for ${PROVIDER_COUNT} business payment providers — Wise Business, OFX, Airwallex, Mercury, XE, Currencies Direct — on bulk payments, approval workflows, multi-currency accounts, API, KYC, limits and live FX cost. Banks cost ${idx.bankVsSpecialistMultiple}× more than specialists.`;
+  const description = `Find the best business payment provider for your company. Feature matrix and live FX cost benchmark for ${PROVIDER_COUNT} providers — Wise Business, OFX, Airwallex, Mercury, XE, Currencies Direct — bulk payments, approvals, multi-currency accounts, API.`;
   return {
     title: { absolute: title },
     description: seoDescription(description),
@@ -153,7 +153,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
 
       <section className="business-hero business-compare-hero"><Container>
         <p className="business-eyebrow">Business provider comparison</p>
-        <h1>Compare business payment <br />providers, feature by feature.</h1>
+        <h1>Best Business Payment Providers, Compared Feature by Feature</h1>
         <p className="business-deck">Choose your payment needs. Compare {PROVIDER_COUNT} providers by feature match and measured cost.</p>
         <p className="business-small">By {author?.name ?? "Ahsan Mukhtar"} · cost data {asOfLong} · original feature inventory reviewed June 2026 · Regency FX checked 30 September 2026</p>
       </Container></section>
