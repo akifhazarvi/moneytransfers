@@ -19721,5 +19721,118 @@
         "receiveAmount": 1968.8
       }
     }
+  },
+  {
+    "date": "2026-10-18",
+    "providers": {
+      "moneygram": {
+        "rate": 20.2618,
+        "fee": 1.99,
+        "markup": 2.51,
+        "receiveAmount": 1985.86
+      },
+      "skrill": {
+        "rate": 19.7912,
+        "fee": 0,
+        "markup": 4.78,
+        "receiveAmount": 1979.12
+      },
+      "taptap-send": {
+        "rate": 20.59,
+        "fee": 0,
+        "markup": 0.93,
+        "receiveAmount": 2059
+      },
+      "deutsche-bank": {
+        "rate": 20.4782,
+        "fee": 36.55,
+        "markup": 1.47,
+        "receiveAmount": 1299.34
+      },
+      "xe": {
+        "rate": 20.2738,
+        "fee": 4,
+        "markup": 2.45,
+        "receiveAmount": 1946.28
+      },
+      "western-union": {
+        "rate": 20.3922,
+        "fee": 0.99,
+        "markup": 1.88,
+        "receiveAmount": 2019.03
+      },
+      "currencyfair": {
+        "rate": 20.4549,
+        "fee": 3,
+        "markup": 1.58,
+        "receiveAmount": 1984.13
+      },
+      "worldremit": {
+        "rate": 20.5382,
+        "fee": 0.99,
+        "markup": 1.18,
+        "receiveAmount": 2033.49
+      },
+      "paysend": {
+        "rate": 20.6851,
+        "fee": 0,
+        "markup": 0.47,
+        "receiveAmount": 2068.51
+      },
+      "sendwave": {
+        "rate": 20.6734,
+        "fee": 1.99,
+        "markup": 0.53,
+        "receiveAmount": 2026.2
+      },
+      "remitly": {
+        "rate": 20.66,
+        "fee": 1.99,
+        "markup": 0.6,
+        "receiveAmount": 2024.89
+      },
+      "revolut": {
+        "rate": 20.6311,
+        "fee": 1.5,
+        "markup": 0.73,
+        "receiveAmount": 2032.16
+      },
+      "wise": {
+        "rate": 20.7901,
+        "fee": 1.71,
+        "markup": -0.03,
+        "receiveAmount": 2043.46
+      },
+      "ria": {
+        "rate": 20.02,
+        "fee": 0.9,
+        "markup": 3.68,
+        "receiveAmount": 1983.98
+      },
+      "monese": {
+        "rate": 20.7538,
+        "fee": 4,
+        "markup": 0.15,
+        "receiveAmount": 1992.36
+      },
+      "xoom": {
+        "rate": 20.2948,
+        "fee": 2.99,
+        "markup": 2.35,
+        "receiveAmount": 1968.8
+      },
+      "commerzbank": {
+        "rate": 20.1592,
+        "fee": 12.5,
+        "markup": 3.01,
+        "receiveAmount": 1763.93
+      },
+      "paypal": {
+        "rate": 19.7271,
+        "fee": 3.99,
+        "markup": 5.09,
+        "receiveAmount": 1893.99
+      }
+    }
   }
 ]

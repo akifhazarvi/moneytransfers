@@ -1,29 +1,29 @@
 {
-  "dataAsOf": "2026-10-17",
-  "corridorsScored": 202,
+  "dataAsOf": "2026-10-18",
+  "corridorsScored": 203,
   "corridorsWithAnyScore": 1034,
-  "singleProviderReadings": 832,
+  "singleProviderReadings": 831,
   "bands": {
     "exceptional": 14,
     "great": 51,
-    "good": 53,
-    "typical": 45,
-    "poor": 39
+    "good": 56,
+    "typical": 41,
+    "poor": 41
   },
-  "goodOrBetterPct": 58,
+  "goodOrBetterPct": 60,
   "confidence": {
-    "high": 202,
+    "high": 203,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 204,
+  "medianDaysObserved": 205,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 40,
-      "band": "typical",
-      "headline": "Typical time to send",
-      "explanation": "Best rate -1.06% vs the 30-day average, 21% up the 90-day range. Rates are falling — -0.96% week on week. Today's best beats the median provider by +2.22%.",
+      "score": 39,
+      "band": "poor",
+      "headline": "Poor time to send",
+      "explanation": "Best rate -1.03% vs the 30-day average, 21% up the 90-day range. Rates are falling — -1.26% week on week. Today's best beats the median provider by +2.22%.",
       "components": [
         {
           "key": "range",
@@ -36,8 +36,8 @@
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 32.32865225197975,
-          "detail": "-1.06% vs the 30-day average"
+          "score": 32.86640256588896,
+          "detail": "-1.03% vs the 30-day average"
         },
         {
           "key": "competitiveness",
@@ -50,11 +50,11 @@
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 25.931955364304184,
-          "detail": "falling — -0.96% week on week"
+          "score": 18.459488466384038,
+          "detail": "falling — -1.26% week on week"
         }
       ],
-      "daysObserved": 210,
+      "daysObserved": 211,
       "rangeWindowDays": 90,
       "confidence": "high"
     }
