@@ -32,3 +32,13 @@ export function collapsedProviders(slugsInOrder: readonly string[], cap = COMPAR
   });
   return hidden;
 }
+
+/**
+ * The rows a short comparison shows (the inline "top 5" tables on guides,
+ * tools, IBAN/SWIFT pages): the first `cap`, plus TapTap at its real rank
+ * when it ranks below them. Same rule as collapsedProviders(), for lists that
+ * cut rather than collapse. Order is unchanged — the partner is never moved up.
+ */
+export function shortListRows<T extends { providerSlug: string }>(rowsInOrder: readonly T[], cap: number): T[] {
+  return rowsInOrder.filter((row, i) => i < cap || ALWAYS_VISIBLE.has(row.providerSlug));
+}

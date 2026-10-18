@@ -14712,8 +14712,8 @@ const rawBlogPosts: BlogPost[] = [
 </tbody></table></div>
 <p><strong>Practical tip:</strong> If you're traveling and need to convert €500 EUR → USD:</p>
 <ul>
-<li><strong>Tuesday:</strong> You get ~$590 (interbank rate)</li>
-<li><strong>Saturday:</strong> You get ~$584 (1% markup = $6 lost)</li>
+<li><strong>Tuesday:</strong> You get ~{{MID_RECEIVE:EUR:USD:500}} (interbank rate)</li>
+<li><strong>Saturday:</strong> You get ~{{MID_RECEIVE:EUR:USD:495}} (1% markup = {{MID_RECEIVE:EUR:USD:5}} lost)</li>
 </ul>
 <p>Always convert on Monday-Friday. If you know you'll spend abroad on the weekend, top up your foreign currency balance during the week.</p>`,
       },

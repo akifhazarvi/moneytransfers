@@ -27,6 +27,7 @@ import { setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+import { shortListRows } from "@/lib/comparison-cap";
 import InlineQuotesImpression from "@/components/InlineQuotesImpression";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
@@ -222,7 +223,7 @@ export default async function BlogPostPage({ params }: Props) {
       ? all.filter((q) => (BUSINESS_FX_SLUGS as readonly string[]).includes(q.providerSlug))
       : all;
   })();
-  const inlineQuoteProviderCount = Math.min(inlineQuoteScoped.length, 5);
+  const inlineQuoteProviderCount = shortListRows(inlineQuoteScoped, 5).length;
   /**
    * The partner's own live quote for whatever corridor this guide's widget
    * sells, so the spotlight at the end of the article can show a real rate and

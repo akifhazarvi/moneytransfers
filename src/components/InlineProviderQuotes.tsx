@@ -14,6 +14,7 @@ import { getCorridorSlug } from "@/data/corridors";
 import { corridorPageRenders } from "@/lib/route-map";
 import { quoteFreshness } from "@/lib/quote-freshness";
 import { unrankedLabel } from "@/lib/unranked-quotes";
+import { shortListRows } from "@/lib/comparison-cap";
 
 interface Props {
   from?: string;
@@ -62,8 +63,10 @@ export default function InlineProviderQuotes({
 }: Props) {
   const all = generateQuotes(amount, from, to);
   const scoped = only ? all.filter((q) => only.includes(q.providerSlug)) : all;
-  const quotes: TransferQuote[] = scoped.slice(0, limit);
+  // Top `limit`, plus TapTap (partner) at its real rank when it ranks lower.
+  const quotes: TransferQuote[] = shortListRows(scoped, limit);
   if (quotes.length === 0) return null;
+  const rankedCount = scoped.filter((q) => !q.isIndicative).length;
 
   const sendSymbol = symbolFor(from);
   const recvSymbol = symbolFor(to);
@@ -103,8 +106,12 @@ export default function InlineProviderQuotes({
           const provider = providers.find((p) => p.slug === q.providerSlug);
           const logo = providerLogo(q.providerSlug, provider?.logo);
           const isBest = i === 0 && !q.isIndicative;
+          const rank = scoped.indexOf(q) + 1;
+          // A row past the cut (TapTap) says where it really ranks, so its
+          // place directly under the top rows is not read as the next rank.
+          const belowCut = rank > limit && !q.isIndicative;
           return (
-            <li key={q.providerSlug} className="inline-quotes-row">
+            <li key={q.providerSlug} className={belowCut ? "inline-quotes-row inline-quotes-row--below-cut" : "inline-quotes-row"}>
               <div className="inline-quotes-brand">
                 <Image src={logo} alt="" width={40} height={40} className="conversion-logo" unoptimized={logo.endsWith(".svg")} />
                 <div>
@@ -118,12 +125,14 @@ export default function InlineProviderQuotes({
                 </div>
               </div>
               <div className="inline-quotes-payout">
-                {(q.isIndicative || i === 0) && <span>{q.unranked ? unrankedLabel(q, "short") : q.isIndicative ? "Indicative payout" : "Recipient gets"}</span>}
+                {belowCut
+                  ? <span>{`#${rank} of ${rankedCount} by payout`}</span>
+                  : (q.isIndicative || i === 0) && <span>{q.unranked ? unrankedLabel(q, "short") : q.isIndicative ? "Indicative payout" : "Recipient gets"}</span>}
                 <strong>{recvSymbol}{formatAmount(q.receiveAmount)}</strong>
                 <small>{to}</small>
               </div>
               <InlineQuoteCTA providerSlug={q.providerSlug} providerName={name} sendCurrency={q.sendCurrency}
-                receiveCurrency={q.receiveCurrency} sendAmount={q.sendAmount} rank={i + 1}
+                receiveCurrency={q.receiveCurrency} sendAmount={q.sendAmount} rank={rank}
                 isBest={isBest} source={source} />
             </li>
           );

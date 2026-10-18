@@ -138,6 +138,7 @@
 .inline-quotes-list { list-style: none; margin: 0; padding: 0; }
 .inline-quotes-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 24px; margin: 0; }
 .inline-quotes-row + .inline-quotes-row { border-top: 1px solid var(--color-outline); }
+.inline-quotes-row + .inline-quotes-row--below-cut { border-top-style: dashed; }
 .inline-quotes-brand { display: flex; align-items: flex-start; gap: 12px; min-width: 0; }
 .inline-quotes-brand > div { min-width: 0; }
 .inline-quotes-brand img { width: 40px; height: 40px; padding: 4px; }
