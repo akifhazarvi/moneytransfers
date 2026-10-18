@@ -646,14 +646,17 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                   </tbody>
                 </table>
               </div>
-              {/* The corridor page where Google may index it, else the same pair
-                  and amount on /send-money (rule 14 fallback). Until 2026-10-18
-                  this showed only when a corridor page rendered, and as plain
-                  text when that page was Bing-only — most of them. */}
-              {(
+              {/* Where a corridor page exists: that page when Google may index
+                  it, else the same pair and amount on /send-money (rule 14
+                  fallback) — until 2026-10-18 it rendered as plain text when
+                  the corridor page was Bing-only. Pairs without a corridor page
+                  get no line: their live table's "see all" link already
+                  continues the route, and showing this line on every pair
+                  raised the GBP pairs' shared text by up to 1 point. */}
+              {p.corridor && corridorPageRenders(p.corridor) && (
                 <div className="mt-4 pt-4 border-t border-[var(--color-outline)]">
                   <Link
-                    href={p.corridor && corridorPageRenders(p.corridor) ? `/send-money/${p.corridor}` : compareHashHref(p.from, p.to, 1000)}
+                    href={`/send-money/${p.corridor}`}
                     fallbackHref={compareHashHref(p.from, p.to, 1000)}
                     className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-primary)] hover:underline"
                   >
