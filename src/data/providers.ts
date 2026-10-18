@@ -615,7 +615,7 @@ export const providers: Provider[] = [
     supportedCountries: 80,
     supportedCurrencies: 65,
     paymentMethods: ["Debit Card", "Bank Transfer", "Google Pay", "Apple Pay", "UPI"],
-    deliveryMethods: ["Bank Deposit", "Mobile Money"],
+    deliveryMethods: ["Bank Deposit", "Mobile Money", "Cash Pickup"],
     pros: [
       "Zero or minimal fees on most corridors",
       "~0.7% exchange rate markup — among the lowest available",
@@ -624,7 +624,6 @@ export const providers: Provider[] = [
       "Accepts debit card, bank transfer, Google Pay, Apple Pay, UPI",
     ],
     cons: [
-      "No cash pickup option",
       "Mobile app only — no full web transfer experience",
       "Multi-currency account limited to UK and EU users",
     ],

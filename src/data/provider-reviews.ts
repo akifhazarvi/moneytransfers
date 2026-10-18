@@ -2268,7 +2268,7 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "TapTap Send review 2026: 0.09–0.7% markup on major corridors, 95% of transfers under 3 minutes, 80+ countries. App Store 4.8/5 (59K reviews). FCA regulated. Honest pros, cons & corridor data.",
     publishedAt: "2026-02-15",
-    updatedAt: "2026-05-25",
+    updatedAt: "2026-10-18",
     lastVerified: "2026-05-25",
     readTime: "12 min read",
     editorRating: 8.9,
@@ -2351,7 +2351,6 @@ export const providerReviews: ProviderReview[] = [
           "US senders who want bank transfer (ACH) — debit card only in the US; use Wise or Remitly for ACH",
           "Exotic corridors: Gambia (~10% markup), Rwanda (~7.8%), Sierra Leone (~7.6%) — compare first",
           "Large one-off transfers (property, inheritance) — rolling limits too low; use OFX or TorFX",
-          "Cash pickup — bank deposit and mobile money only; no physical agent network",
           "Business payments — personal transfers only",
           "Desktop users — mobile app only, no web platform",
           "Multi-currency account outside UK/EU — card and virtual IBAN only available in UK and EEA",
