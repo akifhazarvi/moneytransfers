@@ -237,13 +237,15 @@ export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; reado
     ],
   },
   {
-    // Batch 2 — 7 days after batch 1 (brief §3.4: 10–20 URLs every 7–10 days).
+    // Batch 2 — first dated 2026-10-21 (7 days after batch 1, brief §3.4); owner
+    // moved it to 2026-10-18 and batch 3 to 2026-10-25 (Google had not crawled
+    // batch 1 four days on, so waiting measured nothing).
     // The four Priority-1 pages held back from batch 1, now fixed: /banks has a
     // dated byline, /swift-codes/thailand lost its wrong-length code, the
     // western-union-vs-moneygram verdict no longer contradicts its figures,
     // paypal-vs-revolut gained contextual links. Then the highest-demand
     // pages of the 2026-10-09 live QA's batch-2 list. Bing clicks in comments.
-    released: "2026-10-21",
+    released: "2026-10-18",
     routes: [
       "/banks",                             // 20
       "/swift-codes/thailand",              // 11
@@ -274,7 +276,7 @@ export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; reado
     // and — no eligible guide compares them in context, so they lack the 3
     // in-content links QA item 8 asks for — compare/remitly-vs-paypal and
     // compare/paypal-vs-western-union.
-    released: "2026-10-28",
+    released: "2026-10-25",
     routes: [
       "/iban/cyprus",                       // 1
       "/iban/jordan",                       // 1
