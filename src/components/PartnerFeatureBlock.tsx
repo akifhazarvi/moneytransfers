@@ -1,6 +1,6 @@
 import Link from "@/components/EligibleLink";
 import Image from "next/image";
-import { ArrowRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Container from "@/components/Container";
 import ProviderLink from "@/components/ProviderLink";
 import ConversionImpression from "@/components/ConversionImpression";
@@ -85,7 +85,7 @@ export default function PartnerFeatureBlock({ source, variant = "section", quote
       <small>for {money(quote.sendAmount)} {quote.fromCurrency} · {feeText} · rate {quote.exchangeRate.toFixed(4)}</small>
     </div>}
     <div className="conversion-spotlight-actions">
-      <ProviderLink href={href} provider="taptap-send" source={source} corridor={corridor} className="conversion-button conversion-button--accent">{cta} <ArrowRight size={16} aria-hidden="true" /></ProviderLink>
+      <ProviderLink href={href} provider="taptap-send" source={source} corridor={corridor} className="conversion-button conversion-button--accent">{cta}</ProviderLink>
       <Link href="/companies/taptap-send" unlinked="hide" className="conversion-text-link">Read our TapTap Send review</Link>
     </div>
     <p className="conversion-disclosure">Sponsored: TapTap Send pays us when you sign up. Payment never moves a provider up our comparison.</p>

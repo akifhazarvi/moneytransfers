@@ -168,10 +168,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
                     : "bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)]"
                 }`}
               >
-                <span className="hidden sm:inline">Send</span>
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                <span>Send</span>
               </a>
             </div>
           );

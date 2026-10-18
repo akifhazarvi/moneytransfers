@@ -19,7 +19,7 @@ import { robotsFor } from "@/lib/seo-indexing";
 import { getDataUpdatedInstant } from "@/lib/data-freshness";
 import Link from "@/components/EligibleLink";
 import { notFound } from "next/navigation";
-import { ArrowRight, AlertCircle, TrendingDown } from "lucide-react";
+import { AlertCircle, TrendingDown } from "lucide-react";
 import Container from "@/components/Container";
 import { corridorPageRenders } from "@/lib/route-map";
 import Card from "@/components/Card";
@@ -239,8 +239,7 @@ export default async function BankPage({ params }: Props) {
                   external
                   size="lg"
                 >
-                  Try {recommendedProvider.name} instead{" "}
-                  <ArrowRight className="inline w-4 h-4 ml-1" />
+                  Try {recommendedProvider.name} instead
                 </PrimaryButton>
                 {/* Was the hand-typed "typically saves $25-80" label; the measured
                     median below is ours, per bank, and cannot drift. */}

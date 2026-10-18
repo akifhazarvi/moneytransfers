@@ -140,9 +140,6 @@ export default function ExampleRouteTable({ data }: { data: HubData }) {
                     className={`conversion-button w-full md:w-auto whitespace-nowrap${rank === 1 ? " conversion-button--accent" : ""}`}
                   >
                     Send
-                    <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
                   </ProviderLink>
                 </td>
               </tr>

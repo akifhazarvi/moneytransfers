@@ -239,7 +239,6 @@ export default function CorridorHero({
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-success-dark)] py-3 text-sm font-semibold text-white shadow-[var(--shadow-success)] hover:bg-[var(--color-success-hover)] hover:shadow-[var(--shadow-success-lg)] active:scale-[0.99] transition-all"
                 >
                   Send with {bestName}
-                  <ArrowRight className="w-4 h-4" strokeWidth={2.25} />
                 </a>
                 <p className="text-[11px] text-center text-[var(--color-on-surface-muted)] mt-2.5">
                   Affiliate link · No extra cost to you

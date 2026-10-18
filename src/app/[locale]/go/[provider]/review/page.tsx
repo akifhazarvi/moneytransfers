@@ -153,9 +153,6 @@ export default async function GoReviewPage({ params, searchParams }: Props) {
                   className="conversion-button go-review-continue"
                 >
                   Continue to {name}
-                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
                 </ReviewContinue>
               </div>
             </div>

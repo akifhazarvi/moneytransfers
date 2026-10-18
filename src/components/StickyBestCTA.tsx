@@ -129,10 +129,7 @@ export default function StickyBestCTA({
             className="inline-flex items-center gap-1.5 bg-[var(--color-success-dark)] hover:bg-[var(--color-success-hover)] text-white text-xs sm:text-sm font-semibold h-10 sm:h-11 px-3 sm:px-5 rounded-full shadow-sm transition-colors shrink-0 whitespace-nowrap"
           >
             <span className="hidden sm:inline">Send with {providerName}</span>
-            <span className="sm:hidden">Send →</span>
-            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span className="sm:hidden">Send</span>
           </a>
 
           {/* Dismiss */}

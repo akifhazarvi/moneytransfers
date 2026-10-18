@@ -297,9 +297,6 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-success-dark)] px-5 py-3.5 text-base font-semibold text-white shadow-[var(--shadow-success)] hover:bg-[var(--color-success-hover)] hover:shadow-[var(--shadow-success-lg)] active:scale-[0.99] transition-all"
             >
               Send with {getProviderName(data.bestProviderSlug)}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
             </a>
             <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-2.5">
               <Link href={corridorSlug(from, to) ? `/send-money/${corridorSlug(from, to)}` : "/send-money"} className="text-[var(--color-primary)] hover:underline">Compare all providers</Link>

@@ -498,7 +498,6 @@ export default function CompareShowdown({
                   className="mt-3 inline-flex min-h-11 items-center justify-center gap-1.5 w-full bg-[var(--color-cta)] hover:bg-[var(--color-cta-hover)] text-[var(--color-cta-text)] font-semibold text-sm px-4 py-2.5 rounded-full transition-colors"
                 >
                   Send with {p.name}
-                  <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.25} />
                 </ProviderLink>
               </div>
             ))}

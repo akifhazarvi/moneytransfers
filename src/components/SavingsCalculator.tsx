@@ -198,7 +198,7 @@ export default function SavingsCalculator({
             corridor={priced.corridor}
             className="conversion-button conversion-button--accent"
           >
-            {partner ? `Send ${fmtSend(priced.amount, from)} with TapTap` : "Check TapTap Send rates"} <ArrowRight size={16} aria-hidden="true" />
+            {partner ? `Send ${fmtSend(priced.amount, from)} with TapTap` : "Check TapTap Send rates"}
           </ProviderLink>
           <Link href="/companies/taptap-send" unlinked="hide" className="conversion-text-link">Read our TapTap Send review</Link>
         </div>
@@ -399,7 +399,7 @@ export default function SavingsCalculator({
                         : "inline-flex items-center justify-center gap-3 min-h-12 px-5 rounded-[14px] border border-[var(--color-outline)] text-sm font-semibold text-[var(--color-on-surface)] hover:border-[var(--color-on-surface)] w-full @md:w-auto shrink-0"
                     }
                   >
-                    Send <ArrowRight size={14} aria-hidden="true" />
+                    Send
                   </ProviderLink>
                 </li>
               ))}

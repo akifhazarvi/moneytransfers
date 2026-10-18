@@ -173,10 +173,7 @@ export default function GuidePageNudge({ from, to, amount, slug, only }: Props) 
               className="shrink-0 inline-flex items-center gap-1.5 h-11 px-4 sm:px-5 rounded-full bg-[var(--color-success-dark)] hover:bg-[var(--color-success-hover)] text-white text-sm font-bold transition-all active:scale-95 shadow-[var(--shadow-success)] whitespace-nowrap"
             >
               <span className="hidden sm:inline">Send with {name}</span>
-              <span className="sm:hidden">Send →</span>
-              <svg className="w-4 h-4 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+              <span className="sm:hidden">Send</span>
             </a>
 
             {/* Dismiss */}

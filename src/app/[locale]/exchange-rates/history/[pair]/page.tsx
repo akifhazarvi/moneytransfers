@@ -308,9 +308,6 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
                 className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] shadow-sm transition-all"
               >
                 Send with {getProviderName(insight.today.bestProvider)}
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
               </ProviderLink>
             </div>
           </div>

@@ -84,7 +84,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
           <span>{fee} · rate {quote.exchangeRate.toFixed(4)}</span>
         </div>
         <ProviderLink href={href} provider={quote.providerSlug} source="comparison_result" corridor={`${quote.sendCurrency}-${quote.receiveCurrency}`} rank={rank} className="conversion-button conversion-row-send" ariaLabel={quote.isIndicative ? `Request a quote from ${name}` : `Continue with ${name}`}>
-          {quote.isIndicative ? "Quote" : "Send"}<ArrowRight size={14} aria-hidden="true" />
+          {quote.isIndicative ? "Quote" : "Send"}
         </ProviderLink>
         <button type="button" className="conversion-row-toggle" aria-expanded={expanded} aria-controls={detailsId} aria-label={`${expanded ? "Hide" : "Show"} ${name} transfer details`} onClick={toggle}>
           <ChevronDown size={16} aria-hidden="true" style={{ transform: expanded ? "rotate(180deg)" : undefined }} />
@@ -118,7 +118,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
       </dl>
       <div className="conversion-result-action">
         <ProviderLink href={href} provider={quote.providerSlug} source="comparison_result" corridor={`${quote.sendCurrency}-${quote.receiveCurrency}`} rank={rank} className={`conversion-button${isBestValue ? " conversion-button--accent" : ""}`}>
-          {quote.isIndicative ? "Request a quote" : `Continue with ${name}`}<ArrowRight size={16} aria-hidden="true" />
+          {quote.isIndicative ? "Request a quote" : `Continue with ${name}`}
         </ProviderLink>
         <span>Complete your transfer with {name}</span>
       </div>
