@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "SendMoneyCompare: Transfers, Rates & Converter",
+  "short_name": "SendMoneyCompare",
+  "version": "1.0.0",
+  "description": "See what money transfer providers pay out for your amount, convert at the mid-market rate, follow rate charts and set rate alerts.",
+  "homepage_url": "https://sendmoneycompare.com/",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "SendMoneyCompare",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "alarms", "contextMenus", "activeTab", "scripting"],
+  "optional_permissions": ["notifications"],
+  "omnibox": { "keyword": "smc" },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Open SendMoneyCompare"
+    }
+  }
+}

@@ -230,6 +230,63 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
               </div>
             </div>
 
+            {/* Browser extension */}
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                {t("browserExtensionTitle")}
+              </h2>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  Our extension for Chrome and Microsoft Edge has no account and no
+                  analytics of its own. It handles data as follows:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">What it sends:</strong>{" "}
+                    to show quotes, rates and the live activity strip, it requests them
+                    from sendmoneycompare.com, sending only the two currencies and the
+                    amount you compare. What you do in the extension never appears in that strip. These
+                    requests carry no cookies and no identifier; like any web request,
+                    they reach our hosting provider with your IP address.
+                  </li>
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">What it keeps:</strong>{" "}
+                    your last comparison and conversion, the currency pairs you follow,
+                    your rate alerts, your settings and copies of recent answers are
+                    stored in your browser. If you use browser sync, your browser
+                    carries the pairs, alerts and settings between your own devices. We
+                    never receive them.
+                  </li>
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">Provider pages:</strong>{" "}
+                    when you open the extension while viewing a money transfer
+                    provider’s website, it reads the amount and currencies shown on that
+                    page to compare them, if that setting is on (it is by default and can
+                    be turned off in the extension’s settings). This happens only when you
+                    open the extension, only on that tab, and nothing from the page is
+                    sent anywhere.
+                  </li>
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">Notifications:</strong>{" "}
+                    the extension asks for permission to show notifications only when you
+                    set your first rate alert. Alerts are checked in your browser about
+                    every 15 minutes.
+                  </li>
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">Choosing a provider:</strong>{" "}
+                    a Send button opens the provider through sendmoneycompare.com/go,
+                    which counts the click and passes the route and amount on, the same as
+                    a click on our website (see Affiliate partners above). Analytics
+                    identifiers are added only if you have accepted analytics on our
+                    website.
+                  </li>
+                </ul>
+                <p>
+                  Removing the extension deletes everything it stored in your browser.
+                </p>
+              </div>
+            </div>
+
             {/* Data Retention */}
             <div>
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">

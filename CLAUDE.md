@@ -353,6 +353,23 @@ Mounted once in the layout: `src/components/live-activity/`.
   the one-line results header restored: the same countdown theatre, on the
   page whose Send buttons matter most.
 
+## Browser extension (Chrome / Edge)
+
+`extension/src` (plain ES modules, MV3) → `npm run build:extension` →
+`extension/build` + store zip; `extension/README.md` has the store checklist.
+Compare / Convert (multi-currency, 1D–30D changes) / Offers / Rates tabs, the
+site's live activity strip (read-only), right-click "compare this amount", `smc`
+address-bar keyword, rate alerts. Its only data source is
+`/api/ext/v1/{compare,rates,history,activity}` (`src/lib/extension-api.ts`); rates
+come from the licensed currencyapi feed when it is fresher than the XE snapshot,
+and the popup says "Live" only while the source's timestamp is minutes old. It reads
+`generateQuotes()`, `collapsedProviders()`, `tiedAboveLargerPayout()` and
+`MIN_PROVIDERS_FOR_SUPERLATIVE_TITLE`, so the popup prints what `/send-money`
+prints. **v1 is a contract with installed copies**: add fields, never change or
+remove one; a breaking change ships as v2 beside v1. The endpoints are public
+and cookie-free with `Access-Control-Allow-Origin: *`, which is why the
+extension needs no host permission. Send buttons go to `/go/<p>?src=extension`.
+
 ## Installed app (PWA)
 
 The site installs as an app on Android, iOS, macOS, Windows and ChromeOS.

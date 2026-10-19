@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <title>SendMoneyCompare</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script type="module" src="popup.js"></script>
+  </head>
+  <body>
+    <div class="chrome">
+      <header class="top">
+        <a class="brand" href="https://sendmoneycompare.com/" target="_blank" rel="noopener">
+          <img src="icons/icon-32.png" width="22" height="22" alt="" />
+          <span>SendMoneyCompare</span>
+        </a>
+        <button class="icon-btn" id="settings" type="button" aria-label="Settings"></button>
+      </header>
+      <nav class="seg" role="tablist" aria-label="Sections">
+        <button type="button" role="tab" data-tab="compare">Compare</button>
+        <button type="button" role="tab" data-tab="convert">Convert</button>
+        <button type="button" role="tab" data-tab="offers">Offers</button>
+        <button type="button" role="tab" data-tab="rates">Rates</button>
+      </nav>
+    </div>
+    <main id="view" role="tabpanel"></main>
+    <aside id="live" class="live-strip" aria-label="Live activity on SendMoneyCompare" hidden></aside>
+    <div id="sheet"></div>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

@@ -143,6 +143,15 @@ export function getMidMarketHistory(from: string, to: string): SparklinePoint[] 
   return points.length > 0 ? points : null;
 }
 
+/** The latest daily close on or before `date` (YYYY-MM-DD), USD-based, or null. */
+export function getMidMarketDay(date: string): { date: string; rates: Record<string, number> } | null {
+  for (let i = midmarketHistory.days.length - 1; i >= 0; i--) {
+    const day = midmarketHistory.days[i];
+    if (day.date <= date) return { date: day.date, rates: { USD: 1, ...day.rates } };
+  }
+  return null;
+}
+
 /** Check if a mid-market pair exists */
 export function hasMidMarketPair(from: string, to: string): boolean {
   if (midmarketHistory.days.length === 0) return false;
