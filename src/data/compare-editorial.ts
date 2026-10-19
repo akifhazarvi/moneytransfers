@@ -1413,7 +1413,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickB: {
       heading: "Pick Westpac only for an existing banking relationship",
-      body: `Westpac's case is the same as any full-service bank's: convenience for an existing customer, not cost competitiveness. Its $8-$20 fee plus 3-5% markup is meaningfully wider than a digital specialist's, regulated by APRA and ASIC, and has been operating since 1817.`,
+      body: `Westpac's case is the same as any full-service bank's: convenience for an existing customer, not cost competitiveness. Westpac's fee table lists no transfer fee for a foreign-currency payment sent through Online Banking or the app, A$20 when the payment is sent in Australian dollars and A$32 in a branch; it is regulated by APRA and ASIC and has operated since 1817.`,
     },
     limits: `Westpac doesn't appear in our priced sample for the corridors this comparison covers — its figures here are drawn from published rates rather than collected quotes. Confirm the current rate directly with Westpac before relying on it.`,
     verdict: {
@@ -1433,7 +1433,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Does Westpac offer any fee-free option?",
-        a: "Not one reflected in the rates we've reviewed — Westpac's $8-$20 fee applies broadly. Confirm current terms directly with Westpac, since bank pricing structures change more often than this page is rescanned.",
+        a: "Yes, for payments sent in a foreign currency: Westpac's fee table shows a $0 Westpac transfer fee through Online Banking or the Westpac App, against A$20 online in Australian dollars and A$32 in a branch. Banks further along the chain may still deduct their own charges, and the exchange rate is set by Westpac.",
       },
       {
         q: "Should I open a Wise account just to avoid Westpac's fees?",
