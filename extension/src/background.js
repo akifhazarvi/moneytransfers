@@ -6,6 +6,7 @@
 import { SITE } from "./config.js";
 import * as fmt from "./lib/format.js";
 import { fetchJson, save, saved, cross } from "./lib/api.js";
+import { priceCheckOrigins } from "./lib/hosts.js";
 import { parseMoney, parseQuery } from "./lib/parse.js";
 import { getPrefs, setPrefs } from "./lib/store.js";
 import { analyticsReady, track } from "./lib/analytics.js";
@@ -41,11 +42,72 @@ chrome.runtime.onInstalled.addListener((details) => {
     chrome.contextMenus.create({ id: "convert", title: "Convert “%s”", contexts: ["selection"] });
   });
   chrome.alarms.create(ALARM, { periodInMinutes: CHECK_MINUTES, delayInMinutes: 1 });
+  syncPriceCheck();
 });
 
 chrome.runtime.onStartup.addListener(async () => {
   if (!(await chrome.alarms.get(ALARM))) chrome.alarms.create(ALARM, { periodInMinutes: CHECK_MINUTES });
   checkRates();
+  syncPriceCheck();
+});
+
+// ── Automatic price check on provider sites ──────────────────────────
+//
+// content.js runs on provider pages only while the reader has granted the
+// optional host permission (asked on the welcome page, in the popup, in
+// Settings) and kept "Check prices on provider sites" on.
+
+const PRICE_CHECK = "smc-price-check";
+
+async function syncPriceCheck() {
+  const origins = priceCheckOrigins();
+  const granted = await chrome.permissions.contains({ origins }).catch(() => false);
+  const { detect } = await getPrefs();
+  const registered = await chrome.scripting.getRegisteredContentScripts({ ids: [PRICE_CHECK] }).catch(() => []);
+  if (granted && detect && !registered.length) {
+    await chrome.scripting
+      .registerContentScripts([{ id: PRICE_CHECK, matches: origins, js: ["content.js"], runAt: "document_idle", persistAcrossSessions: true }])
+      .catch(() => {});
+  } else if ((!granted || !detect) && registered.length) {
+    await chrome.scripting.unregisterContentScripts({ ids: [PRICE_CHECK] }).catch(() => {});
+  }
+  return granted && detect;
+}
+
+/** Start the check in provider tabs already open, so turning it on works without a reload. */
+async function injectOpenTabs() {
+  const tabs = await chrome.tabs.query({ url: priceCheckOrigins() }).catch(() => []);
+  for (const tab of tabs) chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ["content.js"] }).catch(() => {});
+}
+
+chrome.permissions.onAdded.addListener(async () => {
+  if (await syncPriceCheck()) injectOpenTabs();
+});
+chrome.permissions.onRemoved.addListener(syncPriceCheck);
+
+// The quote a provider page needs, from the same saved answers the popup uses.
+async function comparison(params) {
+  const hit = await saved("compare", params);
+  if (hit && Date.now() - hit.at < 10 * 60_000) return hit.data;
+  try {
+    const data = await fetchJson("compare", params);
+    await save("compare", params, data);
+    return data;
+  } catch {
+    return hit?.data ?? null;
+  }
+}
+
+chrome.runtime.onMessage.addListener((message, sender, reply) => {
+  if (sender.id !== chrome.runtime.id) return;
+  if (message?.type === "smc:compare") {
+    const { from, to, amount } = message;
+    if (!/^[A-Z]{3}$/.test(from) || !/^[A-Z]{3}$/.test(to) || !(amount > 0)) return reply({});
+    comparison({ from, to, amount }).then((data) => reply({ data }));
+    return true;
+  }
+  if (message?.type === "smc:open-popup") chrome.action.openPopup().catch(() => {});
+  if (message?.type === "smc:track" && typeof message.name === "string") trackNow(message.name, message.params ?? {});
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
@@ -55,6 +117,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 // A new alert or toolbar pair is judged against the saved rates at once, not an hour later.
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area === "sync" && (changes.badgePair || changes.alerts)) checkRates({ network: false });
+  if (area === "sync" && changes.detect) syncPriceCheck();
 });
 
 let checking = null;

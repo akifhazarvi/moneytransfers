@@ -1,6 +1,24 @@
 # SendMoneyCompare browser extension
 
-Chrome and Edge (Manifest V3). Four tabs in the toolbar popup:
+Chrome and Edge (Manifest V3).
+
+**Price check on provider sites** (`content/main.js` → `content.js`): on Wise,
+Remitly, Western Union, Xoom and 26 more money transfer providers, a small panel
+reads the amount, both currencies and the provider's own payout from its
+calculator and says, as the reader types, whether it's a good deal: "Good deal"
+(within 0.1% of the best other payout), "Fair price" (within 0.5%), or "You
+could get ₹X more" with who pays it, and the top three with Send. One verdict
+engine (`lib/verdict.js`) serves this panel and the popup's banner. It runs only
+with the optional host permission (welcome page, popup, Settings), never on
+banks or PayPal, never changes the page, and never rewrites links; Send is the
+reader's click through /go. Closed shadow root, constructed stylesheet, no
+images and no innerHTML, so the provider's CSP or Trusted Types cannot break it;
+quotes come through the service worker. Detection: URL params, calculator
+inputs paired with the nearest currency label (up to 8 levels up), then the
+URL path (`/send-money-to-india`, `/us/`). Verified on the live Wise, Remitly,
+Xoom and Western Union pages (`npm run test:extension:price-check`).
+
+Four tabs in the toolbar popup:
 
 - **Compare**: what every provider pays out for an amount, in `/send-money` order,
   with the 10-row cap, "Best value" only at 3+ priced providers, ties, the timing
@@ -89,8 +107,10 @@ third-party request.
 | `alarms` | Check rates about hourly for alerts and the toolbar rate. |
 | `contextMenus` | "Compare sending / Convert" on selected text. |
 | `notifications` (optional) | Asked for only when the reader sets their first alert. |
+| 30 provider sites (optional host permissions, from `lib/hosts.js`) | The price check. Asked for only when the reader turns it on. |
 
-No host permissions. Install shows no warning beyond the optional notifications prompt.
+No required host permissions, so install shows no warning; the provider sites
+and notifications are asked for when the reader turns those features on.
 
 ## Before submitting to the stores
 

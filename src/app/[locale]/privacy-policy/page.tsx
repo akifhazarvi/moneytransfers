@@ -260,12 +260,15 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                   </li>
                   <li>
                     <strong className="text-[var(--color-on-surface)]">Provider pages:</strong>{" "}
-                    when you open the extension while viewing a money transfer
-                    provider’s website, it reads the amount and currencies shown on that
-                    page to compare them, if that setting is on (it is by default and can
-                    be turned off in the extension’s settings). This happens only when you
-                    open the extension, only on that tab, and nothing from the page is
-                    sent anywhere.
+                    when you open the extension on a money transfer provider’s website, it
+                    reads the amount and currencies its calculator shows, to compare them.
+                    If you also turn on price checks (which asks your browser’s permission
+                    for those providers’ sites), a small panel on those sites does the same
+                    as you type. Only the amount, the two currencies and the payout the
+                    provider shows are read; only the amount and currencies are sent, to
+                    sendmoneycompare.com, for quotes. It never runs on banks’ websites,
+                    never changes the provider’s page or form, and never adds codes or
+                    links to it. Both can be turned off in the extension’s settings.
                   </li>
                   <li>
                     <strong className="text-[var(--color-on-surface)]">Notifications:</strong>{" "}

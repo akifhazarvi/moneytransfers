@@ -10,20 +10,20 @@ Wording follows the site's claim rules: no "cheapest", no scores, no provider co
 
 **Name** (from the manifest): SendMoneyCompare: Transfers, Rates & Converter
 
-**Summary** (from the manifest, 132 max): See what money transfer providers pay out for your amount, convert at the mid-market rate, follow rate charts and set rate alerts.
+**Summary** (from the manifest, 132 max): Know if a money transfer is a good deal: compare what providers pay out, convert at the mid-market rate, and set rate alerts.
 
 **Category:** Tools · **Language:** English
 
 **Description:**
 
 ```
-Sending money abroad? See what each provider pays out before you choose.
+Sending money abroad? Know if it's a good deal before you pay.
+
+PRICE CHECK ON PROVIDER SITES
+On Wise, Remitly, Western Union and other money transfer providers, SendMoneyCompare reads the amount and currencies in the provider's own calculator and tells you, as you type, whether it's a good deal, and who pays more for the same transfer. Turn it on with one click; it never runs on banks' sites and never changes the page.
 
 COMPARE
 Type an amount and see what each money transfer provider pays out after its fee and exchange-rate markup, in payout order. The same comparison as sendmoneycompare.com: tap any provider for its rate, fee, markup and delivery time, and Send takes you to it.
-
-ALREADY ON A PROVIDER'S SITE?
-Open SendMoneyCompare on Wise, Remitly, Western Union or another provider's page. It reads the amount you entered there and shows how that provider compares for it.
 
 CONVERT SEVERAL CURRENCIES AT ONCE
 Add the currencies you use and type in any of them; the rest convert at the mid-market rate. See each one's change over 1 day, 1 week, 15 days or 30 days, and a year of rate history for any pair.
@@ -72,10 +72,11 @@ Help people sending money abroad compare what money transfer providers pay out, 
 | alarms | Checks exchange rates about every 15 minutes to fire the user's rate alerts and update the optional rate on the toolbar icon. |
 | contextMenus | Adds "Compare sending …" and "Convert …" when the user right-clicks a selected amount. |
 | notifications (optional) | Shows a notification when a rate alert the user set is reached. Requested only when the user sets their first alert. |
+| Host permissions (optional): 30 money transfer provider sites (wise.com, remitly.com, westernunion.com, …) | Requested only when the user turns on "Check prices on provider sites". On those sites a small panel reads the amount and currencies in the provider's own calculator and shows how that provider compares with others for the same transfer. Read-only: it never changes the page or form and never adds links or codes. Never requested for banks. |
 
 **Remote code:** No, I am not using remote code. (All JavaScript is in the package; the extension fetches JSON data only.)
 
-**Data usage:** tick **User activity** only, and describe it as: "Only if the user turns on 'Share anonymous usage' (off by default): which tab they opened, which route they compared and which provider they chose, with a random ID for the browser, sent to sendmoneycompare.com and forwarded to Google Analytics." Nothing else is collected: quote requests carry only currencies and an amount, with no identifier or cookies, and provider pages are read only locally. Then certify all three:
+**Data usage:** tick **Website content** ("With the user's permission, the amount and currencies shown in a money transfer provider's calculator are sent to sendmoneycompare.com to fetch quotes for that transfer; nothing else from the page") and **User activity**, described as: "Only if the user turns on 'Share anonymous usage' (off by default): which tab they opened, which route they compared and which provider they chose, with a random ID for the browser, sent to sendmoneycompare.com and forwarded to Google Analytics." Nothing else is collected: quote requests carry only currencies and an amount, with no identifier or cookies, and provider pages are read only locally. Then certify all three:
 - I do not sell or transfer user data to third parties, outside of the approved use cases
 - I do not use or transfer user data for purposes that are unrelated to my item's single purpose
 - I do not use or transfer user data to determine creditworthiness or for lending purposes

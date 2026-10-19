@@ -3,7 +3,8 @@
 
 import { setAnalytics, track, analyticsReady } from "./lib/analytics.js";
 import { siteLink } from "./lib/links.js";
-import { getPrefs } from "./lib/store.js";
+import { getPrefs, setPrefs } from "./lib/store.js";
+import { priceCheckOrigins } from "./lib/hosts.js";
 
 const $ = (id) => document.getElementById(id);
 const PUZZLE =
@@ -32,6 +33,14 @@ async function paintPinned() {
     pinnedSeen = true;
     track("ext_welcome", { action: "pinned" });
   }
+}
+
+async function paintCheck() {
+  const on = await chrome.permissions.contains({ origins: priceCheckOrigins() }).catch(() => false);
+  const status = $("check-status");
+  status.className = `chip ${on ? "green" : ""}`;
+  status.textContent = on ? "On ✓" : "Off";
+  $("check-on").hidden = on;
 }
 
 function showChoice(analytics) {
@@ -68,12 +77,24 @@ async function init() {
     await setAnalytics(false);
     showChoice(false);
   });
+  $("check-on").addEventListener("click", () => {
+    // Inside the click, as Chrome requires for a permission request.
+    chrome.permissions.request({ origins: priceCheckOrigins() }).then(async (granted) => {
+      if (granted) {
+        await setPrefs({ detect: true });
+        track("ext_setting", { setting: "price_check", value: true, via: "welcome" });
+        toast("Price checks on");
+      }
+      paintCheck();
+    });
+  });
   $("open-popup").addEventListener("click", () => {
     track("ext_welcome", { action: "open_popup" }, { now: true });
     chrome.action.openPopup().catch(() => toast("Click the SendMoneyCompare icon in your toolbar"));
   });
 
   paintPinned();
+  paintCheck();
   setInterval(paintPinned, 1500);
 }
 

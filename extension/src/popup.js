@@ -12,7 +12,8 @@ import * as fmt from "./lib/format.js";
 import { load, pruneSaved, cross } from "./lib/api.js";
 import { lineChart, sliceRange, rangeStats, RANGES } from "./lib/chart.js";
 import { detectTransfer } from "./lib/detect.js";
-import { providerForHost } from "./lib/hosts.js";
+import { providerForHost, priceCheckOrigins } from "./lib/hosts.js";
+import { judge } from "./lib/verdict.js";
 import { getPrefs, setPrefs, PREF_DEFAULTS } from "./lib/store.js";
 import { SEND, ALL, CURRENCY, FLAG_FILES } from "./data/currencies.js";
 import { SITE } from "./config.js";
@@ -23,10 +24,17 @@ const POPULAR_SEND = ["USD", "GBP", "EUR", "CAD", "AUD", "SGD", "AED", "NZD"];
 const POPULAR_RECEIVE = ["INR", "PHP", "MXN", "PKR", "NGN", "BDT", "EUR", "GBP"];
 const SENDABLE = new Set(SEND.map((c) => c.code));
 const ALL_CODES = ALL.map((c) => c.code);
+/** Country slug → currency, so a path like /send-money-to-india names the route (lib/detect.js). */
+const PLACES = Object.fromEntries(
+  ALL.flatMap((c) =>
+    (c.countries || "")
+      .split(", ")
+      .filter(Boolean)
+      .map((country) => [country.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""), c.code]),
+  ).reverse(),
+);
 const EURO_AREA = "AT BE CY DE EE ES FI FR GR HR IE IT LT LU LV MT NL PT SI SK".split(" ");
 const LOCALE_CURRENCY = { US: "USD", GB: "GBP", CA: "CAD", AU: "AUD", NZ: "NZD", SG: "SGD", AE: "AED", SA: "SAR", CH: "CHF" };
-/** Rows within this share of the highest payout are tied (rank-quotes.ts MATERIALITY_BAND). */
-const TIE_BAND = 0.001;
 
 const $view = document.getElementById("view");
 const $sheet = document.getElementById("sheet");
@@ -380,51 +388,34 @@ function paintHere() {
   const here = state.here;
   if (!here || state.hereDismissed) return fill(regions.here);
   const c = currentComparison();
-  const amount = c ? fmt.amount(c.amount, c.from) : "";
-  const ranked = c?.rows.filter((r) => r.ranked) ?? [];
-  const row = c?.rows.find((r) => here.slugs.includes(r.slug));
-  let text;
-  let sub = null;
-
-  if (!c) text = "Checking how it compares…";
-  else if (!row) {
-    text = ranked.length
-      ? `We don't hold a ${here.name} quote for ${c.from} → ${c.to}. Here's what ${ranked.length} other provider${ranked.length === 1 ? "" : "s"} pay.`
-      : `We don't hold quotes for ${c.from} → ${c.to} yet.`;
-  } else if (!row.ranked) {
-    text = `${here.name}'s quote for this route isn't ranked: ${row.note?.toLowerCase() ?? "it may be out of date"}.`;
-  } else {
-    const best = ranked.reduce((a, b) => (b.receive > a.receive ? b : a));
-    const gap = best.receive - row.receive;
-    const rank = ranked.indexOf(row) + 1;
-    if (gap <= best.receive * TIE_BAND) {
-      text =
-        rank === 1 && c.topLabel
-          ? `${here.name} is the best value of ${c.compared} providers for ${amount}.`
-          : `${here.name} is within 0.1% of the highest payout for ${amount}, effectively tied.`;
-    } else {
-      text = `${best.name} pays ${fmt.money(gap, c.to)} more than ${here.name} for ${amount}.`;
-      sub = `${here.name} is #${rank} of ${c.compared} by payout.`;
-    }
-  }
-  if (here.detected && c) sub = [sub, `Amount and currencies read from this page.`].filter(Boolean).join(" ");
-  if (c && !state.hereTracked) {
+  const v = c ? judge(c, here, here.detected?.receive) : null;
+  const tone = v?.tone ?? "unknown";
+  if (v && !state.hereTracked) {
     state.hereTracked = true;
-    track("ext_here_shown", { provider: here.slugs[0], detected: Boolean(here.detected), listed: Boolean(row), rank: row?.ranked ? ranked.indexOf(row) + 1 : 0 });
+    track("ext_here_shown", { provider: here.slugs[0], detected: Boolean(here.detected), tone, live_payout: v.livePayout, rank: v.rank ?? 0 });
   }
+  const notes = [];
+  if (here.detected && c) notes.push(v.livePayout ? `Amount, currencies and ${here.name}'s payout read from this page.` : "Amount and currencies read from this page.");
 
   fill(
     regions.here,
     h(
       "div",
-      { class: "here", role: "note" },
+      { class: `here tone-${tone}`, role: "note" },
       icon(ICON.pin, "icon here-icon"),
       h(
         "div",
         null,
-        h("p", { class: "here-title", text: `You're on ${here.name}` }),
-        h("p", { class: "here-text", text }),
-        sub ? h("p", { class: "here-sub", text: sub }) : null,
+        h("p", { class: "here-title", text: v ? `${here.name}: ${v.title}` : `You're on ${here.name}` }),
+        h("p", { class: "here-text", text: v ? v.text : "Checking how it compares…" }),
+        notes.length ? h("p", { class: "here-sub", text: notes.join(" ") }) : null,
+        here.automatic && state.priceCheck === false
+          ? h(
+              "button",
+              { type: "button", class: "btn btn-sm btn-tinted here-cta", onclick: () => turnOnPriceCheck(here.tabId) },
+              "Check prices on provider sites automatically",
+            )
+          : null,
       ),
       h(
         "button",
@@ -441,6 +432,23 @@ function paintHere() {
       ),
     ),
   );
+}
+
+/**
+ * Ask for the provider sites (the optional permission) and switch the check on.
+ * Must run inside the click: Chrome only asks from a user action.
+ */
+function turnOnPriceCheck(tabId) {
+  chrome.permissions.request({ origins: priceCheckOrigins() }).then(async (granted) => {
+    state.priceCheck = granted;
+    if (granted) {
+      savePrefs({ detect: true });
+      track("ext_setting", { setting: "price_check", value: true, via: "popup" });
+      if (tabId != null) chrome.scripting.executeScript({ target: { tabId }, files: ["content.js"] }).catch(() => {});
+      toast("Price checks on: open any provider's calculator");
+    }
+    if (state.tab === "compare") paintHere();
+  });
 }
 
 function paintInsights() {
@@ -1757,8 +1765,12 @@ function openSettings() {
     id: "detect",
     checked: state.prefs.detect,
     onchange: (e) => {
-      savePrefs({ detect: e.target.checked });
-      track("ext_setting", { setting: "read_provider_pages", value: e.target.checked });
+      const on = e.target.checked;
+      savePrefs({ detect: on });
+      track("ext_setting", { setting: "price_check", value: on, via: "settings" });
+      // Asked inside the change, as Chrome requires; turning it off gives the sites back.
+      if (on) chrome.permissions.request({ origins: priceCheckOrigins() }).catch(() => false);
+      else chrome.permissions.remove({ origins: priceCheckOrigins() }).catch(() => false);
     },
   });
   const shortcut = h("span", { class: "dim", text: "Alt+Shift+S" });
@@ -1805,9 +1817,9 @@ function openSettings() {
           h(
             "label",
             { for: "detect" },
-            "Read amounts on provider sites",
+            "Check prices on provider sites",
             h("small", {
-              text: "When you open SendMoneyCompare on a provider's page, it reads the amount and currencies shown there to compare them. Nothing is sent from the page.",
+              text: "On Wise, Remitly and other money transfer providers, shows whether the transfer you're setting up is a good deal. It reads the amount and currencies on the page and sends only those to sendmoneycompare.com. Never on banks; never changes the page.",
             }),
           ),
           detect,
@@ -1886,13 +1898,16 @@ async function detectHere() {
   if (!tab?.url?.startsWith("http")) return;
   const provider = providerForHost(new URL(tab.url).hostname);
   if (!provider) return;
-  state.here = { ...provider, detected: null };
+  state.here = { ...provider, detected: null, tabId: tab.id };
+  state.priceCheck = provider.automatic
+    ? await chrome.permissions.contains({ origins: priceCheckOrigins() }).catch(() => false)
+    : null;
 
   if (state.prefs.detect && tab.id != null) {
     try {
-      const [res] = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: detectTransfer, args: [ALL_CODES] });
+      const [res] = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: detectTransfer, args: [ALL_CODES, PLACES] });
       const d = res?.result;
-      if (d?.amount && d.from && SENDABLE.has(d.from)) {
+      if (d?.amount && d.from && SENDABLE.has(d.from) && d.amount <= 1_000_000) {
         const to = d.to && d.to !== d.from ? d.to : state.route.to !== d.from ? state.route.to : "INR";
         state.here.detected = d;
         state.route = { from: d.from, to, amount: d.amount };

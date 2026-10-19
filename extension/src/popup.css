@@ -386,6 +386,22 @@ main {
   font-size: 11.5px;
   color: var(--label-2);
 }
+.here.tone-good {
+  border-left-color: var(--green);
+}
+.here.tone-good .here-icon,
+.here.tone-good .here-title {
+  color: var(--green);
+}
+.here.tone-fair {
+  border-left-color: var(--accent);
+}
+.here.tone-better .here-title {
+  color: var(--orange);
+}
+.here-cta {
+  margin-top: 8px;
+}
 .here .icon-btn {
   width: 24px;
   height: 24px;

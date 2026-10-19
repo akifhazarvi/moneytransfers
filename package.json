@@ -10,6 +10,7 @@
     "lint": "eslint",
     "build:extension": "npx tsx scripts/build-extension.ts",
     "test:extension": "npx tsx scripts/build-extension.ts && node scripts/test-extension.mjs",
+    "test:extension:price-check": "npx tsx scripts/build-extension.ts --grant-price-check && node scripts/test-extension.mjs --price-check",
     "mcp:search-console": "node mcp/search-console-server.mjs",
     "mcp:search-console:http": "node mcp/search-console-remote.mjs",
     "mcp:search-console:login": "node mcp/search-console-oauth.mjs login",

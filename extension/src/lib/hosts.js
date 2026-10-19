@@ -1,6 +1,14 @@
 // Provider and bank sites the popup recognises, so opening it on one can say
 // how that provider compares. Slugs are the ones quotes carry (several banks
 // appear under more than one).
+//
+// The automatic price check (content script, optional permission) runs only on
+// money transfer providers: never on banks, whose pages hold account numbers
+// and balances, and not on PayPal, whose pages are a wallet. On those the popup
+// still reads the page, but only when the reader clicks it (activeTab).
+
+const NOT_AUTOMATIC = new Set(["paypal.com"]);
+const FIRST_BANK = "hsbc.co.uk";
 
 const HOSTS = [
   ["wise.com", "Wise", ["wise"]],
@@ -56,11 +64,22 @@ const HOSTS = [
   ["kiwibank.co.nz", "Kiwibank", ["kiwibank"]],
 ];
 
-/** { name, slugs } for a hostname on (or under) a recognised site, else null. */
+const firstBank = HOSTS.findIndex(([domain]) => domain === FIRST_BANK);
+
+/** { name, slugs, domain, automatic } for a hostname on (or under) a recognised site, else null. */
 export function providerForHost(hostname) {
   const host = String(hostname || "").toLowerCase();
-  for (const [domain, name, slugs] of HOSTS) {
-    if (host === domain || host.endsWith(`.${domain}`)) return { name, slugs };
+  for (const [i, [domain, name, slugs]] of HOSTS.entries()) {
+    if (host === domain || host.endsWith(`.${domain}`)) {
+      return { name, slugs, domain, automatic: i < firstBank && !NOT_AUTOMATIC.has(domain) };
+    }
   }
   return null;
+}
+
+/** Match patterns for the sites the automatic price check may run on (the optional permission). */
+export function priceCheckOrigins() {
+  return HOSTS.slice(0, firstBank)
+    .filter(([domain]) => !NOT_AUTOMATIC.has(domain))
+    .map(([domain]) => `*://*.${domain}/*`);
 }

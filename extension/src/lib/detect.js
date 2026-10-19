@@ -1,19 +1,24 @@
 /**
- * Runs inside the provider's page (chrome.scripting.executeScript, granted by
- * activeTab only when the reader opens the popup there), so it must be
- * self-contained: no imports, no closures. It reads, never writes, and returns
- * the amount and currencies the page's calculator shows, best effort:
+ * Runs inside the provider's page — through chrome.scripting.executeScript when
+ * the reader opens the popup there (activeTab), or in the automatic price check
+ * (content.js) — so it must be self-contained: no imports, no closures. It
+ * reads, never writes, and returns the amount and currencies the page's
+ * calculator shows, best effort:
  *
  *   1. the URL's own parameters (sourceAmount=, from=, targetCurrency=, …);
  *   2. visible amount fields in calculator order, each paired with the first
- *      currency code shown in the field's surroundings.
+ *      currency code shown in the field's surroundings; the field in the
+ *      receiving currency is the provider's own payout (`receive`);
+ *   3. for a currency still missing, the URL's path: a destination country
+ *      ("/send-money-to-india", "/us/en/philippines") or a sending locale ("/gb/").
  *
  * `codes` is the list of currency codes we compare; any other three capitals
- * ("USA", "FAQ") are ignored.
+ * ("USA", "FAQ") are ignored. `places` maps a country's slug ("india",
+ * "united-kingdom") to its currency.
  */
-export function detectTransfer(codes) {
+export function detectTransfer(codes, places = {}) {
   const known = new Set(codes);
-  const result = { amount: null, from: null, to: null, source: null };
+  const result = { amount: null, from: null, to: null, receive: null, source: null };
 
   const params = new URLSearchParams(location.search);
   const param = (names) => {
@@ -45,7 +50,9 @@ export function detectTransfer(codes) {
   };
   const codeNear = (el) => {
     let node = el;
-    for (let depth = 0; depth < 5 && node; depth++) {
+    // The nearest label wins, so a receive field finds its own currency before
+    // any container shared with the send field (Xoom's sits 6 levels up).
+    for (let depth = 0; depth < 8 && node; depth++) {
       node = node.parentElement;
       if (!node) break;
       const parts = [];
@@ -81,6 +88,25 @@ export function detectTransfer(codes) {
   if (!result.to) {
     const other = withCode.find((f) => f.currency !== result.from);
     if (other) result.to = other.currency;
+  }
+  if (result.to && result.source === "page") {
+    const payout = withCode.find((f) => f.currency === result.to && f.amount !== result.amount);
+    if (payout) result.receive = payout.amount;
+  }
+
+  const LOCALES = { us: "USD", gb: "GBP", uk: "GBP", ca: "CAD", au: "AUD", nz: "NZD", sg: "SGD", ae: "AED", sa: "SAR", ch: "CHF", ie: "EUR", de: "EUR", fr: "EUR", es: "EUR", it: "EUR", nl: "EUR", be: "EUR", at: "EUR", pt: "EUR", fi: "EUR", se: "SEK", no: "NOK", dk: "DKK", pl: "PLN", jp: "JPY", hk: "HKD", my: "MYR" };
+  const path = location.pathname.toLowerCase();
+  if (!result.from) {
+    const locale = path.split("/").filter(Boolean).slice(0, 2).map((seg) => seg.split("-").pop()).find((seg) => LOCALES[seg]);
+    if (locale && known.has(LOCALES[locale])) result.from = LOCALES[locale];
+  }
+  if (!result.to) {
+    for (const [slug, code] of Object.entries(places)) {
+      if (code !== result.from && known.has(code) && new RegExp(`(^|[/-])${slug}($|[/-])`).test(path)) {
+        result.to = code;
+        break;
+      }
+    }
   }
   return result.amount || result.from ? result : null;
 }

@@ -359,7 +359,9 @@ Mounted once in the layout: `src/components/live-activity/`.
 `extension/build` + store zip; `extension/README.md` has the store checklist.
 Compare / Convert (multi-currency, 1D–30D changes) / Offers / Rates tabs, the
 site's live activity strip (read-only), right-click "compare this amount", `smc`
-address-bar keyword, rate alerts. Its only data source is
+address-bar keyword, rate alerts, and a price check on 30 provider sites (optional
+permission; never banks; read-only) that says whether the transfer on the page is
+a good deal, from the same verdict as the popup (`extension/src/lib/verdict.js`). Its only data source is
 `/api/ext/v1/{compare,rates,history,activity}` (`src/lib/extension-api.ts`); rates
 come from the licensed currencyapi feed when it is fresher than the XE snapshot,
 and the popup says "Live" only while the source's timestamp is minutes old. It reads
