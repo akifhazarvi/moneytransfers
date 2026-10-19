@@ -39,7 +39,7 @@ test("consent dismissal retries without another scroll", async ({ page, context,
   await page.waitForTimeout(5_000);
   await page.locator('[data-pwa-install-slot="article-end"]').scrollIntoViewIfNeeded();
   await expect(installPrompt(page)).toHaveCount(0);
-  await page.getByRole("dialog", { name: "Cookie consent" }).getByRole("button", { name: "Decline" }).click();
+  await page.getByRole("dialog", { name: "Cookie consent" }).getByRole("button", { name: "No thanks" }).click();
   await expect(installPrompt(page)).toBeVisible();
 });
 

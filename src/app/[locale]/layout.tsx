@@ -16,6 +16,7 @@ import WebVitalsReporter from "@/components/WebVitalsReporter";
 import ProviderClickDelegate from "@/components/ProviderClickDelegate";
 import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import TrafficTally from "@/components/TrafficTally";
 import PwaManager from "@/components/pwa/PwaManager";
 import WelcomeBackManager from "@/components/welcome-back/WelcomeBackManager";
 import LiveActivity from "@/components/live-activity/LiveActivity";
@@ -350,6 +351,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <ProviderClickDelegate />
           <AiSourceInjector />
           <CookieConsentBanner />
+          <TrafficTally />
           <PwaManager />
           <WelcomeBackManager />
           <LiveActivity />

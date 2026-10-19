@@ -22,17 +22,27 @@
  * scripts/check-inline-script-hashes.ts verifies they're in sync at build.
  */
 
-// Basic Consent Mode: no Google request or pre-consent event replay.
-// Worldwide explicit opt-in also covers missing/stale geolocation.
+import { CONSENT_REQUIRED_COUNTRIES } from "@/lib/consent";
+
+// effectiveConsent() from consent.ts for one purpose (1 = analytics, 2 =
+// replay), before any bundle loads: GPC refuses, a stored choice wins, else
+// the geo-country cookie decides and an unknown country asks.
+const allowedFn = (doc: string, part: 1 | 2) =>
+  `function allowed(){if(navigator.globalPrivacyControl===true)return false;var c=${doc}.cookie,m=c.match(/(?:^|;\\s*)smc_consent=(?:v2\\.(granted|denied)\\.(granted|denied)|(denied))(?:;|$)/);if(m)return m[${part}]==='granted';var g=(c.match(/(?:^|;\\s*)geo-country=([A-Z]{2})(?:;|$)/)||[])[1];return !!g&&',${CONSENT_REQUIRED_COUNTRIES.join(",")},'.indexOf(','+g+',')<0;}`;
+
+// Basic Consent Mode: no Google request or pre-consent event replay where a
+// choice is required (CONSENT_REQUIRED_COUNTRIES); on by default elsewhere.
+// Off the production host and under automation, permitted events still queue
+// in dataLayer (e2e reads them) but load() never fetches gtag.js.
 export const GTAG_INLINE = `(function(){
   var id='G-HJH07QEJ30',host=location.hostname,started=false,loaded=false;
   var production=host==='sendmoneycompare.com'||host.slice(-21)==='.sendmoneycompare.com';
-  function allowed(){return !navigator.globalPrivacyControl&&navigator.doNotTrack!=='1'&&/(?:^|;\\s*)smc_consent=v2\\.granted\\.(?:granted|denied)(?:;|$)/.test(document.cookie);}
+  ${allowedFn("document", 1)}
   window.dataLayer=window.dataLayer||[];
   function push(){window.dataLayer.push(arguments);}
   window.gtag=function(){
     if(arguments[0]==='consent'){push.apply(null,arguments);return;}
-    if(!allowed()||navigator.webdriver===true||!production)return;
+    if(!allowed())return;
     if(!started)load();
     push.apply(null,arguments);
   };
@@ -78,10 +88,10 @@ export const GTAG_INLINE = `(function(){
 
 export const THEME_INLINE = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`;
 
-// Replay is separately opt-in; advertising consent always remains denied.
+// Replay is its own choice where one is required; advertising consent always remains denied.
 export const CLARITY_INLINE = `(function(w,d){
   var loaded=false,host=location.hostname;
-  function allowed(){return !navigator.globalPrivacyControl&&navigator.doNotTrack!=='1'&&/(?:^|;\\s*)smc_consent=v2\\.(?:granted|denied)\\.granted(?:;|$)/.test(d.cookie);}
+  ${allowedFn("d", 2)}
   function update(){
     if(navigator.webdriver===true||(host!=='sendmoneycompare.com'&&host.slice(-21)!=='.sendmoneycompare.com'))return;
     if(!allowed()){if(loaded)w.clarity('consentv2',{analytics_Storage:'denied',ad_Storage:'denied'});return;}
@@ -97,9 +107,9 @@ export const CLARITY_INLINE = `(function(w,d){
 
 // SHA-256 hashes of the strings above, base64-encoded. Used by middleware
 // CSP. Verified by scripts/check-inline-script-hashes.ts at build time.
-export const GTAG_INLINE_SHA256 = "AnYM+0Tj4RVrguVPWPcvdSW9Axv5auOKtaZYL/LATYc=";
+export const GTAG_INLINE_SHA256 = "GgoRMcabRb3w11LWwxmNdqz9fFfVHCowFx6kTCaDNYo=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";
-export const CLARITY_INLINE_SHA256 = "NoQUAYRPvHlcc+B+FtNVIvwAPmP8xKQLCeaSKKCxR7E=";
+export const CLARITY_INLINE_SHA256 = "u6D084q/ijzJ61+0ufLCGLT3+PsSJjEAB2+Iwd2WFAM=";
 
 // PWA install capture. Chrome/Edge/Samsung fire `beforeinstallprompt` once the
 // manifest is parsed, which can be before React hydrates. A listener added in a

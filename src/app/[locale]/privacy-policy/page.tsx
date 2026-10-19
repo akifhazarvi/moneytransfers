@@ -151,9 +151,11 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                   <li>
                     <strong className="text-[var(--color-on-surface)]">Analytics cookies:</strong>{" "}
                     Help us understand how visitors use our site (Google Analytics 4 and
-                    Vercel Analytics). Optional analytics needs your explicit permission,
-                    wherever you are. Microsoft Clarity session replay is a separate
-                    choice. You can change either choice under Cookie settings in the footer
+                    Vercel Analytics) and Microsoft Clarity session replay. In the EU, the
+                    EEA, the UK and Switzerland, or when we cannot tell where you are, they
+                    wait for your permission; elsewhere they are on by default. You can
+                    change either under Cookie settings in the footer, and a Global Privacy
+                    Control signal turns both off
                   </li>
                 </ul>
               </div>
@@ -184,8 +186,8 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                   <li>
                     <strong className="text-[var(--color-on-surface)]">Microsoft Clarity:</strong>{" "}
                     Session recordings and heatmaps of how pages are used (clicks, scrolling
-                    and pointer movement). It loads only if you turn on session replay in
-                    Cookie settings, then sets its own cookies, including Microsoft
+                    and pointer movement). It loads only when session replay is on (see
+                    Analytics cookies above), then sets its own cookies, including Microsoft
                     identifiers; advertising consent is always sent as denied. See{" "}
                     <a
                       href="https://www.microsoft.com/en-us/privacy/privacystatement"
@@ -199,7 +201,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                   </li>
                   <li>
                     <strong className="text-[var(--color-on-surface)]">Vercel Analytics:</strong>{" "}
-                    For usage measurement, only with your analytics permission. See{" "}
+                    For usage measurement; it follows your analytics setting. See{" "}
                     <a
                       href="https://vercel.com/docs/analytics/privacy-policy"
                       target="_blank"
@@ -212,8 +214,9 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                   </li>
                   <li>
                     <strong className="text-[var(--color-on-surface)]">Consent administration:</strong>{" "}
-                    We keep daily aggregate counts of notice displays, choices and qualified
-                    provider redirects for up to 90 days, without storing visitor
+                    We keep daily aggregate counts of notice displays, choices, qualified
+                    provider redirects and engaged page views per country for up to 90
+                    days, without storing visitor
                     identifiers, page addresses or referrers in those counters. Security and
                     hosting systems may process request metadata separately.
                   </li>

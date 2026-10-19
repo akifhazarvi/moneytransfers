@@ -67,7 +67,7 @@ export default async function CookiePolicyPage({ params }: Props) {
                   localStorage and sessionStorage, which work similarly.
                 </p>
                 <p>
-                  We ask for an explicit choice worldwide, including when your location is unknown. Accept analytics enables Google Analytics, Vercel Analytics and our first-party activity counter. Microsoft Clarity session replay requires a separate choice in settings. Advertising consent is never granted by this notice.
+                  In the EU, the EEA, the UK and Switzerland, and whenever we cannot tell where you are, optional analytics and session replay stay off until you choose. Elsewhere they are on by default, and you can turn either off under Cookie settings. Allow turns on Google Analytics, Vercel Analytics, our first-party activity counter and Microsoft Clarity session replay; Settings lets you choose each one. Advertising consent is never granted by this notice.
                 </p>
               </div>
             </div>
@@ -138,7 +138,7 @@ export default async function CookiePolicyPage({ params }: Props) {
                   </h3>
                   <p className="mb-3">{t("analyticsCookiesDesc")}</p>
                   <p className="mb-3">
-                    Google Analytics uses _ga and _ga_* cookies to recognise visits. Our smc_vid identifier supports consented analytics on provider handoffs. These are pseudonymous identifiers, not anonymous data. Vercel Analytics is cookieless but is also gated by your analytics choice. If you separately enable session replay, Microsoft Clarity may use _clck and _clsk cookies and process page interactions. The Trustpilot review widget loads only with analytics permission. We do not enable advertising consent for these tools.
+                    Google Analytics uses _ga and _ga_* cookies to recognise visits. Our smc_vid identifier supports consented analytics on provider handoffs. These are pseudonymous identifiers, not anonymous data. Vercel Analytics is cookieless and follows the same analytics setting. With session replay on, Microsoft Clarity may use _clck and _clsk cookies and process page interactions. The Trustpilot review widget follows the analytics setting. We do not enable advertising consent for these tools.
                   </p>
                   <div className="overflow-x-auto mt-4">
                     <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
@@ -162,7 +162,7 @@ export default async function CookiePolicyPage({ params }: Props) {
                         </tr>
                         <tr className="border-b border-[var(--color-outline)]">
                           <td className={tdMono}>smc_consent</td>
-                          <td className={td}>Essential record of analytics and replay choices (all visitors)</td>
+                          <td className={td}>Essential record of your analytics and replay choices</td>
                           <td className={td}>6 months (cookie)</td>
                         </tr>
                         <tr className="border-b border-[var(--color-outline)]">
@@ -194,10 +194,10 @@ export default async function CookiePolicyPage({ params }: Props) {
                 </p>
                 <CookieSettingsButton className="min-h-11 text-[var(--color-primary)]" />
                 <p>
-                  Global Privacy Control and Do Not Track signals disable optional tracking. Withdrawing a previously granted choice removes accessible first-party analytics cookies and reloads the page to stop loaded tracking scripts. Browser settings can also remove third-party cookies that this site cannot access.
+                  A Global Privacy Control signal turns optional tracking off wherever you are. We do not respond to Do Not Track signals. Withdrawing a previously granted choice removes accessible first-party analytics cookies and reloads the page to stop loaded tracking scripts. Browser settings can also remove third-party cookies that this site cannot access.
                 </p>
                 <p>
-                  To administer the consent notice, we keep daily totals of notice displays and choices without storing a visitor identifier, page address or referrer in those counters. We also keep an aggregate count of qualified provider redirects. These counters expire after 90 days and cannot identify unique people or connect browsing sessions. Hosting and short-lived abuse-prevention systems may process request metadata separately.
+                  To administer the consent notice, we keep daily totals of notice displays and choices without storing a visitor identifier, page address or referrer in those counters. We also keep aggregate counts of qualified provider redirects and of engaged page views per country, which need no cookie or identifier and run whatever you choose. These counters expire after 90 days and cannot identify unique people or connect browsing sessions. Hosting and short-lived abuse-prevention systems may process request metadata separately.
                 </p>
               </div>
             </div>

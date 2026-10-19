@@ -1,4 +1,4 @@
-import { readConsent } from "@/lib/consent";
+import { consentPending } from "@/lib/consent";
 /**
  * Installed-app (PWA) state shared by the install prompt, the header button
  * and the install dialog. Client-only: every function reads `window`.
@@ -199,9 +199,9 @@ export function claimLaunch(): boolean {
   return true;
 }
 
-/** The consent choice settles first; never stack two prompts. */
+/** The consent choice settles first where one is asked; never stack two prompts. */
 export function consentSettled(): boolean {
-  return readConsent(document.cookie) !== null;
+  return !consentPending();
 }
 
 /** How the page is displayed: the installed app ("standalone"/"minimal-ui") or a browser tab. */

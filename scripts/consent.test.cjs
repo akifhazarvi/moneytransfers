@@ -10,7 +10,7 @@ function moduleFrom(path, imports = {}, globals = {}) {
   return context.exports;
 }
 const consent = moduleFrom('src/lib/consent.ts');
-const scripts = moduleFrom('src/lib/inline-scripts.ts');
+const scripts = moduleFrom('src/lib/inline-scripts.ts', { '@/lib/consent': consent });
 function browser(cookie = '', navigator = {}, hostname = 'sendmoneycompare.com') {
   const listeners = new Map(), timers = [], requests = [], storage = new Map();
   const context = { navigator, location: { hostname, pathname: '/iban', search: '', href: `https://${hostname}/iban` },
@@ -27,14 +27,24 @@ test('legacy automatic grants and malformed choices are never explicit permissio
   assert.equal(consent.readConsent('smc_consent=denied').analytics, false);
   assert.equal(consent.readConsent('a=1; smc_consent=v2.granted.denied').analytics, true);
 });
-test('server requires a versioned analytics grant and honors privacy headers', () => {
-  for (const cookie of ['', 'smc_consent=denied', 'smc_consent=granted', 'smc_consent=v2.denied.granted']) assert.equal(consent.requestAnalyticsAllowed(new Request('https://example.com', {headers:{cookie}})), false);
-  const cookie = 'smc_consent=v2.granted.denied';
-  assert.equal(consent.requestAnalyticsAllowed(new Request('https://example.com',{headers:{cookie}})),true);
-  for(const header of ['sec-gpc','dnt']) assert.equal(consent.requestAnalyticsAllowed(new Request('https://example.com',{headers:{cookie,[header]:'1'}})),false);
+const req = (cookie, headers = {}) => new Request('https://example.com', { headers: { cookie, ...headers } });
+test('server asks for a versioned grant in the EU/EEA/UK/CH or an unknown country', () => {
+  for (const cookie of ['', 'smc_consent=denied', 'smc_consent=granted', 'smc_consent=v2.denied.granted', 'geo-country=DE', 'geo-country=GB; smc_consent=granted', 'geo-country=CH']) assert.equal(consent.requestAnalyticsAllowed(req(cookie)), false);
+  assert.equal(consent.requestAnalyticsAllowed(req('', { 'x-vercel-ip-country': 'FR' })), false);
+  assert.equal(consent.requestAnalyticsAllowed(req('geo-country=DE; smc_consent=v2.granted.denied')), true);
+  assert.equal(consent.requestAnalyticsAllowed(req('smc_consent=v2.granted.denied', { 'sec-gpc': '1' })), false);
 });
-test('no Google or Clarity loads before consent, after rejection or legacy automatic grant', () => {
-  for(const cookie of ['', 'smc_consent=denied','smc_consent=granted','smc_consent=v2.denied.denied']) {
+test('server runs analytics by default elsewhere, unless refused or GPC; the page cookie outranks the header', () => {
+  assert.equal(consent.requestAnalyticsAllowed(req('', { 'x-vercel-ip-country': 'US' })), true);
+  assert.equal(consent.requestAnalyticsAllowed(req('geo-country=US')), true);
+  assert.equal(consent.requestAnalyticsAllowed(req('geo-country=US', { dnt: '1' })), true);
+  assert.equal(consent.requestAnalyticsAllowed(req('geo-country=DE', { 'x-vercel-ip-country': 'US' })), false);
+  assert.equal(consent.requestAnalyticsAllowed(req('geo-country=US; smc_consent=v2.denied.denied')), false);
+  assert.equal(consent.requestAnalyticsAllowed(req('geo-country=US; smc_consent=denied')), false);
+  assert.equal(consent.requestAnalyticsAllowed(req('geo-country=US', { 'sec-gpc': '1' })), false);
+});
+test('where a choice is required, no Google or Clarity loads before consent, after rejection or legacy automatic grant', () => {
+  for(const cookie of ['', 'geo-country=DE', 'geo-country=GB; smc_consent=denied','geo-country=FR; smc_consent=granted','smc_consent=v2.denied.denied','geo-country=US; smc_consent=v2.denied.denied']) {
     const b=browser(cookie);b.run(scripts.GTAG_INLINE);b.run(scripts.CLARITY_INLINE);
     b.fire('pointerdown');b.fire('scroll');b.timers.forEach(f=>f());
     b.context.gtag('event','provider_clicked');assert.equal(b.requests.length,0);
@@ -59,10 +69,28 @@ test('replay-only choice loads Clarity independently and denies advertising', ()
   assert.equal(b.requests.length,1);assert.match(b.requests[0],/clarity.ms/);
   assert.equal(b.context.clarity.q[0][1].ad_Storage,'denied');
 });
-test('privacy signals, previews and automation cannot load optional SDKs', () => {
-  for(const [nav,host] of [[{globalPrivacyControl:true},'sendmoneycompare.com'],[{doNotTrack:'1'},'sendmoneycompare.com'],[{webdriver:true},'sendmoneycompare.com'],[{},'localhost']]) {
-    const b=browser('smc_consent=v2.granted.granted',nav,host);b.run(scripts.GTAG_INLINE);b.run(scripts.CLARITY_INLINE);b.fire('pointerdown');b.fire('smc:consent-changed');b.timers.forEach(f=>f());assert.equal(b.requests.length,0);
+test('outside the EU/EEA/UK/CH both load by default on the first interaction; Do Not Track does not stop them', () => {
+  for (const nav of [{}, { doNotTrack: '1' }]) {
+    const b=browser('geo-country=US',nav);b.run(scripts.GTAG_INLINE);b.run(scripts.CLARITY_INLINE);
+    assert.equal(b.requests.length,0);
+    b.fire('pointerdown');b.timers.forEach(f=>f());
+    assert.equal(b.requests.length,2);assert.match(b.requests.join(' '),/googletagmanager.*clarity\.ms|clarity\.ms.*googletagmanager/);
   }
+});
+test('Global Privacy Control, previews and automation cannot load optional SDKs', () => {
+  for(const [nav,host,cookie] of [[{globalPrivacyControl:true},'sendmoneycompare.com','smc_consent=v2.granted.granted'],[{globalPrivacyControl:true},'sendmoneycompare.com','geo-country=US'],[{webdriver:true},'sendmoneycompare.com','geo-country=US'],[{},'localhost','geo-country=US']]) {
+    const b=browser(cookie,nav,host);b.run(scripts.GTAG_INLINE);b.run(scripts.CLARITY_INLINE);b.fire('pointerdown');b.fire('smc:consent-changed');b.timers.forEach(f=>f());assert.equal(b.requests.length,0);
+  }
+});
+test('off production and under automation, permitted events queue for tests but nothing loads', () => {
+  for (const [nav, host] of [[{ webdriver: true }, 'sendmoneycompare.com'], [{}, 'localhost']]) {
+    const b = browser('geo-country=US', nav, host); b.run(scripts.GTAG_INLINE);
+    b.context.gtag('event', 'pwa_installed'); b.fire('pointerdown'); b.timers.forEach(f => f());
+    assert.equal(b.requests.length, 0);
+    assert.equal(b.context.dataLayer.filter(a => a[0] === 'event').length, 1);
+  }
+  const eu = browser('geo-country=DE', {}, 'localhost'); eu.run(scripts.GTAG_INLINE); eu.context.gtag('event', 'pwa_installed');
+  assert.equal(eu.context.dataLayer.filter(a => a[0] === 'event').length, 0);
 });
 test('Measurement Protocol cannot bypass rejected or missing consent',async()=>{
   let calls=0;
@@ -102,4 +130,24 @@ test('counter endpoint accepts only bounded same-origin consent actions',async()
   await api.POST(request('a'.repeat(200)));
   assert.equal(totals.length,0);
   await api.POST(request('accepted'));assert.deepEqual(totals,['accepted']);
+});
+test('page-view tally accepts only bounded same-origin beacons from browsers', async () => {
+  const views = [];
+  const api = moduleFrom('src/app/api/tally/route.ts', {
+    'next/server': { NextResponse: Response },
+    '@/lib/traffic-tally': { tallyPageView: async (...a) => views.push(a) },
+    '@/lib/rate-limit': { checkRateLimit: () => ({ allowed: true }) },
+    '@/lib/traffic-source': { classifyTrafficSource: ua => ({ isBot: /bot/i.test(ua || '') }) },
+  });
+  const request = (body, headers = {}) => new Request('https://example.com/api/tally', { method: 'POST', body,
+    headers: { origin: 'https://example.com', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0', 'x-vercel-ip-country': 'US', ...headers } });
+  await api.POST(request('{"landing":true}', { origin: 'https://other.example' }));
+  await api.POST(request('{"landing":true}', { 'sec-fetch-site': 'cross-site' }));
+  await api.POST(request('{"landing":true}', { 'user-agent': 'Googlebot' }));
+  await api.POST(request(JSON.stringify({ landing: true, pad: 'x'.repeat(80) })));
+  await api.POST(request('not json'));
+  assert.equal(views.length, 0);
+  await api.POST(request('{"landing":true}'));
+  await api.POST(request('{}'));
+  assert.deepEqual(views, [['US', true], ['US', false]]);
 });

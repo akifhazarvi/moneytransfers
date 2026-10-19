@@ -524,39 +524,61 @@ Singapore browser-spoofing bots that hit /go directly — 91% of
 reached-the-provider count is `interstitial_continue` (server beacon); the
 client `go_review_continue` is lost when Continue is the first tap.
 
-## Consent (worldwide opt-in, owner decision 2026-10-18)
+## Consent (asked only where the law requires it, owner decision 2026-10-18)
 
-Every visitor, everywhere, chooses before optional tracking runs; until
-2026-10-18 analytics defaulted on outside the UK/EU/EEA/CH and Clarity ran
-with no consent at all. `src/lib/consent.ts` holds the rules; the cookie is
-`smc_consent=v2.<analytics>.<replay>` (180 days), and a legacy automatic
-grant is not consent. Footer and /cookies "Cookie settings"
-(`CookieSettingsButton`) reopen the choice; withdrawal clears `_ga*`,
-`smc_vid`, `_clck`/`_clsk` and reloads. GPC / Do Not Track override a grant.
+The banner asks only in the EU/EEA, the UK and Switzerland, or when the
+country is unknown (`CONSENT_REQUIRED_COUNTRIES` in `src/lib/consent.ts`, read
+from the middleware's `geo-country` cookie, Vercel's header on a first
+request). Everywhere else analytics and Clarity replay run by default, and
+Cookie settings or Global Privacy Control turn them off; Do Not Track is not
+honoured (no law requires it). History: a worldwide opt-in shipped at ~15:00
+on 2026-10-18 and the banner was shown 1,637 times for 1 Allow, so GA4,
+Vercel and the "people here now" counter fell to almost nothing while real
+traffic held; it was reverted to this rule the same evening. The cookie is
+`smc_consent=v2.<analytics>.<replay>` (180 days); a stored choice always
+wins, and a legacy automatic grant is not consent. Footer and /cookies
+"Cookie settings" (`CookieSettingsButton`) reopen the choice; withdrawal
+clears `_ga*`, `smc_vid`, `_clck`/`_clsk` and reloads.
 
-- **Analytics** (GA4 Basic Consent Mode — no Google request and no replay of
-  earlier events before acceptance; Vercel Analytics; server GA4 from /go,
-  /out and /api/track; the live-activity beacon; `smc_vid`) needs the
-  analytics choice. **Replay** (Clarity) is a separate choice; Clarity's
-  advertising storage is always denied.
+- **One decision, four places:** `effectiveConsent()` (components, hooks),
+  `requestAnalyticsAllowed()` (server: /go, /out, /api/track, live-activity,
+  middleware `smc_vid`), and the `allowed()` that `GTAG_INLINE` /
+  `CLARITY_INLINE` embed (`allowedFn` in inline-scripts.ts, built from the same
+  list — editing the list changes both CSP hashes). The server reads the
+  cookie's country before the header so it agrees with what the page decided.
+- **Analytics** (GA4 Basic Consent Mode where asked — no Google request and no
+  replay of earlier events before Allow; Vercel Analytics; server GA4; the
+  live-activity beacon; `smc_vid`; the Trustpilot widget) follows the analytics
+  choice. **Replay** (Clarity) is its own choice in Settings; "Allow" grants
+  both. Clarity's advertising storage is always denied.
+- **The banner never covers the Send bar** (rule 12): it measures the wide
+  `.pwa-lift` bars and the forex ticker and sits above them, compact on
+  phones. Allow and No thanks are styled identically (regulators require
+  equal prominence); the copy asks for help improving comparisons and must
+  stay true: rates never change, nothing is used for ads.
 - **Redirects never depend on it.** /go and /out forward every click with its
   `click_id`; without consent they skip the visitor id and the GA4/Vercel
   events, and only `qualified_redirect` is counted.
-- **What a reading means:** counts fall from 2026-10-18 for every visitor who
-  doesn't accept, so GA4 and Vercel before and after that day are not
-  comparable. Daily aggregate totals (displays, choices, qualified redirects;
-  no id, page or referrer; 90 days) are in Redis:
-  `node --env-file=.env.local scripts/report-consent-metrics.mjs`.
+- **Traffic without consent:** `TrafficTally` → `/api/tally` →
+  `src/lib/traffic-tally.ts` counts engaged page views (first pointer, touch,
+  key or scroll; never automation or crawlers) as daily totals per country,
+  landings apart — no id, page, referrer or device storage, 90 days, one Redis
+  command per view. It is the line that stays comparable across consent
+  changes. `node --env-file=.env.local scripts/report-consent-metrics.mjs`
+  prints it with the consent totals (displays, choices, qualified redirects).
+- **What a reading means:** GA4 and Vercel are not comparable across
+  ~15:00 2026-10-18 → that evening's deploy, and EU/UK/CH counts are only
+  the visitors who allow. Judge traffic volume on the tally.
 - **AdSense is paused** (`AdSenseLoader` renders nothing): analytics consent is
   not advertising consent. It returns only with a Google-certified CMP.
-- Tests: `node scripts/consent.test.cjs`, `e2e/consent.spec.ts`. Report and
-  screenshots: `reports/consent-2026-10-18/`.
+- Tests: `node scripts/consent.test.cjs`, `e2e/consent.spec.ts` (picks the
+  region with a `geo-country` cookie, which the middleware keeps).
 
 ## GA4 measurement
 
 Audit 2026-10-11 (property 284608262; Composio's GA4 token is read-only, so
-Admin changes are made in the GA4 UI). Since 2026-10-18 GA4 sees only visitors
-who accepted analytics (see *Consent*).
+Admin changes are made in the GA4 UI). In the EU/EEA/UK/CH GA4 sees only
+visitors who allow analytics (see *Consent*).
 
 - **Soft-navigation page views come only from `GA4PageviewTracker`**, keyed on
   the pathname (a query-only change is a page rewriting its own URL, e.g.
