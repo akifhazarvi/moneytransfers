@@ -268,7 +268,7 @@ function DefaultReview({
           <PageByline
             // The content date, shared with sitemap.ts (rule 16) — not the
             // quote data, which the default cadence line describes.
-            updated={companyContentDate(review)}
+            updated={companyContentDate(review, provider.slug)}
             // Round-3 brief §4.3: profiles read "By Awais Imran · Reviewed by
             // Awais Imran" — a writer reviewing his own page is not a review.
             // The reviewer is now the review's recorded fact-checker
@@ -647,7 +647,7 @@ function DefaultReview({
         "datePublished": review.publishedAt,
         // The byline's "Updated" date (rule 16), not the review file's own
         // updatedAt, which a profile page does not print.
-        "dateModified": companyContentDate(review),
+        "dateModified": companyContentDate(review, provider.slug),
         "itemReviewed": {
           "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
         },

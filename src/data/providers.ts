@@ -357,7 +357,7 @@ export const providers: Provider[] = [
     logo: "/logos/revolut.svg",
     rating: 4.4,
     ratingLabel: "Excellent",
-    description: "Revolut is a digital banking app offering international money transfers at interbank rates during market hours, along with a full suite of financial services.",
+    description: "Revolut is a digital banking app that converts at its own exchange rate and sends international transfers, along with a full suite of financial services.",
     founded: 2015,
     headquarters: "London, UK",
     regulated: true,

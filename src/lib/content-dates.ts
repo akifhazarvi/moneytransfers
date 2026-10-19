@@ -39,9 +39,10 @@ export const IBAN_CONTENT_DATE = "2026-10-09";
  */
 export const COMPARISON_CONTENT_DATE = "2026-10-09";
 
-/** /companies/[slug]: a published review carries its own date; a profile is the template's. */
-export function companyContentDate(review?: { updatedAt: string; publishSections?: boolean }): string {
-  return review?.publishSections ? review.updatedAt : COMPARISON_CONTENT_DATE;
+/** /companies/[slug]: a published review carries its own date; a profile is the template's, or its own when rewritten. */
+export function companyContentDate(review?: { updatedAt: string; publishSections?: boolean }, slug?: string): string {
+  if (review?.publishSections) return review.updatedAt;
+  return slug ? familyPageDate(`/companies/${slug}`, COMPARISON_CONTENT_DATE) : COMPARISON_CONTENT_DATE;
 }
 /**
  * A family page whose own content changed after its family's date. Bumping
@@ -64,6 +65,7 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/compare/chase-vs-revolut": "2026-10-18",      // decision note: Chase wires vs Revolut's partner banks (OCC, FDIC)
   "/swift-codes/netherlands": "2026-10-18",       // name check, DNB register, instant payments
   "/swift-codes/france": "2026-10-18",            // REGAFI, the payee check and SWIFT wires, overseas BIC letters
+  "/companies/revolut": "2026-10-18",            // verdict: Revolut's own rate, plan allowances and weekend fee
   "/iban/costa-rica": "2026-10-18",               // SINPE, Pagos al Exterior, SINPE Móvil
   "/iban/lithuania": "2026-10-18",                // CENTROlink, Verification of Payee, litas
   "/iban/slovakia": "2026-10-18",                 // payment symbols, SIPS and TIPS
@@ -138,7 +140,10 @@ export function shownContentDate(
   if (path.startsWith("/swift-codes/")) return familyPageDate(path, SWIFT_CONTENT_DATE);
   if (path.startsWith("/iban/")) return familyPageDate(path, IBAN_CONTENT_DATE);
   if (path.startsWith("/compare/") || path.startsWith("/banks/")) return familyPageDate(path, COMPARISON_CONTENT_DATE);
-  if (path.startsWith("/companies/")) return companyContentDate(companyReview?.(path.slice("/companies/".length)));
+  if (path.startsWith("/companies/")) {
+    const slug = path.slice("/companies/".length);
+    return companyContentDate(companyReview?.(slug), slug);
+  }
   if (path.startsWith("/exchange-rates/history/")) return RATE_HISTORY_CONTENT_DATE;
   if (path.startsWith("/cash-out/")) return CASH_OUT_CONTENT_DATE;
   if (path.startsWith("/travel/")) return travelDate?.(path.slice("/travel/".length));

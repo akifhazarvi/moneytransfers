@@ -741,7 +741,7 @@ export const providerReviews: ProviderReview[] = [
     alternatives: [
       { slug: "wise", reason: "Better for smaller transfers with its zero-markup exchange rate and debit card funding" },
       { slug: "xe", reason: "Similar no-fee model with broader currency coverage and a more modern app" },
-      { slug: "revolut", reason: "Good for medium transfers with interbank rates and a polished multi-currency app" },
+      { slug: "revolut", reason: "Good for medium transfers from a polished multi-currency app, at Revolut's own rate" },
       { slug: "remitly", reason: "Better for remittances requiring cash pickup, mobile money, or express speed" },
       { slug: "western-union", reason: "Better if recipient needs cash pickup at a physical location" },
     ],
@@ -951,7 +951,7 @@ export const providerReviews: ProviderReview[] = [
     alternatives: [
       { slug: "wise", reason: "Cheaper mid-market rates with zero markup — the better choice if cost is your top priority" },
       { slug: "ofx", reason: "Similar zero-fee model with better rates on very large transfers ($10,000+)" },
-      { slug: "revolut", reason: "Interbank rates during market hours with a more modern app experience" },
+      { slug: "revolut", reason: "Converts at its own rate in a more modern app, with a weekend fee on lower plans" },
       { slug: "remitly", reason: "Better for remittances with cash pickup, mobile money, and express delivery" },
       { slug: "western-union", reason: "Massive cash pickup network if your recipient doesn't have a bank account" },
     ],
@@ -1215,7 +1215,7 @@ export const providerReviews: ProviderReview[] = [
     factChecker: "Ahsan Mukhtar",
     howWeTested: "We used a Revolut Standard (free) account to test currency exchanges across 4 pairs (GBP→EUR, GBP→USD, USD→INR, GBP→INR) on both weekdays and weekends between February and March 2026. We verified the weekend markup by comparing Saturday exchange rates against the Friday closing mid-market rate. We also tested the £1,000 free-tier monthly limit by tracking when the 0.5% fee kicked in. International SWIFT transfers were tested to verify delivery times and any intermediary fees. Our scraping system monitors Revolut's quoted rates every 6 hours for ongoing accuracy tracking.",
     editorVerdict:
-      "Revolut offers an impressive multi-currency account with interbank exchange rates during market hours — a genuinely competitive alternative to <a href=\"/companies/wise\">Wise</a> for everyday currency needs. The free tier is generous enough for occasional senders, and the paid plans unlock unlimited fee-free exchanges. The main caveats: a 0.5%–1% markup applies on weekends and public holidays when currency markets are closed, the free tier has a monthly exchange limit, and transfers to non-Revolut users can take 1–3 days. Revolut is best for people who want a full digital banking experience with multi-currency capabilities built in, rather than a standalone transfer service.",
+      "Revolut offers an impressive multi-currency account that converts at Revolut's own rate — a genuinely competitive alternative to <a href=\"/companies/wise\">Wise</a> for everyday currency needs. The free tier is generous enough for occasional senders, and Premium, Metal and Ultra remove the monthly allowance cap. The main caveats: Revolut adds a weekend fee on its Standard (1%) and Plus (0.5%) plans, and those plans have a monthly allowance with a fair usage fee above it. Revolut is best for people who want a full digital banking experience with multi-currency capabilities built in, rather than a standalone transfer service.",
     usp: {
       headline: "A full digital bank with interbank exchange rates built in",
       points: [
@@ -1876,7 +1876,7 @@ export const providerReviews: ProviderReview[] = [
       { slug: "wise", reason: "Mid-market exchange rate with 0% markup — saves 3–4% on every transfer vs PayPal" },
       { slug: "xoom", reason: "PayPal's own remittance subsidiary offers better rates, cash pickup, and mobile reload" },
       { slug: "remitly", reason: "Better rates, cash pickup, mobile money, and express delivery for remittances" },
-      { slug: "revolut", reason: "Interbank rates during market hours with a multi-currency account — much cheaper for European users" },
+      { slug: "revolut", reason: "Multi-currency account with its own exchange rate and no weekday fee inside the plan allowance" },
       { slug: "worldremit", reason: "Mobile money and cash pickup delivery to 130+ countries that PayPal can't match" },
       { slug: "xe", reason: "Zero-fee transfers with near mid-market rates and broader currency coverage" },
     ],
@@ -2118,7 +2118,7 @@ export const providerReviews: ProviderReview[] = [
       { slug: "ofx", reason: "Similar zero-fee model for large transfers with a broader online platform and more currencies" },
       { slug: "wise", reason: "Cheaper for transfers under £10,000 with mid-market rates and a modern app" },
       { slug: "xe", reason: "Zero-fee transfers with 130+ currencies and a strong online platform" },
-      { slug: "revolut", reason: "Good for frequent medium transfers with interbank rates and a multi-currency account" },
+      { slug: "revolut", reason: "Suits frequent medium transfers from a multi-currency account, within its plan's monthly allowance" },
       { slug: "remitly", reason: "Better for small remittances with instant delivery and cash pickup options" },
     ],
     faqs: [
@@ -2237,7 +2237,7 @@ export const providerReviews: ProviderReview[] = [
       { slug: "remitly", reason: "Faster delivery with cash pickup and mobile money options for Asian corridors" },
       { slug: "xe", reason: "Zero-fee transfers with 130+ currencies and broader global coverage" },
       { slug: "ofx", reason: "Better for very large transfers with no maximum limit and competitive rates" },
-      { slug: "revolut", reason: "Multi-currency account with interbank rates — good for Singapore and Australian users" },
+      { slug: "revolut", reason: "Multi-currency account for users in Singapore and Australia, converting at Revolut's rate" },
     ],
     faqs: [
       {

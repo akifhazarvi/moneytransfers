@@ -3572,7 +3572,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Wise uses the real mid-market rate with no markup — ever. You pay a clear conversion fee (typically 0.33–0.61% depending on the currency pair), and what you see is what you get. Wise also gives you <strong>local bank details in 22 currencies</strong>, meaning you can receive payments as if you had a local bank account in the US, UK, EU, Australia, Singapore, and more. This makes Wise the strongest option for freelancers, remote workers, and anyone who needs to receive and hold foreign income. To see how Wise performs on specific corridors, see <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> for international transfers.</p>
 
 <h3>Revolut: Best for Frequent Conversions and Auto-Exchange</h3>
-<p>Revolut's free tier lets you convert up to $1,000 per month at the interbank rate with no fee — hard to beat for regular, smaller conversions. The standout feature is <strong>auto-exchange</strong>: set a target rate for any currency pair, and Revolut converts automatically when the market hits it. The catch: <strong>weekend conversions carry a 1% surcharge</strong> on the free plan (eliminated on Premium and Metal plans). If you can time conversions to weekdays, Revolut's free tier is the cheapest option for amounts under $1,000/month.</p>
+<p>Revolut's free plan converts at Revolut's own rate with no exchange fee on weekdays up to a monthly allowance, which suits regular, smaller conversions; above it a fair usage fee applies. The standout feature is <strong>auto-exchange</strong>: set a target rate for any currency pair, and Revolut converts automatically when the market hits it. The catch: <strong>weekend conversions carry a 1% surcharge</strong> on the free plan (eliminated on Premium and Metal plans). If you can time conversions to weekdays, Revolut's free tier is the cheapest option for amounts under $1,000/month.</p>
 
 <p class="blog-callout-blue-sm"><strong>🏦 Revolut in the US:</strong> Revolut is actively pursuing a US banking license — if approved, it could offer FDIC-insured multi-currency accounts to American customers. <a href="/guides/revolut-us-banking-license-2026">Read our analysis of what this means for US consumers →</a></p>
 
@@ -3644,7 +3644,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Which multi-currency account has the best exchange rate?",
         answer:
-          "Wise consistently offers the mid-market exchange rate with 0% markup, charging a transparent conversion fee of 0.33–0.61% instead. Revolut offers the interbank rate free for up to $1,000/month on weekdays. Xe builds a margin into the exchange rate (it is not the mid-market rate), but its rate alert system helps you monitor and convert at favourable moments.",
+          "Wise consistently offers the mid-market exchange rate with 0% markup, charging a transparent conversion fee of 0.33–0.61% instead. Revolut converts at its own rate, without a weekday exchange fee inside its plan allowance. Xe builds a margin into the exchange rate (it is not the mid-market rate), but its rate alert system helps you monitor and convert at favourable moments.",
       },
       {
         question: "Can I earn interest on foreign currency balances?",
@@ -7889,7 +7889,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "How This Affects International Money Transfers",
         content: `<p>If Revolut gets a US banking license, here's what changes for people sending money abroad:</p>
 <ul>
-<li><strong>Cheaper FX rates</strong> — Without a partner bank taking a cut, Revolut could tighten its exchange rate markup. Currently, Revolut adds a small markup on top of the interbank rate (except during weekday trading hours for premium users). Direct Fed access could make Revolut's rates more competitive with <a href="/companies/wise">Wise's mid-market rate</a>.</li>
+<li><strong>Cheaper FX rates</strong> — Without a partner bank taking a cut, Revolut could tighten its exchange rate markup. Currently, Revolut converts at its own rate and, on its lower plans, charges a fee at weekends and above the monthly allowance. Direct Fed access could make Revolut's rates more competitive with <a href="/companies/wise">Wise's mid-market rate</a>.</li>
 <li><strong>Faster outbound transfers</strong> — Direct ACH and Fedwire access means Revolut can initiate transfers instantly rather than queuing them through Lead Bank. This could cut 1–2 days off current transfer times.</li>
 <li><strong>FDIC-insured multi-currency accounts</strong> — Your USD balance would be federally insured. Combined with Revolut's existing multi-currency capabilities (30+ currencies), this creates a unique product: a <strong>fully insured, multi-currency bank account</strong> — something no US bank currently offers at consumer scale.</li>
 <li><strong>Lower corridor costs</strong> — For popular corridors like <a href="/send-money/usa-to-india">USA to India</a> and <a href="/send-money/usa-to-mexico">USA to Mexico</a>, reduced infrastructure costs should flow through to customers.</li>
@@ -8251,7 +8251,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Is Wise or Revolut cheaper for currency exchange?",
         answer:
-          "Wise is typically cheaper. Wise always uses the mid-market rate with 0% markup, charging a small transparent fee (from 0.41%). Revolut uses the interbank rate during weekday trading hours but adds a 0.5–1% markup on weekends and for non-premium users.",
+          "Wise is typically cheaper. Wise always uses the mid-market rate with 0% markup, charging a small transparent fee (from 0.41%). Revolut sets its own rate and, on Standard and Plus, adds a fee to weekend conversions and to amounts above the monthly allowance.",
       },
       {
         question: "Do I need to pay monthly for a multi-currency account?",
@@ -13280,7 +13280,7 @@ const rawBlogPosts: BlogPost[] = [
 <ul>
 <li><strong><a href="/companies/wise">Wise</a></strong>: ~€5 fee, 0% markup — best value</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive rate, fast delivery</li>
-<li><strong><a href="/companies/revolut">Revolut</a></strong>: Free SEPA funding, interbank rate (weekday) — good for European senders</li>
+<li><strong><a href="/companies/revolut">Revolut</a></strong>: Free SEPA funding and no weekday exchange fee within the plan allowance, which suits European senders</li>
 <li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Bank deposit and cash pickup</li>
 <li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but cash pickup in all Turkish cities</li>
 </ul>`,
@@ -13341,7 +13341,7 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     faqs: [
-      { question: "What is the cheapest way to send money to Turkey?", answer: "Wise offers the best value with 0% exchange rate markup. Revolut is competitive for European senders on weekdays (free SEPA funding + interbank rate). Always compare total TRY received." },
+      { question: "What is the cheapest way to send money to Turkey?", answer: "Wise offers the best value with 0% exchange rate markup. Revolut is competitive for European senders on weekdays (free SEPA funding, and no Revolut exchange fee inside the plan's monthly allowance). Always compare total TRY received." },
       { question: "Why is the Turkish Lira so volatile?", answer: "The lira lost 50%+ against EUR/USD between 2023-2025 due to unconventional monetary policy (rate cuts during high inflation). It has stabilized somewhat in 2026 after rate hikes, but remains volatile. Set rate alerts before sending." },
       { question: "Can I send EUR to Turkey via SEPA?", answer: "No. Turkey is not a SEPA member. EUR transfers go via SWIFT or provider networks. However, if your recipient has a EUR account at a Turkish bank, sending EUR avoids TRY conversion risk." },
       { question: "Do I need a Turkish IBAN?", answer: "Yes. Turkey uses 26-character IBANs starting with TR. Your recipient can find their IBAN in their banking app or on their bank statement." },
@@ -13716,7 +13716,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<ol>
 <li><strong>Use a multi-currency account:</strong> Convert when rates are favorable and hold the currency until you need it. Wise and Revolut both offer this.</li>
 <li><strong>Fund via bank transfer, not card:</strong> ACH (US), SEPA (EU), or Faster Payments (UK) funding is free or near-free. Card payments add 1-3%.</li>
-<li><strong>Avoid weekend conversions on Revolut:</strong> Revolut adds a 0.5-1% markup on weekends when forex markets are closed.</li>
+<li><strong>Avoid weekend conversions on Revolut:</strong> Revolut's Standard plan adds 1% to a weekend conversion and Plus adds 0.5%.</li>
 <li><strong>Set up recurring transfers:</strong> Most apps allow scheduled transfers — set it and forget it, no missed payments.</li>
 <li><strong>Compare before every large transfer:</strong> Exchange rates change daily. A 0.5% difference on $5,000 is $25. Use our <a href="/send-money">comparison tool</a> to check live rates.</li>
 </ol>`,
@@ -13729,7 +13729,7 @@ const rawBlogPosts: BlogPost[] = [
     ],
     faqs: [
       { question: "What is the best money transfer app for expats in 2026?", answer: "Wise is the all-rounder for expats — mid-market exchange rate, multi-currency account with 40+ currencies, debit card for local spending, and batch payments. For sending money home to family in emerging markets, Remitly offers the best corridor coverage and speed. For diaspora expats sending to Africa, South Asia, or Latin America, TapTap Send stands out with zero fees, a ~0.7% markup, and 95% of transfers under 3 minutes by its own figures. For an all-in-one financial app, Revolut combines banking, transfers, and investing." },
-      { question: "How can expats avoid high exchange rate fees?", answer: "Use providers that show the mid-market rate (Wise, Revolut). Fund transfers via bank transfer instead of card. Avoid weekend conversions on Revolut (0.5-1% markup). Set up rate alerts on XE to time large conversions. Compare providers before every transfer — even small rate differences add up over a year of regular sending." },
+      { question: "How can expats avoid high exchange rate fees?", answer: "Use providers that show the mid-market rate (Wise, Revolut). Fund transfers via bank transfer instead of card. Avoid weekend conversions on Revolut's Standard and Plus plans, which carry a weekend fee. Set up rate alerts on XE to time large conversions. Compare providers before every transfer — even small rate differences add up over a year of regular sending." },
       { question: "Can I use Wise in any country?", answer: "Wise is available in 170+ countries for sending money. Multi-currency accounts with local bank details are available in fewer countries — check Wise's website for your specific location. The Wise debit card works in 200+ countries but cannot be issued in all countries." },
       { question: "Is Revolut or Wise better for expats?", answer: "Wise is better for pure money transfers — mid-market rate with 0% markup. Revolut is better if you want an all-in-one app (banking, transfers, crypto, insurance). Wise's multi-currency account has more currency options (40+ vs 30+). Revolut offers free exchange up to €1,000/month on Standard plan." },
       { question: "What's the cheapest way for expats to send money home?", answer: "The cheapest method depends on your corridor. For most corridors, Wise (0.41-1.5% total cost) or Remitly ($0-5 flat fee) are cheapest. For large amounts ($10,000+), OFX charges zero fees. Always compare the total amount your recipient receives — not just the fee or exchange rate in isolation. Use our comparison tool for live rates." },
@@ -14197,7 +14197,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>The single largest corridor by volume — driven by the British expat community in Sydney, Brisbane, and the Gold Coast, plus parents supporting students and retirees buying property. For a £1,000 transfer:</p>
 <ul>
 <li><strong><a href="/companies/wise">Wise</a></strong>: £4–5 fee, 0% markup → recipient gets the most AUD. NPP delivery within hours of GBP source funding clearing</li>
-<li><strong><a href="/companies/revolut">Revolut</a></strong>: Free Standard plan up to £1,000/month interbank-rate exchange. Above that, 0.5–1% applies</li>
+<li><strong><a href="/companies/revolut">Revolut</a></strong>: Standard plan: no exchange fee on weekdays up to £1,000 a month, then 1% (Plus: £3,000, then 0.5%)</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–3.99 fee, 0.5–1% markup → competitive on smaller transfers</li>
 <li><strong>UK bank wires</strong> (Barclays, HSBC, Lloyds): £15–25 fee + 2–4% markup → avoid for routine transfers</li>
 </ul>
@@ -14554,7 +14554,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Send sooner rather than later</strong> if your corridor is USD → EUR and you need euros by year-end. Waiting could cost 3-6%.</li>
 <li><strong>The SEPA advantage:</strong> If your recipient is in the eurozone, sending via <a href="/companies/wise">Wise</a> or <a href="/companies/revolut">Revolut</a> routed through SEPA arrives in 10 seconds with near-zero fees, thanks to the <a href="/news/eu-instant-payments-mandatory-2026">EU Instant Payments Regulation</a>.</li>
 <li><strong>If sending FROM eurozone to US:</strong> Wait. A stronger euro means you get more dollars later.</li>
-<li><strong>Avoid weekend conversions on Revolut</strong> — 0.5-1% markup kicks in. Time transfers for weekdays.</li>
+<li><strong>Avoid weekend conversions on Revolut</strong>: Standard adds 1% and Plus 0.5% at weekends. Time transfers for weekdays.</li>
 </ol>
 <p>For corridor-specific guides: <a href="/guides/send-money-to-spain-guide">Spain</a>, <a href="/guides/send-money-to-romania-guide">Romania</a>, <a href="/guides/send-money-to-poland-guide">Poland</a>.</p>`,
       },

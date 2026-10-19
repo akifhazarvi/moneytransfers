@@ -441,7 +441,7 @@ export const corridors: Corridor[] = [
       {
         answerFromComparison: true,
         q: "What is the cheapest way to send GBP to EUR?",
-        a: "Wise charges a transparent percentage fee of typically 0.35%–0.45% with zero exchange rate markup — on a £1,000 transfer, that's roughly £3.50–£4.50 total cost. CurrencyFair uses a marketplace model where you can set your own desired rate and wait for a match, sometimes achieving rates even better than the mid-market rate. Revolut also offers interbank rates for GBP to EUR during weekday market hours, with a free tier allowing up to £1,000 per month. OFX and XE charge no transfer fees and are strong options for larger amounts (£5,000+). All of these specialist options are dramatically cheaper than UK high-street banks, which charge £15–£30 per transfer plus a 2%–4% exchange rate markup.",
+        a: "Wise charges a transparent percentage fee of typically 0.35%–0.45% with zero exchange rate markup — on a £1,000 transfer, that's roughly £3.50–£4.50 total cost. CurrencyFair uses a marketplace model where you can set your own desired rate and wait for a match, sometimes achieving rates even better than the mid-market rate. Revolut converts GBP to EUR at its own rate, with no exchange fee on weekdays for the first £1,000 a month on its Standard plan. OFX and XE charge no transfer fees and are strong options for larger amounts (£5,000+). All of these specialist options are dramatically cheaper than UK high-street banks, which charge £15–£30 per transfer plus a 2%–4% exchange rate markup.",
       },
       {
         q: "Can I still use SEPA transfers from the UK?",

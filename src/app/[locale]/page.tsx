@@ -505,7 +505,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes on major corridors, across a 175+ country network. Guaranteed delivery times with a money-back promise.", slug: "remitly", href: "/companies/remitly", color: "var(--color-success)" },
                 { badge: "Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", slug: "western-union", href: "/companies/western-union", color: "var(--color-warning)" },
                 { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", slug: "ofx", href: "/companies/ofx", color: "var(--color-primary)" },
-                { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", slug: "revolut", href: "/companies/revolut", color: "var(--color-success)" },
+                { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies, with no Revolut exchange fee on weekdays inside your plan's allowance.", slug: "revolut", href: "/companies/revolut", color: "var(--color-success)" },
                 // MoneyGram held this slot on "trusted since 1940" while leading 0 of the 216
                 // comparable corridors. TapTap leads 40 — second only to Wise — and quotes 152,
                 // the widest footprint we measure. Swapped on the data, same as the guide.

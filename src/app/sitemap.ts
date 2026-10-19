@@ -282,7 +282,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));
   const providerPages: MetadataRoute.Sitemap = providers
     .filter((p) => reviewedSlugs.has(p.slug) && SITEMAP_PROVIDER_SLUGS.has(p.slug))
-    .map((p) => entry(`companies/${p.slug}`, companyContentDate(getProviderReview(p.slug))));
+    .map((p) => entry(`companies/${p.slug}`, companyContentDate(getProviderReview(p.slug), p.slug)));
 
   // ── Head-to-head comparison pages ──
   const comparisonPages: MetadataRoute.Sitemap = [...SITEMAP_COMPARISON_SLUGS].map((slug) =>
