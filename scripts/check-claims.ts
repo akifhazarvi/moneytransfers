@@ -18,7 +18,12 @@
  *   always-cheapest "consistently / always / almost always the cheapest".
  *                   Negations ("not always the cheapest") are fine. Use
  *                   {{CORRIDOR_LEADER:FROM:TO}} or {{LEADS_SHORT:slug}}.
- *   cheapest-most   "cheapest for most corridors / people / currencies".
+ *   cheapest-most   "cheapest for most corridors / people / currencies", and
+ *                   "for most corridors … X is cheapest".
+ *   leader-typed    "leads the most corridors", "more corridors than any other
+ *                   provider" with a typed subject. The leader changes (Wise →
+ *                   TapTap Send, 2026-10-03). Use {{TOP_LEADER}} / {{TOP_LEADS}}
+ *                   or {{LEAD_RANK:slug}}.
  *   best-most       "the best EUR rates for most corridors", "best value for
  *                   most transfers" — cheapest-most without the word.
  *   consistently-best "consistently offer the best rates", "consistently ranks
@@ -44,6 +49,9 @@
  *                   {{BANK_MEDIAN}}. Lower the baseline when you fix some:
  *                   `npx tsx scripts/check-claims.ts --update-baseline`.
  *   invented-example table cells marked "(example)" holding made-up payouts.
+ *   zero-markup     "0% markup", "zero exchange rate markup", "no markup" as our
+ *                   fact. It is a provider's description of its own pricing
+ *                   (we measure Wise at a 0.32% median): "Wise says…" passes.
  *   provider-best-rate "Wise offers the best KRW rates", "Instarem often has the
  *                   most competitive SGD/BDT rates" — a provider crowned on a
  *                   route by hand. Use {{CORRIDOR_LEADER:FROM:TO}}.
@@ -92,7 +100,20 @@ const HARD: Rule[] = [
     // "not always the cheapest", "Is Wise always the cheapest of these four?"
     allow: (before, _m, after) => NEGATED.test(before) || /^\s*[^.!]*\?/.test(after) && /\b(?:is|are)\s+\w+\s*$/i.test(before),
   },
-  { id: "cheapest-most", re: /\bcheapest\s+(?:option\s+|provider\s+|choice\s+)?(?:for|on|in|across)\s+(?:most|the majority)\b/gi },
+  // Also the inverted order: "For most corridors and amounts above $500, Wise
+  // is cheapest" (India hub FAQ, 2026-10-18).
+  { id: "cheapest-most", re: /\bcheapest\s+(?:option\s+|provider\s+|choice\s+)?(?:for|on|in|across)\s+(?:most|the majority)\b|\b(?:for|on|in|across)\s+(?:most|the majority of)\s+(?:corridors|routes|transfers)\b[^.]{0,80}?\b(?:is|are)\s+(?:the\s+)?cheapest\b/gi },
+  // Who leads the most corridors changes with the data: TapTap Send overtook
+  // Wise on 2026-10-03, and two guides kept saying "Wise leads more corridors
+  // than any other provider" — one beside TapTap's larger, live count, which it
+  // called "second only to Wise". Name the leader with {{TOP_LEADER}} and a
+  // rank with {{LEAD_RANK:slug}}; a computed subject (`{TOP_LEADER.providerName}
+  // leads the most corridors`, `{{TOP_LEADER}} …`) passes.
+  {
+    id: "leader-typed",
+    re: /\b(?:leads?|led|wins?|won)\s+(?:on\s+)?the\s+most\s+corridors\b|\bmore\s+corridors\s+than\s+any(?:one|\s+other)?\b/gi,
+    allow: (before) => NEGATED.test(before) || /\}\s*$/.test(before),
+  },
   // The same claim without the word "cheapest". Six country FAQs said "Wise
   // offers the best EUR/AUD/CAD/NZD rates for most corridors" while their own
   // route's leader was someone else — USD→EUR: InstaReM, 89 of 91 days
@@ -180,6 +201,19 @@ const RATCHET: Rule[] = [
   // into the other (Okara PR #81, homepage FAQ) failed the build as a "new"
   // figure. The reverse order stays inside one sentence (no "." or digit
   // between "markup" and the range).
+  // "Wise uses the real mid-market rate with 0% markup" stated as our finding.
+  // It is the provider's description of its own pricing; against our
+  // mid-market snapshot we measure Wise at a 0.32% median (2026-10-18), and
+  // /guides/best-money-transfer-apps printed "zero exchange rate markup" under
+  // its own "Measured markup" line. Attribute it ("Wise says…") and pair it
+  // with {{AVG_MARKUP_PCT:slug}}. ~300 copies pre-date the rule.
+  {
+    id: "zero-markup",
+    re: /\b(?:0\s?%|zero)\s+(?:exchange[- ]rate\s+|FX\s+)?mark-?ups?\b|\bno\s+(?:exchange[- ]rate\s+|FX\s+)?mark-?ups?\b|\bmark-?up[- ]free\b/gi,
+    allow: (before) =>
+      NEGATED.test(before) ||
+      /\b(?:says?|said|claims?|advertis\w*|promis\w*|according to|own account)\b[^.]{0,100}$/i.test(before),
+  },
   {
     id: "markup-figure",
     re: /within\s+(?:about\s+|roughly\s+|~)?\d+(?:\.\d+)?\s*%?(?:\s*[–-]\s*\d+(?:\.\d+)?\s*)?%\s+of\s+(?:the\s+)?(?:mid-market|interbank|real)|\b\d+(?:\.\d+)?\s*%?\s*[–-]\s*\d+(?:\.\d+)?\s*%\s*(?:(?:exchange[- ])?rate\s+|FX\s+)?mark-?ups?\b|\bmark-?ups?\b[^.%\d]{0,80}?\b\d+(?:\.\d+)?\s*%?\s*[–-]\s*\d+(?:\.\d+)?\s*%/gi,
@@ -260,7 +294,7 @@ const errors: string[] = [];
 for (const h of hard) errors.push(`${h.rule}: ${h.file}:${h.line}  …${h.text}…`);
 for (const [id, n] of Object.entries(counts)) {
   const max = baseline[id] ?? 0;
-  if (n > max) errors.push(`${id}: ${n} hand-typed figures, baseline ${max} — new content must use a data token${id === "speed-statistic" ? " or link the provider's own source" : ""}`);
+  if (n > max) errors.push(`${id}: ${n} hand-typed figures, baseline ${max} — new content must use a data token${id === "speed-statistic" ? " or link the provider's own source" : id === "zero-markup" ? ' — attribute it ("Wise says…") beside {{AVG_MARKUP_PCT:slug}}' : ""}`);
   else if (n < max) console.log(`check:claims — ${id} fell ${max} → ${n}; lower the baseline with --update-baseline`);
 }
 

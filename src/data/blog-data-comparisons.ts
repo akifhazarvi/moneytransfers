@@ -23,13 +23,13 @@ export const dataComparisonGuides: BlogPost[] = [
     category: "Research",
     readTime: "8 min",
     publishedAt: "2026-09-07",
-    updatedAt: "2026-09-07",
+    updatedAt: "2026-10-18",
     author: "Ahsan Mukhtar",
     tags: ["Wise", "Remitly", "Xoom", "XE", "provider comparison", "transfer costs"],
     sections: [
       {
         heading: "The short answer",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> There is no single winner among these four, and anyone telling you otherwise is picking the measure that suits their conclusion. On our live quotes, <strong><a href="/companies/xe">XE</a></strong> has the lowest average cost of the four — but it is the most frequent winner on almost none of the routes it quotes. <strong><a href="/companies/wise">Wise</a></strong> costs more on average yet is the habitual cheapest on more corridors than any other provider we track, and covers by far the most routes. <strong><a href="/companies/remitly">Remitly</a></strong> and <strong><a href="/companies/xoom">Xoom</a></strong> are dearer on average and lead far fewer corridors, but both compete hard on specific high-volume routes. And the ranking inverts on small transfers: Wise is one of the cheapest options at $1,000 and one of the most expensive at $100.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> There is no single winner among these four, and anyone telling you otherwise is picking the measure that suits their conclusion. On our live quotes, <strong><a href="/companies/xe">XE</a></strong> has the lowest average cost of the four — but it is the most frequent winner on almost none of the routes it quotes. <strong><a href="/companies/wise">Wise</a></strong> costs more on average yet is the habitual cheapest on far more corridors than the other three, and covers the most routes of the four. <strong><a href="/companies/remitly">Remitly</a></strong> and <strong><a href="/companies/xoom">Xoom</a></strong> are dearer on average and lead far fewer corridors, but both compete hard on specific high-volume routes. And the ranking inverts on small transfers: Wise is one of the cheapest options at $1,000 and one of the most expensive at $100.</p></div>
 
 <p>The table below is the measurement. Read the coverage column with the cost column — the two are not independent, and that is where most comparisons of these four go wrong.</p>`,
       },
@@ -46,7 +46,7 @@ export const dataComparisonGuides: BlogPost[] = [
 
 <p>An average cost is taken over the routes a provider actually quotes, and those route sets are wildly different sizes. XE's average covers a few dozen corridors; Wise's covers several hundred, including thin and expensive ones where any provider's margin is wider. Comparing the two averages directly rewards the provider with the narrower, easier footprint. It is the same distortion that would let a bank quoting five corridors outrank a specialist quoting three hundred, which is why our <a href="/remittance-cost-index">Remittance Cost Index</a> publishes the corridor count next to every cost figure.</p>
 
-<p>"Leads most often" is the measure that survives this, because it is decided per corridor per day against whoever else quoted that day. A provider only wins a day where at least two providers competed, so a narrow footprint stops being an advantage. On that measure Wise is the strongest of these four by a wide margin — and across every provider we track, it leads more corridors than anyone. Our <a href="/provider-consistency">Provider Consistency Index</a> has the full ranking and the method.</p>
+<p>"Leads most often" is the measure that survives this, because it is decided per corridor per day against whoever else quoted that day. A provider only wins a day where at least two providers competed, so a narrow footprint stops being an advantage. On that measure Wise is the strongest of these four by a wide margin; across every provider we track, it leads {{LEADS_SHORT:wise}} corridors, {{LEAD_RANK:wise}}. Our <a href="/provider-consistency">Provider Consistency Index</a> has the full ranking and the method.</p>
 
 <p><strong>What to take from it:</strong> if you send on one of the routes XE covers well, its low average is real and worth checking. If you send on a route it does not cover, the figure tells you nothing at all.</p>`,
       },
@@ -77,7 +77,7 @@ export const dataComparisonGuides: BlogPost[] = [
 
 <ol>
   <li><strong>Check your own corridor, at your own amount.</strong> These averages are across hundreds of routes; yours is one of them, and the gap between the best and the median provider on a single corridor is routinely worth more than the difference between any two providers' averages.</li>
-  <li><strong>Check whether today's winner is the usual winner.</strong> On around a quarter of corridors the cheapest provider today is not the one that usually leads, which is worth knowing before you treat one result as settled.</li>
+  <li><strong>Check whether today's winner is the usual winner.</strong> On {{ROTATION_RATE}} of corridors the cheapest provider today is not the one that usually leads, which is worth knowing before you treat one result as settled.</li>
   <li><strong>Weigh what you need beyond cost.</strong> Cash pickup, delivery speed, and which countries a provider serves at all differ more between these four than their costs do.</li>
 </ol>
 
@@ -88,7 +88,7 @@ export const dataComparisonGuides: BlogPost[] = [
       {
         question: "Is Wise always the cheapest of these four?",
         answer:
-          "No. Wise leads more corridors than any other provider we track and wins a far higher share of contested days than Remitly, Xoom or XE — but it does not have the lowest average cost of the four, and on small transfers it is one of the most expensive because its pricing is weighted toward a flat fee. On a $100 transfer it costs roughly four times as much proportionally as on a $1,000 one.",
+          "No. Wise leads far more corridors than Remitly, Xoom or XE ({{LEADS_SHORT:wise}}, {{LEAD_RANK:wise}}) and wins a far higher share of contested days than any of them — but it does not have the lowest average cost of the four, and on small transfers it is one of the most expensive because its pricing is weighted toward a flat fee. On a $100 transfer it costs roughly four times as much proportionally as on a $1,000 one.",
       },
       {
         question: "Why does XE look cheapest if it rarely wins?",

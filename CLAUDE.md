@@ -113,7 +113,14 @@ what enforces it. Where a rule is not automated, it says how to check it.
    scope — the homepage FAQ lives there and went unscanned until 2026-09-29. Say what we measured —
    `{{CORRIDOR_LEADER:USD:INR}}`, `{{LEADS_SHORT:wise}}`,
    `{{AVG_MARKUP_PCT:slug}}`, `{{TRUSTPILOT:slug}}` — or label an editorial
-   pick "Editor's pick". Never say the UK left SEPA: the EPC kept it in
+   pick "Editor's pick". Who leads the most corridors is data too: TapTap Send
+   overtook Wise on 2026-10-03 and two guides said "Wise leads more corridors
+   than any other provider" for two weeks — use `{{TOP_LEADER}}`,
+   `{{TOP_LEADS}}`, `{{LEAD_RANK:slug}}`, `{{ROTATION_RATE}}`
+   (`leader-typed`). A provider's "0% markup" is its own description of its
+   pricing, not our finding — we measure Wise at a 0.32% median: write "Wise
+   says it adds no markup…" beside `{{AVG_MARKUP_PCT:slug}}` (`zero-markup`
+   ratchet, ~376 legacy copies). Never say the UK left SEPA: the EPC kept it in
    SEPA's scope after Brexit as a non-EEA member (BIC + payer address
    required) — ~30 passages said otherwise until 2026-09-29. Speed is a promise
    unless we timed it: never invent a delivery time (`|| "1-3 business days"`

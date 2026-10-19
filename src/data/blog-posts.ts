@@ -1157,22 +1157,22 @@ const rawBlogPosts: BlogPost[] = [
     category: "Reviews",
     readTime: "11 min read",
     publishedAt: "2026-02-20",
-    updatedAt: "2026-09-29",
+    updatedAt: "2026-10-18",
     author: "Awais Imran",
     tags: ["best apps", "comparison", "rankings", "reviews", "2026"],
     featuredImage: "/images/blog/best-money-transfer-apps.jpg",
     sections: [
       {
-        heading: "How We Ranked These Apps",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best money transfer app in 2026 is <a href="/companies/wise">Wise</a>, based on the {{PROVIDER_COUNT}} providers we track, priced across {{CORRIDOR_COUNT}} corridors and refreshed every {{REFRESH_HOURS}} hours. Wise prices at or very close to the mid-market rate — we measure {{AVG_MARKUP:wise}} — with fees from 0.41%, and it is cheapest on {{LEADS:wise}}, more corridors than any other provider. Trustpilot: {{TRUSTPILOT:wise}}. <strong><a href="/companies/taptap-send">TapTap Send</a> is the pick for most people sending a normal remittance</strong>: cheapest on {{LEADS:taptap-send}} — second only to Wise — with the widest coverage we measure at 819 corridors, free transfers above $250 (and free at every amount on most corridors we price), and 95% delivered in under 3 minutes. <a href="/companies/remitly">Remitly</a> also delivers in minutes via express transfer to over 175 countries, though it leads on far fewer corridors. <a href="/companies/instarem">Instarem</a> is the strongest low-cost alternative, charging zero transfer fees on most corridors at a measured average markup of {{AVG_MARKUP:instarem}} — against 2–4% at a typical bank. Which app is actually cheapest changes with your route and amount, so compare yours rather than taking any ranking on trust. For large transfers over $5,000, <a href="/companies/ofx">OFX</a> offers $0 fees and dedicated currency dealers. We ranked every app using real quote data from {{CORRIDOR_COUNT}} corridors, not opinions.</p></div>
+        heading: "How We Compared These Apps",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> There is no single best money transfer app in 2026: across the {{PROVIDER_COUNT}} providers we track, priced across {{CORRIDOR_COUNT}} corridors and refreshed every {{REFRESH_HOURS}} hours, the one cheapest most often is {{TOP_LEADER}}, on {{TOP_LEADS}}. <a href="/companies/wise">Wise</a> prices at or very close to the mid-market rate — we measure {{AVG_MARKUP:wise}} — with fees from 0.41%, and it is cheapest on {{LEADS:wise}}, {{LEAD_RANK:wise}}. Trustpilot: {{TRUSTPILOT:wise}}. <strong><a href="/companies/taptap-send">TapTap Send</a> is the pick for most people sending a normal remittance</strong>: cheapest on {{LEADS:taptap-send}} — {{LEAD_RANK:taptap-send}} — with the widest coverage we measure at {{COSTCORRIDORS:taptap-send}} corridors priced, free transfers above $250 (and free at every amount on most corridors we price), and, by its own count, 19 in 20 India transfers delivered within three minutes. <a href="/companies/remitly">Remitly</a> also delivers in minutes via express transfer to over 175 countries, though it leads on far fewer corridors. <a href="/companies/instarem">Instarem</a> is the strongest low-cost alternative, charging zero transfer fees on most corridors at a measured average markup of {{AVG_MARKUP:instarem}} — against 2–4% at a typical bank. Which app is actually cheapest changes with your route and amount, so compare yours rather than taking any ranking on trust. For large transfers over $5,000, <a href="/companies/ofx">OFX</a> offers $0 fees and dedicated currency dealers. We compared every app using real quote data from {{CORRIDOR_COUNT}} corridors, not opinions.</p></div>
 <p class="blog-footnote"><strong>Which of our pages you want.</strong> This one ranks providers on <em>measured cost</em> from live quotes. If you want to understand why cost varies rather than who is cheapest today, read <a href="/guides/cheapest-way-to-send-money-internationally">how transfer pricing actually works</a>. If cost is not your only criterion — country coverage, cash pickup, an account you can hold money in — see <a href="/guides/best-money-transfer-services">best money transfer services</a>, which weighs features alongside price.</p>
 <p>Three of our published studies sit behind this ranking, and each is reproducible from the same quote archive:</p>
 <ul>
-<li><a href="/provider-consistency">Provider consistency</a> — who is actually cheapest, and how often. No provider wins everywhere: the leader takes {{LEADS:wise}}, and on a quarter of corridors today's cheapest is not the usual winner.</li>
+<li><a href="/provider-consistency">Provider consistency</a> — who is actually cheapest, and how often. No provider wins everywhere: the leader, {{TOP_LEADER}}, takes {{TOP_LEADS}}, and on {{ROTATION_RATE}} of corridors today's cheapest is not the usual winner.</li>
 <li><a href="/remittance-cost-index">Remittance Cost Index</a> — total cost to send $1,000, by provider. Specialists average {{AVG_SPECIALIST_COST}} against {{AVG_BANK_COST}} for banks, or {{BANK_SAVINGS_PCT}} cheaper.</li>
 <li><a href="/research">Research hub</a> — the full set, including how cost varies by transfer amount and by day of week.</li>
 </ul>
-<p>Unlike comparison sites that rely on subjective reviews, we ranked providers using <strong>hard data</strong>:</p>
+<p>Unlike comparison sites that rely on subjective reviews, we compared providers using <strong>hard data</strong>:</p>
 <ul>
 <li><strong>thousands of real quotes</strong> scraped across {{CORRIDOR_COUNT}} corridors and 5 transfer amounts ($100–$10,000)</li>
 <li><strong>Exchange rate markup</strong> compared to the mid-market rate. Read our <a href="/guides/exchange-rate-markup-explained">guide to exchange rate markups</a> to understand this metric.</li>
@@ -1188,10 +1188,10 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 299K+ reviews</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>{{TRUSTPILOT:remitly}} on Trustpilot, Express in minutes</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Fee shown upfront, {{AVG_MARKUP_PCT:wise}} median markup</td></tr>
+<tr><td><strong>Express delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>{{TRUSTPILOT:remitly}} on Trustpilot, Express in minutes</td></tr>
 <tr><td><strong>No transfer fee</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>Zero fees, {{AVG_MARKUP_PCT:instarem}} median markup</td></tr>
-<tr><td><strong>Best for Diaspora Corridors</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>80+ countries, 95% under 3 min</td></tr>
+<tr><td><strong>Best for Diaspora Corridors</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>{{COSTCORRIDORS:taptap-send}} corridors priced, fee-free at most amounts</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
@@ -1199,17 +1199,17 @@ const rawBlogPosts: BlogPost[] = [
 <p>Sending from the United States? See our <a href="/guides/best-apps-to-send-money-from-us-2026">guide to money transfer apps for US senders</a>. To compare the tools you use to research providers, read our <a href="/guides/monito-alternatives">comparison of Monito alternatives</a>.</p>`,
       },
       {
-        heading: "1. Wise — Mid-Market Rate, Fee Upfront",
+        heading: "Wise — Mid-Market Rate, Fee Upfront",
         content: `<p><strong>Trustpilot: {{TRUSTPILOT:wise}} | Apps: {{APP_SCORES:wise}} | Measured markup: {{AVG_MARKUP:wise}} | Total cost on $1,000: {{COST_PCT:wise:USD:INR:1000}} (USD→INR)</strong></p>
-<p><a href="/companies/wise">Wise</a> is the gold standard for transparent international transfers. They're the only major provider that charges <strong>zero exchange rate markup</strong> — you always get the real mid-market rate. Their fee is shown upfront and scales with the transfer amount.</p>
-<p><strong>Best for:</strong> Medium to large transfers ($500+) where the 0% markup saves you the most. Excellent app with real-time tracking and multi-currency accounts. See how <a href="/compare/wise-vs-remitly">Wise compares to Remitly</a> for specific corridors.</p>
+<p><a href="/companies/wise">Wise</a> is built around a transparent price: it says it converts at the real mid-market rate and takes its charge as a fee shown upfront, which scales with the transfer amount. Against our own mid-market snapshot we measure a median markup of {{AVG_MARKUP_PCT:wise}}.</p>
+<p><strong>Best for:</strong> Medium to large transfers ($500+), where a thin rate margin matters more than the fee. Excellent app with real-time tracking and multi-currency accounts. See how <a href="/compare/wise-vs-remitly">Wise compares to Remitly</a> for specific corridors.</p>
 <p><strong>Drawbacks:</strong> Fee can be noticeable on very small transfers ($50–$100). Not the fastest for all corridors.</p>\n<p><a href="/go/wise?src=best_apps_guide" target="_blank" rel="noopener noreferrer nofollow sponsored" class="smc-send">Send with Wise</a></p>`,
       },
 {
-        heading: "2. TapTap Send — Widest Coverage, Fee-Free at Most Amounts",
+        heading: "TapTap Send — Widest Coverage, Fee-Free at Most Amounts",
         content: `<div class="smc-featured" data-badge="Widest coverage we measure">
 <p><strong>Apps: {{APP_SCORES:taptap-send}} | Measured markup: {{AVG_MARKUP:taptap-send}} | Cheapest on {{LEADS:taptap-send}}</strong></p>
-<p><a href="/companies/taptap-send">TapTap Send</a> is cheapest on <strong>{{LEADS:taptap-send}}</strong> in our consistency index, which ranks {{CONSISTENCY_PROVIDERS}} of the providers we track (Wise: {{LEADS_SHORT:wise}}). It also has the <strong>widest footprint we measure: {{COSTCORRIDORS:taptap-send}} corridors priced</strong>, against {{COSTCORRIDORS:wise}} for Wise and {{COSTCORRIDORS:remitly}} for Remitly. That combination is the reason it is this high: plenty of providers are cheap on a handful of routes, but very few are both cheap and available almost everywhere. It is also the outright leader on {{UNANIMOUS_LEAD:taptap-send}}.</p>
+<p><a href="/companies/taptap-send">TapTap Send</a> is cheapest on <strong>{{LEADS:taptap-send}}</strong> in our consistency index, which ranks {{CONSISTENCY_PROVIDERS}} of the providers we track (Wise: {{LEADS_SHORT:wise}}). It also has the <strong>widest footprint we measure: {{COSTCORRIDORS:taptap-send}} corridors priced</strong>, against {{COSTCORRIDORS:wise}} for Wise and {{COSTCORRIDORS:remitly}} for Remitly. That combination is what sets it apart: plenty of providers are cheap on a handful of routes, but very few are both cheap and available almost everywhere. It is also the outright leader on {{UNANIMOUS_LEAD:taptap-send}}.</p>
 <p><strong>Fees are the simple part.</strong> We priced it on nine major corridors at $100, $200, $250, $300 and $1,000 in late September 2026: <strong>free at every amount on seven of the nine</strong>; USD→INR carries a flat $1.99 fee and USD→PKR charges only below $200. Its measured exchange-rate markup is {{AVG_MARKUP:taptap-send}}; all-in on $1,000 it averages {{AVGCOST:taptap-send}}, against {{AVG_SPECIALIST_COST}} per $1,000 for the average specialist in our index.</p>
 <p><strong>Speed:</strong> by TapTap Send's own count, 19 in 20 India transfers land within three minutes (<a href="https://www.taptapsend.com/en/send-money-to/india" target="_blank" rel="noopener noreferrer nofollow">December 2025</a>) and nearly all Mexico deliveries within five (<a href="https://www.taptapsend.com/en/send-money-to/mexico" target="_blank" rel="noopener noreferrer nofollow">April 2026</a>). We measure price, not delivery time, so these are its figures rather than ours.</p>
 <p><strong>Best for:</strong> essentially any corridor it serves — Nigeria, Ghana, Kenya, Pakistan, Bangladesh, Nepal, Colombia, the Philippines, India and well beyond. Accepts debit card, bank transfer, Google Pay, Apple Pay and UPI. Multi-currency account available for UK and EU users. Founded by Michael Faye, who also founded GiveDirectly.</p>
@@ -1218,28 +1218,28 @@ const rawBlogPosts: BlogPost[] = [
 </div>`,
       },
 {
-        heading: "3. Instarem — Best Low-Cost Alternative",
+        heading: "Instarem — Best Low-Cost Alternative",
         content: `<p><strong>Trustpilot: {{TRUSTPILOT:instarem}} | Apps: {{APP_SCORES:instarem}} | Measured markup: {{AVG_MARKUP:instarem}} | Avg Fee: $0</strong></p>
 <p><a href="/companies/instarem">Instarem</a> consistently appears near the top of our comparisons with zero fees and very low markup. They're particularly strong for Asia-Pacific corridors (Singapore, Australia, India, Philippines).</p>
 <p><strong>Best for:</strong> Transfers within Asia-Pacific and from Australia/Singapore. Zero fees make them excellent for regular senders.</p>
 <p><strong>Drawbacks:</strong> Smaller company with fewer corridors than Wise or Remitly. Less brand recognition.</p>\n<p><a href="/go/instarem?src=best_apps_guide" target="_blank" rel="noopener noreferrer nofollow sponsored" class="smc-send">Send with Instarem</a></p>`,
       },
 {
-        heading: "4. XE — Best for Currency Tools",
+        heading: "XE — Best for Currency Tools",
         content: `<p><strong>Trustpilot: {{TRUSTPILOT:xe}} | Apps: {{APP_SCORES:xe}} | Measured markup: {{AVG_MARKUP:xe}} | Avg Fee: $0</strong></p>
 <p><a href="/companies/xe">XE</a> is the world's most trusted currency data provider and their transfer service leverages that expertise. They offer no-fee transfers, rate alerts, and excellent currency tools. Their app includes live rate tracking and historical charts.</p>
 <p><strong>Best for:</strong> People who want to time their transfers for the best rate. Great currency tools and rate alert system.</p>
 <p><strong>Drawbacks:</strong> Markup is higher than Wise or Instarem. Less competitive for large transfers.</p>\n<p><a href="/go/xe?src=best_apps_guide" target="_blank" rel="noopener noreferrer nofollow sponsored" class="smc-send">Send with XE</a></p>`,
       },
 {
-        heading: "5. Remitly — Best for Remittances",
+        heading: "Remitly — Best for Remittances",
         content: `<p><strong>Trustpilot: {{TRUSTPILOT:remitly}} | Apps: {{APP_SCORES:remitly}} | Measured markup: {{AVG_MARKUP:remitly}} | Avg Fee: $0–$3.99</strong></p>
 <p><a href="/companies/remitly">Remitly</a> specializes in remittances to developing countries and excels at it, reaching 175+ receive countries from 30+ send countries. It offers two tiers, and the difference between them is the <em>exchange rate</em> rather than the fee: <strong>Express</strong> reaches the recipient faster at a slightly less favourable rate, while <strong>Economy</strong> is slower but typically prices at a better rate. Their $0 fee option makes them very competitive for small to medium transfers.</p>
 <p><strong>Best for:</strong> Sending to <a href="/send-money/usa-to-india">India</a>, <a href="/send-money/usa-to-philippines">Philippines</a>, <a href="/send-money/usa-to-mexico">Mexico</a>, <a href="/send-money/usa-to-nigeria">Nigeria</a>, and other popular remittance corridors. Excellent first-time user promotions. Funding options include debit and credit card, bank transfer, Apple Pay and Google Pay, plus PayTo for Australian senders.</p>
-<p><strong>Drawbacks:</strong> The rate markup is higher than Wise's 0%, and Express buys its speed with a less favourable rate — on larger amounts that costs more than Wise's flat fee. Remitly is built around remittance corridors rather than developed-market pairs, though it does cover them: USD to EUR is available and often carries no transfer fee, with the cost sitting in the exchange rate instead.</p>\n<p><a href="/go/remitly?src=best_apps_guide" target="_blank" rel="noopener noreferrer nofollow sponsored" class="smc-send">Send with Remitly</a></p>`,
+<p><strong>Drawbacks:</strong> Its rate markup ({{AVG_MARKUP_PCT:remitly}} median) is higher than Wise's ({{AVG_MARKUP_PCT:wise}}), and Express buys its speed with a less favourable rate — on larger amounts that costs more than Wise's flat fee. Remitly is built around remittance corridors rather than developed-market pairs, though it does cover them: USD to EUR is available and often carries no transfer fee, with the cost sitting in the exchange rate instead.</p>\n<p><a href="/go/remitly?src=best_apps_guide" target="_blank" rel="noopener noreferrer nofollow sponsored" class="smc-send">Send with Remitly</a></p>`,
       },
 {
-        heading: "6. OFX — Best for Large Transfers",
+        heading: "OFX — Best for Large Transfers",
         content: `<p><strong>Trustpilot: {{TRUSTPILOT:ofx}} | Apps: {{APP_SCORES:ofx}} | Measured markup: {{AVG_MARKUP:ofx}} | Fee: $0</strong></p>
 <p><a href="/companies/ofx">OFX</a> (formerly OzForex) specializes in large transfers for businesses and individuals. They offer no transfer fees, dedicated dealers for transfers over $10,000, and forward contracts to lock in exchange rates.</p>
 <p><strong>Best for:</strong> Large transfers ($10,000+), business payments, and property purchases abroad. Dedicated dealer support.</p>
@@ -1276,12 +1276,12 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the best app to send money internationally?",
         answer:
-          "<a href=\"/companies/wise\">Wise</a> stands out for transparent pricing and 0% exchange rate markup. <a href=\"/companies/remitly\">Remitly</a> is best for remittances to developing countries. <a href=\"/companies/instarem\">Instarem</a> offers the lowest total cost in many Asia-Pacific corridors. The best app depends on where you're sending and how much.",
+          "<a href=\"/companies/wise\">Wise</a> stands out for transparent pricing: a fee shown upfront and, by its own account, the mid-market rate. <a href=\"/companies/remitly\">Remitly</a> is best for remittances to developing countries. <a href=\"/companies/instarem\">Instarem</a> offers the lowest total cost in many Asia-Pacific corridors. The best app depends on where you're sending and how much.",
       },
       {
         question: "Is Wise better than Remitly?",
         answer:
-          "It depends on the corridor and amount. <a href=\"/companies/wise\">Wise</a> offers 0% markup but charges a fee ($5–$15 on $1,000). <a href=\"/companies/remitly\">Remitly</a> often has $0 fees but a 0.45% markup. For large transfers, Wise usually wins. For small remittances to countries like India or Philippines, Remitly can be cheaper. See our <a href=\"/compare/wise-vs-remitly\">Wise vs Remitly comparison</a> for full details.",
+          "It depends on the corridor and amount. <a href=\"/companies/wise\">Wise</a> shows its fee upfront and says it uses the mid-market rate (we measure a {{AVG_MARKUP_PCT:wise}} median markup). <a href=\"/companies/remitly\">Remitly</a> often charges no fee and takes its margin in the rate ({{AVG_MARKUP_PCT:remitly}} median). Wise's fee-based pricing favours larger amounts. For small remittances to countries like India or Philippines, Remitly can be cheaper. See our <a href=\"/compare/wise-vs-remitly\">Wise vs Remitly comparison</a> for full details.",
       },
     ],
     relatedSlugs: [
@@ -2745,7 +2745,7 @@ const rawBlogPosts: BlogPost[] = [
 <tr><td><a href="/companies/ria">Ria</a></td><td>{{TWELVE_TRANSFER_GAP:ria:USD:INR:1000}}</td></tr>
 </tbody></table></div>
 <p><strong>Read that against the offer.</strong> A $25 welcome credit is worth roughly ₹2,200 once. If a provider's ordinary pricing costs you more than that across the year, the promo has bought you a worse deal with a good first impression — which is what it is designed to do. Where the promo provider also happens to be the cheapest on your route, the offer is genuinely additive and you should take it — on USD→INR that has most often been {{CORRIDOR_LEADER:USD:INR}}.</p>
-<p>Two caveats on that table, both of which cut against reading it too literally. It prices one corridor at one amount on the day this page was built, and the cheapest provider on a route changes — on about a quarter of corridors today's winner is not the habitual one (<a href="/provider-consistency">provider consistency</a>). And promotional rates are excluded from our quotes throughout, so these are standard rates, which is exactly the point: it is what you pay from transfer two onward. Run <a href="/send-money">your own corridor and amount</a> before deciding.</p>
+<p>Two caveats on that table, both of which cut against reading it too literally. It prices one corridor at one amount on the day this page was built, and the cheapest provider on a route changes — on {{ROTATION_RATE}} of corridors today's winner is not the habitual one (<a href="/provider-consistency">provider consistency</a>). And promotional rates are excluded from our quotes throughout, so these are standard rates, which is exactly the point: it is what you pay from transfer two onward. Run <a href="/send-money">your own corridor and amount</a> before deciding.</p>
 <p>There are four questions worth asking before you use any remittance promo:</p>
 <ol>
 <li><strong>What is the provider's base exchange-rate spread?</strong> A weak FX rate can erase a fee discount immediately.</li>
@@ -3714,7 +3714,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "Philippines: A Major Remittance Destination",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> there is no single cheapest provider on this corridor — <strong>the winner changes with the amount</strong>, which is why a bare recommendation is worth so little here. Priced against {{PROVIDER_TALLY:USD:PHP:1000}} providers on {{QUOTE_DATE}}, the cheapest was <strong>{{BEST_PROVIDER:USD:PHP:200}}</strong> on $200 ({{BEST_RECEIVE:USD:PHP:200}}), <strong>{{BEST_PROVIDER:USD:PHP:1000}}</strong> on $1,000 ({{BEST_RECEIVE:USD:PHP:1000}}) and <strong>{{BEST_PROVIDER:USD:PHP:5000}}</strong> on $5,000 ({{BEST_RECEIVE:USD:PHP:5000}}). The mid-market rate was {{MID_RATE:USD:PHP}} PHP/USD. What stays constant is that choosing badly is expensive: the gap between the cheapest and dearest provider is {{SPREAD:USD:PHP:1000}} on $1,000 and {{SPREAD:USD:PHP:5000}} on $5,000. For cash pickup across 30,000+ locations including Cebuana Lhuillier and M Lhuillier, <a href="/companies/western-union">Western Union</a> has the widest network. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates for your amount</a>.</p></div>
-<p class="text-sm">Why the winner moves: providers price a flat fee and a rate margin differently, so a $0-fee provider with a wider margin wins on small amounts and loses on large ones. Across our whole dataset, the cheapest provider on a corridor today is not the one that usually wins on about a quarter of corridors — see <a href="/provider-consistency">provider consistency</a>. Quote your own amount rather than carrying a winner over from last month.</p>
+<p class="text-sm">Why the winner moves: providers price a flat fee and a rate margin differently, so a $0-fee provider with a wider margin wins on small amounts and loses on large ones. Across our whole dataset, the cheapest provider on a corridor today is not the one that usually wins on {{ROTATION_RATE}} of corridors — see <a href="/provider-consistency">provider consistency</a>. Quote your own amount rather than carrying a winner over from last month.</p>
 <p>The Philippines received <strong>$41.6 billion in personal remittances</strong> in 2025, about 8.5% of its GDP, by the <a href="https://data.worldbank.org/indicator/BX.TRF.PWKR.CD.DT?locations=PH" target="_blank" rel="noopener noreferrer">World Bank's</a> count. The United States is the largest source in the central bank's data, and about 5 million people in the US identify as Filipino (<a href="https://www.census.gov/newsroom/facts-for-features/2026/asian-american-pacific-islander.html" target="_blank" rel="noopener noreferrer">US Census Bureau</a>, 2024 American Community Survey).</p>`,
       },
       {

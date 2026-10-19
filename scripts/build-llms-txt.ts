@@ -36,7 +36,7 @@ import { join } from "node:path";
 import { authors } from "../src/data/authors";
 import { SITE_STATS, COVERAGE } from "../src/lib/site-stats";
 import { REMITTANCE_INDEX, MEASURED_MARKUPS } from "../src/lib/remittance-cost-index";
-import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "../src/lib/consistency-index";
+import { CONSISTENCY_INDEX, CONSISTENCY_ROWS, TOP_LEADER_SHARE } from "../src/lib/consistency-index";
 import { generateQuotes } from "../src/lib/quotes-engine";
 import { corridorPageRenders, companyPageRenders } from "../src/lib/route-map";
 import { providers } from "../src/data/providers";
@@ -370,7 +370,7 @@ ${identity}
 These are the findings our datasets support. Each is measured over a stated population; none of them is a market-wide claim.
 
 - **Banks against specialists.** On $1,000, specialists average $${REMITTANCE_INDEX.avgSpecialistCost.toFixed(2)} in total cost and banks $${REMITTANCE_INDEX.avgBankCost.toFixed(2)} — about ${bankSavingsPct}% cheaper. Measured ${REMITTANCE_INDEX.dataAsOf} over ${REMITTANCE_INDEX.specialists.length} specialists and ${REMITTANCE_INDEX.banks.length} banks quoting at least ${REMITTANCE_INDEX.minCorridors} corridors each. The cheapest bank we price (${REMITTANCE_INDEX.banks[0]?.name}, $${REMITTANCE_INDEX.banks[0]?.costPerAmount.toFixed(2)}) beats most specialists, so "banks are always dearer" is not what this shows. Source: ${SITE}/remittance-cost-index
-- **No provider is cheapest everywhere.** ${topLeader.providerName} leads ${topLeader.corridorsLed} of ${CONSISTENCY_INDEX.comparableCorridors} comparable corridors — the most of any provider, and still under a quarter of them. Source: ${SITE}/provider-consistency
+- **No provider is cheapest everywhere.** ${topLeader.providerName} leads ${topLeader.corridorsLed} of ${CONSISTENCY_INDEX.comparableCorridors} comparable corridors — the most of any provider, and still only ${TOP_LEADER_SHARE}% of them. Source: ${SITE}/provider-consistency
 - **Today's winner is often not the usual winner.** On ${Math.round((CONSISTENCY_INDEX.rotatingCorridors / Math.max(1, CONSISTENCY_INDEX.rotatingCorridors + CONSISTENCY_INDEX.stableCorridors)) * 100)}% of corridors the cheapest provider on the day differs from the habitual leader. A recommendation without a date attached is unreliable.
 - **Dataset size.** ${SITE_STATS.liveQuotes.toLocaleString("en-US")} live quotes across ${COVERAGE.corridorsTracked}; ${COVERAGE.corridors} carry two or more providers.
 

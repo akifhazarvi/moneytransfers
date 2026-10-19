@@ -19,7 +19,7 @@ import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import { companyPageRenders } from "@/lib/route-map";
 import { getGoUrl } from "@/lib/affiliate";
 import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
-import { CONSISTENCY_ROWS, CONSISTENCY_INDEX } from "@/lib/consistency-index";
+import { CONSISTENCY_ROWS, CONSISTENCY_INDEX, TOP_LEADER, ROTATION_RATE } from "@/lib/consistency-index";
 import ibanStructures from "@/data/scraped/iban-structures.json";
 import { ibanPageRenders } from "@/lib/route-map";
 import { compareHashHref, gateBodyLinks, isLinkEligible } from "@/lib/link-eligibility";
@@ -1156,6 +1156,35 @@ export function renderDataTokens(html: string): string {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
     if (!row) return match;
     return `${row.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare`;
+  });
+
+  // Who leads overall, and where a provider ranks — never typed. Two guides
+  // said "Wise leads more corridors than any other provider" for two weeks
+  // after TapTap Send took the lead (2026-10-03), and one printed TapTap's 61
+  // corridors as "second only to Wise" beside Wise's 23. A sentence about the
+  // leader or a rank reads these, so a change of leader rewrites it.
+  // {{TOP_LEADER}}      -> "TapTap Send"
+  // {{TOP_LEADS}}       -> "61 of the 213 corridors we can compare" (as {{LEADS}})
+  // {{LEAD_RANK:wise}}  -> "the fourth-most of any provider"; the leader reads
+  //                        "the most of any provider", a tie "the joint …".
+  //                        Unresolved for a provider leading none.
+  // {{ROTATION_RATE}}   -> "29%": corridors where today's cheapest is not the
+  //                        usual winner. Five guides typed "about a quarter".
+  out = out.split("{{TOP_LEADER}}").join(TOP_LEADER.providerName);
+  out = out.split("{{TOP_LEADS}}").join(
+    `${TOP_LEADER.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare`,
+  );
+  out = out.split("{{ROTATION_RATE}}").join(`${ROTATION_RATE}%`);
+  out = out.replace(/\{\{LEAD_RANK:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
+    const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
+    if (!row || row.corridorsLed === 0) return match;
+    const ahead = CONSISTENCY_ROWS.filter((r) => r.corridorsLed > row.corridorsLed).length;
+    const tied = CONSISTENCY_ROWS.some((r) => r !== row && r.corridorsLed === row.corridorsLed);
+    const words = ["", "second-", "third-", "fourth-", "fifth-", "sixth-", "seventh-", "eighth-", "ninth-", "tenth-"];
+    const n = ahead + 1;
+    const suffix = n % 100 >= 11 && n % 100 <= 13 ? "th" : (["th", "st", "nd", "rd"][n % 10] ?? "th");
+    const ordinal = ahead < words.length ? words[ahead] : `${n}${suffix}-`;
+    return `the ${tied ? "joint " : ""}${ordinal}most of any provider`;
   });
 
   // {{LEADER_MAP}} -> a table of providers by corridors led, with examples.

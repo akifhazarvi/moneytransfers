@@ -24,6 +24,13 @@ const corrections = [
     date: "2026-10-18",
     type: "Correction" as const,
     description:
+      "Two guides still named Wise as the leader of our Provider Consistency Index after TapTap Send took the lead on 3 October, and one called TapTap Send's corridor count \"second only to Wise\" while printing a smaller one for Wise. Sentences naming the overall leader, or where a provider ranks, now read the index, so they change when the leader does. Our India guides also said Wise delivers the most rupees above $500, which our data does not show, and these pages stated Wise's no-markup pricing as our own finding; they now attribute it to Wise beside the markup we measure.",
+    affectedPages: ["/guides/best-money-transfer-apps", "/guides/wise-vs-remitly-vs-xoom-vs-xe", "/guides/how-to-send-money-to-india-2026", "/guides/send-money-to-india-from-usa-guide"],
+  },
+  {
+    date: "2026-10-18",
+    type: "Correction" as const,
+    description:
       "An automated content tool published changes to about 40 pages between 15 and 18 October without editorial review. We checked every one against our code, our data and primary sources and reverted or rewrote what was wrong: career details in an author biography and reach claims on our About page that nothing supports, contract and privacy terms we never adopted, a three-day response time for data corrections (ours is 24 hours), inaccurate descriptions of how we collect quotes, measure markups and order providers, and dashes and arrows that displayed as raw character codes.",
     affectedPages: ["/about/ahsan-mukhtar", "/about", "/terms", "/privacy-policy", "/contact", "/methodology", "/how-we-review", "/sendscore"],
   },
