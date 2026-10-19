@@ -7314,28 +7314,34 @@
         "receiveAmount": 1207.73
       },
       "moneygram": {
-        "rate": 11.9689,
+        "rate": 11.9561,
         "fee": 8,
-        "markup": 1.15,
-        "receiveAmount": 1101.14
+        "markup": 1.17,
+        "receiveAmount": 1099.96
       },
       "western-union": {
-        "rate": 12.0409,
+        "rate": 12.031,
         "fee": 5,
         "markup": 0.55,
-        "receiveAmount": 1143.89
+        "receiveAmount": 1142.95
       },
       "currencyfair": {
-        "rate": 12.016,
+        "rate": 12.01,
         "fee": 9.99,
-        "markup": 0.76,
-        "receiveAmount": 1081.56
+        "markup": 0.73,
+        "receiveAmount": 1081.02
       },
       "wise": {
         "rate": 12.0781,
         "fee": 8.4,
         "markup": 0,
         "receiveAmount": 1106.35
+      },
+      "skrill": {
+        "rate": 11.5227,
+        "fee": 0,
+        "markup": 4.75,
+        "receiveAmount": 1152.27
       }
     }
   }

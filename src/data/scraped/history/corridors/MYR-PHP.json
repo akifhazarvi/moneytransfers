@@ -4975,28 +4975,28 @@
     "date": "2026-10-19",
     "providers": {
       "western-union": {
-        "rate": 15.392,
+        "rate": 15.4036,
         "fee": 10,
-        "markup": 0.25,
-        "receiveAmount": 1385.28
+        "markup": 0.28,
+        "receiveAmount": 1386.32
       },
       "worldremit": {
-        "rate": 15.2317,
+        "rate": 15.273,
         "fee": 5,
-        "markup": 1.29,
-        "receiveAmount": 1447.01
+        "markup": 1.13,
+        "receiveAmount": 1450.94
       },
       "instarem": {
-        "rate": 15.4,
+        "rate": 15.4198,
         "fee": 0.65,
-        "markup": 0.2,
-        "receiveAmount": 1529.99
+        "markup": 0.18,
+        "receiveAmount": 1531.96
       },
       "wise": {
-        "rate": 15.4379,
+        "rate": 15.4456,
         "fee": 5.19,
-        "markup": -0.04,
-        "receiveAmount": 1463.67
+        "markup": 0.01,
+        "receiveAmount": 1464.4
       }
     }
   }
