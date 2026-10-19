@@ -1605,7 +1605,7 @@ export const compareEditorial: Record<string, CompareEditorial> = {
   },
 
   "chase-vs-wells-fargo": {
-    theDecision: `Both are large US retail banks with international wire pricing built around branch relationships rather than app-first cost competition. Chase charges $40-$50 for an international wire plus a 2-4% markup; Wells Fargo charges $30-$45 plus a wider 3-5% markup. Wells Fargo's fee is marginally lower; Chase's markup is narrower — the two roughly offset, and neither is competitive against a digital specialist.`,
+    theDecision: `Both are large US retail banks whose international wires mostly suit people who already bank there. <a href="https://www.chase.com/content/dam/chase-ux/documents/personal/checking/ABSF-en.pdf" target="_blank" rel="noopener noreferrer nofollow">Chase's fee schedule</a> (effective 14 June 2026) lists $40 for an online international wire in US dollars, $50 through a banker, and $5 for an online wire in a foreign currency, waived from $5,000. <a href="https://www.wellsfargo.com/help/online-banking/wires-faqs/" target="_blank" rel="noopener noreferrer nofollow">Wells Fargo</a> lists $0 to $30 for a digital wire and $40 in a branch, and charges consumer accounts no fee on a wire sent in a foreign currency. On a foreign-currency wire each bank also sets the exchange rate, so compare what the recipient receives in the table above.`,
     measuredRecord: `Chase led on {{LED:chase}} of the corridors we price against {{LED:wells-fargo}} for Wells Fargo. Chase's average shortfall when it isn't cheapest is {{SHORTFALL:chase}}, against {{SHORTFALL:wells-fargo}} for Wells Fargo — both trail digital specialists by a wide margin, consistent with standard bank-wire pricing.`,
     workedExample: {
       heading: "A worked example: $1,000 to India",
@@ -1613,18 +1613,18 @@ export const compareEditorial: Record<string, CompareEditorial> = {
     },
     pickA: {
       heading: "Pick Chase if you already bank there",
-      body: `Chase's $40-$50 international wire fee and 2-4% markup are the marginally narrower of the two on markup, offset by a slightly higher fee than Wells Fargo's. It supports transfers to $250,000 and settles in 1-5 business days.`,
+      body: `A Chase customer sending a foreign-currency wire of $5,000 or more online pays no Chase wire fee under its schedule, and $5 below that; a US-dollar wire costs $40 online. Chase says it sends wires to more than 90 countries in more than 40 currencies.`,
     },
     pickB: {
       heading: "Pick Wells Fargo if you already bank there",
-      body: `Wells Fargo's $30-$45 fee is marginally lower than Chase's, offset by a wider 3-5% markup. It caps transfers at $100,000, below Chase's $250,000, and settles in 2-5 business days.`,
+      body: `Wells Fargo charges consumer accounts nothing for a digital wire sent in a foreign currency, by its wires FAQ, and $0 to $30 for one in US dollars. To send a digital wire you need a current US residence; customers in US territories or abroad cannot use it.`,
     },
-    limits: `Both banks' fees and markups vary by branch, account type and destination — confirm the current terms directly before sending. Neither is competitive against a digital specialist on the corridors we measure.`,
+    limits: `The fee figures here are each bank's published consumer prices; the exchange rate on a foreign-currency wire is separate, and correspondent or receiving banks can deduct their own charges.`,
     verdict: {
       costExplanation: `Chase led {{LED:chase}} of the corridors we price against {{LED:wells-fargo}} for Wells Fargo, with average shortfalls of {{SHORTFALL:chase}} and {{SHORTFALL:wells-fargo}} — both a meaningful premium over a digital specialist, consistent with standard bank-wire pricing.`,
-      speedExplanation: `Chase quotes 1-5 business days; Wells Fargo 2-5 business days. Neither offers an express, minutes-level option — a digital remittance specialist would beat both on speed as well as cost.`,
-      coverageExplanation: `Both reach around 200 countries and 100 currencies through correspondent banking. Chase's $250,000 ceiling exceeds Wells Fargo's $100,000.`,
-      bottomLine: `This page compares two similarly expensive bank wires rather than identifying a clear winner — the fee and markup roughly offset between them. An existing relationship with either bank is the more relevant factor than which one is marginally cheaper on paper.`,
+      speedExplanation: `Neither bank publishes one arrival time for every country; for a wire, the correspondent and receiving banks set much of the timing.`,
+      coverageExplanation: `Chase says it reaches more than 90 countries in more than 40 currencies. Wells Fargo's digital wires require a current US residence.`,
+      bottomLine: `For a foreign-currency wire, the published fees are small at both banks, so the exchange rate each one sets decides most of the difference: check the amount the recipient gets before you send.`,
     },
     faqs: [
       {
@@ -1633,11 +1633,11 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
       {
         q: "Which has the lower fee?",
-        a: "Wells Fargo, at $30-$45 against Chase's $40-$50 — but Wells Fargo's markup (3-5%) is wider than Chase's (2-4%), so the lower fee doesn't necessarily mean the lower total cost.",
+        a: "It depends on the currency. Sent in a foreign currency, a Wells Fargo digital wire carries no fee for consumer accounts, while Chase charges $5 online, or nothing from $5,000. Sent in US dollars, Wells Fargo's digital wires cost $0 to $30 and Chase's online wire $40, by each bank's published fees.",
       },
       {
-        q: "Which has the higher transfer limit?",
-        a: "Chase, at $250,000 against Wells Fargo's $100,000. For a transfer near either limit, confirm the current policy directly with the bank, since large transfers often involve additional verification.",
+        q: "Who can send a Wells Fargo digital wire?",
+        a: "Wells Fargo says you need a current residence in the United States; customers living in US territories such as Puerto Rico or Guam, or in other countries, cannot send digital wires. Chase's online wires need enrolment first, and its Secure Banking accounts can only receive them.",
       },
       {
         q: "Why would I use either bank instead of a specialist?",
@@ -1645,10 +1645,10 @@ export const compareEditorial: Record<string, CompareEditorial> = {
       },
     ],
     keyDifferences: [
-      "Wells Fargo's fee ($30-$45) is marginally lower than Chase's ($40-$50), but its markup (3-5%) is wider than Chase's (2-4%) — the two roughly offset.",
-      "Chase caps transfers at $250,000; Wells Fargo at $100,000.",
-      "Both settle in multiple business days with no express option, and both trail digital specialists by a wide margin on cost.",
-      "Both reach around 200 countries and 100 currencies through correspondent banking relationships.",
+      "On a foreign-currency wire, Wells Fargo charges consumers no fee and Chase $5 online ($0 from $5,000); in US dollars it is $0 to $30 digital at Wells Fargo against $40 online at Chase.",
+      "Chase says its wires reach more than 90 countries in more than 40 currencies.",
+      "Both banks set the exchange rate on a foreign-currency wire, so the fee alone does not tell you the cost.",
+      "Correspondent and receiving banks can deduct their own charges from either bank's wire.",
     ],
   },
 };
