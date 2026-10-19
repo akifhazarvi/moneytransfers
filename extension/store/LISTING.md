@@ -59,7 +59,7 @@ Some Send buttons are affiliate links: we may earn a commission when you use a p
 **Single purpose:**
 
 ```
-Help people sending money abroad compare what money transfer providers pay out, and follow the exchange rates that decide it: a provider comparison, a mid-market currency converter, rate charts and rate alerts, all from sendmoneycompare.com's data.
+Help people sending money abroad know whether a transfer is a good deal: compare what money transfer providers pay out (in the popup and, if the user turns it on, on providers' own sites), and follow the exchange rates that decide it with a mid-market converter, rate charts and rate alerts. All data comes from sendmoneycompare.com.
 ```
 
 **Permission justifications:**
@@ -67,7 +67,7 @@ Help people sending money abroad compare what money transfer providers pay out, 
 | Permission | Justification to paste |
 |---|---|
 | activeTab | When the user opens the extension on a money transfer provider's page, it reads the amount and currencies shown there so it can compare that transfer. Only after the user clicks the extension, only on that tab. |
-| scripting | Runs the read-only function that finds the amount and currencies on the provider page the user opened the extension on (granted through activeTab). Nothing is changed on the page. |
+| scripting | Runs the read-only function that finds the amount and currencies on the provider page the user opened the extension on (granted through activeTab), and, only if the user turns on price checks and grants those sites, registers the price-check script on the money transfer provider sites they granted. Nothing on the page is changed. |
 | storage | Keeps the user's last comparison, converter currencies, watchlist, alerts and settings, and recent answers so the popup opens instantly and works offline. |
 | alarms | Checks exchange rates about every 15 minutes to fire the user's rate alerts and update the optional rate on the toolbar icon. |
 | contextMenus | Adds "Compare sending …" and "Convert …" when the user right-clicks a selected amount. |
