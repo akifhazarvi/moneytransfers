@@ -56,13 +56,23 @@ import { displayBankList } from "@/lib/bank-display-name";
  * October 2025, when the Commission counted 40 of their banks in the schemes;
  * Serbia (22 May 2025), where the NBS said on 15 July 2026 that 18 of its 19
  * banks had adhered to SEPA Credit Transfer. /iban/serbia answered "Is Serbia
- * part of SEPA? No." until 2026-10-18. iban-structures.json already agrees.
+ * part of SEPA? No." until 2026-10-18. Iceland, an EEA member on the same list
+ * since SEPA began, carried the same wrong flag. iban-structures.json already
+ * agrees.
  */
-const EPC_SEPA_SCOPE_ADDED = new Set(["AD", "AL", "ME", "MK", "MD", "RS"]);
+const EPC_SEPA_SCOPE_ADDED = new Set(["AD", "AL", "ME", "MK", "MD", "RS", "IS"]);
+
+/**
+ * The account currency where the scrape kept a retired one: El Salvador's
+ * Monetary Integration Law (2001) put accounts in US dollars, so the page said
+ * transfers "arrive in SVC" and its comparison asked for a USD→SVC route.
+ */
+const ACCOUNT_CURRENCY: Record<string, string> = { SV: "USD" };
 
 export const wiseCountries: WiseCountryIban[] = (ibanData as WiseCountryIban[]).map((c) => ({
   ...c,
   sepa: c.sepa || EPC_SEPA_SCOPE_ADDED.has(c.countryCode.toUpperCase()),
+  currency: ACCOUNT_CURRENCY[c.countryCode.toUpperCase()] ?? c.currency,
   banks: displayBankList(c.slug, c.banks),
 }));
 export const wiseCountryPages: WiseCountryPage[] = pageData as WiseCountryPage[];
