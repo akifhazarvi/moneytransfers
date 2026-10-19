@@ -116,6 +116,12 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/iban/azerbaijan": "2026-10-18",
   "/iban/kazakhstan": "2026-10-18",
   "/iban/malta": "2026-10-18",
+  "/iban/guatemala": "2026-10-18",
+  "/iban/dominican-republic": "2026-10-18",
+  "/iban/bosnia-and-herzegovina": "2026-10-18",
+  "/iban/iceland": "2026-10-18",
+  "/iban/el-salvador": "2026-10-18",
+  "/iban/lebanon": "2026-10-18",
   "/iban/costa-rica": "2026-10-18",               // SINPE, Pagos al Exterior, SINPE Móvil
   "/iban/lithuania": "2026-10-18",                // CENTROlink, Verification of Payee, litas
   "/iban/slovakia": "2026-10-18",                 // payment symbols, SIPS and TIPS
