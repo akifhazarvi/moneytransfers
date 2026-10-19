@@ -581,6 +581,18 @@ export const swiftContentEn: SwiftContent = {
       q: "Can I receive non-EUR currencies directly in my French bank account?",
       a: "Most standard French bank accounts are EUR-denominated, and incoming non-EUR transfers are automatically converted at the bank's exchange rate. Some banks (especially BNP Paribas, Societe Generale, and international banks) offer multi-currency accounts. If you regularly receive USD or GBP, a multi-currency account avoids the automatic conversion and its associated margin.",
     },
+{
+      q: "Can I check a French bank's BIC in the Banque de France or ACPR registers?",
+      a: "Not the BIC itself. <a href=\"https://www.regafi.fr/\" target=\"_blank\" rel=\"noopener noreferrer\">REGAFI</a>, the register of authorised firms published by the ACPR, which supervises French banks, records each credit institution's legal name, trade names, address, interbank code (CIB), SIREN number and Legal Entity Identifier, but carries no BIC field. What it can confirm is that the bank named beside a BIC exists and holds a French authorisation: the ACPR asks users to make sure the legal name, trade name and address match the institution they mean exactly. For a bank from another EU country working in France through a branch, it points to the home supervisor's register and to the European Banking Authority's <a href=\"https://www.eba.europa.eu/risk-and-data-analysis/data/registers-and-other-list-institutions/credit-institutions-register\" target=\"_blank\" rel=\"noopener noreferrer\">credit institutions register</a>.",
+    },
+    {
+      q: "Does the French payee name check cover a SWIFT transfer?",
+      a: "No. The vérification du bénéficiaire French banks started on 9 October 2025 applies to SEPA credit transfers, standard and instant. A <a href=\"https://www.banque-france.fr/system/files/2025-09/CNMP_Guide-d-utilisation-Verification-du-beneficiaire.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">user guide from the national payments committee</a>, published by the Banque de France, says no check is planned for an international transfer outside SEPA, and that SEPA countries outside the European Economic Area, such as the United Kingdom and Switzerland, are not yet bound by it. The name is not checked either when you send a payment order to your bank by post and are not there while staff enter it. With no check, the guide asks payers to verify the bank details carefully, and warns that a RIB may leave out or shorten the first name, often on joint accounts.",
+    },
+    {
+      q: "Do banks in Réunion, Guadeloupe and the other overseas departments use French BICs and IBANs?",
+      a: "Their IBANs begin with FR, but their BICs carry the territory's own country letters. The European Payments Council's <a href=\"https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2025-12/EPC409-09%20EPC%20List%20of%20SEPA%20Scheme%20Countries%20v8.0.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">list of SEPA scheme countries</a> gives GP for Guadeloupe, MQ for Martinique, GF for French Guiana, RE for Réunion and YT for Mayotte as the code used in BICs, with FR in the IBAN; the same split applies in Saint Pierre and Miquelon, Saint Martin and Saint Barthélemy. New Caledonia, French Polynesia and Wallis and Futuna, in the CFP franc zone, are not on the list. The <a href=\"https://www.banque-france.fr/system/files/2025-09/CNMP_Guide-d-utilisation-Verification-du-beneficiaire.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">CNMP guide</a> adds that instant transfers have not been rolled out between France's euro territories and those Pacific collectivities, and that the payee name check does not apply to transfers between them.",
+    },
   ],
 
   "united-arab-emirates": [
