@@ -59,7 +59,11 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/compare/remitly-vs-taptap-send": "2026-10-18", // pair note: UK safeguarding; TapTap cash pickup corrected
   "/compare/revolut-vs-hsbc": "2026-10-18",       // pair note: banking licences; Revolut's plan fees corrected
   "/compare/paypal-vs-revolut": "2026-10-18",     // Revolut's plan fees corrected
+  "/compare/paypal-vs-western-union": "2026-10-18", // pair note: fraud warnings, FTC order, cancelling; own FAQs
+  "/compare/paypal-vs-worldremit": "2026-10-18",  // decision note: send-only PayPal accounts, WorldRemit partner payouts
+  "/compare/chase-vs-revolut": "2026-10-18",      // decision note: Chase wires vs Revolut's partner banks (OCC, FDIC)
   "/swift-codes/netherlands": "2026-10-18",       // name check, DNB register, instant payments
+  "/swift-codes/france": "2026-10-18",            // REGAFI, the payee check and SWIFT wires, overseas BIC letters
   "/iban/costa-rica": "2026-10-18",               // SINPE, Pagos al Exterior, SINPE Móvil
   "/iban/lithuania": "2026-10-18",                // CENTROlink, Verification of Payee, litas
   "/iban/slovakia": "2026-10-18",                 // payment symbols, SIPS and TIPS
