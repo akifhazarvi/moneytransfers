@@ -237,8 +237,9 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  Our extension for Chrome and Microsoft Edge has no account and no
-                  analytics of its own. It handles data as follows:
+                  Our extension for Chrome and Microsoft Edge has no account, and its
+                  usage analytics are off unless you turn them on. It handles data as
+                  follows:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>
@@ -273,12 +274,23 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                     every 15 minutes.
                   </li>
                   <li>
+                    <strong className="text-[var(--color-on-surface)]">Usage sharing (optional):</strong>{" "}
+                    if you turn on “Share anonymous usage” (asked once when you
+                    install it, changeable in its settings), the extension sends events
+                    such as which tab you opened, which route you compared and which
+                    provider you chose, with a random identifier created for that browser,
+                    to sendmoneycompare.com, which passes them to Google Analytics. Turning
+                    it off deletes the identifier. Global Privacy Control and Do Not Track
+                    override it.
+                  </li>
+                  <li>
                     <strong className="text-[var(--color-on-surface)]">Choosing a provider:</strong>{" "}
                     a Send button opens the provider through sendmoneycompare.com/go,
                     which counts the click and passes the route and amount on, the same as
                     a click on our website (see Affiliate partners above). Analytics
                     identifiers are added only if you have accepted analytics on our
-                    website.
+                    website; a daily total of these clicks, with no identifier, is kept
+                    for up to 90 days.
                   </li>
                 </ul>
                 <p>

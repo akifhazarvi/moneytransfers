@@ -1,5 +1,8 @@
 /** Daily operational totals only: no IP, cookie, URL, referrer or user ID stored. */
-export const CONSENT_METRIC_EVENTS = ["shown", "accepted", "rejected", "updated", "qualified_redirect"] as const;
+// qualified_redirect_extension: the subset of qualified_redirect that came from
+// the browser extension (/go?src=extension), so its conversions are visible
+// without anyone opting in to analytics.
+export const CONSENT_METRIC_EVENTS = ["shown", "accepted", "rejected", "updated", "qualified_redirect", "qualified_redirect_extension"] as const;
 export type ConsentMetric = typeof CONSENT_METRIC_EVENTS[number];
 
 export async function countConsentMetric(event: ConsentMetric): Promise<void> {

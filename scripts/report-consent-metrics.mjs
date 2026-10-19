@@ -10,9 +10,9 @@ const result=await response.json();
 const rows=result.map((r,i)=>{
   if(r.error)throw new Error('Counter store returned an error.');
   const values={};for(let j=0;j<(r.result||[]).length;j+=2)values[r.result[j]]=Number(r.result[j+1]);
-  return {date:dates[i],shown:values.shown||0,accepted:values.accepted||0,rejected:values.rejected||0,updated:values.updated||0,qualified_redirect:values.qualified_redirect||0};
+  return {date:dates[i],shown:values.shown||0,accepted:values.accepted||0,rejected:values.rejected||0,updated:values.updated||0,qualified_redirect:values.qualified_redirect||0,from_extension:values.qualified_redirect_extension||0};
 });
 console.table(rows);
-const total=rows.reduce((a,r)=>{for(const k of Object.keys(a))a[k]+=r[k];return a;},{shown:0,accepted:0,rejected:0,updated:0,qualified_redirect:0});
+const total=rows.reduce((a,r)=>{for(const k of Object.keys(a))a[k]+=r[k];return a;},{shown:0,accepted:0,rejected:0,updated:0,qualified_redirect:0,from_extension:0});
 console.log({total,acceptanceAmongDecisions:total.accepted+total.rejected?total.accepted/(total.accepted+total.rejected):null});
 console.log('Counts are UI actions and operational redirects, not unique people or credited conversions.');

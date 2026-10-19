@@ -16,7 +16,33 @@ Chrome and Edge (Manifest V3). Four tabs in the toolbar popup:
   sparklines and period changes, rate alerts (Chrome notifications, checked every
   15 minutes) and an optional rate on the toolbar icon.
 - **Live activity**: the site's strip along the bottom of the popup, same feed
-  and wording. The extension reads it and never records events of its own.
+  and wording. The extension reads it and never records activity of its own.
+- **Welcome page** on install: pin the icon (with a live "Pinned ✓"), try it,
+  and the one-time usage-sharing choice. **Uninstall** opens /contact.
+
+## Events
+
+Opt-in only (`analytics` pref: null until chosen; asked on the welcome page and,
+if unanswered, once in the popup; switch in Settings). `extension/src/lib/analytics.js`
+→ `POST /api/ext/v1/events` → GA4 via Measurement Protocol
+(`src/lib/extension-events.ts`, allowlisted names, random per-browser id
+`ext.<uuid>`, deleted on opt-out; GPC/DNT override). Every event carries
+`cta_source=extension`, `ext_version`, `ext_browser`. The conversion is
+`provider_clicked` with `placement` extension_row | extension_row_here |
+extension_details | extension_offers | extension_omnibox. Others: ext_opened,
+ext_tab, ext_quotes_viewed, ext_compare_search, ext_here_shown, ext_converted,
+ext_watch_added, ext_alert_set, ext_alert_fired, ext_link_copied,
+ext_code_copied, ext_context_menu, ext_omnibox, ext_rate_prompt, ext_setting,
+ext_welcome, ext_installed, live_activity_clicked (placement extension).
+Register `placement`, `ext_version`, `ext_browser`, `tab`, `via` as event-scoped
+custom dimensions in GA4 (not retroactive).
+
+Without anyone opting in: the Chrome Web Store / Edge dashboards give installs
+and weekly users; `/go?src=extension` redirects that reach a provider are counted
+daily with no identifier (`qualified_redirect_extension`,
+`node --env-file=.env.local scripts/report-consent-metrics.mjs`, column
+from_extension); links into the site carry utm_source=<browser>-extension,
+utm_medium=extension, utm_content=<placement>.
 
 Plus: right-click a selected amount ("$1,250") to compare or convert it; type
 `smc 500 gbp inr` in the address bar; Alt+Shift+S opens the popup.

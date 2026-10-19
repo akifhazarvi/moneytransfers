@@ -26,6 +26,22 @@ export async function gaServerEvent(
   request?: Request,
 ): Promise<void> {
   if (!requestAnalyticsAllowed(request)) return;
+  return postGa4Event(eventName, params, clientId, geo);
+}
+
+/**
+ * The Measurement Protocol call itself, with no consent check: the caller has
+ * made it. gaServerEvent checks the site's consent cookie; the extension's
+ * events route checks the extension's own opt-in (src/lib/extension-events.ts).
+ * `session` makes a hit count toward GA4 sessions and engaged users.
+ */
+export async function postGa4Event(
+  eventName: string,
+  params: Record<string, string | number | boolean> = {},
+  clientId?: string,
+  geo?: GeoHints,
+  session?: { id: string; engagementMs: number },
+): Promise<void> {
   const apiSecret = process.env.GA4_API_SECRET;
   if (!apiSecret) return; // env not configured — skip silently
 
@@ -58,7 +74,16 @@ export async function gaServerEvent(
     ...(userLocation ? { user_location: userLocation } : {}),
     // `source` → `cta_source`, as the browser sink does, so it neither
     // re-attributes the session nor goes unreported (ga4-params.ts).
-    events: [{ name: eventName, params: { ...forGa4(params), ...geoParams } }],
+    events: [
+      {
+        name: eventName,
+        params: {
+          ...forGa4(params),
+          ...geoParams,
+          ...(session ? { session_id: session.id, engagement_time_msec: session.engagementMs } : {}),
+        },
+      },
+    ],
   };
 
   try {

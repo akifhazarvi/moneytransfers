@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Welcome to SendMoneyCompare</title>
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="welcome.css" />
+    <script type="module" src="welcome.js"></script>
+  </head>
+  <body class="welcome">
+    <main class="w-main">
+      <header class="w-hero">
+        <img src="icons/icon-128.png" width="72" height="72" alt="" />
+        <h1>SendMoneyCompare is ready</h1>
+        <p>See what money transfer providers pay out for your amount, from any page.</p>
+      </header>
+
+      <section class="w-step card" aria-labelledby="pin-title">
+        <span class="w-num" aria-hidden="true">1</span>
+        <div class="w-body">
+          <div class="w-row">
+            <h2 id="pin-title">Pin it to your toolbar</h2>
+            <span id="pin-status" class="chip" role="status"></span>
+          </div>
+          <p>Click the puzzle piece at the top right of your browser, then the pin next to SendMoneyCompare. It stays one click away.</p>
+          <div class="w-toolbar" aria-hidden="true">
+            <span class="w-address"></span>
+            <span class="w-tool w-puzzle" id="puzzle"></span>
+            <span class="w-tool"><img src="icons/icon-32.png" width="18" height="18" alt="" /></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-step card" aria-labelledby="try-title">
+        <span class="w-num" aria-hidden="true">2</span>
+        <div class="w-body">
+          <h2 id="try-title">Try it on a provider's site</h2>
+          <p>Open Wise, Remitly or Western Union, enter an amount, then click SendMoneyCompare. It reads the amount and shows how that provider compares.</p>
+          <button type="button" class="btn btn-primary" id="open-popup">Open SendMoneyCompare</button>
+        </div>
+      </section>
+
+      <section class="w-step card" aria-labelledby="shortcuts-title">
+        <span class="w-num" aria-hidden="true">3</span>
+        <div class="w-body">
+          <h2 id="shortcuts-title">Three shortcuts</h2>
+          <ul class="w-list">
+            <li><kbd id="shortcut">Alt+Shift+S</kbd> opens it</li>
+            <li>Select an amount like <b>$1,250</b> on any page, right-click, and compare or convert it</li>
+            <li>Type <kbd>smc</kbd>, a space, then <b>500 gbp inr</b> in the address bar</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="w-consent card" id="consent" aria-labelledby="consent-title">
+        <h2 id="consent-title">Help improve SendMoneyCompare?</h2>
+        <p>Share anonymous usage: which tabs you open, which routes you compare and which providers you choose, with a random ID made for this browser. Nothing is shared unless you say yes, and you can change it any time in Settings.</p>
+        <div class="w-actions" id="consent-actions">
+          <button type="button" class="btn btn-primary" id="consent-yes">Share anonymous usage</button>
+          <button type="button" class="btn btn-tinted" id="consent-no">No thanks</button>
+        </div>
+        <p class="w-done" id="consent-done" hidden></p>
+      </section>
+
+      <footer class="w-foot">
+        <a id="link-privacy" href="https://sendmoneycompare.com/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <a id="link-method" href="https://sendmoneycompare.com/methodology" target="_blank" rel="noopener">How we compare</a>
+        <span aria-hidden="true">·</span>
+        <a id="link-site" href="https://sendmoneycompare.com/" target="_blank" rel="noopener">sendmoneycompare.com</a>
+      </footer>
+    </main>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

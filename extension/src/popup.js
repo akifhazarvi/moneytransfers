@@ -13,9 +13,11 @@ import { load, pruneSaved, cross } from "./lib/api.js";
 import { lineChart, sliceRange, rangeStats, RANGES } from "./lib/chart.js";
 import { detectTransfer } from "./lib/detect.js";
 import { providerForHost } from "./lib/hosts.js";
-import { getPrefs, setPrefs } from "./lib/store.js";
+import { getPrefs, setPrefs, PREF_DEFAULTS } from "./lib/store.js";
 import { SEND, ALL, CURRENCY, FLAG_FILES } from "./data/currencies.js";
 import { SITE } from "./config.js";
+import { analyticsReady, flush, setAnalytics, track } from "./lib/analytics.js";
+import { siteLink, storeReviewUrl } from "./lib/links.js";
 
 const POPULAR_SEND = ["USD", "GBP", "EUR", "CAD", "AUD", "SGD", "AED", "NZD"];
 const POPULAR_RECEIVE = ["INR", "PHP", "MXN", "PKR", "NGN", "BDT", "EUR", "GBP"];
@@ -107,8 +109,23 @@ function goHref(url) {
   return typeof url === "string" && url.startsWith(`${SITE}/go/`) ? url : null;
 }
 
-function compareHref(from, to, amount) {
-  return `${SITE}/send-money#from=${from}&to=${to}${amount ? `&amount=${amount}` : ""}`;
+function compareHref(from, to, amount, placement) {
+  return `${siteLink("/send-money", placement)}#from=${from}&to=${to}${amount ? `&amount=${amount}` : ""}`;
+}
+
+/** The conversion: a Send or Continue tap. Sent at once, since the popup closes as the tab opens. */
+function trackClick(row, c, rank, placement) {
+  track(
+    "provider_clicked",
+    { provider: row.slug, corridor: `${c.from}-${c.to}`, amount: c.amount, rank, ranked: row.ranked, placement },
+    { now: true },
+  );
+  noteUse("click");
+}
+
+function trackSearch() {
+  const { from, to, amount } = state.route;
+  track("ext_compare_search", { corridor: `${from}-${to}`, amount });
 }
 
 function ccyButton(code, label, onClick) {
@@ -175,8 +192,13 @@ async function refreshComparison() {
   state.showAll = false;
   repaintRoute();
   try {
+    let counted = false;
     await load("compare", { from, to, amount }, (data, meta) => {
       if (seq !== compSeq) return;
+      if (!counted) {
+        counted = true;
+        track("ext_quotes_viewed", { corridor: `${from}-${to}`, amount, compared: data.compared, saved: Boolean(meta.savedAt) });
+      }
       state.comparison = data;
       state.compMeta = meta;
       state.compStatus = "ready";
@@ -248,14 +270,20 @@ function viewCompare() {
   regions.receive = h("div", { class: "receive" });
   regions.midline = h("p", { class: "midline" });
   regions.insights = h("div", { class: "insights" });
+  regions.ask = h("div");
   regions.list = h("section", { "aria-label": "Providers" });
   regions.footer = h("footer", { class: "foot" });
 
   const amount = amountField(r.amount, `Amount to send in ${r.from}`, (n) => {
     if (n === state.route.amount) return;
+    if (n > 1_000_000) {
+      toast(`Compare up to ${fmt.amount(1_000_000, state.route.from)}`);
+      return;
+    }
     state.route.amount = n;
     saveRoute();
     refreshComparison();
+    trackSearch();
   });
   amount.addEventListener("blur", () => {
     amount.value = fmt.number(state.route.amount, 2);
@@ -289,6 +317,7 @@ function viewCompare() {
       regions.midline,
     ),
     regions.insights,
+    regions.ask,
     regions.list,
     regions.footer,
   );
@@ -300,10 +329,12 @@ function setRoute(patch) {
   saveRoute();
   if (state.tab === "compare") viewCompare();
   refreshComparison();
+  trackSearch();
 }
 
 function paintCompare() {
   if (!regions.list?.isConnected) return;
+  paintAsk();
   paintHere();
   paintReceive();
   paintInsights();
@@ -377,6 +408,10 @@ function paintHere() {
     }
   }
   if (here.detected && c) sub = [sub, `Amount and currencies read from this page.`].filter(Boolean).join(" ");
+  if (c && !state.hereTracked) {
+    state.hereTracked = true;
+    track("ext_here_shown", { provider: here.slugs[0], detected: Boolean(here.detected), listed: Boolean(row), rank: row?.ranked ? ranked.indexOf(row) + 1 : 0 });
+  }
 
   fill(
     regions.here,
@@ -512,7 +547,14 @@ function paintList() {
       h("h2", { text: `${c.compared} provider${c.compared === 1 ? "" : "s"} compared · by payout` }),
       h(
         "button",
-        { type: "button", class: "text-btn", onclick: () => copy(c.compareUrl, "Link copied") },
+        {
+          type: "button",
+          class: "text-btn",
+          onclick: () => {
+            copy(siteLink(c.compareUrl, "share"), "Link copied");
+            track("ext_link_copied", { corridor: `${c.from}-${c.to}` });
+          },
+        },
         icon(ICON.link, "icon xs"),
         "Copy link",
       ),
@@ -577,13 +619,24 @@ function providerRow(row, c, ctx) {
       ),
     ),
     href
-      ? h("a", { class: `btn btn-sm ${isTop ? "btn-primary" : "btn-tinted"}`, href, target: "_blank", rel: "noopener", "aria-label": `Send with ${row.name}` }, "Send")
+      ? h(
+          "a",
+          {
+            class: `btn btn-sm ${isTop ? "btn-primary" : "btn-tinted"}`,
+            href,
+            target: "_blank",
+            rel: "noopener",
+            "aria-label": `Send with ${row.name}`,
+            onclick: () => trackClick(row, c, ctx.index + 1, ctx.here ? "extension_row_here" : "extension_row"),
+          },
+          "Send",
+        )
       : h("span"),
-    open ? rowDetails(row, c, href) : null,
+    open ? rowDetails(row, c, href, ctx.index + 1) : null,
   );
 }
 
-function rowDetails(row, c, href) {
+function rowDetails(row, c, href, rank) {
   const kv = (k, v) => [h("dt", { text: k }), h("dd", { text: v })];
   return h(
     "div",
@@ -606,7 +659,13 @@ function rowDetails(row, c, href) {
       : null,
     row.firstTransfer ? firstTransferBox(row, c) : null,
     row.offer ? offerBox(row.offer, row.name) : null,
-    href ? h("a", { class: "btn btn-primary btn-block", href, target: "_blank", rel: "noopener" }, `Continue to ${row.name}`) : null,
+    href
+      ? h(
+          "a",
+          { class: "btn btn-primary btn-block", href, target: "_blank", rel: "noopener", onclick: () => trackClick(row, c, rank, "extension_details") },
+          `Continue to ${row.name}`,
+        )
+      : null,
     h("p", { class: "fine", text: `${row.name} confirms the final rate, fee and delivery time before you pay.` }),
   );
 }
@@ -643,7 +702,15 @@ function offerBox(offer, name) {
       offer.code
         ? h(
             "button",
-            { type: "button", class: "code", onclick: () => copy(offer.code, "Code copied"), "aria-label": `Copy code ${offer.code}` },
+            {
+              type: "button",
+              class: "code",
+              onclick: () => {
+                copy(offer.code, "Code copied");
+                track("ext_code_copied", { provider: name });
+              },
+              "aria-label": `Copy code ${offer.code}`,
+            },
             offer.code,
             icon(ICON.copy, "icon xs"),
           )
@@ -672,7 +739,7 @@ function paintFooter() {
       : null,
     h(
       "a",
-      { class: "foot-link", href: compareHref(state.route.from, state.route.to, state.route.amount), target: "_blank", rel: "noopener" },
+      { class: "foot-link", href: compareHref(state.route.from, state.route.to, state.route.amount, "full_comparison"), target: "_blank", rel: "noopener" },
       "Open the full comparison",
       icon(ICON.external, "icon xs"),
     ),
@@ -718,7 +785,20 @@ function viewOffers() {
   const signup = c.rows.filter((row) => row.offer);
   const sendBtn = (row) => {
     const href = goHref(row.sendUrl);
-    return href ? h("a", { class: "btn btn-sm btn-tinted", href, target: "_blank", rel: "noopener", "aria-label": `Send with ${row.name}` }, "Send") : null;
+    return href
+      ? h(
+          "a",
+          {
+            class: "btn btn-sm btn-tinted",
+            href,
+            target: "_blank",
+            rel: "noopener",
+            "aria-label": `Send with ${row.name}`,
+            onclick: () => trackClick(row, c, c.rows.indexOf(row) + 1, "extension_offers"),
+          },
+          "Send",
+        )
+      : null;
   };
 
   const sections = [];
@@ -769,7 +849,15 @@ function viewOffers() {
               row.offer.code
                 ? h(
                     "button",
-                    { type: "button", class: "code", onclick: () => copy(row.offer.code, "Code copied"), "aria-label": `Copy code ${row.offer.code}` },
+                    {
+                      type: "button",
+                      class: "code",
+                      onclick: () => {
+                        copy(row.offer.code, "Code copied");
+                        track("ext_code_copied", { provider: row.slug });
+                      },
+                      "aria-label": `Copy code ${row.offer.code}`,
+                    },
                     row.offer.code,
                     icon(ICON.copy, "icon xs"),
                   )
@@ -908,6 +996,10 @@ function buildConvRows() {
       clearTimeout(timer);
       const n = fmt.parseAmount(input.value);
       if (!n) return;
+      if (!state.convertTracked) {
+        state.convertTracked = true;
+        track("ext_converted", { currencies: state.conv.list.length });
+      }
       if (code !== state.conv.base) {
         if (state.conv.selected === code) state.conv.selected = state.conv.base;
         state.conv.base = code;
@@ -1176,7 +1268,10 @@ function toggleWatch(from, to) {
   if (adding) watch.push({ from, to });
   savePrefs({ watch });
   toast(adding ? `Following ${from} → ${to}` : `Stopped following ${from} → ${to}`);
-  if (adding) loadHistory(from, to);
+  if (adding) {
+    loadHistory(from, to);
+    track("ext_watch_added", { pair: `${from}-${to}` });
+  }
 }
 
 function viewRates() {
@@ -1370,6 +1465,7 @@ function alertEditor(w, alert, r) {
     const asked = chrome.permissions.request({ permissions: ["notifications"] }).catch(() => false);
     const alerts = state.prefs.alerts.filter((a) => !(a.from === w.from && a.to === w.to));
     alerts.push({ id: crypto.randomUUID(), from: w.from, to: w.to, op, target, active: true });
+    track("ext_alert_set", { pair: `${w.from}-${w.to}`, op });
     savePrefs({ alerts });
     state.editingAlert = null;
     paintWatch();
@@ -1548,6 +1644,110 @@ function openPicker({ title, list, popular, selected, onPick }) {
   search.focus();
 }
 
+// ── One gentle ask: usage sharing, or a rating ───────────────────────
+//
+// At most one card, on the Compare tab, never on a first open. Usage sharing is
+// asked once if the welcome page went unanswered; a rating is asked after real
+// use (2 provider taps, or 6 opens on 3 different days), and never again once
+// answered ("Not now" waits 30 days). Unpacked builds have no store page, so
+// they are never asked to rate.
+
+async function noteUse(kind) {
+  const { usage = { opens: 0, clicks: 0, days: [] } } = await chrome.storage.local.get("usage");
+  const today = new Date().toISOString().slice(0, 10);
+  if (kind === "open") usage.opens++;
+  else usage.clicks++;
+  if (!usage.days.includes(today)) usage.days = [...usage.days, today].slice(-10);
+  await chrome.storage.local.set({ usage });
+  return usage;
+}
+
+async function decideAsk(usage) {
+  const { rate } = await chrome.storage.local.get("rate");
+  if (state.prefs.analytics === null && usage.opens >= 2) return "usage";
+  if (!storeReviewUrl() || rate?.state === "done") return null;
+  if (rate?.state === "later" && Date.now() - rate.at < 30 * 86_400_000) return null;
+  return usage.clicks >= 2 || (usage.opens >= 6 && usage.days.length >= 3) ? "rate" : null;
+}
+
+function paintAsk() {
+  if (!regions.ask?.isConnected) return;
+  const close = () => {
+    state.ask = null;
+    paintAsk();
+  };
+  if (state.ask === "usage") {
+    return fill(
+      regions.ask,
+      h(
+        "div",
+        { class: "card ask" },
+        h("p", { class: "ask-title", text: "Help improve SendMoneyCompare?" }),
+        h("p", { class: "ask-text", text: "Share anonymous usage (tabs, routes and providers you choose) with a random ID for this browser. You can change it in Settings." }),
+        h(
+          "div",
+          { class: "ask-actions" },
+          h(
+            "button",
+            {
+              type: "button",
+              class: "btn btn-sm btn-primary",
+              onclick: async () => {
+                await setAnalytics(true);
+                state.prefs.analytics = true;
+                track("ext_setting", { setting: "analytics", value: true, via: "popup_ask" });
+                toast("Thank you");
+                close();
+              },
+            },
+            "Share usage",
+          ),
+          h(
+            "button",
+            {
+              type: "button",
+              class: "btn btn-sm btn-plain",
+              onclick: async () => {
+                await setAnalytics(false);
+                state.prefs.analytics = false;
+                close();
+              },
+            },
+            "No thanks",
+          ),
+        ),
+      ),
+    );
+  }
+  if (state.ask === "rate") {
+    if (!state.rateShownTracked) {
+      state.rateShownTracked = true;
+      track("ext_rate_prompt", { action: "shown" });
+    }
+    const answer = (action) => {
+      chrome.storage.local.set({ rate: { state: action === "rated" ? "done" : "later", at: Date.now() } });
+      track("ext_rate_prompt", { action }, { now: action === "rated" });
+      close();
+    };
+    return fill(
+      regions.ask,
+      h(
+        "div",
+        { class: "card ask" },
+        h("p", { class: "ask-title", text: "Is SendMoneyCompare useful?" }),
+        h("p", { class: "ask-text", text: "A rating helps other people sending money abroad find it." }),
+        h(
+          "div",
+          { class: "ask-actions" },
+          h("a", { class: "btn btn-sm btn-primary", href: storeReviewUrl(), target: "_blank", rel: "noopener", onclick: () => answer("rated") }, "Rate it"),
+          h("button", { type: "button", class: "btn btn-sm btn-plain", onclick: () => answer("later") }, "Not now"),
+        ),
+      ),
+    );
+  }
+  fill(regions.ask);
+}
+
 // ── Settings ─────────────────────────────────────────────────────────
 
 function openSettings() {
@@ -1556,7 +1756,10 @@ function openSettings() {
     class: "switch",
     id: "detect",
     checked: state.prefs.detect,
-    onchange: (e) => savePrefs({ detect: e.target.checked }),
+    onchange: (e) => {
+      savePrefs({ detect: e.target.checked });
+      track("ext_setting", { setting: "read_provider_pages", value: e.target.checked });
+    },
   });
   const shortcut = h("span", { class: "dim", text: "Alt+Shift+S" });
   chrome.commands?.getAll?.().then((cmds) => {
@@ -1573,6 +1776,29 @@ function openSettings() {
       h(
         "div",
         { class: "card" },
+        h(
+          "div",
+          { class: "setting" },
+          h(
+            "label",
+            { for: "share" },
+            "Share anonymous usage",
+            h("small", {
+              text: "Which tabs you open, routes you compare and providers you choose, with a random ID made for this browser. Off unless you turn it on.",
+            }),
+          ),
+          h("input", {
+            type: "checkbox",
+            class: "switch",
+            id: "share",
+            checked: state.prefs.analytics === true,
+            onchange: async (e) => {
+              await setAnalytics(e.target.checked);
+              state.prefs.analytics = e.target.checked;
+              track("ext_setting", { setting: "analytics", value: true });
+            },
+          }),
+        ),
         h(
           "div",
           { class: "setting" },
@@ -1602,6 +1828,7 @@ function openSettings() {
             checked: state.prefs.live,
             onchange: (e) => {
               savePrefs({ live: e.target.checked });
+              track("ext_setting", { setting: "live_activity", value: e.target.checked });
               if (e.target.checked) refreshActivity().then(() => paintLive(true));
               else paintLive(false);
             },
@@ -1628,7 +1855,7 @@ function openSettings() {
         "div",
         { class: "about" },
         h("p", {
-          text: "No account, and no analytics in the extension. To show prices it asks sendmoneycompare.com for public quotes and rates, sending only the currencies and amount you compare. Your watchlist and alerts stay in Chrome.",
+          text: "No account. Usage sharing is off unless you turn it on above. To show prices the extension asks sendmoneycompare.com for public quotes and rates, sending only the currencies and amount you compare. Your watchlist and alerts stay in your browser.",
         }),
         h("p", {
           text: "Send buttons open the provider through sendmoneycompare.com/go, which counts the click as the site does. Some are affiliate links: we may earn a commission, and it never changes the order.",
@@ -1636,9 +1863,9 @@ function openSettings() {
         h(
           "p",
           null,
-          h("a", { href: `${SITE}/methodology`, target: "_blank", rel: "noopener" }, "How we compare"),
+          h("a", { href: siteLink("/methodology", "settings"), target: "_blank", rel: "noopener" }, "How we compare"),
           " · ",
-          h("a", { href: `${SITE}/privacy-policy`, target: "_blank", rel: "noopener" }, "Privacy"),
+          h("a", { href: siteLink("/privacy-policy", "settings"), target: "_blank", rel: "noopener" }, "Privacy"),
           " · ",
           h("span", { class: "dim", text: `Version ${version}` }),
         ),
@@ -1769,6 +1996,7 @@ function paintLive(animate) {
         disabled: !canOpen,
         title: canOpen ? `Compare ${item.from} → ${item.to}` : null,
         onclick: () => {
+          track("live_activity_clicked", { placement: "extension", kind: item.kind });
           state.route = { from: item.from, to: item.to, amount: item.amount ?? state.route.amount };
           saveRoute();
           refreshComparison();
@@ -1845,6 +2073,20 @@ function applyPending(p) {
 
 async function init() {
   state.prefs = await getPrefs();
+  await analyticsReady().catch(() => false);
+  addEventListener("pagehide", flush);
+  document.addEventListener("visibilitychange", () => document.visibilityState === "hidden" && flush());
+  document.querySelector(".brand").href = siteLink("/", "header");
+  // Settings change elsewhere too: the worker marks alerts fired, another
+  // window follows a pair. Keep this copy current so a save here never
+  // overwrites theirs.
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area !== "sync") return;
+    for (const [key, { newValue }] of Object.entries(changes)) {
+      if (key in PREF_DEFAULTS) state.prefs[key] = newValue ?? PREF_DEFAULTS[key];
+    }
+    if ((changes.watch || changes.alerts || changes.badgePair) && state.tab === "rates" && !state.editingAlert) paintWatch();
+  });
   const p = state.prefs;
   if (p.route && SENDABLE.has(p.route.from) && CURRENCY[p.route.to]) state.route = p.route;
   else {
@@ -1864,7 +2106,12 @@ async function init() {
   document.getElementById("settings").append(icon(ICON.gear, "icon"));
   document.getElementById("settings").addEventListener("click", openSettings);
   const tabs = [...document.querySelectorAll("nav.seg button")];
-  for (const b of tabs) b.addEventListener("click", () => show(b.dataset.tab));
+  for (const b of tabs) {
+    b.addEventListener("click", () => {
+      show(b.dataset.tab);
+      track("ext_tab", { tab: b.dataset.tab });
+    });
+  }
   document.querySelector("nav.seg").addEventListener("keydown", (e) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
     const i = tabs.findIndex((b) => b.dataset.tab === state.tab);
@@ -1872,6 +2119,12 @@ async function init() {
     show(next.dataset.tab);
     next.focus();
   });
+
+  noteUse("open").then(async (usage) => {
+    state.ask = await decideAsk(usage);
+    if (state.tab === "compare") paintAsk();
+  });
+  track("ext_opened", { tab: state.tab, via: pending ? `context_${pending.mode}` : "toolbar" });
 
   show(state.tab);
   refreshComparison();

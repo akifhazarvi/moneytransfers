@@ -369,6 +369,14 @@ prints. **v1 is a contract with installed copies**: add fields, never change or
 remove one; a breaking change ships as v2 beside v1. The endpoints are public
 and cookie-free with `Access-Control-Allow-Origin: *`, which is why the
 extension needs no host permission. Send buttons go to `/go/<p>?src=extension`.
+Events are opt-in only (welcome page on install, Settings): `POST /api/ext/v1/events`
+→ GA4 (`src/lib/extension-events.ts`: allowlisted names, `cta_source=extension`,
+random per-browser id deleted on opt-out; `provider_clicked` with `placement`
+extension_*). Without opt-in, `/go?src=extension` redirects are counted daily
+with no id (`qualified_redirect_extension`). Links into the site carry
+`utm_source=<browser>-extension`. `e2e/extension-api.spec.ts` asserts the v1
+contract on every deploy; `npm run test:extension` smoke-tests the built
+package against production.
 
 ## Installed app (PWA)
 

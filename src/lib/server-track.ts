@@ -56,6 +56,7 @@ export async function serverTrack(
   // Preserve an aggregate operational total without creating a visitor profile.
   if (eventName === "affiliate_redirect" && params.outcome === "redirect" && params.genuine_click === true && params.is_bot !== true) {
     await countConsentMetric("qualified_redirect");
+    if (params.source === "extension") await countConsentMetric("qualified_redirect_extension");
   }
   if (!requestAnalyticsAllowed(request)) return;
 

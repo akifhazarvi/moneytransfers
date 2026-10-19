@@ -8,6 +8,8 @@ import * as fmt from "./lib/format.js";
 import { fetchJson, save, saved, cross } from "./lib/api.js";
 import { parseMoney, parseQuery } from "./lib/parse.js";
 import { getPrefs, setPrefs } from "./lib/store.js";
+import { analyticsReady, track } from "./lib/analytics.js";
+import { siteLink } from "./lib/links.js";
 import { CURRENCY } from "./data/currencies.js";
 
 const CODES = new Set(Object.keys(CURRENCY));
@@ -15,14 +17,25 @@ const ALARM = "rates";
 /** Rates are live (cached for minutes at the CDN), so alerts and the toolbar rate are checked every 15 minutes. */
 const CHECK_MINUTES = 15;
 
-function compareUrl(from, to, amount) {
-  if (!from) return `${SITE}/send-money`;
-  return `${SITE}/send-money#from=${from}${to ? `&to=${to}` : ""}${amount ? `&amount=${amount}` : ""}`;
+function compareUrl(from, to, amount, placement) {
+  const base = siteLink("/send-money", placement);
+  if (!from) return base;
+  return `${base}#from=${from}${to ? `&to=${to}` : ""}${amount ? `&amount=${amount}` : ""}`;
+}
+
+/** The worker restarts often, so resolve the opt-in before every event. */
+function trackNow(name, params) {
+  analyticsReady()
+    .then((ok) => ok && track(name, params, { now: true }))
+    .catch(() => {});
 }
 
 // ── Install, startup, alarm ──────────────────────────────────────────
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "install") chrome.tabs.create({ url: "welcome.html" });
+  // A one-line "why are you leaving?" on the site; nothing is sent from here.
+  chrome.runtime.setUninstallURL(siteLink("/contact", "uninstall")).catch?.(() => {});
   chrome.contextMenus.removeAll(() => {
     chrome.contextMenus.create({ id: "compare", title: "Compare sending “%s”", contexts: ["selection"] });
     chrome.contextMenus.create({ id: "convert", title: "Convert “%s”", contexts: ["selection"] });
@@ -95,6 +108,7 @@ async function fireAlerts(prefs, rates) {
     if (!hit) return a;
     changed = true;
     notify(a, r, rates.asOf);
+    trackNow("ext_alert_fired", { pair: `${a.from}-${a.to}`, op: a.op });
     // One notification per alert: it is spent once it fires and can be set again.
     return { ...a, active: false, firedAt: Date.now(), firedRate: r };
   });
@@ -119,7 +133,7 @@ function bindNotifications() {
   bindNotifications.done = true;
   chrome.notifications.onClicked.addListener((id) => {
     const [, from, to] = id.split(":");
-    if (from && to) chrome.tabs.create({ url: compareUrl(from, to) });
+    if (from && to) chrome.tabs.create({ url: compareUrl(from, to, null, "alert") });
     chrome.notifications.clear(id);
   });
 }
@@ -133,6 +147,7 @@ chrome.contextMenus.onClicked.addListener((info) => {
   const money = parseMoney(info.selectionText, CODES);
   const pending = { mode, amount: money?.amount ?? null, currency: money?.currency ?? null, at: Date.now() };
   chrome.storage.session.set({ pending });
+  trackNow("ext_context_menu", { mode, parsed: Boolean(money?.amount) });
   // openPopup must run inside the click; Chrome before 127 (or no focused
   // window) cannot, so the reader gets the same answer on the site instead.
   chrome.action.openPopup().catch(async () => {
@@ -140,7 +155,7 @@ chrome.contextMenus.onClicked.addListener((info) => {
     const prefs = await getPrefs();
     const from = pending.currency && CODES.has(pending.currency) ? pending.currency : prefs.route?.from;
     chrome.tabs.create({
-      url: mode === "convert" ? `${SITE}/currency-converter` : compareUrl(from, prefs.route?.to, pending.amount),
+      url: mode === "convert" ? siteLink("/currency-converter", "context_menu") : compareUrl(from, prefs.route?.to, pending.amount, "context_menu"),
     });
   });
 });
@@ -189,10 +204,19 @@ chrome.omnibox.onInputChanged.addListener(async (text, suggest) => {
 
 chrome.omnibox.onInputEntered.addListener(async (text, disposition) => {
   let url;
-  if (text.startsWith(`${SITE}/`)) url = text;
-  else {
+  if (text.startsWith(`${SITE}/go/`)) {
+    url = text;
+    const go = new URL(text);
+    trackNow("provider_clicked", {
+      provider: go.pathname.split("/")[2] ?? "",
+      corridor: `${go.searchParams.get("from")}-${go.searchParams.get("to")}`,
+      amount: Number(go.searchParams.get("amount")) || 0,
+      placement: "extension_omnibox",
+    });
+  } else {
     const q = parseQuery(text, CODES);
-    url = compareUrl(q.from, q.to, q.amount);
+    url = compareUrl(q.from, q.to, q.amount, "omnibox");
+    trackNow("ext_omnibox", { result: "compare", parsed: Boolean(q.from && q.to) });
   }
   if (disposition === "currentTab") chrome.tabs.update({ url });
   else chrome.tabs.create({ url, active: disposition === "newForegroundTab" });
