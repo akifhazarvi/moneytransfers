@@ -4413,22 +4413,22 @@
     "date": "2026-10-19",
     "providers": {
       "western-union": {
-        "rate": 14.3249,
+        "rate": 14.4392,
         "fee": 15,
-        "markup": 1.44,
-        "receiveAmount": 1217.62
+        "markup": 0.66,
+        "receiveAmount": 1227.33
       },
       "e-and-money": {
-        "rate": 14.5521,
+        "rate": 14.6621,
         "fee": 15.75,
-        "markup": -0.12,
-        "receiveAmount": 1226.01
+        "markup": -0.88,
+        "receiveAmount": 1235.28
       },
       "al-ansari-exchange": {
-        "rate": 14.37,
+        "rate": 14.5,
         "fee": 17.38,
-        "markup": 1.13,
-        "receiveAmount": 1187.25
+        "markup": 0.24,
+        "receiveAmount": 1197.99
       },
       "paysend": {
         "rate": 14.2936,
@@ -4437,16 +4437,16 @@
         "receiveAmount": 1429.36
       },
       "remitly": {
-        "rate": 14.54,
+        "rate": 14.66,
         "fee": 6,
-        "markup": -0.04,
-        "receiveAmount": 1366.76
+        "markup": -0.86,
+        "receiveAmount": 1378.04
       },
       "taptap-send": {
-        "rate": 14.55,
+        "rate": 14.57,
         "fee": 0,
-        "markup": -0.11,
-        "receiveAmount": 1455
+        "markup": -0.24,
+        "receiveAmount": 1457
       }
     }
   }

@@ -2647,16 +2647,16 @@
     "date": "2026-10-19",
     "providers": {
       "lemfi": {
-        "rate": 60,
+        "rate": 60.47,
         "fee": 0,
-        "markup": -0.11,
-        "receiveAmount": 6000
+        "markup": 0.03,
+        "receiveAmount": 6047
       },
       "taptap-send": {
-        "rate": 60.1,
+        "rate": 60.2,
         "fee": 0,
-        "markup": -0.27,
-        "receiveAmount": 6010
+        "markup": -0.44,
+        "receiveAmount": 6020
       }
     }
   }

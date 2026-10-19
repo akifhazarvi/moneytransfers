@@ -3182,16 +3182,16 @@
     "date": "2026-10-19",
     "providers": {
       "lemfi": {
-        "rate": 71.17,
+        "rate": 71.73,
         "fee": 0,
-        "markup": -0.06,
-        "receiveAmount": 7117
+        "markup": 0.14,
+        "receiveAmount": 7173
       },
       "taptap-send": {
-        "rate": 71.25,
+        "rate": 71.5,
         "fee": 0,
-        "markup": -0.17,
-        "receiveAmount": 7125
+        "markup": -0.52,
+        "receiveAmount": 7150
       }
     }
   }
