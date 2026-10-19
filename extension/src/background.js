@@ -83,7 +83,12 @@ async function injectOpenTabs() {
 chrome.permissions.onAdded.addListener(async () => {
   if (await syncPriceCheck()) injectOpenTabs();
 });
-chrome.permissions.onRemoved.addListener(syncPriceCheck);
+chrome.permissions.onRemoved.addListener(async () => {
+  if (await syncPriceCheck()) return;
+  // Unregistering prevents future injection; stop observers in existing tabs too.
+  const tabs = await chrome.tabs.query({});
+  for (const tab of tabs) if (tab.id != null) chrome.tabs.sendMessage(tab.id, { type: "smc:stop-price-check" }).catch(() => {});
+});
 
 // The quote a provider page needs, from the same saved answers the popup uses.
 async function comparison(params) {
@@ -102,8 +107,8 @@ chrome.runtime.onMessage.addListener((message, sender, reply) => {
   if (sender.id !== chrome.runtime.id) return;
   if (message?.type === "smc:compare") {
     const { from, to, amount } = message;
-    if (!/^[A-Z]{3}$/.test(from) || !/^[A-Z]{3}$/.test(to) || !(amount > 0)) return reply({});
-    comparison({ from, to, amount }).then((data) => reply({ data }));
+    if (!CODES.has(from) || !CODES.has(to) || from === to || !Number.isFinite(amount) || amount <= 0 || amount > 1_000_000) return reply({});
+    comparison({ from, to, amount }).then((data) => reply({ data })).catch(() => reply({}));
     return true;
   }
   if (message?.type === "smc:open-popup") chrome.action.openPopup().catch(() => {});
@@ -131,18 +136,21 @@ function checkRates(opts) {
 
 async function runCheck({ network = true } = {}) {
   let rates = (await saved("rates", {}))?.data ?? null;
+  let offline = false;
   if (network || !rates) {
     try {
       rates = await fetchJson("rates", {});
       await save("rates", {}, rates);
     } catch {
-      // Offline: judge on the saved copy, if any.
+      offline = true;
+      // Keep the dated badge, but do not fire new alerts from an offline copy.
     }
   }
   if (!rates?.rates) return;
   const prefs = await getPrefs();
   await paintBadge(prefs, rates);
-  await fireAlerts(prefs, rates);
+  const age = Date.now() - Date.parse(rates.asOf);
+  if (!offline && Number.isFinite(age) && age >= -300_000 && age <= 12 * 60 * 60_000) await fireAlerts(prefs, rates);
 }
 
 async function paintBadge(prefs, rates) {

@@ -20,7 +20,7 @@ export const PREF_DEFAULTS = {
   detect: true,
   /** Show the site's live activity strip at the bottom of the popup. */
   live: true,
-  /** Share anonymous usage: null until the person chooses, then true or false. */
+  /** Share usage analytics: null until the person chooses, then true or false. */
   analytics: null,
   range: "1M",
 };

@@ -20,7 +20,7 @@ Wording follows the site's claim rules: no "cheapest", no scores, no provider co
 Sending money abroad? Know if it's a good deal before you pay.
 
 PRICE CHECK ON PROVIDER SITES
-On Wise, Remitly, Western Union and other money transfer providers, SendMoneyCompare reads the amount and currencies in the provider's own calculator and tells you, as you type, whether it's a good deal, and who pays more for the same transfer. Turn it on with one click; it never runs on banks' sites and never changes the page.
+On Wise, Remitly, Western Union and other money transfer providers, SendMoneyCompare reads the amount and currencies in the provider's own calculator and tells you, as you type, whether it's a good deal, and who pays more for the same transfer. Turn it on with one click; it never runs on banks' sites and never edits provider forms or existing links.
 
 COMPARE
 Type an amount and see what each money transfer provider pays out after its fee and exchange-rate markup, in payout order. The same comparison as sendmoneycompare.com: tap any provider for its rate, fee, markup and delivery time, and Send takes you to it.
@@ -39,14 +39,14 @@ ALSO
 • Type "smc 500 gbp inr" in the address bar.
 • See what other senders on sendmoneycompare.com are comparing right now.
 
-No account. Usage sharing is optional and off until you turn it on. To show prices the extension asks sendmoneycompare.com for public quotes and rates, sending only the currencies and amount you compare. Your watchlist and alerts stay in your browser.
+No account. Usage sharing is optional and off until you turn it on. To show prices the extension asks sendmoneycompare.com for public quotes and rates, sending only the currencies and amount you compare. Your watchlist and alerts use Chrome storage sync and may sync across browsers signed into your browser account.
 
 Some Send buttons are affiliate links: we may earn a commission when you use a provider. It never changes the order.
 ```
 
 **Graphic assets** (all in `extension/store/`):
 - Store icon 128×128: `store-icon-128.png`
-- Screenshots 1280×800, in this order: `screenshot-1-compare.png`, `screenshot-2-here.png`, `screenshot-3-convert.png`, `screenshot-4-offers.png`, `screenshot-5-rates.png`
+- Screenshots 1280×800, in this order: `screenshot-1-compare.png`, `screenshot-2-price-check.png`, `screenshot-3-convert.png`, `screenshot-4-offers.png`, `screenshot-5-rates.png`
 - Small promo tile 440×280: `promo-tile-440x280.png`
 - Marquee promo tile 1400×560: `marquee-1400x560.png`
 
@@ -72,11 +72,11 @@ Help people sending money abroad compare what money transfer providers pay out, 
 | alarms | Checks exchange rates about every 15 minutes to fire the user's rate alerts and update the optional rate on the toolbar icon. |
 | contextMenus | Adds "Compare sending …" and "Convert …" when the user right-clicks a selected amount. |
 | notifications (optional) | Shows a notification when a rate alert the user set is reached. Requested only when the user sets their first alert. |
-| Host permissions (optional): 30 money transfer provider sites (wise.com, remitly.com, westernunion.com, …) | Requested only when the user turns on "Check prices on provider sites". On those sites a small panel reads the amount and currencies in the provider's own calculator and shows how that provider compares with others for the same transfer. Read-only: it never changes the page or form and never adds links or codes. Never requested for banks. |
+| Host permissions (optional): 30 money transfer provider sites (wise.com, remitly.com, westernunion.com, …) | Requested only when the user turns on "Check prices on provider sites". On those sites a small panel reads the amount and currencies in the provider's own calculator and shows how that provider compares with others for the same transfer. Read-only: it never edits provider forms or existing links and adds its own clearly labelled comparison panel and Send links. Never requested for banks. |
 
 **Remote code:** No, I am not using remote code. (All JavaScript is in the package; the extension fetches JSON data only.)
 
-**Data usage:** tick **Website content** ("With the user's permission, the amount and currencies shown in a money transfer provider's calculator are sent to sendmoneycompare.com to fetch quotes for that transfer; nothing else from the page") and **User activity**, described as: "Only if the user turns on 'Share anonymous usage' (off by default): which tab they opened, which route they compared and which provider they chose, with a random ID for the browser, sent to sendmoneycompare.com and forwarded to Google Analytics." Nothing else is collected: quote requests carry only currencies and an amount, with no identifier or cookies, and provider pages are read only locally. Then certify all three:
+**Data usage:** tick **Website content** ("With the user's permission, the amount and currencies shown in a money transfer provider's calculator are sent to sendmoneycompare.com to fetch quotes for that transfer; nothing else from the page") and **User activity**, described as: "Only if the user turns on 'Share usage analytics' (off by default): which tab they opened, which route they compared and which provider they chose, with a random ID for the browser, sent to sendmoneycompare.com and forwarded to Google Analytics." Nothing else is collected: quote requests carry only currencies and an amount, with no identifier or cookies, and provider pages are read only locally. Then certify all three:
 - I do not sell or transfer user data to third parties, outside of the approved use cases
 - I do not use or transfer user data for purposes that are unrelated to my item's single purpose
 - I do not use or transfer user data to determine creditworthiness or for lending purposes

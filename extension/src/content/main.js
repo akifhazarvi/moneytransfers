@@ -131,7 +131,7 @@ function send(message) {
 
 async function startPriceCheck() {
   const prefs = await chrome.storage.sync.get({ detect: true, quietSites: [] });
-  if (!prefs.detect || prefs.quietSites.includes(here.domain)) return;
+  if (!prefs.detect || prefs.quietSites.includes(here.domain)) { globalThis.__smcPriceCheck = false; return; }
 
   let host = null;
   let root = null;
@@ -231,7 +231,7 @@ async function startPriceCheck() {
             plane(),
             el("span", { class: "titles" }, el("span", { class: "brand", text: "SendMoneyCompare" }), el("span", { class: "route", text: route })),
             el("button", { class: "x", type: "button", "aria-label": "Collapse", onclick: () => ((expanded = false), render()) }, "−"),
-            el("button", { class: "x", type: "button", "aria-label": "Close for this page", onclick: () => ((closed = true), host.remove()) }, "×"),
+            el("button", { class: "x", type: "button", "aria-label": "Close for this page", onclick: () => stop() }, "×"),
           ),
           el("div", { class: "verdict" }, el("h2", { text: v.title }), el("p", { text: v.text })),
           list,
@@ -261,8 +261,7 @@ async function startPriceCheck() {
                   const { quietSites = [] } = await chrome.storage.sync.get("quietSites");
                   await chrome.storage.sync.set({ quietSites: [...new Set([...quietSites, here.domain])] });
                   send({ type: "smc:track", name: "ext_price_check_hidden", params: { provider: here.slugs[0] } });
-                  closed = true;
-                  host.remove();
+                  stop();
                 },
               },
               `Hide on ${here.domain}`,
@@ -282,12 +281,18 @@ async function startPriceCheck() {
     } catch {
       return;
     }
-    if (!d?.amount || !d.from || !d.to || d.from === d.to || !SEND_CODES.has(d.from) || d.amount > 1_000_000) return;
+    if (!d?.amount || !d.from || !d.to || d.from === d.to || !SEND_CODES.has(d.from) || d.amount > 1_000_000) {
+      lastKey = "";
+      state = null;
+      host?.remove();
+      return;
+    }
     const key = `${d.from}|${d.to}|${d.amount}|${d.receive ?? ""}`;
     if (key === lastKey) return;
     lastKey = key;
     const res = await send({ type: "smc:compare", from: d.from, to: d.to, amount: d.amount });
-    if (!res?.data || key !== lastKey) return;
+    if (closed || key !== lastKey) return;
+    if (!res?.data) { lastKey = ""; host?.remove(); return; }
     const v = judge(res.data, here, d.receive);
     state = { v, c: res.data };
     render();
@@ -306,9 +311,29 @@ async function startPriceCheck() {
   const schedule = () => {
     if (!timer) timer = setTimeout(check, CHECK_EVERY_MS);
   };
-  check();
-  for (const type of ["input", "change", "click", "keyup"]) document.addEventListener(type, schedule, true);
-  new MutationObserver(schedule).observe(document.documentElement, { subtree: true, childList: true, characterData: true });
+  const events = ["input", "change", "click", "keyup"];
+  const observer = new MutationObserver(schedule);
+  const interval = setInterval(schedule, 5000);
+  function stop() {
+    closed = true;
+    clearTimeout(timer);
+    clearInterval(interval);
+    observer.disconnect();
+    for (const type of events) document.removeEventListener(type, schedule, true);
+    removeEventListener("popstate", schedule);
+    chrome.storage.onChanged.removeListener(onPrefs);
+    chrome.runtime.onMessage.removeListener(onMessage);
+    host?.remove();
+    globalThis.__smcPriceCheck = false;
+  }
+  function onPrefs(changes, area) {
+    if (area === "sync" && (changes.detect?.newValue === false || changes.quietSites?.newValue?.includes(here.domain))) stop();
+  }
+  function onMessage(message) { if (message?.type === "smc:stop-price-check") stop(); }
+  chrome.storage.onChanged.addListener(onPrefs);
+  chrome.runtime.onMessage.addListener(onMessage);
+  for (const type of events) document.addEventListener(type, schedule, true);
+  observer.observe(document.documentElement, { subtree: true, childList: true, characterData: true });
   addEventListener("popstate", schedule);
-  setInterval(schedule, 5000);
+  check();
 }

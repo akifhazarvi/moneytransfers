@@ -50,7 +50,7 @@ function showChoice(analytics) {
   done.hidden = false;
   done.textContent = analytics
     ? "Thank you. Usage sharing is on; turn it off any time in Settings."
-    : "Nothing will be shared. You can change this any time in Settings.";
+    : "Usage analytics is off. Quote and rate requests still work. You can change this any time in Settings.";
 }
 
 async function init() {
@@ -68,10 +68,10 @@ async function init() {
   showChoice(prefs.analytics);
 
   $("consent-yes").addEventListener("click", async () => {
-    await setAnalytics(true);
+    const on = await setAnalytics(true);
     track("ext_installed", {});
     track("ext_welcome", { action: "consent_yes" }, { now: true });
-    showChoice(true);
+    showChoice(on);
   });
   $("consent-no").addEventListener("click", async () => {
     await setAnalytics(false);

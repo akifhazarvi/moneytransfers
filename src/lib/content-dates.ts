@@ -167,7 +167,7 @@ const PAGE_UPDATED = {
   "/methodology": "2026-10-18",              // source tiers, integrity checks, benchmark and tie-break as the code runs them
   "/how-we-review": "2026-10-18",            // referral fees and sponsored placement; quotes shown but not ranked
   "/editorial-policy": "2026-10-15",         // editor byline and WebPage JSON-LD
-  "/privacy-policy": "2026-10-18",           // consent asked where required (EU/EEA/UK/CH), on by default elsewhere; Clarity disclosed; browser extension section
+  "/privacy-policy": "2026-10-19",           // consent asked where required (EU/EEA/UK/CH), on by default elsewhere; Clarity disclosed; browser extension section
   "/terms": "2026-09-20",
   "/corrections": "2026-10-18",              // log brought up to date: September–October corrections
   "/disclaimer": "2026-10-17",               // what we are and are not; regulator check; data caveats as prose

@@ -10,7 +10,7 @@ calculator and says, as the reader types, whether it's a good deal: "Good deal"
 could get ₹X more" with who pays it, and the top three with Send. One verdict
 engine (`lib/verdict.js`) serves this panel and the popup's banner. It runs only
 with the optional host permission (welcome page, popup, Settings), never on
-banks or PayPal, never changes the page, and never rewrites links; Send is the
+banks or PayPal, never edits provider forms or existing links, and never rewrites links; Send is the
 reader's click through /go. Closed shadow root, constructed stylesheet, no
 images and no innerHTML, so the provider's CSP or Trusted Types cannot break it;
 quotes come through the service worker. Detection: URL params, calculator
@@ -104,7 +104,7 @@ third-party request.
 |---|---|
 | `activeTab`, `scripting` | When the reader opens the popup on a provider's page, read the amount and currencies shown there. Only on that click, only that tab. |
 | `storage` | Saved answers, the watchlist, alerts and settings. |
-| `alarms` | Check rates about hourly for alerts and the toolbar rate. |
+| `alarms` | Check rates about every 15 minutes for alerts and the toolbar rate. |
 | `contextMenus` | "Compare sending / Convert" on selected text. |
 | `notifications` (optional) | Asked for only when the reader sets their first alert. |
 | 30 provider sites (optional host permissions, from `lib/hosts.js`) | The price check. Asked for only when the reader turns it on. |

@@ -3,9 +3,11 @@ import { postGa4Event, type GeoHints } from "@/lib/ga4-server";
 /**
  * Usage events from the browser extension (extension/src/lib/analytics.js).
  *
- * Sent only by people who turned on "Share anonymous usage" in the extension:
+ * Sent only by people who turned on "Share usage analytics" in the extension:
  * off until they choose, asked once on its welcome page, changeable in its
- * settings — the same opt-in the site asks of every visitor (consent.ts). They
+ * settings. Opt-in everywhere, stricter than the site (which asks only where
+ * the law requires it, consent.ts): Chrome Web Store policy expects consent
+ * before usage data tied to an identifier leaves the extension. They
  * reach GA4 through this server so the Measurement Protocol secret never ships
  * inside the extension.
  *

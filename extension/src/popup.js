@@ -260,9 +260,12 @@ function show(tab) {
   state.tab = VIEWS[tab] ? tab : "compare";
   for (const b of document.querySelectorAll("nav.seg button")) {
     const on = b.dataset.tab === state.tab;
+    b.id = `tab-${b.dataset.tab}`;
+    b.setAttribute("aria-controls", "view");
     b.setAttribute("aria-selected", String(on));
     b.tabIndex = on ? 0 : -1;
   }
+  $view.setAttribute("aria-labelledby", `tab-${state.tab}`);
   $view.style.animation = "none";
   void $view.offsetWidth;
   $view.style.animation = "";
@@ -1559,13 +1562,17 @@ function pickRouteCurrency(side) {
 
 function closeSheet() {
   const opener = closeSheet.opener;
+  for (const node of closeSheet.background || []) node.inert = false;
   fill($sheet);
   document.removeEventListener("keydown", closeSheet.onKey);
   if (opener?.isConnected) opener.focus();
 }
 
 function openSheet(title, body, { header = null } = {}) {
+  document.removeEventListener("keydown", closeSheet.onKey);
   closeSheet.opener = document.activeElement;
+  closeSheet.background = [...document.body.children].filter(node => node !== $sheet && node.id !== "toast");
+  for (const node of closeSheet.background) node.inert = true;
   const panel = h(
     "div",
     { class: "sheet", role: "dialog", "aria-modal": "true", "aria-label": title },
@@ -1580,12 +1587,19 @@ function openSheet(title, body, { header = null } = {}) {
   );
   fill($sheet, h("div", { class: "sheet-backdrop", onclick: closeSheet }), panel);
   closeSheet.onKey = (e) => {
+    if (e.key === "Tab") {
+      const items = [...panel.querySelectorAll('button, input, select, textarea, a[href], [tabindex="0"]')].filter(node => !node.disabled && node.getClientRects().length);
+      const first = items[0], last = items.at(-1);
+      if (e.shiftKey && (document.activeElement === first || !panel.contains(document.activeElement))) { e.preventDefault(); last?.focus(); }
+      else if (!e.shiftKey && (document.activeElement === last || !panel.contains(document.activeElement))) { e.preventDefault(); first?.focus(); }
+    }
     if (e.key === "Escape") {
       e.preventDefault();
       closeSheet();
     }
   };
   document.addEventListener("keydown", closeSheet.onKey);
+  panel.querySelector("button, input, [tabindex]")?.focus();
   return panel;
 }
 
@@ -1691,7 +1705,7 @@ function paintAsk() {
         "div",
         { class: "card ask" },
         h("p", { class: "ask-title", text: "Help improve SendMoneyCompare?" }),
-        h("p", { class: "ask-text", text: "Share anonymous usage (tabs, routes and providers you choose) with a random ID for this browser. You can change it in Settings." }),
+        h("p", { class: "ask-text", text: "Share usage analytics (tabs, routes and providers you choose) with a random ID for this browser. You can change it in Settings." }),
         h(
           "div",
           { class: "ask-actions" },
@@ -1701,10 +1715,10 @@ function paintAsk() {
               type: "button",
               class: "btn btn-sm btn-primary",
               onclick: async () => {
-                await setAnalytics(true);
-                state.prefs.analytics = true;
+                const on = await setAnalytics(true);
+                state.prefs.analytics = on;
                 track("ext_setting", { setting: "analytics", value: true, via: "popup_ask" });
-                toast("Thank you");
+                toast(on ? "Thank you" : "Off: your browser asks sites not to track you");
                 close();
               },
             },
@@ -1794,7 +1808,7 @@ function openSettings() {
           h(
             "label",
             { for: "share" },
-            "Share anonymous usage",
+            "Share usage analytics",
             h("small", {
               text: "Which tabs you open, routes you compare and providers you choose, with a random ID made for this browser. Off unless you turn it on.",
             }),
@@ -1805,8 +1819,11 @@ function openSettings() {
             id: "share",
             checked: state.prefs.analytics === true,
             onchange: async (e) => {
-              await setAnalytics(e.target.checked);
-              state.prefs.analytics = e.target.checked;
+              const wanted = e.target.checked;
+              const on = await setAnalytics(wanted);
+              state.prefs.analytics = on;
+              e.target.checked = on;
+              if (wanted && !on) toast("Off: your browser asks sites not to track you");
               track("ext_setting", { setting: "analytics", value: true });
             },
           }),
@@ -1819,7 +1836,7 @@ function openSettings() {
             { for: "detect" },
             "Check prices on provider sites",
             h("small", {
-              text: "On Wise, Remitly and other money transfer providers, shows whether the transfer you're setting up is a good deal. It reads the amount and currencies on the page and sends only those to sendmoneycompare.com. Never on banks; never changes the page.",
+              text: "On Wise, Remitly and other money transfer providers, shows whether the transfer you're setting up is a good deal. It reads the amount and currencies on the page and sends only those to sendmoneycompare.com. Never on banks; never edits provider forms or existing links.",
             }),
           ),
           detect,

@@ -10,7 +10,7 @@
  * error. Exits 1 on any failure.
  */
 import { chromium } from "playwright";
-import { mkdtempSync } from "node:fs";
+import { mkdirSync, mkdtempSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
@@ -79,10 +79,44 @@ const hosts = [...new Set(outbound)];
 ok(hosts.every((h) => h === "sendmoneycompare.com"), `network: only ${hosts.join(", ")}`);
 outbound.length = 0;
 ok(errors.length === 0, `console errors: ${errors.length ? errors.join(" / ") : "none"}`);
+// Keyboard access and fit at popup size. Screenshots only when asked for:
+// node scripts/test-extension.mjs --screenshots=<dir>
+const shots = process.argv.find((a) => a.startsWith("--screenshots="))?.slice("--screenshots=".length);
+const capture = async (name) => {
+  if (!shots) return;
+  mkdirSync(shots, { recursive: true });
+  await page.screenshot({ animations: "disabled", path: path.join(shots, `${name}.png`) });
+};
+await page.click('[data-tab="compare"]');
+await page.waitForSelector('.prow');
+await capture("compare-light");
+await page.click('#settings');
+const dialog = page.getByRole('dialog', { name: 'Settings' });
+ok(await dialog.isVisible(), 'settings: dialog opens');
+ok(await dialog.evaluate(el => el.contains(document.activeElement)), 'settings: keyboard focus moves into dialog');
+await page.keyboard.press('Shift+Tab');
+ok(await dialog.evaluate(el => el.contains(document.activeElement)), 'settings: reverse Tab stays in dialog');
+await capture("settings");
+await page.keyboard.press('Escape');
+ok(await page.locator('#settings').evaluate(el => el === document.activeElement), 'settings: Escape returns focus to opener');
+await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' });
+await capture("compare-dark");
+ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'popup: no horizontal overflow at 380px');
+await ctx.setOffline(true);
+await page.reload();
+await page.waitForSelector('.prow', { timeout: 10000 });
+ok(await page.locator('.prow').count() >= 3, 'offline: saved comparison remains usable');
+await ctx.setOffline(false);
+
 // The price check on real provider pages (a build with --grant-price-check):
 // the panel must appear and the detector must read amount, both currencies and
 // the provider's own payout. Read-only: nothing on those pages is clicked.
 if (process.argv.includes("--price-check")) {
+  // A page opened before Chrome finishes registering content.js never gets it
+  // (real installs register long before anyone visits a provider).
+  for (let i = 0; i < 40 && !(await sw.evaluate(() => chrome.scripting.getRegisteredContentScripts())).length; i++) {
+    await new Promise((r) => setTimeout(r, 250));
+  }
   const PAGES = [
     "https://wise.com/us/send-money/send-money-to-india",
     "https://www.remitly.com/us/en/india",

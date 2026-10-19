@@ -269,9 +269,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                     for those providers’ sites), a small panel on those sites does the same
                     as you type. Only the amount, the two currencies and the payout the
                     provider shows are read; only the amount and currencies are sent, to
-                    sendmoneycompare.com, for quotes. It never runs on banks’ websites,
-                    never changes the provider’s page or form, and never adds codes or
-                    links to it. Both can be turned off in the extension’s settings.
+                    sendmoneycompare.com, for quotes. The automatic panel is limited to
+                    supported transfer providers. It adds its own labelled comparison
+                    panel and Send links, without editing provider forms or existing
+                    links. Both features can be turned off in the extension’s settings.
                   </li>
                   <li>
                     <strong className="text-[var(--color-on-surface)]">Notifications:</strong>{" "}
@@ -281,7 +282,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                   </li>
                   <li>
                     <strong className="text-[var(--color-on-surface)]">Usage sharing (optional):</strong>{" "}
-                    if you turn on “Share anonymous usage” (asked once when you
+                    if you turn on “Share usage analytics” (asked once when you
                     install it, changeable in its settings), the extension sends events
                     such as which tab you opened, which route you compared and which
                     provider you chose, with a random identifier created for that browser,
@@ -293,10 +294,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                     <strong className="text-[var(--color-on-surface)]">Choosing a provider:</strong>{" "}
                     a Send button opens the provider through sendmoneycompare.com/go,
                     which counts the click and passes the route and amount on, the same as
-                    a click on our website (see Affiliate partners above). Analytics
-                    identifiers are added only if you have accepted analytics on our
-                    website; a daily total of these clicks, with no identifier, is kept
-                    for up to 90 days.
+                    a click on our website (see Affiliate partners above). Whether
+                    analytics identifiers are added follows your analytics choice for our
+                    website (see Cookies above); a daily total of these clicks, with no
+                    identifier, is kept for up to 90 days.
                   </li>
                 </ul>
                 <p>
