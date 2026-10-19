@@ -12719,62 +12719,62 @@
       "lemfi": {
         "rate": 0.6235,
         "fee": 0,
-        "markup": 1.35,
+        "markup": 1.37,
         "receiveAmount": 62.35
       },
       "taptap-send": {
-        "rate": 0.628,
+        "rate": 0.629,
         "fee": 0,
-        "markup": 0.42,
-        "receiveAmount": 62.8
+        "markup": 0.26,
+        "receiveAmount": 62.9
       },
       "western-union": {
-        "rate": 0.61692,
+        "rate": 0.617576,
         "fee": 1.99,
-        "markup": 2.18,
-        "receiveAmount": 60.46
+        "markup": 2.07,
+        "receiveAmount": 60.53
       },
       "bmo": {
-        "rate": 0.603769,
+        "rate": 0.603981,
         "fee": 0,
-        "markup": 4.26,
-        "receiveAmount": 60.38
+        "markup": 4.23,
+        "receiveAmount": 60.4
       },
       "td-bank": {
-        "rate": 0.613188,
+        "rate": 0.613619,
+        "fee": 0,
+        "markup": 2.7,
+        "receiveAmount": 61.36
+      },
+      "xoom": {
+        "rate": 0.597998,
+        "fee": 2.99,
+        "markup": 5.18,
+        "receiveAmount": 58.01
+      },
+      "remitly": {
+        "rate": 0.628932,
+        "fee": 0,
+        "markup": 0.27,
+        "receiveAmount": 62.89
+      },
+      "instarem": {
+        "rate": 0.629032,
+        "fee": 0,
+        "markup": 0.26,
+        "receiveAmount": 62.9
+      },
+      "paypal": {
+        "rate": 0.60182,
+        "fee": 2.99,
+        "markup": 4.57,
+        "receiveAmount": 58.38
+      },
+      "rbc": {
+        "rate": 0.613205,
         "fee": 0,
         "markup": 2.77,
         "receiveAmount": 61.32
-      },
-      "xoom": {
-        "rate": 0.595354,
-        "fee": 2.99,
-        "markup": 5.6,
-        "receiveAmount": 57.76
-      },
-      "remitly": {
-        "rate": 0.62956,
-        "fee": 0,
-        "markup": 0.17,
-        "receiveAmount": 62.96
-      },
-      "instarem": {
-        "rate": 0.62836,
-        "fee": 0,
-        "markup": 0.36,
-        "receiveAmount": 62.84
-      },
-      "paypal": {
-        "rate": 0.601655,
-        "fee": 2.99,
-        "markup": 4.6,
-        "receiveAmount": 58.37
-      },
-      "rbc": {
-        "rate": 0.612812,
-        "fee": 0,
-        "markup": 2.83,
-        "receiveAmount": 61.28
       }
     }
   }

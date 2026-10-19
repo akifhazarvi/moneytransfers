@@ -13881,70 +13881,70 @@
     "date": "2026-10-19",
     "providers": {
       "lemfi": {
-        "rate": 0.5293,
+        "rate": 0.5295,
         "fee": 0,
-        "markup": 0.55,
-        "receiveAmount": 52.93
+        "markup": 0.6,
+        "receiveAmount": 52.95
       },
       "taptap-send": {
-        "rate": 0.53,
+        "rate": 0.529,
+        "fee": 0,
+        "markup": 0.45,
+        "receiveAmount": 52.9
+      },
+      "remitly": {
+        "rate": 0.530018,
         "fee": 0,
         "markup": 0.26,
         "receiveAmount": 53
       },
-      "remitly": {
-        "rate": 0.529275,
-        "fee": 0,
-        "markup": 0.4,
-        "receiveAmount": 52.93
-      },
       "bmo": {
-        "rate": 0.512046,
+        "rate": 0.512503,
         "fee": 0,
-        "markup": 3.64,
-        "receiveAmount": 51.2
+        "markup": 3.56,
+        "receiveAmount": 51.25
       },
       "paypal": {
-        "rate": 0.505111,
+        "rate": 0.505248,
         "fee": 2.99,
-        "markup": 4.95,
-        "receiveAmount": 49
+        "markup": 4.92,
+        "receiveAmount": 49.01
       },
       "rbc": {
-        "rate": 0.516256,
+        "rate": 0.516957,
         "fee": 0,
-        "markup": 2.85,
-        "receiveAmount": 51.63
+        "markup": 2.72,
+        "receiveAmount": 51.7
       },
       "instarem": {
-        "rate": 0.529275,
+        "rate": 0.529918,
         "fee": 0,
-        "markup": 0.4,
-        "receiveAmount": 52.93
+        "markup": 0.28,
+        "receiveAmount": 52.99
       },
       "western-union": {
-        "rate": 0.517986,
+        "rate": 0.518342,
         "fee": 1.99,
-        "markup": 2.53,
-        "receiveAmount": 50.77
+        "markup": 2.46,
+        "receiveAmount": 50.8
       },
       "worldremit": {
-        "rate": 0.518952,
+        "rate": 0.519416,
         "fee": 3.99,
-        "markup": 2.34,
-        "receiveAmount": 49.82
+        "markup": 2.26,
+        "receiveAmount": 49.87
       },
       "xoom": {
-        "rate": 0.491421,
+        "rate": 0.492234,
         "fee": 2.99,
-        "markup": 7.52,
-        "receiveAmount": 47.67
+        "markup": 7.37,
+        "receiveAmount": 47.75
       },
       "td-bank": {
-        "rate": 0.516897,
+        "rate": 0.517492,
         "fee": 0,
-        "markup": 2.73,
-        "receiveAmount": 51.69
+        "markup": 2.62,
+        "receiveAmount": 51.75
       }
     }
   }

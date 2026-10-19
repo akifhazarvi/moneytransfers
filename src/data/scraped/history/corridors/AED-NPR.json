@@ -4917,10 +4917,10 @@
     "date": "2026-10-19",
     "providers": {
       "western-union": {
-        "rate": 41.2741,
+        "rate": 41.2746,
         "fee": 15,
         "markup": 0.1,
-        "receiveAmount": 3508.3
+        "receiveAmount": 3508.34
       },
       "e-and-money": {
         "rate": 41.2581,
@@ -4941,16 +4941,16 @@
         "receiveAmount": 3660.05
       },
       "remitly": {
-        "rate": 41.14,
+        "rate": 41.15,
         "fee": 5,
-        "markup": 0.42,
-        "receiveAmount": 3908.3
+        "markup": 0.4,
+        "receiveAmount": 3909.25
       },
       "taptap-send": {
-        "rate": 41,
+        "rate": 41.1,
         "fee": 0,
-        "markup": 0.76,
-        "receiveAmount": 4100
+        "markup": 0.52,
+        "receiveAmount": 4110
       },
       "skrill": {
         "rate": 39.3861,

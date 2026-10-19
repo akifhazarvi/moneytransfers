@@ -1741,10 +1741,10 @@
     "date": "2026-10-19",
     "providers": {
       "taptap-send": {
-        "rate": 0.175,
+        "rate": 0.176,
         "fee": 0,
-        "markup": 0.45,
-        "receiveAmount": 17.5
+        "markup": -0.12,
+        "receiveAmount": 17.6
       }
     }
   }
