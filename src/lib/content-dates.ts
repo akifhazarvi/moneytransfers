@@ -84,6 +84,12 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/companies/profee": "2026-10-18",
   "/companies/moneycorp": "2026-10-18",
   "/companies/revolut": "2026-10-18",            // verdict: Revolut's own rate, plan allowances and weekend fee
+  "/iban/greenland": "2026-10-18",
+  "/iban/faroe-islands": "2026-10-18",
+  "/iban/liechtenstein": "2026-10-18",
+  "/iban/monaco": "2026-10-18",
+  "/iban/vatican-city": "2026-10-18",
+  "/iban/gibraltar": "2026-10-18",
   "/iban/costa-rica": "2026-10-18",               // SINPE, Pagos al Exterior, SINPE Móvil
   "/iban/lithuania": "2026-10-18",                // CENTROlink, Verification of Payee, litas
   "/iban/slovakia": "2026-10-18",                 // payment symbols, SIPS and TIPS
