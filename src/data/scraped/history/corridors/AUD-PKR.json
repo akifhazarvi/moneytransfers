@@ -3469,5 +3469,28 @@
         "receiveAmount": 18529.93
       }
     }
+  },
+  {
+    "date": "2026-10-19",
+    "providers": {
+      "lemfi": {
+        "rate": 193.1,
+        "fee": 0,
+        "markup": 0.28,
+        "receiveAmount": 19310
+      },
+      "ria": {
+        "rate": 192.524,
+        "fee": 2.89,
+        "markup": 0.58,
+        "receiveAmount": 18696.02
+      },
+      "taptap-send": {
+        "rate": 193,
+        "fee": 3.99,
+        "markup": 0.33,
+        "receiveAmount": 18529.93
+      }
+    }
   }
 ]
