@@ -78,6 +78,7 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/compare/moneygram-vs-revolut": "2026-10-18",
   "/compare/revolut-vs-worldremit": "2026-10-18",
   "/compare/boss-money-vs-remitly": "2026-10-18",
+  "/compare/chase-vs-wells-fargo": "2026-10-18", // both banks' published wire fees replace hand-typed fees and markups
   "/compare/wise-vs-westpac": "2026-10-18",      // Westpac's published fee table replaces "$8-$20"
   "/compare/chase-vs-revolut": "2026-10-18",      // decision note: Chase wires vs Revolut's partner banks (OCC, FDIC)
   "/swift-codes/netherlands": "2026-10-18",       // name check, DNB register, instant payments
@@ -91,6 +92,15 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/companies/santander": "2026-10-18",
   "/companies/profee": "2026-10-18",
   "/companies/moneycorp": "2026-10-18",
+  "/companies/wells-fargo": "2026-10-18",
+  "/companies/td-bank": "2026-10-18",
+  "/companies/barclays": "2026-10-18",
+  "/companies/fairfx": "2026-10-18",
+  "/companies/transfergo": "2026-10-18",
+  "/companies/hsbc": "2026-10-18",
+  "/companies/chase": "2026-10-18",
+  "/companies/pnb-europe": "2026-10-18",
+  "/companies/rbs": "2026-10-18",
   "/companies/revolut": "2026-10-18",            // verdict: Revolut's own rate, plan allowances and weekend fee
   "/iban/greenland": "2026-10-18",
   "/iban/faroe-islands": "2026-10-18",
@@ -98,6 +108,14 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/iban/monaco": "2026-10-18",
   "/iban/vatican-city": "2026-10-18",
   "/iban/gibraltar": "2026-10-18",
+  "/iban/slovenia": "2026-10-18",
+  "/iban/san-marino": "2026-10-18",
+  "/iban/timor-leste": "2026-10-18",
+  "/iban/british-virgin-islands": "2026-10-18",
+  "/iban/estonia": "2026-10-18",
+  "/iban/azerbaijan": "2026-10-18",
+  "/iban/kazakhstan": "2026-10-18",
+  "/iban/malta": "2026-10-18",
   "/iban/costa-rica": "2026-10-18",               // SINPE, Pagos al Exterior, SINPE Móvil
   "/iban/lithuania": "2026-10-18",                // CENTROlink, Verification of Payee, litas
   "/iban/slovakia": "2026-10-18",                 // payment symbols, SIPS and TIPS
