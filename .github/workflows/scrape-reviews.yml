@@ -53,8 +53,13 @@ jobs:
           git add src/data/scraped/trustpilot-ratings.json src/data/scraped/app-store-ratings.json
           git diff --staged --quiet || git commit -m "chore: update provider ratings [$(date -u +%Y-%m-%d)]"
           # Trustpilot scrape is source of truth — prefer our version on conflict.
-          git pull --rebase --autostash -X theirs
-          git push
+          # Retried: another workflow can push seconds earlier (see scrape.yml).
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase --autostash -X theirs && git push; then break; fi
+            git rebase --abort 2>/dev/null || true
+            if [ "$attempt" = 5 ]; then echo "::error::push to main failed after 5 attempts"; exit 1; fi
+            sleep $((attempt * 15))
+          done
 
       # See the matching note in scrape-browsers.yml: vercel-ignore.sh cancels
       # data-only builds and defers to this hook, so a workflow that commits data

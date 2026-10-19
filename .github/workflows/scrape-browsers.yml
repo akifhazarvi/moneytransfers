@@ -198,8 +198,13 @@ jobs:
           # JSON files (e.g. a manual local scrape), prefer our freshly-scraped
           # version to avoid blocking the workflow on merge conflicts. Autostash:
           # an unstaged change must never abort the rebase and drop the run.
-          git pull --rebase --autostash -X theirs
-          git push
+          # Retried: another workflow can push seconds earlier (see scrape.yml).
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase --autostash -X theirs && git push; then break; fi
+            git rebase --abort 2>/dev/null || true
+            if [ "$attempt" = 5 ]; then echo "::error::push to main failed after 5 attempts"; exit 1; fi
+            sleep $((attempt * 15))
+          done
 
       # REMOVED 2026-09-18: the explicit deploy hook.
       #

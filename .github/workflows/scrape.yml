@@ -256,8 +256,17 @@ jobs:
             git status --short --untracked-files=no
           fi
           # Prefer freshly-scraped output over divergent main (e.g. manual scrapes).
-          git pull --rebase --autostash -X theirs
-          git push
+          # Four workflows commit to main and GitHub starts scheduled runs late
+          # and unevenly, so two can push seconds apart: the slower one was
+          # rejected ("fetch first") and its whole run's data lost (2026-10-15,
+          # 2026-10-19 — this run and the AI citation benchmark both at 13:13).
+          # Rebase and retry rather than fail on one race.
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase --autostash -X theirs && git push; then break; fi
+            git rebase --abort 2>/dev/null || true
+            if [ "$attempt" = 5 ]; then echo "::error::push to main failed after 5 attempts"; exit 1; fi
+            sleep $((attempt * 15))
+          done
 
       # REMOVED 2026-09-18: the explicit deploy hook.
       #
