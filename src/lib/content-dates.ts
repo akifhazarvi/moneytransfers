@@ -62,6 +62,14 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/compare/paypal-vs-revolut": "2026-10-18",     // Revolut's plan fees corrected
   "/compare/paypal-vs-western-union": "2026-10-18", // pair note: fraud warnings, FTC order, cancelling; own FAQs
   "/compare/paypal-vs-worldremit": "2026-10-18",  // decision note: send-only PayPal accounts, WorldRemit partner payouts
+  "/compare/wise-vs-xoom": "2026-10-18",
+  "/compare/western-union-vs-xoom": "2026-10-18",
+  "/compare/revolut-vs-xoom": "2026-10-18",
+  "/compare/xe-vs-moneygram": "2026-10-18",
+  "/compare/xe-vs-paypal": "2026-10-18",
+  "/compare/xe-vs-xoom": "2026-10-18",
+  "/compare/xe-vs-revolut": "2026-10-18",
+  "/compare/worldremit-vs-xoom": "2026-10-18",
   "/compare/wise-vs-westpac": "2026-10-18",      // Westpac's published fee table replaces "$8-$20"
   "/compare/chase-vs-revolut": "2026-10-18",      // decision note: Chase wires vs Revolut's partner banks (OCC, FDIC)
   "/swift-codes/netherlands": "2026-10-18",       // name check, DNB register, instant payments
