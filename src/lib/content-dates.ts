@@ -62,9 +62,19 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/compare/paypal-vs-revolut": "2026-10-18",     // Revolut's plan fees corrected
   "/compare/paypal-vs-western-union": "2026-10-18", // pair note: fraud warnings, FTC order, cancelling; own FAQs
   "/compare/paypal-vs-worldremit": "2026-10-18",  // decision note: send-only PayPal accounts, WorldRemit partner payouts
+  "/compare/wise-vs-westpac": "2026-10-18",      // Westpac's published fee table replaces "$8-$20"
   "/compare/chase-vs-revolut": "2026-10-18",      // decision note: Chase wires vs Revolut's partner banks (OCC, FDIC)
   "/swift-codes/netherlands": "2026-10-18",       // name check, DNB register, instant payments
   "/swift-codes/france": "2026-10-18",            // REGAFI, the payee check and SWIFT wires, overseas BIC letters
+  "/companies/natwest": "2026-10-18",
+  "/companies/nationwide": "2026-10-18",
+  "/companies/westpac": "2026-10-18",
+  "/companies/commonwealth-bank": "2026-10-18",
+  "/companies/lloyds": "2026-10-18",
+  "/companies/anz": "2026-10-18",
+  "/companies/santander": "2026-10-18",
+  "/companies/profee": "2026-10-18",
+  "/companies/moneycorp": "2026-10-18",
   "/companies/revolut": "2026-10-18",            // verdict: Revolut's own rate, plan allowances and weekend fee
   "/iban/costa-rica": "2026-10-18",               // SINPE, Pagos al Exterior, SINPE Móvil
   "/iban/lithuania": "2026-10-18",                // CENTROlink, Verification of Payee, litas
