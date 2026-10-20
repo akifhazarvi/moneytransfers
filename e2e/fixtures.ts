@@ -12,14 +12,20 @@ import { test as base, expect, type BrowserContext, type Page } from "@playwrigh
  * Every context also swallows any REAL `beforeinstallprompt`, so whether
  * headless Chromium decides the page is installable never changes a result.
  * Tests that need a prompt dispatch a fake one with `offerInstallPrompt`.
+ *
+ * Desktop Chromium is offered the browser extension before the app
+ * (src/lib/browser-extension.ts), so by default every context answers the
+ * site's "is the extension installed?" with yes, and the app suites test the
+ * app. `test.use({ hasExtension: false })` tests the extension offer.
  */
 const THIRD_PARTY =
   /googletagmanager\.com|google-analytics\.com|analytics\.google\.com|clarity\.ms|googlesyndication\.com|doubleclick\.net|adtrafficquality\.google|trustpilot\.com|bing\.com/;
 
-export const test = base.extend({
+export const test = base.extend<{ hasExtension: boolean }>({
+  hasExtension: [true, { option: true }],
   // Named `provide`, not `use`: eslint's React hooks rule mistakes the
   // conventional `use` callback for React's use() hook.
-  context: async ({ context }, provide) => {
+  context: async ({ context, hasExtension }, provide) => {
     await context.route(THIRD_PARTY, (route) => route.abort());
     await context.route("**/_vercel/insights/**", (route) => route.abort());
     await context.addInitScript(() => {
@@ -31,6 +37,24 @@ export const test = base.extend({
         true,
       );
     });
+    if (hasExtension) {
+      await context.addInitScript(() => {
+        // What Chrome exposes when the extension lists this site in
+        // externally_connectable (extension 1.0.1+), answering as it does.
+        const w = window as Window & { chrome?: Record<string, unknown> };
+        w.chrome = Object.assign(w.chrome ?? {}, {
+          runtime: {
+            sendMessage: (_id: string, _message: unknown, reply: (r: unknown) => void) =>
+              setTimeout(() => reply({ installed: true, version: "test" }), 0),
+          },
+        });
+        try {
+          localStorage.setItem("smc_ext_installed", "test");
+        } catch {
+          // about:blank has no storage.
+        }
+      });
+    }
     await provide(context);
   },
 });

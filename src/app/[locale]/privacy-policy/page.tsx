@@ -299,6 +299,19 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                     website (see Cookies above); a daily total of these clicks, with no
                     identifier, is kept for up to 90 days.
                   </li>
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">Our website and the extension:</strong>{" "}
+                    pages on sendmoneycompare.com can ask the extension whether it is
+                    installed. It answers with its version number and nothing else, so
+                    our website stops offering it and offers our app instead. When we
+                    offer the extension on our website, we count the offers seen, the
+                    clicks to its store page, the visits the extension sends to our
+                    website and the page that opens when you remove it, as daily totals
+                    with no identifier, kept for up to 90 days. Where you allow
+                    analytics, these are also recorded in Google Analytics like other
+                    events on our website. After you remove the extension, our website
+                    does not offer it to you again for 180 days.
+                  </li>
                 </ul>
                 <p>
                   Removing the extension deletes everything it stored in your browser.

@@ -35,7 +35,7 @@ export default defineConfig({
     {
       name: "android-chrome",
       use: { ...devices["Pixel 7"] },
-      testIgnore: /manifest\.spec|desktop\.spec|ios\.spec|extension-api\.spec/,
+      testIgnore: /manifest\.spec|desktop\.spec|ios\.spec|extension-api\.spec|extension-offer\.spec/,
     },
     {
       // iOS has no install API: the flow is driven by the user agent (Safari

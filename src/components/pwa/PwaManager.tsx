@@ -31,7 +31,17 @@ import {
   trackPwaLaunched,
   trackPwaPromptDismissed,
   trackPwaPromptShown,
+  trackExtensionOfferDismissed,
 } from "@/lib/analytics";
+import {
+  detectExtension,
+  extensionBrowser,
+  extensionOfferShown,
+  noteExtensionLanding,
+  openExtensionStore,
+  prefersExtension,
+  type ExtensionBrowser,
+} from "@/lib/browser-extension";
 import InstallPrompt from "./InstallPrompt";
 
 // Only needed after a click, so it stays out of every page's first load.
@@ -99,6 +109,8 @@ export default function PwaManager() {
   // once-per-session rule keeps it from coming back until the next session).
   const [promptPath, setPromptPath] = useState<string | null>(null);
   const [promptSlot, setPromptSlot] = useState<HTMLElement | null>(null);
+  // Set when the offer made is the browser extension (desktop Chromium), not the app.
+  const [promptExtension, setPromptExtension] = useState<ExtensionBrowser | null>(null);
   const [dialogSurface, setDialogSurface] = useState<string | null>(null);
   const platformRef = useRef<InstallPlatform | null>(null);
 
@@ -124,6 +136,11 @@ export default function PwaManager() {
     // Installed while the page was still hydrating: the event came and went
     // before this listener existed, so count it now.
     if (window.__smcInstalled) onInstalled();
+
+    // The extension answers the site from 1.0.1; a yes switches every install
+    // surface back to the app (they re-check on the installability event).
+    noteExtensionLanding();
+    void detectExtension();
 
     if (isStandalone()) {
       // Safari never fires appinstalled; the app's first launch is its install.
@@ -216,7 +233,9 @@ export default function PwaManager() {
       const slot = [...document.querySelectorAll<HTMLElement>("[data-pwa-install-slot]")].find((s) => inReach.has(s));
       if (!slot) return;
       const current = detectInstallPlatform();
-      if (!PROMPTABLE.has(current) || !navigator.onLine || !consentSettled()) return;
+      // Desktop Chrome and Edge are offered the extension, before the app.
+      const extension = prefersExtension() ? extensionBrowser() : null;
+      if ((!extension && !PROMPTABLE.has(current)) || !navigator.onLine || !consentSettled()) return;
       // One offer at a time: a returning visitor's welcome-back card goes first.
       if (document.querySelector("dialog[open], [data-welcome-back]")) return;
       // Someone mid-entry keeps the form to themselves; a field left focused
@@ -225,7 +244,10 @@ export default function PwaManager() {
       if (field && onScreen(field)) return;
       stop();
       recordPromptShown();
-      trackPwaPromptShown(current, slot.dataset.pwaInstallSlot ?? "inline");
+      const placement = slot.dataset.pwaInstallSlot ?? "inline";
+      if (extension) extensionOfferShown(placement, extension);
+      else trackPwaPromptShown(current, placement);
+      setPromptExtension(extension);
       setPromptSlot(slot);
       setPromptPath(pathname);
     }
@@ -269,11 +291,19 @@ export default function PwaManager() {
       {promptPath === pathname && platform && promptSlot && createPortal(
         <InstallPrompt
           platform={platform}
+          extension={promptExtension}
           placement={promptSlot.dataset.pwaInstallSlot}
-          onAccept={() => requestInstall(promptSlot.dataset.pwaInstallSlot ?? "inline")}
+          onAccept={() => {
+            const placement = promptSlot.dataset.pwaInstallSlot ?? "inline";
+            if (!promptExtension) return requestInstall(placement);
+            openExtensionStore(placement);
+            setPromptPath(null);
+          }}
           onDismiss={() => {
+            // One snooze for both offers: "Not now" to either is not an invitation to the other.
             snoozePrompt();
-            trackPwaPromptDismissed(platform);
+            if (promptExtension) trackExtensionOfferDismissed(promptSlot.dataset.pwaInstallSlot ?? "inline", promptExtension);
+            else trackPwaPromptDismissed(platform);
             setPromptPath(null);
           }}
         />, promptSlot

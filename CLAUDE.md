@@ -387,6 +387,19 @@ with no id (`qualified_redirect_extension`). Links into the site carry
 contract on every deploy; `npm run test:extension` smoke-tests the built
 package against production.
 
+**The site offers it before the app on desktop Chromium** (owner decision
+2026-10-20; live in the Chrome Web Store since 2026-10-19). Every install
+surface asks `prefersExtension()` in `src/lib/browser-extension.ts`: the header
+pill and footer ("Add to Chrome"), the in-flow `<InstallSlot>` offer (same rules
+and shared snooze as the app's) and the /go review card. Phones, Safari, Firefox
+and the installed app keep the app path. Extension 1.0.1+ answers the site
+(`externally_connectable`), so readers who have it are offered the app instead;
+e2e contexts answer yes by default (`hasExtension` fixture option,
+`e2e/extension-offer.spec.ts` sets it false). Funnel: `extension_offer_shown`
+/ `_clicked` / `_dismissed`, `extension_detected`, `extension_install_confirmed`,
+and the same steps with no identifier in `ext:v1:<day>`
+(`scripts/report-extension.mjs`).
+
 ## Installed app (PWA)
 
 The site installs as an app on Android, iOS, macOS, Windows and ChromeOS.

@@ -13,6 +13,7 @@
  * activity store (activity-store.ts).
  *
  * Read: node --env-file=.env.local scripts/report-consent-metrics.mjs
+ * (and scripts/report-extension.mjs for ext:v1, below).
  */
 const KEEP_SECONDS = 90 * 86400;
 
@@ -24,14 +25,32 @@ async function command(url: string, token: string, args: (string | number)[]): P
   return response.ok ? ((await response.json()) as { result?: unknown }).result : undefined;
 }
 
-export async function tallyPageView(country: string | null, landing: boolean): Promise<void> {
+async function increment(prefix: string, field: string): Promise<void> {
   const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
   if (!url || !token) return;
-  const key = `tally:v1:${new Date().toISOString().slice(0, 10)}`;
-  const cc = country && /^[A-Z]{2}$/.test(country) ? country : "XX";
+  const key = `${prefix}:${new Date().toISOString().slice(0, 10)}`;
   try {
-    const count = await command(url, token, ["HINCRBY", key, landing ? `${cc}:land` : cc, 1]);
+    const count = await command(url, token, ["HINCRBY", key, field, 1]);
     if (count === 1) await command(url, token, ["EXPIRE", key, KEEP_SECONDS]);
   } catch { /* a count must never fail the request */ }
+}
+
+export async function tallyPageView(country: string | null, landing: boolean): Promise<void> {
+  const cc = country && /^[A-Z]{2}$/.test(country) ? country : "XX";
+  await increment("tally:v1", landing ? `${cc}:land` : cc);
+}
+
+export const EXTENSION_TALLIES = ["shown", "click", "confirmed", "visit", "uninstall"] as const;
+export type ExtensionTally = (typeof EXTENSION_TALLIES)[number];
+
+/**
+ * The browser extension's funnel, the same way: ext:v1:<UTC day> is one hash
+ * of "<kind>:<label>" → count. shown / click / confirmed are labelled by the
+ * site surface (header, footer, comparison-end, go_review …), visit and
+ * uninstall by the browser (chrome, edge). See src/lib/browser-extension.ts.
+ */
+export async function tallyExtension(kind: ExtensionTally, label: string): Promise<void> {
+  const clean = /^[a-z0-9_-]{1,32}$/.test(label) ? label : "other";
+  await increment("ext:v1", `${kind}:${clean}`);
 }

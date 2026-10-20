@@ -4,6 +4,15 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { NOTHING_TO_INSTALL, detectInstallPlatform, onInstallabilityChange, requestInstall, type InstallPlatform } from "@/lib/pwa";
 import { trackPwaPromptShown, trackWhatsappImpression } from "@/lib/analytics";
+import {
+  extensionBrowser,
+  extensionLabel,
+  extensionOfferShown,
+  openExtensionStore,
+  prefersExtension,
+  priceCheckSite,
+  type ExtensionBrowser,
+} from "@/lib/browser-extension";
 import WhatsAppFollowLink from "@/components/WhatsAppFollowLink";
 import { WhatsAppGlyph, WhatsAppTile } from "@/components/WhatsAppMark";
 
@@ -18,32 +27,42 @@ import { WhatsAppGlyph, WhatsAppTile } from "@/components/WhatsAppMark";
  * path); the grid then gives WhatsApp the full width. Install goes through
  * requestInstall, so PwaManager runs the prompt or the Safari steps and
  * records pwa_install_clicked with surface "go_review".
+ *
+ * On desktop Chrome and Edge the card offers the browser extension instead
+ * (src/lib/browser-extension.ts): the visitor is on the way to the provider's
+ * site, which is where its price check works. Where the extension checks this
+ * provider's own calculator, the card says so by name.
  */
-export default function StayConnected({ from, to }: { from?: string; to?: string }) {
+export default function StayConnected({ from, to, provider, providerName }: { from?: string; to?: string; provider?: string; providerName?: string }) {
   const [platform, setPlatform] = useState<InstallPlatform | null>(null);
+  const [extension, setExtension] = useState<ExtensionBrowser | null>(null);
   useEffect(() => {
-    const update = () => setPlatform(detectInstallPlatform());
+    const update = () => {
+      setPlatform(detectInstallPlatform());
+      setExtension(prefersExtension() ? extensionBrowser() : null);
+    };
     update();
     return onInstallabilityChange(update);
   }, []);
-  const installable = platform === null || !NOTHING_TO_INSTALL.has(platform);
+  const installable = platform === null || extension !== null || !NOTHING_TO_INSTALL.has(platform);
 
-  // The app card counts in the install funnel's denominator, like every other
-  // install surface: pwa_install_prompt_shown, placement "go_review", once it
-  // is half on screen and we know it can install here.
+  // The card counts in the install funnel's denominator, like every other
+  // install surface (placement "go_review"), once it is half on screen and we
+  // know what it offers here: extension_offer_shown or pwa_install_prompt_shown.
   const appRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = appRef.current;
-    if (!el || !platform || NOTHING_TO_INSTALL.has(platform) || typeof IntersectionObserver === "undefined") return;
+    if (!el || !platform || (!extension && NOTHING_TO_INSTALL.has(platform)) || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) {
-        trackPwaPromptShown(platform, "go_review");
+        if (extension) extensionOfferShown("go_review", extension);
+        else trackPwaPromptShown(platform, "go_review");
         io.disconnect();
       }
     }, { threshold: 0.5 });
     io.observe(el);
     return () => io.disconnect();
-  }, [platform]);
+  }, [platform, extension]);
 
   // Impression = the WhatsApp card reached the viewport, as on every other
   // WhatsApp surface, so follow rate has a denominator.
@@ -62,10 +81,58 @@ export default function StayConnected({ from, to }: { from?: string; to?: string
   }, []);
 
   const pair = from && to ? `${from} → ${to}` : "GBP → INR";
+  const site = provider ? priceCheckSite(provider) : null;
+  const siteName = providerName ?? site?.name;
 
   return (
     <div className="go-review-stay">
-      {installable && (
+      {installable && extension && (
+        <div ref={appRef} className="go-review-card go-review-card--app go-review-card--extension pwa-hide-standalone">
+          <div className="go-review-card-body">
+            <div className="go-review-card-brand">
+              <Image src="/icon-192x192.png" alt="" width={48} height={48} className="go-review-app-icon" />
+              <div>
+                <p className="go-review-card-name">SendMoneyCompare</p>
+                <p className="go-review-card-sub">{extension === "edge" ? "Edge" : extension === "chrome" ? "Chrome" : "Browser"} extension · Free</p>
+              </div>
+            </div>
+            <h3 className="go-review-card-title">
+              {site && siteName ? `A price check on ${siteName}’s own site` : "A price check on provider sites"}
+            </h3>
+            <p className="go-review-card-text">
+              {site && siteName
+                ? `Type an amount in ${siteName}’s calculator and the extension tells you whether it’s a good deal, or who pays more for the same transfer.`
+                : "Type an amount in a provider’s calculator and the extension tells you whether it’s a good deal, or who pays more for the same transfer."}
+            </p>
+            <ul className="go-review-chips">
+              <li>Price check on provider sites</li>
+              <li>Mid-market converter</li>
+              <li>Rate alerts</li>
+            </ul>
+            <button type="button" onClick={() => openExtensionStore("go_review")} className="conversion-button go-review-install">
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinejoin="round" strokeWidth={2} d="M9.5 4.5a2 2 0 0 1 4 0V6H17a1 1 0 0 1 1 1v3.5h-1.5a2 2 0 0 0 0 4H18V18a1 1 0 0 1-1 1h-3.5v-1.5a2 2 0 0 0-4 0V19H6a1 1 0 0 1-1-1v-3.5h1.5a2 2 0 0 0 0-4H5V7a1 1 0 0 1 1-1h3.5z" />
+              </svg>
+              {extensionLabel(extension)}
+            </button>
+          </div>
+          {/* A provider page with the price-check panel: decoration, so hidden from AT. */}
+          <div className="go-review-browser" aria-hidden="true">
+            <div className="go-review-browser-bar"><i /><i /><i /><span>{site?.domain ?? "provider.com"}</span></div>
+            <div className="go-review-browser-page">
+              <div className="go-review-phone-row"><span /><b /></div>
+              <div className="go-review-phone-row"><span /><b /></div>
+            </div>
+            <div className="go-review-browser-panel">
+              <p className="go-review-phone-pair">{pair}</p>
+              <div className="go-review-phone-row is-top"><span /><b /></div>
+              <div className="go-review-phone-row"><span /><b /></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {installable && !extension && (
         <div ref={appRef} className="go-review-card go-review-card--app pwa-hide-standalone">
           <div className="go-review-card-body">
             <div className="go-review-card-brand">

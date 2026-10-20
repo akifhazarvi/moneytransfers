@@ -83,3 +83,13 @@ export function priceCheckOrigins() {
     .filter(([domain]) => !NOT_AUTOMATIC.has(domain))
     .map(([domain]) => `*://*.${domain}/*`);
 }
+
+/**
+ * The provider site the automatic price check runs on for a quote slug, else
+ * null. sendmoneycompare.com imports this too (src/lib/browser-extension.ts),
+ * so the site names a provider's own site only where the price check works.
+ */
+export function priceCheckSiteFor(slug) {
+  const hit = HOSTS.slice(0, firstBank).find(([domain, , slugs]) => !NOT_AUTOMATIC.has(domain) && slugs.includes(slug));
+  return hit ? { domain: hit[0], name: hit[1] } : null;
+}

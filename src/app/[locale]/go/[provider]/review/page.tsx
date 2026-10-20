@@ -186,7 +186,7 @@ export default async function GoReviewPage({ params, searchParams }: Props) {
       <section className="go-review-more">
         <Container>
           <h2 className="go-review-more-kicker">Make your next comparison easier</h2>
-          <StayConnected from={route?.from} to={route?.to} />
+          <StayConnected from={route?.from} to={route?.to} provider={provider} providerName={name} />
         </Container>
       </section>
     </div>

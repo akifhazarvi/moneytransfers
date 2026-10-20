@@ -373,6 +373,39 @@ export function trackPwaLaunched(mode: string) {
 }
 
 // ═════════════════════════════════════════════════════════════════
+// Browser extension — offered before the app on desktop Chromium
+// (src/lib/browser-extension.ts). `placement` names the surface (header, menu,
+// footer, an <InstallSlot> placement, go_review); `platform` is the browser
+// (chrome, edge, chromium). Store links also carry utm_medium=<placement> for
+// the Chrome Web Store dashboard's install attribution.
+// ═════════════════════════════════════════════════════════════════
+
+/** An extension offer was seen (the in-flow banner or the review-page card). */
+export function trackExtensionOfferShown(placement: string, platform: string) {
+  dual("extension_offer_shown", { placement, platform });
+}
+
+/** The reader went to the store listing from one of our surfaces. */
+export function trackExtensionOfferClicked(placement: string, platform: string) {
+  dual("extension_offer_clicked", { placement, platform });
+}
+
+/** "Not now" on the in-flow offer; it shares the app offer's 30-day snooze. */
+export function trackExtensionOfferDismissed(placement: string, platform: string) {
+  dual("extension_offer_dismissed", { placement, platform });
+}
+
+/** The site saw the extension installed (1.0.1+), once a session. */
+export function trackExtensionDetected(version: string) {
+  dual("extension_detected", { version });
+}
+
+/** A store click from this browser was followed by an install. */
+export function trackExtensionInstallConfirmed(placement: string) {
+  dual("extension_install_confirmed", { placement });
+}
+
+// ═════════════════════════════════════════════════════════════════
 // Welcome back — a return visit offered the visitor's last comparison.
 // `kind` is how that search was made: "search" (they chose the pair or amount)
 // or "page" (they read a corridor page). Shown − clicked − dismissed = ignored.

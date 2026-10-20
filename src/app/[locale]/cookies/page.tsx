@@ -122,6 +122,11 @@ export default async function CookiePolicyPage({ params }: Props) {
                           <td className={td}>Remembers your last comparison so we can offer to reopen it when you come back. Kept only in your browser</td>
                           <td className={td}>Offered for 60 days (localStorage)</td>
                         </tr>
+                        <tr className="border-b border-[var(--color-outline)]">
+                          <td className={tdMono}>smc_ext_installed, smc_ext_clicked, smc_ext_removed_at</td>
+                          <td className={td}>Whether our browser extension is installed, so we offer it only to people who don’t have it, and not again for 180 days after it is removed. Kept only in your browser</td>
+                          <td className={td}>Persistent (localStorage)</td>
+                        </tr>
                         <tr>
                           <td className={tdMono}>sticky_cta_dismissed, bot_dismissed, exit_intent_*</td>
                           <td className={td}>Remembers if you dismissed a UI element so we don&apos;t re-show it</td>

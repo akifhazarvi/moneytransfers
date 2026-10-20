@@ -62,6 +62,30 @@ daily with no identifier (`qualified_redirect_extension`,
 from_extension); links into the site carry utm_source=<browser>-extension,
 utm_medium=extension, utm_content=<placement>.
 
+## The site offers it (and knows who has it)
+
+Owner decision 2026-10-20: on desktop Chrome, Edge and other Chromium browsers
+the site offers the extension before the installed app, on every install
+surface: the header pill and footer link ("Add to Chrome"), the in-flow offer at
+`<InstallSlot>` markers (with the app offer's rules and shared 30-day snooze) and
+the /go review page card, which names the provider's own site when the price
+check runs there (`priceCheckSiteFor()` in `lib/hosts.js`, imported by the site).
+`src/lib/browser-extension.ts` holds the rule.
+
+From 1.0.1 the manifest's `externally_connectable` lets sendmoneycompare.com ask
+`{ type: "smc:hello" }`; the background answers `{ installed, version }` and
+nothing else. A yes switches the site back to offering the app, sets GA4 user
+property `has_extension`, fires `extension_detected` once a session and, when the
+same browser clicked a store link earlier, `extension_install_confirmed`. The
+store links carry `utm_source=sendmoneycompare.com&utm_medium=<surface>&utm_campaign=site_install`
+for the store dashboard's install attribution. After the uninstall page opens
+the site stops offering the extension for 180 days. Site events:
+`extension_offer_shown` / `_clicked` / `_dismissed` (`placement`, `platform`);
+the same steps are counted with no identifier in `ext:v1:<day>`:
+`node --env-file=.env.local scripts/report-extension.mjs`. Microsoft's copy has its own
+ID: set `EDGE_EXTENSION_ID` in `src/lib/browser-extension.ts` once the Edge
+listing is live, so Edge readers are sent there and detected.
+
 Plus: right-click a selected amount ("$1,250") to compare or convert it; type
 `smc 500 gbp inr` in the address bar; Alt+Shift+S opens the popup.
 

@@ -115,6 +115,15 @@ chrome.runtime.onMessage.addListener((message, sender, reply) => {
   if (message?.type === "smc:track" && typeof message.name === "string") trackNow(message.name, message.params ?? {});
 });
 
+// sendmoneycompare.com asks whether the extension is here, so it stops
+// offering it and offers the app instead (src/lib/browser-extension.ts on the
+// site). Only the site can ask (manifest externally_connectable); the answer
+// is the version and nothing else.
+chrome.runtime.onMessageExternal.addListener((message, sender, reply) => {
+  if (message?.type !== "smc:hello" || !/^https:\/\/(www\.)?sendmoneycompare\.com$/.test(sender.origin || "")) return;
+  reply({ installed: true, version: chrome.runtime.getManifest().version });
+});
+
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === ALARM) checkRates();
 });

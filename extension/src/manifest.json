@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SendMoneyCompare: Transfers, Rates & Converter",
   "short_name": "SendMoneyCompare",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Know if a money transfer is a good deal: compare what providers pay out, convert at the mid-market rate, and set rate alerts.",
   "homepage_url": "https://sendmoneycompare.com/",
   "minimum_chrome_version": "116",
@@ -27,6 +27,9 @@
   "permissions": ["storage", "alarms", "contextMenus", "activeTab", "scripting"],
   "optional_permissions": ["notifications"],
   "omnibox": { "keyword": "smc" },
+  "externally_connectable": {
+    "matches": ["https://sendmoneycompare.com/*", "https://www.sendmoneycompare.com/*"]
+  },
   "commands": {
     "_execute_action": {
       "suggested_key": { "default": "Alt+Shift+S" },
