@@ -19351,15 +19351,15 @@
     "date": "2026-10-20",
     "providers": {
       "instarem": {
-        "rate": 5.0328,
+        "rate": 5.029,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 503.28
+        "receiveAmount": 502.9
       },
       "lemfi": {
         "rate": 5.07,
         "fee": 0,
-        "markup": -0.6,
+        "markup": -0.67,
         "receiveAmount": 507
       },
       "moneygram": {
@@ -19411,10 +19411,10 @@
         "receiveAmount": 493.8
       },
       "remitly": {
-        "rate": 5.0101,
+        "rate": 5.0064,
         "fee": 3.99,
-        "markup": 0.59,
-        "receiveAmount": 481.02
+        "markup": 0.66,
+        "receiveAmount": 480.66
       },
       "revolut": {
         "rate": 5.02236,
@@ -19435,10 +19435,10 @@
         "receiveAmount": 458.71
       },
       "wise": {
-        "rate": 5.04045,
+        "rate": 5.03665,
         "fee": 1.82,
-        "markup": -0.01,
-        "receiveAmount": 494.87
+        "markup": 0.06,
+        "receiveAmount": 494.5
       }
     }
   }
