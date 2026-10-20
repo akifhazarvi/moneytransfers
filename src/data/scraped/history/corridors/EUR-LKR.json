@@ -3212,16 +3212,16 @@
     "date": "2026-10-20",
     "providers": {
       "taptap-send": {
-        "rate": 368,
+        "rate": 370,
         "fee": 0,
-        "markup": 1.17,
-        "receiveAmount": 36800
+        "markup": 0.63,
+        "receiveAmount": 37000
       },
       "wise": {
-        "rate": 372.694,
+        "rate": 372.58,
         "fee": 3.11,
-        "markup": -0.09,
-        "receiveAmount": 36110.32
+        "markup": -0.06,
+        "receiveAmount": 36099.28
       }
     }
   }
