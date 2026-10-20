@@ -1,4 +1,4 @@
-import type { BrowserContext, Page, Request } from "@playwright/test";
+import type { BrowserContext, Page } from "@playwright/test";
 import { test, expect, installPrompt, scrollUntilOffered, trackedEventParams } from "./fixtures";
 
 // Desktop Chrome and Edge are offered the browser extension before the app
@@ -23,13 +23,13 @@ async function storeUrlAfter(context: BrowserContext, click: () => Promise<void>
   return url;
 }
 
-/** The no-id count the site posts for an extension offer step. */
-function tallyRequest(page: Page, ext: string, label: string) {
-  return page.waitForRequest((r: Request) => {
-    if (!r.url().endsWith("/api/tally")) return false;
-    const body = JSON.parse(r.postData() ?? "{}");
-    return body.ext === ext && body.p === label;
+/** Every /api/tally post this page makes: automated browsers must never count (navigator.webdriver). */
+function tallyPosts(page: Page): string[] {
+  const posts: string[] = [];
+  page.on("request", (r) => {
+    if (r.url().endsWith("/api/tally")) posts.push(r.postData() ?? "");
   });
+  return posts;
 }
 
 /** From here on, the extension answers the site, as 1.0.1+ does. */
@@ -48,12 +48,12 @@ test("the header offers the extension and opens its store page, attributed to th
   await expect(pill).toBeVisible();
   await expect(page.getByRole("button", { name: "Install app", exact: true })).toHaveCount(0);
 
-  const counted = tallyRequest(page, "click", "header");
+  const posts = tallyPosts(page);
   const store = await storeUrlAfter(context, () => pill.click());
   expect(store.pathname).toContain("lmlfkphheloiibbbchelmfpmalhpoboi");
   expect(Object.fromEntries(store.searchParams)).toMatchObject({ utm_source: "sendmoneycompare.com", utm_medium: "header", utm_campaign: "site_install" });
-  await counted;
   await expect.poll(() => trackedEventParams(page, "extension_offer_clicked")).toEqual([expect.objectContaining({ placement: "header" })]);
+  expect(posts, "a test run never reaches the production counters").toEqual([]);
 });
 
 test("the in-flow offer is the extension, with the app offer's rules", async ({ page, context }) => {
@@ -90,9 +90,7 @@ test("once the extension answers, the site offers the app and closes the install
   await storeUrlAfter(context, () => page.getByRole("button", { name: ADD }).click());
 
   await installExtension(context);
-  const confirmed = tallyRequest(page, "confirmed", "header");
   await page.reload();
-  await confirmed;
   await expect(page.getByRole("button", { name: "Install app", exact: true })).toBeAttached();
   await expect(page.getByRole("button", { name: ADD })).toHaveCount(0);
   await expect.poll(() => trackedEventParams(page, "extension_install_confirmed")).toEqual([expect.objectContaining({ placement: "header" })]);
@@ -106,9 +104,8 @@ test("once the extension answers, the site offers the app and closes the install
 });
 
 test("after the extension's uninstall page, the site offers the app", async ({ page }) => {
-  const counted = tallyRequest(page, "uninstall", "chrome");
   await page.goto("/contact?utm_source=chrome-extension&utm_medium=extension&utm_content=uninstall");
-  await counted;
+  await expect(page.getByRole("button", { name: "Install app", exact: true })).toBeAttached();
   await expect(page.getByRole("button", { name: ADD })).toHaveCount(0);
   await page.goto("/exchange-rates");
   await expect(page.getByRole("button", { name: "Install app", exact: true })).toBeAttached();

@@ -130,6 +130,9 @@ type TallyKind = "shown" | "click" | "confirmed" | "visit" | "uninstall";
 
 /** A count with no identifier, kept as a daily total (src/lib/traffic-tally.ts). */
 function tally(ext: TallyKind, label: string) {
+  // Automated browsers never count, as TrafficTally: our e2e runs set
+  // navigator.webdriver, and CI runs them against production on every deploy.
+  if (navigator.webdriver) return;
   // No cookies, no referrer, as TrafficTally; keepalive outlives the store tab opening.
   void fetch("/api/tally", { method: "POST", credentials: "omit", referrerPolicy: "no-referrer",
     headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ext, p: label.slice(0, 32) }), keepalive: true }).catch(() => {});
