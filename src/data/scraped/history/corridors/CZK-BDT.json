@@ -1752,10 +1752,10 @@
     "date": "2026-10-20",
     "providers": {
       "taptap-send": {
-        "rate": 5.7,
+        "rate": 5.72,
         "fee": 0,
-        "markup": 0.12,
-        "receiveAmount": 570
+        "markup": -0.23,
+        "receiveAmount": 572
       }
     }
   }

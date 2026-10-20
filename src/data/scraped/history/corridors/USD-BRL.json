@@ -19351,10 +19351,10 @@
     "date": "2026-10-20",
     "providers": {
       "instarem": {
-        "rate": 5.029,
+        "rate": 4.999,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 502.9
+        "receiveAmount": 499.9
       },
       "lemfi": {
         "rate": 5.07,
@@ -19381,10 +19381,10 @@
         "receiveAmount": 487.64
       },
       "western-union": {
-        "rate": 4.9142,
+        "rate": 4.88562,
         "fee": 1.99,
-        "markup": 2.49,
-        "receiveAmount": 481.64
+        "markup": 3.06,
+        "receiveAmount": 478.84
       },
       "xoom": {
         "rate": 4.8638,
@@ -19411,10 +19411,10 @@
         "receiveAmount": 493.8
       },
       "remitly": {
-        "rate": 5.0064,
+        "rate": 4.975,
         "fee": 3.99,
-        "markup": 0.66,
-        "receiveAmount": 480.66
+        "markup": 1.28,
+        "receiveAmount": 477.65
       },
       "revolut": {
         "rate": 5.02236,
@@ -19429,16 +19429,16 @@
         "receiveAmount": 481.29
       },
       "paypal": {
-        "rate": 4.82804,
+        "rate": 4.82404,
         "fee": 4.99,
-        "markup": 4.2,
-        "receiveAmount": 458.71
+        "markup": 4.28,
+        "receiveAmount": 458.33
       },
       "wise": {
-        "rate": 5.03665,
+        "rate": 5.00635,
         "fee": 1.82,
-        "markup": 0.06,
-        "receiveAmount": 494.5
+        "markup": 0.66,
+        "receiveAmount": 491.52
       }
     }
   }
