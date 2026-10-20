@@ -122,8 +122,10 @@ and notifications are asked for when the reader turns those features on.
    provider's own site on 2026-10-18; the extension stops showing any offer not
    re-checked within 183 days. Instarem's referral runs to 30 Nov 2026.
 4. **Listing assets** are in `extension/store/`: five 1280×800 screenshots, the
-   440×280 promo tile and a 1400×560 marquee (128 px icon is in the build). Chrome Web Store: one-time $5 developer
-   fee, review usually a few days. Edge Add-ons: free, same zip.
+   440×280 promo tile and a 1400×560 marquee (128 px icon is in the build; Edge's
+   logo is `store-icon-300.png`). Chrome Web Store: one-time $5 developer fee,
+   review usually a few days. Edge Add-ons: free, same zip, up to seven business
+   days; `store/LISTING.md` has a section per store.
 5. **Listing copy** must follow the site's claim rules: no "cheapest", no scores,
    no provider count unless it says which count it is. Disclose affiliate links
    (the Settings sheet does).

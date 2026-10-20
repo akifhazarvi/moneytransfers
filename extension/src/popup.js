@@ -17,7 +17,7 @@ import { judge } from "./lib/verdict.js";
 import { getPrefs, setPrefs, PREF_DEFAULTS } from "./lib/store.js";
 import { SEND, ALL, CURRENCY, FLAG_FILES } from "./data/currencies.js";
 import { SITE } from "./config.js";
-import { analyticsReady, flush, setAnalytics, track } from "./lib/analytics.js";
+import { BROWSER, analyticsReady, flush, setAnalytics, track } from "./lib/analytics.js";
 import { siteLink, storeReviewUrl } from "./lib/links.js";
 
 const POPULAR_SEND = ["USD", "GBP", "EUR", "CAD", "AUD", "SGD", "AED", "NZD"];
@@ -1360,7 +1360,7 @@ function paintWatch() {
         ),
       ),
     ),
-    h("p", { class: "note", text: "Alerts are checked about every 15 minutes while Chrome is open, against the mid-market rate; a provider's own rate is lower. Sparklines show the past 30 days." }),
+    h("p", { class: "note", text: "Alerts are checked about every 15 minutes while your browser is open, against the mid-market rate; a provider's own rate is lower. Sparklines show the past 30 days." }),
   );
 }
 
@@ -1866,7 +1866,7 @@ function openSettings() {
         h(
           "div",
           { class: "setting" },
-          h("span", { class: "setting-label" }, "Keyboard shortcut", h("small", { text: "Change it at chrome://extensions/shortcuts" })),
+          h("span", { class: "setting-label" }, "Keyboard shortcut", h("small", { text: `Change it at ${BROWSER}://extensions/shortcuts` })),
           shortcut,
         ),
         h(

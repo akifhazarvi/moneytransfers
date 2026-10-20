@@ -39,7 +39,7 @@ ALSO
 • Type "smc 500 gbp inr" in the address bar.
 • See what other senders on sendmoneycompare.com are comparing right now.
 
-No account. Usage sharing is optional and off until you turn it on. To show prices the extension asks sendmoneycompare.com for public quotes and rates, sending only the currencies and amount you compare. Your watchlist and alerts use Chrome storage sync and may sync across browsers signed into your browser account.
+No account. Usage sharing is optional and off until you turn it on. To show prices the extension asks sendmoneycompare.com for public quotes and rates, sending only the currencies and amount you compare. Your watchlist and alerts use your browser's sync storage and may sync to other browsers signed in to the same account.
 
 Some Send buttons are affiliate links: we may earn a commission when you use a provider. It never changes the order.
 ```
@@ -91,3 +91,52 @@ Visibility: Public · Regions: all.
 
 The developer account is a Google account plus a one-time US$5 registration fee. Use the
 account that owns sendmoneycompare.com in Search Console, so the Official URL verifies.
+
+# Microsoft Edge Add-ons (Partner Center)
+
+Same zip as Chrome. Microsoft re-signs it, so the Edge copy gets its own extension ID
+and `update_url` (edge.microsoft.com); `lib/analytics.js` reads that to tag events
+`ext_browser=edge` and links `utm_source=edge-extension`, and `lib/links.js` sends
+"Rate us" to the Edge listing. Nothing in the package changes per store.
+
+## Account
+
+https://partner.microsoft.com/dashboard/microsoftedge/overview. No fee. It needs a
+personal Microsoft account (Outlook/Hotmail/Live) or sign-in with GitHub; work and
+school accounts are refused. Choose **Individual**: Company means business
+verification (days to weeks, calls to a company approver) and cannot be switched
+back. Country and account type are fixed after enrolment. Publisher display name
+(≤50 characters): SendMoneyCompare.
+
+## Pages, in Partner Center's order
+
+1. **Packages:** Create new extension → upload `extension/sendmoneycompare-extension-<version>.zip`.
+2. **Availability:** Public · all markets.
+3. **Properties:** Category **Productivity** · Website https://sendmoneycompare.com/ ·
+   Support https://sendmoneycompare.com/contact · Mature content: unticked.
+4. **Privacy:** same five sections as Chrome's Privacy practices tab above: paste
+   the single purpose, each permission justification, "No, I am not using remote
+   code", the same data-usage boxes and certifications, and the privacy policy URL.
+5. **Store listings → English → Edit details:**
+   - Name and short description come from the manifest (read-only here).
+   - Description: the one above (Edge wants 250–10,000 characters). Don't use
+     "Generate with AI": its text would not follow the claim rules.
+   - Extension logo: `store-icon-300.png` (1:1, 300×300 recommended, 128 minimum).
+   - Small promotional tile `promo-tile-440x280.png`, large promotional tile
+     `marquee-1400x560.png`.
+   - Screenshots: the same five, same order (Edge takes up to 6).
+   - Search terms (≤7 terms, ≤30 characters each, ≤21 words):
+     `money transfer`, `currency converter`, `exchange rate`, `send money abroad`,
+     `remittance`, `rate alert`, `mid-market rate`
+6. **Publish → Notes for certification:**
+
+```
+No account or sign-in needed. All data comes from public JSON endpoints at https://sendmoneycompare.com/api/ext/v1/.
+To test: click the toolbar icon. Compare shows what providers pay out for an amount; Convert, Offers and Rates are the other tabs.
+Price check (optional host permissions): on the welcome page or in Settings, turn on "Check prices on provider sites" and grant the sites, then open https://wise.com/us/send-money/send-money-to-india. A panel reads the amount and currencies and compares the transfer. It changes nothing on the page.
+Rate alerts ask for the notifications permission only when the first alert is set.
+Send buttons open https://sendmoneycompare.com/go/<provider>, which redirects to the provider; some are affiliate links, disclosed in Settings.
+```
+
+Review takes up to seven business days; the status then reads **In the Store**.
+The listing URL is on the extension's Overview page in Partner Center.

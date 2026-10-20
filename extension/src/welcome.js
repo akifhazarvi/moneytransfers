@@ -1,7 +1,7 @@
 // The welcome page, opened once on install: pin the icon (the step that decides
 // whether the extension gets used), try it, and the one-time analytics choice.
 
-import { setAnalytics, track, analyticsReady } from "./lib/analytics.js";
+import { BROWSER, setAnalytics, track, analyticsReady } from "./lib/analytics.js";
 import { siteLink } from "./lib/links.js";
 import { getPrefs, setPrefs } from "./lib/store.js";
 import { priceCheckOrigins } from "./lib/hosts.js";
@@ -55,6 +55,11 @@ function showChoice(analytics) {
 
 async function init() {
   $("puzzle").innerHTML = PUZZLE;
+  // Edge's Extensions menu has an eye ("Show in toolbar") where Chrome has a pin.
+  if (BROWSER === "edge") {
+    $("pin-how").textContent =
+      "Click the puzzle piece at the top right of your browser, then the eye next to SendMoneyCompare (Show in toolbar). It stays one click away.";
+  }
   for (const [id, path] of [["link-privacy", "/privacy-policy"], ["link-method", "/methodology"], ["link-site", "/"]]) {
     $(id).href = siteLink(path, "welcome");
   }
