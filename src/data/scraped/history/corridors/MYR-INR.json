@@ -3943,16 +3943,16 @@
     "date": "2026-10-20",
     "providers": {
       "western-union": {
-        "rate": 23.0973,
+        "rate": 23.1009,
         "fee": 5,
-        "markup": 0.68,
-        "receiveAmount": 2194.24
+        "markup": 0.51,
+        "receiveAmount": 2194.59
       },
       "instarem": {
-        "rate": 23.2301,
+        "rate": 23.2231,
         "fee": 0.55,
-        "markup": 0.11,
-        "receiveAmount": 2310.23
+        "markup": -0.02,
+        "receiveAmount": 2309.54
       }
     }
   }
