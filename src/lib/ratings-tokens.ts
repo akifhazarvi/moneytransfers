@@ -514,6 +514,25 @@ function unpriced(match: string, slugs: string[], from: string, to: string): str
   return UNPRICED;
 }
 
+/**
+ * The same rule for a provider-level measurement: {{AVG_MARKUP:revolut}},
+ * {{AVGCOST:…}}, the amount tiers and the lead counts read quotes and their
+ * history, so a provider one source stops quoting has none. On 2026-10-20
+ * Monito's daily scrape came back without Revolut on any route (its only
+ * source, 75 quotes the day before), and the Revolut card-fees guide's
+ * measured-markup sentence failed four production builds in a row, data
+ * commits and code alike. A known provider we cannot measure this build drops
+ * the claim; an unknown slug is still a typo and still fails check:assets.
+ */
+function unmeasured(match: string, slug: string): string {
+  if (!(slug in providerNames || providers.some((p) => p.slug === slug))) return match;
+  if (!unpricedLogged.has(match)) {
+    unpricedLogged.add(match);
+    console.warn(`[ratings-tokens] no measurement for ${match}; the claim around it is dropped this build`);
+  }
+  return UNPRICED;
+}
+
 // Sources, not instances: a shared /g regex carries lastIndex between calls.
 const BLOCK_OPEN = String.raw`<(?:p|li|td|th|div|h[1-6]|blockquote)(?:\s[^>]*)?>|<br\s*\/?>`;
 const SENTENCE_END = String.raw`[.!?](?=\s|<|$)`;
@@ -772,13 +791,13 @@ function renderQuoteTokens(html: string): string {
   // times, or in its own phrasing, uses this.
   out = out.replace(/\{\{AVG_MARKUP_PCT:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const m = MEASURED_MARKUPS.get(slug);
-    if (!m || m.corridors < 3) return match;
+    if (!m || m.corridors < 3) return unmeasured(match, slug);
     return `${m.markupMedianPct.toFixed(2)}%`;
   });
 
   out = out.replace(/\{\{AVG_MARKUP:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const m = MEASURED_MARKUPS.get(slug);
-    if (!m || m.corridors < 3) return match;
+    if (!m || m.corridors < 3) return unmeasured(match, slug);
     // Median, not mean — see MeasuredMarkup.markupMedianPct. A provider whose
     // benchmark is unreliable on a few exotic corridors (USD→NGN reads −3.16%)
     // gets misdescribed by the mean, and this token renders straight into
@@ -964,7 +983,7 @@ export function renderDataTokens(html: string): string {
       .filter(([, v]) => (v as { slug: string }).slug === slug)
       .map(([pair]) => pair.replace("-", "\u2192"))
       .sort();
-    if (!pairs.length) return match;
+    if (!pairs.length) return unmeasured(match, slug);
     const shown = pairs.slice(0, 4).join(", ");
     return pairs.length > 4 ? `${shown} and ${pairs.length - 4} more` : shown;
   });
@@ -983,11 +1002,11 @@ export function renderDataTokens(html: string): string {
     (match, kind: string, slug: string) => {
       if (kind === "AVGCOST" || kind === "COSTCORRIDORS") {
         const row = REMITTANCE_INDEX.providers.find((p) => p.slug === slug);
-        if (!row) return match;
+        if (!row) return unmeasured(match, slug);
         return kind === "AVGCOST" ? `${row.avgCostPct.toFixed(2)}%` : String(row.corridors);
       }
       const tier = AMOUNT_TIER_INDEX.rows.find((r) => r.slug === slug);
-      if (!tier) return match;
+      if (!tier) return unmeasured(match, slug);
       switch (kind) {
         case "SMALLCOST":
           return `${tier.costSmallPct.toFixed(2)}%`;
@@ -1024,14 +1043,14 @@ export function renderDataTokens(html: string): string {
   // LEADRATE, and WINRATE only ever appears worded as days.
   out = out.replace(/\{\{(LED|LEADRATE|WINRATE|SHORTFALL):([a-z0-9-]+)\}\}/g, (match, kind: string, slug: string) => {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
-    if (!row) return match;
+    if (!row) return unmeasured(match, slug);
     switch (kind) {
       case "LED":
         return `${row.corridorsLed} of ${row.corridorsQuoted}`;
       case "LEADRATE":
         return row.corridorsQuoted > 0
           ? `${((row.corridorsLed / row.corridorsQuoted) * 100).toFixed(1)}%`
-          : match;
+          : unmeasured(match, slug);
       case "WINRATE":
         return `${row.winRate.toFixed(1)}%`;
       case "SHORTFALL":
@@ -1148,13 +1167,13 @@ export function renderDataTokens(html: string): string {
   // shared tail, for pages that phrase the claim themselves.
   out = out.replace(/\{\{LEADS_SHORT:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
-    if (!row) return match;
+    if (!row) return unmeasured(match, slug);
     return `${row.corridorsLed} of ${CONSISTENCY_INDEX.comparableCorridors}`;
   });
 
   out = out.replace(/\{\{LEADS:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
-    if (!row) return match;
+    if (!row) return unmeasured(match, slug);
     return `${row.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare`;
   });
 
@@ -1167,7 +1186,7 @@ export function renderDataTokens(html: string): string {
   // {{TOP_LEADS}}       -> "61 of the 213 corridors we can compare" (as {{LEADS}})
   // {{LEAD_RANK:wise}}  -> "the fourth-most of any provider"; the leader reads
   //                        "the most of any provider", a tie "the joint …".
-  //                        Unresolved for a provider leading none.
+  //                        A provider leading none drops the claim (unmeasured).
   // {{ROTATION_RATE}}   -> "29%": corridors where today's cheapest is not the
   //                        usual winner. Five guides typed "about a quarter".
   out = out.split("{{TOP_LEADER}}").join(TOP_LEADER.providerName);
@@ -1177,7 +1196,7 @@ export function renderDataTokens(html: string): string {
   out = out.split("{{ROTATION_RATE}}").join(`${ROTATION_RATE}%`);
   out = out.replace(/\{\{LEAD_RANK:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
-    if (!row || row.corridorsLed === 0) return match;
+    if (!row || row.corridorsLed === 0) return unmeasured(match, slug);
     const ahead = CONSISTENCY_ROWS.filter((r) => r.corridorsLed > row.corridorsLed).length;
     const tied = CONSISTENCY_ROWS.some((r) => r !== row && r.corridorsLed === row.corridorsLed);
     const words = ["", "second-", "third-", "fourth-", "fifth-", "sixth-", "seventh-", "eighth-", "ninth-", "tenth-"];
@@ -1236,7 +1255,7 @@ export function renderDataTokens(html: string): string {
     const rows = Object.entries(corridorLeaders as Record<string, { slug: string; wins: number; contestedDays: number }>)
       .filter(([, v]) => v.slug === slug && v.wins === v.contestedDays && v.contestedDays > 0)
       .sort((a, b) => b[1].contestedDays - a[1].contestedDays);
-    if (rows.length < 2) return match;
+    if (rows.length < 2) return unmeasured(match, slug);
     const days = rows[0][1].contestedDays;
     const examples = rows.slice(0, 3).map(([pair]) => pair.replace("-", " → ")).join(", ");
     return `${rows.length} corridors — including ${examples} — where it delivered the most on every one of the last ${days} days we could compare`;
