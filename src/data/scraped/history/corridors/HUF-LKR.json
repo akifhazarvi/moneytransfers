@@ -1411,10 +1411,10 @@
     "date": "2026-10-21",
     "providers": {
       "taptap-send": {
-        "rate": 1.01,
+        "rate": 1.02,
         "fee": 0,
-        "markup": 1.18,
-        "receiveAmount": 101
+        "markup": 0.2,
+        "receiveAmount": 102
       }
     }
   }

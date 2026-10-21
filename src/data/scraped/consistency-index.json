@@ -9,33 +9,33 @@
     {
       "providerSlug": "taptap-send",
       "providerName": "TapTap Send",
-      "corridorsLed": 65,
+      "corridorsLed": 64,
       "corridorsQuoted": 157,
-      "wins": 5423,
+      "wins": 5422,
       "quotedDays": 13156,
-      "winRate": 41.22,
+      "winRate": 41.21,
       "avgShortfallPct": 0.58,
-      "leadRate": 41.4
+      "leadRate": 40.76
     },
     {
       "providerSlug": "lemfi",
       "providerName": "LemFi",
-      "corridorsLed": 41,
+      "corridorsLed": 42,
       "corridorsQuoted": 87,
-      "wins": 3225,
+      "wins": 3227,
       "quotedDays": 7800,
-      "winRate": 41.35,
+      "winRate": 41.37,
       "avgShortfallPct": 0.8,
-      "leadRate": 47.13
+      "leadRate": 48.28
     },
     {
       "providerSlug": "instarem",
       "providerName": "InstaReM",
       "corridorsLed": 37,
       "corridorsQuoted": 79,
-      "wins": 3059,
+      "wins": 3056,
       "quotedDays": 7082,
-      "winRate": 43.19,
+      "winRate": 43.15,
       "avgShortfallPct": 0.52,
       "leadRate": 46.84
     },
@@ -154,9 +154,9 @@
       "providerName": "HSBC Singapore",
       "corridorsLed": 1,
       "corridorsQuoted": 4,
-      "wins": 88,
+      "wins": 89,
       "quotedDays": 364,
-      "winRate": 24.18,
+      "winRate": 24.45,
       "avgShortfallPct": 0.62,
       "leadRate": 25
     },
@@ -242,9 +242,9 @@
       "providerName": "OFX",
       "corridorsLed": 0,
       "corridorsQuoted": 5,
-      "wins": 33,
+      "wins": 34,
       "quotedDays": 454,
-      "winRate": 7.27,
+      "winRate": 7.49,
       "avgShortfallPct": 4.89,
       "leadRate": 0
     },
@@ -322,7 +322,7 @@
       "wins": 9,
       "quotedDays": 2270,
       "winRate": 0.4,
-      "avgShortfallPct": 1.71,
+      "avgShortfallPct": 1.72,
       "leadRate": 0
     },
     {
@@ -399,7 +399,7 @@
       "wins": 0,
       "quotedDays": 95,
       "winRate": 0,
-      "avgShortfallPct": 18.17,
+      "avgShortfallPct": 18.16,
       "leadRate": 0
     },
     {
@@ -755,6 +755,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 50,
-  "stableCorridors": 164
+  "rotatingCorridors": 53,
+  "stableCorridors": 161
 }

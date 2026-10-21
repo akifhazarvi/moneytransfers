@@ -7020,10 +7020,10 @@
     "date": "2026-10-21",
     "providers": {
       "remitly": {
-        "rate": 16.29,
+        "rate": 16.23,
         "fee": 1.49,
-        "markup": 0.68,
-        "receiveAmount": 1604.73
+        "markup": 1.05,
+        "receiveAmount": 1598.82
       },
       "ria": {
         "rate": 16.2432,
@@ -7044,16 +7044,16 @@
         "receiveAmount": 1497.8
       },
       "western-union": {
-        "rate": 16.1827,
+        "rate": 16.1425,
         "fee": 0.99,
-        "markup": 1.34,
-        "receiveAmount": 1602.25
+        "markup": 1.58,
+        "receiveAmount": 1598.27
       },
       "wise": {
-        "rate": 16.4165,
-        "fee": 4.02,
-        "markup": -0.09,
-        "receiveAmount": 1575.66
+        "rate": 16.3531,
+        "fee": 4.03,
+        "markup": 0.3,
+        "receiveAmount": 1569.41
       }
     }
   }

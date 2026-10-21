@@ -15672,10 +15672,10 @@
     "date": "2026-10-21",
     "providers": {
       "instarem": {
-        "rate": 0.8376,
+        "rate": 0.8354,
         "fee": 0,
-        "markup": 0.1,
-        "receiveAmount": 83.76
+        "markup": 0.35,
+        "receiveAmount": 83.54
       },
       "remitly": {
         "rate": 0.8327,
@@ -15690,58 +15690,58 @@
         "receiveAmount": 83.8
       },
       "sparkasse": {
-        "rate": 0.835905,
+        "rate": 0.835855,
         "fee": 42.5,
-        "markup": 0.42,
+        "markup": 0.43,
         "receiveAmount": 48.06
       },
       "xoom": {
-        "rate": 0.766923,
+        "rate": 0.766877,
         "fee": 1.99,
         "markup": 8.64,
-        "receiveAmount": 75.17
+        "receiveAmount": 75.16
       },
       "paypal": {
-        "rate": 0.805595,
+        "rate": 0.805066,
         "fee": 3.99,
-        "markup": 4.03,
-        "receiveAmount": 77.35
+        "markup": 4.09,
+        "receiveAmount": 77.29
       },
       "ing-de": {
-        "rate": 0.830511,
+        "rate": 0.830461,
         "fee": 22,
-        "markup": 1.06,
+        "markup": 1.07,
         "receiveAmount": 64.78
       },
       "skrill": {
-        "rate": 0.798648,
+        "rate": 0.798881,
         "fee": 0,
-        "markup": 4.86,
-        "receiveAmount": 79.86
+        "markup": 4.83,
+        "receiveAmount": 79.89
       },
       "commerzbank": {
-        "rate": 0.830864,
+        "rate": 0.83092,
         "fee": 12.5,
-        "markup": 1.02,
-        "receiveAmount": 72.7
+        "markup": 1.01,
+        "receiveAmount": 72.71
       },
       "western-union": {
-        "rate": 0.812485,
+        "rate": 0.812388,
         "fee": 2.99,
-        "markup": 3.21,
-        "receiveAmount": 78.82
+        "markup": 3.22,
+        "receiveAmount": 78.81
       },
       "monese": {
-        "rate": 0.83845,
+        "rate": 0.8385,
         "fee": 3,
-        "markup": 0.12,
+        "markup": 0.11,
         "receiveAmount": 81.33
       },
       "deutsche-bank": {
-        "rate": 0.83545,
+        "rate": 0.834798,
         "fee": 36.55,
-        "markup": 0.47,
-        "receiveAmount": 53.01
+        "markup": 0.55,
+        "receiveAmount": 52.97
       },
       "moneygram": {
         "rate": 0.821674,
