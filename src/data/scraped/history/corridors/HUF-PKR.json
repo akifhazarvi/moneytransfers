@@ -927,10 +927,10 @@
     "date": "2026-10-21",
     "providers": {
       "taptap-send": {
-        "rate": 0.85,
+        "rate": 0.86,
         "fee": 0,
-        "markup": 0.25,
-        "receiveAmount": 85
+        "markup": -0.93,
+        "receiveAmount": 86
       }
     }
   }
