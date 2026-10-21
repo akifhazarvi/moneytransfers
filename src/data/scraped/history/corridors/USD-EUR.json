@@ -22134,16 +22134,16 @@
         "receiveAmount": 88.24
       },
       "moneygram": {
-        "rate": 0.8833,
+        "rate": 0.8827,
         "fee": 1.99,
-        "markup": 0.81,
-        "receiveAmount": 86.57
+        "markup": 0.98,
+        "receiveAmount": 86.51
       },
       "ria": {
-        "rate": 0.871932,
+        "rate": 0.87201,
         "fee": 5,
-        "markup": 2.1,
-        "receiveAmount": 82.83
+        "markup": 2.09,
+        "receiveAmount": 82.84
       },
       "taptap-send": {
         "rate": 0.867,
@@ -22152,16 +22152,16 @@
         "receiveAmount": 86.7
       },
       "boss-money": {
-        "rate": 0.873,
+        "rate": 0.8741,
         "fee": 2.49,
-        "markup": 1.96,
-        "receiveAmount": 85.13
+        "markup": 1.95,
+        "receiveAmount": 85.23
       },
       "xe": {
-        "rate": 0.8769,
+        "rate": 0.8779,
         "fee": 0,
         "markup": 1.52,
-        "receiveAmount": 87.69
+        "receiveAmount": 87.79
       },
       "western-union": {
         "rate": 0.882743,
@@ -22170,22 +22170,22 @@
         "receiveAmount": 87.4
       },
       "xoom": {
-        "rate": 0.8085,
+        "rate": 0.8089,
         "fee": 0,
-        "markup": 9.22,
-        "receiveAmount": 80.85
+        "markup": 9.18,
+        "receiveAmount": 80.89
       },
       "currencyfair": {
-        "rate": 0.8856,
+        "rate": 0.8862,
         "fee": 3.39,
-        "markup": 0.55,
-        "receiveAmount": 85.56
+        "markup": 0.59,
+        "receiveAmount": 85.62
       },
       "paysend": {
-        "rate": 0.876645,
+        "rate": 0.876849,
         "fee": 1.99,
-        "markup": 1.55,
-        "receiveAmount": 85.92
+        "markup": 1.64,
+        "receiveAmount": 85.94
       },
       "remitly": {
         "rate": 0.8851,
@@ -22216,6 +22216,12 @@
         "fee": 4.99,
         "markup": 4.31,
         "receiveAmount": 80.98
+      },
+      "revolut": {
+        "rate": 0.888977,
+        "fee": 0.75,
+        "markup": 0.28,
+        "receiveAmount": 88.23
       }
     }
   }

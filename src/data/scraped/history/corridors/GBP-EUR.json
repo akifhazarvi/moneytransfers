@@ -37380,10 +37380,10 @@
         "receiveAmount": 119.1
       },
       "xe": {
-        "rate": 1.1725,
+        "rate": 1.177,
         "fee": 1,
         "markup": 1.36,
-        "receiveAmount": 116.08
+        "receiveAmount": 116.52
       },
       "western-union": {
         "rate": 1.16047,
@@ -37392,16 +37392,16 @@
         "receiveAmount": 113.74
       },
       "dahabshiil": {
-        "rate": 1.1382,
+        "rate": 1.14,
         "fee": 0.99,
-        "markup": 4.25,
-        "receiveAmount": 112.69
+        "markup": 4.46,
+        "receiveAmount": 112.87
       },
       "currencies-direct": {
-        "rate": 1.17166,
+        "rate": 1.176,
         "fee": 0,
-        "markup": 1.43,
-        "receiveAmount": 117.17
+        "markup": 1.44,
+        "receiveAmount": 117.6
       },
       "rbs": {
         "rate": 1.16594,
@@ -37410,34 +37410,34 @@
         "receiveAmount": 116.59
       },
       "ofx": {
-        "rate": 1.18809,
+        "rate": 1.19313,
         "fee": 0,
-        "markup": 0.05,
-        "receiveAmount": 118.81
+        "markup": 0.01,
+        "receiveAmount": 119.31
       },
       "currencyfair": {
-        "rate": 1.182,
-        "fee": 2.54,
-        "markup": 0.56,
-        "receiveAmount": 115.2
+        "rate": 1.1864,
+        "fee": 2.53,
+        "markup": 0.57,
+        "receiveAmount": 115.64
       },
       "transfergo": {
-        "rate": 1.16975,
+        "rate": 1.17406,
         "fee": 0,
-        "markup": 1.6,
-        "receiveAmount": 116.98
+        "markup": 1.61,
+        "receiveAmount": 117.41
       },
       "mukuru": {
-        "rate": 1.17509,
+        "rate": 1.18203,
         "fee": 1.89,
-        "markup": 1.15,
-        "receiveAmount": 115.29
+        "markup": 0.94,
+        "receiveAmount": 115.97
       },
       "paysend": {
-        "rate": 1.17182,
+        "rate": 1.17586,
         "fee": 1,
-        "markup": 1.42,
-        "receiveAmount": 116.01
+        "markup": 1.45,
+        "receiveAmount": 116.41
       },
       "remitly": {
         "rate": 1.1797,
@@ -37452,10 +37452,10 @@
         "receiveAmount": 118.11
       },
       "ria": {
-        "rate": 1.1668,
+        "rate": 1.1684,
         "fee": 4.5,
-        "markup": 2.06,
-        "receiveAmount": 111.43
+        "markup": 1.92,
+        "receiveAmount": 111.58
       },
       "nationwide": {
         "rate": 1.17015,
@@ -37504,6 +37504,12 @@
         "fee": 0,
         "markup": 2.74,
         "receiveAmount": 115.87
+      },
+      "revolut": {
+        "rate": 1.18934,
+        "fee": 20.11,
+        "markup": 0.33,
+        "receiveAmount": 95.02
       }
     }
   }

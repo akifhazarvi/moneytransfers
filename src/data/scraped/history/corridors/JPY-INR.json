@@ -2951,10 +2951,16 @@
     "date": "2026-10-21",
     "providers": {
       "instarem": {
-        "rate": 0.5961,
+        "rate": 0.5945,
         "fee": 0,
-        "markup": 0.54,
-        "receiveAmount": 59.61
+        "markup": 0.64,
+        "receiveAmount": 59.45
+      },
+      "revolut": {
+        "rate": 0.595294,
+        "fee": 0,
+        "markup": 0.5,
+        "receiveAmount": 59.53
       }
     }
   }

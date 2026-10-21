@@ -22794,16 +22794,16 @@
         "receiveAmount": 6172.65
       },
       "moneygram": {
-        "rate": 62.5554,
+        "rate": 62.7818,
         "fee": 8,
-        "markup": 0.79,
-        "receiveAmount": 5755.1
+        "markup": 0.92,
+        "receiveAmount": 5775.93
       },
       "ria": {
-        "rate": 62.5573,
+        "rate": 62.6466,
         "fee": 1.9,
-        "markup": 1.11,
-        "receiveAmount": 6136.87
+        "markup": 0.97,
+        "receiveAmount": 6145.63
       },
       "taptap-send": {
         "rate": 62.424,
@@ -22812,10 +22812,10 @@
         "receiveAmount": 6242.4
       },
       "boss-money": {
-        "rate": 62.5902,
+        "rate": 62.5354,
         "fee": 2.49,
-        "markup": 0.73,
-        "receiveAmount": 6103.17
+        "markup": 1.31,
+        "receiveAmount": 6097.83
       },
       "western-union": {
         "rate": 61.4559,
@@ -22824,34 +22824,34 @@
         "receiveAmount": 6023.29
       },
       "currencyfair": {
-        "rate": 62.685,
-        "fee": 1.28,
+        "rate": 62.995,
+        "fee": 1.27,
         "markup": 0.58,
-        "receiveAmount": 6188.26
+        "receiveAmount": 6219.5
       },
       "worldremit": {
-        "rate": 61.7869,
+        "rate": 62.0536,
         "fee": 0.99,
-        "markup": 2.01,
-        "receiveAmount": 6117.52
+        "markup": 2.07,
+        "receiveAmount": 6143.93
       },
       "xe": {
-        "rate": 61.7694,
+        "rate": 61.8576,
         "fee": 0.99,
-        "markup": 2.03,
-        "receiveAmount": 6115.79
+        "markup": 2.38,
+        "receiveAmount": 6124.52
       },
       "paysend": {
-        "rate": 62.5975,
+        "rate": 62.8924,
         "fee": 0,
-        "markup": 0.72,
-        "receiveAmount": 6259.75
+        "markup": 0.75,
+        "receiveAmount": 6289.24
       },
       "sendwave": {
-        "rate": 62.2916,
+        "rate": 62.5605,
         "fee": 0.99,
-        "markup": 1.21,
-        "receiveAmount": 6167.49
+        "markup": 1.27,
+        "receiveAmount": 6194.11
       },
       "remitly": {
         "rate": 61.12,
@@ -22876,6 +22876,12 @@
         "fee": 4.99,
         "markup": 4.37,
         "receiveAmount": 5747.55
+      },
+      "revolut": {
+        "rate": 63.0164,
+        "fee": 0.75,
+        "markup": 0.55,
+        "receiveAmount": 6254.38
       }
     }
   }

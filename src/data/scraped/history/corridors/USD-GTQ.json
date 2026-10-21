@@ -14736,10 +14736,10 @@
         "receiveAmount": 727.7
       },
       "worldremit": {
-        "rate": 7.55667,
+        "rate": 7.56771,
         "fee": 1.99,
-        "markup": 1.13,
-        "receiveAmount": 740.63
+        "markup": 0.99,
+        "receiveAmount": 741.71
       },
       "instarem": {
         "rate": 7.5892,
@@ -14754,10 +14754,10 @@
         "receiveAmount": 735.29
       },
       "sendwave": {
-        "rate": 7.56048,
+        "rate": 7.57152,
         "fee": 1.99,
-        "markup": 1.08,
-        "receiveAmount": 741
+        "markup": 0.94,
+        "receiveAmount": 742.08
       },
       "remitly": {
         "rate": 7.3907,
@@ -14770,6 +14770,12 @@
         "fee": 10.16,
         "markup": 0.02,
         "receiveAmount": 686.48
+      },
+      "revolut": {
+        "rate": 7.58025,
+        "fee": 0.75,
+        "markup": 0.82,
+        "receiveAmount": 752.34
       }
     }
   }

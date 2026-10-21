@@ -19086,22 +19086,22 @@
         "receiveAmount": 30214.06
       },
       "dahabshiil": {
-        "rate": 308.666,
+        "rate": 308.503,
         "fee": 1.99,
-        "markup": 0.72,
-        "receiveAmount": 30252.34
+        "markup": 0.62,
+        "receiveAmount": 30236.39
       },
       "profee": {
-        "rate": 309.273,
+        "rate": 308.784,
         "fee": 1.2,
-        "markup": 0.52,
-        "receiveAmount": 30556.16
+        "markup": 0.53,
+        "receiveAmount": 30507.83
       },
       "worldremit": {
-        "rate": 307.801,
+        "rate": 307.778,
         "fee": 2.99,
-        "markup": 1,
-        "receiveAmount": 29859.81
+        "markup": 0.85,
+        "receiveAmount": 29857.5
       },
       "instarem": {
         "rate": 309.194,
@@ -19110,22 +19110,22 @@
         "receiveAmount": 30919.42
       },
       "xe": {
-        "rate": 308.214,
+        "rate": 308.242,
         "fee": 1,
-        "markup": 0.86,
-        "receiveAmount": 30513.16
+        "markup": 0.7,
+        "receiveAmount": 30515.93
       },
       "paysend": {
-        "rate": 309.35,
+        "rate": 309.253,
         "fee": 0,
-        "markup": 0.5,
-        "receiveAmount": 30934.96
+        "markup": 0.38,
+        "receiveAmount": 30925.32
       },
       "sendwave": {
-        "rate": 310.289,
+        "rate": 310.265,
         "fee": 1.99,
-        "markup": 0.19,
-        "receiveAmount": 30411.46
+        "markup": 0.05,
+        "receiveAmount": 30409.11
       },
       "remitly": {
         "rate": 308.91,
@@ -19134,10 +19134,10 @@
         "receiveAmount": 30276.27
       },
       "ria": {
-        "rate": 309.606,
+        "rate": 309.59,
         "fee": 0.9,
         "markup": 0.24,
-        "receiveAmount": 30681.99
+        "receiveAmount": 30680.38
       },
       "xoom": {
         "rate": 303.286,
@@ -19150,6 +19150,12 @@
         "fee": 1.91,
         "markup": -0.17,
         "receiveAmount": 30492.45
+      },
+      "revolut": {
+        "rate": 308.967,
+        "fee": 0.6,
+        "markup": 0.47,
+        "receiveAmount": 30711.28
       }
     }
   }
