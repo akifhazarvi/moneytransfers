@@ -19,18 +19,20 @@ const hash=r=>{if(r.error)throw new Error('Counter store returned an error.');co
 const KINDS=['shown','click','confirmed','visit','uninstall'];
 const bySurface={};
 const rows=dates.map((date,i)=>{
-  const row={date,...Object.fromEntries(KINDS.map(k=>[k,0])),send_clicks:Number(result[2*i+1].result||0)};
+  const row={date,...Object.fromEntries(KINDS.map(k=>[k,0])),cn_sg_hk:0,send_clicks:Number(result[2*i+1].result||0)};
   for(const [field,n] of Object.entries(hash(result[2*i]))){
-    const [kind,label]=field.split(':');
+    const [kind,label,bot]=field.split(':');
     if(!(kind in row))continue;
+    // The browser-spoofing bots that hit /go (CLAUDE.md, GA4 measurement): counted apart, never in the funnel.
+    if(bot==='cnsg'){row.cn_sg_hk+=n;continue;}
     row[kind]+=n;
     (bySurface[label]??=Object.fromEntries(KINDS.map(k=>[k,0])))[kind]+=n;
   }
   return row;
 });
 console.table(rows.filter(r=>Object.entries(r).some(([k,v])=>k!=='date'&&v)));
-const total=rows.reduce((a,r)=>{for(const k of Object.keys(a))a[k]+=r[k];return a;},{...Object.fromEntries(KINDS.map(k=>[k,0])),send_clicks:0});
+const total=rows.reduce((a,r)=>{for(const k of Object.keys(a))a[k]+=r[k];return a;},{...Object.fromEntries(KINDS.map(k=>[k,0])),cn_sg_hk:0,send_clicks:0});
 console.log({total,clickPerShown:total.shown?total.click/total.shown:null,confirmedPerClick:total.click?total.confirmed/total.click:null});
 console.log('By surface (shown/click/confirmed) and browser (visit/uninstall):');
 console.table(bySurface);
-console.log('shown counts the in-flow offer and the /go review card only (the header pill and footer link are always there). confirmed needs extension 1.0.1+ and the same browser that clicked; visit is once a session; tally starts 2026-10-20.');
+console.log('shown counts the in-flow offer and the /go review card only (the header pill and footer link are always there); the review card counts after a human signal from 2026-10-21. cn_sg_hk = every kind from China/Singapore/Hong Kong, left out of the funnel (tagged from 2026-10-21). confirmed needs extension 1.0.1+ and the same browser that clicked; visit is once a session; tally starts 2026-10-20.');

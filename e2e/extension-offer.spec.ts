@@ -120,6 +120,12 @@ test("the review page names the provider's own site", async ({ page, context }) 
   await card.scrollIntoViewIfNeeded();
   await expect(card).toContainText("A price check on Wise’s own site");
 
+  // On screen is not a view here: the bots that hit /go render and scroll.
+  await page.waitForTimeout(1_000);
+  expect(await trackedEventParams(page, "extension_offer_shown")).toEqual([]);
+  await page.mouse.move(40, 40);
+  await expect.poll(() => trackedEventParams(page, "extension_offer_shown")).toEqual([expect.objectContaining({ placement: "go_review" })]);
+
   const store = await storeUrlAfter(context, () => card.getByRole("button", { name: ADD }).click());
   expect(store.searchParams.get("utm_medium")).toBe("go_review");
   await expect(page.locator(".go-review-card--app:not(.go-review-card--extension)")).toHaveCount(0);

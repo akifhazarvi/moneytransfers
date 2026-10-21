@@ -15,6 +15,7 @@ import {
 } from "@/lib/browser-extension";
 import WhatsAppFollowLink from "@/components/WhatsAppFollowLink";
 import { WhatsAppGlyph, WhatsAppTile } from "@/components/WhatsAppMark";
+import { HUMAN_SIGNALS } from "./ReviewContinue";
 
 /**
  * The review page's second row: install the app, follow the WhatsApp channel.
@@ -47,21 +48,38 @@ export default function StayConnected({ from, to, provider, providerName }: { fr
   const installable = platform === null || extension !== null || !NOTHING_TO_INSTALL.has(platform);
 
   // The card counts in the install funnel's denominator, like every other
-  // install surface (placement "go_review"), once it is half on screen and we
-  // know what it offers here: extension_offer_shown or pwa_install_prompt_shown.
+  // install surface (placement "go_review"): extension_offer_shown or
+  // pwa_install_prompt_shown, once it is half on screen AND the visitor has
+  // given a human signal, as the page's own view does (ReviewContinue). On
+  // 2026-10-20, 10 of the first 11 extension_offer_shown counted on render
+  // here came from the Singapore / China bots that hit /go directly.
   const appRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = appRef.current;
     if (!el || !platform || (!extension && NOTHING_TO_INSTALL.has(platform)) || typeof IntersectionObserver === "undefined") return;
+    let onScreen = false;
+    let human = false;
+    const count = () => {
+      if (!onScreen || !human) return;
+      stop();
+      if (extension) extensionOfferShown("go_review", extension);
+      else trackPwaPromptShown(platform, "go_review");
+    };
+    const onSignal = () => {
+      human = true;
+      count();
+    };
     const io = new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting)) {
-        if (extension) extensionOfferShown("go_review", extension);
-        else trackPwaPromptShown(platform, "go_review");
-        io.disconnect();
-      }
+      onScreen = entries.some((e) => e.isIntersecting);
+      count();
     }, { threshold: 0.5 });
+    function stop() {
+      io.disconnect();
+      HUMAN_SIGNALS.forEach((e) => removeEventListener(e, onSignal, true));
+    }
+    HUMAN_SIGNALS.forEach((e) => addEventListener(e, onSignal, { capture: true, passive: true }));
     io.observe(el);
-    return () => io.disconnect();
+    return stop;
   }, [platform, extension]);
 
   // Impression = the WhatsApp card reached the viewport, as on every other

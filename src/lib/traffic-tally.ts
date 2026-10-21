@@ -49,8 +49,13 @@ export type ExtensionTally = (typeof EXTENSION_TALLIES)[number];
  * of "<kind>:<label>" → count. shown / click / confirmed are labelled by the
  * site surface (header, footer, comparison-end, go_review …), visit and
  * uninstall by the browser (chrome, edge). See src/lib/browser-extension.ts.
+ * A count from China, Singapore or Hong Kong gets a ":cnsg" suffix, so reads
+ * can leave out the browser-spoofing bots that hit /go from there (CLAUDE.md,
+ * GA4 measurement), as report-consent-metrics.mjs does for page views.
  */
-export async function tallyExtension(kind: ExtensionTally, label: string): Promise<void> {
+const BOT_COUNTRIES = new Set(["CN", "SG", "HK"]);
+
+export async function tallyExtension(kind: ExtensionTally, label: string, country: string | null): Promise<void> {
   const clean = /^[a-z0-9_-]{1,32}$/.test(label) ? label : "other";
-  await increment("ext:v1", `${kind}:${clean}`);
+  await increment("ext:v1", `${kind}:${clean}${country && BOT_COUNTRIES.has(country) ? ":cnsg" : ""}`);
 }

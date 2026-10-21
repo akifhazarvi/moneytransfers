@@ -25,10 +25,10 @@ export async function POST(request: Request) {
     if (text.length > 96) return done();
     body = JSON.parse(text);
   } catch { return done(); }
-  // The browser extension's funnel (src/lib/browser-extension.ts): no country, no id.
+  // The browser extension's funnel (src/lib/browser-extension.ts): no id; the country only marks CN/SG/HK.
   if (typeof body.ext === "string") {
     const kind = EXTENSION_TALLIES.find((k) => k === body.ext);
-    if (kind && typeof body.p === "string") await tallyExtension(kind, body.p);
+    if (kind && typeof body.p === "string") await tallyExtension(kind, body.p, request.headers.get("x-vercel-ip-country"));
     return done();
   }
   await tallyPageView(request.headers.get("x-vercel-ip-country"), body.landing === true);

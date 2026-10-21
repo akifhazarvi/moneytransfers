@@ -23,7 +23,7 @@ import { trackGoReviewContinue, trackGoReviewShown } from "@/lib/analytics";
  * (programmatically), so `scroll` is not on the list. GTAG_INLINE applies the
  * same rule to loading GA on this page.
  */
-const HUMAN_SIGNALS = ["pointerdown", "pointermove", "keydown", "touchstart", "wheel"] as const;
+export const HUMAN_SIGNALS = ["pointerdown", "pointermove", "keydown", "touchstart", "wheel"] as const;
 export default function ReviewContinue({
   href,
   provider,
