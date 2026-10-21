@@ -1,0 +1,6 @@
+# Every path needs the owner's approval before a pull request can merge into
+# main (ruleset "main: owner approval", require_code_owner_review). Bots and
+# collaborators open pull requests; only @akifhazarvi's review lets them in.
+# The owner's own pushes and the scrape workflows' data commits bypass the
+# ruleset, so they reach main (and Vercel) exactly as before.
+* @akifhazarvi
