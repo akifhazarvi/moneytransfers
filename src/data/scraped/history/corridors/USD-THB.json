@@ -12083,10 +12083,10 @@
     "date": "2026-10-21",
     "providers": {
       "remitly": {
-        "rate": 33.21,
+        "rate": 33.16,
         "fee": 1.99,
-        "markup": 1.29,
-        "receiveAmount": 3254.91
+        "markup": 1.44,
+        "receiveAmount": 3250.01
       },
       "ria": {
         "rate": 33.0133,
@@ -12113,34 +12113,34 @@
         "receiveAmount": 3059.49
       },
       "instarem": {
-        "rate": 33.3995,
+        "rate": 33.3697,
         "fee": 0,
-        "markup": 0.73,
-        "receiveAmount": 3339.95
+        "markup": 0.82,
+        "receiveAmount": 3336.97
       },
       "western-union": {
-        "rate": 32.9335,
+        "rate": 32.9227,
         "fee": 1.99,
-        "markup": 2.11,
-        "receiveAmount": 3227.81
+        "markup": 2.15,
+        "receiveAmount": 3226.76
       },
       "wells-fargo": {
-        "rate": 32.5807,
+        "rate": 32.5517,
         "fee": 0,
-        "markup": 3.16,
-        "receiveAmount": 3258.07
+        "markup": 3.25,
+        "receiveAmount": 3255.17
       },
       "worldremit": {
-        "rate": 33.1356,
+        "rate": 33.1061,
         "fee": 2.99,
-        "markup": 1.51,
-        "receiveAmount": 3214.49
+        "markup": 1.6,
+        "receiveAmount": 3211.62
       },
       "wise": {
-        "rate": 33.6325,
+        "rate": 33.5985,
         "fee": 2.87,
-        "markup": 0.04,
-        "receiveAmount": 3266.72
+        "markup": 0.14,
+        "receiveAmount": 3263.42
       }
     }
   }
