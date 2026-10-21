@@ -19921,5 +19921,94 @@
         "receiveAmount": 9330.58
       }
     }
+  },
+  {
+    "date": "2026-10-21",
+    "providers": {
+      "instarem": {
+        "rate": 94.518,
+        "fee": 0,
+        "markup": 0.15,
+        "receiveAmount": 9451.8
+      },
+      "moneygram": {
+        "rate": 94.7185,
+        "fee": 0.99,
+        "markup": 0.07,
+        "receiveAmount": 9378.08
+      },
+      "ria": {
+        "rate": 94.45,
+        "fee": 1.99,
+        "markup": 0.14,
+        "receiveAmount": 9257.04
+      },
+      "taptap-send": {
+        "rate": 95,
+        "fee": 1.99,
+        "markup": -0.23,
+        "receiveAmount": 9310.95
+      },
+      "xe": {
+        "rate": 94.5953,
+        "fee": 1,
+        "markup": 0.2,
+        "receiveAmount": 9364.93
+      },
+      "western-union": {
+        "rate": 94.21,
+        "fee": 1.99,
+        "markup": 0.39,
+        "receiveAmount": 9233.52
+      },
+      "xoom": {
+        "rate": 94.5316,
+        "fee": 2.99,
+        "markup": 0.05,
+        "receiveAmount": 9170.51
+      },
+      "currencyfair": {
+        "rate": 94.1285,
+        "fee": 1.27,
+        "markup": 0.69,
+        "receiveAmount": 9293.31
+      },
+      "paysend": {
+        "rate": 94.726,
+        "fee": 0,
+        "markup": 0.06,
+        "receiveAmount": 9472.6
+      },
+      "remitly": {
+        "rate": 94.34,
+        "fee": 3.99,
+        "markup": 0.26,
+        "receiveAmount": 9057.58
+      },
+      "chase": {
+        "rate": 91.5022,
+        "fee": 5,
+        "markup": 3.26,
+        "receiveAmount": 8692.71
+      },
+      "worldremit": {
+        "rate": 94.2301,
+        "fee": 2.99,
+        "markup": 0.37,
+        "receiveAmount": 9141.26
+      },
+      "wells-fargo": {
+        "rate": 91.6503,
+        "fee": 0,
+        "markup": 3.1,
+        "receiveAmount": 9165.03
+      },
+      "wise": {
+        "rate": 94.6338,
+        "fee": 1.58,
+        "markup": -0.05,
+        "receiveAmount": 9313.86
+      }
+    }
   }
 ]
