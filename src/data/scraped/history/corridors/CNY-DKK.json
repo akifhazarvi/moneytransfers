@@ -1719,10 +1719,10 @@
     "date": "2026-10-22",
     "providers": {
       "wise": {
-        "rate": 0.995827,
+        "rate": 1.00001,
         "fee": 23.43,
-        "markup": 0.03,
-        "receiveAmount": 76.25
+        "markup": -0.39,
+        "receiveAmount": 76.57
       }
     }
   }

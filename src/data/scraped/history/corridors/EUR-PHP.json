@@ -25517,10 +25517,10 @@
     "date": "2026-10-22",
     "providers": {
       "lemfi": {
-        "rate": 70.59,
+        "rate": 70.64,
         "fee": 0,
-        "markup": 1.01,
-        "receiveAmount": 7059
+        "markup": 0.67,
+        "receiveAmount": 7064
       },
       "moneygram": {
         "rate": 70.4279,
@@ -25529,16 +25529,16 @@
         "receiveAmount": 6979.4
       },
       "taptap-send": {
-        "rate": 70.3,
+        "rate": 70.6,
         "fee": 0,
-        "markup": 1.42,
-        "receiveAmount": 7030
+        "markup": 1,
+        "receiveAmount": 7060
       },
       "western-union": {
-        "rate": 70.0162,
+        "rate": 70.0154,
         "fee": 0.99,
         "markup": 1.82,
-        "receiveAmount": 6932.31
+        "receiveAmount": 6932.23
       },
       "dahabshiil": {
         "rate": 69.3147,
@@ -25571,10 +25571,10 @@
         "receiveAmount": 7050.91
       },
       "instarem": {
-        "rate": 70.9634,
+        "rate": 70.728,
         "fee": 0,
-        "markup": 0.49,
-        "receiveAmount": 7096.34
+        "markup": 0.82,
+        "receiveAmount": 7072.8
       },
       "xe": {
         "rate": 70.5543,
@@ -25595,10 +25595,10 @@
         "receiveAmount": 6974.05
       },
       "remitly": {
-        "rate": 70.14,
+        "rate": 70.21,
         "fee": 2.99,
-        "markup": 1.64,
-        "receiveAmount": 6804.28
+        "markup": 1.55,
+        "receiveAmount": 6811.07
       },
       "revolut": {
         "rate": 70.8735,
@@ -25607,10 +25607,10 @@
         "receiveAmount": 7059
       },
       "wise": {
-        "rate": 71.3222,
+        "rate": 71.1082,
         "fee": 1.6,
-        "markup": -0.01,
-        "receiveAmount": 7018.1
+        "markup": 0.29,
+        "receiveAmount": 6997.05
       },
       "ria": {
         "rate": 70.6752,
@@ -25619,28 +25619,28 @@
         "receiveAmount": 7003.91
       },
       "monese": {
-        "rate": 71.2076,
+        "rate": 70.764,
         "fee": 3,
-        "markup": 0.15,
-        "receiveAmount": 6907.14
+        "markup": 0.77,
+        "receiveAmount": 6864.11
       },
       "paypal": {
-        "rate": 67.7937,
+        "rate": 67.688,
         "fee": 3.99,
-        "markup": 4.93,
-        "receiveAmount": 6508.87
+        "markup": 5.08,
+        "receiveAmount": 6498.72
       },
       "xoom": {
-        "rate": 69.3117,
+        "rate": 69.1691,
         "fee": 2.99,
-        "markup": 2.81,
-        "receiveAmount": 6723.93
+        "markup": 3.01,
+        "receiveAmount": 6710.09
       },
       "sparkasse": {
-        "rate": 70.4874,
+        "rate": 70.276,
         "fee": 42.5,
-        "markup": 1.16,
-        "receiveAmount": 4053.02
+        "markup": 1.45,
+        "receiveAmount": 4040.87
       }
     }
   }
