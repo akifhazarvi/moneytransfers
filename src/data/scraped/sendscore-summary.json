@@ -1,18 +1,18 @@
 {
   "dataAsOf": "2026-10-22",
-  "corridorsScored": 207,
+  "corridorsScored": 208,
   "corridorsWithAnyScore": 1037,
-  "singleProviderReadings": 830,
+  "singleProviderReadings": 829,
   "bands": {
-    "exceptional": 23,
-    "great": 58,
-    "good": 63,
-    "typical": 38,
+    "exceptional": 24,
+    "great": 53,
+    "good": 69,
+    "typical": 37,
     "poor": 25
   },
   "goodOrBetterPct": 70,
   "confidence": {
-    "high": 207,
+    "high": 208,
     "medium": 0,
     "low": 0
   },
@@ -23,7 +23,7 @@
       "score": 37,
       "band": "poor",
       "headline": "Poor time to send",
-      "explanation": "Best rate -1.03% vs the 30-day average, 15% up the 90-day range. Rates are falling — -1.34% week on week. Today's best beats the median provider by +2.78%.",
+      "explanation": "Best rate -1.03% vs the 30-day average, 15% up the 90-day range. Rates are falling — -1.34% week on week. Today's best beats the median provider by +2.53%.",
       "components": [
         {
           "key": "range",
@@ -44,7 +44,7 @@
           "label": "Best provider versus the field",
           "weight": 20,
           "score": 100,
-          "detail": "today's best beats the median provider by +2.78%"
+          "detail": "today's best beats the median provider by +2.53%"
         },
         {
           "key": "trend",

@@ -5519,22 +5519,22 @@
     "date": "2026-10-22",
     "providers": {
       "instarem": {
-        "rate": 14119.7,
+        "rate": 14126.4,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 1411972
+        "receiveAmount": 1412635
       },
       "western-union": {
-        "rate": 14083.6,
+        "rate": 14129,
         "fee": 3,
-        "markup": 0.3,
-        "receiveAmount": 1366104.93
+        "markup": -0.02,
+        "receiveAmount": 1370511.93
       },
       "hsbc-sg": {
-        "rate": 14052.8,
+        "rate": 14085.9,
         "fee": 0,
-        "markup": 0.52,
-        "receiveAmount": 1405280.6
+        "markup": 0.28,
+        "receiveAmount": 1408590.1
       }
     }
   }

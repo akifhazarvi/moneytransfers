@@ -24006,10 +24006,10 @@
     "date": "2026-10-22",
     "providers": {
       "lemfi": {
-        "rate": 1.326,
+        "rate": 1.33,
         "fee": 0,
-        "markup": 0.81,
-        "receiveAmount": 132.6
+        "markup": 0.75,
+        "receiveAmount": 133
       },
       "taptap-send": {
         "rate": 1.32,
@@ -24018,100 +24018,100 @@
         "receiveAmount": 132
       },
       "monese": {
-        "rate": 1.335,
+        "rate": 1.3407,
         "fee": 3,
-        "markup": 0.36,
-        "receiveAmount": 129.5
+        "markup": -0.07,
+        "receiveAmount": 130.05
       },
       "barclays": {
-        "rate": 1.30009,
+        "rate": 1.30354,
         "fee": 0,
-        "markup": 2.96,
-        "receiveAmount": 130.01
+        "markup": 2.7,
+        "receiveAmount": 130.35
       },
       "nationwide": {
-        "rate": 1.30561,
+        "rate": 1.30868,
         "fee": 15,
-        "markup": 2.55,
-        "receiveAmount": 110.98
+        "markup": 2.32,
+        "receiveAmount": 111.24
       },
       "remitly": {
-        "rate": 1.3137,
+        "rate": 1.31907,
         "fee": 1.99,
-        "markup": 1.95,
-        "receiveAmount": 128.76
+        "markup": 1.54,
+        "receiveAmount": 129.28
       },
       "lloyds": {
-        "rate": 1.28862,
+        "rate": 1.29204,
         "fee": 9.5,
-        "markup": 3.82,
-        "receiveAmount": 116.62
+        "markup": 3.56,
+        "receiveAmount": 116.93
       },
       "paypal": {
-        "rate": 1.28076,
+        "rate": 1.28392,
         "fee": 2.99,
-        "markup": 4.4,
-        "receiveAmount": 124.25
+        "markup": 4.17,
+        "receiveAmount": 124.55
       },
       "western-union": {
-        "rate": 1.30275,
+        "rate": 1.30738,
         "fee": 2.49,
-        "markup": 2.76,
-        "receiveAmount": 127.03
+        "markup": 2.42,
+        "receiveAmount": 127.48
       },
       "skrill": {
-        "rate": 1.27147,
+        "rate": 1.27741,
         "fee": 0,
-        "markup": 5.1,
-        "receiveAmount": 127.15
+        "markup": 4.65,
+        "receiveAmount": 127.74
       },
       "instarem": {
-        "rate": 1.32767,
+        "rate": 1.33259,
         "fee": 0,
-        "markup": 0.9,
-        "receiveAmount": 132.77
+        "markup": 0.54,
+        "receiveAmount": 133.26
       },
       "worldremit": {
-        "rate": 1.31946,
+        "rate": 1.32296,
         "fee": 1.99,
-        "markup": 1.52,
-        "receiveAmount": 129.32
+        "markup": 1.25,
+        "receiveAmount": 129.66
       },
       "moneygram": {
-        "rate": 1.32308,
+        "rate": 1.32897,
         "fee": 0,
-        "markup": 1.25,
-        "receiveAmount": 132.31
+        "markup": 0.81,
+        "receiveAmount": 132.9
       },
       "natwest": {
-        "rate": 1.30569,
+        "rate": 1.30916,
         "fee": 0,
-        "markup": 2.54,
-        "receiveAmount": 130.57
+        "markup": 2.29,
+        "receiveAmount": 130.92
       },
       "rbs": {
-        "rate": 1.30569,
+        "rate": 1.30916,
         "fee": 0,
-        "markup": 2.54,
-        "receiveAmount": 130.57
+        "markup": 2.29,
+        "receiveAmount": 130.92
       },
       "hsbc": {
-        "rate": 1.32666,
+        "rate": 1.33018,
         "fee": 0,
-        "markup": 0.98,
-        "receiveAmount": 132.67
+        "markup": 0.72,
+        "receiveAmount": 133.02
       },
       "xoom": {
-        "rate": 1.25882,
+        "rate": 1.26216,
         "fee": 1.99,
-        "markup": 6.04,
-        "receiveAmount": 123.38
+        "markup": 5.79,
+        "receiveAmount": 123.7
       },
       "santander": {
-        "rate": 1.29222,
+        "rate": 1.29566,
         "fee": 25,
-        "markup": 3.55,
-        "receiveAmount": 96.92
+        "markup": 3.29,
+        "receiveAmount": 97.17
       }
     }
   }

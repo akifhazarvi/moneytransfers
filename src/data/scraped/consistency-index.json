@@ -2,40 +2,40 @@
   "dataAsOf": "2026-10-22",
   "comparableCorridors": 214,
   "pairsTracked": 1044,
-  "contestedCorridorDays": 17601,
-  "providerDayObservations": 123792,
+  "contestedCorridorDays": 17602,
+  "providerDayObservations": 123794,
   "maxWindowDays": 91,
   "rows": [
     {
       "providerSlug": "taptap-send",
       "providerName": "TapTap Send",
-      "corridorsLed": 65,
+      "corridorsLed": 66,
       "corridorsQuoted": 157,
-      "wins": 5452,
-      "quotedDays": 13175,
-      "winRate": 41.38,
-      "avgShortfallPct": 0.57,
-      "leadRate": 41.4
+      "wins": 5454,
+      "quotedDays": 13176,
+      "winRate": 41.39,
+      "avgShortfallPct": 0.58,
+      "leadRate": 42.04
     },
     {
       "providerSlug": "lemfi",
       "providerName": "LemFi",
-      "corridorsLed": 42,
+      "corridorsLed": 41,
       "corridorsQuoted": 87,
-      "wins": 3226,
-      "quotedDays": 7804,
-      "winRate": 41.34,
+      "wins": 3223,
+      "quotedDays": 7805,
+      "winRate": 41.29,
       "avgShortfallPct": 0.8,
-      "leadRate": 48.28
+      "leadRate": 47.13
     },
     {
       "providerSlug": "instarem",
       "providerName": "InstaReM",
       "corridorsLed": 37,
       "corridorsQuoted": 79,
-      "wins": 3064,
+      "wins": 3065,
       "quotedDays": 7083,
-      "winRate": 43.26,
+      "winRate": 43.27,
       "avgShortfallPct": 0.52,
       "leadRate": 46.84
     },
@@ -66,9 +66,9 @@
       "providerName": "Western Union",
       "corridorsLed": 10,
       "corridorsQuoted": 127,
-      "wins": 474,
+      "wins": 473,
       "quotedDays": 9100,
-      "winRate": 5.21,
+      "winRate": 5.2,
       "avgShortfallPct": 3.79,
       "leadRate": 7.87
     },
@@ -88,9 +88,9 @@
       "providerName": "Remitly",
       "corridorsLed": 5,
       "corridorsQuoted": 108,
-      "wins": 421,
+      "wins": 423,
       "quotedDays": 8637,
-      "winRate": 4.87,
+      "winRate": 4.9,
       "avgShortfallPct": 3.02,
       "leadRate": 4.63
     },
@@ -110,10 +110,10 @@
       "providerName": "Revolut",
       "corridorsLed": 2,
       "corridorsQuoted": 38,
-      "wins": 248,
+      "wins": 247,
       "quotedDays": 3436,
-      "winRate": 7.22,
-      "avgShortfallPct": 2.07,
+      "winRate": 7.19,
+      "avgShortfallPct": 2.06,
       "leadRate": 5.26
     },
     {
@@ -165,10 +165,10 @@
       "providerName": "HSBC",
       "corridorsLed": 1,
       "corridorsQuoted": 21,
-      "wins": 79,
+      "wins": 80,
       "quotedDays": 1865,
-      "winRate": 4.24,
-      "avgShortfallPct": 6.05,
+      "winRate": 4.29,
+      "avgShortfallPct": 6.04,
       "leadRate": 4.76
     },
     {
@@ -201,7 +201,7 @@
       "wins": 45,
       "quotedDays": 370,
       "winRate": 12.16,
-      "avgShortfallPct": 0.98,
+      "avgShortfallPct": 0.97,
       "leadRate": 0
     },
     {
@@ -388,7 +388,7 @@
       "wins": 0,
       "quotedDays": 140,
       "winRate": 0,
-      "avgShortfallPct": 15,
+      "avgShortfallPct": 15.01,
       "leadRate": 0
     },
     {
@@ -755,6 +755,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 60,
-  "stableCorridors": 154
+  "rotatingCorridors": 55,
+  "stableCorridors": 159
 }

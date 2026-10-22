@@ -12912,10 +12912,10 @@
     "date": "2026-10-22",
     "providers": {
       "lemfi": {
-        "rate": 0.6273,
+        "rate": 0.6263,
         "fee": 0,
-        "markup": 1.35,
-        "receiveAmount": 62.73
+        "markup": 1.49,
+        "receiveAmount": 62.63
       },
       "taptap-send": {
         "rate": 0.632,
@@ -12924,52 +12924,52 @@
         "receiveAmount": 63.2
       },
       "paypal": {
-        "rate": 0.606677,
+        "rate": 0.606055,
         "fee": 2.99,
-        "markup": 4.27,
-        "receiveAmount": 58.85
+        "markup": 4.37,
+        "receiveAmount": 58.79
       },
       "bmo": {
-        "rate": 0.607631,
+        "rate": 0.607566,
         "fee": 0,
-        "markup": 4.12,
+        "markup": 4.13,
         "receiveAmount": 60.76
       },
       "xoom": {
-        "rate": 0.600834,
+        "rate": 0.60077,
         "fee": 2.99,
-        "markup": 5.19,
-        "receiveAmount": 58.29
+        "markup": 5.2,
+        "receiveAmount": 58.28
       },
       "td-bank": {
-        "rate": 0.617171,
+        "rate": 0.616676,
         "fee": 0,
-        "markup": 2.61,
-        "receiveAmount": 61.72
+        "markup": 2.69,
+        "receiveAmount": 61.67
       },
       "remitly": {
-        "rate": 0.632258,
+        "rate": 0.632211,
         "fee": 0,
-        "markup": 0.23,
-        "receiveAmount": 63.23
+        "markup": 0.24,
+        "receiveAmount": 63.22
       },
       "western-union": {
-        "rate": 0.620542,
+        "rate": 0.620005,
         "fee": 1.99,
-        "markup": 2.08,
-        "receiveAmount": 60.82
+        "markup": 2.16,
+        "receiveAmount": 60.77
       },
       "rbc": {
-        "rate": 0.616814,
+        "rate": 0.616752,
         "fee": 0,
-        "markup": 2.67,
+        "markup": 2.68,
         "receiveAmount": 61.68
       },
       "instarem": {
-        "rate": 0.632517,
+        "rate": 0.631911,
         "fee": 0,
-        "markup": 0.19,
-        "receiveAmount": 63.25
+        "markup": 0.29,
+        "receiveAmount": 63.19
       }
     }
   }
