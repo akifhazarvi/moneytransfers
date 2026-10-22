@@ -20051,16 +20051,16 @@
         "receiveAmount": 9211.68
       },
       "western-union": {
-        "rate": 94.215,
+        "rate": 94.3876,
         "fee": 1.99,
-        "markup": 0.19,
-        "receiveAmount": 9234.01
+        "markup": 0,
+        "receiveAmount": 9250.93
       },
       "xoom": {
-        "rate": 94.6189,
+        "rate": 94.6968,
         "fee": 2.99,
-        "markup": -0.24,
-        "receiveAmount": 9178.98
+        "markup": -0.32,
+        "receiveAmount": 9186.54
       },
       "currencyfair": {
         "rate": 94.1105,
@@ -20087,28 +20087,28 @@
         "receiveAmount": 9390.52
       },
       "chase": {
-        "rate": 91.6463,
+        "rate": 91.7218,
         "fee": 5,
-        "markup": 2.91,
-        "receiveAmount": 8706.4
+        "markup": 2.83,
+        "receiveAmount": 8713.57
       },
       "worldremit": {
-        "rate": 94.3785,
+        "rate": 94.4562,
         "fee": 2.99,
-        "markup": 0.01,
-        "receiveAmount": 9155.66
+        "markup": -0.07,
+        "receiveAmount": 9163.19
       },
       "wells-fargo": {
-        "rate": 91.7947,
+        "rate": 91.8703,
         "fee": 0,
-        "markup": 2.75,
-        "receiveAmount": 9179.47
+        "markup": 2.67,
+        "receiveAmount": 9187.03
       },
       "wise": {
-        "rate": 94.7323,
+        "rate": 94.8283,
         "fee": 1.58,
-        "markup": -0.36,
-        "receiveAmount": 9323.55
+        "markup": -0.46,
+        "receiveAmount": 9333
       }
     }
   }

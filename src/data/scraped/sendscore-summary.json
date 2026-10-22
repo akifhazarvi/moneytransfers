@@ -4,13 +4,13 @@
   "corridorsWithAnyScore": 1037,
   "singleProviderReadings": 829,
   "bands": {
-    "exceptional": 24,
-    "great": 53,
-    "good": 69,
-    "typical": 37,
-    "poor": 25
+    "exceptional": 25,
+    "great": 54,
+    "good": 68,
+    "typical": 34,
+    "poor": 27
   },
-  "goodOrBetterPct": 70,
+  "goodOrBetterPct": 71,
   "confidence": {
     "high": 208,
     "medium": 0,
@@ -23,7 +23,7 @@
       "score": 37,
       "band": "poor",
       "headline": "Poor time to send",
-      "explanation": "Best rate -1.03% vs the 30-day average, 15% up the 90-day range. Rates are falling — -1.34% week on week. Today's best beats the median provider by +2.53%.",
+      "explanation": "Best rate -1.03% vs the 30-day average, 15% up the 90-day range. Rates are falling — -1.34% week on week. Today's best beats the median provider by +2.34%.",
       "components": [
         {
           "key": "range",
@@ -44,7 +44,7 @@
           "label": "Best provider versus the field",
           "weight": 20,
           "score": 100,
-          "detail": "today's best beats the median provider by +2.53%"
+          "detail": "today's best beats the median provider by +2.34%"
         },
         {
           "key": "trend",

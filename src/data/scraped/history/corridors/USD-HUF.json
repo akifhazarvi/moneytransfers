@@ -5621,34 +5621,34 @@
     "date": "2026-10-22",
     "providers": {
       "remitly": {
-        "rate": 323.352,
+        "rate": 323.618,
         "fee": 0.99,
-        "markup": 0.54,
-        "receiveAmount": 32015.13
+        "markup": 0.46,
+        "receiveAmount": 32041.42
       },
       "xoom": {
-        "rate": 313.215,
+        "rate": 313.285,
         "fee": 4.99,
-        "markup": 3.66,
-        "receiveAmount": 29758.56
+        "markup": 3.64,
+        "receiveAmount": 29765.22
       },
       "paypal": {
-        "rate": 308.932,
+        "rate": 309.09,
         "fee": 4.99,
-        "markup": 4.98,
-        "receiveAmount": 29351.64
+        "markup": 4.93,
+        "receiveAmount": 29366.67
       },
       "western-union": {
-        "rate": 320.596,
+        "rate": 321.25,
         "fee": 0.99,
-        "markup": 1.39,
-        "receiveAmount": 31742.25
+        "markup": 1.19,
+        "receiveAmount": 31806.94
       },
       "wise": {
-        "rate": 326.167,
+        "rate": 326.257,
         "fee": 1.45,
-        "markup": -0.32,
-        "receiveAmount": 32143.76
+        "markup": -0.35,
+        "receiveAmount": 32152.63
       }
     }
   }
