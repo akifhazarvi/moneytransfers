@@ -9,33 +9,33 @@
     {
       "providerSlug": "taptap-send",
       "providerName": "TapTap Send",
-      "corridorsLed": 65,
+      "corridorsLed": 66,
       "corridorsQuoted": 157,
-      "wins": 5486,
+      "wins": 5488,
       "quotedDays": 13197,
-      "winRate": 41.57,
+      "winRate": 41.59,
       "avgShortfallPct": 0.57,
-      "leadRate": 41.4
+      "leadRate": 42.04
     },
     {
       "providerSlug": "lemfi",
       "providerName": "LemFi",
-      "corridorsLed": 42,
+      "corridorsLed": 41,
       "corridorsQuoted": 87,
-      "wins": 3226,
+      "wins": 3222,
       "quotedDays": 7810,
-      "winRate": 41.31,
+      "winRate": 41.25,
       "avgShortfallPct": 0.8,
-      "leadRate": 48.28
+      "leadRate": 47.13
     },
     {
       "providerSlug": "instarem",
       "providerName": "InstaReM",
       "corridorsLed": 37,
       "corridorsQuoted": 79,
-      "wins": 3076,
+      "wins": 3074,
       "quotedDays": 7083,
-      "winRate": 43.43,
+      "winRate": 43.4,
       "avgShortfallPct": 0.51,
       "leadRate": 46.84
     },
@@ -55,9 +55,9 @@
       "providerName": "Paysend",
       "corridorsLed": 13,
       "corridorsQuoted": 55,
-      "wins": 923,
+      "wins": 924,
       "quotedDays": 4985,
-      "winRate": 18.52,
+      "winRate": 18.54,
       "avgShortfallPct": 2.32,
       "leadRate": 23.64
     },
@@ -88,9 +88,9 @@
       "providerName": "Remitly",
       "corridorsLed": 5,
       "corridorsQuoted": 108,
-      "wins": 420,
+      "wins": 424,
       "quotedDays": 8640,
-      "winRate": 4.86,
+      "winRate": 4.91,
       "avgShortfallPct": 3.02,
       "leadRate": 4.63
     },
@@ -121,9 +121,9 @@
       "providerName": "Ria Money Transfer",
       "corridorsLed": 2,
       "corridorsQuoted": 66,
-      "wins": 233,
+      "wins": 231,
       "quotedDays": 5439,
-      "winRate": 4.28,
+      "winRate": 4.25,
       "avgShortfallPct": 2.99,
       "leadRate": 3.03
     },
@@ -154,9 +154,9 @@
       "providerName": "HSBC Singapore",
       "corridorsLed": 1,
       "corridorsQuoted": 4,
-      "wins": 89,
+      "wins": 88,
       "quotedDays": 364,
-      "winRate": 24.45,
+      "winRate": 24.18,
       "avgShortfallPct": 0.61,
       "leadRate": 25
     },
@@ -176,10 +176,10 @@
       "providerName": "Monese",
       "corridorsLed": 1,
       "corridorsQuoted": 14,
-      "wins": 46,
+      "wins": 45,
       "quotedDays": 1271,
-      "winRate": 3.62,
-      "avgShortfallPct": 2.98,
+      "winRate": 3.54,
+      "avgShortfallPct": 2.99,
       "leadRate": 7.14
     },
     {
@@ -187,9 +187,9 @@
       "providerName": "BOSS Money",
       "corridorsLed": 1,
       "corridorsQuoted": 17,
-      "wins": 48,
+      "wins": 49,
       "quotedDays": 1543,
-      "winRate": 3.11,
+      "winRate": 3.18,
       "avgShortfallPct": 3.3,
       "leadRate": 5.88
     },
@@ -242,9 +242,9 @@
       "providerName": "OFX",
       "corridorsLed": 0,
       "corridorsQuoted": 5,
-      "wins": 32,
+      "wins": 33,
       "quotedDays": 454,
-      "winRate": 7.05,
+      "winRate": 7.27,
       "avgShortfallPct": 4.89,
       "leadRate": 0
     },
@@ -382,7 +382,7 @@
     },
     {
       "providerSlug": "e-and-money",
-      "providerName": "E And Money",
+      "providerName": "e& money",
       "corridorsLed": 0,
       "corridorsQuoted": 7,
       "wins": 0,
@@ -421,7 +421,7 @@
       "wins": 0,
       "quotedDays": 1777,
       "winRate": 0,
-      "avgShortfallPct": 56.48,
+      "avgShortfallPct": 56.47,
       "leadRate": 0
     },
     {
@@ -465,7 +465,7 @@
       "wins": 0,
       "quotedDays": 273,
       "winRate": 0,
-      "avgShortfallPct": 9.75,
+      "avgShortfallPct": 9.76,
       "leadRate": 0
     },
     {
@@ -755,6 +755,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 59,
-  "stableCorridors": 155
+  "rotatingCorridors": 62,
+  "stableCorridors": 152
 }
