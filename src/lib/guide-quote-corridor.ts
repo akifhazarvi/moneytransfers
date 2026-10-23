@@ -60,6 +60,9 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   // Remitly review: surface the corridor our 6-month data flags (USD→PHP, where
   // Remitly's markup ran ~3%) so the widget lets readers check it live.
   "remitly-performance-to-send-money-internationally": { from: "USD", to: "PHP", amount: 500, heading: "See where Remitly ranks — live USD → PHP rates" },
+  // "Is my exchange rate good?" uses USD→INR as its lead example; show the
+  // live field so readers can grade their own rate against it.
+  "is-my-exchange-rate-good": { from: "USD", to: "INR", amount: 1000, heading: "Is your rate good? Compare live USD → INR" },
   // GBP leads this guide's own excerpt and outnumbers USD in its body, and
   // GBP→AUD quotes 22 providers against USD→AUD's 8.
   "send-money-to-australia-guide": { from: "GBP", to: "AUD", amount: 1000, heading: "Top GBP → AUD providers right now" },
