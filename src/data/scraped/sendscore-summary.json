@@ -1,18 +1,18 @@
 {
   "dataAsOf": "2026-10-23",
-  "corridorsScored": 207,
+  "corridorsScored": 208,
   "corridorsWithAnyScore": 1037,
-  "singleProviderReadings": 830,
+  "singleProviderReadings": 829,
   "bands": {
-    "exceptional": 24,
-    "great": 54,
-    "good": 70,
-    "typical": 36,
-    "poor": 23
+    "exceptional": 25,
+    "great": 57,
+    "good": 66,
+    "typical": 40,
+    "poor": 20
   },
   "goodOrBetterPct": 71,
   "confidence": {
-    "high": 207,
+    "high": 208,
     "medium": 0,
     "low": 0
   },
@@ -20,38 +20,38 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 39,
-      "band": "poor",
-      "headline": "Poor time to send",
-      "explanation": "Best rate -0.92% vs the 30-day average, 18% up the 90-day range. Rates are falling — -1.11% week on week. Today's best beats the median provider by +2.43%.",
+      "score": 40,
+      "band": "typical",
+      "headline": "Typical time to send",
+      "explanation": "Best rate -0.87% vs the 30-day average, 20% up the 90-day range. Rates are falling — -1.10% week on week. Today's best beats the median provider by +2.48%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 17.892911337524605,
-          "detail": "18% up the 90-day range"
+          "score": 19.91328853240857,
+          "detail": "20% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 34.64756376139184,
-          "detail": "-0.92% vs the 30-day average"
+          "score": 35.43373635754278,
+          "detail": "-0.87% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
           "score": 100,
-          "detail": "today's best beats the median provider by +2.43%"
+          "detail": "today's best beats the median provider by +2.48%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 22.29220958474824,
-          "detail": "falling — -1.11% week on week"
+          "score": 22.444235347139834,
+          "detail": "falling — -1.10% week on week"
         }
       ],
       "daysObserved": 216,
