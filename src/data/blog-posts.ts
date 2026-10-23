@@ -16960,7 +16960,7 @@ const rawBlogPosts: BlogPost[] = [
     title: "Is My Exchange Rate Good?",
     metaTitle: "Is My Exchange Rate Good? How to Tell (2026)",
     metaDescription:
-      "A good exchange rate sits within about 1% of the mid-market rate. Here's how to tell if yours is good — with real 6-month data on popular transfer routes.",
+      "A good exchange rate is close to the mid-market rate — the real rate banks use. Here's how to tell if yours is good, with real 6-month data on popular routes.",
     excerpt:
       "A good exchange rate is one close to the mid-market rate — the real rate banks use with each other. We checked six months of live quotes on popular routes to show what a good rate looks like, and what a bad one costs.",
     category: "Education",
@@ -16983,14 +16983,14 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Is my exchange rate good? The short answer",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A good exchange rate is one that sits within about <strong>1% of the mid-market rate</strong> — the real rate you see on Google. We rank {{PROVIDER_COUNT}} providers by what your recipient actually receives. Across six months of our live data, the cheapest provider on popular routes was almost exactly at the mid-market rate, while the priciest was <strong>3–6% worse</strong>. If your rate is more than about 2% off mid-market, you can usually do better. <a href="/send-money">Check your rate against the market →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A good exchange rate is one close to the <strong>mid-market rate</strong> — the real rate you see on Google. A rule of thumb: aim to be <strong>no more than about 1% below it</strong>. We rank {{PROVIDER_COUNT}} providers by what your recipient actually receives. Across six months of our live data, the cheapest provider on popular routes was almost exactly at the mid-market rate, while the priciest was <strong>3–6% worse</strong>. If your rate is more than about 2% below the real rate, you can usually do better. <a href="/send-money">Check your rate against the market →</a></p></div>
 <p>Most people never know if they got a good rate. The fee is easy to see. The exchange rate markup is hidden inside the rate itself.</p>
 <p>This guide explains what a good rate looks like in plain terms. It uses our own six months of tracked quotes (March–October 2026) on the routes people send the most.</p>`,
       },
       {
         heading: "What is the mid-market rate?",
         content: `<p>The mid-market rate is the real exchange rate. It's the rate banks use when they trade with each other.</p>
-<p>It's the number you see on Google or Reuters. No markup is added. Think of it as the honest midpoint between buying and selling a currency.</p>
+<p>It's the number you see on Google or Reuters. Nothing is added on top. Think of it as the honest midpoint between buying and selling a currency.</p>
 <p>Every provider starts from this rate. The question is how much they add on top.</p>`,
       },
       {
@@ -17008,9 +17008,9 @@ const rawBlogPosts: BlogPost[] = [
         heading: "What counts as a good exchange rate?",
         content: `<p>A good rate is close to mid-market. Here's a simple scale:</p>
 <ul>
-<li><strong>Excellent</strong> — within 0.5% of mid-market.</li>
-<li><strong>Good</strong> — within 1%.</li>
-<li><strong>Average</strong> — 1% to 2%.</li>
+<li><strong>Excellent</strong> — 0.5% or less off the real rate.</li>
+<li><strong>Good</strong> — under 1% off.</li>
+<li><strong>Average</strong> — 1% to 2% off.</li>
 <li><strong>Poor</strong> — more than 3% off (typical of banks).</li>
 </ul>
 <p>Our six-month data backs this up. On popular routes, the best provider was essentially at mid-market. The worst was several percent behind.</p>
@@ -17071,12 +17071,12 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is a good exchange rate for sending money abroad?",
         answer:
-          "A good exchange rate is within about 1% of the mid-market rate — the real rate banks use with each other, and the one you see on Google. Within 0.5% is excellent. More than 3% off is poor and typical of banks. In our six-month data, the best provider on popular routes like USD to INR and USD to PHP sat essentially at the mid-market rate, while the priciest was 3–6% worse.",
+          "A good exchange rate is close to the mid-market rate — the real rate banks use with each other, and the one you see on Google. Aim to be no more than about 1% below it; half a percent or less is excellent. More than 3% off is poor and typical of banks. In our six-month data, the best provider on popular routes like USD to INR and USD to PHP sat essentially at the mid-market rate, while the priciest was 3–6% worse.",
       },
       {
         question: "What is the mid-market rate?",
         answer:
-          "The mid-market rate is the real exchange rate, with no markup added. It's the midpoint between the buy and sell price of a currency, and the rate banks use when they trade with each other. It's the number you see on Google or Reuters. Every money transfer provider starts from this rate and adds a markup on top.",
+          "The mid-market rate is the real exchange rate, before any provider adds their margin. It's the midpoint between the buy and sell price of a currency, and the rate banks use when they trade with each other. It's the number you see on Google or Reuters. Every money transfer provider starts from this rate and adds a markup on top.",
       },
       {
         question: "What is an FX markup?",
