@@ -5595,28 +5595,28 @@
     "date": "2026-10-23",
     "providers": {
       "moneygram": {
-        "rate": 43.597,
+        "rate": 43.6015,
         "fee": 14,
-        "markup": 3.23,
-        "receiveAmount": 3749.34
+        "markup": 3.46,
+        "receiveAmount": 3749.73
       },
       "western-union": {
-        "rate": 44.0125,
+        "rate": 44.0373,
         "fee": 11,
-        "markup": 2.31,
-        "receiveAmount": 3917.11
+        "markup": 2.5,
+        "receiveAmount": 3919.32
       },
       "paysend": {
-        "rate": 43.9707,
+        "rate": 43.9955,
         "fee": 1.99,
-        "markup": 2.4,
-        "receiveAmount": 4309.57
+        "markup": 2.59,
+        "receiveAmount": 4312
       },
       "wise": {
-        "rate": 44.8,
+        "rate": 44.9,
         "fee": 7.94,
-        "markup": 0.56,
-        "receiveAmount": 4124.29
+        "markup": 0.59,
+        "receiveAmount": 4133.49
       },
       "taptap-send": {
         "rate": 44.471,

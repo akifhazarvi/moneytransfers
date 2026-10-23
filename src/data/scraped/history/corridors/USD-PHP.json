@@ -23008,10 +23008,10 @@
         "receiveAmount": 6190.47
       },
       "ria": {
-        "rate": 62.8749,
+        "rate": 62.9047,
         "fee": 1.9,
-        "markup": 0.88,
-        "receiveAmount": 6168.03
+        "markup": 0.83,
+        "receiveAmount": 6170.95
       },
       "taptap-send": {
         "rate": 62.424,
@@ -23022,7 +23022,7 @@
       "boss-money": {
         "rate": 62.6606,
         "fee": 2.49,
-        "markup": 1.28,
+        "markup": 1.45,
         "receiveAmount": 6110.04
       },
       "western-union": {
@@ -23032,34 +23032,34 @@
         "receiveAmount": 6044.37
       },
       "currencyfair": {
-        "rate": 63.135,
+        "rate": 63.235,
         "fee": 1.27,
-        "markup": 0.53,
-        "receiveAmount": 6233.32
+        "markup": 0.55,
+        "receiveAmount": 6243.19
       },
       "worldremit": {
-        "rate": 62.0755,
+        "rate": 62.1811,
         "fee": 0.99,
-        "markup": 2.2,
-        "receiveAmount": 6146.09
+        "markup": 2.21,
+        "receiveAmount": 6156.55
       },
       "xe": {
-        "rate": 62.083,
+        "rate": 62.1124,
         "fee": 0.99,
-        "markup": 2.19,
-        "receiveAmount": 6146.84
+        "markup": 2.31,
+        "receiveAmount": 6149.75
       },
       "paysend": {
-        "rate": 63.003,
+        "rate": 63.1252,
         "fee": 0,
-        "markup": 0.74,
-        "receiveAmount": 6300.3
+        "markup": 0.72,
+        "receiveAmount": 6312.52
       },
       "sendwave": {
-        "rate": 62.5825,
+        "rate": 62.689,
         "fee": 0.99,
-        "markup": 1.4,
-        "receiveAmount": 6196.29
+        "markup": 1.41,
+        "receiveAmount": 6206.83
       },
       "remitly": {
         "rate": 61.29,
@@ -23068,10 +23068,10 @@
         "receiveAmount": 6129
       },
       "revolut": {
-        "rate": 63.1676,
+        "rate": 63.1984,
         "fee": 0.75,
-        "markup": 0.48,
-        "receiveAmount": 6269.38
+        "markup": 0.61,
+        "receiveAmount": 6272.44
       },
       "wise": {
         "rate": 63.43,
@@ -23090,6 +23090,12 @@
         "fee": 0,
         "markup": 3.13,
         "receiveAmount": 6144.37
+      },
+      "moneygram": {
+        "rate": 63.0526,
+        "fee": 0.8,
+        "markup": 0.84,
+        "receiveAmount": 6254.82
       }
     }
   }
