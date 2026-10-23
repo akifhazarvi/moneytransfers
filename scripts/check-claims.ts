@@ -31,6 +31,9 @@
  *   cheapest-label  a table row labelled "Cheapest …" beside a named provider.
  *   uk-sepa         "the UK is no longer part of SEPA" — false: the EPC kept the UK in
  *                   SEPA after Brexit, as a non-EEA member (BIC + payer address needed).
+ *   fscs-limit      "FSCS protects deposits up to £85,000" — the limit has been
+ *                   £120,000 since 1 December 2025. The PSR's £85,000 APP-scam
+ *                   reimbursement cap is a different figure and passes.
  *   trustpilot      "4.6/5 Trustpilot", "Trustpilot 4.6". Use {{TRUSTPILOT:slug}}.
  *   avg-markup      "0.42% avg markup". Use {{AVG_MARKUP_PCT:slug}} (a median).
  *   licence         any NC / SA / ND Creative Commons licence. Everything we
@@ -143,6 +146,14 @@ const HARD: Rule[] = [
     id: "uk-sepa",
     re: /\b(?:UK|United Kingdom|British)\b[^.]{0,40}\b(?:no longer (?:a member of |part of |in )(?:the )?SEPA|left SEPA|lost (?:direct )?SEPA)|\bnot eligible for SEPA\b/gi,
     allow: (before) => /incorrectly/i.test(before),
+  },
+  // The FSCS deposit limit rose from £85,000 to £120,000 on 1 December 2025
+  // (fscs.org.uk). Ten passages still said £85,000 on 2026-10-23, among them
+  // two FAQs and the Chase vs Revolut table. "rose from £85,000" passes.
+  {
+    id: "fscs-limit",
+    re: /\bFSCS\b[^.]{0,80}?(?:£|\\u00a3)85,?000|(?:£|\\u00a3)85,?000[^.]{0,40}\bFSCS\b|\bdeposit (?:protection|guarantee|insurance)\b[^.]{0,40}(?:£|\\u00a3)85,?000/gi,
+    allow: (_before, m) => /\b(?:rose|raised|increased|until|before|was)\b/i.test(m),
   },
   { id: "trustpilot", re: /\b\d\.\d\s*\/\s*5\s*(?:\(|on\s+)?Trustpilot|Trustpilot(?:\s+(?:rating|score))?[^.<\d{]{0,40}\d\.\d\b/gi , allow: (_b, m) => /\b(?:below|above|under|over)\b/i.test(m) },
   { id: "avg-markup", re: /\d+(?:\.\d+)?%\s*(?:avg|average)\.?\s+mark-?up|\b(?:avg|average)\s+mark-?up\s+(?:of\s+)?(?:about\s+|~)?\d/gi },

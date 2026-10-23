@@ -620,7 +620,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "22 min read",
     publishedAt: "2026-02-01",
-    updatedAt: "2026-09-23",
+    updatedAt: "2026-10-23",
     author: "Awais Imran",
     tags: ["security", "safety", "scams", "regulation", "fraud protection", "FCA", "FinCEN"],
     featuredImage: "/images/blog/money-transfer-safety.jpg",
@@ -772,12 +772,14 @@ const rawBlogPosts: BlogPost[] = [
 <p><strong>Bottom line:</strong> Every provider above is regulated in the markets it serves; for any other provider in our <a href="/send-money">comparison tool</a>, check the register for your country before your first transfer. Differences in Trustpilot scores mostly reflect customer service experience rather than safety incidents. For a side-by-side comparison, see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a>, <a href="/compare/wise-vs-revolut">Wise vs Revolut</a>, or <a href="/compare/western-union-vs-moneygram">Western Union vs MoneyGram</a>.</p>`,
       },
       {
-        heading: "Card vs Bank vs Wallet — Which Funding Method Is Safest?",
-        content: `<p>How you fund a transfer affects your safety net. Here's the trade-off across the three main funding methods.</p>
+        heading: "Card, Bank Transfer, Pay by Bank or Direct Debit: Which Funding Method Is Safest?",
+        content: `<p>How you fund a transfer affects your safety net. Here's the trade-off across the ways providers let you pay.</p>
 <table>
 <thead><tr><th>Funding method</th><th>Speed</th><th>Cost</th><th>Chargeback protection</th><th>Best for</th></tr></thead>
 <tbody>
 <tr><td><strong>Bank transfer (ACH, Faster Payments, SEPA)</strong></td><td>Same-day to 1 working day</td><td>Cheapest (often free funding)</td><td>Limited — depends on jurisdiction and APP scam rules</td><td>Repeat transfers, established relationships</td></tr>
+<tr><td><strong>Pay by bank (open banking)</strong></td><td>Instant over Faster Payments (UK)</td><td>No card fee; the provider sets any pay-in charge</td><td>None from a card scheme — it is a push payment you approve in your banking app</td><td>Paying from your bank as fast as a card, without sharing card details</td></tr>
+<tr><td><strong>Direct debit (US ACH debit, SEPA Direct Debit, UK Direct Debit)</strong></td><td>Can be slower — some providers wait for the debit to clear</td><td>Low; no card fee</td><td>Refund rights on the debit itself (SEPA Core: 8 weeks, 13 months if unauthorised; UK Direct Debit Guarantee; US Reg E for unauthorised debits)</td><td>Scheduled or repeat transfers from a US or euro bank account</td></tr>
 <tr><td><strong>Debit card</strong></td><td>Instant</td><td>Small fee (0.5-2% typical)</td><td>Card-scheme chargeback (usually around 120 days); unauthorised use covered by Reg E in the US and PSRs in the UK</td><td>First transfer with new provider</td></tr>
 <tr><td><strong>Credit card</strong></td><td>Instant</td><td>Higher fee (1.5-4%) plus possible cash advance fee</td><td>Chargeback, plus possible Section 75 claim in the UK (£100–£30,000); Fair Credit Billing Act billing-error rights in the US</td><td>Transfers above £100/$100 where you want maximum protection — but check for cash advance treatment</td></tr>
 <tr><td><strong>Apple Pay / Google Pay</strong></td><td>Instant</td><td>Same as underlying card</td><td>Same as underlying card</td><td>Mobile-first transfers; tokenisation hides card number from provider</td></tr>
@@ -785,6 +787,8 @@ const rawBlogPosts: BlogPost[] = [
 </tbody>
 </table>
 <p><strong>Card funding can be the safer choice for first-time use of a provider.</strong> If the provider fails to deliver — it goes under, or the transfer never arrives — you may have a chargeback path. It won't help if you knowingly sent money to a scammer and the provider delivered it as instructed. Once you've successfully completed 2-3 transfers with a provider and verified they're legitimate, switching to bank funding saves money on fees.</p>
+<p><strong>Pay by bank is a bank transfer you approve in your banking app.</strong> Open banking lets the provider start the payment for you: you <a href="https://www.openbanking.org.uk/pay-by-bank/" target="_blank" rel="noopener noreferrer">approve it in your bank's app</a> and the money moves over Faster Payments, with no card details shared. It is as quick as a card, but it is still a push payment, so there is no card chargeback to fall back on, and Open Banking itself says the consumer protection framework is still evolving.</p>
+<p><strong>Direct debit lets the provider pull the money from your account.</strong> In the US that is an ACH debit from your checking account, in the euro area a SEPA Direct Debit, in the UK a Direct Debit. The debit carries refund rights a push payment lacks: a SEPA Core debit <a href="https://www.bundesbank.de/en/tasks/payment-systems/services/sepa/content/sepa-direct-debit-626654" target="_blank" rel="noopener noreferrer">can be returned within eight weeks</a>, or within 13 months if it was collected without a valid mandate, and the UK <a href="https://www.directdebit.co.uk/direct-debit-guarantee/" target="_blank" rel="noopener noreferrer">Direct Debit Guarantee</a> promises a full and immediate refund from your bank when a payment is taken in error. A refund reverses the debit, not the payment abroad: the provider can still pursue you for money it already delivered, so it is no protection against sending to the wrong person.</p>
 <p><strong>Watch out for credit card cash advance treatment.</strong> Some banks classify money transfer providers as "cash-like" merchants and charge a cash advance fee plus higher interest from day one. Check your card's terms before funding a large transfer with a credit card — treatment varies by card issuer, not just by provider.</p>
 <p><strong>Tokenised mobile wallets (Apple Pay, Google Pay) add a privacy layer.</strong> Your real card number isn't shared with the transfer provider — they only receive a one-time token. If the provider's database is ever breached, your card number isn't exposed. This is purely a privacy/security upgrade with no cost.</p>`,
       },
@@ -2114,7 +2118,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "16 min read",
     publishedAt: "2026-03-18",
-    updatedAt: "2026-10-18",
+    updatedAt: "2026-10-23",
     author: "Awais Imran",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "ACH", "SEPA", "wire transfer alternatives", "bank wire", "wire transfer services"],
     featuredImage: "/images/blog/wire-transfer-guide.jpg",
@@ -2292,7 +2296,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3>Regulatory Protections</h3>
 <ul>
 <li><strong>United States:</strong> Regulated by <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> (Financial Crimes Enforcement Network). Banks must file a Currency Transaction Report (CTR) for wire transfers over $10,000. The <a href="https://www.fdic.gov/" target="_blank" rel="noopener noreferrer">FDIC</a> insures deposits up to $250,000 but does not insure the transfer itself.</li>
-<li><strong>United Kingdom:</strong> Regulated by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> (Financial Conduct Authority). The Financial Services Compensation Scheme (FSCS) protects deposits up to \u00a385,000. Transfers through FCA-regulated providers benefit from safeguarding rules.</li>
+<li><strong>United Kingdom:</strong> Regulated by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> (Financial Conduct Authority). The Financial Services Compensation Scheme (FSCS) protects bank deposits up to \u00a3120,000 per person, per bank. Transfers through FCA-regulated providers benefit from safeguarding rules.</li>
 <li><strong>European Union:</strong> The <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer">ECB</a> and national regulators oversee wire transfers. The Payment Services Directive (PSD2) gives consumers rights regarding transparency and refunds.</li>
 </ul>
 <h3>Wire Transfer Fraud Risks</h3>
@@ -3500,14 +3504,17 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "multi-currency-accounts-exchange-rates",
     title: "Multi-Currency Accounts: Xe vs Wise vs Revolut",
+    // Bing AI Topics (2026-10-18): "foreign currency" and "personal foreign
+    // currency account" are cited queries we weren't cited for.
+    metaTitle: "Multi-Currency & Foreign Currency Accounts: Xe vs Wise vs Revolut",
     metaDescription:
-      "Compare multi-currency accounts from Xe, Wise, and Revolut. Learn how to hold, convert, and lock in the best exchange rates to save on transfers in 2026.",
+      "Compare multi-currency accounts from Xe, Wise and Revolut, and how they differ from a bank's foreign currency account. Learn when to hold and when to convert.",
     excerpt:
       "Opening a multi-currency account lets you convert money at the right moment — not when your bill is due. Here's how Xe, Wise, and Revolut compare for holding and exchanging foreign currency.",
     category: "Education",
-    readTime: "9 min read",
+    readTime: "10 min read",
     publishedAt: "2026-03-15",
-    updatedAt: "2026-03-15",
+    updatedAt: "2026-10-23",
     author: "Awais Imran",
     tags: ["multi-currency account", "exchange rates", "Wise", "Revolut", "Xe", "forex"],
     featuredImage: "/images/blog/multi-currency-accounts-v3.jpg",
@@ -3536,7 +3543,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate (0% markup), 40+ currencies, local bank details in 22 currencies</td></tr>
+<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Says it adds no markup (we measure a {{AVG_MARKUP_PCT:wise}} median), 40+ currencies, local bank details in 22 currencies</td></tr>
 <tr><td><strong>Best for Auto-Exchange</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Set a target rate; converts automatically — unique feature on free plan</td></tr>
 <tr><td><strong>Free conversions (small)</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Free conversions up to $1,000/month on weekdays with no markup</td></tr>
 <tr><td><strong>Best for Exotic Corridors</strong></td><td><a href="/companies/xe">Xe</a></td><td>Sends to 130+ currencies — more than Wise or Revolut</td></tr>
@@ -3555,7 +3562,7 @@ const rawBlogPosts: BlogPost[] = [
 <tbody>
 <tr><td><strong>Currencies you can hold</strong></td><td>~18 (consumer) / 20+ (business)</td><td>40+</td><td>36+</td></tr>
 <tr><td><strong>Currencies you can send to</strong></td><td>130+</td><td>40+</td><td>36+</td></tr>
-<tr><td><strong>Exchange rate</strong></td><td>Margin built into rate (not mid-market)</td><td>Mid-market (0% markup)</td><td>Mid-market on weekdays (1% weekend surcharge on free plan)</td></tr>
+<tr><td><strong>Exchange rate</strong></td><td>Margin built into rate (not mid-market)</td><td>Mid-market, Wise says (we measure a {{AVG_MARKUP_PCT:wise}} median markup)</td><td>Mid-market on weekdays (1% weekend surcharge on free plan)</td></tr>
 <tr><td><strong>Conversion fee</strong></td><td>Built into rate (varies by pair)</td><td>0.33–0.61% (transparent)</td><td>Free up to $1,000/mo, then 0.5%</td></tr>
 <tr><td><strong>Rate alerts</strong></td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr><td><strong>Auto-exchange at target rate</strong></td><td>Business only (limit orders)</td><td>No</td><td>Yes (all plans)</td></tr>
@@ -3569,7 +3576,7 @@ const rawBlogPosts: BlogPost[] = [
 <p>Xe can <strong>send</strong> to 130+ currencies — more than any other platform — but its multi-currency account for consumers holds around 18 currencies. The exchange rate includes a built-in margin (it's not the mid-market rate), and Xe doesn't offer auto-exchange for personal accounts. It does, however, offer a <strong>debit card</strong> for spending from your balance. Where Xe shines is its <strong>rate alert system</strong> and the sheer breadth of corridors it supports. If you send to exotic currencies that Wise and Revolut don't cover, Xe is often the only option. Business accounts unlock limit orders and forward contracts for larger sums.</p>
 
 <h3>Wise: Best for Transparent Pricing and Receiving Money</h3>
-<p>Wise uses the real mid-market rate with no markup — ever. You pay a clear conversion fee (typically 0.33–0.61% depending on the currency pair), and what you see is what you get. Wise also gives you <strong>local bank details in 22 currencies</strong>, meaning you can receive payments as if you had a local bank account in the US, UK, EU, Australia, Singapore, and more. This makes Wise the strongest option for freelancers, remote workers, and anyone who needs to receive and hold foreign income. To see how Wise performs on specific corridors, see <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> for international transfers.</p>
+<p>Wise says it uses the real mid-market rate with no markup; against our own mid-market snapshot we measure a median markup of {{AVG_MARKUP_PCT:wise}}. You pay a clear conversion fee (typically 0.33–0.61% depending on the currency pair), and what you see is what you get. Wise also gives you <strong>local bank details in 22 currencies</strong>, meaning you can receive payments as if you had a local bank account in the US, UK, EU, Australia, Singapore, and more. This makes Wise the strongest option for freelancers, remote workers, and anyone who needs to receive and hold foreign income. To see how Wise performs on specific corridors, see <a href="/compare/wise-vs-remitly">how Wise compares to Remitly</a> for international transfers.</p>
 
 <h3>Revolut: Best for Frequent Conversions and Auto-Exchange</h3>
 <p>Revolut's free plan converts at Revolut's own rate with no exchange fee on weekdays up to a monthly allowance, which suits regular, smaller conversions; above it a fair usage fee applies. The standout feature is <strong>auto-exchange</strong>: set a target rate for any currency pair, and Revolut converts automatically when the market hits it. The catch: <strong>weekend conversions carry a 1% surcharge</strong> on the free plan (eliminated on Premium and Metal plans). If you can time conversions to weekdays, Revolut's free tier is the cheapest option for amounts under $1,000/month.</p>
@@ -3577,6 +3584,16 @@ const rawBlogPosts: BlogPost[] = [
 <p class="blog-callout-blue-sm"><strong>🏦 Revolut in the US:</strong> Revolut is actively pursuing a US banking license — if approved, it could offer FDIC-insured multi-currency accounts to American customers. <a href="/guides/revolut-us-banking-license-2026">Read our analysis of what this means for US consumers →</a></p>
 
 <p class="blog-callout-green-sm"><strong>📊 2026 Update:</strong> FinecoBank, Wise, and Revolut are in an arms race for multi-currency dominance. See how the latest features compare in our <a href="/guides/multi-currency-account-wars-2026">Multi-Currency Account Wars 2026</a> breakdown.</p>`,
+      },
+      {
+        heading: "Foreign Currency Account at Your Bank, or a Multi-Currency Account?",
+        content: `<p>A <strong>personal foreign currency account</strong> is a bank account held in a currency other than your own: a US dollar or euro account at a UK bank, for example. Banks offered them long before the apps above existed. Both hold money in another currency until you need it, but they differ in three ways that decide which one suits you.</p>
+<ul>
+<li><strong>How many currencies, and how many accounts.</strong> A bank usually opens a separate account for each currency, and only for its existing customers. <a href="https://www.hsbc.co.uk/international/currency-account/" target="_blank" rel="noopener noreferrer nofollow">HSBC UK's Currency Account</a>, for example, offers 14 major currencies, each as its own account, to customers who already hold an HSBC current account. Wise and Revolut keep dozens of balances inside one account.</li>
+<li><strong>What converting costs.</strong> HSBC says its exchange rate "includes a currency conversion charge", and paying a non-HSBC account abroad adds a fee per payment. With a bank or an app, the cost of converting is the gap between the rate you get and the mid-market rate, so check what specialists pay on our <a href="/send-money">comparison</a> before you convert a large sum.</li>
+<li><strong>What protects the balance.</strong> Money in a bank's foreign currency account is a deposit. In the UK the FSCS protects eligible deposits up to <a href="https://www.fscs.org.uk/what-we-cover/banks-building-societies/" target="_blank" rel="noopener noreferrer">£120,000 per person, per bank</a> (the limit since 1 December 2025), and pays out a foreign-currency deposit in sterling at <a href="https://prarulebook.co.uk/pra-rules/depositor-protection/8-currency-of-compensation/27-07-2024?p=1" target="_blank" rel="noopener noreferrer">the exchange rate on the compensation date</a>. In the US, <a href="https://www.law.cornell.edu/cfr/text/12/330.3" target="_blank" rel="noopener noreferrer">FDIC rules</a> insure foreign-currency deposits too, converted to dollars as of the day the bank fails. Wise is not a bank: it <a href="https://wise.com/help/articles/2949821/is-my-money-protected" target="_blank" rel="noopener noreferrer nofollow">says</a> it does not lend out customer money and safeguards it, kept apart from its own funds, rather than insuring it in a deposit scheme.</li>
+</ul>
+<p>A bank foreign currency account suits a large balance kept in one currency for a long time, such as a deposit for a property abroad or a pension paid in euros, where deposit protection matters most. A multi-currency account suits frequent, smaller conversions and money received from abroad. Many people keep both: the bank account to hold, the app to convert and send.</p>`,
       },
       {
         heading:
@@ -3626,7 +3643,7 @@ const rawBlogPosts: BlogPost[] = [
 </ol>
 <p>There's no obligation to convert — you can hold your home currency indefinitely and wait for the right moment. The account itself is free on all three platforms.</p>
 <p>To learn how exchange rate markups affect the total cost of conversions and transfers, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>. For more on choosing between apps, see our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide. For understanding wire transfers and bank alternatives, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a>.</p>
-<p>All three platforms are regulated as electronic money institutions. Wise is authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> in the UK and registered with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> in the US. Revolut holds a UK banking licence and an EU banking licence. The <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a> has highlighted digital payment platforms as a driver of financial inclusion globally.</p>`,
+<p>Wise is regulated as an electronic money institution: it is authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> in the UK and registered with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> in the US. Revolut holds a UK banking licence, with restrictions lifted in March 2026, and an EU banking licence through Lithuania. The <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a> has highlighted digital payment platforms as a driver of financial inclusion globally.</p>`,
       },
       {
         heading: "Sources & Methodology",
@@ -3642,9 +3659,14 @@ const rawBlogPosts: BlogPost[] = [
           "No. A multi-currency account is designed for holding and converting currencies for real-world use — spending, sending, and receiving. You're not speculating with leverage or trading derivatives. Platforms like Wise, Xe, and Revolut are regulated as payment institutions, not forex brokers. There's no risk of losing more than you deposit.",
       },
       {
+        question: "What is a personal foreign currency account?",
+        answer:
+          "A bank account held in a currency other than your home currency, such as a euro or US dollar account at a UK bank. Banks usually open one account per currency, often only for customers who already hold a current account with them: HSBC UK's Currency Account offers 14 currencies on those terms. Unlike a Wise balance, money in a bank's foreign currency account is a deposit. In the UK the FSCS protects eligible deposits up to £120,000 per person, per bank, and pays a foreign-currency deposit out in sterling if the bank fails.",
+      },
+      {
         question: "Which multi-currency account has the best exchange rate?",
         answer:
-          "Wise consistently offers the mid-market exchange rate with 0% markup, charging a transparent conversion fee of 0.33–0.61% instead. Revolut converts at its own rate, without a weekday exchange fee inside its plan allowance. Xe builds a margin into the exchange rate (it is not the mid-market rate), but its rate alert system helps you monitor and convert at favourable moments.",
+          "Wise says it converts at the mid-market exchange rate with no markup and charges a transparent conversion fee of 0.33–0.61% instead; against our own mid-market snapshot we measure its median markup at {{AVG_MARKUP_PCT:wise}}. Revolut converts at its own rate, without a weekday exchange fee inside its plan allowance. Xe builds a margin into the exchange rate (it is not the mid-market rate), but its rate alert system helps you monitor and convert at favourable moments.",
       },
       {
         question: "Can I earn interest on foreign currency balances?",
@@ -3654,7 +3676,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Are multi-currency accounts safe?",
         answer:
-          "Yes. Wise is authorised by the FCA (UK) and FinCEN (US) and holds customer funds in ring-fenced accounts. Revolut holds a UK banking licence and EU banking licence, offering deposit protection up to £85,000 (UK) and €100,000 (EU). Xe is regulated by multiple authorities globally. All three use bank-grade encryption and two-factor authentication.",
+          "Yes, though they are protected in different ways. Wise is authorised by the FCA (UK) and registered with FinCEN (US); it is not a bank, so it safeguards customer funds, kept apart from its own, rather than insuring them in a deposit scheme. Revolut's UK bank had the restrictions on its licence lifted in March 2026: eligible deposits with Revolut Bank UK are FSCS-protected up to £120,000, and deposits with its Lithuanian bank up to €100,000 under Lithuania's deposit insurance. Xe is regulated by multiple authorities globally. All three use bank-grade encryption and two-factor authentication.",
       },
     ],
     howToSteps: [
@@ -7842,7 +7864,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "8 min read",
     publishedAt: "2026-03-16",
-    updatedAt: "2026-03-16",
+    updatedAt: "2026-10-23",
     author: "Awais Imran",
     tags: [
       "Revolut",
@@ -7895,14 +7917,14 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Lower corridor costs</strong> — For popular corridors like <a href="/send-money/usa-to-india">USA to India</a> and <a href="/send-money/usa-to-mexico">USA to Mexico</a>, reduced infrastructure costs should flow through to customers.</li>
 </ul>
 <blockquote class="blog-callout-blue-sm">
-<strong>Quick comparison:</strong> Today, sending $1,000 from the US to Europe costs about $7.33 with Wise (0% markup) versus $5–$15 with Revolut (depending on plan and timing). With a banking license, Revolut could close that gap significantly. <a href="/compare/wise-vs-revolut">Full Wise vs Revolut breakdown →</a>
+<strong>Quick comparison:</strong> Today, sending $1,000 from the US to Europe costs about $7.33 with Wise (which says it adds no markup) versus $5–$15 with Revolut (depending on plan and timing). With a banking license, Revolut could close that gap significantly. <a href="/compare/wise-vs-revolut">Full Wise vs Revolut breakdown →</a>
 </blockquote>`,
       },
       {
         heading: "Revolut's UK License: A Preview of What's Coming",
         content: `<p>Revolut <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer">secured its full UK banking license in March 2026</a>, after years of operating under an e-money license. The UK experience gives us a preview of what the US license could enable:</p>
 <ul>
-<li><strong>FSCS deposit protection</strong> — UK customers now get up to £85,000 in deposit protection</li>
+<li><strong>FSCS deposit protection</strong> — eligible deposits with Revolut Bank UK are protected up to £120,000, the FSCS limit since 1 December 2025</li>
 <li><strong>Lending products</strong> — Revolut UK launched credit cards and personal loans</li>
 <li><strong>Higher trust</strong> — Being a licensed bank removes a major barrier for cautious customers</li>
 </ul>
@@ -8136,7 +8158,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Guides",
     readTime: "10 min read",
     publishedAt: "2026-03-16",
-    updatedAt: "2026-03-16",
+    updatedAt: "2026-10-23",
     author: "Awais Imran",
     tags: [
       "multi-currency",
@@ -8266,7 +8288,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Is money in a multi-currency account safe?",
         answer:
-          "It depends on the provider. Revolut is now a licensed bank in the UK (FSCS-protected up to £85,000). Wise holds funds in safeguarded accounts (ring-fenced from company funds but not technically deposit-insured). FinecoBank is a fully licensed Italian bank with FITD deposit protection up to €100,000.",
+          "It depends on the provider. Revolut is now a licensed bank in the UK (eligible deposits FSCS-protected up to £120,000). Wise holds funds in safeguarded accounts (ring-fenced from company funds but not technically deposit-insured). FinecoBank is a fully licensed Italian bank with FITD deposit protection up to €100,000.",
       },
       {
         question: "What happened with FinecoBank's multi-currency expansion?",

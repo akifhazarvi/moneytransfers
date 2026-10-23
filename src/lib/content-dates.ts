@@ -80,7 +80,7 @@ const FAMILY_PAGE_UPDATED: Record<string, string> = {
   "/compare/boss-money-vs-remitly": "2026-10-18",
   "/compare/chase-vs-wells-fargo": "2026-10-18", // both banks' published wire fees replace hand-typed fees and markups
   "/compare/wise-vs-westpac": "2026-10-18",      // Westpac's published fee table replaces "$8-$20"
-  "/compare/chase-vs-revolut": "2026-10-18",      // decision note: Chase wires vs Revolut's partner banks (OCC, FDIC)
+  "/compare/chase-vs-revolut": "2026-10-23",      // FSCS limit £120,000 (since 2025-12-01); Revolut Bank UK licence. 10-18: decision note, Chase wires vs Revolut's partner banks
   "/swift-codes/netherlands": "2026-10-18",       // name check, DNB register, instant payments
   "/swift-codes/france": "2026-10-18",            // REGAFI, the payee check and SWIFT wires, overseas BIC letters
   "/companies/natwest": "2026-10-18",

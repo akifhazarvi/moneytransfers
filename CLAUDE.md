@@ -120,9 +120,11 @@ what enforces it. Where a rule is not automated, it says how to check it.
    (`leader-typed`). A provider's "0% markup" is its own description of its
    pricing, not our finding — we measure Wise at a 0.32% median: write "Wise
    says it adds no markup…" beside `{{AVG_MARKUP_PCT:slug}}` (`zero-markup`
-   ratchet, ~376 legacy copies). Never say the UK left SEPA: the EPC kept it in
+   ratchet, ~371 legacy copies). Never say the UK left SEPA: the EPC kept it in
    SEPA's scope after Brexit as a non-EEA member (BIC + payer address
-   required) — ~30 passages said otherwise until 2026-09-29. Speed is a promise
+   required) — ~30 passages said otherwise until 2026-09-29. The FSCS deposit
+   limit is £120,000 since 2025-12-01, not £85,000 (`fscs-limit`; ten
+   passages fixed 2026-10-23) — the PSR's £85,000 APP-scam cap is separate. Speed is a promise
    unless we timed it: never invent a delivery time (`|| "1-3 business days"`
    printed on 6% of quotes until 2026-10-09; use `SPEED_NOT_PUBLISHED`), and a
    provider's speed statistic ("95% of transfers in under 3 minutes") is ITS

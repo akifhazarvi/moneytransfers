@@ -2330,7 +2330,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td>Exchange rate markup</td><td>3-5% above mid-market</td><td>0% weekday / 1% weekend</td></tr>
 <tr><td>Transfer speed</td><td>1-5 business days (SWIFT)</td><td>Instant (Revolut-to-Revolut), 1-3 days (external)</td></tr>
 <tr><td>Free monthly FX</td><td>None</td><td>£1,000 (Standard) to unlimited (Metal)</td></tr>
-<tr><td>Deposit insurance</td><td>FDIC up to $250,000</td><td>No FDIC; UK FSCS up to £85,000 (UK residents)</td></tr>
+<tr><td>Deposit insurance</td><td>FDIC up to $250,000</td><td>No FDIC; UK FSCS up to £120,000 (UK residents)</td></tr>
 <tr><td>Currencies held</td><td>USD only</td><td>36+ currencies</td></tr>
 <tr><td>Regulated by</td><td>OCC, Fed, FDIC</td><td>FCA, ECB (Revolut Bank in EU)</td></tr>
 </table>
@@ -2365,7 +2365,7 @@ export const comparisonArticles: ComparisonArticle[] = [
         heading: "Where Chase actually wins",
         content: `<p>Chase isn't just "the expensive option" — it has real advantages that matter for some users:</p>
 <ul>
-<li><strong>FDIC insurance up to $250,000.</strong> Revolut is not FDIC-insured. If you hold more than £85,000 (the UK FSCS limit), Chase is safer in absolute terms.</li>
+<li><strong>FDIC insurance up to $250,000.</strong> Revolut is not FDIC-insured. If you hold more than £120,000 (the UK FSCS limit since 1 December 2025), Chase is safer in absolute terms.</li>
 <li><strong>4,700+ physical branches.</strong> If you need to deposit cash, get a notarized document, or speak to someone in person, Chase is unbeatable.</li>
 <li><strong>Full US banking relationship.</strong> Mortgages, credit cards, auto loans, business lending, investment accounts, and wire-based payments — all under one roof.</li>
 <li><strong>Chase Sapphire card ecosystem.</strong> Travel rewards, airport lounge access, trip insurance. Revolut's rewards are weaker.</li>
@@ -2488,7 +2488,7 @@ export const comparisonArticles: ComparisonArticle[] = [
         id: "the-verdict",
         heading: "The verdict",
         content: `<p>Chase and Revolut serve different purposes. Most people don't have to choose — they use both.</p>
-<p><strong>Use Chase for:</strong> Daily US banking, direct deposits, domestic bills, credit cards, mortgages, investment accounts, FDIC-insured deposits above £85,000, Zelle, US domestic Fedwire, and the Sapphire Reserve travel-rewards ecosystem.</p>
+<p><strong>Use Chase for:</strong> Daily US banking, direct deposits, domestic bills, credit cards, mortgages, investment accounts, FDIC-insured deposits above £120,000, Zelle, US domestic Fedwire, and the Sapphire Reserve travel-rewards ecosystem.</p>
 <p><strong>Use Revolut for:</strong> All international transfers, foreign card spending (0% FX up to your tier limit), multi-currency wallet, crypto/stocks, instant Revolut-to-Revolut transfers anywhere in the world, and SEPA/Faster Payments to friends abroad.</p>
 <p><strong>Never use Chase for:</strong> Sending money abroad. Even Chase Sapphire Banking — which waives the $50 wire fee — still bakes 2-3% into the exchange rate. The wire fee was always the smaller cost. On a $5,000 transfer to Europe, Chase costs $100-250; Revolut costs $0-25.</p>
 <p>If you're comparing other options, see our <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> comparison (Wise is better for large transfers above $10,000), <a href="/compare/chase-vs-wise">Chase vs Wise</a>, or <a href="/guides/best-money-transfer-apps">best money transfer apps 2026</a>.</p>`,
@@ -2512,7 +2512,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "Is Revolut as safe as Chase for holding money?",
-        a: "It depends. Chase is FDIC-insured up to $250,000. Revolut is not FDIC-insured. In the UK, Revolut Bank (acquired UK banking license) provides FSCS protection up to £85,000. In the US, Revolut partners with Metropolitan Commercial Bank which provides FDIC coverage. For large deposits, Chase's single-provider FDIC coverage is simpler.",
+        a: "It depends. Chase is FDIC-insured up to $250,000. Revolut is not FDIC-insured. In the UK, Revolut Bank UK (full banking licence since March 2026) provides FSCS protection on eligible deposits up to £120,000. In the US, Revolut partners with Metropolitan Commercial Bank which provides FDIC coverage. For large deposits, Chase's single-provider FDIC coverage is simpler.",
       },
       {
         q: "Can I replace my Chase account with Revolut?",
