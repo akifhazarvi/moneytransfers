@@ -5656,34 +5656,34 @@
     "date": "2026-10-23",
     "providers": {
       "western-union": {
-        "rate": 323.076,
+        "rate": 322.42,
         "fee": 0.99,
-        "markup": 1.06,
-        "receiveAmount": 31987.71
+        "markup": 1.26,
+        "receiveAmount": 31922.79
       },
       "paypal": {
-        "rate": 311.533,
+        "rate": 311.003,
         "fee": 4.99,
-        "markup": 4.6,
-        "receiveAmount": 29598.79
+        "markup": 4.76,
+        "receiveAmount": 29548.39
       },
       "xoom": {
-        "rate": 313.573,
+        "rate": 313.193,
         "fee": 4.99,
-        "markup": 3.97,
-        "receiveAmount": 29792.6
+        "markup": 4.09,
+        "receiveAmount": 29756.5
       },
       "remitly": {
-        "rate": 325.264,
+        "rate": 324.47,
         "fee": 0.99,
-        "markup": 0.39,
-        "receiveAmount": 32204.36
+        "markup": 0.64,
+        "receiveAmount": 32125.78
       },
       "wise": {
-        "rate": 327.599,
+        "rate": 327.233,
         "fee": 1.45,
-        "markup": -0.32,
-        "receiveAmount": 32284.88
+        "markup": -0.21,
+        "receiveAmount": 32248.81
       }
     }
   }
