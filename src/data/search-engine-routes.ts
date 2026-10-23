@@ -270,13 +270,14 @@ export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; reado
     ],
   },
   {
-    // Batch 3 — 7 days after batch 2. The rest of the QA batch-2 list, then its
+    // Batch 3 — first dated 2026-10-28, then 2026-10-25; owner released it on
+    // 2026-10-23. The rest of the QA batch-2 list, then its
     // batch-3 list by Bing demand. Held for a re-QA'd batch 4 after GSC shows
     // how batches 1–3 land: compare/chase-vs-revolut, compare/paypal-vs-worldremit,
     // and — no eligible guide compares them in context, so they lack the 3
     // in-content links QA item 8 asks for — compare/remitly-vs-paypal and
     // compare/paypal-vs-western-union.
-    released: "2026-10-25",
+    released: "2026-10-23",
     routes: [
       "/iban/cyprus",                       // 1
       "/iban/jordan",                       // 1

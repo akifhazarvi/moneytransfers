@@ -259,8 +259,8 @@ what enforces it. Where a rule is not automated, it says how to check it.
     be committed ahead. Verify one before its day with
     `SMC_BUILD_DATE=<day> npm run build`. Log each release in GSC monitoring
     (days 5/14/28/45). Batch 1 (17 IBAN/SWIFT pages) is dated 2026-10-14,
-    batch 2 (20) 2026-10-18 and batch 3 (20) 2026-10-25 (owner pulled both
-    forward on 2026-10-18; batch 4 waits for a re-QA).
+    batch 2 (20) 2026-10-18 and batch 3 (20) 2026-10-23 (owner pulled both
+    forward, on 2026-10-18 and 2026-10-23; batch 4 waits for a re-QA).
 18. **A title keeps the words people search.** Bing readout 2026-10-18: on
     2026-09-02 `seoTitle()` cut 44 guides to the first clause of their
     headline ("What Is a SWIFT Code? Find Your Bank's BIC Code (2026)" →
