@@ -5819,5 +5819,52 @@
         "receiveAmount": 7186.72
       }
     }
+  },
+  {
+    "date": "2026-10-23",
+    "providers": {
+      "western-union": {
+        "rate": 75.4167,
+        "fee": 15,
+        "markup": 0,
+        "receiveAmount": 6410.42
+      },
+      "e-and-money": {
+        "rate": 75.3811,
+        "fee": 15.75,
+        "markup": 0.05,
+        "receiveAmount": 6350.86
+      },
+      "al-ansari-exchange": {
+        "rate": 75.25,
+        "fee": 20,
+        "markup": 0.22,
+        "receiveAmount": 6020
+      },
+      "skrill": {
+        "rate": 71.8672,
+        "fee": 0,
+        "markup": 4.65,
+        "receiveAmount": 7186.72
+      },
+      "paysend": {
+        "rate": 73.6426,
+        "fee": 9,
+        "markup": 2.29,
+        "receiveAmount": 6701.48
+      },
+      "remitly": {
+        "rate": 75.4,
+        "fee": 7,
+        "markup": 0.03,
+        "receiveAmount": 7012.2
+      },
+      "taptap-send": {
+        "rate": 76,
+        "fee": 6,
+        "markup": -0.77,
+        "receiveAmount": 7144
+      }
+    }
   }
 ]

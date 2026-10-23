@@ -6719,5 +6719,40 @@
         "receiveAmount": 1544.76
       }
     }
+  },
+  {
+    "date": "2026-10-23",
+    "providers": {
+      "lemfi": {
+        "rate": 15.5959,
+        "fee": 0,
+        "markup": -0.45,
+        "receiveAmount": 1559.59
+      },
+      "ria": {
+        "rate": 15.57,
+        "fee": 1.5,
+        "markup": -0.29,
+        "receiveAmount": 1533.65
+      },
+      "taptap-send": {
+        "rate": 15.5959,
+        "fee": 0,
+        "markup": -0.45,
+        "receiveAmount": 1559.59
+      },
+      "instarem": {
+        "rate": 15.4429,
+        "fee": 0,
+        "markup": 0.53,
+        "receiveAmount": 1544.29
+      },
+      "western-union": {
+        "rate": 15.6006,
+        "fee": 1.99,
+        "markup": -0.48,
+        "receiveAmount": 1529.02
+      }
+    }
   }
 ]
