@@ -1,18 +1,18 @@
 {
   "dataAsOf": "2026-10-24",
-  "corridorsScored": 205,
+  "corridorsScored": 209,
   "corridorsWithAnyScore": 1037,
-  "singleProviderReadings": 832,
+  "singleProviderReadings": 828,
   "bands": {
-    "exceptional": 23,
-    "great": 59,
-    "good": 66,
+    "exceptional": 22,
+    "great": 61,
+    "good": 65,
     "typical": 36,
-    "poor": 21
+    "poor": 25
   },
-  "goodOrBetterPct": 72,
+  "goodOrBetterPct": 71,
   "confidence": {
-    "high": 205,
+    "high": 209,
     "medium": 0,
     "low": 0
   },
@@ -23,7 +23,7 @@
       "score": 41,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.85% vs the 30-day average, 20% up the 90-day range. Rates are falling — -0.84% week on week. Today's best beats the median provider by +2.48%.",
+      "explanation": "Best rate -0.85% vs the 30-day average, 20% up the 90-day range. Rates are falling — -0.84% week on week. Today's best beats the median provider by +2.22%.",
       "components": [
         {
           "key": "range",
@@ -44,7 +44,7 @@
           "label": "Best provider versus the field",
           "weight": 20,
           "score": 100,
-          "detail": "today's best beats the median provider by +2.48%"
+          "detail": "today's best beats the median provider by +2.22%"
         },
         {
           "key": "trend",
