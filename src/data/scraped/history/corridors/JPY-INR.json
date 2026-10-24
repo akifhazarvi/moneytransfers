@@ -3002,16 +3002,16 @@
     "date": "2026-10-24",
     "providers": {
       "instarem": {
-        "rate": 0.6007,
+        "rate": 0.601,
         "fee": 0,
-        "markup": 0.7,
-        "receiveAmount": 60.07
+        "markup": 0.65,
+        "receiveAmount": 60.1
       },
       "revolut": {
-        "rate": 0.60208,
-        "fee": 0,
-        "markup": 0.47,
-        "receiveAmount": 60.21
+        "rate": 0.602202,
+        "fee": 1,
+        "markup": 0.45,
+        "receiveAmount": 59.62
       }
     }
   }
