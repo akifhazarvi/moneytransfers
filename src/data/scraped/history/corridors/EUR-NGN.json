@@ -17440,5 +17440,94 @@
         "receiveAmount": 148179.47
       }
     }
+  },
+  {
+    "date": "2026-10-24",
+    "providers": {
+      "instarem": {
+        "rate": 1486.42,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 148641.93
+      },
+      "lemfi": {
+        "rate": 1521.43,
+        "fee": 0,
+        "markup": -1.98,
+        "receiveAmount": 152143
+      },
+      "moneygram": {
+        "rate": 1496.61,
+        "fee": 0.99,
+        "markup": -0.08,
+        "receiveAmount": 148179.47
+      },
+      "taptap-send": {
+        "rate": 1521.6,
+        "fee": 0,
+        "markup": -1.99,
+        "receiveAmount": 152160
+      },
+      "western-union": {
+        "rate": 1510.63,
+        "fee": 0.99,
+        "markup": -1.26,
+        "receiveAmount": 149567.42
+      },
+      "dahabshiil": {
+        "rate": 1489.53,
+        "fee": 1.99,
+        "markup": 0.39,
+        "receiveAmount": 145989.3
+      },
+      "profee": {
+        "rate": 1521.13,
+        "fee": 2,
+        "markup": -1.72,
+        "receiveAmount": 149070.69
+      },
+      "worldremit": {
+        "rate": 1543.35,
+        "fee": 0.99,
+        "markup": -3.2,
+        "receiveAmount": 152807.25
+      },
+      "paysend": {
+        "rate": 1518.39,
+        "fee": 0,
+        "markup": -1.54,
+        "receiveAmount": 151838.89
+      },
+      "sendwave": {
+        "rate": 1543.35,
+        "fee": 0.99,
+        "markup": -3.2,
+        "receiveAmount": 152807.25
+      },
+      "remitly": {
+        "rate": 1500.3,
+        "fee": 0,
+        "markup": -0.57,
+        "receiveAmount": 150030
+      },
+      "ria": {
+        "rate": 1494.5,
+        "fee": 0.9,
+        "markup": -0.18,
+        "receiveAmount": 148105.12
+      },
+      "xoom": {
+        "rate": 1493.9,
+        "fee": 0.49,
+        "markup": -0.14,
+        "receiveAmount": 148657.69
+      },
+      "wise": {
+        "rate": 1526.48,
+        "fee": 1.72,
+        "markup": -2.32,
+        "receiveAmount": 150022.45
+      }
+    }
   }
 ]
