@@ -1,29 +1,29 @@
 {
-  "dataAsOf": "2026-10-24",
+  "dataAsOf": "2026-10-25",
   "corridorsScored": 209,
   "corridorsWithAnyScore": 1037,
   "singleProviderReadings": 828,
   "bands": {
     "exceptional": 21,
     "great": 60,
-    "good": 67,
-    "typical": 36,
+    "good": 64,
+    "typical": 39,
     "poor": 25
   },
-  "goodOrBetterPct": 71,
+  "goodOrBetterPct": 69,
   "confidence": {
     "high": 209,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 210,
+  "medianDaysObserved": 211,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 41,
+      "score": 42,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.85% vs the 30-day average, 20% up the 90-day range. Rates are falling — -0.84% week on week. Today's best beats the median provider by +2.22%.",
+      "explanation": "Best rate -0.81% vs the 30-day average, 20% up the 90-day range. Rates are falling — -0.57% week on week. Today's best beats the median provider by +2.22%.",
       "components": [
         {
           "key": "range",
@@ -36,8 +36,8 @@
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 35.87900301759695,
-          "detail": "-0.85% vs the 30-day average"
+          "score": 36.44429319982531,
+          "detail": "-0.81% vs the 30-day average"
         },
         {
           "key": "competitiveness",
@@ -50,11 +50,11 @@
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 29.023827610673354,
-          "detail": "falling — -0.84% week on week"
+          "score": 35.63888219989671,
+          "detail": "falling — -0.57% week on week"
         }
       ],
-      "daysObserved": 217,
+      "daysObserved": 218,
       "rangeWindowDays": 90,
       "confidence": "high"
     }
