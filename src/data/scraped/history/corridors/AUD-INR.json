@@ -22232,15 +22232,15 @@
     "date": "2026-10-25",
     "providers": {
       "instarem": {
-        "rate": 66.771,
+        "rate": 66.7376,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 6677.1
+        "markup": 0.05,
+        "receiveAmount": 6673.76
       },
       "lemfi": {
         "rate": 66.52,
         "fee": 0,
-        "markup": 0.39,
+        "markup": 0.41,
         "receiveAmount": 6652
       },
       "moneygram": {
@@ -22304,10 +22304,10 @@
         "receiveAmount": 6425.58
       },
       "nab": {
-        "rate": 64.4538,
+        "rate": 64.488,
         "fee": 0,
-        "markup": 3.48,
-        "receiveAmount": 6445.38
+        "markup": 3.43,
+        "receiveAmount": 6448.8
       },
       "anz": {
         "rate": 64.4055,

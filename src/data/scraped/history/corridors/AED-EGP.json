@@ -4665,10 +4665,10 @@
         "receiveAmount": 1258.3
       },
       "e-and-money": {
-        "rate": 15.03,
+        "rate": 15.06,
         "fee": 15.75,
-        "markup": 0.04,
-        "receiveAmount": 1266.28
+        "markup": -0.16,
+        "receiveAmount": 1268.81
       },
       "al-ansari-exchange": {
         "rate": 14.78,
@@ -4683,16 +4683,16 @@
         "receiveAmount": 1481.42
       },
       "remitly": {
-        "rate": 15.01,
+        "rate": 15.15,
         "fee": 6,
-        "markup": 0.17,
-        "receiveAmount": 1410.94
+        "markup": -0.76,
+        "receiveAmount": 1424.1
       },
       "taptap-send": {
-        "rate": 15,
+        "rate": 15.1,
         "fee": 0,
-        "markup": 0.24,
-        "receiveAmount": 1500
+        "markup": -0.43,
+        "receiveAmount": 1510
       }
     }
   }
