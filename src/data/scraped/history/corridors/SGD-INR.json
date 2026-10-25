@@ -14356,31 +14356,31 @@
       "moneygram": {
         "rate": 73.8589,
         "fee": 6,
-        "markup": 0.51,
+        "markup": 0.61,
         "receiveAmount": 6942.74
       },
       "western-union": {
         "rate": 73.8595,
         "fee": 1.5,
-        "markup": 0.51,
+        "markup": 0.61,
         "receiveAmount": 7275.16
       },
       "currencyfair": {
         "rate": 73.7275,
         "fee": 1.63,
-        "markup": 0.69,
+        "markup": 0.79,
         "receiveAmount": 7252.57
       },
       "remitly": {
         "rate": 73.36,
         "fee": 3.99,
-        "markup": 1.18,
+        "markup": 1.28,
         "receiveAmount": 7043.29
       },
       "revolut": {
         "rate": 74.1387,
         "fee": 1.9,
-        "markup": 0.13,
+        "markup": 0.23,
         "receiveAmount": 7273.01
       },
       "ria": {
@@ -14400,6 +14400,12 @@
         "fee": 1.06,
         "markup": 0.03,
         "receiveAmount": 7352.57
+      },
+      "skrill": {
+        "rate": 70.7535,
+        "fee": 0,
+        "markup": 4.79,
+        "receiveAmount": 7075.35
       }
     }
   }

@@ -8049,37 +8049,37 @@
       "moneygram": {
         "rate": 49.9973,
         "fee": 0.99,
-        "markup": 1.54,
+        "markup": 1.15,
         "receiveAmount": 4950.23
       },
       "western-union": {
         "rate": 50.0892,
         "fee": 0.99,
-        "markup": 1.35,
+        "markup": 0.97,
         "receiveAmount": 4959.33
       },
       "profee": {
-        "rate": 50.1495,
+        "rate": 49.8958,
         "fee": 1.7,
-        "markup": 1.24,
-        "receiveAmount": 4929.69
+        "markup": 1.35,
+        "receiveAmount": 4904.75
       },
       "paysend": {
         "rate": 49.9063,
         "fee": 1.5,
-        "markup": 1.71,
+        "markup": 1.33,
         "receiveAmount": 4915.77
       },
       "revolut": {
         "rate": 49.7932,
         "fee": 1,
-        "markup": 1.94,
+        "markup": 1.55,
         "receiveAmount": 4929.53
       },
       "wise": {
         "rate": 50.4718,
         "fee": 2.2,
-        "markup": 0.6,
+        "markup": 0.21,
         "receiveAmount": 4936.14
       },
       "taptap-send": {
@@ -8087,6 +8087,12 @@
         "fee": 0,
         "markup": -0.37,
         "receiveAmount": 5079
+      },
+      "skrill": {
+        "rate": 49.8324,
+        "fee": 0,
+        "markup": 1.48,
+        "receiveAmount": 4983.24
       }
     }
   }
