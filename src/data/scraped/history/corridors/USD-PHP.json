@@ -23218,7 +23218,7 @@
       "lemfi": {
         "rate": 62.71,
         "fee": 1,
-        "markup": 1.41,
+        "markup": 1.43,
         "receiveAmount": 6208.29
       },
       "moneygram": {
@@ -23246,10 +23246,10 @@
         "receiveAmount": 6147.21
       },
       "western-union": {
-        "rate": 61.8182,
+        "rate": 61.7751,
         "fee": 1.99,
-        "markup": 2.82,
-        "receiveAmount": 6058.8
+        "markup": 2.88,
+        "receiveAmount": 6054.58
       },
       "currencyfair": {
         "rate": 63.245,
@@ -23294,22 +23294,22 @@
         "receiveAmount": 6213.91
       },
       "wise": {
-        "rate": 63.6062,
+        "rate": 63.6696,
         "fee": 1.57,
-        "markup": 0,
-        "receiveAmount": 6260.76
+        "markup": -0.1,
+        "receiveAmount": 6267
       },
       "wells-fargo": {
-        "rate": 61.5751,
+        "rate": 61.5322,
         "fee": 0,
-        "markup": 3.2,
-        "receiveAmount": 6157.51
+        "markup": 3.27,
+        "receiveAmount": 6153.22
       },
       "paypal": {
-        "rate": 60.8142,
+        "rate": 60.7892,
         "fee": 4.99,
-        "markup": 4.39,
-        "receiveAmount": 5777.95
+        "markup": 4.43,
+        "receiveAmount": 5775.58
       }
     }
   }

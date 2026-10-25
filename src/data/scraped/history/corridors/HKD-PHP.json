@@ -10453,22 +10453,22 @@
         "receiveAmount": 647.99
       },
       "wise": {
-        "rate": 8.11055,
+        "rate": 8.1093,
         "fee": 7.86,
-        "markup": 0,
-        "receiveAmount": 747.31
+        "markup": 0.02,
+        "receiveAmount": 747.19
       },
       "hsbc-hk": {
-        "rate": 7.93651,
+        "rate": 7.96763,
         "fee": 70,
-        "markup": 2.15,
-        "receiveAmount": 238.1
+        "markup": 1.77,
+        "receiveAmount": 239.03
       },
       "paypal": {
-        "rate": 7.75198,
+        "rate": 7.75375,
         "fee": 38.99,
-        "markup": 4.43,
-        "receiveAmount": 472.95
+        "markup": 4.4,
+        "receiveAmount": 473.06
       }
     }
   }
