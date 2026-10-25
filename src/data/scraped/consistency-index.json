@@ -3,30 +3,30 @@
   "comparableCorridors": 214,
   "pairsTracked": 1044,
   "contestedCorridorDays": 17677,
-  "providerDayObservations": 124149,
+  "providerDayObservations": 124151,
   "maxWindowDays": 91,
   "rows": [
     {
       "providerSlug": "taptap-send",
       "providerName": "TapTap Send",
-      "corridorsLed": 68,
+      "corridorsLed": 69,
       "corridorsQuoted": 157,
-      "wins": 5558,
+      "wins": 5560,
       "quotedDays": 13234,
-      "winRate": 42,
+      "winRate": 42.01,
       "avgShortfallPct": 0.57,
-      "leadRate": 43.31
+      "leadRate": 43.95
     },
     {
       "providerSlug": "lemfi",
       "providerName": "LemFi",
-      "corridorsLed": 39,
+      "corridorsLed": 38,
       "corridorsQuoted": 87,
-      "wins": 3208,
+      "wins": 3206,
       "quotedDays": 7818,
-      "winRate": 41.03,
+      "winRate": 41.01,
       "avgShortfallPct": 0.81,
-      "leadRate": 44.83
+      "leadRate": 43.68
     },
     {
       "providerSlug": "instarem",
@@ -66,9 +66,9 @@
       "providerName": "Western Union",
       "corridorsLed": 10,
       "corridorsQuoted": 127,
-      "wins": 487,
+      "wins": 488,
       "quotedDays": 9225,
-      "winRate": 5.28,
+      "winRate": 5.29,
       "avgShortfallPct": 3.8,
       "leadRate": 7.87
     },
@@ -88,9 +88,9 @@
       "providerName": "Remitly",
       "corridorsLed": 5,
       "corridorsQuoted": 108,
-      "wins": 419,
+      "wins": 418,
       "quotedDays": 8646,
-      "winRate": 4.85,
+      "winRate": 4.83,
       "avgShortfallPct": 3.02,
       "leadRate": 4.63
     },
@@ -190,7 +190,7 @@
       "wins": 51,
       "quotedDays": 1543,
       "winRate": 3.31,
-      "avgShortfallPct": 3.29,
+      "avgShortfallPct": 3.3,
       "leadRate": 5.88
     },
     {
@@ -287,7 +287,7 @@
       "corridorsLed": 0,
       "corridorsQuoted": 60,
       "wins": 39,
-      "quotedDays": 5349,
+      "quotedDays": 5351,
       "winRate": 0.73,
       "avgShortfallPct": 3.25,
       "leadRate": 0
@@ -388,7 +388,7 @@
       "wins": 0,
       "quotedDays": 161,
       "winRate": 0,
-      "avgShortfallPct": 15.01,
+      "avgShortfallPct": 15,
       "leadRate": 0
     },
     {
@@ -410,7 +410,7 @@
       "wins": 0,
       "quotedDays": 711,
       "winRate": 0,
-      "avgShortfallPct": 2.42,
+      "avgShortfallPct": 2.43,
       "leadRate": 0
     },
     {
@@ -755,6 +755,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 51,
-  "stableCorridors": 163
+  "rotatingCorridors": 54,
+  "stableCorridors": 160
 }

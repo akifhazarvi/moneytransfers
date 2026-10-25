@@ -15124,7 +15124,7 @@
       "lemfi": {
         "rate": 1.111,
         "fee": 0,
-        "markup": 0.83,
+        "markup": 0.82,
         "receiveAmount": 111.1
       },
       "taptap-send": {
@@ -15198,6 +15198,12 @@
         "fee": 0.99,
         "markup": 2.78,
         "receiveAmount": 107.83
+      },
+      "moneygram": {
+        "rate": 1.1041,
+        "fee": 1.99,
+        "markup": 1.44,
+        "receiveAmount": 108.21
       }
     }
   }
