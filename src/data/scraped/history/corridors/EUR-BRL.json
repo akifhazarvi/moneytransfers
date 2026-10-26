@@ -18769,10 +18769,10 @@
     "date": "2026-10-26",
     "providers": {
       "lemfi": {
-        "rate": 5.6,
+        "rate": 6.01,
         "fee": 0,
-        "markup": -0.37,
-        "receiveAmount": 560
+        "markup": 0.06,
+        "receiveAmount": 601
       },
       "moneygram": {
         "rate": 5.5123,
@@ -18789,14 +18789,14 @@
       "taptap-send": {
         "rate": 5.58,
         "fee": 0.99,
-        "markup": 0.09,
+        "markup": -0.01,
         "receiveAmount": 552.48
       },
       "western-union": {
-        "rate": 5.57082,
+        "rate": 5.54106,
         "fee": 0.99,
-        "markup": 0.26,
-        "receiveAmount": 551.57
+        "markup": 0.79,
+        "receiveAmount": 548.62
       },
       "profee": {
         "rate": 5.59632,
@@ -18829,10 +18829,10 @@
         "receiveAmount": 542.04
       },
       "remitly": {
-        "rate": 5.5648,
+        "rate": 5.4649,
         "fee": 1.99,
-        "markup": 0.37,
-        "receiveAmount": 545.41
+        "markup": 2.05,
+        "receiveAmount": 535.61
       },
       "revolut": {
         "rate": 5.42097,

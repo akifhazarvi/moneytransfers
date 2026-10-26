@@ -2688,16 +2688,16 @@
     "date": "2026-10-26",
     "providers": {
       "taptap-send": {
-        "rate": 19.15,
+        "rate": 19.53,
         "fee": 0,
-        "markup": 5.2,
-        "receiveAmount": 1915
+        "markup": 3.32,
+        "receiveAmount": 1953
       },
       "wise": {
-        "rate": 20.2563,
+        "rate": 20.1624,
         "fee": 8.21,
-        "markup": -0.27,
-        "receiveAmount": 1859.33
+        "markup": 0.19,
+        "receiveAmount": 1850.71
       }
     }
   }
