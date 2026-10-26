@@ -5755,5 +5755,40 @@
         "receiveAmount": 315.82
       }
     }
+  },
+  {
+    "date": "2026-10-26",
+    "providers": {
+      "ria": {
+        "rate": 3.38,
+        "fee": 4,
+        "markup": 1.46,
+        "receiveAmount": 324.48
+      },
+      "taptap-send": {
+        "rate": 3.4,
+        "fee": 0,
+        "markup": 0.87,
+        "receiveAmount": 340
+      },
+      "western-union": {
+        "rate": 3.35553,
+        "fee": 1.99,
+        "markup": 2.17,
+        "receiveAmount": 328.88
+      },
+      "instarem": {
+        "rate": 3.39406,
+        "fee": 0,
+        "markup": 1.05,
+        "receiveAmount": 339.41
+      },
+      "wise": {
+        "rate": 3.4292,
+        "fee": 8.21,
+        "markup": 0.02,
+        "receiveAmount": 314.77
+      }
+    }
   }
 ]
