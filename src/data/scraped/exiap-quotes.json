@@ -7,12 +7,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 95.37,
-    "receiveAmount": 476850,
+    "exchangeRate": 95.63,
+    "receiveAmount": 478150,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:15.690Z",
+    "dateCollected": "2026-10-26T12:47:24.316Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -22,13 +22,13 @@
     "sendCurrency": "USD",
     "receiveCurrency": "INR",
     "sendAmount": 5000,
-    "fee": 21.49,
-    "exchangeRate": 94.9953,
-    "receiveAmount": 472935.05,
+    "fee": 21.48,
+    "exchangeRate": 95.225,
+    "receiveAmount": 474079.57,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:15.690Z",
+    "dateCollected": "2026-10-26T12:47:24.316Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -39,12 +39,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 94.425328,
-    "receiveAmount": 472126.64,
+    "exchangeRate": 94.65862,
+    "receiveAmount": 473293.1,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:15.690Z",
+    "dateCollected": "2026-10-26T12:47:24.316Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -55,12 +55,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 1.27,
-    "exchangeRate": 94.2895,
-    "receiveAmount": 471327.5,
+    "exchangeRate": 94.4685,
+    "receiveAmount": 472222.51,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:15.690Z",
+    "dateCollected": "2026-10-26T12:47:24.316Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -71,12 +71,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 94.0037,
-    "receiveAmount": 470018.5,
+    "exchangeRate": 94.2706,
+    "receiveAmount": 471353,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:15.690Z",
+    "dateCollected": "2026-10-26T12:47:24.316Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -86,13 +86,29 @@
     "sendCurrency": "USD",
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
-    "fee": 24.94,
-    "exchangeRate": 63.5567,
-    "receiveAmount": 316198.4,
+    "fee": 24.93,
+    "exchangeRate": 63.8917,
+    "receiveAmount": 317865.68,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:16.984Z",
+    "dateCollected": "2026-10-26T12:47:25.565Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "XE",
+    "providerSlug": "xe",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "PHP",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 63.521073,
+    "receiveAmount": 317605.37,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:47:25.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -103,28 +119,28 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 1.26,
-    "exchangeRate": 63.245,
-    "receiveAmount": 316145.45,
+    "exchangeRate": 63.505,
+    "receiveAmount": 317444.76,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:16.984Z",
+    "dateCollected": "2026-10-26T12:47:25.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
-    "provider": "XE",
-    "providerSlug": "xe",
+    "provider": "OFX",
+    "providerSlug": "ofx",
     "providerType": "moneyTransferProvider",
     "sendCurrency": "USD",
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 63.216313,
-    "receiveAmount": 316081.56,
+    "exchangeRate": 63.1998,
+    "receiveAmount": 315999,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:16.984Z",
+    "dateCollected": "2026-10-26T12:47:25.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -135,12 +151,12 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 62.22,
-    "receiveAmount": 311100,
+    "exchangeRate": 62.5,
+    "receiveAmount": 312500,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:16.984Z",
+    "dateCollected": "2026-10-26T12:47:25.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -150,13 +166,13 @@
     "sendCurrency": "USD",
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
-    "fee": 26,
-    "exchangeRate": 18.6937,
-    "receiveAmount": 92982.46,
+    "fee": 26.01,
+    "exchangeRate": 18.6796,
+    "receiveAmount": 92912.14,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:18.043Z",
+    "dateCollected": "2026-10-26T12:47:26.682Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -167,12 +183,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 18.581538,
-    "receiveAmount": 92907.69,
+    "exchangeRate": 18.561061,
+    "receiveAmount": 92805.31,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:18.043Z",
+    "dateCollected": "2026-10-26T12:47:26.682Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -183,12 +199,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 18.5365,
-    "receiveAmount": 92682.5,
+    "exchangeRate": 18.5398,
+    "receiveAmount": 92699,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:18.043Z",
+    "dateCollected": "2026-10-26T12:47:26.682Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -204,7 +220,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:18.043Z",
+    "dateCollected": "2026-10-26T12:47:26.682Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -215,12 +231,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 4,
-    "exchangeRate": 18.4697,
-    "receiveAmount": 92274.62,
+    "exchangeRate": 18.3506,
+    "receiveAmount": 91679.65,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:18.043Z",
+    "dateCollected": "2026-10-26T12:47:26.682Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -236,7 +252,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:19.023Z",
+    "dateCollected": "2026-10-26T12:47:27.617Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -252,7 +268,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:19.023Z",
+    "dateCollected": "2026-10-26T12:47:27.617Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -268,7 +284,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:19.023Z",
+    "dateCollected": "2026-10-26T12:47:27.617Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -284,7 +300,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:19.023Z",
+    "dateCollected": "2026-10-26T12:47:27.617Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -300,7 +316,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:20.044Z",
+    "dateCollected": "2026-10-26T12:47:28.613Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -316,7 +332,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:20.044Z",
+    "dateCollected": "2026-10-26T12:47:28.613Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -332,7 +348,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:20.044Z",
+    "dateCollected": "2026-10-26T12:47:28.613Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -348,7 +364,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:21.359Z",
+    "dateCollected": "2026-10-26T12:47:29.498Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -364,7 +380,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:21.359Z",
+    "dateCollected": "2026-10-26T12:47:29.498Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -380,7 +396,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:21.359Z",
+    "dateCollected": "2026-10-26T12:47:29.498Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -396,7 +412,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:22.487Z",
+    "dateCollected": "2026-10-26T12:47:30.688Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -412,7 +428,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:22.487Z",
+    "dateCollected": "2026-10-26T12:47:30.688Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -428,7 +444,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:22.487Z",
+    "dateCollected": "2026-10-26T12:47:30.688Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -439,12 +455,12 @@
     "receiveCurrency": "COP",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 3126.0604,
-    "receiveAmount": 15630302.1,
+    "exchangeRate": 3136.1296,
+    "receiveAmount": 15680648.2,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:23.448Z",
+    "dateCollected": "2026-10-26T12:47:31.907Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -460,7 +476,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:23.448Z",
+    "dateCollected": "2026-10-26T12:47:31.907Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -470,13 +486,13 @@
     "sendCurrency": "USD",
     "receiveCurrency": "COP",
     "sendAmount": 5000,
-    "fee": 70.09,
-    "exchangeRate": 3142.64,
-    "receiveAmount": 15492932.36,
+    "fee": 70.07,
+    "exchangeRate": 3155.06,
+    "receiveAmount": 15554224.95,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:23.448Z",
+    "dateCollected": "2026-10-26T12:47:31.907Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -487,12 +503,12 @@
     "receiveCurrency": "GBP",
     "sendAmount": 10000,
     "fee": 2.99,
-    "exchangeRate": 0.7477,
-    "receiveAmount": 7474.77,
+    "exchangeRate": 0.7488,
+    "receiveAmount": 7485.76,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:24.410Z",
+    "dateCollected": "2026-10-26T12:47:32.961Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -503,12 +519,12 @@
     "receiveCurrency": "GBP",
     "sendAmount": 10000,
     "fee": 33.48,
-    "exchangeRate": 0.747887,
-    "receiveAmount": 7453.83,
+    "exchangeRate": 0.748951,
+    "receiveAmount": 7464.44,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:24.410Z",
+    "dateCollected": "2026-10-26T12:47:32.961Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -519,12 +535,12 @@
     "receiveCurrency": "GBP",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.74345534,
-    "receiveAmount": 7434.55,
+    "exchangeRate": 0.74448612,
+    "receiveAmount": 7444.86,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:24.410Z",
+    "dateCollected": "2026-10-26T12:47:32.961Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -535,12 +551,12 @@
     "receiveCurrency": "GBP",
     "sendAmount": 10000,
     "fee": 3.36,
-    "exchangeRate": 0.7431,
-    "receiveAmount": 7428.5,
+    "exchangeRate": 0.744,
+    "receiveAmount": 7437.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:24.410Z",
+    "dateCollected": "2026-10-26T12:47:32.961Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -551,12 +567,12 @@
     "receiveCurrency": "GBP",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.7422,
-    "receiveAmount": 7422,
+    "exchangeRate": 0.7436,
+    "receiveAmount": 7436,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:24.410Z",
+    "dateCollected": "2026-10-26T12:47:32.961Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -567,12 +583,12 @@
     "receiveCurrency": "GBP",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.73896768,
-    "receiveAmount": 7389.68,
+    "exchangeRate": 0.73999224,
+    "receiveAmount": 7399.92,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:24.410Z",
+    "dateCollected": "2026-10-26T12:47:32.961Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -583,12 +599,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 2.99,
-    "exchangeRate": 0.89,
-    "receiveAmount": 8897.34,
+    "exchangeRate": 0.891,
+    "receiveAmount": 8907.33,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:25.353Z",
+    "dateCollected": "2026-10-26T12:47:34.223Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -599,12 +615,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 29.44,
-    "exchangeRate": 0.892061,
-    "receiveAmount": 8894.35,
+    "exchangeRate": 0.8921,
+    "receiveAmount": 8894.74,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:25.353Z",
+    "dateCollected": "2026-10-26T12:47:34.223Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -615,12 +631,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 3.38,
-    "exchangeRate": 0.8882,
-    "receiveAmount": 8879,
+    "exchangeRate": 0.8871,
+    "receiveAmount": 8868,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:25.353Z",
+    "dateCollected": "2026-10-26T12:47:34.223Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -631,12 +647,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.88670863,
-    "receiveAmount": 8867.09,
+    "exchangeRate": 0.8867474,
+    "receiveAmount": 8867.47,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:25.353Z",
+    "dateCollected": "2026-10-26T12:47:34.223Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -647,12 +663,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.8853,
-    "receiveAmount": 8853,
+    "exchangeRate": 0.8854,
+    "receiveAmount": 8854,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:25.353Z",
+    "dateCollected": "2026-10-26T12:47:34.223Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -663,12 +679,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.88135627,
-    "receiveAmount": 8813.56,
+    "exchangeRate": 0.8813948,
+    "receiveAmount": 8813.95,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:25.353Z",
+    "dateCollected": "2026-10-26T12:47:34.223Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -679,12 +695,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 29.44,
-    "exchangeRate": 0.891146,
-    "receiveAmount": 8885.22,
+    "exchangeRate": 0.892021,
+    "receiveAmount": 8893.95,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:26.634Z",
+    "dateCollected": "2026-10-26T12:47:35.182Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -695,12 +711,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.8859184,
-    "receiveAmount": 8859.18,
+    "exchangeRate": 0.8867474,
+    "receiveAmount": 8867.47,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:26.634Z",
+    "dateCollected": "2026-10-26T12:47:35.182Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -710,13 +726,13 @@
     "sendCurrency": "USD",
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
-    "fee": 3.39,
-    "exchangeRate": 0.8859,
-    "receiveAmount": 8855.99,
+    "fee": 3.38,
+    "exchangeRate": 0.8869,
+    "receiveAmount": 8866,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:26.634Z",
+    "dateCollected": "2026-10-26T12:47:35.182Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -727,12 +743,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.8846,
-    "receiveAmount": 8846,
+    "exchangeRate": 0.8855,
+    "receiveAmount": 8855,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:26.634Z",
+    "dateCollected": "2026-10-26T12:47:35.182Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -743,12 +759,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 3.99,
-    "exchangeRate": 0.88362425,
-    "receiveAmount": 8832.72,
+    "exchangeRate": 0.88536031,
+    "receiveAmount": 8850.07,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:26.634Z",
+    "dateCollected": "2026-10-26T12:47:35.182Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -759,12 +775,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 0.88057081,
-    "receiveAmount": 8805.71,
+    "exchangeRate": 0.8813948,
+    "receiveAmount": 8813.95,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:26.634Z",
+    "dateCollected": "2026-10-26T12:47:35.182Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -780,7 +796,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:27.838Z",
+    "dateCollected": "2026-10-26T12:47:36.258Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -796,7 +812,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:27.838Z",
+    "dateCollected": "2026-10-26T12:47:36.258Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -812,7 +828,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:27.838Z",
+    "dateCollected": "2026-10-26T12:47:36.258Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -828,7 +844,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:27.838Z",
+    "dateCollected": "2026-10-26T12:47:36.258Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -839,12 +855,12 @@
     "receiveCurrency": "CNY",
     "sendAmount": 5000,
     "fee": 45.22,
-    "exchangeRate": 6.67108,
-    "receiveAmount": 33053.73,
+    "exchangeRate": 6.6691,
+    "receiveAmount": 33043.92,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:28.884Z",
+    "dateCollected": "2026-10-26T12:47:37.308Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -855,12 +871,12 @@
     "receiveCurrency": "CNY",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 6.56,
-    "receiveAmount": 32800,
+    "exchangeRate": 6.5576,
+    "receiveAmount": 32788,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:28.884Z",
+    "dateCollected": "2026-10-26T12:47:37.308Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -876,7 +892,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:30.148Z",
+    "dateCollected": "2026-10-26T12:47:38.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -892,7 +908,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:30.148Z",
+    "dateCollected": "2026-10-26T12:47:38.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -908,7 +924,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:30.148Z",
+    "dateCollected": "2026-10-26T12:47:38.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -924,7 +940,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:30.148Z",
+    "dateCollected": "2026-10-26T12:47:38.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -940,7 +956,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:30.148Z",
+    "dateCollected": "2026-10-26T12:47:38.565Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -951,12 +967,12 @@
     "receiveCurrency": "THB",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 33.564895,
-    "receiveAmount": 167824.48,
+    "exchangeRate": 33.584775,
+    "receiveAmount": 167923.88,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:31.180Z",
+    "dateCollected": "2026-10-26T12:47:39.548Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -967,12 +983,12 @@
     "receiveCurrency": "THB",
     "sendAmount": 5000,
     "fee": 31.13,
-    "exchangeRate": 33.7725,
-    "receiveAmount": 167811.16,
+    "exchangeRate": 33.7875,
+    "receiveAmount": 167885.7,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:31.180Z",
+    "dateCollected": "2026-10-26T12:47:39.548Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -983,12 +999,28 @@
     "receiveCurrency": "THB",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 33.55,
-    "receiveAmount": 167750,
+    "exchangeRate": 33.56,
+    "receiveAmount": 167800,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:31.180Z",
+    "dateCollected": "2026-10-26T12:47:39.548Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "CurrencyFair",
+    "providerSlug": "currencyfair",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "THB",
+    "sendAmount": 5000,
+    "fee": 3.72,
+    "exchangeRate": 33.583,
+    "receiveAmount": 167789.97,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:47:39.548Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -999,28 +1031,12 @@
     "receiveCurrency": "THB",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 33.507,
-    "receiveAmount": 167535,
+    "exchangeRate": 33.5258,
+    "receiveAmount": 167629,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:31.180Z",
-    "source": "exiap-www.exiap.com"
-  },
-  {
-    "provider": "CurrencyFair",
-    "providerSlug": "currencyfair",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "THB",
-    "sendAmount": 5000,
-    "fee": 3.73,
-    "exchangeRate": 33.5195,
-    "receiveAmount": 167472.45,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:31.180Z",
+    "dateCollected": "2026-10-26T12:47:39.548Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1036,7 +1052,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:32.201Z",
+    "dateCollected": "2026-10-26T12:47:40.691Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1052,7 +1068,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:32.201Z",
+    "dateCollected": "2026-10-26T12:47:40.691Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1068,7 +1084,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:32.201Z",
+    "dateCollected": "2026-10-26T12:47:40.691Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1084,7 +1100,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:32.201Z",
+    "dateCollected": "2026-10-26T12:47:40.691Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1095,44 +1111,12 @@
     "receiveCurrency": "IDR",
     "sendAmount": 5000,
     "fee": 18.3,
-    "exchangeRate": 18081,
-    "receiveAmount": 90074117.7,
+    "exchangeRate": 18101,
+    "receiveAmount": 90173751.7,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:33.400Z",
-    "source": "exiap-www.exiap.com"
-  },
-  {
-    "provider": "XE",
-    "providerSlug": "xe",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "IDR",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 17972.514,
-    "receiveAmount": 89862570,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:33.400Z",
-    "source": "exiap-www.exiap.com"
-  },
-  {
-    "provider": "CurrencyFair",
-    "providerSlug": "currencyfair",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "IDR",
-    "sendAmount": 5000,
-    "fee": 1.11,
-    "exchangeRate": 17968.1,
-    "receiveAmount": 89820497.71,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:33.400Z",
+    "dateCollected": "2026-10-26T12:47:41.875Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1143,12 +1127,44 @@
     "receiveCurrency": "IDR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 17948.7,
-    "receiveAmount": 89743500,
+    "exchangeRate": 18003.42,
+    "receiveAmount": 90017100,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:33.400Z",
+    "dateCollected": "2026-10-26T12:47:41.875Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "XE",
+    "providerSlug": "xe",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "IDR",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 17992.394,
+    "receiveAmount": 89961970,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:47:41.875Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "CurrencyFair",
+    "providerSlug": "currencyfair",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "IDR",
+    "sendAmount": 5000,
+    "fee": 1.11,
+    "exchangeRate": 17990.9,
+    "receiveAmount": 89934508.56,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:47:41.875Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1159,12 +1175,12 @@
     "receiveCurrency": "IDR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 17866.342,
-    "receiveAmount": 89331709,
+    "exchangeRate": 17897.117,
+    "receiveAmount": 89485583.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:33.400Z",
+    "dateCollected": "2026-10-26T12:47:41.875Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1180,7 +1196,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:34.620Z",
+    "dateCollected": "2026-10-26T12:47:42.913Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1196,7 +1212,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:34.620Z",
+    "dateCollected": "2026-10-26T12:47:42.913Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1212,7 +1228,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:34.620Z",
+    "dateCollected": "2026-10-26T12:47:42.913Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1228,7 +1244,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:35.743Z",
+    "dateCollected": "2026-10-26T12:47:43.847Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1244,7 +1260,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:35.743Z",
+    "dateCollected": "2026-10-26T12:47:43.847Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1260,7 +1276,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:36.995Z",
+    "dateCollected": "2026-10-26T12:47:45.045Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1276,7 +1292,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:36.995Z",
+    "dateCollected": "2026-10-26T12:47:45.045Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1292,7 +1308,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:36.995Z",
+    "dateCollected": "2026-10-26T12:47:45.045Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1308,7 +1324,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:36.995Z",
+    "dateCollected": "2026-10-26T12:47:45.045Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1324,7 +1340,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:36.995Z",
+    "dateCollected": "2026-10-26T12:47:45.045Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1340,7 +1356,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:36.995Z",
+    "dateCollected": "2026-10-26T12:47:45.045Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1351,12 +1367,12 @@
     "receiveCurrency": "PEN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 3.4271132,
-    "receiveAmount": 17135.57,
+    "exchangeRate": 3.4129984,
+    "receiveAmount": 17064.99,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:38.052Z",
+    "dateCollected": "2026-10-26T12:47:46.089Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1367,12 +1383,12 @@
     "receiveCurrency": "PEN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 3.366,
-    "receiveAmount": 16830,
+    "exchangeRate": 3.3521,
+    "receiveAmount": 16760.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:38.052Z",
+    "dateCollected": "2026-10-26T12:47:46.089Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1388,7 +1404,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:38.052Z",
+    "dateCollected": "2026-10-26T12:47:46.089Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1404,7 +1420,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:39.288Z",
+    "dateCollected": "2026-10-26T12:47:47.185Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1420,7 +1436,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:40.303Z",
+    "dateCollected": "2026-10-26T12:47:48.369Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1436,7 +1452,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:40.303Z",
+    "dateCollected": "2026-10-26T12:47:48.369Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1452,7 +1468,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:41.441Z",
+    "dateCollected": "2026-10-26T12:47:49.519Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1468,7 +1484,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:41.441Z",
+    "dateCollected": "2026-10-26T12:47:49.519Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1484,7 +1500,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:41.441Z",
+    "dateCollected": "2026-10-26T12:47:49.519Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1500,7 +1516,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:42.733Z",
+    "dateCollected": "2026-10-26T12:47:50.680Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1516,7 +1532,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:42.733Z",
+    "dateCollected": "2026-10-26T12:47:50.680Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1532,7 +1548,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:42.733Z",
+    "dateCollected": "2026-10-26T12:47:50.680Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1548,7 +1564,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:43.792Z",
+    "dateCollected": "2026-10-26T12:47:51.833Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1564,7 +1580,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:47.187Z",
+    "dateCollected": "2026-10-26T12:47:55.351Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1580,7 +1596,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:47.188Z",
+    "dateCollected": "2026-10-26T12:47:55.351Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1596,7 +1612,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:47.188Z",
+    "dateCollected": "2026-10-26T12:47:55.351Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1612,7 +1628,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:47.188Z",
+    "dateCollected": "2026-10-26T12:47:55.351Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1628,7 +1644,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:47.188Z",
+    "dateCollected": "2026-10-26T12:47:55.351Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1644,7 +1660,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:47.188Z",
+    "dateCollected": "2026-10-26T12:47:55.351Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1660,7 +1676,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:48.111Z",
+    "dateCollected": "2026-10-26T12:47:56.527Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1676,7 +1692,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:48.111Z",
+    "dateCollected": "2026-10-26T12:47:56.527Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1692,7 +1708,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:48.111Z",
+    "dateCollected": "2026-10-26T12:47:56.527Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1708,7 +1724,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:48.111Z",
+    "dateCollected": "2026-10-26T12:47:56.527Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1724,7 +1740,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:48.111Z",
+    "dateCollected": "2026-10-26T12:47:56.527Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1735,12 +1751,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 1.4027,
-    "receiveAmount": 14027,
+    "exchangeRate": 1.4007,
+    "receiveAmount": 14007,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:49.051Z",
+    "dateCollected": "2026-10-26T12:47:57.627Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1751,12 +1767,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 10000,
     "fee": 28.78,
-    "exchangeRate": 1.4038,
-    "receiveAmount": 13997.6,
+    "exchangeRate": 1.4013,
+    "receiveAmount": 13972.67,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:49.051Z",
+    "dateCollected": "2026-10-26T12:47:57.627Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1767,28 +1783,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 1.3953772,
-    "receiveAmount": 13953.77,
+    "exchangeRate": 1.3928922,
+    "receiveAmount": 13928.92,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:49.051Z",
-    "source": "exiap-www.exiap.com"
-  },
-  {
-    "provider": "OFX",
-    "providerSlug": "ofx",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "CAD",
-    "sendAmount": 10000,
-    "fee": 0,
-    "exchangeRate": 1.3922,
-    "receiveAmount": 13922,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:49.051Z",
+    "dateCollected": "2026-10-26T12:47:57.627Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1799,12 +1799,28 @@
     "receiveCurrency": "CAD",
     "sendAmount": 10000,
     "fee": 2.87,
-    "exchangeRate": 1.3915,
-    "receiveAmount": 13911.01,
+    "exchangeRate": 1.3929,
+    "receiveAmount": 13925,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:49.051Z",
+    "dateCollected": "2026-10-26T12:47:57.627Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "OFX",
+    "providerSlug": "ofx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "CAD",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 1.391,
+    "receiveAmount": 13910,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:47:57.627Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1815,12 +1831,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 1.3869544,
-    "receiveAmount": 13869.54,
+    "exchangeRate": 1.3844844,
+    "receiveAmount": 13844.84,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:49.051Z",
+    "dateCollected": "2026-10-26T12:47:57.627Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1830,13 +1846,13 @@
     "sendCurrency": "USD",
     "receiveCurrency": "HKD",
     "sendAmount": 5000,
-    "fee": 16.69,
-    "exchangeRate": 7.8424,
-    "receiveAmount": 39081.11,
+    "fee": 16.68,
+    "exchangeRate": 7.84275,
+    "receiveAmount": 39082.93,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:50.214Z",
+    "dateCollected": "2026-10-26T12:47:58.637Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1847,12 +1863,12 @@
     "receiveCurrency": "HKD",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 7.7953456,
-    "receiveAmount": 38976.73,
+    "exchangeRate": 7.7956935,
+    "receiveAmount": 38978.47,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:50.214Z",
+    "dateCollected": "2026-10-26T12:47:58.637Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1863,12 +1879,12 @@
     "receiveCurrency": "HKD",
     "sendAmount": 5000,
     "fee": 3.21,
-    "exchangeRate": 7.792,
-    "receiveAmount": 38934.99,
+    "exchangeRate": 7.791,
+    "receiveAmount": 38930,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:50.214Z",
+    "dateCollected": "2026-10-26T12:47:58.637Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1879,12 +1895,12 @@
     "receiveCurrency": "HKD",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 7.7391,
-    "receiveAmount": 38695.5,
+    "exchangeRate": 7.7854,
+    "receiveAmount": 38927,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:50.214Z",
+    "dateCollected": "2026-10-26T12:47:58.637Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1895,12 +1911,12 @@
     "receiveCurrency": "HKD",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 7.7145,
-    "receiveAmount": 38572.5,
+    "exchangeRate": 7.7153,
+    "receiveAmount": 38576.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:50.214Z",
+    "dateCollected": "2026-10-26T12:47:58.637Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1911,12 +1927,12 @@
     "receiveCurrency": "HKD",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 7.567916,
-    "receiveAmount": 37839.58,
+    "exchangeRate": 7.5682537,
+    "receiveAmount": 37841.27,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:50.214Z",
+    "dateCollected": "2026-10-26T12:47:58.637Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1932,7 +1948,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:51.362Z",
+    "dateCollected": "2026-10-26T12:47:59.584Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1948,7 +1964,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:51.362Z",
+    "dateCollected": "2026-10-26T12:47:59.584Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1964,7 +1980,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:51.362Z",
+    "dateCollected": "2026-10-26T12:47:59.584Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1980,7 +1996,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:51.362Z",
+    "dateCollected": "2026-10-26T12:47:59.584Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -1996,7 +2012,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:51.362Z",
+    "dateCollected": "2026-10-26T12:47:59.584Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2012,7 +2028,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:52.296Z",
+    "dateCollected": "2026-10-26T12:48:00.792Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2028,7 +2044,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:52.297Z",
+    "dateCollected": "2026-10-26T12:48:00.792Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2044,7 +2060,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:52.297Z",
+    "dateCollected": "2026-10-26T12:48:00.792Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2060,7 +2076,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:52.297Z",
+    "dateCollected": "2026-10-26T12:48:00.792Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2076,7 +2092,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:53.244Z",
+    "dateCollected": "2026-10-26T12:48:01.807Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2092,7 +2108,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:53.244Z",
+    "dateCollected": "2026-10-26T12:48:01.807Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2108,7 +2124,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:53.244Z",
+    "dateCollected": "2026-10-26T12:48:01.807Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2124,7 +2140,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:53.244Z",
+    "dateCollected": "2026-10-26T12:48:01.807Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2140,7 +2156,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:53.244Z",
+    "dateCollected": "2026-10-26T12:48:01.807Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2156,7 +2172,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:53.244Z",
+    "dateCollected": "2026-10-26T12:48:01.807Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2172,7 +2188,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:54.504Z",
+    "dateCollected": "2026-10-26T12:48:02.817Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2188,7 +2204,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:54.504Z",
+    "dateCollected": "2026-10-26T12:48:02.817Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2204,23 +2220,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:54.504Z",
-    "source": "exiap-www.exiap.com"
-  },
-  {
-    "provider": "CurrencyFair",
-    "providerSlug": "currencyfair",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "HUF",
-    "sendAmount": 5000,
-    "fee": 3.08,
-    "exchangeRate": 325,
-    "receiveAmount": 1624000.5,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:55.671Z",
+    "dateCollected": "2026-10-26T12:48:02.817Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2231,12 +2231,12 @@
     "receiveCurrency": "HUF",
     "sendAmount": 5000,
     "fee": 24.86,
-    "exchangeRate": 326.221,
-    "receiveAmount": 1622995.15,
+    "exchangeRate": 326.836,
+    "receiveAmount": 1626054.86,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:55.671Z",
+    "dateCollected": "2026-10-26T12:48:03.986Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2247,28 +2247,28 @@
     "receiveCurrency": "HUF",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 324.24876,
-    "receiveAmount": 1621243.82,
+    "exchangeRate": 324.75372,
+    "receiveAmount": 1623768.58,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:55.671Z",
+    "dateCollected": "2026-10-26T12:48:03.986Z",
     "source": "exiap-www.exiap.com"
   },
   {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
+    "provider": "CurrencyFair",
+    "providerSlug": "currencyfair",
     "providerType": "moneyTransferProvider",
     "sendCurrency": "USD",
     "receiveCurrency": "HUF",
     "sendAmount": 5000,
-    "fee": 1.99,
-    "exchangeRate": 323,
-    "receiveAmount": 1614357.45,
+    "fee": 3.08,
+    "exchangeRate": 324.4,
+    "receiveAmount": 1620999.63,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:55.671Z",
+    "dateCollected": "2026-10-26T12:48:03.986Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2279,28 +2279,60 @@
     "receiveCurrency": "HUF",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 321.2209,
-    "receiveAmount": 1606104.5,
+    "exchangeRate": 323.6829,
+    "receiveAmount": 1618414.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:55.671Z",
+    "dateCollected": "2026-10-26T12:48:03.986Z",
     "source": "exiap-www.exiap.com"
   },
   {
-    "provider": "CurrencyFair",
-    "providerSlug": "currencyfair",
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "HUF",
+    "sendAmount": 5000,
+    "fee": 1.99,
+    "exchangeRate": 323.22,
+    "receiveAmount": 1615455.87,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:03.986Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "Wise",
+    "providerSlug": "wise",
     "providerType": "moneyTransferProvider",
     "sendCurrency": "USD",
     "receiveCurrency": "CZK",
     "sendAmount": 5000,
-    "fee": 3.48,
-    "exchangeRate": 21.58,
-    "receiveAmount": 107824.87,
+    "fee": 18.46,
+    "exchangeRate": 21.6988,
+    "receiveAmount": 108093.44,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:56.945Z",
+    "dateCollected": "2026-10-26T12:48:04.900Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "XE",
+    "providerSlug": "xe",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "CZK",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 21.565327,
+    "receiveAmount": 107826.64,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:04.900Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2316,39 +2348,39 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:56.945Z",
+    "dateCollected": "2026-10-26T12:48:04.900Z",
     "source": "exiap-www.exiap.com"
   },
   {
-    "provider": "Wise",
-    "providerSlug": "wise",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "CZK",
-    "sendAmount": 5000,
-    "fee": 18.47,
-    "exchangeRate": 21.6358,
-    "receiveAmount": 107779.39,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:56.945Z",
-    "source": "exiap-www.exiap.com"
-  },
-  {
-    "provider": "XE",
-    "providerSlug": "xe",
+    "provider": "OFX",
+    "providerSlug": "ofx",
     "providerType": "moneyTransferProvider",
     "sendCurrency": "USD",
     "receiveCurrency": "CZK",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 21.50678,
-    "receiveAmount": 107533.9,
+    "exchangeRate": 21.5271,
+    "receiveAmount": 107635.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:56.945Z",
+    "dateCollected": "2026-10-26T12:48:04.900Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "CurrencyFair",
+    "providerSlug": "currencyfair",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "CZK",
+    "sendAmount": 5000,
+    "fee": 3.49,
+    "exchangeRate": 21.52,
+    "receiveAmount": 107524.95,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:04.900Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2359,12 +2391,12 @@
     "receiveCurrency": "CZK",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 20.879319,
-    "receiveAmount": 104396.6,
+    "exchangeRate": 20.936158,
+    "receiveAmount": 104680.79,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:56.945Z",
+    "dateCollected": "2026-10-26T12:48:04.900Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2375,12 +2407,12 @@
     "receiveCurrency": "ILS",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 3.1073,
-    "receiveAmount": 31073,
+    "exchangeRate": 3.119,
+    "receiveAmount": 31190,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:58.049Z",
+    "dateCollected": "2026-10-26T12:48:05.951Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2390,13 +2422,13 @@
     "sendCurrency": "USD",
     "receiveCurrency": "ILS",
     "sendAmount": 10000,
-    "fee": 40.71,
-    "exchangeRate": 3.10489,
-    "receiveAmount": 30922.5,
+    "fee": 40.7,
+    "exchangeRate": 3.1168,
+    "receiveAmount": 31041.15,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:58.049Z",
+    "dateCollected": "2026-10-26T12:48:05.951Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2407,12 +2439,28 @@
     "receiveCurrency": "ILS",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 3.0868869,
-    "receiveAmount": 30868.87,
+    "exchangeRate": 3.0982483,
+    "receiveAmount": 30982.48,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:58.049Z",
+    "dateCollected": "2026-10-26T12:48:05.951Z",
+    "source": "exiap-www.exiap.com"
+  },
+  {
+    "provider": "OFX",
+    "providerSlug": "ofx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "ILS",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 3.0929,
+    "receiveAmount": 30929,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:05.951Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2422,13 +2470,13 @@
     "sendCurrency": "USD",
     "receiveCurrency": "ILS",
     "sendAmount": 10000,
-    "fee": 4.54,
-    "exchangeRate": 3.0816,
-    "receiveAmount": 30802,
+    "fee": 4.53,
+    "exchangeRate": 3.0936,
+    "receiveAmount": 30922,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:58.049Z",
+    "dateCollected": "2026-10-26T12:48:05.951Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2439,12 +2487,12 @@
     "receiveCurrency": "ILS",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 2.9968268,
-    "receiveAmount": 29968.27,
+    "exchangeRate": 3.0078568,
+    "receiveAmount": 30078.57,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:58.049Z",
+    "dateCollected": "2026-10-26T12:48:05.951Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2460,7 +2508,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:59.239Z",
+    "dateCollected": "2026-10-26T12:48:07.075Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2476,7 +2524,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:20:59.239Z",
+    "dateCollected": "2026-10-26T12:48:07.075Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2492,7 +2540,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:00.468Z",
+    "dateCollected": "2026-10-26T12:48:08.115Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2508,7 +2556,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:00.468Z",
+    "dateCollected": "2026-10-26T12:48:08.115Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2519,12 +2567,12 @@
     "receiveCurrency": "CLP",
     "sendAmount": 5000,
     "fee": 32.2,
-    "exchangeRate": 994.978,
-    "receiveAmount": 4942851.71,
+    "exchangeRate": 995.547,
+    "receiveAmount": 4945678.39,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:01.418Z",
+    "dateCollected": "2026-10-26T12:48:09.116Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2540,7 +2588,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:01.418Z",
+    "dateCollected": "2026-10-26T12:48:09.116Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2551,12 +2599,12 @@
     "receiveCurrency": "ARS",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 1610.16,
-    "receiveAmount": 8050800,
+    "exchangeRate": 1609.82,
+    "receiveAmount": 8049100,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:02.425Z",
+    "dateCollected": "2026-10-26T12:48:10.287Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2572,7 +2620,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:02.425Z",
+    "dateCollected": "2026-10-26T12:48:10.287Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2588,7 +2636,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:03.350Z",
+    "dateCollected": "2026-10-26T12:48:11.456Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2604,7 +2652,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:04.419Z",
+    "dateCollected": "2026-10-26T12:48:12.626Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2620,7 +2668,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:04.419Z",
+    "dateCollected": "2026-10-26T12:48:12.626Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2636,7 +2684,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:05.386Z",
+    "dateCollected": "2026-10-26T12:48:13.525Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2652,7 +2700,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:05.386Z",
+    "dateCollected": "2026-10-26T12:48:13.525Z",
     "source": "exiap-www.exiap.com"
   },
   {
@@ -2662,13 +2710,13 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "INR",
     "sendAmount": 5000,
-    "fee": 7.82,
-    "exchangeRate": 127.06301,
-    "receiveAmount": 634321.43,
+    "fee": 10.42,
+    "exchangeRate": 127.20109,
+    "receiveAmount": 634680,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
+    "dateCollected": "2026-10-26T12:48:15.274Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2679,12 +2727,28 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 23.32,
-    "exchangeRate": 126.919,
-    "receiveAmount": 631635.25,
+    "exchangeRate": 127.123,
+    "receiveAmount": 632650.49,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
+    "dateCollected": "2026-10-26T12:48:15.274Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "INR",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 126.36,
+    "receiveAmount": 631800,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:15.274Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2695,28 +2759,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 126.1714,
-    "receiveAmount": 630857.01,
+    "exchangeRate": 126.34734,
+    "receiveAmount": 631736.7,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "INR",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 126.16,
-    "receiveAmount": 630800,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
+    "dateCollected": "2026-10-26T12:48:15.274Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2727,28 +2775,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 0.95,
-    "exchangeRate": 126.0461,
-    "receiveAmount": 630110.28,
+    "exchangeRate": 126.1741,
+    "receiveAmount": 630750.99,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "Xoom",
-    "providerSlug": "xoom",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "INR",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 125.75413,
-    "receiveAmount": 628770.64,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
+    "dateCollected": "2026-10-26T12:48:15.274Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2759,12 +2791,28 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 125.4499,
-    "receiveAmount": 627249.5,
+    "exchangeRate": 125.7932,
+    "receiveAmount": 628966,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
+    "dateCollected": "2026-10-26T12:48:15.274Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "Xoom",
+    "providerSlug": "xoom",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "INR",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 125.75419,
+    "receiveAmount": 628770.93,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:15.274Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2774,13 +2822,13 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "INR",
     "sendAmount": 5000,
-    "fee": 150,
-    "exchangeRate": 126.48042,
-    "receiveAmount": 613429.77,
+    "fee": 100,
+    "exchangeRate": 126.56086,
+    "receiveAmount": 620148,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
+    "dateCollected": "2026-10-26T12:48:15.274Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2791,12 +2839,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 9.5,
-    "exchangeRate": 122.85647,
-    "receiveAmount": 613114.78,
+    "exchangeRate": 122.98997,
+    "receiveAmount": 613781.82,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
+    "dateCollected": "2026-10-26T12:48:15.274Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2807,12 +2855,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 5000,
     "fee": 2.99,
-    "exchangeRate": 121.22737,
-    "receiveAmount": 605774.4,
+    "exchangeRate": 121.35051,
+    "receiveAmount": 606390.16,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:07.338Z",
+    "dateCollected": "2026-10-26T12:48:15.274Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2823,28 +2871,12 @@
     "receiveCurrency": "PKR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 371.3149,
-    "receiveAmount": 1856574.5,
+    "exchangeRate": 370.57901,
+    "receiveAmount": 1852895.04,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:09.002Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "WorldRemit",
-    "providerSlug": "worldremit",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "PKR",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 368.80813,
-    "receiveAmount": 1844040.64,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:09.002Z",
+    "dateCollected": "2026-10-26T12:48:16.814Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2855,12 +2887,44 @@
     "receiveCurrency": "PKR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 368.71,
-    "receiveAmount": 1843550,
+    "exchangeRate": 368.31,
+    "receiveAmount": 1841550,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:09.002Z",
+    "dateCollected": "2026-10-26T12:48:16.814Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "WorldRemit",
+    "providerSlug": "worldremit",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PKR",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 368.0772,
+    "receiveAmount": 1840386.02,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:16.814Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "XE",
+    "providerSlug": "xe",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PKR",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 367.35357,
+    "receiveAmount": 1836767.87,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:16.814Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2871,28 +2935,12 @@
     "receiveCurrency": "PKR",
     "sendAmount": 5000,
     "fee": 29.96,
-    "exchangeRate": 370.36,
-    "receiveAmount": 1840704.01,
+    "exchangeRate": 369.488,
+    "receiveAmount": 1836370.14,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:09.002Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "XE",
-    "providerSlug": "xe",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "PKR",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 368.13784,
-    "receiveAmount": 1840689.2,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:09.002Z",
+    "dateCollected": "2026-10-26T12:48:16.814Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2903,12 +2951,12 @@
     "receiveCurrency": "PKR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 363.211,
-    "receiveAmount": 1816055,
+    "exchangeRate": 364.6206,
+    "receiveAmount": 1823103,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:09.002Z",
+    "dateCollected": "2026-10-26T12:48:16.814Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2919,12 +2967,12 @@
     "receiveCurrency": "PKR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 362.2273,
-    "receiveAmount": 1811136.5,
+    "exchangeRate": 361.57028,
+    "receiveAmount": 1807851.41,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:09.002Z",
+    "dateCollected": "2026-10-26T12:48:16.814Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2935,12 +2983,12 @@
     "receiveCurrency": "NGN",
     "sendAmount": 5000,
     "fee": 27.9,
-    "exchangeRate": 1836.09,
-    "receiveAmount": 9129223.09,
+    "exchangeRate": 1836.93,
+    "receiveAmount": 9133399.65,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:10.354Z",
+    "dateCollected": "2026-10-26T12:48:18.191Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2951,12 +2999,12 @@
     "receiveCurrency": "NGN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 1802.58,
-    "receiveAmount": 9012900,
+    "exchangeRate": 1802.71,
+    "receiveAmount": 9013550,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:10.354Z",
+    "dateCollected": "2026-10-26T12:48:18.191Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2967,12 +3015,12 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 84.7,
-    "receiveAmount": 423500,
+    "exchangeRate": 84.93,
+    "receiveAmount": 424650,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2982,13 +3030,13 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
-    "fee": 26.78,
-    "exchangeRate": 85.0564,
-    "receiveAmount": 423004.19,
+    "fee": 26.77,
+    "exchangeRate": 85.3526,
+    "receiveAmount": 424478.11,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -2998,13 +3046,13 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
-    "fee": 0.95,
-    "exchangeRate": 84.59,
-    "receiveAmount": 422869.49,
+    "fee": 0.94,
+    "exchangeRate": 84.89,
+    "receiveAmount": 424369.95,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3015,12 +3063,12 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 84.540098,
-    "receiveAmount": 422700.49,
+    "exchangeRate": 84.8544,
+    "receiveAmount": 424272,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3031,12 +3079,12 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 84.508068,
-    "receiveAmount": 422540.34,
+    "exchangeRate": 84.810708,
+    "receiveAmount": 424053.54,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3047,12 +3095,12 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 1.49,
-    "exchangeRate": 84.187327,
-    "receiveAmount": 420810.81,
+    "exchangeRate": 84.488819,
+    "receiveAmount": 422318.04,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3063,12 +3111,28 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 83.9665,
-    "receiveAmount": 419832.5,
+    "exchangeRate": 84.2258,
+    "receiveAmount": 421129,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "Monese",
+    "providerSlug": "monese",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PHP",
+    "sendAmount": 5000,
+    "fee": 100,
+    "exchangeRate": 85.017473,
+    "receiveAmount": 416585.56,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3079,28 +3143,12 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 82.826913,
-    "receiveAmount": 414134.57,
+    "exchangeRate": 83.133365,
+    "receiveAmount": 415666.83,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "Monese",
-    "providerSlug": "monese",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "PHP",
-    "sendAmount": 5000,
-    "fee": 150,
-    "exchangeRate": 84.56926,
-    "receiveAmount": 410161.02,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3111,12 +3159,12 @@
     "receiveCurrency": "PHP",
     "sendAmount": 5000,
     "fee": 2.99,
-    "exchangeRate": 81.143803,
-    "receiveAmount": 405476.42,
+    "exchangeRate": 81.125018,
+    "receiveAmount": 405382.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:11.990Z",
+    "dateCollected": "2026-10-26T12:48:19.780Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3127,12 +3175,12 @@
     "receiveCurrency": "GHS",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 15.4252,
-    "receiveAmount": 77126,
+    "exchangeRate": 15.4711,
+    "receiveAmount": 77355.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:13.389Z",
+    "dateCollected": "2026-10-26T12:48:21.120Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3143,12 +3191,12 @@
     "receiveCurrency": "GHS",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 15.387617,
-    "receiveAmount": 76938.08,
+    "exchangeRate": 15.410678,
+    "receiveAmount": 77053.39,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:13.389Z",
+    "dateCollected": "2026-10-26T12:48:21.120Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3158,13 +3206,13 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "GHS",
     "sendAmount": 5000,
-    "fee": 84.89,
-    "exchangeRate": 15.484,
-    "receiveAmount": 76105.56,
+    "fee": 46.41,
+    "exchangeRate": 15.5031,
+    "receiveAmount": 76796,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:13.389Z",
+    "dateCollected": "2026-10-26T12:48:21.120Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3175,12 +3223,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 172.41825,
-    "receiveAmount": 862091.23,
+    "exchangeRate": 172.43614,
+    "receiveAmount": 862180.69,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:14.917Z",
+    "dateCollected": "2026-10-26T12:48:22.504Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3191,12 +3239,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 5000,
     "fee": 49.62,
-    "exchangeRate": 173.597,
-    "receiveAmount": 859371.12,
+    "exchangeRate": 173.464,
+    "receiveAmount": 858712.72,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:14.917Z",
+    "dateCollected": "2026-10-26T12:48:22.504Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3207,12 +3255,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 170.39,
-    "receiveAmount": 851950,
+    "exchangeRate": 170.22,
+    "receiveAmount": 851100,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:14.917Z",
+    "dateCollected": "2026-10-26T12:48:22.504Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3223,28 +3271,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 5000,
     "fee": 26.16,
-    "exchangeRate": 22.1617,
-    "receiveAmount": 110228.75,
+    "exchangeRate": 22.2013,
+    "receiveAmount": 110425.71,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "CurrencyFair",
-    "providerSlug": "currencyfair",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "ZAR",
-    "sendAmount": 5000,
-    "fee": 1.14,
-    "exchangeRate": 22.025,
-    "receiveAmount": 110099.96,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
+    "dateCollected": "2026-10-26T12:48:23.933Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3255,12 +3287,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 22.01,
-    "receiveAmount": 110050,
+    "exchangeRate": 22.07,
+    "receiveAmount": 110350,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
+    "dateCollected": "2026-10-26T12:48:23.933Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3271,28 +3303,28 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 22.006265,
-    "receiveAmount": 110031.33,
+    "exchangeRate": 22.061631,
+    "receiveAmount": 110308.16,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
+    "dateCollected": "2026-10-26T12:48:23.933Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
-    "provider": "TorFX",
-    "providerSlug": "torfx",
+    "provider": "CurrencyFair",
+    "providerSlug": "currencyfair",
     "providerType": "moneyTransferProvider",
     "sendCurrency": "GBP",
     "receiveCurrency": "ZAR",
     "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 21.917709,
-    "receiveAmount": 109588.55,
+    "fee": 1.13,
+    "exchangeRate": 22.044,
+    "receiveAmount": 110195.06,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
+    "dateCollected": "2026-10-26T12:48:23.933Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3303,12 +3335,44 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 21.8299,
-    "receiveAmount": 109149.5,
+    "exchangeRate": 22.0261,
+    "receiveAmount": 110130.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
+    "dateCollected": "2026-10-26T12:48:23.933Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "TorFX",
+    "providerSlug": "torfx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "ZAR",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 21.972852,
+    "receiveAmount": 109864.26,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:23.933Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "Monese",
+    "providerSlug": "monese",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "ZAR",
+    "sendAmount": 5000,
+    "fee": 100,
+    "exchangeRate": 22.196407,
+    "receiveAmount": 108762.44,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:23.933Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3319,28 +3383,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 5000,
     "fee": 2.99,
-    "exchangeRate": 21.689084,
-    "receiveAmount": 108380.62,
+    "exchangeRate": 21.711548,
+    "receiveAmount": 108492.74,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "Monese",
-    "providerSlug": "monese",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "ZAR",
-    "sendAmount": 5000,
-    "fee": 150,
-    "exchangeRate": 22.091303,
-    "receiveAmount": 107142.89,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
+    "dateCollected": "2026-10-26T12:48:23.933Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3351,12 +3399,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 21.364231,
-    "receiveAmount": 106821.16,
+    "exchangeRate": 21.417982,
+    "receiveAmount": 107089.91,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:16.491Z",
+    "dateCollected": "2026-10-26T12:48:23.933Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3366,13 +3414,45 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
-    "fee": 33.29,
-    "exchangeRate": 1.19283,
-    "receiveAmount": 11888.59,
+    "fee": 33.3,
+    "exchangeRate": 1.19097,
+    "receiveAmount": 11870.04,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:19.332Z",
+    "dateCollected": "2026-10-26T12:48:26.821Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "TorFX",
+    "providerSlug": "torfx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "EUR",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 1.1846385,
+    "receiveAmount": 11846.38,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:26.821Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "XE",
+    "providerSlug": "xe",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "EUR",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 1.1840429,
+    "receiveAmount": 11840.43,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:26.821Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3383,60 +3463,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 2.53,
-    "exchangeRate": 1.1878,
-    "receiveAmount": 11874.99,
+    "exchangeRate": 1.1837,
+    "receiveAmount": 11834,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:19.332Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "TorFX",
-    "providerSlug": "torfx",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "EUR",
-    "sendAmount": 10000,
-    "fee": 0,
-    "exchangeRate": 1.1864286,
-    "receiveAmount": 11864.29,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:19.332Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "XE",
-    "providerSlug": "xe",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "EUR",
-    "sendAmount": 10000,
-    "fee": 0,
-    "exchangeRate": 1.1858321,
-    "receiveAmount": 11858.32,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:19.332Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "Currencies Direct",
-    "providerSlug": "currencies-direct",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "EUR",
-    "sendAmount": 10000,
-    "fee": 0,
-    "exchangeRate": 1.1786741,
-    "receiveAmount": 11786.74,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:19.332Z",
+    "dateCollected": "2026-10-26T12:48:26.821Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3447,12 +3479,28 @@
     "receiveCurrency": "EUR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 1.1782,
-    "receiveAmount": 11782,
+    "exchangeRate": 1.1822,
+    "receiveAmount": 11822,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:19.332Z",
+    "dateCollected": "2026-10-26T12:48:26.821Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "Currencies Direct",
+    "providerSlug": "currencies-direct",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "EUR",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 1.1768957,
+    "receiveAmount": 11768.96,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:26.821Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3463,12 +3511,12 @@
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
     "fee": 48.24,
-    "exchangeRate": 1.90456,
-    "receiveAmount": 28476.52,
+    "exchangeRate": 1.89964,
+    "receiveAmount": 28402.96,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.073Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3479,28 +3527,12 @@
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 1.8904848,
-    "receiveAmount": 28357.27,
+    "exchangeRate": 1.8893312,
+    "receiveAmount": 28339.97,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "XE",
-    "providerSlug": "xe",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "AUD",
-    "sendAmount": 15000,
-    "fee": 0,
-    "exchangeRate": 1.8895344,
-    "receiveAmount": 28343.02,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.074Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3511,12 +3543,28 @@
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
     "fee": 2.12,
-    "exchangeRate": 1.8895,
-    "receiveAmount": 28338.49,
+    "exchangeRate": 1.889,
+    "receiveAmount": 28330.99,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.074Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "XE",
+    "providerSlug": "xe",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "AUD",
+    "sendAmount": 15000,
+    "fee": 0,
+    "exchangeRate": 1.8883813,
+    "receiveAmount": 28325.72,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:28.074Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3527,12 +3575,12 @@
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 1.8828,
-    "receiveAmount": 28242,
+    "exchangeRate": 1.8855,
+    "receiveAmount": 28282.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.074Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3543,12 +3591,12 @@
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
     "fee": 0.99,
-    "exchangeRate": 1.8784763,
-    "receiveAmount": 28175.29,
+    "exchangeRate": 1.8787692,
+    "receiveAmount": 28179.68,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.074Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3559,12 +3607,12 @@
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 1.8781287,
-    "receiveAmount": 28171.93,
+    "exchangeRate": 1.8769826,
+    "receiveAmount": 28154.74,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.074Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3575,12 +3623,12 @@
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
     "fee": 1.99,
-    "exchangeRate": 1.8761479,
-    "receiveAmount": 28138.48,
+    "exchangeRate": 1.8708183,
+    "receiveAmount": 28058.55,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.074Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3590,13 +3638,13 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
-    "fee": 450,
-    "exchangeRate": 1.8974559,
-    "receiveAmount": 27607.98,
+    "fee": 300,
+    "exchangeRate": 1.8989797,
+    "receiveAmount": 27914.99,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.074Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3607,12 +3655,12 @@
     "receiveCurrency": "AUD",
     "sendAmount": 15000,
     "fee": 9.5,
-    "exchangeRate": 1.8372567,
-    "receiveAmount": 27541.39,
+    "exchangeRate": 1.8340802,
+    "receiveAmount": 27493.78,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:20.748Z",
+    "dateCollected": "2026-10-26T12:48:28.074Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3622,13 +3670,13 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
-    "fee": 5.74,
-    "exchangeRate": 1.8789188,
-    "receiveAmount": 16899.48,
+    "fee": 7.99,
+    "exchangeRate": 1.8732697,
+    "receiveAmount": 16844.47,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3639,12 +3687,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 29.35,
-    "exchangeRate": 1.87845,
-    "receiveAmount": 16850.92,
+    "exchangeRate": 1.87341,
+    "receiveAmount": 16805.71,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3655,28 +3703,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 0,
-    "exchangeRate": 1.8673781,
-    "receiveAmount": 16806.4,
+    "exchangeRate": 1.8620503,
+    "receiveAmount": 16758.45,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "TorFX",
-    "providerSlug": "torfx",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "CAD",
-    "sendAmount": 9000,
-    "fee": 0,
-    "exchangeRate": 1.8617421,
-    "receiveAmount": 16755.68,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3687,12 +3719,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 2.15,
-    "exchangeRate": 1.8596,
-    "receiveAmount": 16732.4,
+    "exchangeRate": 1.861,
+    "receiveAmount": 16744.99,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3703,12 +3735,28 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 0,
-    "exchangeRate": 1.8591,
-    "receiveAmount": 16731.9,
+    "exchangeRate": 1.8594,
+    "receiveAmount": 16734.6,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "TorFX",
+    "providerSlug": "torfx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "CAD",
+    "sendAmount": 9000,
+    "fee": 0,
+    "exchangeRate": 1.8564304,
+    "receiveAmount": 16707.87,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3719,12 +3767,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 0,
-    "exchangeRate": 1.8561062,
-    "receiveAmount": 16704.96,
+    "exchangeRate": 1.8508105,
+    "receiveAmount": 16657.29,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3735,12 +3783,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 0,
-    "exchangeRate": 1.8538,
-    "receiveAmount": 16684.2,
+    "exchangeRate": 1.8488,
+    "receiveAmount": 16639.2,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3751,12 +3799,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 0,
-    "exchangeRate": 1.8362063,
-    "receiveAmount": 16525.86,
+    "exchangeRate": 1.8299433,
+    "receiveAmount": 16469.49,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3767,12 +3815,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 270,
-    "exchangeRate": 1.8740247,
-    "receiveAmount": 16360.24,
+    "exchangeRate": 1.8728302,
+    "receiveAmount": 16349.8,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3783,12 +3831,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 9.5,
-    "exchangeRate": 1.8194672,
-    "receiveAmount": 16357.92,
+    "exchangeRate": 1.8139968,
+    "receiveAmount": 16308.75,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3799,12 +3847,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 9000,
     "fee": 2.99,
-    "exchangeRate": 1.7926991,
-    "receiveAmount": 16128.93,
+    "exchangeRate": 1.7903133,
+    "receiveAmount": 16107.47,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:22.213Z",
+    "dateCollected": "2026-10-26T12:48:29.449Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3815,12 +3863,12 @@
     "receiveCurrency": "JPY",
     "sendAmount": 5000,
     "fee": 20.96,
-    "exchangeRate": 209.931,
-    "receiveAmount": 1045254.85,
+    "exchangeRate": 210.044,
+    "receiveAmount": 1045817.48,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:23.839Z",
+    "dateCollected": "2026-10-26T12:48:30.961Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3831,28 +3879,12 @@
     "receiveCurrency": "JPY",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 208.67937,
-    "receiveAmount": 1043396.83,
+    "exchangeRate": 208.77479,
+    "receiveAmount": 1043873.95,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:23.839Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "TorFX",
-    "providerSlug": "torfx",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "JPY",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 207.83961,
-    "receiveAmount": 1039198.05,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:23.839Z",
+    "dateCollected": "2026-10-26T12:48:30.961Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3863,12 +3895,28 @@
     "receiveCurrency": "JPY",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 207.2578,
-    "receiveAmount": 1036289,
+    "exchangeRate": 208.4687,
+    "receiveAmount": 1042343.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:23.839Z",
+    "dateCollected": "2026-10-26T12:48:30.961Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "TorFX",
+    "providerSlug": "torfx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "JPY",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 207.93465,
+    "receiveAmount": 1039673.25,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:30.961Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3879,12 +3927,12 @@
     "receiveCurrency": "JPY",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 205.85,
-    "receiveAmount": 1029250,
+    "exchangeRate": 205.9,
+    "receiveAmount": 1029500,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:23.839Z",
+    "dateCollected": "2026-10-26T12:48:30.961Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3895,12 +3943,12 @@
     "receiveCurrency": "JPY",
     "sendAmount": 5000,
     "fee": 2.99,
-    "exchangeRate": 200.28128,
-    "receiveAmount": 1000808.4,
+    "exchangeRate": 200.2173,
+    "receiveAmount": 1000488.02,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:23.839Z",
+    "dateCollected": "2026-10-26T12:48:30.961Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3911,12 +3959,12 @@
     "receiveCurrency": "CNY",
     "sendAmount": 5000,
     "fee": 46.42,
-    "exchangeRate": 8.92253,
-    "receiveAmount": 44198.47,
+    "exchangeRate": 8.90225,
+    "receiveAmount": 44098.01,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:25.321Z",
+    "dateCollected": "2026-10-26T12:48:32.671Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3927,12 +3975,12 @@
     "receiveCurrency": "CNY",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 8.8333047,
-    "receiveAmount": 44166.52,
+    "exchangeRate": 8.8138215,
+    "receiveAmount": 44069.11,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:25.321Z",
+    "dateCollected": "2026-10-26T12:48:32.671Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3943,12 +3991,12 @@
     "receiveCurrency": "CNY",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 8.7882,
-    "receiveAmount": 43941,
+    "exchangeRate": 8.772,
+    "receiveAmount": 43860,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:25.321Z",
+    "dateCollected": "2026-10-26T12:48:32.671Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3959,12 +4007,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 164.4245,
-    "receiveAmount": 822122.49,
+    "exchangeRate": 164.4076,
+    "receiveAmount": 822038,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:26.761Z",
+    "dateCollected": "2026-10-26T12:48:34.268Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3975,12 +4023,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 5000,
     "fee": 36.85,
-    "exchangeRate": 165.417,
-    "receiveAmount": 820989.38,
+    "exchangeRate": 165.388,
+    "receiveAmount": 820845.45,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:26.761Z",
+    "dateCollected": "2026-10-26T12:48:34.268Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -3991,12 +4039,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 164.07,
-    "receiveAmount": 820350,
+    "exchangeRate": 163.99,
+    "receiveAmount": 819950,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:26.761Z",
+    "dateCollected": "2026-10-26T12:48:34.268Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4007,12 +4055,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 161.81361,
-    "receiveAmount": 809068.07,
+    "exchangeRate": 161.83222,
+    "receiveAmount": 809161.11,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:26.761Z",
+    "dateCollected": "2026-10-26T12:48:34.268Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4023,12 +4071,44 @@
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
     "fee": 20.08,
-    "exchangeRate": 5.24578,
-    "receiveAmount": 26123.56,
+    "exchangeRate": 5.2451,
+    "receiveAmount": 26120.18,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PLN",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 5.2166,
+    "receiveAmount": 26083,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:35.794Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "XE",
+    "providerSlug": "xe",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PLN",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 5.2136294,
+    "receiveAmount": 26068.15,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4039,60 +4119,12 @@
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
     "fee": 1.92,
-    "exchangeRate": 5.2215,
-    "receiveAmount": 26097.47,
+    "exchangeRate": 5.2085,
+    "receiveAmount": 26032.53,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "XE",
-    "providerSlug": "xe",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "PLN",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 5.2146532,
-    "receiveAmount": 26073.27,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "PLN",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 5.2143,
-    "receiveAmount": 26071.5,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "TorFX",
-    "providerSlug": "torfx",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "PLN",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 5.1936687,
-    "receiveAmount": 25968.34,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4103,12 +4135,28 @@
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 5.1696,
-    "receiveAmount": 25848,
+    "exchangeRate": 5.2034,
+    "receiveAmount": 26017,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "TorFX",
+    "providerSlug": "torfx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PLN",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 5.192649,
+    "receiveAmount": 25963.24,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4119,12 +4167,12 @@
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 5.1558779,
-    "receiveAmount": 25779.39,
+    "exchangeRate": 5.1610132,
+    "receiveAmount": 25805.07,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4135,12 +4183,12 @@
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 5.1489897,
-    "receiveAmount": 25744.95,
+    "exchangeRate": 5.1532771,
+    "receiveAmount": 25766.39,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4150,13 +4198,13 @@
     "sendCurrency": "GBP",
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
-    "fee": 150,
-    "exchangeRate": 5.2389256,
-    "receiveAmount": 25408.8,
+    "fee": 95.53,
+    "exchangeRate": 5.2497895,
+    "receiveAmount": 25747.44,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4167,12 +4215,12 @@
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 5.0625154,
-    "receiveAmount": 25312.58,
+    "exchangeRate": 5.0615215,
+    "receiveAmount": 25307.61,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4183,12 +4231,12 @@
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
     "fee": 9.5,
-    "exchangeRate": 5.0628553,
-    "receiveAmount": 25266.2,
+    "exchangeRate": 5.0670711,
+    "receiveAmount": 25287.23,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4199,12 +4247,12 @@
     "receiveCurrency": "PLN",
     "sendAmount": 5000,
     "fee": 2.99,
-    "exchangeRate": 4.9878295,
-    "receiveAmount": 24924.23,
+    "exchangeRate": 4.9863648,
+    "receiveAmount": 24916.93,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:28.124Z",
+    "dateCollected": "2026-10-26T12:48:35.794Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4215,12 +4263,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 52.89,
-    "exchangeRate": 2.34731,
-    "receiveAmount": 35085.5,
+    "exchangeRate": 2.34678,
+    "receiveAmount": 35077.58,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:29.664Z",
+    "dateCollected": "2026-10-26T12:48:37.367Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4231,12 +4279,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 2.333077,
-    "receiveAmount": 34996.16,
+    "exchangeRate": 2.332759,
+    "receiveAmount": 34991.38,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:29.664Z",
+    "dateCollected": "2026-10-26T12:48:37.367Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4247,12 +4295,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 2.15,
-    "exchangeRate": 2.3302,
-    "receiveAmount": 34947.99,
+    "exchangeRate": 2.33,
+    "receiveAmount": 34944.98,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:29.664Z",
+    "dateCollected": "2026-10-26T12:48:37.367Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4263,12 +4311,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 2.3296,
-    "receiveAmount": 34944,
+    "exchangeRate": 2.3291,
+    "receiveAmount": 34936.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:29.664Z",
+    "dateCollected": "2026-10-26T12:48:37.367Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4279,12 +4327,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 2.3260356,
-    "receiveAmount": 34890.53,
+    "exchangeRate": 2.3257184,
+    "receiveAmount": 34885.78,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:29.664Z",
+    "dateCollected": "2026-10-26T12:48:37.367Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4295,12 +4343,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 2.3189941,
-    "receiveAmount": 34784.91,
+    "exchangeRate": 2.3186779,
+    "receiveAmount": 34780.17,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:29.664Z",
+    "dateCollected": "2026-10-26T12:48:37.367Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4311,12 +4359,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 2.310246,
-    "receiveAmount": 34653.69,
+    "exchangeRate": 2.309754,
+    "receiveAmount": 34646.31,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:29.664Z",
+    "dateCollected": "2026-10-26T12:48:37.367Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4327,12 +4375,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 9.5,
-    "exchangeRate": 2.26557,
-    "receiveAmount": 33962.02,
+    "exchangeRate": 2.2650875,
+    "receiveAmount": 33954.79,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:29.664Z",
+    "dateCollected": "2026-10-26T12:48:37.367Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4343,12 +4391,12 @@
     "receiveCurrency": "TRY",
     "sendAmount": 5000,
     "fee": 18.07,
-    "exchangeRate": 66.4946,
-    "receiveAmount": 331271.44,
+    "exchangeRate": 66.5339,
+    "receiveAmount": 331467.23,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:31.030Z",
+    "dateCollected": "2026-10-26T12:48:38.969Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4359,28 +4407,12 @@
     "receiveCurrency": "TRY",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 66.097422,
-    "receiveAmount": 330487.11,
+    "exchangeRate": 66.143245,
+    "receiveAmount": 330716.23,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:31.030Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "TRY",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 65.81,
-    "receiveAmount": 329050,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:31.030Z",
+    "dateCollected": "2026-10-26T12:48:38.969Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4391,12 +4423,28 @@
     "receiveCurrency": "TRY",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 65.427896,
-    "receiveAmount": 327139.48,
+    "exchangeRate": 66.0423,
+    "receiveAmount": 330211.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:31.030Z",
+    "dateCollected": "2026-10-26T12:48:38.969Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "TRY",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 65.87,
+    "receiveAmount": 329350,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:38.969Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4407,12 +4455,12 @@
     "receiveCurrency": "TRY",
     "sendAmount": 5000,
     "fee": 9.5,
-    "exchangeRate": 64.133384,
-    "receiveAmount": 320057.42,
+    "exchangeRate": 64.144278,
+    "receiveAmount": 320111.97,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:31.030Z",
+    "dateCollected": "2026-10-26T12:48:38.969Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4423,12 +4471,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 5000,
     "fee": 25.88,
-    "exchangeRate": 444.574,
-    "receiveAmount": 2211364.42,
+    "exchangeRate": 444.25,
+    "receiveAmount": 2209752.81,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:32.517Z",
+    "dateCollected": "2026-10-26T12:48:40.539Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4439,12 +4487,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 441.90656,
-    "receiveAmount": 2209532.78,
+    "exchangeRate": 441.8996,
+    "receiveAmount": 2209497.99,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:32.517Z",
+    "dateCollected": "2026-10-26T12:48:40.539Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4455,12 +4503,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 441.3,
-    "receiveAmount": 2206500,
+    "exchangeRate": 441.71,
+    "receiveAmount": 2208550,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:32.517Z",
+    "dateCollected": "2026-10-26T12:48:40.539Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4471,12 +4519,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 436.77868,
-    "receiveAmount": 2183893.39,
+    "exchangeRate": 438.9565,
+    "receiveAmount": 2194782.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:32.517Z",
+    "dateCollected": "2026-10-26T12:48:40.539Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4487,12 +4535,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 435.11936,
-    "receiveAmount": 2175596.79,
+    "exchangeRate": 435.63301,
+    "receiveAmount": 2178165.05,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:32.517Z",
+    "dateCollected": "2026-10-26T12:48:40.539Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4503,12 +4551,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 27.45,
-    "exchangeRate": 25.045,
-    "receiveAmount": 124537.51,
+    "exchangeRate": 25.005,
+    "receiveAmount": 124338.61,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
+    "dateCollected": "2026-10-26T12:48:41.972Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4519,12 +4567,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 24.889064,
-    "receiveAmount": 124445.32,
+    "exchangeRate": 24.862524,
+    "receiveAmount": 124312.62,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
+    "dateCollected": "2026-10-26T12:48:41.972Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4535,28 +4583,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 24.8484,
-    "receiveAmount": 124242,
+    "exchangeRate": 24.8217,
+    "receiveAmount": 124108.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
-    "source": "exiap-www.exiap.co.uk"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "MXN",
-    "sendAmount": 5000,
-    "fee": 0,
-    "exchangeRate": 24.72,
-    "receiveAmount": 123600,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
+    "dateCollected": "2026-10-26T12:48:41.972Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4567,12 +4599,28 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 2.5,
-    "exchangeRate": 24.7086,
-    "receiveAmount": 123481.31,
+    "exchangeRate": 24.7041,
+    "receiveAmount": 123458.76,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
+    "dateCollected": "2026-10-26T12:48:41.972Z",
+    "source": "exiap-www.exiap.co.uk"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "MXN",
+    "sendAmount": 5000,
+    "fee": 0,
+    "exchangeRate": 24.68,
+    "receiveAmount": 123400,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:41.972Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4583,12 +4631,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 24.541002,
-    "receiveAmount": 122705.01,
+    "exchangeRate": 24.516496,
+    "receiveAmount": 122582.48,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
+    "dateCollected": "2026-10-26T12:48:41.972Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4599,12 +4647,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 150,
-    "exchangeRate": 24.977898,
-    "receiveAmount": 121142.86,
+    "exchangeRate": 24.990105,
+    "receiveAmount": 121202.01,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
+    "dateCollected": "2026-10-26T12:48:41.972Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4615,12 +4663,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 9.5,
-    "exchangeRate": 24.192264,
-    "receiveAmount": 120731.53,
+    "exchangeRate": 24.168106,
+    "receiveAmount": 120610.94,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
+    "dateCollected": "2026-10-26T12:48:41.972Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4631,12 +4679,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 5000,
     "fee": 2.99,
-    "exchangeRate": 23.890013,
-    "receiveAmount": 119378.64,
+    "exchangeRate": 23.882566,
+    "receiveAmount": 119341.43,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:33.805Z",
+    "dateCollected": "2026-10-26T12:48:41.972Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4647,12 +4695,12 @@
     "receiveCurrency": "UGX",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 5877.3133,
-    "receiveAmount": 29386566.3,
+    "exchangeRate": 5926.6355,
+    "receiveAmount": 29633177.7,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:35.370Z",
+    "dateCollected": "2026-10-26T12:48:43.442Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4663,12 +4711,12 @@
     "receiveCurrency": "UGX",
     "sendAmount": 5000,
     "fee": 75.62,
-    "exchangeRate": 5913.23,
-    "receiveAmount": 29118991.55,
+    "exchangeRate": 5961.97,
+    "receiveAmount": 29359005.83,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:35.370Z",
+    "dateCollected": "2026-10-26T12:48:43.442Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4679,12 +4727,12 @@
     "receiveCurrency": "UGX",
     "sendAmount": 5000,
     "fee": 0,
-    "exchangeRate": 5734.43,
-    "receiveAmount": 28672150,
+    "exchangeRate": 5773.67,
+    "receiveAmount": 28868350,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:35.370Z",
+    "dateCollected": "2026-10-26T12:48:43.442Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4695,12 +4743,12 @@
     "receiveCurrency": "UGX",
     "sendAmount": 5000,
     "fee": 2.99,
-    "exchangeRate": 5636.6507,
-    "receiveAmount": 28166400.54,
+    "exchangeRate": 5660.7696,
+    "receiveAmount": 28286933.15,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:35.370Z",
+    "dateCollected": "2026-10-26T12:48:43.442Z",
     "source": "exiap-www.exiap.co.uk"
   },
   {
@@ -4716,7 +4764,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:36.635Z",
+    "dateCollected": "2026-10-26T12:48:44.478Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4727,12 +4775,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 10000,
     "fee": 44.63,
-    "exchangeRate": 66.784,
-    "receiveAmount": 664859.43,
+    "exchangeRate": 66.9328,
+    "receiveAmount": 666340.79,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:36.635Z",
+    "dateCollected": "2026-10-26T12:48:44.479Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4743,12 +4791,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 66.378525,
-    "receiveAmount": 663785.25,
+    "exchangeRate": 66.531501,
+    "receiveAmount": 665315.01,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:36.635Z",
+    "dateCollected": "2026-10-26T12:48:44.479Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4759,12 +4807,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 10000,
     "fee": 1.81,
-    "exchangeRate": 66.337,
-    "receiveAmount": 663250.14,
+    "exchangeRate": 66.417,
+    "receiveAmount": 664049.84,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:36.635Z",
+    "dateCollected": "2026-10-26T12:48:44.479Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4775,12 +4823,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 65.8268,
-    "receiveAmount": 658268,
+    "exchangeRate": 66.2582,
+    "receiveAmount": 662582,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:36.635Z",
+    "dateCollected": "2026-10-26T12:48:44.479Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4791,12 +4839,12 @@
     "receiveCurrency": "INR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 64.9673,
-    "receiveAmount": 649673,
+    "exchangeRate": 65.1926,
+    "receiveAmount": 651926,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:36.635Z",
+    "dateCollected": "2026-10-26T12:48:44.479Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4812,7 +4860,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:36.635Z",
+    "dateCollected": "2026-10-26T12:48:44.479Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4823,12 +4871,12 @@
     "receiveCurrency": "USD",
     "sendAmount": 15000,
     "fee": 52.42,
-    "exchangeRate": 0.70365,
-    "receiveAmount": 10517.86,
+    "exchangeRate": 0.70295,
+    "receiveAmount": 10507.4,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:40.122Z",
+    "dateCollected": "2026-10-26T12:48:47.040Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4839,28 +4887,12 @@
     "receiveCurrency": "USD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.69977993,
-    "receiveAmount": 10496.7,
+    "exchangeRate": 0.69903405,
+    "receiveAmount": 10485.51,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:40.122Z",
-    "source": "exiap-www.thecurrencyshop.com.au"
-  },
-  {
-    "provider": "CurrencyFair",
-    "providerSlug": "currencyfair",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "AUD",
-    "receiveCurrency": "USD",
-    "sendAmount": 15000,
-    "fee": 5.72,
-    "exchangeRate": 0.6997,
-    "receiveAmount": 10491.5,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:40.122Z",
+    "dateCollected": "2026-10-26T12:48:47.040Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4871,12 +4903,28 @@
     "receiveCurrency": "USD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.6994281,
-    "receiveAmount": 10491.42,
+    "exchangeRate": 0.6986826,
+    "receiveAmount": 10480.24,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:40.122Z",
+    "dateCollected": "2026-10-26T12:48:47.040Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "CurrencyFair",
+    "providerSlug": "currencyfair",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "USD",
+    "sendAmount": 15000,
+    "fee": 5.72,
+    "exchangeRate": 0.6988,
+    "receiveAmount": 10478,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:47.040Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4887,12 +4935,12 @@
     "receiveCurrency": "USD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.698,
-    "receiveAmount": 10470,
+    "exchangeRate": 0.6978,
+    "receiveAmount": 10467,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:40.122Z",
+    "dateCollected": "2026-10-26T12:48:47.040Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4903,12 +4951,12 @@
     "receiveCurrency": "USD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.6857,
-    "receiveAmount": 10285.5,
+    "exchangeRate": 0.6853,
+    "receiveAmount": 10279.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:40.122Z",
+    "dateCollected": "2026-10-26T12:48:47.040Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4924,7 +4972,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:40.122Z",
+    "dateCollected": "2026-10-26T12:48:47.040Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4935,12 +4983,12 @@
     "receiveCurrency": "CNY",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 4.6504756,
-    "receiveAmount": 46504.76,
+    "exchangeRate": 4.6427557,
+    "receiveAmount": 46427.56,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:43.056Z",
+    "dateCollected": "2026-10-26T12:48:49.758Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4951,12 +4999,12 @@
     "receiveCurrency": "CNY",
     "sendAmount": 10000,
     "fee": 90.65,
-    "exchangeRate": 4.69271,
-    "receiveAmount": 46501.71,
+    "exchangeRate": 4.68478,
+    "receiveAmount": 46423.12,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:43.056Z",
+    "dateCollected": "2026-10-26T12:48:49.758Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4967,12 +5015,12 @@
     "receiveCurrency": "CNY",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 4.6395,
-    "receiveAmount": 46395,
+    "exchangeRate": 4.6323,
+    "receiveAmount": 46323,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:43.056Z",
+    "dateCollected": "2026-10-26T12:48:49.758Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4983,12 +5031,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 50.44,
-    "exchangeRate": 1.23378,
-    "receiveAmount": 18444.47,
+    "exchangeRate": 1.23237,
+    "receiveAmount": 18423.39,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:44.283Z",
+    "dateCollected": "2026-10-26T12:48:50.817Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -4999,28 +5047,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 1.2269942,
-    "receiveAmount": 18404.91,
+    "exchangeRate": 1.2253135,
+    "receiveAmount": 18379.7,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:44.283Z",
-    "source": "exiap-www.thecurrencyshop.com.au"
-  },
-  {
-    "provider": "XE",
-    "providerSlug": "xe",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "AUD",
-    "receiveCurrency": "NZD",
-    "sendAmount": 15000,
-    "fee": 0,
-    "exchangeRate": 1.2263773,
-    "receiveAmount": 18395.66,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:44.283Z",
+    "dateCollected": "2026-10-26T12:48:50.817Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5031,12 +5063,28 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 4.08,
-    "exchangeRate": 1.2264,
-    "receiveAmount": 18391,
+    "exchangeRate": 1.2253,
+    "receiveAmount": 18374.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:44.283Z",
+    "dateCollected": "2026-10-26T12:48:50.817Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "XE",
+    "providerSlug": "xe",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "NZD",
+    "sendAmount": 15000,
+    "fee": 0,
+    "exchangeRate": 1.2246975,
+    "receiveAmount": 18370.46,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:50.817Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5047,12 +5095,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 1.2242,
-    "receiveAmount": 18363,
+    "exchangeRate": 1.223,
+    "receiveAmount": 18345,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:44.283Z",
+    "dateCollected": "2026-10-26T12:48:50.817Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5068,7 +5116,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:44.283Z",
+    "dateCollected": "2026-10-26T12:48:50.817Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5079,12 +5127,12 @@
     "receiveCurrency": "NZD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 1.1938,
-    "receiveAmount": 17907,
+    "exchangeRate": 1.1928,
+    "receiveAmount": 17892,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:44.283Z",
+    "dateCollected": "2026-10-26T12:48:50.817Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5095,12 +5143,12 @@
     "receiveCurrency": "IDR",
     "sendAmount": 10000,
     "fee": 38.38,
-    "exchangeRate": 12726.5,
-    "receiveAmount": 126776556.93,
+    "exchangeRate": 12718.4,
+    "receiveAmount": 126695867.81,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:45.351Z",
+    "dateCollected": "2026-10-26T12:48:51.936Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5111,12 +5159,12 @@
     "receiveCurrency": "IDR",
     "sendAmount": 10000,
     "fee": 1.58,
-    "exchangeRate": 12662.42,
-    "receiveAmount": 126604148.3,
+    "exchangeRate": 12647.91,
+    "receiveAmount": 126459148.28,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:45.351Z",
+    "dateCollected": "2026-10-26T12:48:51.936Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5127,12 +5175,28 @@
     "receiveCurrency": "IDR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 12650.141,
-    "receiveAmount": 126501410,
+    "exchangeRate": 12644.177,
+    "receiveAmount": 126441770,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:45.351Z",
+    "dateCollected": "2026-10-26T12:48:51.936Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "OFX",
+    "providerSlug": "ofx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "IDR",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 12493.205,
+    "receiveAmount": 124932050,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:51.936Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5143,12 +5207,12 @@
     "receiveCurrency": "IDR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 12438.4,
-    "receiveAmount": 124384000,
+    "exchangeRate": 12434.87,
+    "receiveAmount": 124348700,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:45.351Z",
+    "dateCollected": "2026-10-26T12:48:51.936Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5159,12 +5223,12 @@
     "receiveCurrency": "IDR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 11986.473,
-    "receiveAmount": 119864734,
+    "exchangeRate": 11999.77,
+    "receiveAmount": 119997703,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:45.351Z",
+    "dateCollected": "2026-10-26T12:48:51.936Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5175,12 +5239,12 @@
     "receiveCurrency": "VND",
     "sendAmount": 10000,
     "fee": 57.52,
-    "exchangeRate": 18181.5,
-    "receiveAmount": 180769200.12,
+    "exchangeRate": 18167.3,
+    "receiveAmount": 180628016.9,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:46.326Z",
+    "dateCollected": "2026-10-26T12:48:53.473Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5191,12 +5255,12 @@
     "receiveCurrency": "VND",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 18072.411,
-    "receiveAmount": 180724110,
+    "exchangeRate": 18059.588,
+    "receiveAmount": 180595884,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:46.326Z",
+    "dateCollected": "2026-10-26T12:48:53.473Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5207,12 +5271,28 @@
     "receiveCurrency": "VND",
     "sendAmount": 10000,
     "fee": 4,
-    "exchangeRate": 18001.8,
-    "receiveAmount": 179946053.12,
+    "exchangeRate": 17992,
+    "receiveAmount": 179848071.44,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:46.326Z",
+    "dateCollected": "2026-10-26T12:48:53.473Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "OFX",
+    "providerSlug": "ofx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "VND",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 17981.995,
+    "receiveAmount": 179819947,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:48:53.473Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5223,12 +5303,12 @@
     "receiveCurrency": "VND",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 17874.14,
-    "receiveAmount": 178741400,
+    "exchangeRate": 17864.67,
+    "receiveAmount": 178646700,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:46.326Z",
+    "dateCollected": "2026-10-26T12:48:53.473Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5239,12 +5319,12 @@
     "receiveCurrency": "VND",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 17047.102,
-    "receiveAmount": 170471023,
+    "exchangeRate": 17034.019,
+    "receiveAmount": 170340190,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:46.326Z",
+    "dateCollected": "2026-10-26T12:48:53.473Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5260,7 +5340,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:47.603Z",
+    "dateCollected": "2026-10-26T12:48:54.684Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5276,7 +5356,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:47.603Z",
+    "dateCollected": "2026-10-26T12:48:54.684Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5292,7 +5372,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:47.603Z",
+    "dateCollected": "2026-10-26T12:48:54.684Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5308,7 +5388,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:47.603Z",
+    "dateCollected": "2026-10-26T12:48:54.684Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5324,7 +5404,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:47.603Z",
+    "dateCollected": "2026-10-26T12:48:54.684Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5340,7 +5420,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:47.603Z",
+    "dateCollected": "2026-10-26T12:48:54.684Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5356,7 +5436,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:47.603Z",
+    "dateCollected": "2026-10-26T12:48:54.684Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5372,7 +5452,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:48.560Z",
+    "dateCollected": "2026-10-26T12:48:55.639Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5388,7 +5468,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:48.560Z",
+    "dateCollected": "2026-10-26T12:48:55.639Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5404,7 +5484,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:48.560Z",
+    "dateCollected": "2026-10-26T12:48:55.639Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5420,7 +5500,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:48.560Z",
+    "dateCollected": "2026-10-26T12:48:55.639Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5436,7 +5516,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:48.560Z",
+    "dateCollected": "2026-10-26T12:48:55.639Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5452,7 +5532,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:49.834Z",
+    "dateCollected": "2026-10-26T12:48:56.546Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5468,7 +5548,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:49.834Z",
+    "dateCollected": "2026-10-26T12:48:56.546Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5484,7 +5564,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:49.834Z",
+    "dateCollected": "2026-10-26T12:48:56.546Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5500,7 +5580,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:49.834Z",
+    "dateCollected": "2026-10-26T12:48:56.546Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5516,7 +5596,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:49.834Z",
+    "dateCollected": "2026-10-26T12:48:56.546Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5532,7 +5612,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:49.834Z",
+    "dateCollected": "2026-10-26T12:48:56.546Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5548,7 +5628,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:49.834Z",
+    "dateCollected": "2026-10-26T12:48:56.546Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5559,12 +5639,12 @@
     "receiveCurrency": "MYR",
     "sendAmount": 10000,
     "fee": 36.66,
-    "exchangeRate": 2.87266,
-    "receiveAmount": 28621.29,
+    "exchangeRate": 2.87187,
+    "receiveAmount": 28613.42,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:50.868Z",
+    "dateCollected": "2026-10-26T12:48:57.719Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5575,12 +5655,12 @@
     "receiveCurrency": "MYR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 2.8547282,
-    "receiveAmount": 28547.28,
+    "exchangeRate": 2.8542312,
+    "receiveAmount": 28542.31,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:50.868Z",
+    "dateCollected": "2026-10-26T12:48:57.719Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5591,12 +5671,12 @@
     "receiveCurrency": "MYR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 2.8405,
-    "receiveAmount": 28405,
+    "exchangeRate": 2.8408,
+    "receiveAmount": 28408,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:50.868Z",
+    "dateCollected": "2026-10-26T12:48:57.719Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5607,12 +5687,12 @@
     "receiveCurrency": "MYR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 2.8175,
-    "receiveAmount": 28175,
+    "exchangeRate": 2.8159,
+    "receiveAmount": 28159,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:50.868Z",
+    "dateCollected": "2026-10-26T12:48:57.719Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5628,7 +5708,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:51.900Z",
+    "dateCollected": "2026-10-26T12:48:58.930Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5644,7 +5724,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:51.900Z",
+    "dateCollected": "2026-10-26T12:48:58.930Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5660,7 +5740,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:51.900Z",
+    "dateCollected": "2026-10-26T12:48:58.930Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5676,7 +5756,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:51.900Z",
+    "dateCollected": "2026-10-26T12:48:58.930Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5692,7 +5772,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:51.900Z",
+    "dateCollected": "2026-10-26T12:48:58.930Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5708,7 +5788,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:51.900Z",
+    "dateCollected": "2026-10-26T12:48:58.930Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5724,7 +5804,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:51.900Z",
+    "dateCollected": "2026-10-26T12:48:58.930Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5740,7 +5820,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:53.184Z",
+    "dateCollected": "2026-10-26T12:49:00.058Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5756,7 +5836,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:53.184Z",
+    "dateCollected": "2026-10-26T12:49:00.058Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5772,7 +5852,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:53.184Z",
+    "dateCollected": "2026-10-26T12:49:00.058Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5788,7 +5868,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:53.184Z",
+    "dateCollected": "2026-10-26T12:49:00.058Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5804,7 +5884,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:53.184Z",
+    "dateCollected": "2026-10-26T12:49:00.058Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5820,7 +5900,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:53.184Z",
+    "dateCollected": "2026-10-26T12:49:00.058Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5836,7 +5916,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:53.184Z",
+    "dateCollected": "2026-10-26T12:49:00.058Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5852,7 +5932,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:53.184Z",
+    "dateCollected": "2026-10-26T12:49:00.058Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5863,12 +5943,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 10000,
     "fee": 49.7,
-    "exchangeRate": 233.638,
-    "receiveAmount": 2324768.19,
+    "exchangeRate": 233.415,
+    "receiveAmount": 2322549.27,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:54.376Z",
+    "dateCollected": "2026-10-26T12:49:01.692Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5879,12 +5959,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 232.23617,
-    "receiveAmount": 2322361.72,
+    "exchangeRate": 231.99761,
+    "receiveAmount": 2319976.12,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:54.376Z",
+    "dateCollected": "2026-10-26T12:49:01.692Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5895,12 +5975,28 @@
     "receiveCurrency": "LKR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 231.82,
-    "receiveAmount": 2318200,
+    "exchangeRate": 231.67,
+    "receiveAmount": 2316700,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:54.376Z",
+    "dateCollected": "2026-10-26T12:49:01.692Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "OFX",
+    "providerSlug": "ofx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "LKR",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 230.807,
+    "receiveAmount": 2308070,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:49:01.692Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5911,12 +6007,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 224.852,
-    "receiveAmount": 2248520,
+    "exchangeRate": 224.586,
+    "receiveAmount": 2245860,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:54.376Z",
+    "dateCollected": "2026-10-26T12:49:01.692Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5927,12 +6023,12 @@
     "receiveCurrency": "LKR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 217.8613,
-    "receiveAmount": 2178613,
+    "exchangeRate": 218.0243,
+    "receiveAmount": 2180243,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:54.376Z",
+    "dateCollected": "2026-10-26T12:49:01.692Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5948,7 +6044,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:55.495Z",
+    "dateCollected": "2026-10-26T12:49:02.823Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5959,12 +6055,12 @@
     "receiveCurrency": "PKR",
     "sendAmount": 10000,
     "fee": 57.85,
-    "exchangeRate": 194.787,
-    "receiveAmount": 1936601.57,
+    "exchangeRate": 194.607,
+    "receiveAmount": 1934811.99,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:55.495Z",
+    "dateCollected": "2026-10-26T12:49:02.824Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5975,12 +6071,28 @@
     "receiveCurrency": "PKR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 193.61828,
-    "receiveAmount": 1936182.78,
+    "exchangeRate": 193.41153,
+    "receiveAmount": 1934115.26,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:55.495Z",
+    "dateCollected": "2026-10-26T12:49:02.824Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "OFX",
+    "providerSlug": "ofx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "PKR",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 192.0134,
+    "receiveAmount": 1920134,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:49:02.824Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -5991,12 +6103,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 10000,
     "fee": 50.1,
-    "exchangeRate": 11.6721,
-    "receiveAmount": 116136.23,
+    "exchangeRate": 11.6814,
+    "receiveAmount": 116228.76,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:56.588Z",
+    "dateCollected": "2026-10-26T12:49:03.699Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6007,12 +6119,44 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 11.602067,
-    "receiveAmount": 116020.67,
+    "exchangeRate": 11.620158,
+    "receiveAmount": 116201.58,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:56.588Z",
+    "dateCollected": "2026-10-26T12:49:03.699Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "OFX",
+    "providerSlug": "ofx",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "ZAR",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 11.5902,
+    "receiveAmount": 115902,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:49:03.699Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "ZAR",
+    "sendAmount": 10000,
+    "fee": 0,
+    "exchangeRate": 11.59,
+    "receiveAmount": 115900,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:49:03.699Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6023,12 +6167,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 10000,
     "fee": 2.16,
-    "exchangeRate": 11.579,
-    "receiveAmount": 115765.04,
+    "exchangeRate": 11.589,
+    "receiveAmount": 115864.98,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:56.588Z",
+    "dateCollected": "2026-10-26T12:49:03.699Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6039,28 +6183,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 11.567051,
-    "receiveAmount": 115670.51,
+    "exchangeRate": 11.585087,
+    "receiveAmount": 115850.87,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:56.588Z",
-    "source": "exiap-www.thecurrencyshop.com.au"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "AUD",
-    "receiveCurrency": "ZAR",
-    "sendAmount": 10000,
-    "fee": 0,
-    "exchangeRate": 11.56,
-    "receiveAmount": 115600,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:56.588Z",
+    "dateCollected": "2026-10-26T12:49:03.699Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6071,12 +6199,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 11.2991,
-    "receiveAmount": 112991,
+    "exchangeRate": 11.3078,
+    "receiveAmount": 113078,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:56.588Z",
+    "dateCollected": "2026-10-26T12:49:03.699Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6087,12 +6215,12 @@
     "receiveCurrency": "ZAR",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 11.1068,
-    "receiveAmount": 111068,
+    "exchangeRate": 11.1225,
+    "receiveAmount": 111225,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:56.588Z",
+    "dateCollected": "2026-10-26T12:49:03.699Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6103,28 +6231,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 15000,
     "fee": 47.13,
-    "exchangeRate": 0.627973,
-    "receiveAmount": 9390,
+    "exchangeRate": 0.62661,
+    "receiveAmount": 9369.62,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:57.513Z",
-    "source": "exiap-www.thecurrencyshop.com.au"
-  },
-  {
-    "provider": "CurrencyFair",
-    "providerSlug": "currencyfair",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "AUD",
-    "receiveCurrency": "EUR",
-    "sendAmount": 15000,
-    "fee": 4.8,
-    "exchangeRate": 0.625,
-    "receiveAmount": 9372,
-    "paymentMethod": null,
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:57.513Z",
+    "dateCollected": "2026-10-26T12:49:04.747Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6135,12 +6247,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.62451915,
-    "receiveAmount": 9367.79,
+    "exchangeRate": 0.62319149,
+    "receiveAmount": 9347.87,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:57.513Z",
+    "dateCollected": "2026-10-26T12:49:04.747Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6151,12 +6263,28 @@
     "receiveCurrency": "EUR",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.62420516,
-    "receiveAmount": 9363.08,
+    "exchangeRate": 0.62287817,
+    "receiveAmount": 9343.17,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:57.513Z",
+    "dateCollected": "2026-10-26T12:49:04.747Z",
+    "source": "exiap-www.thecurrencyshop.com.au"
+  },
+  {
+    "provider": "CurrencyFair",
+    "providerSlug": "currencyfair",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AUD",
+    "receiveCurrency": "EUR",
+    "sendAmount": 15000,
+    "fee": 4.82,
+    "exchangeRate": 0.623,
+    "receiveAmount": 9342,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-10-26T12:49:04.747Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6167,12 +6295,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.6196,
-    "receiveAmount": 9294,
+    "exchangeRate": 0.6219,
+    "receiveAmount": 9328.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:57.513Z",
+    "dateCollected": "2026-10-26T12:49:04.747Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6183,12 +6311,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.6069,
-    "receiveAmount": 9103.5,
+    "exchangeRate": 0.606,
+    "receiveAmount": 9090,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:57.513Z",
+    "dateCollected": "2026-10-26T12:49:04.747Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6199,12 +6327,12 @@
     "receiveCurrency": "EUR",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.6037,
-    "receiveAmount": 9055.5,
+    "exchangeRate": 0.6034,
+    "receiveAmount": 9051,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:57.513Z",
+    "dateCollected": "2026-10-26T12:49:04.747Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6215,12 +6343,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 15000,
     "fee": 46.1,
-    "exchangeRate": 0.98529,
-    "receiveAmount": 14733.93,
+    "exchangeRate": 0.984482,
+    "receiveAmount": 14721.85,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:58.620Z",
+    "dateCollected": "2026-10-26T12:49:05.652Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6231,12 +6359,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.97994052,
-    "receiveAmount": 14699.11,
+    "exchangeRate": 0.97924139,
+    "receiveAmount": 14688.62,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:58.620Z",
+    "dateCollected": "2026-10-26T12:49:05.652Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6247,12 +6375,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.97944784,
-    "receiveAmount": 14691.72,
+    "exchangeRate": 0.97874906,
+    "receiveAmount": 14681.24,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:58.620Z",
+    "dateCollected": "2026-10-26T12:49:05.652Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6262,13 +6390,13 @@
     "sendCurrency": "AUD",
     "receiveCurrency": "CAD",
     "sendAmount": 15000,
-    "fee": 4.08,
-    "exchangeRate": 0.9792,
-    "receiveAmount": 14684.01,
+    "fee": 4.09,
+    "exchangeRate": 0.9784,
+    "receiveAmount": 14672,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:58.620Z",
+    "dateCollected": "2026-10-26T12:49:05.652Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6279,12 +6407,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.9779,
-    "receiveAmount": 14668.5,
+    "exchangeRate": 0.9772,
+    "receiveAmount": 14658,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:58.620Z",
+    "dateCollected": "2026-10-26T12:49:05.652Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6295,12 +6423,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.973,
-    "receiveAmount": 14595,
+    "exchangeRate": 0.9725,
+    "receiveAmount": 14587.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:58.620Z",
+    "dateCollected": "2026-10-26T12:49:05.652Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6311,12 +6439,12 @@
     "receiveCurrency": "CAD",
     "sendAmount": 15000,
     "fee": 0,
-    "exchangeRate": 0.9559,
-    "receiveAmount": 14338.5,
+    "exchangeRate": 0.9549,
+    "receiveAmount": 14323.5,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:58.620Z",
+    "dateCollected": "2026-10-26T12:49:05.652Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6332,7 +6460,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:58.620Z",
+    "dateCollected": "2026-10-26T12:49:05.652Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6343,12 +6471,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 90.807864,
-    "receiveAmount": 908078.64,
+    "exchangeRate": 90.799614,
+    "receiveAmount": 907996.14,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:59.532Z",
+    "dateCollected": "2026-10-26T12:49:06.648Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6359,12 +6487,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 90.533796,
-    "receiveAmount": 905337.96,
+    "exchangeRate": 90.525571,
+    "receiveAmount": 905255.71,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:59.532Z",
+    "dateCollected": "2026-10-26T12:49:06.648Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6375,12 +6503,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 10000,
     "fee": 97.13,
-    "exchangeRate": 91.356,
-    "receiveAmount": 904686.59,
+    "exchangeRate": 91.3361,
+    "receiveAmount": 904489.52,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:59.532Z",
+    "dateCollected": "2026-10-26T12:49:06.648Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   },
   {
@@ -6391,12 +6519,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 10000,
     "fee": 0,
-    "exchangeRate": 89.22,
-    "receiveAmount": 892200,
+    "exchangeRate": 89.08,
+    "receiveAmount": 890800,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-10-26T04:21:59.532Z",
+    "dateCollected": "2026-10-26T12:49:06.648Z",
     "source": "exiap-www.thecurrencyshop.com.au"
   }
 ]
