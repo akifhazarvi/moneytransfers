@@ -993,10 +993,10 @@
     "date": "2026-10-27",
     "providers": {
       "taptap-send": {
-        "rate": 0.85,
+        "rate": 0.84,
         "fee": 0,
-        "markup": -0.8,
-        "receiveAmount": 85
+        "markup": 0.38,
+        "receiveAmount": 84
       }
     }
   }
