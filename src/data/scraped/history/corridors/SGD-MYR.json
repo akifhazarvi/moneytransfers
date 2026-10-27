@@ -6019,22 +6019,22 @@
     "date": "2026-10-27",
     "providers": {
       "instarem": {
-        "rate": 3.1886,
+        "rate": 3.1895,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 318.86
+        "receiveAmount": 318.95
       },
       "paypal": {
-        "rate": 3.05473,
+        "rate": 3.05413,
         "fee": 6.39,
-        "markup": 4.24,
-        "receiveAmount": 285.95
+        "markup": 4.26,
+        "receiveAmount": 285.9
       },
       "hsbc-sg": {
-        "rate": 3.18065,
+        "rate": 3.1906,
         "fee": 0,
-        "markup": 0.3,
-        "receiveAmount": 318.07
+        "markup": -0.02,
+        "receiveAmount": 319.06
       }
     }
   }

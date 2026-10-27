@@ -2783,16 +2783,16 @@
     "date": "2026-10-27",
     "providers": {
       "lemfi": {
-        "rate": 62.65,
+        "rate": 62.3,
         "fee": 0,
-        "markup": 0.34,
-        "receiveAmount": 6265
+        "markup": 0.4,
+        "receiveAmount": 6230
       },
       "taptap-send": {
-        "rate": 63,
+        "rate": 62.45,
         "fee": 0,
-        "markup": -0.21,
-        "receiveAmount": 6300
+        "markup": 0.66,
+        "receiveAmount": 6245
       }
     }
   }

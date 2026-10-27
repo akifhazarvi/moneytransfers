@@ -4313,22 +4313,22 @@
     "date": "2026-10-27",
     "providers": {
       "lemfi": {
-        "rate": 1464.65,
+        "rate": 1466.15,
         "fee": 0,
-        "markup": 0.9,
-        "receiveAmount": 146465
+        "markup": 0.83,
+        "receiveAmount": 146615
       },
       "taptap-send": {
-        "rate": 1465,
+        "rate": 1468,
         "fee": 0,
-        "markup": 0.87,
-        "receiveAmount": 146500
+        "markup": 0.67,
+        "receiveAmount": 146800
       },
       "wise": {
-        "rate": 1474.27,
-        "fee": 9.03,
-        "markup": 0.25,
-        "receiveAmount": 134114.34
+        "rate": 1475.21,
+        "fee": 9.13,
+        "markup": 0.18,
+        "receiveAmount": 134052.33
       }
     }
   }
