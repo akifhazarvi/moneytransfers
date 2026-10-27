@@ -1,60 +1,60 @@
 {
-  "dataAsOf": "2026-10-26",
-  "corridorsScored": 211,
+  "dataAsOf": "2026-10-27",
+  "corridorsScored": 203,
   "corridorsWithAnyScore": 1037,
-  "singleProviderReadings": 826,
+  "singleProviderReadings": 834,
   "bands": {
-    "exceptional": 38,
-    "great": 55,
-    "good": 53,
-    "typical": 48,
-    "poor": 17
+    "exceptional": 34,
+    "great": 59,
+    "good": 52,
+    "typical": 37,
+    "poor": 21
   },
-  "goodOrBetterPct": 69,
+  "goodOrBetterPct": 71,
   "confidence": {
-    "high": 211,
+    "high": 203,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 212,
+  "medianDaysObserved": 214,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 49,
+      "score": 50,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.54% vs the 30-day average, 31% up the 90-day range. Rates are falling — -0.28% week on week. Today's best beats the median provider by +2.26%.",
+      "explanation": "Best rate -0.50% vs the 30-day average, 31% up the 90-day range. Rates are falling — -0.11% week on week. Today's best beats the median provider by +2.38%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 30.51810101885954,
+          "score": 31.27682636028595,
           "detail": "31% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 41.06029492277602,
-          "detail": "-0.54% vs the 30-day average"
+          "score": 41.70653210641463,
+          "detail": "-0.50% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
           "score": 100,
-          "detail": "today's best beats the median provider by +2.26%"
+          "detail": "today's best beats the median provider by +2.38%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 43.09412745575769,
-          "detail": "falling — -0.28% week on week"
+          "score": 47.1730249128323,
+          "detail": "falling — -0.11% week on week"
         }
       ],
-      "daysObserved": 219,
+      "daysObserved": 220,
       "rangeWindowDays": 90,
       "confidence": "high"
     }
