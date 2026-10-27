@@ -6888,10 +6888,10 @@
     "date": "2026-10-27",
     "providers": {
       "lemfi": {
-        "rate": 965.5,
+        "rate": 975,
         "fee": 0,
-        "markup": 0.07,
-        "receiveAmount": 96550
+        "markup": -2.01,
+        "receiveAmount": 97500
       },
       "ria": {
         "rate": 966.257,
@@ -6906,22 +6906,22 @@
         "receiveAmount": 97500
       },
       "xoom": {
-        "rate": 943.081,
+        "rate": 938.83,
         "fee": 0,
-        "markup": 1.68,
-        "receiveAmount": 94308.09
+        "markup": 2.12,
+        "receiveAmount": 93882.97
       },
       "instarem": {
-        "rate": 947.688,
+        "rate": 947.245,
         "fee": 0,
-        "markup": 1.2,
-        "receiveAmount": 94768.79
+        "markup": 1.24,
+        "receiveAmount": 94724.45
       },
       "western-union": {
-        "rate": 941.169,
+        "rate": 940.733,
         "fee": 1.99,
-        "markup": 1.88,
-        "receiveAmount": 92244
+        "markup": 1.92,
+        "receiveAmount": 92201.27
       }
     }
   }
