@@ -5278,34 +5278,34 @@
     "date": "2026-10-28",
     "providers": {
       "skrill": {
-        "rate": 14.9594,
+        "rate": 14.9585,
         "fee": 0,
-        "markup": 4.73,
-        "receiveAmount": 1495.94
+        "markup": 4.66,
+        "receiveAmount": 1495.85
       },
       "western-union": {
-        "rate": 15.6665,
+        "rate": 15.6658,
         "fee": 10,
-        "markup": 0.22,
-        "receiveAmount": 1409.99
+        "markup": 0.16,
+        "receiveAmount": 1409.92
       },
       "worldremit": {
-        "rate": 15.5249,
+        "rate": 15.5183,
         "fee": 5,
-        "markup": 1.12,
-        "receiveAmount": 1474.86
+        "markup": 1.1,
+        "receiveAmount": 1474.24
       },
       "instarem": {
-        "rate": 15.6578,
+        "rate": 15.6576,
         "fee": 0.65,
-        "markup": 0.28,
-        "receiveAmount": 1555.6
+        "markup": 0.21,
+        "receiveAmount": 1555.58
       },
       "wise": {
-        "rate": 15.7011,
+        "rate": 15.6896,
         "fee": 5.19,
         "markup": 0,
-        "receiveAmount": 1488.62
+        "receiveAmount": 1487.53
       }
     }
   }

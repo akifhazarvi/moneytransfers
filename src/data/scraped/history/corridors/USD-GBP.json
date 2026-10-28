@@ -21601,14 +21601,14 @@
       "boss-money": {
         "rate": 0.7309,
         "fee": 2.49,
-        "markup": 2.64,
+        "markup": 2.83,
         "receiveAmount": 71.27
       },
       "xe": {
-        "rate": 0.7432,
+        "rate": 0.7445,
         "fee": 3,
-        "markup": 1,
-        "receiveAmount": 72.09
+        "markup": 1.02,
+        "receiveAmount": 72.22
       },
       "western-union": {
         "rate": 0.741085,
@@ -21617,10 +21617,10 @@
         "receiveAmount": 73.37
       },
       "currencyfair": {
-        "rate": 0.7459,
-        "fee": 3.35,
-        "markup": 0.64,
-        "receiveAmount": 72.09
+        "rate": 0.7474,
+        "fee": 3.34,
+        "markup": 0.63,
+        "receiveAmount": 72.24
       },
       "worldremit": {
         "rate": 0.731132,
@@ -21629,10 +21629,10 @@
         "receiveAmount": 71.66
       },
       "paysend": {
-        "rate": 0.73819,
+        "rate": 0.739618,
         "fee": 1.99,
         "markup": 1.67,
-        "receiveAmount": 72.35
+        "receiveAmount": 72.49
       },
       "remitly": {
         "rate": 0.7486,
@@ -21641,10 +21641,10 @@
         "receiveAmount": 72.62
       },
       "revolut": {
-        "rate": 0.748388,
+        "rate": 0.749742,
         "fee": 0.75,
-        "markup": 0.31,
-        "receiveAmount": 74.28
+        "markup": 0.32,
+        "receiveAmount": 74.41
       },
       "wise": {
         "rate": 0.752134,
@@ -21669,6 +21669,12 @@
         "fee": 4.99,
         "markup": 4.37,
         "receiveAmount": 68.33
+      },
+      "moneygram": {
+        "rate": 0.7472,
+        "fee": 1.99,
+        "markup": 0.66,
+        "receiveAmount": 73.23
       }
     }
   }
