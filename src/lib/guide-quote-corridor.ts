@@ -63,6 +63,9 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   // "Is my exchange rate good?" uses USD→INR as its lead example; show the
   // live field so readers can grade their own rate against it.
   "is-my-exchange-rate-good": { from: "USD", to: "INR", amount: 1000, heading: "Is your rate good? Compare live USD → INR" },
+  // "Most pesos or naira for $1,000" leads with Mexico; show the live USD → MXN
+  // field at $1,000 so readers see who delivers the most pesos today.
+  "most-pesos-or-naira-for-1000": { from: "USD", to: "MXN", amount: 1000, heading: "Who sends the most pesos? Live USD → MXN rates" },
   // GBP leads this guide's own excerpt and outnumbers USD in its body, and
   // GBP→AUD quotes 22 providers against USD→AUD's 8.
   "send-money-to-australia-guide": { from: "GBP", to: "AUD", amount: 1000, heading: "Top GBP → AUD providers right now" },
