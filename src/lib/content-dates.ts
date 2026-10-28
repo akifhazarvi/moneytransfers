@@ -172,7 +172,7 @@ const PAGE_UPDATED = {
   "/corrections": "2026-10-18",              // log brought up to date: September–October corrections
   "/disclaimer": "2026-10-17",               // what we are and are not; regulator check; data caveats as prose
   "/cookies": "2026-10-20",                  // consent asked where required, GPC honoured, page-view tally; Clarity cookies listed; smc_ext_* storage
-  "/guides/best-apps-to-send-money-from-us-2026": "2026-09-29",
+  "/guides/best-apps-to-send-money-from-us-2026": "2026-10-28",
 } as const;
 
 export type DatedPage = keyof typeof PAGE_UPDATED;

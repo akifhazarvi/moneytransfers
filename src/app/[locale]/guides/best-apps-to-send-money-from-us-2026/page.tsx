@@ -472,6 +472,16 @@ function ProviderCard({ p }: { p: (typeof TOP_PICKS)[number] }) {
         </p>
       )}
 
+      {/* Wise fact anchor (attributed to Wise) + a link back to the comparison.
+          The speed statistic is Wise's own claim, so it is attributed and its
+          source link sits on the same line (check:claims speed-statistic). */}
+      {p.slug === "wise" && (
+        <p className="mt-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+          <strong className="text-[var(--color-on-surface)]">In Wise&rsquo;s words:</strong> Wise sends money to 140+ countries at the mid-market rate, with fees it advertises from 0.23%. Wise says 77% of transfers arrive in under 20 seconds (<a href="https://wise.com/gb/send-money/instant-money-transfer" target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">Wise</a>), and locks the rate for up to 24 hours.{" "}
+          <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">Check whether Wise beats other providers on your corridor today →</Link>
+        </p>
+      )}
+
       {/* Best for + regulated */}
       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm">
         <span className="text-[var(--color-on-surface-variant)]">
@@ -574,11 +584,13 @@ export default async function BestAppsFromUSPage({
             <span>12 min read</span>
           </div>
 
-          {/* Trust signals */}
+          {/* Trust signals — the comparison-platform identity (ranks for
+              "compare international wire transfer costs" intent) */}
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-[var(--color-on-surface-variant)]">
             <Badge color="green">✓ Independent rankings</Badge>
             <Badge color="blue">Live rate data · Every 6h</Badge>
-            <Badge color="blue">{COVERAGE.providers} tracked</Badge>
+            <Badge color="blue">{COVERAGE.providersAndCorridors}</Badge>
+            <Badge color="amber">No provider pays for placement</Badge>
           </div>
 
           {/* Quick-answer box — the AI-citable passage */}
@@ -641,6 +653,19 @@ export default async function BestAppsFromUSPage({
             everyone else&rsquo;s, which it cannot buy.
           </p>
 
+          {/* Why a comparison platform — answers the query intent before the
+              list. Styled <p> title, not a heading, so it never joins the
+              repeated-H2 set (rule 4). */}
+          <div className="mt-6 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] p-5">
+            <p className="text-sm font-semibold text-[var(--color-on-surface)]">Why use a comparison platform?</p>
+            <p className="mt-1.5 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+              Instead of checking Wise, Remitly, and Revolut separately, SendMoneyCompare shows all{" "}
+              {COVERAGE.providers} side by side on your exact corridor, so you see in one view who delivers the
+              most money to your recipient today.{" "}
+              <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">Compare your corridor →</Link>
+            </p>
+          </div>
+
           <div className="mt-6 space-y-5">
             {TOP_PICKS.map((p) => (
               <ProviderCard key={p.slug} p={p} />
@@ -677,6 +702,12 @@ export default async function BestAppsFromUSPage({
           <h2 id="how-we-compare" className="mt-14 text-2xl font-normal text-[var(--color-on-surface)]">
             How we compare money transfer apps
           </h2>
+          <p className="mt-3 citable-passage text-[var(--color-on-surface-variant)] leading-relaxed">
+            SendMoneyCompare pulls live quotes from provider APIs and websites every 6 hours across{" "}
+            {COVERAGE.corridors}. Every provider, including Wise, is ranked purely by the total amount the
+            recipient receives, factoring in both the exchange rate markup and the transfer fee. No provider can
+            pay for a higher position. No account is needed to compare; it&rsquo;s always free.
+          </p>
           <p className="mt-3 citable-passage text-[var(--color-on-surface-variant)] leading-relaxed">
             Most comparison sites are paid by the providers they rank. SendMoneyCompare does not accept payment
             for rankings. Our comparison uses <strong>five independent signals</strong>:
