@@ -1730,10 +1730,10 @@
     "date": "2026-10-28",
     "providers": {
       "taptap-send": {
-        "rate": 31.33,
+        "rate": 31.4,
         "fee": 0,
-        "markup": 0.12,
-        "receiveAmount": 3133
+        "markup": -0.1,
+        "receiveAmount": 3140
       }
     }
   }

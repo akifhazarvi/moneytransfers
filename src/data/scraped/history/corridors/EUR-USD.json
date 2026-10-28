@@ -15391,7 +15391,7 @@
       "lemfi": {
         "rate": 1.113,
         "fee": 0,
-        "markup": 0.04,
+        "markup": 0.18,
         "receiveAmount": 111.3
       },
       "taptap-send": {
@@ -15401,76 +15401,130 @@
         "receiveAmount": 110
       },
       "sparkasse": {
-        "rate": 1.10905,
+        "rate": 1.11104,
         "fee": 42.5,
-        "markup": 0.28,
-        "receiveAmount": 63.77
+        "markup": 0.1,
+        "receiveAmount": 63.89
       },
       "xoom": {
-        "rate": 1.03368,
+        "rate": 1.03554,
         "fee": 1.99,
-        "markup": 7.06,
-        "receiveAmount": 101.31
+        "markup": 6.89,
+        "receiveAmount": 101.49
       },
       "paypal": {
-        "rate": 1.06801,
+        "rate": 1.06768,
         "fee": 3.99,
-        "markup": 3.97,
-        "receiveAmount": 102.54
+        "markup": 4,
+        "receiveAmount": 102.51
       },
       "deutsche-bank": {
-        "rate": 1.1092,
+        "rate": 1.10955,
         "fee": 36.55,
-        "markup": 0.27,
-        "receiveAmount": 70.38
+        "markup": 0.24,
+        "receiveAmount": 70.4
       },
       "commerzbank": {
-        "rate": 1.10276,
+        "rate": 1.10488,
         "fee": 12.5,
-        "markup": 0.85,
-        "receiveAmount": 96.49
+        "markup": 0.66,
+        "receiveAmount": 96.68
       },
       "ing-de": {
-        "rate": 1.10399,
+        "rate": 1.10598,
         "fee": 22,
-        "markup": 0.74,
-        "receiveAmount": 86.11
+        "markup": 0.56,
+        "receiveAmount": 86.27
       },
       "instarem": {
-        "rate": 1.1048,
+        "rate": 1.10615,
         "fee": 0,
-        "markup": 0.67,
-        "receiveAmount": 110.48
+        "markup": 0.54,
+        "receiveAmount": 110.62
       },
       "western-union": {
-        "rate": 1.08339,
+        "rate": 1.08251,
         "fee": 0.99,
-        "markup": 2.59,
-        "receiveAmount": 107.27
+        "markup": 2.67,
+        "receiveAmount": 107.18
       },
       "monese": {
-        "rate": 1.1137,
+        "rate": 1.11465,
         "fee": 3,
-        "markup": -0.14,
-        "receiveAmount": 108.03
+        "markup": -0.22,
+        "receiveAmount": 108.12
       },
       "skrill": {
-        "rate": 1.06088,
+        "rate": 1.06186,
         "fee": 0,
-        "markup": 4.61,
-        "receiveAmount": 106.09
+        "markup": 4.53,
+        "receiveAmount": 106.19
       },
       "moneygram": {
-        "rate": 1.09719,
+        "rate": 1.09917,
         "fee": 1.99,
-        "markup": 1.35,
-        "receiveAmount": 107.54
+        "markup": 1.17,
+        "receiveAmount": 107.73
       },
       "remitly": {
-        "rate": 1.10524,
+        "rate": 1.10695,
         "fee": 2.99,
-        "markup": 0.63,
-        "receiveAmount": 107.22
+        "markup": 0.47,
+        "receiveAmount": 107.39
+      },
+      "la-banque-postale": {
+        "rate": 1.1155,
+        "fee": 37.9,
+        "markup": -0.3,
+        "receiveAmount": 69.27
+      },
+      "rabobank": {
+        "rate": 1.10803,
+        "fee": 16,
+        "markup": 0.37,
+        "receiveAmount": 93.07
+      },
+      "abn-amro-bank": {
+        "rate": 1.10572,
+        "fee": 10,
+        "markup": 0.58,
+        "receiveAmount": 99.51
+      },
+      "banco-santander-es": {
+        "rate": 1.09728,
+        "fee": 0,
+        "markup": 1.34,
+        "receiveAmount": 109.73
+      },
+      "paysend": {
+        "rate": 1.09922,
+        "fee": 0.4,
+        "markup": 1.17,
+        "receiveAmount": 109.48
+      },
+      "sabadell": {
+        "rate": 1.08183,
+        "fee": 22,
+        "markup": 2.73,
+        "receiveAmount": 84.38
+      },
+      "worldremit": {
+        "rate": 1.09084,
+        "fee": 1.99,
+        "markup": 1.92,
+        "receiveAmount": 106.91
+      },
+      "unicredit": {
+        "rate": 1.1016,
+        "fee": 15.25,
+        "markup": 0.95,
+        "receiveAmount": 93.36
+      },
+      "lacaixa": {
+        "rate": 1.08975,
+        "fee": 27,
+        "markup": 2.02,
+        "receiveAmount": 79.55
       }
     }
   }

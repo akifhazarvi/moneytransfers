@@ -20843,10 +20843,10 @@
         "receiveAmount": 6523.83
       },
       "western-union": {
-        "rate": 67.5838,
+        "rate": 67.8702,
         "fee": 1.99,
-        "markup": 0.09,
-        "receiveAmount": 6623.89
+        "markup": -0.33,
+        "receiveAmount": 6651.96
       },
       "dahabshiil": {
         "rate": 66.8708,
@@ -20867,10 +20867,10 @@
         "receiveAmount": 6692.04
       },
       "remitly": {
-        "rate": 67.55,
+        "rate": 67.73,
         "fee": 1.99,
-        "markup": 0.14,
-        "receiveAmount": 6620.58
+        "markup": -0.13,
+        "receiveAmount": 6638.22
       },
       "ria": {
         "rate": 67.3526,
@@ -20885,34 +20885,34 @@
         "receiveAmount": 6640.18
       },
       "td-bank": {
-        "rate": 65.5949,
+        "rate": 65.7256,
         "fee": 0,
-        "markup": 3.03,
-        "receiveAmount": 6559.49
+        "markup": 2.84,
+        "receiveAmount": 6572.56
       },
       "bmo": {
-        "rate": 66.2003,
+        "rate": 66.4441,
         "fee": 0,
-        "markup": 2.14,
-        "receiveAmount": 6620.03
+        "markup": 1.78,
+        "receiveAmount": 6644.41
       },
       "rbc": {
-        "rate": 65.7952,
+        "rate": 65.7733,
         "fee": 0,
-        "markup": 2.73,
-        "receiveAmount": 6579.52
+        "markup": 2.77,
+        "receiveAmount": 6577.33
       },
       "xoom": {
-        "rate": 66.8845,
+        "rate": 66.6939,
         "fee": 0,
-        "markup": 1.12,
-        "receiveAmount": 6688.45
+        "markup": 1.41,
+        "receiveAmount": 6669.39
       },
       "wise": {
-        "rate": 67.8561,
+        "rate": 68.1207,
         "fee": 2.57,
-        "markup": -0.31,
-        "receiveAmount": 6611.22
+        "markup": -0.7,
+        "receiveAmount": 6637
       }
     }
   }
