@@ -20820,5 +20820,100 @@
         "receiveAmount": 6864.6
       }
     }
+  },
+  {
+    "date": "2026-10-28",
+    "providers": {
+      "instarem": {
+        "rate": 67.5368,
+        "fee": 0,
+        "markup": 0.15,
+        "receiveAmount": 6753.68
+      },
+      "moneygram": {
+        "rate": 67.5321,
+        "fee": 3.99,
+        "markup": 0.47,
+        "receiveAmount": 6483.76
+      },
+      "skrill": {
+        "rate": 65.8973,
+        "fee": 1,
+        "markup": 2.88,
+        "receiveAmount": 6523.83
+      },
+      "western-union": {
+        "rate": 67.6111,
+        "fee": 1.99,
+        "markup": 0.05,
+        "receiveAmount": 6626.57
+      },
+      "dahabshiil": {
+        "rate": 67.0253,
+        "fee": 2.99,
+        "markup": 1.21,
+        "receiveAmount": 6502.12
+      },
+      "paysend": {
+        "rate": 67.6779,
+        "fee": 0,
+        "markup": 0.25,
+        "receiveAmount": 6767.79
+      },
+      "koho": {
+        "rate": 67.8454,
+        "fee": 1.24,
+        "markup": 0,
+        "receiveAmount": 6700.41
+      },
+      "remitly": {
+        "rate": 67.34,
+        "fee": 1.99,
+        "markup": 0.45,
+        "receiveAmount": 6599.99
+      },
+      "ria": {
+        "rate": 67.3754,
+        "fee": 1.9,
+        "markup": 0.4,
+        "receiveAmount": 6609.52
+      },
+      "taptap-send": {
+        "rate": 67.75,
+        "fee": 1.99,
+        "markup": -0.16,
+        "receiveAmount": 6640.18
+      },
+      "td-bank": {
+        "rate": 65.4483,
+        "fee": 0,
+        "markup": 3.25,
+        "receiveAmount": 6544.83
+      },
+      "bmo": {
+        "rate": 65.9887,
+        "fee": 0,
+        "markup": 2.45,
+        "receiveAmount": 6598.87
+      },
+      "rbc": {
+        "rate": 65.3121,
+        "fee": 0,
+        "markup": 3.45,
+        "receiveAmount": 6531.21
+      },
+      "xoom": {
+        "rate": 66.6706,
+        "fee": 0,
+        "markup": 1.44,
+        "receiveAmount": 6667.06
+      },
+      "wise": {
+        "rate": 67.6371,
+        "fee": 2.57,
+        "markup": 0.01,
+        "receiveAmount": 6589.88
+      }
+    }
   }
 ]
