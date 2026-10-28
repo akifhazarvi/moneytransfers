@@ -2802,14 +2802,14 @@
       "lemfi": {
         "rate": 416,
         "fee": 0,
-        "markup": 0.8,
+        "markup": 0.92,
         "receiveAmount": 41600
       },
       "taptap-send": {
-        "rate": 412,
+        "rate": 416,
         "fee": 0,
-        "markup": 1.75,
-        "receiveAmount": 41200
+        "markup": 0.8,
+        "receiveAmount": 41600
       }
     }
   }

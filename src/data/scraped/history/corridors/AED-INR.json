@@ -7469,16 +7469,16 @@
     "date": "2026-10-28",
     "providers": {
       "western-union": {
-        "rate": 25.8964,
+        "rate": 25.9254,
         "fee": 0,
-        "markup": 0.04,
-        "receiveAmount": 2589.64
+        "markup": -0.07,
+        "receiveAmount": 2592.54
       },
       "e-and-money": {
-        "rate": 25.8703,
+        "rate": 25.9411,
         "fee": 15.75,
-        "markup": 0.14,
-        "receiveAmount": 2179.57
+        "markup": -0.14,
+        "receiveAmount": 2185.54
       },
       "al-ansari-exchange": {
         "rate": 25.6279,
@@ -7499,10 +7499,10 @@
         "receiveAmount": 2511.41
       },
       "remitly": {
-        "rate": 25.84,
+        "rate": 25.86,
         "fee": 5,
-        "markup": 0.26,
-        "receiveAmount": 2454.8
+        "markup": 0.18,
+        "receiveAmount": 2456.7
       },
       "taptap-send": {
         "rate": 26,

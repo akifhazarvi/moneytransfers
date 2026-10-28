@@ -1874,10 +1874,10 @@
     "date": "2026-10-28",
     "providers": {
       "taptap-send": {
-        "rate": 10.18,
+        "rate": 10.21,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 1018
+        "markup": -0.15,
+        "receiveAmount": 1021
       }
     }
   }

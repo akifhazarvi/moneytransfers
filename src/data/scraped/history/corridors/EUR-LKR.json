@@ -3348,16 +3348,16 @@
     "date": "2026-10-28",
     "providers": {
       "taptap-send": {
-        "rate": 369,
+        "rate": 370,
         "fee": 0,
-        "markup": 0.25,
-        "receiveAmount": 36900
+        "markup": -0.02,
+        "receiveAmount": 37000
       },
       "wise": {
-        "rate": 369.79,
+        "rate": 370.206,
         "fee": 3.11,
-        "markup": 0.04,
-        "receiveAmount": 35828.95
+        "markup": -0.07,
+        "receiveAmount": 35869.26
       }
     }
   }
