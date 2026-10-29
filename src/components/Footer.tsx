@@ -17,7 +17,7 @@ type StaticLink = { href: string; label: string };
  * only Google-eligible pages and key sections (CLAUDE.md rule 14). Removed
  * that day: seven /companies/* reviews and six /compare/* head-to-heads
  * (Bing-only, googlebot noindex — 8,151 links site-wide) and
- * /compare-money-transfer (canonicalises to /compare, which it now links).
+ * /compare-money-transfer (301s to /compare since 2026-10-28, which it links).
  * Every list below also passes through isLinkEligible, so a page withdrawn
  * from Google drops out of the footer on the next build, and one released
  * comes back by being added here.

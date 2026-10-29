@@ -148,12 +148,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("send-money", HUB_COPY_REVIEWED),
     entry("companies", pageUpdated("/companies")),
     entry("compare", pageUpdated("/compare")),
-    // /compare-money-transfer is deliberately NOT listed: its canonical points
-    // at /compare (the two target the same intent and we consolidate signals
-    // there). Submitting a URL that canonicalises elsewhere asks the crawler to
-    // index a page we have told it not to index — Semrush flagged exactly this
-    // on 2026-09-02 ("incorrect page found in sitemap.xml: non-canonical URL").
-    // The page still renders and still carries its internal links.
+    // /compare-money-transfer 301s to /compare since 2026-10-28 (round-4 brief
+    // §2.2), so it is in neither sitemap.
     entry("guides", pageUpdated("/guides")),
     entry("iban", pageUpdated("/iban")),
     entry("swift-codes", pageUpdated("/swift-codes")),

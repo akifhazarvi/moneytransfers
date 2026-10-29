@@ -60,7 +60,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       template: "%s",
     },
     description: seoDescription(t("description")),
-    keywords: t("keywords"),
+    // No site-wide meta keywords (round-4 brief P3): the same list sat on 237
+    // pages, and Google does not read the tag.
     other: {
       "citation_title": "SendMoneyCompare — International Money Transfer Comparison",
       "citation_author": "Ahsan Mukhtar",

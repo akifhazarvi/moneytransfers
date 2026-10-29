@@ -44,7 +44,7 @@ if (!existsSync(APP)) {
 const BROADER_THAN_SITEMAP = ["/iban/", "/swift-codes/"];
 
 /** URLs that canonicalise elsewhere on purpose and are therefore not submitted. */
-const INTENTIONAL_NON_CANONICAL = new Set(["/compare-money-transfer"]);
+const INTENTIONAL_NON_CANONICAL = new Set<string>([]);
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const e of readdirSync(dir, { withFileTypes: true })) {

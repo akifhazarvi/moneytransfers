@@ -72,6 +72,10 @@ export function retiredAnswer(pathname: string): string | typeof GONE | null {
   const author = pathname.match(/^\/about\/([a-z0-9-]+)$/);
   if (author && RETIRED_AUTHOR_SLUGS.has(author[1])) return GONE;
   if (pathname === "/comparison") return "/compare";
+  // Round-4 brief §2.2 (2026-10-27): it served 200 with a canonical to /compare
+  // under its own title and H1. Same query, so one 301 keeps its Bing traffic
+  // (34 clicks / 2.6K impressions in three months).
+  if (pathname === "/compare-money-transfer") return "/compare";
   const comparison = pathname.match(/^\/comparison\/([a-z0-9-]+)$/);
   if (comparison) {
     const canonical = getCompareCanonicalSlug(comparison[1]);

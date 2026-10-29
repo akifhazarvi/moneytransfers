@@ -130,6 +130,16 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // Production also answers on its *.vercel.app alias, and until 2026-10-28
+  // moneytransferscmparison.vercel.app served every page with `index, follow`
+  // (round-4 brief D4: a copy on another host can make the primary domain look
+  // like the duplicate). One 301 to the same path on the primary domain.
+  // Previews keep their hosts (VERCEL_ENV=preview, behind Vercel
+  // Authentication); /api and assets are outside the matcher.
+  if (process.env.VERCEL_ENV === "production" && host.endsWith(".vercel.app")) {
+    return NextResponse.redirect(new URL(request.nextUrl.pathname + request.nextUrl.search, "https://sendmoneycompare.com"), 301);
+  }
+
   // Retired URLs answer in ONE response: 410, or a single 301 to a live page
   // with the same intent. Round-3 freelance brief §3.2 (2026-10-08) found
   // locale URLs that 301'd into a second redirect (chain) or into a 410/404
@@ -174,7 +184,7 @@ export default function middleware(request: NextRequest) {
   // the full HTML — recovers crawl budget that was being burned on ~3k
   // noindex'd locale variants and non-priority IBAN/SWIFT pages.
   // Mirrors the metadata logic in:
-  //   - [locale]/{compare,news,guides,exchange-rates,business,companies,compare-money-transfer}/...
+  //   - [locale]/{compare,news,guides,exchange-rates,business,companies}/...
   //   - non-allowlisted iban/[slug] and swift-codes/[country]
   const path = request.nextUrl.pathname;
   // Per-engine since 2026-09-27: Bing-only pages get `googlebot: noindex`.

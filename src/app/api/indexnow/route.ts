@@ -47,8 +47,7 @@ export async function POST(request: Request) {
       `${SITE}/send-money`,
       `${SITE}/companies`,
       `${SITE}/compare`,
-      // /compare-money-transfer omitted on purpose — canonical points at
-      // /compare, so submitting it asks Bing to index a non-canonical URL.
+      // /compare-money-transfer 301s to /compare (round-4 brief §2.2).
       `${SITE}/guides`,
       `${SITE}/iban`,
       `${SITE}/swift-codes`,
