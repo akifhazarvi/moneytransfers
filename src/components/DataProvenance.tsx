@@ -43,6 +43,13 @@ interface Props {
   csvHref?: string;
   sources: ProvenanceSource[];
   authorSlug?: string;
+  /**
+   * Sources and method only: no author box and no corrections note. For a page
+   * that already carries both itself (/research: byline at the top, "Method
+   * and corrections" above) — repeating them here was the text it shared with
+   * every study page it lists (round-4 brief §1.4).
+   */
+  sourcesOnly?: boolean;
 }
 
 export default function DataProvenance({
@@ -51,6 +58,7 @@ export default function DataProvenance({
   csvHref,
   sources,
   authorSlug = "ahsan-mukhtar",
+  sourcesOnly = false,
 }: Props) {
   const author = getAuthor(authorSlug);
 
@@ -119,6 +127,7 @@ export default function DataProvenance({
         </div>
 
         {/* Author */}
+        {!sourcesOnly && (
         <div className="flex gap-4 pt-6 border-t border-[var(--color-outline)]">
           {author?.photo && (
             <Image
@@ -143,7 +152,9 @@ export default function DataProvenance({
             <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{author?.byline}</p>
           </div>
         </div>
+        )}
 
+        {!sourcesOnly && (
         <p className="mt-6 text-2xs text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)] pt-5">
           <strong>Corrections and independence:</strong> figures move with the scrape, so cite the data date above
           rather than the date you read this. Where we have published something wrong and fixed it, it is logged in{" "}
@@ -160,6 +171,7 @@ export default function DataProvenance({
           </Link>
           .
         </p>
+        )}
       </div>
     </section>
   );

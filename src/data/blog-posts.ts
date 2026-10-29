@@ -12400,7 +12400,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-04-10",
-    updatedAt: "2026-10-09",
+    updatedAt: "2026-10-29",
     author: "Awais Imran",
     tags: ["Poland", "PLN", "GBP to PLN", "EUR to PLN", "remittance", "corridor guide", "send money to Poland", "SEPA"],
     featuredImage: "/images/blog/send-money-to-poland.jpg",
@@ -12445,7 +12445,7 @@ const rawBlogPosts: BlogPost[] = [
 <li>Recipient's full name and valid photo ID (dowód osobisty or passport)</li>
 <li>Some services require the recipient's PESEL number (Polish national ID number)</li>
 </ul>
-<p><strong>Note:</strong> Poland has high banking penetration (87%+ of adults), so bank deposit is the most common delivery method. Cash pickup is mainly used by recipients without Polish bank accounts.</p>`,
+<p><strong>Note:</strong> most adults in Poland hold a bank account, so bank deposit is the usual delivery method; cash pickup is for recipients without one.</p>`,
       },
       {
         heading: "Major Polish Banks and SWIFT Codes",
@@ -12473,15 +12473,14 @@ const rawBlogPosts: BlogPost[] = [
 <p>If your recipient has a euro account at their Polish bank, a euro SEPA transfer arrives without conversion. Into a PLN account, the receiving bank converts at its own rate, so compare that with a provider that converts to złoty before paying out.</p>`,
       },
       {
-        heading: "Fees, Exchange Rates, and Tips for Regular Senders",
-        content: `<p>Here are practical tips for getting the most PLN per pound, euro, or dollar:</p>
+        heading: "Pounds to złoty: today's quotes and what moves the cost",
+        content: `<p>On {{QUOTE_DATE}}, {{ROUTE_PROVIDERS:GBP:PLN}} quoted pounds to złoty. For £1,000 the best quote delivered {{BEST_RECEIVE:GBP:PLN:1000}} ({{BEST_PROVIDER:GBP:PLN:1000}}); at the mid-market rate, with no margin and no fee, £1,000 would be {{MID_RECEIVE:GBP:PLN:1000}}. The best and the lowest quotes were {{SPREAD:GBP:PLN:1000}} apart, and the most frequent leader on the route in our quotes is {{CORRIDOR_LEADER:GBP:PLN}}.</p>
 <ol>
-<li><strong>Send to a EUR account when possible</strong> — If your recipient has a EUR account at PKO, mBank, or ING, send EUR via SEPA and let them convert locally. Polish banks often offer better EUR→PLN rates than transfer providers.</li>
-<li><strong>Use Wise or Revolut from the UK</strong> — UK bank wires to Poland cost £25–40 in fees plus 2–4% on the exchange rate. Wise costs £4–5 total. You save £40–70 per £1,000.</li>
-<li><strong>Avoid weekend conversions on Revolut</strong> — Revolut adds a 0.5–1% weekend markup on currency exchange. Send on weekdays for the best rate.</li>
-<li><strong>Set up rate alerts for large transfers</strong> — GBP/PLN and USD/PLN can move 3–5% in a month. If you're sending a large amount, use rate alert tools to lock in a good rate.</li>
-<li><strong>Consider a multi-currency account</strong> — If you send regularly, a <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency account</a> with Wise or Revolut lets you convert when rates are favorable and hold PLN until ready to send.</li>
-<li><strong>BLIK is domestic only</strong> — Poland's popular BLIK instant payment system (15M+ users) does not support international incoming transfers. Your recipient can receive via bank deposit and then use BLIK domestically.</li>
+<li><strong>Złoty or euros?</strong> Many Polish banks offer euro accounts. Euros reach one over SEPA, but the bank converts them at its own rate when the money is spent in złoty, so check that rate against the mid-market rate before choosing to send euros instead of złoty.</li>
+<li><strong>A bank wire is the expensive route.</strong> A UK bank sending złoty or euros usually adds a wire fee and its own exchange-rate margin; our <a href="/guides/bank-vs-app-transfer-cost-2026">bank versus app study</a> measures how much more banks cost on the same routes.</li>
+<li><strong>Weekends.</strong> Some providers widen their margin when currency markets are closed. Our <a href="/guides/best-day-to-send-money-abroad">day-of-week study</a> measures which ones, from our own quote archive.</li>
+<li><strong>Large amounts.</strong> The złoty floats freely against the pound, so a large transfer is exposed to the rate on the day; a rate alert, or a <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency account</a> that lets you hold pounds and convert later, spreads that risk.</li>
+<li><strong>BLIK is domestic.</strong> Poland's BLIK mobile payments work only between Polish accounts: money from abroad arrives by bank transfer, after which the recipient can use BLIK as usual.</li>
 </ol>`,
       },
       {
@@ -12489,7 +12488,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>Poland has clear rules for receiving money from abroad:</p>
 <ul>
 <li><strong>Personal remittances are not taxed</strong> — Family support payments from abroad are not subject to Polish income tax (PIT).</li>
-<li><strong>Gift tax thresholds apply</strong> — Gifts from close family (Group I: parents, children, siblings, spouse) are tax-free with no limit if reported to the tax office within 6 months. Gifts from non-family above PLN 36,120 may be subject to gift tax.</li>
+<li><strong>Gift tax thresholds apply</strong> — gifts from the closest family (the "zero group": spouse, children and grandchildren, parents and grandparents, siblings, stepchildren and step-parents) are tax-free without limit if reported to the tax office on form SD-Z2 within six months. Other gifts are tax-free up to PLN 36,120 from group I relatives, PLN 27,090 from group II and PLN 5,733 from anyone else, counting everything received from the same person over five years (<a href="https://www.podatki.gov.pl/en/inheritance" target="_blank" rel="noopener">Ministry of Finance</a>).</li>
 <li><strong>Reporting requirements</strong> — Transfers exceeding EUR 15,000 must be reported by the receiving bank to Polish authorities. This is automatic and does not require action from the recipient.</li>
 <li><strong>For UK senders</strong> — HMRC does not tax outgoing personal transfers. There is no UK exit tax on remittances to Poland.</li>
 <li><strong>Business payments</strong> — Payments for services or business purposes may be subject to Polish income tax and social security contributions. A tax identification number (NIP) is required for business recipients.</li>

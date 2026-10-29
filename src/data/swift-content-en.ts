@@ -37,23 +37,32 @@ export const swiftContentEn: SwiftContent = {
     ],
   },
   "united-states": {
-    title: "How SWIFT works in the United States",
+    title: "SWIFT in the United States: routing numbers, correspondents and the systems behind a wire",
     intro:
-      "The US banking system uses ABA routing numbers and Fedwire for domestic transfers, which are completely separate from the SWIFT network. When sending money internationally to a US bank account, you need the recipient bank's SWIFT/BIC code — not the nine-digit ABA routing number used for domestic ACH and wire transfers. Many US banks have different SWIFT codes for their international wire desks versus their retail branches.",
+      "A US bank account has two identifiers people confuse. The nine-digit ABA routing number identifies the bank for payments inside the United States, through ACH and Fedwire; the SWIFT/BIC code identifies it to banks abroad. A payment from another country needs the SWIFT code and the account number, and many US banks also ask for the routing number so they can credit the right account. US accounts have no IBAN.",
     bullets: [
-      "US banks often route inbound international wires through a central SWIFT gateway, typically at their New York correspondent desk. The SWIFT code you need may differ from the branch where the account is held, so always confirm with the recipient's bank.",
-      "For USD-denominated payments arriving from overseas, the receiving bank may charge an inbound wire fee (typically $15-25) even if the sender paid all outbound charges. Ask the recipient to check their bank's fee schedule for incoming international wires.",
-      "If you are sending to a US account in a currency other than USD, the beneficiary bank will convert it at their own exchange rate, which is usually unfavorable. Sending in USD and letting the originating bank handle conversion often produces a better outcome.",
+      "Many US credit unions and community banks have no SWIFT code of their own. They receive international wires through a US correspondent bank: the sender's bank pays the correspondent's SWIFT code, with the credit union named in a \"for further credit to\" line with its routing number, and the member's name and account number as the final beneficiary. Missing either line is the most common reason such a wire comes back, so ask for the credit union's own incoming-wire instructions.",
+      "Large US-dollar wires between banks settle over Fedwire, run by the Federal Reserve, or CHIPS, the private system run by The Clearing House. The FedNow instant payment service, launched in 2023, works only between US institutions: a payment from abroad cannot arrive through it, so an international transfer reaches a US account as a wire or through a money transfer service's domestic payout.",
+      "A US account is credited in dollars. If the sender's bank sends another currency, the US bank converts it at its own rate on arrival, and the receiving bank, or a correspondent along the way, may deduct its own charge before the money is credited. A provider that pays out in dollars inside the United States avoids both.",
+    ],
+    sources: [
+      { label: "Federal Reserve Financial Services — Fedwire Funds Service", url: "https://www.frbservices.org/financial-services/wires" },
+      { label: "The Clearing House — CHIPS", url: "https://www.theclearinghouse.org/payment-systems/chips" },
+      { label: "Federal Reserve Financial Services — FedNow Service", url: "https://www.frbservices.org/financial-services/fednow" },
     ],
   },
   india: {
-    title: "How SWIFT works in India",
+    title: "SWIFT in India: IFSC, SWIFT codes and NRE and NRO accounts",
     intro:
-      "India uses IFSC (Indian Financial System Code) for domestic bank transfers through NEFT, RTGS, and IMPS, but these codes do not work for international payments. Inbound international transfers require the recipient bank's SWIFT/BIC code, and all such transactions are subject to Reserve Bank of India (RBI) compliance requirements including purpose-of-payment declarations.",
+      "Indian banks identify branches with an IFSC, an 11-character code: four letters for the bank, a fifth character that is always zero, and six characters for the branch. The IFSC routes payments inside India through NEFT, RTGS and IMPS. A payment from abroad reaches the bank through its SWIFT code instead, usually the code of its foreign-exchange or treasury hub rather than the branch, and the bank then credits the branch account by IFSC.",
     bullets: [
-      "Each Indian bank branch has both an IFSC code (for domestic transfers) and may be covered by a SWIFT code (for international transfers). The SWIFT code often points to the bank's central processing hub rather than the local branch, so confirm the correct one with the recipient.",
-      "RBI regulations require that the purpose of every inbound foreign remittance is declared. Common purpose codes include family maintenance, education fees, and business payments. Incorrect purpose codes can delay or block the credit to the beneficiary account.",
-      "For large remittances to India, intermediary bank charges can reduce the final INR amount. Sending via providers that use dedicated INR payout corridors rather than multi-hop SWIFT routing often results in faster settlement and lower total cost.",
+      "For an Indian living abroad, which account the money lands in matters more than the code. An NRE account takes inward remittances in rupees and is fully repatriable: the balance and interest can be sent back abroad. An NRO account holds income earned in India; its current income can be remitted after tax, while the principal can be sent abroad only up to USD 1 million a financial year under RBI rules.",
+      "Every inbound foreign remittance is reported with a purpose under India's foreign exchange rules, and the receiving bank may ask the recipient to confirm it, for family maintenance, education or a business payment, before crediting a large transfer. A wire that arrives without a clear purpose can be held until the bank gets one.",
+      "A SWIFT wire to India can lose money twice: a correspondent bank may deduct a charge in transit, and the Indian bank converts the foreign currency at its own rate on arrival. Money transfer services that deliver rupees through Indian payment systems such as IMPS avoid the correspondent leg, one reason they often deliver more than a bank wire.",
+    ],
+    sources: [
+      { label: "Reserve Bank of India — NEFT FAQ (IFSC structure)", url: "https://www.rbi.org.in/Scripts/FAQView.aspx?Id=60" },
+      { label: "Reserve Bank of India — accounts in India by non-residents", url: "https://www.rbi.org.in/commonman/english/scripts/FAQs.aspx?Id=3" },
     ],
   },
   pakistan: {
@@ -480,11 +489,11 @@ export const swiftContentEn: SwiftContent = {
   "united-states": [
     {
       q: "What is a SWIFT code for the United States?",
-      a: "A SWIFT code (BIC) for the US is an 8 or 11-character identifier used by American banks for international wire transfers. The country code portion is US. For example, CHASUS33 is the SWIFT code for JPMorgan Chase. The structure is: 4 characters for the bank, 2 for country (US), 2 for the city, and optionally 3 for the branch or division.",
+      a: "A SWIFT code (BIC) for the US is an 8 or 11-character identifier used by American banks for international wire transfers. The country code portion is US. For example, BOFAUS3N is Bank of America's code in our directory. The structure is: 4 characters for the bank, 2 for country (US), 2 for the city, and optionally 3 for the branch or division.",
     },
     {
       q: "What are the SWIFT codes for major US banks?",
-      a: "Key US bank SWIFT codes include: JPMorgan Chase — CHASUS33, Bank of America — BOFAUS3N, Citibank — CITIUS33, Wells Fargo — WFBIUS6S, US Bank — USBKUS44, PNC Bank — PNCCUS33, and Capital One — HIBKUS3N. Always confirm the exact code with the recipient's bank, as some banks use different SWIFT codes for specific divisions.",
+      a: "Large US banks each publish a SWIFT code for incoming international wires, and some publish separate ones for divisions such as commercial or private banking. This page lists the codes our directory holds; confirm the exact code with the recipient's bank, because the code a bank wants on an international wire into a personal account is not always the one printed elsewhere.",
     },
     {
       q: "How do I find the SWIFT code for my US bank?",
@@ -496,11 +505,11 @@ export const swiftContentEn: SwiftContent = {
     },
     {
       q: "How long does a SWIFT transfer to the US take?",
-      a: "SWIFT transfers to the US typically arrive within one to three business days. The US is the world's largest recipient of international wire transfers, and major banks like JPMorgan Chase, Bank of America, and Citibank have extensive correspondent networks that facilitate fast settlement. Transfers from Europe and Asia usually arrive within one to two business days.",
+      a: "There is no fixed time. A wire's speed depends on when the sending bank releases it, whether a correspondent bank sits between the two banks, and the receiving bank's cut-off for crediting wires that day. A wire that reaches a US bank after its cut-off is usually credited the next business day. A money transfer service that pays out inside the US uses domestic rails instead, and states its own delivery time in its quote.",
     },
     {
       q: "Are there fees for receiving a SWIFT transfer in the US?",
-      a: "US banks commonly charge an inbound international wire fee, typically USD 15–25 per transaction, even if the sender paid all outbound charges. Some premium or business accounts waive this fee. If the transfer arrives in a currency other than USD, the bank will convert it at their own exchange rate. Confirm your bank's inbound wire fee schedule before the transfer is sent.",
+      a: "Often, yes. Many US banks charge to receive an international wire, even when the sender paid every outgoing charge, and some accounts waive it; the amount is in the bank's published fee schedule. A correspondent bank along the way may also deduct its own charge, and a payment in a currency other than dollars is converted at the receiving bank's rate. Check the recipient's fee schedule before a wire is sent.",
     },
     {
       q: "What is the difference between Fedwire, ACH, and SWIFT in the US?",
@@ -509,6 +518,10 @@ export const swiftContentEn: SwiftContent = {
     {
       q: "Can I receive foreign currency directly in my US bank account?",
       a: "Most standard US checking and savings accounts are USD-denominated, and inbound foreign currency transfers are automatically converted to dollars. Some larger banks like Citibank, HSBC US, and certain investment banks offer foreign currency accounts. For most recipients, receiving in USD is simplest — the sender can convert to USD on their end for a potentially better exchange rate.",
+    },
+    {
+      q: "Is the routing number for a wire the same as for direct deposit?",
+      a: "Not always. Some US banks use one routing number for ACH payments such as direct deposit, often varying by the state where the account was opened, and a different one for incoming wires. For a wire, including the domestic leg of an international one, use the wire routing number the bank gives in its own wire instructions, not the number on a cheque.",
     },
   ],
 

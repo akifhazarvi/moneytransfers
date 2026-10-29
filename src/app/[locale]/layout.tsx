@@ -64,7 +64,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     other: {
       "citation_title": "SendMoneyCompare — International Money Transfer Comparison",
       "citation_author": "Ahsan Mukhtar",
-      "citation_date": new Date().toISOString().slice(0, 10),
       "citation_journal_title": "SendMoneyCompare",
       "ai-content-declaration": "human-written, data-verified",
     },

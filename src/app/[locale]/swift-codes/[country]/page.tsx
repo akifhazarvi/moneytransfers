@@ -641,6 +641,18 @@ export default async function SwiftCountryPage({ params }: Props) {
                   </li>
                 ))}
               </ul>
+              {editorialNote.sources && editorialNote.sources.length > 0 && (
+                <p className="mt-4 text-xs text-[var(--color-on-surface-variant)]">
+                  Sources:{" "}
+                  {editorialNote.sources.map((source, i) => (
+                    <span key={source.url}>
+                      {i > 0 && "; "}
+                      <a href={source.url} target="_blank" rel="noopener" className="text-[var(--color-primary)] hover:underline">{source.label}</a>
+                    </span>
+                  ))}
+                  .
+                </p>
+              )}
             </Card>
           )}
         </div>

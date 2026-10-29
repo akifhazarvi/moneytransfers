@@ -8,13 +8,18 @@ export const ibanContentEn: IbanContent = {
     "kosovo": {"title": "Use XK for the Kosovo account supplied by the bank", "intro": "The Kosovo format registered for IBAN uses XK and contains 20 characters. A payment form that rejects that prefix is a support issue to resolve with the sender’s provider, not a reason to replace it with a neighbouring country’s code.", "bullets": ["Copy the XK instruction exactly from the receiving bank. Substituting a country prefix changes the account identifier and invalidates its check digits.", "Ask the provider whether it supports that Kosovo beneficiary and the intended payout currency. Passing the format check establishes neither route availability nor ownership of the receiving account.", "XK is not part of ISO 3166, the standard list of country codes. It sits in the range ISO leaves free for user-assigned codes, and the European Commission, SWIFT and Kosovo’s banks adopted it. That is why some address validators and older payment forms refuse an XK IBAN that is perfectly valid.", "Kosovo is not a euro-area member, yet the euro has been its currency since 2002, after the Deutsche Mark from 1999. The Central Bank of the Republic of Kosovo licenses the country’s banks but does not issue money, so a transfer from a dollar, franc or pound account is converted on the way in, and the euro figure the recipient sees is the one to weigh."]},
 
   denmark: {
-    title: "How IBAN is used in Denmark",
+    title: "Denmark's IBAN: registration numbers, the krone peg and NemKonto",
     intro:
-      "Denmark is part of SEPA but still has strong domestic banking habits built around registration numbers and account numbers. For local transfers, Danes often use domestic account details, while inbound international transfers usually require the full Danish IBAN.",
+      "A Danish IBAN is 18 characters: DK, two check digits, the four-digit registration number (reg.nr.) that identifies the bank and branch, and the ten-digit account number padded with zeros. At home Danes quote the shorter pair, reg.nr. and account number; a payment from another country needs the IBAN built from them, which every Danish bank shows in its online banking.",
     bullets: [
-      "If a sender is paying from elsewhere in Europe in EUR, the Danish IBAN is typically the key piece of information, even though the recipient may know their account locally by registration and account number.",
-      "For businesses receiving cross-border payments in DKK, it is worth checking whether the payer's bank will force a currency conversion before settlement or send funds directly in kroner.",
-      "When users struggle to find the correct receiving details, the fastest fix is usually to ask the beneficiary bank for its exact international payment instructions rather than relying on domestic payment details shown in the banking app.",
+      "Denmark is in SEPA but keeps the krone. A euro payment into a kroner account is converted by the receiving bank at its own rate, so it matters who converts: a provider that delivers DKK, or a recipient's own bank converting the euros on arrival.",
+      "The krone is pegged to the euro in ERM II at a central rate of 7.46038 kroner per euro, with a band of 2.25% either side, a rate set at the start of 1999 and never changed. The EUR to DKK rate therefore barely moves, and what changes the cost of sending money to Denmark is the provider's margin and fee rather than the market.",
+      "Every person and company registered in Denmark designates one NemKonto, the account public authorities pay into: tax refunds, child benefit, student grants and unemployment benefit. It can be any account the person already holds, including one outside Denmark.",
+      "The Faroe Islands and Greenland use the Danish krone but issue their own IBANs, FO and GL, also 18 characters long, and both sit outside SEPA, so a euro payment there goes as an international transfer with the bank's BIC.",
+    ],
+    sources: [
+      { label: "European Central Bank — euro central rates in ERM II (Danish krone 7.46038)", url: "https://www.ecb.europa.eu/press/pr/date/1998/html/pr981231_3.en.html" },
+      { label: "NemKonto — foreign nationals and NemKonto", url: "https://www.nemkonto.dk/en/citizen/nemkonto-for-citizens/foreign-nationals-and-nemkonto/" },
     ],
   },
   // Keyed "uk", the slug the page renders (wise-iban-data maps GB to "uk").
@@ -87,10 +92,14 @@ export const ibanContentEn: IbanContent = {
       "Spain uses a 24-character IBAN that incorporates the older CCC (Codigo Cuenta Cliente) structure. The CCC includes a four-digit bank code, four-digit branch code, two check digits, and a ten-digit account number, all of which map directly into the IBAN. As a founding SEPA member, Spain processes the vast majority of euro transfers through the SEPA network, and since the EU Instant Payments Regulation took full effect in October 2025, Spanish banks must both send and receive SEPA Instant Credit Transfers — a euro payment into a Spanish IBAN settles within 10 seconds, 24/7, at no higher a fee than a standard transfer.",
     bullets: [
       "A Spanish IBAN starts with ES, followed by two check digits and then the 20-digit CCC. If you have your old CCC number from a bank statement, converting it to an IBAN is a matter of adding the ES prefix and computing the check digits. Major banks like Santander, BBVA, and CaixaBank all display IBANs in their online portals.",
-      "For receiving money from abroad, your Spanish IBAN is the primary detail to share. Within SEPA, the sender only needs the IBAN. For payments originating outside Europe, the sender will also need the BIC code of your Spanish bank.",
-      "Spain has a strong network of local savings banks (cajas) alongside the large commercial banks, and each has its own bank code within the IBAN structure. When providing your IBAN for payroll or government payments, double-check the bank and branch codes to avoid misrouted transfers.",
+      "The CCC carries two control digits of its own (digitos de control), positions 13 and 14 of the IBAN: the first checks the bank and branch codes, the second the ten-digit account number. Spanish banks test both pairs, the IBAN's and the CCC's, before accepting a payment, so a mistyped digit in the middle of a Spanish IBAN is usually caught twice.",
+      "Bizum, the phone-number payment service most Spanish banks offer, moves euros between accounts in seconds, but only between Spanish and Andorran IBANs. A payment from abroad still goes to the IBAN; a recipient who asks for Bizum is asking for a sender with a Spanish or Andorran account.",
       "Spain runs domiciliacion bancaria — SEPA Direct Debit — for the payments a Spanish resident sets up most often: utilities, rent, phone contracts and subscriptions. Setting one up needs your IBAN and a signed orden de domiciliacion; the bank stores the mandate electronically and you can revoke or dispute a debit through your bank within the standard SEPA reclaim window, which is longer for an unauthorised debit than for one you simply want to cancel — worth knowing before you assume a direct debit is irreversible.",
       "If a payment into your Spanish account seems to have vanished, the most common cause is a mismatched account-holder name rather than a wrong IBAN — Spanish banks validate the IBAN's check digits automatically, so a typo there is usually rejected outright, while a name mismatch on an otherwise valid IBAN can sit in limbo. Confirm the name on the transfer matches your account exactly, including compound Spanish surnames.",
+    ],
+    sources: [
+      { label: "Regulation (EU) 2024/886 — instant credit transfers in euro", url: "https://eur-lex.europa.eu/eli/reg/2024/886/oj" },
+      { label: "Bizum — paying an account or phone number abroad", url: "https://bizum.com/es/en/faqs/can-i-bizum-a-person-with-an-account-abroad-and-if-he-has-a-mobile-phone-abroad/" },
     ],
   },
   italy: {
@@ -127,13 +136,17 @@ export const ibanContentEn: IbanContent = {
     ],
   },
   ireland: {
-    title: "How IBAN is used in Ireland",
+    title: "Ireland's IBAN: bank codes, the Ulster Bank and KBC exits, and SEPA rules",
     intro:
-      "Ireland uses a 22-character IBAN that incorporates the six-digit National Sort Code (NSC) and the eight-digit account number from the legacy domestic system. Since Ireland is both an EU and eurozone member, SEPA transfers using the IBAN are the primary method for domestic and cross-border euro payments. The Irish banking landscape is relatively concentrated, with AIB, Bank of Ireland, and Permanent TSB being the main retail banks.",
+      "An Irish IBAN is 22 characters: IE, two check digits, a four-letter bank code taken from the bank's BIC (AIBK for AIB, BOFI for Bank of Ireland, IPBS for PTSB), the six-digit National Sort Code and the eight-digit account number. Those four letters make an Irish IBAN easy to read: they name the bank that holds the account before you send anything.",
     bullets: [
-      "An Irish IBAN starts with IE, two check digits, a four-character bank code (like AIBK or BOFI), a six-digit branch sort code, and an eight-digit account number. If you know your NSC and account number, your bank can provide the full IBAN, or you can find it in your online banking settings.",
-      "For receiving international transfers in euro from within SEPA, only the IBAN is needed. Payments from outside SEPA, for instance from the US, require both the IBAN and the bank's BIC/SWIFT code. From Britain, a SEPA transfer is still possible after Brexit, but the UK bank must add the BIC and the payer's address, and some send euros over SWIFT instead, at a higher cost.",
-      "Ireland has seen significant growth in digital banking, with services like Revolut and N26 widely used alongside traditional banks. Regardless of which provider you use, your Irish IBAN (starting with IE) functions identically for receiving SEPA payments and setting up direct debits for bills and subscriptions.",
+      "Two retail banks have left Ireland. Ulster Bank and KBC Bank Ireland withdrew from the market, and by the end of June 2023 the Central Bank of Ireland reported that just over 96% of the current accounts open with them at the start of 2022 were closed or inactive. An IBAN from either bank is very likely closed: ask the recipient for the account they moved to before you send.",
+      "Within SEPA a euro payment to an Irish IBAN needs no BIC, and the SEPA Regulation stops an Irish employer, utility or government department from refusing an account because it is held in another SEPA country (Article 9). Someone moving to Ireland can be paid into an account they already hold elsewhere in the EU.",
+      "From Great Britain a SEPA credit transfer is still possible, because the UK stayed in SEPA after Brexit, but the UK bank must include the BIC and the payer's address; some UK banks send euros over SWIFT instead, which can cost more and arrive later. Northern Ireland accounts are UK accounts with GB IBANs, not IE ones.",
+    ],
+    sources: [
+      { label: "Central Bank of Ireland — account migration statistics (Ulster Bank and KBC)", url: "https://www.centralbank.ie/statistics/data-and-analysis/credit-and-banking-statistics/account-migration-statistics" },
+      { label: "Regulation (EU) No 260/2012 — the SEPA Regulation", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012R0260" },
     ],
   },
   portugal: {
@@ -271,13 +284,18 @@ export const ibanContentEn: IbanContent = {
     ],
   },
   finland: {
-    title: "How IBAN is used in Finland",
+    title: "Finland's IBAN: the bank is in the account number",
     intro:
-      "Finland uses an 18-character IBAN, one of the shorter formats in Europe, which maps directly from the legacy Finnish bank account number. Finland is a eurozone and SEPA member, and IBAN-based transfers have been the sole standard for both domestic and cross-border euro payments since the SEPA migration was completed. The Bank of Finland (Suomen Pankki) oversees payment stability, with the commercial banking sector dominated by Nordea, OP Financial Group, and Danske Bank Finland.",
+      "A Finnish IBAN is 18 characters: FI, two check digits, then the 14-digit account number Finnish banks used before IBANs. There is no separate bank code: the first digits of the account number identify the bank, from the list of monetary institution identifiers Finance Finland keeps. OP's own example shows the mapping: the old account number 500094-20028730 is FI49 5000 9420 0287 30 as an IBAN.",
     bullets: [
-      "A Finnish IBAN starts with FI, two check digits, a six-digit bank branch code, and an eight-digit account number with a final check digit. The six-digit branch code identifies both the bank and branch. Nordea's IBANs typically begin with FI12, OP Financial Group accounts with FI50-FI58, and Danske Bank Finland with FI34. All Finnish banks display the IBAN in their online and mobile banking.",
-      "Within SEPA, the Finnish IBAN alone is sufficient for euro transfers — no BIC is required for credit transfers within the EU and EEA. Finland also operates the domestic Siirto instant payment system, which uses the IBAN as the underlying account identifier for real-time EUR payments between Finnish banks.",
-      "Finnish employers, the Kela social insurance institution, and the Finnish Tax Administration all use the IBAN for salary, benefit, and refund disbursements. If you are relocating to Finland or receiving Finnish pension payments from abroad, register your FI-prefixed IBAN with the relevant authority as soon as your account is opened.",
+      "To read the bank from a Finnish IBAN, look past FI and the two check digits: 1 or 2 is Nordea, 5 is OP Financial Group, 8 or 34 is Danske Bank, 33 is SEB, 36 or 39 is S-Bank, 405 or 497 is Aktia and 6 is Bank of Åland. The two check digits are calculated for each account and say nothing about the bank, so two Nordea customers' IBANs rarely start with the same four characters.",
+      "Finnish invoices carry a reference number (viitenumero), or the international RF creditor reference built from it. Paying a Finnish bill from abroad, put that reference in the payment's reference field rather than the free-text message, because Finnish billers match incoming payments by it.",
+      "Euro payments to a Finnish IBAN need no BIC within SEPA, and under the EU Instant Payments Regulation every euro-area bank must receive instant payments and, since October 2025, send them, at no higher fee than a standard transfer. Kela, the Finnish Tax Administration and employers pay to the IBAN you register, and the SEPA Regulation does not let them insist it be a Finnish one.",
+    ],
+    sources: [
+      { label: "Finance Finland — Finnish monetary financial institution identifiers and BICs", url: "https://www.finanssiala.fi/en/topics/finnish-monetary-financial-institution-identifiers-and-bics/" },
+      { label: "OP Financial Group — IBAN account number and BIC code", url: "https://op.fi/private-customers/daily-banking/payment/iban-account-number-and-bic-code" },
+      { label: "Regulation (EU) 2024/886 — instant credit transfers in euro", url: "https://eur-lex.europa.eu/eli/reg/2024/886/oj" },
     ],
   },
   greece: {

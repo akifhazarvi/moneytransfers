@@ -83,8 +83,8 @@ const STUDIES: Study[] = [
   {
     title: "What comparing saved: reader choices, priced",
     href: "/guides/how-much-can-you-save-comparing-money-transfers",
-    finding: `Of ${nf(readerSavings.totals.pricedDecisions)} provider choices readers made on our comparison in ${periodLabel()}, ${Math.round(readerSavings.totals.shareAboveMedian * 100)}% paid more than the median provider on that corridor and day, and the chosen provider paid a median $${(readerSavings.totals.medianVsBankPer1000 ?? 0).toFixed(2)} more per $1,000 than the median bank quote.`,
-    basis: `${nf(readerSavings.totals.decisions)} Google Analytics provider choices across ${readerSavings.totals.corridors} corridors, ${readerSavings.clicksMeta.window.from} to ${readerSavings.clicksMeta.window.to}, each priced against the quote snapshot archived for its corridor that day. Choices that cannot be priced fairly are counted and named, not dropped silently.`,
+    finding: `Of ${nf(readerSavings.totals.pricedDecisions)} provider choices readers made on our comparison in ${periodLabel()}, ${Math.round(readerSavings.totals.shareAboveMedian * 100)}% paid more than the median provider on that corridor and day, and the median choice beat the median bank quote by $${(readerSavings.totals.medianVsBankPer1000 ?? 0).toFixed(2)} for each $1,000 sent.`,
+    basis: `${nf(readerSavings.totals.decisions)} Google Analytics provider choices across ${readerSavings.totals.corridors} corridors, ${readerSavings.clicksMeta.window.from} to ${readerSavings.clicksMeta.window.to}, each matched to that day's archived quotes for its corridor. Choices that cannot be priced fairly are counted and named, not dropped silently.`,
     dataAsOf: readerSavings.generatedAt,
     updates: "Built by hand from one analytics export; this edition does not change until the next one.",
   },
@@ -299,6 +299,7 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
       </section>
 
       <DataProvenance
+        sourcesOnly
         dataAsOf={CONSISTENCY_INDEX.dataAsOf}
         computedFrom="Each dataset is recomputed from the quote archive whenever the archive refreshes. The headline on every card above is read from the dataset it describes rather than written into this page, so a card cannot outlive the finding behind it."
         sources={[

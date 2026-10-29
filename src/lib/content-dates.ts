@@ -50,6 +50,12 @@ export function companyContentDate(review?: { updatedAt: string; publishSections
  * understate this page. The page and its lastmod both read familyPageDate().
  */
 const FAMILY_PAGE_UPDATED: Record<string, string> = {
+  "/iban/ireland": "2026-10-29",            // round-4 §1.4: bank codes, Ulster Bank/KBC exits, SEPA Article 9, sources
+  "/iban/denmark": "2026-10-29",            // round-4 §1.4: reg.nr., ERM II peg, NemKonto, FO/GL IBANs, sources
+  "/iban/finland": "2026-10-29",            // round-4 §1.4: bank identifiers (the FI12/FI50/FI34 claim was wrong), RF reference, sources
+  "/iban/spain": "2026-10-29",              // round-4 §1.4: CCC control digits, Bizum, sources
+  "/swift-codes/united-states": "2026-10-29", // round-4 §1.4: routing vs SWIFT, credit-union correspondents, Fedwire/CHIPS/FedNow
+  "/swift-codes/india": "2026-10-29",       // round-4 §1.4: IFSC structure, NRE/NRO, purpose reporting, sources
   "/iban/uk": "2026-10-18",                 // UK in SEPA after Brexit, sources, four FAQs
   "/swift-codes/ireland": "2026-10-18",     // CAT gift tax, Verification of Payee, Ulster Bank and KBC balances
   "/banks/barclays": "2026-10-18",          // Barclays' published charges, four FAQs

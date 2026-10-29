@@ -24,7 +24,7 @@ export const newGuidesJul2026: BlogPost[] = [
     category: "Guides",
     readTime: "10 min read",
     publishedAt: "2026-07-01",
-    updatedAt: "2026-09-07",
+    updatedAt: "2026-10-29",
     author: "Awais Imran",
     tags: ["UK to Nigeria", "GBP to NGN", "Nigerian transfer", "Lemfi", "TapTap Send", "Remitly", "best rates"],
     featuredImage: "/images/blog/send-money-uk-to-nigeria.jpg",
@@ -32,9 +32,9 @@ export const newGuidesJul2026: BlogPost[] = [
       {
         heading: "What Is the Cheapest Way to Send Money from the UK to Nigeria?",
         content: `<div class="blog-answer-box">
-<p><strong>Quick answer:</strong> The cheapest way to send money from the UK to Nigeria in 2026 is through a specialist app — not your bank. <strong><a href="/companies/lemfi">Lemfi</a></strong> (zero transfer fee), <strong><a href="/companies/taptap-send">TapTap Send</a></strong> (zero fee, delivery to NGN bank accounts) and <strong><a href="/companies/remitly">Remitly</a></strong> (Express delivery) all quote this corridor. On measured payouts the most frequent leader is {{CORRIDOR_LEADER:GBP:NGN}}. High-street banks average a 4–6% hidden markup on GBP→NGN — that's £40–£60 lost on every £1,000 you send. <a href="/send-money">Compare live GBP→NGN rates</a> for your exact amount.</p>
+<p><strong>Quick answer:</strong> The cheapest way to send money from the UK to Nigeria in 2026 is through a specialist app — not your bank. <strong><a href="/companies/lemfi">Lemfi</a></strong> (zero transfer fee), <strong><a href="/companies/taptap-send">TapTap Send</a></strong> (zero fee, delivery to NGN bank accounts) and <strong><a href="/companies/remitly">Remitly</a></strong> (Express delivery) all quote this corridor. On measured payouts the most frequent leader is {{CORRIDOR_LEADER:GBP:NGN}}. On £1,000 the best and the lowest GBP→NGN quotes were {{SPREAD:GBP:NGN:1000}} apart on {{QUOTE_DATE}}. <a href="/send-money">Compare live GBP→NGN rates</a> for your exact amount.</p>
 </div>
-<p>Nigeria is one of the world's top remittance destinations — the Nigerian diaspora in the UK alone sends billions of pounds home every year. But the difference between a good and a bad transfer provider can be staggering: on a £1,000 transfer, an extra 3% markup costs your family ₦45,000 or more at current rates.</p>
+<p>Nigeria is one of the world's largest remittance destinations, and the difference between providers on the same transfer is real money: at today's rate, every 1% of exchange-rate margin on £1,000 is about {{MID_RECEIVE:GBP:NGN:10}} less for your family.</p>
 <p>We updated this guide with live data from our scraper engine to rank every provider by what your recipient actually receives in naira — the only number that matters.</p>`,
       },
       {
@@ -67,54 +67,45 @@ export const newGuidesJul2026: BlogPost[] = [
       },
       {
         heading: "Why GBP→NGN Rates Are So Hard to Compare",
-        content: `<p class="citable-passage">Nigeria operates a complex FX environment where the official rate, the parallel ("black") market rate, and app delivery rates can all differ significantly. Since 2023, the Central Bank of Nigeria (CBN) has moved toward a unified exchange rate, but individual providers still source naira liquidity differently — which is why the same £1,000 can become ₦1.88 million with one app and ₦1.93 million with another.</p>
-<p>Three things drive the difference:</p>
-<ul>
-<li><strong>Liquidity sourcing</strong> — Apps like Lemfi, TapTap Send, and Flutterwave's Send App access local Nigerian liquidity networks, often getting closer to the street rate than SWIFT-based providers.</li>
-<li><strong>Payout method</strong> — Bank deposits tend to get the "official" rate; mobile wallet payouts (like OPay or Palmpay) sometimes reflect a tighter spread.</li>
-<li><strong>Transfer size</strong> — Some providers offer better rates on larger amounts (£500+). Always check at your exact amount.</li>
-</ul>
-<p>The practical takeaway: <strong>always compare the recipient amount in naira</strong>, not just the fee or the headline exchange rate. Our <a href="/send-money">comparison tool</a> shows the exact NGN figure your recipient will receive.</p>`,
+        content: `
+<p>Nigeria unified its official exchange-rate windows in June 2023, and since 1 May 2026 the Central Bank of Nigeria has required money transfer operators to settle remittances in naira through Nigerian banks, so a recipient now receives naira rather than pounds or dollars (<a href="/news/nigeria-cbn-naira-only-remittance-rule-2026">our report on the directive</a>). What still differs from one provider to the next is the rate it obtains for its naira and how much of that rate it passes on.</p>
+<p>On {{QUOTE_DATE}}, {{ROUTE_PROVIDERS:GBP:NGN}} quoted pounds to naira. For £1,000 the best quote delivered {{BEST_RECEIVE:GBP:NGN:1000}} ({{BEST_PROVIDER:GBP:NGN:1000}}), and the gap between the best and the lowest quote was {{SPREAD:GBP:NGN:1000}}. Some naira quotes sit above the mid-market rate we benchmark against, because the market rate for naira can move away from the reference rate; the number that settles which provider is better is the naira your recipient receives, not the rate a provider advertises.</p>
+<p>The amount matters too: flat fees weigh most on small transfers, so the order of providers at £100 can differ from the order at £1,000. Compare at the amount you are actually sending.</p>
+`,
       },
       {
         heading: "How to Send Money from UK to Nigeria: Step-by-Step",
-        content: `<ol>
-<li><strong>Choose your provider</strong> — For most UK senders, Lemfi or TapTap Send will give the best value. Remitly is best if you need Express delivery with cash pickup for your recipient.</li>
-<li><strong>Verify your identity</strong> — UK regulations require all providers to verify your identity (passport or driving licence + proof of address). First-time verification takes 5–15 minutes.</li>
-<li><strong>Enter the recipient's Nigerian bank details</strong> — You'll need their full name, Nigerian bank account number (10 digits), and bank name. NUBAN format is universal across Nigerian banks.</li>
-<li><strong>Choose your funding method</strong> — UK debit card is fastest (minutes). Bank transfer (Faster Payments) is free and usually arrives in hours.</li>
-<li><strong>Confirm and send</strong> — Double-check the recipient naira amount shown before confirming. Once sent, you'll receive SMS/email confirmation and tracking.</li>
+        content: `
+<ol>
+<li><strong>Choose by the naira delivered.</strong> On GBP to NGN the most frequent leader in our quotes is {{CORRIDOR_LEADER:GBP:NGN}}. The lead changes hands, so check today's comparison at your own amount before you pick.</li>
+<li><strong>Verify your identity.</strong> A UK-regulated provider must check who you are before your first transfer, usually with photo ID and proof of address.</li>
+<li><strong>Enter the recipient's bank details.</strong> Nigerian accounts use the 10-digit NUBAN format at every bank, so you need the recipient's full name, the 10-digit account number and the bank's name. A name that does not match the account is the usual reason a naira payment is held.</li>
+<li><strong>Choose how to pay.</strong> A UK debit card funds a transfer fastest; paying by bank transfer can cost less with some providers. The comparison shows each provider's fee for the method it prices.</li>
+<li><strong>Confirm the naira amount.</strong> Check the naira figure on the final screen before you confirm; that, not the exchange rate, is what arrives.</li>
 </ol>
-<p>Most apps deliver to major Nigerian banks including Access Bank, GTBank, Zenith Bank, First Bank, UBA, and Ecobank. Cash pickup is available via WorldRemit and Western Union at thousands of locations across Lagos, Abuja, Port Harcourt, and more.</p>`,
+<p>Bank deposit is the usual payout. Some providers also offer cash pickup or mobile-wallet payout; check which options a provider lists for your recipient before choosing on price alone.</p>
+`,
       },
       {
         heading: "Lemfi vs TapTap Send vs Remitly for UK→Nigeria",
-        content: `<p>These three dominate the UK-to-Nigeria corridor in 2026. Here's when to pick each:</p>
+        content: `<p>Three apps UK senders to Nigeria use most often, set side by side on what we measure. The margin is each provider's median distance from the mid-market rate across every route we collect its quotes on, so a provider can sit higher overall and still lead this route.</p>
 <div class="blog-table-box">
 <table>
 <thead><tr><th></th><th><a href="/companies/lemfi">Lemfi</a></th><th><a href="/companies/taptap-send">TapTap Send</a></th><th><a href="/companies/remitly">Remitly</a></th></tr></thead>
 <tbody>
-<tr><td><strong>Best for</strong></td><td>Zero fee, low markup</td><td>Speed + zero fee</td><td>Cash pickup in Nigeria</td></tr>
-<tr><td><strong>Fee</strong></td><td>£0</td><td>£0</td><td>£0–£1.99</td></tr>
-<tr><td><strong>Rate markup</strong></td><td>~0.5%</td><td>~0.7%</td><td>~1%</td></tr>
-<tr><td><strong>Speed</strong></td><td>Minutes–hours</td><td>Under 3 minutes</td><td>Minutes (Express)</td></tr>
-<tr><td><strong>Cash pickup?</strong></td><td>No</td><td>No</td><td>Yes</td></tr>
-<tr><td><strong>Min transfer</strong></td><td>£10</td><td>£5</td><td>£1</td></tr>
+<tr><td><strong>Median rate margin</strong></td><td>{{AVG_MARKUP_PCT:lemfi}}</td><td>{{AVG_MARKUP_PCT:taptap-send}}</td><td>{{AVG_MARKUP_PCT:remitly}}</td></tr>
+<tr><td><strong>Naira on £1,000 ({{QUOTE_DATE}})</strong></td><td>{{RECEIVE:lemfi:GBP:NGN:1000}}</td><td>{{RECEIVE:taptap-send:GBP:NGN:1000}}</td><td>{{RECEIVE:remitly:GBP:NGN:1000}}</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Our pick:</strong> Start with Lemfi or TapTap Send for pure value. If your recipient needs cash in hand, Remitly's Express cash pickup is hard to beat. For transfers above £3,000, check Wise — the 0% markup saves more than the flat fee costs at large amounts.</p>`,
+<p>Which of the three delivers most changes from week to week; on GBP to NGN the most frequent leader in our quotes is {{CORRIDOR_LEADER_SHORT:GBP:NGN}}. Delivery speed and cash-pickup options are each provider's own description of its service, so check them in the provider's app for your recipient's bank or city. For a large transfer, Wise is worth pricing too: it says it adds no markup to the exchange rate, and we measure it at a median of {{AVG_MARKUP_PCT:wise}} across the routes we quote it on.</p>`,
       },
       {
         heading: "Is It Safe to Send Money to Nigeria Online?",
-        content: `<p>Yes — regulated UK apps are safe to use. Every provider listed above is regulated by the <strong>Financial Conduct Authority (FCA)</strong> in the UK, which requires:</p>
-<ul>
-<li>Safeguarding of customer funds (held separately from company funds)</li>
-<li>Anti-money laundering (AML) and Know Your Customer (KYC) checks</li>
-<li>Clear disclosures of fees and exchange rates before you send</li>
-</ul>
-<p>The risk is not in the app — it's in scams that trick you into sending money yourself. Never send money to someone you haven't met in person, and never send to an account "your bank has flagged as compromised." Banks do not ask you to move money to a "safe account" — that's the most common UK money transfer scam.</p>
-<p>Read our full <a href="/guides/are-wire-transfers-safe">wire transfer safety guide</a> for a complete breakdown of common scams and how to protect yourself.</p>`,
+        content: `
+<p>Use a provider that is authorised or registered by the Financial Conduct Authority to send money from the UK, and check its name on the <a href="https://register.fca.org.uk/s/" target="_blank" rel="noopener">FCA register</a> before your first transfer. An authorised payment or e-money institution must keep customers' money separate from its own (safeguarding), check its customers' identity and show the fee and exchange rate before you pay.</p>
+<p>The bigger risk is being tricked into sending money yourself. A bank will never ask you to move money to a "safe account", and a request to pay someone you have not met, or to change a family member's account details by message, is worth confirming by phone first. Our <a href="/guides/money-transfer-safety-guide">transfer safety guide</a> covers the common scams and how to report one.</p>
+`,
       },
       {
         heading: "Sources & Methodology",
