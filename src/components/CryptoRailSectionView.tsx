@@ -114,7 +114,7 @@ export default function CryptoRailSectionView({
       <div className="px-4 sm:px-6 py-3 border-t border-[var(--color-outline)]/60 bg-[var(--color-surface-dim)] flex flex-wrap items-center justify-between gap-2">
         <p className="text-2xs text-[var(--color-on-surface-muted)] max-w-[60ch]">
           Crypto rails involve exchange accounts, wallets, and price/liquidity risk. Costs are estimates from live
-          exchange and network data, refreshed every 6 hours. Not financial advice.
+          exchange and network data, collected every 6 hours. Not financial advice.
         </p>
         {cashout && (
           <Link

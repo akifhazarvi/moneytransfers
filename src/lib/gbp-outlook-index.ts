@@ -8,7 +8,7 @@
  * typical monthly currency move — so provider choice beats market timing. That
  * claim only holds if the provider-spread figure is real and current, not a
  * hard-coded snapshot that drifts as rates change. So we compute it live from
- * the same wise-comparison scrape that refreshes every 6 hours, exactly like
+ * the same wise-comparison scrape collected every 6 hours, exactly like
  * computeBankVsAppIndex(). See src/lib/bank-vs-app-index.ts for the sibling.
  *
  * METHODOLOGY

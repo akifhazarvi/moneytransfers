@@ -20,7 +20,7 @@ export function PageByline({
   authorSlug = "awais-imran",
   reviewerSlug,
   updated,
-  cadence = "Data updated every 6 hours",
+  cadence = "Data collected every 6 hours",
   sourcesHref = "/methodology",
   sourcesLabel = "Our methodology",
 }: {

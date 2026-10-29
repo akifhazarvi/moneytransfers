@@ -8,7 +8,7 @@
  * measure of how much MORE a traditional bank costs vs a specialist app on the
  * same corridor and amount. World Bank RPW is quarterly and never names banks;
  * Wise's reporting is self-interested. We compute it LIVE from the same
- * wise-comparison scrape that refreshes every 6 hours, so the published numbers
+ * wise-comparison scrape collected every 6 hours, so the published numbers
  * are always defensible against the data file rather than a stale snapshot.
  *
  * METHODOLOGY (kept deliberately simple so a journalist can reproduce it)

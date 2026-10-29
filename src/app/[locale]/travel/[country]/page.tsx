@@ -271,7 +271,7 @@ export default async function TravelCountryPage({ params }: Props) {
               amount={1000}
               source={`travel:${guide.slug ?? guide.countryName}`}
               heading={`Sending money to ${guide.countryName}? Here is the real cost`}
-              subheading={`Live ${guide.topSourceCurrencies?.[0] || "USD"}→${guide.currency} all-in costs, updated every 6 hours.`}
+              subheading={`Live ${guide.topSourceCurrencies?.[0] || "USD"}→${guide.currency} all-in costs, collected every 6 hours.`}
             />
           </div>
         </Container>

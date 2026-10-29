@@ -134,7 +134,7 @@ export default async function FxMarkupCheckerPage({
           <div className="max-w-3xl">
             <FxMarkupChecker source="tool:fx-markup-checker" initialFrom="USD" initialTo="INR" initialMidMarket={initialMidMarket} />
             <p className="mt-3 text-xs text-[var(--color-on-surface-muted)]">
-              The mid-market reference updates live from our provider quote data (refreshed every 6 hours). Estimate
+              The mid-market reference updates live from our provider quote data (collected every 6 hours). Estimate
               only — confirm the exact rate with your provider before sending.
             </p>
           </div>

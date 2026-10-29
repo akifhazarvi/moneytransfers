@@ -116,7 +116,7 @@ export default async function BankVsAppCostPage({ params }: { params: Promise<{ 
             Banks cost {idx.bankVsAppMultiple}× more than apps to send money abroad
           </h1>
           <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
-            By {author?.name ?? "Ahsan Mukhtar"} · Data as of {asOfLong} · Updated every 6 hours from live provider quotes
+            By {author?.name ?? "Ahsan Mukhtar"} · Data as of {asOfLong} · Collected every 6 hours from live provider quotes
           </p>
 
           {/* Citable answer box */}

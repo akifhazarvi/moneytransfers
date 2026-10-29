@@ -175,7 +175,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-india": {
     title: "Cheapest Way to Send Money USA to India — USD→INR Rates (2026)",
     description:
-      "Compare today's USD to INR quotes from 15+ providers side by side: rupees delivered, fees and delivery speed. Quotes refresh every 6 hours.",
+      "Compare today's USD to INR quotes from 15+ providers side by side: rupees delivered, fees and delivery speed. Quotes are collected every 6 hours.",
     ogTitle: "USA→India: Who Gives the Best USD→INR Rate?",
     ogDescription:
       "Compare USD to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",
@@ -205,7 +205,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-europe": {
     title: "Cheapest Way to Send Money UK to Europe — GBP→EUR Rates (2026)",
     description:
-      "GBP to EUR rates from Wise, Revolut & 10+ providers. SEPA transfers with fees from 0%. Compare real-time rates — updated every 6 hours.",
+      "GBP to EUR rates from Wise, Revolut & 10+ providers. SEPA transfers with fees from 0%. Compare real-time rates — collected every 6 hours.",
     ogTitle: "UK→Europe: Who Gives the Best GBP→EUR Rate?",
     ogDescription:
       "Compare GBP to EUR rates from 15+ providers. Find the cheapest SEPA transfer from UK to Europe with the lowest fees.",
@@ -215,7 +215,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-india": {
     title: "Cheapest Way to Send Money UK to India — GBP→INR Rates (2026)",
     description:
-      "Compare today's GBP to INR quotes from 15+ providers side by side: rupees delivered, fees and delivery speed. Quotes refresh every 6 hours.",
+      "Compare today's GBP to INR quotes from 15+ providers side by side: rupees delivered, fees and delivery speed. Quotes are collected every 6 hours.",
     ogTitle: "UK→India: Who Gives the Best GBP→INR Rate?",
     ogDescription:
       "Compare GBP to INR provider estimates, fees and recipient requirements. Check delivery options and final quotes for your transfer.",

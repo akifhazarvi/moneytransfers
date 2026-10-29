@@ -200,7 +200,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Compare Money Transfers — Best Rates & Lowest Fees",
-    description: `Compare fees, exchange rates, and delivery times from ${COVERAGE.providers} across ${COVERAGE.corridors}. Updated every 6 hours with live data.`,
+    description: `Compare fees, exchange rates, and delivery times from ${COVERAGE.providers} across ${COVERAGE.corridors}. Collected every 6 hours with live data.`,
     url: "https://sendmoneycompare.com",
     isPartOf: { "@id": "https://sendmoneycompare.com/#website" },
     about: { "@id": "https://sendmoneycompare.com/#organization" },

@@ -274,7 +274,7 @@ export const corridorGuides2: BlogPost[] = [
         content: `<div class="blog-table-box">
 <h3 style="margin-top: 0;">Shillings delivered for $1,000, by provider</h3>
 {{QUOTE_TABLE:USD:KES:1000}}
-<p class="blog-footnote">What arrives for a $1,000 total outlay, priced {{QUOTE_DATE}} and refreshed every six hours. <a href="/send-money/usa-to-kenya">Compare live rates →</a></p>
+<p class="blog-footnote">What arrives for a $1,000 total outlay, priced {{QUOTE_DATE}} and collected every six hours. <a href="/send-money/usa-to-kenya">Compare live rates →</a></p>
 </div>
 <h3>Sendwave — built around M-Pesa</h3>
 <p>Pays straight into an M-Pesa wallet and charges {{FEE:sendwave:USD:KES:1000}} on $1,000 today, delivering {{RECEIVE:sendwave:USD:KES:1000}}; its margin sits in the exchange rate rather than the fee.</p>

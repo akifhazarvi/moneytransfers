@@ -221,7 +221,12 @@ what enforces it. Where a rule is not automated, it says how to check it.
     comes back by itself. Every `/go/` and `/out/` anchor carries
     `rel="nofollow sponsored noopener"` (+ `noreferrer` where it had it;
     `affiliateRel()`). Consequence to know: Bing-only pages now have no
-    internal links and are found through `sitemap.xml` alone. *Enforced:*
+    internal links and are found through `sitemap.xml` alone. One exception,
+    round-4 brief §0.3 Option A (2026-10-28): the `/companies` and `/compare`
+    hubs link their major reviews and comparisons even while Google is not
+    shown them — `HUB_CHILD_LINKS` in `link-eligibility.ts`, rendered through
+    the `hub` prop of EligibleLink/Card, accepted by the checker for exactly
+    those hub → child pairs. *Enforced:*
     `check:link-eligibility` (postbuild; built HTML: links to non-eligible
     pages, /go rel, and §5.3 — every eligible page has in-content links from
     3+ other eligible pages; `--hubs` prints unique links per page).
@@ -248,21 +253,24 @@ what enforces it. Where a rule is not automated, it says how to check it.
     changes. A page that prints a data date as "Updated" fails the build the
     first time a scrape moves it (/iban/*, 2026-10-10). *Enforced:*
     `check:lastmod` (postbuild, both sitemaps).
-17. **Google gets Bing earners back in dated batches, never in bulk.**
-    Round-3 brief §3.4: release 10–20 QA-passed pages every 7–10 days,
-    highest Bing demand first. `GOOGLE_RELEASE_BATCHES` in
-    `search-engine-routes.ts` (one entry per batch, never edited after
-    release) makes a page googleIndexable ahead of the hidden lists: it loses
-    `googlebot: noindex`, joins sitemap-google.xml and the link manifest
-    (its links return, rule 14). A batch whose page lacks 3 in-content links
-    from eligible pages fails `check:link-eligibility`. A batch takes effect in
-    the first build dated on/after its `released` day (`SMC_BUILD_DATE`, inlined
-    by next.config.ts; the 6-hourly scrape commits rebuild production), so it can
-    be committed ahead. Verify one before its day with
-    `SMC_BUILD_DATE=<day> npm run build`. Log each release in GSC monitoring
-    (days 5/14/28/45). Batch 1 (17 IBAN/SWIFT pages) is dated 2026-10-14,
-    batch 2 (20) 2026-10-18 and batch 3 (20) 2026-10-23 (owner pulled both
-    forward, on 2026-10-18 and 2026-10-23; batch 4 waits for a re-QA).
+17. **Google gets pages back only on its own response, after QA, never by
+    date.** Round-4 brief (2026-10-27, owner: "do what he says"): a page opens
+    to Google only in the brief's waves (Section 6, worksheet 11) once a
+    checkpoint passes — CP1 Google crawling HTML, CP2 first hubs indexed, CP3
+    ≥50% of the last wave indexed 28 days on — and only after the worksheet-12
+    QA checklist and a change-log row (worksheet 14). `GOOGLE_RELEASE_BATCHES`
+    in `search-engine-routes.ts` (one entry per batch, never edited) opens a
+    page from the deploy that lists it: it loses `googlebot: noindex`, joins
+    sitemap-google.xml and the link manifest (its links return, rule 14), and
+    fails `check:link-eligibility` without 3 in-content links from eligible
+    pages. `released` is the record of that day, not a switch: until
+    2026-10-28 a batch waited for the first build on/after its date
+    (`SMC_BUILD_DATE`), so batches 2–3 went out while the freelancer had asked
+    for a pause. `GOOGLE_WITHDRAWALS` outranks every batch: 2026-10-28 withdrew
+    83 URLs (worksheet 02 — off-topic, forecasts, seasonal, 1–2-provider
+    routes, short news, ≥40% pairs, and 32 of batches 2–3), Google-only, so
+    Bing keeps them (`bingIndexable()` admits a withdrawn page). Monitoring:
+    days 7/14/28/45 after each stage (worksheet 13).
 18. **A title keeps the words people search.** Bing readout 2026-10-18: on
     2026-09-02 `seoTitle()` cut 44 guides to the first clause of their
     headline ("What Is a SWIFT Code? Find Your Bank's BIC Code (2026)" →
@@ -653,11 +661,18 @@ visitors who allow analytics (see *Consent*).
 
 - **Author email**: All commits must use `akifhazarvi@yahoo.com` (GitHub-associated email). Other emails will block Vercel deployment on the Hobby plan.
 - **No Co-Authored-By trailers** with non-GitHub emails.
-- **Main branch** deploys directly to production — including the scrape workflows'
-  data-only commits. `vercel-ignore.sh` used to skip those ("deploy hook will
-  handle it") after the hook was removed, so no scraped data deployed from Sep 18
-  to Sep 27 2026. It now builds every commit; never skip data commits unless
-  something else deploys them.
+- **Main branch** deploys directly to production. Code builds on every commit;
+  scraped data builds **at most once per UTC day** (round-4 brief §0.4,
+  2026-10-28: every deploy changed every asset URL Googlebot fetches, and the
+  scrape commits made 4–7 a day). `vercel-ignore.sh` skips a data-only commit
+  only when the last deployed commit (`VERCEL_GIT_PREVIOUS_SHA`) is in the clone
+  and dated today in UTC; anything uncertain builds. Its history: it once skipped
+  every data commit after the deploy hook was removed, and no scraped data
+  reached production from Sep 18 to Sep 27 2026 — never skip data unless
+  something provably deploys it. Scrapers still collect every 6 hours, so copy
+  says quotes are "collected every 6 hours", never "refreshed/updated every 6
+  hours". Skew Protection is off (`skewProtectionMaxAge: 0`, same day): its
+  `?dpl=` changed every `/_next` URL per deploy. Push code once a day at most.
 - **GitHub Actions** workflow at `.github/workflows/scrape.yml` runs scrapers on schedule.
 
 ## Route Gating — read before writing any internal link
@@ -703,8 +718,8 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
 - **Not submitted ⇒ usually `noindex`.** The exceptions are declared:
   `INDEXED_IBAN_SLUGS` and `INDEXED_SWIFT_SLUGS` in `seo-indexing.ts` are
   deliberately broader than the sitemap (Bing earners Google ignores).
-  `/compare-money-transfer` is indexable but unsubmitted because it
-  canonicalises to `/compare`.
+  `/compare-money-transfer` 301s to `/compare` since 2026-10-28 (round-4
+  brief §2.2; it used to render with a canonical to `/compare`).
 - **The largest exception is Tier 1 corridors, and it is deliberate.** ~362
   `/send-money/*` pages are `index, follow` while absent from the sitemap. (Until
   2026-10-08 `/send-money` linked all 436; owner decision with the round-3 brief

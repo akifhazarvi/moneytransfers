@@ -127,7 +127,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
 <p>A modelled branch wire costing $220–$270 is about 4–5% of the transfer. Here is what the same $5,000 delivers with every provider we price today, against {{MID_RECEIVE:USD:GBP:5000}} at the mid-market rate:</p>
 <div class="blog-table-box">
 {{QUOTE_TABLE:USD:GBP:5000}}
-<p class="blog-footnote">Live quotes, refreshed every 6 hours; banks appear where we can price their own online transfer. <a href="/send-money/usa-to-uk">Compare USD to GBP at your amount →</a></p>
+<p class="blog-footnote">Live quotes, collected every 6 hours; banks appear where we can price their own online transfer. <a href="/send-money/usa-to-uk">Compare USD to GBP at your amount →</a></p>
 </div>
 <h3>What we actually measure these banks charging</h3>
 <p>The figures above model a SWIFT wire: the published flat fee plus a markup. Separately, we price banks directly from live quotes in our <a href="/remittance-cost-index">Remittance Cost Index</a>, and those come out lower, because the quotes we capture are usually a bank's own online transfer product rather than a branch SWIFT wire. Measured across every corridor each bank quotes at $1,000:</p>
@@ -186,7 +186,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Bank wire transfer fee data sourced from published fee schedules, consumer deposit account agreements, and disclosed tariff sheets from each bank's official website (Q2 2026). Exchange rate markups are estimated based on spot rate comparisons at time of writing — actual markups vary by currency pair, time of day, and account type. Contact your bank for the exact rate before transferring.</p>
-<p>Specialist app cost data from live quotes via our comparison engine, updated every 6 hours. World Bank average cost data from Remittance Prices Worldwide Q1 2025 report. Correspondent bank fee ranges based on SWIFT published guidance and consumer complaints filed with the CFPB.</p>
+<p>Specialist app cost data from live quotes via our comparison engine, collected every 6 hours. World Bank average cost data from Remittance Prices Worldwide Q1 2025 report. Correspondent bank fee ranges based on SWIFT published guidance and consumer complaints filed with the CFPB.</p>
 <p>Related: <a href="/guides/wire-transfer-guide">Wire transfer guide (SWIFT, ACH, SEPA explained)</a> · <a href="/guides/exchange-rate-markup-explained">Exchange rate markup explained</a> · <a href="/guides/bank-vs-app-transfer-cost-2026">Banks cost 1.44× more than apps — the data</a> · <a href="/guides/are-wire-transfers-safe">Are wire transfers safe?</a></p>`,
       },
     ],

@@ -719,7 +719,7 @@ export default async function BestAppsFromUSPage({
                 <strong className="text-[var(--color-on-surface)]">True total cost</strong> — We compute the
                 all-in cost as: <em>(mid-market receive amount − actual receive amount) ÷ mid-market receive
                 amount × 100</em>. This captures both the upfront fee and the hidden exchange rate margin in a
-                single comparable figure. Data is refreshed every 6 hours from provider APIs.
+                single comparable figure. Data is collected every 6 hours from provider APIs.
               </div>
             </li>
             <li className="flex gap-3">
@@ -886,7 +886,7 @@ export default async function BestAppsFromUSPage({
               </tbody>
             </table>
             <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
-              Our quotes for $1,000 USD → INR{quoteDataDate ? ` on ${quoteDataDate}` : ""}; the full list, updated every 6 hours, is on the{" "}
+              Our quotes for $1,000 USD → INR{quoteDataDate ? ` on ${quoteDataDate}` : ""}; the full list, collected every 6 hours, is on the{" "}
               <Link href="/send-money/usa-to-india" className="text-[var(--color-primary)] hover:underline">
                 USA → India comparison →
               </Link>

@@ -190,7 +190,7 @@ export default async function SalaryAbroadPage({ params }: { params: Promise<{ l
               </ul>
               <p className="text-sm">
                 Source: {pppIndex.source}. Exchange rates and provider markups: SendMoneyCompare
-                quote archive, updated every 6 hours.
+                quote archive, collected every 6 hours.
               </p>
             </div>
           </section>

@@ -218,7 +218,7 @@ export default function FreelancerCostCalculator({ source }: Props) {
           </p>
         )}
         <p className="mt-3 text-2xs text-[var(--color-on-surface-muted)] leading-relaxed">
-          Bank estimate assumes a ~3% exchange-rate markup plus a {fmtUSD(BANK_WIRE_FEE_USD)} wire fee per payment — typical, but yours may differ. Provider figures are live, updated every 6 hours. This is an estimate, not a quote.
+          Bank estimate assumes a ~3% exchange-rate markup plus a {fmtUSD(BANK_WIRE_FEE_USD)} wire fee per payment — typical, but yours may differ. Provider figures are live, collected every 6 hours. This is an estimate, not a quote.
         </p>
       </div>
     </aside>

@@ -543,7 +543,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             amount={tableAmount}
             source={`rate:${pair}`}
             heading={`Nobody gets the mid-market rate — here is what you actually get`}
-            subheading={`Live ${p.from}→${p.to} all-in costs, updated every 6 hours.`}
+            subheading={`Live ${p.from}→${p.to} all-in costs, collected every 6 hours.`}
           />
 
           {/* In-context news callout — shown when pair has a related article */}

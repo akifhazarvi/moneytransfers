@@ -126,7 +126,7 @@ const SUPPORT_MARK: Record<Support, { mark: string; cls: string }> = {
   none: { mark: "—", cls: "text-[var(--color-on-surface-muted)]" },
 };
 
-// ?workflow= is read by BusinessCompareTool after mount. Awaiting searchParams
+// The workflow (#workflow=) is read by BusinessCompareTool after mount. Awaiting searchParams
 // here made the page dynamic: it left the prerendered set, so check:links
 // failed every link to it, and it lost the static render revalidate relies on.
 export default async function BusinessComparePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -313,7 +313,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
             <span className="mr-2 text-sm font-semibold text-[var(--color-primary)]">04</span>Measured FX costs: specialists vs banks</h2>
           <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
             Ranked by average true cost (FX markup + fees) of sending {amt} across {idx.corridorCount} corridors where we
-            hold a live quote, as of {asOfLong}. Lower is cheaper. This is computed, not editorial — it refreshes every 6 hours.
+            hold a live quote, as of {asOfLong}. Lower is cheaper. This is computed, not editorial, from quotes collected every 6 hours.
           </p>
           {/* Cost spectrum — each provider's cost as a position on a shared track,
               with the bank average as the reference line they all beat. */}

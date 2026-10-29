@@ -178,7 +178,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
       {/* Footer */}
       <div className="px-5 sm:px-6 py-3 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)] flex items-center justify-between gap-3 flex-wrap">
         <p className="text-2xs text-[var(--color-on-surface-variant)]">
-          Rates updated every 6 hours · Rankings by recipient amount received
+          Rates collected every 6 hours · Rankings by recipient amount received
         </p>
         <a
           href={seeAllHref}

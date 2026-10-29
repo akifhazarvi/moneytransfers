@@ -28,7 +28,7 @@ export default function CryptoVsBankIndexSection() {
           </h2>
           <p className="mt-3 text-[var(--color-on-surface-variant)]">
             We price stablecoin and Bitcoin rails against banks and fintechs across{" "}
-            <strong>{totalCorridors} corridors</strong>, updated every 6 hours. On the corridors below, the cheapest
+            <strong>{totalCorridors} corridors</strong>, collected every 6 hours. On the corridors below, the cheapest
             crypto route <strong>beats the mid-market rate</strong> — meaning the recipient gets more local currency
             than a flawless bank rate would give, before the bank adds a cent of markup. This is the number
             traditional comparison sites can&apos;t show, because they don&apos;t measure crypto.
