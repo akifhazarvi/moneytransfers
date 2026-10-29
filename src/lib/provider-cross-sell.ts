@@ -69,10 +69,12 @@ export function crossSellComparisonHref(intent: TransferIntent, context?: Transf
   const path = intent === "business" ? "/business/compare" : "/send-money";
   // The business comparison is a feature matrix, not a corridor search.
   if (!context || intent === "business") return path;
-  // No amount (2026-09-25): tables now price at page-specific amounts, and an
-  // amount in this link minted one parameter URL per page — SiteLiner found
-  // 254 of them, every one canonicalising to /send-money. One URL per pair.
-  return `${path}?${new URLSearchParams({ from: context.from, to: context.to })}`;
+  // The pair travels in the fragment, which SendMoneyClient reads, so the link
+  // is /send-money itself to a crawler. As ?from=…&to=… it minted one
+  // crawlable copy of the hub per pair, each canonicalised to /send-money: 47
+  // in the round-4 crawl (brief §1.3, worksheet 07). Same shape as
+  // compareHashHref(), which this client-bundled file must not import.
+  return `${path}#${new URLSearchParams({ from: context.from, to: context.to })}`;
 }
 
 /** Closing prompts on discovery/editorial pages. Results and guide templates
@@ -81,7 +83,7 @@ export function crossSellComparisonHref(intent: TransferIntent, context?: Transf
 export function siteCrossSellConfig(pathname: string) {
   const path = pathname.replace(/^\/en(?=\/|$)/, "").replace(/\/$/, "") || "/";
   const [, section, slug] = path.split("/");
-  const surfaces = ["research", "provider-consistency", "remittance-cost-index", "sendscore", "transfer-cost-by-amount", "news", "tools", "companies", "banks", "iban", "swift-codes", "travel", "exchange-rates", "currency-converter", "compare-money-transfer", "business"];
+  const surfaces = ["research", "provider-consistency", "remittance-cost-index", "sendscore", "transfer-cost-by-amount", "news", "tools", "companies", "banks", "iban", "swift-codes", "travel", "exchange-rates", "currency-converter", "business"];
   // The homepage runs PartnerFeatureBlock's ad, which shows the same partner
   // with a live rate, payout and savings. The page-end card showed the partner
   // again with none of that, so the homepage opts out here (2026-09-19).

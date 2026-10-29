@@ -2,7 +2,7 @@
 import BusinessProviderLogo from "@/components/business/BusinessProviderLogo";
 
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { BUSINESS_PROVIDERS, BUSINESS_FEATURES } from "@/data/business-providers";
 import { BUSINESS_JOURNEYS } from "@/data/business-journeys";
 import { trackFilterApplied } from "@/lib/analytics";
@@ -13,17 +13,22 @@ export interface LiveCost { slug: string; avgCostPct: number; corridorCount: num
 type SortKey = "match" | "cost" | "name";
 const SUPPORT = { unknown: "Not verified", full: "Supported", partial: "Limited / plan-dependent", none: "Not listed as supported" };
 
-// The page is prerendered, so ?workflow= (the /business/[slug] guides link with
-// it) is read in the browser: the server and hydration render no workflow, then
-// the finder remounts preselected.
+// The page is prerendered, so the workflow the /business/[slug] guides link
+// with (#workflow=…, formerly ?workflow=, still read for old links) is read in
+// the browser: the server and hydration render no workflow, then the finder
+// remounts preselected and scrolls into view, as #finder used to.
 const noSubscribe = () => () => {};
 const urlWorkflow = () => {
-  const workflow = new URLSearchParams(window.location.search).get("workflow");
+  const workflow = new URLSearchParams(window.location.hash.slice(1)).get("workflow")
+    ?? new URLSearchParams(window.location.search).get("workflow");
   return BUSINESS_JOURNEYS.some(j => j.workflow === workflow) ? workflow! : "";
 };
 
 export default function BusinessCompareTool(props: { liveCosts: LiveCost[]; amountLabel: string }) {
   const workflow = useSyncExternalStore(noSubscribe, urlWorkflow, () => "");
+  useEffect(() => {
+    if (workflow) document.getElementById("finder")?.scrollIntoView();
+  }, [workflow]);
   return <Finder key={workflow || "all"} {...props} initialWorkflow={workflow} />;
 }
 

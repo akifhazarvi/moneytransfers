@@ -8,12 +8,14 @@ interface Props {
   className?: string;
   highlight?: boolean;
   id?: string;
+  /** The hub this card sits on, for its Option A children (HUB_CHILD_LINKS). */
+  hub?: string;
 }
 
-export default function Card({ children, href: rawHref, className = "", highlight = false, id }: Props) {
+export default function Card({ children, href: rawHref, className = "", highlight = false, id, hub }: Props) {
   // A card to a page Google may not index renders as a plain card, without
   // the link or its hover lift (CLAUDE.md rule 14).
-  const href = eligibleHref(rawHref);
+  const href = eligibleHref(rawHref, hub);
   // Cards float on the warm-grey canvas via shadow, not a hard border. The
   // hairline is near-invisible — present when you look, absent when you don't.
   const base =

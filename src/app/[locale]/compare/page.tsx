@@ -105,7 +105,7 @@ function buildMatchups(): Matchup[] {
 const COMPARE_FAQS: { q: string; a: string }[] = [
   {
     q: "How do you decide which provider is cheaper?",
-    a: "By the amount the recipient actually receives — never the advertised fee. The true cost of a transfer is the stated fee plus the exchange-rate markup (markup % × amount sent), and the markup scales with transfer size while a flat fee does not. Our tool takes each provider's live rate (refreshed every 6 hours from provider APIs and calculators), nets out both the fee and the markup, and shows you the single number that matters: what lands in the recipient's account. This is the same all-in logic the World Bank uses in its Remittance Prices Worldwide survey.",
+    a: "By the amount the recipient actually receives — never the advertised fee. The true cost of a transfer is the stated fee plus the exchange-rate markup (markup % × amount sent), and the markup scales with transfer size while a flat fee does not. Our tool takes each provider's live rate (collected every 6 hours from provider APIs and calculators), nets out both the fee and the markup, and shows you the single number that matters: what lands in the recipient's account. This is the same all-in logic the World Bank uses in its Remittance Prices Worldwide survey.",
   },
   {
     q: "What is an exchange rate markup?",
@@ -353,6 +353,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
               <Link
                 key={c.slug}
                 href={`/compare/${c.slug}`}
+                hub="/compare"
                 className="group flex items-center justify-between p-3.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-on-surface)]/30 transition-colors"
               >
                 <div className="flex items-center gap-3 min-w-0">

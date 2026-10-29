@@ -521,7 +521,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   </li>
                   <li>
                     <strong>Time-specific:</strong> Exchange rates fluctuate
-                    throughout the day. Our data refreshes every 6 hours to keep
+                    throughout the day. Our data is collected every 6 hours to keep
                     rankings current.
                   </li>
                   <li>
@@ -898,6 +898,13 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   Provider Directory
                 </Link>{" "}
                 — all tracked providers.{" "}
+                <Link
+                  href="/compare"
+                  className="text-[var(--color-primary)] hover:underline"
+                >
+                  Head-to-head comparisons
+                </Link>{" "}
+                — two providers side by side, priced the same way.{" "}
                 <Link
                   href="/send-money"
                   className="text-[var(--color-primary)] hover:underline"

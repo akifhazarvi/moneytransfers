@@ -201,9 +201,9 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
       </section>
 
       {/* All corridors by source currency — a DATA showcase, not a link farm.
-          Rows are plain text (no <a>): the per-corridor history pages are
-          noindex and absent from the sitemap, so linking 800+ of them would
-          burn crawl budget on dead ends. The table's value is the data itself
+          Only the rows whose history page is open to Google link (EligibleLink);
+          the rest are plain text, since linking 800+ noindex pages would burn
+          crawl budget on dead ends. The table's value is the data itself
           (current best, avg, trend, level), which crawlers read inline. */}
       <section className="py-10 bg-[var(--color-surface)]">
         <Container>
@@ -249,16 +249,19 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
 
                             return (
                               <tr key={insight.corridor} className="border-t border-[var(--color-outline)] hover:bg-[var(--color-surface-dim)] transition-colors">
-                                {/* Plain text, NOT a link: these history/[pair] pages
-                                    are noindex + absent from the sitemap, so linking
-                                    all 800+ would flood crawl budget with dead-end
-                                    paths. The data in this row IS the value. */}
+                                {/* Links only the pairs open to Google (rule 14) —
+                                    round-4 brief §0.3: the hub linked none of its open
+                                    history pages, which only linked one another. Every
+                                    other row stays plain text; its data is the value. */}
                                 <td className="px-4 py-2.5">
-                                  <span className="flex items-center gap-2 font-medium text-[var(--color-on-surface)]">
+                                  <Link
+                                    href={`/exchange-rates/history/${slug}`}
+                                    className="flex items-center gap-2 font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)]"
+                                  >
                                     <CircleFlag code={to} size={18} />
                                     {from} → {to}
                                     {toInfo && <span className="text-2xs text-[var(--color-on-surface-muted)] font-normal hidden sm:inline">({toInfo.name})</span>}
-                                  </span>
+                                  </Link>
                                 </td>
                                 <td className="px-4 py-2.5 text-right tabular-nums text-[var(--color-on-surface)]">
                                   {insight.today.bestRate.toFixed(4)}

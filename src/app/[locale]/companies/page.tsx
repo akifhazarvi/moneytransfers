@@ -80,7 +80,7 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {sorted.map((provider) => (
-          <Card key={provider.slug} href={`/companies/${provider.slug}`} className="group">
+          <Card key={provider.slug} href={`/companies/${provider.slug}`} hub="/companies" className="group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-14 h-14 rounded-full overflow-hidden shrink-0">
                 <Image src={provider.logo} alt={provider.name} width={56} height={56} className="w-full h-full object-contain p-1" />

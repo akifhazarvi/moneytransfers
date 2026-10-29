@@ -36,14 +36,44 @@ export function internalPagePath(href: string): string | null {
 }
 
 /** True unless the href is an internal page that Google may not index. */
+/**
+ * Round-4 brief §0.3, Option A (2026-10-27): the /companies and /compare hubs
+ * link their major reviews and comparisons — the brief's Bing-demand lists for
+ * waves 2 and 3 (worksheet 11) — even while those pages are withheld from
+ * Google, so neither hub is a dead end. A link to a noindex page is not
+ * penalised; a hub with no children reads as an empty directory. Only the hub
+ * itself may link these (EligibleLink/Card `hub` prop), and
+ * check:link-eligibility accepts exactly these pairs.
+ */
+export const HUB_CHILD_LINKS: Readonly<Record<string, readonly string[]>> = {
+  "/companies": [
+    "/companies/remitly", "/companies/taptap-send", "/companies/xoom", "/companies/instarem",
+    "/companies/wise", "/companies/worldremit", "/companies/western-union", "/companies/moneygram",
+    "/companies/lemfi", "/companies/ofx", "/companies/xe", "/companies/ria",
+  ],
+  "/compare": [
+    "/compare/western-union-vs-moneygram", "/compare/paypal-vs-revolut", "/compare/wise-vs-revolut",
+    "/compare/wise-vs-paypal", "/compare/wise-vs-remitly", "/compare/wise-vs-westpac",
+    "/compare/remitly-vs-western-union", "/compare/remitly-vs-paypal", "/compare/remitly-vs-taptap-send",
+    "/compare/wise-vs-worldremit", "/compare/remitly-vs-moneygram", "/compare/revolut-vs-hsbc",
+    "/compare/hsbc-vs-paypal", "/compare/wise-vs-taptap-send",
+  ],
+};
+
+/** True when `hub` may link `href` under Option A above. */
+export function hubChildLinkAllowed(hub: string | null | undefined, href: string): boolean {
+  const path = internalPagePath(href);
+  return Boolean(hub && path && HUB_CHILD_LINKS[hub]?.includes(path));
+}
+
 export function isLinkEligible(href: string): boolean {
   const path = internalPagePath(href);
   return path === null || ELIGIBLE.has(path);
 }
 
 /** The href when it may render as a link, else null — for `href ? <a> : text`. */
-export function eligibleHref(href: string | null | undefined): string | null {
-  return href && isLinkEligible(href) ? href : null;
+export function eligibleHref(href: string | null | undefined, hub?: string): string | null {
+  return href && (isLinkEligible(href) || hubChildLinkAllowed(hub, href)) ? href : null;
 }
 
 /**

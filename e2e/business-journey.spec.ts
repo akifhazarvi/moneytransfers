@@ -10,7 +10,7 @@ for (const [slug, workflow, title] of [
     await page.goto(`/business/${slug}`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
     await page.getByRole("link", { name: "Compare providers for this workflow →", exact: true }).first().click();
-    await page.waitForURL(`**/business/compare?workflow=${workflow}#finder`);
+    await page.waitForURL(`**/business/compare#workflow=${workflow}`);
     await expect(page.getByRole("group", { name: "Payment workflow" }).getByRole("button", { name: title, exact: true })).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator(".business-needs button[aria-pressed=true]")).toHaveCount(2);
     await expect(page.locator("[data-business-provider]")).toHaveCount(7);

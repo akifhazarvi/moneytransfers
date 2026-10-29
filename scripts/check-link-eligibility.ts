@@ -24,7 +24,7 @@
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { internalPagePath, isLinkEligible } from "../src/lib/link-eligibility";
+import { hubChildLinkAllowed, internalPagePath, isLinkEligible } from "../src/lib/link-eligibility";
 import eligibleJson from "../src/data/google-eligible-routes.json";
 
 const ROOT = join(__dirname, "..");
@@ -85,7 +85,7 @@ for (const f of walk(APP)) {
     const path = internalPagePath(decoded);
     if (path === null) continue;
     unique.add(path);
-    if (path === source || isLinkEligible(path)) continue;
+    if (path === source || isLinkEligible(path) || hubChildLinkAllowed(source, path)) continue;
     const entry = byTarget.get(path) ?? { count: 0, sources: new Set() };
     entry.count++;
     entry.sources.add(source);

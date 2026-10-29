@@ -85,7 +85,10 @@ export default async function BusinessSubPage({ params }: Props) {
   const page = getBusinessPage(slug);
   if (!page) notFound();
   const journey = businessJourney(slug);
-  const compareHref = `/business/compare${journey ? `?workflow=${journey.workflow}` : ""}#finder`;
+  // The workflow travels in the fragment (BusinessCompareTool reads it and
+  // scrolls to the finder): as ?workflow= each guide minted a crawlable copy of
+  // /business/compare (round-4 brief §1.3, worksheet 07).
+  const compareHref = `/business/compare#${journey ? `workflow=${journey.workflow}` : "finder"}`;
   const contents = page.sections.map((section, i) => ({ id: `business-section-${i + 1}`, title: sectionHeading(section.heading, page.title) }));
 
   // FAQPage rich results restricted to government/healthcare since Aug 2023.
@@ -216,7 +219,7 @@ export default async function BusinessSubPage({ params }: Props) {
                       source={`business:${slug}`}
                       only={BUSINESS_FX_SLUGS}
                       heading="What a $10,000 business payment actually costs"
-                      subheading="Live all-in costs on USD→EUR at business size, updated every 6 hours."
+                      subheading="Live all-in costs on USD→EUR at business size, collected every 6 hours."
                     />
                   </div>
                 )}

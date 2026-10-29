@@ -66,7 +66,7 @@ export function hrefOf(entry: Entry): string {
   if (entry.type === "savings") return METHOD_HREF;
   const p = entry.type === "reader" ? entry.item : entry.rate;
   if (!p.from || !p.to) return "/send-money";
-  return `/send-money?from=${p.from}&to=${p.to}${p.amount ? `&amount=${p.amount}` : ""}`;
+  return `/send-money#from=${p.from}&to=${p.to}${p.amount ? `&amount=${p.amount}` : ""}`;
 }
 
 /** The `kind` live_activity_clicked carries. */

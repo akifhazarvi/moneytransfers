@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
-import { isLinkEligible } from "@/lib/link-eligibility";
+import { hubChildLinkAllowed, isLinkEligible } from "@/lib/link-eligibility";
 
 type Props = ComponentProps<typeof Link> & {
   href: string;
@@ -16,6 +16,8 @@ type Props = ComponentProps<typeof Link> & {
    * arrows, "Read more" and buttons that mean nothing without their link).
    */
   unlinked?: "text" | "hide";
+  /** The hub this link sits on, for its Option A children (HUB_CHILD_LINKS). */
+  hub?: string;
 };
 
 /**
@@ -37,8 +39,8 @@ function plainClassName(className: string | undefined): string | undefined {
  * src/lib/link-eligibility.ts. Works in server and client components (no
  * hooks). Every component imports this in place of next/link.
  */
-export default function EligibleLink({ href, fallbackHref, unlinked = "text", children, className, ...rest }: Props) {
-  const target = isLinkEligible(href) ? href : fallbackHref && isLinkEligible(fallbackHref) ? fallbackHref : null;
+export default function EligibleLink({ href, fallbackHref, unlinked = "text", hub, children, className, ...rest }: Props) {
+  const target = isLinkEligible(href) || hubChildLinkAllowed(hub, href) ? href : fallbackHref && isLinkEligible(fallbackHref) ? fallbackHref : null;
   if (target === null) return unlinked === "hide" ? null : <span className={plainClassName(className)}>{children}</span>;
   return (
     <Link href={target} className={className} {...rest}>
