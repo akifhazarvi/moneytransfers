@@ -18616,10 +18616,10 @@
         "receiveAmount": 1086
       },
       "moneygram": {
-        "rate": 10.8277,
+        "rate": 10.8373,
         "fee": 0.8,
-        "markup": 1.35,
-        "receiveAmount": 1074.11
+        "markup": 1.18,
+        "receiveAmount": 1075.06
       },
       "taptap-send": {
         "rate": 10.88,
@@ -18634,10 +18634,10 @@
         "receiveAmount": 680.4
       },
       "xe": {
-        "rate": 10.8449,
+        "rate": 10.8084,
         "fee": 1.99,
-        "markup": 1.19,
-        "receiveAmount": 1062.91
+        "markup": 1.44,
+        "receiveAmount": 1059.33
       },
       "western-union": {
         "rate": 10.6861,
@@ -18646,16 +18646,16 @@
         "receiveAmount": 1058.03
       },
       "dahabshiil": {
-        "rate": 10.6869,
+        "rate": 10.6991,
         "fee": 1.99,
-        "markup": 2.63,
-        "receiveAmount": 1047.42
+        "markup": 2.44,
+        "receiveAmount": 1048.62
       },
       "worldremit": {
-        "rate": 10.6716,
+        "rate": 10.6726,
         "fee": 1.99,
-        "markup": 2.77,
-        "receiveAmount": 1045.93
+        "markup": 2.68,
+        "receiveAmount": 1046.02
       },
       "paysend": {
         "rate": 10.7741,
@@ -18664,10 +18664,10 @@
         "receiveAmount": 1073.1
       },
       "sendwave": {
-        "rate": 10.8767,
+        "rate": 10.8777,
         "fee": 1.99,
-        "markup": 0.9,
-        "receiveAmount": 1066.02
+        "markup": 0.81,
+        "receiveAmount": 1066.12
       },
       "remitly": {
         "rate": 10.77,
@@ -18676,10 +18676,10 @@
         "receiveAmount": 1050.18
       },
       "revolut": {
-        "rate": 10.8436,
+        "rate": 10.8358,
         "fee": 1.75,
-        "markup": 1.2,
-        "receiveAmount": 1065.38
+        "markup": 1.19,
+        "receiveAmount": 1064.62
       },
       "wise": {
         "rate": 10.9775,
@@ -18688,10 +18688,10 @@
         "receiveAmount": 1031.89
       },
       "ria": {
-        "rate": 10.8252,
+        "rate": 10.7969,
         "fee": 0.49,
-        "markup": 1.39,
-        "receiveAmount": 1077.22
+        "markup": 1.65,
+        "receiveAmount": 1074.4
       },
       "la-banque-postale": {
         "rate": 10.7582,
@@ -18734,6 +18734,12 @@
         "fee": 27,
         "markup": 2.71,
         "receiveAmount": 779.67
+      },
+      "skrill": {
+        "rate": 10.6455,
+        "fee": 0,
+        "markup": 2.93,
+        "receiveAmount": 1064.55
       }
     }
   }
