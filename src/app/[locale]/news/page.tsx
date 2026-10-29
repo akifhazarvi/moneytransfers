@@ -5,6 +5,7 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import { getLatestNews, newsItems } from "@/data/news";
 import { newsIsIndexable } from "@/lib/seo-indexing";
+import { isLinkEligible } from "@/lib/link-eligibility";
 import { formatLocalDate } from "@/lib/format-date";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -34,7 +35,10 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "news" });
-  const latest = getLatestNews(20);
+  // Only items open to Google are listed (round-4 brief §0.1 withdrew nine
+  // short items; a listed title with no link is an empty block). Withdrawn
+  // items still render and stay in sitemap.xml for Bing.
+  const latest = getLatestNews(40).filter((i) => isLinkEligible(`/news/${i.slug}`)).slice(0, 20);
   const featured = latest[0];
   const rest = latest.slice(1);
 
@@ -44,7 +48,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
   // than raising the cap and keeps the visual hierarchy of the hub intact.
   const shownSlugs = new Set(latest.map((i) => i.slug));
   const archive = newsItems
-    .filter((i) => newsIsIndexable(i.slug) && !shownSlugs.has(i.slug))
+    .filter((i) => newsIsIndexable(i.slug) && isLinkEligible(`/news/${i.slug}`) && !shownSlugs.has(i.slug))
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
   return (
@@ -71,6 +75,22 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
           </p>
           <p>
             From central bank policy changes that move exchange rates, to new instant payment mandates that speed up delivery times, to provider-specific updates on fees and coverage — our news coverage focuses on the practical impact for people who send money internationally.
+          </p>
+          {/* Section policy — round-4 brief worksheet 04 ("what is published, sources"). */}
+          <p>
+            <strong className="text-[var(--color-on-surface)]">What we publish and where it comes from.</strong> An item runs
+            when something changes what sending money abroad costs, how long it takes or which rules apply: a law or
+            regulation, a central bank decision, a change to a payment system, or a provider changing its fees, limits or
+            coverage. Each item links the primary source, meaning the regulator&rsquo;s notice, the central bank&rsquo;s statement
+            or the company&rsquo;s own announcement, and where our quote data shows the effect, it says what the data shows. We
+            do not publish paid or sponsored news.
+          </p>
+          <p>
+            When the facts behind an item change, the item gets an update note; an item we can no longer stand behind is
+            withdrawn rather than left up. Corrections are listed on our{" "}
+            <Link href="/corrections" className="text-[var(--color-primary)] hover:underline">corrections page</Link>, and the
+            standards are in our{" "}
+            <Link href="/editorial-policy" className="text-[var(--color-primary)] hover:underline">editorial policy</Link>.
           </p>
         </div>
 

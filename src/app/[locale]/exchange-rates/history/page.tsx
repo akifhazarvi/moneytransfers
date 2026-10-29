@@ -20,6 +20,8 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
 import { COVERAGE } from "@/lib/site-stats";
 import { corridorPageRenders } from "@/lib/route-map";
+import { getPairRange, formatRate } from "@/lib/exchange-rates-today";
+import { isLinkEligible } from "@/lib/link-eligibility";
 
 // ── Tier 1 corridors (highest search volume) ──────────────────
 const TIER1 = [
@@ -85,6 +87,20 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
   // Sort groups by count desc
   const sortedGroups = Object.entries(grouped).sort((a, b) => b[1].length - a[1].length);
 
+  // Round-4 brief worksheet 04: "summary of 12-month ranges" for the pairs whose
+  // history page is open to Google — the mid-market low, high and latest over
+  // the history window, with where the latest sits in that range.
+  const rangeRows = [...KEEP_HISTORY_PAIRS]
+    .filter((slug) => isLinkEligible(`/exchange-rates/history/${slug}`))
+    .sort()
+    .flatMap((slug) => {
+      const [from, to] = slug.toUpperCase().split("-TO-");
+      const r = from && to ? getPairRange(from, to) : null;
+      if (!r) return [];
+      const position = r.high > r.low ? Math.round(((r.latest - r.low) / (r.high - r.low)) * 100) : 50;
+      return [{ slug, from, to, ...r, position }];
+    });
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -127,6 +143,50 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
           </div>
         </Container>
       </section>
+
+      {/* 12-month ranges for the open pairs (round-4 brief worksheet 04) */}
+      {rangeRows.length > 0 && (
+        <section className="py-8 bg-[var(--color-surface)]" aria-labelledby="history-ranges">
+          <Container>
+            <h2 id="history-ranges" className="text-h4 font-normal text-[var(--color-on-surface)] mb-2">
+              Twelve-month mid-market ranges for the main currency pairs
+            </h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-4 max-w-3xl leading-relaxed">
+              {`The lowest and highest mid-market rate each pair reached between ${longDay(rangeRows[0].fromDate)} and ${longDay(rangeRows[0].toDate)}, and where the latest rate sits in that range: 0% is the year's low, 100% its high. For a sender, the higher the rate sits in its range, the more each unit of their currency buys.`}
+            </p>
+            <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)]">
+              <table className="w-full text-2sm">
+                <thead>
+                  <tr className="bg-[var(--color-surface-dim)] text-left text-[var(--color-on-surface-variant)]">
+                    <th scope="col" className="px-4 py-2.5 font-medium">Pair</th>
+                    <th scope="col" className="px-4 py-2.5 font-medium text-right">12-month low</th>
+                    <th scope="col" className="px-4 py-2.5 font-medium text-right">12-month high</th>
+                    <th scope="col" className="px-4 py-2.5 font-medium text-right">Latest</th>
+                    <th scope="col" className="px-4 py-2.5 font-medium text-right">Position in range</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rangeRows.map((r) => (
+                    <tr key={r.slug} className="border-t border-[var(--color-outline)]">
+                      <th scope="row" className="px-4 py-2.5 text-left font-normal">
+                        <Link href={`/exchange-rates/history/${r.slug}`} className="text-[var(--color-primary)] hover:underline">{`${r.from} to ${r.to}`}</Link>
+                      </th>
+                      <td className="px-4 py-2.5 text-right tabular-nums">{`${formatRate(r.low)} (${longDay(r.lowDate)})`}</td>
+                      <td className="px-4 py-2.5 text-right tabular-nums">{`${formatRate(r.high)} (${longDay(r.highDate)})`}</td>
+                      <td className="px-4 py-2.5 text-right tabular-nums">{formatRate(r.latest)}</td>
+                      <td className="px-4 py-2.5 text-right tabular-nums">{`${r.position}%`}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-[var(--color-on-surface-variant)] mt-3 max-w-3xl">
+              Daily mid-market rates from XE, with earlier days from CurrencyAPI. The pages linked above add the providers&rsquo;
+              own rates for each pair and month-by-month ranges.
+            </p>
+          </Container>
+        </section>
+      )}
 
       {/* Featured corridors (Tier 1) */}
       <section className="py-8 bg-[var(--color-surface-dim)]">

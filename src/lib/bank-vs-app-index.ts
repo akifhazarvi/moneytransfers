@@ -1,7 +1,7 @@
 /**
  * Bank-vs-App Transfer Cost Index — the data spine for the flagship data-story
  * at /guides/bank-vs-app-transfer-cost-2026 and the CSV at
- * /api/data/bank-vs-app-cost.
+ * /data/bank-vs-app-cost.csv.
  *
  * WHY THIS EXISTS
  * This is the site's editorial moat: a high-frequency, names-named, sender-side

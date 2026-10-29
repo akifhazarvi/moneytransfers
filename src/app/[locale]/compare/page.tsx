@@ -18,6 +18,8 @@ import { SITE_STATS, atLeast } from "@/lib/site-stats";
 import { PageByline } from "@/components/PageByline";
 import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 import { getAuthor } from "@/data/authors";
+import { COMPARISON_CORRIDORS, generateComparisonContent, measurePair } from "@/lib/comparison-content";
+import { HUB_CHILD_LINKS } from "@/lib/link-eligibility";
 
 // Revalidate every 6 hours — matches scraper cadence (parity with /compare/[slug]).
 export const revalidate = 21600;
@@ -128,6 +130,26 @@ const COMPARE_FAQS: { q: string; a: string }[] = [
     a: "Some are. When you click \u201cSend with\u201d we may earn a commission at no cost to you. It never changes which provider the tool shows as cheaper — the winner is decided purely by the live receive amount. See our methodology for exactly how we rank.",
   },
 ];
+
+/**
+ * Round-4 brief §0.3 (worksheet 04): "table of popular pairs with measured
+ * results". The same measurement each comparison page makes —
+ * generateComparisonContent() over COMPARISON_CORRIDORS, summarised by
+ * measurePair() — for the comparisons this hub links (HUB_CHILD_LINKS), so a
+ * row here can never disagree with the page it links to.
+ */
+function measuredHeadToHeads() {
+  return (HUB_CHILD_LINKS["/compare"] ?? []).flatMap((href) => {
+    const [slugA, slugB] = href.replace("/compare/", "").split("-vs-");
+    const a = providers.find((p) => p.slug === slugA);
+    const b = providers.find((p) => p.slug === slugB);
+    if (!a || !b) return [];
+    const m = measurePair(generateComparisonContent(a, b).corridorData);
+    return [{ href, a: a.name, b: b.name, priced: m.priced.length, winsA: m.winsA.length, winsB: m.winsB.length, medGap: m.medGap }];
+  });
+}
+
+const routeLabel = (c: (typeof COMPARISON_CORRIDORS)[number]) => `${c.currencySymbol}${c.amount.toLocaleString("en-US")} ${c.from} to ${c.to}`;
 
 export default async function ComparisonIndexPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -374,10 +396,52 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
         </Container>
       </section>
 
-      {/* Paid partner spotlight. Missed by the Sep 18 rollout, which covered
-          guides and corridors only. No single corridor is in scope, so this
-          renders the no-quote variant: site-wide measured facts, no numbers. */}
-      <PartnerFeatureBlock source="taptap_spotlight:compare" variant="section" />
+      {/* ─── Measured head-to-heads (round-4 brief §0.3) ─── */}
+      <section className="py-10 sm:py-14" aria-labelledby="measured-head-to-heads">
+        <Container>
+          <div className="max-w-4xl">
+            <h2 id="measured-head-to-heads" className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] tracking-[-0.025em] mb-2">
+              Who pays more, pair by pair: our measured head-to-heads
+            </h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-5 leading-relaxed">
+              {`Each comparison prices both providers on the same ${COMPARISON_CORRIDORS.length} routes: ${COMPARISON_CORRIDORS.map(routeLabel).join(", ")}. A route counts only where both quote it, and the winner is the one whose recipient gets more after the fee and the exchange rate. The gap is the median difference in what arrives across the routes both cover.`}
+            </p>
+            <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)]">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[var(--color-surface-dim)] text-left text-[var(--color-on-surface-variant)]">
+                    <th scope="col" className="px-4 py-2.5 font-medium">Comparison</th>
+                    <th scope="col" className="px-4 py-2.5 font-medium text-right">Routes both quote</th>
+                    <th scope="col" className="px-4 py-2.5 font-medium">Pays more on more routes</th>
+                    <th scope="col" className="px-4 py-2.5 font-medium text-right">Median gap</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {measuredHeadToHeads().map((row) => (
+                    <tr key={row.href} className="border-t border-[var(--color-outline)]">
+                      <td className="px-4 py-2.5">
+                        <Link href={row.href} hub="/compare" className="text-[var(--color-primary)] hover:underline">{`${row.a} vs ${row.b}`}</Link>
+                      </td>
+                      <td className="px-4 py-2.5 text-right tabular-nums">{`${row.priced} of ${COMPARISON_CORRIDORS.length}`}</td>
+                      <td className="px-4 py-2.5">
+                        {row.priced === 0
+                          ? "Not priced on these routes"
+                          : row.winsA === row.winsB
+                            ? `Level, ${row.winsA}–${row.winsB}`
+                            : `${row.winsA > row.winsB ? row.a : row.b}, ${Math.max(row.winsA, row.winsB)}–${Math.min(row.winsA, row.winsB)}`}
+                      </td>
+                      <td className="px-4 py-2.5 text-right tabular-nums">{row.priced && row.medGap !== null ? `${row.medGap.toFixed(2)}%` : "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+              {`Quotes as of ${getDataFreshnessDate()}. A pair that wins most routes can still lose yours: open the comparison, or price your own amount in the tool above.`}
+            </p>
+          </div>
+        </Container>
+      </section>
 
       {/* ─── FAQ — question-format (Bing high-CTR pattern), deduped vs [slug] article FAQs ─── */}
       <section className="py-10 sm:py-14">
@@ -404,6 +468,12 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
           </div>
         </Container>
       </section>
+
+      {/* Paid partner spotlight, below the hub's own content (round-4 brief
+          §0.3: sponsored blocks under the main content). No single corridor is
+          in scope, so this renders the no-quote variant: site-wide measured
+          facts, no numbers. */}
+      <PartnerFeatureBlock source="taptap_spotlight:compare" variant="section" />
 
       {/* ─── Cross-links — three columns, plain text ─── */}
       <section className="py-10 sm:py-14 border-t border-[var(--color-outline)]">

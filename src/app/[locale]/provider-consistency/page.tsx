@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 const idx = CONSISTENCY_INDEX;
 const dataAsOfLabel = formatLocalDate(idx.dataAsOf);
-const CSV_URL = "/api/data/provider-consistency";
+const CSV_URL = "/data/provider-consistency.csv";
 
 /** Shown in the main table. The tail is in the CSV rather than truncated silently. */
 const TABLE_LIMIT = 20;

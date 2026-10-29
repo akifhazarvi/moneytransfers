@@ -63,7 +63,7 @@ const articleSchema = {
   author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about/ahsan-mukhtar` },
   publisher: { "@id": `${SITE_URL}/#organization` },
   mainEntityOfPage: URL,
-  isBasedOn: `${SITE_URL}/api/data/bank-vs-app-cost`,
+  isBasedOn: `${SITE_URL}/data/bank-vs-app-cost.csv`,
 };
 
 const datasetSchema = {
@@ -79,7 +79,7 @@ const datasetSchema = {
     {
       "@type": "DataDownload",
       encodingFormat: "text/csv",
-      contentUrl: `${SITE_URL}/api/data/bank-vs-app-cost`,
+      contentUrl: `${SITE_URL}/data/bank-vs-app-cost.csv`,
     },
   ],
 };
@@ -182,7 +182,7 @@ export default async function BankVsAppCostPage({ params }: { params: Promise<{ 
                 This targets an /api/data CSV endpoint, not a page. next/link would
                 client-side navigate instead of letting the browser download it. */}
             <a
-              href="/api/data/bank-vs-app-cost"
+              href="/data/bank-vs-app-cost.csv"
               className="mt-3 inline-block rounded-full bg-[var(--color-cta)] px-5 py-2.5 text-sm font-semibold text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] transition-colors"
             >
               Download CSV ({idx.dataAsOf})

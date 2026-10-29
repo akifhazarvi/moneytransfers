@@ -12,7 +12,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import CryptoVsBankIndexSection from "@/components/CryptoVsBankIndexSection";
 import { companyPageRenders, corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE, SITE_STATS } from "@/lib/site-stats";
-import { REMITTANCE_INDEX, CORRIDOR_SPREAD, type IndexRow } from "@/lib/remittance-cost-index";
+import { REMITTANCE_INDEX, CORRIDOR_SPREAD, INDEX_AMOUNT, MIN_CORRIDORS, type IndexRow } from "@/lib/remittance-cost-index";
 import { formatLocalDate } from "@/lib/format-date";
 import { PageByline } from "@/components/PageByline";
 import { METHODOLOGY_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
@@ -407,6 +407,74 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
         </Container>
       </section>
 
+      {/* For journalists — round-4 brief §0.3 (worksheet 04: "press release and
+          media chart"). Every sentence reads REMITTANCE_INDEX, so the summary
+          moves with the index; the chart is inline SVG, server-rendered. */}
+      <section id="press" className="py-14 bg-[var(--color-surface-dim)] border-y border-[var(--color-outline)]" aria-labelledby="rci-press">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 id="rci-press" className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-2">
+              Remittance Cost Index: summary for journalists
+            </h2>
+            <p className="text-2xs uppercase tracking-wide text-[var(--color-on-surface-variant)] mb-4">{`Data as of ${dataAsOfLabel}`}</p>
+            <div className="space-y-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-[var(--color-on-surface)] font-medium">
+                {`Sending $${INDEX_AMOUNT.toLocaleString("en-US")} abroad through a bank cost $${idx.avgBankCost.toFixed(2)} on average in fees and exchange-rate markup, against $${idx.avgSpecialistCost.toFixed(2)} through a specialist money transfer provider, according to SendMoneyCompare's Remittance Cost Index.`}
+              </p>
+              <p>
+                {`The index prices ${idx.providers.length} providers, ${idx.specialists.length} specialists and ${idx.banks.length} banks, from live quotes across ${idx.corridorCount.toLocaleString("en-US")} currency corridors. Specialists cost ${savingsVsBanks}% less than banks on average, and for ${markupOverFee} of the ${idx.providers.length} providers the exchange-rate markup cost more than the visible fee.`}
+              </p>
+              {cheapestSpecialist && cheapestBank && (
+                <p>
+                  {`The cheapest specialist measured was ${cheapestSpecialist.name}, at $${cheapestSpecialist.costPerAmount.toFixed(2)} on $${INDEX_AMOUNT.toLocaleString("en-US")}; the cheapest bank was ${cheapestBank.name}, at $${cheapestBank.costPerAmount.toFixed(2)}.`}
+                </p>
+              )}
+            </div>
+
+            <figure className="mt-6 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] p-4">
+              <svg viewBox="0 0 600 150" role="img" aria-labelledby="rci-chart-title" className="w-full h-auto">
+                <title id="rci-chart-title">{`Average cost of sending $${INDEX_AMOUNT.toLocaleString("en-US")}: banks $${idx.avgBankCost.toFixed(2)}, specialists $${idx.avgSpecialistCost.toFixed(2)}`}</title>
+                {(() => {
+                  const max = Math.max(idx.avgBankCost, idx.avgSpecialistCost, 1);
+                  const bar = (v: number) => Math.max(4, (v / max) * 380);
+                  return (
+                    <>
+                      <text x="0" y="40" fontSize="16" fill="currentColor">Banks</text>
+                      <rect x="130" y="22" width={bar(idx.avgBankCost)} height="28" rx="4" fill="var(--color-on-surface-variant)" />
+                      <text x={140 + bar(idx.avgBankCost)} y="42" fontSize="16" fill="currentColor">{`$${idx.avgBankCost.toFixed(2)}`}</text>
+                      <text x="0" y="100" fontSize="16" fill="currentColor">Specialists</text>
+                      <rect x="130" y="82" width={bar(idx.avgSpecialistCost)} height="28" rx="4" fill="var(--color-primary)" />
+                      <text x={140 + bar(idx.avgSpecialistCost)} y="102" fontSize="16" fill="currentColor">{`$${idx.avgSpecialistCost.toFixed(2)}`}</text>
+                    </>
+                  );
+                })()}
+              </svg>
+              <figcaption className="text-2xs text-[var(--color-on-surface-variant)] mt-2">
+                {`Average cost of sending $${INDEX_AMOUNT.toLocaleString("en-US")}, fee plus exchange-rate markup. Source: SendMoneyCompare Remittance Cost Index, data as of ${dataAsOfLabel}. CC BY 4.0.`}
+              </figcaption>
+            </figure>
+
+            <div className="mt-6 space-y-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p>
+                <strong className="text-[var(--color-on-surface)]">Data and reuse.</strong>{" "}
+                The full ranking is a{" "}
+                <a href="/data/remittance-cost-index.csv" className="text-[var(--color-primary)] underline underline-offset-2">CSV download</a>{" "}
+                under CC BY 4.0: quote it, chart it or republish it with a link to this page, and cite the data date above.
+              </p>
+              <p>
+                <strong className="text-[var(--color-on-surface)]">Method.</strong>{" "}
+                <a href="#rci-methodology" className="text-[var(--color-primary)] underline underline-offset-2">How the index is calculated</a>{" "}
+                is set out on this page; every figure here is recomputed from the latest quotes when the site is published.
+              </p>
+              <p>
+                <strong className="text-[var(--color-on-surface)]">Questions or a different cut of the data.</strong>{" "}
+                <Link href="/contact" className="text-[var(--color-primary)] underline underline-offset-2">Contact us</Link>.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Global context */}
       <section className="py-14 bg-[var(--color-surface)]">
         <Container>
@@ -444,6 +512,12 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               Money transfer specialists ranked by average true cost to send $1,000 (fee + exchange rate markup, as a share of the amount sent). Lower is better. Averages are taken over every corridor the provider quoted at $1,000 on {dataAsOfLabel}.
             </p>
             <RankingTable rows={idx.specialists} limit={25} />
+            {/* Round-4 brief §0.3: the method beside the data, not only at the foot of the page. */}
+            <p className="text-xs text-[var(--color-on-surface-variant)] mt-4 leading-relaxed max-w-3xl">
+              {`How this is measured: each provider's average true cost is what the recipient loses against the mid-market rate on a ${INDEX_AMOUNT.toLocaleString("en-US")} transfer, fee and exchange-rate markup together, averaged over every corridor where it quoted that amount (at least ${MIN_CORRIDORS} corridors to be ranked). Quotes as of ${dataAsOfLabel}.`}{" "}
+              <a href="#rci-methodology" className="text-[var(--color-primary)] underline underline-offset-2">Full methodology</a>{" · "}
+              <a href="/data/remittance-cost-index.csv" className="text-[var(--color-primary)] underline underline-offset-2">Download the ranking (CSV)</a>
+            </p>
           </div>
         </Container>
       </section>
@@ -630,7 +704,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       </section>
 
       {/* Methodology */}
-      <section className="py-14 bg-[var(--color-surface)]">
+      <section id="rci-methodology" className="py-14 bg-[var(--color-surface)]">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-6">
@@ -766,10 +840,11 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
             datePublished: "2026-03-17",
             dateModified: idx.dataAsOf,
             temporalCoverage: `2026-03-17/${idx.dataAsOf}`,
+            // The CSV, at a path robots.txt allows (round-4 brief §2.1).
             distribution: {
               "@type": "DataDownload",
-              encodingFormat: "text/html",
-              contentUrl: "https://sendmoneycompare.com/remittance-cost-index",
+              encodingFormat: "text/csv",
+              contentUrl: "https://sendmoneycompare.com/data/remittance-cost-index.csv",
             },
           }),
         }}

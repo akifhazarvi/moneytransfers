@@ -36,7 +36,7 @@ import { SITE_STATS } from "@/lib/site-stats";
  * Bump it when the text changes — never derive it from the build or the data,
  * which would make the page look edited every six hours.
  */
-export const HUB_COPY_REVIEWED = "2026-10-08";
+export const HUB_COPY_REVIEWED = "2026-10-29";
 export const HUB_AUTHOR_SLUG = "awais-imran";
 export const HUB_REVIEWER_SLUG = "ahsan-mukhtar";
 

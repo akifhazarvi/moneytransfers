@@ -30,6 +30,9 @@ export interface PairRate {
   rate: number;           // 1 `from` = rate `to`, mid-market
   changePct24h: number;   // vs previous day, %
   changePct7d: number;    // vs 7 days ago, %
+  changePct30d: number;   // vs 30 days ago, %
+  low30d: number;         // lowest daily rate in the last 30 days
+  high30d: number;        // highest daily rate in the last 30 days
   changePct1y: number;    // vs ~365 days ago, %
   direction24h: "up" | "down" | "flat";
   sparkline: { date: string; rate: number }[]; // downsampled 90-day line
@@ -62,10 +65,13 @@ export function getPairRate(from: string, to: string): PairRate | null {
 
   const prev = days[days.length - 2];
   const week = days[Math.max(0, days.length - 8)];
+  const month = days[Math.max(0, days.length - 31)];
   const year = days[0];
 
   const rPrev = rateOn(prev, from, to);
   const rWeek = rateOn(week, from, to);
+  const rMonth = rateOn(month, from, to);
+  const last30 = days.slice(Math.max(0, days.length - 30)).map((d) => rateOn(d, from, to)).filter((r): r is number => r !== null);
   const rYear = rateOn(year, from, to);
 
   const changePct24h = pct(rate, rPrev);
@@ -89,10 +95,28 @@ export function getPairRate(from: string, to: string): PairRate | null {
     rate: Math.round(rate * 1e6) / 1e6,
     changePct24h,
     changePct7d: pct(rate, rWeek),
+    changePct30d: pct(rate, rMonth),
+    low30d: Math.round(Math.min(...last30) * 1e6) / 1e6,
+    high30d: Math.round(Math.max(...last30) * 1e6) / 1e6,
     changePct1y: pct(rate, rYear),
     direction24h: changePct24h > 0.005 ? "up" : changePct24h < -0.005 ? "down" : "flat",
     sparkline,
   };
+}
+
+/**
+ * Low, high and latest mid-market rate over the whole history window (about a
+ * year), with the day of each extreme — the "12-month range" the rate-history
+ * hub summarises (round-4 brief worksheet 04). Null when the pair is missing.
+ */
+export function getPairRange(from: string, to: string): { low: number; lowDate: string; high: number; highDate: string; latest: number; fromDate: string; toDate: string } | null {
+  const points = history.days
+    .map((d) => ({ date: d.date, rate: rateOn(d, from, to) }))
+    .filter((p): p is { date: string; rate: number } => p.rate !== null);
+  if (points.length < 2) return null;
+  const low = points.reduce((m, p) => (p.rate < m.rate ? p : m));
+  const high = points.reduce((m, p) => (p.rate > m.rate ? p : m));
+  return { low: low.rate, lowDate: low.date, high: high.rate, highDate: high.date, latest: points[points.length - 1].rate, fromDate: points[0].date, toDate: points[points.length - 1].date };
 }
 
 /** Format a rate with sensible precision for its magnitude. */

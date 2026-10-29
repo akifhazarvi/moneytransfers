@@ -78,7 +78,7 @@ const articleSchema = {
   author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about/ahsan-mukhtar` },
   publisher: { "@id": `${SITE_URL}/#organization` },
   mainEntityOfPage: URL,
-  isBasedOn: `${SITE_URL}/api/data/business-fx-cost`,
+  isBasedOn: `${SITE_URL}/data/business-fx-cost.csv`,
 };
 
 const datasetSchema = {
@@ -91,7 +91,7 @@ const datasetSchema = {
   dateModified: idx.dataAsOf,
   license: "https://creativecommons.org/licenses/by/4.0/",
   distribution: [
-    { "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: `${SITE_URL}/api/data/business-fx-cost` },
+    { "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: `${SITE_URL}/data/business-fx-cost.csv` },
   ],
 };
 
@@ -363,7 +363,7 @@ export default async function BusinessComparePage({ params }: { params: Promise<
                 This targets an /api/data CSV endpoint, not a page. next/link would
                 client-side navigate instead of letting the browser download it. */}
             <a
-              href="/api/data/business-fx-cost"
+              href="/data/business-fx-cost.csv"
               className="mt-3 inline-block rounded-full bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] px-5 py-2.5 text-sm font-semibold text-[var(--color-on-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-all"
             >
               Download CSV ({idx.dataAsOf})

@@ -186,7 +186,7 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
                     promotional content disguised as editorial.
                   </li>
                   <li>
-                    <strong>Timeliness:</strong> Quote data is refreshed every 6
+                    <strong>Timeliness:</strong> Quote data is collected every 6
                     hours. Provider reviews are updated when we detect material
                     changes to a provider&apos;s fees, features, or regulatory status.
                   </li>

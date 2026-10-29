@@ -2,7 +2,7 @@ import { seoDescription } from "@/lib/seo-title";
 import PolicyLinks from "@/components/PolicyLinks";
 import Link from "@/components/EligibleLink";
 import Image from "next/image";
-import { listableProviders } from "@/data/providers";
+import { listableProviders, providers } from "@/data/providers";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
@@ -12,6 +12,9 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageByline } from "@/components/PageByline";
 import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
+import { MEASURED_MARKUPS } from "@/lib/remittance-cost-index";
+import { CONSISTENCY_ROWS } from "@/lib/consistency-index";
+import { HUB_CHILD_LINKS } from "@/lib/link-eligibility";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -28,6 +31,37 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       images: DEFAULT_OG_IMAGES,
     },
   };
+}
+
+/**
+ * Round-4 brief §0.3 (worksheet 04): a server-rendered ranking of the major
+ * providers this hub links (HUB_CHILD_LINKS) — regulator, measured cost and
+ * the share of routes each leads. Every figure is measured (rule 7):
+ * MEASURED_MARKUPS (median distance from mid-market across the corridors we
+ * quote it on) and the consistency index (corridors led ÷ corridors quoted).
+ * Fees are left out on purpose: they are charged in each provider's own send
+ * currency, so they do not compare across providers (provider-measured.ts).
+ */
+function measuredRanking() {
+  return (HUB_CHILD_LINKS["/companies"] ?? [])
+    .flatMap((href) => {
+      const slug = href.replace("/companies/", "");
+      const p = providers.find((x) => x.slug === slug);
+      const m = MEASURED_MARKUPS.get(slug);
+      if (!p || !m || m.corridors < 3) return [];
+      const c = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
+      const regulators = p.regulators.filter((r) => r !== "Various");
+      return [{
+        href,
+        name: p.name,
+        regulators: regulators.join(", ") + (regulators.length < p.regulators.length ? " and others" : ""),
+        medianPct: m.markupMedianPct,
+        corridors: m.corridors,
+        led: c ? `${c.corridorsLed} of ${c.corridorsQuoted}` : "—",
+        leadPct: c && c.corridorsQuoted > 0 ? (c.corridorsLed / c.corridorsQuoted) * 100 : null,
+      }];
+    })
+    .sort((a, b) => a.medianPct - b.medianPct);
 }
 
 export default async function CompaniesPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -77,6 +111,54 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
       <div className="mb-6">
         <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/companies")} cadence={null} />
       </div>
+
+      <section aria-labelledby="companies-measured" className="mb-10">
+        <h2 id="companies-measured" className="text-lg font-medium text-[var(--color-on-surface)] mb-2">
+          Money transfer companies ranked by what we measured
+        </h2>
+        <p className="text-sm text-[var(--color-on-surface-variant)] mb-4 max-w-3xl leading-relaxed">
+          The major providers we review, ordered by how far their exchange rate sits from the mid-market rate. That margin
+          is a cost you do not see as a fee: on $1,000, each 0.1% of margin is $1 less for your recipient. The last column
+          shows how often a provider is the one paying out most, across the routes where several providers compete.
+        </p>
+        <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)]">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-[var(--color-surface-dim)] text-left text-[var(--color-on-surface-variant)]">
+                <th scope="col" className="px-4 py-2.5 font-medium">Provider</th>
+                <th scope="col" className="px-4 py-2.5 font-medium">Regulated by</th>
+                <th scope="col" className="px-4 py-2.5 font-medium text-right">Median rate margin</th>
+                <th scope="col" className="px-4 py-2.5 font-medium text-right">Margin on $1,000</th>
+                <th scope="col" className="px-4 py-2.5 font-medium text-right">Routes it pays most on</th>
+              </tr>
+            </thead>
+            <tbody>
+              {measuredRanking().map((row) => (
+                <tr key={row.href} className="border-t border-[var(--color-outline)]">
+                  <th scope="row" className="px-4 py-2.5 text-left font-normal">
+                    <Link href={row.href} hub="/companies" className="text-[var(--color-primary)] hover:underline">{row.name}</Link>
+                  </th>
+                  <td className="px-4 py-2.5 text-[var(--color-on-surface-variant)]">{row.regulators}</td>
+                  <td className="px-4 py-2.5 text-right tabular-nums">{`${row.medianPct.toFixed(2)}%`}</td>
+                  <td className="px-4 py-2.5 text-right tabular-nums">{`$${(row.medianPct * 10).toFixed(2)}`}</td>
+                  <td className="px-4 py-2.5 text-right tabular-nums">
+                    {row.leadPct === null ? row.led : `${row.led} (${row.leadPct.toFixed(1)}%)`}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-[var(--color-on-surface-variant)] mt-3 max-w-3xl leading-relaxed">
+          Median margin: the middle of every gap between the provider&rsquo;s rate and the mid-market rate across the
+          corridors we collect its quotes on, so one unusual route cannot skew it. Routes it pays most on: the corridors where
+          it most often delivered the most, out of the corridors where it competes with others (our{" "}
+          <Link href="/provider-consistency" className="text-[var(--color-primary)] hover:underline">consistency index</Link>).
+          Transfer fees are not in either figure, because each provider charges them in its own currency. How the quotes are
+          collected is set out in our{" "}
+          <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">methodology</Link>.
+        </p>
+      </section>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {sorted.map((provider) => (

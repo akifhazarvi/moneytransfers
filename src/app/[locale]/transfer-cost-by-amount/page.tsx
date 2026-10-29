@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const idx = AMOUNT_TIER_INDEX;
-const CSV_URL = "/api/data/transfer-cost-by-amount";
+const CSV_URL = "/data/transfer-cost-by-amount.csv";
 const money = (n: number) => `$${n.toLocaleString("en-US")}`;
 const pp = (n: number) => `${n > 0 ? "+" : ""}${n.toFixed(2)}pp`;
 const GRID = "grid-cols-[40px_1fr_84px_84px_96px]";

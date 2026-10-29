@@ -184,7 +184,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // asserting that this site publishes original research, and no crawlable
     // path between them. Every headline on it is read from the dataset it
     // describes, so it cannot drift from the studies.
-    entry("research", DATA_UPDATED),
+    // The hub's content date; each study's data date is printed on its card.
+    entry("research", pageUpdated("/research")),
     // Transfer cost by amount (added Sep 6 2026). Every ranking on the site is
     // priced at $1,000; this measures what that hides from anyone sending $100,
     // which is most remittance senders. No $10,000 tier — only 11 providers
@@ -237,7 +238,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("cookies", pageUpdated("/cookies")),
     entry("disclaimer", STATIC_CONTENT_DATE),
     entry("news", pageUpdated("/news")),
-    entry("business", BUSINESS_CONTENT_DATE),
+    entry("business", pageUpdated("/business")),
     // Live Business/B2B payment-provider cost comparison tool. Added Jun 22 2026
     // to capture the highest-AI-citation-share B2B query cluster ("lowest fees
     // international business payments providers comparison" — 763 cites/79%

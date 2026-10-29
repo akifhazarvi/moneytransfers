@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { seoDescription } from "@/lib/seo-title";
 import Link from "@/components/EligibleLink";
 import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck } from "lucide-react";
@@ -48,6 +49,39 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const SITE_URL = "https://sendmoneycompare.com";
+
+/** Round-4 brief §0.3: the hub names its topic (the H1 was the slogan "Know more. Send smarter."). */
+const H1 = "Money transfer guides: fees, exchange rates and how to send money abroad";
+
+/**
+ * "Start here" (round-4 brief worksheet 04): the guides a first-time sender
+ * needs before any route-specific one. Descriptions are written for this list
+ * — not the guides' meta descriptions, which the card grid already prints.
+ */
+const START_HERE: readonly { slug: string; label: string; note: string }[] = [
+  { slug: "how-to-send-money-abroad", label: "How to send money abroad", note: "The ways to move money across borders, from a bank wire to cash pickup, and when each one makes sense." },
+  { slug: "exchange-rate-markup-explained", label: "Exchange rate markups", note: "How a quoted rate hides a margin above the mid-market rate, and how to work out what it costs you." },
+  { slug: "is-my-exchange-rate-good", label: "Is my exchange rate good?", note: "Check a rate you have been offered against the mid-market rate and against months of our own quotes." },
+  { slug: "money-transfer-safety-guide", label: "Money transfer safety", note: "Licences, safeguarded funds and the register checks to run before you hand a provider your money." },
+  { slug: "iban-numbers-explained", label: "IBAN numbers", note: "What an IBAN is, why its length changes from country to country, and how to read one." },
+  { slug: "swift-codes-explained", label: "SWIFT and BIC codes", note: "What a SWIFT code identifies, and where to find the right one for the receiving bank." },
+  { slug: "fastest-way-to-send-money-internationally", label: "Transfer speed", note: "What providers promise for speed, set against transfers we sent and timed ourselves." },
+];
+
+/** One line per topic in the directory below. */
+const TOPIC_NOTES: Record<string, string> = {
+  Guides: "Step-by-step help with a transfer: methods, limits, documents and the details the receiving bank needs.",
+  Education: "How the money behind a transfer works: rates, markups, bank codes and the payment systems that carry it.",
+  Reviews: "Single providers examined on their fees, rates, coverage and the fine print.",
+  Corridors: "Sending to one destination country: who quotes the route, local rules and how recipients get paid.",
+  Business: "Paying suppliers, staff and clients abroad as a company rather than as a person.",
+  Research: "Studies built on our own quote archive and reader data, with the method and downloads.",
+};
+
+/** A primary source: followed, opens in a new tab (CLAUDE.md SEO conventions). */
+function Source({ href, children }: { href: string; children: ReactNode }) {
+  return <a href={href} target="_blank" rel="noopener" className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">{children}</a>;
+}
 
 export default async function GuidesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -104,11 +138,8 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
     name: "International Money Transfer Guides",
     description: "Expert guides on sending money internationally — compare providers, understand fees, and find the cheapest transfer route.",
     url: `${SITE_URL}/guides`,
-    publisher: {
-      "@type": "Organization",
-      name: "SendMoneyCompare",
-      url: SITE_URL,
-    },
+    // One Organization node site-wide, referenced by @id (round-4 brief §2.1).
+    publisher: { "@id": `${SITE_URL}/#organization` },
     // Article requires headline + author; `name` alone left ten items failing
     // validation on this page (2026-09-02 audit).
     hasPart: blogPosts.slice(0, 10).map((post) => ({
@@ -133,7 +164,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         <header className="guides-hub-header">
           <div>
             <p className="guide-eyebrow"><BookOpen size={15} aria-hidden="true" />Money transfer guides</p>
-            <h1>Know more.<br /><span>Send smarter.</span></h1>
+            <h1>{H1}</h1>
           </div>
           <div className="guides-hub-intro">
             <p>Clear, practical guides to moving money across borders. Understand the fees, explore your options, and make your next transfer with confidence.</p>
@@ -146,7 +177,55 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           </div>
         </header>
 
-        <PartnerFeatureBlock source="taptap_spotlight:guides-hub" variant="card" />
+        <section aria-labelledby="guides-how-written" className="guides-hub-written max-w-3xl my-8 text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+          <h2 id="guides-how-written" className="text-lg font-medium text-[var(--color-on-surface)]">How our money transfer guides are written and checked</h2>
+          <p>
+            Each guide answers one question people ask before they send money abroad: which method suits the amount, what
+            a quoted rate really costs, what details the receiving bank needs, or how one provider compares with another.
+            Every guide names its author and shows the date its content last changed, which is not the date its prices
+            were refreshed.
+          </p>
+          <p>
+            Figures that our data already knows, such as what a transfer costs, how far a rate sits from the mid-market
+            rate or which provider pays out most on a route, are read from our quote data each time the site is built
+            rather than typed into the text, so a guide cannot drift from the comparison it links to. Our{" "}
+            <Link href="/methodology" className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">methodology</Link>{" "}
+            explains how those quotes are collected and measured.
+          </p>
+          <p>
+            Rules, limits and fees we do not measure ourselves come from the body that sets them, and the guide links to it:
+            in the United States the Consumer Financial Protection Bureau&rsquo;s{" "}
+            <Source href="https://www.consumerfinance.gov/rules-policy/regulations/1005/31/">remittance transfer rules</Source>,
+            in the United Kingdom the{" "}
+            <Source href="https://register.fca.org.uk/s/">FCA register</Source>,
+            for the euro the European Central Bank&rsquo;s{" "}
+            <Source href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html">reference rates</Source>,
+            and for the cost of remittances worldwide the World Bank&rsquo;s{" "}
+            <Source href="https://remittanceprices.worldbank.org/">Remittance Prices Worldwide</Source>{" "}
+            database. A provider&rsquo;s own claims, such as how fast its transfers arrive, are quoted as its claims with a
+            link to where it makes them.
+          </p>
+          <p>
+            Sponsored placements are labelled and sit outside the guides&rsquo; findings; how we earn money and keep it apart
+            from rankings is set out in our{" "}
+            <Link href="/editorial-policy" className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">editorial policy</Link>.
+            When something we published turns out to be wrong, we fix it and record the change on our{" "}
+            <Link href="/corrections" className="text-[var(--color-primary)] underline underline-offset-2 hover:no-underline">corrections page</Link>.
+          </p>
+        </section>
+
+        <section aria-labelledby="guides-start-here" className="my-8">
+          <h2 id="guides-start-here" className="text-lg font-medium text-[var(--color-on-surface)] mb-1">Start here: the money transfer basics</h2>
+          <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4">Seven guides to read before a route-specific one.</p>
+          <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {START_HERE.map((g) => (
+              <li key={g.slug} className="rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] p-4">
+                <Link href={`/guides/${g.slug}`} className="text-sm font-medium text-[var(--color-primary)] hover:underline">{g.label}</Link>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1 leading-relaxed">{g.note}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
 
         <GuidesClientPage posts={[...guideCards.filter((post) => !researchCards.some((research) => research.slug === post.slug)), ...researchCards]} categories={blogCategories} featured={
           <section key="featured-guides" className="guide-featured-grid" aria-label="Featured guides and research">
@@ -207,11 +286,11 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         </p>
         <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
           {guidesByCategory.map(([category, posts]) => (
-            <details key={category}>
-              <summary className="guide-directory-summary">{category}<span>{posts.length}</span></summary>
-              <h3 className="sr-only">
-                {category}
-              </h3>
+            <section key={category} aria-label={`${category} guides`}>
+              <h3 className="guide-directory-summary">{category}<span>{posts.length}</span></h3>
+              {TOPIC_NOTES[category] && (
+                <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3 leading-relaxed">{TOPIC_NOTES[category]}</p>
+              )}
               <ul className="space-y-2">
                 {posts.map((post) => (
                   <li key={post.slug}>
@@ -224,20 +303,15 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
                   </li>
                 ))}
               </ul>
-            </details>
+            </section>
           ))}
         </div>
       </nav>
 
-      {/* Editorial Introduction */}
-      <div className="mt-12 pt-8 border-t border-[var(--color-outline)] mb-8 text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl">
-        <p>
-          Sending money internationally can be confusing — exchange rates fluctuate, fee structures vary between providers, and regulations differ by country. Our guides are written by researchers who track the money transfer industry daily, comparing real quotes from {COVERAGE.providers} across {COVERAGE.corridors}.
-        </p>
-        <p>
-          Whether you are sending a one-time payment or making regular transfers to family abroad, these guides cover everything from finding the cheapest provider for your specific route, to understanding hidden costs like exchange rate markups, to navigating compliance requirements for large transfers. Each guide includes up-to-date pricing data from our comparison engine.
-        </p>
-      </div>
+      {/* Sponsored: below the guide index (round-4 brief §0.3 — it sat above
+          the fold). The "how our guides are written" section near the top
+          replaced the two-paragraph introduction that closed this page. */}
+      <PartnerFeatureBlock source="taptap_spotlight:guides-hub" variant="card" />
 
       {/* The "Cross-links" block that closed this page (tools, top provider
           reviews, three popular corridors) was removed 2026-10-08 (round-3

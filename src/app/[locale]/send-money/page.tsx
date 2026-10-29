@@ -76,7 +76,9 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
     author: person(author),
     reviewedBy: person(reviewer),
     lastReviewed: HUB_COPY_REVIEWED,
-    dateModified: data.collectedAt,
+    // The editorial date, as the byline and sitemap lastmod show (round-4
+    // brief §2.1: it was the quote-collection time, so it changed every build).
+    dateModified: HUB_COPY_REVIEWED,
   };
   const itemListSchema = {
     "@type": "ItemList",

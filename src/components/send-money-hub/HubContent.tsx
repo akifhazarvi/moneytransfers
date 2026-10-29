@@ -5,6 +5,7 @@ import {
   EXAMPLE, HUB_AUTHOR_SLUG, HUB_COPY_REVIEWED, HUB_REVIEWER_SLUG, longDate, money,
   type HubData, type HubFaq,
 } from "@/lib/send-money-hub";
+import { DELIVERY_TESTS, fmtMinutes } from "@/lib/delivery-speed";
 
 /**
  * The /send-money hub's own text (round-3 brief §4.4: 600–900 words of
@@ -25,6 +26,47 @@ const PROSE = "text-sm text-[var(--color-on-surface-variant)] leading-relaxed sp
 
 function A({ href, children }: { href: string; children: ReactNode }) {
   return <EligibleLink href={href} className={LINK}>{children}</EligibleLink>;
+}
+
+/** A primary source: followed (regulators and multilateral bodies, CLAUDE.md SEO conventions). */
+function Source({ href, children }: { href: string; children: ReactNode }) {
+  return <a href={href} target="_blank" rel="noopener" className={LINK}>{children}</a>;
+}
+
+const PROVIDER_NAME: Record<string, string> = { taptapsend: "TapTap Send", wise: "Wise" };
+const monthYear = (isoDay: string) =>
+  new Date(`${isoDay}T00:00:00Z`).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+
+/**
+ * Round-4 brief §0.3 ("How we tested" with real transfers): what our own test
+ * transfers show, every figure computed from delivery-tests.json. The full
+ * log, with what each provider advertised at the time, is the fastest-way
+ * guide's table — linked, not repeated here (duplicate share, rule 3).
+ */
+function testedSummary() {
+  const tests = DELIVERY_TESTS;
+  const days = tests.map((t) => t.sentDate).sort();
+  const byProvider = Object.entries(
+    tests.reduce<Record<string, number>>((n, t) => ({ ...n, [t.provider]: (n[t.provider] ?? 0) + 1 }), {}),
+  ).sort((a, b) => b[1] - a[1]);
+  const delivered = tests.filter((t) => t.outcome === "delivered");
+  const slowest = Math.max(...delivered.map((t) => t.durationMinutes));
+  const withinTwo = delivered.filter((t) => t.durationMinutes <= 1).length;
+  const returned = tests.find((t) => t.outcome === "returned") as (typeof tests)[number] & { retryAfterMinutes?: number } | undefined;
+  return {
+    count: tests.length,
+    first: monthYear(days[0]),
+    last: monthYear(days[days.length - 1]),
+    providers: byProvider.map(([slug, n]) => `${n} with ${PROVIDER_NAME[slug] ?? slug}`).join(" and "),
+    delivered: delivered.length,
+    slowest: fmtMinutes(slowest),
+    withinTwo,
+    returned: returned && {
+      provider: PROVIDER_NAME[returned.provider] ?? returned.provider,
+      route: `${returned.from} to ${returned.to}`,
+      retry: fmtMinutes(returned.retryAfterMinutes ?? 0),
+    },
+  };
 }
 
 /** Worked example under the table: what the five rows and the whole route say. */
@@ -63,6 +105,7 @@ export function WorkedExample({ data }: { data: HubData }) {
 
 /** How to choose, common mistakes, how the comparison is built, FAQ. */
 export default function HubContent({ faqs }: { faqs: HubFaq[] }) {
+  const tested = testedSummary();
   const author = getAuthor(HUB_AUTHOR_SLUG);
   const reviewer = getAuthor(HUB_REVIEWER_SLUG);
   return (
@@ -129,6 +172,56 @@ export default function HubContent({ faqs }: { faqs: HubFaq[] }) {
             number, IFSC code, IBAN or wallet number can send the money to someone else, and recovery is not guaranteed.
           </li>
         </ul>
+      </section>
+
+      <section className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
+        <h2 className={H2}>Transfers we sent to test the providers we compare</h2>
+        <div className={`${PROSE} max-w-3xl`}>
+          <p>
+            {`We also send money ourselves. ${tested.count} transfers between ${tested.first} and ${tested.last}, ${tested.providers}, were timed from each app's own status timeline: from setting the transfer up to the provider's last step, such as "Transfer was successful" or "We paid out".`}
+          </p>
+          <p>
+            {`${tested.delivered} of the ${tested.count} were paid out within ${tested.slowest}, ${tested.withinTwo} of them within two minutes.`}
+            {tested.returned && ` One, a ${tested.returned.provider} transfer from ${tested.returned.route}, was returned on its first attempt and paid out again ${tested.returned.retry} later.`}
+          </p>
+          <p>
+            These times stop at the provider&rsquo;s last step: when the recipient&rsquo;s bank or wallet showed the money
+            is not something an app&rsquo;s timeline records. A few transfers are a spot check, not a speed ranking, and the
+            delivery times in the comparison above are what each provider publishes. The full log, with what each provider
+            advertised for the route at the time, is in our{" "}
+            <A href="/guides/fastest-way-to-send-money-internationally">guide to the fastest ways to send money</A>.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
+        <h2 className={H2}>The rules and benchmarks behind these comparisons</h2>
+        <div className={`${PROSE} max-w-3xl`}>
+          <p>
+            In the United States, the Consumer Financial Protection Bureau&rsquo;s Remittance Transfer Rule requires a
+            provider to show the exchange rate, its fees and taxes, and the amount the recipient will receive before you
+            pay (<Source href="https://www.consumerfinance.gov/rules-policy/regulations/1005/31/">12 CFR 1005.31</Source>),
+            and lets you cancel for a full refund within 30 minutes of paying, unless the money has already been collected
+            or deposited (<Source href="https://www.consumerfinance.gov/rules-policy/regulations/1005/34/">12 CFR 1005.34</Source>).
+            That disclosed amount the recipient receives is the number our comparison ranks providers on.
+          </p>
+          <p>
+            In the United Kingdom, a firm that sends money abroad must be authorised or registered by the Financial Conduct
+            Authority as a payment or e-money institution. The{" "}
+            <Source href="https://register.fca.org.uk/s/">FCA&rsquo;s Financial Services Register</Source>{" "}
+            shows a firm&rsquo;s status and the names it trades under.
+          </p>
+          <p>
+            For what sending money costs in general, the reference is the World Bank&rsquo;s{" "}
+            <Source href="https://remittanceprices.worldbank.org/">Remittance Prices Worldwide</Source>{" "}
+            database, which surveys the cost of sending the equivalent of $200 and $500 between hundreds of country pairs
+            every quarter. The United Nations&rsquo;{" "}
+            <Source href="https://sdgs.un.org/goals/goal10">Sustainable Development Goal 10</Source>{" "}
+            (target 10.c) aims to bring that cost below 3% by 2030 and to close routes that cost more than 5%. Our figures
+            differ in one way: they are priced at the amount you enter, from each provider&rsquo;s own quote, so they move
+            with your amount and with the day&rsquo;s rate.
+          </p>
+        </div>
       </section>
 
       <section className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">

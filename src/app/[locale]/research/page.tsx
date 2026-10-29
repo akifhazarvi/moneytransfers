@@ -16,6 +16,8 @@ import weekendMarkup from "@/data/scraped/weekend-markup.json";
 import pppIndex from "@/data/scraped/ppp-index.json";
 import { readerSavings, periodLabel } from "@/lib/reader-savings";
 import { DELIVERY_SPEED, DELIVERY_TESTS, speedStudyFinding } from "@/lib/delivery-speed";
+import { PageByline } from "@/components/PageByline";
+import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -63,8 +65,19 @@ interface Study {
   /** What was measured, and over what. */
   basis: string;
   dataAsOf: string;
+  /** How often it is rebuilt (round-4 brief §0.3: what, source, update frequency). */
+  updates: string;
   csv?: string;
 }
+
+// Rebuild cadences, as the workflows run them: the quote archive is collected
+// every 6 hours and published once a day (vercel-ignore.sh); the scrape jobs
+// rebuild the consistency index, SendScore, weekend and PPP datasets on every
+// collection (.github/workflows/scrape.yml); the bank-vs-app, cost index and
+// amount-tier figures are computed when the site is built; reader savings and
+// delivery speed are built by hand.
+const DAILY = "Recomputed from the quote archive on every collection and published daily.";
+const AT_PUBLISH = "Recomputed from the latest quotes each time the site is published, which is daily.";
 
 const STUDIES: Study[] = [
   {
@@ -73,6 +86,7 @@ const STUDIES: Study[] = [
     finding: `Of ${nf(readerSavings.totals.pricedDecisions)} provider choices readers made on our comparison in ${periodLabel()}, ${Math.round(readerSavings.totals.shareAboveMedian * 100)}% paid more than the median provider on that corridor and day, and the chosen provider paid a median $${(readerSavings.totals.medianVsBankPer1000 ?? 0).toFixed(2)} more per $1,000 than the median bank quote.`,
     basis: `${nf(readerSavings.totals.decisions)} Google Analytics provider choices across ${readerSavings.totals.corridors} corridors, ${readerSavings.clicksMeta.window.from} to ${readerSavings.clicksMeta.window.to}, each priced against the quote snapshot archived for its corridor that day. Choices that cannot be priced fairly are counted and named, not dropped silently.`,
     dataAsOf: readerSavings.generatedAt,
+    updates: "Built by hand from one analytics export; this edition does not change until the next one.",
   },
   {
     title: "Delivery speed: promised vs paid out",
@@ -80,7 +94,8 @@ const STUDIES: Study[] = [
     finding: speedStudyFinding(),
     basis: `${nf(DELIVERY_SPEED.wise.quotes)} delivery estimates from Wise's own calculator and the times Monito and RemitRoutes publish, archived from ${DELIVERY_SPEED.archive.from} to ${DELIVERY_SPEED.archive.to}, plus ${DELIVERY_TESTS.length} transfers we sent and timed from each app's own status timeline. Everything archived is a promise; the tests time the provider's last step, not the recipient bank's credit.`,
     dataAsOf: DELIVERY_SPEED.generatedAt,
-    csv: "/api/data/delivery-speed",
+    updates: "Rebuilt by hand when we send and time more transfers or extend the archive.",
+    csv: "/data/delivery-speed.csv",
   },
   {
     title: "Provider Consistency Index",
@@ -88,7 +103,8 @@ const STUDIES: Study[] = [
     finding: `No provider is cheapest everywhere. ${CONSISTENCY_INDEX.rows[0].providerName} is the most frequent winner on ${CONSISTENCY_INDEX.rows[0].corridorsLed} of ${CONSISTENCY_INDEX.comparableCorridors} corridors, and on ${Math.round((CONSISTENCY_INDEX.rotatingCorridors / Math.max(1, CONSISTENCY_INDEX.rotatingCorridors + CONSISTENCY_INDEX.stableCorridors)) * 100)}% of corridors the provider that is cheapest today is not the one that usually wins.`,
     basis: `${nf(CONSISTENCY_INDEX.providerDayObservations)} provider-day observations across ${CONSISTENCY_INDEX.comparableCorridors} corridors with a genuine comparison, over ${CONSISTENCY_INDEX.maxWindowDays} days. A day counts only when two or more providers quoted.`,
     dataAsOf: CONSISTENCY_INDEX.dataAsOf,
-    csv: "/api/data/provider-consistency",
+    updates: DAILY,
+    csv: "/data/provider-consistency.csv",
   },
   {
     title: "Bank vs App Transfer Cost Index",
@@ -96,7 +112,8 @@ const STUDIES: Study[] = [
     finding: `Banks cost ${bankVsApp.bankVsAppMultiple.toFixed(2)}× what specialist apps cost on the same corridors — ${bankVsApp.bankAvgCostPct.toFixed(2)}% of the amount sent against ${bankVsApp.appAvgCostPct.toFixed(2)}%. Against the cheapest provider on the same corridor, a bank transfer loses ${bankVsApp.bankVsCheapestMeanPct.toFixed(2)}% on average.`,
     basis: `${nf(bankVsApp.bankQuoteCount)} bank quotes and ${nf(bankVsApp.appQuoteCount)} specialist quotes at $${nf(bankVsApp.amount)}, across ${bankVsApp.corridorCount} corridors and ${bankVsApp.bankCount} banks.`,
     dataAsOf: bankVsApp.dataAsOf,
-    csv: "/api/data/bank-vs-app-cost",
+    updates: AT_PUBLISH,
+    csv: "/data/bank-vs-app-cost.csv",
   },
   {
     title: "Remittance Cost Index",
@@ -110,6 +127,7 @@ const STUDIES: Study[] = [
     // corridors with two or more providers competing over time.
     basis: `${REMITTANCE_INDEX.providers.length} providers priced across ${nf(REMITTANCE_INDEX.corridorCount)} corridors carrying at least one quote at the headline amount — a wider base than the ${CONSISTENCY_INDEX.comparableCorridors} corridors with a sustained multi-provider record. True total cost = the gap between what a mid-market transfer would deliver and what the provider actually delivers, so it captures the fee and the markup together.`,
     dataAsOf: REMITTANCE_INDEX.dataAsOf,
+    updates: AT_PUBLISH,
   },
   {
     title: "Day-of-week FX markup study",
@@ -117,6 +135,7 @@ const STUDIES: Study[] = [
     finding: `Weekends are marginally cheaper, not dearer: a mean markup of ${weekend.weekendMean.toFixed(2)}% at weekends against ${weekend.weekdayMean.toFixed(2)}% on weekdays, a difference of ${Math.abs(weekend.weekendDeltaPp).toFixed(3)} percentage points. Which provider you choose is a far larger lever than which day you send.`,
     basis: `${nf(weekend.observations)} quote observations from ${nf(weekend.snapshots)} snapshots of the ${weekend.providers.length} providers in our quote archive (it keeps providers that have since stopped quoting), ${weekend.dataRange.from} to ${weekend.dataRange.to}, corrected for uneven sampling with outliers quarantined rather than dropped silently.`,
     dataAsOf: weekend.generatedAt,
+    updates: DAILY,
   },
   {
     title: "Transfer cost by amount",
@@ -124,7 +143,8 @@ const STUDIES: Study[] = [
     finding: `Sending $${AMOUNT_TIER_INDEX.smallAmount} costs ${AMOUNT_TIER_INDEX.meanSmallPct.toFixed(2)}% of the amount against ${AMOUNT_TIER_INDEX.meanHeadlinePct.toFixed(2)}% at $${AMOUNT_TIER_INDEX.headlineAmount.toLocaleString("en-US")}, and the cheapest provider is not the same at both — ${AMOUNT_TIER_INDEX.cheapestSmall?.name} at the smaller amount, ${AMOUNT_TIER_INDEX.cheapestHeadline?.name} at the larger.`,
     basis: `${AMOUNT_TIER_INDEX.providersCompared} providers with ${AMOUNT_TIER_INDEX.minQuotesPerTier}+ usable quotes at both amounts. No $10,000 tier is published — only 11 providers quote at that amount, roughly one per corridor.`,
     dataAsOf: REMITTANCE_INDEX.dataAsOf,
-    csv: "/api/data/transfer-cost-by-amount",
+    updates: AT_PUBLISH,
+    csv: "/data/transfer-cost-by-amount.csv",
   },
   {
     title: "SendScore",
@@ -132,6 +152,7 @@ const STUDIES: Study[] = [
     finding: `Of the ${SENDSCORE_SUMMARY.corridorsScored} corridors where enough providers compete to score one, ${SENDSCORE_SUMMARY.goodOrBetterPct}% currently read "good" or better as a time to send.`,
     basis: `A 0–100 rating from four weighted components, computed from a median of ${SENDSCORE_SUMMARY.medianDaysObserved} days of recorded provider rates per corridor. Single-provider corridors are excluded from the distribution rather than counted as neutral.`,
     dataAsOf: SENDSCORE_SUMMARY.dataAsOf,
+    updates: DAILY,
   },
   {
     title: "Transfer cost versus purchasing power",
@@ -139,6 +160,7 @@ const STUDIES: Study[] = [
     finding: `What a transfer is worth on arrival depends more on local price levels than on the fee. The study pairs our live transfer costs with World Bank PPP conversion factors across ${ppp.countryCount} countries.`,
     basis: `World Bank PPP and GNI indicators, refreshed against live quotes. The interactive version is the salary-abroad calculator.`,
     dataAsOf: ppp.generatedAt,
+    updates: "Recomputed on every collection; the World Bank indicators it uses are revised once a year.",
   },
 ];
 
@@ -155,7 +177,7 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px]">
-              Original <span className="text-[var(--color-primary)]">research</span>
+              Original <span className="text-[var(--color-primary)]">research</span> on money transfer costs, speed and providers
             </h1>
             <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
               Every six hours we record what each money transfer provider would actually deliver to a recipient, on
@@ -164,6 +186,9 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
               going back to {formatLocalDate(weekend.dataRange.from)}. These {STUDIES.length} datasets are what comes
               out of it — each with its method, its limits, and the figures it actually supports.
             </p>
+            <div className="flex justify-center mt-4">
+              <PageByline authorSlug={EDITORIAL_AUTHOR_SLUG} updated={pageUpdated("/research")} cadence={null} />
+            </div>
           </div>
         </Container>
       </section>
@@ -189,6 +214,7 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
                 </div>
                 <p className="text-2sm text-[var(--color-on-surface)] leading-relaxed mb-3">{s.finding}</p>
                 <p className="text-2xs text-[var(--color-on-surface-variant)] leading-relaxed">{s.basis}</p>
+                <p className="text-2xs text-[var(--color-on-surface-variant)] leading-relaxed mt-1.5">{s.updates}</p>
                 <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4 pt-4 border-t border-[var(--color-outline)]">
                   <Link href={s.href} className="text-2sm font-medium text-[var(--color-primary)] hover:underline">
                     Read the study &rarr;
@@ -227,6 +253,10 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
                 SendMoneyCompare with a link to the study page. Each
                 study states the date of the data behind it — please cite that date rather than the date you read it,
                 because the figures move with the scrape.
+              </p>
+              <p>
+                <strong className="text-[var(--color-on-surface)]">How to cite.</strong>{" "}
+                {`Name the study, its data date and the page, for example: SendMoneyCompare, "${STUDIES[2].title}", data as of ${formatLocalDate(STUDIES[2].dataAsOf)}, https://sendmoneycompare.com${STUDIES[2].href} (CC BY 4.0).`}
               </p>
               <p>
                 <strong className="text-[var(--color-on-surface)]">Raw data.</strong>{" "}

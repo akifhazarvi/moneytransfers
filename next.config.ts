@@ -156,6 +156,13 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // Round-4 brief §2.1: every Dataset's CSV lived under /api/data/, and
+  // robots.txt disallows /api/, so search engines could not fetch a dataset's
+  // distribution. /data/<name>.csv serves the same response from a crawlable
+  // path; the /api/data/ URLs keep working for anyone who already links them.
+  async rewrites() {
+    return [{ source: "/data/:name.csv", destination: "/api/data/:name" }];
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -25,6 +25,9 @@ import { pageUpdated } from "@/lib/content-dates";
 // hours" cadence is true here. The registry line is: see /iban/[slug].
 // Lives in content-dates.ts so sitemap.ts submits the same day (check:lastmod).
 const IBAN_HUB_UPDATED = pageUpdated("/iban");
+// When our copy of the registry's format list (src/data/scraped/iban-structures.json)
+// was last changed — its git history. Printed under the table, never a build date.
+const IBAN_FORMATS_AS_OF = "2026-03-14";
 const IBAN_AUTHOR_SLUG = "awais-imran";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -76,6 +79,25 @@ const CHECKER_COUNTRIES: IbanCheckerCountry[] = ibanStructures.map((s) => {
     compareHref: page ? (ibanComparison(page.slug!, page.currency)?.href ?? null) : null,
   };
 });
+
+/** Primary sources, followed (CLAUDE.md SEO conventions). */
+const SOURCE_LINK = "text-[var(--color-primary)] underline underline-offset-2 hover:no-underline";
+
+/** "DE89 3704 0044 0532 0130 00": the print format, groups of four. */
+const printFormat = (iban: string) => iban.replace(/(.{4})/g, "$1 ").trim();
+
+/** Every country in the format list, by name, with its page when it has one. */
+const FORMAT_ROWS = ibanStructures
+  .map((s) => {
+    const page = wiseCountries.find((c) => c.countryCode === s.code && c.slug);
+    // The format list's own names read as people write them ("United Kingdom",
+    // "Moldova"); the two that do not are spelled out here.
+    const name = ({ VA: "Vatican City", VG: "British Virgin Islands" } as Record<string, string>)[s.code] ?? s.country;
+    return { ...s, name, href: page ? `/iban/${page.slug}` : null };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
+const SHORTEST = [...FORMAT_ROWS].sort((a, b) => a.length - b.length)[0];
+const LONGEST = [...FORMAT_ROWS].sort((a, b) => b.length - a.length)[0];
 
 function getCountryName(code: string, slug: string): string {
   const country = getCountryByAlpha2(code);
@@ -172,6 +194,58 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
           <div className="max-w-3xl">
             <IbanChecker countries={CHECKER_COUNTRIES} source="iban_hub" />
           </div>
+        </Container>
+      </section>
+
+      {/* Round-4 brief §0.3 (worksheet 04): a server-rendered format table for
+          every country, with its source and the date of our copy. */}
+      <section className="py-10" aria-labelledby="iban-format-table">
+        <Container>
+          <h2 id="iban-format-table" className="text-h4 font-normal text-[var(--color-on-surface)] mb-2">
+            IBAN format by country: length, example and SEPA membership
+          </h2>
+          <p className="text-sm text-[var(--color-on-surface-variant)] mb-5 max-w-3xl leading-relaxed">
+            {`${FORMAT_ROWS.length} countries issue IBANs. Every IBAN in a country has the same length, from ${SHORTEST.length} characters in ${SHORTEST.name} to ${LONGEST.length} in ${LONGEST.name}, so a number of the wrong length is wrong before any check digit is tested. The example shows the layout: the country code and two check digits first, then the domestic bank code and account number. A transfer in euros between SEPA countries goes to the IBAN alone.`}
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)]">
+            <table className="w-full text-2sm">
+              <thead>
+                <tr className="bg-[var(--color-surface-dim)] text-left text-[var(--color-on-surface-variant)]">
+                  <th scope="col" className="px-4 py-2.5 font-medium">Country</th>
+                  <th scope="col" className="px-4 py-2.5 font-medium">Code</th>
+                  <th scope="col" className="px-4 py-2.5 font-medium text-right">Length</th>
+                  <th scope="col" className="px-4 py-2.5 font-medium">SEPA</th>
+                  <th scope="col" className="px-4 py-2.5 font-medium">Example (print format)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {FORMAT_ROWS.map((row) => (
+                  <tr key={row.code} className="border-t border-[var(--color-outline)]">
+                    <td className="px-4 py-2">
+                      {row.href ? (
+                        <Link href={row.href} className="text-[var(--color-primary)] hover:underline">{row.name}</Link>
+                      ) : (
+                        row.name
+                      )}
+                    </td>
+                    <td className="px-4 py-2 text-[var(--color-on-surface-variant)]">{row.code}</td>
+                    <td className="px-4 py-2 text-right tabular-nums">{row.length}</td>
+                    <td className="px-4 py-2">{row.sepa ? "Yes" : "No"}</td>
+                    <td className="px-4 py-2 font-mono text-xs whitespace-nowrap">{printFormat(row.ibanExample)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-[var(--color-on-surface-variant)] mt-3 max-w-3xl leading-relaxed">
+            Lengths follow the{" "}
+            <a href="https://www.swift.com/standards/data-standards/iban-international-bank-account-number" target="_blank" rel="noopener" className={SOURCE_LINK}>SWIFT IBAN Registry</a>,
+            the list SWIFT keeps as registration authority for the{" "}
+            <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener" className={SOURCE_LINK}>ISO 13616</a>{" "}
+            IBAN standard; SEPA membership follows the European Payments Council&rsquo;s{" "}
+            <a href="https://www.europeanpaymentscouncil.eu/document-library/other/epc-list-sepa-scheme-countries" target="_blank" rel="noopener" className={SOURCE_LINK}>list of SEPA scheme countries</a>.
+            {` Our copy of the format list is as of ${new Date(`${IBAN_FORMATS_AS_OF}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}. Examples are published sample numbers that show the layout; never send money to one.`}
+          </p>
         </Container>
       </section>
 
@@ -296,7 +370,7 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 errors and failed payments.
               </p>
               <p>
-                IBAN length varies by country — for example, Norway uses 15 characters while Malta uses 31.
+                {`IBAN length varies by country, from ${SHORTEST.length} characters in ${SHORTEST.name} to ${LONGEST.length} in ${LONGEST.name} (the table above has every country).`}{" "}
                 When sending money internationally, providing the correct IBAN ensures your transfer reaches the
                 right account quickly. Incorrect IBANs can result in delays, returned payments, and additional fees.
               </p>

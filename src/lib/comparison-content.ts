@@ -48,7 +48,7 @@ export interface ComparisonContent {
 
 // ── Corridor config ──
 
-const COMPARISON_CORRIDORS = [
+export const COMPARISON_CORRIDORS = [
   { from: "USD", to: "INR", label: "USD → INR", amount: 1000, symbol: "₹", currencySymbol: "$" },
   { from: "GBP", to: "EUR", label: "GBP → EUR", amount: 1000, symbol: "€", currencySymbol: "£" },
   { from: "USD", to: "PHP", label: "USD → PHP", amount: 500, symbol: "₱", currencySymbol: "$" },

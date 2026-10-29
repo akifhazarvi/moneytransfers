@@ -5,6 +5,7 @@ import Link from "@/components/EligibleLink";
 import LiveRatesBoard from "./LiveRatesBoard";
 import { KEPT_RATE_PAIR_SLUGS } from "@/lib/gone-rate-pairs";
 import TodayRates from "./TodayRates";
+import MajorPairsTable from "./MajorPairsTable";
 import LazyHistoricalRateWidget from "@/components/LazyHistoricalRateWidget";
 import LiveTimestamp from "@/components/LiveTimestamp";
 import SendVerdictHero, { type VerdictData } from "@/components/SendVerdictHero";
@@ -636,6 +637,8 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             </p>
             <TodayRates />
           </section>
+
+          <MajorPairsTable />
 
           {/* ── Everything else: progressive disclosure ── */}
           <section className="mt-12 space-y-3 max-w-[760px]">

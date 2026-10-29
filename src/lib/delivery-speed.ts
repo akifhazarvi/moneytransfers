@@ -94,7 +94,7 @@ export function renderSpeedTestTable(): string {
 ${rows}
 </tbody>
 </table>
-<p class="blog-footnote">Times are each app's own status timeline, to the minute. &ldquo;Paid out&rdquo; is the provider's last step (&ldquo;Transfer was successful&rdquo;, &ldquo;Your transfer's complete&rdquo;); we did not time when the receiving bank or wallet credited the money. Our quote archive starts in ${monthYear(speed.archive.from)}, so transfers before then have no archived promise. <a href="/api/data/delivery-speed">Download the table (CSV)</a>.</p>
+<p class="blog-footnote">Times are each app's own status timeline, to the minute. &ldquo;Paid out&rdquo; is the provider's last step (&ldquo;Transfer was successful&rdquo;, &ldquo;Your transfer's complete&rdquo;); we did not time when the receiving bank or wallet credited the money. Our quote archive starts in ${monthYear(speed.archive.from)}, so transfers before then have no archived promise. <a href="/data/delivery-speed.csv">Download the table (CSV)</a>.</p>
 </div>`;
 }
 

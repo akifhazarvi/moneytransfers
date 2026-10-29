@@ -147,26 +147,28 @@ export const CASH_OUT_CONTENT_DATE = "2026-10-09";
 // ── Single pages ──
 
 const PAGE_UPDATED = {
-  "/exchange-rates": "2026-10-18",           // "Exchange Rates Today" headline
-  "/exchange-rates/history": "2026-10-18",   // corridor table shown; rate levels and collection described as built
-  "/swift-codes": "2026-10-18",              // 8 vs 11 characters, a wrong code, correspondent charges
-  "/iban": "2026-10-18",                     // IBAN checker; what an IBAN number is vs an account number
+  "/business": "2026-10-29",                 // round-4 §0.3: descriptive H1, how to compare, feature-matrix summary, byline
+  "/research": "2026-10-29",                 // round-4 §0.3: byline, update cadence per dataset, how to cite
+  "/exchange-rates": "2026-10-29",           // round-4 §0.3: major pairs table, 30-day change, ECB and Fed sources
+  "/exchange-rates/history": "2026-10-29",   // round-4: open history pairs linked; twelve-month range table
+  "/swift-codes": "2026-10-29",              // round-4 §0.3: country table, directory examples, source and date
+  "/iban": "2026-10-29",                     // round-4 §0.3: format table for every country, registry sources
   "/cash-out": "2026-09-25",                 // round-2 technical SEO brief
-  "/tools": "2026-10-09",                    // per-page see-also line (brief §5.3)
+  "/tools": "2026-10-29",                    // round-4 §0.3: how each tool calculates, worked examples, sources
   "/tools/us-remittance-tax": "2026-10-09",  // per-page see-also line (brief §5.3)
   "/tools/fx-markup-checker": "2026-10-09",  // per-page see-also line (brief §5.3)
   "/tools/salary-abroad": "2026-10-09",      // per-page see-also line (brief §5.3)
-  "/guides": "2026-10-03",                   // reader-savings study added to the listing
-  "/companies": "2026-10-09",                // per-page see-also line (brief §5.3)
-  "/news": "2026-10-09",                     // archive became a section (brief §5.3)
-  "/compare": "2026-10-09",                  // per-page see-also line (brief §5.3)
+  "/guides": "2026-10-29",                   // round-4 §0.3: H1, how guides are written, start here, topic notes
+  "/companies": "2026-10-29",                // round-4 §0.3: measured ranking of the major providers
+  "/news": "2026-10-29",                     // round-4: section policy; only items open to Google listed
+  "/compare": "2026-10-29",                  // round-4 §0.3: measured head-to-head table; sponsored block below content
   "/travel": "2026-09-26",                   // destination summaries no longer repeated
-  "/remittance-cost-index": "2026-10-17",    // ranking as one table; "Why remittance costs matter" (World Bank, cited)
+  "/remittance-cost-index": "2026-10-29",    // round-4 §0.3: summary for journalists, chart, CSV, method beside the ranking
   "/alternatives": "2026-09-20",             // published
   "/currency-converter": "2026-10-18",       // popular-pair rates shown instead of an sr-only block
-  "/methodology": "2026-10-18",              // source tiers, integrity checks, benchmark and tie-break as the code runs them
+  "/methodology": "2026-10-29",              // related list links the head-to-head comparisons (/compare)
   "/how-we-review": "2026-10-18",            // referral fees and sponsored placement; quotes shown but not ranked
-  "/editorial-policy": "2026-10-15",         // editor byline and WebPage JSON-LD
+  "/editorial-policy": "2026-10-29",         // quotes "collected", not "refreshed", every 6 hours
   "/privacy-policy": "2026-10-20",           // consent asked where required (EU/EEA/UK/CH), on by default elsewhere; Clarity disclosed; browser extension section + site offer counts
   "/terms": "2026-09-20",
   "/corrections": "2026-10-18",              // log brought up to date: September–October corrections

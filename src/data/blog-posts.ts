@@ -179,7 +179,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p><strong>Test transfers.</strong> Sent from our own accounts and timed from each provider's status timeline, to the minute, from "set up" to the provider's last step. We did not time when the receiving bank or wallet credited the money. Each transfer is set against what our archive recorded for that provider and route within 3 days of the send date. Transfers before {{SPEED_ARCHIVE_FROM}} predate the archive.</p>
 <p><strong>Promises.</strong> Our comparison collects quotes from providers' own calculators and from comparison sources several times a day and keeps every delivery estimate they publish. "Within a minute" means an estimate of "Instant" or at most one minute. The day is the UTC day the quote was collected, and a business day counts as 24 hours. Two sources "disagree" when their typical ranges do not overlap and sit at least a day apart.</p>
 <p><strong>Complaints.</strong> Counts come from the CFPB Consumer Complaint Database (public domain), international money transfers only, from {{SPEED_CFPB_FROM}}.</p>
-<p>The test transfers are available as a <a href="/api/data/delivery-speed">CSV download</a> under CC BY 4.0. For how we price quotes, see our <a href="/methodology">methodology</a>; for more studies from the same archive, see <a href="/research">research</a>.</p>`,
+<p>The test transfers are available as a <a href="/data/delivery-speed.csv">CSV download</a> under CC BY 4.0. For how we price quotes, see our <a href="/methodology">methodology</a>; for more studies from the same archive, see <a href="/research">research</a>.</p>`,
       },
     ],
     faqs: [

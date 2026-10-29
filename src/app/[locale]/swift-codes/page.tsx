@@ -6,7 +6,7 @@ import Card from "@/components/Card";
 import SectionHeader from "@/components/SectionHeader";
 import PrimaryButton from "@/components/PrimaryButton";
 import CircleFlag from "@/components/CircleFlag";
-import { getSwiftCountries } from "@/data/swift-codes";
+import { getSwiftCountries, type SwiftBranch } from "@/data/swift-codes";
 import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { INDEXED_SWIFT_SLUGS, robotsFor } from "@/lib/seo-indexing";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
@@ -34,6 +34,38 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
+/**
+ * When the directory (src/data/scraped/swift-codes.json) last changed — its git
+ * history: scraped from Wise's SWIFT code pages in March 2026, empty countries
+ * backfilled from an open dataset of public registries on 12 June 2026
+ * (scripts/fill-missing-swift-codes.ts). Neither is SWIFT's own directory, and
+ * the page says so (round-4 brief §0.3 asked for the source and its date).
+ */
+const DIRECTORY_AS_OF = "2026-06-12";
+const asOfLabel = new Date(`${DIRECTORY_AS_OF}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const SOURCE_LINK = "text-[var(--color-primary)] underline underline-offset-2 hover:no-underline";
+
+/**
+ * Worked examples read from the directory, never typed (CLAUDE.md rule 8): a
+ * head office (XXX), a numbered branch of the same bank, and an 8-character
+ * code. A key the directory no longer holds drops its example.
+ */
+const EXAMPLE_KEYS: readonly { country: string; bank: string; branch?: string; eight?: boolean; note: string }[] = [
+  { country: "pakistan", bank: "habib-bank-limited", branch: "XXX", note: "XXX in the branch position means the bank's head office." },
+  { country: "pakistan", bank: "habib-bank-limited", branch: "004", note: "The same bank and city with a branch suffix: a payment the bank asks to go to that branch uses it." },
+  { country: "germany", bank: "deutsche-bank-ag", eight: true, note: "The 8-character form names the bank's primary office; it is the same as adding XXX." },
+];
+
+function swiftExamples(countries: ReturnType<typeof getSwiftCountries>) {
+  return EXAMPLE_KEYS.flatMap((k) => {
+    const branches = countries.find((c) => c.slug === k.country)?.branches ?? [];
+    const hit: SwiftBranch | undefined = branches.find((b) => b.bankSlug === k.bank && (k.eight || b.branchCode === k.branch));
+    if (!hit) return [];
+    const code = k.eight ? hit.bic8 : hit.bic11;
+    return [{ code, bank: hit.bankName, city: hit.city, parts: { bank: hit.bankCode, country: hit.countryCode, location: hit.locationCode, branch: k.eight ? "" : hit.branchCode }, note: k.note }];
+  });
+}
+
 export default async function SwiftCodesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -50,6 +82,7 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
   const otherCountries = countries.filter((c) => !INDEXED_SWIFT_SLUGS.has(c.slug));
   const totalBanks = countries.reduce((s, c) => s + c.bankCount, 0);
   const totalBranches = countries.reduce((s, c) => s + c.branches.length, 0);
+  const examples = swiftExamples(countries);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -64,9 +97,11 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "SWIFT/BIC Code Lookup — Find Codes for Banks in 100+ Countries",
-    description: `Search SWIFT/BIC codes for ${totalBanks.toLocaleString()}+ banks across ${countries.length} countries. Verified data updated regularly.`,
+    description: `SWIFT/BIC codes for ${totalBanks.toLocaleString()} banks across ${countries.length} countries, from a directory as of ${asOfLabel}.`,
     url: "https://sendmoneycompare.com/swift-codes",
-    isPartOf: { "@type": "WebSite", name: "SendMoneyCompare", url: "https://sendmoneycompare.com" },
+    dateModified: pageUpdated("/swift-codes"),
+    isPartOf: { "@id": "https://sendmoneycompare.com/#website" },
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" },
   };
 
   return (
@@ -91,7 +126,7 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
               <PageByline
                 authorSlug={EDITORIAL_AUTHOR_SLUG}
                 updated={pageUpdated("/swift-codes")}
-                cadence="SWIFT/BIC data from the SWIFT registry"
+                cadence={`Code directory as of ${asOfLabel}`}
               />
             </div>
           </div>
@@ -102,7 +137,7 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
               `${countries.length} countries`,
               `${totalBanks.toLocaleString()}+ banks`,
               `${totalBranches.toLocaleString()}+ branch codes`,
-              "Verified data",
+              `Directory as of ${asOfLabel}`,
             ].map((item) => (
               <span key={item} className="flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
@@ -137,7 +172,7 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
                   { code: "AAAA", label: "Bank code", desc: "4 letters identifying the bank", color: "var(--color-primary)" },
                   { code: "BB", label: "Country code", desc: "2-letter ISO country code", color: "var(--color-success)" },
                   { code: "CC", label: "Location code", desc: "2 characters for the city", color: "var(--color-warning)" },
-                  { code: "123", label: "Branch code", desc: "3 digits for the branch (optional)", color: "var(--color-on-surface-variant)" },
+                  { code: "123", label: "Branch code", desc: "3 letters or digits for the branch (optional; XXX is the head office)", color: "var(--color-on-surface-variant)" },
                 ].map((part) => (
                   <div key={part.code} className="flex items-start gap-3 p-3 bg-[var(--color-surface-dim)] rounded-lg">
                     <span
@@ -201,6 +236,78 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
               </ul>
             </details>
           )}
+        </Container>
+      </section>
+
+      {/* Round-4 brief §0.3 (worksheet 04): the code structure on real codes, and
+          a server-rendered country table with the directory's source and date. */}
+      {examples.length > 0 && (
+        <section className="py-10" aria-labelledby="swift-examples">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 id="swift-examples" className="text-h4 font-normal text-[var(--color-on-surface)] mb-2">
+                Reading a SWIFT code: three examples from our directory
+              </h2>
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-5 leading-relaxed">
+                Each code splits into a bank code, a country code, a location code and, in the 11-character form, a branch
+                code. These are listed in our directory exactly as below.
+              </p>
+              <div className="space-y-3">
+                {examples.map((ex) => (
+                  <div key={ex.code} className="rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] p-4">
+                    <p className="font-mono text-lg tracking-wider text-[var(--color-on-surface)]">{ex.code}</p>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
+                      {`${ex.bank}, ${ex.city}: bank ${ex.parts.bank}, country ${ex.parts.country}, location ${ex.parts.location}${ex.parts.branch ? `, branch ${ex.parts.branch}` : ", no branch suffix"}. ${ex.note}`}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      <section className="py-10 bg-[var(--color-surface-dim)]" aria-labelledby="swift-country-table">
+        <Container>
+          <h2 id="swift-country-table" className="text-h4 font-normal text-[var(--color-on-surface)] mb-2">
+            SWIFT/BIC codes by country: banks and codes in our directory
+          </h2>
+          <p className="text-sm text-[var(--color-on-surface-variant)] mb-5 max-w-3xl leading-relaxed">
+            {`${countries.length} countries, ${totalBanks.toLocaleString()} banks and ${totalBranches.toLocaleString()} individual codes. One bank can hold many codes, one for each branch or department that receives payments.`}
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)]">
+            <table className="w-full text-2sm">
+              <thead>
+                <tr className="bg-[var(--color-surface-dim)] text-left text-[var(--color-on-surface-variant)]">
+                  <th scope="col" className="px-4 py-2.5 font-medium">Country</th>
+                  <th scope="col" className="px-4 py-2.5 font-medium">Currency</th>
+                  <th scope="col" className="px-4 py-2.5 font-medium text-right">Banks</th>
+                  <th scope="col" className="px-4 py-2.5 font-medium text-right">Codes listed</th>
+                </tr>
+              </thead>
+              <tbody>
+                {countries.map((c) => (
+                  <tr key={c.slug} className="border-t border-[var(--color-outline)]">
+                    <td className="px-4 py-2">
+                      <Link href={`/swift-codes/${c.slug}`} className="text-[var(--color-primary)] hover:underline">{c.name}</Link>
+                    </td>
+                    <td className="px-4 py-2 text-[var(--color-on-surface-variant)]">{c.currencyCode}</td>
+                    <td className="px-4 py-2 text-right tabular-nums">{c.bankCount.toLocaleString()}</td>
+                    <td className="px-4 py-2 text-right tabular-nums">{c.branches.length.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-[var(--color-on-surface-variant)] mt-3 max-w-3xl leading-relaxed">
+            {`Our directory was compiled from Wise's published SWIFT code pages and, for countries those left empty, an open dataset of public bank registries; our copy is as of ${asOfLabel}. `}
+            SWIFT issues the codes and is the authority on them (
+            <a href="https://www.swift.com/standards/data-standards/bic-business-identifier-code" target="_blank" rel="noopener" className={SOURCE_LINK}>SWIFT: Business Identifier Code</a>
+            ), and a bank can retire or change one, so confirm the code with the recipient&rsquo;s bank before a large
+            transfer. For a euro payment between SEPA countries you need only the IBAN: the EU&rsquo;s{" "}
+            <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012R0260" target="_blank" rel="noopener" className={SOURCE_LINK}>SEPA Regulation (EU) No 260/2012</a>{" "}
+            stopped banks requiring a BIC for those payments from 2016.
+          </p>
         </Container>
       </section>
 
