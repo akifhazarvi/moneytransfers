@@ -14,7 +14,7 @@ import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import { renderDataTokens } from "@/lib/ratings-tokens";
-import { newsIsIndexable } from "@/lib/seo-indexing";
+import { newsIsIndexable, robotsFor } from "@/lib/seo-indexing";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { generateQuotes } from "@/lib/quotes-engine";
 
@@ -154,6 +154,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // linked; promote into SITEMAP_NEWS_SLUGS to make one indexable.
     // 2026-09-24: plus the articles the round-2 freelance brief opened.
     ...(locale === "en" && !newsIsIndexable(slug) && { robots: { index: false, follow: true } }),
+    // Per-engine robots for an indexable article (round-4 withdrawals: Bing
+    // keeps it, Googlebot gets noindex) — otherwise the root layout's
+    // `googlebot: index` contradicts the X-Robots-Tag header.
+    ...(locale === "en" && newsIsIndexable(slug) && robotsFor(`/news/${slug}`) && { robots: robotsFor(`/news/${slug}`) }),
   };
 }
 
@@ -333,7 +337,13 @@ export default async function NewsArticlePage({ params }: Props) {
             {item.source && (
               <div className="mt-6 pt-4 border-t border-[var(--color-outline)] text-2sm text-[var(--color-on-surface-variant)]">
                 Source:{" "}
-                {item.sourceUrl ? (
+                {/* A source on our own site is an internal link: followed, same
+                    tab, and only to a Google-eligible page (rule 14). */}
+                {item.sourceUrl?.startsWith("https://sendmoneycompare.com/") ? (
+                  <Link href={item.sourceUrl.slice("https://sendmoneycompare.com".length)} className="text-[var(--color-primary)] hover:underline">
+                    {item.source}
+                  </Link>
+                ) : item.sourceUrl ? (
                   <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">
                     {item.source}
                   </a>

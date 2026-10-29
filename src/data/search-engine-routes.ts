@@ -203,7 +203,7 @@ export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_
  * it from other eligible pages, so a release cannot ship as an orphan.
  *
  * One entry per batch, never edited after release (it is the change log GSC is
- * measured against). Withdrawing a page = removing it here, with a note.
+ * measured against). Withdrawing a page = GOOGLE_WITHDRAWALS below.
  */
 export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; readonly routes: readonly string[] }[] = [
   {
@@ -304,17 +304,148 @@ export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; reado
 ];
 
 /**
- * A batch takes effect in the first build dated on or after `released` — the
- * site rebuilds on every 6-hourly scrape commit, so a batch committed ahead of
- * its date goes live within hours of it with nobody pushing anything (owner,
- * 2026-10-09: "do as he said" — the brief's day-5 start). SMC_BUILD_DATE is
- * inlined by next.config.ts so middleware, pages and both sitemaps agree on the
- * day; build scripts (prebuild's link manifest) fall back to today, the same day.
+ * A batch is open from the deploy that lists it. Until 2026-10-28 a batch
+ * waited for the first build dated on or after `released`, so batches 2–3 went
+ * out on dates written ahead of time while the freelancer had asked for a
+ * pause. Round-4 brief §0.1 (2026-10-27): "Disable releases triggered by a
+ * date in the code" — a page opens only after QA (worksheet 12) and a
+ * change-log row (worksheet 14), so `released` is now the record of that day,
+ * never a switch.
  */
-const BUILD_DATE: string = process.env.SMC_BUILD_DATE || new Date().toISOString().slice(0, 10);
-
 export const GOOGLE_RELEASED_ROUTES: ReadonlySet<string> = new Set(
-  GOOGLE_RELEASE_BATCHES.filter((b) => b.released <= BUILD_DATE).flatMap((b) => b.routes),
+  GOOGLE_RELEASE_BATCHES.flatMap((b) => b.routes),
+);
+
+/**
+ * Withdrawals from Google — round-4 brief §0.1 (2026-10-27, worksheet 02):
+ * `googlebot: noindex, follow` in meta and X-Robots-Tag, out of
+ * sitemap-google.xml, and still in sitemap.xml with `robots: index, follow` —
+ * Bing keeps every one (bingIndexable() admits them). A withdrawal outranks a
+ * release batch and the ranking-corridor exemption, and only Googlebot sees it
+ * (check:ranking reads the generic robots tag, which stays `index`).
+ *
+ * The brief's reasoning: Google judges the site as a whole and has indexed one
+ * page (the homepage) of 363 submitted, so off-topic, forecast, seasonal,
+ * one-or-two-provider, short-news and near-duplicate pages pull the whole set
+ * down, and none of these is indexed — withdrawing them costs nothing on Google.
+ * They reopen only through the brief's waves (Section 6, worksheet 11), after
+ * QA, never by date. One entry per withdrawal, never edited afterwards.
+ * Bing clicks (3 months to 2026-10-27, from the brief) in the comments.
+ */
+export const GOOGLE_WITHDRAWALS: readonly { readonly withdrawn: string; readonly routes: readonly string[] }[] = [
+  {
+    withdrawn: "2026-10-28",
+    routes: [
+      // Group A — the October 17 specification's 49.
+      // Off-topic: travel, eSIM and culture, outside money transfer.
+      "/travel",
+      "/travel/france",
+      "/travel/india",
+      "/travel/italy",
+      "/travel/japan",
+      "/travel/mexico",
+      "/travel/saudi-arabia",
+      "/travel/spain",
+      "/travel/thailand",
+      "/travel/turkey",
+      "/travel/uae",
+      "/travel/united-kingdom",
+      // Crypto cash-out: a separate, higher-risk topic.
+      "/cash-out",
+      "/cash-out/india",
+      "/cash-out/philippines",
+      // Investment advice and exchange-rate forecasts with no named analyst.
+      "/guides/how-to-buy-spacex-nvidia-stock-using-revolut",
+      "/guides/us-dollar-forecast-2026", // 39 — watch its Bing traffic (brief §0.1)
+      "/guides/euro-forecast-2026",      // 8
+      "/guides/gbp-forecast-2026",
+      "/guides/pakistan-rupee-forecast-2026",
+      // Seasonal promotions and promo codes from spring 2026.
+      "/guides/send-money-home-ramadan-eid-2026",
+      "/guides/best-money-transfer-rates-eid-holi-2026",
+      "/guides/ramadan-2026-money-transfer-deals-promotions",
+      "/guides/money-transfer-promo-codes-referral-programs",
+      // One or two providers: not a comparison. Reopen at 3+ quoting providers.
+      // switzerland-to-egypt and send-money-to-algeria are ranking corridors
+      // (ranking-corridors.ts) with no Google impressions in the 90 days to
+      // 2026-10-26 (GSC, re-checked 2026-10-28); they keep rendering and
+      // keep `robots: index` for Bing.
+      "/send-money/switzerland-to-egypt",
+      "/send-money/send-money-to-bolivia",
+      "/send-money/send-money-to-taiwan",
+      "/send-money/send-money-to-algeria",
+      "/send-money/austria-to-sri-lanka",
+      "/send-money/denmark-to-philippines",
+      "/send-money/send-money-to-fiji",
+      "/send-money/india-to-uae",
+      "/send-money/aud-to-bdt",
+      "/send-money/send-money-to-jordan",
+      // Short news, under 600 words with no original data.
+      "/news/absa-thunes-global-pay-africa-remittances",
+      "/news/china-digital-yuan-interest-bearing-cbdc",
+      "/news/moneyremitter-launches-deals-comparison",
+      "/news/stripe-paypal-acquisition-talks-2026", // 1
+      "/news/stablecoins-cross-border-payments-2026",
+      "/news/us-remittance-excise-tax-takes-effect-2026",
+      "/news/embedded-finance-regulation-tightening-2026",
+      "/news/rwanda-launches-national-fintech-centre-2026",
+      "/news/eu-instant-payments-mandatory-2026",
+      // Utility pages.
+      "/alternatives",
+      "/for-ai",
+      // One side of a ≥45% pair; the side with more Bing demand stays.
+      "/exchange-rates/history/cad-to-usd", // 2 — 49% with aud-to-usd
+      "/iban/bahrain",                      // 0 — 47% with /iban/kuwait
+      "/swift-codes/indonesia",             // 12 — 47% with /swift-codes/malaysia (21)
+      "/iban/norway",                       // 8 — 45% with /iban/denmark (30)
+
+      // Group B — 32 of batches 2–3's 40, back to Google-only noindex.
+      // Reviews, comparisons and banks: wave 2–4 conditions unmet (reviewRating,
+      // test-transfer evidence, <40% pair similarity, bank data on /banks).
+      "/banks",                              // 20
+      "/banks/hsbc",                         // 3
+      "/banks/chase",
+      "/banks/barclays",
+      "/companies/taptap-send",              // 3
+      "/companies/xoom",                     // 1
+      "/companies/instarem",                 // 1
+      "/companies/worldremit",
+      "/companies/wise",
+      "/compare/western-union-vs-moneygram", // 5
+      "/compare/paypal-vs-revolut",          // 5
+      "/compare/wise-vs-revolut",            // 4
+      "/compare/wise-vs-paypal",             // 4
+      "/compare/wise-vs-westpac",            // 2
+      "/compare/remitly-vs-western-union",   // 1
+      "/compare/remitly-vs-taptap-send",     // 1
+      "/compare/wise-vs-worldremit",
+      // IBAN and SWIFT pages ≥40% similar to another open page (worksheet 06).
+      // A rewrite under 40% reopens one in wave 1.
+      "/swift-codes/thailand",               // 11
+      "/swift-codes/united-arab-emirates",   // 4
+      "/swift-codes/hong-kong",              // 4
+      "/swift-codes/new-zealand",            // 3
+      "/swift-codes/japan",                  // 3
+      "/swift-codes/nigeria",                // 2
+      "/swift-codes/singapore",
+      "/iban/turkey",                        // 4
+      "/iban/qatar",                         // 3
+      "/iban/ukraine",                       // 2
+      "/iban/croatia",                       // 2
+      "/iban/cyprus",                        // 1
+      "/iban/jordan",                        // 1
+      "/iban/georgia",
+      "/iban/slovakia",
+
+      // Group C — new ≥45% pairs; the page with more Bing demand stays.
+      "/iban/austria",                       // 6 — 45% with /iban/germany (117)
+      "/iban/greece",                        // 11 — 45% with /iban/egypt (40)
+    ],
+  },
+];
+
+export const GOOGLE_WITHDRAWN_ROUTES: ReadonlySet<string> = new Set(
+  GOOGLE_WITHDRAWALS.flatMap((w) => w.routes),
 );
 
 /** Section prefixes whose child pages are hidden from Googlebot. Hubs are not. */

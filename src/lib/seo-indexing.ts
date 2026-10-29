@@ -108,7 +108,7 @@ import indexableRoutes from "@/data/scraped/indexable-routes.json";
 import { RANKING_CORRIDOR_SLUGS } from "./ranking-corridors";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 import { FOOTER_IBAN_LINKS, FOOTER_SWIFT_LINKS } from "@/data/footer-reference-links";
-import { BING_DEMAND_ROUTES, GOOGLE_HIDDEN_PREFIXES, GOOGLE_HIDDEN_ROUTES, GOOGLE_RELEASED_ROUTES } from "@/data/search-engine-routes";
+import { BING_DEMAND_ROUTES, GOOGLE_HIDDEN_PREFIXES, GOOGLE_HIDDEN_ROUTES, GOOGLE_RELEASED_ROUTES, GOOGLE_WITHDRAWN_ROUTES } from "@/data/search-engine-routes";
 
 /**
  * 2026-09-26: the IBAN and SWIFT pages the footer links on every page.
@@ -234,6 +234,9 @@ function googleHidden(path: string): boolean {
 /** Index candidate for Google: submitted in sitemap-google.xml. */
 export function googleIndexable(pathname: string): boolean {
   const path = cleanPath(pathname);
+  // A round-4 withdrawal (§0.1) outranks everything below, release batches and
+  // ranking corridors included: Googlebot gets noindex, Bing keeps the page.
+  if (GOOGLE_WITHDRAWN_ROUTES.has(path)) return false;
   // A §3.4 release batch (search-engine-routes.ts) outranks the hidden lists:
   // the page passed QA and is released to Google on purpose. It must already
   // be a Bing earner (bingIndexable), so it is in sitemap.xml and renders.
@@ -244,7 +247,9 @@ export function googleIndexable(pathname: string): boolean {
 /** Index candidate for Bing and every engine that reads the generic robots tag. */
 export function bingIndexable(pathname: string): boolean {
   const path = cleanPath(pathname);
-  return routeIsIndexable(path) || BING_DEMAND_ROUTES.has(path);
+  // A page withdrawn from Google stays open to Bing (round-4 brief §0.1: "Keep
+  // them in sitemap.xml, with the general meta robots set to index, follow").
+  return routeIsIndexable(path) || BING_DEMAND_ROUTES.has(path) || GOOGLE_WITHDRAWN_ROUTES.has(path);
 }
 
 type RobotsMeta =

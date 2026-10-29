@@ -4,6 +4,7 @@ import Link from "@/components/EligibleLink";
 import { setRequestLocale } from "next-intl/server";
 import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
+import { robotsFor } from "@/lib/seo-indexing";
 import { getAuthor } from "@/data/authors";
 import { computeGbpOutlookIndex } from "@/lib/gbp-outlook-index";
 import { FluctuationChart, ProviderSpreadChart } from "@/components/GbpOutlookCharts";
@@ -60,6 +61,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: { absolute: title },
     description: seoDescription(description),
     alternates: getAlternates(PATH, locale),
+    // Per-engine robots (round-4 withdrawal: Bing-only); replaces the layout's googlebot index.
+    robots: locale === "en" ? robotsFor(`/${PATH}`) : { index: false, follow: true },
     openGraph: {
       title,
       description,
@@ -178,7 +181,7 @@ export default async function GbpForecastPage({ params }: { params: Promise<{ lo
             How much can the pound move before your transfer clears?
           </h1>
           <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">
-            By {author?.name ?? "Ahsan Mukhtar"} · Published {asOfLong} · Provider figures update every 6 hours from live
+            By {author?.name ?? "Ahsan Mukhtar"} · Published {asOfLong} · Provider figures are collected every 6 hours from live
             quotes
           </p>
 
