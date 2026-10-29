@@ -4,13 +4,13 @@
   "corridorsWithAnyScore": 1037,
   "singleProviderReadings": 829,
   "bands": {
-    "exceptional": 32,
-    "great": 69,
-    "good": 44,
-    "typical": 35,
-    "poor": 28
+    "exceptional": 33,
+    "great": 64,
+    "good": 52,
+    "typical": 32,
+    "poor": 27
   },
-  "goodOrBetterPct": 70,
+  "goodOrBetterPct": 72,
   "confidence": {
     "high": 208,
     "medium": 0,
@@ -20,38 +20,38 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 52,
+      "score": 50,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.39% vs the 30-day average, 34% up the 90-day range. Rates are improving — +0.16% week on week. Today's best beats the median provider by +1.94%.",
+      "explanation": "Best rate -0.45% vs the 30-day average, 31% up the 90-day range. Rates are improving — +0.15% week on week. Today's best beats the median provider by +1.88%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 33.76544548016446,
-          "detail": "34% up the 90-day range"
+          "score": 31.08606113158502,
+          "detail": "31% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 43.4869223786066,
-          "detail": "-0.39% vs the 30-day average"
+          "score": 42.44291555088163,
+          "detail": "-0.45% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 97.9552652308813,
-          "detail": "today's best beats the median provider by +1.94%"
+          "score": 95.6370739131139,
+          "detail": "today's best beats the median provider by +1.88%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 54.01042445588075,
-          "detail": "improving — +0.16% week on week"
+          "score": 53.80661715842218,
+          "detail": "improving — +0.15% week on week"
         }
       ],
       "daysObserved": 222,

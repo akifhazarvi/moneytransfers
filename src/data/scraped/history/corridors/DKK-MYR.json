@@ -1851,10 +1851,10 @@
     "date": "2026-10-29",
     "providers": {
       "taptap-send": {
-        "rate": 0.6,
+        "rate": 0.61,
         "fee": 0,
-        "markup": 0.98,
-        "receiveAmount": 60
+        "markup": -0.67,
+        "receiveAmount": 61
       }
     }
   }

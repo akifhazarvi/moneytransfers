@@ -11649,10 +11649,10 @@
     "date": "2026-10-29",
     "providers": {
       "lemfi": {
-        "rate": 159.87,
+        "rate": 162.58,
         "fee": 0,
-        "markup": 2.56,
-        "receiveAmount": 15987
+        "markup": -0.76,
+        "receiveAmount": 16258
       },
       "moneygram": {
         "rate": 173.706,
@@ -11697,16 +11697,16 @@
         "receiveAmount": 15445.93
       },
       "wise": {
-        "rate": 161.227,
+        "rate": 160.991,
         "fee": 8.21,
-        "markup": 1.09,
-        "receiveAmount": 14799.03
+        "markup": 1.23,
+        "receiveAmount": 14777.36
       },
       "xoom": {
-        "rate": 157.868,
+        "rate": 157.873,
         "fee": 2.99,
-        "markup": 3.15,
-        "receiveAmount": 15314.8
+        "markup": 3.14,
+        "receiveAmount": 15315.21
       }
     }
   }
