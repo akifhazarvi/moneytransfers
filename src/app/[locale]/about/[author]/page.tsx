@@ -64,11 +64,7 @@ export default async function AuthorPage({ params }: Props) {
     name: author.name,
     url: `https://sendmoneycompare.com/about/${slug}`,
     jobTitle: author.role,
-    worksFor: {
-      "@type": "Organization",
-      "@id": "https://sendmoneycompare.com/#organization",
-      name: "SendMoneyCompare",
-    },
+    worksFor: { "@id": "https://sendmoneycompare.com/#organization" },
     description: author.byline,
     knowsAbout: author.expertise,
     ...(author.photo && { image: `https://sendmoneycompare.com${author.photo}` }),

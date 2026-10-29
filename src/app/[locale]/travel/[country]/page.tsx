@@ -140,11 +140,7 @@ export default async function TravelCountryPage({ params }: Props) {
       "@type": "Country",
       name: guide.countryName,
     },
-    publisher: {
-      "@type": "Organization",
-      name: "SendMoneyCompare",
-      url: "https://sendmoneycompare.com",
-    },
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" },
   };
 
   const breadcrumbJsonLd = {

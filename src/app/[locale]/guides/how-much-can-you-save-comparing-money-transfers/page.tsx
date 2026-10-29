@@ -160,7 +160,7 @@ const articleSchema = {
   datePublished: PUBLISHED,
   dateModified: rs.generatedAt,
   author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about/ahsan-mukhtar` },
-  publisher: { "@type": "Organization", name: "SendMoneyCompare", url: SITE_URL },
+  publisher: { "@id": "https://sendmoneycompare.com/#organization" },
   mainEntityOfPage: URL,
   about: ["International money transfers", "Remittance costs", "Money transfer comparison"],
 };
@@ -173,7 +173,7 @@ const datasetSchema = {
   url: URL,
   temporalCoverage: `${rs.clicksMeta.window.from}/${rs.clicksMeta.window.to}`,
   dateModified: rs.generatedAt,
-  creator: { "@type": "Organization", name: "SendMoneyCompare", url: SITE_URL },
+  creator: { "@id": "https://sendmoneycompare.com/#organization" },
   license: "https://creativecommons.org/licenses/by/4.0/",
   distribution: [{ "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: `${SITE_URL}/data/reader-savings.csv` }],
   variableMeasured: [

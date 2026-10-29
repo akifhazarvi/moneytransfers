@@ -832,11 +832,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
             description: `True total cost (fee plus exchange rate markup) of sending $1,000 abroad for ${idx.providers.length} money transfer providers and banks across ${idx.corridorCount} currency corridors, from live quotes.`,
             url: "https://sendmoneycompare.com/remittance-cost-index",
             license: "https://creativecommons.org/licenses/by/4.0/",
-            creator: {
-              "@type": "Organization",
-              name: "SendMoneyCompare",
-              url: "https://sendmoneycompare.com",
-            },
+            creator: { "@id": "https://sendmoneycompare.com/#organization" },
             datePublished: "2026-03-17",
             dateModified: idx.dataAsOf,
             temporalCoverage: `2026-03-17/${idx.dataAsOf}`,

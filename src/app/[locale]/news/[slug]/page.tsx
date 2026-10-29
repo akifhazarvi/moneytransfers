@@ -202,12 +202,7 @@ export default async function NewsArticlePage({ params }: Props) {
             reviewedBy: { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
             isPartOf: { "@type": "WebPage", "@id": "https://sendmoneycompare.com/news" },
             about: { "@type": "Thing", name: "International Money Transfer" },
-            publisher: {
-              "@type": "Organization",
-              name: "SendMoneyCompare",
-              "@id": "https://sendmoneycompare.com/#organization",
-              logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
-            },
+            publisher: { "@id": "https://sendmoneycompare.com/#organization" },
             speakable: {
               "@type": "SpeakableSpecification",
               cssSelector: ["article h1", "article h2"],

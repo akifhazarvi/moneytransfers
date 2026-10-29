@@ -69,11 +69,7 @@ const articleSchema = {
   datePublished: "2026-08-14",
   dateModified: wm.generatedAt,
   author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about` },
-  publisher: {
-    "@type": "Organization",
-    name: "SendMoneyCompare",
-    url: SITE_URL,
-  },
+  publisher: { "@id": "https://sendmoneycompare.com/#organization" },
   mainEntityOfPage: URL,
 };
 
@@ -85,10 +81,11 @@ const datasetSchema = {
   url: URL,
   temporalCoverage: `${wm.dataRange.from}/${wm.dataRange.to}`,
   dateModified: wm.generatedAt,
-  creator: { "@type": "Organization", name: "SendMoneyCompare", url: SITE_URL },
+  creator: { "@id": "https://sendmoneycompare.com/#organization" },
   license: "https://creativecommons.org/licenses/by/4.0/",
   measurementTechnique:
     "Quoted exchange rate compared against the mid-market rate for the same currency pair on the same date; markup expressed as a percentage of the mid-market rate.",
+  distribution: { "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: `${SITE_URL}/data/weekend-markup.csv` },
 };
 
 const faqSchema = {

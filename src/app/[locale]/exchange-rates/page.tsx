@@ -529,9 +529,11 @@ const datasetSchema = {
   url: "https://sendmoneycompare.com/exchange-rates",
   temporalCoverage: RATES_AS_OF ? `2025-06-08/${RATES_AS_OF}` : undefined,
   dateModified: RATES_AS_OF || undefined,
-  creator: { "@type": "Organization", name: "SendMoneyCompare", url: "https://sendmoneycompare.com" },
+  creator: { "@id": "https://sendmoneycompare.com/#organization" },
   variableMeasured: "Mid-market exchange rate",
   isAccessibleForFree: true,
+  license: "https://creativecommons.org/licenses/by/4.0/",
+  distribution: { "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: "https://sendmoneycompare.com/data/midmarket-rates.csv" },
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

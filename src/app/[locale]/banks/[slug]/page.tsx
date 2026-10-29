@@ -149,16 +149,8 @@ export default async function BankPage({ params }: Props) {
     // launched 2026-05-22 (fcbeaaed7); dateModified is the visible "Updated".
     datePublished: BANK_PAGES_PUBLISHED,
     dateModified: familyPageDate(`/banks/${slug}`, COMPARISON_CONTENT_DATE),
-    author: {
-      "@type": "Organization",
-      name: "SendMoneyCompare",
-      url: "https://sendmoneycompare.com",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "SendMoneyCompare",
-      url: "https://sendmoneycompare.com",
-    },
+    author: { "@id": "https://sendmoneycompare.com/#organization" },
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" },
     about: {
       "@type": "BankOrCreditUnion",
       name: bank.legalName,

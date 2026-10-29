@@ -91,13 +91,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   We built the comparison tool we wished existed: one that pulls real-time
                   exchange rates and fees from {COVERAGE.providers}, calculates exactly how much
                   your recipient receives, and ranks providers by who delivers the most
-                  money. No sponsored placements, no hidden agendas — just transparent data.
+                  money. Some providers pay us when you sign up through our links; sponsored placements are
+                  labelled, and the order is by payout whether a provider pays us or not.
                 </p>
                 <p>
                   Today, SendMoneyCompare compares {COVERAGE.corridors} where two or more providers quote, publishes in-depth
-                  provider reviews, and updates quote data every 6 hours. Millions of
-                  people use comparison sites like ours to make smarter decisions about
-                  international transfers every year.
+                  provider reviews, and collects new quotes every 6 hours.
                 </p>
               </div>
             </div>
@@ -174,8 +173,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare is built and maintained by a small team with backgrounds
-                  in fintech, product management, and data engineering. Our editorial content
-                  is written by people who have personally used the providers we review.
+                  in fintech, product management, and data engineering. Where we have sent money
+                  with a provider ourselves, we publish the timings in our{" "}
+                  <Link href="/guides/fastest-way-to-send-money-internationally" className="text-[var(--color-primary)] hover:underline">transfer speed study</Link>.
                 </p>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">

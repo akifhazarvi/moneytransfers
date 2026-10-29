@@ -284,12 +284,7 @@ export default async function BlogPostPage({ params }: Props) {
       { "@type": "Thing", name: "International Money Transfer" },
       ...(post.category === "Corridors" ? [{ "@type": "Thing", name: post.title.split(":")[0] }] : []),
     ],
-    publisher: {
-      "@type": "Organization",
-      name: "SendMoneyCompare",
-      "@id": "https://sendmoneycompare.com/#organization",
-      logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
-    },
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" },
   };
 
   const breadcrumbSchema = {

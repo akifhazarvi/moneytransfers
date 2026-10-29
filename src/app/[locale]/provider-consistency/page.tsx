@@ -405,11 +405,7 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
             description: `How often each money transfer provider actually delivers the most money, measured across ${idx.providerDayObservations} provider-day observations on ${idx.comparableCorridors} currency corridors over ${idx.maxWindowDays} days.`,
             url: "https://sendmoneycompare.com/provider-consistency",
             license: "https://creativecommons.org/licenses/by/4.0/",
-            creator: {
-              "@type": "Organization",
-              name: "SendMoneyCompare",
-              url: "https://sendmoneycompare.com",
-            },
+            creator: { "@id": "https://sendmoneycompare.com/#organization" },
             dateModified: idx.dataAsOf,
             variableMeasured: [
               "Corridors led",

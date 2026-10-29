@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { GTAG_INLINE, THEME_INLINE, CLARITY_INLINE, PWA_INLINE } from "@/lib/inline-scripts";
-import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
@@ -196,10 +195,8 @@ const websiteSchema = {
   name: "SendMoneyCompare",
   url: SITE_URL,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  // Reflects when live comparison data last changed (shared source of truth
-  // with sitemap lastmod). Was hardcoded "2026-04-10" — a stale freshness
-  // signal emitted on every page that contradicted the 6-hourly scrape cycle.
-  dateModified: getDataUpdatedDate(),
+  // No dateModified (round-4 brief §2.1): a site has no single content date,
+  // and the data date it carried changed on every page every day.
 
 };
 

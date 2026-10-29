@@ -50,7 +50,7 @@ const appSchema = {
   url: URL,
   isAccessibleForFree: true,
   description: `Compares what an income is worth across ${pppIndex.countryCount} countries using World Bank purchasing power parity, and adds the real cost of transferring money abroad.`,
-  publisher: { "@type": "Organization", name: "SendMoneyCompare", url: SITE_URL },
+  publisher: { "@id": "https://sendmoneycompare.com/#organization" },
 };
 
 const faqSchema = {

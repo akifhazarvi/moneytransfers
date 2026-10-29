@@ -139,6 +139,8 @@ export function familyPageDate(path: string, familyDate: string): string {
   return own && own > familyDate ? own : familyDate;
 }
 
+/** /send-money/[corridor] — round-3: H1 pair spacing, indicative quotes unranked, 3-provider title rule, eligible-only rails. */
+export const CORRIDOR_CONTENT_DATE = "2026-10-09";
 /** /exchange-rates/history/[pair] — month-by-month ranges and policy-decision table (brief §4.2). */
 export const RATE_HISTORY_CONTENT_DATE = "2026-10-09";
 /** /cash-out/[country] — corridor pills follow rule 14; sibling cash-out guides linked. */

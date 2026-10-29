@@ -1,3 +1,4 @@
+import { CORRIDOR_CONTENT_DATE } from "@/lib/content-dates";
 import Link from "@/components/EligibleLink";
 import { unrankedLabel } from "@/lib/unranked-quotes";
 import { robotsFor, bingIndexable } from "@/lib/seo-indexing";
@@ -245,7 +246,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-nigeria": {
     title: "Cheapest Way to Send Money USA to Nigeria — USD→NGN Rates (2026)",
     description:
-      "USD to NGN rates from Wise, Remitly, Lemfi & more. NGN rates vary 10%+ between providers — compare before you send. Updated every 6 hrs.",
+      "USD to NGN rates from Wise, Remitly, Lemfi & more. NGN rates vary 10%+ between providers — compare before you send. Quotes collected every 6 hrs.",
     ogTitle: "USA→Nigeria: Who Gives the Best USD→NGN Rate?",
     ogDescription:
       "Compare real-time USD to NGN rates from 10+ providers. NGN rates vary by 10%+ — find the most naira for your dollar today.",
@@ -505,7 +506,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "europe-to-philippines": {
     title: "Cheapest Way to Send Money Europe to Philippines — EUR→PHP Rates (2026)",
     description:
-      "EUR to PHP rates from Wise, Remitly, WorldRemit. SEPA funding, direct GCash delivery. Compare 16+ providers — updated every 6 hrs.",
+      "EUR to PHP rates from Wise, Remitly, WorldRemit. SEPA funding, direct GCash delivery. Compare 16+ providers — quotes collected every 6 hrs.",
     ogTitle: "Europe→Philippines: Who Gives the Best EUR→PHP Rate?",
     ogDescription:
       "Compare EUR to PHP rates from 16+ providers. Send to GCash from Europe via SEPA. Find the most pesos per euro today.",
@@ -645,7 +646,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-morocco": {
     title: "Best Way to Send Money to Morocco (2026) — Fees, Rates & Cash Pickup",
     description:
-      "Live MAD rates from Wise, Remitly, Western Union & more. Bank deposit vs cash pickup options. Compare provider fees — updated every 6 hrs.",
+      "Live MAD rates from Wise, Remitly, Western Union & more. Bank deposit vs cash pickup options. Compare provider fees — quotes collected every 6 hrs.",
     ogTitle: "Send Money to Morocco: Who Gives the Best MAD Rate?",
     ogDescription:
       "Compare live MAD rates from 10+ providers. Bank deposit vs cash pickup options. Find the cheapest way to send money to Morocco.",
@@ -656,7 +657,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-pakistan": {
     title: "Cheapest Way to Send Money to Pakistan (2026) — Compare 15+ Providers",
     description:
-      "Compare today's PKR quotes from 15+ providers side by side: rupees delivered, fees and speed for JazzCash, Easypaisa and bank deposit. Updated every 6 hrs.",
+      "Compare today's PKR quotes from 15+ providers side by side: rupees delivered, fees and speed for JazzCash, Easypaisa and bank deposit. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to Pakistan — Who Gives the Most PKR?",
     ogDescription:
       "Live PKR rates from 15+ providers. JazzCash, Easypaisa, and bank deposit options compared. Find the cheapest way to send money to Pakistan.",
@@ -666,7 +667,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-india": {
     title: "Cheapest Way to Send Money to India (2026) — Compare INR Rates",
     description:
-      "Compare today's INR quotes from 15+ providers side by side: rupees delivered, fees and speed for UPI, IMPS and bank deposit. Updated every 6 hrs.",
+      "Compare today's INR quotes from 15+ providers side by side: rupees delivered, fees and speed for UPI, IMPS and bank deposit. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to India — Who Gives the Most INR?",
     ogDescription:
       "Live INR rates from 15+ providers. UPI and IMPS instant delivery. Find the cheapest way to send money to India today.",
@@ -676,7 +677,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-philippines": {
     title: "Cheapest Way to Send Money to the Philippines (2026) — GCash & Bank",
     description:
-      "Compare today's PHP quotes from 10+ providers side by side: pesos delivered, fees and speed for GCash, bank deposit and cash pickup. Updated every 6 hrs.",
+      "Compare today's PHP quotes from 10+ providers side by side: pesos delivered, fees and speed for GCash, bank deposit and cash pickup. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to Philippines — Who's Cheapest Right Now?",
     ogDescription:
       "Live PHP rates from 10+ providers. GCash delivery in minutes. Find the cheapest way to send money to the Philippines.",
@@ -686,7 +687,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-nigeria": {
     title: "Cheapest Way to Send Money to Nigeria (2026) — NGN Rates Compared",
     description:
-      "Compare the cheapest ways to send money to Nigeria. Live NGN rates vary 10%+ between providers — Lemfi, Wise, WorldRemit, Remitly compared. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money to Nigeria. Live NGN rates vary 10%+ between providers — Lemfi, Wise, WorldRemit, Remitly compared. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to Nigeria — Who Gives the Most Naira?",
     ogDescription:
       "NGN rates vary 10%+ between providers. Compare live rates from 10+ providers. Find the cheapest way to send money to Nigeria.",
@@ -696,7 +697,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-mexico": {
     title: "Cheapest Way to Send Money to Mexico (2026) — SPEI & Cash Pickup",
     description:
-      "Compare the cheapest online money transfers to Mexico. Live MXN rates from 15+ providers — SPEI instant delivery, OXXO cash pickup. Updated every 6 hrs.",
+      "Compare the cheapest online money transfers to Mexico. Live MXN rates from 15+ providers — SPEI instant delivery, OXXO cash pickup. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to Mexico — Who's Cheapest Right Now?",
     ogDescription:
       "Live MXN rates from 15+ providers. SPEI instant deposits and OXXO cash pickup. Find the cheapest way to send money to Mexico.",
@@ -716,7 +717,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-romania": {
     title: "Cheapest Way to Send Money to Romania (2026) — SEPA, EUR & RON Rates",
     description:
-      "Compare the cheapest ways to send money to Romania. SEPA instant transfers available. EUR and RON rates from 10+ providers — updated every 6 hrs.",
+      "Compare the cheapest ways to send money to Romania. SEPA instant transfers available. EUR and RON rates from 10+ providers — quotes collected every 6 hrs.",
     ogTitle: "Send Money to Romania — SEPA Instant Available",
     ogDescription:
       "SEPA instant transfers to Romania. Compare EUR and RON rates from 10+ providers. Find the cheapest and fastest way to send.",
@@ -726,7 +727,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-colombia": {
     title: "Cheapest Way to Send Money to Colombia (2026) — COP Rates Compared",
     description:
-      "Compare the cheapest ways to send money to Colombia. Live COP rates from 10+ providers — bank deposit, Nequi, and cash pickup options. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money to Colombia. Live COP rates from 10+ providers — bank deposit, Nequi, and cash pickup options. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to Colombia — Who Gives the Most COP?",
     ogDescription:
       "Live COP rates from 10+ providers. Bank deposit and cash pickup. Find the cheapest way to send money to Colombia.",
@@ -736,7 +737,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-poland": {
     title: "Cheapest Way to Send Money to Poland (2026) — SEPA & PLN Rates",
     description:
-      "Compare the cheapest ways to send money to Poland. SEPA instant transfers, PLN rates from 10+ providers. Save 80% vs bank wire. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money to Poland. SEPA instant transfers and PLN rates compared, with the fee and exchange-rate margin in one figure. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to Poland — SEPA Instant Available",
     ogDescription:
       "SEPA instant transfers to Poland. Compare PLN rates from 10+ providers. Find the cheapest way to send money to Poland.",
@@ -756,7 +757,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-peru": {
     title: "Cheapest Way to Send Money to Peru (2026) — PEN Rates Compared",
     description:
-      "Compare the cheapest ways to send money to Peru. Live PEN rates from 10+ providers — bank deposit to BCP, Interbank, BBVA. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money to Peru. Live PEN rates from 10+ providers — bank deposit to BCP, Interbank, BBVA. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to Peru — Who Gives the Most Soles?",
     ogDescription:
       "Live PEN rates from 10+ providers. Bank deposit to Peruvian banks. Find the cheapest way to send money to Peru.",
@@ -766,7 +767,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-vietnam": {
     title: "Cheapest Way to Send Money to Vietnam (2026) — VND Rates Compared",
     description:
-      "Compare the cheapest ways to send money to Vietnam. Live VND rates from 10+ providers — Vietcombank, BIDV, Agribank delivery. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money to Vietnam. Live VND rates from 10+ providers — Vietcombank, BIDV, Agribank delivery. Quotes collected every 6 hrs.",
     ogTitle: "Send Money to Vietnam — Who Gives the Best VND Rate?",
     ogDescription:
       "Live VND rates from 10+ providers. Bank deposit to Vietcombank, BIDV. Find the cheapest way to send money to Vietnam.",
@@ -787,7 +788,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "italy-to-peru": {
     title: "Best Money Transfer Italy to Peru (2026) — EUR→PEN Rates Compared",
     description:
-      "Compare the best money transfer services from Italy to Peru. Live EUR to PEN rates from 10+ providers — bank deposit to BCP, Interbank, BBVA. Updated every 6 hrs.",
+      "Compare the best money transfer services from Italy to Peru. Live EUR to PEN rates from 10+ providers — bank deposit to BCP, Interbank, BBVA. Quotes collected every 6 hrs.",
     ogTitle: "Italy→Peru: Who Gives the Best EUR→PEN Rate?",
     ogDescription:
       "Compare EUR to PEN rates from 10+ providers. Find the cheapest way to send money from Italy to Peru.",
@@ -797,7 +798,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "spain-to-brazil": {
     title: "Cheapest Way to Send Money Spain to Brazil (2026) — EUR→BRL via PIX",
     description:
-      "Compare the cheapest ways to send money from Spain to Brazil. EUR to BRL rates from 10+ providers — PIX instant delivery. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from Spain to Brazil. EUR to BRL rates from 10+ providers — PIX instant delivery. Quotes collected every 6 hrs.",
     ogTitle: "Spain→Brazil: Who Gives the Best EUR→BRL Rate?",
     ogDescription:
       "Compare EUR to BRL rates. PIX instant delivery to Brazilian banks. Find the cheapest way to send money from Spain to Brazil.",
@@ -807,7 +808,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "sweden-to-romania": {
     title: "Cheapest Way to Send Money Sweden to Romania (2026) — SEK→RON Rates",
     description:
-      "Compare the cheapest ways to send money from Sweden to Romania. SEK to RON rates from 10+ providers — SEPA instant delivery available. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from Sweden to Romania. SEK to RON rates from 10+ providers — SEPA instant delivery available. Quotes collected every 6 hrs.",
     ogTitle: "Sweden→Romania: Who Gives the Best SEK→RON Rate?",
     ogDescription:
       "Compare SEK to RON rates from 10+ providers. SEPA instant delivery. Find the cheapest way to send money from Sweden to Romania.",
@@ -817,7 +818,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "sweden-to-morocco": {
     title: "Cheapest Way to Send Money Sweden to Morocco (2026) — SEK→MAD Rates",
     description:
-      "Compare the cheapest ways to send money from Sweden to Morocco. SEK to MAD rates from 10+ providers — bank deposit and cash pickup. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from Sweden to Morocco. SEK to MAD rates from 10+ providers — bank deposit and cash pickup. Quotes collected every 6 hrs.",
     ogTitle: "Sweden→Morocco: Who Gives the Best SEK→MAD Rate?",
     ogDescription:
       "Compare SEK to MAD rates. Find the cheapest way to send money from Sweden to Morocco with bank or cash pickup delivery.",
@@ -827,7 +828,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-poland": {
     title: "Cheapest Way to Send Money USA to Poland (2026) — USD→PLN Rates",
     description:
-      "Compare the cheapest ways to send money from USA to Poland. USD to PLN rates from 10+ providers — SEPA delivery in 1 day. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from USA to Poland. USD to PLN rates from 10+ providers — SEPA delivery in 1 day. Quotes collected every 6 hrs.",
     ogTitle: "USA→Poland: Who Gives the Best USD→PLN Rate?",
     ogDescription:
       "Compare USD to PLN rates from 10+ providers. SEPA delivery. Find the cheapest way to send money from USA to Poland.",
@@ -837,7 +838,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-romania": {
     title: "Cheapest Way to Send Money USA to Romania (2026) — USD→RON Rates",
     description:
-      "Compare the cheapest ways to send money from USA to Romania. USD to RON rates — SEPA delivery, EUR or RON options. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from USA to Romania. USD to RON rates — SEPA delivery, EUR or RON options. Quotes collected every 6 hrs.",
     ogTitle: "USA→Romania: Who Gives the Best USD→RON Rate?",
     ogDescription:
       "Compare USD to RON rates. SEPA delivery to Romanian banks. Find the cheapest and fastest way to send money from USA to Romania.",
@@ -847,7 +848,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "sweden-to-colombia": {
     title: "Cheapest Way to Send Money Sweden to Colombia (2026) — SEK→COP Rates",
     description:
-      "Compare the cheapest ways to send money from Sweden to Colombia. SEK to COP rates from 10+ providers — bank deposit and cash pickup. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from Sweden to Colombia. SEK to COP rates from 10+ providers — bank deposit and cash pickup. Quotes collected every 6 hrs.",
     ogTitle: "Sweden→Colombia: Who Gives the Best SEK→COP Rate?",
     ogDescription:
       "Compare SEK to COP rates. Find the cheapest way to send money from Sweden to Colombia.",
@@ -857,7 +858,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "sweden-to-brazil": {
     title: "Cheapest Way to Send Money Sweden to Brazil (2026) — SEK→BRL Rates",
     description:
-      "Compare the cheapest ways to send money from Sweden to Brazil. SEK to BRL rates from 10+ providers — PIX instant delivery. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from Sweden to Brazil. SEK to BRL rates from 10+ providers — PIX instant delivery. Quotes collected every 6 hrs.",
     ogTitle: "Sweden→Brazil: Who Gives the Best SEK→BRL Rate?",
     ogDescription:
       "Compare SEK to BRL rates. PIX instant delivery. Find the cheapest way to send money from Sweden to Brazil.",
@@ -867,7 +868,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "sweden-to-mexico": {
     title: "Cheapest Way to Send Money Sweden to Mexico (2026) — SEK→MXN Rates",
     description:
-      "Compare the cheapest ways to send money from Sweden to Mexico. SEK to MXN rates from 10+ providers — SPEI instant delivery + Oxxo cash pickup. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from Sweden to Mexico. SEK to MXN rates from 10+ providers — SPEI instant delivery + Oxxo cash pickup. Quotes collected every 6 hrs.",
     ogTitle: "Sweden→Mexico: Who Gives the Best SEK→MXN Rate?",
     ogDescription:
       "Compare SEK to MXN rates. SPEI instant delivery to Mexican banks, Oxxo cash pickup. Find the cheapest way to send money from Sweden to Mexico.",
@@ -877,7 +878,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "sweden-to-philippines": {
     title: "Cheapest Way to Send Money Sweden to Philippines (2026) — SEK→PHP Rates",
     description:
-      "Compare the cheapest ways to send money from Sweden to Philippines. SEK to PHP rates from 10+ providers — GCash, Maya wallet + bank deposit. Updated every 6 hrs.",
+      "Compare the cheapest ways to send money from Sweden to Philippines. SEK to PHP rates from 10+ providers — GCash, Maya wallet + bank deposit. Quotes collected every 6 hrs.",
     ogTitle: "Sweden→Philippines: Who Gives the Best SEK→PHP Rate?",
     ogDescription:
       "Compare SEK to PHP rates. GCash and Maya delivery + bank deposit. Find the cheapest way to send money from Sweden to the Philippines.",
@@ -1449,7 +1450,10 @@ export default async function CorridorPage({ params }: Props) {
     ? `Everything you need to know about sending money to ${corridor.toCountry}. Compare live ${toCurrency} exchange rates, fees, delivery times, recipient requirements, and find the cheapest provider today.`
     : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency}).`;
   const freshness = quoteFreshness(comparison.compared);
-  const modifiedDate = [freshness.latest?.slice(0, 10), corridor.editorialUpdatedAt, countryDetails?.editorialUpdatedAt]
+  // The page's content date — the same one sitemap.ts submits — not the newest
+  // quote (round-4 brief §2.1: 86 corridor pages carried the crawl day, because
+  // quotes refresh daily). When the quotes were collected is printed apart.
+  const modifiedDate = [CORRIDOR_CONTENT_DATE, corridor.editorialUpdatedAt, countryDetails?.editorialUpdatedAt]
     .filter((date): date is string => !!date).sort().at(-1);
   const webPageSchema = {
     "@context": "https://schema.org",
@@ -3329,13 +3333,19 @@ export default async function CorridorPage({ params }: Props) {
               // Only cite a url for providers that have a review page. A
               // ListItem url pointing at a 404 is a broken structured-data
               // reference, and scraped bank slugs have no page.
+              // Each ListItem carries an `item` (round-4 brief §2.1: six pages had
+              // ListItems with neither url nor item, for providers with no
+              // review page). The url is cited only where that page renders.
               itemListElement: quotes.slice(0, 10).map((q, i) => ({
                 "@type": "ListItem",
                 position: i + 1,
-                name: getProviderName(q.providerSlug),
-                ...(companyPageRenders(q.providerSlug) && {
-                  url: `https://sendmoneycompare.com/companies/${q.providerSlug}`,
-                }),
+                item: {
+                  "@type": "Organization",
+                  name: getProviderName(q.providerSlug),
+                  ...(companyPageRenders(q.providerSlug) && {
+                    url: `https://sendmoneycompare.com/companies/${q.providerSlug}`,
+                  }),
+                },
               })),
             }),
           }}

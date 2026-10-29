@@ -123,7 +123,7 @@ export default async function CashOutCountryPage({
           />
           <div className="max-w-3xl mt-4">
             <span className="inline-block text-2xs font-bold uppercase tracking-widest text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2.5 py-1 rounded-full">
-              Live off-ramp data · Updated every 6h
+              Live off-ramp data · collected every 6h
             </span>
             <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold text-[var(--color-on-surface)] tracking-tight text-balance">
               {c.flag} Cash out crypto in {c.country}

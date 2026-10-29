@@ -46,12 +46,7 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
         ...(editor.linkedin && { sameAs: [editor.linkedin] }),
       },
     }),
-    publisher: {
-      "@type": "Organization",
-      "@id": "https://sendmoneycompare.com/#organization",
-      name: "SendMoneyCompare",
-      url: "https://sendmoneycompare.com",
-    },
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" },
     // The page's content date, the one sitemap.ts submits (content-dates.ts).
     dateModified: pageUpdated("/editorial-policy"),
   };

@@ -38,7 +38,7 @@ export async function GET(req: Request) {
   };
   const lines = [
     `# SendMoneyCompare — Business / B2B International Payments Cost Index`,
-    `# Data as of ${DATA_AS_OF}. Source: live provider quotes refreshed every 6h.`,
+    `# Data as of ${DATA_AS_OF}. Source: live provider quotes scraped every 6h.`,
     `# true_cost_pct = (midmarket_receive - actual_receive) / midmarket_receive * 100`,
     `# Scope: business-FX specialists vs high-street banks. https://sendmoneycompare.com/business/compare`,
     header.join(","),

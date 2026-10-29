@@ -26,6 +26,7 @@ import {
   SWIFT_CONTENT_DATE,
   companyContentDate,
   pageUpdated,
+  CORRIDOR_CONTENT_DATE,
   shownContentDate,
 } from "@/lib/content-dates";
 import { getTravelGuide } from "@/data/travel-guides";
@@ -99,7 +100,7 @@ const DATA_UPDATED = getDataUpdatedDate();
 // Each constant is the date that family's template or editorial content last
 // actually changed, per git history. Bump one when you change that family —
 // the same discipline STATIC_HUB_DATE already follows.
-const CORRIDOR_CONTENT_DATE = "2026-10-09";   // round-3: H1 pair spacing, indicative quotes unranked, 3-provider title rule, eligible-only rails
+// CORRIDOR_CONTENT_DATE lives in content-dates.ts: the corridor page's WebPage.dateModified reads it too.
 // COMPARISON_CONTENT_DATE (/compare, /banks, /companies profiles) lives in
 // content-dates.ts: those pages print it as their "Updated" date.
 const RATE_PAGE_CONTENT_DATE = "2026-09-01";  // /exchange-rates/* — inline quotes added

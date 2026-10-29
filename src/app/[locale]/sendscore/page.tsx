@@ -292,13 +292,10 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
               "A 0-100 rating of whether today is a good day to send money on a given currency corridor, computed from recorded provider rates across four weighted components: position in the 90-day range (40%), versus the 30-day average (25%), best provider versus the field (20%), and week-on-week trend (15%).",
             url: "https://sendmoneycompare.com/sendscore",
             license: "https://creativecommons.org/licenses/by/4.0/",
-            creator: {
-              "@type": "Organization",
-              name: "SendMoneyCompare",
-              url: "https://sendmoneycompare.com",
-            },
+            creator: { "@id": "https://sendmoneycompare.com/#organization" },
             dateModified: s.dataAsOf,
             variableMeasured: SENDSCORE_WEIGHTS.map((c) => c.label),
+            distribution: { "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: "https://sendmoneycompare.com/data/sendscore.csv" },
           }),
         }}
       />

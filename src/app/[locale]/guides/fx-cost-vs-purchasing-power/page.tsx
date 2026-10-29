@@ -81,7 +81,7 @@ const articleSchema = {
   datePublished: "2026-08-15",
   dateModified: pppIndex.generatedAt,
   author: { "@type": "Person", name: "Ahsan Mukhtar", url: `${SITE_URL}/about` },
-  publisher: { "@type": "Organization", name: "SendMoneyCompare", url: SITE_URL },
+  publisher: { "@id": "https://sendmoneycompare.com/#organization" },
   mainEntityOfPage: URL,
 };
 

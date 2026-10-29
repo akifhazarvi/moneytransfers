@@ -73,11 +73,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               url: "https://sendmoneycompare.com/about/ahsan-mukhtar",
               jobTitle: "Founder & CEO",
             },
-            publisher: {
-              "@type": "Organization",
-              name: "SendMoneyCompare",
-              url: "https://sendmoneycompare.com",
-            },
+            publisher: { "@id": "https://sendmoneycompare.com/#organization" },
             datePublished: "2024-06-01",
             // The page's revision date, the one its byline shows and the
             // sitemap submits. A dateModified that moved with every scrape

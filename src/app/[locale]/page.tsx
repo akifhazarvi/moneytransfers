@@ -224,14 +224,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     contentUrl: "https://www.youtube.com/shorts/AKRQH9xbR18",
     embedUrl: "https://www.youtube.com/embed/AKRQH9xbR18",
     duration: "PT1M",
-    publisher: {
-      "@type": "Organization",
-      name: "SendMoneyCompare",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://sendmoneycompare.com/icon-512x512.png",
-      },
-    },
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" },
   };
 
   const homeFaqSchema = {
