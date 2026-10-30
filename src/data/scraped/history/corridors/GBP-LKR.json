@@ -16168,5 +16168,100 @@
         "receiveAmount": 42111.41
       }
     }
+  },
+  {
+    "date": "2026-10-30",
+    "providers": {
+      "moneygram": {
+        "rate": 441.133,
+        "fee": 1.99,
+        "markup": 0.17,
+        "receiveAmount": 43235.44
+      },
+      "hsbc": {
+        "rate": 426.429,
+        "fee": 20.03,
+        "markup": 3.5,
+        "receiveAmount": 34101.51
+      },
+      "skrill": {
+        "rate": 421.114,
+        "fee": 0,
+        "markup": 4.7,
+        "receiveAmount": 42111.41
+      },
+      "taptap-send": {
+        "rate": 442.5,
+        "fee": 0,
+        "markup": 0.55,
+        "receiveAmount": 44250
+      },
+      "western-union": {
+        "rate": 438.135,
+        "fee": 0.99,
+        "markup": 0.85,
+        "receiveAmount": 43379.71
+      },
+      "dahabshiil": {
+        "rate": 437.567,
+        "fee": 1.99,
+        "markup": 0.98,
+        "receiveAmount": 42885.98
+      },
+      "ofx": {
+        "rate": 411.87,
+        "fee": 0,
+        "markup": 6.79,
+        "receiveAmount": 41186.97
+      },
+      "transfergo": {
+        "rate": 432.7,
+        "fee": 0,
+        "markup": 2.08,
+        "receiveAmount": 43269.97
+      },
+      "instarem": {
+        "rate": 439.628,
+        "fee": 0,
+        "markup": 0.51,
+        "receiveAmount": 43962.77
+      },
+      "xe": {
+        "rate": 439.486,
+        "fee": 3,
+        "markup": 0.55,
+        "receiveAmount": 42630.18
+      },
+      "paysend": {
+        "rate": 440.293,
+        "fee": 1,
+        "markup": 0.36,
+        "receiveAmount": 43589.03
+      },
+      "sendwave": {
+        "rate": 438.194,
+        "fee": 0,
+        "markup": 0.84,
+        "receiveAmount": 43819.38
+      },
+      "remitly": {
+        "rate": 440.32,
+        "fee": 1.49,
+        "markup": 0.36,
+        "receiveAmount": 43375.92
+      },
+      "revolut": {
+        "rate": 440.562,
+        "fee": 0.95,
+        "markup": 0.3,
+        "receiveAmount": 43637.68
+      },
+      "wise": {
+        "rate": 442.275,
+        "fee": 2.36,
+        "markup": -0.09,
+        "receiveAmount": 43183.73
+      }
+    }
   }
 ]

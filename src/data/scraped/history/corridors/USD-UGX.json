@@ -9333,5 +9333,52 @@
         "receiveAmount": 421348.18
       }
     }
+  },
+  {
+    "date": "2026-10-30",
+    "providers": {
+      "lemfi": {
+        "rate": 4322.27,
+        "fee": 0,
+        "markup": 0.71,
+        "receiveAmount": 432227
+      },
+      "ria": {
+        "rate": 4081.76,
+        "fee": 0.75,
+        "markup": 6.24,
+        "receiveAmount": 405115.04
+      },
+      "taptap-send": {
+        "rate": 4360,
+        "fee": 0,
+        "markup": -0.15,
+        "receiveAmount": 436000
+      },
+      "instarem": {
+        "rate": 4319.07,
+        "fee": 0,
+        "markup": 0.79,
+        "receiveAmount": 431907.34
+      },
+      "xoom": {
+        "rate": 4171.25,
+        "fee": 3.99,
+        "markup": 4.18,
+        "receiveAmount": 400481.68
+      },
+      "remitly": {
+        "rate": 4263.4,
+        "fee": 2.99,
+        "markup": 2.07,
+        "receiveAmount": 413592.43
+      },
+      "wise": {
+        "rate": 4353.73,
+        "fee": 3.22,
+        "markup": -0.01,
+        "receiveAmount": 421353.99
+      }
+    }
   }
 ]
