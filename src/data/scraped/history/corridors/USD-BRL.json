@@ -20301,16 +20301,16 @@
     "date": "2026-10-30",
     "providers": {
       "instarem": {
-        "rate": 5.4038,
+        "rate": 5.4318,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 540.38
+        "receiveAmount": 543.18
       },
       "lemfi": {
-        "rate": 5.4,
+        "rate": 5.42,
         "fee": 0,
-        "markup": 0.24,
-        "receiveAmount": 540
+        "markup": 0.35,
+        "receiveAmount": 542
       },
       "moneygram": {
         "rate": 5.3039,
@@ -20319,10 +20319,10 @@
         "receiveAmount": 519.84
       },
       "taptap-send": {
-        "rate": 5.36,
+        "rate": 5.41,
         "fee": 0.99,
-        "markup": 0.45,
-        "receiveAmount": 530.69
+        "markup": -0.48,
+        "receiveAmount": 535.64
       },
       "boss-money": {
         "rate": 5.3295,
@@ -20331,16 +20331,16 @@
         "receiveAmount": 517.01
       },
       "western-union": {
-        "rate": 5.2827,
+        "rate": 5.31215,
         "fee": 1.99,
-        "markup": 1.88,
-        "receiveAmount": 517.76
+        "markup": 1.34,
+        "receiveAmount": 520.64
       },
       "xoom": {
-        "rate": 5.21681,
+        "rate": 5.24202,
         "fee": 4.99,
-        "markup": 3.11,
-        "receiveAmount": 495.65
+        "markup": 2.64,
+        "receiveAmount": 498.04
       },
       "worldremit": {
         "rate": 5.09585,
@@ -20361,10 +20361,10 @@
         "receiveAmount": 512.17
       },
       "remitly": {
-        "rate": 5.3831,
+        "rate": 5.4074,
         "fee": 3.99,
-        "markup": 0.02,
-        "receiveAmount": 516.83
+        "markup": -0.43,
+        "receiveAmount": 519.16
       },
       "revolut": {
         "rate": 5.32244,
@@ -20379,16 +20379,16 @@
         "receiveAmount": 509.17
       },
       "paypal": {
-        "rate": 5.15802,
+        "rate": 5.1278,
         "fee": 4.99,
-        "markup": 4.2,
-        "receiveAmount": 490.06
+        "markup": 4.76,
+        "receiveAmount": 487.19
       },
       "wise": {
-        "rate": 5.4156,
-        "fee": 1.84,
-        "markup": -0.59,
-        "receiveAmount": 531.6
+        "rate": 5.43785,
+        "fee": 1.85,
+        "markup": -1,
+        "receiveAmount": 533.72
       }
     }
   }

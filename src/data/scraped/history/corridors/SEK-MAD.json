@@ -1862,10 +1862,10 @@
     "date": "2026-10-30",
     "providers": {
       "taptap-send": {
-        "rate": 1,
+        "rate": 0.99,
         "fee": 0,
-        "markup": -0.06,
-        "receiveAmount": 100
+        "markup": 0.94,
+        "receiveAmount": 99
       }
     }
   }

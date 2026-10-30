@@ -2731,16 +2731,16 @@
     "date": "2026-10-30",
     "providers": {
       "taptap-send": {
-        "rate": 2.1,
+        "rate": 2.11,
         "fee": 0,
-        "markup": 6.34,
-        "receiveAmount": 210
+        "markup": 5.89,
+        "receiveAmount": 211
       },
       "wise": {
-        "rate": 2.24845,
-        "fee": 10.48,
-        "markup": -0.28,
-        "receiveAmount": 201.28
+        "rate": 2.24341,
+        "fee": 10.08,
+        "markup": -0.06,
+        "receiveAmount": 201.73
       }
     }
   }

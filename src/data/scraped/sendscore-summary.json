@@ -5,12 +5,12 @@
   "singleProviderReadings": 829,
   "bands": {
     "exceptional": 35,
-    "great": 54,
-    "good": 66,
+    "great": 57,
+    "good": 61,
     "typical": 28,
-    "poor": 25
+    "poor": 27
   },
-  "goodOrBetterPct": 75,
+  "goodOrBetterPct": 74,
   "confidence": {
     "high": 208,
     "medium": 0,
@@ -23,35 +23,35 @@
       "score": 45,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.68% vs the 30-day average, 20% up the 90-day range. Rates are improving — +0.21% week on week. Today's best beats the median provider by +1.79%.",
+      "explanation": "Best rate -0.69% vs the 30-day average, 20% up the 90-day range. Rates are improving — +0.20% week on week. Today's best beats the median provider by +1.82%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 20.346845870366515,
+          "score": 20.052026880554983,
           "detail": "20% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 38.69462200640453,
-          "detail": "-0.68% vs the 30-day average"
+          "score": 38.5796962687976,
+          "detail": "-0.69% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 92.48121204833788,
-          "detail": "today's best beats the median provider by +1.79%"
+          "score": 93.5762193975907,
+          "detail": "today's best beats the median provider by +1.82%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 55.13838364476439,
-          "detail": "improving — +0.21% week on week"
+          "score": 55.115950227524024,
+          "detail": "improving — +0.20% week on week"
         }
       ],
       "daysObserved": 223,
