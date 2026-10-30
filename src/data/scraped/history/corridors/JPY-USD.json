@@ -2456,16 +2456,16 @@
     "date": "2026-10-30",
     "providers": {
       "xe": {
-        "rate": 0.00624,
+        "rate": 0.00594,
         "fee": 0,
-        "markup": 1.44,
-        "receiveAmount": 0.62
+        "markup": 6.56,
+        "receiveAmount": 0.59
       },
       "instarem": {
-        "rate": 0.0063,
+        "rate": 0.0064,
         "fee": 0,
-        "markup": 0.5,
-        "receiveAmount": 0.63
+        "markup": -0.68,
+        "receiveAmount": 0.64
       }
     }
   }

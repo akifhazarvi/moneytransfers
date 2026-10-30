@@ -5184,7 +5184,7 @@
       "paysend": {
         "rate": 87.883,
         "fee": 9,
-        "markup": 2.85,
+        "markup": 2.91,
         "receiveAmount": 7997.35
       },
       "remitly": {
@@ -5198,6 +5198,12 @@
         "fee": 0,
         "markup": 0.2,
         "receiveAmount": 9033
+      },
+      "skrill": {
+        "rate": 86.2359,
+        "fee": 0,
+        "markup": 4.73,
+        "receiveAmount": 8623.59
       }
     }
   }
