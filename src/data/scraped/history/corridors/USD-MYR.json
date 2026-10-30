@@ -3416,16 +3416,16 @@
     "date": "2026-10-30",
     "providers": {
       "taptap-send": {
-        "rate": 4.04,
+        "rate": 4.05,
         "fee": 0,
-        "markup": 0.32,
-        "receiveAmount": 404
+        "markup": 0.07,
+        "receiveAmount": 405
       },
       "wise": {
-        "rate": 4.0525,
+        "rate": 4.057,
         "fee": 1.39,
-        "markup": 0.01,
-        "receiveAmount": 399.62
+        "markup": -0.1,
+        "receiveAmount": 400.06
       }
     }
   }
