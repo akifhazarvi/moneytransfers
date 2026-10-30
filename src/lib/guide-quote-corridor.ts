@@ -66,6 +66,10 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   // "Most pesos or naira for $1,000" leads with Mexico; show the live USD → MXN
   // field at $1,000 so readers see who delivers the most pesos today.
   "most-pesos-or-naira-for-1000": { from: "USD", to: "MXN", amount: 1000, heading: "Who sends the most pesos? Live USD → MXN rates" },
+  // "Is Wise the cheapest?" — the field on the route most of its readers send.
+  // The widget shows the top rows only, so the heading must not promise Wise
+  // is among them.
+  "is-wise-the-cheapest": { from: "USD", to: "INR", amount: 1000, heading: "Who delivers the most on USD → INR right now" },
   // GBP leads this guide's own excerpt and outnumbers USD in its body, and
   // GBP→AUD quotes 22 providers against USD→AUD's 8.
   "send-money-to-australia-guide": { from: "GBP", to: "AUD", amount: 1000, heading: "Top GBP → AUD providers right now" },

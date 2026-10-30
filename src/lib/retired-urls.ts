@@ -2,8 +2,10 @@
  * The one answer for a retired URL — used by middleware (to respond) and by
  * scripts/check-redirects.ts (to prove every 301 lands on a rendered page in
  * one hop). Pure: no next/server import, so a build script can call it.
+ * Corridors come from the build-time manifest, not gone-corridors.ts, which
+ * would pull every scraped quote file into the middleware bundle.
  */
-import { GONE_CORRIDOR_SLUGS, DUPLICATE_CORRIDOR_REDIRECTS } from "./gone-corridors";
+import { GONE_CORRIDOR_SLUGS, DUPLICATE_CORRIDOR_REDIRECTS } from "./corridor-render-manifest";
 import { GONE_SWIFT_SLUGS } from "./gone-swift";
 import { GONE_RATE_PAIR_SLUGS, RATE_PAIR_REDIRECTS, RATE_HISTORY_REDIRECTS } from "./gone-rate-pairs";
 import { GONE_COMPANY_SLUGS } from "./gone-companies";

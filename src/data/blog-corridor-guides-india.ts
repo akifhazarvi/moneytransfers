@@ -572,7 +572,7 @@ export const corridorGuidesIndia: BlogPost[] = [
           "10 Best Providers Compared: Fees, Rates & Speed for USD to INR",
         content: `<div class="blog-table-box">
 <h3 style="margin-top: 0;">USD to INR on $1,000 — live, every provider quoting the corridor</h3>
-<p>Ranked by rupees received, refreshed every {{REFRESH_HOURS}} hours. Quotes as at {{QUOTE_DATE}}; {{PROVIDER_TALLY:USD:INR:1000}} providers, {{SPREAD:USD:INR:1000}} between best and worst.</p>
+<p>Ranked by rupees received, collected every {{REFRESH_HOURS}} hours. Quotes as at {{QUOTE_DATE}}; {{PROVIDER_TALLY:USD:INR:1000}} providers, {{SPREAD:USD:INR:1000}} between best and worst.</p>
 {{QUOTE_TABLE:USD:INR:1000}}
 <p class="blog-footnote">Rates based on $1,000 USD→INR quotes collected {{QUOTE_DATE}}. Actual amounts vary — <a href="/send-money/usa-to-india">compare live rates for your amount →</a></p>
 </div>

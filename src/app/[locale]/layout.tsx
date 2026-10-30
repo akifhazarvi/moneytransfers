@@ -111,9 +111,10 @@ const organizationSchema = {
   description:
     `Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from ${COVERAGE.providers} across ${COVERAGE.corridors}.`,
   foundingDate: "2024",
-  founders: [
-    { "@type": "Person", name: "Ahsan Mukhtar", jobTitle: "Founder & CEO", url: `${SITE_URL}/about/ahsan-mukhtar`, sameAs: "https://www.linkedin.com/in/ahsan-mukhtar/" },
-  ],
+  // The founder of record (owner, 2026-10-29: Ahsan Mukhtar), the same account
+  // /about gives — round-4 brief §1.1 asks for one founder story everywhere.
+  // `founder`, not the deprecated plural `founders`.
+  founder: { "@type": "Person", name: "Ahsan Mukhtar", jobTitle: "Founder & CEO", url: `${SITE_URL}/about/ahsan-mukhtar`, sameAs: "https://www.linkedin.com/in/ahsan-mukhtar/" },
   employee: [
     { "@type": "Person", name: "Awais Imran", jobTitle: "Editor-in-Chief", url: `${SITE_URL}/about/awais-imran`, sameAs: "https://www.linkedin.com/in/awsimran/" },
   ],

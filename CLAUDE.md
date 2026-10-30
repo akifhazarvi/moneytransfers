@@ -47,6 +47,8 @@ npm run check:corridor-sort # every corridor provider list descends by payout (p
 npm run check:lastmod    # a lastmod (sitemap.xml and sitemap-google.xml) equals the page's visible "Updated" date (postbuild)
 npm run check:link-eligibility # internal links point only at Google-eligible pages; /go /out are nofollow sponsored
 npm run build:google-eligible  # regenerate src/data/google-eligible-routes.json (= sitemap-google.xml; prebuild runs it)
+npm run check:middleware # middleware bundle ≤1 MB, no quote data: it runs on every page request, and from Sep 20 to Oct 29 2026 it parsed 5.5 MB of quotes (postbuild)
+npm run build:corridor-manifest # gone-corridors.ts answers → corridor-render-manifest.json, which middleware reads (prebuild; postbuild --check)
 
 # End-to-end (Playwright, e2e/) — the installed app: manifest, worker, offline, install flows
 npm run build && npm run test:e2e        # against `next start` on :3210

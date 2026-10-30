@@ -607,6 +607,9 @@ export const DUPLICATE_CORRIDOR_REDIRECTS: ReadonlyMap<string, string> = new Map
  * in src/app/[locale]/send-money/[corridor]/page.tsx. Lives here, not in
  * route-map, because route-map imports this module and middleware must not
  * import route-map (it pulls every guide and news body into the edge bundle).
+ * Middleware must not import this module either (getCorridorTier pulls every
+ * scraped quote file): it reads the build-time copy in
+ * corridor-render-manifest.ts, which prebuild writes from these sets.
  */
 export function corridorPageRenders(slug: string | undefined | null): boolean {
   if (!slug) return false;

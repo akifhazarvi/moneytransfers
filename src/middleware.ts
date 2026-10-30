@@ -5,7 +5,10 @@ import { routing } from "./i18n/routing";
 import { getGeoDefaults } from "./data/geo-corridors";
 import { xRobotsTagFor } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
-import { corridorPageRenders } from "./lib/gone-corridors";
+// The build-time manifest, never ./lib/gone-corridors: that module counts
+// providers in every scraped quote file (a 6.9 MB middleware bundle until
+// 2026-10-29, re-merged by every new instance).
+import { corridorPageRenders } from "./lib/corridor-render-manifest";
 import { GONE, retiredAnswer } from "./lib/retired-urls";
 
 const intlMiddleware = createMiddleware(routing);

@@ -116,6 +116,7 @@ export const GUIDE_TOPICS: Record<string, string> = {
   "multi-currency-account-wars-2026": "Wise, Revolut, Fineco and Airwallex",
   "send-money-home-ramadan-eid-2026": "Ramadan and Eid remittances",
   "send-money-to-nigeria-from-usa-uk-canada-australia": "Naira apps by sending country",
+  "is-wise-the-cheapest": "Is Wise the cheapest",
 };
 
 /** The subject a guide's section headings use: its topic, else its headline's first clause. */

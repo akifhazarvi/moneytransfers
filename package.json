@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-swift-codes.ts && npx tsx scripts/check-claims.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/build-corridor-leaders.ts && npx tsx scripts/build-corridor-uniqueness.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/check-pwa.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-site-coverage.ts && npx tsx scripts/build-llms-txt.ts && npx tsx scripts/build-google-eligible-routes.ts",
+    "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-swift-codes.ts && npx tsx scripts/check-claims.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/build-corridor-leaders.ts && npx tsx scripts/build-corridor-uniqueness.ts && npx tsx scripts/build-corridor-render-manifest.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/check-pwa.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-site-coverage.ts && npx tsx scripts/build-llms-txt.ts && npx tsx scripts/build-google-eligible-routes.ts",
     "build": "node scripts/next-build.mjs",
     "start": "next start",
     "lint": "eslint",
@@ -59,7 +59,7 @@
     "check:link-eligibility": "npx tsx scripts/check-link-eligibility.ts",
     "check:redirects": "npx tsx scripts/check-redirects.ts",
     "check:corridor-sort": "npx tsx scripts/check-corridor-sort.ts",
-    "postbuild": "npx tsx scripts/check-links.ts && npx tsx scripts/check-indexing.ts && npx tsx scripts/check-redirects.ts && npx tsx scripts/check-link-eligibility.ts && npx tsx scripts/check-corridor-sort.ts && npx tsx scripts/check-headings.ts && npx tsx scripts/check-rendered-text.ts && npx tsx scripts/check-lastmod.ts && npx tsx scripts/check-claims.ts --built && npx tsx scripts/check-bundle-weight.ts",
+    "postbuild": "npx tsx scripts/check-links.ts && npx tsx scripts/check-indexing.ts && npx tsx scripts/check-redirects.ts && npx tsx scripts/check-link-eligibility.ts && npx tsx scripts/check-corridor-sort.ts && npx tsx scripts/check-headings.ts && npx tsx scripts/check-rendered-text.ts && npx tsx scripts/check-lastmod.ts && npx tsx scripts/check-claims.ts --built && npx tsx scripts/check-bundle-weight.ts && npx tsx scripts/build-corridor-render-manifest.ts --check && npx tsx scripts/check-middleware-bundle.ts",
     "build:consistency": "npx tsx scripts/build-consistency-index.ts",
     "build:sendscore": "npx tsx scripts/build-sendscore-summary.ts",
     "check:ai-citations:smoke": "npx tsx --env-file=.env.local scripts/check-ai-citations.ts --platform=perplexity --limit=3",
@@ -75,7 +75,9 @@
     "check:duplication": "npx tsx scripts/check-duplication.ts",
     "build:coverage": "npx tsx scripts/build-site-coverage.ts",
     "build:indexable": "npx tsx scripts/build-indexable-routes.ts",
-    "build:google-eligible": "npx tsx scripts/build-google-eligible-routes.ts"
+    "build:google-eligible": "npx tsx scripts/build-google-eligible-routes.ts",
+    "build:corridor-manifest": "npx tsx scripts/build-corridor-render-manifest.ts",
+    "check:middleware": "npx tsx scripts/check-middleware-bundle.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

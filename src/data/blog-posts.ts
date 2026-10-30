@@ -1168,7 +1168,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "How We Compared These Apps",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> There is no single best money transfer app in 2026: across the {{PROVIDER_COUNT}} providers we track, priced across {{CORRIDOR_COUNT}} corridors and refreshed every {{REFRESH_HOURS}} hours, the one cheapest most often is {{TOP_LEADER}}, on {{TOP_LEADS}}. <a href="/companies/wise">Wise</a> prices at or very close to the mid-market rate — we measure {{AVG_MARKUP:wise}} — with fees from 0.41%, and it is cheapest on {{LEADS:wise}}, {{LEAD_RANK:wise}}. Trustpilot: {{TRUSTPILOT:wise}}. <strong><a href="/companies/taptap-send">TapTap Send</a> is the pick for most people sending a normal remittance</strong>: cheapest on {{LEADS:taptap-send}} — {{LEAD_RANK:taptap-send}} — with the widest coverage we measure at {{COSTCORRIDORS:taptap-send}} corridors priced, free transfers above $250 (and free at every amount on most corridors we price), and, by its own count, 19 in 20 India transfers delivered within three minutes. <a href="/companies/remitly">Remitly</a> also delivers in minutes via express transfer to over 175 countries, though it leads on far fewer corridors. <a href="/companies/instarem">Instarem</a> is the strongest low-cost alternative, charging zero transfer fees on most corridors at a measured average markup of {{AVG_MARKUP:instarem}} — against 2–4% at a typical bank. Which app is actually cheapest changes with your route and amount, so compare yours rather than taking any ranking on trust. For large transfers over $5,000, <a href="/companies/ofx">OFX</a> offers $0 fees and dedicated currency dealers. We compared every app using real quote data from {{CORRIDOR_COUNT}} corridors, not opinions.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> There is no single best money transfer app in 2026: across the {{PROVIDER_COUNT}} providers we track, priced across {{CORRIDOR_COUNT}} corridors and collected every {{REFRESH_HOURS}} hours, the one cheapest most often is {{TOP_LEADER}}, on {{TOP_LEADS}}. <a href="/companies/wise">Wise</a> prices at or very close to the mid-market rate — we measure {{AVG_MARKUP:wise}} — with fees from 0.41%, and it is cheapest on {{LEADS:wise}}, {{LEAD_RANK:wise}} (<a href="/guides/is-wise-the-cheapest">is Wise the cheapest?</a> has the route-by-route detail). Trustpilot: {{TRUSTPILOT:wise}}. <strong><a href="/companies/taptap-send">TapTap Send</a> is the pick for most people sending a normal remittance</strong>: cheapest on {{LEADS:taptap-send}} — {{LEAD_RANK:taptap-send}} — with the widest coverage we measure at {{COSTCORRIDORS:taptap-send}} corridors priced, free transfers above $250 (and free at every amount on most corridors we price), and, by its own count, 19 in 20 India transfers delivered within three minutes. <a href="/companies/remitly">Remitly</a> also delivers in minutes via express transfer to over 175 countries, though it leads on far fewer corridors. <a href="/companies/instarem">Instarem</a> is the strongest low-cost alternative, charging zero transfer fees on most corridors at a measured average markup of {{AVG_MARKUP:instarem}} — against 2–4% at a typical bank. Which app is actually cheapest changes with your route and amount, so compare yours rather than taking any ranking on trust. For large transfers over $5,000, <a href="/companies/ofx">OFX</a> offers $0 fees and dedicated currency dealers. We compared every app using real quote data from {{CORRIDOR_COUNT}} corridors, not opinions.</p></div>
 <p class="blog-footnote"><strong>Which of our pages you want.</strong> This one ranks providers on <em>measured cost</em> from live quotes. If you want to understand why cost varies rather than who is cheapest today, read <a href="/guides/cheapest-way-to-send-money-internationally">how transfer pricing actually works</a>. If cost is not your only criterion — country coverage, cash pickup, an account you can hold money in — see <a href="/guides/best-money-transfer-services">best money transfer services</a>, which weighs features alongside price.</p>
 <p>Three of our published studies sit behind this ranking, and each is reproducible from the same quote archive:</p>
 <ul>
@@ -9324,7 +9324,7 @@ const rawBlogPosts: BlogPost[] = [
     featuredImage: "/images/blog/hidden-fees-international-transfers.svg",
     readTime: "9 min read",
     publishedAt: "2026-03-20",
-    updatedAt: "2026-03-20",
+    updatedAt: "2026-10-30",
     author: "Awais Imran",
     tags: [
       "hidden fees",
@@ -9338,7 +9338,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading:
           "Why Do Banks Charge So Much for International Transfers?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Banks make international transfers look cheap by advertising low or zero flat fees — then hide the real cost inside inflated exchange rates, correspondent bank deductions, and receiving-side charges. On a typical $1,000 transfer, these hidden fees can total $30–$80, compared to $5–$15 with specialist providers like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. Below we break down every hidden cost, explain how each one works, and show you how to avoid them.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Banks make international transfers look cheap by advertising low or zero flat fees — then hide the real cost inside inflated exchange rates, correspondent bank deductions, and receiving-side charges. Across the corridors where we price both, sending $1,000 through a bank costs {{AVG_BANK_COST}} on average, against {{AVG_SPECIALIST_COST}} with a specialist provider such as <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. To avoid high fees, compare what your recipient receives rather than the advertised fee. Below we break down every hidden cost, explain how each one works, and show you how to avoid them.</p></div>
 <p>If you've ever sent money abroad through your bank, you probably noticed that the amount your recipient received was less than expected. That's not a rounding error — it's the result of multiple fees stacked on top of each other, most of which never appear on the transfer confirmation screen.</p>
 <p>According to the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database, sending money through a bank costs an average of <strong>12.1%</strong> of the transfer amount — more than double the cost of using a specialist digital provider. Here are the seven fees responsible for that gap.</p>`,
       },
@@ -9404,13 +9404,15 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading:
-          "How to Avoid Hidden Fees: Use a Specialist Transfer Service",
-        content: `<p>The simplest way to eliminate these hidden costs is to stop using your bank for international transfers. Here's what to look for in a provider:</p>
+          "How to avoid high fees when you send money abroad",
+        content: `<p>The simplest way to cut these hidden costs is to stop using your bank by default for international transfers. Six steps cover almost all of it:</p>
 <ol>
-<li><strong>Transparent pricing</strong> — The provider should show you the exact total cost and the amount your recipient will receive before you confirm. <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> both do this.</li>
-<li><strong>Mid-market exchange rate or near it</strong> — Check the rate offered against Google or XE. If the difference is more than 0.5%, you're paying too much.</li>
-<li><strong>No correspondent bank deductions</strong> — Services that use local payment rails instead of SWIFT deliver the exact amount shown at checkout.</li>
-<li><strong>Guaranteed delivery amount</strong> — The amount your recipient gets should match what's shown when you confirm the transfer.</li>
+<li><strong>Compare what your recipient receives, not the fee.</strong> A "no fee" transfer can cost more than a paid one because the margin sits in the rate. The amount received already includes both.</li>
+<li><strong>Check the rate against the mid-market rate.</strong> Look up your pair on Google or XE. The gap between that rate and the one you're offered is the markup you pay.</li>
+<li><strong>Read the disclosure before you pay.</strong> In the US, the CFPB's <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/31/" target="_blank" rel="noopener noreferrer">remittance transfer rule</a> requires providers to show the exchange rate, fees and the amount to be received before you pay. Use that figure to compare.</li>
+<li><strong>Avoid correspondent bank deductions.</strong> Services that use local payment rails instead of SWIFT deliver the amount shown at checkout.</li>
+<li><strong>Look for a guaranteed delivery amount.</strong> The amount your recipient gets should match what's shown when you confirm the transfer.</li>
+<li><strong>In the US, fund the transfer from a bank account or card.</strong> Since 1 January 2026 a 1% federal excise tax applies to remittances paid with cash, a money order or a cashier's check. The <a href="/tools/us-remittance-tax">US remittance tax calculator</a> shows what it adds.</li>
 </ol>
 <p><a href="/send-money">Compare money transfer providers by country</a> to see the real total cost across {{PROVIDER_COUNT}} providers for your specific transfer. For more on finding the best deal, read our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
       },
@@ -9917,7 +9919,7 @@ const rawBlogPosts: BlogPost[] = [
   <li><strong>USD to PKR:</strong> {{MID_RATE:USD:PKR}} rupees per dollar</li>
   <li><strong>EUR to PKR:</strong> {{MID_RATE:EUR:PKR}} rupees per euro</li>
   </ul>
-  <p>These are mid-market rates, refreshed every {{REFRESH_HOURS}} hours — not the rate you will be offered. The State Bank of Pakistan publishes its own <a href="https://www.sbp.org.pk/ecodata/rates/m2m/M2M-Current.asp" target="_blank" rel="noopener noreferrer">mark-to-market revaluation rates</a>, which is the official reference, and the <a href="/send-money/uk-to-pakistan">live comparison</a> shows what providers actually pay on this corridor. Interbank, official and provider rates all differ; a forecast is about the first of those.</p>
+  <p>These are mid-market rates, collected every {{REFRESH_HOURS}} hours — not the rate you will be offered. The State Bank of Pakistan publishes its own <a href="https://www.sbp.org.pk/ecodata/rates/m2m/M2M-Current.asp" target="_blank" rel="noopener noreferrer">mark-to-market revaluation rates</a>, which is the official reference, and the <a href="/send-money/uk-to-pakistan">live comparison</a> shows what providers actually pay on this corridor. Interbank, official and provider rates all differ; a forecast is about the first of those.</p>
   </div>
   
   <p>Several structural factors underpin this relative stability. Pakistan's $7 billion Extended Fund Facility (EFF) with the IMF, approved in September 2024, has provided a policy anchor. The State Bank of Pakistan (SBP) has kept its benchmark interest rate at 15% — still elevated, but down from the peak of 22% in mid-2023. Inflation, which touched 38% in May 2023, has fallen to single digits, hovering around 7-8% year-on-year in early 2026.</p>
@@ -16384,7 +16386,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Guides",
     readTime: "9 min read",
     publishedAt: "2026-09-17",
-    updatedAt: "2026-09-17",
+    updatedAt: "2026-10-30",
     author: "Awais Imran",
     contentStatus: "published",
     tags: [
@@ -16401,7 +16403,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why Look for a Monito Alternative?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Monito is a Geneva-based comparison site that ranks international money transfer providers by real-time cost. It's a solid tool, but it isn't the only one — and no single comparison site covers every provider or corridor. The best Monito alternatives in 2026 are <strong><a href="/">SendMoneyCompare</a></strong> ({{PROVIDER_COUNT}} providers, {{CORRIDOR_COUNT}} corridors, live quotes collected every 6 hours), <strong>Exiap</strong>, <strong>MoneyTransfers.com</strong>, <strong>NerdWallet</strong>, and <strong>Finder</strong> — plus going direct to a provider like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. The smartest approach is to cross-check two comparison sites before every large transfer, because provider rankings shift daily. <a href="/send-money">Compare live rates now →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> To compare remittance providers side by side, use a comparison site that prices the same amount on the same route across many providers and ranks them by what your recipient receives. Monito is a Geneva-based comparison site that ranks international money transfer providers by real-time cost. It's a solid tool, but it isn't the only one — and no single comparison site covers every provider or corridor. The best Monito alternatives in 2026 are <strong><a href="/">SendMoneyCompare</a></strong> (tracks {{PROVIDER_COUNT}} providers across {{CORRIDOR_COUNT}} corridors, quotes collected every {{REFRESH_HOURS}} hours), <strong>Exiap</strong>, <strong>MoneyTransfers.com</strong>, <strong>NerdWallet</strong>, and <strong>Finder</strong> — plus going direct to a provider like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. The smartest approach is to cross-check two comparison sites before every large transfer, because provider rankings shift daily. <a href="/send-money">Compare live rates now →</a></p></div>
 <p>A money transfer comparison site pulls live quotes from multiple providers so you can see, in one place, who delivers the most money to your recipient after fees and exchange-rate markup. <a href="https://www.monito.com/" target="_blank" rel="noopener noreferrer nofollow">Monito</a> pioneered this model and remains popular, but people look for alternatives for a few practical reasons:</p>
 <ul>
 <li><strong>Provider coverage gaps.</strong> No comparison site tracks every provider. A site that lists 15 providers can miss the one that's cheapest on your specific route.</li>
@@ -16418,7 +16420,7 @@ const rawBlogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Tool</th><th>Best for</th><th>Coverage</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/">SendMoneyCompare</a></strong></td><td>Live corridor-by-corridor comparison, collected every 6 hours</td><td>{{PROVIDER_COUNT}} providers, {{CORRIDOR_COUNT}} corridors</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/">SendMoneyCompare</a></strong></td><td>Corridor-by-corridor comparison ranked by what the recipient receives; quotes collected every {{REFRESH_HOURS}} hours</td><td>{{PROVIDER_COUNT}} providers, {{CORRIDOR_COUNT}} corridors</td></tr>
 <tr><td><strong>Exiap</strong></td><td>Clean corridor guides, strong on AU/NZ and Asia-Pacific</td><td>Broad, corridor-focused</td></tr>
 <tr><td><strong>MoneyTransfers.com</strong></td><td>UK-first users, editorial provider reviews</td><td>Wide, UK/EU-weighted</td></tr>
 <tr><td><strong>NerdWallet</strong></td><td>US users who want personal-finance context</td><td>Curated US shortlist</td></tr>
@@ -16492,7 +16494,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the best alternative to Monito?",
         answer:
-          "SendMoneyCompare is a strong direct alternative to Monito — it compares {{PROVIDER_COUNT}} money transfer providers across {{CORRIDOR_COUNT}} corridors with live quotes collected every 6 hours and ranks them by the amount your recipient actually receives. Other good alternatives include Exiap, MoneyTransfers.com, NerdWallet, and Finder. Because no single comparison site covers every provider or corridor, the best approach is to cross-check two independent tools before a large transfer.",
+          "SendMoneyCompare is a strong direct alternative to Monito — it tracks {{PROVIDER_COUNT}} money transfer providers across {{CORRIDOR_COUNT}} corridors, with quotes collected every 6 hours, and ranks the ones quoting your route by the amount your recipient actually receives. Other good alternatives include Exiap, MoneyTransfers.com, NerdWallet, and Finder. Because no single comparison site covers every provider or corridor, the best approach is to cross-check two independent tools before a large transfer.",
       },
       {
         question: "Is Monito free to use?",
@@ -16987,7 +16989,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "6 min read",
     publishedAt: "2026-10-23",
-    updatedAt: "2026-10-23",
+    updatedAt: "2026-10-30",
     author: "Ahsan Mukhtar",
     contentStatus: "published",
     tags: [
@@ -17004,7 +17006,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Is my exchange rate good? The short answer",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A good exchange rate is one close to the <strong>mid-market rate</strong> — the real rate you see on Google. A rule of thumb: aim to be <strong>no more than about 1% below it</strong>. We rank {{PROVIDER_COUNT}} providers by what your recipient actually receives. Across six months of our live data, the cheapest provider on popular routes was almost exactly at the mid-market rate, while the priciest was <strong>3–6% worse</strong>. If your rate is more than about 2% below the real rate, you can usually do better. <a href="/send-money">Check your rate against the market →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A good exchange rate is one close to the <strong>mid-market rate</strong> — the real rate you see on Google. A rule of thumb: aim to be <strong>no more than about 1% below it</strong>. We track {{PROVIDER_COUNT}} providers and rank the ones quoting your route by what your recipient actually receives. Across six months of our live data, the cheapest provider on popular routes was almost exactly at the mid-market rate, while the priciest was <strong>3–6% worse</strong>. If your rate is more than about 2% below the real rate, you can usually do better. <a href="/send-money">Check your rate against the market →</a></p></div>
 <p>Most people never know if they got a good rate. The fee is easy to see. The exchange rate markup is hidden inside the rate itself.</p>
 <p>This guide explains what a good rate looks like in plain terms. It uses our own six months of tracked quotes (March–October 2026) on the routes people send the most.</p>`,
       },
@@ -17076,7 +17078,19 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Do the math.</strong> Divide the gap by the mid-market rate. Under 1% is good.</li>
 <li><strong>Compare the field.</strong> Run your amount through a comparison tool to see the best available.</li>
 </ol>
-<p>The easiest way is to skip the math. <a href="/send-money">SendMoneyCompare</a> ranks {{PROVIDER_COUNT}} providers by what your recipient receives — markup and fees included — and collects rates every six hours. For a deeper look at how markups work, see our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
+<p>The easiest way is to skip the math. <a href="/send-money">SendMoneyCompare</a> ranks every provider quoting your route by what your recipient receives — markup and fees included — and collects quotes every {{REFRESH_HOURS}} hours. For a deeper look at how markups work, see our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
+      },
+      {
+        heading: "How do I find the best exchange rate for my transfer?",
+        content: `<p>The best exchange rate is the one that leaves your recipient with the most money after the fee. The highest rate on its own can still lose: a provider with a slightly better rate and a bigger fee pays out less on a small transfer.</p>
+<ol>
+<li><strong>Compare the amount received, not the rate or the fee.</strong> That one number already includes the fee and the markup.</li>
+<li><strong>Use your real amount.</strong> A flat fee weighs more on $200 than on $2,000, so the cheapest provider for one amount is not always the cheapest for another.</li>
+<li><strong>Check on the day you send.</strong> The cheapest provider changes: on {{ROTATION_RATE}} of the corridors we compare, today's cheapest is not the provider that usually wins.</li>
+<li><strong>Don't assume one brand always wins.</strong> Over the last 91 days the provider that came out cheapest most often, {{TOP_LEADER}}, did so on {{TOP_LEADS}}. <a href="/guides/is-wise-the-cheapest">Is Wise the cheapest?</a> answers the same question for Wise.</li>
+<li><strong>In the US, pay from a bank account or card, not cash.</strong> Since 1 January 2026 a 1% federal excise tax applies to remittances funded with cash, a money order or a cashier's check. Our <a href="/tools/us-remittance-tax">US remittance tax calculator</a> shows what it adds.</li>
+</ol>
+<p><a href="/send-money">Compare your amount on your route →</a></p>`,
       },
       {
         heading: "Why do banks give worse rates?",
@@ -17108,6 +17122,11 @@ const rawBlogPosts: BlogPost[] = [
         question: "How do I check if my exchange rate is good?",
         answer:
           "Look up the mid-market rate for your currency pair on Google, then compare it to your provider's rate. Divide the difference by the mid-market rate to get the markup percentage. Under 1% is good; over 2% means you can likely do better. The fastest way is to run your exact amount through a comparison tool that ranks providers by what your recipient actually receives.",
+      },
+      {
+        question: "How do I find the best exchange rate when sending money abroad?",
+        answer:
+          "Compare the amount your recipient receives for your exact amount, on the day you send, across several providers. The highest rate alone can lose to a smaller fee on small transfers, and on many routes the cheapest provider changes from day to day. In the US, paying from a bank account or card rather than cash also avoids the 1% remittance excise tax that applies to cash-funded transfers since 1 January 2026.",
       },
       {
         question: "How much can a bad exchange rate cost me?",
@@ -17142,7 +17161,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Guides",
     readTime: "8 min read",
     publishedAt: "2026-10-28",
-    updatedAt: "2026-10-28",
+    updatedAt: "2026-10-30",
     author: "Ahsan Mukhtar",
     contentStatus: "published",
     tags: [
@@ -17159,7 +17178,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Which service sends the most pesos or naira? The short answer",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Don't judge by the fee — judge by the number of pesos or naira that actually land. Add two costs: the <strong>transfer fee</strong> (shown at checkout) and the <strong>exchange-rate markup</strong> (hidden inside the rate). Then compare providers on the total. In our own data over the last six months, the most generous provider on USD → MXN delivered a median <strong>9% more pesos</strong> for $1,000 than the least generous — roughly <strong>$90 of extra value</strong> — and on USD → NGN about <strong>5% more naira</strong> (~$50). We rank {{PROVIDER_COUNT}} providers by what your recipient receives. <a href="/send-money">Compare your transfer →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Don't judge by the fee — judge by the number of pesos or naira that actually land. Add two costs: the <strong>transfer fee</strong> (shown at checkout) and the <strong>exchange-rate markup</strong> (hidden inside the rate). Then compare providers on the total. In our own data over the last six months, the most generous provider on USD → MXN delivered a median <strong>9% more pesos</strong> for $1,000 than the least generous — roughly <strong>$90 of extra value</strong> — and on USD → NGN about <strong>5% more naira</strong> (~$50). We track {{PROVIDER_COUNT}} providers and rank the ones quoting your route by what your recipient receives. <a href="/send-money">Compare your transfer →</a></p></div>
 <p>If you send money to family in Mexico or Nigeria, you've probably wondered whether you're overpaying. You usually are, somewhere — because the real cost is hidden.</p>
 <p>This guide shows you the two numbers that decide how much arrives, how to compare in under a minute, and what our six-month record of live quotes says the gap between best and worst really is.</p>`,
       },
@@ -17218,29 +17237,28 @@ const rawBlogPosts: BlogPost[] = [
         heading: "What do the results show — and who decides the order?",
         content: `<p>The results are ranked by one thing: <strong>how much your recipient receives</strong>, fee and markup combined. Nothing else sets the order.</p>
 <ul>
-<li><strong>No paid placement.</strong> A provider cannot buy a higher position. The one at the top is simply the one delivering the most that day.</li>
-<li><strong>Measured, not opinion.</strong> Rankings come from real quotes refreshed every {{REFRESH_HOURS}} hours, not from editorial favourites.</li>
+<li><strong>No paid ranking.</strong> A provider cannot buy a higher position in the list. The one at the top delivered the most in our latest quotes; providers within 0.1% of each other are ordered by rating. Partner offers appear separately and are labelled "Sponsored".</li>
+<li><strong>Measured, not opinion.</strong> Rankings come from real quotes collected every {{REFRESH_HOURS}} hours, not from editorial favourites.</li>
 <li><strong>Trustpilot shown alongside.</strong> So you can weigh price against reliability in one view.</li>
 </ul>
 <p>Our affiliate revenue comes from clicks, but it never changes the order — the cheapest provider ranks first whether or not we earn from it.</p>`,
       },
       {
         heading: "SendMoneyCompare vs going to one provider like Wise",
-        content: `<p>A single provider only ever shows you its own quote. A comparison shows you the whole market at once. Here's the difference:</p>
+        content: `<p>Going straight to one provider gets you that provider's quote. A comparison puts every provider quoting your route side by side, ranked by what your recipient receives. Wise also publishes a <a href="https://wise.com/gb/compare/" target="_blank" rel="noopener noreferrer nofollow">comparison page</a> that lists other providers beside its own quote, using rates Wise collects. Here's how the two differ:</p>
 <div class="blog-table-box">
 <table>
 <thead><tr><th>Feature</th><th>SendMoneyCompare</th><th>Wise</th></tr></thead>
 <tbody>
-<tr><td><strong>Neutral ranking</strong></td><td>By most money the recipient receives; no paid placement</td><td>Shows its own quote only — not a comparison</td></tr>
-<tr><td><strong>Providers compared</strong></td><td>{{PROVIDER_COUNT}} side by side</td><td>1 (itself), at the mid-market rate with a fee Wise advertises from 0.23%</td></tr>
-<tr><td><strong>Quote freshness</strong></td><td>Live quotes updated every {{REFRESH_HOURS}} hours</td><td>Locks your rate for up to 24 hours once you start</td></tr>
-<tr><td><strong>Corridors covered</strong></td><td>{{CORRIDOR_COUNT}}</td><td>140+ countries</td></tr>
-<tr><td><strong>Account required</strong></td><td>No</td><td>Free to register</td></tr>
-<tr><td><strong>Cost to compare</strong></td><td>Free</td><td>Free (its own quote only)</td></tr>
+<tr><td><strong>Who runs it</strong></td><td>An independent comparison site that does not send money</td><td>A money transfer provider; its comparison page includes Wise itself</td></tr>
+<tr><td><strong>Order of results</strong></td><td>By most money the recipient receives; a provider cannot pay for a higher position</td><td>Set by Wise</td></tr>
+<tr><td><strong>Providers on your route</strong></td><td>Every provider we hold a quote for (we track {{PROVIDER_COUNT}})</td><td>The providers Wise chooses to list</td></tr>
+<tr><td><strong>Quote collection</strong></td><td>Every {{REFRESH_HOURS}} hours; confirm the final quote with the provider</td><td>Wise says it does not collect all its comparison data at the same time</td></tr>
+<tr><td><strong>Account required</strong></td><td>No</td><td>Not to compare; yes to send</td></tr>
 </tbody>
 </table>
 </div>
-<p><a href="/companies/wise">Wise</a> is often an excellent choice — it prices at the mid-market rate and frequently ranks at or near the top of our results. The point isn't that Wise is bad; it's that you can't know whether Wise wins <em>your</em> corridor today without seeing it beside the others. <a href="/compare/wise-vs-remitly">Wise vs Remitly</a> is a good next read if you've narrowed it to two.</p>`,
+<p>Over the last 91 days, the provider that delivered the most most often was {{CORRIDOR_LEADER_SHORT:USD:MXN}} on USD → MXN and {{CORRIDOR_LEADER_SHORT:USD:NGN}} on USD → NGN. Across every route we compare, <a href="/companies/wise">Wise</a> delivered the most on {{LEADS_SHORT:wise}} routes, and its median markup in our quotes is {{AVG_MARKUP_PCT:wise}} (Wise says it adds no markup). You can't know whether Wise wins <em>your</em> route today without seeing it beside the others. <a href="/guides/is-wise-the-cheapest">Is Wise the cheapest?</a> has the full answer, and <a href="/compare/wise-vs-remitly">Wise vs Remitly</a> is a good next read if you've narrowed it to two.</p>`,
       },
       {
         heading: "Business senders: supplier payments and bulk payouts",
@@ -17281,7 +17299,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "How often are the rates updated — will I see today's actual rate?",
         answer:
-          "Rates are collected every 6 hours from live provider APIs and websites, so the ranking reflects today's quotes, not a stale table. Exchange rates still move within the day, so the final rate you get is the one the provider shows at checkout — but the comparison reliably tells you who is cheapest right now for your amount and corridor.",
+          "Quotes are collected every 6 hours from provider APIs and websites, and the results show the date they were collected, so you are looking at the latest quotes we hold rather than a fixed table. Exchange rates still move within the day, so the final rate you get is the one the provider shows at checkout. Use the comparison to see who is likely to deliver the most, then confirm in the provider's app.",
       },
       {
         question: "Which app sends the most pesos to Mexico or naira to Nigeria?",
@@ -17300,6 +17318,131 @@ const rawBlogPosts: BlogPost[] = [
       "best-money-transfer-apps",
       "us-remittance-tax-2026",
       "how-to-pay-international-suppliers",
+    ],
+  },
+  // ============================
+  // Is Wise the cheapest?
+  // ============================
+  // GEO feed, 2026-10-29: the prompt with the highest competitor citation rate
+  // where we had no page. Every figure is a token, so the answer moves with the
+  // data (TapTap Send overtook Wise as the most frequent leader on 2026-10-03).
+  {
+    slug: "is-wise-the-cheapest",
+    title: "Is Wise the Cheapest Way to Send Money Abroad?",
+    metaTitle: "Is Wise the Cheapest? What Our Quotes Show (2026)",
+    metaDescription:
+      "Is Wise the cheapest way to send money abroad? Not on most routes. We compare Wise against every provider we track, route by route, over the last 91 days.",
+    excerpt:
+      "Wise prices close to the mid-market rate. Here's how often it actually delivers the most on the routes we compare, who beats it on the biggest corridors, and how to check your own transfer.",
+    category: "Guides",
+    readTime: "6 min read",
+    publishedAt: "2026-10-30",
+    updatedAt: "2026-10-30",
+    author: "Ahsan Mukhtar",
+    contentStatus: "published",
+    tags: [
+      "Wise",
+      "is Wise the cheapest",
+      "Wise exchange rate",
+      "cheapest money transfer",
+      "compare money transfer",
+      "mid-market rate",
+    ],
+    featuredImage: "/images/blog/wise-vs-remitly.jpg",
+    sections: [
+      {
+        heading: "Is Wise the cheapest? The short answer",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Not on most routes. Over the last 91 days, Wise delivered the most money on {{LEADS_SHORT:wise}} routes we compare, {{LEAD_RANK:wise}}. The provider that came out cheapest most often was {{TOP_LEADER}}, on {{TOP_LEADS}}. Wise's strength is its rate: its median markup in our quotes is {{AVG_MARKUP_PCT:wise}} (Wise says it uses the mid-market rate), and it charges a visible fee instead. Whether that wins depends on your route and your amount. <a href="/send-money">Check your transfer →</a></p></div>
+<p>Wise is the name most people think of first, and many review sites recommend it outright. This guide checks that against the quotes we collect: where Wise delivers the most, where it doesn't, and why.</p>`,
+      },
+      {
+        heading: "Where Wise came out cheapest",
+        content: `<p>We count a route as "led" by a provider on a day when that provider's quote put the most money in the recipient's hands. Over the last 91 days, Wise led {{LEADS:wise}}. On the routes where we hold a Wise quote, it led {{LEADRATE:wise}} of them.</p>
+<p>The routes Wise led include {{LEAD_PAIRS:wise}}.</p>`,
+      },
+      {
+        heading: "Who beat Wise on the biggest routes",
+        content: `<p>On the routes people send the most, these providers delivered the most most often over the last 91 days:</p>
+<div class="blog-table-box">
+<table>
+<thead><tr><th>Route</th><th>Most frequent leader (days led of 91)</th></tr></thead>
+<tbody>
+<tr><td><strong>USD → INR</strong></td><td>{{CORRIDOR_LEADER_SHORT:USD:INR}}</td></tr>
+<tr><td><strong>USD → MXN</strong></td><td>{{CORRIDOR_LEADER_SHORT:USD:MXN}}</td></tr>
+<tr><td><strong>USD → NGN</strong></td><td>{{CORRIDOR_LEADER_SHORT:USD:NGN}}</td></tr>
+<tr><td><strong>USD → PKR</strong></td><td>{{CORRIDOR_LEADER_SHORT:USD:PKR}}</td></tr>
+<tr><td><strong>GBP → INR</strong></td><td>{{CORRIDOR_LEADER_SHORT:GBP:INR}}</td></tr>
+<tr><td><strong>GBP → PKR</strong></td><td>{{CORRIDOR_LEADER_SHORT:GBP:PKR}}</td></tr>
+<tr><td><strong>GBP → NGN</strong></td><td>{{CORRIDOR_LEADER_SHORT:GBP:NGN}}</td></tr>
+<tr><td><strong>USD → EUR</strong></td><td>{{CORRIDOR_LEADER_SHORT:USD:EUR}}</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">SendMoneyCompare data: the provider whose quote delivered the most on the most days, over the last 91 days with quotes. Recomputed every build, collected every {{REFRESH_HOURS}} hours, latest quotes {{QUOTE_DATE}}.</p>
+</div>
+<p>The leader also changes: on {{ROTATION_RATE}} of the corridors we compare, today's cheapest provider is not the one that usually wins. A ranking you read last month may not hold for the transfer you make today.</p>`,
+      },
+      {
+        heading: "Why Wise is close on rate but often not first",
+        content: `<p>Every provider is paid in two places: the <strong>fee</strong> you see and the <strong>markup</strong> inside the exchange rate. Wise keeps its rate close to the mid-market rate and charges a visible fee. Other providers charge a smaller fee or none, take more in the rate, or run better rates on particular routes to win customers there.</p>
+<p>Which mix delivers more depends on two things:</p>
+<ul>
+<li><strong>Your route.</strong> Remittance specialists compete hardest on the big corridors to India, Mexico, Pakistan and Nigeria. The table above shows who led there.</li>
+<li><strong>Your amount.</strong> A fee is a bigger share of a small transfer. The provider that wins at $1,000 is not always the one that wins at $200.</li>
+</ul>
+<p>So "Wise is cheapest" and "Wise uses the real rate" are different claims. The second is how Wise describes its pricing; the first depends on the route and the day.</p>`,
+      },
+      {
+        heading: "Isn't Wise's own comparison page enough?",
+        content: `<p>Wise publishes a <a href="https://wise.com/gb/compare/" target="_blank" rel="noopener noreferrer nofollow">comparison page</a> that lists other providers beside its own quote. It is useful, with two limits worth knowing:</p>
+<ul>
+<li><strong>Wise runs it and is in it.</strong> Wise chooses which providers appear.</li>
+<li><strong>Its data is not all collected at once.</strong> Wise says it does not collect all of its comparison data at exactly the same time, so the table can differ from what a provider quotes you.</li>
+</ul>
+<p>We are a comparison site and do not send money. We rank every provider we hold a quote for on your route by what your recipient receives. We earn referral fees from some providers; they never change the order, and partner offers are labelled "Sponsored". <a href="/how-we-review">How we review providers</a> explains what referral fees do and don't change.</p>`,
+      },
+      {
+        heading: "How to check whether Wise is cheapest for your transfer",
+        content: `<ol>
+<li><strong>Enter your real amount and route</strong> in the <a href="/send-money">comparison</a>.</li>
+<li><strong>Find Wise in the list</strong> and look at the amount your recipient gets, not the fee.</li>
+<li><strong>Compare it with the top row.</strong> If Wise is not first, the difference is what choosing Wise would cost you on this transfer.</li>
+<li><strong>Confirm in the provider's app</strong> before you pay. The quote at checkout is the one that counts.</li>
+</ol>
+<p>If you're deciding between two names, <a href="/guides/wise-vs-remitly-comparison">Wise vs Remitly</a> compares them in detail. If you want to grade a rate you've already been offered, see <a href="/guides/is-my-exchange-rate-good">is my exchange rate good?</a></p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Lead counts, lead shares and markups are SendMoneyCompare's own research. We collect provider quotes every {{REFRESH_HOURS}} hours and store them per route. A provider "leads" a route on a day when its quote delivers the most to the recipient; route leaders are counted over the last 91 days with quotes. Markups are medians of each quote's gap from our mid-market benchmark. The table and figures are recomputed at every build, so they change as providers' prices change. Wise's description of its own pricing is from its <a href="https://wise.com/gb/pricing/" target="_blank" rel="noopener noreferrer nofollow">pricing page</a> ("We only use the mid-market rate"); the description of its comparison page is from the <a href="https://wise.com/gb/compare/" target="_blank" rel="noopener noreferrer nofollow">page itself</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "Is Wise the cheapest way to send money abroad?",
+        answer:
+          "Not on most routes. Over the last 91 days Wise delivered the most money on {{LEADS_SHORT:wise}} routes we compare, {{LEAD_RANK:wise}}. The provider that came out cheapest most often was {{TOP_LEADER}}, on {{TOP_LEADS}}. Wise's median markup in our quotes is low ({{AVG_MARKUP_PCT:wise}}), but its visible fee means another provider often delivers more.",
+      },
+      {
+        question: "Does Wise add a markup to the exchange rate?",
+        answer:
+          "Wise says it uses the mid-market rate and charges a separate, visible fee. Measured against our own mid-market benchmark, the median markup in Wise's quotes is {{AVG_MARKUP_PCT:wise}}. To compare Wise fairly, look at the amount your recipient receives, which includes the fee.",
+      },
+      {
+        question: "Which provider is cheapest most often?",
+        answer:
+          "Over the last 91 days it was {{TOP_LEADER}}, which delivered the most on {{TOP_LEADS}}. No provider wins everywhere: on {{ROTATION_RATE}} of corridors, today's cheapest is not the usual winner, so compare your own amount and route before you send.",
+      },
+      {
+        question: "Is Wise's comparison page independent?",
+        answer:
+          "No. Wise runs it, appears in it and chooses which providers to list, and it says its comparison data is not all collected at the same time. An independent comparison ranks every provider quoting your route by what your recipient receives.",
+      },
+    ],
+    relatedSlugs: [
+      "wise-vs-remitly-comparison",
+      "is-my-exchange-rate-good",
+      "most-pesos-or-naira-for-1000",
+      "best-money-transfer-apps",
+      "cheapest-way-to-send-money-internationally",
     ],
   },
 ];

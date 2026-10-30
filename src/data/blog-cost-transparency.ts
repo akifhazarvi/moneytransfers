@@ -64,7 +64,7 @@ export const costTransparencyGuides: BlogPost[] = [
 
 <p>That ratio is the whole ballgame for a consumer. A 4% transfer where 4% is printed on the screen is an expensive product honestly sold. A 4% transfer where 0.2% is printed on the screen is something else. The World Bank's 6.49% global average treats the two identically, because as a development statistic it should — the household loses the same money either way. As a <em>shopping</em> statistic it conceals the only variable the sender can act on.</p>
 
-<p>We hold the archive to answer it: {{PROVIDER_COUNT}} providers, live quotes refreshed every {{REFRESH_HOURS}} hours, retained daily since March. The missing piece was a defensible way to split one number into two.</p>`,
+<p>We hold the archive to answer it: {{PROVIDER_COUNT}} providers, live quotes collected every {{REFRESH_HOURS}} hours, retained daily since March. The missing piece was a defensible way to split one number into two.</p>`,
       },
       {
         heading: "Borrowing a model from the people who build the rails",
