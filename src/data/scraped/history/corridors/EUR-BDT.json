@@ -17595,10 +17595,10 @@
     "date": "2026-10-31",
     "providers": {
       "lemfi": {
-        "rate": 138.55,
+        "rate": 138.6,
         "fee": 0,
-        "markup": 0.03,
-        "receiveAmount": 13855
+        "markup": -0.01,
+        "receiveAmount": 13860
       },
       "moneygram": {
         "rate": 138.399,
@@ -17655,10 +17655,10 @@
         "receiveAmount": 13624.21
       },
       "remitly": {
-        "rate": 137.92,
+        "rate": 137.94,
         "fee": 0.99,
-        "markup": 0.48,
-        "receiveAmount": 13655.46
+        "markup": 0.47,
+        "receiveAmount": 13657.44
       },
       "revolut": {
         "rate": 137.216,
