@@ -14383,10 +14383,10 @@
     "date": "2026-10-31",
     "providers": {
       "moneygram": {
-        "rate": 331.592,
+        "rate": 331.441,
         "fee": 1.99,
-        "markup": 0.24,
-        "receiveAmount": 32499.37
+        "markup": 0.33,
+        "receiveAmount": 32484.55
       },
       "ria": {
         "rate": 330.369,
@@ -14421,20 +14421,20 @@
       "xe": {
         "rate": 329.537,
         "fee": 4,
-        "markup": 0.86,
+        "markup": 0.91,
         "receiveAmount": 31635.57
       },
       "paysend": {
         "rate": 325.976,
         "fee": 1.99,
-        "markup": 1.93,
+        "markup": 1.98,
         "receiveAmount": 31948.92
       },
       "sendwave": {
-        "rate": 329.225,
+        "rate": 329.189,
         "fee": 0,
-        "markup": 0.96,
-        "receiveAmount": 32922.51
+        "markup": 1.01,
+        "receiveAmount": 32918.92
       },
       "remitly": {
         "rate": 332.4,
@@ -14443,10 +14443,10 @@
         "receiveAmount": 32578.52
       },
       "revolut": {
-        "rate": 331.313,
-        "fee": 0.75,
-        "markup": 0.33,
-        "receiveAmount": 32882.85
+        "rate": 330.408,
+        "fee": 1.75,
+        "markup": 0.65,
+        "receiveAmount": 32462.63
       },
       "wise": {
         "rate": 332.53,
