@@ -2041,10 +2041,10 @@
     "date": "2026-10-31",
     "providers": {
       "remitly": {
-        "rate": 43.96,
+        "rate": 43.97,
         "fee": 5,
-        "markup": 0,
-        "receiveAmount": 4176.2
+        "markup": -0.02,
+        "receiveAmount": 4177.15
       },
       "taptap-send": {
         "rate": 48.5,
