@@ -8208,10 +8208,10 @@
     "date": "2026-11-01",
     "providers": {
       "lemfi": {
-        "rate": 55.9,
+        "rate": 55.65,
         "fee": 0,
-        "markup": 0.17,
-        "receiveAmount": 5590
+        "markup": 0.24,
+        "receiveAmount": 5565
       },
       "ria": {
         "rate": 55.7236,
@@ -8220,10 +8220,10 @@
         "receiveAmount": 5461.47
       },
       "taptap-send": {
-        "rate": 55.9,
+        "rate": 55.8,
         "fee": 0,
-        "markup": 0.17,
-        "receiveAmount": 5590
+        "markup": 0.35,
+        "receiveAmount": 5580
       },
       "western-union": {
         "rate": 55.2322,
@@ -8232,10 +8232,10 @@
         "receiveAmount": 5413.31
       },
       "remitly": {
-        "rate": 55.58,
+        "rate": 55.32,
         "fee": 1.99,
-        "markup": 0.74,
-        "receiveAmount": 5447.4
+        "markup": 1.21,
+        "receiveAmount": 5421.91
       },
       "xoom": {
         "rate": 54.2997,
