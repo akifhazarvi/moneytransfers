@@ -25191,7 +25191,7 @@
       "moneygram": {
         "rate": 106.242,
         "fee": 1.99,
-        "markup": 0.08,
+        "markup": 0.11,
         "receiveAmount": 10412.76
       },
       "skrill": {
@@ -25215,7 +25215,7 @@
       "xe": {
         "rate": 105.545,
         "fee": 0.99,
-        "markup": 0.73,
+        "markup": 0.76,
         "receiveAmount": 10450.05
       },
       "western-union": {
@@ -25225,15 +25225,15 @@
         "receiveAmount": 10135.3
       },
       "dahabshiil": {
-        "rate": 105.522,
+        "rate": 105.354,
         "fee": 1.99,
-        "markup": 0.75,
-        "receiveAmount": 10342.25
+        "markup": 0.94,
+        "receiveAmount": 10325.72
       },
       "currencyfair": {
         "rate": 105.207,
         "fee": 1.14,
-        "markup": 1.05,
+        "markup": 1.08,
         "receiveAmount": 10400.8
       },
       "worldremit": {
@@ -25255,10 +25255,10 @@
         "receiveAmount": 10206.42
       },
       "revolut": {
-        "rate": 105.337,
+        "rate": 105.239,
         "fee": 1.4,
-        "markup": 0.93,
-        "receiveAmount": 10386.23
+        "markup": 1.05,
+        "receiveAmount": 10376.59
       },
       "ria": {
         "rate": 105.49,
@@ -25331,6 +25331,12 @@
         "fee": 1.59,
         "markup": 0.32,
         "receiveAmount": 10427.43
+      },
+      "profee": {
+        "rate": 107.414,
+        "fee": 1.6,
+        "markup": -1,
+        "receiveAmount": 10569.5
       }
     }
   }
