@@ -9421,5 +9421,46 @@
         "receiveAmount": 412134.73
       }
     }
+  },
+  {
+    "date": "2026-11-01",
+    "providers": {
+      "lemfi": {
+        "rate": 4219.75,
+        "fee": 0,
+        "markup": 0.85,
+        "receiveAmount": 421975
+      },
+      "ria": {
+        "rate": 4249.95,
+        "fee": 0.75,
+        "markup": 0.14,
+        "receiveAmount": 421807.24
+      },
+      "instarem": {
+        "rate": 4225.22,
+        "fee": 0,
+        "markup": 0.72,
+        "receiveAmount": 422521.5
+      },
+      "remitly": {
+        "rate": 4170.75,
+        "fee": 2.99,
+        "markup": 2,
+        "receiveAmount": 404604.46
+      },
+      "xoom": {
+        "rate": 4049.72,
+        "fee": 3.99,
+        "markup": 4.85,
+        "receiveAmount": 388813.45
+      },
+      "wise": {
+        "rate": 4258.47,
+        "fee": 3.22,
+        "markup": -0.06,
+        "receiveAmount": 412134.73
+      }
+    }
   }
 ]
