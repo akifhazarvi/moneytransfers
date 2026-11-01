@@ -17805,7 +17805,7 @@
       "lemfi": {
         "rate": 1352,
         "fee": 0,
-        "markup": -0.31,
+        "markup": -0.36,
         "receiveAmount": 135200
       },
       "moneygram": {
@@ -17833,10 +17833,10 @@
         "receiveAmount": 135287.5
       },
       "western-union": {
-        "rate": 1348.08,
+        "rate": 1347.79,
         "fee": 0.99,
-        "markup": -0.02,
-        "receiveAmount": 133473.4
+        "markup": 0,
+        "receiveAmount": 133445.09
       },
       "worldremit": {
         "rate": 1363.13,
@@ -17857,10 +17857,10 @@
         "receiveAmount": 136312.61
       },
       "remitly": {
-        "rate": 1354.68,
+        "rate": 1353.16,
         "fee": 0,
-        "markup": -0.51,
-        "receiveAmount": 135468
+        "markup": -0.4,
+        "receiveAmount": 135316
       },
       "xoom": {
         "rate": 1331.21,
@@ -17869,10 +17869,10 @@
         "receiveAmount": 133121.28
       },
       "wise": {
-        "rate": 1369,
+        "rate": 1367,
         "fee": 1.71,
-        "markup": -1.58,
-        "receiveAmount": 134559.01
+        "markup": -1.43,
+        "receiveAmount": 134362.43
       }
     }
   }

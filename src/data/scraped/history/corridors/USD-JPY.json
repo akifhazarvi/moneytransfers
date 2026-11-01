@@ -8035,22 +8035,22 @@
     "date": "2026-11-01",
     "providers": {
       "taptap-send": {
-        "rate": 156.792,
+        "rate": 156.719,
         "fee": 0,
-        "markup": 0.5,
-        "receiveAmount": 15679.2
+        "markup": 0.55,
+        "receiveAmount": 15671.9
       },
       "wells-fargo": {
-        "rate": 152.636,
+        "rate": 152.554,
         "fee": 0,
-        "markup": 3.14,
-        "receiveAmount": 15263.62
+        "markup": 3.19,
+        "receiveAmount": 15255.39
       },
       "remitly": {
-        "rate": 153.76,
+        "rate": 153.68,
         "fee": 6.99,
-        "markup": 2.43,
-        "receiveAmount": 14301.22
+        "markup": 2.48,
+        "receiveAmount": 14293.78
       },
       "paypal": {
         "rate": 150.663,
@@ -8071,10 +8071,10 @@
         "receiveAmount": 15296.75
       },
       "wise": {
-        "rate": 157.585,
+        "rate": 157.505,
         "fee": 2.52,
-        "markup": 0,
-        "receiveAmount": 15361.39
+        "markup": 0.05,
+        "receiveAmount": 15353.59
       }
     }
   }

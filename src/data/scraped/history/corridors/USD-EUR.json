@@ -23307,7 +23307,7 @@
       "lemfi": {
         "rate": 0.8837,
         "fee": 0,
-        "markup": 1.3,
+        "markup": 1.37,
         "receiveAmount": 88.37
       },
       "moneygram": {
@@ -23335,10 +23335,10 @@
         "receiveAmount": 88.96
       },
       "western-union": {
-        "rate": 0.8884,
+        "rate": 0.888321,
         "fee": 0.99,
-        "markup": 0.6,
-        "receiveAmount": 87.96
+        "markup": 0.61,
+        "receiveAmount": 87.95
       },
       "xoom": {
         "rate": 0.8135,
@@ -23371,10 +23371,10 @@
         "receiveAmount": 87.87
       },
       "wise": {
-        "rate": 0.896017,
+        "rate": 0.896218,
         "fee": 1.35,
-        "markup": -0.25,
-        "receiveAmount": 88.39
+        "markup": -0.27,
+        "receiveAmount": 88.41
       },
       "ria": {
         "rate": 0.875913,
@@ -23383,22 +23383,22 @@
         "receiveAmount": 83.21
       },
       "paypal": {
-        "rate": 0.85593,
+        "rate": 0.855854,
         "fee": 4.99,
-        "markup": 4.23,
-        "receiveAmount": 81.32
+        "markup": 4.24,
+        "receiveAmount": 81.31
       },
       "wells-fargo": {
-        "rate": 0.868355,
+        "rate": 0.86855,
         "fee": 0,
-        "markup": 2.84,
-        "receiveAmount": 86.84
+        "markup": 2.82,
+        "receiveAmount": 86.85
       },
       "chase": {
-        "rate": 0.8693,
+        "rate": 0.869495,
         "fee": 5,
-        "markup": 2.74,
-        "receiveAmount": 82.58
+        "markup": 2.72,
+        "receiveAmount": 82.6
       }
     }
   }
