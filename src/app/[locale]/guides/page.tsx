@@ -177,7 +177,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           </div>
         </header>
 
-        <section aria-labelledby="guides-how-written" className="guides-hub-written max-w-3xl my-8 text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+        <section aria-labelledby="guides-how-written" className="guides-hub-written">
           <h2 id="guides-how-written" className="text-lg font-medium text-[var(--color-on-surface)]">How our money transfer guides are written and checked</h2>
           <p>
             Each guide answers one question people ask before they send money abroad: which method suits the amount, what
@@ -214,14 +214,16 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           </p>
         </section>
 
-        <section aria-labelledby="guides-start-here" className="my-8">
+        <section aria-labelledby="guides-start-here" className="guides-hub-basics">
           <h2 id="guides-start-here" className="text-lg font-medium text-[var(--color-on-surface)] mb-1">Start here: the money transfer basics</h2>
           <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4">Seven guides to read before a route-specific one.</p>
-          <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ol className="guide-basics-grid">
             {START_HERE.map((g) => (
-              <li key={g.slug} className="rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] p-4">
-                <Link href={`/guides/${g.slug}`} className="text-sm font-medium text-[var(--color-primary)] hover:underline">{g.label}</Link>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1 leading-relaxed">{g.note}</p>
+              <li key={g.slug} className="guide-basic-card">
+                <Link href={`/guides/${g.slug}`}>
+                  <span className="guide-basic-title">{g.label}<ArrowUpRight size={17} aria-hidden="true" /></span>
+                  <span className="guide-basic-note">{g.note}</span>
+                </Link>
               </li>
             ))}
           </ol>
