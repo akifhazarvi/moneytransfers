@@ -10883,10 +10883,10 @@
     "date": "2026-11-02",
     "providers": {
       "instarem": {
-        "rate": 8.1095,
+        "rate": 8.0572,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 810.95
+        "receiveAmount": 805.72
       },
       "moneygram": {
         "rate": 8.0249,
@@ -10919,22 +10919,22 @@
         "receiveAmount": 647.48
       },
       "wise": {
-        "rate": 8.11337,
+        "rate": 8.06528,
         "fee": 7.86,
-        "markup": -0.08,
-        "receiveAmount": 747.57
+        "markup": 0.51,
+        "receiveAmount": 743.13
       },
       "paypal": {
-        "rate": 7.77761,
+        "rate": 7.76569,
         "fee": 38.99,
-        "markup": 4.06,
-        "receiveAmount": 474.51
+        "markup": 4.21,
+        "receiveAmount": 473.78
       },
       "hsbc-hk": {
-        "rate": 7.97082,
+        "rate": 7.95783,
         "fee": 70,
-        "markup": 1.68,
-        "receiveAmount": 239.12
+        "markup": 1.84,
+        "receiveAmount": 238.73
       }
     }
   }

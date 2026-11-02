@@ -12863,10 +12863,10 @@
     "date": "2026-11-02",
     "providers": {
       "remitly": {
-        "rate": 33.34,
+        "rate": 33.26,
         "fee": 1.99,
-        "markup": 1.31,
-        "receiveAmount": 3267.65
+        "markup": 1.55,
+        "receiveAmount": 3259.81
       },
       "ria": {
         "rate": 33.1147,
@@ -12875,22 +12875,22 @@
         "receiveAmount": 3248.55
       },
       "taptap-send": {
-        "rate": 33.55,
+        "rate": 33.7,
         "fee": 1.99,
-        "markup": 0.69,
-        "receiveAmount": 3288.24
+        "markup": 0.25,
+        "receiveAmount": 3302.94
       },
       "western-union": {
-        "rate": 33.0633,
+        "rate": 32.9884,
         "fee": 1.99,
-        "markup": 2.13,
-        "receiveAmount": 3240.53
+        "markup": 2.35,
+        "receiveAmount": 3233.19
       },
       "paypal": {
-        "rate": 32.2776,
+        "rate": 32.2589,
         "fee": 4.99,
-        "markup": 4.46,
-        "receiveAmount": 3066.69
+        "markup": 4.51,
+        "receiveAmount": 3064.92
       },
       "xoom": {
         "rate": 32.3071,
@@ -12899,28 +12899,28 @@
         "receiveAmount": 3069.5
       },
       "worldremit": {
-        "rate": 33.2699,
+        "rate": 33.1847,
         "fee": 2.99,
-        "markup": 1.52,
-        "receiveAmount": 3227.51
+        "markup": 1.77,
+        "receiveAmount": 3219.25
       },
       "instarem": {
-        "rate": 33.546,
+        "rate": 33.4472,
         "fee": 0,
-        "markup": 0.7,
-        "receiveAmount": 3354.6
+        "markup": 1,
+        "receiveAmount": 3344.72
       },
       "wells-fargo": {
-        "rate": 32.7126,
+        "rate": 32.6288,
         "fee": 0,
-        "markup": 3.17,
-        "receiveAmount": 3271.26
+        "markup": 3.42,
+        "receiveAmount": 3262.88
       },
       "wise": {
-        "rate": 33.785,
+        "rate": 33.707,
         "fee": 2.87,
-        "markup": 0,
-        "receiveAmount": 3281.54
+        "markup": 0.23,
+        "receiveAmount": 3273.96
       }
     }
   }
