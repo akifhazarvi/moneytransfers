@@ -20093,10 +20093,10 @@
         "receiveAmount": 26952.75
       },
       "boss-money": {
-        "rate": 275.561,
+        "rate": 275.541,
         "fee": 2.49,
-        "markup": 0.59,
-        "receiveAmount": 26869.93
+        "markup": 0.36,
+        "receiveAmount": 26867.99
       },
       "western-union": {
         "rate": 276.862,
@@ -20105,10 +20105,10 @@
         "receiveAmount": 27135.25
       },
       "xoom": {
-        "rate": 263.987,
+        "rate": 264.08,
         "fee": 0,
-        "markup": 4.54,
-        "receiveAmount": 26398.68
+        "markup": 4.51,
+        "receiveAmount": 26408.02
       },
       "worldremit": {
         "rate": 276.888,
@@ -20119,20 +20119,20 @@
       "xe": {
         "rate": 274.96,
         "fee": 1.5,
-        "markup": 0.81,
+        "markup": 0.57,
         "receiveAmount": 27083.57
       },
       "paysend": {
         "rate": 273.076,
         "fee": 1.99,
-        "markup": 1.49,
+        "markup": 1.25,
         "receiveAmount": 26764.18
       },
       "sendwave": {
-        "rate": 276.144,
+        "rate": 276.105,
         "fee": 1.99,
-        "markup": 0.38,
-        "receiveAmount": 27064.83
+        "markup": 0.16,
+        "receiveAmount": 27061.08
       },
       "remitly": {
         "rate": 275.8,
@@ -20141,10 +20141,10 @@
         "receiveAmount": 26755.36
       },
       "ria": {
-        "rate": 275.781,
+        "rate": 276.887,
         "fee": 1.9,
-        "markup": 0.28,
-        "receiveAmount": 27054.16
+        "markup": -0.12,
+        "receiveAmount": 27162.66
       },
       "chase": {
         "rate": 265.586,
@@ -20157,6 +20157,12 @@
         "fee": 1.92,
         "markup": -0.06,
         "receiveAmount": 27140.01
+      },
+      "moneygram": {
+        "rate": 276.722,
+        "fee": 0.99,
+        "markup": -0.07,
+        "receiveAmount": 27398.24
       }
     }
   }
