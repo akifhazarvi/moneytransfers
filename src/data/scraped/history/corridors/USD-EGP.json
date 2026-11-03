@@ -8297,5 +8297,52 @@
         "receiveAmount": 5061.64
       }
     }
+  },
+  {
+    "date": "2026-11-03",
+    "providers": {
+      "lemfi": {
+        "rate": 55.3,
+        "fee": 0,
+        "markup": 0.11,
+        "receiveAmount": 5530
+      },
+      "ria": {
+        "rate": 55.7236,
+        "fee": 1.99,
+        "markup": -0.65,
+        "receiveAmount": 5461.47
+      },
+      "taptap-send": {
+        "rate": 55.4,
+        "fee": 0,
+        "markup": -0.07,
+        "receiveAmount": 5540
+      },
+      "xoom": {
+        "rate": 53.6071,
+        "fee": 4.99,
+        "markup": 3.17,
+        "receiveAmount": 5093.21
+      },
+      "western-union": {
+        "rate": 54.5526,
+        "fee": 1.99,
+        "markup": 1.46,
+        "receiveAmount": 5346.7
+      },
+      "remitly": {
+        "rate": 54.9,
+        "fee": 1.99,
+        "markup": 0.84,
+        "receiveAmount": 5380.75
+      },
+      "wise": {
+        "rate": 55.385,
+        "fee": 8.61,
+        "markup": -0.04,
+        "receiveAmount": 5061.64
+      }
+    }
   }
 ]

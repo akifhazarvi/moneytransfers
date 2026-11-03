@@ -9643,5 +9643,82 @@
         "receiveAmount": 434.53
       }
     }
+  },
+  {
+    "date": "2026-11-03",
+    "providers": {
+      "lacaixa": {
+        "rate": 4.31459,
+        "fee": 27,
+        "markup": 2.37,
+        "receiveAmount": 314.97
+      },
+      "sabadell": {
+        "rate": 4.28662,
+        "fee": 22,
+        "markup": 3,
+        "receiveAmount": 334.36
+      },
+      "xoom": {
+        "rate": 4.32185,
+        "fee": 1.99,
+        "markup": 2.2,
+        "receiveAmount": 423.58
+      },
+      "western-union": {
+        "rate": 4.35242,
+        "fee": 2.99,
+        "markup": 1.51,
+        "receiveAmount": 422.23
+      },
+      "paypal": {
+        "rate": 4.21982,
+        "fee": 3.99,
+        "markup": 4.51,
+        "receiveAmount": 405.15
+      },
+      "monese": {
+        "rate": 4.41665,
+        "fee": 3,
+        "markup": 0.06,
+        "receiveAmount": 428.41
+      },
+      "skrill": {
+        "rate": 4.20944,
+        "fee": 0,
+        "markup": 4.74,
+        "receiveAmount": 420.94
+      },
+      "remitly": {
+        "rate": 4.37423,
+        "fee": 1.99,
+        "markup": 1.02,
+        "receiveAmount": 428.72
+      },
+      "deutsche-bank": {
+        "rate": 4.35422,
+        "fee": 36.55,
+        "markup": 1.47,
+        "receiveAmount": 276.27
+      },
+      "commerzbank": {
+        "rate": 4.34995,
+        "fee": 12.5,
+        "markup": 1.57,
+        "receiveAmount": 380.62
+      },
+      "paysend": {
+        "rate": 4.36144,
+        "fee": 0.4,
+        "markup": 1.31,
+        "receiveAmount": 434.4
+      },
+      "rabobank": {
+        "rate": 4.35408,
+        "fee": 16,
+        "markup": 1.47,
+        "receiveAmount": 365.74
+      }
+    }
   }
 ]
