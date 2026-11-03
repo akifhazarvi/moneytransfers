@@ -1630,16 +1630,16 @@
     "date": "2026-11-03",
     "providers": {
       "western-union": {
-        "rate": 402,
+        "rate": 401.348,
         "fee": 1,
-        "markup": 0.4,
-        "receiveAmount": 39797.95
+        "markup": 0.57,
+        "receiveAmount": 39733.47
       },
       "taptap-send": {
-        "rate": 400.828,
+        "rate": 400.576,
         "fee": 0.9,
-        "markup": 0.7,
-        "receiveAmount": 39722.05
+        "markup": 0.76,
+        "receiveAmount": 39697.08
       }
     }
   }

@@ -2713,14 +2713,14 @@
       "lemfi": {
         "rate": 7.28,
         "fee": 0,
-        "markup": 0.14,
+        "markup": 1.17,
         "receiveAmount": 728
       },
       "taptap-send": {
-        "rate": 7.28,
+        "rate": 7.3,
         "fee": 0.99,
-        "markup": 0.14,
-        "receiveAmount": 720.79
+        "markup": -0.14,
+        "receiveAmount": 722.77
       }
     }
   }

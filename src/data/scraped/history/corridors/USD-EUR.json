@@ -23513,16 +23513,16 @@
     "date": "2026-11-03",
     "providers": {
       "instarem": {
-        "rate": 0.8927,
+        "rate": 0.8919,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 89.27
+        "receiveAmount": 89.19
       },
       "lemfi": {
-        "rate": 0.8807,
+        "rate": 0.8826,
         "fee": 0,
-        "markup": 1.47,
-        "receiveAmount": 88.07
+        "markup": 1.2,
+        "receiveAmount": 88.26
       },
       "moneygram": {
         "rate": 0.8836,
@@ -23555,10 +23555,10 @@
         "receiveAmount": 89.38
       },
       "western-union": {
-        "rate": 0.884786,
+        "rate": 0.88597,
         "fee": 0.99,
-        "markup": 1.01,
-        "receiveAmount": 87.6
+        "markup": 0.88,
+        "receiveAmount": 87.72
       },
       "xoom": {
         "rate": 0.811,
@@ -23579,10 +23579,10 @@
         "receiveAmount": 86.23
       },
       "remitly": {
-        "rate": 0.8884,
+        "rate": 0.8879,
         "fee": 2.99,
-        "markup": 0.61,
-        "receiveAmount": 86.18
+        "markup": 0.67,
+        "receiveAmount": 86.14
       },
       "revolut": {
         "rate": 0.891575,
@@ -23591,28 +23591,28 @@
         "receiveAmount": 88.49
       },
       "wise": {
-        "rate": 0.893815,
+        "rate": 0.893296,
         "fee": 1.35,
-        "markup": 0,
-        "receiveAmount": 88.17
+        "markup": 0.06,
+        "receiveAmount": 88.12
       },
       "chase": {
-        "rate": 0.866621,
+        "rate": 0.866583,
         "fee": 5,
         "markup": 3.05,
         "receiveAmount": 82.33
       },
       "paypal": {
-        "rate": 0.853987,
+        "rate": 0.853224,
         "fee": 4.99,
-        "markup": 4.46,
-        "receiveAmount": 81.14
+        "markup": 4.55,
+        "receiveAmount": 81.06
       },
       "wells-fargo": {
-        "rate": 0.865679,
+        "rate": 0.865641,
         "fee": 0,
-        "markup": 3.15,
-        "receiveAmount": 86.57
+        "markup": 3.16,
+        "receiveAmount": 86.56
       }
     }
   }

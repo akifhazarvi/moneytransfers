@@ -883,10 +883,10 @@
     "date": "2026-11-03",
     "providers": {
       "taptap-send": {
-        "rate": 0.149,
+        "rate": 0.151,
         "fee": 0,
-        "markup": 0.83,
-        "receiveAmount": 14.9
+        "markup": -0.5,
+        "receiveAmount": 15.1
       }
     }
   }

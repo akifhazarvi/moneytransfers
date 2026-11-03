@@ -8056,34 +8056,34 @@
         "receiveAmount": 4815.88
       },
       "taptap-send": {
-        "rate": 49.8,
+        "rate": 50,
         "fee": 0,
-        "markup": 0.38,
-        "receiveAmount": 4980
+        "markup": -0.02,
+        "receiveAmount": 5000
       },
       "instarem": {
-        "rate": 49.7023,
+        "rate": 49.6833,
         "fee": 0,
-        "markup": 0.58,
-        "receiveAmount": 4970.23
+        "markup": 0.62,
+        "receiveAmount": 4968.33
       },
       "remitly": {
-        "rate": 49.6402,
+        "rate": 49.629,
         "fee": 2.99,
-        "markup": 0.7,
-        "receiveAmount": 4815.6
+        "markup": 0.72,
+        "receiveAmount": 4814.51
       },
       "western-union": {
-        "rate": 49.1248,
+        "rate": 49.1357,
         "fee": 0.99,
-        "markup": 1.73,
-        "receiveAmount": 4863.85
+        "markup": 1.71,
+        "receiveAmount": 4864.92
       },
       "wise": {
-        "rate": 49.9932,
+        "rate": 49.953,
         "fee": 3.1,
-        "markup": 0,
-        "receiveAmount": 4844.34
+        "markup": 0.08,
+        "receiveAmount": 4840.45
       }
     }
   }
