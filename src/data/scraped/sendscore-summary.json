@@ -5,10 +5,10 @@
   "singleProviderReadings": 827,
   "bands": {
     "exceptional": 10,
-    "great": 68,
-    "good": 74,
-    "typical": 36,
-    "poor": 22
+    "great": 63,
+    "good": 79,
+    "typical": 37,
+    "poor": 21
   },
   "goodOrBetterPct": 72,
   "confidence": {
@@ -20,37 +20,37 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 39,
+      "score": 38,
       "band": "poor",
       "headline": "Poor time to send",
-      "explanation": "Best rate -0.76% vs the 30-day average, near the 90-day low. Rates are flat over the past week. Today's best beats the median provider by +1.87%.",
+      "explanation": "Best rate -0.82% vs the 30-day average, near the 90-day low. Rates are flat over the past week. Today's best beats the median provider by +1.96%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 6.9239106871881075,
+          "score": 4.478647301105547,
           "detail": "near the 90-day low"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 37.3277463443492,
-          "detail": "-0.76% vs the 30-day average"
+          "score": 36.372163289581394,
+          "detail": "-0.82% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 95.35874789927726,
-          "detail": "today's best beats the median provider by +1.87%"
+          "score": 98.47779266387617,
+          "detail": "today's best beats the median provider by +1.96%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 49.65506322723054,
+          "score": 49.46912516348218,
           "detail": "flat over the past week"
         }
       ],

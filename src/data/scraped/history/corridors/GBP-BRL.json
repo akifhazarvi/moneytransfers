@@ -2728,16 +2728,16 @@
     "date": "2026-11-04",
     "providers": {
       "lemfi": {
-        "rate": 7.36,
+        "rate": 7.37,
         "fee": 0,
-        "markup": 0.34,
-        "receiveAmount": 736
+        "markup": -0.18,
+        "receiveAmount": 737
       },
       "taptap-send": {
-        "rate": 7.36,
+        "rate": 7.34,
         "fee": 0.99,
-        "markup": 0.36,
-        "receiveAmount": 728.71
+        "markup": 0.63,
+        "receiveAmount": 726.73
       }
     }
   }

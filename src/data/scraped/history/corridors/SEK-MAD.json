@@ -1917,10 +1917,10 @@
     "date": "2026-11-04",
     "providers": {
       "taptap-send": {
-        "rate": 0.99,
+        "rate": 1,
         "fee": 0,
-        "markup": 1.4,
-        "receiveAmount": 99
+        "markup": 0.4,
+        "receiveAmount": 100
       }
     }
   }

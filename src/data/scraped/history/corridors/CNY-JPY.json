@@ -2728,16 +2728,16 @@
     "date": "2026-11-04",
     "providers": {
       "pandaremit": {
-        "rate": 23.6341,
+        "rate": 23.623,
         "fee": 80,
-        "markup": -0.01,
-        "receiveAmount": 472.68
+        "markup": 0.04,
+        "receiveAmount": 472.46
       },
       "wise": {
-        "rate": 23.7436,
+        "rate": 23.7303,
         "fee": 27.29,
-        "markup": -0.48,
-        "receiveAmount": 1726.4
+        "markup": -0.42,
+        "receiveAmount": 1725.43
       }
     }
   }
