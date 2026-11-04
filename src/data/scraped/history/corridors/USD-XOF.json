@@ -4607,5 +4607,28 @@
         "receiveAmount": 47896.79
       }
     }
+  },
+  {
+    "date": "2026-11-04",
+    "providers": {
+      "ria": {
+        "rate": 573.315,
+        "fee": 1,
+        "markup": 1.81,
+        "receiveAmount": 56758.18
+      },
+      "taptap-send": {
+        "rate": 587,
+        "fee": 0,
+        "markup": -0.53,
+        "receiveAmount": 58700
+      },
+      "western-union": {
+        "rate": 498.883,
+        "fee": 3.99,
+        "markup": 14.56,
+        "receiveAmount": 47897.75
+      }
+    }
   }
 ]
