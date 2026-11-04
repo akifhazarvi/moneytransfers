@@ -5669,10 +5669,10 @@
     "date": "2026-11-04",
     "providers": {
       "western-union": {
-        "rate": 41.1897,
+        "rate": 41.2414,
         "fee": 15,
-        "markup": 0.3,
-        "receiveAmount": 3501.12
+        "markup": 0.17,
+        "receiveAmount": 3505.52
       },
       "e-and-money": {
         "rate": 41.4459,
@@ -5693,10 +5693,10 @@
         "receiveAmount": 3699.45
       },
       "remitly": {
-        "rate": 41.08,
-        "fee": 5,
-        "markup": 0.56,
-        "receiveAmount": 3902.6
+        "rate": 41.02,
+        "fee": 0,
+        "markup": 0.71,
+        "receiveAmount": 4102
       },
       "taptap-send": {
         "rate": 41.07,
