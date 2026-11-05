@@ -9609,5 +9609,34 @@
         "receiveAmount": 397721.28
       }
     }
+  },
+  {
+    "date": "2026-11-05",
+    "providers": {
+      "lemfi": {
+        "rate": 4076.38,
+        "fee": 0,
+        "markup": 0.9,
+        "receiveAmount": 407638
+      },
+      "xoom": {
+        "rate": 3931.89,
+        "fee": 3.99,
+        "markup": 4.41,
+        "receiveAmount": 377500.6
+      },
+      "remitly": {
+        "rate": 4028.35,
+        "fee": 2.99,
+        "markup": 2.07,
+        "receiveAmount": 390789.81
+      },
+      "wise": {
+        "rate": 4109.93,
+        "fee": 3.22,
+        "markup": 0.08,
+        "receiveAmount": 397759.03
+      }
+    }
   }
 ]
