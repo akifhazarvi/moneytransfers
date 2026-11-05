@@ -9796,70 +9796,70 @@
     "date": "2026-11-05",
     "providers": {
       "remitly": {
-        "rate": 4.34276,
+        "rate": 4.35323,
         "fee": 1.99,
-        "markup": 1.01,
-        "receiveAmount": 425.63
+        "markup": 0.78,
+        "receiveAmount": 426.66
       },
       "skrill": {
-        "rate": 4.18009,
+        "rate": 4.196,
         "fee": 0,
-        "markup": 4.72,
-        "receiveAmount": 418.01
+        "markup": 4.36,
+        "receiveAmount": 419.6
       },
       "rabobank": {
-        "rate": 4.37585,
+        "rate": 4.39001,
         "fee": 16,
-        "markup": 0.26,
-        "receiveAmount": 367.57
+        "markup": -0.06,
+        "receiveAmount": 368.76
       },
       "commerzbank": {
-        "rate": 4.31722,
+        "rate": 4.33119,
         "fee": 12.5,
-        "markup": 1.6,
-        "receiveAmount": 377.76
+        "markup": 1.28,
+        "receiveAmount": 378.98
       },
       "monese": {
-        "rate": 4.3863,
+        "rate": 4.402,
         "fee": 3,
-        "markup": 0.02,
-        "receiveAmount": 425.47
+        "markup": -0.34,
+        "receiveAmount": 426.99
       },
       "deutsche-bank": {
-        "rate": 4.3251,
+        "rate": 4.33097,
         "fee": 36.55,
-        "markup": 1.42,
-        "receiveAmount": 274.43
+        "markup": 1.28,
+        "receiveAmount": 274.8
       },
       "lacaixa": {
-        "rate": 4.284,
+        "rate": 4.29835,
         "fee": 27,
-        "markup": 2.35,
-        "receiveAmount": 312.73
+        "markup": 2.03,
+        "receiveAmount": 313.78
       },
       "sabadell": {
-        "rate": 4.2566,
+        "rate": 4.27038,
         "fee": 22,
-        "markup": 2.98,
-        "receiveAmount": 332.01
+        "markup": 2.66,
+        "receiveAmount": 333.09
       },
       "xoom": {
-        "rate": 4.30166,
+        "rate": 4.30076,
         "fee": 1.99,
-        "markup": 1.95,
-        "receiveAmount": 421.61
+        "markup": 1.97,
+        "receiveAmount": 421.52
       },
       "western-union": {
-        "rate": 4.32195,
+        "rate": 4.33023,
         "fee": 2.99,
-        "markup": 1.49,
-        "receiveAmount": 419.27
+        "markup": 1.3,
+        "receiveAmount": 420.08
       },
       "paypal": {
-        "rate": 4.20577,
+        "rate": 4.20754,
         "fee": 3.99,
-        "markup": 4.14,
-        "receiveAmount": 403.8
+        "markup": 4.1,
+        "receiveAmount": 403.97
       }
     }
   }

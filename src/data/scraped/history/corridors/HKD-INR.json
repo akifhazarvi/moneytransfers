@@ -7981,10 +7981,10 @@
     "date": "2026-11-05",
     "providers": {
       "instarem": {
-        "rate": 12.0429,
+        "rate": 12.0482,
         "fee": 0.59,
         "markup": 0,
-        "receiveAmount": 1197.18
+        "receiveAmount": 1197.71
       },
       "moneygram": {
         "rate": 11.9217,
@@ -8011,10 +8011,10 @@
         "receiveAmount": 1074.75
       },
       "wise": {
-        "rate": 12.0452,
+        "rate": 12.0564,
         "fee": 8.41,
-        "markup": 0.05,
-        "receiveAmount": 1103.22
+        "markup": -0.05,
+        "receiveAmount": 1104.25
       }
     }
   }

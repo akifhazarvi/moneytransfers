@@ -8361,28 +8361,28 @@
     "date": "2026-11-05",
     "providers": {
       "bank-of-new-zealand-nz": {
-        "rate": 0.790863,
+        "rate": 0.79447,
         "fee": 0,
-        "markup": 1.75,
-        "receiveAmount": 79.09
+        "markup": 1.3,
+        "receiveAmount": 79.45
       },
       "kiwibank": {
-        "rate": 0.790078,
+        "rate": 0.793085,
         "fee": 20,
-        "markup": 1.84,
-        "receiveAmount": 63.21
+        "markup": 1.47,
+        "receiveAmount": 63.45
       },
       "westpac-nz": {
-        "rate": 0.790863,
+        "rate": 0.791468,
         "fee": 0,
-        "markup": 1.75,
-        "receiveAmount": 79.09
+        "markup": 1.67,
+        "receiveAmount": 79.15
       },
       "paypal": {
-        "rate": 0.769046,
+        "rate": 0.766881,
         "fee": 6.99,
-        "markup": 4.46,
-        "receiveAmount": 71.53
+        "markup": 4.73,
+        "receiveAmount": 71.33
       }
     }
   }

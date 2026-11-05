@@ -7421,28 +7421,34 @@
         "receiveAmount": 1802500
       },
       "remitly": {
-        "rate": 17872,
+        "rate": 17694.6,
         "fee": 1.99,
-        "markup": 0.67,
-        "receiveAmount": 1751637.56
+        "markup": 1.66,
+        "receiveAmount": 1734243.34
       },
       "instarem": {
-        "rate": 17969.6,
+        "rate": 17793.7,
         "fee": 0.5,
-        "markup": 0.13,
-        "receiveAmount": 1787974.9
+        "markup": 1.11,
+        "receiveAmount": 1770474.05
       },
       "commonwealth-bank": {
-        "rate": 16927,
+        "rate": 16789.4,
         "fee": 0,
-        "markup": 5.93,
-        "receiveAmount": 1692702.8
+        "markup": 6.69,
+        "receiveAmount": 1678938.7
       },
       "western-union": {
-        "rate": 17693.2,
+        "rate": 17532.3,
         "fee": 0.99,
-        "markup": 1.67,
-        "receiveAmount": 1751805.81
+        "markup": 2.56,
+        "receiveAmount": 1735876.19
+      },
+      "xoom": {
+        "rate": 18146.6,
+        "fee": 0,
+        "markup": -0.85,
+        "receiveAmount": 1814658.2
       }
     }
   }

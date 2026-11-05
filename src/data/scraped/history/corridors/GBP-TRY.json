@@ -15597,70 +15597,70 @@
     "date": "2026-11-05",
     "providers": {
       "taptap-send": {
-        "rate": 67.5,
+        "rate": 67.35,
         "fee": 0,
-        "markup": 0.03,
-        "receiveAmount": 6750
+        "markup": 0.25,
+        "receiveAmount": 6735
       },
       "barclays": {
-        "rate": 65.637,
+        "rate": 65.7414,
         "fee": 0,
-        "markup": 2.79,
-        "receiveAmount": 6563.7
+        "markup": 2.64,
+        "receiveAmount": 6574.14
       },
       "hsbc": {
-        "rate": 66.3517,
+        "rate": 66.4572,
         "fee": 0,
-        "markup": 1.73,
-        "receiveAmount": 6635.17
+        "markup": 1.58,
+        "receiveAmount": 6645.72
       },
       "remitly": {
-        "rate": 67.128,
+        "rate": 67.3068,
         "fee": 1.99,
-        "markup": 0.58,
-        "receiveAmount": 6579.22
+        "markup": 0.32,
+        "receiveAmount": 6596.74
       },
       "instarem": {
-        "rate": 67.0427,
+        "rate": 67.1454,
         "fee": 0,
-        "markup": 0.71,
-        "receiveAmount": 6704.27
+        "markup": 0.56,
+        "receiveAmount": 6714.54
       },
       "rbs": {
-        "rate": 65.8869,
+        "rate": 65.9917,
         "fee": 0,
-        "markup": 2.42,
-        "receiveAmount": 6588.69
+        "markup": 2.27,
+        "receiveAmount": 6599.17
       },
       "lloyds": {
-        "rate": 65.0317,
+        "rate": 65.1352,
         "fee": 9.5,
-        "markup": 3.69,
-        "receiveAmount": 5885.37
+        "markup": 3.53,
+        "receiveAmount": 5894.73
       },
       "nationwide": {
-        "rate": 66.0442,
+        "rate": 66.1039,
         "fee": 15,
-        "markup": 2.19,
-        "receiveAmount": 5613.76
+        "markup": 2.1,
+        "receiveAmount": 5618.83
       },
       "natwest": {
-        "rate": 65.8869,
+        "rate": 65.9917,
         "fee": 0,
-        "markup": 2.42,
-        "receiveAmount": 6588.69
+        "markup": 2.27,
+        "receiveAmount": 6599.17
       },
       "western-union": {
-        "rate": 65.9755,
+        "rate": 66.0706,
         "fee": 1.99,
-        "markup": 2.29,
-        "receiveAmount": 6466.26
+        "markup": 2.15,
+        "receiveAmount": 6475.58
       },
       "santander": {
-        "rate": 65.313,
+        "rate": 65.4169,
         "fee": 25,
-        "markup": 3.27,
-        "receiveAmount": 4898.48
+        "markup": 3.12,
+        "receiveAmount": 4906.27
       }
     }
   }

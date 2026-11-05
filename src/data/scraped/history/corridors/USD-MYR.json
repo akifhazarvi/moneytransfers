@@ -3518,16 +3518,16 @@
     "date": "2026-11-05",
     "providers": {
       "taptap-send": {
-        "rate": 4.04,
+        "rate": 4.03,
         "fee": 0,
-        "markup": 0.2,
-        "receiveAmount": 404
+        "markup": 0.45,
+        "receiveAmount": 403
       },
       "wise": {
-        "rate": 4.046,
+        "rate": 4.04711,
         "fee": 1.39,
-        "markup": 0.05,
-        "receiveAmount": 398.98
+        "markup": 0.02,
+        "receiveAmount": 399.09
       }
     }
   }
