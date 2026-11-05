@@ -1928,10 +1928,10 @@
     "date": "2026-11-05",
     "providers": {
       "taptap-send": {
-        "rate": 1,
+        "rate": 0.99,
         "fee": 0,
-        "markup": 0.6,
-        "receiveAmount": 100
+        "markup": 1.6,
+        "receiveAmount": 99
       }
     }
   }

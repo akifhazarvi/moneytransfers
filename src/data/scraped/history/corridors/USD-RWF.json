@@ -4520,10 +4520,10 @@
     "date": "2026-11-05",
     "providers": {
       "lemfi": {
-        "rate": 1465.15,
+        "rate": 1459.19,
         "fee": 0,
-        "markup": 0.47,
-        "receiveAmount": 146515
+        "markup": 0.85,
+        "receiveAmount": 145919
       },
       "taptap-send": {
         "rate": 1468,
@@ -4532,10 +4532,10 @@
         "receiveAmount": 146800
       },
       "wise": {
-        "rate": 1474.7,
+        "rate": 1474.8,
         "fee": 9.01,
-        "markup": -0.18,
-        "receiveAmount": 134182.95
+        "markup": -0.19,
+        "receiveAmount": 134192.05
       }
     }
   }
