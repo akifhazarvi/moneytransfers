@@ -16743,10 +16743,10 @@
     "date": "2026-11-05",
     "providers": {
       "ria": {
-        "rate": 3151.12,
+        "rate": 3136.45,
         "fee": 2.99,
-        "markup": 2.41,
-        "receiveAmount": 305689.76
+        "markup": 2.86,
+        "receiveAmount": 304266.63
       },
       "taptap-send": {
         "rate": 3210,
@@ -16755,10 +16755,10 @@
         "receiveAmount": 321000
       },
       "boss-money": {
-        "rate": 3189.41,
+        "rate": 3173.56,
         "fee": 1.99,
-        "markup": 1.7,
-        "receiveAmount": 312594.07
+        "markup": 1.59,
+        "receiveAmount": 311040.81
       },
       "western-union": {
         "rate": 3171.65,
@@ -16767,16 +16767,16 @@
         "receiveAmount": 310853.49
       },
       "xoom": {
-        "rate": 2971.34,
+        "rate": 3022.17,
         "fee": 0,
-        "markup": 7.98,
-        "receiveAmount": 297134.15
+        "markup": 6.4,
+        "receiveAmount": 302217.32
       },
       "worldremit": {
-        "rate": 3161.17,
+        "rate": 3147.1,
         "fee": 1.99,
-        "markup": 2.57,
-        "receiveAmount": 309826.41
+        "markup": 2.42,
+        "receiveAmount": 308447.53
       },
       "instarem": {
         "rate": 3200.19,
@@ -16785,16 +16785,16 @@
         "receiveAmount": 320019.07
       },
       "xe": {
-        "rate": 3085.44,
+        "rate": 3070.08,
         "fee": 0.99,
-        "markup": 4.9,
-        "receiveAmount": 305489.41
+        "markup": 4.8,
+        "receiveAmount": 303968.62
       },
       "paysend": {
-        "rate": 3184.52,
+        "rate": 3169.53,
         "fee": 0,
-        "markup": 1.85,
-        "receiveAmount": 318451.85
+        "markup": 1.72,
+        "receiveAmount": 316953.3
       },
       "remitly": {
         "rate": 3102.01,
@@ -16807,6 +16807,12 @@
         "fee": 3.29,
         "markup": 0.09,
         "receiveAmount": 311986.46
+      },
+      "moneygram": {
+        "rate": 3214.64,
+        "fee": 1.99,
+        "markup": 0.32,
+        "receiveAmount": 315066.9
       }
     }
   }

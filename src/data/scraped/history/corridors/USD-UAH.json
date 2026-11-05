@@ -6050,22 +6050,22 @@
     "date": "2026-11-05",
     "providers": {
       "western-union": {
-        "rate": 44.6385,
+        "rate": 44.5129,
         "fee": 11,
-        "markup": 1.98,
-        "receiveAmount": 3972.83
+        "markup": 2.19,
+        "receiveAmount": 3961.65
       },
       "paysend": {
-        "rate": 44.5961,
+        "rate": 44.4707,
         "fee": 1.99,
-        "markup": 2.07,
-        "receiveAmount": 4370.86
+        "markup": 2.28,
+        "receiveAmount": 4358.57
       },
       "wise": {
-        "rate": 45.65,
+        "rate": 45.6,
         "fee": 7.94,
-        "markup": -0.24,
-        "receiveAmount": 4202.54
+        "markup": -0.2,
+        "receiveAmount": 4197.94
       },
       "taptap-send": {
         "rate": 45.625,

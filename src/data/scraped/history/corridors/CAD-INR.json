@@ -21633,16 +21633,16 @@
         "receiveAmount": 6764.78
       },
       "moneygram": {
-        "rate": 67.2029,
+        "rate": 67.2614,
         "fee": 3.99,
-        "markup": 0.87,
-        "receiveAmount": 6452.15
+        "markup": 0.63,
+        "receiveAmount": 6457.77
       },
       "scotiabank": {
-        "rate": 65.7592,
+        "rate": 65.8935,
         "fee": 29.9,
-        "markup": 3,
-        "receiveAmount": 4609.72
+        "markup": 2.65,
+        "receiveAmount": 4619.14
       },
       "western-union": {
         "rate": 67.4682,
@@ -21651,16 +21651,16 @@
         "receiveAmount": 6612.56
       },
       "dahabshiil": {
-        "rate": 66.8341,
+        "rate": 67.2323,
         "fee": 2.99,
-        "markup": 1.41,
-        "receiveAmount": 6483.58
+        "markup": 0.67,
+        "receiveAmount": 6522.21
       },
       "paysend": {
-        "rate": 67.6048,
+        "rate": 67.4544,
         "fee": 0,
-        "markup": 0.27,
-        "receiveAmount": 6760.48
+        "markup": 0.34,
+        "receiveAmount": 6745.44
       },
       "remitly": {
         "rate": 67.44,
@@ -21669,10 +21669,10 @@
         "receiveAmount": 6609.79
       },
       "ria": {
-        "rate": 67.3397,
+        "rate": 67.266,
         "fee": 1.9,
-        "markup": 0.61,
-        "receiveAmount": 6606.02
+        "markup": 0.72,
+        "receiveAmount": 6598.79
       },
       "taptap-send": {
         "rate": 67.67,
@@ -21709,6 +21709,12 @@
         "fee": 2.57,
         "markup": 0.01,
         "receiveAmount": 6600.66
+      },
+      "koho": {
+        "rate": 67.6824,
+        "fee": 1.24,
+        "markup": 0,
+        "receiveAmount": 6684.31
       }
     }
   }
