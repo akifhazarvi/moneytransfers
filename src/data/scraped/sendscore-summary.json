@@ -1,18 +1,18 @@
 {
   "dataAsOf": "2026-11-06",
-  "corridorsScored": 200,
+  "corridorsScored": 203,
   "corridorsWithAnyScore": 1037,
-  "singleProviderReadings": 837,
+  "singleProviderReadings": 834,
   "bands": {
-    "exceptional": 8,
-    "great": 44,
-    "good": 74,
-    "typical": 43,
-    "poor": 31
+    "exceptional": 11,
+    "great": 50,
+    "good": 63,
+    "typical": 33,
+    "poor": 46
   },
-  "goodOrBetterPct": 63,
+  "goodOrBetterPct": 61,
   "confidence": {
-    "high": 200,
+    "high": 203,
     "medium": 0,
     "low": 0
   },
@@ -20,10 +20,10 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 34,
+      "score": 31,
       "band": "poor",
       "headline": "Poor time to send",
-      "explanation": "Best rate -0.88% vs the 30-day average, near the 90-day low. Rates are falling — -0.38% week on week. Today's best beats the median provider by +1.81%.",
+      "explanation": "Best rate -1.39% vs the 30-day average, near the 90-day low. Rates are falling — -0.44% week on week. Today's best beats the median provider by +1.77%.",
       "components": [
         {
           "key": "range",
@@ -36,22 +36,22 @@
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 35.354275516280715,
-          "detail": "-0.88% vs the 30-day average"
+          "score": 26.9057458521962,
+          "detail": "-1.39% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 93.18412796129249,
-          "detail": "today's best beats the median provider by +1.81%"
+          "score": 92.10232564197722,
+          "detail": "today's best beats the median provider by +1.77%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 40.57047045510617,
-          "detail": "falling — -0.38% week on week"
+          "score": 38.931527519456885,
+          "detail": "falling — -0.44% week on week"
         }
       ],
       "daysObserved": 230,

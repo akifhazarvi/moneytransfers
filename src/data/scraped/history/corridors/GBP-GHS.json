@@ -7216,7 +7216,7 @@
       "lemfi": {
         "rate": 15.7488,
         "fee": 0,
-        "markup": -0.5,
+        "markup": -1,
         "receiveAmount": 1574.88
       },
       "ria": {
@@ -7226,22 +7226,22 @@
         "receiveAmount": 1528.1
       },
       "taptap-send": {
-        "rate": 15.7488,
+        "rate": 15.753,
         "fee": 0,
-        "markup": -0.5,
-        "receiveAmount": 1574.88
+        "markup": -0.53,
+        "receiveAmount": 1575.3
       },
       "western-union": {
-        "rate": 15.7307,
+        "rate": 15.7182,
         "fee": 1.99,
-        "markup": -0.39,
-        "receiveAmount": 1541.76
+        "markup": -0.31,
+        "receiveAmount": 1540.54
       },
       "instarem": {
-        "rate": 15.5489,
+        "rate": 15.4741,
         "fee": 0,
-        "markup": 0.77,
-        "receiveAmount": 1554.89
+        "markup": 1.25,
+        "receiveAmount": 1547.41
       }
     }
   }

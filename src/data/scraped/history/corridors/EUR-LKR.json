@@ -3501,16 +3501,16 @@
     "date": "2026-11-06",
     "providers": {
       "taptap-send": {
-        "rate": 370,
+        "rate": 368,
         "fee": 0,
-        "markup": 0.67,
-        "receiveAmount": 37000
+        "markup": 1.21,
+        "receiveAmount": 36800
       },
       "wise": {
-        "rate": 372.172,
+        "rate": 370.511,
         "fee": 3.11,
-        "markup": 0.09,
-        "receiveAmount": 36059.75
+        "markup": 0.53,
+        "receiveAmount": 35898.81
       }
     }
   }

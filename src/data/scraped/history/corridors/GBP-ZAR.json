@@ -15188,64 +15188,64 @@
         "receiveAmount": 2133.55
       },
       "taptap-send": {
-        "rate": 22.15,
+        "rate": 22.2,
         "fee": 0,
-        "markup": 0.18,
-        "receiveAmount": 2215
+        "markup": -0.04,
+        "receiveAmount": 2220
       },
       "xoom": {
-        "rate": 21.5552,
+        "rate": 21.5374,
         "fee": 2.99,
-        "markup": 2.86,
-        "receiveAmount": 2091.07
+        "markup": 2.94,
+        "receiveAmount": 2089.35
       },
       "natwest": {
-        "rate": 21.6732,
+        "rate": 21.63,
         "fee": 0,
-        "markup": 2.33,
-        "receiveAmount": 2167.32
-      },
-      "monese": {
-        "rate": 22.175,
-        "fee": 3,
-        "markup": 0.07,
-        "receiveAmount": 2150.98
-      },
-      "rbs": {
-        "rate": 21.6732,
-        "fee": 0,
-        "markup": 2.33,
-        "receiveAmount": 2167.32
-      },
-      "western-union": {
-        "rate": 21.804,
-        "fee": 1.99,
-        "markup": 1.74,
-        "receiveAmount": 2137.01
-      },
-      "nationwide": {
-        "rate": 21.7212,
-        "fee": 15,
-        "markup": 2.12,
-        "receiveAmount": 1846.3
-      },
-      "remitly": {
-        "rate": 21.9571,
-        "fee": 1.49,
-        "markup": 1.05,
+        "markup": 2.53,
         "receiveAmount": 2163
       },
-      "hsbc": {
-        "rate": 21.9422,
+      "monese": {
+        "rate": 22.1253,
+        "fee": 3,
+        "markup": 0.3,
+        "receiveAmount": 2146.15
+      },
+      "rbs": {
+        "rate": 21.63,
         "fee": 0,
-        "markup": 1.12,
-        "receiveAmount": 2194.22
+        "markup": 2.53,
+        "receiveAmount": 2163
+      },
+      "western-union": {
+        "rate": 21.81,
+        "fee": 1.99,
+        "markup": 1.72,
+        "receiveAmount": 2137.6
+      },
+      "nationwide": {
+        "rate": 21.6026,
+        "fee": 15,
+        "markup": 2.65,
+        "receiveAmount": 1836.22
+      },
+      "remitly": {
+        "rate": 21.9209,
+        "fee": 1.49,
+        "markup": 1.22,
+        "receiveAmount": 2159.43
+      },
+      "hsbc": {
+        "rate": 21.8812,
+        "fee": 0,
+        "markup": 1.39,
+        "receiveAmount": 2188.12
       },
       "barclays": {
-        "rate": 21.5131,
+        "rate": 21.4533,
         "fee": 0,
-        "markup": 3.05,
-        "receiveAmount": 2151.31
+        "markup": 3.32,
+        "receiveAmount": 2145.33
       }
     }
   }

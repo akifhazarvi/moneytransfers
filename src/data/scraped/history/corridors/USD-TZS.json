@@ -8485,10 +8485,10 @@
     "date": "2026-11-06",
     "providers": {
       "lemfi": {
-        "rate": 2621.22,
+        "rate": 2621.24,
         "fee": 0,
-        "markup": 1.03,
-        "receiveAmount": 262122
+        "markup": 0.81,
+        "receiveAmount": 262124
       },
       "ria": {
         "rate": 2566.44,
@@ -8503,28 +8503,28 @@
         "receiveAmount": 263000
       },
       "xoom": {
-        "rate": 2529.14,
+        "rate": 2526.6,
         "fee": 4.99,
-        "markup": 4.51,
-        "receiveAmount": 240293.85
+        "markup": 4.61,
+        "receiveAmount": 240051.93
       },
       "western-union": {
-        "rate": 2583.11,
+        "rate": 2581.97,
         "fee": 0.99,
-        "markup": 2.47,
-        "receiveAmount": 255753.55
+        "markup": 2.52,
+        "receiveAmount": 255640.73
       },
       "remitly": {
-        "rate": 2563.01,
+        "rate": 2565.16,
         "fee": 0,
-        "markup": 3.23,
-        "receiveAmount": 256300.82
+        "markup": 3.15,
+        "receiveAmount": 256515.82
       },
       "wise": {
-        "rate": 2642.23,
-        "fee": 3.58,
-        "markup": 0.24,
-        "receiveAmount": 254763.82
+        "rate": 2639.57,
+        "fee": 3.77,
+        "markup": 0.34,
+        "receiveAmount": 254005.82
       }
     }
   }

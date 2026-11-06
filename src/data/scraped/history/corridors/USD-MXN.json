@@ -24494,10 +24494,10 @@
     "date": "2026-11-06",
     "providers": {
       "instarem": {
-        "rate": 18.7263,
+        "rate": 18.6156,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 1872.63
+        "receiveAmount": 1861.56
       },
       "moneygram": {
         "rate": 18.2938,
@@ -24530,10 +24530,10 @@
         "receiveAmount": 1800.02
       },
       "western-union": {
-        "rate": 18.21,
+        "rate": 18.1336,
         "fee": 1.99,
-        "markup": 2.94,
-        "receiveAmount": 1784.76
+        "markup": 3.35,
+        "receiveAmount": 1777.28
       },
       "currencyfair": {
         "rate": 18.379,
@@ -24542,10 +24542,10 @@
         "receiveAmount": 1764.38
       },
       "worldremit": {
-        "rate": 18.3416,
+        "rate": 18.225,
         "fee": 1.99,
-        "markup": 2.24,
-        "receiveAmount": 1797.66
+        "markup": 2.86,
+        "receiveAmount": 1786.23
       },
       "paysend": {
         "rate": 18.4616,
@@ -24572,28 +24572,34 @@
         "receiveAmount": 1844.09
       },
       "wise": {
-        "rate": 18.7615,
+        "rate": 18.6751,
         "fee": 1.69,
-        "markup": 0,
-        "receiveAmount": 1844.44
+        "markup": 0.46,
+        "receiveAmount": 1835.95
       },
       "wells-fargo": {
-        "rate": 18.2211,
+        "rate": 18.1053,
         "fee": 0,
-        "markup": 2.88,
-        "receiveAmount": 1822.11
+        "markup": 3.5,
+        "receiveAmount": 1810.53
       },
       "chase": {
-        "rate": 18.196,
+        "rate": 18.0803,
         "fee": 5,
-        "markup": 3.02,
-        "receiveAmount": 1728.62
+        "markup": 3.63,
+        "receiveAmount": 1717.63
       },
       "paypal": {
-        "rate": 17.8125,
+        "rate": 17.7378,
         "fee": 4.99,
-        "markup": 5.06,
-        "receiveAmount": 1692.37
+        "markup": 5.46,
+        "receiveAmount": 1685.27
+      },
+      "xoom": {
+        "rate": 18.8998,
+        "fee": 0,
+        "markup": -0.74,
+        "receiveAmount": 1889.98
       }
     }
   }
