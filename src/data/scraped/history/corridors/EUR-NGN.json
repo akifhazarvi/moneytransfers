@@ -18597,5 +18597,94 @@
         "receiveAmount": 151393.46
       }
     }
+  },
+  {
+    "date": "2026-11-06",
+    "providers": {
+      "instarem": {
+        "rate": 1497.99,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 149798.86
+      },
+      "lemfi": {
+        "rate": 1541,
+        "fee": 0,
+        "markup": -2.4,
+        "receiveAmount": 154100
+      },
+      "moneygram": {
+        "rate": 1522.42,
+        "fee": 0.99,
+        "markup": -0.68,
+        "receiveAmount": 150734.53
+      },
+      "taptap-send": {
+        "rate": 1541.33,
+        "fee": 0,
+        "markup": -2.42,
+        "receiveAmount": 154133
+      },
+      "western-union": {
+        "rate": 1528.36,
+        "fee": 0.99,
+        "markup": -1.56,
+        "receiveAmount": 151323.23
+      },
+      "dahabshiil": {
+        "rate": 1504.9,
+        "fee": 1.99,
+        "markup": 0.48,
+        "receiveAmount": 147495.51
+      },
+      "profee": {
+        "rate": 1546.37,
+        "fee": 2,
+        "markup": -2.27,
+        "receiveAmount": 151544.32
+      },
+      "worldremit": {
+        "rate": 1525.05,
+        "fee": 0.99,
+        "markup": -0.86,
+        "receiveAmount": 150994.72
+      },
+      "paysend": {
+        "rate": 1532.95,
+        "fee": 0,
+        "markup": -1.38,
+        "receiveAmount": 153294.81
+      },
+      "sendwave": {
+        "rate": 1525.05,
+        "fee": 0.99,
+        "markup": -0.86,
+        "receiveAmount": 150994.72
+      },
+      "remitly": {
+        "rate": 1516.37,
+        "fee": 0,
+        "markup": -0.76,
+        "receiveAmount": 151637
+      },
+      "ria": {
+        "rate": 1522.4,
+        "fee": 0.9,
+        "markup": -1.16,
+        "receiveAmount": 150869.53
+      },
+      "xoom": {
+        "rate": 1487.23,
+        "fee": 0.49,
+        "markup": 1.18,
+        "receiveAmount": 147994.09
+      },
+      "wise": {
+        "rate": 1535.37,
+        "fee": 1.72,
+        "markup": -2.02,
+        "receiveAmount": 150896.16
+      }
+    }
   }
 ]

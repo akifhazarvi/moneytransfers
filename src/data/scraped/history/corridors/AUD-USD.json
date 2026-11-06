@@ -16229,5 +16229,82 @@
         "receiveAmount": 68.05
       }
     }
+  },
+  {
+    "date": "2026-11-06",
+    "providers": {
+      "lemfi": {
+        "rate": 0.6823,
+        "fee": 0,
+        "markup": 0.96,
+        "receiveAmount": 68.23
+      },
+      "taptap-send": {
+        "rate": 0.68,
+        "fee": 0,
+        "markup": 1.29,
+        "receiveAmount": 68
+      },
+      "paypal": {
+        "rate": 0.663458,
+        "fee": 5,
+        "markup": 3.69,
+        "receiveAmount": 63.03
+      },
+      "western-union": {
+        "rate": 0.686551,
+        "fee": 2.9,
+        "markup": 0.34,
+        "receiveAmount": 66.66
+      },
+      "hsbc": {
+        "rate": 0.675511,
+        "fee": 0,
+        "markup": 1.94,
+        "receiveAmount": 67.55
+      },
+      "instarem": {
+        "rate": 0.6892,
+        "fee": 0.5,
+        "markup": -0.04,
+        "receiveAmount": 68.58
+      },
+      "worldremit": {
+        "rate": 0.681036,
+        "fee": 0,
+        "markup": 1.14,
+        "receiveAmount": 68.1
+      },
+      "commonwealth-bank": {
+        "rate": 0.671618,
+        "fee": 0,
+        "markup": 2.51,
+        "receiveAmount": 67.16
+      },
+      "nab": {
+        "rate": 0.670879,
+        "fee": 0,
+        "markup": 2.62,
+        "receiveAmount": 67.09
+      },
+      "xoom": {
+        "rate": 0.658345,
+        "fee": 1.29,
+        "markup": 4.44,
+        "receiveAmount": 64.99
+      },
+      "remitly": {
+        "rate": 0.685705,
+        "fee": 1.49,
+        "markup": 0.46,
+        "receiveAmount": 67.55
+      },
+      "anz": {
+        "rate": 0.661743,
+        "fee": 0,
+        "markup": 3.94,
+        "receiveAmount": 66.17
+      }
+    }
   }
 ]

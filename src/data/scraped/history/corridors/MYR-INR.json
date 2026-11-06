@@ -4293,5 +4293,28 @@
         "receiveAmount": 2223.57
       }
     }
+  },
+  {
+    "date": "2026-11-06",
+    "providers": {
+      "skrill": {
+        "rate": 22.2357,
+        "fee": 0,
+        "markup": 4.73,
+        "receiveAmount": 2223.57
+      },
+      "western-union": {
+        "rate": 23.2113,
+        "fee": 5,
+        "markup": 0.55,
+        "receiveAmount": 2205.08
+      },
+      "instarem": {
+        "rate": 23.3157,
+        "fee": 0.65,
+        "markup": 0.1,
+        "receiveAmount": 2316.41
+      }
+    }
   }
 ]
