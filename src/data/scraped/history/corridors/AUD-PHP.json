@@ -25448,15 +25448,15 @@
     "date": "2026-11-06",
     "providers": {
       "instarem": {
-        "rate": 43.261,
+        "rate": 43.243,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 4326.1
+        "receiveAmount": 4324.3
       },
       "lemfi": {
         "rate": 43.03,
         "fee": 0,
-        "markup": 0.56,
+        "markup": 0.68,
         "receiveAmount": 4303
       },
       "moneygram": {
@@ -25472,10 +25472,10 @@
         "receiveAmount": 4208.4
       },
       "western-union": {
-        "rate": 42.645,
+        "rate": 42.5784,
         "fee": 0.99,
-        "markup": 1.81,
-        "receiveAmount": 4222.28
+        "markup": 1.96,
+        "receiveAmount": 4215.69
       },
       "currencyfair": {
         "rate": 42.97,
@@ -25502,10 +25502,10 @@
         "receiveAmount": 4048.75
       },
       "remitly": {
-        "rate": 43.31,
+        "rate": 43.02,
         "fee": 0,
-        "markup": 0.28,
-        "receiveAmount": 4331
+        "markup": 0.95,
+        "receiveAmount": 4302
       },
       "revolut": {
         "rate": 43.0292,
@@ -25514,40 +25514,40 @@
         "receiveAmount": 4285.28
       },
       "wise": {
-        "rate": 43.2594,
+        "rate": 43.3077,
         "fee": 1.34,
-        "markup": 0.39,
-        "receiveAmount": 4267.97
+        "markup": 0.28,
+        "receiveAmount": 4272.74
       },
       "paypal": {
-        "rate": 41.6734,
+        "rate": 41.6912,
         "fee": 5,
-        "markup": 4.05,
-        "receiveAmount": 3958.97
+        "markup": 4.01,
+        "receiveAmount": 3960.66
       },
       "commonwealth-bank": {
-        "rate": 41.3118,
+        "rate": 41.2712,
         "fee": 0,
-        "markup": 4.88,
-        "receiveAmount": 4131.18
+        "markup": 4.97,
+        "receiveAmount": 4127.12
       },
       "anz": {
-        "rate": 41.2628,
+        "rate": 41.2635,
         "fee": 0,
         "markup": 4.99,
-        "receiveAmount": 4126.28
+        "receiveAmount": 4126.35
       },
       "nab": {
-        "rate": 42.1127,
+        "rate": 41.7607,
         "fee": 0,
-        "markup": 3.03,
-        "receiveAmount": 4211.27
+        "markup": 3.85,
+        "receiveAmount": 4176.07
       },
       "hsbc": {
-        "rate": 42.3884,
+        "rate": 42.3892,
         "fee": 0,
         "markup": 2.4,
-        "receiveAmount": 4238.84
+        "receiveAmount": 4238.92
       },
       "ria": {
         "rate": 43.3225,
@@ -25562,10 +25562,10 @@
         "receiveAmount": 4300
       },
       "westpac": {
-        "rate": 43.0164,
+        "rate": 43.0172,
         "fee": 0,
         "markup": 0.95,
-        "receiveAmount": 4301.64
+        "receiveAmount": 4301.72
       }
     }
   }

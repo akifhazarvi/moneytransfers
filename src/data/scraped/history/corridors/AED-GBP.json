@@ -1939,10 +1939,10 @@
     "date": "2026-11-06",
     "providers": {
       "taptap-send": {
-        "rate": 0.202,
+        "rate": 0.203,
         "fee": 0,
-        "markup": 0.4,
-        "receiveAmount": 20.2
+        "markup": -0.1,
+        "receiveAmount": 20.3
       }
     }
   }
