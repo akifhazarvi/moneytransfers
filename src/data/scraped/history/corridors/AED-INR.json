@@ -7958,5 +7958,46 @@
         "receiveAmount": 2436.75
       }
     }
+  },
+  {
+    "date": "2026-11-07",
+    "providers": {
+      "western-union": {
+        "rate": 25.5595,
+        "fee": 0,
+        "markup": 0.2,
+        "receiveAmount": 2555.95
+      },
+      "al-ansari-exchange": {
+        "rate": 25.6279,
+        "fee": 18.57,
+        "markup": -0.07,
+        "receiveAmount": 2086.88
+      },
+      "currencyfair": {
+        "rate": 25.3926,
+        "fee": 34.73,
+        "markup": 0.72,
+        "receiveAmount": 1657.38
+      },
+      "paysend": {
+        "rate": 25.1395,
+        "fee": 0,
+        "markup": 1.71,
+        "receiveAmount": 2513.95
+      },
+      "remitly": {
+        "rate": 25.5,
+        "fee": 0,
+        "markup": 0.43,
+        "receiveAmount": 2550
+      },
+      "taptap-send": {
+        "rate": 25.61,
+        "fee": 5,
+        "markup": 0,
+        "receiveAmount": 2432.95
+      }
+    }
   }
 ]

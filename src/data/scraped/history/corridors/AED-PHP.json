@@ -7664,5 +7664,28 @@
         "receiveAmount": 1700
       }
     }
+  },
+  {
+    "date": "2026-11-07",
+    "providers": {
+      "western-union": {
+        "rate": 17.16,
+        "fee": 10,
+        "markup": 0.14,
+        "receiveAmount": 1544.4
+      },
+      "remitly": {
+        "rate": 17.07,
+        "fee": 5,
+        "markup": 0.66,
+        "receiveAmount": 1621.65
+      },
+      "taptap-send": {
+        "rate": 17,
+        "fee": 0,
+        "markup": 1.07,
+        "receiveAmount": 1700
+      }
+    }
   }
 ]
