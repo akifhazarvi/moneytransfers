@@ -1950,10 +1950,10 @@
     "date": "2026-11-07",
     "providers": {
       "taptap-send": {
-        "rate": 22.6,
+        "rate": 22.65,
         "fee": 0,
-        "markup": 0.1,
-        "receiveAmount": 2260
+        "markup": -0.13,
+        "receiveAmount": 2265
       }
     }
   }

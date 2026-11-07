@@ -1984,10 +1984,10 @@
     "date": "2026-11-07",
     "providers": {
       "taptap-send": {
-        "rate": 14.02,
+        "rate": 14,
         "fee": 0,
-        "markup": -0.01,
-        "receiveAmount": 1402
+        "markup": 0.13,
+        "receiveAmount": 1400
       }
     }
   }
