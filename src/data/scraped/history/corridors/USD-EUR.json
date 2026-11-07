@@ -23959,10 +23959,10 @@
         "receiveAmount": 86.5
       },
       "ria": {
-        "rate": 0.874347,
+        "rate": 0.877728,
         "fee": 5,
-        "markup": 2.6,
-        "receiveAmount": 83.06
+        "markup": 2.22,
+        "receiveAmount": 83.38
       },
       "taptap-send": {
         "rate": 0.89,
@@ -23971,10 +23971,10 @@
         "receiveAmount": 89
       },
       "xoom": {
-        "rate": 0.8116,
+        "rate": 0.8147,
         "fee": 0,
-        "markup": 9.59,
-        "receiveAmount": 81.16
+        "markup": 9.24,
+        "receiveAmount": 81.47
       },
       "wells-fargo": {
         "rate": 0.870314,
@@ -24005,6 +24005,42 @@
         "fee": 1.35,
         "markup": 0,
         "receiveAmount": 88.55
+      },
+      "moneygram": {
+        "rate": 0.8861,
+        "fee": 1.99,
+        "markup": 1.28,
+        "receiveAmount": 86.85
+      },
+      "boss-money": {
+        "rate": 0.8774,
+        "fee": 2.49,
+        "markup": 2.25,
+        "receiveAmount": 85.56
+      },
+      "xe": {
+        "rate": 0.8914,
+        "fee": 0,
+        "markup": 0.69,
+        "receiveAmount": 89.14
+      },
+      "currencyfair": {
+        "rate": 0.8925,
+        "fee": 3.36,
+        "markup": 0.57,
+        "receiveAmount": 86.25
+      },
+      "paysend": {
+        "rate": 0.883175,
+        "fee": 1.99,
+        "markup": 1.61,
+        "receiveAmount": 86.56
+      },
+      "revolut": {
+        "rate": 0.895683,
+        "fee": 1.75,
+        "markup": 0.21,
+        "receiveAmount": 88
       }
     }
   }

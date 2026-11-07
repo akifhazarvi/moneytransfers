@@ -3240,16 +3240,16 @@
     "date": "2026-11-07",
     "providers": {
       "instarem": {
-        "rate": 0.5899,
+        "rate": 0.5891,
         "fee": 0,
-        "markup": 0.6,
-        "receiveAmount": 58.99
+        "markup": 0.73,
+        "receiveAmount": 58.91
       },
       "revolut": {
-        "rate": 0.590622,
-        "fee": 0,
-        "markup": 0.47,
-        "receiveAmount": 59.06
+        "rate": 0.589855,
+        "fee": 1,
+        "markup": 0.6,
+        "receiveAmount": 58.4
       }
     }
   }

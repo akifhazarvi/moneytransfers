@@ -5612,26 +5612,26 @@
       "western-union": {
         "rate": 15.5025,
         "fee": 10,
-        "markup": 0.14,
+        "markup": 0.15,
         "receiveAmount": 1395.23
       },
       "worldremit": {
-        "rate": 15.3625,
+        "rate": 15.3726,
         "fee": 5,
-        "markup": 1.04,
-        "receiveAmount": 1459.44
+        "markup": 0.98,
+        "receiveAmount": 1460.39
       },
       "instarem": {
-        "rate": 15.4897,
+        "rate": 15.4963,
         "fee": 0.65,
-        "markup": 0.22,
-        "receiveAmount": 1538.9
+        "markup": 0.19,
+        "receiveAmount": 1539.56
       },
       "wise": {
-        "rate": 15.5243,
+        "rate": 15.5346,
         "fee": 5.19,
-        "markup": 0,
-        "receiveAmount": 1471.86
+        "markup": -0.06,
+        "receiveAmount": 1472.84
       }
     }
   }

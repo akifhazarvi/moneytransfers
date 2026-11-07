@@ -6108,21 +6108,21 @@
     "date": "2026-11-07",
     "providers": {
       "western-union": {
-        "rate": 44.4207,
+        "rate": 44.3008,
         "fee": 11,
-        "markup": 2.11,
-        "receiveAmount": 3953.44
+        "markup": 2.17,
+        "receiveAmount": 3942.77
       },
       "paysend": {
         "rate": 44.3785,
         "fee": 1.99,
-        "markup": 2.2,
+        "markup": 2,
         "receiveAmount": 4349.54
       },
       "wise": {
         "rate": 45.54,
         "fee": 7.94,
-        "markup": -0.36,
+        "markup": -0.56,
         "receiveAmount": 4192.41
       },
       "taptap-send": {
@@ -6130,6 +6130,12 @@
         "fee": 0,
         "markup": -0.26,
         "receiveAmount": 4538.8
+      },
+      "moneygram": {
+        "rate": 43.7436,
+        "fee": 14,
+        "markup": 3.4,
+        "receiveAmount": 3761.95
       }
     }
   }

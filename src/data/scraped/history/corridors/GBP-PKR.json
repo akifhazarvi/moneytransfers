@@ -28357,10 +28357,10 @@
         "receiveAmount": 35710.35
       },
       "ria": {
-        "rate": 372.139,
+        "rate": 370.52,
         "fee": 1.5,
-        "markup": -0.79,
-        "receiveAmount": 36655.71
+        "markup": -0.35,
+        "receiveAmount": 36496.22
       },
       "taptap-send": {
         "rate": 368,
@@ -28409,6 +28409,60 @@
         "fee": 1.33,
         "markup": -0.02,
         "receiveAmount": 36438.04
+      },
+      "hsbc": {
+        "rate": 356.318,
+        "fee": 19.98,
+        "markup": 3.5,
+        "receiveAmount": 28512.56
+      },
+      "dahabshiil": {
+        "rate": 369.804,
+        "fee": 26.99,
+        "markup": -0.15,
+        "receiveAmount": 26999.39
+      },
+      "ofx": {
+        "rate": 341.1,
+        "fee": 0,
+        "markup": 7.62,
+        "receiveAmount": 34110
+      },
+      "transfergo": {
+        "rate": 369.368,
+        "fee": 0,
+        "markup": -0.03,
+        "receiveAmount": 36936.82
+      },
+      "xe": {
+        "rate": 368.762,
+        "fee": 1.5,
+        "markup": 0.13,
+        "receiveAmount": 36323.1
+      },
+      "mukuru": {
+        "rate": 345.09,
+        "fee": 0,
+        "markup": 6.54,
+        "receiveAmount": 34509
+      },
+      "paysend": {
+        "rate": 366.421,
+        "fee": 1,
+        "markup": 0.76,
+        "receiveAmount": 36275.64
+      },
+      "sendwave": {
+        "rate": 367.892,
+        "fee": 1.99,
+        "markup": 0.37,
+        "receiveAmount": 36057.1
+      },
+      "revolut": {
+        "rate": 367.02,
+        "fee": 1.5,
+        "markup": 0.6,
+        "receiveAmount": 36151.52
       }
     }
   }
