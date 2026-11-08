@@ -11226,5 +11226,58 @@
         "receiveAmount": 469.58
       }
     }
+  },
+  {
+    "date": "2026-11-08",
+    "providers": {
+      "instarem": {
+        "rate": 8.0291,
+        "fee": 0,
+        "markup": 0.1,
+        "receiveAmount": 802.91
+      },
+      "moneygram": {
+        "rate": 7.9536,
+        "fee": 8,
+        "markup": 1.19,
+        "receiveAmount": 731.73
+      },
+      "western-union": {
+        "rate": 7.99539,
+        "fee": 5,
+        "markup": 0.67,
+        "receiveAmount": 759.56
+      },
+      "currencyfair": {
+        "rate": 7.992,
+        "fee": 10.01,
+        "markup": 0.71,
+        "receiveAmount": 719.2
+      },
+      "singx": {
+        "rate": 8.0331,
+        "fee": 20,
+        "markup": 0.2,
+        "receiveAmount": 642.65
+      },
+      "wise": {
+        "rate": 8.04508,
+        "fee": 7.86,
+        "markup": 0.01,
+        "receiveAmount": 741.27
+      },
+      "hsbc-hk": {
+        "rate": 7.87402,
+        "fee": 70,
+        "markup": 2.13,
+        "receiveAmount": 236.22
+      },
+      "paypal": {
+        "rate": 7.69677,
+        "fee": 38.99,
+        "markup": 4.34,
+        "receiveAmount": 469.58
+      }
+    }
   }
 ]

@@ -18775,5 +18775,94 @@
         "receiveAmount": 150297.64
       }
     }
+  },
+  {
+    "date": "2026-11-08",
+    "providers": {
+      "instarem": {
+        "rate": 1494.59,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 149459.06
+      },
+      "lemfi": {
+        "rate": 1525,
+        "fee": 0,
+        "markup": -1.88,
+        "receiveAmount": 152500
+      },
+      "moneygram": {
+        "rate": 1505.43,
+        "fee": 0.99,
+        "markup": -0.67,
+        "receiveAmount": 149052.33
+      },
+      "taptap-send": {
+        "rate": 1525,
+        "fee": 0,
+        "markup": -1.88,
+        "receiveAmount": 152500
+      },
+      "western-union": {
+        "rate": 1513.72,
+        "fee": 0.99,
+        "markup": -1.13,
+        "receiveAmount": 149873.39
+      },
+      "dahabshiil": {
+        "rate": 1494.04,
+        "fee": 1.99,
+        "markup": 0.09,
+        "receiveAmount": 146430.74
+      },
+      "profee": {
+        "rate": 1525.39,
+        "fee": 2,
+        "markup": -2,
+        "receiveAmount": 149487.83
+      },
+      "worldremit": {
+        "rate": 1517.08,
+        "fee": 0.99,
+        "markup": -1.45,
+        "receiveAmount": 150205.86
+      },
+      "paysend": {
+        "rate": 1516.9,
+        "fee": 0,
+        "markup": -1.44,
+        "receiveAmount": 151690.45
+      },
+      "sendwave": {
+        "rate": 1517.08,
+        "fee": 0.99,
+        "markup": -1.45,
+        "receiveAmount": 150205.86
+      },
+      "remitly": {
+        "rate": 1508.03,
+        "fee": 0,
+        "markup": -0.75,
+        "receiveAmount": 150803
+      },
+      "ria": {
+        "rate": 1502.89,
+        "fee": 0.9,
+        "markup": -0.41,
+        "receiveAmount": 148936.76
+      },
+      "xoom": {
+        "rate": 1478.09,
+        "fee": 0.49,
+        "markup": 1.25,
+        "receiveAmount": 147084.28
+      },
+      "wise": {
+        "rate": 1529.28,
+        "fee": 1.72,
+        "markup": -2.17,
+        "receiveAmount": 150297.64
+      }
+    }
   }
 ]
