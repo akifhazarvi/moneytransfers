@@ -2,8 +2,8 @@
   "dataAsOf": "2026-11-08",
   "comparableCorridors": 214,
   "pairsTracked": 1059,
-  "contestedCorridorDays": 18019,
-  "providerDayObservations": 126735,
+  "contestedCorridorDays": 18021,
+  "providerDayObservations": 126747,
   "maxWindowDays": 91,
   "rows": [
     {
@@ -11,9 +11,9 @@
       "providerName": "TapTap Send",
       "corridorsLed": 72,
       "corridorsQuoted": 157,
-      "wins": 5982,
+      "wins": 5978,
       "quotedDays": 13498,
-      "winRate": 44.32,
+      "winRate": 44.29,
       "avgShortfallPct": 0.51,
       "leadRate": 45.86
     },
@@ -33,9 +33,9 @@
       "providerName": "LemFi",
       "corridorsLed": 36,
       "corridorsQuoted": 87,
-      "wins": 3193,
+      "wins": 3197,
       "quotedDays": 7855,
-      "winRate": 40.65,
+      "winRate": 40.7,
       "avgShortfallPct": 0.84,
       "leadRate": 41.38
     },
@@ -66,9 +66,9 @@
       "providerName": "Western Union",
       "corridorsLed": 10,
       "corridorsQuoted": 127,
-      "wins": 546,
-      "quotedDays": 9806,
-      "winRate": 5.57,
+      "wins": 548,
+      "quotedDays": 9808,
+      "winRate": 5.59,
       "avgShortfallPct": 3.8,
       "leadRate": 7.87
     },
@@ -77,9 +77,9 @@
       "providerName": "Remitly",
       "corridorsLed": 6,
       "corridorsQuoted": 104,
-      "wins": 406,
+      "wins": 405,
       "quotedDays": 8683,
-      "winRate": 4.68,
+      "winRate": 4.66,
       "avgShortfallPct": 3.04,
       "leadRate": 5.77
     },
@@ -88,9 +88,9 @@
       "providerName": "WorldRemit",
       "corridorsLed": 5,
       "corridorsQuoted": 48,
-      "wins": 490,
+      "wins": 489,
       "quotedDays": 4114,
-      "winRate": 11.91,
+      "winRate": 11.89,
       "avgShortfallPct": 2.62,
       "leadRate": 10.42
     },
@@ -154,10 +154,10 @@
       "providerName": "TransferGo",
       "corridorsLed": 1,
       "corridorsQuoted": 9,
-      "wins": 106,
+      "wins": 107,
       "quotedDays": 817,
-      "winRate": 12.97,
-      "avgShortfallPct": 1.07,
+      "winRate": 13.1,
+      "avgShortfallPct": 1.06,
       "leadRate": 11.11
     },
     {
@@ -165,9 +165,9 @@
       "providerName": "Skrill",
       "corridorsLed": 1,
       "corridorsQuoted": 60,
-      "wins": 234,
-      "quotedDays": 3154,
-      "winRate": 7.42,
+      "wins": 235,
+      "quotedDays": 3164,
+      "winRate": 7.43,
       "avgShortfallPct": 3,
       "leadRate": 1.67
     },
@@ -487,7 +487,7 @@
       "wins": 0,
       "quotedDays": 1720,
       "winRate": 0,
-      "avgShortfallPct": 4,
+      "avgShortfallPct": 4.01,
       "leadRate": 0
     },
     {
@@ -799,6 +799,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 48,
-  "stableCorridors": 166
+  "rotatingCorridors": 52,
+  "stableCorridors": 162
 }
