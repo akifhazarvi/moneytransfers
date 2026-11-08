@@ -24762,10 +24762,10 @@
         "receiveAmount": 1764.38
       },
       "worldremit": {
-        "rate": 18.1919,
+        "rate": 18.1878,
         "fee": 1.99,
-        "markup": 2.31,
-        "receiveAmount": 1782.99
+        "markup": 2.33,
+        "receiveAmount": 1782.59
       },
       "paysend": {
         "rate": 18.4006,
@@ -24792,16 +24792,16 @@
         "receiveAmount": 1817.93
       },
       "wise": {
-        "rate": 18.6215,
+        "rate": 18.6196,
         "fee": 1.69,
-        "markup": 0,
-        "receiveAmount": 1830.68
+        "markup": 0.02,
+        "receiveAmount": 1830.49
       },
       "wells-fargo": {
-        "rate": 18.0406,
+        "rate": 18.0365,
         "fee": 0,
-        "markup": 3.12,
-        "receiveAmount": 1804.06
+        "markup": 3.15,
+        "receiveAmount": 1803.65
       },
       "paypal": {
         "rate": 17.8234,
@@ -24810,10 +24810,10 @@
         "receiveAmount": 1693.4
       },
       "chase": {
-        "rate": 18.0613,
+        "rate": 18.0572,
         "fee": 5,
-        "markup": 3.01,
-        "receiveAmount": 1715.82
+        "markup": 3.03,
+        "receiveAmount": 1715.44
       }
     }
   }

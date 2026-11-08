@@ -8366,28 +8366,28 @@
     "date": "2026-11-08",
     "providers": {
       "bank-of-new-zealand-nz": {
-        "rate": 0.4036,
+        "rate": 0.410988,
         "fee": 0,
-        "markup": 2.77,
-        "receiveAmount": 40.36
+        "markup": 0.99,
+        "receiveAmount": 41.1
       },
       "kiwibank": {
-        "rate": 0.4042,
+        "rate": 0.409585,
         "fee": 20,
-        "markup": 2.62,
-        "receiveAmount": 32.34
+        "markup": 1.33,
+        "receiveAmount": 32.77
       },
       "paypal": {
-        "rate": 0.393405,
+        "rate": 0.394257,
         "fee": 6.99,
-        "markup": 5.22,
-        "receiveAmount": 36.59
+        "markup": 5.02,
+        "receiveAmount": 36.67
       },
       "westpac-nz": {
-        "rate": 0.4064,
+        "rate": 0.409785,
         "fee": 0,
-        "markup": 2.09,
-        "receiveAmount": 40.64
+        "markup": 1.28,
+        "receiveAmount": 40.98
       }
     }
   }
