@@ -796,5 +796,69 @@
         "requests": 104
       }
     }
+  },
+  {
+    "generatedAt": "2026-11-09T16:19:18.246Z",
+    "promptsRun": 104,
+    "chatgpt": {
+      "prompts": 104,
+      "usable": 104,
+      "errors": 0,
+      "citations": 4,
+      "citationRatePct": 3.8,
+      "inTopThree": 1,
+      "providerOutranksUs": 21,
+      "recommendationRoute": {
+        "us": 0,
+        "provider": 0,
+        "publisher": 0,
+        "unattributed": 104
+      },
+      "ourRecommendationSharePct": null,
+      "answersWithNoCitations": 74,
+      "meanCitations": 1.4,
+      "meanPosition": 3.5,
+      "mentionedUnlinked": 0,
+      "targetHits": 0,
+      "targetsChecked": 52,
+      "baselineCitations": 1,
+      "baselinePrompts": 10
+    },
+    "perplexity": {
+      "prompts": 104,
+      "usable": 104,
+      "errors": 0,
+      "citations": 26,
+      "citationRatePct": 25,
+      "inTopThree": 22,
+      "providerOutranksUs": 76,
+      "recommendationRoute": {
+        "us": 10,
+        "provider": 14,
+        "publisher": 13,
+        "unattributed": 67
+      },
+      "ourRecommendationSharePct": 27,
+      "answersWithNoCitations": 0,
+      "meanCitations": 10,
+      "meanPosition": 2.4,
+      "mentionedUnlinked": 0,
+      "targetHits": 7,
+      "targetsChecked": 52,
+      "baselineCitations": 4,
+      "baselinePrompts": 10
+    },
+    "usage": {
+      "chatgpt": {
+        "promptTokens": 276070,
+        "completionTokens": 30949,
+        "requests": 104
+      },
+      "perplexity": {
+        "promptTokens": 1022,
+        "completionTokens": 28350,
+        "requests": 104
+      }
+    }
   }
 ]
