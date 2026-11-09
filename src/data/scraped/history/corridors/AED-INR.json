@@ -8057,10 +8057,10 @@
     "date": "2026-11-09",
     "providers": {
       "western-union": {
-        "rate": 25.5214,
+        "rate": 25.5737,
         "fee": 0,
-        "markup": 0.14,
-        "receiveAmount": 2552.14
+        "markup": -0.06,
+        "receiveAmount": 2557.37
       },
       "al-ansari-exchange": {
         "rate": 25.6279,
@@ -8081,16 +8081,16 @@
         "receiveAmount": 2513.81
       },
       "remitly": {
-        "rate": 25.49,
+        "rate": 25.51,
         "fee": 0,
-        "markup": 0.27,
-        "receiveAmount": 2549
+        "markup": 0.19,
+        "receiveAmount": 2551
       },
       "taptap-send": {
-        "rate": 25.56,
+        "rate": 25.65,
         "fee": 5,
-        "markup": -0.01,
-        "receiveAmount": 2428.2
+        "markup": -0.36,
+        "receiveAmount": 2436.75
       }
     }
   }

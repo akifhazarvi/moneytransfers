@@ -7745,10 +7745,10 @@
     "date": "2026-11-09",
     "providers": {
       "western-union": {
-        "rate": 17.1841,
+        "rate": 17.2325,
         "fee": 10,
-        "markup": 0.26,
-        "receiveAmount": 1546.57
+        "markup": -0.03,
+        "receiveAmount": 1550.93
       },
       "skrill": {
         "rate": 16.3492,
@@ -7769,10 +7769,10 @@
         "receiveAmount": 1542.65
       },
       "remitly": {
-        "rate": 17.12,
+        "rate": 17.09,
         "fee": 5,
-        "markup": 0.63,
-        "receiveAmount": 1626.4
+        "markup": 0.8,
+        "receiveAmount": 1623.55
       },
       "taptap-send": {
         "rate": 17,

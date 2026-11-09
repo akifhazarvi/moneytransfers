@@ -2451,10 +2451,10 @@
     "date": "2026-11-09",
     "providers": {
       "western-union": {
-        "rate": 331.214,
+        "rate": 331.964,
         "fee": 1,
-        "markup": 0.09,
-        "receiveAmount": 32790.14
+        "markup": -0.14,
+        "receiveAmount": 32864.43
       },
       "taptap-send": {
         "rate": 332,

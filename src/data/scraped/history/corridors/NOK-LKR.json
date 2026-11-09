@@ -1961,10 +1961,10 @@
     "date": "2026-11-09",
     "providers": {
       "taptap-send": {
-        "rate": 35.19,
+        "rate": 35.25,
         "fee": 0,
-        "markup": 0.16,
-        "receiveAmount": 3519
+        "markup": -0.01,
+        "receiveAmount": 3525
       }
     }
   }

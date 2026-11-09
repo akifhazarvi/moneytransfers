@@ -2815,14 +2815,14 @@
       "lemfi": {
         "rate": 7.39,
         "fee": 0,
-        "markup": -0.18,
+        "markup": 0.25,
         "receiveAmount": 739
       },
       "taptap-send": {
-        "rate": 7.36,
+        "rate": 7.38,
         "fee": 0.99,
-        "markup": 0.22,
-        "receiveAmount": 728.71
+        "markup": -0.05,
+        "receiveAmount": 730.69
       }
     }
   }

@@ -2457,16 +2457,16 @@
     "date": "2026-11-09",
     "providers": {
       "lemfi": {
-        "rate": 1.399,
+        "rate": 1.402,
         "fee": 0,
-        "markup": 0.8,
-        "receiveAmount": 139.9
+        "markup": 0.81,
+        "receiveAmount": 140.2
       },
       "taptap-send": {
-        "rate": 1.41,
+        "rate": 1.413,
         "fee": 0,
-        "markup": 0.02,
-        "receiveAmount": 141
+        "markup": -0.19,
+        "receiveAmount": 141.3
       }
     }
   }
