@@ -2338,5 +2338,22 @@
         "receiveAmount": 14421.69
       }
     }
+  },
+  {
+    "date": "2026-11-09",
+    "providers": {
+      "pandaremit": {
+        "rate": 200.775,
+        "fee": 80,
+        "markup": 0.91,
+        "receiveAmount": 4015.51
+      },
+      "wise": {
+        "rate": 202.629,
+        "fee": 29.45,
+        "markup": -0.01,
+        "receiveAmount": 14295.48
+      }
+    }
   }
 ]
