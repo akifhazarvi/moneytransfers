@@ -2832,14 +2832,14 @@
       "lemfi": {
         "rate": 7.39,
         "fee": 0,
-        "markup": 0.24,
+        "markup": 1.18,
         "receiveAmount": 739
       },
       "taptap-send": {
-        "rate": 7.39,
+        "rate": 7.41,
         "fee": 0.99,
-        "markup": 0.24,
-        "receiveAmount": 731.68
+        "markup": -0.03,
+        "receiveAmount": 733.66
       }
     }
   }

@@ -3023,14 +3023,14 @@
       "lemfi": {
         "rate": 413,
         "fee": 0,
-        "markup": 0.21,
+        "markup": 0.25,
         "receiveAmount": 41300
       },
       "taptap-send": {
-        "rate": 412,
+        "rate": 414,
         "fee": 0,
-        "markup": 0.45,
-        "receiveAmount": 41200
+        "markup": -0.04,
+        "receiveAmount": 41400
       }
     }
   }

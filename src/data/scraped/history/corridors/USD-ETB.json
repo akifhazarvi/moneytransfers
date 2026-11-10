@@ -12431,7 +12431,7 @@
       "lemfi": {
         "rate": 162.73,
         "fee": 0,
-        "markup": -0.85,
+        "markup": 0.02,
         "receiveAmount": 16273
       },
       "moneygram": {
@@ -12459,10 +12459,10 @@
         "receiveAmount": 16818.52
       },
       "western-union": {
-        "rate": 161.119,
+        "rate": 160.998,
         "fee": 0.99,
-        "markup": 0.14,
-        "receiveAmount": 15952.38
+        "markup": 0.22,
+        "receiveAmount": 15940.37
       },
       "xe": {
         "rate": 181,

@@ -17488,16 +17488,16 @@
     "date": "2026-11-10",
     "providers": {
       "lemfi": {
-        "rate": 13.122,
+        "rate": 13.0933,
         "fee": 0,
-        "markup": -0.13,
-        "receiveAmount": 1312.2
+        "markup": -0.07,
+        "receiveAmount": 1309.33
       },
       "moneygram": {
-        "rate": 13.2225,
+        "rate": 13.1081,
         "fee": 0,
-        "markup": -0.89,
-        "receiveAmount": 1322.25
+        "markup": -0.02,
+        "receiveAmount": 1310.81
       },
       "skrill": {
         "rate": 12.4483,
@@ -17506,16 +17506,16 @@
         "receiveAmount": 1244.83
       },
       "taptap-send": {
-        "rate": 13.125,
+        "rate": 13.0933,
         "fee": 0,
-        "markup": -0.15,
-        "receiveAmount": 1312.5
+        "markup": 0.09,
+        "receiveAmount": 1309.33
       },
       "western-union": {
-        "rate": 13.1244,
+        "rate": 13.063,
         "fee": 0.99,
-        "markup": -0.14,
-        "receiveAmount": 1299.44
+        "markup": 0.32,
+        "receiveAmount": 1293.37
       },
       "dahabshiil": {
         "rate": 13.1907,
@@ -17536,10 +17536,10 @@
         "receiveAmount": 1296.37
       },
       "instarem": {
-        "rate": 12.7298,
+        "rate": 12.7376,
         "fee": 0,
-        "markup": 2.87,
-        "receiveAmount": 1272.98
+        "markup": 2.81,
+        "receiveAmount": 1273.76
       },
       "xe": {
         "rate": 12.9964,
@@ -17560,10 +17560,10 @@
         "receiveAmount": 1309.33
       },
       "remitly": {
-        "rate": 13.0312,
+        "rate": 12.9935,
         "fee": 1.99,
-        "markup": 0.57,
-        "receiveAmount": 1277.19
+        "markup": 0.85,
+        "receiveAmount": 1273.49
       },
       "revolut": {
         "rate": 13.0042,
@@ -17572,10 +17572,10 @@
         "receiveAmount": 1280.91
       },
       "wise": {
-        "rate": 13.115,
+        "rate": 13.0666,
         "fee": 3.07,
-        "markup": -0.07,
-        "receiveAmount": 1271.24
+        "markup": 0.3,
+        "receiveAmount": 1266.55
       },
       "ria": {
         "rate": 12.4732,

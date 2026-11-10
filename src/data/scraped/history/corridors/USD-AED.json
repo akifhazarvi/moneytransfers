@@ -3904,16 +3904,16 @@
     "date": "2026-11-10",
     "providers": {
       "instarem": {
-        "rate": 3.64715,
+        "rate": 3.6473,
         "fee": 0,
         "markup": 0.69,
-        "receiveAmount": 364.71
+        "receiveAmount": 364.73
       },
       "wise": {
-        "rate": 3.6726,
+        "rate": 3.673,
         "fee": 3.28,
-        "markup": 0,
-        "receiveAmount": 355.21
+        "markup": -0.01,
+        "receiveAmount": 355.25
       }
     }
   }
