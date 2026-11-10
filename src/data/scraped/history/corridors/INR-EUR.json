@@ -2529,10 +2529,16 @@
     "date": "2026-11-10",
     "providers": {
       "western-union": {
-        "rate": 0.0093477,
+        "rate": 0.0092971,
         "fee": 0,
-        "markup": 1.73,
+        "markup": 2.23,
         "receiveAmount": 0.93
+      },
+      "skrill": {
+        "rate": 0.009,
+        "fee": 0,
+        "markup": 5.35,
+        "receiveAmount": 0.9
       }
     }
   }

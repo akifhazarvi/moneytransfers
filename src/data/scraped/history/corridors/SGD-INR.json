@@ -15352,34 +15352,34 @@
         "receiveAmount": 7347.8
       },
       "western-union": {
-        "rate": 72.9723,
+        "rate": 73.1434,
         "fee": 1.5,
-        "markup": 0.54,
-        "receiveAmount": 7187.77
+        "markup": 0.21,
+        "receiveAmount": 7204.63
       },
       "currencyfair": {
-        "rate": 72.8415,
+        "rate": 72.6075,
         "fee": 1.65,
-        "markup": 0.72,
-        "receiveAmount": 7163.96
+        "markup": 0.94,
+        "receiveAmount": 7140.95
       },
       "remitly": {
-        "rate": 72.49,
+        "rate": 72.58,
         "fee": 3.99,
-        "markup": 1.2,
-        "receiveAmount": 6959.76
+        "markup": 0.98,
+        "receiveAmount": 6968.41
       },
       "revolut": {
-        "rate": 73.3389,
+        "rate": 73.1364,
         "fee": 0.55,
-        "markup": 0.04,
-        "receiveAmount": 7293.56
+        "markup": 0.22,
+        "receiveAmount": 7273.42
       },
       "ria": {
-        "rate": 73.36,
+        "rate": 73.55,
         "fee": 0,
-        "markup": -0.01,
-        "receiveAmount": 7336
+        "markup": -0.27,
+        "receiveAmount": 7355
       },
       "hsbc-sg": {
         "rate": 72.571,
@@ -15392,6 +15392,18 @@
         "fee": 1.06,
         "markup": 0.16,
         "receiveAmount": 7245.69
+      },
+      "moneygram": {
+        "rate": 73.0713,
+        "fee": 6,
+        "markup": 0.31,
+        "receiveAmount": 6868.7
+      },
+      "skrill": {
+        "rate": 69.9972,
+        "fee": 0,
+        "markup": 4.5,
+        "receiveAmount": 6999.72
       }
     }
   }
