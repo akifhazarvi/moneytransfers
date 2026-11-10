@@ -155,10 +155,13 @@ jobs:
         timeout-minutes: 3 # observed ~1m20s
         continue-on-error: true
 
-      - name: Scrape Unplex (direct API)
-        run: timeout -k 15s 90s npx tsx scripts/scrape-unplex.ts
-        timeout-minutes: 2 # observed ~15s
-        continue-on-error: true
+      # UNPLEX REMOVED 2026-11-10 (owner). From the 2026-11-07 21:38 run every
+      # Unplex request from a runner was refused in ~0.1s while the same request
+      # from a home connection returned all 8 corridors — the same edge block as
+      # ACE above. Unplex had been hidden from every listing and comparison since
+      # 2026-09-04 (HIDDEN_PROVIDER_SLUGS, gone-companies.ts), so the step only
+      # fed data no reader saw, and its health failure turned 7 runs red.
+      # unplex-quotes.json stays [] (a no-op in unified-quotes).
 
       # Gulf senders (SA/AE/KW/BH): Western Union, e& money, Al Ansari. Observed
       # ~1m locally with Western Union's requests 4-wide.
@@ -196,7 +199,7 @@ jobs:
           ofx-quotes.json instarem-quotes.json xe-midmarket-rates.json
           taptapsend-quotes.json wise-direct-quotes.json wise-comparison-quotes.json
           exiap-quotes.json remitly-quotes.json pandaremit-quotes.json
-          skyremit-quotes.json lemfi-quotes.json unplex-quotes.json
+          skyremit-quotes.json lemfi-quotes.json
           remitroutes-quotes.json gulf-quotes.json
         timeout-minutes: 2
         continue-on-error: true
