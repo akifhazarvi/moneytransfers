@@ -98,10 +98,28 @@ async function fetchUnplexQuote(
       body: JSON.stringify({ from, to, amount: String(amount) }),
     });
 
-    if (!res.ok) return null;
-    const json = await res.json();
+    // Say WHY a corridor failed. From 2026-11-07 every CI request came back in
+    // ~0.1s as "No data" while the same request from a home connection
+    // returned rates — a refusal we could not read, because the status and
+    // body were thrown away here.
+    if (!res.ok) {
+      const body = (await res.text().catch(() => "")).replace(/\s+/g, " ").slice(0, 160);
+      console.log(`    ⚠ HTTP ${res.status} ${res.headers.get("content-type") ?? ""}: ${body}`);
+      return null;
+    }
+    const text = await res.text();
+    let json;
+    try {
+      json = JSON.parse(text);
+    } catch {
+      console.log(`    ⚠ not JSON (${res.headers.get("content-type") ?? "no content-type"}): ${text.replace(/\s+/g, " ").slice(0, 160)}`);
+      return null;
+    }
     const data = json?.data;
-    if (!data) return null;
+    if (!data) {
+      console.log(`    ⚠ no data field: ${text.slice(0, 160)}`);
+      return null;
+    }
     // NOTE: don't bail on data.Enabled === false — Unplex returns valid rates
     // for corridors flagged Enabled:false (it reflects geo-default state, not
     // whether the corridor is served). We gate on the rate fields instead.
@@ -117,7 +135,10 @@ async function fetchUnplexQuote(
     // its own rateComparision.providers array). `Currency` is the standard
     // rate; `BlendedRate` folds in the first-transfer promo (see header).
     const standardRate = num(data.Currency);
-    if (!standardRate || standardRate <= 0) return null;
+    if (!standardRate || standardRate <= 0) {
+      console.log(`    ⚠ no standard rate (Currency=${JSON.stringify(data.Currency)}); fields: ${Object.keys(data).join(", ").slice(0, 160)}`);
+      return null;
+    }
 
     // First-time promo: a higher rate applying only up to a per-corridor send
     // cap (FirstTimeTransferLimit — $100 for INR, $500 for PHP, etc.).
@@ -204,6 +225,16 @@ async function main() {
   }
 
   const outputPath = path.join(OUTPUT_DIR, "unplex-quotes.json");
+  // Zero quotes means we were refused or the API changed, not that Unplex
+  // stopped quoting. Keep the previous file, as writeOutput() in
+  // scripts/lib/browser.ts does for every other scraper: unified-quotes
+  // quarantines rows more than 72h behind the freshest data, and
+  // check-scrape-health reports the file as not rewritten. Writing [] here
+  // wiped Unplex from every table on 2026-11-07.
+  if (allQuotes.length === 0 && fs.existsSync(outputPath)) {
+    console.error(`\n✗ Unplex: 0 quotes — keeping the previous unplex-quotes.json (${failCount} failed)`);
+    return;
+  }
   fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
 
   const elapsed = Math.round((Date.now() - startTime) / 1000);
