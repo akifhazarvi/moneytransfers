@@ -17483,5 +17483,106 @@
         "receiveAmount": 1244.83
       }
     }
+  },
+  {
+    "date": "2026-11-10",
+    "providers": {
+      "lemfi": {
+        "rate": 13.122,
+        "fee": 0,
+        "markup": -0.13,
+        "receiveAmount": 1312.2
+      },
+      "moneygram": {
+        "rate": 13.2225,
+        "fee": 0,
+        "markup": -0.89,
+        "receiveAmount": 1322.25
+      },
+      "skrill": {
+        "rate": 12.4483,
+        "fee": 0,
+        "markup": 4.76,
+        "receiveAmount": 1244.83
+      },
+      "taptap-send": {
+        "rate": 13.125,
+        "fee": 0,
+        "markup": -0.15,
+        "receiveAmount": 1312.5
+      },
+      "western-union": {
+        "rate": 13.1244,
+        "fee": 0.99,
+        "markup": -0.14,
+        "receiveAmount": 1299.44
+      },
+      "dahabshiil": {
+        "rate": 13.1585,
+        "fee": 2.99,
+        "markup": -0.68,
+        "receiveAmount": 1276.51
+      },
+      "profee": {
+        "rate": 13.3283,
+        "fee": 2.05,
+        "markup": -1.98,
+        "receiveAmount": 1305.5
+      },
+      "worldremit": {
+        "rate": 13.049,
+        "fee": 0.99,
+        "markup": 0.16,
+        "receiveAmount": 1291.98
+      },
+      "instarem": {
+        "rate": 12.7298,
+        "fee": 0,
+        "markup": 2.87,
+        "receiveAmount": 1272.98
+      },
+      "xe": {
+        "rate": 12.9215,
+        "fee": 4,
+        "markup": 1.14,
+        "receiveAmount": 1240.46
+      },
+      "paysend": {
+        "rate": 13.256,
+        "fee": 0,
+        "markup": -1.42,
+        "receiveAmount": 1325.6
+      },
+      "sendwave": {
+        "rate": 13.049,
+        "fee": 0,
+        "markup": 0.16,
+        "receiveAmount": 1304.9
+      },
+      "remitly": {
+        "rate": 13.0312,
+        "fee": 1.99,
+        "markup": 0.57,
+        "receiveAmount": 1277.19
+      },
+      "revolut": {
+        "rate": 12.9573,
+        "fee": 1.5,
+        "markup": 0.86,
+        "receiveAmount": 1276.29
+      },
+      "wise": {
+        "rate": 13.115,
+        "fee": 3.07,
+        "markup": -0.07,
+        "receiveAmount": 1271.24
+      },
+      "ria": {
+        "rate": 12.9526,
+        "fee": 0.9,
+        "markup": 1.17,
+        "receiveAmount": 1283.6
+      }
+    }
   }
 ]
