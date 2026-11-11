@@ -945,6 +945,10 @@ function resolveProviderClaim(text: string, count: number): string {
  * check:claims --built can enforce the same threshold.
  */
 
+/** "from the United States to the Philippines", not "from United States". Same list as last-search.ts. */
+const TAKES_THE = /^(United |Philippines$|Netherlands$|Bahamas$|Gambia$|Maldives$|Comoros$|Dominican Republic$|Czech Republic$|Central African Republic$|Marshall Islands$|Solomon Islands$|Cayman Islands$)/;
+const withThe = (name: string) => (TAKES_THE.test(name) ? `the ${name}` : name);
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { corridor: slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "corridor" });
@@ -2657,7 +2661,13 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
-              {isCurrencyCorridor ? `How long does a ${fromCurrency} to ${toCurrency} transfer take?` : `How long does it take to send money to ${corridor.toCountry}?`}
+              {/* Rule 4: the destination alone repeated this H2 on every route
+                  into the same country (10 into India); the origin names the page. */}
+              {isCurrencyCorridor
+                ? `How long does a ${fromCurrency} to ${toCurrency} transfer take?`
+                : corridor.isCountryPage
+                  ? `How long does it take to send money to ${corridor.toCountry}?`
+                  : `How long does it take to send money from ${withThe(corridor.fromCountry)} to ${withThe(corridor.toCountry)}?`}
             </h2>
             <p className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
               {corridor.generatedNotes && deliverySentence ? deliverySentence : corridor.deliveryNote}

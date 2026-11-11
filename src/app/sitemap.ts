@@ -17,7 +17,7 @@ import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { ALTERNATIVES_RENDERED_SLUGS } from "@/lib/provider-alternatives";
 import { bingIndexable, newsIsIndexable } from "@/lib/seo-indexing";
-import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2, BING_DEMAND_WAVE_3 } from "@/data/search-engine-routes";
+import { BING_DEMAND_ROUTES, BING_DEMAND_WAVE_2, BING_DEMAND_WAVE_3, BING_DEMAND_WAVE_4 } from "@/data/search-engine-routes";
 import { HUB_COPY_REVIEWED } from "@/lib/send-money-hub";
 import {
   COMPARISON_CONTENT_DATE,
@@ -68,6 +68,7 @@ const REVIEWED_ROUTES_DATE = "2026-09-24"; // round-2 freelance brief opened the
 const BING_DEMAND_DATE = "2026-09-27";     // Bing earners reopened (round-3 plan)
 const BING_DEMAND_WAVE_2_DATE = "2026-10-08"; // round-3 brief §3.1 + restored rate pairs
 const BING_DEMAND_WAVE_3_DATE = "2026-10-18"; // AI-assistant referral evidence (rule 3)
+const BING_DEMAND_WAVE_4_DATE = "2026-11-11"; // every rendered page open to Bing (rule 3, owner)
 // Round-3 brief (2026-10-08/09) content changes — §6.1: "change lastmod only
 // when the content genuinely changes", so each family that changed is restamped
 // and nothing else is.
@@ -366,8 +367,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // reads — and never in sitemap-google.xml, which filters by googleIndexable().
   const WAVE_2 = new Set(BING_DEMAND_WAVE_2);
   const WAVE_3 = new Set(BING_DEMAND_WAVE_3);
+  const WAVE_4 = new Set(BING_DEMAND_WAVE_4);
   const waveDate = (path: string) =>
-    WAVE_3.has(path) ? BING_DEMAND_WAVE_3_DATE : WAVE_2.has(path) ? BING_DEMAND_WAVE_2_DATE : BING_DEMAND_DATE;
+    WAVE_4.has(path) ? BING_DEMAND_WAVE_4_DATE
+    : WAVE_3.has(path) ? BING_DEMAND_WAVE_3_DATE : WAVE_2.has(path) ? BING_DEMAND_WAVE_2_DATE : BING_DEMAND_DATE;
   const bingDemandPages: MetadataRoute.Sitemap = [...BING_DEMAND_ROUTES]
     .map((path) => entry(path.replace(/^\//, ""), familyDate(path, waveDate(path))));
 

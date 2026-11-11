@@ -187,7 +187,132 @@ export const BING_DEMAND_WAVE_3: readonly string[] = [
   "/send-money/usa-to-ethiopia",        // 3 / 3
 ];
 
-export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_DEMAND_WAVE_1, ...BING_DEMAND_WAVE_2, ...BING_DEMAND_WAVE_3]);
+/**
+ * Fourth wave, 2026-11-11 — every rendered page open to Bing (owner decision,
+ * rule 3 as amended that day: "make sure Bing has access to everything ... at
+ * all cost without impacting Google").
+ *
+ * Evidence: GA4 Bing sessions were 276–303 a week from Aug 24 to Sep 20, when
+ * every one of these pages was indexable on Bing, and 160 in the week of
+ * Nov 2–8. Before this wave, 102 of the 573 rendered content pages served a
+ * generic `noindex`, which Bing obeys and which also keeps them out of the
+ * Copilot and ChatGPT-search answers that ground on Bing's index. Bing Webmaster
+ * Tools (AI Performance, page export of 2026-11-11) still credited 37 of them
+ * with 3,143 citations while they were closed — numbers in the comments.
+ *
+ * Trade-off accepted knowingly: the 2026-09-27 measurement (header above)
+ * found that the currency twins among these raise the duplicate share of
+ * already-indexable pages. The owner chose Bing's pre-gate state over that
+ * measure. Google is unaffected: googleIndexable() does not read this list,
+ * so each page stays `googlebot: noindex` and out of sitemap-google.xml.
+ * Left closed: /tools/fee-impact (unlaunched calculator) and every 410/301.
+ */
+export const BING_DEMAND_WAVE_4: readonly string[] = [
+  "/alternatives/moneygram",                         // 0
+  "/alternatives/paypal",                            // 0
+  "/alternatives/remitly",                           // 0
+  "/alternatives/revolut",                           // 0
+  "/alternatives/western-union",                     // 0
+  "/alternatives/wise",                              // 0
+  "/alternatives/worldremit",                        // 0
+  "/alternatives/xoom",                              // 0
+  "/companies/paypal",                               // 0
+  "/companies/regencyfx",                            // 0
+  "/companies/revolut",                              // 168
+  "/companies/torfx",                                // 0
+  "/compare/chase-vs-hsbc",                          // 1
+  "/compare/chase-vs-wells-fargo",                   // 0
+  "/compare/lloyds-vs-nationwide",                   // 0
+  "/compare/moneygram-vs-taptap-send",               // 57
+  "/compare/moneygram-vs-worldremit",                // 0
+  "/compare/ofx-vs-moneygram",                       // 0
+  "/compare/paypal-vs-moneygram",                    // 15
+  "/compare/paypal-vs-xoom",                         // 8
+  "/compare/remitly-vs-worldremit",                  // 341
+  "/compare/remitly-vs-xe",                          // 511
+  "/compare/remitly-vs-xoom",                        // 481
+  "/compare/western-union-vs-bank-of-america",       // 0
+  "/compare/wise-vs-xe",                             // 41
+  "/send-money/australia-to-china",                  // 0
+  "/send-money/australia-to-france",                 // 0
+  "/send-money/australia-to-india",                  // 209
+  "/send-money/austria-to-cameroon",                 // 0
+  "/send-money/bahrain-to-india",                    // 0
+  "/send-money/canada-to-philippines",               // 0
+  "/send-money/china-to-canada",                     // 4
+  "/send-money/denmark-to-colombia",                 // 0
+  "/send-money/denmark-to-france",                   // 0
+  "/send-money/denmark-to-malaysia",                 // 0
+  "/send-money/germany-to-india",                    // 105
+  "/send-money/germany-to-malaysia",                 // 0
+  "/send-money/germany-to-nigeria",                  // 0
+  "/send-money/germany-to-ukraine",                  // 0
+  "/send-money/india-to-singapore",                  // 0
+  "/send-money/ireland-to-bangladesh",               // 0
+  "/send-money/italy-to-brazil",                     // 0
+  "/send-money/new-zealand-to-australia",            // 0
+  "/send-money/new-zealand-to-uk",                   // 0
+  "/send-money/norway-to-philippines",               // 0
+  "/send-money/portugal-to-bangladesh",              // 0
+  "/send-money/saudi-arabia-to-bangladesh",          // 0
+  "/send-money/send-money-to-argentina",             // 121
+  "/send-money/send-money-to-australia",             // 7
+  "/send-money/send-money-to-bangladesh",            // 11
+  "/send-money/send-money-to-canada",                // 20
+  "/send-money/send-money-to-chile",                 // 0
+  "/send-money/send-money-to-china",                 // 16
+  "/send-money/send-money-to-costa-rica",            // 0
+  "/send-money/send-money-to-czech-republic",        // 10
+  "/send-money/send-money-to-france",                // 41
+  "/send-money/send-money-to-gambia",                // 0
+  "/send-money/send-money-to-georgia",               // 0
+  "/send-money/send-money-to-germany",               // 100
+  "/send-money/send-money-to-ghana",                 // 0
+  "/send-money/send-money-to-haiti",                 // 56
+  "/send-money/send-money-to-hong-kong",             // 1
+  "/send-money/send-money-to-israel",                // 0
+  "/send-money/send-money-to-japan",                 // 38
+  "/send-money/send-money-to-kazakhstan",            // 0
+  "/send-money/send-money-to-kenya",                 // 0
+  "/send-money/send-money-to-madagascar",            // 0
+  "/send-money/send-money-to-malaysia",              // 11
+  "/send-money/send-money-to-mozambique",            // 0
+  "/send-money/send-money-to-nepal",                 // 0
+  "/send-money/send-money-to-new-zealand",           // 0
+  "/send-money/send-money-to-paraguay",              // 0
+  "/send-money/send-money-to-peru",                  // 101
+  "/send-money/send-money-to-poland",                // 32
+  "/send-money/send-money-to-rwanda",                // 330
+  "/send-money/send-money-to-senegal",               // 0
+  "/send-money/send-money-to-singapore",             // 0
+  "/send-money/send-money-to-south-africa",          // 1
+  "/send-money/send-money-to-south-korea",           // 0
+  "/send-money/send-money-to-spain",                 // 87
+  "/send-money/send-money-to-sri-lanka",             // 0
+  "/send-money/send-money-to-tanzania",              // 62
+  "/send-money/send-money-to-thailand",              // 0
+  "/send-money/send-money-to-uganda",                // 0
+  "/send-money/send-money-to-ukraine",               // 0
+  "/send-money/send-money-to-uruguay",               // 0
+  "/send-money/send-money-to-uzbekistan",            // 3
+  "/send-money/send-money-to-vietnam",               // 0
+  "/send-money/uk-to-bangladesh",                    // 8
+  "/send-money/uk-to-china",                         // 0
+  "/send-money/uk-to-egypt",                         // 20
+  "/send-money/uk-to-france",                        // 0
+  "/send-money/uk-to-kenya",                         // 7
+  "/send-money/uk-to-mexico",                        // 0
+  "/send-money/uk-to-zimbabwe",                      // 0
+  "/send-money/usa-to-bangladesh",                   // 0
+  "/send-money/usa-to-kenya",                        // 15
+  "/send-money/usa-to-nigeria",                      // 0
+  "/send-money/usa-to-sri-lanka",                    // 0
+  "/send-money/usa-to-uae",                          // 0
+  "/send-money/usa-to-uk",                           // 84
+  "/send-money/usa-to-vietnam",                      // 20
+];
+
+export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_DEMAND_WAVE_1, ...BING_DEMAND_WAVE_2, ...BING_DEMAND_WAVE_3, ...BING_DEMAND_WAVE_4]);
 
 /**
  * Google release batches — round-3 brief §3.4 (2026-10-08): pages Bing already

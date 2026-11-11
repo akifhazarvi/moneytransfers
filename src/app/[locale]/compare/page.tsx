@@ -20,6 +20,10 @@ import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 import { getAuthor } from "@/data/authors";
 import { COMPARISON_CORRIDORS, generateComparisonContent, measurePair } from "@/lib/comparison-content";
 import { HUB_CHILD_LINKS } from "@/lib/link-eligibility";
+import { CONSISTENCY_INDEX, TOP_LEADER, TOP_LEADER_SHARE } from "@/lib/consistency-index";
+import { REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
+import { weekendMarkup } from "@/lib/weekend-markup";
+import { DELIVERY_SPEED, DELIVERY_TESTS, fmtMinutes } from "@/lib/delivery-speed";
 
 // Revalidate every 6 hours — matches scraper cadence (parity with /compare/[slug]).
 export const revalidate = 21600;
@@ -100,6 +104,22 @@ function buildMatchups(): Matchup[] {
   return matchups;
 }
 
+// Figures for the FAQ answers below, all read from datasets (rule 7).
+const usd = (n: number, digits = 0) =>
+  `$${n.toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits })}`;
+const monthYear = (iso: string) =>
+  new Date(`${iso.slice(0, 10)}T00:00:00Z`).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+const WEEKEND_WIDER_PCT = weekendMarkup.providers.length
+  ? Math.round((100 * weekendMarkup.providers.filter((p) => p.premiumPp > 0).length) / weekendMarkup.providers.length)
+  : 0;
+const TIMED_FAST_PCT = DELIVERY_TESTS.length
+  ? Math.round((100 * DELIVERY_TESTS.filter((t) => t.outcome === "delivered" && t.durationMinutes <= 2).length) / DELIVERY_TESTS.length)
+  : 0;
+const TIMED_RETURNED = (() => {
+  const r = DELIVERY_TESTS.find((t) => t.outcome === "returned" && typeof t.durationMinutes === "number");
+  return r ? fmtMinutes(r.durationMinutes) : "";
+})();
+
 /** Compare-tool FAQ — question-format phrasing that wins on Bing (e.g. "exchange
  *  rate mark up" 66.7% CTR, "does revolut charge fees abroad" 75% CTR). Kept generic
  *  to the comparison TOOL so it does not cannibalise the pair-specific FAQs on the
@@ -128,6 +148,26 @@ const COMPARE_FAQS: { q: string; a: string }[] = [
   {
     q: "Are these affiliate links?",
     a: "Some are. When you click \u201cSend with\u201d we may earn a commission at no cost to you. It never changes which provider the tool shows as cheaper — the winner is decided purely by the live receive amount. See our methodology for exactly how we rank.",
+  },
+  // 2026-11-11: the four questions /compare-money-transfer answered before it
+  // 301'd here on 2026-10-28. Bing's AI Performance export credited that URL
+  // with 11,738 Copilot citations, the most of any URL we no longer serve, and
+  // this hub answered none of the four. Every figure is read from a dataset.
+  {
+    q: "Which money transfer service has the best exchange rate?",
+    a: `None wins everywhere, so the answer depends on your route and amount. ${TOP_LEADER.providerName} delivered the most on ${TOP_LEADER.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare (${TOP_LEADER_SHARE}%), more than any other provider, which still leaves most routes to someone else. Banks are rarely the answer: in our remittance cost index, sending ${usd(REMITTANCE_INDEX.amount)} cost ${usd(REMITTANCE_INDEX.avgBankCost, 2)} on average through a bank and ${usd(REMITTANCE_INDEX.avgSpecialistCost, 2)} through a specialist transfer service, fee and exchange rate together. Price your own route in the tool above: the provider at the top is the one that delivers the most for that amount today.`,
+  },
+  {
+    q: "Are there hidden fees in international money transfers?",
+    a: `Yes, and the biggest one is not called a fee. Banks in our index charge smaller upfront fees than specialist services (${REMITTANCE_INDEX.avgBankFeePct}% of the amount against ${REMITTANCE_INDEX.avgSpecialistFeePct}%), yet cost more in total, because the rest of their price is in the exchange rate. Four other costs rarely appear on the quote. Your card issuer may treat a card-funded transfer as a cash advance, with its own fee and interest from day one. A SWIFT payment can pass through intermediary banks that deduct a charge on the way, and the recipient's bank may charge to receive it; whether those come out of the amount depends on the charge option (OUR, SHA or BEN) the sending bank uses. Cash pickup and instant delivery are often priced above a bank deposit on the same route. And a first-transfer promotional rate is not the rate you get next time. Weekend timing matters less than the provider: in our quote archive since ${monthYear(weekendMarkup.dataRange.from)}, ${WEEKEND_WIDER_PCT}% of providers priced their rate weaker at weekends and the rest the same or better.`,
+  },
+  {
+    q: "Is it safe to send money with an online transfer service?",
+    a: "It is when the service is regulated where you live, and you can check that yourself. In the US, a money transmitter must be licensed by the states it serves and registered with FinCEN as a money services business (FinCEN's MSB Registrant Search lists them). The CFPB's Remittance Transfer Rule then gives you a written disclosure of the exchange rate, fees and amount received before you pay, 30 minutes to cancel after paying (unless the money has already been picked up or deposited), and 180 days to report an error, which the provider must investigate. In the UK, look the firm up on the FCA Register: an authorised payment or e-money institution must safeguard your money separately from its own, but that money is not covered by the FSCS the way a bank deposit is. In the EU, providers are licensed as payment or e-money institutions by a national regulator under the same kind of safeguarding rules. The commonest loss is not a failed provider but a scam: never send money to someone you have not met in person, whatever the platform.",
+  },
+  {
+    q: "How long does an international money transfer take?",
+    a: `It depends on the route, the payout method and the provider, and the time on a quote is the provider's own promise. Mobile-wallet and instant bank payouts can arrive within minutes, while a SWIFT bank transfer can take days when it passes through intermediary banks. Promises disagree too: on ${DELIVERY_SPEED.disagreement.pct}% of the provider-and-route pairs that two comparison sources described in the same week, the delivery times they published were a day or more apart. In the US, the Remittance Transfer Rule requires the provider to state the date the money will be available before you pay. We also time transfers we send ourselves, from each provider's own status timeline: ${TIMED_FAST_PCT}% of ours were paid out within two minutes${TIMED_RETURNED ? `, and one came back to us after ${TIMED_RETURNED}` : ""}.`,
   },
 ];
 

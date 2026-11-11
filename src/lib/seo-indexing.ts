@@ -254,12 +254,28 @@ export function bingIndexable(pathname: string): boolean {
 
 type RobotsMeta =
   | { index: false; follow: true }
-  | { index: true; follow: true; googleBot: { index: false; follow: true } };
+  | {
+      index: true;
+      follow: true;
+      "max-image-preview": "large";
+      "max-snippet": -1;
+      googleBot: { index: false; follow: true };
+    };
 
 /** Metadata `robots` value for a path: undefined when indexable everywhere. */
 export function robotsFor(pathname: string): RobotsMeta | undefined {
   if (googleIndexable(pathname)) return undefined;
-  if (bingIndexable(pathname)) return { index: true, follow: true, googleBot: { index: false, follow: true } };
+  // Bing-only: open to Bing with the same snippet and image allowances the
+  // layout gives every indexable page, so Copilot may quote it in full.
+  if (bingIndexable(pathname)) {
+    return {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      googleBot: { index: false, follow: true },
+    };
+  }
   return { index: false, follow: true };
 }
 

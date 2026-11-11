@@ -71,9 +71,14 @@ export const metadata: Metadata = {
     // `template` whenever `default` is used, so "%s" is how you opt out.
     template: "%s",
   },
+  // The generic tag states the snippet and image allowances too (2026-11-11):
+  // Bing reads them from it, and Copilot answers quote only what the page
+  // permits. Same values Googlebot already had, so Google sees no change.
   robots: {
     index: true,
     follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   // Third-party domain verification. Each network drops a verification meta to

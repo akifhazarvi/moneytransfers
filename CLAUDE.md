@@ -94,6 +94,13 @@ what enforces it. Where a rule is not automated, it says how to check it.
    generic `noindex`, twins included (usa-to-europe, india-to-uk,
    india-to-canada, swift-codes/ireland went Bing-only in
    `BING_DEMAND_WAVE_2`). Google is unaffected: they stay `googlebot: noindex`.
+   **Superseded for Bing, owner decision 2026-11-11:** every rendered page is
+   open to Bing (`BING_DEMAND_WAVE_4`, 102 pages incl. the currency twins).
+   Bing sessions were 276–303/week while all of them were Bing-indexable
+   (Aug 24–Sep 20) and 160 on Nov 2–8, and 37 of them still drew 3,143 Copilot
+   citations while closed. A new rendered page joins Bing by default; the
+   evidence and duplication procedure above now gates Google only. Still
+   closed to every engine: unlaunched pages (`/tools/fee-impact`), 410s, 301s.
    *Not automated* — the procedure is the check.
 4. **A heading names its page; a widget has no heading.** No H2 may appear on
    10+ indexable pages. Template headings take the subject

@@ -50,6 +50,11 @@ interface Props {
    * every study page it lists (round-4 brief §1.4).
    */
   sourcesOnly?: boolean;
+  /**
+   * The H2. "Provenance" alone repeated on 13 indexable pages (rule 4); a
+   * page family that renders this block many times names its subject here.
+   */
+  heading?: string;
 }
 
 export default function DataProvenance({
@@ -59,6 +64,7 @@ export default function DataProvenance({
   sources,
   authorSlug = "ahsan-mukhtar",
   sourcesOnly = false,
+  heading = "Provenance",
 }: Props) {
   const author = getAuthor(authorSlug);
 
@@ -69,7 +75,7 @@ export default function DataProvenance({
     >
       <div className="max-w-3xl mx-auto px-4">
         <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-6">
-          Provenance
+          {heading}
         </h2>
 
         <dl className="grid sm:grid-cols-2 gap-x-8 gap-y-4 mb-8">

@@ -574,7 +574,9 @@ function DefaultComparison({
 
               <section id="worked-example" className="mb-10">
                 <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
-                  {editorial.workedExample.heading}
+                  {/* Rule 4: "A worked example: $1,000 to India" was the same H2 on
+                      16 comparison pages; the pair names the page. */}
+                  {editorial.workedExample.heading.replace(/^A worked example: (.+)$/, `${a.name} vs ${b.name} on $1`)}
                 </h2>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
                   <p

@@ -353,6 +353,7 @@ export default async function AlternativesPage({
       </section>
 
       <DataProvenance
+        heading={`Where the ${e.name} alternatives figures come from`}
         dataAsOf={e.dataAsOf}
         computedFrom={`median true total cost at $${INDEX_AMOUNT.toLocaleString("en-US")}, restricted to corridors both providers quote (src/lib/provider-alternatives.ts)`}
         sources={[
