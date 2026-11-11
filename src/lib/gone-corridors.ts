@@ -594,10 +594,50 @@ export const GONE_CORRIDOR_SLUGS: ReadonlySet<string> = new Set(
  * in the 2026-09-20 GSC re-verification (ranking-corridors.ts), and both
  * redirected into a different corridor.
  *
- * Kept as an (empty) export so the middleware's order of checks stays
- * explicit: a future same-intent consolidation goes here, never a lookalike.
+ * A future same-intent consolidation goes here, never a lookalike.
+ *
+ * 2026-11-11 — the first such consolidation (owner: "do it"). Sixteen retired
+ * US-origin corridors whose route is still served by a live page: same sender
+ * country, same destination, same currency pair (usa-to-poland and
+ * send-money-to-poland are both USD→PLN, from the United States to Poland),
+ * so rule 15's "same corridor" test holds. Bing's AI Performance export of
+ * 2026-11-11 still credited them with 898 Copilot citations, which a 410
+ * discards and a 301 carries to the page. Citations in the comments.
+ * A pair whose target stops rendering drops out here and the source stays
+ * 410, so a data change can never make this a redirect into a 404.
  */
-export const DUPLICATE_CORRIDOR_REDIRECTS: ReadonlyMap<string, string> = new Map();
+const SAME_ROUTE_REDIRECTS: readonly (readonly [string, string])[] = [
+  ["usa-to-germany", "send-money-to-germany"],           // 198
+  ["usa-to-poland", "send-money-to-poland"],             // 99
+  ["usa-to-rwanda", "send-money-to-rwanda"],             // 95
+  ["usa-to-japan", "send-money-to-japan"],               // 64
+  ["usa-to-canada", "send-money-to-canada"],             // 61
+  ["usa-to-peru", "send-money-to-peru"],                 // 56
+  ["usa-to-uganda", "send-money-to-uganda"],             // 50
+  ["usa-to-israel", "send-money-to-israel"],             // 43
+  ["usd-to-aud", "send-money-to-australia"],             // 41
+  ["usa-to-south-africa", "send-money-to-south-africa"], // 41
+  ["usa-to-tanzania", "send-money-to-tanzania"],         // 39
+  ["usa-to-senegal", "send-money-to-senegal"],           // 34
+  ["usa-to-china", "send-money-to-china"],               // 31
+  ["usa-to-spain", "send-money-to-spain"],               // 22
+  ["usa-to-romania", "send-money-to-romania"],           // 18
+  ["usa-to-argentina", "send-money-to-argentina"],       // 6
+];
+
+export const DUPLICATE_CORRIDOR_REDIRECTS: ReadonlyMap<string, string> = new Map(
+  SAME_ROUTE_REDIRECTS.filter(([from, to]) => {
+    const a = CORRIDOR_BY_SLUG.get(from);
+    const b = CORRIDOR_BY_SLUG.get(to);
+    return (
+      !!a && !!b &&
+      a.fromCurrency === b.fromCurrency &&
+      a.toCurrency === b.toCurrency &&
+      GONE_CORRIDOR_SLUGS.has(from) &&
+      corridorPageRenders(to)
+    );
+  }),
+);
 
 /**
  * Does /send-money/<slug> render? The one answer, shared by route-map (links,

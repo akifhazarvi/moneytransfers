@@ -448,15 +448,56 @@ export default async function IbanCountryPage({ params }: Props) {
   // were word-for-word the same on every IBAN page and restated the structure
   // card; SiteLiner scored /iban/bulgaria 58% duplicate on 2026-09-26.
   const bankNames = country.banks.map((bank) => bank.name);
+
+  // Length and example, answered from this country's own fields (2026-11-11).
+  // The Sep 26 de-duplication kept these two only for countries WITHOUT
+  // hand-written FAQs, so Germany, the UAE and most pages Bing sent people to
+  // lost them, and with them the queries they answered ("iban de", "de iban
+  // example", "sample iban", "how long is the iban for al maryah uae"): IBAN
+  // clicks from Bing fell 299 → 62 (Aug 28–Sep 17 vs Oct 23–Nov 12). Every
+  // fixed run of words below is shorter than the 10-word shingle
+  // check:duplication measures, so the answers stay page-specific.
+  const fieldKind = (regex: string) =>
+    /^\^?\[0-9\]/.test(regex) ? "digit" : /^\^?\[A-Z\]\{/.test(regex) ? "letter" : "character";
+  const article = (n: number) => (/^(8|11|18|8\d)$/.test(String(n)) ? "an" : "a");
+  // "a United Arab Emirates IBAN", "an Italy IBAN" ("U" here is said "you").
+  const nameArticle = /^[AEIO]/.test(name) ? "an" : "a";
+  // Each field carries the example's own segment, so two countries sharing a
+  // layout (Serbia and Montenegro are both 3-13-2) do not share the sentence.
+  let segmentAt = 4;
+  const fieldList = country.bbanFields.map((f) => {
+    const label = (bbanLabels[f.type] || f.label.replace(/_/g, " ")).toLowerCase();
+    const segment = country.exampleIban.slice(segmentAt, segmentAt + f.length);
+    segmentAt += f.length;
+    return `${article(f.length)} ${f.length}-${fieldKind(f.regex)} ${label}${segment ? ` (${segment} in the example)` : ""}`;
+  });
+  const joinAnd = (items: string[]) =>
+    items.length <= 1 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+  // Label first, value last: an answer ending "…the account number." ran into
+  // the next question and matched every page with the same field order.
+  const exampleFields = ibanParts.slice(2).map((part) => `${part.label.toLowerCase()} ${part.value}`);
+  const lengthFaq = {
+    q: `How many characters is ${nameArticle} ${name} IBAN?`,
+    a: fieldList.length
+      ? `${country.ibanLength}: ${country.countryCode}, two check digits, then ${joinAnd(fieldList)}.`
+      : `${country.ibanLength}: ${country.countryCode}, two check digits, then ${country.ibanLength - 4} for the account.`,
+  };
+  const exampleFaq = {
+    q: `${name} IBAN example: what does one look like?`,
+    // Fixed wording stays in short runs between this country's own values and
+    // ends on its name: a generic tail ran into the next question and
+    // repeated on 29–50 pages (check:duplication, 10-word shingles).
+    a: `Printed: ${formatIban(country.exampleIban)}. Typed: ${country.exampleIban}, without the spaces. Read from the left: ${country.countryCode} is the country, ${country.exampleIban.slice(2, 4)} the check digits${exampleFields.length ? `, ${exampleFields.join(", ")}` : ""}. A sample, not a real ${name} account.`,
+  };
+  // A country whose own FAQs already answer one of these keeps its own.
+  const formatFaqs = [
+    ...(countryFaqsList?.some((f) => /how many characters|how long is|iban length|format/i.test(f.q)) ? [] : [lengthFaq]),
+    ...(countryFaqsList?.some((f) => /look like|example|sample/i.test(f.q)) ? [] : [exampleFaq]),
+  ];
+
   const defaultFaqs: { q: string; a: string }[] = [
-    {
-      q: `How many characters is a ${name} IBAN?`,
-      a: `${country.ibanLength}: "${country.countryCode}", two check digits, then ${country.ibanLength - 4} for the BBAN.`,
-    },
-    {
-      q: `What does a ${name} IBAN look like?`,
-      a: `${formatIban(country.exampleIban)} — ${ibanParts.map((part) => `${part.label.toLowerCase()} ${part.value}`).join(", ")}.`,
-    },
+    lengthFaq,
+    exampleFaq,
     {
       q: `Is ${name} part of SEPA?`,
       a: country.sepa
@@ -690,7 +731,7 @@ export default async function IbanCountryPage({ params }: Props) {
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {countryFaqsList ? (
-                countryFaqsList.map((faq, i) => (
+                [...formatFaqs, ...countryFaqsList].map((faq, i) => (
                   <div key={i} className="py-4">
                     <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       {faq.q}
@@ -868,7 +909,7 @@ export default async function IbanCountryPage({ params }: Props) {
     {/* FAQ JSON-LD Schema */}
     {(() => {
       const faqs = countryFaqsList
-        ? countryFaqsList.map((f) => ({ q: f.q, a: f.a }))
+        ? [...formatFaqs, ...countryFaqsList.map((f) => ({ q: f.q, a: f.a }))]
         : defaultFaqs;
       return (
         <script
