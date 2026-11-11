@@ -37593,27 +37593,27 @@
         "receiveAmount": 8172.74
       },
       "ofx": {
-        "rate": 78.4844,
+        "rate": 78.2146,
         "fee": 0,
-        "markup": 7.07,
-        "receiveAmount": 7848.44
+        "markup": 7.2,
+        "receiveAmount": 7821.46
       },
       "currencyfair": {
-        "rate": 83.97,
+        "rate": 83.77,
         "fee": 0.95,
-        "markup": 0.57,
-        "receiveAmount": 8317.23
+        "markup": 0.61,
+        "receiveAmount": 8297.42
       },
       "transfergo": {
-        "rate": 83.6173,
+        "rate": 83.44,
         "fee": 0,
-        "markup": 0.99,
-        "receiveAmount": 8361.73
+        "markup": 1,
+        "receiveAmount": 8344
       },
       "pnb-europe": {
         "rate": 66.85,
         "fee": 11,
-        "markup": 20.84,
+        "markup": 20.68,
         "receiveAmount": 5949.65
       },
       "worldremit": {
@@ -37629,28 +37629,28 @@
         "receiveAmount": 8382.23
       },
       "xe": {
-        "rate": 83.9296,
+        "rate": 83.6799,
         "fee": 1.99,
-        "markup": 0.62,
-        "receiveAmount": 8225.94
+        "markup": 0.71,
+        "receiveAmount": 8201.47
       },
       "mukuru": {
-        "rate": 81.861,
+        "rate": 81.324,
         "fee": 2,
-        "markup": 3.07,
-        "receiveAmount": 8022.37
+        "markup": 3.51,
+        "receiveAmount": 7969.75
       },
       "paysend": {
-        "rate": 84.284,
+        "rate": 84.0834,
         "fee": 1,
-        "markup": 0.2,
-        "receiveAmount": 8344.12
+        "markup": 0.24,
+        "receiveAmount": 8324.26
       },
       "sendwave": {
-        "rate": 84.353,
+        "rate": 83.9952,
         "fee": 0.99,
-        "markup": 0.12,
-        "receiveAmount": 8351.79
+        "markup": 0.34,
+        "receiveAmount": 8316.37
       },
       "remitly": {
         "rate": 83.48,
@@ -37659,10 +37659,10 @@
         "receiveAmount": 8348
       },
       "revolut": {
-        "rate": 83.9992,
+        "rate": 83.8383,
         "fee": 0.35,
-        "markup": 0.54,
-        "receiveAmount": 8370.52
+        "markup": 0.53,
+        "receiveAmount": 8354.49
       },
       "wise": {
         "rate": 84.3155,
@@ -37671,10 +37671,10 @@
         "receiveAmount": 8342.18
       },
       "ria": {
-        "rate": 84.3209,
+        "rate": 84.1015,
         "fee": 1.99,
-        "markup": 0,
-        "receiveAmount": 8264.29
+        "markup": 0.26,
+        "receiveAmount": 8242.79
       },
       "xoom": {
         "rate": 81.9627,
@@ -37717,6 +37717,12 @@
         "fee": 15,
         "markup": 2.77,
         "receiveAmount": 6968.22
+      },
+      "dahabshiil": {
+        "rate": 84.7094,
+        "fee": 1.99,
+        "markup": -0.51,
+        "receiveAmount": 8302.37
       }
     }
   }
