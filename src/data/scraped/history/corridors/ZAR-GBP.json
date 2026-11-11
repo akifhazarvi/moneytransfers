@@ -3657,5 +3657,28 @@
         "receiveAmount": 3.34
       }
     }
+  },
+  {
+    "date": "2026-11-11",
+    "providers": {
+      "skrill": {
+        "rate": 0.0433,
+        "fee": 0,
+        "markup": 4.75,
+        "receiveAmount": 4.33
+      },
+      "worldremit": {
+        "rate": 0.04459,
+        "fee": 7.5,
+        "markup": 1.91,
+        "receiveAmount": 4.12
+      },
+      "mukuru": {
+        "rate": 0.044528,
+        "fee": 25,
+        "markup": 2.04,
+        "receiveAmount": 3.34
+      }
+    }
   }
 ]

@@ -22024,5 +22024,100 @@
         "receiveAmount": 193.11
       }
     }
+  },
+  {
+    "date": "2026-11-11",
+    "providers": {
+      "taptap-send": {
+        "rate": 1.93,
+        "fee": 0,
+        "markup": 0.57,
+        "receiveAmount": 193
+      },
+      "santander": {
+        "rate": 1.87696,
+        "fee": 25,
+        "markup": 3.31,
+        "receiveAmount": 140.77
+      },
+      "lloyds": {
+        "rate": 1.87164,
+        "fee": 9.5,
+        "markup": 3.58,
+        "receiveAmount": 169.38
+      },
+      "skrill": {
+        "rate": 1.90273,
+        "fee": 0,
+        "markup": 1.98,
+        "receiveAmount": 190.27
+      },
+      "instarem": {
+        "rate": 1.93,
+        "fee": 0,
+        "markup": 0.57,
+        "receiveAmount": 193
+      },
+      "barclays": {
+        "rate": 1.88695,
+        "fee": 0,
+        "markup": 2.79,
+        "receiveAmount": 188.69
+      },
+      "nationwide": {
+        "rate": 1.90032,
+        "fee": 15,
+        "markup": 2.1,
+        "receiveAmount": 161.53
+      },
+      "rbs": {
+        "rate": 1.89587,
+        "fee": 0,
+        "markup": 2.33,
+        "receiveAmount": 189.59
+      },
+      "paypal": {
+        "rate": 1.85765,
+        "fee": 2.99,
+        "markup": 4.3,
+        "receiveAmount": 180.21
+      },
+      "western-union": {
+        "rate": 1.92571,
+        "fee": 2.99,
+        "markup": 0.8,
+        "receiveAmount": 186.81
+      },
+      "hsbc": {
+        "rate": 1.92015,
+        "fee": 0,
+        "markup": 1.08,
+        "receiveAmount": 192.02
+      },
+      "natwest": {
+        "rate": 1.89587,
+        "fee": 0,
+        "markup": 2.33,
+        "receiveAmount": 189.59
+      },
+      "remitly": {
+        "rate": 1.91913,
+        "fee": 0.99,
+        "markup": 1.13,
+        "receiveAmount": 190.01
+      },
+      "xoom": {
+        "rate": 1.90882,
+        "fee": 0.99,
+        "markup": 1.67,
+        "receiveAmount": 188.99
+      },
+      "monese": {
+        "rate": 1.94013,
+        "fee": 3,
+        "markup": 0.05,
+        "receiveAmount": 188.19
+      }
+    }
   }
 ]
