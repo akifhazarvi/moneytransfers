@@ -7821,10 +7821,10 @@
     "date": "2026-11-11",
     "providers": {
       "western-union": {
-        "rate": 17.2067,
+        "rate": 17.2162,
         "fee": 10,
-        "markup": -0.03,
-        "receiveAmount": 1548.6
+        "markup": -0.09,
+        "receiveAmount": 1549.46
       },
       "currencyfair": {
         "rate": 16.998,
@@ -7845,10 +7845,10 @@
         "receiveAmount": 1624.5
       },
       "taptap-send": {
-        "rate": 17,
+        "rate": 17.05,
         "fee": 0,
-        "markup": 1.17,
-        "receiveAmount": 1700
+        "markup": 0.88,
+        "receiveAmount": 1705
       }
     }
   }

@@ -2590,10 +2590,10 @@
     "date": "2026-11-11",
     "providers": {
       "western-union": {
-        "rate": 167.224,
+        "rate": 167.361,
         "fee": 0.5,
-        "markup": 0.46,
-        "receiveAmount": 16638.77
+        "markup": 0.38,
+        "receiveAmount": 16652.4
       },
       "skrill": {
         "rate": 158.948,
@@ -2602,10 +2602,10 @@
         "receiveAmount": 15894.81
       },
       "taptap-send": {
-        "rate": 166.39,
+        "rate": 167.81,
         "fee": 0.5,
-        "markup": 0.96,
-        "receiveAmount": 16555.81
+        "markup": 0.12,
+        "receiveAmount": 16697.1
       }
     }
   }

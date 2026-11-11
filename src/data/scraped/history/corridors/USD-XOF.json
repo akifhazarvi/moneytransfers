@@ -4779,16 +4779,22 @@
         "receiveAmount": 56961.62
       },
       "taptap-send": {
-        "rate": 585,
+        "rate": 586,
         "fee": 0,
-        "markup": 0.45,
-        "receiveAmount": 58500
+        "markup": 0.28,
+        "receiveAmount": 58600
       },
       "western-union": {
-        "rate": 496.868,
+        "rate": 501.957,
         "fee": 3.99,
-        "markup": 15.45,
-        "receiveAmount": 47704.26
+        "markup": 14.58,
+        "receiveAmount": 48192.86
+      },
+      "lemfi": {
+        "rate": 596,
+        "fee": 0,
+        "markup": -0.92,
+        "receiveAmount": 59600
       }
     }
   }

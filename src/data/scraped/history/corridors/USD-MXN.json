@@ -25035,10 +25035,10 @@
     "date": "2026-11-11",
     "providers": {
       "instarem": {
-        "rate": 18.5516,
+        "rate": 18.6445,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 1855.16
+        "receiveAmount": 1864.45
       },
       "moneygram": {
         "rate": 18.1926,
@@ -25071,10 +25071,10 @@
         "receiveAmount": 1806.8
       },
       "western-union": {
-        "rate": 18.2296,
+        "rate": 18.336,
         "fee": 1.99,
-        "markup": 1.91,
-        "receiveAmount": 1786.68
+        "markup": 1.33,
+        "receiveAmount": 1797.11
       },
       "currencyfair": {
         "rate": 18.2138,
@@ -25083,10 +25083,10 @@
         "receiveAmount": 1748.52
       },
       "worldremit": {
-        "rate": 18.1645,
+        "rate": 18.2497,
         "fee": 1.99,
-        "markup": 2.26,
-        "receiveAmount": 1780.31
+        "markup": 1.8,
+        "receiveAmount": 1788.65
       },
       "paysend": {
         "rate": 18.3653,
@@ -25113,28 +25113,28 @@
         "receiveAmount": 1835.85
       },
       "wise": {
-        "rate": 18.5834,
+        "rate": 18.6824,
         "fee": 1.69,
-        "markup": 0,
-        "receiveAmount": 1826.93
+        "markup": -0.53,
+        "receiveAmount": 1836.67
       },
       "paypal": {
-        "rate": 17.828,
+        "rate": 17.9116,
         "fee": 4.99,
-        "markup": 4.07,
-        "receiveAmount": 1693.84
+        "markup": 3.62,
+        "receiveAmount": 1701.78
       },
       "wells-fargo": {
-        "rate": 18.0061,
+        "rate": 18.0905,
         "fee": 0,
-        "markup": 3.11,
-        "receiveAmount": 1800.61
+        "markup": 2.65,
+        "receiveAmount": 1809.05
       },
       "chase": {
-        "rate": 18.0243,
+        "rate": 18.1088,
         "fee": 5,
-        "markup": 3.01,
-        "receiveAmount": 1712.31
+        "markup": 2.56,
+        "receiveAmount": 1720.34
       }
     }
   }

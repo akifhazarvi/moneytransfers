@@ -1994,10 +1994,10 @@
     "date": "2026-11-11",
     "providers": {
       "taptap-send": {
-        "rate": 28600,
+        "rate": 28300,
         "fee": 0,
-        "markup": 0.05,
-        "receiveAmount": 2860000
+        "markup": 1.1,
+        "receiveAmount": 2830000
       }
     }
   }

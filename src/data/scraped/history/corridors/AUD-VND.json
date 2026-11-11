@@ -7631,34 +7631,34 @@
     "date": "2026-11-11",
     "providers": {
       "taptap-send": {
-        "rate": 17600,
+        "rate": 17450,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 1760000
+        "markup": 1,
+        "receiveAmount": 1745000
       },
       "commonwealth-bank": {
-        "rate": 16502.9,
+        "rate": 16405.9,
         "fee": 0,
-        "markup": 6.38,
-        "receiveAmount": 1650285.7
+        "markup": 6.93,
+        "receiveAmount": 1640592.1
       },
       "instarem": {
-        "rate": 17611.4,
+        "rate": 17587.7,
         "fee": 0.5,
-        "markup": 0.09,
-        "receiveAmount": 1752329.42
+        "markup": 0.22,
+        "receiveAmount": 1749971.47
       },
       "western-union": {
-        "rate": 17275.3,
+        "rate": 17244.8,
         "fee": 0.99,
-        "markup": 2,
-        "receiveAmount": 1710430.23
+        "markup": 2.17,
+        "receiveAmount": 1707409.43
       },
       "remitly": {
-        "rate": 17537.7,
+        "rate": 17464,
         "fee": 1.99,
-        "markup": 0.51,
-        "receiveAmount": 1718873.51
+        "markup": 0.93,
+        "receiveAmount": 1711651.34
       }
     }
   }
