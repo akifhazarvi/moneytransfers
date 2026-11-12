@@ -12941,6 +12941,30 @@
         "fee": 11.14,
         "markup": 1.13,
         "receiveAmount": 5384.47
+      },
+      "moneygram": {
+        "rate": 59.5261,
+        "fee": 1.99,
+        "markup": 2.92,
+        "receiveAmount": 5834.15
+      },
+      "boss-money": {
+        "rate": 59.2559,
+        "fee": 2.49,
+        "markup": 3.37,
+        "receiveAmount": 5778.04
+      },
+      "paysend": {
+        "rate": 59.5783,
+        "fee": 1.99,
+        "markup": 2.84,
+        "receiveAmount": 5839.27
+      },
+      "remitly": {
+        "rate": 59.26,
+        "fee": 4.99,
+        "markup": 3.36,
+        "receiveAmount": 5630.29
       }
     }
   }

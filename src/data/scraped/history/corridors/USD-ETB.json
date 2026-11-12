@@ -12605,6 +12605,36 @@
         "fee": 8.21,
         "markup": 1.77,
         "receiveAmount": 14778.37
+      },
+      "moneygram": {
+        "rate": 174.663,
+        "fee": 2.99,
+        "markup": -6.44,
+        "receiveAmount": 16944.04
+      },
+      "boss-money": {
+        "rate": 173.264,
+        "fee": 2.49,
+        "markup": -5.59,
+        "receiveAmount": 16894.97
+      },
+      "worldremit": {
+        "rate": 175.007,
+        "fee": 1.99,
+        "markup": -6.65,
+        "receiveAmount": 17152.44
+      },
+      "xe": {
+        "rate": 181,
+        "fee": 5,
+        "markup": -10.3,
+        "receiveAmount": 17195
+      },
+      "remitly": {
+        "rate": 160.39,
+        "fee": 2.99,
+        "markup": 2.26,
+        "receiveAmount": 15559.43
       }
     }
   }

@@ -14339,6 +14339,30 @@
         "fee": 2.99,
         "markup": 0.05,
         "receiveAmount": 14542.77
+      },
+      "moneygram": {
+        "rate": 148.819,
+        "fee": 1.99,
+        "markup": 1.09,
+        "receiveAmount": 14585.74
+      },
+      "worldremit": {
+        "rate": 149.062,
+        "fee": 0.99,
+        "markup": 0.93,
+        "receiveAmount": 14758.64
+      },
+      "xe": {
+        "rate": 148.893,
+        "fee": 4,
+        "markup": 1.04,
+        "receiveAmount": 14293.78
+      },
+      "paysend": {
+        "rate": 147.62,
+        "fee": 1.99,
+        "markup": 1.89,
+        "receiveAmount": 14468.19
       }
     }
   }

@@ -11423,6 +11423,54 @@
         "fee": 0,
         "markup": -0.03,
         "receiveAmount": 21300
+      },
+      "hsbc": {
+        "rate": 205.563,
+        "fee": 20.06,
+        "markup": 3.5,
+        "receiveAmount": 16432.68
+      },
+      "paysend": {
+        "rate": 207.464,
+        "fee": 1,
+        "markup": 2.61,
+        "receiveAmount": 20538.95
+      },
+      "remitly": {
+        "rate": 206.01,
+        "fee": 1.99,
+        "markup": 3.29,
+        "receiveAmount": 20191.04
+      },
+      "revolut": {
+        "rate": 208.391,
+        "fee": 2.3,
+        "markup": 2.17,
+        "receiveAmount": 20359.78
+      },
+      "transfergo": {
+        "rate": 209.195,
+        "fee": 0,
+        "markup": 1.79,
+        "receiveAmount": 20919.51
+      },
+      "western-union": {
+        "rate": 206.445,
+        "fee": 2.99,
+        "markup": 3.09,
+        "receiveAmount": 20027.25
+      },
+      "wise": {
+        "rate": 210.045,
+        "fee": 10.76,
+        "markup": 1.4,
+        "receiveAmount": 18744.42
+      },
+      "xe": {
+        "rate": 207.633,
+        "fee": 3,
+        "markup": 2.53,
+        "receiveAmount": 20140.37
       }
     }
   }

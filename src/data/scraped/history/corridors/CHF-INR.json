@@ -12022,6 +12022,42 @@
         "fee": 1.63,
         "markup": -0.02,
         "receiveAmount": 11073.22
+      },
+      "moneygram": {
+        "rate": 110.643,
+        "fee": 1.99,
+        "markup": 2.15,
+        "receiveAmount": 10844.13
+      },
+      "dahabshiil": {
+        "rate": 112.127,
+        "fee": 1.99,
+        "markup": 0.83,
+        "receiveAmount": 10989.6
+      },
+      "currencyfair": {
+        "rate": 112.164,
+        "fee": 1.07,
+        "markup": 0.8,
+        "receiveAmount": 11096.38
+      },
+      "postfinance": {
+        "rate": 109.541,
+        "fee": 18.63,
+        "markup": 3.12,
+        "receiveAmount": 8913.35
+      },
+      "paysend": {
+        "rate": 112.057,
+        "fee": 2.9,
+        "markup": 0.9,
+        "receiveAmount": 10880.76
+      },
+      "revolut": {
+        "rate": 112.598,
+        "fee": 1.1,
+        "markup": 0.42,
+        "receiveAmount": 11135.95
       }
     }
   }

@@ -17222,10 +17222,10 @@
     "date": "2026-11-12",
     "providers": {
       "ria": {
-        "rate": 35.0721,
+        "rate": 35.0756,
         "fee": 1.99,
-        "markup": 0.37,
-        "receiveAmount": 3437.41
+        "markup": 0.36,
+        "receiveAmount": 3437.76
       },
       "westpac-nz": {
         "rate": 34.2647,
@@ -17256,6 +17256,36 @@
         "fee": 1.62,
         "markup": -0.02,
         "receiveAmount": 3464.13
+      },
+      "moneygram": {
+        "rate": 34.0324,
+        "fee": 4.99,
+        "markup": 3.96,
+        "receiveAmount": 3233.42
+      },
+      "western-union": {
+        "rate": 34.8835,
+        "fee": 2.2,
+        "markup": 1.56,
+        "receiveAmount": 3411.6
+      },
+      "xe": {
+        "rate": 35.2351,
+        "fee": 1.99,
+        "markup": 0.57,
+        "receiveAmount": 3453.39
+      },
+      "remitly": {
+        "rate": 35.06,
+        "fee": 1.99,
+        "markup": 1.06,
+        "receiveAmount": 3436.23
+      },
+      "revolut": {
+        "rate": 35.2773,
+        "fee": 0.75,
+        "markup": 0.45,
+        "receiveAmount": 3501.27
       }
     }
   }

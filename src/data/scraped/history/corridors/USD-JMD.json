@@ -12379,10 +12379,10 @@
     "date": "2026-11-12",
     "providers": {
       "ria": {
-        "rate": 153.9,
+        "rate": 153.77,
         "fee": 2.9,
-        "markup": 4.07,
-        "receiveAmount": 14943.69
+        "markup": 4.15,
+        "receiveAmount": 14931.07
       },
       "taptap-send": {
         "rate": 157,
@@ -12407,6 +12407,36 @@
         "fee": 11.41,
         "markup": 1.36,
         "receiveAmount": 14019.81
+      },
+      "moneygram": {
+        "rate": 154.769,
+        "fee": 10,
+        "markup": 3.49,
+        "receiveAmount": 13929.17
+      },
+      "boss-money": {
+        "rate": 155.837,
+        "fee": 1.49,
+        "markup": 2.82,
+        "receiveAmount": 15351.54
+      },
+      "xe": {
+        "rate": 156.311,
+        "fee": 4,
+        "markup": 2.53,
+        "receiveAmount": 15005.88
+      },
+      "paysend": {
+        "rate": 155.35,
+        "fee": 1.99,
+        "markup": 3.13,
+        "receiveAmount": 15225.86
+      },
+      "remitly": {
+        "rate": 153.1,
+        "fee": 2.99,
+        "markup": 4.53,
+        "receiveAmount": 14852.23
       }
     }
   }
