@@ -1,9 +1,9 @@
 {
   "dataAsOf": "2026-11-12",
   "comparableCorridors": 214,
-  "pairsTracked": 1072,
-  "contestedCorridorDays": 18119,
-  "providerDayObservations": 127644,
+  "pairsTracked": 1073,
+  "contestedCorridorDays": 18121,
+  "providerDayObservations": 127648,
   "maxWindowDays": 91,
   "rows": [
     {
@@ -11,9 +11,9 @@
       "providerName": "TapTap Send",
       "corridorsLed": 73,
       "corridorsQuoted": 157,
-      "wins": 6090,
-      "quotedDays": 13568,
-      "winRate": 44.89,
+      "wins": 6086,
+      "quotedDays": 13570,
+      "winRate": 44.85,
       "avgShortfallPct": 0.5,
       "leadRate": 46.5
     },
@@ -22,9 +22,9 @@
       "providerName": "InstaReM",
       "corridorsLed": 36,
       "corridorsQuoted": 79,
-      "wins": 3168,
+      "wins": 3170,
       "quotedDays": 7103,
-      "winRate": 44.6,
+      "winRate": 44.63,
       "avgShortfallPct": 0.47,
       "leadRate": 45.57
     },
@@ -33,9 +33,9 @@
       "providerName": "LemFi",
       "corridorsLed": 35,
       "corridorsQuoted": 87,
-      "wins": 3189,
-      "quotedDays": 7857,
-      "winRate": 40.59,
+      "wins": 3193,
+      "quotedDays": 7859,
+      "winRate": 40.63,
       "avgShortfallPct": 0.85,
       "leadRate": 40.23
     },
@@ -66,9 +66,9 @@
       "providerName": "Paysend",
       "corridorsLed": 10,
       "corridorsQuoted": 58,
-      "wins": 753,
+      "wins": 755,
       "quotedDays": 5011,
-      "winRate": 15.03,
+      "winRate": 15.07,
       "avgShortfallPct": 2.45,
       "leadRate": 17.24
     },
@@ -132,9 +132,9 @@
       "providerName": "Xoom (PayPal)",
       "corridorsLed": 2,
       "corridorsQuoted": 71,
-      "wins": 132,
+      "wins": 131,
       "quotedDays": 4652,
-      "winRate": 2.84,
+      "winRate": 2.82,
       "avgShortfallPct": 5.68,
       "leadRate": 2.82
     },
@@ -176,9 +176,9 @@
       "providerName": "HSBC",
       "corridorsLed": 1,
       "corridorsQuoted": 21,
-      "wins": 69,
+      "wins": 68,
       "quotedDays": 1872,
-      "winRate": 3.69,
+      "winRate": 3.63,
       "avgShortfallPct": 6.02,
       "leadRate": 4.76
     },
@@ -553,7 +553,7 @@
       "wins": 0,
       "quotedDays": 64,
       "winRate": 0,
-      "avgShortfallPct": 1.56,
+      "avgShortfallPct": 1.54,
       "leadRate": 0
     },
     {
@@ -564,7 +564,7 @@
       "wins": 0,
       "quotedDays": 71,
       "winRate": 0,
-      "avgShortfallPct": 7.16,
+      "avgShortfallPct": 7.14,
       "leadRate": 0
     },
     {
@@ -597,7 +597,7 @@
       "wins": 0,
       "quotedDays": 128,
       "winRate": 0,
-      "avgShortfallPct": 16.56,
+      "avgShortfallPct": 16.55,
       "leadRate": 0
     },
     {
@@ -608,7 +608,7 @@
       "wins": 0,
       "quotedDays": 80,
       "winRate": 0,
-      "avgShortfallPct": 27.16,
+      "avgShortfallPct": 27.15,
       "leadRate": 0
     },
     {
@@ -630,7 +630,7 @@
       "wins": 0,
       "quotedDays": 96,
       "winRate": 0,
-      "avgShortfallPct": 23.8,
+      "avgShortfallPct": 23.79,
       "leadRate": 0
     },
     {
@@ -799,6 +799,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 55,
-  "stableCorridors": 159
+  "rotatingCorridors": 48,
+  "stableCorridors": 166
 }

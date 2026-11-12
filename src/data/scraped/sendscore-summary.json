@@ -1,18 +1,18 @@
 {
   "dataAsOf": "2026-11-12",
-  "corridorsScored": 207,
+  "corridorsScored": 209,
   "corridorsWithAnyScore": 1051,
-  "singleProviderReadings": 844,
+  "singleProviderReadings": 842,
   "bands": {
-    "exceptional": 6,
-    "great": 51,
-    "good": 54,
-    "typical": 31,
-    "poor": 65
+    "exceptional": 7,
+    "great": 50,
+    "good": 53,
+    "typical": 29,
+    "poor": 70
   },
-  "goodOrBetterPct": 54,
+  "goodOrBetterPct": 53,
   "confidence": {
-    "high": 207,
+    "high": 209,
     "medium": 0,
     "low": 0
   },
@@ -29,28 +29,28 @@
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 11.368849546085622,
+          "score": 11.2880819306687,
           "detail": "11% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 38.405231202347636,
+          "score": 38.36257860955111,
           "detail": "-0.70% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 98.67022460624635,
+          "score": 98.57521350352035,
           "detail": "today's best beats the median provider by +1.96%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 26.34731535678702,
+          "score": 26.339067845329865,
           "detail": "falling — -0.95% week on week"
         }
       ],
