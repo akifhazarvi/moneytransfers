@@ -13513,10 +13513,10 @@
     "date": "2026-11-12",
     "providers": {
       "remitly": {
-        "rate": 33.33,
+        "rate": 33.41,
         "fee": 1.99,
-        "markup": 1.31,
-        "receiveAmount": 3266.67
+        "markup": 1.07,
+        "receiveAmount": 3274.51
       },
       "ria": {
         "rate": 33.0468,
@@ -13525,28 +13525,28 @@
         "receiveAmount": 3241.9
       },
       "taptap-send": {
-        "rate": 33.3,
+        "rate": 33.7,
         "fee": 1.99,
-        "markup": 1.39,
-        "receiveAmount": 3263.73
+        "markup": 0.21,
+        "receiveAmount": 3302.94
       },
       "wells-fargo": {
-        "rate": 32.6901,
+        "rate": 32.7341,
         "fee": 0,
-        "markup": 3.2,
-        "receiveAmount": 3269.01
+        "markup": 3.07,
+        "receiveAmount": 3273.41
       },
       "western-union": {
-        "rate": 33.1284,
+        "rate": 33.1068,
         "fee": 1.99,
-        "markup": 1.9,
-        "receiveAmount": 3246.91
+        "markup": 1.97,
+        "receiveAmount": 3244.8
       },
       "paypal": {
-        "rate": 32.3522,
+        "rate": 32.3958,
         "fee": 4.99,
-        "markup": 4.2,
-        "receiveAmount": 3073.79
+        "markup": 4.07,
+        "receiveAmount": 3077.93
       },
       "xoom": {
         "rate": 32.2974,
@@ -13555,22 +13555,22 @@
         "receiveAmount": 3068.58
       },
       "instarem": {
-        "rate": 33.5356,
+        "rate": 33.547,
         "fee": 0,
-        "markup": 0.7,
-        "receiveAmount": 3353.56
+        "markup": 0.66,
+        "receiveAmount": 3354.7
       },
       "worldremit": {
-        "rate": 33.2709,
+        "rate": 33.3157,
         "fee": 2.99,
-        "markup": 1.48,
-        "receiveAmount": 3227.61
+        "markup": 1.35,
+        "receiveAmount": 3231.96
       },
       "wise": {
-        "rate": 33.7625,
+        "rate": 33.846,
         "fee": 2.87,
-        "markup": 0.02,
-        "receiveAmount": 3279.35
+        "markup": -0.22,
+        "receiveAmount": 3287.46
       }
     }
   }

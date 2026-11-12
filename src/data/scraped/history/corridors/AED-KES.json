@@ -2245,16 +2245,16 @@
     "date": "2026-11-12",
     "providers": {
       "remitly": {
-        "rate": 35,
+        "rate": 35.01,
         "fee": 8,
-        "markup": 1.06,
-        "receiveAmount": 3220
+        "markup": 1.03,
+        "receiveAmount": 3220.92
       },
       "taptap-send": {
-        "rate": 35.05,
+        "rate": 35.1,
         "fee": 0,
-        "markup": 0.92,
-        "receiveAmount": 3505
+        "markup": 0.78,
+        "receiveAmount": 3510
       }
     }
   }

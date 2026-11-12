@@ -2977,10 +2977,16 @@
     "date": "2026-11-12",
     "providers": {
       "taptap-send": {
-        "rate": 20.05,
+        "rate": 19.88,
         "fee": 0,
-        "markup": 1.81,
-        "receiveAmount": 2005
+        "markup": 2.65,
+        "receiveAmount": 1988
+      },
+      "wise": {
+        "rate": 20.5801,
+        "fee": 8.21,
+        "markup": -0.78,
+        "receiveAmount": 1889.05
       }
     }
   }
