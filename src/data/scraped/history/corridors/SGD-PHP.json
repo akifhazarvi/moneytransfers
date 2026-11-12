@@ -17817,5 +17817,46 @@
         "receiveAmount": 4843.43
       }
     }
+  },
+  {
+    "date": "2026-11-12",
+    "providers": {
+      "instarem": {
+        "rate": 49.2277,
+        "fee": 0,
+        "markup": 0,
+        "receiveAmount": 4922.77
+      },
+      "ria": {
+        "rate": 49.189,
+        "fee": 0,
+        "markup": 0.25,
+        "receiveAmount": 4918.9
+      },
+      "paypal": {
+        "rate": 47.0457,
+        "fee": 6.38,
+        "markup": 4.6,
+        "receiveAmount": 4404.42
+      },
+      "western-union": {
+        "rate": 48.9109,
+        "fee": 3,
+        "markup": 0.82,
+        "receiveAmount": 4744.36
+      },
+      "hsbc-sg": {
+        "rate": 48.5018,
+        "fee": 0,
+        "markup": 1.65,
+        "receiveAmount": 4850.18
+      },
+      "wise": {
+        "rate": 49.3309,
+        "fee": 1.05,
+        "markup": -0.03,
+        "receiveAmount": 4881.29
+      }
+    }
   }
 ]

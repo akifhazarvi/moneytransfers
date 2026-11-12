@@ -14199,5 +14199,34 @@
         "receiveAmount": 5130.49
       }
     }
+  },
+  {
+    "date": "2026-11-12",
+    "providers": {
+      "ria": {
+        "rate": 52.0201,
+        "fee": 1.99,
+        "markup": 0.11,
+        "receiveAmount": 5098.49
+      },
+      "bank-of-new-zealand-nz": {
+        "rate": 51.1478,
+        "fee": 0,
+        "markup": 1.79,
+        "receiveAmount": 5114.78
+      },
+      "westpac-nz": {
+        "rate": 50.7672,
+        "fee": 0,
+        "markup": 2.52,
+        "receiveAmount": 5076.72
+      },
+      "wise": {
+        "rate": 52.0821,
+        "fee": 1.75,
+        "markup": -0.01,
+        "receiveAmount": 5117.07
+      }
+    }
   }
 ]

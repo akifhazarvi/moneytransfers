@@ -12007,5 +12007,22 @@
         "receiveAmount": 11079.71
       }
     }
+  },
+  {
+    "date": "2026-11-12",
+    "providers": {
+      "western-union": {
+        "rate": 108.505,
+        "fee": 2.99,
+        "markup": 3.59,
+        "receiveAmount": 10526.11
+      },
+      "wise": {
+        "rate": 112.567,
+        "fee": 1.63,
+        "markup": -0.02,
+        "receiveAmount": 11073.22
+      }
+    }
   }
 ]
