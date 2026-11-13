@@ -19220,5 +19220,94 @@
         "receiveAmount": 152297.64
       }
     }
+  },
+  {
+    "date": "2026-11-13",
+    "providers": {
+      "instarem": {
+        "rate": 1479.45,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 147945.37
+      },
+      "lemfi": {
+        "rate": 1541,
+        "fee": 0,
+        "markup": -3.67,
+        "receiveAmount": 154100
+      },
+      "moneygram": {
+        "rate": 1528.44,
+        "fee": 3.99,
+        "markup": -2.83,
+        "receiveAmount": 146745.91
+      },
+      "taptap-send": {
+        "rate": 1541,
+        "fee": 0,
+        "markup": -3.67,
+        "receiveAmount": 154100
+      },
+      "western-union": {
+        "rate": 1538.77,
+        "fee": 0.99,
+        "markup": -3.52,
+        "receiveAmount": 152353.3
+      },
+      "dahabshiil": {
+        "rate": 1486.97,
+        "fee": 1.99,
+        "markup": 0.61,
+        "receiveAmount": 145737.49
+      },
+      "profee": {
+        "rate": 1534.88,
+        "fee": 2,
+        "markup": -2.59,
+        "receiveAmount": 150417.94
+      },
+      "worldremit": {
+        "rate": 1527.13,
+        "fee": 0.99,
+        "markup": -2.07,
+        "receiveAmount": 151201.32
+      },
+      "paysend": {
+        "rate": 1542.37,
+        "fee": 0,
+        "markup": -3.09,
+        "receiveAmount": 154236.94
+      },
+      "sendwave": {
+        "rate": 1527.13,
+        "fee": 0.99,
+        "markup": -2.07,
+        "receiveAmount": 151201.32
+      },
+      "remitly": {
+        "rate": 1506.82,
+        "fee": 0,
+        "markup": -1.37,
+        "receiveAmount": 150682
+      },
+      "ria": {
+        "rate": 1513.13,
+        "fee": 0.9,
+        "markup": -1.8,
+        "receiveAmount": 149950.93
+      },
+      "xoom": {
+        "rate": 1478.27,
+        "fee": 0.49,
+        "markup": 0.55,
+        "receiveAmount": 147103
+      },
+      "wise": {
+        "rate": 1550.75,
+        "fee": 1.72,
+        "markup": -4.33,
+        "receiveAmount": 152407.71
+      }
+    }
   }
 ]
