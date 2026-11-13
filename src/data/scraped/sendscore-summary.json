@@ -4,13 +4,13 @@
   "corridorsWithAnyScore": 1051,
   "singleProviderReadings": 843,
   "bands": {
-    "exceptional": 7,
-    "great": 51,
-    "good": 50,
-    "typical": 34,
-    "poor": 66
+    "exceptional": 8,
+    "great": 54,
+    "good": 48,
+    "typical": 31,
+    "poor": 67
   },
-  "goodOrBetterPct": 52,
+  "goodOrBetterPct": 53,
   "confidence": {
     "high": 208,
     "medium": 0,
@@ -23,34 +23,34 @@
       "score": 42,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.46% vs the 30-day average, 17% up the 90-day range. Rates are falling — -0.87% week on week. Today's best beats the median provider by +2.16%.",
+      "explanation": "Best rate -0.45% vs the 30-day average, 18% up the 90-day range. Rates are falling — -0.87% week on week. Today's best beats the median provider by +1.94%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 17.339191677704996,
-          "detail": "17% up the 90-day range"
+          "score": 17.739799050172863,
+          "detail": "18% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 42.258597284241525,
-          "detail": "-0.46% vs the 30-day average"
+          "score": 42.470212814387594,
+          "detail": "-0.45% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 100,
-          "detail": "today's best beats the median provider by +2.16%"
+          "score": 97.75421507156224,
+          "detail": "today's best beats the median provider by +1.94%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 28.22232103603316,
+          "score": 28.263273284126804,
           "detail": "falling — -0.87% week on week"
         }
       ],

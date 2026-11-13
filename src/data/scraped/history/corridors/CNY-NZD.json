@@ -1631,10 +1631,10 @@
     "date": "2026-11-13",
     "providers": {
       "wise": {
-        "rate": 0.270466,
+        "rate": 0.270666,
         "fee": 22.35,
-        "markup": 0.03,
-        "receiveAmount": 21
+        "markup": -0.05,
+        "receiveAmount": 21.02
       }
     }
   }

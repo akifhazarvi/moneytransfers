@@ -21405,7 +21405,7 @@
       "lemfi": {
         "rate": 11.72,
         "fee": 0,
-        "markup": 0.02,
+        "markup": 0,
         "receiveAmount": 1172
       },
       "ria": {
@@ -21415,10 +21415,10 @@
         "receiveAmount": 1120.54
       },
       "taptap-send": {
-        "rate": 11.72,
+        "rate": 11.73,
         "fee": 0,
-        "markup": 0.02,
-        "receiveAmount": 1172
+        "markup": -0.07,
+        "receiveAmount": 1173
       },
       "boss-money": {
         "rate": 11.75,
@@ -21427,10 +21427,10 @@
         "receiveAmount": 1175
       },
       "western-union": {
-        "rate": 10.63,
+        "rate": 10.6323,
         "fee": 0.99,
-        "markup": 9.32,
-        "receiveAmount": 1052.48
+        "markup": 9.3,
+        "receiveAmount": 1052.7
       },
       "worldremit": {
         "rate": 11.73,
@@ -21439,10 +21439,10 @@
         "receiveAmount": 1173
       },
       "instarem": {
-        "rate": 11.6082,
+        "rate": 11.6181,
         "fee": 0,
-        "markup": 0.97,
-        "receiveAmount": 1160.82
+        "markup": 0.89,
+        "receiveAmount": 1161.81
       },
       "xe": {
         "rate": 11.6221,
@@ -21475,10 +21475,10 @@
         "receiveAmount": 1151.9
       },
       "wise": {
-        "rate": 11.72,
-        "fee": 4.06,
-        "markup": 0.02,
-        "receiveAmount": 1124.42
+        "rate": 11.715,
+        "fee": 3.82,
+        "markup": 0.06,
+        "receiveAmount": 1126.75
       },
       "xoom": {
         "rate": 11.5554,

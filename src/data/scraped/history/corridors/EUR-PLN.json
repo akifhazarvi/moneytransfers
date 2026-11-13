@@ -10394,76 +10394,76 @@
     "date": "2026-11-13",
     "providers": {
       "remitly": {
-        "rate": 4.3633,
+        "rate": 4.35995,
         "fee": 1.99,
-        "markup": 0.95,
-        "receiveAmount": 427.65
+        "markup": 1.02,
+        "receiveAmount": 427.32
       },
       "skrill": {
-        "rate": 4.19519,
+        "rate": 4.19506,
         "fee": 0,
         "markup": 4.76,
-        "receiveAmount": 419.52
+        "receiveAmount": 419.51
       },
       "monese": {
-        "rate": 4.4028,
+        "rate": 4.40365,
         "fee": 3,
-        "markup": 0.05,
-        "receiveAmount": 427.07
+        "markup": 0.03,
+        "receiveAmount": 427.15
       },
       "commerzbank": {
-        "rate": 4.33459,
+        "rate": 4.33616,
         "fee": 12.5,
-        "markup": 1.6,
-        "receiveAmount": 379.28
+        "markup": 1.56,
+        "receiveAmount": 379.41
       },
       "deutsche-bank": {
-        "rate": 4.3377,
+        "rate": 4.34178,
         "fee": 36.55,
-        "markup": 1.53,
-        "receiveAmount": 275.23
+        "markup": 1.43,
+        "receiveAmount": 275.49
       },
       "moneygram": {
-        "rate": 4.3121,
+        "rate": 4.31508,
         "fee": 1.99,
-        "markup": 2.11,
-        "receiveAmount": 422.63
+        "markup": 2.04,
+        "receiveAmount": 422.92
       },
       "rabobank": {
-        "rate": 4.35619,
+        "rate": 4.3757,
         "fee": 16,
-        "markup": 1.11,
-        "receiveAmount": 365.92
+        "markup": 0.66,
+        "receiveAmount": 367.56
       },
       "western-union": {
-        "rate": 4.35142,
+        "rate": 4.33671,
         "fee": 2.99,
-        "markup": 1.21,
-        "receiveAmount": 422.13
+        "markup": 1.55,
+        "receiveAmount": 420.7
       },
       "lacaixa": {
-        "rate": 4.30029,
+        "rate": 4.30111,
         "fee": 27,
-        "markup": 2.38,
-        "receiveAmount": 313.92
+        "markup": 2.36,
+        "receiveAmount": 313.98
       },
       "paypal": {
-        "rate": 4.22322,
+        "rate": 4.22461,
         "fee": 3.99,
-        "markup": 4.13,
-        "receiveAmount": 405.47
+        "markup": 4.09,
+        "receiveAmount": 405.6
       },
       "sabadell": {
-        "rate": 4.2728,
+        "rate": 4.27382,
         "fee": 22,
-        "markup": 3,
-        "receiveAmount": 333.28
+        "markup": 2.98,
+        "receiveAmount": 333.36
       },
       "xoom": {
-        "rate": 4.31719,
+        "rate": 4.31862,
         "fee": 1.99,
-        "markup": 1.99,
-        "receiveAmount": 423.13
+        "markup": 1.96,
+        "receiveAmount": 423.27
       }
     }
   }
