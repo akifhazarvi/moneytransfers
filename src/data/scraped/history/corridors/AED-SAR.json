@@ -113,10 +113,10 @@
     "date": "2026-11-13",
     "providers": {
       "taptap-send": {
-        "rate": 1.021,
+        "rate": 1.022,
         "fee": 0,
-        "markup": 0.01,
-        "receiveAmount": 102.1
+        "markup": -0.09,
+        "receiveAmount": 102.2
       }
     }
   }

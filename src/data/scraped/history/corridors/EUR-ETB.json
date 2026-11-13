@@ -3072,10 +3072,10 @@
     "date": "2026-11-13",
     "providers": {
       "lemfi": {
-        "rate": 180.65,
+        "rate": 179.35,
         "fee": 0,
-        "markup": 0.07,
-        "receiveAmount": 18065
+        "markup": -1.07,
+        "receiveAmount": 17935
       },
       "taptap-send": {
         "rate": 202,

@@ -3023,16 +3023,16 @@
     "date": "2026-11-13",
     "providers": {
       "pandaremit": {
-        "rate": 0.1126,
+        "rate": 0.1125,
         "fee": 80,
-        "markup": 0.64,
+        "markup": 0.73,
         "receiveAmount": 2.25
       },
       "wise": {
-        "rate": 0.113224,
+        "rate": 0.113393,
         "fee": 20.33,
-        "markup": 0.09,
-        "receiveAmount": 9.02
+        "markup": -0.06,
+        "receiveAmount": 9.03
       }
     }
   }

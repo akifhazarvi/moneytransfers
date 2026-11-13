@@ -8511,28 +8511,28 @@
     "date": "2026-11-13",
     "providers": {
       "kiwibank": {
-        "rate": 0.411064,
+        "rate": 0.4104,
         "fee": 20,
-        "markup": 1.87,
-        "receiveAmount": 32.89
+        "markup": 2.03,
+        "receiveAmount": 32.83
       },
       "bank-of-new-zealand-nz": {
-        "rate": 0.411654,
+        "rate": 0.411166,
         "fee": 0,
-        "markup": 1.73,
-        "receiveAmount": 41.17
-      },
-      "westpac-nz": {
-        "rate": 0.411153,
-        "fee": 0,
-        "markup": 1.85,
+        "markup": 1.84,
         "receiveAmount": 41.12
       },
+      "westpac-nz": {
+        "rate": 0.410918,
+        "fee": 0,
+        "markup": 1.9,
+        "receiveAmount": 41.09
+      },
       "paypal": {
-        "rate": 0.394909,
+        "rate": 0.394652,
         "fee": 6.99,
-        "markup": 5.72,
-        "receiveAmount": 36.73
+        "markup": 5.79,
+        "receiveAmount": 36.71
       }
     }
   }

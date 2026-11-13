@@ -12644,7 +12644,7 @@
       "lemfi": {
         "rate": 162.75,
         "fee": 0,
-        "markup": 0.55,
+        "markup": -1.1,
         "receiveAmount": 16275
       },
       "moneygram": {
@@ -12696,16 +12696,16 @@
         "receiveAmount": 15559.43
       },
       "wise": {
-        "rate": 160.941,
+        "rate": 161.059,
         "fee": 8.21,
-        "markup": 1.33,
-        "receiveAmount": 14772.77
+        "markup": 1.26,
+        "receiveAmount": 14783.61
       },
       "xoom": {
-        "rate": 157.956,
+        "rate": 157.934,
         "fee": 2.99,
-        "markup": 3.16,
-        "receiveAmount": 15323.33
+        "markup": 3.17,
+        "receiveAmount": 15321.16
       }
     }
   }

@@ -3654,16 +3654,16 @@
     "date": "2026-11-13",
     "providers": {
       "taptap-send": {
-        "rate": 4.07,
+        "rate": 4.08,
         "fee": 0,
-        "markup": 0.4,
-        "receiveAmount": 407
+        "markup": 0.15,
+        "receiveAmount": 408
       },
       "wise": {
-        "rate": 4.0875,
+        "rate": 4.08603,
         "fee": 1.39,
-        "markup": -0.03,
-        "receiveAmount": 403.07
+        "markup": 0,
+        "receiveAmount": 402.92
       }
     }
   }
