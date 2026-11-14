@@ -20,10 +20,10 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 42,
+      "score": 43,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.42% vs the 30-day average, 18% up the 90-day range. Rates are falling — -0.67% week on week. Today's best beats the median provider by +1.83%.",
+      "explanation": "Best rate -0.42% vs the 30-day average, 18% up the 90-day range. Rates are falling — -0.67% week on week. Today's best beats the median provider by +2.10%.",
       "components": [
         {
           "key": "range",
@@ -43,8 +43,8 @@
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 94.19432967042533,
-          "detail": "today's best beats the median provider by +1.83%"
+          "score": 100,
+          "detail": "today's best beats the median provider by +2.10%"
         },
         {
           "key": "trend",
