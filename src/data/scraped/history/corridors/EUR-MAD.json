@@ -20773,5 +20773,106 @@
         "receiveAmount": 1079.55
       }
     }
+  },
+  {
+    "date": "2026-11-14",
+    "providers": {
+      "lemfi": {
+        "rate": 10.84,
+        "fee": 0,
+        "markup": 1.16,
+        "receiveAmount": 1084
+      },
+      "remitly": {
+        "rate": 10.71,
+        "fee": 2.49,
+        "markup": 2.35,
+        "receiveAmount": 1044.33
+      },
+      "ria": {
+        "rate": 10.7679,
+        "fee": 0.8,
+        "markup": 1.82,
+        "receiveAmount": 1068.18
+      },
+      "taptap-send": {
+        "rate": 10.85,
+        "fee": 0,
+        "markup": 1.07,
+        "receiveAmount": 1085
+      },
+      "la-banque-postale": {
+        "rate": 10.7609,
+        "fee": 37.9,
+        "markup": 1.88,
+        "receiveAmount": 668.25
+      },
+      "deutsche-bank": {
+        "rate": 10.7282,
+        "fee": 36.55,
+        "markup": 2.18,
+        "receiveAmount": 680.7
+      },
+      "rabobank": {
+        "rate": 10.8129,
+        "fee": 16,
+        "markup": 1.41,
+        "receiveAmount": 908.29
+      },
+      "commerzbank": {
+        "rate": 10.6208,
+        "fee": 12.5,
+        "markup": 3.16,
+        "receiveAmount": 929.32
+      },
+      "abn-amro-bank": {
+        "rate": 10.8577,
+        "fee": 19,
+        "markup": 1,
+        "receiveAmount": 879.47
+      },
+      "bnp": {
+        "rate": 10.7955,
+        "fee": 0,
+        "markup": 1.57,
+        "receiveAmount": 1079.55
+      },
+      "moneygram": {
+        "rate": 10.7363,
+        "fee": 1.99,
+        "markup": 2.11,
+        "receiveAmount": 1052.26
+      },
+      "xoom": {
+        "rate": 10.6343,
+        "fee": 1.49,
+        "markup": 3.04,
+        "receiveAmount": 1047.58
+      },
+      "lacaixa": {
+        "rate": 10.6672,
+        "fee": 27,
+        "markup": 2.74,
+        "receiveAmount": 778.71
+      },
+      "sabadell": {
+        "rate": 10.6404,
+        "fee": 22,
+        "markup": 2.98,
+        "receiveAmount": 829.95
+      },
+      "western-union": {
+        "rate": 10.6716,
+        "fee": 0.99,
+        "markup": 2.7,
+        "receiveAmount": 1056.59
+      },
+      "wise": {
+        "rate": 10.9785,
+        "fee": 6,
+        "markup": -0.1,
+        "receiveAmount": 1031.98
+      }
+    }
   }
 ]
