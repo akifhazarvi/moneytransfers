@@ -5,12 +5,12 @@
   "singleProviderReadings": 854,
   "bands": {
     "exceptional": 9,
-    "great": 49,
-    "good": 46,
-    "typical": 26,
-    "poor": 67
+    "great": 48,
+    "good": 45,
+    "typical": 27,
+    "poor": 68
   },
-  "goodOrBetterPct": 53,
+  "goodOrBetterPct": 52,
   "confidence": {
     "high": 197,
     "medium": 0,
@@ -23,7 +23,7 @@
       "score": 42,
       "band": "typical",
       "headline": "Typical time to send",
-      "explanation": "Best rate -0.42% vs the 30-day average, 18% up the 90-day range. Rates are falling — -0.67% week on week. Today's best beats the median provider by +1.94%.",
+      "explanation": "Best rate -0.42% vs the 30-day average, 18% up the 90-day range. Rates are falling — -0.67% week on week. Today's best beats the median provider by +1.83%.",
       "components": [
         {
           "key": "range",
@@ -43,8 +43,8 @@
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 97.75421507156224,
-          "detail": "today's best beats the median provider by +1.94%"
+          "score": 94.19432967042533,
+          "detail": "today's best beats the median provider by +1.83%"
         },
         {
           "key": "trend",
