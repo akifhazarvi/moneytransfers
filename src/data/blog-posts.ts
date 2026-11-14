@@ -1310,7 +1310,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Reviews",
     readTime: "9 min read",
     publishedAt: "2026-02-25",
-    updatedAt: "2026-09-02",
+    updatedAt: "2026-11-14",
     author: "Awais Imran",
     tags: ["Wise", "Remitly", "comparison", "vs", "fees", "exchange rates"],
     featuredImage: "/images/blog/wise-vs-remitly.jpg",
@@ -1375,6 +1375,17 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Cash pickup</strong> — Remitly supports cash pickup; Wise is bank-transfer only</li>
 <li><strong>First-time bonus</strong> — Remitly regularly offers fee-free first transfers with promotional rates</li>
 </ul>`,
+      },
+      {
+        heading: "Latest Remitly Updates & Promotions (2026)",
+        content: `<p>Remitly has rolled out several product and promotional changes in 2026. These are Remitly's own offers — check the linked terms before relying on one, and note that a waived transfer fee does <strong>not</strong> waive the exchange-rate markup, so the rate still applies.</p>
+<h3>Remitly Global Card (US)</h3>
+<p>The <a href="https://www.remitly.com/us/en/landing/remitly-card" target="_blank" rel="noopener noreferrer nofollow">Remitly Global Card</a> has expanded and is now available nationwide across the US. Global Card customers can also send money to, and request money from, one another anywhere in the country.</p>
+<h3>UK → India: no transfer fee on £500+ (ends 31 Dec 2026)</h3>
+<p>Remitly says people sending <strong>£500 or more from the UK to India</strong> pay no transfer fee for the rest of the year (until 12:00 AM GMT on 31 December 2026). It applies to bank deposit and UPI payout only, and the exchange rate still applies. For this corridor, also see our <a href="/send-money/uk-to-india">UK to India</a> comparison.</p>
+<h3>UAE → India, Nepal & Sri Lanka: AED 0 transfer fee (until 31 Jan 2027)</h3>
+<p>Remitly is waiving the transfer fee (<strong>AED 0</strong>) on all transfers from the UAE to India, Nepal and Sri Lanka until 31 January 2027. Recipient fees and credit-card fees may still apply, and the exchange rate applies. See Remitly's <a href="https://www.remitly.com/ae/en/landing/zero-transfer-fee-uae-tnc" target="_blank" rel="noopener noreferrer nofollow">terms and conditions</a>.</p>
+<p>These waivers cut the visible fee but not the rate markup — the fee-versus-markup trade-off this whole comparison turns on. On a promo corridor it is still worth comparing the total cost (fee plus exchange rate) against Wise and the rest. <a href="/send-money">Compare live rates →</a></p>`,
       },
       {
         heading: "User Experience Comparison",
