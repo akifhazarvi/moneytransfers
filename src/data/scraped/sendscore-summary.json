@@ -1,22 +1,22 @@
 {
   "dataAsOf": "2026-11-15",
-  "corridorsScored": 196,
+  "corridorsScored": 205,
   "corridorsWithAnyScore": 1051,
-  "singleProviderReadings": 855,
+  "singleProviderReadings": 846,
   "bands": {
-    "exceptional": 8,
-    "great": 50,
-    "good": 40,
-    "typical": 29,
-    "poor": 69
+    "exceptional": 10,
+    "great": 54,
+    "good": 39,
+    "typical": 31,
+    "poor": 71
   },
   "goodOrBetterPct": 50,
   "confidence": {
-    "high": 196,
+    "high": 205,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 233,
+  "medianDaysObserved": 232,
   "example": {
     "pair": "USD-INR",
     "score": {
