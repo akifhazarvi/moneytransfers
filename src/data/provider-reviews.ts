@@ -218,7 +218,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Customer reviews summary",
         content: `<p>Wise has one of the strongest customer review profiles in the money transfer industry.</p>
 
-<p><strong>Trustpilot:</strong> 4.3/5 based on 280,000+ reviews — rated "Great". This makes Wise one of the highest-rated transfer services on the platform by volume. Most positive reviews cite transparency, competitive rates, and ease of use.</p>
+<p><strong>Trustpilot:</strong> {{TRUSTPILOT:wise}}. Most positive reviews cite transparency, competitive rates, and ease of use.</p>
 
 <p><strong>Common praise:</strong></p>
 <ul>
@@ -465,7 +465,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Customer reviews summary",
         content: `<p>Remitly has a strong review profile, with over 300,000 reviews on Trustpilot.</p>
 
-<p><strong>Trustpilot:</strong> 4.3/5 — rated "Great". The high volume of reviews demonstrates wide adoption, particularly among diaspora communities.</p>
+<p><strong>Trustpilot:</strong> {{TRUSTPILOT:remitly}}. The volume of reviews reflects wide adoption, particularly among diaspora communities.</p>
 
 <p><strong>Common praise:</strong></p>
 <ul>
@@ -693,7 +693,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Customer reviews summary",
         content: `<p>OFX maintains a strong review profile, particularly among users making large transfers.</p>
 
-<p><strong>Trustpilot:</strong> 4.4/5 — rated "Excellent". Reviewers frequently cite the no-fee model and personal service as highlights.</p>
+<p><strong>Trustpilot:</strong> {{TRUSTPILOT:ofx}}. Reviewers frequently cite the no-fee model and personal service as highlights.</p>
 
 <p><strong>Common praise:</strong></p>
 <ul>
@@ -903,7 +903,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Customer reviews summary",
         content: `<p>XE benefits from strong brand recognition, which influences review patterns.</p>
 
-<p><strong>Trustpilot:</strong> 4.2/5 — rated "Great". The XE brand carries significant trust from decades as the go-to currency information website.</p>
+<p><strong>Trustpilot:</strong> {{TRUSTPILOT:xe}}. The XE brand carries significant trust from decades as the go-to currency information website.</p>
 
 <p><strong>Common praise:</strong></p>
 <ul>
@@ -1121,7 +1121,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Customer reviews summary",
         content: `<p>Western Union has a mixed review profile, reflecting both the strength of its network and the premium it charges.</p>
 
-<p><strong>Trustpilot:</strong> 3.5/5 — rated "Average" to "Great" depending on the region. Western Union's review volume is massive given its global scale.</p>
+<p><strong>Trustpilot:</strong> {{TRUSTPILOT:western-union}}. Western Union's review volume is massive given its global scale.</p>
 
 <p><strong>Common praise:</strong></p>
 <ul>
@@ -1355,7 +1355,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Customer reviews summary",
         content: `<p>Revolut has a large and generally positive review profile, reflecting its massive user base.</p>
 
-<p><strong>Trustpilot:</strong> 4.3/5 — rated "Great". With millions of users, Revolut generates a high volume of reviews across many use cases.</p>
+<p><strong>Trustpilot:</strong> {{TRUSTPILOT:revolut}}. With millions of users, Revolut generates a high volume of reviews across many use cases.</p>
 
 <p><strong>Common praise:</strong></p>
 <ul>
@@ -1572,7 +1572,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Customer reviews summary",
         content: `<p>Xoom has a solid but mixed review profile, reflecting its strengths in cash pickup alongside frustrations about exchange rates.</p>
 
-<p><strong>Trustpilot:</strong> 4.0/5 based on 30,000+ reviews — rated "Great". This is a respectable score, though it trails market leaders like Wise (4.3/5) and Remitly (4.3/5) by volume and rating.</p>
+<p><strong>Trustpilot:</strong> {{TRUSTPILOT:xoom}}. For comparison, Wise holds {{TRUSTPILOT:wise}} and Remitly {{TRUSTPILOT:remitly}}.</p>
 
 <p><strong>Common praise:</strong></p>
 <ul>

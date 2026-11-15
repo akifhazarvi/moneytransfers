@@ -1312,7 +1312,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Reviews",
     readTime: "9 min read",
     publishedAt: "2026-02-25",
-    updatedAt: "2026-11-14",
+    updatedAt: "2026-11-15",
     author: "Awais Imran",
     tags: ["Wise", "Remitly", "comparison", "vs", "fees", "exchange rates"],
     featuredImage: "/images/blog/wise-vs-remitly.jpg",
@@ -1382,9 +1382,15 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Latest Remitly Updates & Promotions (2026)",
         content: `<p>Remitly has rolled out several product and promotional changes in 2026. These are Remitly's own offers — check the linked terms before relying on one, and note that a waived transfer fee does <strong>not</strong> waive the exchange-rate markup, so the rate still applies.</p>
 <h3>Remitly Global Card (US)</h3>
-<p>The <a href="https://www.remitly.com/us/en/landing/remitly-card" target="_blank" rel="noopener noreferrer nofollow">Remitly Global Card</a> has expanded and is now available nationwide across the US. Global Card customers can also send money to, and request money from, one another anywhere in the country.</p>
+<p>The <a href="https://www.remitly.com/us/en/landing/remitly-card" target="_blank" rel="noopener noreferrer nofollow">Remitly Global Card</a> is a digital Visa debit card with a wallet account, and Remitly says it is now available nationwide across the US. Remitly describes it as one card to spend with, send money abroad from and get paid into, and card customers can also send money to, and request money from, one another anywhere in the country. To apply, Remitly accepts a driver's license, ITIN, passport, matrícula consular, SSN or other accepted documents. On Remitly's own published terms:</p>
+<ul>
+<li><strong>The card</strong>: no monthly fee, no minimum balance and no foreign transaction fee, and ATM fees refunded at 40,000+ ATMs across the US (terms apply).</li>
+<li><strong>The optional plan</strong>: $9.99 a month adds Pay Later (up to $250 to send abroad, repaid within 4 weeks at 0% interest; new customers start at $50, approval is not guaranteed and it is not available in every state) and 1% back on Pay Later repayments made on time with AutoPay, capped at $5 a month and applied as a discount on your next transfer. The plan does not cover transfer fees.</li>
+<li><strong>Who holds the money</strong>: the debit card is issued by Lead Bank, the wallet account is powered by Stripe Payments Company, and Pay Later is issued by Coastal Community Bank. Remitly says neither it nor Stripe is a bank.</li>
+</ul>
+<p>Two things to weigh. The plan's rewards are capped at $5 a month against a $9.99 fee, so the rewards alone do not cover it: you are paying for access to Pay Later. And the card does not change what a Remitly transfer costs. Sending from it, the transfer fee and exchange rate still apply, so compare the transfer as you would any other.</p>
 <h3>UK → India: no transfer fee on £500+ (ends 31 Dec 2026)</h3>
-<p>Remitly says people sending <strong>£500 or more from the UK to India</strong> pay no transfer fee for the rest of the year (until 12:00 AM GMT on 31 December 2026). It applies to bank deposit and UPI payout only, and the exchange rate still applies. For this corridor, also see our <a href="/send-money/uk-to-india">UK to India</a> comparison.</p>
+<p>Remitly says people sending <strong>£500 or more from the UK to India</strong> pay no transfer fee for the rest of the year (until 12:00 AM GMT on 31 December 2026). It applies to bank deposit and UPI payout only, and the exchange rate still applies. In the quotes we collect, Remitly's fee on this route is {{FEE:remitly:GBP:INR:100}} at £100 and {{FEE:remitly:GBP:INR:1000}} at £1,000 ({{QUOTE_DATE}}). For this corridor, also see our <a href="/send-money/uk-to-india">UK to India</a> comparison.</p>
 <h3>UAE → India, Nepal & Sri Lanka: AED 0 transfer fee (until 31 Jan 2027)</h3>
 <p>Remitly is waiving the transfer fee (<strong>AED 0</strong>) on all transfers from the UAE to India, Nepal and Sri Lanka until 31 January 2027. Recipient fees and credit-card fees may still apply, and the exchange rate applies. See Remitly's <a href="https://www.remitly.com/ae/en/landing/zero-transfer-fee-uae-tnc" target="_blank" rel="noopener noreferrer nofollow">terms and conditions</a>.</p>
 <p>These waivers cut the visible fee but not the rate markup — the fee-versus-markup trade-off this whole comparison turns on. On a promo corridor it is still worth comparing the total cost (fee plus exchange rate) against Wise and the rest. <a href="/send-money">Compare live rates →</a></p>`,
@@ -1392,8 +1398,8 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "User Experience Comparison",
         content: `<ul>
-<li><strong>Trustpilot score</strong>: Remitly 4.6/5 (119K reviews) vs Wise 4.3/5 (299K reviews)</li>
-<li><strong>App quality</strong>: Both excellent. Wise has more features (multi-currency, cards). Remitly has a simpler, more focused interface.</li>
+<li><strong>Trustpilot score</strong>: Remitly {{TRUSTPILOT:remitly}} vs Wise {{TRUSTPILOT:wise}}</li>
+<li><strong>App quality</strong>: Both excellent. Wise has more features (a multi-currency account and card). Remitly now has a US debit card and wallet too (see the Global Card above), and keeps a simpler, more focused interface.</li>
 <li><strong>Verification speed</strong>: Both verify within minutes for most users</li>
 <li><strong>Customer support</strong>: Remitly offers phone support. Wise is primarily chat and email.</li>
 <li><strong>Coverage</strong>: Wise covers 70+ countries. Remitly reaches 175+ receive countries across 123 receive currencies, but sends from 33 — mainly North America, the UK, the EU/EEA, Australia, New Zealand, Singapore, Japan, Israel, Brazil and the UAE.</li>

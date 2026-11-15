@@ -1668,7 +1668,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td>Door-to-door delivery</td><td>Select countries</td><td>Yes (Philippines: 6hrs Metro Manila)</td></tr>
 <tr><td>PayPal balance funding</td><td>No</td><td>Yes</td></tr>
 <tr><td>PYUSD stablecoin ($0 fee)</td><td>No</td><td>Yes (expanded to 68 countries, March 2026)</td></tr>
-<tr><td>Trustpilot</td><td>4.6/5 (108,000 reviews)</td><td>4.7/5 (166,000 reviews)</td></tr>
+<tr><td>Trustpilot</td><td>{{TRUSTPILOT:remitly}}</td><td>{{TRUSTPILOT:xoom}}</td></tr>
 <tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FinCEN (PayPal subsidiary)</td></tr>
 </table>
 
@@ -1884,7 +1884,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td>Mobile money</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>M-Pesa, MTN MoMo, Airtel Money, bKash</td></tr>
 <tr><td>Multi-currency account</td><td>No</td><td>No</td></tr>
 <tr><td>Platform</td><td>App + website</td><td>App only (mobile-first)</td></tr>
-<tr><td>Trustpilot</td><td>4.6/5 (108,000 reviews)</td><td>4.4/5 (15,000+ reviews)</td></tr>
+<tr><td>Trustpilot</td><td>{{TRUSTPILOT:remitly}}</td><td>{{TRUSTPILOT:taptap-send}}</td></tr>
 <tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FCA, FinCEN</td></tr>
 </table>
 
@@ -2052,7 +2052,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td>Mobile wallets</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>No direct mobile wallet delivery</td></tr>
 <tr><td>Multi-currency account</td><td>No</td><td>Yes (36+ currencies)</td></tr>
 <tr><td>Debit card</td><td>No</td><td>Yes (virtual + physical)</td></tr>
-<tr><td>Trustpilot</td><td>4.6/5 (108K reviews)</td><td>4.3/5 (180K reviews)</td></tr>
+<tr><td>Trustpilot</td><td>{{TRUSTPILOT:remitly}}</td><td>{{TRUSTPILOT:revolut}}</td></tr>
 <tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FCA, ECB (banking licence)</td></tr>
 </table>
 
@@ -2198,7 +2198,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td>Fund with cash</td><td>No (digital only)</td><td>Yes (walk-in service)</td></tr>
 <tr><td>Mobile wallets</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>Limited mobile wallet support</td></tr>
 <tr><td>Multi-currency account</td><td>No</td><td>No</td></tr>
-<tr><td>Trustpilot</td><td>4.6/5 (108K reviews)</td><td>4.1/5 (14K reviews)</td></tr>
+<tr><td>Trustpilot</td><td>{{TRUSTPILOT:remitly}}</td><td>{{TRUSTPILOT:moneygram}}</td></tr>
 <tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FinCEN, FCA, various</td></tr>
 </table>
 

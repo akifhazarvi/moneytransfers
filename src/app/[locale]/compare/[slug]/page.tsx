@@ -29,7 +29,7 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { getCompareEditorial } from "@/data/compare-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
-import { isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
+import { isLinkEligible, setLinkSource, trackedProviderLinkProps } from "@/lib/link-eligibility";
 
 
 interface Props {
@@ -536,7 +536,7 @@ function DefaultComparison({
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">{decisionNote.heading}</h2>
               {editorial && <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">{decisionNote.decision}</p>}
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{decisionNote.check}</p>
-              <p className="mt-4 text-sm"><a href={decisionNote.source} target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">Provider receiving and transfer information</a></p>
+              <p className="mt-4 text-sm"><a {...(trackedProviderLinkProps(decisionNote.source, "compare_note") ?? { href: decisionNote.source, target: "_blank", rel: "noopener noreferrer nofollow" })} className="text-[var(--color-primary)] hover:underline">Provider receiving and transfer information</a></p>
               <div className="flex gap-4 mt-4 text-sm">
                 <Link href={`/companies/${a.slug}`} unlinked="hide" className="text-[var(--color-primary)] hover:underline">{a.name} fees and features</Link>
                 <Link href={`/companies/${b.slug}`} unlinked="hide" className="text-[var(--color-primary)] hover:underline">{b.name} fees and features</Link>

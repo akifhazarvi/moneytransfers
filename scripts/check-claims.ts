@@ -34,7 +34,10 @@
  *   fscs-limit      "FSCS protects deposits up to £85,000" — the limit has been
  *                   £120,000 since 1 December 2025. The PSR's £85,000 APP-scam
  *                   reimbursement cap is a different figure and passes.
- *   trustpilot      "4.6/5 Trustpilot", "Trustpilot 4.6". Use {{TRUSTPILOT:slug}}.
+ *   trustpilot      "4.6/5 Trustpilot", "Trustpilot 4.6", and a label element
+ *                   before the score ("<strong>Trustpilot:</strong> 4.3/5",
+ *                   "<td>Trustpilot</td><td>4.6/5"), the form 12 typed scores
+ *                   hid in until 2026-11-15. Use {{TRUSTPILOT:slug}}.
  *   avg-markup      "0.42% avg markup". Use {{AVG_MARKUP_PCT:slug}} (a median).
  *   licence         any NC / SA / ND Creative Commons licence. Everything we
  *                   publish is CC BY 4.0, so a citation's terms are never in doubt.
@@ -165,7 +168,11 @@ const HARD: Rule[] = [
     re: /\bFSCS\b[^.]{0,80}?(?:£|\\u00a3)85,?000|(?:£|\\u00a3)85,?000[^.]{0,40}\bFSCS\b|\bdeposit (?:protection|guarantee|insurance)\b[^.]{0,40}(?:£|\\u00a3)85,?000/gi,
     allow: (_before, m) => /\b(?:rose|raised|increased|until|before|was)\b/i.test(m),
   },
-  { id: "trustpilot", re: /\b\d\.\d\s*\/\s*5\s*(?:\(|on\s+)?Trustpilot|Trustpilot(?:\s+(?:rating|score))?[^.<\d{]{0,40}\d\.\d\b/gi , allow: (_b, m) => /\b(?:below|above|under|over)\b/i.test(m) },
+  // The third alternative: a label element closing between "Trustpilot" and an
+  // N.N/5 score. The second alternative stops at "<", so "Trustpilot score</strong>:
+  // Remitly 4.6/5" (the Wise vs Remitly guide, live) and seven provider reviews and
+  // four comparison tables passed while their scores drifted up to 0.8 from the scrape.
+  { id: "trustpilot", re: /\b\d\.\d\s*\/\s*5\s*(?:\(|on\s+)?Trustpilot|Trustpilot(?:\s+(?:rating|score))?[^.<\d{]{0,40}\d\.\d\b|Trustpilot(?:\s+(?:rating|score))?\s*:?\s*<\/(?:strong|b|em|th|td|dt|span|label)>\s*(?:<t[dh][^>]*>|<dd[^>]*>)?[^.<\d{]{0,40}\d\.\d\s*\/\s*5\b/gi , allow: (_b, m) => /\b(?:below|above|under|over)\b/i.test(m) },
   { id: "avg-markup", re: /\d+(?:\.\d+)?%\s*(?:avg|average)\.?\s+mark-?up|\b(?:avg|average)\s+mark-?up\s+(?:of\s+)?(?:about\s+|~)?\d/gi },
   // One licence for everything we publish — content, datasets, API output:
   // CC BY 4.0 (owner decision, 2026-09-29). /for-ai, llms.txt and /api/ai said

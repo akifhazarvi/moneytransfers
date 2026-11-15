@@ -36,6 +36,7 @@ export async function GET(
   const amountParam = Number(searchParams.get("amount"));
   const amount = Number.isFinite(amountParam) && amountParam > 0 ? amountParam : undefined;
   const src = searchParams.get("src") || undefined;
+  const page = searchParams.get("page") || undefined; // provider page to land on (validated in affiliate.ts)
   const aiSrc = searchParams.get("ai_src") || undefined;
   const referer = request.headers.get("referer") || "";
   const userAgent = request.headers.get("user-agent") || "";
@@ -130,6 +131,7 @@ export async function GET(
     clickId,
     corridor,
     source,
+    page,
   });
 
   const redirect = NextResponse.redirect(url, {

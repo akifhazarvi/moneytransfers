@@ -229,7 +229,15 @@ what enforces it. Where a rule is not automated, it says how to check it.
     Google it joins the eligible list on the next build and every link to it
     comes back by itself. Every `/go/` and `/out/` anchor carries
     `rel="nofollow sponsored noopener"` (+ `noreferrer` where it had it;
-    `affiliateRel()`). **Bing-only pages may link each other** (owner decision
+    `affiliateRel()`). **A link to a provider's own site goes through `/go`**
+    (owner, 2026-11-15): a plain `https://www.remitly.com/…` citation sent
+    Remitly readers with no Impact click and, under `noreferrer`, no referrer.
+    For every site in `PROVIDER_SITES` (affiliate.ts; Remitly so far)
+    `gateBodyLinks()` rewrites the anchor to `/go/<slug>?page=<path>`, which
+    counts the click and deep-links through the affiliate link (Impact `u=`);
+    JSX source lists use `trackedProviderLinkProps()`. Write the provider's
+    real URL in content (check:sources still verifies it); the build tags it.
+    **Bing-only pages may link each other** (owner decision
     2026-11-15, Bing readout): a page in sitemap.xml but not
     sitemap-google.xml may link any other such page, so the ~350 Bing-only
     pages are no longer found through `sitemap.xml` alone (347 now link a

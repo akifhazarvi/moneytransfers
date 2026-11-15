@@ -182,6 +182,9 @@ export const providers: Provider[] = [
       "Mobile money transfers",
       "Recurring transfers",
       "Referral bonuses",
+      // remitly.com/us/en/landing/remitly-card, checked 2026-11-15: nationwide in
+      // the US (Remitly, 2026-11-13). Card issued by Lead Bank, wallet via Stripe.
+      "Remitly Global Card: a US Visa debit card and wallet",
     ],
     feeStructure: "From $0 to $3.99 per transfer",
     exchangeRateMarkup: "0.5% - 2% above mid-market",

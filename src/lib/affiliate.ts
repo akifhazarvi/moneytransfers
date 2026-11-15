@@ -13,6 +13,62 @@ export interface AffiliateParams {
   clickId?: string;  // Our smc_xxx click ID — appended as smc_click_id so providers can reconcile
   corridor?: string; // e.g. "USD-INR" — stamped as smc_corridor
   source?: string;   // originating surface — stamped as utm_content
+  page?: string;     // a path on the provider's own site to land on (/go?page=); see PROVIDER_SITES
+}
+
+// ── Links to a provider's own pages ─────────────────────────────────────────
+// Content cites provider pages directly (a user agreement, a product page, a
+// promo's terms). Written as plain https://www.remitly.com/… anchors they sent
+// Remitly readers with no Impact click and, with rel="noreferrer", not even a
+// referrer — so Remitly could not see the traffic came from us (owner,
+// 2026-11-15: "make sure all links to remitly are properly marked"). Every link
+// to a site listed here is rewritten to /go/<slug>?page=<path>, which counts the
+// click like any other and forwards through the provider's affiliate link with
+// the page as its deep link. gateBodyLinks() does this for every HTML body;
+// JSX source lists call trackedProviderHref(); check:link-eligibility fails
+// the build on a direct link that slipped through.
+//
+// Only providers whose affiliate link can deep-link to an arbitrary page on
+// their site belong here (Impact's `u=` parameter can; Partnerize's
+// /destination: can too, but Wise and Instarem are not wired yet).
+export const PROVIDER_SITES: Record<string, string> = {
+  "remitly.com": "remitly",
+  "www.remitly.com": "remitly",
+};
+
+// A page path we will hand to the provider: lowercase path segments only, no
+// query, fragment or host — the host is fixed below, so this is never an open
+// redirect. "/us/en/landing/remitly-card", "/gb/en/home/agreement", "/us/en/".
+const PROVIDER_PAGE_PATH = /^\/[a-z]{2}\/[a-z]{2}(?:\/[a-z0-9-]+)*\/?$/;
+
+function providerPageUrl(slug: string, page: string | undefined): string | null {
+  if (!page || !PROVIDER_PAGE_PATH.test(page)) return null;
+  if (slug === "remitly") return `https://www.remitly.com${page}`;
+  return null;
+}
+
+/**
+ * The tracked href for a link to a provider's own site: /go/<slug>?page=<path>
+ * (+ src). Null when the URL is not on a site in PROVIDER_SITES, or its path is
+ * not one we can deep-link (the caller keeps the plain URL, and
+ * check:link-eligibility reports it).
+ */
+export function trackedProviderHref(url: string | null | undefined, src = "content_link"): string | null {
+  if (!url) return null;
+  let u: URL;
+  try {
+    u = new URL(url.trim());
+  } catch {
+    return null;
+  }
+  const slug = PROVIDER_SITES[u.hostname.toLowerCase()];
+  if (!slug || u.protocol !== "https:") return null;
+  const page = u.pathname === "/" ? "" : u.pathname;
+  if (page && !providerPageUrl(slug, page)) return null;
+  const qs = new URLSearchParams();
+  if (page) qs.set("page", page);
+  qs.set("src", src);
+  return `/go/${slug}?${qs.toString()}`;
 }
 
 // Impact.com issues per-brand redirect domains (remitly.tod8mp.net, plus the
@@ -433,6 +489,16 @@ function buildRemitlyDeepLink(params: AffiliateParams): string {
     }),
     params.clickref,
   );
+
+  // A link from our content to a specific Remitly page (a user agreement, the
+  // Global Card, a promo's terms): that page is the deep link, ahead of the
+  // corridor calculator. See PROVIDER_SITES.
+  const page = providerPageUrl("remitly", params.page);
+  if (page) {
+    const u = new URL(tracked);
+    u.searchParams.set("u", page);
+    return u.toString();
+  }
 
   const send = params.sourceCurrency ? REMITLY_SEND_MARKETS[params.sourceCurrency.toUpperCase()] : undefined;
   const dest = params.targetCurrency ? REMITLY_DESTINATIONS[params.targetCurrency.toUpperCase()] : undefined;

@@ -87,7 +87,7 @@ import { SITE_STATS } from "@/lib/site-stats";
 import { formatLocalDate } from "@/lib/format-date";
 import { getCorridorEditorial } from "@/data/corridor-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
-import { compareHashHref, eligibleHref, isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
+import { compareHashHref, eligibleHref, isLinkEligible, setLinkSource, trackedProviderLinkProps } from "@/lib/link-eligibility";
 import { LINKABLE_COUNTRY_PAGES } from "@/lib/corridor-links";
 
 // Resolve data tokens, then flatten to plain text for JSON-LD values.
@@ -2251,7 +2251,7 @@ export default async function CorridorPage({ params }: Props) {
                   </div>
                 ))}
               </div>
-              {countryDetails.sources && <p className="mt-3 mb-3 text-xs text-[var(--color-on-surface-variant)]">Provider sources for these receiving options: {countryDetails.sources.map((source, index) => <span key={source.url}>{index > 0 && " · "}<a href={source.url} className="underline">{source.label}</a></span>)}</p>}
+              {countryDetails.sources && <p className="mt-3 mb-3 text-xs text-[var(--color-on-surface-variant)]">Provider sources for these receiving options: {countryDetails.sources.map((source, index) => <span key={source.url}>{index > 0 && " · "}<a {...(trackedProviderLinkProps(source.url, "corridor_sources") ?? { href: source.url })} className="underline">{source.label}</a></span>)}</p>}
               {countryDetails.requirementsNote && (
                 <div className="mt-4 bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20 rounded-lg px-5 py-4">
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
@@ -2916,7 +2916,7 @@ export default async function CorridorPage({ params }: Props) {
                       Sources: {faq.sources.map((source, index) => (
                         <span key={source.url}>
                           {index > 0 && " · "}
-                          <a href={source.url} className="underline hover:text-[var(--color-primary)]">{source.label}</a>
+                          <a {...(trackedProviderLinkProps(source.url, "corridor_faq_sources") ?? { href: source.url })} className="underline hover:text-[var(--color-primary)]">{source.label}</a>
                         </span>
                       ))}
                     </p>

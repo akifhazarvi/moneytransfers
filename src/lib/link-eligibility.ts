@@ -14,6 +14,7 @@
  */
 import { cache } from "react";
 import eligible from "@/data/google-eligible-routes.json";
+import { trackedProviderHref } from "@/lib/affiliate";
 
 const ELIGIBLE: ReadonlySet<string> = new Set<string>(eligible.routes);
 
@@ -162,14 +163,34 @@ export function affiliateRel(existing = ""): string {
 }
 
 /**
+ * JSX props for a link to a provider's own site (PROVIDER_SITES in
+ * affiliate.ts): its tracked /go/<slug>?page= href with the affiliate rel. Null
+ * for any other URL — the call site keeps its own href and rel.
+ */
+export function trackedProviderLinkProps(url: string | null | undefined, src: string): { href: string; rel: string; target: "_blank" } | null {
+  const href = trackedProviderHref(url, src);
+  return href ? { href, rel: affiliateRel(), target: "_blank" } : null;
+}
+
+/**
  * The link pass every rendered HTML body goes through (renderDataTokens and
  * sanitizeHtml both end with it): ineligible internal anchors become their
- * text, and every /go/ or /out/ anchor gets the affiliate rel. Idempotent.
+ * text, a direct link to a provider's own site (PROVIDER_SITES in affiliate.ts)
+ * becomes its tracked /go/<slug>?page= link, and every /go/ or /out/ anchor
+ * gets the affiliate rel. Idempotent.
  */
 export function gateBodyLinks(html: string): string {
   if (!html.includes("<a")) return html;
   return unlinkIneligible(html).replace(/<a\b([^>]*)>/gi, (whole, attrs: string) => {
-    const href = attrs.match(/\bhref=(["'])(.*?)\1/i)?.[2];
+    const hrefMatch = attrs.match(/\bhref=(["'])(.*?)\1/i);
+    const href = hrefMatch?.[2];
+    const tracked = trackedProviderHref(href?.replace(/&amp;/g, "&"));
+    if (hrefMatch && tracked) {
+      // No noreferrer: /go is ours, and its affiliate_redirect event records
+      // the page the click came from (referer_path).
+      const rest = attrs.replace(hrefMatch[0], `href="${tracked.replace(/&/g, "&amp;")}"`).replace(/\srel=(["'])(.*?)\1/i, "");
+      return `<a${rest} rel="${affiliateRel()}">`;
+    }
     if (!isAffiliateHref(href)) return whole;
     const relMatch = attrs.match(/\srel=(["'])(.*?)\1/i);
     const rel = affiliateRel(relMatch?.[2] ?? "");

@@ -1,6 +1,8 @@
 /**
  * Every internal link points at a Google-eligible page; every affiliate link
- * is `nofollow sponsored`. Checked against the built HTML.
+ * is `nofollow sponsored`; no link goes straight to a provider site that has a
+ * tracked route (PROVIDER_SITES in affiliate.ts: remitly.com → /go/remitly?page=,
+ * 2026-11-15). Checked against the built HTML.
  *
  * WHY (round-3 freelance brief, 2026-10-08)
  * §5.1/5.2: the October 8 link crawl found 5,389 in-content links and 103 menu
@@ -25,6 +27,7 @@
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { hubChildLinkAllowed, internalPagePath, isLinkEligible, isLinkEligibleFrom } from "../src/lib/link-eligibility";
+import { PROVIDER_SITES } from "../src/lib/affiliate";
 import eligibleJson from "../src/data/google-eligible-routes.json";
 
 const ROOT = join(__dirname, "..");
@@ -48,6 +51,7 @@ function walk(dir: string, out: string[] = []): string[] {
 
 const byTarget = new Map<string, { count: number; sources: Set<string> }>();
 const affiliate = new Map<string, { count: number; sources: Set<string> }>();
+const untracked = new Map<string, { count: number; sources: Set<string> }>();
 const hubCounts: Array<[string, number]> = [];
 let pages = 0;
 let violations = 0;
@@ -68,6 +72,18 @@ for (const f of walk(APP)) {
     const href = attrs.match(/\bhref="([^"]+)"/)?.[1];
     if (!href) continue;
     const decoded = href.replace(/&amp;/g, "&");
+
+    // A direct link to a provider site we track: the provider never sees the
+    // click came from us (gateBodyLinks / trackedProviderLinkProps fix it).
+    const host = /^https?:\/\//i.test(decoded) ? (() => { try { return new URL(decoded).hostname.toLowerCase(); } catch { return ""; } })() : "";
+    if (host && PROVIDER_SITES[host]) {
+      const entry = untracked.get(decoded) ?? { count: 0, sources: new Set() };
+      entry.count++;
+      entry.sources.add(source);
+      untracked.set(decoded, entry);
+      violations++;
+      continue;
+    }
 
     if (/^(https:\/\/sendmoneycompare\.com)?\/(go|out)\//.test(decoded)) {
       const rel = (attrs.match(/\brel="([^"]*)"/)?.[1] ?? "").split(/\s+/);
@@ -149,6 +165,12 @@ for (const [rel, v] of affiliate) {
   console.log(`    rel="${rel}"  ${v.count} links on ${v.sources.size} pages, e.g. ${[...v.sources].slice(0, 3).join(", ")}`);
 }
 
+const untrackedTotal = [...untracked.values()].reduce((n, v) => n + v.count, 0);
+console.log(`  direct links to a tracked provider site (use /go/<slug>?page=): ${untrackedTotal}`);
+for (const [url, v] of untracked) {
+  console.log(`    ${url}  ${v.count} links on ${v.sources.size} pages, e.g. ${[...v.sources].slice(0, 3).join(", ")}`);
+}
+
 console.log(`  eligible pages with in-content links from fewer than ${MIN_SUPPORT} other eligible pages: ${weak.length}`);
 for (const [p, n] of weak.slice(0, 40)) console.log(`    ${n}  ${p}`);
 
@@ -165,4 +187,4 @@ if (violations > 0 && !REPORT_ONLY) {
   console.error(`\n✗ ${violations} link(s) break the link-eligibility rule (CLAUDE.md strict rule 14).`);
   process.exit(1);
 }
-console.log(violations > 0 ? `\n${violations} violation(s) (report only).` : "\n✓ every internal link is Google-eligible (or Bing-only to Bing-only); every affiliate link is nofollow sponsored.");
+console.log(violations > 0 ? `\n${violations} violation(s) (report only).` : "\n✓ every internal link is Google-eligible (or Bing-only to Bing-only); every affiliate link is nofollow sponsored; no direct link to a tracked provider site.");
