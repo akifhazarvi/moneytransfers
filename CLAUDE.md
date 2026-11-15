@@ -229,8 +229,17 @@ what enforces it. Where a rule is not automated, it says how to check it.
     Google it joins the eligible list on the next build and every link to it
     comes back by itself. Every `/go/` and `/out/` anchor carries
     `rel="nofollow sponsored noopener"` (+ `noreferrer` where it had it;
-    `affiliateRel()`). Consequence to know: Bing-only pages now have no
-    internal links and are found through `sitemap.xml` alone. One exception,
+    `affiliateRel()`). **Bing-only pages may link each other** (owner decision
+    2026-11-15, Bing readout): a page in sitemap.xml but not
+    sitemap-google.xml may link any other such page, so the ~350 Bing-only
+    pages are no longer found through `sitemap.xml` alone (347 now link a
+    median of 8 others). The source of every such link is a page Google is told
+    not to index, so Google's link graph is unchanged. How: each Bing-only page
+    route calls `setLinkSource(path)` before rendering (a per-request React
+    `cache()` scope; client components stay Google-only), the list is
+    `bingOnlyRoutes` in `google-eligible-routes.json`, and the checker uses
+    `isLinkEligibleFrom(source, href)`. A new Bing-only route must call
+    `setLinkSource`, or its links stay Google-only. One exception,
     round-4 brief §0.3 Option A (2026-10-28): the `/companies` and `/compare`
     hubs link their major reviews and comparisons even while Google is not
     shown them — `HUB_CHILD_LINKS` in `link-eligibility.ts`, rendered through

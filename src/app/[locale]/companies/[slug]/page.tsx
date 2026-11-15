@@ -1,5 +1,5 @@
 import Link from "@/components/EligibleLink";
-import { isLinkEligible } from "@/lib/link-eligibility";
+import { isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
 import { robotsFor } from "@/lib/seo-indexing";
 import { postalAddress } from "@/lib/postal-address";
 import { GONE_COMPANY_SLUGS } from "@/lib/gone-companies";
@@ -124,6 +124,7 @@ const WIDGET_ROUTES: readonly (readonly [string, string])[] = [
 export default async function CompanyPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/companies/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) notFound();
 

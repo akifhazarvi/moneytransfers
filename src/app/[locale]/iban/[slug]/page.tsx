@@ -1,5 +1,5 @@
 import { seoDescription } from "@/lib/seo-title";
-import { isLinkEligible } from "@/lib/link-eligibility";
+import { isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
 import { linkableCorridorsFor } from "@/lib/corridor-links";
 import { internalPathRenders } from "@/lib/route-map-rates";
 import Link from "@/components/EligibleLink";
@@ -382,6 +382,7 @@ const bbanLabels: Record<string, string> = {
 export default async function IbanCountryPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/iban/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const t = await getTranslations({ locale, namespace: "ibanSlug" });
   const country = getWiseCountryBySlug(slug);
   if (!country) notFound();

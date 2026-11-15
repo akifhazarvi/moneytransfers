@@ -29,15 +29,13 @@ import { googleIndexable } from "../src/lib/seo-indexing";
 
 const OUT = join(__dirname, "../src/data/google-eligible-routes.json");
 
-const routes = [
-  ...new Set(
-    sitemap()
-      .map((e) => new URL(e.url).pathname.replace(/\/$/, "") || "/")
-      .filter((path) => googleIndexable(path)),
-  ),
-].sort();
+const submitted = [...new Set(sitemap().map((e) => new URL(e.url).pathname.replace(/\/$/, "") || "/"))];
+const routes = submitted.filter((path) => googleIndexable(path)).sort();
+// sitemap.xml minus sitemap-google.xml: pages that may link each other
+// (owner decision 2026-11-15, link-eligibility.ts BING_ONLY).
+const bingOnlyRoutes = submitted.filter((path) => !googleIndexable(path)).sort();
 
-const body = JSON.stringify({ routes }, null, 2) + "\n";
+const body = JSON.stringify({ routes, bingOnlyRoutes }, null, 2) + "\n";
 const current = existsSync(OUT) ? readFileSync(OUT, "utf8") : "";
 
 if (process.argv.includes("--check")) {
@@ -45,8 +43,8 @@ if (process.argv.includes("--check")) {
     console.error("google-eligible-routes.json is stale — run `npx tsx scripts/build-google-eligible-routes.ts`.");
     process.exit(1);
   }
-  console.log(`google-eligible-routes.json is current (${routes.length} routes).`);
+  console.log(`google-eligible-routes.json is current (${routes.length} routes, ${bingOnlyRoutes.length} Bing-only).`);
 } else {
   if (current !== body) writeFileSync(OUT, body);
-  console.log(`google-eligible-routes.json: ${routes.length} routes${current === body ? " (unchanged)" : " (written)"}`);
+  console.log(`google-eligible-routes.json: ${routes.length} routes, ${bingOnlyRoutes.length} Bing-only${current === body ? " (unchanged)" : " (written)"}`);
 }

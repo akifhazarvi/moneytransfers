@@ -10,6 +10,7 @@ import { PageByline } from "@/components/PageByline";
 import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { robotsFor } from "@/lib/seo-indexing";
+import { setLinkSource } from "@/lib/link-eligibility";
 
 export const revalidate = 86400;
 
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TravelHubPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  setLinkSource("/travel"); // Bing-only pages may link each other (link-eligibility.ts)
 
   const guides = Object.values(travelGuides);
 

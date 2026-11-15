@@ -22,6 +22,7 @@ import { currencies } from "@/data/providers";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { providerLogo } from "@/lib/provider-logo";
+import { setLinkSource } from "@/lib/link-eligibility";
 
 export const revalidate = 21600;
 
@@ -52,6 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BanksHubPage() {
+  setLinkSource("/banks"); // Bing-only pages may link each other (link-eligibility.ts)
   const banks = Object.values(PILOT_BANKS).map((bank) => {
     const stats = getBankAggregateStats(bank.slug);
     return { bank, stats };

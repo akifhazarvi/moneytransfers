@@ -1,6 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
 import Link from "@/components/EligibleLink";
-import { compareHashHref } from "@/lib/link-eligibility";
+import { compareHashHref, setLinkSource } from "@/lib/link-eligibility";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -110,6 +110,7 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
 export default async function CorridorHistoryPage({ params }: { params: Promise<{ pair: string; locale: string }> }) {
   const { pair, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/exchange-rates/history/${pair}`); // Bing-only pages may link each other (link-eligibility.ts)
   const insight = getInsightBySlug(pair);
   if (!insight) notFound();
 

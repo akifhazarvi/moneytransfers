@@ -1,7 +1,7 @@
 import { seoDescription } from "@/lib/seo-title";
 import { notFound } from "next/navigation";
 import Link from "@/components/EligibleLink";
-import { isLinkEligible } from "@/lib/link-eligibility";
+import { isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
@@ -64,6 +64,7 @@ export default async function CashOutCountryPage({
 }) {
   const { locale, country: slug } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/cash-out/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const c = getCashoutCountry(slug);
   if (!c) notFound();
 

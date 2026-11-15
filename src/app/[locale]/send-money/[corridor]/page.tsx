@@ -87,7 +87,7 @@ import { SITE_STATS } from "@/lib/site-stats";
 import { formatLocalDate } from "@/lib/format-date";
 import { getCorridorEditorial } from "@/data/corridor-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
-import { compareHashHref, eligibleHref, isLinkEligible } from "@/lib/link-eligibility";
+import { compareHashHref, eligibleHref, isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
 import { LINKABLE_COUNTRY_PAGES } from "@/lib/corridor-links";
 
 // Resolve data tokens, then flatten to plain text for JSON-LD values.
@@ -1211,6 +1211,7 @@ function getBestGuideLink(
 export default async function CorridorPage({ params }: Props) {
   const { corridor: slug, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/send-money/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const t = await getTranslations({ locale, namespace: "corridor" });
   const tSendMoney = await getTranslations({ locale, namespace: "sendMoney" });
   const corridor = getCorridor(slug);

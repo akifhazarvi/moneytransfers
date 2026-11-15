@@ -12,9 +12,33 @@
  * Safe in client components: the list is ~300 short strings.
  * Enforced on the built HTML by scripts/check-link-eligibility.ts.
  */
+import { cache } from "react";
 import eligible from "@/data/google-eligible-routes.json";
 
 const ELIGIBLE: ReadonlySet<string> = new Set<string>(eligible.routes);
+
+/**
+ * Bing-only pages (sitemap.xml minus sitemap-google.xml), owner decision
+ * 2026-11-15 after the Bing readout: a Bing-only page may link to another
+ * Bing-only page. Rule 14 left these ~350 pages with no internal links at all
+ * (found through sitemap.xml alone), while Bing ties internal links to
+ * authority and to grounding eligibility for Copilot answers. A page Google
+ * indexes still links only to Google-eligible pages, so Google's link graph
+ * does not change: the source of every new link is a page Google is told not
+ * to index.
+ */
+const BING_ONLY: ReadonlySet<string> = new Set<string>(
+  (eligible as { routes: string[]; bingOnlyRoutes?: string[] }).bingOnlyRoutes ?? [],
+);
+
+/**
+ * The page being rendered, per request: React's cache() is scoped to one
+ * server render. A Bing-only page route calls setLinkSource() before it
+ * renders anything. In client components and outside a render, cache() does
+ * not memoise, so the scope reads "not Bing-only" and links stay
+ * Google-only, which also keeps server and client output identical.
+ */
+const linkScope = cache((): { bingOnlySource: boolean } => ({ bingOnlySource: false }));
 
 /** Paths that are not pages: affiliate redirects, APIs, files. Never gated. */
 const NON_PAGE_PREFIXES = ["/go/", "/out/", "/api/", "/_next/", "/logos/", "/images/", "/pwa/", "/icons/"];
@@ -66,9 +90,21 @@ export function hubChildLinkAllowed(hub: string | null | undefined, href: string
   return Boolean(hub && path && HUB_CHILD_LINKS[hub]?.includes(path));
 }
 
+/** Called by a page route before it renders: is this page Bing-only? */
+export function setLinkSource(pagePath: string): void {
+  const path = internalPagePath(pagePath);
+  linkScope().bingOnlySource = path !== null && BING_ONLY.has(path);
+}
+
 export function isLinkEligible(href: string): boolean {
   const path = internalPagePath(href);
-  return path === null || ELIGIBLE.has(path);
+  return path === null || ELIGIBLE.has(path) || (BING_ONLY.has(path) && linkScope().bingOnlySource);
+}
+
+/** The same rule with an explicit source page — for check:link-eligibility. */
+export function isLinkEligibleFrom(source: string, href: string): boolean {
+  const path = internalPagePath(href);
+  return path === null || ELIGIBLE.has(path) || (BING_ONLY.has(source) && BING_ONLY.has(path));
 }
 
 /** The href when it may render as a link, else null — for `href ? <a> : text`. */

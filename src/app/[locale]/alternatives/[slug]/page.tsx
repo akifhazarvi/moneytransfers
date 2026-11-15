@@ -32,6 +32,7 @@ import {
   type AlternativesEntry,
 } from "@/lib/provider-alternatives";
 import { INDEX_AMOUNT } from "@/lib/remittance-cost-index";
+import { setLinkSource } from "@/lib/link-eligibility";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -121,6 +122,7 @@ export default async function AlternativesPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/alternatives/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
 
   const e = PROVIDER_ALTERNATIVES.get(slug);
   if (!e) notFound();

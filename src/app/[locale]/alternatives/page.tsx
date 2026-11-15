@@ -21,6 +21,7 @@ import { PROVIDER_ALTERNATIVES, MIN_SHARED_CORRIDORS } from "@/lib/provider-alte
 import { INDEX_AMOUNT } from "@/lib/remittance-cost-index";
 import { PageByline } from "@/components/PageByline";
 import { EDITORIAL_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
+import { setLinkSource } from "@/lib/link-eligibility";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const TITLE = "Money Transfer Alternatives, Measured on Shared Routes";
@@ -57,6 +58,7 @@ export default async function AlternativesHub({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  setLinkSource("/alternatives"); // Bing-only pages may link each other (link-eligibility.ts)
 
   return (
     <>

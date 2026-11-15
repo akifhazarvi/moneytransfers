@@ -11,6 +11,7 @@ import { getCountryOfframps } from "@/lib/crypto-rails";
 import { robotsFor } from "@/lib/seo-indexing";
 import { PageByline } from "@/components/PageByline";
 import { EDITORIAL_AUTHOR_SLUG, longDay, pageUpdated } from "@/lib/content-dates";
+import { setLinkSource } from "@/lib/link-eligibility";
 
 export const revalidate = 21600;
 
@@ -46,6 +47,7 @@ export default async function CashOutHubPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  setLinkSource("/cash-out"); // Bing-only pages may link each other (link-eligibility.ts)
 
   const cards = CASHOUT_COUNTRIES.map((c) => {
     const offramps = getCountryOfframps(c.currency, 1000);

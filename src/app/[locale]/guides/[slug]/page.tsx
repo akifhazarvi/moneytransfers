@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { robotsFor } from "@/lib/seo-indexing";
 import Link from "@/components/EligibleLink";
-import { isLinkEligible, routeBareCompareLinks } from "@/lib/link-eligibility";
+import { isLinkEligible, routeBareCompareLinks, setLinkSource } from "@/lib/link-eligibility";
 import Image from "next/image";
 import Container from "@/components/Container";
 import GuideContents from "@/components/GuideContents";
@@ -192,6 +192,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/guides/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const post = getBlogPost(slug);
   if (!post) notFound();
 

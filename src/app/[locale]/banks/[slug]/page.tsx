@@ -49,6 +49,7 @@ import { getBankEditorial } from "@/data/bank-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
 import { PageByline } from "@/components/PageByline";
 import { COMPARISON_CONTENT_DATE, familyPageDate } from "@/lib/content-dates";
+import { setLinkSource } from "@/lib/link-eligibility";
 
 /** Distinct table amount per bank page — see table-amounts.ts. */
 /** The day /banks/* launched (fcbeaaed7) — the Article datePublished. */
@@ -117,6 +118,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BankPage({ params }: Props) {
   const { slug } = await params;
+  setLinkSource(`/banks/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const bank = getBankMeta(slug);
   if (!bank) notFound();
 

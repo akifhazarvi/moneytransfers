@@ -1,5 +1,5 @@
 import Link from "@/components/EligibleLink";
-import { isLinkEligible } from "@/lib/link-eligibility";
+import { isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -105,6 +105,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TravelCountryPage({ params }: Props) {
   const { country, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/travel/${country}`); // Bing-only pages may link each other (link-eligibility.ts)
 
   const guide = getTravelGuide(country);
   if (!guide) notFound();

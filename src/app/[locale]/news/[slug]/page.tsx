@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import { notFound } from "next/navigation";
 import Link from "@/components/EligibleLink";
-import { isLinkEligible } from "@/lib/link-eligibility";
+import { isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { newsItems, getNewsItem } from "@/data/news";
@@ -178,6 +178,7 @@ function CategoryBadge({ category }: { category: string }) {
 export default async function NewsArticlePage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/news/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const t = await getTranslations({ locale, namespace: "newsSlug" });
   const item = getNewsItem(slug);
   if (!item) notFound();

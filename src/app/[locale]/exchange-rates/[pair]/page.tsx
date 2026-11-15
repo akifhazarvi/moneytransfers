@@ -20,7 +20,7 @@ import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
 import { corridorPageRenders } from "@/lib/route-map";
-import { compareHashHref } from "@/lib/link-eligibility";
+import { compareHashHref, setLinkSource } from "@/lib/link-eligibility";
 import { firstTableAmount } from "@/lib/table-amounts";
 import { rateHistoryHref } from "@/lib/route-map-rates";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
@@ -377,6 +377,7 @@ function fmtRate(rate: number): string {
 export default async function ExchangeRatePairPage({ params }: Props) {
   const { pair, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/exchange-rates/${pair}`); // Bing-only pages may link each other (link-eligibility.ts)
   const p = PAIR_MAP.get(pair);
   if (!p) notFound();
 

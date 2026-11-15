@@ -29,7 +29,7 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import PartnerFeatureBlock from "@/components/PartnerFeatureBlock";
 import { getCompareEditorial } from "@/data/compare-editorial";
 import { renderDataTokens } from "@/lib/ratings-tokens";
-import { isLinkEligible } from "@/lib/link-eligibility";
+import { isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
 
 
 interface Props {
@@ -885,6 +885,7 @@ function DefaultComparison({
 export default async function ComparisonPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/compare/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const pair = parseSlug(slug);
   if (!pair) notFound();
 

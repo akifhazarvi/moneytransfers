@@ -1,6 +1,6 @@
 import { seoDescription } from "@/lib/seo-title";
 import Link from "@/components/EligibleLink";
-import { eligibleHref, isLinkEligible } from "@/lib/link-eligibility";
+import { eligibleHref, isLinkEligible, setLinkSource } from "@/lib/link-eligibility";
 import { linkableCorridorsFor } from "@/lib/corridor-links";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -240,6 +240,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SwiftCountryPage({ params }: Props) {
   const { country: slug, locale } = await params;
   setRequestLocale(locale);
+  setLinkSource(`/swift-codes/${slug}`); // Bing-only pages may link each other (link-eligibility.ts)
   const t = await getTranslations({ locale, namespace: "swiftCodesSlug" });
   const country = getSwiftCountryBySlug(slug);
   if (!country) notFound();

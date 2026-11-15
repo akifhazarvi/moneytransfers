@@ -24,7 +24,7 @@
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { hubChildLinkAllowed, internalPagePath, isLinkEligible } from "../src/lib/link-eligibility";
+import { hubChildLinkAllowed, internalPagePath, isLinkEligible, isLinkEligibleFrom } from "../src/lib/link-eligibility";
 import eligibleJson from "../src/data/google-eligible-routes.json";
 
 const ROOT = join(__dirname, "..");
@@ -85,7 +85,9 @@ for (const f of walk(APP)) {
     const path = internalPagePath(decoded);
     if (path === null) continue;
     unique.add(path);
-    if (path === source || isLinkEligible(path) || hubChildLinkAllowed(source, path)) continue;
+    // A Bing-only page may link another Bing-only page (2026-11-15); every
+    // other link must point at a Google-eligible page.
+    if (path === source || isLinkEligibleFrom(source, path) || hubChildLinkAllowed(source, path)) continue;
     const entry = byTarget.get(path) ?? { count: 0, sources: new Set() };
     entry.count++;
     entry.sources.add(source);
@@ -163,4 +165,4 @@ if (violations > 0 && !REPORT_ONLY) {
   console.error(`\n✗ ${violations} link(s) break the link-eligibility rule (CLAUDE.md strict rule 14).`);
   process.exit(1);
 }
-console.log(violations > 0 ? `\n${violations} violation(s) (report only).` : "\n✓ every internal link is Google-eligible; every affiliate link is nofollow sponsored.");
+console.log(violations > 0 ? `\n${violations} violation(s) (report only).` : "\n✓ every internal link is Google-eligible (or Bing-only to Bing-only); every affiliate link is nofollow sponsored.");

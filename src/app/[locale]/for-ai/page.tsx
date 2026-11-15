@@ -15,6 +15,7 @@ import { COVERAGE } from "@/lib/site-stats";
 import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { robotsFor } from "@/lib/seo-indexing";
+import { setLinkSource } from "@/lib/link-eligibility";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -114,6 +115,7 @@ const CITABLE_FACTS = [
 ];
 
 export default function ForAIPage() {
+  setLinkSource("/for-ai"); // Bing-only pages may link each other (link-eligibility.ts)
   // Sample live corridor quotes to ground the page in real data
   const sampleQuotes = CORRIDORS.slice(0, 3).map((c) => {
     const quotes = generateQuotes(1000, c.from, c.to).slice(0, 3);
