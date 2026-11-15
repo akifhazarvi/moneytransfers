@@ -16,6 +16,7 @@ import { REMITTANCE_INDEX, CORRIDOR_SPREAD, INDEX_AMOUNT, MIN_CORRIDORS, type In
 import { formatLocalDate } from "@/lib/format-date";
 import { PageByline } from "@/components/PageByline";
 import { METHODOLOGY_AUTHOR_SLUG, pageUpdated } from "@/lib/content-dates";
+import MonthlyPriceReport from "@/components/MonthlyPriceReport";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -474,6 +475,9 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
           </div>
         </Container>
       </section>
+
+      {/* Monthly price report (scripts/build-monthly-report.ts) */}
+      <MonthlyPriceReport />
 
       {/* Global context */}
       <section className="py-14 bg-[var(--color-surface)]">

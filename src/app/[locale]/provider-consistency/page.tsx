@@ -20,6 +20,16 @@ import {
   MIN_CORRIDORS_FOR_RATE_CLAIM,
 } from "@/lib/consistency-index";
 
+/**
+ * "What staying with one app costs over a year": the same avgShortfallPct the
+ * index publishes, widely-quoting providers only, smallest gap first. Priced at
+ * 100 units a week because the history behind it is the 100-unit quote.
+ */
+const LOYALTY_ROWS = [...CONSISTENCY_ROWS]
+  .filter((r) => r.corridorsQuoted >= MIN_CORRIDORS_FOR_RATE_CLAIM)
+  .sort((a, b) => a.avgShortfallPct - b.avgShortfallPct)
+  .slice(0, 10);
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "providerConsistency" });
@@ -326,6 +336,45 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
               On a $1,000 transfer, a {COSTLIEST_WHEN_LOSING[0]?.avgShortfallPct.toFixed(2)}% shortfall is about $
               {((COSTLIEST_WHEN_LOSING[0]?.avgShortfallPct ?? 0) * 10).toFixed(0)}{" "}less reaching the recipient than the
               day&rsquo;s best provider would have delivered.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* Cost of loyalty: the same shortfall, over a year of regular transfers. */}
+      <section id="cost-of-loyalty" className="py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-2">
+              What staying with one app costs over a year
+            </h2>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-5 leading-relaxed">
+              {`If you send regularly and always use the same provider, its average shortfall against the day's top payout is what that loyalty costs. Priced here for 100 units sent every week for a year (52 transfers), the amount these shortfalls were measured at; at larger amounts fixed fees weigh less, so the gap is usually smaller. Providers quoting on at least ${MIN_CORRIDORS_FOR_RATE_CLAIM} corridors, smallest gap first.`}
+            </p>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)]">
+              <table className="w-full text-sm">
+                <thead className="text-left text-[var(--color-on-surface-variant)]">
+                  <tr className="border-b border-[var(--color-outline)]">
+                    <th className="px-4 py-2 font-medium">Provider</th>
+                    <th className="px-4 py-2 font-medium text-right">Average gap to the top payout</th>
+                    <th className="px-4 py-2 font-medium text-right">Over a year, 100 a week</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[var(--color-outline)] tabular-nums">
+                  {LOYALTY_ROWS.map((r) => (
+                    <tr key={r.providerSlug}>
+                      <td className="px-4 py-2">
+                        <ProviderCell slug={r.providerSlug} name={r.providerName} />
+                      </td>
+                      <td className="px-4 py-2 text-right">{`${r.avgShortfallPct.toFixed(2)}%`}</td>
+                      <td className="px-4 py-2 text-right">{`about ${Math.round((r.avgShortfallPct / 100) * 100 * 52)} units`}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
+              {`"Units" are the currency you send: 100 a week in dollars, pounds or euros. On ${ROTATION_RATE}% of corridors today's top payout comes from a provider other than the route's usual leader, so comparing before each transfer, not once, is what closes the gap.`}
             </p>
           </div>
         </Container>

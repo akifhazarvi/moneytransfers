@@ -59,7 +59,7 @@ function pct(from: number, to: number): number {
  * mid-July to 12 August 2026, GBP/EUR at 1.1549 through April), and must not
  * read as a month's range or as the day a rate "moved" when the feed resumed.
  */
-function fresh(series: SparklinePoint[]): SparklinePoint[] {
+export function fresh(series: SparklinePoint[]): SparklinePoint[] {
   const points = [...series].filter((p) => p.rate > 0).sort((a, b) => a.date.localeCompare(b.date));
   const out: SparklinePoint[] = [];
   let run = 0;

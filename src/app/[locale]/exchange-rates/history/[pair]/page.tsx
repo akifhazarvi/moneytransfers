@@ -33,7 +33,9 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { robotsFor } from "@/lib/seo-indexing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { rateHistoryPageRenders } from "@/lib/route-map-rates";
+import RateOnDate from "@/components/RateOnDate";
 import {
+  fresh,
   summariseSeries,
   reactionAround,
   rateDecimals,
@@ -157,6 +159,11 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
   const summary = summariseSeries(insight.sparklines["__mid-market__"]);
   const dp = rateDecimals(insight.stats.avgRate);
   const fmt = (r: number) => r.toFixed(dp);
+  // Dated closes for "rate on a date" (Bing: "eur usd exchange rate november 12
+  // 2026"): the last 14 as text, any other day through the lookup. fresh()
+  // drops stalled-feed repeats, so a stall is never shown as a day's close.
+  const freshMid = fresh(insight.sparklines["__mid-market__"] ?? []);
+  const recentCloses = freshMid.slice(-15).map((p, i, arr) => ({ ...p, prev: i > 0 ? arr[i - 1].rate : null })).slice(1).reverse();
   const widestMonth = summary?.months.reduce<(typeof summary.months)[number] | null>(
     (best, m) => (!best || Math.abs(m.changePct) > Math.abs(best.changePct) ? m : best),
     null,
@@ -361,6 +368,46 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
                   ))}
                 </tbody>
               </table>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* Rate by date: the last 14 closes as text, any other day via the lookup.
+          Fixed wording stays short for the same check:duplication reason as above. */}
+      {recentCloses.length > 0 && (
+        <section id="rate-by-date" className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+          <Container>
+            <h2 className="mb-1 text-h4 font-bold text-[var(--color-on-surface)]">
+              {`${from}/${to} rate by date`}
+            </h2>
+            <p className="mb-4 text-sm text-[var(--color-on-surface-variant)] max-w-3xl">
+              {`Daily ${from}/${to} mid-market closes, latest first.`}
+            </p>
+            <div className="grid gap-4 lg:grid-cols-2 max-w-4xl items-start">
+              <div className="overflow-x-auto rounded-xl border border-[var(--color-outline)]">
+                <table className="w-full text-2sm">
+                  <thead>
+                    <tr className="bg-[var(--color-surface-dim)]">
+                      <th className="px-3 py-2 text-left font-semibold text-[var(--color-on-surface-variant)]">Date</th>
+                      <th className="px-3 py-2 text-right font-semibold text-[var(--color-on-surface-variant)]">{`1 ${from} in ${to}`}</th>
+                      <th className="px-3 py-2 text-right font-semibold text-[var(--color-on-surface-variant)]">Change</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {recentCloses.map((p) => (
+                      <tr key={p.date} className="border-b border-[var(--color-outline)] last:border-0">
+                        <td className="px-3 py-1.5 text-[var(--color-on-surface)]">{dayLabel(p.date, true)}</td>
+                        <td className="px-3 py-1.5 text-right tabular-nums">{fmt(p.rate)}</td>
+                        <td className="px-3 py-1.5 text-right tabular-nums text-[var(--color-on-surface-variant)]">
+                          {p.prev ? signedPct(((p.rate - p.prev) / p.prev) * 100) : ""}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <RateOnDate from={from} to={to} points={freshMid.map((p) => [p.date, p.rate] as [string, number])} />
             </div>
           </Container>
         </section>

@@ -1,0 +1,158 @@
+{
+  "generatedAt": "2026-11-15T08:39:41.044Z",
+  "amountUnits": 100,
+  "method": "Total cost = fee plus exchange-rate margin as a share of a 100-unit send, against that day's mid-market close, from the guarded daily history. Only route-and-provider pairs quoted on 10+ days in every month shown, so month-to-month changes are price changes, not coverage changes. Routes involving NGN, ARS, ETB and other parallel-rate currencies are excluded.",
+  "panel": {
+    "routes": 98,
+    "providerRoutePairs": 673,
+    "minDaysPerMonth": 10
+  },
+  "latestCompleteMonth": "2026-10",
+  "previousMonth": "2026-09",
+  "months": [
+    {
+      "month": "2026-04",
+      "toDate": null,
+      "contestedDays": 2564,
+      "specialistMedianPct": 2.51,
+      "bankMedianPct": 3.09,
+      "topPayoutMedianPct": 0.67,
+      "specialistQuotes": 13868,
+      "bankQuotes": 4666,
+      "rotationPct": 26.3
+    },
+    {
+      "month": "2026-05",
+      "toDate": null,
+      "contestedDays": 2697,
+      "specialistMedianPct": 2.48,
+      "bankMedianPct": 3.09,
+      "topPayoutMedianPct": 0.63,
+      "specialistQuotes": 15159,
+      "bankQuotes": 4584,
+      "rotationPct": 15.5
+    },
+    {
+      "month": "2026-06",
+      "toDate": null,
+      "contestedDays": 2650,
+      "specialistMedianPct": 2.2,
+      "bankMedianPct": 3.11,
+      "topPayoutMedianPct": 0.62,
+      "specialistQuotes": 14484,
+      "bankQuotes": 4489,
+      "rotationPct": 13.3
+    },
+    {
+      "month": "2026-07",
+      "toDate": null,
+      "contestedDays": 2759,
+      "specialistMedianPct": 2.44,
+      "bankMedianPct": 3.55,
+      "topPayoutMedianPct": 0.74,
+      "specialistQuotes": 15411,
+      "bankQuotes": 4954,
+      "rotationPct": 7.5
+    },
+    {
+      "month": "2026-08",
+      "toDate": null,
+      "contestedDays": 2745,
+      "specialistMedianPct": 2.45,
+      "bankMedianPct": 3.44,
+      "topPayoutMedianPct": 0.7,
+      "specialistQuotes": 15194,
+      "bankQuotes": 4809,
+      "rotationPct": 12.8
+    },
+    {
+      "month": "2026-09",
+      "toDate": null,
+      "contestedDays": 2669,
+      "specialistMedianPct": 2.46,
+      "bankMedianPct": 3.11,
+      "topPayoutMedianPct": 0.67,
+      "specialistQuotes": 15046,
+      "bankQuotes": 4749,
+      "rotationPct": 10.9
+    },
+    {
+      "month": "2026-10",
+      "toDate": null,
+      "contestedDays": 2758,
+      "specialistMedianPct": 2.47,
+      "bankMedianPct": 3.07,
+      "topPayoutMedianPct": 0.59,
+      "specialistQuotes": 15595,
+      "bankQuotes": 4948,
+      "rotationPct": 10
+    },
+    {
+      "month": "2026-11",
+      "toDate": "2026-11-15",
+      "contestedDays": 1246,
+      "specialistMedianPct": 2.45,
+      "bankMedianPct": 3.18,
+      "topPayoutMedianPct": 0.64,
+      "specialistQuotes": 7011,
+      "bankQuotes": 2240,
+      "rotationPct": 9
+    }
+  ],
+  "movers": {
+    "cheaper": [
+      {
+        "route": "AUD → VND",
+        "providers": 4,
+        "changePts": -0.16
+      },
+      {
+        "route": "AUD → EUR",
+        "providers": 7,
+        "changePts": -0.15
+      },
+      {
+        "route": "AED → PKR",
+        "providers": 3,
+        "changePts": -0.12
+      },
+      {
+        "route": "AUD → THB",
+        "providers": 7,
+        "changePts": -0.1
+      },
+      {
+        "route": "AUD → GBP",
+        "providers": 8,
+        "changePts": -0.09
+      }
+    ],
+    "dearer": [
+      {
+        "route": "USD → DOP",
+        "providers": 3,
+        "changePts": 0.2
+      },
+      {
+        "route": "EUR → MXN",
+        "providers": 9,
+        "changePts": 0.12
+      },
+      {
+        "route": "GBP → AUD",
+        "providers": 13,
+        "changePts": 0.1
+      },
+      {
+        "route": "USD → TZS",
+        "providers": 3,
+        "changePts": 0.06
+      },
+      {
+        "route": "EUR → PLN",
+        "providers": 4,
+        "changePts": 0.06
+      }
+    ]
+  }
+}
