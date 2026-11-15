@@ -16,7 +16,9 @@ test.describe("public Data API v1", () => {
     const res = await request.get("/api/v1/quotes?from=USD&to=INR&amount=1000");
     expect(res.status()).toBe(200);
     expect(res.headers()["access-control-allow-origin"]).toBe("*");
-    expect(res.headers()["cache-control"]).toMatch(/s-maxage=\d+/);
+    // Cacheable (Vercel's CDN consumes s-maxage and forwards max-age; local builds show both).
+    expect(res.headers()["cache-control"]).toMatch(/max-age=\d+/);
+    expect(res.headers()["cache-control"]).not.toMatch(/no-store/);
     const q = await res.json();
     expect(q.query).toEqual({ from: "USD", to: "INR", amount: 1000 });
     expect(q.midMarket.rate).toBeGreaterThan(0);
