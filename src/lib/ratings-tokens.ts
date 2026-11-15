@@ -533,6 +533,30 @@ function unmeasured(match: string, slug: string): string {
   return UNPRICED;
 }
 
+/**
+ * The same rule for a route-level ranking: {{BEST_PROVIDER}}, {{SPREAD}},
+ * {{PROVIDER_TALLY}} and the rest need 3+ ranked quotes, because naming a
+ * "best" out of two is the superlative rule 6 forbids. That depth moves with
+ * every scrape. On 2026-11-14 AED→PKR fell to 2 ranked quotes and the UAE→
+ * Pakistan guide's Quick Answer failed four builds in a row (three production
+ * data commits and a guide PR) until the guide was reworded by hand. A route of
+ * known currencies that is too thin this build drops the claim; an unknown
+ * currency code is still a typo and still fails check:assets.
+ */
+function knownPair(from: string, to: string): boolean {
+  return [from, to].every((c) => currencies.some((x) => x.code === c) || sendCurrencies.some((x) => x.code === c));
+}
+function thinRoute(match: string, from: string, to: string, ranked: number): string {
+  if (!knownPair(from, to)) return match;
+  if (!unpricedLogged.has(match)) {
+    unpricedLogged.add(match);
+    console.warn(
+      `[ratings-tokens] ${from}→${to} has ${ranked} ranked quote(s), fewer than 3, for ${match}; the claim around it is dropped this build`,
+    );
+  }
+  return UNPRICED;
+}
+
 // Sources, not instances: a shared /g regex carries lastIndex between calls.
 const BLOCK_OPEN = String.raw`<(?:p|li|td|th|div|h[1-6]|blockquote)(?:\s[^>]*)?>|<br\s*\/?>`;
 const SENTENCE_END = String.raw`[.!?](?=\s|<|$)`;
@@ -646,7 +670,17 @@ function renderQuoteTokens(html: string): string {
     /\{\{QUOTE_TABLE:([A-Z]{3}):([A-Z]{3}):(\d+)(?::(\d+))?\}\}/g,
     (match, from: string, to: string, amt: string, limit: string | undefined) => {
       const rows = byPayout(from, to, Number(amt));
-      if (rows.length < 3) return match;
+      if (rows.length < 3) {
+        // A table stands between blocks, so there is no sentence to drop: the
+        // marker would take the neighbouring paragraphs with it. Say why there
+        // is no table and hand the reader the live comparison for the route.
+        if (!knownPair(from, to)) return match;
+        thinRoute(match, from, to, rows.length);
+        return (
+          `<p>Fewer than three providers are quoting ${from} to ${to} at this amount in our latest data, ` +
+          `so we don't rank them here. <a href="${compareHashHref(from, to, Number(amt))}">See the current quotes for this route</a>.</p>`
+        );
+      }
       const shown = limit ? rows.slice(0, Number(limit)) : rows;
       const medal = ["\u{1F947}", "\u{1F948}", "\u{1F949}"];
       const body = shown
@@ -747,7 +781,7 @@ function renderQuoteTokens(html: string): string {
     /\{\{(BEST_PROVIDER|BEST_RECEIVE|WORST_PROVIDER|WORST_RECEIVE|SPREAD|PROVIDER_TALLY):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
     (match, kind: string, from: string, to: string, amt: string) => {
       const rows = byPayout(from, to, Number(amt));
-      if (rows.length < 3) return match;
+      if (rows.length < 3) return thinRoute(match, from, to, rows.length);
       const best = rows[0];
       const worst = rows[rows.length - 1];
       switch (kind) {
