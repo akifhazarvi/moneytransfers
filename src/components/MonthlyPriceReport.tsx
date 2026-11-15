@@ -1,4 +1,5 @@
 import report from "@/data/research/monthly-cost-report.json";
+import Link from "@/components/EligibleLink";
 import { longDay } from "@/lib/content-dates";
 
 /**
@@ -125,7 +126,11 @@ export default function MonthlyPriceReport() {
           <p>
             <strong className="text-[var(--color-on-surface)]">Data.</strong>{" "}
             <a href="/data/monthly-cost-report.csv" className="text-[var(--color-primary)] underline underline-offset-2">CSV download</a>
-            {", CC BY 4.0. A new edition follows the close of each month."}
+            {", CC BY 4.0. A new edition follows the close of each month. Daily quotes for any route are in our "}
+            <Link href="/developers" className="text-[var(--color-primary)] underline underline-offset-2">
+              Data API
+            </Link>
+            {"."}
           </p>
         </div>
       </div>

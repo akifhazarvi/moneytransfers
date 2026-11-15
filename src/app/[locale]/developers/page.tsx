@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   title: "Money Transfer Data API: Quotes and Rate History",
   description: seoDescription(DESCRIPTION),
   alternates: { canonical: `${SITE_URL}${PATH}` },
-  // Bing-only from launch (rule 3 as amended 2026-11-11); Google only through a
-  // release batch (rule 17). See BING_NEW_PAGES in search-engine-routes.ts.
+  // Open to Bing from launch (BING_NEW_PAGES) and to Google from release batch
+  // 4, 2026-11-15 (search-engine-routes.ts), so robotsFor() returns the default.
   robots: robotsFor(PATH),
   openGraph: {
     title: "SendMoneyCompare Data API",

@@ -101,6 +101,9 @@ export default function Footer() {
         // its only inbound links were from pages that have since been pruned,
         // leaving it orphaned in the Sep 2 crawl.
         { href: "/for-ai", labelKey: "forAiLink", label: "For AI assistants" },
+        // Data API docs, live demo and waitlist (2026-11-15). Released to Google
+        // in batch 4, so this link renders on every page (rule 14).
+        { href: "/developers", labelKey: "developersLink", label: "Data API for developers" },
       ],
     },
   ];

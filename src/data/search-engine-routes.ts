@@ -319,7 +319,7 @@ export const BING_DEMAND_WAVE_4: readonly string[] = [
  * googleIndexable() does not read this list.
  */
 export const BING_NEW_PAGES: readonly string[] = [
-  "/developers", // 2026-11-15: Data API docs, live demo and paid-plan waitlist
+  "/developers", // 2026-11-15: Data API docs, live demo, waitlist; Google: release batch 4 the same day
 ];
 
 export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([
@@ -440,6 +440,20 @@ export const GOOGLE_RELEASE_BATCHES: readonly { readonly released: string; reado
       "/compare/wise-vs-worldremit",
       "/swift-codes/turkiye",
       "/banks/barclays",
+    ],
+  },
+  {
+    // Batch 4 — owner decision 2026-11-15: the Data API page must be reachable
+    // site-wide (footer), which rule 14 allows only for a Google-eligible page.
+    // QA (worksheet-12 items) on the build of 2026-11-15: 200; self-canonical;
+    // <title> differs from the H1 and is under 70 characters; description under
+    // 160; dated byline (content-dates.ts); own data (a live response from
+    // generateQuotes, no placeholder); WebAPI JSON-LD; no page shares its text;
+    // in-content links from 3 eligible pages (/research, /methodology,
+    // /remittance-cost-index) plus the footer. Bing demand: new page, none yet.
+    released: "2026-11-15",
+    routes: [
+      "/developers",
     ],
   },
 ];

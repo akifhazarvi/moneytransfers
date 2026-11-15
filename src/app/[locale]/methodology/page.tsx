@@ -663,6 +663,13 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   </Link>
                   .
                 </p>
+                <p>
+                  The quotes themselves, ranked by these rules, are available as JSON through our{" "}
+                  <Link href="/developers" className="text-[var(--color-primary)] hover:underline">
+                    Data API
+                  </Link>
+                  , free under the same CC BY 4.0 licence.
+                </p>
               </div>
             </div>
 
