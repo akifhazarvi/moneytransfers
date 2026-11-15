@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { trackApiDemoRun } from "@/lib/analytics";
 
 interface Currency {
@@ -33,12 +33,13 @@ export default function ApiPlayground({
   const [to, setTo] = useState(initial.to);
   const [amount, setAmount] = useState(String(initial.amount));
   const [running, setRunning] = useState(false);
-  const [result, setResult] = useState<{ status: number; ms: number; bytes: number; body: string; live: boolean }>({
+  const [result, setResult] = useState<{ status: number; ms: number; bytes: number; body: string; live: boolean; path: string }>({
     status: 200,
     ms: 0,
     bytes: initial.body.length,
     body: initial.body,
     live: false,
+    path: `/api/v1/quotes?from=${initial.from}&to=${initial.to}&amount=${initial.amount}`,
   });
   const [copied, setCopied] = useState("");
 
@@ -49,13 +50,15 @@ export default function ApiPlayground({
   const url = SITE + path;
   const curl = `curl "${url}"`;
 
-  async function run() {
+  async function run(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (running) return;
     setRunning(true);
     const t0 = performance.now();
     let status = 0;
     let text = "";
     try {
-      const res = await fetch(path, { headers: { accept: "application/json" } });
+      const res = await fetch(path, { signal: AbortSignal.timeout(15000), headers: { accept: "application/json" } });
       status = res.status;
       text = await res.text();
       try {
@@ -64,10 +67,10 @@ export default function ApiPlayground({
         /* not JSON: show as returned */
       }
     } catch {
-      text = JSON.stringify({ error: "The request did not reach the server. Check your connection and try again." }, null, 2);
+      text = JSON.stringify({ error: "The request did not reach the server. Check your connection and try again; requests time out after 15 seconds." }, null, 2);
     }
     const ms = Math.round(performance.now() - t0);
-    setResult({ status, ms, bytes: new Blob([text]).size, body: text, live: true });
+    setResult({ status, ms, bytes: new Blob([text]).size, body: text, live: true, path });
     setRunning(false);
     trackApiDemoRun(endpoint, status);
   }
@@ -83,19 +86,19 @@ export default function ApiPlayground({
   }
 
   const field =
-    "w-full rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]";
+    "min-w-0 min-h-11 w-full rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] px-3 py-2 text-base sm:text-sm text-[var(--color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]";
   const label = "block text-xs font-medium text-[var(--color-on-surface-variant)] mb-1";
   const tab = (active: boolean) =>
-    `rounded-full px-4 py-1.5 text-sm font-medium ${
+    `min-h-11 rounded-full px-4 py-2 text-sm font-medium ${
       active
-        ? "bg-[var(--color-primary)] text-white"
+        ? "bg-[var(--color-cta)] text-[var(--color-cta-text)]"
         : "bg-[var(--color-surface-dim)] text-[var(--color-on-surface)] hover:bg-[var(--color-primary-surface)]"
     }`;
   const ok = result.status >= 200 && result.status < 300;
 
   return (
     <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-sm overflow-hidden">
-      <div className="p-4 sm:p-5 space-y-4 border-b border-[var(--color-outline)]">
+      <form onSubmit={run} className="p-4 sm:p-5 space-y-4 border-b border-[var(--color-outline)]">
         <div className="flex flex-wrap gap-2" role="group" aria-label="Endpoint">
           <button type="button" className={tab(endpoint === "quotes")} aria-pressed={endpoint === "quotes"} onClick={() => setEndpoint("quotes")}>
             Quotes
@@ -139,6 +142,8 @@ export default function ApiPlayground({
                 id="pg-amount"
                 type="number"
                 inputMode="decimal"
+                required
+                step="any"
                 min={1}
                 max={1000000}
                 value={amount}
@@ -147,12 +152,11 @@ export default function ApiPlayground({
               />
             </div>
           )}
-          <div className="col-span-2 sm:col-span-1 flex items-end">
+          <div className={`${endpoint === "quotes" ? "col-span-1" : "col-span-2"} sm:col-span-1 flex items-end`}>
             <button
-              type="button"
-              onClick={run}
+              type="submit"
               disabled={running}
-              className="w-full rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-60"
+              className="min-h-11 w-full rounded-full bg-[var(--color-cta)] px-5 py-2 text-sm font-medium text-[var(--color-cta-text)] hover:opacity-90 disabled:opacity-60"
             >
               {running ? "Sending…" : "Send request"}
             </button>
@@ -166,9 +170,13 @@ export default function ApiPlayground({
             {copied === "curl" ? "Copied" : "Copy curl"}
           </button>
         </div>
-      </div>
+      </form>
 
-      <div className="bg-[#0f172a] text-[#e2e8f0]">
+      <div className="bg-[#0f172a] text-[#e2e8f0]" aria-busy={running}>
+        <p className="break-all border-b border-white/10 px-4 py-3 font-mono text-xs text-[#cbd5e1]">
+          {result.live ? "Response" : "Sample"}: {result.path}
+          {result.path !== path && <span className="mt-1 block font-sans text-[#fde68a]">Request changed. Send it to update the response below.</span>}
+        </p>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2 text-xs border-b border-white/10" aria-live="polite">
           <span className={`font-semibold ${ok ? "text-[#4ade80]" : "text-[#f87171]"}`}>
             {result.status || "Error"}
@@ -180,7 +188,7 @@ export default function ApiPlayground({
             {copied === "json" ? "Copied" : "Copy JSON"}
           </button>
         </div>
-        <pre data-nosnippet className="max-h-[28rem] overflow-auto p-4 text-xs leading-relaxed">
+        <pre tabIndex={0} aria-label="API JSON response" data-nosnippet className="max-h-[28rem] overflow-auto p-4 text-xs leading-relaxed">
           <code>{result.body}</code>
         </pre>
       </div>

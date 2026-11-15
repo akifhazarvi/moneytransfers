@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import styles from "./developers.module.css";
 import Link from "@/components/EligibleLink";
 import Container from "@/components/Container";
 import ApiPlayground from "@/components/ApiPlayground";
@@ -98,14 +99,14 @@ export default function DevelopersPage() {
   };
 
   return (
-    <>
+    <div className={styles.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApiSchema) }} />
 
-      <section className="bg-[var(--color-surface-dim)] border-b border-[var(--color-outline)]">
+      <section className={styles.hero}>
         <Container>
-          <div className="py-10 sm:py-14 max-w-3xl">
+          <div className="py-12 sm:py-20 max-w-3xl">
             <p className="text-sm font-medium text-[var(--color-primary)]">SendMoneyCompare Data API</p>
-            <h1 className="mt-2 text-3xl sm:text-4xl font-bold text-[var(--color-on-surface)]">
+            <h1 className="mt-2 text-4xl sm:text-5xl font-bold text-[var(--color-on-surface)]">
               Money transfer prices, as clean JSON
             </h1>
             <p className="mt-4 text-lg text-[var(--color-on-surface-variant)]">
@@ -114,7 +115,7 @@ export default function DevelopersPage() {
               exports are coming: join the waitlist to hear first.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#demo" className="rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-medium text-white hover:opacity-90">
+              <a href="#demo" className="rounded-full bg-[var(--color-cta)] px-5 py-3 text-sm font-medium text-[var(--color-cta-text)] hover:opacity-90">
                 Try the live demo
               </a>
               <a
@@ -132,7 +133,15 @@ export default function DevelopersPage() {
       </section>
 
       <Container>
-        <div className="py-10 space-y-14 max-w-4xl">
+        <nav aria-label="Developer sections" className={styles.sectionNav}>
+          <a href="#demo">API playground</a>
+          <a href="#endpoints">Endpoints & datasets</a>
+          <a href="#quality">Data quality</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#waitlist">Get early access</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div className="py-10 sm:py-14 space-y-14 sm:space-y-20">
           <section id="demo" className="scroll-mt-24">
             <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-2">Try the Data API live</h2>
             <p className="text-[var(--color-on-surface-variant)] mb-5">
@@ -146,19 +155,19 @@ export default function DevelopersPage() {
             />
           </section>
 
-          <section>
+          <section id="endpoints" className="scroll-mt-24">
             <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-4">Free endpoints you can call today</h2>
             <div className="overflow-x-auto rounded-2xl border border-[var(--color-outline)]">
-              <table className="w-full text-sm">
+              <table className={styles.endpoints}>
                 <thead className="bg-[var(--color-surface-dim)] text-left text-[var(--color-on-surface-variant)]">
                   <tr>
-                    <th className="px-4 py-3 font-medium">Request</th>
-                    <th className="px-4 py-3 font-medium">Returns</th>
+                    <th scope="col" className="px-4 py-3 font-medium">Request</th>
+                    <th scope="col" className="px-4 py-3 font-medium">Returns</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--color-outline)]">
                   <tr>
-                    <td className="px-4 py-3 font-mono text-xs align-top whitespace-nowrap">GET /api/v1/quotes?from=USD&amp;to=INR&amp;amount=1000</td>
+                    <td className="px-4 py-3 font-mono text-xs align-top break-all">GET /api/v1/quotes?from=USD&amp;to=INR&amp;amount=1000</td>
                     <td className="px-4 py-3 text-[var(--color-on-surface-variant)]">
                       Every provider the comparison shows for the route, in its order (by payout; payouts within 0.1%
                       count as tied and are ordered by rating): fee, exchange rate, amount received, markup over
@@ -166,13 +175,13 @@ export default function DevelopersPage() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-mono text-xs align-top whitespace-nowrap">GET /api/v1/history?from=USD&amp;to=INR</td>
+                    <td className="px-4 py-3 font-mono text-xs align-top break-all">GET /api/v1/history?from=USD&amp;to=INR</td>
                     <td className="px-4 py-3 text-[var(--color-on-surface-variant)]">
                       Daily mid-market rates for the pair, oldest first.
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-mono text-xs align-top whitespace-nowrap">GET /data/&lt;dataset&gt;.csv</td>
+                    <td className="px-4 py-3 font-mono text-xs align-top break-all">GET /data/&lt;dataset&gt;.csv</td>
                     <td className="px-4 py-3 text-[var(--color-on-surface-variant)]">
                       The datasets behind our{" "}
                       <Link href="/research" className="text-[var(--color-primary)] hover:underline">
@@ -193,17 +202,16 @@ export default function DevelopersPage() {
             </p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2 text-sm">
               {DATASETS.map((d) => (
-                <li key={d.csv}>
-                  <a href={d.csv} className="text-[var(--color-primary)] hover:underline">
-                    {d.name}
-                  </a>{" "}
-                  <span className="text-[var(--color-on-surface-variant)]">(CSV)</span>
+                <li key={d.csv} className="rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)]">
+                  <a href={d.csv} className="flex h-full items-center justify-between gap-3 p-4 text-[var(--color-primary)] hover:underline">
+                    {d.name}{" "}<span className="shrink-0 text-xs text-[var(--color-on-surface-muted)]">CSV ↗</span>
+                  </a>
                 </li>
               ))}
             </ul>
           </section>
 
-          <section>
+          <section id="quality" className="scroll-mt-24 max-w-3xl">
             <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-4">What clean means in our quotes</h2>
             <p className="text-[var(--color-on-surface-variant)] mb-4">
               Raw quotes from many sources disagree on what a fee includes and when a rate was taken. Before a quote
@@ -223,12 +231,12 @@ export default function DevelopersPage() {
             </p>
           </section>
 
-          <section>
+          <section id="pricing" className="scroll-mt-24">
             <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-2">Data API plans and planned pricing</h2>
             <p className="text-[var(--color-on-surface-variant)] mb-6">
               Free works today. Paid plans are planned and their prices may change before launch.
             </p>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {API_PLANS.map((p) => (
                 <div
                   key={p.id}
@@ -254,9 +262,9 @@ export default function DevelopersPage() {
                   </ul>
                   <a
                     href={p.available ? "#demo" : `#join-${p.id}`}
-                    className={`mt-5 rounded-full px-4 py-2 text-center text-sm font-medium ${
+                    className={`mt-5 min-h-11 rounded-full px-4 py-2 text-center text-sm font-medium ${
                       p.id === "developer"
-                        ? "bg-[var(--color-primary)] text-white hover:opacity-90"
+                        ? "bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)]"
                         : "border border-[var(--color-outline)] text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)]"
                     }`}
                   >
@@ -267,12 +275,15 @@ export default function DevelopersPage() {
             </div>
           </section>
 
-          <section id="waitlist" className="scroll-mt-24">
-            <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-2">Join the Data API waitlist</h2>
-            <p className="text-[var(--color-on-surface-variant)] mb-5">
-              Tell us what you would build. We read every answer, and the routes and fields people ask for decide what
-              ships first.
-            </p>
+          <section id="waitlist" className={styles.waitlist}>
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-primary)]">Build with us</p>
+              <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-2">Join the Data API waitlist</h2>
+              <p className="text-[var(--color-on-surface-variant)] mb-5">
+                Tell us what you would build. We read every answer, and the routes and fields people ask for decide what
+                ships first.
+              </p>
+            </div>
             <ApiWaitlistForm
               plans={API_PLANS.map((p) => ({
                 id: p.id,
@@ -282,7 +293,7 @@ export default function DevelopersPage() {
             />
           </section>
 
-          <section>
+          <section id="faq" className="scroll-mt-24 max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-4">Data API: questions before you build</h2>
             <div className="divide-y divide-[var(--color-outline)] rounded-2xl border border-[var(--color-outline)]">
               {FAQ.map((f) => (
@@ -295,6 +306,6 @@ export default function DevelopersPage() {
           </section>
         </div>
       </Container>
-    </>
+    </div>
   );
 }

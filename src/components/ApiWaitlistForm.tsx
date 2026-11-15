@@ -28,12 +28,13 @@ export default function ApiWaitlistForm({ plans, useCases }: { plans: Option[]; 
   const started = useRef(false);
 
   useEffect(() => {
-    const pick = () => {
+    const pick = (event?: Event) => {
       const m = /^#join-([a-z-]+)$/.exec(window.location.hash);
       if (!m || !plans.some((p) => p.id === m[1])) return;
       setPlan(m[1]);
-      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      formRef.current?.querySelector<HTMLInputElement>("input[type=email]")?.focus({ preventScroll: true });
+      formRef.current?.scrollIntoView({ behavior: "instant", block: "start" });
+      // Do not open the mobile keyboard on a direct visit to a pricing link.
+      if (event) formRef.current?.querySelector<HTMLSelectElement>("select")?.focus({ preventScroll: true });
     };
     pick();
     window.addEventListener("hashchange", pick);
@@ -48,6 +49,7 @@ export default function ApiWaitlistForm({ plans, useCases }: { plans: Option[]; 
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (state === "sending") return;
     const form = new FormData(e.currentTarget);
     const values = {
       email: String(form.get("email") || "").trim(),
@@ -61,6 +63,7 @@ export default function ApiWaitlistForm({ plans, useCases }: { plans: Option[]; 
       setState("error");
       setError("Enter a valid email address.");
       setFallback("");
+      formRef.current?.querySelector<HTMLInputElement>("input[type=email]")?.focus();
       return;
     }
     setState("sending");
@@ -70,6 +73,7 @@ export default function ApiWaitlistForm({ plans, useCases }: { plans: Option[]; 
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
+        signal: AbortSignal.timeout(15000),
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ ...values, consent: true }),
       });
@@ -117,7 +121,7 @@ export default function ApiWaitlistForm({ plans, useCases }: { plans: Option[]; 
   }
 
   const field =
-    "w-full rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] px-4 py-2.5 text-sm text-[var(--color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]";
+    "min-w-0 min-h-11 w-full rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] px-4 py-2.5 text-base sm:text-sm text-[var(--color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]";
   const label = "block text-sm font-medium text-[var(--color-on-surface)] mb-1.5";
   const optional = <span className="font-normal text-[var(--color-on-surface-variant)]">(optional)</span>;
 
@@ -127,13 +131,15 @@ export default function ApiWaitlistForm({ plans, useCases }: { plans: Option[]; 
       onSubmit={onSubmit}
       onFocus={onStart}
       noValidate
+      aria-busy={state === "sending"}
       className="relative scroll-mt-24 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] p-5 sm:p-6 shadow-sm space-y-4"
     >
+      {plans.map((p) => <span key={p.id} id={`join-${p.id}`} className="absolute top-0 scroll-mt-24" aria-hidden="true" />)}
       <div>
         <label htmlFor="wl-email" className={label}>
           Email
         </label>
-        <input id="wl-email" name="email" type="email" required autoComplete="email" maxLength={254} className={field} placeholder="you@company.com" />
+        <input id="wl-email" aria-invalid={state === "error" && error === "Enter a valid email address." ? true : undefined} aria-describedby={state === "error" ? "wl-error" : undefined} name="email" type="email" required autoComplete="email" maxLength={254} className={field} placeholder="you@company.com" />
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -186,7 +192,7 @@ export default function ApiWaitlistForm({ plans, useCases }: { plans: Option[]; 
 
       <div aria-live="polite" className="text-sm">
         {state === "error" && (
-          <p className="text-[var(--color-danger)]">
+          <p id="wl-error" role="alert" className="text-[var(--color-danger)]">
             {error}
             {fallback && (
               <>
@@ -201,11 +207,11 @@ export default function ApiWaitlistForm({ plans, useCases }: { plans: Option[]; 
         )}
       </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
         <button
           type="submit"
           disabled={state === "sending"}
-          className="rounded-full bg-[var(--color-primary)] px-6 py-2.5 text-sm font-medium text-white hover:opacity-90 disabled:opacity-60"
+          className="shrink-0 min-h-11 rounded-full bg-[var(--color-cta)] px-6 py-2.5 text-sm font-medium text-[var(--color-cta-text)] hover:opacity-90 disabled:opacity-60"
         >
           {state === "sending" ? "Joining…" : "Join the waitlist"}
         </button>
