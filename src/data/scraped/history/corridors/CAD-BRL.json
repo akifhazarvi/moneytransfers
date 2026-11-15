@@ -2854,10 +2854,10 @@
     "date": "2026-11-15",
     "providers": {
       "lemfi": {
-        "rate": 3.969,
+        "rate": 3.971,
         "fee": 0,
-        "markup": 0.01,
-        "receiveAmount": 396.9
+        "markup": -0.01,
+        "receiveAmount": 397.1
       },
       "taptap-send": {
         "rate": 3.96,

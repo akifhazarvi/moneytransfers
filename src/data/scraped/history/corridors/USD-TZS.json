@@ -8910,7 +8910,7 @@
       "lemfi": {
         "rate": 2616.24,
         "fee": 0,
-        "markup": 1.09,
+        "markup": 1.1,
         "receiveAmount": 261624
       },
       "ria": {
@@ -8938,16 +8938,16 @@
         "receiveAmount": 240504.83
       },
       "remitly": {
-        "rate": 2565.9,
+        "rate": 2565.8,
         "fee": 0,
-        "markup": 3,
-        "receiveAmount": 256590
+        "markup": 3.01,
+        "receiveAmount": 256580
       },
       "wise": {
-        "rate": 2642.85,
-        "fee": 3.54,
-        "markup": 0.09,
-        "receiveAmount": 254929.31
+        "rate": 2647,
+        "fee": 2.73,
+        "markup": -0.06,
+        "receiveAmount": 257473.69
       }
     }
   }
