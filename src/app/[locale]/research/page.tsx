@@ -270,7 +270,11 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
                     </a>
                   </span>
                 ))}
-                . There is also a{" "}
+                . The quotes behind them are available as JSON through our{" "}
+                <Link href="/developers" className="text-[var(--color-primary)] hover:underline">
+                  Data API
+                </Link>
+                , and there is a{" "}
                 <Link href="/for-ai" className="text-[var(--color-primary)] hover:underline">
                   public quotes endpoint for AI assistants
                 </Link>

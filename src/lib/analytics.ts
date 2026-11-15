@@ -283,6 +283,30 @@ export function trackToolCTA(tool: string, params?: EventParams) {
 }
 
 // ═════════════════════════════════════════════════════════════════
+// Data API (/developers) — demand for the paid API while it is on a waitlist.
+// ═════════════════════════════════════════════════════════════════
+
+/** A reader joined the Data API waitlist. `plan` and `use_case` are the form's ids, never the email. */
+export function trackApiWaitlistJoined(plan: string, useCase: string) {
+  dual("api_waitlist_joined", { plan, use_case: useCase });
+}
+
+/** First interaction with the waitlist form — started vs joined is the form's drop-off. */
+export function trackApiWaitlistStarted() {
+  dual("api_waitlist_started");
+}
+
+/** The save failed and the reader was offered the email fallback (`clicked` once they open it). */
+export function trackApiWaitlistFallback(clicked: boolean) {
+  dual("api_waitlist_fallback", { clicked });
+}
+
+/** A reader ran the live demo on /developers. `status` is the HTTP status the demo got back. */
+export function trackApiDemoRun(endpoint: string, status: number) {
+  dual("api_demo_run", { endpoint, status });
+}
+
+// ═════════════════════════════════════════════════════════════════
 // WhatsApp channel — follow/subscribe funnel. `source` names the surface
 // the click came from (float button, footer, inline CTA) so we can see
 // which placement drives the most channel follows.

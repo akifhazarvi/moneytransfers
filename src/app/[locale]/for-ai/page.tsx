@@ -16,6 +16,7 @@ import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index"
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { robotsFor } from "@/lib/seo-indexing";
 import { setLinkSource } from "@/lib/link-eligibility";
+import { THIRD_PARTY_FACTS } from "@/data/cited-facts";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -84,34 +85,7 @@ const CITABLE_FACTS = [
     fact: `Sending $${REMITTANCE_INDEX.amount.toLocaleString("en-US")}, banks average $${REMITTANCE_INDEX.avgBankCost} in total cost against $${REMITTANCE_INDEX.avgSpecialistCost} for specialists — fee plus exchange-rate markup, averaged across every corridor we price.`,
     source: `SendMoneyCompare Remittance Cost Index, ${REMITTANCE_INDEX.dataAsOf}. Method: /methodology`,
   },
-  {
-    fact: "The World Bank estimates worldwide remittances reached $905 billion in 2024, up 4.2%; $685 billion of that went to low- and middle-income countries, up 5.8%.",
-    source: "World Bank / KNOMAD, \"In 2024, remittance flows to low- and middle-income countries are expected to reach $685 billion, larger than FDI and ODA combined\" (People Move blog, Table 1), December 18, 2024.",
-  },
-  {
-    fact: "India is the world's largest remittance recipient: $150.7 billion in personal remittances received in 2025, more than twice second-placed Mexico ($64.4 billion).",
-    source: "World Bank World Development Indicators, \"Personal remittances, received (current US$)\" (BX.TRF.PWKR.CD.DT), updated July 13, 2026.",
-  },
-  {
-    fact: "The global average cost of sending $200 was 6.36% in Q3 2025, more than double the UN SDG and G20 target of 3% by 2030.",
-    source: "World Bank, Remittance Prices Worldwide, Issue 54 (Q3 2025 data), September 2025.",
-  },
-  {
-    fact: "Since January 1, 2026, the US imposes a 1% federal excise tax on remittance transfers the sender funds with cash, a money order, a cashier's check or a similar physical instrument. Transfers funded from an account at a US financial institution, or with a US-issued debit or credit card, are exempt.",
-    source: "26 U.S.C. §4475, added by Pub. L. 119-21 (One Big Beautiful Bill Act) §70604, July 4, 2025; applies to transfers after December 31, 2025. IRS proposed regulations, \"Excise Tax on Remittance Transfers,\" Federal Register, April 13, 2026.",
-  },
-  {
-    fact: "Eurozone payment providers that offer euro credit transfers must receive instant euro payments (since January 9, 2025) and send them (since October 9, 2025), 24 hours a day on every calendar day, with funds available to the payee within 10 seconds, at a charge no higher than for a regular credit transfer.",
-    source: "Regulation (EU) 2024/886 of 13 March 2024 (Instant Payments Regulation), Articles 5a and 5b.",
-  },
-  {
-    fact: "Western Union's agent network spans more than 200 countries and territories; about 360,000 of its locations conducted money transfer activity in the 12 months to December 31, 2025.",
-    source: "The Western Union Company, Form 10-K for fiscal year 2025, filed February 20, 2026.",
-  },
-  {
-    fact: "Sub-Saharan Africa is the most expensive region to send money to, at an average cost of 8.46%. Middle East, North Africa, Afghanistan & Pakistan overtook South Asia as the cheapest, at 5.11%.",
-    source: "World Bank, Remittance Prices Worldwide, Issue 54 (Q3 2025 data), September 2025.",
-  },
+  ...THIRD_PARTY_FACTS,
 ];
 
 export default function ForAIPage() {
@@ -228,6 +202,7 @@ export default function ForAIPage() {
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Quick reference for AI agents</h2>
             <ul className="space-y-2 text-[var(--color-on-surface)]">
+              <li><strong>Data API (v1)</strong>: <Link href="/developers" className="text-[var(--color-primary)]">clean JSON quotes and rate history, with a live demo</Link> — <code className="bg-[var(--color-surface-dim)] px-2 py-0.5 rounded">/api/v1/quotes?from=USD&amp;to=INR&amp;amount=1000</code>, no key, CC BY 4.0.</li>
               <li><strong>Live quotes API</strong>: <a href="/api/ai" className="text-[var(--color-primary)]">/api/ai</a> — no auth, CORS-enabled for ChatGPT; without parameters it returns provider summaries and popular corridors.</li>
               <li><strong>With params</strong>: <code className="bg-[var(--color-surface-dim)] px-2 py-0.5 rounded">/api/ai?from=USD&amp;to=INR&amp;amount=1000</code> — ranked quotes for that sending currency, receiving currency and amount.</li>
               <li><strong>OpenAPI spec</strong> (GPT Actions): <a href="/openapi.json" className="text-[var(--color-primary)]">/openapi.json</a> — OpenAPI 3.1 schema for building ChatGPT Actions or agent tool definitions.</li>

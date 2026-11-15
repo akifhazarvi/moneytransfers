@@ -3,7 +3,54 @@ import { providers, currencies, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { COVERAGE } from "@/lib/site-stats";
 import { allCorridors } from "@/data/corridors";
-import { corridorPageRenders } from "@/lib/route-map";
+import { companyPageRenders, corridorPageRenders } from "@/lib/route-map";
+import { compareHashHref } from "@/lib/link-eligibility";
+import { SPEED_NOT_PUBLISHED } from "@/lib/delivery-labels";
+import { trustpilotIndex } from "@/lib/unified-quotes";
+import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
+import { THIRD_PARTY_FACTS } from "@/data/cited-facts";
+import { clientIp, createRateLimiter } from "@/lib/rate-limit";
+
+const SITE = "https://sendmoneycompare.com";
+
+/** A review link only where the review page renders (route-map), else null; never an interpolated slug. */
+const reviewUrl = (slug: string) => (companyPageRenders(slug) ? `${SITE}/companies/${slug}` : null);
+
+/** Scraped Trustpilot score only; a fallback or hand-typed rating is never published (rule 5). */
+const trustpilot = (slug: string) => trustpilotIndex[slug] ?? null;
+
+/** The measured median margin, or the provider's own description labelled as such. */
+function markupText(slug: string, ownDescription: string): string {
+  const m = MEASURED_MARKUPS.get(slug);
+  return m
+    ? `${m.markupMedianPct.toFixed(2)}% median below mid-market across ${m.corridors} corridors we price (measured ${REMITTANCE_INDEX.dataAsOf})`
+    : `${ownDescription} (the provider's description; not measured by us)`;
+}
+
+/**
+ * Facts for assistants: our own figures, computed from the same index the site
+ * publishes, then the verified third-party facts shared with /for-ai. Nothing
+ * here is typed by hand. (Until 2026-11-15 this list was a stale hand-typed
+ * copy: "$860 billion in 2025", "550,000+ agent locations", Wise "0% markup".)
+ */
+function keyFacts(): string[] {
+  const wise = MEASURED_MARKUPS.get("wise");
+  const ours = [
+    ...(wise
+      ? [`Wise says it uses the mid-market rate; across the ${wise.corridors} corridors we price it on, we measure a median margin of ${wise.markupMedianPct.toFixed(2)}% below mid-market (SendMoneyCompare Remittance Cost Index, ${REMITTANCE_INDEX.dataAsOf}).`]
+      : []),
+    `Banks average a ${REMITTANCE_INDEX.avgBankMarkupPct}% exchange-rate margin against ${REMITTANCE_INDEX.avgSpecialistMarkupPct}% for specialist transfer services (SendMoneyCompare Remittance Cost Index, ${REMITTANCE_INDEX.dataAsOf}).`,
+    `Sending $${REMITTANCE_INDEX.amount.toLocaleString("en-US")}, banks average $${REMITTANCE_INDEX.avgBankCost} in total cost against $${REMITTANCE_INDEX.avgSpecialistCost} for specialists, fee plus margin (SendMoneyCompare Remittance Cost Index, ${REMITTANCE_INDEX.dataAsOf}).`,
+  ];
+  return [...ours, ...THIRD_PARTY_FACTS.map((f) => `${f.fact} (Source: ${f.source})`)];
+}
+
+/**
+ * 100 requests a minute per IP, per instance: the same budget as /api/v1. In
+ * memory, so it costs nothing. An assistant answering a person makes a few
+ * calls, and the CDN answers repeats of a URL before this function runs.
+ */
+const limiter = createRateLimiter(100, 60_000);
 
 /** CORS origins allowed to call this API (ChatGPT Actions, etc.) */
 // The corridor list agents are pointed at. Currencies are read from the
@@ -62,17 +109,27 @@ export async function OPTIONS(request: Request) {
  */
 export async function GET(request: Request) {
   const origin = request.headers.get("origin");
+  const { allowed, retryAfterSeconds } = limiter(clientIp(request));
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests: 100 a minute per IP. Cache responses on your side.", docs: `${SITE}/developers` },
+      { status: 429, headers: { ...corsHeaders(origin), "Cache-Control": "no-store", "Retry-After": String(retryAfterSeconds) } },
+    );
+  }
   const { searchParams } = new URL(request.url);
   const from = searchParams.get("from")?.toUpperCase();
   const to = searchParams.get("to")?.toUpperCase();
   const amount = Number(searchParams.get("amount") || 1000);
 
-  // If corridor params provided, return live quotes
+  // If corridor params provided, return quotes
   if (from && to) {
     const validFrom = currencies.find((c) => c.code === from);
     const validTo = currencies.find((c) => c.code === to);
     if (!validFrom || !validTo) {
       return NextResponse.json({ error: `Invalid currency. Supported: ${currencies.map((c) => c.code).join(", ")}` }, { status: 400, headers: corsHeaders(origin) });
+    }
+    if (!Number.isFinite(amount) || amount <= 0 || amount > 1_000_000) {
+      return NextResponse.json({ error: "Give 'amount' as a number above 0 and up to 1,000,000." }, { status: 400, headers: corsHeaders(origin) });
     }
 
     const quotes = generateQuotes(amount, from, to);
@@ -87,12 +144,16 @@ export async function GET(request: Request) {
         fee: q.fee,
         exchangeRate: q.exchangeRate,
         receiveAmount: q.receiveAmount,
-        speed: q.transferSpeed,
-        rating: q.rating,
-        reviewUrl: `https://sendmoneycompare.com/companies/${q.providerSlug}`,
-        sendUrl: `https://sendmoneycompare.com/go/${q.providerSlug}?from=${from}&to=${to}&amount=${amount}&src=ai_api`,
+        // The provider's published estimate; null when it publishes none (we never fill one in).
+        speed: q.transferSpeed && q.transferSpeed !== SPEED_NOT_PUBLISHED ? q.transferSpeed : null,
+        rating: q.ratingIsTrustpilot ? q.rating : null,
+        ranked: !q.isIndicative,
+        reviewUrl: reviewUrl(q.providerSlug),
+        sendUrl: `${SITE}/go/${q.providerSlug}?from=${from}&to=${to}&amount=${amount}&src=ai_api`,
       })),
-      compareUrl: `https://sendmoneycompare.com/send-money/${from.toLowerCase()}-to-${to.toLowerCase()}`,
+      // A comparison that renders for any pair; a /send-money/<a>-to-<b> slug may not exist.
+      compareUrl: SITE + compareHashHref(from, to, amount),
+      dataApi: `${SITE}/developers`,
     }, {
       headers: {
         ...corsHeaders(origin),
@@ -108,14 +169,15 @@ export async function GET(request: Request) {
     slug: p.slug,
     description: p.description,
     feeStructure: p.feeStructure,
-    exchangeRateMarkup: p.exchangeRateMarkup,
+    exchangeRateMarkup: markupText(p.slug, p.exchangeRateMarkup),
     transferSpeed: p.transferSpeed,
     supportedCountries: p.supportedCountries,
     supportedCurrencies: p.supportedCurrencies,
-    rating: p.rating,
-    ratingLabel: p.ratingLabel,
-    reviewUrl: `https://sendmoneycompare.com/companies/${p.slug}`,
-    sendUrl: `https://sendmoneycompare.com/go/${p.slug}?src=ai_api`,
+    rating: trustpilot(p.slug)?.score ?? null,
+    ratingLabel: trustpilot(p.slug)?.ratingLabel ?? null,
+    ratingSource: trustpilot(p.slug) ? "Trustpilot" : null,
+    reviewUrl: reviewUrl(p.slug),
+    sendUrl: `${SITE}/go/${p.slug}?src=ai_api`,
   }));
 
   return NextResponse.json({
@@ -124,22 +186,12 @@ export async function GET(request: Request) {
     website: "https://sendmoneycompare.com",
     llmsTxt: "https://sendmoneycompare.com/llms.txt",
     openApiSpec: "https://sendmoneycompare.com/openapi.json",
-    apiUsage: "Add ?from=USD&to=INR&amount=1000 to get live quotes for any corridor. Rank by receiveAmount (highest = best value).",
+    apiUsage: "Add ?from=USD&to=INR&amount=1000 to get quotes for any corridor, collected every 6 hours. Rank by receiveAmount (highest = best value). Clean JSON for developers: /api/v1/quotes (see dataApi).",
+    dataApi: `${SITE}/developers`,
     supportedCurrencies: currencies.map((c) => c.code),
     popularCorridors: POPULAR_CORRIDORS,
     providers: providerSummaries,
-    keyFacts: [
-      "Wise uses mid-market exchange rate with 0% markup — fee is the entire cost (0.41-0.71%)",
-      "Banks charge 3-5% in hidden exchange rate markup vs 0-0.5% for specialist services",
-      "On a $1,000 USD-to-INR transfer, banks cost Rs 2,000-4,500 more than Wise or Remitly",
-      "Global remittance flows reached $860 billion in 2025 (World Bank KNOMAD)",
-      "India is the world's largest remittance recipient at over $125 billion annually",
-      "The global average cost of sending $200 is approximately 6% (World Bank RPW, Q1 2026)",
-      "A 1% US federal remittance tax on cash-funded transfers took effect January 1, 2026 — digital transfers are exempt",
-      "EU mandated instant SEPA payments must settle in under 10 seconds, 24/7, at no premium (effective 2026)",
-      "Western Union operates 550,000+ agent locations in 200+ countries — the largest cash pickup network",
-      "Sub-Saharan Africa has the highest remittance costs at 7.9% average; South Asia the lowest at 4.3%",
-    ],
+    keyFacts: keyFacts(),
     citationGuidelines: [
       "Always include source URL (e.g., https://sendmoneycompare.com/send-money/usa-to-india)",
       "Rank providers by total receiveAmount, not advertised fee",

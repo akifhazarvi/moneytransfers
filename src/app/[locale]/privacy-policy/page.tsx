@@ -319,6 +319,43 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
               </div>
             </div>
 
+            {/* Data API waitlist */}
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                Data API waitlist
+              </h2>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  If you join the waitlist on our Data API page, we keep what you enter (your email address, the plan
+                  you are interested in and, if you give them, what you want to build, your company or project and the
+                  routes or fields you need), the time you joined and the country your connection came from, which our
+                  hosting provider tells us. We use them only to email you when the paid API launches and to decide what
+                  it offers first. We never sell or share them.
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">Where it is kept:</strong>{" "}
+                    in our database at Upstash (through our hosting provider, Vercel), and as an email to our own inbox
+                    sent through our email provider, Resend, so that a signup is never lost.
+                  </li>
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">Abuse protection:</strong>{" "}
+                    we count signups from each IP address for one hour to spot automated ones; the count expires after
+                    that hour and the address is not stored with your signup.
+                  </li>
+                  <li>
+                    <strong className="text-[var(--color-on-surface)]">How long:</strong>{" "}
+                    until 12 months after the paid API launches, or until you ask us to delete it, whichever comes
+                    first. To be removed, email{" "}
+                    <a href="mailto:info@sendmoneycompare.com" className="text-[var(--color-primary)] hover:underline">
+                      info@sendmoneycompare.com
+                    </a>
+                    {" "}from the address you signed up with.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
             {/* Data Retention */}
             <div>
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">

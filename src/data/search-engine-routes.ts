@@ -312,7 +312,23 @@ export const BING_DEMAND_WAVE_4: readonly string[] = [
   "/send-money/usa-to-vietnam",                      // 20
 ];
 
-export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([...BING_DEMAND_WAVE_1, ...BING_DEMAND_WAVE_2, ...BING_DEMAND_WAVE_3, ...BING_DEMAND_WAVE_4]);
+/**
+ * Pages published after wave 4. Rule 3 as amended 2026-11-11: a new rendered
+ * page joins Bing by default, and Google only through a release batch (rule
+ * 17). Listing it here puts it in sitemap.xml with `googlebot: noindex`;
+ * googleIndexable() does not read this list.
+ */
+export const BING_NEW_PAGES: readonly string[] = [
+  "/developers", // 2026-11-15: Data API docs, live demo and paid-plan waitlist
+];
+
+export const BING_DEMAND_ROUTES: ReadonlySet<string> = new Set<string>([
+  ...BING_DEMAND_WAVE_1,
+  ...BING_DEMAND_WAVE_2,
+  ...BING_DEMAND_WAVE_3,
+  ...BING_DEMAND_WAVE_4,
+  ...BING_NEW_PAGES,
+]);
 
 /**
  * Google release batches — round-3 brief §3.4 (2026-10-08): pages Bing already

@@ -20,6 +20,292 @@
     }
   ],
   "paths": {
+    "/api/v1/quotes": {
+      "get": {
+        "operationId": "getQuotesV1",
+        "summary": "Clean quotes for a route and amount",
+        "description": "Every provider the SendMoneyCompare comparison shows for the route, in the comparison's order (by payout; near-ties within 0.1% ordered by rating), restated to what the recipient gets for a total outlay of `amount`. Quotes are collected every 6 hours. Free, no key, CC BY 4.0. Docs and live demo: https://sendmoneycompare.com/developers",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "description": "Sending currency, ISO 4217 (e.g. USD)."
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "description": "Receiving currency, ISO 4217 (e.g. INR)."
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true,
+              "maximum": 1000000,
+              "default": 1000
+            },
+            "description": "Total outlay in the sending currency."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quotes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": {
+                      "type": "object",
+                      "properties": {
+                        "from": {
+                          "type": "string"
+                        },
+                        "to": {
+                          "type": "string"
+                        },
+                        "amount": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "midMarket": {
+                      "type": "object",
+                      "properties": {
+                        "rate": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "asOf": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "collectedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Newest collection time among ranked rows."
+                    },
+                    "comparedProviders": {
+                      "type": "integer"
+                    },
+                    "quotes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "rank": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "description": "The comparison's order: by payout, with payouts within 0.1% of each other ordered by rating. Null when shown but not ranked."
+                          },
+                          "aboveLargerPayout": {
+                            "type": "boolean",
+                            "description": "True when listed above a slightly larger payout because the two are within 0.1%."
+                          },
+                          "provider": {
+                            "type": "object",
+                            "properties": {
+                              "slug": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "fee": {
+                            "type": "number",
+                            "description": "In the sending currency, included in amount."
+                          },
+                          "exchangeRate": {
+                            "type": "number"
+                          },
+                          "receiveAmount": {
+                            "type": "number"
+                          },
+                          "markupPct": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "description": "Exchange-rate margin below mid-market, percent."
+                          },
+                          "speed": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Provider's published estimate; null when none is published."
+                          },
+                          "note": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "firstTransfer": {
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "properties": {
+                              "rate": {
+                                "type": "number"
+                              },
+                              "limit": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "compareUrl": {
+                      "type": "string"
+                    },
+                    "licence": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "attribution": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "docs": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid currency or amount"
+          },
+          "429": {
+            "description": "More than 100 requests a minute from one IP. Wait for the Retry-After header."
+          }
+        }
+      }
+    },
+    "/api/v1/history": {
+      "get": {
+        "operationId": "getRateHistoryV1",
+        "summary": "Daily mid-market rates for a currency pair",
+        "description": "Daily mid-market rates for the pair, oldest first. Free, no key, CC BY 4.0. Docs: https://sendmoneycompare.com/developers",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "description": "Sending currency, ISO 4217 (e.g. USD)."
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "description": "Receiving currency, ISO 4217 (e.g. INR)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "History",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pair": {
+                      "type": "object",
+                      "properties": {
+                        "from": {
+                          "type": "string"
+                        },
+                        "to": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "points": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date"
+                          },
+                          "rate": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "licence": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "attribution": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "docs": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid currency"
+          },
+          "429": {
+            "description": "More than 100 requests a minute from one IP. Wait for the Retry-After header."
+          }
+        }
+      }
+    },
     "/api/ai": {
       "get": {
         "operationId": "getTransferQuotes",
@@ -192,17 +478,21 @@
             "description": "Total amount the recipient receives in destination currency, after all fees and exchange rate markup. This is the key comparison metric."
           },
           "speed": {
-            "type": "string",
-            "description": "Estimated delivery time (e.g., 'Minutes', '1-2 business days')"
+            "type": ["string", "null"],
+            "description": "The provider's published delivery estimate (e.g., 'Minutes', '1-2 business days'); null when the provider publishes none"
           },
           "rating": {
-            "type": "number",
-            "description": "Provider rating out of 5 (based on Trustpilot)"
+            "type": ["number", "null"],
+            "description": "The provider's Trustpilot score out of 5, as collected; null when we hold no Trustpilot score"
+          },
+          "ranked": {
+            "type": "boolean",
+            "description": "False for an indicative, quote-on-request row that is shown but not ranked"
           },
           "reviewUrl": {
-            "type": "string",
+            "type": ["string", "null"],
             "format": "uri",
-            "description": "Link to the full provider review on sendmoneycompare.com"
+            "description": "Link to the provider review on sendmoneycompare.com; null when we have no review page for the provider"
           }
         }
       },
@@ -243,16 +533,14 @@
           "slug": { "type": "string" },
           "description": { "type": "string" },
           "feeStructure": { "type": "string" },
-          "exchangeRateMarkup": { "type": "string" },
+          "exchangeRateMarkup": { "type": "string", "description": "Our measured median margin below mid-market where we measure one; otherwise the provider's own description, labelled as such" },
           "transferSpeed": { "type": "string" },
           "supportedCountries": { "type": "integer" },
           "supportedCurrencies": { "type": "integer" },
-          "rating": { "type": "number" },
-          "ratingLabel": {
-            "type": "string",
-            "enum": ["Excellent", "Good", "Fair", "Poor"]
-          },
-          "reviewUrl": { "type": "string", "format": "uri" }
+          "rating": { "type": ["number", "null"], "description": "Trustpilot score out of 5, as collected; null when none is held" },
+          "ratingLabel": { "type": ["string", "null"], "description": "Trustpilot's label for the score (e.g. 'Great'); null when none is held" },
+          "ratingSource": { "type": ["string", "null"], "description": "'Trustpilot' when rating is set" },
+          "reviewUrl": { "type": ["string", "null"], "format": "uri" }
         }
       }
     }

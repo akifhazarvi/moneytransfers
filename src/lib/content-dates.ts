@@ -148,7 +148,7 @@ export function familyPageDate(path: string, familyDate: string): string {
 /** /send-money/[corridor] — round-3: H1 pair spacing, indicative quotes unranked, 3-provider title rule, eligible-only rails. */
 export const CORRIDOR_CONTENT_DATE = "2026-10-09";
 /** /exchange-rates/history/[pair] — month-by-month ranges and policy-decision table (brief §4.2). */
-export const RATE_HISTORY_CONTENT_DATE = "2026-10-09";
+export const RATE_HISTORY_CONTENT_DATE = "2026-11-15"; // rate-by-date table + date lookup; 2026-10-09: month-by-month ranges, policy table
 /** /cash-out/[country] — corridor pills follow rule 14; sibling cash-out guides linked. */
 export const CASH_OUT_CONTENT_DATE = "2026-10-09";
 
@@ -171,13 +171,14 @@ const PAGE_UPDATED = {
   "/news": "2026-10-29",                     // round-4: section policy; only items open to Google listed
   "/compare": "2026-10-29",                  // round-4 §0.3: measured head-to-head table; sponsored block below content
   "/travel": "2026-09-26",                   // destination summaries no longer repeated
-  "/remittance-cost-index": "2026-10-29",    // round-4 §0.3: summary for journalists, chart, CSV, method beside the ranking
+  "/remittance-cost-index": "2026-11-15",    // monthly price report section + CSV; 2026-10-29: journalists' summary, chart, CSV, method
   "/alternatives": "2026-09-20",             // published
   "/currency-converter": "2026-10-18",       // popular-pair rates shown instead of an sr-only block
   "/methodology": "2026-10-29",              // related list links the head-to-head comparisons (/compare)
   "/how-we-review": "2026-10-18",            // referral fees and sponsored placement; quotes shown but not ranked
   "/editorial-policy": "2026-10-29",         // quotes "collected", not "refreshed", every 6 hours
-  "/privacy-policy": "2026-10-20",           // consent asked where required (EU/EEA/UK/CH), on by default elsewhere; Clarity disclosed; browser extension section + site offer counts
+  "/privacy-policy": "2026-11-15",           // Data API waitlist section (what is kept, where, for how long); 2026-10-20: consent where required, Clarity, browser extension
+  "/developers": "2026-11-15",               // published: Data API docs, live demo, planned pricing, waitlist
   "/terms": "2026-09-20",
   "/corrections": "2026-10-18",              // log brought up to date: September–October corrections
   "/disclaimer": "2026-10-17",               // what we are and are not; regulator check; data caveats as prose

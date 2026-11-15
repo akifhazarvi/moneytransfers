@@ -64,6 +64,8 @@
     "build:sendscore": "npx tsx scripts/build-sendscore-summary.ts",
     "check:ai-citations:smoke": "npx tsx --env-file=.env.local scripts/check-ai-citations.ts --platform=perplexity --limit=3",
     "build:llms": "npx tsx scripts/build-llms-txt.ts",
+    "waitlist:export": "node --env-file=.env.local scripts/export-waitlist.mjs",
+    "test:api": "npx tsx --test scripts/public-api.test.ts",
     "check:sources": "npx tsx scripts/check-sources.ts",
     "check:weight": "npx tsx scripts/check-page-weight.ts",
     "check:bundle": "npx tsx scripts/check-bundle-weight.ts",
