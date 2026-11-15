@@ -20874,5 +20874,106 @@
         "receiveAmount": 1031.98
       }
     }
+  },
+  {
+    "date": "2026-11-15",
+    "providers": {
+      "lemfi": {
+        "rate": 10.84,
+        "fee": 0,
+        "markup": 1.2,
+        "receiveAmount": 1084
+      },
+      "remitly": {
+        "rate": 10.71,
+        "fee": 2.49,
+        "markup": 2.39,
+        "receiveAmount": 1044.33
+      },
+      "ria": {
+        "rate": 10.7883,
+        "fee": 0.8,
+        "markup": 1.67,
+        "receiveAmount": 1070.2
+      },
+      "taptap-send": {
+        "rate": 10.88,
+        "fee": 0,
+        "markup": 0.84,
+        "receiveAmount": 1088
+      },
+      "western-union": {
+        "rate": 10.6716,
+        "fee": 0.99,
+        "markup": 2.74,
+        "receiveAmount": 1056.59
+      },
+      "rabobank": {
+        "rate": 10.8129,
+        "fee": 16,
+        "markup": 1.45,
+        "receiveAmount": 908.29
+      },
+      "commerzbank": {
+        "rate": 10.6208,
+        "fee": 12.5,
+        "markup": 3.2,
+        "receiveAmount": 929.32
+      },
+      "moneygram": {
+        "rate": 10.7363,
+        "fee": 1.99,
+        "markup": 2.15,
+        "receiveAmount": 1052.26
+      },
+      "bnp": {
+        "rate": 10.7955,
+        "fee": 0,
+        "markup": 1.61,
+        "receiveAmount": 1079.55
+      },
+      "abn-amro-bank": {
+        "rate": 10.8577,
+        "fee": 19,
+        "markup": 1.04,
+        "receiveAmount": 879.47
+      },
+      "deutsche-bank": {
+        "rate": 10.7282,
+        "fee": 36.55,
+        "markup": 2.22,
+        "receiveAmount": 680.7
+      },
+      "la-banque-postale": {
+        "rate": 10.7609,
+        "fee": 37.9,
+        "markup": 1.92,
+        "receiveAmount": 668.25
+      },
+      "xoom": {
+        "rate": 10.6343,
+        "fee": 1.49,
+        "markup": 3.08,
+        "receiveAmount": 1047.58
+      },
+      "lacaixa": {
+        "rate": 10.6672,
+        "fee": 27,
+        "markup": 2.78,
+        "receiveAmount": 778.71
+      },
+      "sabadell": {
+        "rate": 10.6404,
+        "fee": 22,
+        "markup": 3.02,
+        "receiveAmount": 829.95
+      },
+      "wise": {
+        "rate": 10.9785,
+        "fee": 6,
+        "markup": -0.06,
+        "receiveAmount": 1031.98
+      }
+    }
   }
 ]
