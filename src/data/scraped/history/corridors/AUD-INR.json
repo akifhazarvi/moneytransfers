@@ -24555,6 +24555,30 @@
         "fee": 1.4,
         "markup": -0.02,
         "receiveAmount": 6296.42
+      },
+      "moneygram": {
+        "rate": 63.6319,
+        "fee": 1.49,
+        "markup": 0.36,
+        "receiveAmount": 6268.38
+      },
+      "currencyfair": {
+        "rate": 63.417,
+        "fee": 1.89,
+        "markup": 0.7,
+        "receiveAmount": 6221.84
+      },
+      "paysend": {
+        "rate": 62.7092,
+        "fee": 0,
+        "markup": 1.81,
+        "receiveAmount": 6270.92
+      },
+      "revolut": {
+        "rate": 63.5084,
+        "fee": 1.41,
+        "markup": 0.56,
+        "receiveAmount": 6261.29
       }
     }
   }

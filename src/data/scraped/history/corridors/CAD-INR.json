@@ -22581,6 +22581,36 @@
         "fee": 2.58,
         "markup": -0.01,
         "receiveAmount": 6435.5
+      },
+      "moneygram": {
+        "rate": 65.6846,
+        "fee": 3.99,
+        "markup": 0.56,
+        "receiveAmount": 6306.38
+      },
+      "skrill": {
+        "rate": 64.1338,
+        "fee": 1,
+        "markup": 2.91,
+        "receiveAmount": 6349.25
+      },
+      "dahabshiil": {
+        "rate": 65.3534,
+        "fee": 2.99,
+        "markup": 1.06,
+        "receiveAmount": 6339.93
+      },
+      "paysend": {
+        "rate": 65.8142,
+        "fee": 0,
+        "markup": 0.36,
+        "receiveAmount": 6581.42
+      },
+      "koho": {
+        "rate": 66.0314,
+        "fee": 1.24,
+        "markup": 0.04,
+        "receiveAmount": 6521.26
       }
     }
   }

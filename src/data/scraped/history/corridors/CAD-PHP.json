@@ -25767,6 +25767,48 @@
         "fee": 2.51,
         "markup": -0.2,
         "receiveAmount": 4366.43
+      },
+      "moneygram": {
+        "rate": 44.3676,
+        "fee": 3.49,
+        "markup": 0.71,
+        "receiveAmount": 4281.92
+      },
+      "dahabshiil": {
+        "rate": 43.7338,
+        "fee": 1.99,
+        "markup": 2.13,
+        "receiveAmount": 4286.35
+      },
+      "worldremit": {
+        "rate": 44.1714,
+        "fee": 3.99,
+        "markup": 1.15,
+        "receiveAmount": 4240.89
+      },
+      "xe": {
+        "rate": 44.3133,
+        "fee": 5,
+        "markup": 0.83,
+        "receiveAmount": 4209.76
+      },
+      "paysend": {
+        "rate": 44.6058,
+        "fee": 3,
+        "markup": 0.18,
+        "receiveAmount": 4326.76
+      },
+      "koho": {
+        "rate": 44.67,
+        "fee": 1.64,
+        "markup": 0.04,
+        "receiveAmount": 4393.74
+      },
+      "sendwave": {
+        "rate": 44.2832,
+        "fee": 0.99,
+        "markup": 0.9,
+        "receiveAmount": 4384.48
       }
     }
   }

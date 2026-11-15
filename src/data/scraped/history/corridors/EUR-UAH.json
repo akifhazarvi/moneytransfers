@@ -9074,6 +9074,42 @@
         "fee": 0,
         "markup": -0.44,
         "receiveAmount": 5025.3
+      },
+      "moneygram": {
+        "rate": 49.6827,
+        "fee": 0.99,
+        "markup": 0.68,
+        "receiveAmount": 4919.08
+      },
+      "western-union": {
+        "rate": 49.5695,
+        "fee": 0.99,
+        "markup": 0.91,
+        "receiveAmount": 4907.88
+      },
+      "profee": {
+        "rate": 49.3476,
+        "fee": 1.7,
+        "markup": 1.35,
+        "receiveAmount": 4850.87
+      },
+      "paysend": {
+        "rate": 49.6948,
+        "fee": 1.5,
+        "markup": 0.66,
+        "receiveAmount": 4894.94
+      },
+      "revolut": {
+        "rate": 49.3398,
+        "fee": 1,
+        "markup": 1.37,
+        "receiveAmount": 4884.64
+      },
+      "wise": {
+        "rate": 50.095,
+        "fee": 2.2,
+        "markup": -0.14,
+        "receiveAmount": 4899.29
       }
     }
   }

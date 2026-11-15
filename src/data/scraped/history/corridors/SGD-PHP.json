@@ -18051,6 +18051,42 @@
         "fee": 1.05,
         "markup": -0.21,
         "receiveAmount": 4911
+      },
+      "moneygram": {
+        "rate": 48.8682,
+        "fee": 6,
+        "markup": 1.31,
+        "receiveAmount": 4593.61
+      },
+      "skrill": {
+        "rate": 47.1427,
+        "fee": 0,
+        "markup": 4.79,
+        "receiveAmount": 4714.27
+      },
+      "currencyfair": {
+        "rate": 49.25,
+        "fee": 1.62,
+        "markup": 0.54,
+        "receiveAmount": 4845.22
+      },
+      "singx": {
+        "rate": 49.3678,
+        "fee": 3.5,
+        "markup": 0.3,
+        "receiveAmount": 4763.99
+      },
+      "remitly": {
+        "rate": 48.42,
+        "fee": 3.99,
+        "markup": 2.21,
+        "receiveAmount": 4648.8
+      },
+      "revolut": {
+        "rate": 49.4373,
+        "fee": 1.55,
+        "markup": 0.16,
+        "receiveAmount": 4867.1
       }
     }
   }

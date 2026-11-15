@@ -17439,6 +17439,36 @@
         "fee": 1.62,
         "markup": -0.24,
         "receiveAmount": 3474.36
+      },
+      "moneygram": {
+        "rate": 34.1262,
+        "fee": 4.99,
+        "markup": 3.1,
+        "receiveAmount": 3242.33
+      },
+      "western-union": {
+        "rate": 34.6488,
+        "fee": 2.2,
+        "markup": 1.62,
+        "receiveAmount": 3388.66
+      },
+      "xe": {
+        "rate": 34.9863,
+        "fee": 1.99,
+        "markup": 0.66,
+        "receiveAmount": 3429.01
+      },
+      "remitly": {
+        "rate": 34.86,
+        "fee": 1.99,
+        "markup": 1.02,
+        "receiveAmount": 3416.63
+      },
+      "revolut": {
+        "rate": 35.0212,
+        "fee": 1.75,
+        "markup": 0.56,
+        "receiveAmount": 3440.83
       }
     }
   }

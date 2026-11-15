@@ -6867,6 +6867,18 @@
         "fee": 6,
         "markup": -0.4,
         "receiveAmount": 7106.4
+      },
+      "skrill": {
+        "rate": 71.9041,
+        "fee": 0,
+        "markup": 4.51,
+        "receiveAmount": 7190.41
+      },
+      "paysend": {
+        "rate": 74.3324,
+        "fee": 9,
+        "markup": 1.28,
+        "receiveAmount": 6764.25
       }
     }
   }

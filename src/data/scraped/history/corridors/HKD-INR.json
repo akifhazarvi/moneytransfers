@@ -8359,6 +8359,30 @@
         "fee": 8.41,
         "markup": -0.02,
         "receiveAmount": 1100.59
+      },
+      "moneygram": {
+        "rate": 11.8843,
+        "fee": 8,
+        "markup": 1.09,
+        "receiveAmount": 1093.36
+      },
+      "skrill": {
+        "rate": 11.4418,
+        "fee": 0,
+        "markup": 4.77,
+        "receiveAmount": 1144.18
+      },
+      "western-union": {
+        "rate": 11.9567,
+        "fee": 5,
+        "markup": 0.48,
+        "receiveAmount": 1135.89
+      },
+      "currencyfair": {
+        "rate": 11.929,
+        "fee": 10.06,
+        "markup": 0.71,
+        "receiveAmount": 1072.89
       }
     }
   }
