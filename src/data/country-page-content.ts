@@ -160,7 +160,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Bangladesh?",
         answer:
-          "Wise and Remitly consistently offer the best total value on the GBP-to-BDT and USD-to-BDT corridors. The Bangladesh government's 2.5% cash incentive on official channel remittances also means the effective amount your recipient gets is higher than the stated exchange rate. Always compare total BDT received including this incentive.",
+          "Wise and Remitly both quote the GBP-to-BDT and USD-to-BDT corridors, and which one delivers more changes with the day and the amount. The Bangladesh government's 2.5% cash incentive on official channel remittances also means the effective amount your recipient gets is higher than the stated exchange rate. Always compare total BDT received including this incentive.",
       },
       {
         question: "How do I send money directly to bKash in Bangladesh?",
@@ -668,7 +668,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Colombia?",
         answer:
-          "Wise, Remitly, and Western Union Digital consistently offer the best USD-to-COP and EUR-to-COP rates. For transfers from Spain — the second-largest sending country — Ria and WorldRemit are also competitive. Compare total COP received, as COP exchange rate markup is the primary cost driver. Differences of COP 50,000–200,000 per $1,000 sent are common between best and worst providers.",
+          "Wise, Remitly and Western Union quote USD-to-COP and EUR-to-COP, and which one delivers the most changes from day to day. For transfers from Spain — the second-largest sending country — Ria and WorldRemit are also worth comparing. Compare total COP received, as the exchange-rate margin is the main cost on this route.",
       },
       {
         question: "How long does a money transfer to Colombia take?",
@@ -851,7 +851,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       {
         question: "What is the cheapest way to send money to Panama?",
         answer:
-          "From the US, sending USD to a USD-denominated Panamanian account is essentially zero-FX — the only cost is the provider's fee. Wise, Remitly, and Xe consistently offer the lowest fees on USD-to-Panama transfers, often under $5 on a $1,000 transfer. From the UK or eurozone, the rate markup on GBP-to-USD or EUR-to-USD becomes the main cost variable; Wise typically beats commercial banks by 2–4% on the cross-currency leg. Cash pickup is available through Western Union and MoneyGram agents at most major banks and supermarkets.",
+          "From the US, sending USD to a USD-denominated Panamanian account is essentially zero-FX — the only cost is the provider's fee. Wise, Remitly and Xe charge a visible fee on USD-to-Panama transfers, so compare the total that arrives. From the UK or eurozone, the margin on GBP-to-USD or EUR-to-USD becomes the main cost; banks usually add a wider exchange-rate margin than specialist services. Cash pickup is available through Western Union and MoneyGram agents at most major banks and supermarkets.",
       },
       {
         question: "Do I need to convert to balboas (PAB) when sending money to Panama?",

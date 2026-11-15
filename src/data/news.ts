@@ -938,52 +938,29 @@ export const newsItems: NewsItem[] = [
     title: "Is Your Money Safe with Wise and Revolut? New FCA Safeguarding Rules Explained (May 2026)",
     metaTitle: "Is Your Money Safe with Wise and Revolut? FCA Safeguarding Rules 2026",
     excerpt:
-      "New FCA rules taking effect May 7, 2026 require Wise, Revolut, and all UK payment firms to ring-fence customer money with daily reconciliation, annual audits, and wind-down plans. Here's what it means for your transfers.",
+      "New FCA safeguarding rules in force from May 7, 2026 require UK payment and e-money firms to reconcile customer money each business day, keep a resolution pack and file monthly returns. What they do, and do not, protect.",
     content: `<h2>What's changing on May 7, 2026?</h2>
-<p>The UK Financial Conduct Authority (FCA) published <strong>Policy Statement PS25/12</strong> on August 7, 2025, introducing the most significant overhaul of safeguarding rules for payment institutions and e-money institutions since their inception. The new rules take effect on <strong>May 7, 2026</strong>.</p>
-<p>These rules affect every FCA-regulated money transfer company, including <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/worldremit">WorldRemit</a>, and dozens of smaller providers.</p>
+<p>The UK Financial Conduct Authority (FCA) published <a href="https://www.fca.org.uk/publication/policy/ps25-12.pdf" target="_blank" rel="noopener">Policy Statement PS25/12</a> on August 7, 2025, with stricter safeguarding rules for payment institutions and e-money institutions. The rules came into force on <strong>May 7, 2026</strong>. They aim to catch shortfalls in customer money earlier and return it faster if a firm fails. They do not create a compensation scheme.</p>
+<p>They apply to FCA-authorised payment and e-money institutions, which include many of the firms people use to send money abroad, such as <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a> and <a href="/companies/worldremit">WorldRemit</a>. Check any firm's status and type on the <a href="https://register.fca.org.uk/" target="_blank" rel="noopener">FCA Register</a>.</p>
 
 <h2>What the new rules require</h2>
 <div class="table-wrapper"><table>
-<thead><tr><th>Requirement</th><th>Before May 2026</th><th>After May 2026</th></tr></thead>
+<thead><tr><th>Rule in force from May 7, 2026</th><th>What it means for customers</th></tr></thead>
 <tbody>
-<tr><td><strong>Fund reconciliation</strong></td><td>At least once each business day (FCA guidance)</td><td>Daily reconciliation of safeguarded funds</td></tr>
-<tr><td><strong>Audits</strong></td><td>Annual audit expected (guidance) for firms that need a statutory audit</td><td>Annual reasonable-assurance audits by qualified auditors</td></tr>
-<tr><td><strong>Reporting</strong></td><td>Annual reporting only</td><td>Monthly regulatory returns to the FCA</td></tr>
-<tr><td><strong>Wind-down planning</strong></td><td>No requirement</td><td>Mandatory resolution pack enabling timely fund recovery</td></tr>
-<tr><td><strong>Third-party review</strong></td><td>No specific requirement</td><td>Contingency plan at least 3 months before a safeguarding insurance policy or guarantee expires</td></tr>
+<tr><td>Safeguarding reconciliation at least once each day, except weekends, public holidays and days when the relevant foreign markets are closed</td><td>A gap between what the firm owes customers and what it holds should show up within a working day</td></tr>
+<tr><td>A resolution pack of records an administrator can retrieve within 48 hours of appointment</td><td>Administrators should not have to rebuild the accounts before paying customers back</td></tr>
+<tr><td>An annual safeguarding audit by a qualified auditor, unless the firm never safeguarded more than £100,000 over at least 53 weeks</td><td>An outside check that the firm safeguards correctly</td></tr>
+<tr><td>A monthly safeguarding return to the FCA</td><td>The regulator sees safeguarding data every month</td></tr>
+<tr><td>Insurance or guarantee cover with no payout condition other than an insolvency event, and a contingency plan 3 months before cover expires</td><td>Cover used instead of a separate account should pay out when it is needed</td></tr>
 </tbody></table></div>
 
 <h2>Why this matters: the insolvency problem</h2>
-<p>Unlike banks, payment firms like Wise and Revolut are <strong>not covered by the Financial Services Compensation Scheme (FSCS)</strong>. If a payment firm fails, your money is not automatically protected up to £120,000 like it would be with a bank.</p>
-<p>The FCA found alarming data from <strong>12 payment firms that became insolvent between 2018 and 2023</strong>:</p>
-<ul>
-<li>Average shortfall was <strong>65%</strong> between funds owed to customers and funds actually safeguarded</li>
-<li>For e-money institutions alone, the shortfall averaged <strong>80%</strong></li>
-<li>In 8 of 12 cases, shortfalls exceeded <strong>£1 million</strong></li>
-<li>Where funds were returned, it took an average of <strong>2.3 years</strong></li>
-</ul>
-<p>The new rules aim to prevent this by requiring daily checks, annual audits, and pre-built wind-down plans.</p>
-
-<h2>Which providers are affected?</h2>
-<p>All FCA-regulated payment institutions (PIs) and e-money institutions (EMIs). This includes:</p>
-<ul>
-<li><strong>Wise</strong> (EMI, authorized by FCA)</li>
-<li><strong>Revolut</strong> (full UK banking licence since March 2026)</li>
-<li><strong>Remitly</strong> (FCA-authorised in the UK)</li>
-<li><strong>WorldRemit</strong> (EMI, authorized by FCA)</li>
-<li><strong>PayPal</strong> (FCA-authorised in the UK through PayPal UK Ltd)</li>
-</ul>
-<p>Firms safeguarding less than <strong>£100,000</strong> over a 53-week period are exempt from the audit requirement — but this covers only ~23% of firms and just £3.2 million of the £27 billion+ in customer funds held sector-wide.</p>
+<p>Payment and e-money firms are <strong>not covered by the Financial Services Compensation Scheme (FSCS)</strong> when they fail. The FSCS protects deposits at banks, building societies and credit unions up to £120,000; it says it "can't protect the money you have with e-money institutions and payment providers." Those firms must safeguard customer money instead.</p>
+<p>For UK payment and e-money firms that became insolvent between 2018 and mid-2023, the FCA found an <strong>average shortfall of 65%</strong> between what customers were owed and what had been safeguarded (PS25/12). The new rules are meant to stop gaps like that building up unnoticed.</p>
 
 <h2>Is your money safe right now?</h2>
-<p>Yes — with reputable, FCA-regulated providers. The key protections:</p>
-<ol>
-<li><strong>Safeguarding:</strong> All regulated providers already ring-fence customer funds in separate accounts. The new rules strengthen <em>how</em> this is done, not whether it's done.</li>
-<li><strong>Regulation:</strong> Wise, Revolut, and Remitly are all authorized by the FCA, which can intervene if rules are breached.</li>
-<li><strong>Speed:</strong> Money transfer transactions typically complete within minutes to days — your funds aren't held for long periods.</li>
-</ol>
-<p>For a full guide on verifying any provider, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>. To compare regulated providers, use our <a href="/send-money">live comparison tool</a>.</p>`,
+<p>Safer than before May 2026, but not guaranteed. The rules make shortfalls show up sooner and money easier to return; they do not compensate you if safeguarded money falls short. Money is exposed only while a firm holds it, so fund a transfer when you are ready to send rather than keeping a large balance, and check the firm on the FCA Register.</p>
+<p>Our guide to <a href="/guides/money-transfer-company-goes-bust">what happens if a money transfer company goes bust</a> explains safeguarding, special administration and what happened to customers of firms that failed. For checking any provider, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
     category: "Regulatory",
     publishedAt: "2026-04-11",
     source: "FCA / Norton Rose Fulbright",

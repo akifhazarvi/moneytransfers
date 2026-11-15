@@ -559,7 +559,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Do I need to pay tax on money sent to Bangladesh?",
-        a: "In the United States, sending money to family in Bangladesh is not a taxable event. The IRS does not tax outbound personal remittances. However, if you send more than $17,000 to a single person in a calendar year, you may need to file IRS Form 709 (Gift Tax Return) — though actual tax is rarely owed, as it counts against your lifetime exemption. On the Bangladesh side, remittances received from abroad are not subject to income tax. Bangladesh Bank offers a 2.5% government cash incentive on formal inward remittances — meaning your recipient may receive a bonus on top of the transferred amount when funds arrive through official banking channels, making formal transfer services doubly advantageous over informal ones.",
+        a: "In the United States, sending money to family in Bangladesh is not a taxable event. The IRS does not tax outbound personal remittances. However, if you send more than $19,000 to a single person in 2026 ($20,000 in 2027), you may need to file IRS Form 709 (Gift Tax Return) — though actual tax is rarely owed, as it counts against your lifetime exemption. On the Bangladesh side, remittances received from abroad are not subject to income tax. Bangladesh Bank offers a 2.5% government cash incentive on formal inward remittances — meaning your recipient may receive a bonus on top of the transferred amount when funds arrive through official banking channels, making formal transfer services doubly advantageous over informal ones.",
       },
     ],
   },
@@ -2012,7 +2012,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "What are the tax implications of sending money to Colombia?",
-        a: "On the US side, remittances are treated as gifts — not taxable. If you send more than $18,000 to a single individual per year (2024 threshold), file IRS Form 709 but no tax is typically owed. On the Colombian side, incoming remittances are subject to a 4x1,000 financial transaction tax (GMF) when deposited into a bank account — COP 4 deducted per COP 1,000. However, each person can designate one bank account exempt from GMF for the first COP 11.8 million monthly. Remittances for family support are not subject to income tax. Recipients should keep transfer receipts as documentation.",
+        a: "On the US side, remittances are treated as gifts — not taxable. If you send more than $19,000 to a single individual in 2026 ($20,000 in 2027), file IRS Form 709 but no tax is typically owed. On the Colombian side, incoming remittances are subject to a 4x1,000 financial transaction tax (GMF) when deposited into a bank account — COP 4 deducted per COP 1,000. However, each person can designate one bank account exempt from GMF for the first COP 11.8 million monthly. Remittances for family support are not subject to income tax. Recipients should keep transfer receipts as documentation.",
       },
     ],
   },
@@ -2297,7 +2297,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Do I need to pay tax on remittances to Jamaica?",
-        a: "In the United States, sending money to family abroad is not a taxable event for the sender. The IRS does not tax outbound personal remittances. However, if you send more than $18,000 to a single recipient in a calendar year (2024 threshold), you may need to file IRS Form 709, though this rarely results in actual tax owed. On the Jamaican side, incoming remittances are not subject to income tax — the Jamaican government actively encourages formal remittance channels. The Bank of Jamaica does not impose restrictions or taxes on incoming personal transfers. For frequent large transfers, consulting a tax advisor familiar with both US and Jamaican regulations is advisable.",
+        a: "In the United States, sending money to family abroad is not a taxable event for the sender. The IRS does not tax outbound personal remittances. However, if you send more than $19,000 to a single recipient in 2026 ($20,000 in 2027), you may need to file IRS Form 709, though this rarely results in actual tax owed. On the Jamaican side, incoming remittances are not subject to income tax — the Jamaican government actively encourages formal remittance channels. The Bank of Jamaica does not impose restrictions or taxes on incoming personal transfers. For frequent large transfers, consulting a tax advisor familiar with both US and Jamaican regulations is advisable.",
       },
       {
         q: "Which provider has the best cash pickup network in Jamaica?",
@@ -2402,7 +2402,7 @@ export const corridors: Corridor[] = [
     context:
       "The INR to USD corridor is governed by RBI's LRS framework, which adds a layer of compliance that senders must navigate. Tax Collected at Source (TCS) applies once LRS remittances pass INR 10 lakh in a tax year: 20% for most purposes, 2% for education or medical, and none on education paid from a loan by a specified financial institution. Traditional Indian banks like SBI, HDFC Bank, and ICICI Bank offer SWIFT transfers but apply exchange rate markups of 1.5–3.5% plus flat fees of INR 500–1,500. Digital providers like Wise, BookMyForex, and Instarem offer rates within 0.5–1% of the mid-market rate, saving INR 1,000–3,000 on a typical INR 50,000 transfer.",
     feesNote:
-      "Fees on the INR to USD route vary significantly. Indian banks charge INR 500–1,500 as a flat SWIFT transfer fee plus an exchange rate markup of 1.5–3.5%. Wise charges around 0.6–1% of the transfer amount with the mid-market exchange rate. BookMyForex and Instarem offer competitive rates with fees of INR 100–500. Beyond transfer fees, senders must account for TCS above INR 10 lakh a year, which counts toward their income tax when they file. GST of 18% is also charged on the forex conversion margin by banks and authorized dealers.",
+      "Fees on the INR to USD route vary significantly. Indian banks charge INR 500–1,500 as a flat SWIFT transfer fee plus an exchange rate markup of 1.5–3.5%. Wise charges around 0.6–1% of the transfer amount with the mid-market exchange rate. BookMyForex and Instarem offer competitive rates with fees of INR 100–500. Beyond transfer fees, senders must account for TCS above INR 10 lakh a year, which counts toward their income tax when they file. GST of 18% is also charged on the currency conversion, on a value the bank sets either from its exchange-rate margin or from the slabs in Rule 32 of the CGST Rules, and on its fees.",
     deliveryNote:
       "SWIFT transfers from Indian banks to US bank accounts typically take 2–4 business days due to correspondent banking intermediaries. Wise and Instarem can deliver within 1–2 business days using faster payment rails. Transfers initiated after Indian banking hours or on holidays will be processed the next business day. All outbound remittances require Form A2 (purpose of remittance declaration) and a PAN card.",
     faqs: [
@@ -2413,7 +2413,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "What is the LRS limit for sending money from India?",
-        a: "Under the Reserve Bank of India's Liberalised Remittance Scheme (LRS), Indian residents can remit up to $250,000 (approximately INR 2.1 crore) per financial year for permitted purposes. These include education abroad, medical treatment, family maintenance, gifts, travel, and investment in foreign shares or property. The $250,000 limit is cumulative across all purposes and all authorized dealers during the financial year (April to March). You must obtain a Permanent Account Number (PAN) and submit Form A2 declaring the purpose of remittance. Banks and authorized dealers report all LRS transactions to the RBI. If you need to remit more than $250,000, you must obtain special RBI approval, which is granted only in exceptional circumstances.",
+        a: "Under the Reserve Bank of India's Liberalised Remittance Scheme (LRS), Indian residents can remit up to $250,000 per financial year for permitted purposes. These include education abroad, medical treatment, family maintenance, gifts, travel, and investment in foreign shares or property. The $250,000 limit is cumulative across all purposes and all authorized dealers during the financial year (April to March). You must obtain a Permanent Account Number (PAN) and submit Form A2 declaring the purpose of remittance. Banks and authorized dealers report all LRS transactions to the RBI. Banks may allow more than $250,000 for studies or medical treatment on an estimate from the institution or doctor; any other purpose above the limit needs RBI's prior permission.",
       },
       {
         q: "What is TCS on foreign remittances from India?",
@@ -2421,7 +2421,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Can I use Wise to send money from India to the USA?",
-        a: "Yes, Wise operates in India as an authorized dealer and supports outbound transfers from India to the USA under the LRS framework. You can fund your transfer via NEFT, RTGS, or IMPS from any Indian bank account. Wise handles the Form A2 declaration and RBI compliance requirements digitally, simplifying the process compared to visiting a bank branch. Transfer limits on Wise from India align with LRS regulations. Delivery to US bank accounts typically takes 1–2 business days. For first-time users, identity verification requires PAN card and Aadhaar details.",
+        a: "Check Wise's India site for whether it currently offers transfers from India to the USA. Under RBI's framework of 13 May 2026, an app that sends money abroad from India works with an authorised dealer bank, which remains responsible for FEMA compliance and KYC, and must show the interbank rate and its markup separately. Whichever app or bank you use, you declare the purpose on Form A2 with your PAN, and TCS applies once your LRS transfers pass INR 10 lakh in the financial year.",
       },
       {
         q: "What documents do I need to send money from India abroad?",
@@ -2756,7 +2756,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Do I need to report money transfers to Guatemala to the IRS?",
-        a: "Sending money to Guatemala is not a taxable event for the sender in the United States. The IRS does not tax outbound personal remittances. However, US regulations require financial institutions to file a Currency Transaction Report (CTR) for transactions over $10,000 under the Bank Secrecy Act — this is automatic and does not affect your transfer. If you gift more than $18,000 to a single recipient in a calendar year (2024 threshold), you may need to file IRS Form 709, though this rarely results in actual tax owed. Structuring multiple transfers to avoid the $10,000 reporting threshold is illegal and may trigger suspicious activity reports. For regular family support remittances, no special tax reporting is required.",
+        a: "Sending money to Guatemala is not a taxable event for the sender in the United States. The IRS does not tax outbound personal remittances. However, US regulations require financial institutions to file a Currency Transaction Report (CTR) for cash transactions over $10,000 under the Bank Secrecy Act — this is automatic and does not affect your transfer. If you gift more than $19,000 to a single recipient in 2026 ($20,000 in 2027), you may need to file IRS Form 709, though this rarely results in actual tax owed. Structuring multiple transfers to avoid the $10,000 reporting threshold is illegal and may trigger suspicious activity reports. For regular family support remittances, no special tax reporting is required.",
       },
     ],
   },

@@ -117,6 +117,11 @@ export const GUIDE_TOPICS: Record<string, string> = {
   "send-money-home-ramadan-eid-2026": "Ramadan and Eid remittances",
   "send-money-to-nigeria-from-usa-uk-canada-australia": "Naira apps by sending country",
   "is-wise-the-cheapest": "Is Wise the cheapest",
+  // 2026-11-15 growth-plan guides (blog-plan-nov2026.ts): headlines of 7+ words.
+  "money-transfer-company-goes-bust": "If a transfer company fails",
+  "international-transfer-delayed-or-stuck": "Tracing a stuck payment",
+  "send-money-from-india-lrs-tcs": "Outward remittances under LRS",
+  "tax-on-money-sent-to-family-abroad": "Family gift tax thresholds",
 };
 
 /** The subject a guide's section headings use: its topic, else its headline's first clause. */

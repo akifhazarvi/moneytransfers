@@ -770,7 +770,7 @@ export const corridorEditorialNotes: Record<string, CorridorEditorialNote> = {
     bullets: [
       "Bangladesh Bank's 2.5% cash incentive applies to all inward remittances through licensed channels — recipients receive a government bonus on top of your transfer amount.",
       "bKash and Nagad wallet delivery is the fastest option, reaching recipients across Bangladesh in minutes — even in rural areas where bank branches are rare.",
-      "PayNow funding from your Singapore bank account is instant and free, making it the cheapest way to initiate a transfer with providers like Wise or Instarem.",
+      "PayNow funding from your Singapore bank account is instant and free, so it adds nothing to the cost of a transfer with providers like Wise or Instarem.",
       "MAS (Monetary Authority of Singapore) licenses all remittance providers — avoid unlicensed operators, even if they quote better rates.",
     ],
     warningTitle: "Unlicensed operators forfeit the 2.5% incentive",

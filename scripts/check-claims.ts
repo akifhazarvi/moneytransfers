@@ -129,12 +129,22 @@ const HARD: Rule[] = [
   // "consistently offer the best rates", "consistently ranks highest",
   // "consistently rated #1": a standing lead nothing measured — the homepage
   // FAQ said it of Wise, a Sri Lanka FAQ of three providers that led none of it.
+  // Widened 2026-11-15: "consistently offer the lowest total cost" (the FAQ of
+  // /guides/cheapest-way-to-send-money-internationally, Copilot's 5th most-cited
+  // page), "consistently delivers the lowest total cost", "consistently offer the
+  // best total value" and "… the lowest fees" all slipped past the verb and noun
+  // lists. Eight such sentences were fixed the same day.
   {
     id: "consistently-best",
-    re: /\b(?:consistently|always|reliably|invariably)\s+(?:(?:offers?|gives?|has|have|gets?|provides?)\s+)?(?:the\s+)?(?:best|highest|top|tightest|lowest|most\s+competitive)\s+(?:[A-Z]{3}(?:\/[A-Z]{3})?\s+)?(?:rates?|exchange\s+rates?|value|deal|payouts?|spreads?|(?:exchange\s+rate\s+)?margins?)\b|\b(?:consistently|always|reliably|invariably)\s+(?:ranks?|rated|scores?)\s+(?:the\s+|as\s+)?(?:highest|top|first|best|#1|among)\b/gi,
+    re: /\b(?:consistently|always|reliably|invariably)\s+(?:(?:offers?|gives?|has|have|gets?|provides?|delivers?)\s+)?(?:the\s+)?(?:best|highest|top|tightest|lowest|most\s+competitive)\s+(?:[A-Z]{3}(?:\/[A-Z]{3})?\s+)?(?:total\s+)?(?:rates?|exchange\s+rates?|value|deal|payouts?|spreads?|(?:exchange\s+rate\s+)?margins?|fees?|costs?|prices?)\b|\b(?:consistently|always|reliably|invariably)\s+(?:ranks?|rated|scores?)\s+(?:the\s+|as\s+)?(?:highest|top|first|best|#1|among)\b/gi,
     // "compare who consistently gives the best deal" asks; it does not claim.
     allow: (before) => NEGATED.test(before) || /\b(?:who|which(?:\s+\w+)?)\s*$/i.test(before),
   },
+  // "…$0 fees on smaller transfers, making them the cheapest option", "uses the
+  // mid-market rate with a small fee, making it cheapest for amounts over $500":
+  // a superlative derived from a premise, never from a measurement. Name the
+  // measured leader ({{BEST_PROVIDER:…}}, {{CORRIDOR_LEADER:…}}) instead.
+  { id: "making-cheapest", re: /\bmaking\s+(?:it|them|this|these)\s+(?:the\s+)?cheapest\b/gi },
   // A quick-pick table row that crowns a provider "Cheapest …" by hand. Wise
   // was labelled "Cheapest (US → UK)" where InstaReM led USD→GBP on 91 of 91
   // days. Live tokens ({{BEST_PROVIDER:…}}) are fine — they are not typed.

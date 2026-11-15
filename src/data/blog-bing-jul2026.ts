@@ -18,13 +18,13 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
     title: "Bank Wire Transfer Fees 2026: Chase vs Wells Fargo vs Bank of America vs HSBC",
     metaTitle: "International Wire Fees by Bank 2026: Chase, Wells Fargo, BofA, HSBC",
     metaDescription:
-      "What Chase, Wells Fargo, Bank of America, HSBC and UK banks charge for an international wire in 2026 — the flat fee, plus the margin hidden in the rate.",
+      "What Chase, Wells Fargo, Bank of America, HSBC and UK and Canadian banks charge for an international wire, from their own fee schedules, plus the rate margin.",
     excerpt:
-      "Chase charges $50 for an international wire. Wells Fargo charges $45. Bank of America charges $45. But the flat fee is just half the story — the margin on the exchange rate usually costs more. We broke it all down.",
+      "Most big US banks charge $30 to $65 to wire US dollars abroad, and several charge nothing when you send the recipient's currency instead, because they earn on the exchange rate. We read 16 banks' current fee schedules and measured their rates.",
     category: "Research",
     readTime: "11 min read",
     publishedAt: "2026-07-01",
-    updatedAt: "2026-07-01",
+    updatedAt: "2026-11-15",
     author: "Ahsan Mukhtar",
     tags: [
       "bank wire transfer fees",
@@ -37,100 +37,121 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
       "comparing wire transfer fees",
     ],
     featuredImage: "/images/blog/wire-transfer-guide.jpg",
+    // ACCURACY NOTE (2026-11-15): every bank fee below was read from the bank's
+    // own fee schedule, deposit agreement or help page on 2026-11-15; the
+    // effective date printed in the tables is the document's own. The July
+    // edition's fees were wrong for most banks (Chase "$45 online", Barclays
+    // "£15", NatWest "£15–£20", a Bank of America "$0 Preferred Rewards" waiver
+    // its schedule does not list), and it modelled every bank at a "3–5%"
+    // markup. Margins here are either quoted from the bank's own document or
+    // measured from our live quotes ({{MARKUP:…}}); none is estimated. Lloyds
+    // and BMO refused automated access, so their fees are marked unverified.
+    // Re-read each schedule before changing a fee: several changed in November.
     sections: [
       {
         heading: "How Much Do Major Banks Charge for International Wire Transfers?",
         content: `<div class="blog-answer-box">
-<p><strong>Quick answer:</strong> Major US banks charge <strong>$35–$50</strong> in flat fees for outgoing international wire transfers — but the flat fee is only part of the cost. Banks add a hidden exchange rate markup of <strong>3–5%</strong> on top, which on a $1,000 transfer costs $30–$50 extra that never appears as a line item. On a $5,000 wire, the total cost at Chase or Wells Fargo is typically <strong>$200–$300</strong>. By comparison, specialist apps like <a href="/companies/wise">Wise</a> charge under $35 total on the same transfer with 0% exchange rate markup. <a href="/send-money">Compare live rates from apps vs. banks</a>.</p>
+<p><strong>Quick answer:</strong> Large US banks charge <strong>$30 to $65</strong> for an outgoing international wire sent in US dollars. Several charge little or nothing when you send in the recipient's currency instead (Bank of America and Wells Fargo online charge no wire fee, Chase $5 online), because they earn on the exchange rate. UK banks increasingly charge nothing to send and publish the margin instead: up to 2.75% at Barclays, 3.25% at NatWest, 3% at Santander up to £10,000. Where we can price a bank's own transfer, we measure it: Chase's margin on dollars to euros is {{MARKUP:chase:USD:EUR:1000}} today, against {{MARKUP:wise:USD:EUR:1000}} at Wise. <a href="/send-money">Compare live rates from apps and banks</a>.</p>
 </div>
-<p>Every year, millions of people use their bank to send international wire transfers — paying far more than they need to. The reason: banks advertise the flat wire fee prominently but bury the exchange rate markup in fine print, or don't disclose it at all until after you've committed to the transfer.</p>
-<p>We pulled the latest published fee schedules from 10 major US and UK banks and calculated the <strong>true total cost</strong> of sending $1,000 and $5,000 internationally — including both the wire fee and the exchange rate markup.</p>`,
+<p>The flat wire fee is the number banks advertise, and it has become a poor guide to the cost. When a bank waives the fee for a wire in a foreign currency, it still converts your money at its own rate, and every bank below except PNC and Capital One says in its own documents that the rate includes a markup, spread or commission it keeps.</p>
+<p>We read the current fee schedule of 16 US, UK and Canadian banks on 15 November 2026, and, for the 11 whose own transfers our comparison prices, put the exchange-rate margin we measure beside the fee.</p>`,
       },
       {
-        heading: "International Wire Transfer Fees: Major US Banks (2026)",
+        heading: "International Wire Fees at Major US Banks (November 2026)",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">US Bank International Wire Transfer Fees — Outgoing (2026)</h3>
+<h3 style="margin-top: 0;">Outgoing international wire, consumer checking account</h3>
 <table>
 <thead>
 <tr>
 <th>Bank</th>
-<th>Outgoing Wire Fee</th>
-<th>Online vs. In-Branch</th>
-<th>Exchange Rate Markup</th>
-<th>True Cost on $1,000</th>
+<th>Wire in US dollars</th>
+<th>Wire in foreign currency</th>
+<th>Incoming international wire</th>
+<th>Margin we measure, $1,000 USD → EUR</th>
 </tr>
 </thead>
 <tbody>
-<tr><td><strong>Chase</strong></td><td>$50</td><td>$5 discount online ($45)</td><td>3–4%</td><td>$75–$90</td></tr>
-<tr><td><strong>Wells Fargo</strong></td><td>$45</td><td>$45 online</td><td>3–5%</td><td>$75–$95</td></tr>
-<tr><td><strong>Bank of America</strong></td><td>$45</td><td>$30 online (Preferred Rewards: $0)</td><td>3–4%</td><td>$60–$85</td></tr>
-<tr><td><strong>Citibank</strong></td><td>$25–$35</td><td>$0 for Citigold members</td><td>3–4%</td><td>$55–$75</td></tr>
-<tr><td><strong>US Bank</strong></td><td>$50</td><td>$50</td><td>3–5%</td><td>$80–$100</td></tr>
-<tr><td><strong>TD Bank</strong></td><td>$40–$50</td><td>Varies by account type</td><td>3–4%</td><td>$70–$90</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a> (for comparison)</strong></td><td>{{FEE:wise:USD:GBP:1000}} (to the UK, live)</td><td>Online only</td><td>0%</td><td><strong>{{COST:wise:USD:GBP:1000}}</strong></td></tr>
+<tr><td><strong>Chase</strong></td><td>$40 online; $50 with a banker</td><td>$5 online ($0 from $5,000)</td><td>$15</td><td>{{MARKUP:chase:USD:EUR:1000}}</td></tr>
+<tr><td><strong>Bank of America</strong></td><td>$45</td><td>No wire fee</td><td>$15</td><td>Not quoted</td></tr>
+<tr><td><strong>Wells Fargo</strong></td><td>$30 digital; $40 at a branch</td><td>No fee digitally</td><td>No fee</td><td>{{MARKUP:wells-fargo:USD:EUR:1000}}</td></tr>
+<tr><td><strong>Citi</strong></td><td>$40 online; $45 at a branch</td><td>No fee online</td><td>$15</td><td>Not quoted</td></tr>
+<tr><td><strong>U.S. Bank</strong></td><td>$50</td><td>$50 (no difference published)</td><td>$25</td><td>Not quoted</td></tr>
+<tr><td><strong>PNC</strong></td><td>$40 self-service; $50 with an agent</td><td>$5 self-service</td><td>$15</td><td>Not quoted</td></tr>
+<tr><td><strong>TD Bank</strong></td><td>$50</td><td>$25</td><td>$15</td><td>Not quoted</td></tr>
+<tr><td><strong>Truist</strong></td><td>$65 (with a teammate)</td><td>$65</td><td>$20</td><td>Not quoted</td></tr>
+<tr><td><strong>Capital One</strong></td><td>$40, branch only</td><td>$40</td><td>Not published</td><td>Not quoted</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Fees sourced from published bank fee schedules Q2 2026. Exchange rate markup estimated vs mid-market rate at time of comparison. <a href="/send-money">Compare live rates →</a></p>
+<p class="blog-footnote">Fees from each bank's own schedule, read 15 November 2026: <a href="https://www.chase.com/content/dam/chase-ux/documents/personal/checking/ABSF-en.pdf" target="_blank" rel="noopener noreferrer nofollow">Chase</a> (effective 15 Nov 2026), <a href="https://www.bankofamerica.com/salesservices/deposits/resources/personal-schedule-fees/" target="_blank" rel="noopener noreferrer nofollow">Bank of America</a> (13 Nov 2026), <a href="https://www.wellsfargo.com/fetch-pdf?formNumber=CNS2013&amp;subProductCode=ANY" target="_blank" rel="noopener noreferrer nofollow">Wells Fargo</a> (28 Jul 2026), <a href="https://www.citi.com/content/dam/cfs/mobile/assets/JRS/popups/ao/CDAA.pdf" target="_blank" rel="noopener noreferrer nofollow">Citi</a> (online fees amended 1 Aug 2026), <a href="https://www.usbank.com/dam/en/documents/pdfs/disclosures/consumer-pricing-information.pdf" target="_blank" rel="noopener noreferrer nofollow">U.S. Bank</a> (10 Aug 2026), <a href="https://www.pnc.com/content/dam/pnc-com/pdf/personal/Checking/fees-vw-A.pdf" target="_blank" rel="noopener noreferrer nofollow">PNC</a> (25 Oct 2026), <a href="https://www.td.com/content/dam/tdb/document/pdf/personal-banking/1-fees-en.pdf" target="_blank" rel="noopener noreferrer nofollow">TD Bank</a> (form dated 07/26), <a href="https://www.truist.com/content/dam/truist-bank/us/en/documents/rates-fees/personal/truist-one-personal-deposit-accounts-fee-schedule.pdf" target="_blank" rel="noopener noreferrer nofollow">Truist</a> (28 Sep 2026), <a href="https://www.capitalone.com/help-center/checking-savings/wire-transfer-support/" target="_blank" rel="noopener noreferrer nofollow">Capital One</a> (no date printed). Fees can differ by account tier: Chase Private Client, Wells Fargo Premier Checking and Truist Marquee Checking waive the outgoing fee; Citigold waives Citi's online fee; Bank of America lists no tier that waives its outgoing international fee. The measured margin is the gap between the bank's rate and the mid-market rate on our latest quote; "not quoted" means our comparison does not price that bank's own transfer.</p>
 </div>
-<p><strong>What the table doesn't show:</strong> Correspondent bank fees. When your bank sends a SWIFT wire, it typically routes through 1–3 intermediary "correspondent" banks on the way to the recipient's bank. Each can deduct $10–$25 <em>from the transferred amount</em>, meaning your recipient gets less than you sent — with no warning. Total deductions of $30–$50 on a single transfer are common.</p>`,
+<p><strong>What the banks say about their rate.</strong> Chase: the rate "includes a spread, which we may make a commission from". Bank of America: there are "markups associated with the currency conversion included in our exchange rate and we make money from the foreign currency exchange". Wells Fargo: the rate "includes a markup". Citi: the rate "includes a commission to Citibank". U.S. Bank: an "all-in rate which includes our profit". None publishes a percentage.</p>`,
       },
       {
-        heading: "International Wire Transfer Fees: Major UK Banks (2026)",
+        heading: "International Wire Fees at Major UK Banks (November 2026)",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">UK Bank International Wire Transfer Fees — Outgoing (2026)</h3>
+<h3 style="margin-top: 0;">Outgoing international payment, personal current account</h3>
 <table>
 <thead>
 <tr>
 <th>Bank</th>
-<th>Outgoing Wire Fee</th>
-<th>Exchange Rate Markup</th>
-<th>True Cost on £1,000</th>
+<th>Fee to send</th>
+<th>Exchange-rate margin the bank publishes</th>
+<th>Incoming payment</th>
+<th>Margin we measure, £1,000 GBP → USD</th>
 </tr>
 </thead>
 <tbody>
-<tr><td><strong>HSBC</strong></td><td>£4–£25 (varies by account/destination)</td><td>3.5–4.5%</td><td>£39–£70</td></tr>
-<tr><td><strong>Barclays</strong></td><td>£25 (online: £15)</td><td>3–4.5%</td><td>£45–£70</td></tr>
-<tr><td><strong>Lloyds Bank</strong></td><td>£9.50 (online)</td><td>3–5%</td><td>£39–£60</td></tr>
-<tr><td><strong>NatWest / RBS</strong></td><td>£15–£20</td><td>3.5–5%</td><td>£50–£70</td></tr>
-<tr><td><strong>Santander UK</strong></td><td>£25</td><td>3–5%</td><td>£55–£75</td></tr>
-<tr><td><strong>Nationwide</strong></td><td>£20</td><td>3–4%</td><td>£50–£60</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a> (for comparison)</strong></td><td>{{FEE:wise:GBP:EUR:1000}} (to the eurozone, live)</td><td>0%</td><td><strong>{{COST:wise:GBP:EUR:1000}}</strong></td></tr>
+<tr><td><strong>HSBC UK</strong></td><td>£5 to a non-HSBC account; free for Premier</td><td>A "currency conversion charge" in its rate; percentage published only for money received (2.2% up to £50,000)</td><td>£5 in foreign currency; £0 for euro from the EEA</td><td>{{MARKUP:hsbc:GBP:USD:1000}}</td></tr>
+<tr><td><strong>Barclays</strong></td><td>£0 in the app or online; £25 in branch or by phone</td><td>No more than 2.75%, lower above £25,000</td><td>£0 up to £100; £6 above</td><td>{{MARKUP:barclays:GBP:USD:1000}}</td></tr>
+<tr><td><strong>NatWest</strong></td><td>£0</td><td>No more than 3.25%</td><td>£0</td><td>{{MARKUP:natwest:GBP:USD:1000}}</td></tr>
+<tr><td><strong>Santander UK</strong></td><td>£25 (not charged on Edge accounts)</td><td>3% up to £10,000; 2% to £50,000; 1% above</td><td>Not published</td><td>{{MARKUP:santander:GBP:USD:1000}}</td></tr>
+<tr><td><strong>Nationwide</strong></td><td>£15; free on FlexOne, FlexStudent, FlexGraduate</td><td>2.2% on money sent; 0.5% on money received</td><td>£0</td><td>{{MARKUP:nationwide:GBP:USD:1000}}</td></tr>
+<tr><td><strong>Lloyds Bank</strong></td><td>Not verified this month</td><td>Not verified this month</td><td>Not verified this month</td><td>{{MARKUP:lloyds:GBP:USD:1000}}</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">UK bank fees sourced from published tariff sheets Q2 2026. <a href="/send-money">Compare live GBP rates →</a></p>
+<p class="blog-footnote">Read 15 November 2026 from <a href="https://www.hsbc.co.uk/international/money-transfer/" target="_blank" rel="noopener noreferrer nofollow">HSBC UK</a> (terms 6 Jul 2026), the <a href="https://www.barclays.co.uk/content/dam/documents/personal/current-accounts/barclays-tariff-for-personal-customers.pdf" target="_blank" rel="noopener noreferrer nofollow">Barclays tariff</a> (1 Jun 2025, live page agrees), <a href="https://www.natwest.com/banking-with-natwest/how-to/send-money-abroad.html" target="_blank" rel="noopener noreferrer nofollow">NatWest</a>, <a href="https://www.santander.co.uk/personal/support/current-accounts/making-international-payments" target="_blank" rel="noopener noreferrer nofollow">Santander UK</a> (fee list 17 Dec 2025) and <a href="https://www.nationwide.co.uk/help/payments/swift-sepa-international-payments" target="_blank" rel="noopener noreferrer nofollow">Nationwide</a>. Lloyds' pages refused automated access, so we publish no Lloyds fee until we have read it; its measured margin comes from our own quotes. Euro payments within the UK and EEA (SEPA) are free at most of these banks.</p>
 </div>
-<p>UK banks have slightly lower flat wire fees than US banks, but the exchange rate markup remains similarly punishing. HSBC's fee varies significantly by account type — Premier and Jade account holders pay £4, while standard accounts pay £25. The markup is applied regardless of account type.</p>`,
+<p>UK banks are moving from fees to margins. Barclays and NatWest charge nothing to send through their apps, and both publish a ceiling on the margin instead. A ceiling is a maximum, not the rate you will get, which is why the measured column can sit below it.</p>`,
       },
       {
-        heading: "The Hidden Cost Nobody Talks About: Exchange Rate Markup",
-        content: `<p>Under the US <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/subpart-B/" target="_blank" rel="noopener noreferrer">Remittance Transfer Rule</a> (Regulation E, subpart B), a bank sending most consumer transfers abroad must disclose the exchange rate, the fees and the exact amount the recipient will get, <em>before</em> you pay. So the markup is disclosed — it is simply not labelled as a cost. The CFPB's own <a href="https://www.consumerfinance.gov/consumer-tools/sending-money/" target="_blank" rel="noopener noreferrer">guidance for consumers sending money abroad</a> tells you to compare the receive amount rather than the fee, for exactly this reason. Ask for that disclosure and compare the bottom line.</p>
-<p class="citable-passage">The flat wire fee is the cost you see. The exchange rate markup is the cost that's hidden — and it's almost always larger. When a bank quotes you an exchange rate for an international wire, that rate is always worse than the real mid-market rate (the rate you see on Google). The difference is the markup, and it goes directly to the bank as profit. On a $1,000 transfer with a 4% markup, that's $40 that disappears without appearing anywhere on your receipt.</p>
-<p>Here's how to calculate what your bank is actually charging:</p>
+        heading: "International Wire Fees at Major Canadian Banks (November 2026)",
+        content: `<div class="blog-table-box">
+<table>
+<thead>
+<tr>
+<th>Bank</th>
+<th>Outgoing wire</th>
+<th>Incoming wire</th>
+<th>Margin we measure, C$1,000 CAD → USD</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><strong>RBC Royal Bank</strong></td><td>From C$45, branch only (RBC International Money Transfer online: no transfer fee)</td><td>Free under C$50; from C$17 above</td><td>{{MARKUP:rbc:CAD:USD:1000}}</td></tr>
+<tr><td><strong>TD Canada Trust</strong></td><td>$50 at a branch (TD Global Transfer online: no TD transfer fee)</td><td>$17.50</td><td>{{MARKUP:td-bank:CAD:USD:1000}}</td></tr>
+<tr><td><strong>BMO</strong></td><td>Not verified this month</td><td>Not verified this month</td><td>{{MARKUP:bmo:CAD:USD:1000}}</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Read 15 November 2026 from <a href="https://www.rbcroyalbank.com/banking-services/additional-account-services.html" target="_blank" rel="noopener noreferrer nofollow">RBC</a> (booklet 3 Aug 2026) and <a href="https://www.td.com/content/dam/tdct/document/pdf/personal-banking/802234-en.pdf" target="_blank" rel="noopener noreferrer nofollow">TD Canada Trust</a> (5 Mar 2026). BMO's fee document did not load for automated reading, so its fee is not shown; its measured margin comes from our own quotes.</p>
+</div>`,
+      },
+      {
+        heading: "Why a $0 Wire Fee Is Not a Free Transfer: The Exchange-Rate Margin",
+        content: `<p>Under the US <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/subpart-B/" target="_blank" rel="noopener noreferrer">Remittance Transfer Rule</a> (Regulation E, subpart B), a bank sending most consumer transfers abroad must disclose the exchange rate, the fees and the exact amount the recipient will get, <em>before</em> you pay. So the margin is disclosed; it is simply not labelled as a cost. The CFPB's own <a href="https://www.consumerfinance.gov/consumer-tools/sending-money/" target="_blank" rel="noopener noreferrer">guidance for consumers sending money abroad</a> tells you to compare the receive amount rather than the fee, for exactly this reason.</p>
+<p class="citable-passage">A bank that waives its wire fee for a payment in a foreign currency still earns on the conversion. The cost is the gap between the bank's rate and the mid-market rate, multiplied by the amount you send, and it never appears as a line item.</p>
+<p>Here's how to work out what your bank is charging:</p>
 <ol>
-<li>Look up the real mid-market rate for your currency pair on Google or <a href="/exchange-rates">our exchange rates page</a> at the time you want to transfer.</li>
+<li>Look up the mid-market rate for your currency pair on <a href="/exchange-rates">our exchange rates page</a> at the time you want to transfer.</li>
 <li>Note the rate your bank offers you.</li>
-<li>Calculate: <code>(mid-market rate − bank rate) ÷ mid-market rate × 100</code> = markup %</li>
-<li>Multiply your transfer amount by that percentage to get the hidden cost in dollars.</li>
+<li>Calculate: <code>(mid-market rate − bank rate) ÷ mid-market rate × 100</code> = margin %</li>
+<li>Multiply your transfer amount by that percentage to get the cost in money.</li>
 </ol>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">Modelled SWIFT Wire Cost: Sending $5,000 USD to GBP (2026)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Flat Fee</th><th>FX Markup Cost</th><th>Correspondent Fees</th><th>Total Cost</th></tr></thead>
-<tbody>
-<tr><td><strong>Chase</strong></td><td>$45</td><td>~$175 (3.5%)</td><td>$0–$50</td><td><strong>$220–$270</strong></td></tr>
-<tr><td><strong>Wells Fargo</strong></td><td>$45</td><td>~$200 (4%)</td><td>$0–$50</td><td><strong>$245–$295</strong></td></tr>
-<tr><td><strong>Bank of America</strong></td><td>$30 (online)</td><td>~$175 (3.5%)</td><td>$0–$50</td><td><strong>$205–$255</strong></td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">A model of a branch SWIFT wire: each bank's published flat fee plus a typical markup and correspondent charges. Not a live quote.</p>
-</div>
-<p>A modelled branch wire costing $220–$270 is about 4–5% of the transfer. Here is what the same $5,000 delivers with every provider we price today, against {{MID_RECEIVE:USD:GBP:5000}} at the mid-market rate:</p>
+<p>Here is what $5,000 delivers with every provider we price on dollars to pounds today, banks included where we can price their own transfer, against {{MID_RECEIVE:USD:GBP:5000}} at the mid-market rate:</p>
 <div class="blog-table-box">
 {{QUOTE_TABLE:USD:GBP:5000}}
-<p class="blog-footnote">Live quotes, collected every 6 hours; banks appear where we can price their own online transfer. <a href="/send-money/usa-to-uk">Compare USD to GBP at your amount →</a></p>
+<p class="blog-footnote">Live quotes, collected every 6 hours. <a href="/send-money/usa-to-uk">Compare USD to GBP at your amount →</a></p>
 </div>
-<h3>What we actually measure these banks charging</h3>
-<p>The figures above model a SWIFT wire: the published flat fee plus a markup. Separately, we price banks directly from live quotes in our <a href="/remittance-cost-index">Remittance Cost Index</a>, and those come out lower, because the quotes we capture are usually a bank's own online transfer product rather than a branch SWIFT wire. Measured across every corridor each bank quotes at $1,000:</p>
+<h3>Banks' measured all-in cost across every route we price</h3>
+<p>Our <a href="/remittance-cost-index">Remittance Cost Index</a> prices banks from live quotes, usually the bank's own online transfer rather than a branch wire. Measured across every corridor each bank quotes at $1,000:</p>
 <div class="overflow-x-auto"><table>
 <thead><tr><th>Bank</th><th>Measured all-in cost on $1,000</th></tr></thead>
 <tbody>
@@ -140,94 +161,93 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
 <tr><td>Chase (US)</td><td>{{AVGCOST:chase}}</td></tr>
 <tr><td>Lloyds</td><td>{{AVGCOST:lloyds}}</td></tr>
 </tbody></table></div>
-<p>Both numbers are real and they answer different questions. If you walk into a branch and ask for an international wire, expect the higher, fee-led figure. If you use the bank's own app or website, expect something closer to the measured one. Neither is close to what a specialist charges — across all 35 banks and 26 specialists we price at $1,000, the averages are {{AVG_BANK_COST}} against {{AVG_SPECIALIST_COST}}. The spread <em>within</em> the bank group is wider than most people expect, though: the cheapest bank we measure beats many specialists, and the dearest costs more than four times the bank average.</p>
-<p class="blog-footnote">Bank fee schedules in the tables above were read from each bank's published pricing pages and last checked July 2026; banks change them without notice, and the fee often differs by account tier and destination. Confirm your own bank's current fee and its quoted receive amount before sending. The measured percentages are recomputed from live quotes on every build.</p>`,
+<p>Across all the banks and specialists we price at $1,000, banks average {{AVG_BANK_COST}} against {{AVG_SPECIALIST_COST}} for specialists. The spread within the bank group is wide: the cheapest bank we measure beats many specialists.</p>`,
       },
       {
-        heading: "Why Do Banks Charge So Much for Wire Transfers?",
-        content: `<p>Three structural reasons banks are more expensive:</p>
-<ul>
-<li><strong>SWIFT network costs</strong> — Each bank in the correspondent chain charges a processing fee. Banks use SWIFT because it's universal and legally traceable, but it's also expensive and slow (1–5 business days).</li>
-<li><strong>FX as a profit centre</strong> — Currency conversion is one of the most profitable banking services. A retail bank earning 3–5% on FX makes significantly more than the flat wire fee suggests.</li>
-<li><strong>Regulatory overhead</strong> — Banks must comply with extensive AML/KYC requirements on each wire, which adds operational cost. Specialist apps face the same rules but have built more efficient technology to comply at scale.</li>
-</ul>
-<p class="citable-passage">According to the World Bank Remittance Prices Worldwide database (Q1 2025), banks average <strong>14.55% total cost</strong> as a share of the $200 benchmark transfer — the most expensive channel by far. Digital money transfer operators average just <strong>3.55%</strong>. The gap exists almost entirely because of exchange rate markup differences, not flat fees.</p>`,
+        heading: "Intermediary and Receiving-Bank Charges on an International Wire",
+        content: `<p>A SWIFT wire can pass through one or more intermediary banks before it reaches the recipient's bank, and those banks, and the receiving bank, can deduct their own charges from the amount, so the recipient gets less than you sent. Your bank's fee does not cover them unless you choose to pay them.</p>
+<p>Some UK banks let you prepay them so the recipient receives the full amount: Barclays offers an optional overseas bank charge of £4, £6 or £12, and NatWest an optional £10 "you pay all fees" charge. Barclays also adds a £3 charge when you send US dollars to a country other than the US. Ask your bank which charging option ("OUR", "SHA" or "BEN") the wire uses before you send.</p>`,
+      },
+      {
+        heading: "Why Banks Charge More for an International Wire",
+        content: `<ul>
+<li><strong>The exchange rate is a revenue line.</strong> Every large US bank in the table above says in its own documents that it earns on the conversion, and four UK banks publish a margin of 2.2% to 3.25%.</li>
+<li><strong>A chain of banks.</strong> A SWIFT wire is passed from bank to bank, each with its own cut-off times and, often, its own charge.</li>
+<li><strong>Compliance on every payment.</strong> Banks check each wire against anti-money-laundering and sanctions rules. Specialist providers face the same rules but usually pay out through local bank networks in the destination country instead of a correspondent chain.</li>
+</ul>`,
       },
       {
         heading: "When Does a Bank Wire Transfer Still Make Sense?",
-        content: `<p>Despite the cost, there are legitimate reasons to use a bank wire:</p>
+        content: `<p>There are good reasons to use a bank wire:</p>
 <ul>
-<li><strong>Very large transfers ($500,000+)</strong> — Specialist apps have daily limits (Wise: $1M, OFX: higher with relationship). For very large property or business transactions, bank SWIFT wires may be the only practical option.</li>
-<li><strong>Recipient bank requires SWIFT</strong> — Some countries or institutions only accept SWIFT wires, not local-rail transfers from fintech platforms.</li>
-<li><strong>Compliance-sensitive jurisdictions</strong> — Highly regulated sectors (law firms handling client funds, certain regulated industries) may require bank-to-bank SWIFT for compliance documentation purposes.</li>
-<li><strong>Your employer pays your transfer fees</strong> — If your company reimburses wire costs, the math changes.</li>
-</ul>
-<p>For the vast majority of personal and SMB international transfers under $100,000, the cost difference between a bank wire and a specialist app is not justified by any benefit.</p>`,
+<li><strong>Very large transfers.</strong> Specialist providers set transfer limits, and for some property or business payments a bank wire is the practical option. Check your provider's limit and your bank's margin at that amount: Santander's published margin, for example, falls from 3% to 1% above £50,000.</li>
+<li><strong>The recipient requires it.</strong> Some institutions only accept a SWIFT payment from a bank.</li>
+<li><strong>Documentation.</strong> Some regulated payments, such as funds held by a law firm, need a bank-to-bank record.</li>
+<li><strong>Your bank's fee and margin are low.</strong> A UK bank that charges nothing to send and a 2.2% margin can beat a specialist on some routes; the measured columns above show where.</li>
+</ul>`,
       },
       {
-        heading: "Cheapest Alternatives to Bank Wire Transfers (2026)",
+        heading: "Alternatives to a Bank Wire, by Measured Cost",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Cheapest International Transfer Apps vs. Major Banks</h3>
 <table>
-<thead><tr><th>Provider</th><th>Best For</th><th>Average All-In Cost</th><th>Speed</th></tr></thead>
+<thead><tr><th>Provider</th><th>Often used for</th><th>Average all-in cost</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Transparent fees, wide coverage</td><td>{{AVGCOST:wise}}</td><td>Seconds–hours</td></tr>
-<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>Family remittances, app-only</td><td>{{AVGCOST:taptap-send}}</td><td>Minutes</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Remittances, speed, cash pickup</td><td>{{AVGCOST:remitly}}</td><td>Minutes</td></tr>
-<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>Asia corridors, zero fee</td><td>{{AVGCOST:instarem}}</td><td>Hours</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>Large transfers ($5,000+)</td><td>{{AVGCOST:ofx}}</td><td>1–2 days</td></tr>
-<tr><td><strong>Chase / Wells Fargo</strong></td><td>—</td><td>{{AVGCOST:chase}} / {{AVGCOST:wells-fargo}}</td><td>2–5 days</td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Bank-to-bank transfers, wide coverage</td><td>{{AVGCOST:wise}}</td></tr>
+<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>Family remittances, app-only</td><td>{{AVGCOST:taptap-send}}</td></tr>
+<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Remittances, cash pickup</td><td>{{AVGCOST:remitly}}</td></tr>
+<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>Asia corridors</td><td>{{AVGCOST:instarem}}</td></tr>
+<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>Larger transfers</td><td>{{AVGCOST:ofx}}</td></tr>
+<tr><td><strong>Chase / Wells Fargo</strong></td><td>For comparison</td><td>{{AVGCOST:chase}} / {{AVGCOST:wells-fargo}}</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Average all-in cost as a share of the amount sent, across every corridor we price each provider on (Remittance Cost Index, $1,000), recomputed on every build. <a href="/send-money">Compare at your exact amount and currency →</a></p>
 </div>
-<p>The simplest switch: open a <a href="/companies/wise">Wise</a> account online (free, takes 10 minutes), add your recipient's bank details, and pay via ACH from your US bank account. Your recipient gets a domestic bank deposit in their country — no SWIFT, no correspondent fees, no hidden markup. See our full guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> for a complete breakdown.</p>`,
+<p>Wise says it uses the mid-market rate; we measure its median margin at {{AVG_MARKUP_PCT:wise}}, on top of a visible fee. Specialists usually pay out through local bank networks in the destination country, so there is no correspondent chain to deduct charges. See our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
       },
       {
-        heading: "Sources & Methodology",
-        content: `<p>Bank wire transfer fee data sourced from published fee schedules, consumer deposit account agreements, and disclosed tariff sheets from each bank's official website (Q2 2026). Exchange rate markups are estimated based on spot rate comparisons at time of writing — actual markups vary by currency pair, time of day, and account type. Contact your bank for the exact rate before transferring.</p>
-<p>Specialist app cost data from live quotes via our comparison engine, collected every 6 hours. World Bank average cost data from Remittance Prices Worldwide Q1 2025 report. Correspondent bank fee ranges based on SWIFT published guidance and consumer complaints filed with the CFPB.</p>
-<p>Related: <a href="/guides/wire-transfer-guide">Wire transfer guide (SWIFT, ACH, SEPA explained)</a> · <a href="/guides/exchange-rate-markup-explained">Exchange rate markup explained</a> · <a href="/guides/bank-vs-app-transfer-cost-2026">Banks cost 1.44× more than apps — the data</a> · <a href="/guides/are-wire-transfers-safe">Are wire transfers safe?</a></p>`,
+        heading: "Sources and Method for the Bank Wire Fee Tables",
+        content: `<p>Every bank fee in the tables was read from the bank's own fee schedule, deposit account agreement or help page on 15 November 2026, and is linked beside the table with the document's own effective date. Where a bank's page could not be read, the fee is marked "not verified this month" rather than filled from another site. Margins are either quoted from the bank's own document or measured from our live quotes, collected every 6 hours; none is estimated. Banks change fees without notice, often by account tier, so confirm yours before sending.</p>
+<p>Related: <a href="/guides/wire-transfer-guide">Wire transfer guide (SWIFT, ACH, SEPA explained)</a> · <a href="/guides/exchange-rate-markup-explained">Exchange rate markup explained</a> · <a href="/guides/bank-vs-app-transfer-cost-2026">Banks vs apps: the cost data</a> · <a href="/guides/are-wire-transfers-safe">Are wire transfers safe?</a></p>`,
       },
     ],
     faqs: [
       {
         question: "How much does Chase charge for international wire transfers?",
         answer:
-          "Chase charges $50 for outgoing international wires sent in-branch, or $45 online. But the true cost is higher — Chase applies a 3–4% exchange rate markup that adds $30–$40 to a $1,000 transfer. Total cost on $1,000 to the UK: approximately $75–$90. By comparison, <a href=\"/companies/wise\">Wise</a> charges approximately $7–$14 for the same transfer with 0% markup.",
+          "Chase charges $40 for an outgoing international wire sent online in US dollars, $5 online in a foreign currency ($0 from $5,000), and $50 with a banker, according to its fee schedule effective 15 November 2026. Chase says its exchange rate includes a spread it may make a commission from; on dollars to euros today we measure Chase's margin at {{MARKUP:chase:USD:EUR:1000}}.",
       },
       {
         question: "How much does Wells Fargo charge for international wires?",
         answer:
-          "Wells Fargo charges $45 for outgoing international wire transfers online. The exchange rate markup adds approximately 3–5% on top, bringing the true all-in cost to $75–$95 on a $1,000 transfer. Wells Fargo Premier customers may receive a discounted fee — check your account agreement.",
+          "Wells Fargo charges $30 for a digital international wire in US dollars, nothing for a digital wire in a foreign currency, and $40 at a branch; Premier Checking waives the outgoing fee (Wells Fargo fee information, July 2026). Its rate includes a markup by its own description; on dollars to euros today we measure it at {{MARKUP:wells-fargo:USD:EUR:1000}}.",
       },
       {
         question: "How much does Bank of America charge for international wire transfers?",
         answer:
-          "Bank of America charges $45 for outgoing international wires in-branch, reduced to $30 online. Preferred Rewards Platinum and Platinum Honors members pay $0 in fees. However, the exchange rate markup of 3–4% still applies regardless of account status, adding $30–$40 to a $1,000 transfer.",
+          "Bank of America charges $45 for an outgoing international wire in US dollars and no wire fee when the wire is sent in a foreign currency, according to its personal schedule of fees (13 November 2026). The schedule lists no account tier that waives the outgoing international fee. Bank of America says it makes money from the markup included in its exchange rate.",
       },
       {
         question: "What are the hidden fees in bank wire transfers?",
         answer:
-          "Two hidden costs: (1) The exchange rate markup — banks offer a rate worse than the real mid-market rate by 3–5%. On $1,000 that's $30–$50 invisible cost. (2) Correspondent bank fees — SWIFT wires pass through intermediary banks that deduct $10–$25 each from the transferred amount. Your recipient may receive less than you sent with no notification.",
+          "Two. First, the exchange-rate margin built into the bank's rate: Chase, Bank of America, Wells Fargo and Citi all say so in their own documents, and Barclays publishes up to 2.75%, NatWest up to 3.25% and Santander 3% up to £10,000. Second, charges that intermediary and receiving banks deduct from the amount, which some UK banks let you prepay (Barclays £4 to £12, NatWest £10).",
       },
       {
         question: "Is there a cheaper alternative to bank wire transfers?",
         answer:
-          "Yes — against a Chase wire specifically, specialist apps cost roughly 80–90% less. <a href=\"/companies/wise\">Wise</a> charges 0% exchange rate markup plus a small flat fee, totalling $7–$14 on a $1,000 transfer vs. $75–$95 at Chase. Across all the banks we price, the average gap is narrower — about {{BANK_SAVINGS_PCT}}. <a href=\"/companies/remitly\">Remitly</a>, <a href=\"/companies/ofx\">OFX</a>, and <a href=\"/companies/instarem\">Instarem</a> are also far cheaper than banks. <a href=\"/send-money\">Compare live rates</a> for your corridor.",
+          "Usually. Across the banks and specialists we price at $1,000, banks average {{AVG_BANK_COST}} in fee plus margin against {{AVG_SPECIALIST_COST}} for specialist providers, about {{BANK_SAVINGS_PCT}} less. The spread is wide in both groups, so compare the amount each delivers at your exact amount and route.",
       },
       {
         question: "Do banks charge incoming wire transfer fees?",
         answer:
-          "Yes, though less consistently. Most US banks charge $15–$20 for incoming international wires (Chase: $15, Wells Fargo: $16, Bank of America: $15, Citibank: $15). UK banks typically charge £6–£15 for incoming SWIFT credits. Some accounts waive this fee — check your account terms.",
+          "Most US banks do: Chase $15, Bank of America $15, Citi $15, PNC $15, TD Bank $15, Truist $20 and U.S. Bank $25, while Wells Fargo charges nothing, according to their fee schedules read in November 2026. Some account tiers waive it. In the UK, Barclays charges nothing up to £100 and £6 above, HSBC £5 for a foreign-currency payment, and NatWest and Nationwide nothing.",
       },
     ],
     howToSteps: [
-      { name: "Check your bank's real total cost", text: "Call your bank or check online — ask for the exchange rate they'll apply, not just the wire fee. Calculate the markup vs. the Google mid-market rate." },
-      { name: "Compare with a specialist app", text: "Enter your exact amount and corridor at our comparison tool. The difference is usually £30–£100 on a £1,000 transfer." },
-      { name: "Open a free Wise or OFX account", text: "Takes 10 minutes online. No monthly fee, no minimum balance required." },
-      { name: "Add recipient bank details", text: "For most countries: account number + sort code (UK), IBAN (Europe), IFSC (India), routing + account (US)." },
-      { name: "Fund via bank transfer", text: "Pay from your existing bank account via ACH (US) or Faster Payments (UK) — this is free and avoids debit card fees." },
+      { name: "Find your bank's fee for the currency you send", text: "Check your bank's fee schedule for an international wire in US dollars and in the recipient's currency: several banks charge less, or nothing, in the recipient's currency." },
+      { name: "Ask for the exchange rate and the amount received", text: "Before you pay, your bank must tell you the rate and the amount the recipient gets (in the US, under Regulation E). Work out the margin against the mid-market rate." },
+      { name: "Ask who pays intermediary charges", text: "Ask whether intermediary and receiving-bank charges will be deducted, and whether you can prepay them." },
+      { name: "Compare with specialist providers", text: "Enter your exact amount and route in our comparison and compare the amount each provider delivers." },
+      { name: "Send from the cheaper option", text: "Fund a specialist transfer by bank transfer from your account, or send the wire from your bank if it delivers more." },
     ],
     relatedSlugs: [
       "wire-transfer-guide",

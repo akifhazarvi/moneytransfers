@@ -599,6 +599,13 @@ export const GOOGLE_HIDDEN_ROUTES: ReadonlySet<string> = new Set<string>([
   "/guides/business-payments-australia-to-india",
   "/guides/business-payments-canada-to-usa",
   "/guides/large-business-transfers-from-china-cny",
+  // 2026-11-15 growth-plan guides (blog-plan-nov2026.ts): open to Bing from
+  // launch, hidden from Google until a release batch lists them (rule 17).
+  // Without this entry /guides/* is Google-indexable by default.
+  "/guides/money-transfer-company-goes-bust",
+  "/guides/international-transfer-delayed-or-stuck",
+  "/guides/send-money-from-india-lrs-tcs",
+  "/guides/tax-on-money-sent-to-family-abroad",
   // cash-out
   "/cash-out/brazil",
   "/cash-out/kenya",

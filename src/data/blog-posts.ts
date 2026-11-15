@@ -76,6 +76,8 @@ import { safetyGuides } from "./blog-safety-guides";
 import { dataComparisonGuides } from "./blog-data-comparisons";
 import { freelanceGuides } from "./blog-freelance-guides";
 import { costTransparencyGuides } from "./blog-cost-transparency";
+import { withPromptAnswers } from "./guide-prompt-answers";
+import { planGuidesNov2026 } from "./blog-plan-nov2026";
 import { SITE_STATS, atLeast } from "@/lib/site-stats";
 import { resolveRouteProviderTokens } from "@/lib/provider-counts";
 
@@ -280,7 +282,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Which Providers Are Best by Transfer Size?",
         content: `<p>Our data shows that different providers win at different transfer sizes:</p>
 <h3>Small Transfers ($100–$500)</h3>
-<p>For small amounts, flat fees matter most. Providers like <strong>Remitly</strong>, <strong>Instarem</strong>, and <strong>Xoom</strong> often charge $0 fees on smaller transfers, making them the cheapest option. Wise's flat fee of $1–$5 on small transfers can represent a significant percentage.</p>
+<p>For small amounts, flat fees matter most. Providers like <strong>Remitly</strong>, <strong>Instarem</strong>, and <strong>Xoom</strong> often charge $0 fees on smaller transfers, though a $0 fee can sit on a wider exchange-rate margin, so compare the amount that arrives. Wise's visible fee ({{FEE:wise:USD:INR:100}} on $100 to India today) is a larger share of a small transfer than of a large one.</p>
 <h3>Medium Transfers ($500–$5,000)</h3>
 <p>This is where <strong>Wise</strong> and <strong>Instarem</strong> excel. Wise's 0% markup means you always get the real exchange rate, and their fees scale reasonably. Instarem's low markup (avg 0.42%) with zero fees is also competitive.</p>
 <h3>Large Transfers ($5,000+)</h3>
@@ -321,7 +323,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money internationally?",
         answer:
-          "Based on our analysis of {{PROVIDER_COUNT}} providers, <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/remitly\">Remitly</a>, and <a href=\"/companies/instarem\">Instarem</a> consistently offer the lowest total cost. Wise charges 0% exchange rate markup with a small transparent fee. Remitly often has $0 fees with small markups. The cheapest option depends on the amount and corridor — <a href=\"/send-money\">compare live rates</a> for your specific transfer.",
+          "No single provider is lowest everywhere. Across the {{PROVIDER_COUNT}} providers we track, {{TOP_LEADER}} led the most corridors ({{TOP_LEADS}}), and on {{ROTATION_RATE}} of corridors today's top payout comes from a provider other than the route's usual leader. Wise says it uses the mid-market rate; we measure its median margin at {{AVG_MARKUP_PCT:wise}} on top of its visible fee. The cheapest option depends on the amount and corridor — <a href=\"/send-money\">compare live rates</a> for your specific transfer.",
       },
       {
         question: "Are bank transfers cheaper than money transfer services?",
@@ -2394,7 +2396,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Do I have to pay taxes on wire transfers?",
         answer:
-          "Wire transfers themselves are not taxed, but the underlying transaction may have tax implications. In the US, banks must report wire transfers over $10,000 to FinCEN. Gifts to foreign persons over $18,000 (2026) may require filing IRS Form 3520. As of 2026, a 1% federal remittance tax applies to cash-funded outbound transfers from the US, though digital transfers are exempt. Consult a tax advisor for your specific situation.",
+          "Wire transfers themselves are not taxed, but the underlying transaction may have tax implications. In the US, cash transactions over $10,000 are reported to FinCEN and providers keep records of transfers of $3,000 or more, but neither is a tax. A US sender who gives one person more than $19,000 in 2026 ($20,000 in 2027) files IRS Form 709; Form 3520 is for US recipients of large gifts from abroad. As of 2026, a 1% federal remittance tax applies to cash-funded outbound transfers from the US, though digital transfers are exempt. Consult a tax advisor for your specific situation.",
       },
       {
         question: "What is SWIFT and how does it relate to wire transfers?",
@@ -3444,7 +3446,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>For the recipient:</strong> Remittances from abroad are tax-exempt in Pakistan. Under Section 111(4) of the Income Tax Ordinance, money received from abroad through normal banking channels is not subject to income tax.</li>
 <li><strong>Pakistan Remittance Initiative (PRI):</strong> The <a href="https://www.sbp.org.pk/PS/PDF/Pakistan-Remittance-Initiative.pdf" target="_blank" rel="noopener noreferrer">Pakistan Remittance Initiative (PRI)</a> was launched to facilitate low-cost formal remittance channels with incentives for banks and recipients.</li>
 <li><strong>CNIC requirement:</strong> The State Bank requires CNIC information for remittances over certain thresholds. Ensure your recipient has their CNIC details ready.</li>
-<li><strong>For US senders:</strong> Sending money as a gift to family is not taxable for the sender. Gifts over $18,000 per recipient per year may require filing Form 709 (but no tax is typically owed).</li>
+<li><strong>For US senders:</strong> Sending money as a gift to family is not taxable for the sender. Gifts over $19,000 per recipient in 2026 ($20,000 in 2027) require filing Form 709, but no tax is typically owed.</li>
 <li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts.</li>
 </ul>
 <p>This is general information — consult a tax advisor for your specific situation.</p>`,
@@ -3471,7 +3473,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money to Pakistan?",
         answer:
-          "Based on our data, <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/remitly\">Remitly</a>, and <a href=\"/companies/ace-money-transfer\">ACE Money Transfer</a> all quote this corridor; on measured payouts the most frequent leader is {{CORRIDOR_LEADER:USD:PKR}}. Wise uses the mid-market rate with a small fee, making it cheapest for amounts over $500. <a href=\"/send-money/usa-to-pakistan\">Compare live USD to PKR rates</a> at your exact amount.",
+          "Based on our data, <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/remitly\">Remitly</a>, and <a href=\"/companies/ace-money-transfer\">ACE Money Transfer</a> all quote this corridor; on measured payouts the most frequent leader is {{CORRIDOR_LEADER:USD:PKR}}, and on $1,000 today {{BEST_PROVIDER:USD:PKR:1000}} pays the most ({{BEST_RECEIVE:USD:PKR:1000}}). A flat fee weighs less as the amount grows, so the order can change with your amount. <a href=\"/send-money/usa-to-pakistan\">Compare live USD to PKR rates</a> at your exact amount.",
       },
       {
         question: "How long does it take to send money to Pakistan?",
@@ -3874,7 +3876,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money to the Philippines from the US?",
         answer:
-          "The provider that actually delivered the most on USD to PHP was {{CORRIDOR_LEADER:USD:PHP}}. Remitly often has $0 fee promotions. Wise charges a small fee but uses the mid-market exchange rate with 0% markup. On $1,000 today {{BEST_PROVIDER:USD:PHP:1000}} delivers the most, and on $5,000 {{BEST_PROVIDER:USD:PHP:5000}}.",
+          "The provider that actually delivered the most on USD to PHP was {{CORRIDOR_LEADER:USD:PHP}}. Wise says it uses the mid-market rate; we measure its median margin at {{AVG_MARKUP_PCT:wise}} on top of its visible fee. On $1,000 today {{BEST_PROVIDER:USD:PHP:1000}} delivers the most, and on $5,000 {{BEST_PROVIDER:USD:PHP:5000}}.",
       },
       {
         question: "Can I send money directly to GCash from the US?",
@@ -4222,7 +4224,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from the US to Mexico?",
         answer:
-          "The provider that actually delivered the most on USD to MXN was {{CORRIDOR_LEADER:USD:MXN}}; today {{BEST_PROVIDER:USD:MXN:1000}} tops the $1,000 table. Wise uses the mid-market rate with a small fee. Remitly frequently runs $0-fee promotions. Always compare the total pesos received — not just the fee.",
+          "The provider that actually delivered the most on USD to MXN was {{CORRIDOR_LEADER:USD:MXN}}; today {{BEST_PROVIDER:USD:MXN:1000}} tops the $1,000 table. Wise says it uses the mid-market rate; we measure its median margin at {{AVG_MARKUP_PCT:wise}} on top of its visible fee. Always compare the total pesos received — not just the fee.",
       },
       {
         question: "How long does it take to send money to Mexico?",
@@ -11102,7 +11104,7 @@ const rawBlogPosts: BlogPost[] = [
 <ul>
 <li><strong>Australia:</strong> AUSTRAC-regulated providers must verify your identity. No tax on outgoing personal transfers. Transfers over A$10,000 require additional reporting.</li>
 <li><strong>UK:</strong> FCA-regulated providers. No tax on personal remittances. Gift amounts are not taxable for the sender.</li>
-<li><strong>USA:</strong> FinCEN-regulated providers. Gifts under $18,000/year per recipient don't require Form 709. <a href="/news/us-remittance-excise-tax-takes-effect-2026">Cash-funded transfers now incur a 1% excise tax</a> — use digital funding to avoid this.</li>
+<li><strong>USA:</strong> FinCEN-regulated providers. Gifts up to $19,000 per recipient in 2026 ($20,000 in 2027) don't require Form 709. <a href="/news/us-remittance-excise-tax-takes-effect-2026">Cash-funded transfers now incur a 1% excise tax</a> — use digital funding to avoid this.</li>
 <li><strong>Gulf states:</strong> Most countries require work permits and ID verification. No outgoing transfer tax in UAE, Qatar, or Saudi Arabia.</li>
 </ul>
 
@@ -11620,7 +11622,7 @@ const rawBlogPosts: BlogPost[] = [
 <ul>
 <li><strong>EU senders:</strong> No tax on outgoing personal transfers within the EU. SEPA regulation guarantees your right to send EUR at domestic pricing.</li>
 <li><strong>UK senders:</strong> No UK tax on personal remittances. FCA-regulated providers must safeguard your money.</li>
-<li><strong>US senders:</strong> No tax on gifts under $18,000/year per recipient. The new <a href="/news/us-remittance-excise-tax-takes-effect-2026">1% excise tax</a> only applies to cash-funded transfers.</li>
+<li><strong>US senders:</strong> No gift tax return for gifts up to $19,000 per recipient in 2026 ($20,000 in 2027). The new <a href="/news/us-remittance-excise-tax-takes-effect-2026">1% excise tax</a> only applies to cash-funded transfers.</li>
 </ul>`,
       },
       {
@@ -12710,7 +12712,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from UAE to India?",
         answer:
-          "Across our 91-day record, the AED to INR payout leader was {{CORRIDOR_LEADER:AED:INR}}, and on AED 3,500 today {{BEST_PROVIDER:AED:INR:3500}} pays the most ({{BEST_RECEIVE:AED:INR:3500}}). Wise prices at the mid-market rate with 0% markup; TapTap Send and Remitly deliver to UPI in minutes. UAE exchange houses (Al Ansari, UAE Exchange) are competitive for cash senders. Always compare the total rupees received, not just the fee.",
+          "Across our 91-day record, the AED to INR payout leader was {{CORRIDOR_LEADER:AED:INR}}, and on AED 3,500 today {{BEST_PROVIDER:AED:INR:3500}} pays the most ({{BEST_RECEIVE:AED:INR:3500}}) of the {{ROUTE_PROVIDERS:AED:INR}} we compare. Exchange houses such as Al Ansari Exchange quote this route beside apps and Western Union, so compare the total rupees received, not just the fee.",
       },
       {
         question: "How long does it take to send money from UAE to India?",
@@ -12886,7 +12888,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "What Are the Tax and Compliance Rules?",
         content: `<ul>
-<li><strong>US sender:</strong> No tax on personal remittances. Gifts to foreign persons over $18,000 per recipient per year require filing IRS Form 709 (but no tax is typically owed). Transfers over $10,000 are reported via CTR.</li>
+<li><strong>US sender:</strong> No tax on personal remittances. Gifts over $19,000 per recipient in 2026 ($20,000 in 2027) require filing IRS Form 709, but no tax is typically owed. Cash transactions over $10,000 are reported on a currency transaction report.</li>
 <li><strong>Chinese recipient:</strong> Personal remittances from abroad are generally <strong>not subject to Chinese income tax</strong>. However, China taxes global income of tax residents — if the money is payment for services, it may be taxable.</li>
 <li><strong>FBAR requirement:</strong> If you hold financial accounts in China (including through a business) with aggregate value over $10,000 at any point in the year, you must file an FBAR (FinCEN Form 114).</li>
 <li><strong>FATCA:</strong> Chinese banks report US person account information to the IRS under FATCA agreements.</li>
@@ -12934,7 +12936,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Do I need to report money sent to China to the IRS?",
         answer:
-          "Transfers over $10,000 are automatically reported to FinCEN — this is routine and legal, not a tax. Gifts to foreign persons over $18,000/year require filing Form 709 (no tax is typically owed). If you hold financial accounts in China worth over $10,000 total, you must file an FBAR.",
+          "Cash transactions over $10,000 are reported to FinCEN and providers keep records of transfers of $3,000 or more; this is routine, not a tax. Gifts over $19,000 per recipient in 2026 ($20,000 in 2027) require filing Form 709 (no tax is typically owed). If you hold financial accounts in China worth over $10,000 total, you must file an FBAR.",
       },
     ],
     relatedSlugs: [
@@ -13129,7 +13131,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Do I need to pay tax on large international transfers?",
         answer:
-          "Personal transfers are generally not taxable. In the US, transfers over $10,000 are reported but not taxed. Gifts to foreign persons over $18,000/year require filing Form 709 (no tax owed in most cases). Foreign inheritances over $100,000 require Form 3520 (reporting only). Consult a tax professional for large amounts.",
+          "Personal transfers are generally not taxable. In the US, cash transactions over $10,000 are reported and providers keep records of transfers of $3,000 or more, but transfers are not taxed. Gifts over $19,000 per recipient in 2026 ($20,000 in 2027) require filing Form 709 (no tax owed in most cases). Foreign inheritances over $100,000 require Form 3520 (reporting only). Consult a tax professional for large amounts.",
       },
       {
         question: "Should I use a bank or a specialist provider for a property purchase abroad?",
@@ -17456,6 +17458,9 @@ const rawBlogPosts: BlogPost[] = [
       "cheapest-way-to-send-money-internationally",
     ],
   },
+  // Appended, not prepended: rails that pick guides by position would otherwise
+  // shift, and four eligible guides fell below check:link-eligibility's 3 links.
+  ...planGuidesNov2026,
 ];
 
 /**
@@ -17481,6 +17486,7 @@ function resolveCoverage(text: string): string {
 
 export const blogPosts: BlogPost[] = rawBlogPosts.map((p) => ({
   ...p,
+  faqs: withPromptAnswers(p.slug, p.faqs),
   title: resolveCoverage(p.title),
   metaTitle: p.metaTitle ? resolveCoverage(p.metaTitle) : p.metaTitle,
   metaDescription: resolveCoverage(p.metaDescription),
