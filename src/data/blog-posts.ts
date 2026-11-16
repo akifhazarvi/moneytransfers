@@ -2137,7 +2137,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "16 min read",
     publishedAt: "2026-03-18",
-    updatedAt: "2026-10-23",
+    updatedAt: "2026-11-16",
     author: "Awais Imran",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "ACH", "SEPA", "wire transfer alternatives", "bank wire", "wire transfer services"],
     featuredImage: "/images/blog/wire-transfer-guide.jpg",
@@ -2203,34 +2203,15 @@ const rawBlogPosts: BlogPost[] = [
 <p>This is why fintech providers are 80\u201395% cheaper than bank wires \u2014 they bypass the expensive SWIFT network entirely. <a href="/send-money">Compare providers</a> to see the cost difference on your specific corridor.</p>`,
       },
       {
-        heading: "Wire Transfer Fees: Bank-by-Bank Comparison",
-        content: `<p>Banks charge multiple layers of fees on international wire transfers. Here\u2019s what major US and UK banks charge as of early 2026:</p>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">US Bank Wire Transfer Fees</h3>
-<table>
-<thead><tr><th>Bank</th><th>Outgoing International</th><th>Incoming International</th><th>Typical FX Markup</th></tr></thead>
-<tbody>
-<tr><td><strong>Chase</strong></td><td>$5 (online) / $50 (branch)</td><td>$15</td><td>2\u20133%</td></tr>
-<tr><td><strong>Bank of America</strong></td><td>$35 (online) / $45 (branch)</td><td>$16</td><td>2\u20133%</td></tr>
-<tr><td><strong>Wells Fargo</strong></td><td>$30 (online) / $45 (branch)</td><td>$16</td><td>2.5\u20133.5%</td></tr>
-<tr><td><strong>Citibank</strong></td><td>$17.50\u2013$35</td><td>$15</td><td>1.5\u20132.5%</td></tr>
-</tbody>
-</table>
-</div>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">UK Bank Wire Transfer Fees</h3>
-<table>
-<thead><tr><th>Bank</th><th>Outgoing International</th><th>Incoming International</th><th>Typical FX Markup</th></tr></thead>
-<tbody>
-<tr><td><strong>HSBC</strong></td><td>\u00a34 (online) / \u00a39 (branch)</td><td>Free (GBP) / \u00a36 (foreign)</td><td>2\u20133.5%</td></tr>
-<tr><td><strong>Barclays</strong></td><td>\u00a35 (online) / \u00a325 (branch)</td><td>Free (GBP) / \u00a36 (foreign)</td><td>2.5\u20133%</td></tr>
-<tr><td><strong>Lloyds</strong></td><td>\u00a39.50 (online)</td><td>Free (GBP) / \u00a36 (foreign)</td><td>2.5\u20133.5%</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Fees verified March 2026. Banks may charge additional correspondent bank fees of $10\u2013$25 not shown above. FX markups are approximate and vary by currency pair.</p>
-</div>
-<p><strong>The hidden cost:</strong> On a $5,000 international wire, the FX markup alone costs $100\u2013$175 at a typical bank. Add the wire fee ($30\u2013$50) and possible correspondent fees ($10\u2013$25), and you\u2019re paying <strong>$140\u2013$250 in total costs</strong>. That\u2019s 2.8\u20135% of the transfer amount.</p>
-<p>Compare this to <a href="/companies/wise">Wise</a>, which charges approximately $23 on the same $5,000 transfer with zero exchange rate markup \u2014 a saving of over $100. <a href="/send-money">Compare live rates</a> to see the exact difference for your corridor.</p>`,
+        // 2026-11-16: this section used to carry its own bank-by-bank table
+        // ("verified March 2026"), which the Nov 15 rebuild of
+        // /guides/bank-wire-transfer-fees-2026 found wrong for most banks, and
+        // both pages ranked 30\u201343 on Bing for "wire transfer fees", splitting
+        // it. The fee table lives there now; this guide explains how wires work.
+        heading: "What an International Wire Transfer Costs",
+        content: `<p>An international wire has up to three costs: the sending bank\u2019s fee, a margin built into the exchange rate when the money is converted, and sometimes a charge taken by an intermediary or receiving bank on the way.</p>
+<p class="citable-passage">At the big US banks, the fee to send an international wire in dollars runs from $30 to $65. Send it in the recipient\u2019s currency and several of them cut the fee to $5 or nothing, because the exchange rate is where they make their money. UK banks are going the same way: in their apps, Barclays and NatWest now take no sending fee and publish the most they will add to the exchange rate instead. Where our comparison prices a bank\u2019s own transfer, we measure that margin: on $1,000 from dollars to euros, Chase\u2019s is {{MARKUP:chase:USD:EUR:1000}} today, against {{MARKUP:wise:USD:EUR:1000}} at Wise.</p>
+<p>Each bank\u2019s current fee, read from its own fee schedule and set beside the margin we measure, is in our <a href="/guides/bank-wire-transfer-fees-2026">international wire fees by bank</a> table. Across our index, a bank\u2019s all-in cost averages {{AVG_BANK_COST}} per $1,000 sent, against {{AVG_SPECIALIST_COST}} for a specialist transfer service. <a href="/send-money">Compare live rates</a> for your route.</p>`,
       },
       {
         heading: "How Long Do Wire Transfers Take?",
@@ -2272,7 +2253,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Cheapest Alternatives to Wire Transfers",
         content: `<p>If you\u2019re looking for cheaper ways to send money internationally, here are the top alternatives to traditional bank wire transfers:</p>
 <h3>1. <a href="/companies/wise">Wise</a> \u2014 Best for Transparency</h3>
-<p>Wise uses the <strong>real mid-market exchange rate</strong> with zero markup and charges a small, upfront fee \u2014 {{FEE:wise:USD:GBP:5000}} on a $5,000 transfer to the UK in our latest quotes. Wise is licensed in 50+ countries and serves over 16 million customers.</p>
+<p>Wise says it uses the <strong>mid-market exchange rate</strong> with no markup and charges an upfront fee \u2014 {{FEE:wise:USD:GBP:5000}} on a $5,000 transfer to the UK in our latest quotes, with a median markup of {{AVG_MARKUP_PCT:wise}} across our quotes. Wise is licensed in 50+ countries and serves over 16 million customers.</p>
 <h3>2. <a href="/companies/taptap-send">TapTap Send</a> \u2014 Best for Family Remittances</h3>
 <p>TapTap Send topped our comparison on {{LEADS_SHORT:taptap-send}} corridors over the last 91 days, mostly remittance routes into Africa and Asia. It is app-only, takes its price mostly through the rate (a {{AVG_MARKUP_PCT:taptap-send}} median markup in our quotes), and pays out to bank accounts and mobile wallets. Its own figures put 95% of India transfers under three minutes (<a href="https://www.taptapsend.com/en/send-money-to/india" target="_blank" rel="noopener noreferrer nofollow">December 2025</a>).</p>
 <h3>3. <a href="/companies/remitly">Remitly</a> \u2014 Best for Speed</h3>
@@ -2318,15 +2299,8 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>United Kingdom:</strong> Regulated by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> (Financial Conduct Authority). The Financial Services Compensation Scheme (FSCS) protects bank deposits up to \u00a3120,000 per person, per bank. Transfers through FCA-regulated providers benefit from safeguarding rules.</li>
 <li><strong>European Union:</strong> The <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer">ECB</a> and national regulators oversee wire transfers. The Payment Services Directive (PSD2) gives consumers rights regarding transparency and refunds.</li>
 </ul>
-<h3>Wire Transfer Fraud Risks</h3>
-<p>Because wire transfers are nearly irreversible, they\u2019re a favorite target for scammers. Common wire fraud schemes include:</p>
-<ul>
-<li><strong>Business email compromise (BEC)</strong> \u2014 Hackers impersonate a vendor or executive and send fake wire instructions.</li>
-<li><strong>Real estate scams</strong> \u2014 Fraudsters intercept closing instructions and redirect the wire to their account.</li>
-<li><strong>Romance scams</strong> \u2014 Someone you met online asks for urgent wire transfers.</li>
-</ul>
-<p><strong>Safety rules:</strong> Always verify wire instructions by phone (using a known number, not one from the email). Never wire money to someone you haven\u2019t met in person. If a deal seems urgent or too good to be true, verify independently before sending.</p>
-<p>Read our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> for more tips on protecting yourself from transfer fraud.</p>`,
+<h3>Wire Transfer Fraud</h3>
+<p>Because a wire is final once the receiving bank credits it, it is the payment scammers ask for: in business email compromise, fake property-closing instructions, romance scams and calls from people posing as your bank. Check any change of account details with a phone call to a number you already know, and let urgency or secrecy stop you rather than speed you up. Our guide <a href="/guides/are-wire-transfers-safe">are wire transfers safe?</a> walks through each scam, safe sending habits and the steps to take straight away if money has reached a fraudster; for how providers hold your money, see the <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
       },
       {
         heading: "When Wire Transfers Still Make Sense",
@@ -2344,7 +2318,7 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Sources & Methodology",
         content: `<p>This guide draws on the following sources:</p>
 <ul>
-<li>Bank fee schedules for <a href="https://www.chase.com/" target="_blank" rel="noopener noreferrer nofollow">Chase</a>, <a href="https://www.bankofamerica.com/" target="_blank" rel="noopener noreferrer nofollow">Bank of America</a>, <a href="https://www.wellsfargo.com/" target="_blank" rel="noopener noreferrer nofollow">Wells Fargo</a>, <a href="https://www.citi.com/" target="_blank" rel="noopener noreferrer nofollow">Citibank</a>, <a href="https://www.hsbc.co.uk/" target="_blank" rel="noopener noreferrer nofollow">HSBC</a>, <a href="https://www.barclays.co.uk/" target="_blank" rel="noopener noreferrer nofollow">Barclays</a>, and <a href="https://www.lloydsbank.com/" target="_blank" rel="noopener noreferrer nofollow">Lloyds</a> \u2014 verified March 2026.</li>
+<li>Bank fees: the fee schedules of 16 US, UK and Canadian banks, read 15 November 2026 and published with each source in our <a href="/guides/bank-wire-transfer-fees-2026">international wire fees by bank</a> guide.</li>
 <li>Provider fee data from our automated <a href="/send-money">comparison engine</a>, which scrapes real quotes from {{PROVIDER_COUNT}} providers every 6 hours.</li>
 <li><a href="https://www.swift.com/" target="_blank" rel="noopener noreferrer">SWIFT</a> official documentation on messaging standards and network statistics.</li>
 <li><a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database for global average transfer costs.</li>
@@ -2357,7 +2331,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "How much does a wire transfer cost?",
         answer:
-          "A domestic wire transfer in the US typically costs $15\u2013$30 for outgoing and $10\u2013$15 for incoming. An international wire transfer costs $25\u2013$65 for the outgoing fee, plus potential correspondent bank fees ($10\u2013$25) and a foreign exchange markup of 1.5\u20133.5%. The total cost of a $1,000 international wire is typically $40\u2013$80, or 4\u20138% of the transfer amount.",
+          "Large US banks charge $30 to $65 to send an international wire in US dollars, and several drop the fee to $5 or zero for a wire in the recipient\u2019s own currency, making their money on the exchange rate instead. An intermediary or receiving bank may also take a charge on the way. UK banks increasingly charge nothing to send and publish a cap on their margin instead. Our <a href=\"/guides/bank-wire-transfer-fees-2026\">international wire fees by bank</a> table lists each bank\u2019s current fee from its own schedule; a domestic wire costs less, and your bank\u2019s fee schedule gives the exact charge.",
       },
       {
         question: "How long does a wire transfer take?",
@@ -2367,12 +2341,12 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Are wire transfers safe?",
         answer:
-          "Wire transfers are one of the safest methods for sending money because they use secure, regulated banking networks. In the US, banks are FDIC-insured and regulated by FinCEN. In the UK, providers are FCA-regulated. However, wire transfers are nearly irreversible once sent, which makes them a target for fraud. Always verify recipient details by phone before sending a wire, and never wire money to someone you haven\u2019t verified independently.",
+          "Wire transfers move over secure, regulated bank networks, but they are nearly irreversible once the receiving bank credits them, which is why scammers ask for them. Before sending, ring the recipient on a number you already know to confirm the account, and treat any urgent request by email or phone as suspect. Our guide <a href=\"/guides/are-wire-transfers-safe\">are wire transfers safe?</a> explains the scams to watch for and the steps to take if money has gone to a fraudster.",
       },
       {
         question: "What is the cheapest way to wire money internationally?",
         answer:
-          "The cheapest way to send money internationally is to avoid traditional bank wires altogether. Specialist providers like <a href=\"/companies/wise\">Wise</a> (0% FX markup, visible fee), <a href=\"/companies/taptap-send\">TapTap Send</a> ({{AVG_MARKUP_PCT:taptap-send}} median markup) and <a href=\"/companies/instarem\">Instarem</a> ({{AVG_MARKUP_PCT:instarem}}) cost less than banks: in our index a bank\u2019s all-in cost averages {{AVG_BANK_COST}} per $1,000 sent, against {{AVG_SPECIALIST_COST}} for a specialist. <a href=\"/send-money\">Compare live rates</a> to find the cheapest option for your transfer.",
+          "The cheapest way to send money internationally is to avoid traditional bank wires altogether. Specialist providers like <a href=\"/companies/wise\">Wise</a> (which says it adds no markup; {{AVG_MARKUP_PCT:wise}} median in our quotes), <a href=\"/companies/taptap-send\">TapTap Send</a> ({{AVG_MARKUP_PCT:taptap-send}} median markup) and <a href=\"/companies/instarem\">Instarem</a> ({{AVG_MARKUP_PCT:instarem}}) cost less than banks: in our index a bank\u2019s all-in cost averages {{AVG_BANK_COST}} per $1,000 sent, against {{AVG_SPECIALIST_COST}} for a specialist. <a href=\"/send-money\">Compare live rates</a> to find the cheapest option for your transfer.",
       },
       {
         question: "Is a telegraphic transfer the same as a wire transfer?",
@@ -2387,7 +2361,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Can I cancel or reverse a wire transfer?",
         answer:
-          "It is very difficult to cancel a wire transfer once it has been sent. Contact your bank immediately if you need to attempt a recall \u2014 some banks can request a recall within the first 30 minutes to a few hours. However, a recall is not guaranteed, especially for international wires that have already been processed by correspondent banks. This is why it is critical to double-check all recipient details before confirming.",
+          "Rarely. US rules give a consumer half an hour: a remittance provider asked to cancel within 30 minutes, before the recipient has collected the money or had it deposited, must refund you in full, fees included (Regulation E, 12 CFR 1005.34). Later than that, the most your bank can do is ask the receiving bank to send the money back, and nothing obliges that bank to agree, particularly once correspondent banks have handled the payment. Check every recipient detail before you confirm.",
       },
       {
         question: "What information do I need to send an international wire transfer?",
@@ -2437,10 +2411,10 @@ const rawBlogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "cheapest-way-to-send-money-internationally",
-      "exchange-rate-markup-explained",
+      "bank-wire-transfer-fees-2026",
       "swift-codes-explained",
-      "money-transfer-safety-guide",
+      "are-wire-transfers-safe",
+      "cheapest-way-to-send-money-internationally",
     ],
   },
 
@@ -16851,147 +16825,6 @@ const rawBlogPosts: BlogPost[] = [
       "best-money-transfer-apps",
       "send-money-to-philippines-guide",
       "cheapest-way-to-send-money-internationally",
-    ],
-  },
-  // ============================
-  // How to Avoid Wire Transfer Scams
-  // ============================
-  {
-    slug: "how-to-avoid-wire-transfer-scams",
-    title: "How to Avoid Wire Transfer Scams When Sending Money Abroad",
-    metaTitle: "Wire Transfer Scams: How to Avoid Them (2026 Guide)",
-    metaDescription:
-      "Wire transfers are treated like cash — and scammers know it. Learn the most common wire transfer scams, the red flags, and how to protect your money abroad.",
-    excerpt:
-      "A wire transfer is treated like cash the moment it leaves your account — which is exactly why scammers push for it. Here are the most common wire transfer scams, the warning signs they share, and the concrete steps to protect yourself and your recipient.",
-    category: "Education",
-    readTime: "7 min read",
-    publishedAt: "2026-10-06",
-    updatedAt: "2026-10-06",
-    author: "Ahsan Mukhtar",
-    contentStatus: "published",
-    tags: [
-      "wire transfer scams",
-      "money transfer safety",
-      "fraud prevention",
-      "romance scams",
-      "business email compromise",
-      "send money abroad",
-      "FCA",
-      "FinCEN",
-    ],
-    featuredImage: "/images/blog/money-transfer-safety.jpg",
-    sections: [
-      {
-        heading: "Wire Transfer Scams: What to Know Before You Send",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A wire transfer is treated like cash the moment it leaves your account — once it reaches the recipient, reversing it is extremely difficult and often impossible. That irreversibility is exactly why scammers push you to wire money rather than use a reversible method. Protect yourself with three habits: <strong>verify the recipient independently</strong> (call a number you already have), <strong>slow down</strong> when anyone creates urgency or secrecy, and <strong>use a regulated provider</strong> (FCA, FinCEN, or ASIC). <a href="/send-money">Compare regulated transfer providers →</a></p></div>
-<p>Wire transfers are one of the fastest ways to send money internationally — and one of the hardest to undo when something goes wrong. Whether you're sending a remittance to family, paying an overseas supplier, or moving money for any other reason, understanding how these scams work is one of the most practical things you can do before you hit "send."</p>
-<p>The scale of the problem is real. According to the <a href="https://www.ftc.gov/news-events/news/press-releases/2025/03/new-ftc-data-show-big-jump-reported-losses-fraud-125-billion-2024" target="_blank" rel="noopener noreferrer">US Federal Trade Commission</a>, consumers reported losing <strong>$12.5 billion to fraud in 2024</strong> — and <strong>bank transfers and payments were the single costliest payment method</strong>, accounting for <strong>$2.09 billion</strong> in reported losses, more than cryptocurrency or any other method. This guide covers the most common scam types, the warning signs that cut across all of them, and the concrete steps you can take to protect yourself and your recipient.</p>`,
-      },
-      {
-        heading: "Why Wire Transfers Are a Target for Fraud",
-        content: `<p>Unlike a credit card payment or a bank transfer that can be disputed, a wire transfer is treated like cash the moment it leaves your account. Once funds reach the recipient, reversing the transaction is extremely difficult — and in most cases, impossible. Scammers know this, which is exactly why they push so hard to get you to wire money rather than use any other payment method.</p>
-<p>That irreversibility is what makes the stakes so high. A credit card mistake can often be resolved within days. A misdirected wire transfer may be gone for good — which is why bank transfers topped the FTC's fraud-loss table in 2024.</p>`,
-      },
-      {
-        heading: "The Most Common Wire Transfer Scam Types",
-        content: `<p>Scams targeting wire senders follow recognizable patterns. Knowing them in advance is your first line of defense.</p>
-<h3>Romance scams</h3>
-<p>Someone you've been talking to online — sometimes for weeks or months — eventually hits a financial crisis. They need money wired immediately, and no other payment method will do. By the time the request comes, they may have built genuine emotional trust, which is what makes this scam so damaging. The person almost never exists as described, and the money disappears.</p>
-<h3>Fake family emergency requests</h3>
-<p>A call, message, or email arrives claiming a family member has been in an accident, arrested, or stranded abroad. The caller may impersonate a lawyer, police officer, or hospital administrator. Before doing anything else, call your family member directly on a number you already have.</p>
-<h3>Prize and lottery scams</h3>
-<p>You're told you've won a prize or lottery you never entered. To claim your winnings, you need to wire a fee upfront — for taxes, processing, or release. No legitimate prize requires you to pay money to receive money.</p>
-<h3>Overpayment and fake check scams</h3>
-<p>Someone sends you a check for more than an agreed amount and asks you to wire the difference back. The check later bounces, but the wire you sent is already gone. Banks may make funds temporarily available before a check fully clears, which creates the illusion that the money is real.</p>
-<h3>Business email compromise</h3>
-<p>A scammer impersonates a supplier, executive, or business contact and sends instructions to wire funds to a new account. The email may look nearly identical to a real one. Always verify any change in payment instructions with a direct phone call to a known number — not a number provided in the suspicious email itself. Business email compromise is one of the costliest wire scams of all, draining billions from victims each year.</p>
-<h3>Government and bank impersonation</h3>
-<p>A message arrives claiming to be from the IRS, HMRC, your bank, or another authority. They say you owe money, your account is at risk, or you need to act immediately to avoid legal trouble. Legitimate government agencies and banks do not demand immediate wire transfers as payment.</p>
-<h3>Upfront fee requests</h3>
-<p>Any situation where you're asked to wire money in order to receive a larger amount later is a scam. Whether it's framed as a loan fee, inheritance release, or investment return, the larger amount never arrives.</p>
-<h3>Cryptocurrency conversion requests</h3>
-<p>Scammers increasingly ask victims to convert wire funds into cryptocurrency before sending. This adds another layer of irreversibility and makes tracing nearly impossible. If anyone asks you to wire money and then convert it to crypto, stop the transaction.</p>`,
-      },
-      {
-        heading: "Warning Signs That Apply Across Every Scam",
-        content: `<p>Regardless of the specific story, most wire transfer scams rely on the same pressure tactics:</p>
-<ul>
-<li><strong>Urgency</strong> — You must act now, today, within the hour. Urgency is designed to stop you from thinking clearly or verifying anything.</li>
-<li><strong>Secrecy</strong> — You're told not to tell your bank, your family, or anyone else. Legitimate transactions don't require secrecy.</li>
-<li><strong>Unfamiliar recipient</strong> — You've never met this person in person, or you've only interacted online.</li>
-<li><strong>Changed payment details</strong> — A known contact suddenly has new banking information.</li>
-<li><strong>Pressure to use a specific method</strong> — Wire transfer, cryptocurrency, or gift cards are specifically requested because they're difficult to reverse.</li>
-</ul>
-<p>If any of these appear, slow down. Verify independently before sending anything.</p>`,
-      },
-      {
-        heading: "Concrete Steps to Protect Yourself",
-        content: `<h3>Verify before you send</h3>
-<p>If someone you know is asking for money, call them directly on a number you already have — not one they've just provided. If a business contact has sent new payment instructions, call the company's main line and ask to confirm. A few minutes of verification can prevent a permanent loss.</p>
-<h3>Never wire money to someone you haven't met in person for an online purchase</h3>
-<p>This applies to marketplace purchases, rental deposits, and any transaction where the other party is a stranger online. Scammers frequently pose as sellers or landlords and insist on wire transfers precisely because the payment can't be reversed.</p>
-<h3>Check the regulatory status of any provider you use</h3>
-<p>Before using any money transfer service, confirm it's regulated by a recognized authority. In the UK, that means the Financial Conduct Authority (FCA). In the US, providers should be registered with FinCEN (Financial Crimes Enforcement Network) and licensed in the states where they operate. In Australia, the Australian Securities and Investments Commission (ASIC) oversees financial services. Unregulated providers have no oversight and no consumer protections.</p>
-<p>When you use <a href="/send-money">SendMoneyCompare</a> to compare international transfer options, the providers listed carry their regulatory credentials — so you can see at a glance whether a service is FCA-registered, FinCEN-compliant, or ASIC-licensed. That's one practical way to vet a provider's legitimacy before you commit. For a deeper checklist, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>
-<h3>Use providers with fraud protections</h3>
-<p>Regulated money transfer services typically have fraud monitoring, identity verification, and customer support teams trained to flag suspicious transactions. If something about a transfer feels off, a reputable provider's support team is a resource — use them.</p>`,
-      },
-      {
-        heading: "Bank Wire Transfers vs. Money Transfer Services",
-        content: `<p>The two work differently, and the fee structures and protections reflect that.</p>
-<p>A bank wire transfer typically carries higher fees, slower processing times, and exchange rate markups that aren't always transparent upfront. The true cost is often only visible after the transfer is complete. (Our <a href="/guides/wire-transfer-guide">wire transfer guide</a> breaks down how those costs stack up.)</p>
-<p>Dedicated money transfer services — the kind compared on platforms like <a href="/send-money">SendMoneyCompare</a> — often offer better exchange rates, lower fees, and faster delivery. They also tend to be more upfront about the total cost before you confirm. That said, neither type of service can easily reverse a completed transfer. What matters is that regulated providers in both categories have compliance obligations and fraud monitoring that unregulated services simply don't.</p>
-<p>The key point: the method of transfer doesn't determine whether you get scammed. The situation around the transfer does. Use a regulated provider, verify who you're sending to, and question any unusual pressure or secrecy.</p>`,
-      },
-      {
-        heading: "Sources & Methodology",
-        content: `<p>Fraud-loss figures are from the <a href="https://www.ftc.gov/news-events/news/press-releases/2025/03/new-ftc-data-show-big-jump-reported-losses-fraud-125-billion-2024" target="_blank" rel="noopener noreferrer">US Federal Trade Commission's Consumer Sentinel Network Data Book 2024</a> (published March 2025), which reported $12.5 billion in total consumer fraud losses and identified bank transfers and payments as the payment method with the highest aggregate losses ($2.09 billion). Regulatory bodies referenced — the FCA (UK), FinCEN (US), and ASIC (Australia) — are the recognized authorities that license and supervise money transfer providers in their jurisdictions. This guide is educational and not legal or financial advice; if you believe you have been targeted, contact your bank or provider immediately and report to your national fraud authority.</p>`,
-      },
-    ],
-    faqs: [
-      {
-        question: "Can a wire transfer be reversed if I've been scammed?",
-        answer:
-          "Reversing a wire transfer after it's been processed is extremely difficult and often impossible. Contact your bank or transfer provider immediately if you suspect fraud — the faster you act, the slightly better the chance of intercepting funds before they're withdrawn. File a report with your local financial regulator and law enforcement as well.",
-      },
-      {
-        question: "What should I do if I think I'm being scammed?",
-        answer:
-          "Stop the transaction before it's sent if you can. If money has already gone, contact your bank or provider right away. In the US, you can report wire fraud to the FBI's Internet Crime Complaint Center (IC3) and the CFPB. In the UK, report to Action Fraud and the FCA. In Australia, contact ASIC and Scamwatch.",
-      },
-      {
-        question: "How do I verify that a money transfer provider is legitimate?",
-        answer:
-          "Check the provider's registration on the FCA register (UK), FinCEN's MSB Registrant Search (US), or ASIC's register (Australia). Regulated providers are required to display their registration details. If a provider has no verifiable regulatory status, don't use them. Comparison tools like SendMoneyCompare also show each listed provider's regulatory credentials.",
-      },
-      {
-        question: "Are online money transfer services safer than bank wires?",
-        answer:
-          "Regulated online transfer services and bank wires both carry consumer protections when used through licensed providers. The key word is regulated. An unregulated service — regardless of how professional its website looks — offers no meaningful protection if something goes wrong.",
-      },
-      {
-        question: "Why do scammers specifically request wire transfers?",
-        answer:
-          "Because wire transfers are treated like cash once sent. Unlike credit card payments or certain bank transfers, they carry no standard dispute or chargeback process. Scammers rely on this irreversibility to make recovery nearly impossible — it's part of why bank transfers accounted for the highest reported fraud losses ($2.09 billion) in the FTC's 2024 data.",
-      },
-      {
-        question: "Is it safe to wire money to someone I met online?",
-        answer:
-          "Wiring money to someone you've only met online and never in person carries significant risk. This is one of the most common patterns in romance scams and marketplace fraud. If you haven't verified the person's identity through independent means and met them in person, treat any wire request with serious caution.",
-      },
-      {
-        question: "What's the difference between a wire transfer scam and a phishing scam?",
-        answer:
-          "Phishing is a method — a fraudulent email, message, or website used to steal credentials or personal information. A wire transfer scam is the outcome — money sent to a fraudster. The two often overlap: phishing is frequently used to set up a wire transfer scam by impersonating a bank, employer, or contact.",
-      },
-    ],
-    relatedSlugs: [
-      "money-transfer-safety-guide",
-      "wire-transfer-guide",
-      "cheapest-way-to-send-money-internationally",
-      "best-money-transfer-services",
-      "how-to-send-money-abroad",
     ],
   },
   // ============================

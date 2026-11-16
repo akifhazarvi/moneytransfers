@@ -21,6 +21,7 @@ import { GONE, retiredAnswer } from "../src/lib/retired-urls";
 import { DUPLICATE_CORRIDOR_REDIRECTS, corridorPageRenders } from "../src/lib/gone-corridors";
 import { RATE_PAIR_REDIRECTS, RATE_HISTORY_REDIRECTS } from "../src/lib/gone-rate-pairs";
 import { NEWS_REDIRECTS } from "../src/lib/gone-news";
+import { GUIDE_REDIRECTS } from "../src/lib/gone-guides";
 
 const APP = join(__dirname, "../.next/server/app");
 const REPORT_ONLY = process.argv.includes("--report");
@@ -51,6 +52,7 @@ const sources = new Set<string>([
   ...[...RATE_PAIR_REDIRECTS.keys()].map((k) => `/exchange-rates/${k}`),
   ...[...RATE_HISTORY_REDIRECTS.keys()].map((k) => `/exchange-rates/history/${k}`),
   ...[...NEWS_REDIRECTS.keys()].map((k) => `/news/${k}`),
+  ...[...GUIDE_REDIRECTS.keys()].map((k) => `/guides/${k}`),
   ...[...DUPLICATE_CORRIDOR_REDIRECTS.keys()].map((k) => `/send-money/${k}`),
 ]);
 sources.add("/comparison");

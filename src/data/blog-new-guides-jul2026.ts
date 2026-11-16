@@ -317,142 +317,187 @@ export const newGuidesJul2026: BlogPost[] = [
   // ============================================================
   {
     slug: "are-wire-transfers-safe",
-    title: "Are Wire Transfers Safe? What Scammers Don't Want You to Know (2026)",
+    // 2026-11-16: merged with /guides/how-to-avoid-wire-transfer-scams, which
+    // now 301s here (src/lib/retired-urls.ts). Bing showed the two pages in
+    // turn for "how to avoid wire transfer scams" (BWT, Oct 16 → Nov 13); this
+    // URL held 91 clicks over 536 queries, the other 4 over 48. Every figure
+    // was re-read from its source on 2026-11-16: the old "$2.7 billion" and
+    // "66% within 72 hours" lines had no source that said them.
+    title: "Are Wire Transfers Safe? How Wire Scams Work and How to Avoid Them",
+    metaTitle: "Are Wire Transfers Safe? How to Avoid Wire Transfer Scams (2026)",
     metaDescription:
-      "Wire transfers are safe when YOU initiate them — but nearly impossible to reverse if scammed. Learn the 6 most common wire transfer scams and exactly how to protect yourself.",
+      "Wire transfers are secure but nearly impossible to reverse. The common wire scams, the warning signs, how to send a wire safely and what to do if you're scammed.",
     excerpt:
-      "Wire transfers are like sending cash — once sent, recovering the money is almost impossible. The FBI says you have 72 hours. We explain the 6 biggest scams and how to spot them before you send.",
+      "A wire is secure in transit but final once it lands, which is why scammers ask for one. The scams to know, the signs they share, how to send a wire safely, and what to do in the first hours if money has gone.",
     category: "Education",
     readTime: "11 min read",
     publishedAt: "2026-07-01",
-    updatedAt: "2026-07-01",
+    updatedAt: "2026-11-16",
     author: "Awais Imran",
-    tags: ["wire transfer safety", "scam protection", "money transfer fraud", "are transfers safe", "FTC scams"],
+    tags: ["wire transfer safety", "wire transfer scams", "scam protection", "money transfer fraud", "fraud prevention", "are transfers safe"],
     featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
       {
-        heading: "Are Wire Transfers Safe? The Short Answer Is: It Depends Who Initiates It",
+        heading: "Are Wire Transfers Safe? It Depends Who Starts the Transfer",
         content: `<div class="blog-answer-box">
-<p><strong>Quick answer:</strong> Wire transfers and money transfer apps are technologically secure — all use bank-grade encryption and are regulated by financial authorities (FCA, FinCEN, CFPB). The danger is not in the technology; it's in being tricked into sending money yourself to a fraudster's account. Once a wire transfer leaves your account, recovery is nearly impossible — the FBI's Recovery Asset Team estimates a <strong>66% success rate only when fraud is reported within 72 hours</strong>. The rule: if anyone — even someone claiming to be your bank, landlord, or employer — asks you to wire money urgently, treat it as a scam until proven otherwise.</p>
+<p><strong>Quick answer:</strong> Wire transfers are secure in transit. Banks and licensed transfer services send them over regulated networks, and it is rare for the transfer itself to go wrong. The risk is being persuaded to send money to someone who is not who they say they are. Once a wire is credited to the recipient's account, it cannot be pulled back without that bank's cooperation, so the protection that works is checking before you send. If anyone asks you to wire money urgently or in secret, even someone who says they are your bank, a lawyer, a landlord or a relative, treat it as a scam until you have verified it yourself.</p>
 </div>
-<p>Every year, wire transfer scams cost consumers billions. In 2024, the FTC reported that Americans lost over <strong>$2.7 billion to wire transfer and bank transfer fraud</strong>. Yet the scams all follow the same playbook — and once you know them, they're surprisingly easy to spot.</p>
-<p>This guide breaks down how wire transfers actually work, where the risk lives, and the exact red flags that separate a safe transfer from a costly mistake.</p>`,
+<p class="citable-passage">People told the US Federal Trade Commission they lost <strong>$15.9 billion to fraud in 2025</strong>, up from over $12 billion in 2024, and bank payments carried the largest losses of any payment method, ahead of cryptocurrency (<a href="https://search.ftc.gov/system/files/ftc_gov/pdf/ftc-testimony-jec-hearing-on-the-rising-scam-economy.pdf" target="_blank" rel="noopener noreferrer">FTC statement to the Joint Economic Committee, March 2026</a>). Scams paid by bank transfer or cryptocurrency drew more than $4 billion of reported losses, the FTC said in <a href="https://consumer.ftc.gov/consumer-alerts/2026/07/way-spot-scams-how-someone-asks-you-pay" target="_blank" rel="noopener noreferrer">July 2026</a>.</p>
+<p>Below: how a wire works and why fraudsters want one, eight common scams with their warning signs, a checklist for sending a wire, and what to do first if your money has already gone to someone else.</p>`,
       },
       {
-        heading: "How Do Wire Transfers Actually Work?",
-        content: `<p class="citable-passage">A wire transfer is an electronic transfer of funds from one bank account to another, typically via the SWIFT network for international transfers or the Fedwire/CHIPS network domestically. The key property of wire transfers — and the one scammers exploit — is that they are designed to be <strong>final and irreversible</strong>. Once the receiving bank accepts the funds, there is no automatic mechanism to reverse them.</p>
-<p>This is different from credit card payments (which have chargeback rights) and debit card payments (which have limited reversal windows). It's also different from ACH transfers, which can be reversed within 24–48 hours in some cases. A wire transfer is permanent by design — because that's also what makes it fast and reliable for legitimate use.</p>
-<p>Modern money transfer apps (Wise, Remitly, TapTap Send) use the same underlying rails but add layers of fraud detection, identity verification, and compliance checks that traditional banks don't always have.</p>`,
+        heading: "How Wire Transfers Work, and Why Scammers Ask for One",
+        content: `<p class="citable-passage">A wire transfer moves money from one bank account to another, over the SWIFT network for international payments or Fedwire and CHIPS inside the US. It is built to be <strong>final</strong>: once the receiving bank credits the money, there is no automatic way to reverse it. That finality is what makes a wire fast and dependable for legitimate payments, and it is exactly why scammers prefer it.</p>
+<p>Other ways to pay leave a route back. A credit card payment can be disputed through the card issuer, and a mistaken ACH payment can be reversed within a short window. A wire has neither, so scammers steer victims towards a wire, a cryptocurrency purchase or gift cards, and away from anything they could dispute.</p>
+<p>Banks and licensed money transfer services screen payments for signs of fraud and may hold one that looks unusual. Neither can stop a payment you insist on making yourself. For the mechanics of routing, timing and the details a wire needs, see our <a href="/guides/wire-transfer-guide">guide to how international wire transfers work</a>.</p>`,
       },
       {
-        heading: "The 6 Most Common Wire Transfer Scams (and How to Spot Them)",
-        content: `<h3>1. Romance Scam ("I Need Money to Come to You")</h3>
-<p>Someone you've met online — often on a dating app or social media — develops a relationship with you and then asks for money. The reasons are always urgent and emotionally charged: a medical emergency, a stuck shipment, a flight home. <strong>Red flags:</strong> you've never met in person; they escalate affection quickly; they avoid video calls; money requests come after weeks or months of contact.</p>
+        heading: "The Most Common Wire Transfer Scams and How to Spot Each",
+        content: `<p>The stories change, but most wire fraud follows one of these patterns. Knowing them in advance is the first line of defence.</p>
 
-<h3>2. Grandparent / Emergency Scam ("Your Family Member Is in Trouble")</h3>
-<p>You receive a call from someone claiming to be your grandchild, a lawyer, or a police officer saying a family member has been arrested or injured and needs immediate bail or medical funds via wire transfer. <strong>Red flags:</strong> urgency; secrecy ("don't tell anyone"); unusual payment instructions; the "grandchild's" voice doesn't sound right.</p>
+<h3>1. Romance scams</h3>
+<p>Someone you met online, often on a dating app or social media, builds a relationship over weeks or months and then has a crisis only money can fix: a medical bill, a stuck shipment, a flight home. By then the trust feels real, which is what makes this scam so damaging. <strong>Red flags:</strong> you have never met in person; they avoid video calls; affection escalates quickly; the first request for money comes after a long build-up.</p>
 
-<h3>3. Rental / Real Estate Wire Fraud</h3>
-<p>Scammers intercept email communications between buyers and estate agents, then send fake wiring instructions for a deposit or closing payment. This is one of the fastest-growing scams. <strong>Red flags:</strong> last-minute change to bank details; any change in wiring instructions received by email only; an "agent" who can't be reached by phone.</p>
+<h3>2. Family emergency scams</h3>
+<p>A call or message says a relative has been arrested, injured or stranded abroad and needs bail, a hospital deposit or a ticket home by wire, today. The caller may pose as the relative, a lawyer or a police officer. <strong>Red flags:</strong> urgency; "don't tell anyone"; a voice that doesn't quite sound right. Hang up and call your relative on a number you already have.</p>
 
-<h3>4. Business Email Compromise (BEC)</h3>
-<p>A fraudster impersonates your CEO, CFO, or a supplier and emails the finance team with urgent wiring instructions. Often the email domain is spoofed to look almost identical (e.g. <code>cfo@company-inc.com</code> instead of <code>cfo@company.com</code>). <strong>Red flags:</strong> unusual urgency; instruction to bypass normal approval; "CEO" asks you to keep it confidential; email domain differs subtly from normal.</p>
+<h3>3. Real estate and rental wire fraud</h3>
+<p>Scammers watch the emails between a buyer and an agent, solicitor or title company, then send fake wiring instructions for the deposit or closing payment. Renters get the same treatment from fake landlords who want a deposit wired before a viewing. <strong>Red flags:</strong> bank details that change at the last minute; new instructions that arrive only by email; an "agent" who can't be reached on the firm's published number.</p>
 
-<h3>5. "Safe Account" Bank Scam</h3>
-<p>Scammers call pretending to be your bank's fraud department, claiming your account has been compromised and that you must move your money to a "safe account" immediately. <strong Your real bank will never ask you to do this.</strong> <strong>Red flags:</strong> incoming call claiming to be your bank; urgency; request to move funds; any instruction to ignore security warnings.</p>
+<h3>4. Business email compromise</h3>
+<p>A fraudster poses as a supplier, a client or your own finance director and emails instructions to pay an invoice into a new account. The address is often one character away from the real one (<code>cfo@company-inc.com</code> instead of <code>cfo@company.com</code>). <strong>Red flags:</strong> a new account for a known payee; pressure to skip the usual approval; a request to keep it confidential.</p>
 
-<h3>6. Overpayment / Cheque Scam</h3>
-<p>Someone "accidentally" overpays you with a cheque or online payment, then asks you to wire back the difference. The original payment later bounces (cheques can take days to clear), but you've already sent real money via wire. <strong>Red flags:</strong> overpayment from a stranger; request to wire a refund; urgency before "their bank clears the payment."</p>`,
+<h3>5. Bank, government and tech-support impersonation</h3>
+<p>A caller says they are from your bank's fraud team and that you must move your money to a "safe account" now. Others claim to be the IRS or HMRC with a bill to pay today, or a tech-support desk that has found a problem with your computer or account. <strong>Your real bank will never ask you to move money to keep it safe</strong>, and tax authorities do not demand payment by wire on the phone. Tech-support and account-takeover cases rose in 2025 among the frauds the FBI worked to freeze (<a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf" target="_blank" rel="noopener noreferrer">IC3 2025 Annual Report</a>, p. 17). <strong>Red flags:</strong> an unexpected call or pop-up; a request to move or send money; instructions to ignore your bank's warnings.</p>
+
+<h3>6. Overpayment and fake cheque scams</h3>
+<p>A buyer or new "employer" pays you too much by cheque and asks you to wire back the difference. Banks often make cheque funds available before the cheque has cleared, so the money looks real. When the cheque bounces, the wire you sent is already gone. <strong>Red flags:</strong> an overpayment from a stranger; a refund requested by wire; a deadline before "their bank clears it".</p>
+
+<h3>7. Prize, inheritance and upfront-fee scams</h3>
+<p>You have won a lottery you never entered, inherited from a relative you never knew, or been approved for a loan, and you only need to wire a fee for tax, processing or release first. <strong>Red flag:</strong> any request to send money in order to receive money. The larger sum never arrives.</p>
+
+<h3>8. Investment and cryptocurrency scams</h3>
+<p>A contact, often met online, shows you returns from a trading platform and helps you "invest" by wire, or asks you to wire money and convert it to cryptocurrency, which adds a second layer that is hard to trace. Investment scams were the largest fraud by reported losses in 2025: over $7.9 billion, about half the FTC's total. <strong>Red flags:</strong> guaranteed or unusually high returns; a platform you can pay into but not withdraw from; any instruction to turn a wire into crypto.</p>`,
       },
       {
-        heading: "What to Do If You've Been Scammed",
-        content: `<p><strong>Act within 72 hours — every hour counts.</strong> The FBI's Recovery Asset Team reports a 66% success rate in freezing fraudulent wire transfers when reported quickly. After 72 hours, the money is almost certainly gone.</p>
+        heading: "Warning Signs Every Wire Transfer Scam Shares",
+        content: `<p>Whatever the story, wire fraud relies on the same pressure:</p>
+<ul>
+<li><strong>Urgency.</strong> You must act now, today, within the hour, so there is no time to check anything.</li>
+<li><strong>Secrecy.</strong> Don't tell your bank, your family or anyone else. Legitimate payments never need secrecy.</li>
+<li><strong>A recipient you have never met</strong>, or know only online.</li>
+<li><strong>Changed payment details</strong> for someone you have paid before.</li>
+<li><strong>A demand for a particular way to pay</strong>: a wire, cryptocurrency or gift cards, all chosen because they are hard to reverse.</li>
+</ul>
+<p>If any of these appear, stop and verify the request through a channel you already trust before sending anything.</p>`,
+      },
+      {
+        heading: "How to Send a Wire Transfer Safely",
+        content: `<ol>
+<li><strong>Confirm the account details by phone.</strong> Call the recipient on a number you already have, never one from the email or message asking for payment. For a property purchase, call your solicitor, conveyancer or title company before every payment.</li>
+<li><strong>Read the sender's address, not the display name.</strong> Scam emails copy the name exactly and change one character of the address.</li>
+<li><strong>Slow down when you are rushed.</strong> Urgency plus secrecy means stop. A genuine payee will wait while you check.</li>
+<li><strong>Use a licensed provider, and check its registration.</strong> In the UK, search the <a href="https://register.fca.org.uk/s/" target="_blank" rel="noopener noreferrer">FCA Financial Services Register</a>. In the US, search <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN's MSB Registrant Search</a> and check the provider holds a licence in your state. In Australia, search <a href="https://www.austrac.gov.au/remittance-sector-register-and-remittance-registration-actions" target="_blank" rel="noopener noreferrer">AUSTRAC's Remittance Sector Register</a>.</li>
+<li><strong>Pay strangers by card where you can.</strong> A card payment can be disputed through your card issuer; a wire cannot.</li>
+<li><strong>Never wire money to unlock money</strong>: no prize, inheritance, loan, fine or "investigation" requires it.</li>
+</ol>
+<p><strong>Know your cancellation window.</strong> In the US, a remittance transfer provider must cancel a transfer and refund everything you paid, fees included, if you ask within 30 minutes of paying and the money has not yet been picked up or deposited. The refund is due within three business days (<a href="https://www.law.cornell.edu/cfr/text/12/1005.34" target="_blank" rel="noopener noreferrer">Regulation E, 12 CFR 1005.34</a>). Some providers allow longer, so ask before you need it.</p>`,
+      },
+      {
+        heading: "What to Do If You've Sent Money to a Scammer",
+        content: `<p><strong>Act at once.</strong> The FBI's own guidance is that "time is of the essence": contact your bank or provider immediately and ask it to recall the payment.</p>
 <ol>
-<li><strong>Call your bank or transfer provider immediately</strong> — Ask them to issue a SWIFT recall or "Stop payment." Banks can attempt to contact the receiving bank to freeze the funds, but this is not guaranteed.</li>
-<li><strong>File a report with the FBI's IC3</strong> — Go to <a href="https://www.ic3.gov" target="_blank" rel="noopener noreferrer">ic3.gov</a> (Internet Crime Complaint Center). For large amounts, also call your local FBI field office.</li>
-<li><strong>Report to the FTC</strong> — File at <a href="https://reportfraud.ftc.gov" target="_blank" rel="noopener noreferrer">reportfraud.ftc.gov</a>. The FTC shares data with law enforcement and can help identify patterns.</li>
-<li><strong>Report to your state attorney general</strong> — Many states have fraud recovery resources and can put additional pressure on receiving banks.</li>
-<li><strong>Document everything</strong> — Save all emails, texts, call logs, and transaction records. You'll need these for law enforcement and any insurance claims.</li>
+<li><strong>Call your bank or transfer provider</strong> on the number on your card or its website. Ask for a recall of the wire (a SWIFT recall for an international payment) and what documents it needs from you.</li>
+<li><strong>In the US, file a complaint at <a href="https://www.ic3.gov" target="_blank" rel="noopener noreferrer">ic3.gov</a></strong>, whatever the amount, with the full transaction details. The FBI's Recovery Asset Team uses these reports to ask banks to freeze the money, for domestic and international transfers alike. Report it to the FTC at <a href="https://reportfraud.ftc.gov" target="_blank" rel="noopener noreferrer">reportfraud.ftc.gov</a> too.</li>
+<li><strong>In the UK, tell your bank and report it to <a href="https://www.reportfraud.police.uk" target="_blank" rel="noopener noreferrer">Report Fraud</a></strong> (0300 123 2040), which replaced Action Fraud in England, Wales and Northern Ireland. In Scotland, call Police Scotland on 101.</li>
+<li><strong>In Australia, contact your bank and report it to <a href="https://www.scamwatch.gov.au" target="_blank" rel="noopener noreferrer">Scamwatch</a>.</strong></li>
+<li><strong>Keep everything</strong>: emails, messages, call logs and payment receipts.</li>
+<li><strong>Ignore anyone who offers to recover the money for a fee.</strong> Paid "recovery" offers are a common second scam aimed at people who have just lost money.</li>
 </ol>
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Recovery Odds by Time Elapsed</h3>
+<h3 style="margin-top: 0;">Money the FBI froze through its Financial Fraud Kill Chain in 2025</h3>
 <table>
-<thead><tr><th>Time Since Transfer</th><th>Typical Recovery Outcome</th></tr></thead>
+<thead><tr><th>Transfers</th><th>Incidents</th><th>Money frozen</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td>Under 24 hours</td><td>Best chance — bank may be able to recall funds</td></tr>
-<tr><td>24–72 hours</td><td>Possible — FBI RAT has ~66% success in this window</td></tr>
-<tr><td>72 hours – 1 week</td><td>Difficult — funds likely moved or withdrawn</td></tr>
-<tr><td>Over 1 week</td><td>Very unlikely — funds usually converted or dispersed</td></tr>
+<tr><td>Domestic</td><td>3,574</td><td>$507,042,623</td></tr>
+<tr><td>International</td><td>326</td><td>$171,970,560</td></tr>
+<tr class="blog-row-highlight"><td>All</td><td>3,900</td><td>$679,013,183 of $1,163,919,846 reported (58%)</td></tr>
 </tbody>
 </table>
-</div>`,
+<p class="blog-footnote">Source: <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf" target="_blank" rel="noopener noreferrer">FBI IC3 2025 Annual Report</a>, p. 17. The 58% is the share of the money in the cases the team worked, not the chance that any one victim recovers. A freeze holds the money; getting it back still goes through the banks.</p>
+</div>
+<p><strong>Will the bank refund it?</strong> In the UK, banks must reimburse victims of authorised push payment scams up to £85,000 per claim, less an optional £100 excess, for payments made since 7 October 2024 from one UK account to another over Faster Payments or CHAPS. Claims must be made within 13 months (<a href="https://www.psr.org.uk/information-for-consumers/app-fraud-reimbursement-protections" target="_blank" rel="noopener noreferrer">Payment Systems Regulator</a>). An international transfer is not a payment between two UK accounts, so it falls outside the scheme, although your bank may still try to recover it. The US has no equivalent rule for a wire you authorised yourself, so recovery there usually depends on freezing the money in time.</p>`,
       },
       {
-        heading: "Are Money Transfer Apps (Wise, Remitly, etc.) Safe?",
-        content: `<p>Yes — for transfers you initiate yourself. Regulated money transfer apps are:</p>
+        heading: "Are Money Transfer Apps Like Wise and Remitly Safe?",
+        content: `<p>Yes, for transfers you start yourself, to recipients you have verified. Licensed money transfer services are:</p>
 <ul>
-<li><strong>FCA-regulated</strong> (UK), <strong>FinCEN-registered</strong> (US), or equivalent in their home country</li>
-<li>Required to hold customer funds in <strong>safeguarded accounts</strong> separate from their own money</li>
-<li>Encrypted with <strong>bank-level TLS/SSL</strong> and two-factor authentication</li>
-<li>Compliant with <strong>CFPB remittance disclosure rules</strong> — they must tell you the exact amount the recipient will receive, the fees, and the exchange rate before you confirm</li>
+<li><strong>Authorised or registered</strong> with the regulator where they operate: the FCA in the UK, FinCEN and state regulators in the US, AUSTRAC in Australia</li>
+<li>In the UK and EU, required to <strong>safeguard customer money</strong>, keeping it separate from their own</li>
+<li>Required in the US to show the exact amount the recipient will get, the fees and the exchange rate <strong>before you pay</strong> (CFPB remittance rules)</li>
+<li>Protected with encryption and two-factor sign-in</li>
 </ul>
-<p>The fraud risk with apps is the same as with banks: being tricked into initiating a transfer yourself. Wise, Remitly, and similar platforms have sophisticated fraud detection that may flag unusual transfers, but they cannot stop you if you willingly send money to a scammer's account.</p>
-<p>For a full ranking of the safest providers, see our <a href="/guides/money-transfer-safety-guide">are money transfer companies safe?</a> guide. To compare providers on cost, use our <a href="/send-money">live comparison tool</a>.</p>`,
-      },
-      {
-        heading: "5 Rules That Will Keep You Safe",
-        content: `<ol>
-<li><strong>Verify account changes by phone — never by replying to email.</strong> If a supplier sends new bank details, call them on a number you already have (not the one in the email) to confirm.</li>
-<li><strong>No legitimate business or bank will ever ask you to wire money urgently and secretly.</strong> Urgency + secrecy = scam, every time.</li>
-<li><strong>Pay by card where possible for reversibility.</strong> For new or unfamiliar recipients, pay by credit card first if the option exists — you have 60 days of chargeback rights.</li>
-<li><strong>Check the domain, not just the display name.</strong> Scam emails often look identical — check the actual "from" address, not the name shown. <code>cfo@acme-corp.com</code> ≠ <code>cfo@acme.com</code>.</li>
-<li><strong>Never wire money to "release" a prize, avoid taxes, or assist law enforcement.</strong> These are always scams, no exceptions.</li>
-</ol>`,
+<p>The fraud risk is the same as with a bank: being talked into sending money to the wrong person. How you send does not decide whether you get scammed; the situation around the payment does. For how providers hold your money and what their licences cover, see <a href="/guides/money-transfer-safety-guide">are money transfer companies safe?</a> To compare what licensed providers charge on your route, use our <a href="/send-money">live comparison</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Scam statistics sourced from FTC Consumer Sentinel Network Data Book 2024, FBI Internet Crime Report 2024, and FBI Recovery Asset Team annual statistics. Recovery time data from published FBI RAT case data. Platform safety ratings based on FCA/FinCEN regulatory status and public compliance records. CFPB remittance disclosure requirements from <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">consumerfinance.gov</a>.</p>`,
+        content: `<p>Read on 16 November 2026. Fraud losses: the FTC's prepared statement to the Joint Economic Committee (March 2026) for 2025 totals, payment methods and investment scams, and the FTC consumer alert of 22 July 2026 for losses through bank transfers and cryptocurrency. Fund freezes: the FBI Internet Crime Complaint Center's 2025 Annual Report, page 17. UK reimbursement: the Payment Systems Regulator's consumer guidance. US cancellation rights: Regulation E, 12 CFR 1005.34, and the CFPB's guide to <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">sending money abroad</a>. Reporting services and registers are linked where they appear. This guide is general information, not legal advice; if you think you have been targeted, contact your bank or provider first.</p>`,
       },
     ],
     faqs: [
       {
         question: "Are wire transfers safe?",
         answer:
-          "Wire transfers are technologically secure — encrypted and regulated. The risk is being tricked into sending money yourself. Once a wire transfer is sent, it is nearly impossible to reverse. Always verify the recipient's bank details by phone before wiring money, and never send money urgently based on an email or phone call alone.",
+          "Wire transfers are secure in transit: banks and licensed providers move them over regulated networks. The risk is being tricked into sending money yourself, because a wire is final once it is credited. Verify the recipient's details by phone on a number you already have, and never send money because of an urgent email, message or call alone.",
       },
       {
         question: "Can a wire transfer be reversed or cancelled?",
         answer:
-          "Rarely, and only with speed. If you act within hours of sending, your bank can attempt a SWIFT recall — but this requires the receiving bank to cooperate and the funds to still be in the account. The FBI's Recovery Asset Team has about a 66% success rate when fraud is reported within 72 hours. After that, recovery is very unlikely.",
+          "Only in narrow cases. In the US, a remittance transfer provider must cancel and refund a transfer if you ask within 30 minutes of paying and the money has not been picked up or deposited. After that, your bank can request a recall, which needs the receiving bank's cooperation and the money still being in the account. If it was fraud, report it at once: in 2025 the FBI's Recovery Asset Team froze 58% of the money in the cases it worked.",
       },
       {
-        question: "What happens if I get scammed via wire transfer?",
+        question: "What should I do if I sent money to a scammer by wire?",
         answer:
-          "Call your bank or transfer provider immediately, then file a report with the FBI at ic3.gov and the FTC at reportfraud.ftc.gov. Document all communications. Time is critical — the first 72 hours are your best chance of recovery. Do not wait or attempt to resolve it privately with the scammer.",
+          "Call your bank or provider immediately and ask for a recall. In the US, file at ic3.gov and reportfraud.ftc.gov; in the UK, report it to Report Fraud on 0300 123 2040 (Police Scotland on 101 in Scotland); in Australia, report it to Scamwatch. Keep every message and receipt, and ignore anyone who offers to recover the money for a fee.",
+      },
+      {
+        question: "Will my bank refund a wire transfer scam?",
+        answer:
+          "In the UK, banks must reimburse authorised push payment scams up to £85,000 per claim when the money went from one UK account to another by Faster Payments or CHAPS on or after 7 October 2024, and you claim within 13 months. International transfers fall outside that scheme. In the US there is no equivalent rule for a wire you authorised, so recovery usually depends on the funds being frozen in time.",
       },
       {
         question: "Are money transfer apps like Wise and Remitly safe?",
         answer:
-          "Yes — for transfers you initiate yourself. They are regulated by the FCA (UK) or FinCEN (US), use bank-level encryption, and keep customer funds in safeguarded accounts. The fraud risk is the same as banks: being socially engineered into sending money to a fraudster's account. See our <a href=\"/guides/money-transfer-safety-guide\">full safety guide</a>.",
+          "Yes, for transfers you start yourself. Licensed providers are authorised or registered with regulators such as the FCA (UK), FinCEN and state regulators (US) and AUSTRAC (Australia), and in the UK and EU they must safeguard customer money. The fraud risk is the same as with a bank: being persuaded to send money to a fraudster. See our <a href=\"/guides/money-transfer-safety-guide\">money transfer safety guide</a>.",
       },
       {
         question: "How do I know if a money transfer request is a scam?",
         answer:
-          "Key red flags: (1) urgency — you must send NOW; (2) secrecy — don't tell anyone; (3) unusual request — your bank, employer, or government asking you to wire money; (4) changed bank details sent by email only; (5) overpayment with a request to wire back the difference. If any of these apply, stop and verify by calling a number you independently look up.",
+          "Look for urgency (you must send now), secrecy (don't tell anyone), an unexpected request from your bank, employer or a government agency, bank details that changed by email, or an overpayment you are asked to wire back. If any of these apply, stop and verify by calling a number you look up yourself.",
+      },
+      {
+        question: "How do I check that a money transfer provider is legitimate?",
+        answer:
+          "Search the FCA Financial Services Register in the UK, FinCEN's MSB Registrant Search in the US (and check the provider is licensed in your state), or AUSTRAC's Remittance Sector Register in Australia. A licensed provider will also ask to verify your identity. If you cannot find a provider on its regulator's register, do not use it.",
+      },
+      {
+        question: "Is it safe to wire money to someone I met online?",
+        answer:
+          "Not unless you have verified who they are through independent means. Requests for money from someone you know only online are the core of romance and marketplace scams, and a wire cannot be disputed afterwards. Pay sellers through a platform or card that offers buyer protection, and never wire money to someone you have not met.",
       },
     ],
     howToSteps: [
-      { name: "Verify recipient details independently", text: "Before wiring, call the recipient on a number you already have — not one provided in the payment request — to confirm bank details." },
-      { name: "Check the email domain carefully", text: "Scam emails use near-identical domains. Check the actual From address character by character, not just the display name." },
-      { name: "Never wire money urgently on instruction alone", text: "Legitimate transactions do not require secrecy or urgency. Any 'emergency' wire request is a red flag." },
-      { name: "If scammed, call your bank within 1 hour", text: "Request a SWIFT recall immediately. The faster you act, the higher the chance of fund recovery." },
-      { name: "Report to FBI and FTC", text: "File at ic3.gov and reportfraud.ftc.gov. Document all communications for law enforcement." },
+      { name: "Verify recipient details independently", text: "Before wiring, call the recipient on a number you already have, not one provided in the payment request, to confirm the bank details." },
+      { name: "Check the email address carefully", text: "Scam emails use near-identical addresses. Read the actual From address character by character, not just the display name." },
+      { name: "Never wire money urgently on instruction alone", text: "Legitimate payments do not need secrecy or urgency. Any 'emergency' wire request is a red flag." },
+      { name: "If scammed, call your bank immediately", text: "Ask for a recall of the wire. The FBI's guidance is that time is of the essence." },
+      { name: "Report it", text: "In the US, file at ic3.gov and reportfraud.ftc.gov; in the UK, report to Report Fraud; in Australia, report to Scamwatch. Keep all messages and receipts." },
     ],
     relatedSlugs: [
-      "are-money-transfer-companies-safe",
-      "best-money-transfer-apps",
-      "what-is-a-swift-code",
+      "money-transfer-safety-guide",
       "wire-transfer-guide",
+      "best-money-transfer-apps",
+      "how-to-send-money-abroad",
     ],
   },
 

@@ -10,6 +10,7 @@ import { GONE_SWIFT_SLUGS } from "./gone-swift";
 import { GONE_RATE_PAIR_SLUGS, RATE_PAIR_REDIRECTS, RATE_HISTORY_REDIRECTS } from "./gone-rate-pairs";
 import { GONE_COMPANY_SLUGS } from "./gone-companies";
 import { GONE_NEWS_SLUGS, NEWS_REDIRECTS } from "./gone-news";
+import { GUIDE_REDIRECTS } from "./gone-guides";
 import { getCompareCanonicalSlug, EDITORIAL_COMPARE_SLUGS } from "./compare-canonical";
 import { SITEMAP_COMPARISON_SLUGS } from "./sitemap-allowlists";
 
@@ -31,6 +32,8 @@ export const GONE = Symbol("gone");
  *   standalone page 301s there.
  * - /companies/<slug>: retired reviews, 410.
  * - /news/<slug>: a merged item 301s to its survivor, a retired one is 410.
+ * - /guides/<slug>: a guide merged into a same-intent survivor 301s there
+ *   (gone-guides.ts).
  * - /compare/<a>-vs-<b>: the non-canonical direction 301s to the canonical
  *   one (Bing Webmaster Blog, Dec 2025: consolidate variants with a 301).
  * - /about/<author>: a retired author page is 410 (RETIRED_AUTHOR_SLUGS). The
@@ -70,6 +73,11 @@ export function retiredAnswer(pathname: string): string | typeof GONE | null {
     const survivor = NEWS_REDIRECTS.get(news[1]);
     if (survivor) return `/news/${survivor}`;
     return GONE_NEWS_SLUGS.has(news[1]) ? GONE : null;
+  }
+  const guide = pathname.match(/^\/guides\/([a-z0-9-]+)$/);
+  if (guide) {
+    const survivor = GUIDE_REDIRECTS.get(guide[1]);
+    return survivor ? `/guides/${survivor}` : null;
   }
   const author = pathname.match(/^\/about\/([a-z0-9-]+)$/);
   if (author && RETIRED_AUTHOR_SLUGS.has(author[1])) return GONE;

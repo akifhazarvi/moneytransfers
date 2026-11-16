@@ -207,7 +207,7 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   // ── Added 2026-07-01 — 8 new articles targeting Bing keyword gaps + high-volume clusters ──
   "best-apps-send-money-uk-to-nigeria-2026",            // UK→NG: Lemfi-first July 2026 ranking
   "b2b-international-payments-guide",                   // $58.9T B2B market cluster, Wise Business/Airwallex
-  "are-wire-transfers-safe",                            // safety/scam cluster, 72-hr FBI recovery window
+  "are-wire-transfers-safe",                            // safety/scam cluster; absorbed how-to-avoid-wire-transfer-scams 2026-11-16
   "send-money-australia-to-india",                      // AU→IN corridor, AUSTRAC, PayID, Instarem angle
   "average-remittance-fees-2026",                       // World Bank data report, 6.49% global avg
   "send-money-to-nigeria-from-usa-uk-canada-australia", // multi-origin NG hub, side-by-side table
