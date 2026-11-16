@@ -16380,7 +16380,7 @@
       "lemfi": {
         "rate": 170,
         "fee": 0,
-        "markup": 1,
+        "markup": 0.85,
         "receiveAmount": 17000
       },
       "ria": {
@@ -16396,58 +16396,58 @@
         "receiveAmount": 17100
       },
       "western-union": {
-        "rate": 166.838,
+        "rate": 166.597,
         "fee": 1.99,
-        "markup": 2.84,
-        "receiveAmount": 16351.79
+        "markup": 2.98,
+        "receiveAmount": 16328.18
       },
       "barclays": {
-        "rate": 166.641,
+        "rate": 166.422,
         "fee": 0,
-        "markup": 2.96,
-        "receiveAmount": 16664.1
+        "markup": 3.08,
+        "receiveAmount": 16642.17
       },
       "xoom": {
-        "rate": 163.922,
+        "rate": 163.706,
         "fee": 2.99,
-        "markup": 4.54,
-        "receiveAmount": 15902.08
+        "markup": 4.67,
+        "receiveAmount": 15881.16
       },
       "hsbc": {
-        "rate": 166.878,
+        "rate": 166.659,
         "fee": 0,
-        "markup": 2.82,
-        "receiveAmount": 16687.82
+        "markup": 2.95,
+        "receiveAmount": 16665.86
       },
       "natwest": {
-        "rate": 166.989,
+        "rate": 166.97,
         "fee": 0,
-        "markup": 2.75,
-        "receiveAmount": 16698.88
+        "markup": 2.77,
+        "receiveAmount": 16697.04
       },
       "instarem": {
-        "rate": 170.596,
+        "rate": 170.449,
         "fee": 0,
-        "markup": 0.65,
-        "receiveAmount": 17059.56
+        "markup": 0.74,
+        "receiveAmount": 17044.94
       },
       "remitly": {
-        "rate": 168.675,
+        "rate": 168.459,
         "fee": 0,
-        "markup": 1.77,
-        "receiveAmount": 16867.48
+        "markup": 1.9,
+        "receiveAmount": 16845.88
       },
       "skrill": {
-        "rate": 163.502,
+        "rate": 163.271,
         "fee": 0,
-        "markup": 4.79,
-        "receiveAmount": 16350.19
+        "markup": 4.92,
+        "receiveAmount": 16327.08
       },
       "rbs": {
-        "rate": 166.989,
+        "rate": 166.97,
         "fee": 0,
-        "markup": 2.75,
-        "receiveAmount": 16698.88
+        "markup": 2.77,
+        "receiveAmount": 16697.04
       }
     }
   }
