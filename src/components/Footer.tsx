@@ -1,3 +1,4 @@
+import ExtensionDetailsButton from "@/components/ExtensionDetailsButton";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -130,6 +131,20 @@ export default function Footer() {
   return (
     <footer className="text-white bg-[var(--color-footer)]">
       <Container className="py-14 sm:py-20">
+        <div className="mb-12 grid gap-4 md:grid-cols-2">
+          <div className="rounded-2xl border border-white/15 bg-white/5 p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/65">Browser extension</p>
+            <p className="mt-3 text-2xl font-semibold">Compare before you send.</p>
+            <p className="mt-3 text-sm leading-relaxed text-white/75">Keep comparisons and rate alerts in your toolbar. Enable optional price checks on supported provider sites.</p>
+            <ExtensionDetailsButton placement="footer_details" className="mt-5 inline-flex min-h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-[#14171C] hover:bg-white/90">Explore the Chrome extension →</ExtensionDetailsButton>
+          </div>
+          {isLinkEligible("/developers") && <div className="rounded-2xl border border-white/15 p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/65">For developers</p>
+            <p className="mt-3 text-2xl font-semibold">Build with transfer data.</p>
+            <p className="mt-3 text-sm leading-relaxed text-white/75">Explore money transfer quotes, rate history and research datasets. Try the free endpoints without an API key.</p>
+            <Link href="/developers" className="mt-5 inline-flex min-h-11 items-center rounded-full border border-white/30 px-5 text-sm font-semibold hover:bg-white/10">Explore the Data API →</Link>
+          </div>}
+        </div>
         <div className="mb-6"><CookieSettingsButton className="min-h-11 text-sm text-white/80 hover:text-white" /></div>
         {/* ── Layer 1 — 4 lean columns ─────────────────────────────────── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 mb-10 sm:mb-14">

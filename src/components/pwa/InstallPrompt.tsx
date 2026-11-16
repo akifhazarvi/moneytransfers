@@ -20,9 +20,9 @@ function contextFor(placement: string) {
 
 /** What the extension does, said where the reader is. */
 function extensionContextFor(placement: string) {
-  if (placement === "comparison-end" || placement === "home-after-comparison") return "Next time, see this comparison on the provider’s own site: it checks the amount you type in Wise, Remitly and other calculators.";
-  if (placement.startsWith("business")) return "On Wise, OFX and other provider sites, it tells you whether a transfer is a good deal before you pay.";
-  return "On Wise, Remitly and other provider sites, it tells you whether a transfer is a good deal before you pay.";
+  if (placement === "comparison-end" || placement === "home-after-comparison") return "Take the comparison with you. Enable optional price checks to compare the amount you type on Wise, Remitly and other supported provider sites.";
+  if (placement.startsWith("business")) return "Compare from your toolbar, or enable optional price checks on Wise, OFX and other supported provider sites before you pay.";
+  return "Compare from your toolbar, follow rates and enable optional price checks on Wise, Remitly and other supported provider sites.";
 }
 
 /** One in-flow offer, displayed only after the reader reaches its placement. */

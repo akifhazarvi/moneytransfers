@@ -1,257 +1,107 @@
 "use client";
 
-import { useState } from "react";
-import { useTranslations, useLocale } from "next-intl";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
+import { ChevronDown, Code2, Menu, Moon, Sun, X } from "lucide-react";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useTheme } from "@/components/ThemeProvider";
-import { routing } from "@/i18n/routing";
 import InstallAppButton from "@/components/pwa/InstallAppButton";
+import ExtensionDetailsButton from "@/components/ExtensionDetailsButton";
+import styles from "./Header.module.css";
 
-const navLinks = [
-  {
-    href: "/" as const,
-    labelKey: "home" as const,
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
-  },
-  {
-    href: "/send-money" as const,
-    labelKey: "sendMoney" as const,
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
-    href: "/compare" as const,
-    labelKey: "compareProviders" as const,
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
-  },
-  {
-    href: "/companies" as const,
-    labelKey: "companies" as const,
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-  },
-  {
-    href: "/exchange-rates" as const,
-    labelKey: "rates" as const,
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 17l6-6 4 4 8-8m0 0v5m0-5h-5" />
-      </svg>
-    ),
-  },
-  {
-    href: "/guides" as const,
-    labelKey: "guides" as const,
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    ),
-  },
-  {
-    // Business hub — surfaces the live /business/compare provider tool.
-    // Replaced Contact in the top nav 2026-06-22 (Contact stays in the footer);
-    // business payments is the highest-AI-citation-share commercial cluster.
-    href: "/business" as const,
-    labelKey: "business" as const,
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
+const resources = [
+  { href: "/exchange-rates", label: "Exchange rates", description: "Follow currencies and rate history" },
+  { href: "/guides", label: "Money transfer guides", description: "Understand fees and sending abroad" },
+  { href: "/compare", label: "Compare providers", description: "Explore providers side by side" },
+  { href: "/business", label: "Business payments", description: "Compare options for your business" },
+  { href: "/currency-converter", label: "Currency converter", description: "Calculate what your money is worth" },
+  { href: "/methodology", label: "How we compare", description: "Our sources, checks and methodology" },
 ];
-
-const localeLabels: Record<string, string> = {
-  en: "EN",
-  es: "ES",
-  fr: "FR",
-  pt: "PT",
-};
-
-const localeNames: Record<string, string> = {
-  en: "English",
-  es: "Español",
-  fr: "Français",
-  pt: "Português",
-};
 
 export default function Header() {
   const pathname = usePathname();
-  const router = useRouter();
-  const locale = useLocale();
   const t = useTranslations("nav");
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const [open, setOpen] = useState<"resources" | "mobile" | null>(null);
+  const header = useRef<HTMLElement>(null);
+  const resourceButton = useRef<HTMLButtonElement>(null);
+  const mobileButton = useRef<HTMLButtonElement>(null);
+  const active = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const close = () => setOpen(null);
 
-  function switchLocale(newLocale: string) {
-    router.replace(pathname, { locale: newLocale });
-    setLangOpen(false);
-  }
+  useEffect(() => {
+    if (!open) return;
+    const dismiss = (event: PointerEvent) => {
+      if (!header.current?.contains(event.target as Node)) setOpen(null);
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || document.querySelector("dialog[open]")) return;
+      setOpen(null);
+      (open === "resources" ? resourceButton : mobileButton).current?.focus();
+    };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", escape);
+    };
+  }, [open]);
 
   return (
-    <header className="site-header sticky top-0 z-50 bg-[color-mix(in_srgb,var(--color-surface)_78%,transparent)] backdrop-blur-xl supports-[backdrop-filter]:bg-[color-mix(in_srgb,var(--color-surface)_72%,transparent)] shadow-[var(--shadow-xs)]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        {/* Top bar — logo + actions */}
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-1 min-[360px]:gap-3 shrink-0 group">
-            {/* Icon: paper plane — adapts to light/dark via CSS vars */}
-            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200">
-              <path d="M3.5 15.8L26.5 4.5L21 27L14.5 19.5Z" fill="var(--color-primary)"/>
-              <path d="M14.5 19.5L26.5 4.5" stroke="var(--color-surface)" strokeWidth="0.8" opacity="0.8"/>
-              <path d="M14.5 19.5L21 27L18 20.5Z" fill="var(--color-primary)" opacity="0.45"/>
+    <header ref={header} className={`site-header ${styles.header}`}>
+      <div className={styles.inner}>
+        <div className={styles.bar}>
+          <Link href="/" aria-label="SendMoneyCompare — Home" className={styles.brand} onClick={close}>
+            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+              <path d="M3.5 15.8L26.5 4.5L21 27L14.5 19.5Z" fill="var(--color-primary)" />
+              <path d="M14.5 19.5L26.5 4.5" stroke="var(--color-surface)" strokeWidth=".8" />
             </svg>
-            {/* Wordmark */}
-            <span className="text-[20px] tracking-[-0.4px] text-[var(--color-on-surface)]">
-              <span className="font-extrabold">Send</span><span className="font-normal text-[var(--color-on-surface-variant)]">money</span>
-            </span>
+            <span><strong>Send</strong><span className={styles.wordmark}>money</span></span>
           </Link>
-
-          {/* Desktop nav */}
-          <nav aria-label="Main navigation" className="pwa-hide-standalone hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => {
-              const active = link.href === "/" ? pathname === "/" : pathname === link.href || pathname.startsWith(link.href + "/");
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`px-3.5 py-2 text-2sm font-medium rounded-full transition-all duration-200 ${
-                    active
-                      ? "text-[var(--color-surface)] bg-[var(--color-on-surface)] shadow-[var(--shadow-sm)]"
-                      : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)]"
-                  }`}
-                >
-                  {t(link.labelKey)}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div className="flex items-center gap-1">
-            {/* Download the app (desktop). Rendered on the server but invisible
-                until the client knows it can install, so the header never shifts. */}
-            <InstallAppButton variant="header" />
-
-            {/* Language switcher */}
-            <div className="relative">
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1.5 h-11 px-1 min-[360px]:px-3 rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200 text-2sm font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]"
-                aria-label={`${localeLabels[locale]}, switch language`}
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-                {localeLabels[locale]}
+          <nav aria-label="Main navigation" className={`pwa-hide-standalone ${styles.desktop}`}>
+            <Link href="/send-money" aria-current={active("/send-money") ? "page" : undefined} onClick={close}>Compare transfers</Link>
+            <Link href="/companies" aria-current={active("/companies") ? "page" : undefined} onClick={close}>{t("companies")}</Link>
+            <div className={styles.resources}>
+              <button ref={resourceButton} type="button" aria-expanded={open === "resources"} aria-controls="header-resources" onClick={() => setOpen(open === "resources" ? null : "resources")}>
+                Resources <ChevronDown size={15} aria-hidden="true" />
               </button>
-              {langOpen && (
-                <>
-                  <div className="fixed inset-0 z-40" onClick={() => setLangOpen(false)} />
-                  <div className="absolute right-0 top-full mt-2 z-50 bg-[var(--color-surface)] rounded-2xl shadow-[var(--shadow-lg)] p-1.5 min-w-[140px]">
-                    {routing.locales.map((loc) => (
-                      <button
-                        key={loc}
-                        onClick={() => switchLocale(loc)}
-                        lang={loc}
-                        aria-label={`Switch to ${localeNames[loc] ?? loc.toUpperCase()}`}
-                        className={`w-full text-left px-3.5 py-2 rounded-xl text-2sm transition-all duration-150 ${
-                          loc === locale
-                            ? "text-[var(--color-surface)] bg-[var(--color-on-surface)] font-medium"
-                            : "text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)]"
-                        }`}
-                      >
-                        {localeNames[loc] ?? loc.toUpperCase()}
-                      </button>
-                    ))}
-                  </div>
-                </>
+              {open === "resources" && (
+                <div id="header-resources" className={styles.resourcePanel}>
+                  {resources.map((item) => <Link key={item.href} href={item.href} onClick={close} aria-current={active(item.href) ? "page" : undefined}>
+                    <span>{item.label}</span><small>{item.description}</small>
+                  </Link>)}
+                </div>
               )}
             </div>
-
-            {/* Dark mode toggle */}
-            <button
-              onClick={toggleTheme}
-              className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200"
-              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {theme === "dark" ? (
-                <svg className="w-5 h-5 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
+            <Link href="/developers" aria-current={active("/developers") ? "page" : undefined} onClick={close}><Code2 size={16} aria-hidden="true" /> Developers</Link>
+            <ExtensionDetailsButton placement="header_details" className={styles.extensionLink} />
+          </nav>
+          <div className={styles.actions}>
+            <InstallAppButton variant="header" />
+            <button type="button" onClick={toggleTheme} className={styles.iconButton} aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}>
+              {theme === "dark" ? <Sun size={19} aria-hidden="true" /> : <Moon size={19} aria-hidden="true" />}
             </button>
-
-            {/* Mobile menu button */}
-            <button
-              className="lg:hidden w-11 h-11 flex items-center justify-center rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
-            >
-              <svg className="w-6 h-6 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+            <button ref={mobileButton} type="button" className={`${styles.iconButton} ${styles.mobileToggle}`} onClick={() => setOpen(open === "mobile" ? null : "mobile")} aria-label="Toggle menu" aria-expanded={open === "mobile"} aria-controls="header-mobile">
+              {open === "mobile" ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
             </button>
           </div>
         </div>
-
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <nav aria-label="Mobile navigation" className="lg:hidden py-3 mt-1 border-t border-[color-mix(in_srgb,var(--color-on-surface)_8%,transparent)]">
-            {navLinks.map((link) => {
-              const active = link.href === "/" ? pathname === "/" : pathname === link.href || pathname.startsWith(link.href + "/");
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-3 py-3 px-3.5 text-sm rounded-2xl transition-all duration-200 ${
-                    active
-                      ? "text-[var(--color-surface)] bg-[var(--color-on-surface)] font-medium shadow-[var(--shadow-sm)]"
-                      : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)]"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.icon}
-                  {t(link.labelKey)}
-                </Link>
-              );
-            })}
-            <InstallAppButton variant="menu" onClick={() => setMobileOpen(false)} />
+        {open === "mobile" && (
+          <nav id="header-mobile" aria-label="Mobile navigation" className={styles.mobile}>
+            <div className={styles.mobileLinks}>
+              {[{ href: "/", label: t("home") }, { href: "/send-money", label: "Compare transfers" }, { href: "/companies", label: t("companies") }, ...resources, { href: "/developers", label: "Developers · Data API" }].map((item) => (
+                <Link key={item.href} href={item.href} aria-current={pathname === item.href || (item.href !== "/" && active(item.href)) ? "page" : undefined} onClick={close}>{item.label}</Link>
+              ))}
+            </div>
+            <div className={styles.mobileProducts}>
+              <ExtensionDetailsButton placement="mobile_details" />
+              <InstallAppButton variant="menu" onClick={close} />
+            </div>
           </nav>
         )}
         <nav className="pwa-app-nav" aria-label="App navigation">
-          {[
-            { href: "/send-money", label: "Compare" },
-            { href: "/exchange-rates", label: "Rates" },
-            { href: "/guides", label: "Guides" },
-          ].map(({ href, label }) => (
-            <Link key={href} href={href}
-              aria-current={pathname === href || pathname.startsWith(`${href}/`) ? "page" : undefined}
-              onClick={() => setMobileOpen(false)}>{label}</Link>
+          {[{ href: "/send-money", label: "Compare" }, { href: "/exchange-rates", label: "Rates" }, { href: "/guides", label: "Guides" }].map(({ href, label }) => (
+            <Link key={href} href={href} aria-current={active(href) ? "page" : undefined} onClick={close}>{label}</Link>
           ))}
         </nav>
       </div>

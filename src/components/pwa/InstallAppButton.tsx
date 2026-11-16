@@ -62,19 +62,14 @@ export default function InstallAppButton({ variant, onClick }: { variant: "heade
   };
 
   if (variant === "header") {
-    // A labelled pill, not a bare glyph: an unlabelled icon between the
-    // language and theme toggles read as another setting. Outlined, not
-    // filled, so it never competes with the Send buttons (provider_clicked).
+    // Keep the install action labelled at tablet and desktop widths.
     return (
       <button
         type="button"
         onClick={handle}
         data-pwa-install-button=""
-        // The label shows from xl; at lg (1024–1279) it would wrap the nav's
-        // "Send Money" / "Compare Apps" onto two lines, so the pill keeps
-        // only its glyph there. aria-label keeps the name the same at both.
         aria-label={label ?? "Install app"}
-        className={`pwa-hide-standalone hidden lg:inline-flex items-center gap-1.5 min-h-12 px-2.5 xl:pl-3 xl:pr-3.5 mr-1 rounded-full border border-[var(--color-outline)] text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200 whitespace-nowrap ${
+        className={`pwa-hide-standalone hidden sm:inline-flex items-center gap-1.5 min-h-12 px-4 mr-1 rounded-full border border-transparent bg-[var(--color-cta)] text-2sm font-semibold text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] transition-all duration-200 whitespace-nowrap ${
           available ? "" : "invisible"
         }`}
       >
@@ -85,7 +80,7 @@ export default function InstallAppButton({ variant, onClick }: { variant: "heade
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" />
           </svg>
         )}
-        <span className="hidden xl:inline">{label ?? "Install app"}</span>
+        <span>{label ?? "Install app"}</span>
       </button>
     );
   }

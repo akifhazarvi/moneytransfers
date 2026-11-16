@@ -140,7 +140,17 @@ export default function PwaManager() {
     // The extension answers the site from 1.0.1; a yes switches every install
     // surface back to the app (they re-check on the installability event).
     noteExtensionLanding();
-    void detectExtension();
+    let checkingExtension = false;
+    const checkExtension = async () => {
+      if (checkingExtension || document.visibilityState !== "visible") return;
+      checkingExtension = true;
+      try { await detectExtension(); } finally { checkingExtension = false; }
+    };
+    void checkExtension();
+    // A store install happens in another tab. Refresh the offer when the
+    // reader returns, so confirmation does not require a page reload.
+    window.addEventListener("focus", checkExtension);
+    document.addEventListener("visibilitychange", checkExtension);
 
     if (isStandalone()) {
       // Safari never fires appinstalled; the app's first launch is its install.
@@ -151,6 +161,8 @@ export default function PwaManager() {
     return () => {
       unsubscribe();
       window.removeEventListener("smc:installed", onInstalled);
+      window.removeEventListener("focus", checkExtension);
+      document.removeEventListener("visibilitychange", checkExtension);
     };
   }, []);
 
