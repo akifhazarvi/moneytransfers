@@ -50,7 +50,11 @@ jobs:
   e2e:
     needs: changes
     if: needs.changes.outputs.code == 'true'
-    runs-on: ubuntu-latest
+    # Pinned like the browser scrapers: on ubuntu-latest (Ubuntu 26.04 since
+    # mid-November 2026) Playwright 1.58 stops at "does not support chromium
+    # on ubuntu26.04-x64", so every run from 2026-11-13 failed before testing
+    # anything. Move deliberately, after a manual run on the new image.
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       E2E_BASE_URL: https://sendmoneycompare.com
