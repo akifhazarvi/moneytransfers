@@ -326,7 +326,7 @@ export const newGuidesJul2026: BlogPost[] = [
     title: "Are Wire Transfers Safe? How Wire Scams Work and How to Avoid Them",
     metaTitle: "Are Wire Transfers Safe? How to Avoid Wire Transfer Scams (2026)",
     metaDescription:
-      "Wire transfers are secure but nearly impossible to reverse. The common wire scams, the warning signs, how to send a wire safely and what to do if you're scammed.",
+      "Wire transfers are secure but nearly impossible to reverse. Common wire scams, their warning signs, a safe-sending checklist and what to do if you're scammed.",
     excerpt:
       "A wire is secure in transit but final once it lands, which is why scammers ask for one. The scams to know, the signs they share, how to send a wire safely, and what to do in the first hours if money has gone.",
     category: "Education",
