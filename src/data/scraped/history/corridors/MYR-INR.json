@@ -4516,16 +4516,22 @@
     "date": "2026-11-17",
     "providers": {
       "western-union": {
-        "rate": 22.855,
+        "rate": 22.7136,
         "fee": 5,
-        "markup": 0.39,
-        "receiveAmount": 2171.22
+        "markup": 0.53,
+        "receiveAmount": 2157.79
       },
       "instarem": {
-        "rate": 22.9101,
+        "rate": 22.7912,
         "fee": 0.65,
-        "markup": 0.15,
-        "receiveAmount": 2276.12
+        "markup": 0.19,
+        "receiveAmount": 2264.31
+      },
+      "skrill": {
+        "rate": 21.7481,
+        "fee": 0,
+        "markup": 4.75,
+        "receiveAmount": 2174.81
       }
     }
   }
