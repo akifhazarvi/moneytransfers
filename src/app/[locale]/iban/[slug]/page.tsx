@@ -93,8 +93,12 @@ const ibanMetaOverrides: Record<string, { title: string; description: string; og
     ogTitle: "Polish IBAN: 28-Character NRB Format + Bank Codes (2026)",
     ogDesc: "PL IBAN in 30 seconds: 28-char structure, real example, codes for PKO BP / mBank / Santander Polska / ING Bank Śląski.",
   },
+  // 2026-11-16: "iban ie" drew 434 Bing impressions at position ~7 with 0
+  // clicks (BWT, Oct 16 → Nov 13) while the title never said "IE". Only this
+  // page changes, so the other IBAN titles are the held-out group (rule 18);
+  // compare its CTR on "iban ie" from ~Dec 1.
   ireland: {
-    title: "Irish IBAN: 22-Char Format + Example (2026)",
+    title: "Ireland IBAN (IE): 22-Char Format + Example (2026)",
     description: "Irish IBAN = 22 chars: IE + 2 check digits + 4-letter bank code + 6-digit sort + 8-digit account. Real example, codes for AIB, Bank of Ireland, PTSB, Revolut Ireland, SEPA Instant rules.",
     ogTitle: "Irish IBAN: 22-Character Format + Bank Codes (2026)",
     ogDesc: "IE IBAN: 22-char structure, example, AIB / BOI / PTSB / Revolut codes, SEPA Instant rules.",

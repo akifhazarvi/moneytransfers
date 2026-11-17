@@ -362,7 +362,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Guides",
     readTime: "12 min read",
     publishedAt: "2026-01-10",
-    updatedAt: "2026-09-05",
+    updatedAt: "2026-11-17",
     author: "Awais Imran",
     tags: ["how to", "international transfer", "guide", "beginners", "send money"],
     featuredImage: "/images/blog/how-to-send-money-abroad.jpg",
@@ -393,19 +393,29 @@ const rawBlogPosts: BlogPost[] = [
 </ol>`,
       },
       {
-        heading: "What Information Do You Need?",
-        content: `<p>For a bank-to-bank international transfer, you typically need:</p>
+        // 2026-11-17: rebuilt from regulators' and providers' own pages. The
+        // AI-citation benchmark asks "what documents do I need to send money
+        // internationally?" and no page of ours answered it; the old section
+        // listed only the recipient's details and said cash pickup needs only a
+        // name and phone number (the recipient needs photo ID).
+        heading: "Documents and Details You Need to Send Money Abroad",
+        content: `<p class="citable-passage">Sending money abroad takes two sets of information: proof of who you are, which a licensed provider checks before your first transfer and again as your amounts grow, and the details of the person or account you are paying.</p>
+<h3>About you, the sender</h3>
 <ul>
-<li><strong>Recipient's full legal name</strong> — Must match their bank account exactly</li>
-<li><strong>Bank name and branch</strong></li>
-<li><strong>Account number</strong> — Or <a href="/guides/iban-numbers-explained">IBAN</a> for European and many other countries</li>
-<li><strong>SWIFT/BIC code</strong> — An 8–11 character code identifying the bank internationally. Read <a href="/guides/swift-codes-explained">our guide to SWIFT codes</a> for full details. SWIFT codes are standardised by the <a href="https://www.iso.org/standard/60390.html" target="_blank" rel="noopener noreferrer">ISO 9362 standard maintained by SWIFT</a>.</li>
-<li><strong>Routing number</strong> — For US bank accounts (9 digits)</li>
-<li><strong>IFSC code</strong> — For Indian bank accounts</li>
-<li><strong>BSB number</strong> — For Australian bank accounts</li>
+<li><strong>A government photo ID.</strong> A passport, national ID card or driving licence is what most providers ask for. Wise accepts those three, though not a driving licence if you live in the EU or EEA, and TapTap Send also asks for a selfie. The name and date of birth on the document must match your account.</li>
+<li><strong>Your name, address and date of birth</strong>, and in the US usually a Social Security number or ITIN. For transfers of $3,000 or more, US rules require the provider to record your taxpayer ID, or a passport or alien ID number if you have none (<a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-D/section-1010.410" target="_blank" rel="noopener noreferrer">31 CFR 1010.410</a>).</li>
+<li><strong>Proof of address, sometimes.</strong> Wise may verify only your ID at first and ask for your address later; utility bills and bank statements it accepts must be no more than three months old. OFX asks for two separate documents, and a driving licence does not count as proof of address.</li>
+<li><strong>Evidence of where the money came from</strong>, for larger transfers or a higher limit: recent payslips, around three months of bank statements, a signed sale contract for a property, or for a gift, a letter from the giver with proof of their income. Wise asks only after you have set up and paid for the transfer, and providers rarely publish the amount that triggers it.</li>
 </ul>
-<p>For cash pickup, you usually just need the recipient's name and phone number. For mobile wallet transfers, you need their phone number.</p>
-<p>The <a href="https://www.swift.com/about-us" target="_blank" rel="noopener noreferrer">SWIFT network</a> connects over 11,000 financial institutions in 200+ countries to facilitate these transfers.</p>`,
+<p><strong>When the checks start.</strong> In the UK, money transfer firms must apply customer due diligence to transfers over £800 (from 30 June 2026; before that, €1,000), and HMRC expects them to verify identity on every transfer whatever its size (<a href="https://www.gov.uk/hmrc-internal-manuals/economic-crime-supervision-handbook/ecsh33312" target="_blank" rel="noopener noreferrer">HMRC ECSH33312</a>). In Canada, identity checks start at C$1,000. In the US, each provider adds its own tiers: Xoom asks for an SSN or ID at its second level and a pay stub or bank statement at its third. Our guide to <a href="/guides/money-transfer-limits-by-provider-country">transfer limits by provider</a> lists the levels.</p>
+<h3>About the recipient</h3>
+<ul>
+<li><strong>Their full legal name</strong>, exactly as it appears on the account or on their ID.</li>
+<li><strong>Account details in the local format:</strong> an <a href="/guides/iban-numbers-explained">IBAN</a> in Europe; a 6-digit sort code and 8-digit account number in the UK; a 9-digit routing (ABA) number, account number and street address (not a PO box) in the US; an account number and 11-character IFSC in India. A bank wire also needs the receiving bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</li>
+<li><strong>A purpose of payment</strong> for some destinations. Transfers to India need a purpose that maps to a Reserve Bank of India code, and Wise warns that a wrong one can delay or block the payment.</li>
+</ul>
+<p><strong>Cash pickup:</strong> the recipient collects with the transfer's reference number and a valid government photo ID, and the name on the transfer must match the ID exactly; Western Union also asks for the sender's name and the expected amount. <strong>Mobile wallets</strong> need the recipient's wallet phone number.</p>
+<p><strong>Check every detail before you pay.</strong> In the US, if you give a wrong account number or bank code, a provider that warned you beforehand does not have to refund you (<a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1005/subpart-B/section-1005.33" target="_blank" rel="noopener noreferrer">Regulation E, 12 CFR 1005.33</a>). A correctly formatted IBAN does not prove the account belongs to your recipient, so confirm it with them, by phone if the details arrived by email.</p>`,
       },
       {
         heading: "How Long Do International Transfers Take?",
@@ -444,7 +454,12 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "Do I need ID to send money abroad?",
         answer:
-          "Yes. All legitimate money transfer services are required by law to verify your identity (KYC — Know Your Customer). You'll need a government-issued photo ID and proof of address. This is a one-time process.",
+          "Yes. Licensed providers must check who you are, so expect to give your name, address and date of birth and a government photo ID such as a passport, national ID card or driving licence; in the US most also ask for a Social Security number or ITIN. Checks are not one-off: proof of address and evidence of where your money came from are often requested later, as your amounts or limits grow.",
+      },
+      {
+        question: "What documents do I need to send money internationally?",
+        answer:
+          "For yourself: a government photo ID, your address and date of birth, and in the US usually an SSN or ITIN; for larger amounts, evidence of where the money came from, such as payslips, bank statements or a sale contract. For your recipient: their full legal name and account details in the local format (an IBAN in Europe, sort code and account number in the UK, routing and account number in the US, IFSC and account number in India). A cash-pickup recipient brings the reference number and photo ID.",
       },
     ],
     howToSteps: [
@@ -7465,15 +7480,22 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "us-remittance-tax-2026",
     contentStatus: "published",
+    // 2026-11-17: rebuilt from the statute (IRC §4475), the enacted and earlier
+    // bill texts and the IRS's proposed regulations (91 FR 18797, Apr 13 2026).
+    // Removed: the prepaid-card "way to avoid" it (the proposed rules can treat
+    // cash loaded and sent at once as a cash transfer), estimated cash-counter
+    // costs and a "five times" claim with no quote behind them, a "best
+    // tax-free providers" table with unmeasured labels, a JCT figure cited to a
+    // secondary source, and impact estimates made for the earlier House version.
     title: "US Remittance Tax 2026: What It Costs and How to Avoid It",
     metaDescription:
-      "The new 1% US remittance tax only applies to cash-funded transfers. We compared {{PROVIDER_COUNT}} providers — who charges it and how to send money abroad tax-free.",
+      "The 1% US remittance tax applies only when you pay with cash, a money order or a cashier's or traveler's check. What the law and IRS say, and how to avoid it.",
     excerpt:
-      "A 1% federal tax on international money transfers took effect January 1, 2026 — but it only hits cash-funded sends. Here's how to avoid it entirely.",
+      "A 1% federal tax on money sent abroad from the US took effect on January 1, 2026, but only when you pay with cash or a paper instrument. What the law and the IRS's proposed rules say, and how to send without it.",
     category: "Education",
     readTime: "9 min read",
     publishedAt: "2026-03-16",
-    updatedAt: "2026-03-16",
+    updatedAt: "2026-11-17",
     author: "Awais Imran",
     tags: [
       "remittance tax",
@@ -7488,169 +7510,153 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is the US Remittance Tax?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The new 1% federal tax on outbound transfers from the US only applies to cash-funded sends (cash, money orders, cashier's checks). Digital and bank transfers are exempt — use <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, or any app-based provider with bank/debit funding to avoid it entirely. <a href="/send-money">Compare tax-free providers</a>.</p></div>
-<p>Since January 1, 2026, a <strong>1% federal excise tax</strong> applies to certain international money transfers sent from the United States. The tax was signed into law as part of the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer">One Big Beautiful Bill Act</a> on July 4, 2025, and is codified under IRC Section 4475.</p>
-<p>Here's the part most people miss: the tax <strong>only applies to cash-funded transfers</strong> — cash, money orders, and cashier's checks. If you send money through a bank account, debit card, or credit card, you pay nothing extra.</p>
-<p>The <a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer">IRS requires remittance providers</a> to collect and remit the tax. Senders don't need to file anything separately — the provider handles it at checkout.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Since January 1, 2026, a 1% federal excise tax applies to money sent abroad from the US when you pay the provider with cash, a money order, a cashier's check or, under the IRS's proposed rules, a traveler's check. Paying from a bank account or with a debit or credit card is not taxed, so an app or website funded that way never charges it. The provider collects the tax from you and pays it to the IRS. <a href="/send-money">Compare providers you can pay digitally</a>.</p></div>
+<p class="citable-passage">The tax was enacted in the One Big Beautiful Bill Act, signed on July 4, 2025, as section 4475 of the Internal Revenue Code. It equals <strong>1 percent of the amount transferred</strong>, is owed by the sender and is collected by the remittance transfer provider, which reports it quarterly on Form 720 (<a href="https://www.law.cornell.edu/uscode/text/26/4475" target="_blank" rel="noopener noreferrer">26 U.S.C. § 4475</a>). It applies to transfers made after December 31, 2025.</p>
+<p>It is far narrower than first proposed. The bill as reported by the House Ways and Means Committee set the rate at 5%, the House passed it at 3.5%, and both House versions spared verified US citizens and nationals. The Senate cut the rate to 1%, limited it to cash and similar paper payments and dropped the citizen exemption, and that version became law (<a href="https://www.govinfo.gov/content/pkg/BILLS-119hr1enr/html/BILLS-119hr1enr.htm" target="_blank" rel="noopener noreferrer">enacted text</a>). The result: the tax applies whatever your citizenship, but only to how you pay.</p>
 <blockquote class="blog-callout-blue-sm">
-<strong>Bottom line:</strong> If you walk into a Western Union location and pay with cash to send $1,000 to Mexico, you'll owe an extra $10 in remittance tax. If you use the Western Union app and pay from your bank account, you owe $0 in tax.
-</blockquote>
-<p>The <a href="https://www.taxnotes.com/featured-analysis/remittance-tax-arrival-raises-questions-and-action-plans/2026/01/15/7tw2k" target="_blank" rel="noopener noreferrer">Joint Committee on Taxation</a> estimates the tax will raise roughly $10 billion in federal revenue over 10 years. The rate was debated heavily — an early proposal set it at 5%, which was cut to 3.5% during negotiations, before landing at 1% in the final bill.</p>`,
+<strong>Example:</strong> hand over $1,000 in cash at an agent counter to send to Mexico and the provider collects about $10 of tax on top. Send the same $1,000 from the same company's app, paid from your bank account, and there is no tax.
+</blockquote>`,
       },
       {
-        heading: "Which Transfers Are Taxed (and Which Aren't)?",
-        content: `<p>The tax is narrow in scope. It targets a specific set of <strong>physical payment methods</strong>, not all international transfers. Here's the breakdown:</p>
+        heading: "Which Ways of Paying Are Taxed",
+        content: `<p>The law taxes only transfers for which the sender gives the provider "cash, a money order, a cashier's check, or any other similar physical instrument", and then exempts money taken from a bank or credit-union account and transfers funded with a debit or credit card issued in the US (<a href="https://www.law.cornell.edu/uscode/text/26/4475" target="_blank" rel="noopener noreferrer">§ 4475(c) and (d)</a>). The IRS's proposed regulations turn "similar physical instrument" into an exclusive list (<a href="https://www.federalregister.gov/documents/2026/04/13/2026-07085/excise-tax-on-remittance-transfers" target="_blank" rel="noopener noreferrer">91 FR 18797</a>):</p>
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Payment Methods: Taxed vs. Exempt</h3>
+<h3 style="margin-top: 0;">How you pay and whether the 1% tax applies</h3>
 <table>
-<thead><tr><th>Payment Method</th><th>Taxed?</th><th>Why</th></tr></thead>
+<thead><tr><th>How you pay the provider</th><th>Taxed?</th><th>Basis</th></tr></thead>
 <tbody>
-<tr class="blog-row-danger"><td><strong>Cash (in person)</strong></td><td>Yes — 1%</td><td>Physical instrument under IRC 4475</td></tr>
-<tr class="blog-row-danger"><td><strong>Money order</strong></td><td>Yes — 1%</td><td>Physical instrument</td></tr>
-<tr class="blog-row-danger"><td><strong>Cashier's check</strong></td><td>Yes — 1%</td><td>Physical instrument</td></tr>
-<tr class="blog-row-highlight"><td><strong>Bank account (ACH)</strong></td><td>No</td><td>Exempt under IRC 4475(d)(1)</td></tr>
-<tr class="blog-row-highlight"><td><strong>US debit card</strong></td><td>No</td><td>Exempt — electronic payment</td></tr>
-<tr class="blog-row-highlight"><td><strong>US credit card</strong></td><td>No</td><td>Exempt — electronic payment</td></tr>
-<tr class="blog-row-highlight"><td><strong>Wire transfer (bank-initiated)</strong></td><td>No</td><td>Exempt — bank-to-bank</td></tr>
-<tr class="blog-row-highlight"><td><strong>International ACH</strong></td><td>No</td><td>Explicitly exempt under the law</td></tr>
+<tr class="blog-row-danger"><td><strong>Cash</strong></td><td>Yes, 1%</td><td>Statute</td></tr>
+<tr class="blog-row-danger"><td><strong>Money order</strong></td><td>Yes, 1%</td><td>Statute</td></tr>
+<tr class="blog-row-danger"><td><strong>Cashier's check</strong>, even one bought from your own account</td><td>Yes, 1%</td><td>Statute; proposed rules</td></tr>
+<tr class="blog-row-danger"><td><strong>Traveler's check</strong></td><td>Yes, 1%</td><td>Proposed rules</td></tr>
+<tr class="blog-row-highlight"><td><strong>Bank account</strong> (ACH debit, or a wire from your bank)</td><td>No</td><td>Statute § 4475(d)(1)</td></tr>
+<tr class="blog-row-highlight"><td><strong>Debit or credit card</strong></td><td>No</td><td>Statute § 4475(d)(2) for US-issued cards; under the proposed rules no card is a taxed instrument</td></tr>
+<tr class="blog-row-highlight"><td><strong>Personal or business check</strong></td><td>No, unless the provider cashes it for you</td><td>Proposed rules</td></tr>
+<tr class="blog-row-highlight"><td><strong>General-use prepaid card</strong></td><td>No, but see below</td><td>Proposed rules</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Source: <a href="https://www.taxesforexpats.com/articles/expat-tax-rules/remittance-tax.html" target="_blank" rel="noopener noreferrer nofollow">IRC Section 4475 analysis via TaxesForExpats</a></p>
+<p class="blog-footnote">Transfers of $15 or less are outside the tax, as are transfers for business rather than personal, family or household purposes. Sources: 26 U.S.C. § 4475 and the IRS's proposed regulations, REG-114499-25.</p>
 </div>
-<p>The key takeaway: <strong>digital-first providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/instarem">InstaReM</a></strong> — which only accept bank accounts and cards — are effectively tax-free by default. Providers with physical agent networks, like <a href="/companies/western-union">Western Union</a> and <a href="/companies/moneygram">MoneyGram</a>, only trigger the tax when you pay in cash at a retail location.</p>
-<p>Read our <a href="/guides/exchange-rate-markup-explained">guide to exchange rate markups</a> to understand the other hidden cost most people miss.</p>`,
+<p><strong>The prepaid-card catch.</strong> Paying with a prepaid card is not taxed in itself, but the proposed rules say that buying a prepaid card with cash from the provider or its agent and immediately using it to send money "may be recharacterized" as a cash transfer, and taxed. Loading a card with cash to dodge the tax at the counter is exactly what that rule targets.</p>`,
       },
       {
-        heading: "Provider-by-Provider: Who Charges the Remittance Tax?",
-        content: `<p>We checked the {{PROVIDER_COUNT}} providers in our comparison engine to determine which ones could trigger the 1% remittance tax. The answer depends entirely on the payment methods each provider accepts.</p>
+        heading: "Provider by Provider: When the Remittance Tax Applies",
+        content: `<p>The tax follows how you pay, not which company you use. Providers that take payment only from a bank account or card online never collect it; those with agent counters collect it only when you pay there in cash or with a paper instrument.</p>
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Remittance Tax by Provider</h3>
+<h3 style="margin-top: 0;">Remittance tax by provider</h3>
 <table>
-<thead><tr><th>Provider</th><th>Cash Option?</th><th>Tax Applies?</th><th>How to Avoid</th></tr></thead>
+<thead><tr><th>Provider</th><th>Takes cash or money orders?</th><th>Tax applies?</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>No</td><td>Never</td><td>All payments are digital</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>No</td><td>Never</td><td>Bank/card only</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/instarem">InstaReM</a></strong></td><td>No</td><td>Never</td><td>Bank/card only</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>No</td><td>Never</td><td>Bank transfer only</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/xe">XE</a></strong></td><td>No</td><td>Never</td><td>Bank/card only</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/revolut">Revolut</a></strong></td><td>No</td><td>Never</td><td>All payments are digital</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>No</td><td>Never</td><td>App/online only</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>No</td><td>Never</td><td>App only</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/xoom">Xoom</a></strong></td><td>No</td><td>Never</td><td>PayPal/bank/card only</td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>Yes (in-store)</td><td>Only if cash</td><td>Use app or debit card in-store</td></tr>
-<tr><td><strong><a href="/companies/moneygram">MoneyGram</a></strong></td><td>Yes (in-store)</td><td>Only if cash</td><td>Use app or debit card in-store</td></tr>
-<tr><td><strong><a href="/companies/ace-money-transfer">ACE Money Transfer</a></strong></td><td>Limited</td><td>Depends on method</td><td>Use bank/card funding</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>No</td><td>No: paid by bank or card</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>No</td><td>No: paid by bank or card</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/instarem">InstaReM</a></strong></td><td>No</td><td>No: paid by bank</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>No</td><td>No: paid by bank transfer</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/xe">XE</a></strong></td><td>No</td><td>No: paid by bank or card</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>No</td><td>No: paid by card or digital wallet</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>No</td><td>No: paid by card in the app</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/xoom">Xoom</a></strong></td><td>No</td><td>No: paid by PayPal, bank or card</td></tr>
+<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>Yes, at agent locations</td><td>Only when you pay in cash or with a money order or cashier's check</td></tr>
+<tr><td><strong><a href="/companies/moneygram">MoneyGram</a></strong></td><td>Yes, at agent locations</td><td>Only when you pay in cash or with a money order or cashier's check</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on provider payment method data, March 2026. <a href="/send-money">Compare live rates across all providers →</a></p>
+<p class="blog-footnote">Payment methods as each provider offers them to US senders. If a provider adds a cash option, the tax follows the payment, so check the payment step before you confirm.</p>
 </div>
-<p>The pattern is clear: <strong>digital-first providers are completely exempt</strong>. Traditional cash-based services only trigger the tax if you choose to pay with physical cash or money orders. Even Western Union and MoneyGram let you avoid the tax by paying with a card or bank transfer through their apps.</p>
-<p>See how the top two providers stack up in our <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a>.</p>`,
+<p>See how two of the digital providers compare in our <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a>.</p>`,
       },
       {
-        heading: "The Real Cost: Tax + Fees + Exchange Rate Markup",
-        content: `<p>The remittance tax adds 1% on top of two costs you're already paying: the <strong>transfer fee</strong> and the <strong>exchange rate markup</strong>. For someone paying cash at a retail location, here's what a $1,000 transfer to India actually costs:</p>
+        heading: "What a $1,000 Transfer Costs With and Without the Tax",
+        content: `<p>The tax adds 1% on top of the two costs you already pay: the <strong>transfer fee</strong> and the <strong>exchange-rate margin</strong>. Here is what $1,000 to India costs through providers paid from a bank account, on our latest quotes:</p>
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Total Cost of Sending $1,000 USD to India (Cash vs. Digital)</h3>
+<h3 style="margin-top: 0;">Total cost of sending $1,000 USD to India, paid from a bank account</h3>
 <table>
-<thead><tr><th>Provider</th><th>Method</th><th>Fee</th><th>Markup</th><th>Remittance Tax</th><th>Total Cost</th></tr></thead>
+<thead><tr><th>Provider</th><th>Fee</th><th>Margin</th><th>Remittance tax</th><th>Total cost</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Bank</td><td>{{FEE:wise:USD:INR:1000}}</td><td>{{MARKUP:wise:USD:INR:1000}}</td><td>$0</td><td><strong>{{COST:wise:USD:INR:1000}} ({{COST_PCT:wise:USD:INR:1000}})</strong></td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Bank</td><td>{{FEE:remitly:USD:INR:1000}}</td><td>{{MARKUP:remitly:USD:INR:1000}}</td><td>$0</td><td><strong>{{COST:remitly:USD:INR:1000}} ({{COST_PCT:remitly:USD:INR:1000}})</strong></td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/instarem">InstaReM</a></strong></td><td>Bank</td><td>{{FEE:instarem:USD:INR:1000}}</td><td>{{MARKUP:instarem:USD:INR:1000}}</td><td>$0</td><td><strong>{{COST:instarem:USD:INR:1000}} ({{COST_PCT:instarem:USD:INR:1000}})</strong></td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>App (bank)</td><td>{{FEE:western-union:USD:INR:1000}}</td><td>{{MARKUP:western-union:USD:INR:1000}}</td><td>$0</td><td><strong>{{COST:western-union:USD:INR:1000}} ({{COST_PCT:western-union:USD:INR:1000}})</strong></td></tr>
-<tr class="blog-row-danger"><td><strong>Western Union</strong></td><td>Cash (store)</td><td>$5.00</td><td>~1.5%</td><td><strong>$10.00</strong></td><td><strong>~$30.00 (3.00%)</strong></td></tr>
-<tr class="blog-row-danger"><td><strong>MoneyGram</strong></td><td>Cash (store)</td><td>$5.00</td><td>~2.0%</td><td><strong>$10.00</strong></td><td><strong>~$35.00 (3.50%)</strong></td></tr>
-<tr class="blog-row-danger"><td><strong>Bank wire</strong></td><td>Cash/check</td><td>$25–$50</td><td>~3.0%</td><td><strong>$10.00</strong></td><td><strong>~$65–$90 (6.5–9%)</strong></td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>{{FEE:wise:USD:INR:1000}}</td><td>{{MARKUP:wise:USD:INR:1000}}</td><td>$0</td><td><strong>{{COST:wise:USD:INR:1000}} ({{COST_PCT:wise:USD:INR:1000}})</strong></td></tr>
+<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>{{FEE:remitly:USD:INR:1000}}</td><td>{{MARKUP:remitly:USD:INR:1000}}</td><td>$0</td><td><strong>{{COST:remitly:USD:INR:1000}} ({{COST_PCT:remitly:USD:INR:1000}})</strong></td></tr>
+<tr><td><strong><a href="/companies/instarem">InstaReM</a></strong></td><td>{{FEE:instarem:USD:INR:1000}}</td><td>{{MARKUP:instarem:USD:INR:1000}}</td><td>$0</td><td><strong>{{COST:instarem:USD:INR:1000}} ({{COST_PCT:instarem:USD:INR:1000}})</strong></td></tr>
+<tr><td><strong><a href="/companies/western-union">Western Union</a></strong> (app, bank-funded)</td><td>{{FEE:western-union:USD:INR:1000}}</td><td>{{MARKUP:western-union:USD:INR:1000}}</td><td>$0</td><td><strong>{{COST:western-union:USD:INR:1000}} ({{COST_PCT:western-union:USD:INR:1000}})</strong></td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">The four bank-delivery rows are live quotes for $1,000 USD → INR, collected {{QUOTE_DATE}}. The cash-in-store and bank-wire rows are estimates: counter pricing is not published as a quotable rate, so we model it from advertised fee schedules plus the 1% tax. Actual costs vary by amount and corridor. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
+<p class="blog-footnote">Live quotes for $1,000 USD → INR, collected {{QUOTE_DATE}}. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
 </div>
-<blockquote class="blog-callout-blue-sm">
-<strong>Quick comparison:</strong> Sending $1,000 to India through Wise costs {{COST:wise:USD:INR:1000}} in total on our latest quote. The same transfer handed over as cash at a MoneyGram counter costs roughly $35 once the counter fee, the wider markup and the new 1% remittance tax are added — <strong>about five times as much</strong>. <a href="/compare/wise-vs-remitly">See our full Wise vs Remitly comparison →</a>
-</blockquote>
-<p>For a deeper look at how these costs add up across corridors, read our analysis of the <a href="/guides/cost-of-sending-1000-abroad">real cost of sending $1,000 abroad</a>.</p>`,
+<p><strong>Paying cash instead</strong> adds 1% of the amount delivered: about $10 on a $1,000 transfer. The tax is charged on what the recipient is sent, including any promotional bonus, and not on the fee (proposed rules). Counter fees and exchange rates for cash payments are not published as quotable prices, so we do not estimate them here; the tax comes on top of whatever the counter charges.</p>
+<p>For how fees and margins add up across routes, see the <a href="/guides/cost-of-sending-1000-abroad">real cost of sending $1,000 abroad</a>.</p>`,
       },
       {
-        heading: "5 Ways to Avoid the Remittance Tax",
-        content: `<p>You can legally avoid the 1% remittance tax entirely by switching how you fund your transfers. None of these require a workaround — they're explicit exemptions written into the law.</p>
+        heading: "How to Avoid the Remittance Tax Legally",
+        content: `<p>Every way round the tax is simply a different way of paying, written into the law itself:</p>
 <ol>
-<li><strong>Use a digital transfer app</strong> — <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/worldremit">WorldRemit</a>, and <a href="/companies/xoom">Xoom</a> only accept bank accounts and cards. The tax physically cannot apply.</li>
-<li><strong>Pay from your bank account</strong> — Even at Western Union or MoneyGram, funding through your bank account (ACH) is exempt under IRC 4475(d)(1).</li>
-<li><strong>Use a US debit card</strong> — Debit cards issued by US banks are explicitly exempt. You can use them in-store or online.</li>
-<li><strong>Use a US credit card</strong> — Also exempt, though watch for cash advance fees your card issuer might charge on money transfers.</li>
-<li><strong>Use a prepaid card</strong> — <a href="https://www.westernunion.com/blog/en/us-remittance-tax/" target="_blank" rel="noopener noreferrer nofollow">Western Union suggests</a> loading a prepaid Visa card with cash, then using that card to pay — which makes the transfer exempt.</li>
+<li><strong>Use an app or website paid from your bank account.</strong> Money taken from an account at a bank or credit union is exempt under § 4475(d)(1), whichever provider you use. That includes the apps of <a href="/companies/western-union">Western Union</a> and <a href="/companies/moneygram">MoneyGram</a>.</li>
+<li><strong>Pay with a debit or credit card.</strong> Cards issued in the US are exempt under § 4475(d)(2), in store or online. A card issuer may treat a money transfer on a credit card as a cash advance, with its own fee and interest, so check before you pay that way.</li>
+<li><strong>Use a provider with no cash option.</strong> Wise, Remitly, WorldRemit, Xoom and the other digital services above take payment only electronically, so the tax cannot arise.</li>
 </ol>
-<p>The simplest option: switch to one of the <a href="/guides/best-money-transfer-apps">best money transfer apps</a> and pay from your bank account. You'll avoid the tax and almost certainly pay lower fees and get a better exchange rate than cash-based services.</p>
-<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: Best Tax-Free Transfer Providers</h3>
-<table>
-<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Mid-market rate</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, no markup, always tax-free</td></tr>
-<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Instant delivery, $0 fee, bank-funded only</td></tr>
-<tr><td><strong>Fee-free, digital-only</strong></td><td><a href="/companies/instarem">InstaReM</a></td><td>$0 fee, {{AVG_MARKUP_PCT:instarem}} median markup, digital-only</td></tr>
-<tr><td><strong>Best for Large Amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No fees, negotiated rates, bank transfer only</td></tr>
-<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Cash pickup at destination, app-funded (no tax)</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">All providers above accept only digital payment methods — remittance tax never applies. <a href="/send-money">Compare live rates →</a></p>
-</div>`,
+<p><strong>What does not work:</strong> buying a cashier's check or money order from your own bank account still counts as a paper instrument, and loading a prepaid card with cash at the provider's counter and sending straight away can be treated as a cash payment.</p>
+<p>The simplest option is to <a href="/send-money">compare providers</a> you can pay from your bank account.</p>`,
       },
       {
-        heading: "Who Does the Remittance Tax Affect Most?",
-        content: `<p>The remittance tax applies regardless of citizenship, visa status, or income. But in practice, it disproportionately affects people who rely on cash to send money — and that's overwhelmingly low-income immigrants and undocumented workers who may not have US bank accounts.</p>
-<p>According to <a href="https://odi.org/en/insights/why-taxing-remittances-will-harm-migrants-and-the-us-economy-trumps-one-big-beautiful-bill-act/" target="_blank" rel="noopener noreferrer">research from the Overseas Development Institute (ODI)</a>, the tax could affect an estimated 23 million green-card holders, 14 million non-immigrant visa holders, and 12 million unauthorized migrants. The ODI projects a 1.6% drop in total remittances from the US.</p>
-<p>The numbers are staggering. <a href="https://www.borderreport.com/hot-topics/trade/1-percent-tax-on-remittances-from-us-takes-effect-in-2026/" target="_blank" rel="noopener noreferrer">Mexico received $62.5 billion in remittances in 2024</a> — that's 3.5% of its GDP. India, the Philippines, Nigeria, and Pakistan are similarly dependent on remittance flows from the US.</p>
-<p>Research from <a href="https://www.aiddata.org/blog/a-remittance-tax-that-hits-the-poor-hardest" target="_blank" rel="noopener noreferrer">AidData</a> suggests that even a 1% tax pushes some senders away from formal channels and toward informal networks — hawala, unlicensed couriers, or cash carried by friends. That means less transparency, less consumer protection, and less money reaching families.</p>
-<p>For those sending money to specific corridors, we have dedicated guides: <a href="/guides/send-money-to-india-guide">India</a>, <a href="/guides/send-money-to-mexico-guide">Mexico</a>, <a href="/guides/send-money-to-nigeria-guide">Nigeria</a>, <a href="/guides/send-money-to-pakistan-guide">Pakistan</a>, <a href="/guides/send-money-to-philippines-guide">Philippines</a>, and <a href="/guides/send-money-to-bangladesh-guide">Bangladesh</a>.</p>`,
+        heading: "What the IRS Has Said About the Remittance Tax",
+        content: `<ul>
+<li><strong>October 2025, Notice 2025-55:</strong> penalty relief for providers that deposit the tax on time during the first three quarters of 2026, even if their calculations are wrong, and pay any shortfall by the Form 720 due date. Nothing changes for senders (<a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer">IRS</a>).</li>
+<li><strong>April 13, 2026, proposed regulations (REG-114499-25):</strong> the exclusive list of taxed instruments (cash, money orders, cashier's checks and traveler's checks); cards, personal checks, ACH and prepaid cards not taxed; a check the provider cashes counts as cash; the tax charged on the amount delivered rather than the fee; transfers of $15 or less excluded; and the anti-avoidance rule for cash-loaded cards. Senders and providers may rely on them now if they follow them in full (<a href="https://www.federalregister.gov/documents/2026/04/13/2026-07085/excise-tax-on-remittance-transfers" target="_blank" rel="noopener noreferrer">Federal Register</a>).</li>
+<li><strong>September 2026, Notice 2026-52:</strong> extends providers' penalty relief until final regulations apply and says the rules are being finalized (<a href="https://www.irs.gov/irb/2026-43_irb" target="_blank" rel="noopener noreferrer">IRB 2026-43</a>). As of November 17, 2026, no final regulations have been published.</li>
+<li><strong>Refunds:</strong> there is no refund or credit for US citizens. If a taxed transfer is cancelled or expires and the provider does not return the tax, the sender can claim it from the IRS on Schedule 6 of Form 8849 (<a href="https://www.irs.gov/node/160301" target="_blank" rel="noopener noreferrer">IRS</a>).</li>
+</ul>`,
       },
       {
-        heading: "What This Means for Sending Money Home",
-        content: `<p>The US remittance tax adds one more reason to move away from cash-based transfers. The math is straightforward: cash transfers are now more expensive (tax + higher fees + worse exchange rates), while digital transfers are unaffected and already cheaper.</p>
-<p>If you're still paying cash at an agent location, switching to a digital provider could save you <strong>$20–$80 per $1,000 transferred</strong> — the remittance tax is just a fraction of what you save on fees and exchange rate markups.</p>
-<p>Our <a href="/send-money">free comparison tool</a> shows real-time rates from {{PROVIDER_COUNT}} providers across {{CURRENCY_COUNT}} currencies. Enter your transfer amount and see exactly what your recipient gets — after fees, markup, and any applicable tax.</p>
+        heading: "Who the Remittance Tax Affects",
+        content: `<p>The tax applies regardless of citizenship, visa status or income, but only to people who pay in cash or with a paper instrument. In practice that means senders who do not have a bank account or card, or who prefer to pay at an agent counter, and the families they send to. Anyone who can pay from a bank account or card can avoid it by changing how they pay.</p>
+<p>For specific routes, see our guides to sending money to <a href="/guides/send-money-to-india-guide">India</a>, <a href="/guides/send-money-to-mexico-guide">Mexico</a>, <a href="/guides/send-money-to-nigeria-guide">Nigeria</a>, <a href="/guides/send-money-to-pakistan-guide">Pakistan</a>, <a href="/guides/send-money-to-philippines-guide">the Philippines</a> and <a href="/guides/send-money-to-bangladesh-guide">Bangladesh</a>.</p>
 <h3>Sources &amp; Methodology</h3>
-<p>Data in this article is based on real quotes collected from provider APIs and websites, most recently on {{QUOTE_DATE}}. Exchange rates, fees, and tax applicability change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates. External data sources include the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer">IRS One Big Beautiful Bill provisions page</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database, and provider-published fee schedules.</p>`,
+<p>Law: <a href="https://www.law.cornell.edu/uscode/text/26/4475" target="_blank" rel="noopener noreferrer">26 U.S.C. § 4475</a>, the <a href="https://www.govinfo.gov/content/pkg/BILLS-119hr1enr/html/BILLS-119hr1enr.htm" target="_blank" rel="noopener noreferrer">enacted text of H.R. 1</a>, and the earlier versions <a href="https://www.govinfo.gov/content/pkg/BILLS-119hr1rh/html/BILLS-119hr1rh.htm" target="_blank" rel="noopener noreferrer">as reported</a> (5%) and <a href="https://www.govinfo.gov/content/pkg/BILLS-119hr1eh/html/BILLS-119hr1eh.htm" target="_blank" rel="noopener noreferrer">as passed by the House</a> (3.5%). IRS: the proposed regulations of April 13, 2026, Notices 2025-55 and 2026-52, the Form 720 instructions and the Schedule 6 refund guidance, read November 17, 2026. Costs are live quotes collected {{QUOTE_DATE}}. This guide is general information, not tax advice.</p>`,
       },
     ],
     faqs: [
       {
+        question: "What is the US remittance tax in 2026?",
+        answer:
+          "A 1% federal excise tax, in force since January 1, 2026, on money sent abroad from the US when you pay the provider with cash, a money order, a cashier's check or, under the IRS's proposed rules, a traveler's check. Paying from a bank account or with a debit or credit card is not taxed. The sender owes it and the provider collects it.",
+      },
+      {
         question: "Does the remittance tax apply to Wise transfers?",
         answer:
-          "No. Wise only accepts bank account and debit/credit card payments, which are explicitly exempt under IRC 4475(d)(1). The 1% remittance tax only applies to cash, money orders, and cashier's checks — none of which Wise accepts.",
+          "No. Wise takes payment only from a bank account or by card, and the tax applies only when you pay with cash, a money order, a cashier's check or a traveler's check. Money from a bank account is exempt under § 4475(d)(1) and US-issued cards under § 4475(d)(2).",
       },
       {
         question: "How much is the US remittance tax?",
         answer:
-          "The US remittance tax is 1% of the transfer amount. On a $500 transfer paid with cash, you'd owe $5. On $1,000, it's $10. The tax is collected by the transfer provider at checkout and remitted to the IRS quarterly.",
+          "1% of the amount transferred: about $5 on $500 and $10 on $1,000 paid in cash. Under the IRS's proposed rules it is charged on what the recipient is sent, including any promotional bonus, not on the fee, and transfers of $15 or less are excluded.",
       },
       {
         question: "Does the remittance tax apply to bank wire transfers?",
         answer:
-          "No. Wire transfers initiated through your bank account are exempt from the remittance tax. The tax only applies to transfers funded with physical instruments — cash, money orders, and cashier's checks. ACH transfers and international wires from bank accounts are not taxed.",
+          "Not when the wire is paid from your bank account: money withdrawn from an account at a bank or credit union is exempt. It does apply if you pay for the transfer with cash, a money order or a cashier's check, even a cashier's check bought from your own account.",
       },
       {
-        question: "Who pays the remittance tax — the sender or receiver?",
+        question: "Who pays the remittance tax, the sender or the receiver?",
         answer:
-          "The sender pays. The 1% tax is added to your transfer at checkout by the provider. Your recipient is not affected — they receive the same amount regardless of whether the tax applies. The provider then deposits the tax with the IRS.",
+          "The sender. The law makes the tax payable by the sender and requires the provider to collect it and pay it to the IRS; if the provider fails to collect it, the provider owes it.",
       },
       {
         question: "Can I avoid the remittance tax at Western Union?",
         answer:
-          "Yes. The tax only applies when you pay with cash, a money order, or a cashier's check. If you use the Western Union app and pay with your bank account or debit card, the transfer is exempt. You can also load a prepaid Visa card with cash and use that to pay, which avoids the tax.",
+          "Yes: pay through the Western Union app or website from your bank account, or with a debit or credit card. The tax applies only when you pay in cash or with a money order or cashier's check. Buying a prepaid card with cash at the counter and sending straight away does not avoid it under the IRS's proposed rules.",
+      },
+      {
+        question: "Is there a remittance tax refund for US citizens?",
+        answer:
+          "No. The House versions of the bill exempted verified US citizens and offered a credit, but the law as enacted has neither, so the tax applies whatever your citizenship. The only refund is for a cancelled or expired transfer where the provider did not return the tax: the sender can claim it on Schedule 6 of Form 8849.",
       },
       {
         question: "Does the remittance tax apply to all countries?",
         answer:
-          "The tax applies to any international transfer from the US to a foreign country, regardless of destination. It doesn't matter whether you're sending to India, Mexico, the Philippines, or Europe — the 1% tax applies if you pay with cash. The exemption is based on payment method, not destination.",
+          "Yes. It applies to money sent from the US to a recipient abroad whatever the destination; what decides it is how you pay, not where the money goes.",
       },
     ],
     relatedSlugs: [
       "cheapest-way-to-send-money-internationally",
       "cost-of-sending-1000-abroad",
-      "exchange-rate-markup-explained",
-      "best-money-transfer-apps",
+      "money-transfer-limits-by-provider-country",
+      "how-to-send-money-abroad",
     ],
   },
 
@@ -13564,109 +13570,110 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "money-transfer-limits-by-provider-country",
+    // 2026-11-17: every provider limit re-read from the provider's own page.
+    // The September table was wrong for six of eight providers (Wise personal
+    // "$250,000" vs $1M per USD transfer; Western Union "$5,000–$10,000" vs
+    // $3,000 unverified / $50,000 verified; Xoom "$60,000 daily" = its Level 3
+    // 30-day limit; Remitly now $300,000), and it said US transfers over
+    // $10,000 are reported via a CTR (that rule is for cash). Unreadable pages
+    // print "Not verified this month", as the bank wire fee table does.
     title: "International Transfer Limits by Provider (2026)",
     metaDescription:
-      "Guide to international money transfer limits in 2026. Per-transaction, daily, and annual limits for Wise, Remitly, Western Union and other providers.",
+      "How much you can send abroad with Wise, Remitly, Western Union, Xoom, WorldRemit, OFX, Revolut and TapTap Send, from each provider's own pages, November 2026.",
     excerpt:
-      "Every provider and every country has different transfer limits. Here's a complete breakdown of how much you can send, what affects your limits, and how to increase them.",
+      "Published maximums run from a few thousand dollars to over a million, but the limit that applies to you depends on verification, how you pay and where you live. Each provider's figure, read from its own pages.",
     category: "Education",
-    readTime: "12 min read",
+    readTime: "10 min read",
     publishedAt: "2026-04-11",
-    updatedAt: "2026-09-07",
+    updatedAt: "2026-11-17",
     author: "Awais Imran",
     tags: ["transfer limits", "how much can I send", "money transfer", "KYC", "compliance", "sending limits"],
     featuredImage: "/images/blog/transfer-limits.jpg",
     sections: [
       {
         heading: "How Much Money Can You Send Internationally?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Most digital providers allow <strong>$1,000–$50,000 per transfer</strong> after full identity verification (KYC). Limits vary by provider, your verification level, the destination country, and your funding method. <a href="/companies/wise">Wise</a> allows up to $1,000,000 per transfer for verified business accounts. <a href="/companies/western-union">Western Union</a> limits vary by country but typically allow $5,000–$10,000 per transaction. See the full provider-by-provider breakdown below.</p></div>
-<p>Transfer limits exist for three reasons: <strong>anti-money laundering (AML) regulations</strong>, provider risk management, and destination country rules. Understanding your limits helps you avoid delays and choose the right provider for your transfer size.</p>`,
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Published maximums for US senders run from a few thousand dollars to over a million. Western Union lets verified customers send up to $50,000, Remitly up to $300,000 and Wise up to $1 million per USD transfer, and OFX sets no maximum at all. The limit that applies to you is usually lower than the headline: it depends on how far you have verified your identity, how you pay (cards carry the lowest limits), the state or country you live in and where the money is going. Check the figure inside your own account before a large transfer.</p></div>
+<p>Limits exist because providers must know who is sending money and where it comes from under anti-money-laundering rules, and because each one sets its own risk controls on top. The table below is what each provider publishes; the sections after it explain what moves your personal limit up or down.</p>`,
       },
       {
-        heading: "Transfer Limits by Provider (2026)",
+        heading: "Transfer Limits by Provider (November 2026)",
         content: `<div class="table-wrapper"><table>
-<thead><tr><th>Provider</th><th>Per Transfer (Verified)</th><th>Daily</th><th>Annual</th><th>How to Increase</th></tr></thead>
+<thead><tr><th>Provider</th><th>Published limit</th><th>What changes it</th></tr></thead>
 <tbody>
-<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>$1,000,000 (Business)<br>$250,000 (Personal)</td><td>No daily cap</td><td>No annual cap</td><td>Full KYC + source of funds for large amounts</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$30,000 (Express)<br>$50,000 (Economy)</td><td>$30,000</td><td>$180,000</td><td>Complete full verification with photo ID + proof of address</td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>$5,000–$10,000</td><td>$10,000</td><td>Varies by country</td><td>Verify identity in-store with two forms of ID</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut</a></strong></td><td>$250,000</td><td>No daily cap</td><td>No annual cap</td><td>Standard plan: $5,000/month; Premium/Metal: higher</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>No maximum</td><td>No daily cap</td><td>No annual cap</td><td>Dedicated FX dealer for amounts over $10,000</td></tr>
-<tr><td><strong>PayPal/Xoom</strong></td><td>$10,000–$60,000</td><td>$60,000</td><td>No published cap</td><td>Link verified bank account + confirm identity</td></tr>
-<tr><td><strong><a href="/companies/moneygram">MoneyGram</a></strong></td><td>$10,000</td><td>$10,000</td><td>Varies by state</td><td>Full KYC with government-issued ID</td></tr>
-<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>$10,000</td><td>$10,000</td><td>$50,000</td><td>Contact support for limit increases with documentation</td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong> (US)</td><td>Up to $1 million per USD transfer. Paying by ACH debit: up to $50,000 per 24 hours ($50,000–$250,000 over 60 days). By card: $2,000 per 24 hours, $8,000 per 7 days</td><td>Funding method and state: in Nevada, American Samoa and the Northern Mariana Islands, $50,000 per 24 hours and $250,000 per 12 months</td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong> (UK)</td><td>Up to £20 million per GBP transfer, depending on how you pay</td><td>Card payments have a lower limit; over £1 million must be sent from a Wise balance</td></tr>
+<tr><td><strong><a href="/companies/remitly">Remitly</a></strong> (US)</td><td>Up to $300,000 (since August 2026)</td><td>Your own limit may be lower: verification level, payment method, destination and transfer history</td></tr>
+<tr><td><strong><a href="/companies/western-union">Western Union</a></strong> (US)</td><td>$3,000 a day unverified; up to $50,000 verified</td><td>Identity verification, destination, currency and payment method</td></tr>
+<tr><td><strong>Xoom</strong> (PayPal, US)</td><td>Level 1: $2,999 per 24 hours, $6,000 per 30 days, $9,999 per 180 days. Level 2: $10,000 / $20,000 / $30,000. Level 3: $50,000 / $60,000 / $100,000</td><td>Level 2 needs an SSN or ID; Level 3 needs ID plus a pay stub or bank statement. Cash pickup has lower limits</td></tr>
+<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong> (US)</td><td>By card: $5,000 per transfer, $9,000 per 24 hours. By Apple Pay: $300 per transfer</td><td>Country of residence and payment method; every US sender must be fully verified</td></tr>
+<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>No maximum; minimum US$150 (C$200 in Canada)</td><td>Your bank's own daily transfer limit may apply</td></tr>
+<tr><td><strong><a href="/companies/revolut">Revolut</a></strong></td><td>No limit for most currencies (EEA terms). GBP to UK recipients: £250,000 per payment, £500,000 a day, £1 million a week</td><td>Currency and payment partner; no per-transfer limit published for US international transfers</td></tr>
+<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>US: $10,000 per transfer and per day, $24,000 per 14 days. UK: £99,000. Canada: C$3,500 per transfer. Eurozone: €160,000</td><td>Sending country and US state ($999 in New Mexico and Oklahoma); documents such as payslips are requested at the limit</td></tr>
+<tr><td><strong><a href="/companies/moneygram">MoneyGram</a></strong></td><td>Not verified this month</td><td>Its pages refused automated access; check the limit shown in the app</td></tr>
 </tbody></table></div>
-<p><strong>Note:</strong> These limits apply after full identity verification. Unverified accounts have much lower limits (typically $500–$2,999 per transfer).</p>`,
+<p class="blog-footnote">Read 17 November 2026 from each provider's own help or terms page (sources below). Providers change limits without notice; the figure inside your account is the one that applies.</p>`,
       },
       {
-        heading: "What Affects Your Transfer Limits?",
-        content: `<h3>1. Identity Verification (KYC) Level</h3>
-<p>Every provider has verification tiers. Higher tiers unlock higher limits:</p>
+        heading: "What Raises or Lowers Your Personal Limit",
+        content: `<h3>1. How far you have verified your identity</h3>
+<p>Every provider starts new or lightly checked customers on a low limit and raises it as you prove who you are. Western Union caps unverified US senders at $3,000 a day and allows up to $50,000 once verified. Xoom's three levels run from $2,999 per 24 hours to $50,000, with an ID or Social Security number for Level 2 and a pay stub or bank statement for Level 3. Higher limits generally mean more documents: see <a href="/guides/how-to-send-money-abroad">what you need to send money abroad</a>.</p>
+<h3>2. How you pay</h3>
+<p>Cards carry the lowest limits. Wise allows $2,000 a day by card against $50,000 by ACH debit; WorldRemit takes up to $5,000 per transfer by card and $300 by Apple Pay. Funding from a bank account, or from a balance already held with the provider, unlocks the larger figures.</p>
+<h3>3. Where you live</h3>
+<p>US limits can differ by state because money transmitters are licensed state by state: Wise sets lower caps in Nevada, and TapTap Send allows $999 in New Mexico and Oklahoma against $10,000 elsewhere.</p>
+<h3>4. Rules in the destination country</h3>
+<p>Few countries cap what a person can receive, but several make banks report large payments, which can lead to questions for your recipient:</p>
 <ul>
-<li><strong>Basic:</strong> Email + phone number → $500–$2,999 per transfer</li>
-<li><strong>Standard:</strong> Government-issued photo ID → $5,000–$50,000</li>
-<li><strong>Enhanced:</strong> ID + proof of address + source of funds → $50,000–$1,000,000</li>
-</ul>
-<h3>2. Funding Method</h3>
-<ul>
-<li><strong>Bank transfer (ACH/SEPA):</strong> Highest limits, lowest fees</li>
-<li><strong>Debit card:</strong> Moderate limits ($5,000–$25,000 per day, depends on your bank)</li>
-<li><strong>Credit card:</strong> Lowest limits, highest fees (cash advance charges may apply)</li>
-<li><strong>Cash:</strong> Typically $3,000–$10,000 per transaction</li>
-</ul>
-<h3>3. Destination Country</h3>
-<p>Some countries have receiving limits set by their central bank:</p>
-<ul>
-<li><strong>India:</strong> No limit on receiving remittances, but RBI's Liberalised Remittance Scheme (LRS) limits <em>outbound</em> transfers to $250,000/year</li>
-<li><strong>Pakistan:</strong> No limit on receiving. SBP requires documentation for amounts over PKR 2 million</li>
-<li><strong>Nigeria:</strong> CBN monitors large inflows. No formal receiving limit but banks may request source-of-funds documentation above ₦5 million</li>
-<li><strong>Philippines:</strong> BSP requires reporting for transactions over PHP 500,000</li>
+<li><strong>India:</strong> the Reserve Bank's Liberalised Remittance Scheme lets residents <em>send</em> up to USD 250,000 per financial year (April to March). It limits money leaving India, not money arriving.</li>
+<li><strong>Philippines:</strong> banks and remittance firms report any cash transaction above ₱500,000 within one banking day to the Anti-Money Laundering Council (Republic Act 9194). That is a report by the institution, not a limit on what you can receive.</li>
+<li><strong>Nigeria:</strong> the Money Laundering (Prevention and Prohibition) Act 2022 requires a transfer to or from abroad above US$10,000 to be reported by the institution handling it; it is not a cap on what a recipient can be paid.</li>
 </ul>`,
       },
       {
         heading: "Reporting Requirements You Should Know",
-        content: `<h3>US Senders</h3>
+        content: `<h3>US senders</h3>
 <ul>
-<li><strong>$10,000+ cash transactions:</strong> the provider — not you — must file a Currency Transaction Report (CTR) with FinCEN. The threshold and the filing duty are set by <a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-C/section-1010.311" target="_blank" rel="noopener noreferrer">31 CFR § 1010.311</a>.</li>
-<li><strong>$10,000+ foreign account balances:</strong> you must file an FBAR (FinCEN Form 114) annually if your foreign accounts exceeded $10,000 combined at any point in the year. See the <a href="https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar" target="_blank" rel="noopener noreferrer">IRS FBAR guidance</a>. This is about accounts you hold abroad, not transfers you send.</li>
-<li><strong>$50,000+ foreign assets:</strong> FATCA <a href="https://www.irs.gov/pub/irs-pdf/f8938.pdf" target="_blank" rel="noopener noreferrer">Form 8938</a> is filed with your tax return. Thresholds are higher if you live abroad or file jointly — see the <a href="https://www.irs.gov/businesses/corporations/summary-of-fatca-reporting-for-us-taxpayers" target="_blank" rel="noopener noreferrer">IRS reporting summary</a> for the bracket that applies to you.</li>
-<li><strong>Structuring is illegal:</strong> splitting a $15,000 transfer into three $5,000 transfers to stay under a reporting threshold is a federal crime under <a href="https://www.ecfr.gov/current/title-31/section-1010.314" target="_blank" rel="noopener noreferrer">31 CFR § 1010.314</a>, whether or not the underlying money is lawful.</li>
+<li><strong>Cash over $10,000:</strong> a provider that takes more than $10,000 in cash in a day files a Currency Transaction Report with FinCEN. The rule covers cash, not transfers you fund from a bank account (<a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-C/section-1010.311" target="_blank" rel="noopener noreferrer">31 CFR § 1010.311</a>).</li>
+<li><strong>Foreign accounts over $10,000:</strong> you file an FBAR (FinCEN Form 114) if accounts you hold abroad exceeded $10,000 combined at any point in the year. See the <a href="https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar" target="_blank" rel="noopener noreferrer">IRS FBAR guidance</a>. This is about accounts you hold abroad, not transfers you send.</li>
+<li><strong>Foreign assets over $50,000:</strong> FATCA <a href="https://www.irs.gov/pub/irs-pdf/f8938.pdf" target="_blank" rel="noopener noreferrer">Form 8938</a> is filed with your tax return; thresholds are higher if you live abroad or file jointly (<a href="https://www.irs.gov/businesses/corporations/summary-of-fatca-reporting-for-us-taxpayers" target="_blank" rel="noopener noreferrer">IRS summary</a>).</li>
+<li><strong>Structuring is illegal:</strong> splitting a payment to stay under a reporting threshold is a federal crime under <a href="https://www.ecfr.gov/current/title-31/section-1010.314" target="_blank" rel="noopener noreferrer">31 CFR § 1010.314</a>, whether or not the money itself is lawful.</li>
+<li><strong>Remittance tax:</strong> since 1 January 2026 a 1% federal excise tax applies to transfers you pay for with cash, a money order or a cashier's check (and, under the IRS's proposed rules, a traveler's check); paying from a bank account or by card is not taxed. See our <a href="/guides/us-remittance-tax-2026">US remittance tax guide</a>.</li>
 </ul>
-<h3>UK Senders</h3>
+<h3>UK senders</h3>
 <ul>
-<li><strong>No outbound limit:</strong> You can send any amount abroad from the UK</li>
-<li><strong>HMRC monitoring:</strong> Banks report large transactions to HMRC. No action needed from you unless the funds are subject to tax</li>
+<li><strong>No outbound limit</strong> is set by law; each provider sets its own.</li>
+<li><strong>No routine large-payment report:</strong> UK banks and payment firms do not report transactions to HMRC because of their size. They report suspicion of money laundering, whatever the amount, to the UK Financial Intelligence Unit at the National Crime Agency (<a href="https://www.gov.uk/hmrc-internal-manuals/anti-money-laundering-guidance-for-supervised-businesses/amlg11100" target="_blank" rel="noopener noreferrer">HMRC manual AMLG11100</a>). A large payment can still prompt your bank to ask where the money came from.</li>
 </ul>
-<h3>EU Senders</h3>
+<h3>EU senders</h3>
 <ul>
-<li><strong>€10,000+ cash:</strong> Must declare when crossing borders</li>
-<li><strong>SEPA transfers:</strong> No limit (SEPA Instant caps at €100,000 per transaction)</li>
+<li><strong>Cash of €10,000 or more</strong> must be declared when you enter or leave the EU.</li>
+<li><strong>SEPA Instant:</strong> the scheme-wide €100,000 cap was removed on 5 October 2025; your bank may still set its own limit (<a href="https://www.europeanpaymentscouncil.eu/what-we-do/sepa-instant-credit-transfer" target="_blank" rel="noopener noreferrer">European Payments Council</a>).</li>
 </ul>`,
       },
       {
         heading: "How to Send Large Amounts ($10,000+)",
-        content: `<p>For large international transfers, your options narrow but the savings increase:</p>
+        content: `<p>Above $10,000 the choice narrows to providers whose limits reach your amount and whose verification you can complete:</p>
 <ol>
-<li><strong><a href="/companies/ofx">OFX</a></strong> — No maximum transfer limit, no transfer fees, dedicated FX dealer. Best for $10,000–$1,000,000+ transfers including property purchases and business payments.</li>
-<li><strong><a href="/companies/wise">Wise</a></strong> — Up to $1M per transfer (Business). Mid-market rate with 0% markup. Requires source-of-funds documentation for large amounts.</li>
-<li><strong>Bank wire (SWIFT)</strong> — Most banks allow $100,000–$500,000+ but charge 2-5% in hidden exchange rate markup plus $25–50 wire fees. Avoid unless your bank is the only option.</li>
+<li><strong><a href="/companies/ofx">OFX</a></strong> sets no maximum (minimum US$150), though your own bank's daily limit may apply to the payment you make to OFX.</li>
+<li><strong><a href="/companies/wise">Wise</a></strong> publishes up to $1 million per USD transfer, but paying by ACH debit is capped at $50,000 per 24 hours. Wise says it uses the mid-market rate with no markup; across our quotes its median markup is {{AVG_MARKUP_PCT:wise}}.</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong> allows up to $300,000 from the US, subject to your verification level and payment method.</li>
+<li><strong>A bank wire</strong> has the limit your bank sets, usually high, but at a cost: see what each bank charges in our <a href="/guides/bank-wire-transfer-fees-2026">international wire fees by bank</a> table.</li>
 </ol>
-<p>For property purchases, inheritance transfers, or business payments over $50,000, always <a href="/send-money">compare providers</a> — the savings can be thousands of dollars.</p>`,
+<p>Expect to show where the money came from, such as a sale contract, payslips or bank statements, before a large transfer clears. For a property purchase, confirm the account details by phone with your solicitor or title company before every payment: property deposits are a favourite target of <a href="/guides/are-wire-transfers-safe">wire transfer fraud</a>. Then <a href="/send-money">compare providers</a> at your amount, where small differences in rate add up.</p>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Provider limits in the table were read from each provider's own published terms and help pages, last checked April 2026 — treat them as indicative rather than current, since providers change them without notice and without announcement. Verify your own limit inside your account before committing to a large transfer: the figure that applies to you depends on your verification tier, destination and funding method, and is often lower than the published maximum. The regulatory thresholds above are cited to the regulation or form itself and are current as of September 2026.</p>
-<p>Regulatory information from <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">RBI</a>, and <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">BSP</a>.</p>`,
+        content: `<p>Provider limits were read on 17 November 2026 from each provider's own pages: <a href="https://wise.com/help/articles/2932150/usd-transfers" target="_blank" rel="noopener noreferrer nofollow">Wise USD transfers</a>, <a href="https://www.wise.com/help/articles/2932148/guide-to-gbp-transfers" target="_blank" rel="noopener noreferrer nofollow">Wise GBP transfers</a>, <a href="https://www.remitly.com/us/en/landing/send-limits" target="_blank" rel="noopener noreferrer nofollow">Remitly sending limits</a>, <a href="https://www.westernunion.com/us/en/money-transfer-limits.html" target="_blank" rel="noopener noreferrer nofollow">Western Union limits</a>, <a href="https://help.xoom.com/s/article/how-much-money-can-i-send" target="_blank" rel="noopener noreferrer nofollow">Xoom</a>, <a href="https://www.worldremit.com/en-us/faq/send-from/americas/usa" target="_blank" rel="noopener noreferrer nofollow">WorldRemit (US)</a>, <a href="https://www.ofx.com/en-us/faqs/what-is-the-maximum-amount-you-can-transfer/" target="_blank" rel="noopener noreferrer nofollow">OFX</a>, Revolut's published payment-limit terms and TapTap Send's help centre. MoneyGram's pages refused automated access, and Remitly's verification tiers sit behind a bot check, so neither is published here until we have read it. Country rules: the <a href="https://rbi.org.in/Scripts/FAQView.aspx?Id=115" target="_blank" rel="noopener noreferrer">Reserve Bank of India's LRS FAQ</a>, Republic Act 9194 (Philippines), Nigeria's Money Laundering (Prevention and Prohibition) Act 2022, HMRC's anti-money-laundering manual and the European Payments Council. The figure in your own account is the one that applies; providers change limits without notice.</p>`,
       },
     ],
     faqs: [
-      { question: "How much money can I send to Pakistan from the US?", answer: "Most providers allow $5,000–$50,000 per transfer to Pakistan after full identity verification. Wise allows up to $250,000 (personal) per transfer. Western Union typically limits cash transfers to $5,000–$10,000. Pakistan's State Bank has no formal limit on receiving remittances, but your bank may request documentation for amounts above PKR 2 million." },
-      { question: "What is the maximum amount I can transfer internationally?", answer: "It depends on the provider. OFX has no maximum limit and specializes in large transfers. Wise allows up to $1,000,000 per transfer for verified business accounts. Most digital providers cap at $10,000–$50,000 per transfer for personal accounts. Banks typically allow $100,000–$500,000+ via SWIFT wire." },
-      { question: "Do I need to report international money transfers?", answer: "In the US, transfers over $10,000 are automatically reported by your provider to FinCEN via a Currency Transaction Report (CTR). If you hold over $10,000 in foreign bank accounts, you must file an FBAR annually. You never need to report transfers to the IRS yourself — the reporting is done by the provider." },
-      { question: "Can I send $100,000 internationally?", answer: "Yes. Use OFX (no maximum, no fees), Wise ($250,000 personal limit), or a bank SWIFT wire. You'll need enhanced identity verification and source-of-funds documentation. For amounts this large, always compare providers — the difference in exchange rates alone could be $2,000–$5,000." },
-      { question: "Why was my transfer declined?", answer: "Common reasons: KYC verification incomplete, exceeded your provider's per-transaction or daily limit, the destination country flagged the transfer for compliance review, or your funding method has its own limits (e.g., debit card daily cap). Contact your provider's support team with the reference number to resolve." },
+      { question: "How much money can I send to Pakistan from the US?", answer: "It depends on the provider and your verification: TapTap Send allows up to $10,000 per transfer, Western Union up to $50,000 once you are verified, Remitly up to $300,000 and Wise up to $1 million per USD transfer, each with lower daily limits for card payments. Your recipient's bank may ask about the source of a large payment." },
+      { question: "What is the maximum amount I can transfer internationally?", answer: "OFX sets no maximum. Among app-based providers, Wise publishes up to $1 million per USD transfer and up to £20 million per GBP transfer, depending on how you pay, and Remitly up to $300,000 from the US. Your own limit is often lower until you complete verification, and card payments carry the lowest limits." },
+      { question: "Do I need to report international money transfers?", answer: "Not usually. In the US, a provider files a Currency Transaction Report when it takes more than $10,000 in cash in a day; a transfer paid from your bank account does not trigger one. You file an FBAR yourself only if accounts you hold abroad exceeded $10,000 combined during the year. Splitting a payment to avoid a report is illegal." },
+      { question: "Can I send $100,000 internationally?", answer: "Yes. OFX has no maximum, Remitly allows up to $300,000 from the US and Wise up to $1 million per USD transfer, though Wise caps ACH debits at $50,000 per 24 hours. Expect to provide ID and evidence of where the money came from, and compare the exchange rate at that amount before you send." },
+      { question: "Why was my transfer declined?", answer: "Common reasons: your identity verification is incomplete, the amount is above your current limit or your card's daily limit, the payment needs a compliance review, or your state or the destination has a lower cap. Contact the provider with the transfer reference; it can tell you which limit applied and how to raise it." },
     ],
-    relatedSlugs: ["money-transfer-safety-guide", "cheapest-way-to-send-money-internationally", "wire-transfer-guide", "best-money-transfer-apps"],
+    relatedSlugs: ["how-to-send-large-amounts-internationally", "how-to-send-money-abroad", "us-remittance-tax-2026", "cheapest-way-to-send-money-internationally"],
   },
   // ============================
   // Best Money Transfer Apps for Expats
