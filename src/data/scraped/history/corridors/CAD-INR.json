@@ -22708,5 +22708,94 @@
         "receiveAmount": 6394.47
       }
     }
+  },
+  {
+    "date": "2026-11-17",
+    "providers": {
+      "instarem": {
+        "rate": 65.5065,
+        "fee": 0,
+        "markup": 0.15,
+        "receiveAmount": 6550.65
+      },
+      "moneygram": {
+        "rate": 65.5835,
+        "fee": 3.99,
+        "markup": 0.21,
+        "receiveAmount": 6296.67
+      },
+      "western-union": {
+        "rate": 65.4081,
+        "fee": 1.99,
+        "markup": 0.23,
+        "receiveAmount": 6410.65
+      },
+      "dahabshiil": {
+        "rate": 65.3124,
+        "fee": 2.99,
+        "markup": 0.62,
+        "receiveAmount": 6335.96
+      },
+      "paysend": {
+        "rate": 65.5201,
+        "fee": 0,
+        "markup": 0.3,
+        "receiveAmount": 6552.01
+      },
+      "koho": {
+        "rate": 65.7254,
+        "fee": 1.24,
+        "markup": -0.01,
+        "receiveAmount": 6491.04
+      },
+      "remitly": {
+        "rate": 65.31,
+        "fee": 1.99,
+        "markup": 0.38,
+        "receiveAmount": 6401.03
+      },
+      "ria": {
+        "rate": 65.5152,
+        "fee": 1.9,
+        "markup": 0.07,
+        "receiveAmount": 6427.04
+      },
+      "taptap-send": {
+        "rate": 65.53,
+        "fee": 1.99,
+        "markup": 0.05,
+        "receiveAmount": 6422.6
+      },
+      "xoom": {
+        "rate": 64.513,
+        "fee": 0,
+        "markup": 1.6,
+        "receiveAmount": 6451.3
+      },
+      "td-bank": {
+        "rate": 63.3069,
+        "fee": 0,
+        "markup": 3.44,
+        "receiveAmount": 6330.69
+      },
+      "bmo": {
+        "rate": 63.8215,
+        "fee": 0,
+        "markup": 2.65,
+        "receiveAmount": 6382.15
+      },
+      "rbc": {
+        "rate": 63.5769,
+        "fee": 0,
+        "markup": 3.03,
+        "receiveAmount": 6357.69
+      },
+      "wise": {
+        "rate": 65.5733,
+        "fee": 2.59,
+        "markup": -0.02,
+        "receiveAmount": 6387.5
+      }
+    }
   }
 ]
