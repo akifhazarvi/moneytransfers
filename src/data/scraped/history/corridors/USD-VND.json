@@ -9303,10 +9303,10 @@
     "date": "2026-11-17",
     "providers": {
       "remitly": {
-        "rate": 25499.4,
+        "rate": 25448,
         "fee": 1.99,
-        "markup": 1,
-        "receiveAmount": 2499199.13
+        "markup": 1.2,
+        "receiveAmount": 2494153.58
       },
       "ria": {
         "rate": 25548,
@@ -9315,16 +9315,16 @@
         "receiveAmount": 2506256.84
       },
       "taptap-send": {
-        "rate": 25500,
+        "rate": 25600,
         "fee": 0,
-        "markup": 0.99,
-        "receiveAmount": 2550000
+        "markup": 0.61,
+        "receiveAmount": 2560000
       },
       "western-union": {
-        "rate": 25385.6,
+        "rate": 25372.7,
         "fee": 0.99,
-        "markup": 1.44,
-        "receiveAmount": 2513424.1
+        "markup": 1.49,
+        "receiveAmount": 2512154.79
       },
       "xoom": {
         "rate": 24987.9,
@@ -9333,16 +9333,16 @@
         "receiveAmount": 2424072.23
       },
       "instarem": {
-        "rate": 25568.8,
+        "rate": 25525.1,
         "fee": 0,
-        "markup": 0.73,
-        "receiveAmount": 2556875.9
+        "markup": 0.9,
+        "receiveAmount": 2552506.5
       },
       "wise": {
-        "rate": 25766,
+        "rate": 25712.5,
         "fee": 2.51,
-        "markup": -0.04,
-        "receiveAmount": 2511927.34
+        "markup": 0.17,
+        "receiveAmount": 2506711.63
       }
     }
   }

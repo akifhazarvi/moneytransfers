@@ -13838,10 +13838,10 @@
     "date": "2026-11-17",
     "providers": {
       "remitly": {
-        "rate": 33.43,
+        "rate": 33.35,
         "fee": 1.99,
-        "markup": 1.32,
-        "receiveAmount": 3276.47
+        "markup": 1.56,
+        "receiveAmount": 3268.63
       },
       "ria": {
         "rate": 33.3029,
@@ -13850,34 +13850,34 @@
         "receiveAmount": 3280.34
       },
       "taptap-send": {
-        "rate": 33.85,
+        "rate": 33.75,
         "fee": 1.99,
-        "markup": 0.08,
-        "receiveAmount": 3317.64
+        "markup": 0.38,
+        "receiveAmount": 3307.84
       },
       "western-union": {
-        "rate": 33.239,
+        "rate": 33.1009,
         "fee": 1.99,
-        "markup": 1.89,
-        "receiveAmount": 3257.75
+        "markup": 2.29,
+        "receiveAmount": 3244.22
       },
       "paypal": {
-        "rate": 32.4782,
+        "rate": 32.3925,
         "fee": 4.99,
-        "markup": 4.13,
-        "receiveAmount": 3085.75
+        "markup": 4.39,
+        "receiveAmount": 3077.61
       },
       "wells-fargo": {
-        "rate": 32.8126,
+        "rate": 32.726,
         "fee": 0,
-        "markup": 3.15,
-        "receiveAmount": 3281.26
+        "markup": 3.4,
+        "receiveAmount": 3272.6
       },
       "instarem": {
-        "rate": 33.6478,
+        "rate": 33.5451,
         "fee": 0,
-        "markup": 0.68,
-        "receiveAmount": 3364.78
+        "markup": 0.98,
+        "receiveAmount": 3354.51
       },
       "xoom": {
         "rate": 32.3498,
@@ -13886,16 +13886,16 @@
         "receiveAmount": 3073.55
       },
       "worldremit": {
-        "rate": 33.3959,
+        "rate": 33.3078,
         "fee": 2.99,
-        "markup": 1.42,
-        "receiveAmount": 3239.74
+        "markup": 1.68,
+        "receiveAmount": 3231.19
       },
       "wise": {
-        "rate": 33.8725,
+        "rate": 33.7825,
         "fee": 2.87,
-        "markup": 0.02,
-        "receiveAmount": 3290.04
+        "markup": 0.28,
+        "receiveAmount": 3281.29
       }
     }
   }

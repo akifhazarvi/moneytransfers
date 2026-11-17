@@ -20523,15 +20523,15 @@
     "date": "2026-11-17",
     "providers": {
       "instarem": {
-        "rate": 123.714,
+        "rate": 124.463,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 12371.41
+        "receiveAmount": 12446.3
       },
       "lemfi": {
         "rate": 124.02,
         "fee": 0,
-        "markup": 0.35,
+        "markup": 0.71,
         "receiveAmount": 12402
       },
       "moneygram": {
@@ -20595,16 +20595,16 @@
         "receiveAmount": 12374.91
       },
       "remitly": {
-        "rate": 124.4,
+        "rate": 124.15,
         "fee": 3.99,
-        "markup": 0.05,
-        "receiveAmount": 11943.64
+        "markup": 0.25,
+        "receiveAmount": 11919.64
       },
       "wise": {
-        "rate": 124.5,
+        "rate": 124.9,
         "fee": 3.18,
-        "markup": -0.03,
-        "receiveAmount": 12054.09
+        "markup": -0.35,
+        "receiveAmount": 12092.82
       }
     }
   }
