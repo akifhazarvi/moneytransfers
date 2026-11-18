@@ -3739,16 +3739,16 @@
     "date": "2026-11-18",
     "providers": {
       "taptap-send": {
-        "rate": 4.08,
+        "rate": 4.1,
         "fee": 0,
-        "markup": 0.33,
-        "receiveAmount": 408
+        "markup": -0.16,
+        "receiveAmount": 410
       },
       "wise": {
-        "rate": 4.094,
+        "rate": 4.116,
         "fee": 1.39,
-        "markup": -0.01,
-        "receiveAmount": 403.71
+        "markup": -0.55,
+        "receiveAmount": 405.88
       }
     }
   }

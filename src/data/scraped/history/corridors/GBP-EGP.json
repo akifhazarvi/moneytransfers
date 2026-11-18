@@ -3692,16 +3692,16 @@
     "date": "2026-11-18",
     "providers": {
       "lemfi": {
-        "rate": 70.73,
+        "rate": 70.85,
         "fee": 0,
-        "markup": 0.25,
-        "receiveAmount": 7073
+        "markup": -0.11,
+        "receiveAmount": 7085
       },
       "taptap-send": {
-        "rate": 70.8,
+        "rate": 70.7,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 7080
+        "markup": 0.29,
+        "receiveAmount": 7070
       }
     }
   }

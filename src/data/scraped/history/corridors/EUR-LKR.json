@@ -3705,16 +3705,16 @@
     "date": "2026-11-18",
     "providers": {
       "taptap-send": {
-        "rate": 363,
+        "rate": 362,
         "fee": 0,
-        "markup": 0.67,
-        "receiveAmount": 36300
+        "markup": 0.94,
+        "receiveAmount": 36200
       },
       "wise": {
-        "rate": 365.46,
+        "rate": 365.048,
         "fee": 3.11,
-        "markup": 0,
-        "receiveAmount": 35409.42
+        "markup": 0.11,
+        "receiveAmount": 35369.5
       }
     }
   }

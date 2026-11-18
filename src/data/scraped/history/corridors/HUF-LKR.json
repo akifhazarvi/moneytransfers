@@ -1719,10 +1719,10 @@
     "date": "2026-11-18",
     "providers": {
       "taptap-send": {
-        "rate": 1,
+        "rate": 0.99,
         "fee": 0,
-        "markup": -0.32,
-        "receiveAmount": 100
+        "markup": 0.68,
+        "receiveAmount": 99
       }
     }
   }

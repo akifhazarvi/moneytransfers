@@ -6195,10 +6195,10 @@
     "date": "2026-11-18",
     "providers": {
       "western-union": {
-        "rate": 40.7509,
+        "rate": 40.6665,
         "fee": 15,
-        "markup": -0.02,
-        "receiveAmount": 3463.83
+        "markup": 0.19,
+        "receiveAmount": 3456.65
       },
       "paysend": {
         "rate": 40.1637,
@@ -6207,10 +6207,10 @@
         "receiveAmount": 3654.9
       },
       "remitly": {
-        "rate": 40.52,
+        "rate": 40.5,
         "fee": 0,
-        "markup": 0.55,
-        "receiveAmount": 4052
+        "markup": 0.6,
+        "receiveAmount": 4050
       },
       "taptap-send": {
         "rate": 40.5,

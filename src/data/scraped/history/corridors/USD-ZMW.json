@@ -3079,10 +3079,16 @@
     "date": "2026-11-18",
     "providers": {
       "taptap-send": {
-        "rate": 19.83,
+        "rate": 19.82,
         "fee": 0,
-        "markup": 3.41,
-        "receiveAmount": 1983
+        "markup": 3.46,
+        "receiveAmount": 1982
+      },
+      "wise": {
+        "rate": 20.6949,
+        "fee": 8.21,
+        "markup": -0.8,
+        "receiveAmount": 1899.58
       }
     }
   }

@@ -9908,10 +9908,10 @@
     "date": "2026-11-18",
     "providers": {
       "pandaremit": {
-        "rate": 6.6441,
+        "rate": 6.6436,
         "fee": 6.99,
-        "markup": 0.33,
-        "receiveAmount": 617.97
+        "markup": 0.34,
+        "receiveAmount": 617.92
       },
       "ria": {
         "rate": 6.5461,
@@ -9926,28 +9926,28 @@
         "receiveAmount": 650
       },
       "instarem": {
-        "rate": 6.6192,
+        "rate": 6.62165,
         "fee": 0,
-        "markup": 0.7,
-        "receiveAmount": 661.92
+        "markup": 0.67,
+        "receiveAmount": 662.16
       },
       "western-union": {
-        "rate": 6.5179,
+        "rate": 6.51471,
         "fee": 1.99,
-        "markup": 2.22,
-        "receiveAmount": 638.82
+        "markup": 2.27,
+        "receiveAmount": 638.51
       },
       "remitly": {
-        "rate": 6.6226,
+        "rate": 6.62555,
         "fee": 1.99,
-        "markup": 0.65,
-        "receiveAmount": 649.08
+        "markup": 0.61,
+        "receiveAmount": 649.37
       },
       "wise": {
-        "rate": 6.66615,
+        "rate": 6.66865,
         "fee": 4.44,
-        "markup": 0,
-        "receiveAmount": 637.02
+        "markup": -0.04,
+        "receiveAmount": 637.26
       }
     }
   }
