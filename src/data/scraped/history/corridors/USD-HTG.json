@@ -11006,5 +11006,64 @@
         "receiveAmount": 10770.53
       }
     }
+  },
+  {
+    "date": "2026-11-18",
+    "providers": {
+      "moneygram": {
+        "rate": 130.67,
+        "fee": 8.49,
+        "markup": 0.47,
+        "receiveAmount": 11957.62
+      },
+      "ria": {
+        "rate": 130.67,
+        "fee": 4.5,
+        "markup": 0.47,
+        "receiveAmount": 12478.99
+      },
+      "taptap-send": {
+        "rate": 131,
+        "fee": 2.49,
+        "markup": 0,
+        "receiveAmount": 12773.81
+      },
+      "boss-money": {
+        "rate": 130.67,
+        "fee": 4.49,
+        "markup": 0.47,
+        "receiveAmount": 12480.3
+      },
+      "western-union": {
+        "rate": 130.67,
+        "fee": 12.99,
+        "markup": 0.47,
+        "receiveAmount": 11369.61
+      },
+      "xe": {
+        "rate": 130.017,
+        "fee": 4,
+        "markup": 0.97,
+        "receiveAmount": 12481.6
+      },
+      "sendwave": {
+        "rate": 130.743,
+        "fee": 2.49,
+        "markup": 0.41,
+        "receiveAmount": 12748.79
+      },
+      "remitly": {
+        "rate": 130.67,
+        "fee": 5.49,
+        "markup": 0.47,
+        "receiveAmount": 12349.62
+      },
+      "wise": {
+        "rate": 131.156,
+        "fee": 17.88,
+        "markup": 0.1,
+        "receiveAmount": 10770.53
+      }
+    }
   }
 ]

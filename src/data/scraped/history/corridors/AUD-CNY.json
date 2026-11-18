@@ -8801,5 +8801,46 @@
         "receiveAmount": 435.17
       }
     }
+  },
+  {
+    "date": "2026-11-18",
+    "providers": {
+      "pandaremit": {
+        "rate": 4.4659,
+        "fee": 5.99,
+        "markup": 0.5,
+        "receiveAmount": 419.84
+      },
+      "taptap-send": {
+        "rate": 4.38,
+        "fee": 0,
+        "markup": 2.41,
+        "receiveAmount": 438
+      },
+      "nab": {
+        "rate": 4.34943,
+        "fee": 0,
+        "markup": 3.09,
+        "receiveAmount": 434.94
+      },
+      "remitly": {
+        "rate": 4.45151,
+        "fee": 2.99,
+        "markup": 0.82,
+        "receiveAmount": 431.84
+      },
+      "instarem": {
+        "rate": 4.48288,
+        "fee": 0.37,
+        "markup": 0.12,
+        "receiveAmount": 446.63
+      },
+      "western-union": {
+        "rate": 4.41423,
+        "fee": 0.99,
+        "markup": 1.65,
+        "receiveAmount": 437.05
+      }
+    }
   }
 ]
