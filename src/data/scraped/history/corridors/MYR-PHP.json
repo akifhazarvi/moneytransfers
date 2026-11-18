@@ -5942,28 +5942,28 @@
     "date": "2026-11-18",
     "providers": {
       "western-union": {
-        "rate": 15.5305,
+        "rate": 15.4149,
         "fee": 10,
-        "markup": 0.28,
-        "receiveAmount": 1397.74
+        "markup": 0.39,
+        "receiveAmount": 1387.34
       },
       "worldremit": {
-        "rate": 15.3664,
+        "rate": 15.3082,
         "fee": 5,
-        "markup": 1.33,
-        "receiveAmount": 1459.81
+        "markup": 1.08,
+        "receiveAmount": 1454.28
       },
       "instarem": {
-        "rate": 15.5303,
+        "rate": 15.4314,
         "fee": 0.65,
-        "markup": 0.28,
-        "receiveAmount": 1542.94
+        "markup": 0.29,
+        "receiveAmount": 1533.11
       },
       "wise": {
-        "rate": 15.5722,
+        "rate": 15.4757,
         "fee": 5.19,
-        "markup": 0.01,
-        "receiveAmount": 1476.4
+        "markup": 0,
+        "receiveAmount": 1467.25
       }
     }
   }

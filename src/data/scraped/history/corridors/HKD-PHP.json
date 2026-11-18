@@ -11807,6 +11807,30 @@
         "fee": 7.86,
         "markup": -0.01,
         "receiveAmount": 747.24
+      },
+      "moneygram": {
+        "rate": 8.0153,
+        "fee": 8,
+        "markup": 1.27,
+        "receiveAmount": 737.41
+      },
+      "western-union": {
+        "rate": 8.07294,
+        "fee": 5,
+        "markup": 0.56,
+        "receiveAmount": 766.93
+      },
+      "currencyfair": {
+        "rate": 8.068,
+        "fee": 9.92,
+        "markup": 0.62,
+        "receiveAmount": 726.77
+      },
+      "singx": {
+        "rate": 8.1075,
+        "fee": 20,
+        "markup": 0.13,
+        "receiveAmount": 648.6
       }
     }
   }

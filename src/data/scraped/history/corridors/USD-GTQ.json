@@ -17018,16 +17018,52 @@
         "receiveAmount": 739.83
       },
       "xoom": {
-        "rate": 7.5949,
+        "rate": 7.5944,
         "fee": 4.19,
         "markup": 0.61,
-        "receiveAmount": 727.67
+        "receiveAmount": 727.62
       },
       "wise": {
         "rate": 7.64251,
         "fee": 10.19,
         "markup": -0.01,
         "receiveAmount": 686.37
+      },
+      "moneygram": {
+        "rate": 7.5808,
+        "fee": 1.99,
+        "markup": 0.76,
+        "receiveAmount": 742.99
+      },
+      "boss-money": {
+        "rate": 7.5768,
+        "fee": 1.49,
+        "markup": 0.81,
+        "receiveAmount": 746.39
+      },
+      "worldremit": {
+        "rate": 7.5943,
+        "fee": 1.99,
+        "markup": 0.58,
+        "receiveAmount": 744.32
+      },
+      "paysend": {
+        "rate": 7.50219,
+        "fee": 1.99,
+        "markup": 1.79,
+        "receiveAmount": 735.29
+      },
+      "sendwave": {
+        "rate": 7.59813,
+        "fee": 1.99,
+        "markup": 0.53,
+        "receiveAmount": 744.69
+      },
+      "revolut": {
+        "rate": 7.58323,
+        "fee": 0.75,
+        "markup": 0.73,
+        "receiveAmount": 752.64
       }
     }
   }
