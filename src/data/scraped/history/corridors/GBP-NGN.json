@@ -22076,5 +22076,94 @@
         "receiveAmount": 190670.27
       }
     }
+  },
+  {
+    "date": "2026-11-19",
+    "providers": {
+      "instarem": {
+        "rate": 1774.15,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 177414.98
+      },
+      "lemfi": {
+        "rate": 1890,
+        "fee": 0,
+        "markup": -6.25,
+        "receiveAmount": 189000
+      },
+      "moneygram": {
+        "rate": 1883.69,
+        "fee": 0.99,
+        "markup": -5.86,
+        "receiveAmount": 186504.12
+      },
+      "taptap-send": {
+        "rate": 1875,
+        "fee": 0,
+        "markup": -5.41,
+        "receiveAmount": 187500
+      },
+      "western-union": {
+        "rate": 1857.32,
+        "fee": 1.99,
+        "markup": -4.42,
+        "receiveAmount": 182036.19
+      },
+      "transfergo": {
+        "rate": 1890.52,
+        "fee": 0,
+        "markup": -6.24,
+        "receiveAmount": 189051.79
+      },
+      "worldremit": {
+        "rate": 1821.45,
+        "fee": 0.99,
+        "markup": -2.36,
+        "receiveAmount": 180341.56
+      },
+      "mukuru": {
+        "rate": 1912.89,
+        "fee": 0.12,
+        "markup": -7.5,
+        "receiveAmount": 191059.45
+      },
+      "paysend": {
+        "rate": 1894.13,
+        "fee": 0,
+        "markup": -6.44,
+        "receiveAmount": 189412.53
+      },
+      "sendwave": {
+        "rate": 1821.45,
+        "fee": 0.99,
+        "markup": -2.36,
+        "receiveAmount": 180341.56
+      },
+      "remitly": {
+        "rate": 1875.94,
+        "fee": 0,
+        "markup": -5.46,
+        "receiveAmount": 187594
+      },
+      "ria": {
+        "rate": 1917.44,
+        "fee": 1.99,
+        "markup": -7.8,
+        "receiveAmount": 187928.02
+      },
+      "xoom": {
+        "rate": 1796.59,
+        "fee": 0.89,
+        "markup": -1,
+        "receiveAmount": 178060.1
+      },
+      "wise": {
+        "rate": 1903.48,
+        "fee": 1.16,
+        "markup": -7.01,
+        "receiveAmount": 188139.96
+      }
+    }
   }
 ]
