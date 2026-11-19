@@ -21457,10 +21457,10 @@
         "receiveAmount": 677.5
       },
       "xe": {
-        "rate": 10.8121,
+        "rate": 10.7817,
         "fee": 1.99,
-        "markup": 1.14,
-        "receiveAmount": 1059.69
+        "markup": 1.62,
+        "receiveAmount": 1056.71
       },
       "western-union": {
         "rate": 10.6635,
@@ -21469,22 +21469,22 @@
         "receiveAmount": 1055.8
       },
       "worldremit": {
-        "rate": 10.637,
+        "rate": 10.6609,
         "fee": 1.99,
-        "markup": 2.74,
-        "receiveAmount": 1042.53
+        "markup": 2.72,
+        "receiveAmount": 1044.88
       },
       "paysend": {
-        "rate": 10.8223,
+        "rate": 10.8482,
         "fee": 0,
-        "markup": 1.05,
-        "receiveAmount": 1082.23
+        "markup": 1.01,
+        "receiveAmount": 1084.82
       },
       "sendwave": {
-        "rate": 10.8413,
+        "rate": 10.8658,
         "fee": 1.99,
-        "markup": 0.88,
-        "receiveAmount": 1062.56
+        "markup": 0.85,
+        "receiveAmount": 1064.96
       },
       "remitly": {
         "rate": 10.69,
@@ -21493,10 +21493,10 @@
         "receiveAmount": 1042.38
       },
       "revolut": {
-        "rate": 10.8037,
+        "rate": 10.8275,
         "fee": 1.75,
-        "markup": 1.22,
-        "receiveAmount": 1061.46
+        "markup": 1.2,
+        "receiveAmount": 1063.8
       },
       "wise": {
         "rate": 10.9405,
@@ -21505,10 +21505,10 @@
         "receiveAmount": 1028.41
       },
       "ria": {
-        "rate": 10.8011,
+        "rate": 10.7708,
         "fee": 0.8,
-        "markup": 1.27,
-        "receiveAmount": 1071.47
+        "markup": 1.55,
+        "receiveAmount": 1068.46
       },
       "la-banque-postale": {
         "rate": 10.6419,
@@ -21557,6 +21557,12 @@
         "fee": 22,
         "markup": 3.1,
         "receiveAmount": 826.86
+      },
+      "skrill": {
+        "rate": 10.6355,
+        "fee": 0,
+        "markup": 2.95,
+        "receiveAmount": 1063.55
       }
     }
   }

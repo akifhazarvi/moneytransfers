@@ -8479,16 +8479,16 @@
         "receiveAmount": 2086.88
       },
       "currencyfair": {
-        "rate": 25.2508,
-        "fee": 34.75,
-        "markup": 0.74,
-        "receiveAmount": 1647.61
+        "rate": 25.222,
+        "fee": 34.76,
+        "markup": 0.72,
+        "receiveAmount": 1645.48
       },
       "paysend": {
-        "rate": 25.007,
+        "rate": 24.9672,
         "fee": 0,
-        "markup": 1.7,
-        "receiveAmount": 2500.7
+        "markup": 1.73,
+        "receiveAmount": 2496.72
       },
       "remitly": {
         "rate": 25.38,
@@ -8501,6 +8501,12 @@
         "fee": 5,
         "markup": 0,
         "receiveAmount": 2417.75
+      },
+      "skrill": {
+        "rate": 24.193,
+        "fee": 0,
+        "markup": 4.77,
+        "receiveAmount": 2419.3
       }
     }
   }
