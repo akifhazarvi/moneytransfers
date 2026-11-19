@@ -19526,10 +19526,10 @@
     "date": "2026-11-19",
     "providers": {
       "lemfi": {
-        "rate": 136.5,
+        "rate": 136.41,
         "fee": 0,
-        "markup": 0.1,
-        "receiveAmount": 13650
+        "markup": 0.17,
+        "receiveAmount": 13641
       },
       "moneygram": {
         "rate": 136.054,
@@ -19544,10 +19544,10 @@
         "receiveAmount": 13680
       },
       "western-union": {
-        "rate": 131.43,
+        "rate": 131.837,
         "fee": 0.99,
-        "markup": 3.81,
-        "receiveAmount": 13012.85
+        "markup": 3.51,
+        "receiveAmount": 13053.21
       },
       "worldremit": {
         "rate": 136.324,
@@ -19556,10 +19556,10 @@
         "receiveAmount": 13088.45
       },
       "instarem": {
-        "rate": 135.284,
+        "rate": 135.21,
         "fee": 0,
-        "markup": 0.99,
-        "receiveAmount": 13528.37
+        "markup": 1.05,
+        "receiveAmount": 13520.98
       },
       "xe": {
         "rate": 136.458,
@@ -19592,10 +19592,10 @@
         "receiveAmount": 13340.62
       },
       "wise": {
-        "rate": 136.608,
+        "rate": 136.6,
         "fee": 3.14,
-        "markup": 0.02,
-        "receiveAmount": 13231.85
+        "markup": 0.03,
+        "receiveAmount": 13231.08
       },
       "ria": {
         "rate": 136.52,
@@ -19604,22 +19604,22 @@
         "receiveAmount": 13652
       },
       "skrill": {
-        "rate": 129.989,
+        "rate": 130.144,
         "fee": 0,
-        "markup": 4.87,
-        "receiveAmount": 12998.85
+        "markup": 4.75,
+        "receiveAmount": 13014.42
       },
       "xoom": {
-        "rate": 133.635,
+        "rate": 133.722,
         "fee": 2.99,
-        "markup": 2.2,
-        "receiveAmount": 12963.88
+        "markup": 2.13,
+        "receiveAmount": 12972.42
       },
       "bnp": {
-        "rate": 133.192,
+        "rate": 132.874,
         "fee": 0,
-        "markup": 2.52,
-        "receiveAmount": 13319.19
+        "markup": 2.75,
+        "receiveAmount": 13287.41
       }
     }
   }
