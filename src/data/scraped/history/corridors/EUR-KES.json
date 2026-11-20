@@ -21944,7 +21944,7 @@
       "lemfi": {
         "rate": 142.25,
         "fee": 0,
-        "markup": 0.27,
+        "markup": 0.42,
         "receiveAmount": 14225
       },
       "moneygram": {
@@ -21954,22 +21954,22 @@
         "receiveAmount": 13930.83
       },
       "skrill": {
-        "rate": 136.02,
+        "rate": 135.966,
         "fee": 0,
-        "markup": 4.64,
-        "receiveAmount": 13602.02
+        "markup": 4.68,
+        "receiveAmount": 13596.58
       },
       "deutsche-bank": {
-        "rate": 140.206,
+        "rate": 139.908,
         "fee": 36.55,
-        "markup": 1.71,
-        "receiveAmount": 8896.09
+        "markup": 1.92,
+        "receiveAmount": 8877.15
       },
       "western-union": {
-        "rate": 136.181,
+        "rate": 135.795,
         "fee": 1.99,
-        "markup": 4.53,
-        "receiveAmount": 13347.09
+        "markup": 4.8,
+        "receiveAmount": 13309.25
       },
       "profee": {
         "rate": 141.849,
@@ -21984,10 +21984,10 @@
         "receiveAmount": 13995.62
       },
       "instarem": {
-        "rate": 139.619,
+        "rate": 139.834,
         "fee": 0,
-        "markup": 2.12,
-        "receiveAmount": 13961.9
+        "markup": 1.97,
+        "receiveAmount": 13983.42
       },
       "xe": {
         "rate": 139.582,
@@ -22008,10 +22008,10 @@
         "receiveAmount": 14066.29
       },
       "remitly": {
-        "rate": 139.41,
+        "rate": 139.63,
         "fee": 1.99,
-        "markup": 2.27,
-        "receiveAmount": 13663.57
+        "markup": 2.11,
+        "receiveAmount": 13685.14
       },
       "revolut": {
         "rate": 141.231,
@@ -22020,10 +22020,10 @@
         "receiveAmount": 13798.3
       },
       "wise": {
-        "rate": 142.678,
+        "rate": 142.941,
         "fee": 3.55,
-        "markup": -0.03,
-        "receiveAmount": 13761.29
+        "markup": -0.21,
+        "receiveAmount": 13786.66
       },
       "ria": {
         "rate": 140.123,
@@ -22038,28 +22038,28 @@
         "receiveAmount": 14200
       },
       "rabobank": {
-        "rate": 139.316,
+        "rate": 139.555,
         "fee": 16,
-        "markup": 2.33,
-        "receiveAmount": 11702.53
+        "markup": 2.16,
+        "receiveAmount": 11722.61
       },
       "xoom": {
-        "rate": 136.148,
+        "rate": 136.714,
         "fee": 2.99,
-        "markup": 4.55,
-        "receiveAmount": 13207.67
+        "markup": 4.16,
+        "receiveAmount": 13262.61
       },
       "abn-amro-bank": {
-        "rate": 140.44,
+        "rate": 140.437,
         "fee": 21,
-        "markup": 1.54,
-        "receiveAmount": 11094.73
+        "markup": 1.55,
+        "receiveAmount": 11094.51
       },
       "bnp": {
-        "rate": 139.102,
+        "rate": 139.23,
         "fee": 0,
-        "markup": 2.48,
-        "receiveAmount": 13910.24
+        "markup": 2.39,
+        "receiveAmount": 13923
       }
     }
   }

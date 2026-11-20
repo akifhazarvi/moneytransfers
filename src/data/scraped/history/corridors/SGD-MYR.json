@@ -6571,22 +6571,22 @@
     "date": "2026-11-20",
     "providers": {
       "instarem": {
-        "rate": 3.1847,
+        "rate": 3.1878,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 318.47
+        "receiveAmount": 318.78
       },
       "paypal": {
-        "rate": 3.03819,
+        "rate": 3.04085,
         "fee": 6.44,
-        "markup": 4.68,
-        "receiveAmount": 284.25
+        "markup": 4.6,
+        "receiveAmount": 284.5
       },
       "hsbc-sg": {
-        "rate": 3.18561,
+        "rate": 3.18935,
         "fee": 0,
-        "markup": 0.06,
-        "receiveAmount": 318.56
+        "markup": -0.06,
+        "receiveAmount": 318.93
       }
     }
   }

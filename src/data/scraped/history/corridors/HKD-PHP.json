@@ -11891,10 +11891,10 @@
     "date": "2026-11-20",
     "providers": {
       "instarem": {
-        "rate": 8.1192,
+        "rate": 8.1354,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 811.92
+        "receiveAmount": 813.54
       },
       "moneygram": {
         "rate": 8.0491,
@@ -11927,16 +11927,16 @@
         "receiveAmount": 649.61
       },
       "wise": {
-        "rate": 8.13913,
+        "rate": 8.14165,
         "fee": 7.86,
-        "markup": -0.01,
-        "receiveAmount": 749.94
+        "markup": -0.04,
+        "receiveAmount": 750.17
       },
       "hsbc-hk": {
-        "rate": 7.97577,
+        "rate": 7.99603,
         "fee": 70,
-        "markup": 2,
-        "receiveAmount": 239.27
+        "markup": 1.75,
+        "receiveAmount": 239.88
       }
     }
   }
