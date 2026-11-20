@@ -12412,10 +12412,10 @@
     "date": "2026-11-20",
     "providers": {
       "moneygram": {
-        "rate": 108.704,
+        "rate": 108.21,
         "fee": 1.99,
-        "markup": 1.85,
-        "receiveAmount": 10654.09
+        "markup": 1.76,
+        "receiveAmount": 10605.67
       },
       "skrill": {
         "rate": 105.51,
@@ -12430,28 +12430,28 @@
         "receiveAmount": 10332.98
       },
       "currencyfair": {
-        "rate": 109.98,
-        "fee": 1.09,
-        "markup": 0.7,
-        "receiveAmount": 10878.12
+        "rate": 109.35,
+        "fee": 1.1,
+        "markup": 0.73,
+        "receiveAmount": 10814.76
       },
       "postfinance": {
-        "rate": 107.515,
-        "fee": 18.85,
-        "markup": 2.92,
-        "receiveAmount": 8724.87
+        "rate": 107.365,
+        "fee": 18.83,
+        "markup": 2.53,
+        "receiveAmount": 8714.84
       },
       "paysend": {
-        "rate": 109.729,
+        "rate": 109.161,
         "fee": 2.9,
-        "markup": 0.92,
-        "receiveAmount": 10654.66
+        "markup": 0.9,
+        "receiveAmount": 10599.58
       },
       "revolut": {
-        "rate": 110.36,
+        "rate": 109.739,
         "fee": 1.1,
-        "markup": 0.35,
-        "receiveAmount": 10914.61
+        "markup": 0.37,
+        "receiveAmount": 10853.15
       },
       "wise": {
         "rate": 110.669,
