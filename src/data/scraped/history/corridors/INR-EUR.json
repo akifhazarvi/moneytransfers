@@ -2653,5 +2653,22 @@
         "receiveAmount": 0.93
       }
     }
+  },
+  {
+    "date": "2026-11-20",
+    "providers": {
+      "skrill": {
+        "rate": 0.0093,
+        "fee": 0,
+        "markup": 4.53,
+        "receiveAmount": 0.93
+      },
+      "western-union": {
+        "rate": 0.0095745,
+        "fee": 0,
+        "markup": 1.71,
+        "receiveAmount": 0.96
+      }
+    }
   }
 ]

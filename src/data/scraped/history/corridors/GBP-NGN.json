@@ -22165,5 +22165,94 @@
         "receiveAmount": 185724.31
       }
     }
+  },
+  {
+    "date": "2026-11-20",
+    "providers": {
+      "instarem": {
+        "rate": 1762.19,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 176218.7
+      },
+      "lemfi": {
+        "rate": 1840,
+        "fee": 0,
+        "markup": -3.92,
+        "receiveAmount": 184000
+      },
+      "moneygram": {
+        "rate": 1912.33,
+        "fee": 0.99,
+        "markup": -7.23,
+        "receiveAmount": 189340.22
+      },
+      "western-union": {
+        "rate": 1857.21,
+        "fee": 1.99,
+        "markup": -4.89,
+        "receiveAmount": 182025.54
+      },
+      "transfergo": {
+        "rate": 1910.06,
+        "fee": 0,
+        "markup": -7.1,
+        "receiveAmount": 191005.95
+      },
+      "worldremit": {
+        "rate": 1873.62,
+        "fee": 0.99,
+        "markup": -5.06,
+        "receiveAmount": 185507.15
+      },
+      "mukuru": {
+        "rate": 1913.63,
+        "fee": 0.12,
+        "markup": -7.3,
+        "receiveAmount": 191133.36
+      },
+      "paysend": {
+        "rate": 1912.27,
+        "fee": 0,
+        "markup": -7.22,
+        "receiveAmount": 191227.28
+      },
+      "sendwave": {
+        "rate": 1873.62,
+        "fee": 0.99,
+        "markup": -5.06,
+        "receiveAmount": 185507.15
+      },
+      "remitly": {
+        "rate": 1899.3,
+        "fee": 0,
+        "markup": -7.27,
+        "receiveAmount": 189930
+      },
+      "ria": {
+        "rate": 1921.23,
+        "fee": 1.99,
+        "markup": -8.5,
+        "receiveAmount": 188299.57
+      },
+      "taptap-send": {
+        "rate": 1875,
+        "fee": 0,
+        "markup": -5.89,
+        "receiveAmount": 187500
+      },
+      "xoom": {
+        "rate": 1790.48,
+        "fee": 0.89,
+        "markup": -1.12,
+        "receiveAmount": 177454.85
+      },
+      "wise": {
+        "rate": 1878.98,
+        "fee": 1.16,
+        "markup": -6.12,
+        "receiveAmount": 185718.38
+      }
+    }
   }
 ]
