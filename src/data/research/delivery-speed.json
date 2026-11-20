@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-09",
+ "generatedAt": "2026-11-20",
  "archive": {
   "from": "2026-03-28",
-  "to": "2026-10-09",
-  "snapshots": 475
+  "to": "2026-11-20",
+  "snapshots": 646
  },
  "method": {
   "amount": 1000,
@@ -14,8 +14,8 @@
  },
  "wise": {
   "from": "2026-03-28",
-  "to": "2026-10-09",
-  "quotes": 93373,
+  "to": "2026-11-20",
+  "quotes": 133045,
   "routes": 117,
   "majorCurrencies": [
    "USD",
@@ -30,16 +30,16 @@
   "majorRoutes": 69,
   "overall": {
    "at100": {
-    "quotes": 45871,
-    "withinMinutePct": 31.6,
-    "withinHourPct": 50.9,
-    "withinDayPct": 77.9,
+    "quotes": 65365,
+    "withinMinutePct": 31.4,
+    "withinHourPct": 50.5,
+    "withinDayPct": 78.3,
     "medianHours": 1
    },
    "at1000": {
-    "quotes": 31302,
-    "withinMinutePct": 40.3,
-    "withinHourPct": 55.8,
+    "quotes": 43272,
+    "withinMinutePct": 41.4,
+    "withinHourPct": 55.9,
     "withinDayPct": 80.1,
     "medianHours": 0.1
    }
@@ -48,62 +48,62 @@
   "weekdays": [
    {
     "day": "Monday",
-    "quotes": 4134,
-    "withinMinutePct": 38.8,
-    "withinHourPct": 55.4,
-    "withinDayPct": 86.3,
+    "quotes": 5534,
+    "withinMinutePct": 39.1,
+    "withinHourPct": 55.8,
+    "withinDayPct": 86.7,
     "medianHours": 0.1
    },
    {
     "day": "Tuesday",
-    "quotes": 3840,
-    "withinMinutePct": 39.5,
-    "withinHourPct": 57.1,
+    "quotes": 5590,
+    "withinMinutePct": 39.8,
+    "withinHourPct": 57.4,
     "withinDayPct": 86.3,
     "medianHours": 0.1
    },
    {
     "day": "Wednesday",
-    "quotes": 4035,
-    "withinMinutePct": 40.1,
-    "withinHourPct": 57.3,
-    "withinDayPct": 86.1,
+    "quotes": 5715,
+    "withinMinutePct": 41.5,
+    "withinHourPct": 57.5,
+    "withinDayPct": 86.3,
     "medianHours": 0.1
    },
    {
     "day": "Thursday",
-    "quotes": 4061,
-    "withinMinutePct": 39.8,
-    "withinHourPct": 56.4,
-    "withinDayPct": 84.4,
+    "quotes": 5741,
+    "withinMinutePct": 40.6,
+    "withinHourPct": 56.5,
+    "withinDayPct": 84.5,
     "medianHours": 0.1
    },
    {
     "day": "Friday",
-    "quotes": 7268,
-    "withinMinutePct": 40.5,
-    "withinHourPct": 56.2,
-    "withinDayPct": 74.8,
+    "quotes": 8948,
+    "withinMinutePct": 42.1,
+    "withinHourPct": 56.3,
+    "withinDayPct": 73.7,
     "medianHours": 0.3
    },
    {
     "day": "Saturday",
-    "quotes": 3848,
-    "withinMinutePct": 43.5,
-    "withinHourPct": 54.5,
-    "withinDayPct": 62.9,
+    "quotes": 5738,
+    "withinMinutePct": 45.4,
+    "withinHourPct": 54.8,
+    "withinDayPct": 63.1,
     "medianHours": 0
    },
    {
     "day": "Sunday",
-    "quotes": 4116,
-    "withinMinutePct": 40.2,
-    "withinHourPct": 53.6,
-    "withinDayPct": 83.7,
-    "medianHours": 0.2
+    "quotes": 6006,
+    "withinMinutePct": 40.9,
+    "withinHourPct": 53.3,
+    "withinDayPct": 83.8,
+    "medianHours": 0.1
    }
   ],
-  "nearInstantRoutes": 24,
+  "nearInstantRoutes": 21,
   "nearInstantShare": 0.95,
   "slowest": [
    {
@@ -135,49 +135,49 @@
    {
     "route": "USD-PHP",
     "at100": {
-     "quotes": 455,
-     "withinMinutePct": 98.5,
-     "withinHourPct": 98.5,
+     "quotes": 626,
+     "withinMinutePct": 98.2,
+     "withinHourPct": 98.2,
      "withinDayPct": 100,
      "medianHours": 0
     },
     "at1000": {
-     "quotes": 456,
+     "quotes": 627,
      "withinMinutePct": 0,
      "withinHourPct": 0,
-     "withinDayPct": 78.9,
-     "medianHours": 6.1
+     "withinDayPct": 77.7,
+     "medianHours": 24
     }
    },
    {
     "route": "GBP-PHP",
     "at100": {
-     "quotes": 453,
-     "withinMinutePct": 99.1,
-     "withinHourPct": 99.1,
+     "quotes": 624,
+     "withinMinutePct": 98.7,
+     "withinHourPct": 98.7,
      "withinDayPct": 100,
      "medianHours": 0
     },
     "at1000": {
-     "quotes": 454,
+     "quotes": 625,
      "withinMinutePct": 0,
      "withinHourPct": 0,
-     "withinDayPct": 79.3,
-     "medianHours": 6.1
+     "withinDayPct": 77.9,
+     "medianHours": 24
     }
    }
   ]
  },
  "disagreement": {
-  "from": "2026-10-03",
-  "to": "2026-10-09",
-  "pairs": 166,
-  "disagreeing": 45,
-  "pct": 27
+  "from": "2026-11-14",
+  "to": "2026-11-20",
+  "pairs": 150,
+  "disagreeing": 43,
+  "pct": 29
  },
  "examples": {
-  "from": "2026-09-10",
-  "to": "2026-10-09",
+  "from": "2026-10-22",
+  "to": "2026-11-20",
   "rows": [
    {
     "provider": "taptapsend",
@@ -185,7 +185,7 @@
     "to": "PKR",
     "own": null,
     "monito": {
-     "quotes": 268,
+     "quotes": 226,
      "minHours": 0,
      "maxHours": 0,
      "withinMinutePct": 100
@@ -198,7 +198,7 @@
     "to": "EUR",
     "own": null,
     "monito": {
-     "quotes": 268,
+     "quotes": 218,
      "minHours": 0,
      "maxHours": 0,
      "withinMinutePct": 100
@@ -210,16 +210,16 @@
     "from": "USD",
     "to": "PKR",
     "own": {
-     "quotes": 268,
+     "quotes": 232,
      "minHours": 0,
      "maxHours": 24,
-     "withinMinutePct": 98.1
+     "withinMinutePct": 91.4
     },
     "monito": null,
     "remitroutes": {
-     "quotes": 402,
-     "minHours": 0.6,
-     "maxHours": 96,
+     "quotes": 348,
+     "minHours": 0.5,
+     "maxHours": 120,
      "withinMinutePct": 0
     }
    },
@@ -228,19 +228,19 @@
     "from": "USD",
     "to": "EUR",
     "own": {
-     "quotes": 267,
+     "quotes": 232,
      "minHours": 0,
-     "maxHours": 0.2,
-     "withinMinutePct": 98.5
+     "maxHours": 0,
+     "withinMinutePct": 100
     },
     "monito": {
-     "quotes": 268,
+     "quotes": 224,
      "minHours": 4.8,
      "maxHours": 55.2,
      "withinMinutePct": 0
     },
     "remitroutes": {
-     "quotes": 912,
+     "quotes": 348,
      "minHours": 0.9,
      "maxHours": 72,
      "withinMinutePct": 0
@@ -257,7 +257,7 @@
      "values": [
       {
        "value": "Instant",
-       "quotes": 46
+       "quotes": 56
       }
      ]
     }
@@ -326,9 +326,9 @@
   }
  ],
  "cfpb": {
-  "pulledAt": "2026-10-09",
+  "pulledAt": "2026-11-20",
   "from": "2022-01-01",
-  "to": "2026-10-09",
+  "to": "2026-11-20",
   "product": "Money transfer, virtual currency, or money service•International money transfer",
   "issue": "Money was not available when promised",
   "minComplaints": 50,
@@ -339,49 +339,49 @@
     "slug": "wise",
     "name": "Wise",
     "company": "TransferWise Ltd",
-    "intlComplaints": 767,
-    "delayComplaints": 196,
+    "intlComplaints": 801,
+    "delayComplaints": 206,
     "sharePct": 26
    },
    {
     "slug": "remitly",
     "name": "Remitly",
     "company": "Remitly, Inc.",
-    "intlComplaints": 634,
-    "delayComplaints": 180,
+    "intlComplaints": 683,
+    "delayComplaints": 192,
     "sharePct": 28
    },
    {
     "slug": "western-union",
     "name": "Western Union",
     "company": "WESTERN UNION COMPANY, THE",
-    "intlComplaints": 895,
-    "delayComplaints": 260,
+    "intlComplaints": 925,
+    "delayComplaints": 266,
     "sharePct": 29
    },
    {
     "slug": "moneygram",
     "name": "MoneyGram",
     "company": "MONEYGRAM PAYMENT SYSTEMS WORLDWIDE INC",
-    "intlComplaints": 667,
-    "delayComplaints": 256,
+    "intlComplaints": 687,
+    "delayComplaints": 260,
     "sharePct": 38
    },
    {
     "slug": "ria",
     "name": "Ria",
     "company": "Ria Envia, LLC",
-    "intlComplaints": 206,
-    "delayComplaints": 58,
+    "intlComplaints": 209,
+    "delayComplaints": 59,
     "sharePct": 28
    },
    {
     "slug": "worldremit",
     "name": "WorldRemit",
     "company": "WorldRemit Corp.",
-    "intlComplaints": 179,
-    "delayComplaints": 51,
-    "sharePct": 28
+    "intlComplaints": 194,
+    "delayComplaints": 53,
+    "sharePct": 27
    },
    {
     "slug": "sendwave",
@@ -396,15 +396,15 @@
     "slug": "taptap-send",
     "name": "TapTap Send",
     "company": "TapTap Send Inc.",
-    "intlComplaints": 131,
-    "delayComplaints": 53,
-    "sharePct": 40
+    "intlComplaints": 149,
+    "delayComplaints": 62,
+    "sharePct": 42
    },
    {
     "slug": "xoom",
     "name": "Xoom",
     "company": "XOOM CORPORATION",
-    "intlComplaints": 44,
+    "intlComplaints": 45,
     "delayComplaints": 11,
     "sharePct": null
    },
@@ -412,7 +412,7 @@
     "slug": "revolut",
     "name": "Revolut",
     "company": "Revolut Technologies Inc.",
-    "intlComplaints": 37,
+    "intlComplaints": 38,
     "delayComplaints": 8,
     "sharePct": null
    },
@@ -420,8 +420,8 @@
     "slug": "paysend",
     "name": "Paysend",
     "company": "Paysend US LLC",
-    "intlComplaints": 38,
-    "delayComplaints": 14,
+    "intlComplaints": 43,
+    "delayComplaints": 17,
     "sharePct": null
    }
   ]

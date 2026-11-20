@@ -103,9 +103,13 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "We sent money ourselves and set each app's own timeline against what was advertised, alongside months of Wise's delivery estimates. The day, the amount and a bounced payout change the answer.",
     category: "Guides",
-    readTime: "9 min read",
+    readTime: "10 min read",
     publishedAt: "2026-06-06",
-    updatedAt: "2026-10-09",
+    // 2026-11-20: delivery data refreshed to Nov 20 (scripts/build-delivery-speed.ts);
+    // "how long, by method" table from primary sources (FSB Nov 2026 report with
+    // Swift/World Bank/FXC data, PSD2 Art 83, Reg (EU) 2024/886, Pay.UK, BCB, Visa,
+    // Mastercard, WU, MoneyGram); Wise's Q2 FY27 claim; bank-transfer and same-day FAQs.
+    updatedAt: "2026-11-20",
     author: "Awais Imran",
     tags: ["fastest transfer", "instant transfer", "delivery time", "test transfers", "international transfers"],
     featuredImage: "/images/blog/fastest-way-to-send-money.jpg",
@@ -114,6 +118,23 @@ const rawBlogPosts: BlogPost[] = [
         heading: "What Is the Fastest Way to Send Money Internationally?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Use a provider that pays out over the receiving country's instant payment system, pay by debit card, check the recipient's details, and send on a weekday. When we sent money ourselves with TapTap Send and Wise, {{SPEED_TESTS_FAST}} of our {{SPEED_TESTS_TOTAL}} transfers were marked paid out within two minutes of being set up; the slowest successful one took {{SPEED_TESTS_SLOWEST_DELIVERED}}, and one Wise payout bounced and went out {{SPEED_TEST_TIME:t06}} after we set it up. The promise moves with the calendar too: Wise promises delivery within a day on {{SPEED_WISE_DAY_WITHIN_DAY:Monday}} of its quotes for {{SPEED_WISE_AMOUNT}} dollars, pounds or euros asked on a Monday, and on {{SPEED_WISE_DAY_WITHIN_DAY:Saturday}} asked on a Saturday. <a href="/send-money">Compare providers for your route</a>.</p></div>
 <p>Most "fastest app" lists repeat what providers advertise. This guide sets those promises against two things we can check: transfers we sent and timed ourselves, and the delivery estimates our comparison has archived from providers and comparison sites since {{SPEED_ARCHIVE_FROM}}.</p>`,
+      },
+      {
+        heading: "How Long Does an International Transfer Take? Wire, App, Card or Cash",
+        content: `<p class="citable-passage">A bank wire over Swift usually reaches the recipient within one business day. In the first quarter of 2026, 57% of cross-border payments on Swift were credited within an hour of being sent and 93.9% within a business day, going by Swift's own data in the <a href="https://www.fsb.org/uploads/P161126.pdf" target="_blank" rel="noopener noreferrer">Financial Stability Board's November 2026 report</a>. Money transfer services promise less: 60% of the remittance services the World Bank tracks say the money is ready within an hour, and 76.1% within a business day.</p>
+<table>
+<thead><tr><th>How the money travels</th><th>How long it takes</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Bank wire over Swift</td><td>57% credited within an hour and 93.9% within a business day (first quarter of 2026). A wire set up after your bank's cut-off time or at the weekend starts on the next business day.</td><td><a href="https://www.fsb.org/uploads/P161126.pdf" target="_blank" rel="noopener noreferrer">FSB, from Swift data</a></td></tr>
+<tr><td>Standard euro transfer (SEPA)</td><td>In the recipient's bank no later than the next business day, or two days for a paper order</td><td><a href="https://eur-lex.europa.eu/eli/dir/2015/2366/oj" target="_blank" rel="noopener noreferrer">PSD2, Article 83</a></td></tr>
+<tr><td>SEPA Instant (euro)</td><td>Within 10 seconds, at any hour on any day. No scheme-wide amount cap since October 2025, though each bank can set its own limit.</td><td><a href="https://eur-lex.europa.eu/eli/reg/2024/886/oj" target="_blank" rel="noopener noreferrer">Regulation (EU) 2024/886</a>; <a href="https://www.europeanpaymentscouncil.eu/what-we-do/sepa-instant-credit-transfer" target="_blank" rel="noopener noreferrer">EPC</a></td></tr>
+<tr><td>UK Faster Payments (sterling)</td><td>Usually almost immediately, sometimes up to two hours. Up to £1 million a payment, often less at your own bank.</td><td><a href="https://www.wearepay.uk/what-we-do/payment-systems/faster-payment-system/types-of-faster-payment-transactions/" target="_blank" rel="noopener noreferrer">Pay.UK</a></td></tr>
+<tr><td>Transfer app paying into an instant system (UPI or IMPS, Pix, SPEI, InstaPay, a mobile wallet)</td><td>Seconds once the provider pays out: half of Brazil's Pix payments settle within 2.8 seconds and 99% within 4.6. Of our own app transfers, {{SPEED_TESTS_FAST}} of {{SPEED_TESTS_TOTAL}} were marked paid out within two minutes.</td><td><a href="https://www.bcb.gov.br/content/estabilidadefinanceira/sistemapagamentosinstantaneos_docs/principios_infraestruturas_mercado_financeiro.pdf" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a>; our tests below</td></tr>
+<tr><td>Payout to a debit card (Visa Direct, Mastercard Send)</td><td>Visa calls it real-time and has required "fast funds" card issuers to credit the money within 30 minutes of approval; Mastercard says typically within seconds. Both say the receiving bank decides.</td><td><a href="https://usa.visa.com/dam/VCOM/global/run-your-business/documents/visa-direct-general-funds-disbursement-sellsheet.pdf" target="_blank" rel="noopener noreferrer nofollow">Visa (2018)</a>; <a href="https://developer.mastercard.com/product/mastercard-send/" target="_blank" rel="noopener noreferrer nofollow">Mastercard</a></td></tr>
+<tr><td>Cash pickup</td><td>Western Union and MoneyGram both say within minutes, subject to agent opening hours, ID checks and the amount</td><td><a href="https://www.westernunion.com/us/en/home.html" target="_blank" rel="noopener noreferrer nofollow">Western Union</a>; <a href="https://www.moneygram.com/us/en/help-center/faq/send-receive/track-transaction/when-will-my-receivers-money-be-available-for-cash-pickup" target="_blank" rel="noopener noreferrer nofollow">MoneyGram</a></td></tr>
+</tbody>
+</table>
+<p>These figures measure different things. Swift's count actual payments between banks. The remittance and retail figures are what services state before you send: across payment providers, FXC Intelligence found 32.9% promising to credit the recipient within an hour and 59.8% within a business day as of March 2026, a share that has fallen 14.2 points since 2023 (same FSB report). That gap between a stated time and a paid-out one is why we timed transfers ourselves.</p>`,
       },
       {
         heading: "We Sent the Money Ourselves: Promised vs Paid Out",
@@ -131,7 +152,7 @@ const rawBlogPosts: BlogPost[] = [
 {{SPEED_WEEKDAY_TABLE}}
 <p><strong>The amount.</strong> To the Philippines, Wise promised USD&rarr;PHP within a minute on {{SPEED_PHP_SMALL:USD}} of quotes at $100 and on {{SPEED_PHP_LARGE:USD}} at $1,000, where the median promise is {{SPEED_PHP_LARGE_MEDIAN:USD}}; GBP&rarr;PHP behaves the same way. InstaPay, the Philippines' instant transfer system, takes at most &#8369;50,000 per personal transfer (<a href="https://www.securitybank.com/online-banking/instapay" target="_blank" rel="noopener noreferrer">Security Bank's InstaPay terms</a>), and $1,000 is more than that, so the money goes by a slower route.</p>
 <p><strong>The route.</strong> On {{SPEED_WISE_NEAR_INSTANT_ROUTES}} of the {{SPEED_WISE_MAJOR_ROUTES}} routes we follow from dollars, pounds, euros and other major currencies, Wise promised delivery within a minute on at least {{SPEED_WISE_NEAR_INSTANT_SHARE}} of quotes. Its longest median promises are {{SPEED_WISE_SLOWEST}}.</p>
-<p>Wise also publishes a measured figure for its own transfers: 75% arrive in under 20 seconds and 96% within 24 hours (<a href="https://www.mfn.se/one/a/wise/wise-debuts-us-listing-on-nasdaq-5795282c" target="_blank" rel="noopener noreferrer">Wise, May 2026</a>). That figure is weighted by where its customers actually send, mostly busy routes where the promise is near-instant; ours counts every route and every hour equally, so the two are not comparable. TapTap Send says 95% of its transfers are delivered in under 3 minutes, based on its own data from December 2025 (<a href="https://www.taptapsend.com/en/send-money-to/nigeria" target="_blank" rel="noopener noreferrer nofollow">TapTap Send</a>), and Remitly's chief executive has said that 90% of its transactions are delivered in less than an hour (<a href="https://schwabnetwork.beehiiv.com/p/market-minute-d600dd5d1d0e2293" target="_blank" rel="noopener noreferrer">Schwab Network, November 2024</a>). None of these figures is independently audited.</p>`,
+<p>Wise also publishes a figure for its own transfers: 78% of its payments arrive in under 20 seconds and 96% in under 24 hours (<a href="https://wise.com/platform/send/" target="_blank" rel="noopener noreferrer nofollow">Wise, second quarter of its 2027 financial year</a>). That figure is weighted by where its customers actually send, mostly busy routes where the promise is near-instant; ours counts every route and every hour equally, so the two are not comparable. TapTap Send says 95% of its transfers are delivered in under 3 minutes, based on its own data from December 2025 (<a href="https://www.taptapsend.com/en/send-money-to/nigeria" target="_blank" rel="noopener noreferrer nofollow">TapTap Send</a>), and Remitly's chief executive has said that 90% of its transactions are delivered in less than an hour (<a href="https://schwabnetwork.beehiiv.com/p/market-minute-d600dd5d1d0e2293" target="_blank" rel="noopener noreferrer">Schwab Network, November 2024</a>); on its own site, Remitly says some eligible transfers may arrive within minutes while others can take a few business days (<a href="https://www.remitly.com/us/en/money-transfer" target="_blank" rel="noopener noreferrer nofollow">Remitly</a>). None of these figures is independently audited.</p>`,
       },
       {
         heading: "Why Delivery Times Disagree From Site to Site",
@@ -191,9 +212,19 @@ const rawBlogPosts: BlogPost[] = [
           "Use a provider that pays out over the receiving country's instant payment system (UPI, Pix, SPEI, SEPA Instant, Faster Payments or a mobile wallet), pay by debit card, and send on a weekday. When we sent money ourselves with TapTap Send and Wise, {{SPEED_TESTS_FAST}} of our {{SPEED_TESTS_TOTAL}} transfers were marked paid out within two minutes of being set up. <a href=\"/send-money\">Compare providers for your route</a>.",
       },
       {
-        question: "Which app sends money the fastest?",
+        question: "How long does an international bank transfer take?",
         answer:
-          "No app is fastest everywhere: the route, the day and the amount matter more than the brand. Wise's own estimate is within a minute on most busy routes and days on others, and it lengthens at the weekend. In our own tests, TapTap Send and Wise both paid out within minutes to Pakistan. We have not yet timed Remitly, Western Union or Ria.",
+          "Usually up to one business day once your bank sends it. In the first quarter of 2026, 57% of cross-border payments on Swift were credited within an hour and 93.9% within a business day (<a href=\"https://www.fsb.org/uploads/P161126.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Financial Stability Board, from Swift data</a>). It takes longer when you send after your bank's cut-off time or at the weekend, when the payment passes through intermediary banks, or when it is held for checks. A euro transfer by SEPA Instant arrives within 10 seconds.",
+      },
+      {
+        question: "Can I send money abroad the same day?",
+        answer:
+          "Usually, yes. Transfer apps can pay out within minutes where the receiving country has an instant payment system, if you pay by debit card and your identity is already verified: {{SPEED_TESTS_FAST}} of our {{SPEED_TESTS_TOTAL}} test transfers were marked paid out within two minutes. Western Union and MoneyGram say cash pickup is usually ready within minutes. A bank wire set up after the cut-off time or at the weekend usually arrives on the next business day or later.",
+      },
+      {
+        question: "Which money transfer app is instant?",
+        answer:
+          "No app is instant everywhere: the route, the day and the amount matter more than the brand. Wise's own estimate is within a minute on most busy routes and days on others, and it lengthens at the weekend. In our own tests, TapTap Send and Wise both paid out within minutes to Pakistan. We have not yet timed Remitly, Western Union or Ria.",
       },
       {
         question: "Does the day I send money make a difference?",
