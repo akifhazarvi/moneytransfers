@@ -30,7 +30,8 @@ import {
   shownContentDate,
 } from "@/lib/content-dates";
 import { getTravelGuide } from "@/data/travel-guides";
-import { corridorPageRenders } from "@/lib/route-map";
+import { alternativesPageRenders, corridorPageRenders } from "@/lib/route-map";
+import { rateHistoryPageRenders } from "@/lib/route-map-rates";
 import readerSavings from "@/data/research/reader-savings.json";
 import { REVIEWED_INDEXABLE_ROUTES } from "@/data/reviewed-indexable-routes";
 import {
@@ -400,6 +401,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       // reviewedPages. Filtering only bingDemandPages let unavailable routes
       // re-enter through those other lists after a fresh quote scrape.
       if (path.startsWith("/send-money/") && !corridorPageRenders(path.slice("/send-money/".length))) return false;
+      // The same for the other families whose pages come and go with the
+      // scraped data. BING_DEMAND_WAVE_4 names all eight /alternatives pages;
+      // on 2026-11-19 PayPal had no $1,000 quote, its page did not render,
+      // the list still submitted it, and check:indexing failed three builds.
+      if (path.startsWith("/alternatives/") && !alternativesPageRenders(path.slice("/alternatives/".length))) return false;
+      if (path.startsWith("/exchange-rates/history/") && !rateHistoryPageRenders(path.slice("/exchange-rates/history/".length))) return false;
       return bingIndexable(path);
     })
     .filter((e) => !seen.has(e.url) && !!seen.add(e.url))
