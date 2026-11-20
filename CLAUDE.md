@@ -514,7 +514,10 @@ and how it moved since they looked. `src/lib/last-search.ts` holds the rules;
 
 ## Data Flow
 
-1. **Scrapers** (GitHub Actions, every 6hrs) collect quotes from provider APIs and websites
+1. **Scrapers** (GitHub Actions, every 6hrs) collect quotes from provider APIs and websites.
+   **Never a live fetch** (owner, 2026-11-20): no page, `/api/*` route or
+   extension endpoint calls a provider at request time, partner keys included.
+   Prices reach the site only through scraped files.
 2. **`src/lib/unified-quotes.ts`** merges sources by tier: 1 direct (first-party
    API/calculator) > 2 Wise Comparison API > 3 Monito > 4 Exiap > 5 RemitRoutes.
    A better tier wins a provider+amount **unless the other row is >24h fresher**;
@@ -869,7 +872,9 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
 ### Scraper Types
 - **API scrapers** (`scrape.yml`, every 6h): `scrape-ofx`, `scrape-instarem`,
   `scrape-xe` (mid-market), `scrape-taptapsend` (partner key), `scrape-wise-direct`,
-  `scrape-wise-comparison`, `scrape-remitly`, `scrape-pandaremit`, `scrape-skyremit`,
+  `scrape-wise-comparison`, `scrape-remitly` (calculator default method; what
+  the calculator leaves unanswered is priced through Remitly's partner Pricing
+  API, secret `REMITLY_PRICES_API_KEY`, for that same method), `scrape-pandaremit`, `scrape-skyremit`,
   `scrape-lemfi`, `scrape-remitroutes`, `scrape-gulf` (Gulf senders:
   Western Union SA/AE/KW/BH, e& money, Al Ansari — rate-only operators need a
   published fee in `PUBLISHED_FEES` or they are not shown)

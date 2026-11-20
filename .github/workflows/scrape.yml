@@ -118,10 +118,14 @@ jobs:
       # Was 5 and killed at the cap on 7 of 8 runs (Sep 2026) — the 429 storm
       # plus no retry. Now retries with adaptive pacing, stops itself at
       # REMITLY_BUDGET_SEC and writes what it has; `timeout` is the backstop.
+      # Since 2026-11-20 what the calculator leaves unanswered is priced through
+      # Remitly's partner Pricing API (key in the REMITLY_PRICES_API_KEY secret)
+      # in a 45s window after the budget: 360 + 45 stays under 450.
       - name: Scrape Remitly (direct API)
         run: timeout -k 15s 450s npx tsx scripts/scrape-remitly.ts
         env:
-          REMITLY_BUDGET_SEC: 400
+          REMITLY_BUDGET_SEC: 360
+          REMITLY_PRICES_API_KEY: ${{ secrets.REMITLY_PRICES_API_KEY }}
         timeout-minutes: 8
         continue-on-error: true
 

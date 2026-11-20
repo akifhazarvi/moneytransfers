@@ -9,7 +9,22 @@
  *
  * Response includes: exchange_rate (base + promotional), fee, receive_amount,
  * pay_in_method, pay_out_method, and promo disclaimer.
+ *
+ * Fallback: Remitly's partner Pricing API (GET prices.remitly.com/v2/prices,
+ * key issued to us 2026-11-20, env REMITLY_PRICES_API_KEY). It is called only
+ * here, in the scheduled scrape, never when a page or API is requested (owner
+ * rule 2026-11-20: no live fetches; the site shows scraped data). It prices
+ * every payment method × product for a corridor in one call and did not
+ * rate-limit in testing, but it does not say which method Remitly leads with.
+ * The calculator does, and that default is the price we show (owner,
+ * 2026-11-20). So the calculator stays first, and a corridor-amount it will not
+ * answer (429s past MAX_ATTEMPTS, errors, or the budget running out) is priced
+ * through the partner API for the method the calculator last chose for it. On
+ * 2026-11-20 the two returned the same method, rate and fee on all 94
+ * corridor-amounts the calculator answered. Rows priced this way carry
+ * `source: "remitly-partner-api"`.
  */
+import * as fs from "fs";
 import * as path from "path";
 import {
   OUTPUT_DIR,
@@ -34,6 +49,12 @@ const MAX_ATTEMPTS = 4;
 const deadline = createDeadline("REMITLY_BUDGET_SEC", 400);
 // A corridor-amount lost this run keeps its previous quote for up to this long.
 const CARRY_FORWARD_HOURS = 30;
+// The partner-API fallback gets its own window after the calculator's budget;
+// CI's `timeout 450s` sits above REMITLY_BUDGET_SEC (360) + this.
+const PARTNER_API_KEY = process.env.REMITLY_PRICES_API_KEY?.trim() ?? "";
+const PARTNER_BUDGET_SEC = 45;
+const PARTNER_CONCURRENCY = 4;
+const OUTPUT_PATH = path.join(OUTPUT_DIR, "remitly-quotes.json");
 
 const CORRIDORS = [
   { from: "USD", to: "INR", conduit: "USA:USD-IND:INR" },
@@ -105,8 +126,142 @@ function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/** Remitly's own codes: pay-in (BANK, DEBIT, OPEN_BANKING…) and pay-out
+ * (BANK_DEPOSIT, CASH_PICKUP…; null when the calculator names none). */
+interface Method {
+  payIn: string | null;
+  payOut: string | null;
+}
+
+type Corridor = (typeof CORRIDORS)[number];
+
+const methodKey = (from: string, to: string, amount: number) => `${from}_${to}_${amount}`;
+
+function buildQuote(
+  from: string,
+  to: string,
+  sendAmount: number,
+  fee: number,
+  rate: number,
+  method: Method,
+  source: string
+): ProviderQuote {
+  return {
+    provider: "Remitly",
+    providerSlug: "remitly",
+    providerType: "moneyTransferProvider",
+    sendCurrency: from,
+    receiveCurrency: to,
+    sendAmount,
+    fee: Math.round(fee * 100) / 100,
+    exchangeRate: roundRate(rate),
+    // Total outlay = sendAmount, the convention every row is restated to.
+    receiveAmount: Math.round((sendAmount - fee) * rate * 100) / 100,
+    paymentMethod: method.payIn === "BANK" ? "Bank Transfer" : method.payIn,
+    deliveryMethod: method.payOut || null,
+    deliveryEstimate: null,
+    dateCollected: new Date().toISOString(),
+    source,
+  };
+}
+
+/** The methods the calculator chose on the previous run, from the rows it
+ * wrote (paymentMethod is stored with BANK spelled "Bank Transfer"). */
+function previousMethods(): Map<string, Method> {
+  const methods = new Map<string, Method>();
+  try {
+    const rows = JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf-8")) as ProviderQuote[];
+    for (const row of Array.isArray(rows) ? rows : []) {
+      if (!row.paymentMethod) continue;
+      methods.set(methodKey(row.sendCurrency, row.receiveCurrency, row.sendAmount), {
+        payIn: row.paymentMethod === "Bank Transfer" ? "BANK" : row.paymentMethod,
+        payOut: row.deliveryMethod || null,
+      });
+    }
+  } catch {
+    // No previous file: the fallback can only use this run's methods.
+  }
+  return methods;
+}
+
+interface PartnerPrice {
+  payment_method?: string;
+  product?: { delivery_speed?: string; priced_disbursement_methods?: string[] };
+  fee?: string;
+  rate?: string;
+}
+
+/**
+ * The partner-API entry for the calculator's method: same pay-in, and the
+ * entry priced for its pay-out (or, when none is, the entry whose price does
+ * not vary by pay-out). Anything but exactly one match is no answer — the
+ * docs warn the pay-out list can come back empty while the detail is
+ * unavailable, and guessing then could price the wrong product.
+ */
+function pickPartnerEntry(prices: PartnerPrice[], method: Method): PartnerPrice | null {
+  const samePayIn = prices.filter((p) => p.payment_method === method.payIn);
+  const disbursements = (p: PartnerPrice) => p.product?.priced_disbursement_methods ?? [];
+  let matches = method.payOut
+    ? samePayIn.filter((p) => disbursements(p).includes(method.payOut!))
+    : [];
+  if (matches.length === 0) matches = samePayIn.filter((p) => disbursements(p).length === 0);
+  return matches.length === 1 ? matches[0] : null;
+}
+
+async function fetchPartnerQuote(
+  corridor: Corridor,
+  amount: number,
+  method: Method
+): Promise<ProviderQuote | null> {
+  const [fromPart, toPart] = corridor.conduit.split("-");
+  const [fromCountry, fromCurrency] = fromPart.split(":");
+  const [toCountry, toCurrency] = toPart.split(":");
+  const params = new URLSearchParams({
+    from_country: fromCountry,
+    to_country: toCountry,
+    from_currency: fromCurrency,
+    to_currency: toCurrency,
+    send_amount: String(amount),
+    // Standard pricing; the default (true) folds in first-transfer promos.
+    new_customer: "false",
+  });
+
+  // Two tries: a 429, or a pay-out list that came back empty (see above).
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const res = await fetch(`https://prices.remitly.com/v2/prices?${params}`, {
+        headers: { "X-API-KEY": PARTNER_API_KEY, Accept: "application/json" },
+        signal: AbortSignal.timeout(15000),
+      });
+      if (res.status === 429 || res.status >= 500) {
+        await delay(2000);
+        continue;
+      }
+      if (!res.ok) {
+        console.log(`    ⚠ partner API HTTP ${res.status}`);
+        return null;
+      }
+      const json = await res.json();
+      const prices: PartnerPrice[] = Array.isArray(json?.prices) ? json.prices : [];
+      const entry = pickPartnerEntry(prices, method);
+      if (!entry) {
+        await delay(1000);
+        continue;
+      }
+      const fee = parseFloat(entry.fee ?? "");
+      const rate = parseFloat(entry.rate ?? "");
+      if (!(rate > 0) || !Number.isFinite(fee) || fee < 0) return null;
+      return buildQuote(corridor.from, corridor.to, amount, fee, rate, method, "remitly-partner-api");
+    } catch (err) {
+      console.log(`    ⚠ partner API failed: ${(err as Error).message?.slice(0, 60)}`);
+      return null;
+    }
+  }
+  return null;
+}
+
 type FetchResult =
-  | { quote: ProviderQuote; reason?: undefined }
+  | { quote: ProviderQuote; method: Method; reason?: undefined }
   | { quote: null; reason: "rate-limited" | "unsupported" | "error" };
 
 async function fetchRemitlyQuote(
@@ -143,27 +298,13 @@ async function fetchRemitlyQuote(
     const payOutMethod = estimate.pay_out_method || null;
 
     if (!rate) return { quote: null, reason: "error" };
-    // Compute receive from base rate (Remitly's `receive_amount` field uses
-    // the promo rate when present, so we can't reuse it here).
-    const receiveAmount = (sendAmount - fee) * rate;
-
+    // buildQuote computes receive from the base rate (Remitly's
+    // `receive_amount` field uses the promo rate when present, so we can't
+    // reuse it here).
+    const method: Method = { payIn: payInMethod, payOut: payOutMethod || null };
     return {
-      quote: {
-        provider: "Remitly",
-        providerSlug: "remitly",
-        providerType: "moneyTransferProvider",
-        sendCurrency: from,
-        receiveCurrency: to,
-        sendAmount,
-        fee: Math.round(fee * 100) / 100,
-        exchangeRate: roundRate(rate),
-        receiveAmount: Math.round(receiveAmount * 100) / 100,
-        paymentMethod: payInMethod === "BANK" ? "Bank Transfer" : payInMethod,
-        deliveryMethod: payOutMethod || null,
-        deliveryEstimate: null,
-        dateCollected: new Date().toISOString(),
-        source: "remitly-api",
-      },
+      quote: buildQuote(from, to, sendAmount, fee, rate, method, "remitly-api"),
+      method,
     };
   } catch (err) {
     console.log(`    ⚠ Failed: ${(err as Error).message?.slice(0, 60)}`);
@@ -175,19 +316,26 @@ async function main() {
   console.log("=== Remitly Direct API Scraper ===\n");
   console.log(`Corridors: ${CORRIDORS.length}`);
   console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}`);
-  console.log(`Budget: ${deadline.budgetSec}s\n`);
+  console.log(`Budget: ${deadline.budgetSec}s (+${PARTNER_BUDGET_SEC}s partner-API fallback${PARTNER_API_KEY ? "" : ", OFF: no REMITLY_PRICES_API_KEY"})\n`);
 
   const allQuotes: ProviderQuote[] = [];
   let successCount = 0;
-  let failCount = 0;
   const failures: Record<string, number> = {};
   const startTime = Date.now();
+  // Read before anything is written: the methods the calculator chose last run.
+  const lastMethods = previousMethods();
+  const thisRunMethods = new Map<string, Method>();
 
   // Corridors are listed in priority order (USD, GBP, EUR first), so if the
   // budget runs out it is the long tail that waits for the next run.
   const queue = CORRIDORS.flatMap((corridor) =>
     sendAmountsFor(corridor.from).map((amount) => ({ corridor, amount, attempts: 0 }))
   );
+  type Task = (typeof queue)[number];
+  // The calculator gave up on these (429s past MAX_ATTEMPTS, or an error), so
+  // the partner API gets a try. A 400 "unsupported" means Remitly does not
+  // serve the route, so it is not retried anywhere.
+  const missed: Task[] = [];
   let deferred = 0;
 
   while (queue.length > 0 && !deadline.expired()) {
@@ -199,29 +347,87 @@ async function main() {
     if (result.quote) {
       const quote = result.quote;
       allQuotes.push(quote);
+      thisRunMethods.set(methodKey(corridor.from, corridor.to, amount), result.method);
       successCount++;
       console.log(`  ✓ ${corridor.from} → ${corridor.to} ($${amount}) Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount}${task.attempts > 1 ? ` [attempt ${task.attempts}]` : ""}`);
     } else if (result.reason === "rate-limited" && task.attempts < MAX_ATTEMPTS) {
       deferred++;
       queue.push(task);
       console.log(`  ⚠ ${corridor.from} → ${corridor.to} ($${amount}) rate limited (429) — requeued, attempt ${task.attempts}/${MAX_ATTEMPTS}`);
+    } else if (result.reason === "unsupported") {
+      failures.unsupported = (failures.unsupported ?? 0) + 1;
+      console.log(`  ✗ ${corridor.from} → ${corridor.to} ($${amount}) no data (unsupported)`);
     } else {
-      const reason = result.reason ?? "error";
-      failCount++;
-      failures[reason] = (failures[reason] ?? 0) + 1;
-      console.log(`  ✗ ${corridor.from} → ${corridor.to} ($${amount}) no data (${reason})`);
+      missed.push(task);
+      console.log(`  ⚠ ${corridor.from} → ${corridor.to} ($${amount}) calculator gave no quote (${result.reason}), left for the partner API`);
     }
 
     await delay(DELAY_MS);
   }
 
   if (queue.length > 0) {
-    console.log(`\n⏱ Budget of ${deadline.budgetSec}s reached — ${queue.length} corridor-amounts not fetched.`);
+    console.log(`\n⏱ Budget of ${deadline.budgetSec}s reached — ${queue.length} corridor-amounts not fetched from the calculator.`);
   }
-  console.log(`\n429s requeued: ${deferred}. Final failures by reason: ${JSON.stringify(failures)}`);
+  console.log(`\n429s requeued: ${deferred}.`);
+
+  // Partner-API fallback, for the method the calculator chose for this
+  // corridor-amount last run; failing that, for another amount on the same
+  // corridor (this run first). Defaults can differ by amount (EUR→NGN was
+  // DEBIT at 100 and OPEN_BANKING at 1,000 on 2026-11-20), hence the order.
+  const leftover = [...missed, ...queue];
+  let partnerCount = 0;
+  if (leftover.length > 0 && PARTNER_API_KEY) {
+    const partnerDeadline = Date.now() + PARTNER_BUDGET_SEC * 1000;
+    const methodFor = ({ corridor, amount }: Task): Method | undefined => {
+      const exact = lastMethods.get(methodKey(corridor.from, corridor.to, amount));
+      if (exact) return exact;
+      for (const known of [thisRunMethods, lastMethods]) {
+        for (const other of sendAmountsFor(corridor.from)) {
+          const m = known.get(methodKey(corridor.from, corridor.to, other));
+          if (m) return m;
+        }
+      }
+      return undefined;
+    };
+    console.log(`\nPartner API: pricing ${leftover.length} corridor-amounts the calculator did not answer`);
+    // A few requests in flight: ~0.6s each, so one at a time priced only 49
+    // of 120 in the window when the calculator budget ran out (2026-11-20).
+    const pending = [...leftover];
+    const worker = async () => {
+      for (let task = pending.shift(); task; task = pending.shift()) {
+        const { corridor, amount } = task;
+        if (Date.now() >= partnerDeadline) {
+          failures["partner-budget"] = (failures["partner-budget"] ?? 0) + 1;
+          continue;
+        }
+        const method = methodFor(task);
+        if (!method?.payIn) {
+          failures["no-known-method"] = (failures["no-known-method"] ?? 0) + 1;
+          console.log(`  ✗ ${corridor.from} → ${corridor.to} ($${amount}) no calculator method on record`);
+          continue;
+        }
+        const quote = await fetchPartnerQuote(corridor, amount, method);
+        if (quote) {
+          allQuotes.push(quote);
+          partnerCount++;
+          successCount++;
+          console.log(`  ✓ ${corridor.from} → ${corridor.to} ($${amount}) [partner API, ${method.payIn}${method.payOut ? "/" + method.payOut : ""}] Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount}`);
+        } else {
+          failures.partner = (failures.partner ?? 0) + 1;
+          console.log(`  ✗ ${corridor.from} → ${corridor.to} ($${amount}) partner API gave no matching price`);
+        }
+      }
+    };
+    await Promise.all(Array.from({ length: PARTNER_CONCURRENCY }, worker));
+  } else if (leftover.length > 0) {
+    failures["no-partner-key"] = leftover.length;
+    console.log(`\n${leftover.length} corridor-amounts unanswered and REMITLY_PRICES_API_KEY is not set, so their last quotes carry forward.`);
+  }
+  const failCount = Object.values(failures).reduce((a, b) => a + b, 0);
+  console.log(`Partner API priced ${partnerCount}. Final failures by reason: ${JSON.stringify(failures)}`);
 
   const { rows, carried } = carryForward(
-    path.join(OUTPUT_DIR, "remitly-quotes.json"),
+    OUTPUT_PATH,
     allQuotes,
     (q) => `${q.sendCurrency}_${q.receiveCurrency}_${q.sendAmount}`,
     CARRY_FORWARD_HOURS
