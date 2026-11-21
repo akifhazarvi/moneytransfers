@@ -22254,5 +22254,94 @@
         "receiveAmount": 182310.38
       }
     }
+  },
+  {
+    "date": "2026-11-21",
+    "providers": {
+      "instarem": {
+        "rate": 1802.68,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 180267.92
+      },
+      "lemfi": {
+        "rate": 1850,
+        "fee": 0,
+        "markup": -4.52,
+        "receiveAmount": 185000
+      },
+      "moneygram": {
+        "rate": 1873.39,
+        "fee": 0.99,
+        "markup": -4.81,
+        "receiveAmount": 185484.58
+      },
+      "western-union": {
+        "rate": 1847.05,
+        "fee": 1.99,
+        "markup": -4.36,
+        "receiveAmount": 181028.92
+      },
+      "transfergo": {
+        "rate": 1897.59,
+        "fee": 0,
+        "markup": -6.17,
+        "receiveAmount": 189759.32
+      },
+      "worldremit": {
+        "rate": 1853.28,
+        "fee": 0.99,
+        "markup": -3.69,
+        "receiveAmount": 183493.34
+      },
+      "mukuru": {
+        "rate": 1875.33,
+        "fee": 0.12,
+        "markup": -4.92,
+        "receiveAmount": 187307.96
+      },
+      "paysend": {
+        "rate": 1816.28,
+        "fee": 0,
+        "markup": -1.62,
+        "receiveAmount": 181627.59
+      },
+      "sendwave": {
+        "rate": 1853.28,
+        "fee": 0.99,
+        "markup": -3.69,
+        "receiveAmount": 183493.34
+      },
+      "remitly": {
+        "rate": 1875.94,
+        "fee": 0,
+        "markup": -5.99,
+        "receiveAmount": 187594
+      },
+      "ria": {
+        "rate": 1914.95,
+        "fee": 1.99,
+        "markup": -8.19,
+        "receiveAmount": 187683.98
+      },
+      "taptap-send": {
+        "rate": 1875,
+        "fee": 0,
+        "markup": -5.94,
+        "receiveAmount": 187500
+      },
+      "xoom": {
+        "rate": 1824.13,
+        "fee": 0.89,
+        "markup": -3.06,
+        "receiveAmount": 180789.84
+      },
+      "wise": {
+        "rate": 1860.15,
+        "fee": 1.16,
+        "markup": -5.1,
+        "receiveAmount": 183857.23
+      }
+    }
   }
 ]
