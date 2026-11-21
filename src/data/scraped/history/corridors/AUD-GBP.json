@@ -17575,7 +17575,7 @@
       "lemfi": {
         "rate": 0.502,
         "fee": 0,
-        "markup": 0.79,
+        "markup": 0.77,
         "receiveAmount": 50.2
       },
       "taptap-send": {
@@ -17591,10 +17591,10 @@
         "receiveAmount": 48.84
       },
       "xoom": {
-        "rate": 0.505641,
+        "rate": 0.5062,
         "fee": 0,
-        "markup": 0.07,
-        "receiveAmount": 50.56
+        "markup": -0.04,
+        "receiveAmount": 50.62
       },
       "hsbc": {
         "rate": 0.4941,
@@ -17621,10 +17621,10 @@
         "receiveAmount": 48.95
       },
       "western-union": {
-        "rate": 0.496977,
+        "rate": 0.496544,
         "fee": 0.99,
-        "markup": 1.78,
-        "receiveAmount": 49.21
+        "markup": 1.87,
+        "receiveAmount": 49.16
       },
       "anz": {
         "rate": 0.487466,
@@ -17633,10 +17633,10 @@
         "receiveAmount": 48.75
       },
       "instarem": {
-        "rate": 0.505799,
+        "rate": 0.5051,
         "fee": 0.5,
-        "markup": 0.04,
-        "receiveAmount": 50.33
+        "markup": 0.18,
+        "receiveAmount": 50.26
       }
     }
   }

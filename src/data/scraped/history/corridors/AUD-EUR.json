@@ -16034,14 +16034,14 @@
       "lemfi": {
         "rate": 0.5973,
         "fee": 0,
-        "markup": 1.01,
+        "markup": 1.05,
         "receiveAmount": 59.73
       },
       "western-union": {
-        "rate": 0.594624,
+        "rate": 0.59294,
         "fee": 0.99,
-        "markup": 1.46,
-        "receiveAmount": 58.87
+        "markup": 1.73,
+        "receiveAmount": 58.71
       },
       "commonwealth-bank": {
         "rate": 0.582435,
@@ -16050,10 +16050,10 @@
         "receiveAmount": 58.24
       },
       "remitly": {
-        "rate": 0.5977,
+        "rate": 0.5978,
         "fee": 0,
-        "markup": 0.95,
-        "receiveAmount": 59.77
+        "markup": 0.93,
+        "receiveAmount": 59.78
       },
       "hsbc": {
         "rate": 0.5895,
@@ -16062,10 +16062,10 @@
         "receiveAmount": 58.95
       },
       "instarem": {
-        "rate": 0.603472,
+        "rate": 0.6025,
         "fee": 0.5,
-        "markup": -0.01,
-        "receiveAmount": 60.05
+        "markup": 0.15,
+        "receiveAmount": 59.95
       },
       "nab": {
         "rate": 0.58402,
@@ -16080,10 +16080,10 @@
         "receiveAmount": 57.99
       },
       "xoom": {
-        "rate": 0.589466,
+        "rate": 0.5912,
         "fee": 1.99,
-        "markup": 2.31,
-        "receiveAmount": 57.77
+        "markup": 2.02,
+        "receiveAmount": 57.94
       }
     }
   }

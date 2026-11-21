@@ -3,7 +3,7 @@
   "comparableCorridors": 214,
   "pairsTracked": 1073,
   "contestedCorridorDays": 18201,
-  "providerDayObservations": 128724,
+  "providerDayObservations": 128725,
   "maxWindowDays": 91,
   "rows": [
     {
@@ -22,9 +22,9 @@
       "providerName": "InstaReM",
       "corridorsLed": 36,
       "corridorsQuoted": 79,
-      "wins": 3244,
+      "wins": 3245,
       "quotedDays": 7096,
-      "winRate": 45.72,
+      "winRate": 45.73,
       "avgShortfallPct": 0.47,
       "leadRate": 45.57
     },
@@ -33,9 +33,9 @@
       "providerName": "LemFi",
       "corridorsLed": 33,
       "corridorsQuoted": 87,
-      "wins": 3141,
+      "wins": 3139,
       "quotedDays": 7847,
-      "winRate": 40.03,
+      "winRate": 40,
       "avgShortfallPct": 0.88,
       "leadRate": 37.93
     },
@@ -55,9 +55,9 @@
       "providerName": "Western Union",
       "corridorsLed": 12,
       "corridorsQuoted": 127,
-      "wins": 537,
+      "wins": 536,
       "quotedDays": 10286,
-      "winRate": 5.22,
+      "winRate": 5.21,
       "avgShortfallPct": 3.83,
       "leadRate": 9.45
     },
@@ -132,9 +132,9 @@
       "providerName": "Xoom (PayPal)",
       "corridorsLed": 2,
       "corridorsQuoted": 71,
-      "wins": 133,
-      "quotedDays": 4643,
-      "winRate": 2.86,
+      "wins": 134,
+      "quotedDays": 4644,
+      "winRate": 2.89,
       "avgShortfallPct": 5.71,
       "leadRate": 2.82
     },
@@ -157,7 +157,7 @@
       "wins": 66,
       "quotedDays": 364,
       "winRate": 18.13,
-      "avgShortfallPct": 0.68,
+      "avgShortfallPct": 0.67,
       "leadRate": 25
     },
     {
@@ -172,6 +172,17 @@
       "leadRate": 1.67
     },
     {
+      "providerSlug": "hsbc",
+      "providerName": "HSBC",
+      "corridorsLed": 1,
+      "corridorsQuoted": 21,
+      "wins": 74,
+      "quotedDays": 1894,
+      "winRate": 3.91,
+      "avgShortfallPct": 5.86,
+      "leadRate": 4.76
+    },
+    {
       "providerSlug": "boss-money",
       "providerName": "BOSS Money",
       "corridorsLed": 1,
@@ -181,17 +192,6 @@
       "winRate": 3.9,
       "avgShortfallPct": 3.21,
       "leadRate": 5.88
-    },
-    {
-      "providerSlug": "hsbc",
-      "providerName": "HSBC",
-      "corridorsLed": 1,
-      "corridorsQuoted": 21,
-      "wins": 73,
-      "quotedDays": 1894,
-      "winRate": 3.85,
-      "avgShortfallPct": 5.86,
-      "leadRate": 4.76
     },
     {
       "providerSlug": "monese",
@@ -432,7 +432,7 @@
       "wins": 0,
       "quotedDays": 270,
       "winRate": 0,
-      "avgShortfallPct": 9.83,
+      "avgShortfallPct": 9.82,
       "leadRate": 0
     },
     {
@@ -810,6 +810,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 58,
-  "stableCorridors": 156
+  "rotatingCorridors": 57,
+  "stableCorridors": 157
 }

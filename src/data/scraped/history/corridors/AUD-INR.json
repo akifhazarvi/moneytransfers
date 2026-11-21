@@ -25135,7 +25135,7 @@
       "lemfi": {
         "rate": 61.31,
         "fee": 0,
-        "markup": 0.01,
+        "markup": 0.06,
         "receiveAmount": 6131
       },
       "moneygram": {
@@ -25145,10 +25145,10 @@
         "receiveAmount": 6078.5
       },
       "western-union": {
-        "rate": 60.9408,
+        "rate": 60.7717,
         "fee": 1.99,
-        "markup": 0.61,
-        "receiveAmount": 5972.8
+        "markup": 0.89,
+        "receiveAmount": 5956.24
       },
       "currencyfair": {
         "rate": 61.252,
@@ -25209,6 +25209,12 @@
         "fee": 1.42,
         "markup": -0.09,
         "receiveAmount": 6049.85
+      },
+      "xoom": {
+        "rate": 61.8904,
+        "fee": 0,
+        "markup": -0.93,
+        "receiveAmount": 6189.04
       }
     }
   }

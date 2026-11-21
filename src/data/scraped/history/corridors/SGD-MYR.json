@@ -6594,10 +6594,10 @@
     "date": "2026-11-21",
     "providers": {
       "instarem": {
-        "rate": 3.1858,
+        "rate": 3.1842,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 318.58
+        "markup": 0.05,
+        "receiveAmount": 318.42
       },
       "hsbc-sg": {
         "rate": 3.18738,

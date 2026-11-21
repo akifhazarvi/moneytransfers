@@ -27197,15 +27197,15 @@
     "date": "2026-11-21",
     "providers": {
       "instarem": {
-        "rate": 42.21,
+        "rate": 42.1889,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 4221
+        "markup": 0.05,
+        "receiveAmount": 4218.89
       },
       "lemfi": {
         "rate": 42.16,
         "fee": 0,
-        "markup": 0.53,
+        "markup": 0.49,
         "receiveAmount": 4216
       },
       "moneygram": {
@@ -27215,10 +27215,10 @@
         "receiveAmount": 4185.28
       },
       "western-union": {
-        "rate": 41.658,
+        "rate": 41.5353,
         "fee": 0.99,
-        "markup": 1.71,
-        "receiveAmount": 4124.56
+        "markup": 2,
+        "receiveAmount": 4112.41
       },
       "currencyfair": {
         "rate": 42.2,

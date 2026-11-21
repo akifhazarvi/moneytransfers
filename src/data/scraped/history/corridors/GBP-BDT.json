@@ -11945,10 +11945,10 @@
     "date": "2026-11-21",
     "providers": {
       "lemfi": {
-        "rate": 162.77,
+        "rate": 160.5,
         "fee": 0,
-        "markup": 0.24,
-        "receiveAmount": 16277
+        "markup": 1.67,
+        "receiveAmount": 16050
       },
       "ria": {
         "rate": 163.55,
@@ -11963,34 +11963,34 @@
         "receiveAmount": 16425
       },
       "xoom": {
-        "rate": 159.267,
+        "rate": 159.091,
         "fee": 2.99,
-        "markup": 2.39,
-        "receiveAmount": 15450.46
+        "markup": 2.49,
+        "receiveAmount": 15433.45
       },
       "remitly": {
-        "rate": 162.12,
+        "rate": 162.07,
         "fee": 0.99,
-        "markup": 0.64,
-        "receiveAmount": 16051.5
+        "markup": 0.67,
+        "receiveAmount": 16046.55
       },
       "western-union": {
-        "rate": 161.079,
+        "rate": 160.629,
         "fee": 1.99,
-        "markup": 1.28,
-        "receiveAmount": 15787.32
+        "markup": 1.55,
+        "receiveAmount": 15743.24
       },
       "skrill": {
-        "rate": 154.922,
+        "rate": 154.926,
         "fee": 0,
         "markup": 5.05,
-        "receiveAmount": 15492.18
+        "receiveAmount": 15492.58
       },
       "instarem": {
-        "rate": 161.113,
+        "rate": 161.026,
         "fee": 0,
-        "markup": 1.26,
-        "receiveAmount": 16111.26
+        "markup": 1.31,
+        "receiveAmount": 16102.65
       }
     }
   }
