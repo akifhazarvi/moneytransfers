@@ -21731,22 +21731,22 @@
         "receiveAmount": 1056.98
       },
       "worldremit": {
-        "rate": 10.6553,
+        "rate": 10.663,
         "fee": 1.99,
-        "markup": 2.68,
-        "receiveAmount": 1044.32
+        "markup": 2.65,
+        "receiveAmount": 1045.08
       },
       "paysend": {
-        "rate": 10.8368,
+        "rate": 10.8311,
         "fee": 0,
-        "markup": 1.02,
-        "receiveAmount": 1083.68
+        "markup": 1.11,
+        "receiveAmount": 1083.11
       },
       "sendwave": {
-        "rate": 10.86,
+        "rate": 10.8679,
         "fee": 1.99,
-        "markup": 0.81,
-        "receiveAmount": 1064.39
+        "markup": 0.78,
+        "receiveAmount": 1065.16
       },
       "remitly": {
         "rate": 10.69,
@@ -21755,10 +21755,10 @@
         "receiveAmount": 1042.38
       },
       "revolut": {
-        "rate": 10.8073,
-        "fee": 1.75,
-        "markup": 1.29,
-        "receiveAmount": 1061.82
+        "rate": 10.8017,
+        "fee": 2.75,
+        "markup": 1.38,
+        "receiveAmount": 1050.46
       },
       "wise": {
         "rate": 10.9524,
@@ -21825,6 +21825,12 @@
         "fee": 0,
         "markup": 1.44,
         "receiveAmount": 1079.89
+      },
+      "xe": {
+        "rate": 10.797,
+        "fee": 1.99,
+        "markup": 1.42,
+        "receiveAmount": 1058.21
       }
     }
   }
