@@ -21743,16 +21743,16 @@
     "date": "2026-11-21",
     "providers": {
       "lemfi": {
-        "rate": 6.5,
+        "rate": 6.51,
         "fee": 0,
-        "markup": 0.36,
-        "receiveAmount": 650
+        "markup": -0.08,
+        "receiveAmount": 651
       },
       "moneygram": {
-        "rate": 6.29858,
+        "rate": 6.3874,
         "fee": 1.99,
-        "markup": 3.49,
-        "receiveAmount": 617.32
+        "markup": 2.13,
+        "receiveAmount": 626.03
       },
       "western-union": {
         "rate": 5.93225,
