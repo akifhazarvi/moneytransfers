@@ -14511,7 +14511,7 @@
       "western-union": {
         "rate": 192.656,
         "fee": 0.5,
-        "markup": 0.74,
+        "markup": 0.73,
         "receiveAmount": 19169.29
       },
       "transfergo": {
@@ -14545,10 +14545,10 @@
         "receiveAmount": 19028.1
       },
       "remitly": {
-        "rate": 192.24,
+        "rate": 192.19,
         "fee": 0.99,
-        "markup": 0.95,
-        "receiveAmount": 19033.68
+        "markup": 0.97,
+        "receiveAmount": 19028.73
       },
       "revolut": {
         "rate": 191.476,
@@ -14561,6 +14561,12 @@
         "fee": 2.66,
         "markup": 0.01,
         "receiveAmount": 18891
+      },
+      "skrill": {
+        "rate": 190.634,
+        "fee": 0,
+        "markup": 1.78,
+        "receiveAmount": 19063.39
       }
     }
   }

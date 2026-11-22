@@ -17320,21 +17320,21 @@
     "date": "2026-11-22",
     "providers": {
       "moneygram": {
-        "rate": 7.5818,
+        "rate": 7.556,
         "fee": 1.99,
-        "markup": 0.78,
-        "receiveAmount": 743.09
+        "markup": 1.2,
+        "receiveAmount": 740.56
       },
       "ria": {
-        "rate": 7.5416,
+        "rate": 7.557,
         "fee": 1.99,
-        "markup": 1.39,
-        "receiveAmount": 739.15
+        "markup": 1.19,
+        "receiveAmount": 740.66
       },
       "boss-money": {
         "rate": 7.5778,
         "fee": 1.49,
-        "markup": 0.83,
+        "markup": 0.92,
         "receiveAmount": 746.49
       },
       "western-union": {
@@ -17352,7 +17352,7 @@
       "worldremit": {
         "rate": 7.58379,
         "fee": 1.99,
-        "markup": 0.75,
+        "markup": 0.84,
         "receiveAmount": 743.29
       },
       "instarem": {
@@ -17364,13 +17364,13 @@
       "paysend": {
         "rate": 7.50464,
         "fee": 1.99,
-        "markup": 1.79,
+        "markup": 1.87,
         "receiveAmount": 735.53
       },
       "sendwave": {
         "rate": 7.58762,
         "fee": 1.99,
-        "markup": 0.7,
+        "markup": 0.79,
         "receiveAmount": 743.66
       },
       "remitly": {
@@ -17382,7 +17382,7 @@
       "revolut": {
         "rate": 7.58998,
         "fee": 1.75,
-        "markup": 0.67,
+        "markup": 0.76,
         "receiveAmount": 745.72
       },
       "wise": {

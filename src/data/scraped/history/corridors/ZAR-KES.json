@@ -3711,14 +3711,20 @@
       "worldremit": {
         "rate": 7.09477,
         "fee": 0,
-        "markup": 4.04,
+        "markup": 4.16,
         "receiveAmount": 709.48
       },
       "mukuru": {
         "rate": 7.27914,
         "fee": 4,
-        "markup": 1.55,
+        "markup": 1.67,
         "receiveAmount": 698.8
+      },
+      "skrill": {
+        "rate": 7.0473,
+        "fee": 0,
+        "markup": 4.8,
+        "receiveAmount": 704.73
       }
     }
   }
