@@ -2,8 +2,8 @@
   "dataAsOf": "2026-11-22",
   "comparableCorridors": 214,
   "pairsTracked": 1073,
-  "contestedCorridorDays": 18216,
-  "providerDayObservations": 128835,
+  "contestedCorridorDays": 18217,
+  "providerDayObservations": 128837,
   "maxWindowDays": 91,
   "rows": [
     {
@@ -11,8 +11,8 @@
       "providerName": "TapTap Send",
       "corridorsLed": 78,
       "corridorsQuoted": 157,
-      "wins": 6250,
-      "quotedDays": 13644,
+      "wins": 6251,
+      "quotedDays": 13645,
       "winRate": 45.81,
       "avgShortfallPct": 0.5,
       "leadRate": 49.68
@@ -20,22 +20,22 @@
     {
       "providerSlug": "instarem",
       "providerName": "InstaReM",
-      "corridorsLed": 37,
+      "corridorsLed": 36,
       "corridorsQuoted": 79,
       "wins": 3265,
       "quotedDays": 7096,
       "winRate": 46.01,
       "avgShortfallPct": 0.47,
-      "leadRate": 46.84
+      "leadRate": 45.57
     },
     {
       "providerSlug": "lemfi",
       "providerName": "LemFi",
       "corridorsLed": 33,
       "corridorsQuoted": 87,
-      "wins": 3143,
+      "wins": 3142,
       "quotedDays": 7846,
-      "winRate": 40.06,
+      "winRate": 40.05,
       "avgShortfallPct": 0.89,
       "leadRate": 37.93
     },
@@ -44,9 +44,9 @@
       "providerName": "Wise",
       "corridorsLed": 20,
       "corridorsQuoted": 97,
-      "wins": 1925,
-      "quotedDays": 8723,
-      "winRate": 22.07,
+      "wins": 1926,
+      "quotedDays": 8724,
+      "winRate": 22.08,
       "avgShortfallPct": 2.92,
       "leadRate": 20.62
     },
@@ -73,6 +73,17 @@
       "leadRate": 12.07
     },
     {
+      "providerSlug": "remitly",
+      "providerName": "Remitly",
+      "corridorsLed": 6,
+      "corridorsQuoted": 104,
+      "wins": 412,
+      "quotedDays": 8813,
+      "winRate": 4.67,
+      "avgShortfallPct": 3.06,
+      "leadRate": 5.77
+    },
+    {
       "providerSlug": "worldremit",
       "providerName": "WorldRemit",
       "corridorsLed": 5,
@@ -82,17 +93,6 @@
       "winRate": 12.18,
       "avgShortfallPct": 2.61,
       "leadRate": 10.2
-    },
-    {
-      "providerSlug": "remitly",
-      "providerName": "Remitly",
-      "corridorsLed": 5,
-      "corridorsQuoted": 104,
-      "wins": 411,
-      "quotedDays": 8813,
-      "winRate": 4.66,
-      "avgShortfallPct": 3.06,
-      "leadRate": 4.81
     },
     {
       "providerSlug": "revolut",
@@ -110,10 +110,10 @@
       "providerName": "BNZ",
       "corridorsLed": 3,
       "corridorsQuoted": 5,
-      "wins": 135,
+      "wins": 137,
       "quotedDays": 370,
-      "winRate": 36.49,
-      "avgShortfallPct": 0.52,
+      "winRate": 37.03,
+      "avgShortfallPct": 0.51,
       "leadRate": 60
     },
     {
@@ -179,7 +179,7 @@
       "wins": 59,
       "quotedDays": 1537,
       "winRate": 3.84,
-      "avgShortfallPct": 3.21,
+      "avgShortfallPct": 3.2,
       "leadRate": 5.88
     },
     {
@@ -209,10 +209,10 @@
       "providerName": "Westpac NZ",
       "corridorsLed": 0,
       "corridorsQuoted": 5,
-      "wins": 60,
+      "wins": 57,
       "quotedDays": 370,
-      "winRate": 16.22,
-      "avgShortfallPct": 0.73,
+      "winRate": 15.41,
+      "avgShortfallPct": 0.74,
       "leadRate": 0
     },
     {
@@ -223,7 +223,7 @@
       "wins": 12,
       "quotedDays": 150,
       "winRate": 8,
-      "avgShortfallPct": 2.06,
+      "avgShortfallPct": 2.05,
       "leadRate": 0
     },
     {
@@ -388,7 +388,7 @@
       "wins": 0,
       "quotedDays": 801,
       "winRate": 0,
-      "avgShortfallPct": 2.48,
+      "avgShortfallPct": 2.46,
       "leadRate": 0
     },
     {
@@ -553,7 +553,7 @@
       "wins": 0,
       "quotedDays": 127,
       "winRate": 0,
-      "avgShortfallPct": 40.4,
+      "avgShortfallPct": 40.39,
       "leadRate": 0
     },
     {
@@ -652,7 +652,7 @@
       "wins": 0,
       "quotedDays": 182,
       "winRate": 0,
-      "avgShortfallPct": 28.36,
+      "avgShortfallPct": 28.37,
       "leadRate": 0
     },
     {
@@ -810,6 +810,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 56,
-  "stableCorridors": 158
+  "rotatingCorridors": 55,
+  "stableCorridors": 159
 }
