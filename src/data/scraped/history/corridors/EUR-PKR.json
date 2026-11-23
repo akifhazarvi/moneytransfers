@@ -22768,5 +22768,118 @@
         "receiveAmount": 29755.12
       }
     }
+  },
+  {
+    "date": "2026-11-23",
+    "providers": {
+      "moneygram": {
+        "rate": 303.992,
+        "fee": 0.99,
+        "markup": 0.05,
+        "receiveAmount": 30098.26
+      },
+      "deutsche-bank": {
+        "rate": 300.277,
+        "fee": 36.55,
+        "markup": 1.27,
+        "receiveAmount": 19052.61
+      },
+      "western-union": {
+        "rate": 298.25,
+        "fee": 0.99,
+        "markup": 1.94,
+        "receiveAmount": 29529.76
+      },
+      "profee": {
+        "rate": 301.731,
+        "fee": 1.2,
+        "markup": 0.51,
+        "receiveAmount": 29811.06
+      },
+      "worldremit": {
+        "rate": 301.081,
+        "fee": 0,
+        "markup": 1.01,
+        "receiveAmount": 30108.07
+      },
+      "instarem": {
+        "rate": 302.254,
+        "fee": 0,
+        "markup": 0.62,
+        "receiveAmount": 30225.4
+      },
+      "xe": {
+        "rate": 301.043,
+        "fee": 1,
+        "markup": 0.74,
+        "receiveAmount": 29803.28
+      },
+      "paysend": {
+        "rate": 301.104,
+        "fee": 0,
+        "markup": 0.72,
+        "receiveAmount": 30110.37
+      },
+      "sendwave": {
+        "rate": 302.673,
+        "fee": 1.99,
+        "markup": 0.2,
+        "receiveAmount": 29665.01
+      },
+      "remitly": {
+        "rate": 302.43,
+        "fee": 1.99,
+        "markup": 0.56,
+        "receiveAmount": 29641.16
+      },
+      "revolut": {
+        "rate": 301.088,
+        "fee": 1.6,
+        "markup": 0.72,
+        "receiveAmount": 29627.07
+      },
+      "ria": {
+        "rate": 302.327,
+        "fee": 0.9,
+        "markup": 0.6,
+        "receiveAmount": 29960.58
+      },
+      "taptap-send": {
+        "rate": 302.5,
+        "fee": 0.99,
+        "markup": 0.54,
+        "receiveAmount": 29950.53
+      },
+      "abn-amro-bank": {
+        "rate": 299.948,
+        "fee": 10,
+        "markup": 1.38,
+        "receiveAmount": 26995.32
+      },
+      "bnp": {
+        "rate": 296.916,
+        "fee": 0,
+        "markup": 2.38,
+        "receiveAmount": 29691.64
+      },
+      "skrill": {
+        "rate": 291.113,
+        "fee": 0,
+        "markup": 4.28,
+        "receiveAmount": 29111.27
+      },
+      "xoom": {
+        "rate": 296.528,
+        "fee": 0,
+        "markup": 2.5,
+        "receiveAmount": 29652.84
+      },
+      "wise": {
+        "rate": 304.081,
+        "fee": 1.92,
+        "markup": 0.02,
+        "receiveAmount": 29824.26
+      }
+    }
   }
 ]
