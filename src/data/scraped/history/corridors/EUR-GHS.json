@@ -18914,22 +18914,22 @@
     "date": "2026-11-24",
     "providers": {
       "lemfi": {
-        "rate": 13.0094,
+        "rate": 12.9141,
         "fee": 0,
-        "markup": -0.59,
-        "receiveAmount": 1300.94
+        "markup": 0.57,
+        "receiveAmount": 1291.41
       },
       "moneygram": {
-        "rate": 12.8976,
+        "rate": 12.9817,
         "fee": 3.99,
-        "markup": -0.22,
-        "receiveAmount": 1238.3
+        "markup": -0.87,
+        "receiveAmount": 1246.37
       },
       "western-union": {
-        "rate": 12.9081,
+        "rate": 12.91,
         "fee": 0.99,
-        "markup": -0.3,
-        "receiveAmount": 1278.03
+        "markup": -0.32,
+        "receiveAmount": 1278.22
       },
       "profee": {
         "rate": 13.4714,
@@ -18944,10 +18944,10 @@
         "receiveAmount": 1278.63
       },
       "instarem": {
-        "rate": 12.5577,
+        "rate": 12.6443,
         "fee": 0,
-        "markup": 2.42,
-        "receiveAmount": 1255.77
+        "markup": 1.75,
+        "receiveAmount": 1264.43
       },
       "xe": {
         "rate": 12.8758,
@@ -18968,10 +18968,10 @@
         "receiveAmount": 1291.41
       },
       "remitly": {
-        "rate": 12.8133,
+        "rate": 12.8921,
         "fee": 1.99,
-        "markup": 0.43,
-        "receiveAmount": 1255.83
+        "markup": -0.18,
+        "receiveAmount": 1263.55
       },
       "revolut": {
         "rate": 12.8539,
@@ -18980,10 +18980,10 @@
         "receiveAmount": 1266.11
       },
       "wise": {
-        "rate": 12.9139,
-        "fee": 3.13,
-        "markup": -0.35,
-        "receiveAmount": 1250.97
+        "rate": 12.9917,
+        "fee": 3.11,
+        "markup": -0.95,
+        "receiveAmount": 1258.77
       },
       "ria": {
         "rate": 12.3245,
@@ -18998,10 +18998,10 @@
         "receiveAmount": 1293
       },
       "bnp": {
-        "rate": 12.5943,
+        "rate": 12.6832,
         "fee": 0,
-        "markup": 2.14,
-        "receiveAmount": 1259.43
+        "markup": 1.45,
+        "receiveAmount": 1268.32
       }
     }
   }

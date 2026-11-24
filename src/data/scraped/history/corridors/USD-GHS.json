@@ -22448,10 +22448,10 @@
     "date": "2026-11-24",
     "providers": {
       "lemfi": {
-        "rate": 11.79,
+        "rate": 11.85,
         "fee": 0,
-        "markup": 0.48,
-        "receiveAmount": 1179
+        "markup": -0.04,
+        "receiveAmount": 1185
       },
       "moneygram": {
         "rate": 11.82,
@@ -22472,10 +22472,10 @@
         "receiveAmount": 1185
       },
       "western-union": {
-        "rate": 10.7173,
+        "rate": 10.7479,
         "fee": 0.99,
-        "markup": 9.17,
-        "receiveAmount": 1061.12
+        "markup": 8.91,
+        "receiveAmount": 1064.15
       },
       "worldremit": {
         "rate": 11.85,
@@ -22484,10 +22484,10 @@
         "receiveAmount": 1185
       },
       "instarem": {
-        "rate": 11.6584,
+        "rate": 11.7571,
         "fee": 0,
-        "markup": 1.2,
-        "receiveAmount": 1165.84
+        "markup": 0.36,
+        "receiveAmount": 1175.71
       },
       "xe": {
         "rate": 11.776,
@@ -22520,10 +22520,10 @@
         "receiveAmount": 1163.73
       },
       "wise": {
-        "rate": 11.845,
-        "fee": 3.94,
-        "markup": -0.38,
-        "receiveAmount": 1137.83
+        "rate": 11.85,
+        "fee": 3.9,
+        "markup": -0.43,
+        "receiveAmount": 1138.78
       },
       "taptap-send": {
         "rate": 11.75,

@@ -19700,15 +19700,15 @@
     "date": "2026-11-24",
     "providers": {
       "instarem": {
-        "rate": 1353.97,
+        "rate": 1353.22,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 135396.6
+        "receiveAmount": 135321.71
       },
       "lemfi": {
         "rate": 1427,
         "fee": 0,
-        "markup": -4.6,
+        "markup": -5.42,
         "receiveAmount": 142700
       },
       "moneygram": {
@@ -19730,10 +19730,10 @@
         "receiveAmount": 142693.75
       },
       "western-union": {
-        "rate": 1409.12,
+        "rate": 1380.42,
         "fee": 0.99,
-        "markup": -4.07,
-        "receiveAmount": 139517.09
+        "markup": -1.95,
+        "receiveAmount": 136675.76
       },
       "worldremit": {
         "rate": 1427.03,
@@ -19754,10 +19754,10 @@
         "receiveAmount": 142703.4
       },
       "remitly": {
-        "rate": 1424.59,
+        "rate": 1429.04,
         "fee": 0,
-        "markup": -5.21,
-        "receiveAmount": 142459
+        "markup": -5.54,
+        "receiveAmount": 142904
       },
       "taptap-send": {
         "rate": 1415,
@@ -19772,10 +19772,10 @@
         "receiveAmount": 137737.52
       },
       "wise": {
-        "rate": 1448.53,
+        "rate": 1419.72,
         "fee": 1.71,
-        "markup": -6.98,
-        "receiveAmount": 142376.01
+        "markup": -4.85,
+        "receiveAmount": 139544.28
       }
     }
   }

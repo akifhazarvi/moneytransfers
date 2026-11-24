@@ -2449,10 +2449,10 @@
     "date": "2026-11-24",
     "providers": {
       "remitly": {
-        "rate": 35.05,
+        "rate": 35.07,
         "fee": 8,
-        "markup": 1,
-        "receiveAmount": 3224.6
+        "markup": 0.94,
+        "receiveAmount": 3226.44
       },
       "taptap-send": {
         "rate": 35.1,

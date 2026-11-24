@@ -20264,16 +20264,16 @@
     "date": "2026-11-24",
     "providers": {
       "moneygram": {
-        "rate": 54.9086,
+        "rate": 55.025,
         "fee": 1.49,
-        "markup": 0.52,
-        "receiveAmount": 5409.05
+        "markup": 0.31,
+        "receiveAmount": 5420.51
       },
       "deutsche-bank": {
-        "rate": 55.0342,
+        "rate": 55.4372,
         "fee": 36.55,
-        "markup": 0.29,
-        "receiveAmount": 3491.92
+        "markup": -0.44,
+        "receiveAmount": 3517.49
       },
       "xe": {
         "rate": 54.6882,
@@ -20282,16 +20282,16 @@
         "receiveAmount": 5250.07
       },
       "western-union": {
-        "rate": 54.6181,
+        "rate": 54.5702,
         "fee": 0.99,
-        "markup": 1.04,
-        "receiveAmount": 5407.74
+        "markup": 1.13,
+        "receiveAmount": 5403
       },
       "instarem": {
-        "rate": 54.92,
+        "rate": 55.1809,
         "fee": 0,
-        "markup": 0.5,
-        "receiveAmount": 5492
+        "markup": 0.02,
+        "receiveAmount": 5518.09
       },
       "paysend": {
         "rate": 54.874,
@@ -20300,10 +20300,10 @@
         "receiveAmount": 5487.4
       },
       "remitly": {
-        "rate": 54.45,
+        "rate": 54.72,
         "fee": 1.99,
-        "markup": 1.35,
-        "receiveAmount": 5336.64
+        "markup": 0.86,
+        "receiveAmount": 5363.11
       },
       "revolut": {
         "rate": 55.1203,
@@ -20312,10 +20312,10 @@
         "receiveAmount": 5456.91
       },
       "wise": {
-        "rate": 55.2749,
-        "fee": 2.97,
-        "markup": -0.15,
-        "receiveAmount": 5363.32
+        "rate": 55.5313,
+        "fee": 2.96,
+        "markup": -0.61,
+        "receiveAmount": 5388.76
       },
       "ria": {
         "rate": 54.3023,
@@ -20330,64 +20330,64 @@
         "receiveAmount": 5530
       },
       "ing-de": {
-        "rate": 54.3133,
+        "rate": 54.4458,
         "fee": 22,
-        "markup": 1.6,
-        "receiveAmount": 4236.44
+        "markup": 1.36,
+        "receiveAmount": 4246.77
       },
       "bnp": {
-        "rate": 54.5324,
+        "rate": 54.7284,
         "fee": 0,
-        "markup": 1.2,
-        "receiveAmount": 5453.24
+        "markup": 0.84,
+        "receiveAmount": 5472.84
       },
       "lacaixa": {
-        "rate": 53.744,
+        "rate": 54.0261,
         "fee": 27,
-        "markup": 2.63,
-        "receiveAmount": 3923.31
+        "markup": 2.12,
+        "receiveAmount": 3943.91
       },
       "abn-amro-bank": {
-        "rate": 54.7426,
+        "rate": 55.1019,
         "fee": 25,
-        "markup": 0.82,
-        "receiveAmount": 4105.7
+        "markup": 0.17,
+        "receiveAmount": 4132.64
       },
       "sabadell": {
-        "rate": 53.6509,
+        "rate": 53.9727,
         "fee": 22,
-        "markup": 2.8,
-        "receiveAmount": 4184.77
+        "markup": 2.21,
+        "receiveAmount": 4209.87
       },
       "banco-santander-es": {
-        "rate": 53.2246,
+        "rate": 53.5591,
         "fee": 0,
-        "markup": 3.57,
-        "receiveAmount": 5322.46
+        "markup": 2.96,
+        "receiveAmount": 5355.91
       },
       "bbva": {
-        "rate": 55.4336,
+        "rate": 55.7283,
         "fee": 6,
-        "markup": -0.43,
-        "receiveAmount": 5210.76
+        "markup": -0.97,
+        "receiveAmount": 5238.46
       },
       "commerzbank": {
-        "rate": 53.5952,
+        "rate": 53.8592,
         "fee": 12.5,
-        "markup": 2.9,
-        "receiveAmount": 4689.58
+        "markup": 2.42,
+        "receiveAmount": 4712.68
       },
       "rabobank": {
-        "rate": 55.4017,
+        "rate": 55.6962,
         "fee": 16,
-        "markup": -0.38,
-        "receiveAmount": 4653.74
+        "markup": -0.91,
+        "receiveAmount": 4678.48
       },
       "sparkasse": {
-        "rate": 55.096,
+        "rate": 55.5878,
         "fee": 42.5,
-        "markup": 0.18,
-        "receiveAmount": 3168.02
+        "markup": -0.71,
+        "receiveAmount": 3196.3
       }
     }
   }
