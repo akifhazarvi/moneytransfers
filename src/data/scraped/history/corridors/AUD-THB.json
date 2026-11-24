@@ -15028,52 +15028,58 @@
         "receiveAmount": 2265
       },
       "nab": {
-        "rate": 21.9392,
+        "rate": 21.897,
         "fee": 0,
-        "markup": 2.57,
-        "receiveAmount": 2193.92
+        "markup": 2.75,
+        "receiveAmount": 2189.7
       },
       "western-union": {
-        "rate": 22.2064,
+        "rate": 22.2517,
         "fee": 0.99,
-        "markup": 1.38,
-        "receiveAmount": 2198.66
+        "markup": 1.18,
+        "receiveAmount": 2203.14
       },
       "hsbc": {
-        "rate": 21.9745,
+        "rate": 21.9275,
         "fee": 30,
-        "markup": 2.41,
-        "receiveAmount": 1538.21
+        "markup": 2.62,
+        "receiveAmount": 1534.93
       },
       "xoom": {
-        "rate": 21.4929,
+        "rate": 21.4923,
         "fee": 0,
         "markup": 4.55,
-        "receiveAmount": 2149.29
+        "receiveAmount": 2149.23
       },
       "remitly": {
-        "rate": 22.4035,
+        "rate": 22.3633,
         "fee": 1.99,
-        "markup": 0.51,
-        "receiveAmount": 2195.77
+        "markup": 0.68,
+        "receiveAmount": 2191.83
       },
       "instarem": {
-        "rate": 22.5287,
+        "rate": 22.4734,
         "fee": 0.5,
-        "markup": -0.05,
-        "receiveAmount": 2241.61
+        "markup": 0.2,
+        "receiveAmount": 2236.1
       },
       "commonwealth-bank": {
-        "rate": 21.8287,
+        "rate": 21.813,
         "fee": 0,
-        "markup": 3.06,
-        "receiveAmount": 2182.87
+        "markup": 3.13,
+        "receiveAmount": 2181.3
       },
       "anz": {
-        "rate": 21.6836,
+        "rate": 21.6373,
         "fee": 0,
-        "markup": 3.7,
-        "receiveAmount": 2168.36
+        "markup": 3.91,
+        "receiveAmount": 2163.73
+      },
+      "westpac": {
+        "rate": 22.385,
+        "fee": 0,
+        "markup": 0.59,
+        "receiveAmount": 2238.5
       }
     }
   }

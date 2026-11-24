@@ -13393,10 +13393,10 @@
     "date": "2026-11-24",
     "providers": {
       "lemfi": {
-        "rate": 162.9,
+        "rate": 162.96,
         "fee": 0,
-        "markup": -0.8,
-        "receiveAmount": 16290
+        "markup": 0.23,
+        "receiveAmount": 16296
       },
       "moneygram": {
         "rate": 174.716,
@@ -13417,10 +13417,10 @@
         "receiveAmount": 16894.97
       },
       "western-union": {
-        "rate": 161.37,
+        "rate": 161.354,
         "fee": 0.99,
-        "markup": 0.15,
-        "receiveAmount": 15977.2
+        "markup": 0.16,
+        "receiveAmount": 15975.62
       },
       "worldremit": {
         "rate": 175.007,
@@ -13453,10 +13453,10 @@
         "receiveAmount": 18020
       },
       "xoom": {
-        "rate": 158.179,
+        "rate": 158.035,
         "fee": 2.99,
-        "markup": 2.12,
-        "receiveAmount": 15344.95
+        "markup": 2.21,
+        "receiveAmount": 15330.96
       }
     }
   }

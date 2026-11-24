@@ -12110,34 +12110,40 @@
         "receiveAmount": 16204.97
       },
       "remitly": {
-        "rate": 161.079,
+        "rate": 161.764,
         "fee": 0.99,
-        "markup": 0.69,
-        "receiveAmount": 15948.42
+        "markup": 0.27,
+        "receiveAmount": 16016.25
       },
       "xoom": {
-        "rate": 158.214,
+        "rate": 158.979,
         "fee": 2.99,
-        "markup": 2.46,
-        "receiveAmount": 15348.36
+        "markup": 1.98,
+        "receiveAmount": 15422.53
       },
       "western-union": {
-        "rate": 161.257,
+        "rate": 161.082,
         "fee": 1.99,
-        "markup": 0.58,
-        "receiveAmount": 15804.77
+        "markup": 0.69,
+        "receiveAmount": 15787.64
       },
       "skrill": {
-        "rate": 154.628,
+        "rate": 154.986,
         "fee": 0,
-        "markup": 4.67,
-        "receiveAmount": 15462.76
+        "markup": 4.45,
+        "receiveAmount": 15498.64
       },
       "instarem": {
-        "rate": 160.498,
+        "rate": 161.491,
         "fee": 0,
-        "markup": 1.05,
-        "receiveAmount": 16049.83
+        "markup": 0.43,
+        "receiveAmount": 16149.14
+      },
+      "lemfi": {
+        "rate": 163.5,
+        "fee": 0,
+        "markup": -0.28,
+        "receiveAmount": 16350
       }
     }
   }
