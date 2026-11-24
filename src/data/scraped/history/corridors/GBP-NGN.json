@@ -22521,5 +22521,94 @@
         "receiveAmount": 186254.1
       }
     }
+  },
+  {
+    "date": "2026-11-24",
+    "providers": {
+      "instarem": {
+        "rate": 1759.01,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 175900.63
+      },
+      "lemfi": {
+        "rate": 1860,
+        "fee": 0,
+        "markup": -5.39,
+        "receiveAmount": 186000
+      },
+      "moneygram": {
+        "rate": 1866.75,
+        "fee": 0.99,
+        "markup": -4.3,
+        "receiveAmount": 184826.92
+      },
+      "western-union": {
+        "rate": 1842.85,
+        "fee": 1.99,
+        "markup": -4.42,
+        "receiveAmount": 180617.93
+      },
+      "transfergo": {
+        "rate": 1869.17,
+        "fee": 0,
+        "markup": -4.43,
+        "receiveAmount": 186916.57
+      },
+      "worldremit": {
+        "rate": 1882.27,
+        "fee": 0.99,
+        "markup": -5.16,
+        "receiveAmount": 186363.43
+      },
+      "mukuru": {
+        "rate": 1879.19,
+        "fee": 0.12,
+        "markup": -4.99,
+        "receiveAmount": 187693.5
+      },
+      "paysend": {
+        "rate": 1864.97,
+        "fee": 0,
+        "markup": -4.2,
+        "receiveAmount": 186496.98
+      },
+      "sendwave": {
+        "rate": 1882.27,
+        "fee": 0.99,
+        "markup": -5.16,
+        "receiveAmount": 186363.43
+      },
+      "remitly": {
+        "rate": 1875.42,
+        "fee": 0,
+        "markup": -6.27,
+        "receiveAmount": 187542
+      },
+      "ria": {
+        "rate": 1891.12,
+        "fee": 1.99,
+        "markup": -7.16,
+        "receiveAmount": 185348.74
+      },
+      "taptap-send": {
+        "rate": 1875,
+        "fee": 0,
+        "markup": -6.24,
+        "receiveAmount": 187500
+      },
+      "xoom": {
+        "rate": 1819.25,
+        "fee": 0.89,
+        "markup": -3.08,
+        "receiveAmount": 180305.56
+      },
+      "wise": {
+        "rate": 1882.4,
+        "fee": 1.16,
+        "markup": -6.66,
+        "receiveAmount": 186056.42
+      }
+    }
   }
 ]

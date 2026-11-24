@@ -6770,5 +6770,34 @@
         "receiveAmount": 2183.21
       }
     }
+  },
+  {
+    "date": "2026-11-24",
+    "providers": {
+      "western-union": {
+        "rate": 22.0951,
+        "fee": 0.99,
+        "markup": 1.36,
+        "receiveAmount": 2187.63
+      },
+      "xoom": {
+        "rate": 21.5285,
+        "fee": 4.99,
+        "markup": 3.89,
+        "receiveAmount": 2045.42
+      },
+      "remitly": {
+        "rate": 22.2947,
+        "fee": 1.99,
+        "markup": 0.47,
+        "receiveAmount": 2185.11
+      },
+      "wise": {
+        "rate": 22.3934,
+        "fee": 1.85,
+        "markup": 0.03,
+        "receiveAmount": 2197.91
+      }
+    }
   }
 ]
