@@ -1,60 +1,60 @@
 {
-  "dataAsOf": "2026-11-24",
-  "corridorsScored": 207,
+  "dataAsOf": "2026-11-25",
+  "corridorsScored": 195,
   "corridorsWithAnyScore": 1065,
-  "singleProviderReadings": 858,
+  "singleProviderReadings": 870,
   "bands": {
-    "exceptional": 22,
-    "great": 52,
-    "good": 33,
-    "typical": 28,
-    "poor": 72
+    "exceptional": 19,
+    "great": 57,
+    "good": 27,
+    "typical": 26,
+    "poor": 66
   },
-  "goodOrBetterPct": 52,
+  "goodOrBetterPct": 53,
   "confidence": {
-    "high": 207,
+    "high": 195,
     "medium": 0,
     "low": 0
   },
-  "medianDaysObserved": 241,
+  "medianDaysObserved": 243,
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 33,
+      "score": 32,
       "band": "poor",
       "headline": "Poor time to send",
-      "explanation": "Best rate -1.26% vs the 30-day average, near the 90-day low. Rates are falling — -1.11% week on week. Today's best beats the median provider by +1.95%.",
+      "explanation": "Best rate -1.25% vs the 30-day average, near the 90-day low. Rates are falling — -1.13% week on week. Today's best beats the median provider by +2.20%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 5.824298701929888,
+          "score": 4.480042782828607,
           "detail": "near the 90-day low"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 29.02412592608742,
-          "detail": "-1.26% vs the 30-day average"
+          "score": 29.21985266349283,
+          "detail": "-1.25% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 98.41370669948958,
-          "detail": "today's best beats the median provider by +1.95%"
+          "score": 100,
+          "detail": "today's best beats the median provider by +2.20%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 22.193111677187318,
-          "detail": "falling — -1.11% week on week"
+          "score": 21.865915050431102,
+          "detail": "falling — -1.13% week on week"
         }
       ],
-      "daysObserved": 248,
+      "daysObserved": 249,
       "rangeWindowDays": 90,
       "confidence": "high"
     }

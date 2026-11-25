@@ -9122,5 +9122,46 @@
         "receiveAmount": 15522.72
       }
     }
+  },
+  {
+    "date": "2026-11-25",
+    "providers": {
+      "taptap-send": {
+        "rate": 158.407,
+        "fee": 0,
+        "markup": 0.46,
+        "receiveAmount": 15840.7
+      },
+      "western-union": {
+        "rate": 155.933,
+        "fee": 0.99,
+        "markup": 2.01,
+        "receiveAmount": 15438.89
+      },
+      "xoom": {
+        "rate": 152.695,
+        "fee": 9.99,
+        "markup": 4.05,
+        "receiveAmount": 13744.11
+      },
+      "wells-fargo": {
+        "rate": 154.039,
+        "fee": 0,
+        "markup": 3.2,
+        "receiveAmount": 15403.86
+      },
+      "remitly": {
+        "rate": 155.101,
+        "fee": 6.99,
+        "markup": 2.54,
+        "receiveAmount": 14425.98
+      },
+      "wise": {
+        "rate": 159.12,
+        "fee": 2.52,
+        "markup": 0.01,
+        "receiveAmount": 15511.02
+      }
+    }
   }
 ]

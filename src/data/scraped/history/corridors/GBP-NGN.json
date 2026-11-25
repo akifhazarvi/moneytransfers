@@ -22610,5 +22610,94 @@
         "receiveAmount": 183987.69
       }
     }
+  },
+  {
+    "date": "2026-11-25",
+    "providers": {
+      "instarem": {
+        "rate": 1765.62,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 176561.91
+      },
+      "lemfi": {
+        "rate": 1870,
+        "fee": 0,
+        "markup": -5.61,
+        "receiveAmount": 187000
+      },
+      "moneygram": {
+        "rate": 1894.42,
+        "fee": 0.99,
+        "markup": -5.46,
+        "receiveAmount": 187567.02
+      },
+      "western-union": {
+        "rate": 1840.55,
+        "fee": 1.99,
+        "markup": -3.95,
+        "receiveAmount": 180392.16
+      },
+      "transfergo": {
+        "rate": 1876.85,
+        "fee": 0,
+        "markup": -4.48,
+        "receiveAmount": 187685.4
+      },
+      "worldremit": {
+        "rate": 1866.09,
+        "fee": 0.99,
+        "markup": -3.88,
+        "receiveAmount": 184761.91
+      },
+      "mukuru": {
+        "rate": 1880.9,
+        "fee": 0.12,
+        "markup": -4.71,
+        "receiveAmount": 187864.29
+      },
+      "paysend": {
+        "rate": 1877.44,
+        "fee": 0,
+        "markup": -4.51,
+        "receiveAmount": 187743.8
+      },
+      "sendwave": {
+        "rate": 1866.09,
+        "fee": 0.99,
+        "markup": -3.88,
+        "receiveAmount": 184761.91
+      },
+      "remitly": {
+        "rate": 1888.95,
+        "fee": 0,
+        "markup": -6.68,
+        "receiveAmount": 188895
+      },
+      "ria": {
+        "rate": 1884.34,
+        "fee": 1.99,
+        "markup": -6.42,
+        "receiveAmount": 184684.35
+      },
+      "taptap-send": {
+        "rate": 1875,
+        "fee": 0,
+        "markup": -5.89,
+        "receiveAmount": 187500
+      },
+      "xoom": {
+        "rate": 1815.78,
+        "fee": 0.89,
+        "markup": -2.55,
+        "receiveAmount": 179962.36
+      },
+      "wise": {
+        "rate": 1862.62,
+        "fee": 1.16,
+        "markup": -5.19,
+        "receiveAmount": 184101.36
+      }
+    }
   }
 ]
