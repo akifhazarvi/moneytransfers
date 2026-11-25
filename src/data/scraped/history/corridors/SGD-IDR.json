@@ -6301,22 +6301,28 @@
     "date": "2026-11-25",
     "providers": {
       "instarem": {
-        "rate": 14176.2,
+        "rate": 14191.6,
         "fee": 0,
         "markup": 0,
-        "receiveAmount": 1417622
+        "receiveAmount": 1419160
       },
       "hsbc-sg": {
-        "rate": 14063,
+        "rate": 14090.8,
         "fee": 0,
-        "markup": 0.81,
-        "receiveAmount": 1406298.6
+        "markup": 0.62,
+        "receiveAmount": 1409084.7
       },
       "western-union": {
-        "rate": 14148.2,
+        "rate": 14164,
         "fee": 3,
-        "markup": 0.21,
-        "receiveAmount": 1372374.72
+        "markup": 0.1,
+        "receiveAmount": 1373906.25
+      },
+      "ocbc": {
+        "rate": 13771.1,
+        "fee": 0,
+        "markup": 2.87,
+        "receiveAmount": 1377111.1
       }
     }
   }

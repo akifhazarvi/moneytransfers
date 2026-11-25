@@ -9679,10 +9679,10 @@
     "date": "2026-11-25",
     "providers": {
       "remitly": {
-        "rate": 25517.3,
+        "rate": 25566.8,
         "fee": 1.99,
-        "markup": 1.01,
-        "receiveAmount": 2500945.67
+        "markup": 0.82,
+        "receiveAmount": 2505797.17
       },
       "ria": {
         "rate": 25602.5,
@@ -9703,22 +9703,22 @@
         "receiveAmount": 2429298.86
       },
       "western-union": {
-        "rate": 25415.6,
+        "rate": 25431.9,
         "fee": 0.99,
-        "markup": 1.4,
-        "receiveAmount": 2516401.53
+        "markup": 1.34,
+        "receiveAmount": 2518012.22
       },
       "instarem": {
-        "rate": 25596.1,
+        "rate": 25644.2,
         "fee": 0,
-        "markup": 0.7,
-        "receiveAmount": 2559606.5
+        "markup": 0.52,
+        "receiveAmount": 2564422.5
       },
       "wise": {
-        "rate": 25781,
+        "rate": 25837.5,
         "fee": 2.51,
-        "markup": -0.01,
-        "receiveAmount": 2513389.69
+        "markup": -0.23,
+        "receiveAmount": 2518897.88
       }
     }
   }

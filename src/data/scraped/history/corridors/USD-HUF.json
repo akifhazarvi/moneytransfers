@@ -6775,28 +6775,28 @@
     "date": "2026-11-25",
     "providers": {
       "western-union": {
-        "rate": 332.542,
+        "rate": 334.13,
         "fee": 0.99,
-        "markup": 2.08,
-        "receiveAmount": 32924.97
+        "markup": 1.61,
+        "receiveAmount": 33082.19
       },
       "xoom": {
-        "rate": 324.101,
+        "rate": 323.861,
         "fee": 4.99,
-        "markup": 4.57,
-        "receiveAmount": 30792.83
+        "markup": 4.64,
+        "receiveAmount": 30770.05
       },
       "remitly": {
-        "rate": 335.748,
+        "rate": 335.392,
         "fee": 0.99,
-        "markup": 1.14,
-        "receiveAmount": 33242.36
+        "markup": 1.24,
+        "receiveAmount": 33207.19
       },
       "wise": {
-        "rate": 339.735,
+        "rate": 339.009,
         "fee": 1.45,
-        "markup": -0.04,
-        "receiveAmount": 33480.88
+        "markup": 0.18,
+        "receiveAmount": 33409.34
       }
     }
   }

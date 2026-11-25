@@ -8103,10 +8103,10 @@
     "date": "2026-11-25",
     "providers": {
       "western-union": {
-        "rate": 16755.4,
+        "rate": 16788.1,
         "fee": 0.99,
-        "markup": 1.02,
-        "receiveAmount": 1658951.56
+        "markup": 0.82,
+        "receiveAmount": 1662186.61
       },
       "instarem": {
         "rate": 16901.4,
@@ -8115,16 +8115,16 @@
         "receiveAmount": 1681690
       },
       "commonwealth-bank": {
-        "rate": 15865.9,
+        "rate": 16032,
         "fee": 0,
-        "markup": 6.27,
-        "receiveAmount": 1586592.4
+        "markup": 5.29,
+        "receiveAmount": 1603203.4
       },
       "remitly": {
-        "rate": 16792.4,
+        "rate": 17031.2,
         "fee": 1.99,
-        "markup": 0.8,
-        "receiveAmount": 1645823.81
+        "markup": -0.61,
+        "receiveAmount": 1669232.42
       }
     }
   }
