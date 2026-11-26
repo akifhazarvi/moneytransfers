@@ -22699,5 +22699,94 @@
         "receiveAmount": 185682.8
       }
     }
+  },
+  {
+    "date": "2026-11-26",
+    "providers": {
+      "instarem": {
+        "rate": 1776.47,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 177647.14
+      },
+      "lemfi": {
+        "rate": 1850,
+        "fee": 0,
+        "markup": -3.92,
+        "receiveAmount": 185000
+      },
+      "moneygram": {
+        "rate": 1859.53,
+        "fee": 0.99,
+        "markup": -3.84,
+        "receiveAmount": 184112.29
+      },
+      "western-union": {
+        "rate": 1820.65,
+        "fee": 1.99,
+        "markup": -2.27,
+        "receiveAmount": 178441.93
+      },
+      "transfergo": {
+        "rate": 1852.13,
+        "fee": 0,
+        "markup": -3.42,
+        "receiveAmount": 185212.6
+      },
+      "worldremit": {
+        "rate": 1867.01,
+        "fee": 0.99,
+        "markup": -4.25,
+        "receiveAmount": 184852.71
+      },
+      "mukuru": {
+        "rate": 1852.24,
+        "fee": 0.12,
+        "markup": -3.43,
+        "receiveAmount": 185001.73
+      },
+      "paysend": {
+        "rate": 1848.2,
+        "fee": 0,
+        "markup": -3.2,
+        "receiveAmount": 184820.33
+      },
+      "sendwave": {
+        "rate": 1867.01,
+        "fee": 0.99,
+        "markup": -4.25,
+        "receiveAmount": 184852.71
+      },
+      "remitly": {
+        "rate": 1876.29,
+        "fee": 0,
+        "markup": -5.39,
+        "receiveAmount": 187629
+      },
+      "ria": {
+        "rate": 1883.62,
+        "fee": 1.99,
+        "markup": -5.81,
+        "receiveAmount": 184613.91
+      },
+      "taptap-send": {
+        "rate": 1875,
+        "fee": 0,
+        "markup": -5.32,
+        "receiveAmount": 187500
+      },
+      "xoom": {
+        "rate": 1819.21,
+        "fee": 0.89,
+        "markup": -2.19,
+        "receiveAmount": 180301.46
+      },
+      "wise": {
+        "rate": 1877.7,
+        "fee": 1.16,
+        "markup": -5.47,
+        "receiveAmount": 185591.87
+      }
+    }
   }
 ]
