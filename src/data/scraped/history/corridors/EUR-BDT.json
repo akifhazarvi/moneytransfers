@@ -20235,7 +20235,7 @@
       "lemfi": {
         "rate": 136,
         "fee": 0,
-        "markup": 1.04,
+        "markup": 1,
         "receiveAmount": 13600
       },
       "moneygram": {
@@ -20245,10 +20245,10 @@
         "receiveAmount": 13362.15
       },
       "western-union": {
-        "rate": 131.26,
+        "rate": 131.73,
         "fee": 0.99,
-        "markup": 4.49,
-        "receiveAmount": 12996.07
+        "markup": 4.15,
+        "receiveAmount": 13042.63
       },
       "worldremit": {
         "rate": 136.313,
@@ -20257,10 +20257,10 @@
         "receiveAmount": 13087.41
       },
       "instarem": {
-        "rate": 136.651,
+        "rate": 136.563,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 13665.1
+        "markup": 0.63,
+        "receiveAmount": 13656.33
       },
       "xe": {
         "rate": 136.657,
@@ -20293,10 +20293,10 @@
         "receiveAmount": 13297.95
       },
       "wise": {
-        "rate": 137.601,
+        "rate": 137.564,
         "fee": 3.14,
-        "markup": -0.12,
-        "receiveAmount": 13328.03
+        "markup": -0.09,
+        "receiveAmount": 13324.45
       },
       "ria": {
         "rate": 136.72,
@@ -20311,22 +20311,22 @@
         "receiveAmount": 13680
       },
       "xoom": {
-        "rate": 133.958,
+        "rate": 133.819,
         "fee": 2.99,
-        "markup": 2.53,
-        "receiveAmount": 12995.27
+        "markup": 2.63,
+        "receiveAmount": 12981.74
       },
       "skrill": {
-        "rate": 130.453,
+        "rate": 130.38,
         "fee": 0,
-        "markup": 5.08,
-        "receiveAmount": 13045.35
+        "markup": 5.13,
+        "receiveAmount": 13037.97
       },
       "bnp": {
-        "rate": 133.817,
+        "rate": 133.515,
         "fee": 0,
-        "markup": 2.63,
-        "receiveAmount": 13381.69
+        "markup": 2.85,
+        "receiveAmount": 13351.48
       }
     }
   }

@@ -18264,10 +18264,10 @@
         "receiveAmount": 3433.2
       },
       "wise": {
-        "rate": 34.9155,
+        "rate": 34.903,
         "fee": 1.62,
-        "markup": 0.03,
-        "receiveAmount": 3434.99
+        "markup": 0.07,
+        "receiveAmount": 3433.76
       },
       "ria": {
         "rate": 34.6135,
@@ -18276,28 +18276,28 @@
         "receiveAmount": 3392.47
       },
       "paypal": {
-        "rate": 33.1538,
+        "rate": 33.1092,
         "fee": 6.99,
-        "markup": 5.08,
-        "receiveAmount": 3083.64
+        "markup": 5.2,
+        "receiveAmount": 3079.49
       },
       "bank-of-new-zealand-nz": {
-        "rate": 34.3185,
+        "rate": 34.2652,
         "fee": 0,
-        "markup": 1.74,
-        "receiveAmount": 3431.85
+        "markup": 1.89,
+        "receiveAmount": 3426.52
       },
       "kiwibank": {
-        "rate": 34.1306,
+        "rate": 34.0443,
         "fee": 20,
-        "markup": 2.28,
-        "receiveAmount": 2730.45
+        "markup": 2.53,
+        "receiveAmount": 2723.54
       },
       "westpac-nz": {
-        "rate": 34.0366,
-        "fee": 0,
-        "markup": 2.55,
-        "receiveAmount": 3403.66
+        "rate": 33.9637,
+        "fee": 25,
+        "markup": 2.76,
+        "receiveAmount": 2547.28
       }
     }
   }
