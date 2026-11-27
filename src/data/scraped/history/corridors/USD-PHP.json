@@ -26705,16 +26705,16 @@
     "date": "2026-11-27",
     "providers": {
       "instarem": {
-        "rate": 63.5835,
+        "rate": 63.5845,
         "fee": 0,
         "markup": 0.15,
-        "receiveAmount": 6358.35
+        "receiveAmount": 6358.45
       },
       "lemfi": {
-        "rate": 63.13,
+        "rate": 63.2,
         "fee": 0,
-        "markup": 0.91,
-        "receiveAmount": 6313
+        "markup": 0.9,
+        "receiveAmount": 6320
       },
       "moneygram": {
         "rate": 63.2403,
@@ -26735,10 +26735,10 @@
         "receiveAmount": 6149.51
       },
       "western-union": {
-        "rate": 61.937,
+        "rate": 61.932,
         "fee": 1.99,
-        "markup": 2.78,
-        "receiveAmount": 6070.45
+        "markup": 2.79,
+        "receiveAmount": 6069.96
       },
       "currencyfair": {
         "rate": 63.36,
@@ -26771,10 +26771,10 @@
         "receiveAmount": 6225.7
       },
       "remitly": {
-        "rate": 61.55,
+        "rate": 61.58,
         "fee": 0,
-        "markup": 3.39,
-        "receiveAmount": 6155
+        "markup": 3.34,
+        "receiveAmount": 6158
       },
       "revolut": {
         "rate": 63.3666,
@@ -26783,10 +26783,10 @@
         "receiveAmount": 6289.13
       },
       "wise": {
-        "rate": 63.7088,
+        "rate": 63.7725,
         "fee": 1.57,
-        "markup": 0,
-        "receiveAmount": 6270.86
+        "markup": -0.1,
+        "receiveAmount": 6277.13
       },
       "taptap-send": {
         "rate": 63,
@@ -26795,10 +26795,10 @@
         "receiveAmount": 6300
       },
       "wells-fargo": {
-        "rate": 61.6755,
+        "rate": 61.7443,
         "fee": 0,
-        "markup": 3.19,
-        "receiveAmount": 6167.55
+        "markup": 3.08,
+        "receiveAmount": 6174.43
       }
     }
   }

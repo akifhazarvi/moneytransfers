@@ -5237,10 +5237,10 @@
     "date": "2026-11-27",
     "providers": {
       "lemfi": {
-        "rate": 600,
+        "rate": 601,
         "fee": 0,
-        "markup": -0.37,
-        "receiveAmount": 60000
+        "markup": -0.19,
+        "receiveAmount": 60100
       },
       "ria": {
         "rate": 585.344,
@@ -5255,10 +5255,10 @@
         "receiveAmount": 59200
       },
       "western-union": {
-        "rate": 508.328,
+        "rate": 508.589,
         "fee": 3.99,
-        "markup": 14.97,
-        "receiveAmount": 48804.58
+        "markup": 14.92,
+        "receiveAmount": 48829.67
       }
     }
   }

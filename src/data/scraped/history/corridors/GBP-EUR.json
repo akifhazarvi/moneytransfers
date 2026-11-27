@@ -43691,34 +43691,34 @@
     "date": "2026-11-27",
     "providers": {
       "instarem": {
-        "rate": 1.1911,
+        "rate": 1.193,
         "fee": 0,
         "markup": 0.35,
-        "receiveAmount": 119.11
+        "receiveAmount": 119.3
       },
       "lemfi": {
         "rate": 1.188,
         "fee": 0,
-        "markup": 0.65,
+        "markup": 0.79,
         "receiveAmount": 118.8
       },
       "moneygram": {
-        "rate": 1.18339,
+        "rate": 1.18565,
         "fee": 0,
-        "markup": 1.04,
-        "receiveAmount": 118.34
+        "markup": 0.85,
+        "receiveAmount": 118.56
       },
       "hsbc": {
-        "rate": 1.15082,
+        "rate": 1.15268,
         "fee": 0,
-        "markup": 3.76,
-        "receiveAmount": 115.08
+        "markup": 3.6,
+        "receiveAmount": 115.27
       },
       "skrill": {
-        "rate": 1.17234,
+        "rate": 1.17437,
         "fee": 0,
-        "markup": 1.96,
-        "receiveAmount": 117.23
+        "markup": 1.79,
+        "receiveAmount": 117.44
       },
       "xe": {
         "rate": 1.1968,
@@ -43727,10 +43727,10 @@
         "receiveAmount": 119.68
       },
       "western-union": {
-        "rate": 1.16473,
+        "rate": 1.16769,
         "fee": 1.99,
-        "markup": 2.6,
-        "receiveAmount": 114.16
+        "markup": 2.35,
+        "receiveAmount": 114.44
       },
       "currencies-direct": {
         "rate": 1.18024,
@@ -43739,10 +43739,10 @@
         "receiveAmount": 118.02
       },
       "rbs": {
-        "rate": 1.16804,
+        "rate": 1.17012,
         "fee": 0,
-        "markup": 2.32,
-        "receiveAmount": 116.8
+        "markup": 2.15,
+        "receiveAmount": 117.01
       },
       "ofx": {
         "rate": 1.19743,
@@ -43775,10 +43775,10 @@
         "receiveAmount": 117.57
       },
       "remitly": {
-        "rate": 1.1849,
+        "rate": 1.1869,
         "fee": 1.99,
-        "markup": 0.91,
-        "receiveAmount": 116.13
+        "markup": 0.74,
+        "receiveAmount": 116.33
       },
       "revolut": {
         "rate": 1.1945,
@@ -43787,10 +43787,10 @@
         "receiveAmount": 95.51
       },
       "wise": {
-        "rate": 1.19567,
+        "rate": 1.19739,
         "fee": 0.85,
-        "markup": 0.01,
-        "receiveAmount": 118.55
+        "markup": -0.13,
+        "receiveAmount": 118.72
       },
       "ria": {
         "rate": 1.1753,
@@ -43805,10 +43805,10 @@
         "receiveAmount": 120
       },
       "nationwide": {
-        "rate": 1.16822,
+        "rate": 1.1741,
         "fee": 0,
-        "markup": 2.3,
-        "receiveAmount": 116.82
+        "markup": 1.81,
+        "receiveAmount": 117.41
       },
       "paypal": {
         "rate": 1.14847,
@@ -43817,40 +43817,40 @@
         "receiveAmount": 111.41
       },
       "barclays": {
-        "rate": 1.16267,
+        "rate": 1.16445,
         "fee": 0,
-        "markup": 2.77,
-        "receiveAmount": 116.27
+        "markup": 2.62,
+        "receiveAmount": 116.45
       },
       "monese": {
-        "rate": 1.19524,
-        "fee": 3,
-        "markup": 0.05,
-        "receiveAmount": 115.94
+        "rate": 1.19737,
+        "fee": 4,
+        "markup": -0.13,
+        "receiveAmount": 114.95
       },
       "natwest": {
-        "rate": 1.16804,
+        "rate": 1.17012,
         "fee": 0,
-        "markup": 2.32,
-        "receiveAmount": 116.8
+        "markup": 2.15,
+        "receiveAmount": 117.01
       },
       "lloyds": {
-        "rate": 1.15116,
+        "rate": 1.15302,
         "fee": 0,
-        "markup": 3.73,
-        "receiveAmount": 115.12
+        "markup": 3.58,
+        "receiveAmount": 115.3
       },
       "xoom": {
-        "rate": 1.12183,
+        "rate": 1.12365,
         "fee": 0.99,
-        "markup": 6.18,
-        "receiveAmount": 111.07
+        "markup": 6.03,
+        "receiveAmount": 111.25
       },
       "santander": {
-        "rate": 1.16097,
+        "rate": 1.16284,
         "fee": 0,
-        "markup": 2.91,
-        "receiveAmount": 116.1
+        "markup": 2.75,
+        "receiveAmount": 116.28
       }
     }
   }

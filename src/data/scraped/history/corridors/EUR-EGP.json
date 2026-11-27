@@ -3310,10 +3310,10 @@
     "date": "2026-11-27",
     "providers": {
       "lemfi": {
-        "rate": 59.84,
+        "rate": 60,
         "fee": 0,
-        "markup": 0.53,
-        "receiveAmount": 5984
+        "markup": -0.1,
+        "receiveAmount": 6000
       },
       "taptap-send": {
         "rate": 58.85,

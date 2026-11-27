@@ -16650,10 +16650,10 @@
     "date": "2026-11-27",
     "providers": {
       "lemfi": {
-        "rate": 0.5313,
+        "rate": 0.532,
         "fee": 0,
-        "markup": 0.77,
-        "receiveAmount": 53.13
+        "markup": 0.75,
+        "receiveAmount": 53.2
       },
       "taptap-send": {
         "rate": 0.527,
@@ -16662,10 +16662,10 @@
         "receiveAmount": 52.7
       },
       "rbc": {
-        "rate": 0.519604,
+        "rate": 0.51981,
         "fee": 0,
-        "markup": 2.95,
-        "receiveAmount": 51.96
+        "markup": 2.91,
+        "receiveAmount": 51.98
       },
       "paypal": {
         "rate": 0.510196,
@@ -16674,46 +16674,46 @@
         "receiveAmount": 49.49
       },
       "western-union": {
-        "rate": 0.521677,
+        "rate": 0.520658,
         "fee": 1.99,
-        "markup": 2.57,
-        "receiveAmount": 51.13
+        "markup": 2.76,
+        "receiveAmount": 51.03
       },
       "remitly": {
-        "rate": 0.532692,
+        "rate": 0.532878,
+        "fee": 0,
+        "markup": 0.47,
+        "receiveAmount": 53.29
+      },
+      "xoom": {
+        "rate": 0.496138,
+        "fee": 2.99,
+        "markup": 7.34,
+        "receiveAmount": 48.13
+      },
+      "worldremit": {
+        "rate": 0.522598,
+        "fee": 3.99,
+        "markup": 2.39,
+        "receiveAmount": 50.17
+      },
+      "bmo": {
+        "rate": 0.51064,
+        "fee": 0,
+        "markup": 4.63,
+        "receiveAmount": 51.06
+      },
+      "instarem": {
+        "rate": 0.532678,
         "fee": 0,
         "markup": 0.51,
         "receiveAmount": 53.27
       },
-      "xoom": {
-        "rate": 0.495681,
-        "fee": 2.99,
-        "markup": 7.42,
-        "receiveAmount": 48.09
-      },
-      "worldremit": {
-        "rate": 0.522117,
-        "fee": 3.99,
-        "markup": 2.48,
-        "receiveAmount": 50.13
-      },
-      "bmo": {
-        "rate": 0.512381,
-        "fee": 0,
-        "markup": 4.3,
-        "receiveAmount": 51.24
-      },
-      "instarem": {
-        "rate": 0.532301,
-        "fee": 0,
-        "markup": 0.58,
-        "receiveAmount": 53.23
-      },
       "td-bank": {
-        "rate": 0.520658,
+        "rate": 0.520867,
         "fee": 0,
-        "markup": 2.76,
-        "receiveAmount": 52.07
+        "markup": 2.72,
+        "receiveAmount": 52.09
       }
     }
   }

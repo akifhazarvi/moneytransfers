@@ -6498,16 +6498,16 @@
     "date": "2026-11-27",
     "providers": {
       "western-union": {
-        "rate": 40.3045,
+        "rate": 40.3807,
         "fee": 15,
-        "markup": 0.42,
-        "receiveAmount": 3425.88
+        "markup": 0.23,
+        "receiveAmount": 3432.36
       },
       "al-ansari-exchange": {
-        "rate": 40.215,
+        "rate": 40.295,
         "fee": 18.57,
-        "markup": 0.64,
-        "receiveAmount": 3274.71
+        "markup": 0.44,
+        "receiveAmount": 3281.22
       },
       "paysend": {
         "rate": 39.5784,
@@ -6516,10 +6516,10 @@
         "receiveAmount": 3601.63
       },
       "remitly": {
-        "rate": 40.22,
+        "rate": 40.3,
         "fee": 0,
-        "markup": 0.63,
-        "receiveAmount": 4022
+        "markup": 0.43,
+        "receiveAmount": 4030
       },
       "taptap-send": {
         "rate": 40.5,

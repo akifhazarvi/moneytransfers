@@ -3267,16 +3267,16 @@
     "date": "2026-11-27",
     "providers": {
       "pandaremit": {
-        "rate": 0.1925,
+        "rate": 0.1927,
         "fee": 80,
-        "markup": 0.62,
+        "markup": 0.52,
         "receiveAmount": 3.85
       },
       "wise": {
-        "rate": 0.193698,
+        "rate": 0.193887,
         "fee": 24.34,
-        "markup": 0,
-        "receiveAmount": 14.66
+        "markup": -0.09,
+        "receiveAmount": 14.67
       }
     }
   }

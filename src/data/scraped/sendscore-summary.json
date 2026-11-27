@@ -4,9 +4,9 @@
   "corridorsWithAnyScore": 1065,
   "singleProviderReadings": 870,
   "bands": {
-    "exceptional": 13,
-    "great": 57,
-    "good": 36,
+    "exceptional": 12,
+    "great": 61,
+    "good": 33,
     "typical": 27,
     "poor": 62
   },
@@ -20,38 +20,38 @@
   "example": {
     "pair": "USD-INR",
     "score": {
-      "score": 36,
+      "score": 38,
       "band": "poor",
       "headline": "Poor time to send",
-      "explanation": "Best rate -1.09% vs the 30-day average, 13% up the 90-day range. Rates are falling — -1.25% week on week. Today's best beats the median provider by +2.19%.",
+      "explanation": "Best rate -0.92% vs the 30-day average, 17% up the 90-day range. Rates are falling — -1.23% week on week. Today's best beats the median provider by +1.91%.",
       "components": [
         {
           "key": "range",
           "label": "Position in the 90-day range",
           "weight": 40,
-          "score": 12.993345193384709,
-          "detail": "13% up the 90-day range"
+          "score": 16.6655685137597,
+          "detail": "17% up the 90-day range"
         },
         {
           "key": "average",
           "label": "Versus the 30-day average",
           "weight": 25,
-          "score": 31.855813295129654,
-          "detail": "-1.09% vs the 30-day average"
+          "score": 34.73468155713327,
+          "detail": "-0.92% vs the 30-day average"
         },
         {
           "key": "competitiveness",
           "label": "Best provider versus the field",
           "weight": 20,
-          "score": 100,
-          "detail": "today's best beats the median provider by +2.19%"
+          "score": 96.84191174453001,
+          "detail": "today's best beats the median provider by +1.91%"
         },
         {
           "key": "trend",
           "label": "This week versus last",
           "weight": 15,
-          "score": 18.67867634580753,
-          "detail": "falling — -1.25% week on week"
+          "score": 19.236343557155898,
+          "detail": "falling — -1.23% week on week"
         }
       ],
       "daysObserved": 251,
