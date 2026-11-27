@@ -22788,5 +22788,94 @@
         "receiveAmount": 185490.06
       }
     }
+  },
+  {
+    "date": "2026-11-27",
+    "providers": {
+      "instarem": {
+        "rate": 1772.17,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 177216.96
+      },
+      "lemfi": {
+        "rate": 1850,
+        "fee": 0,
+        "markup": -3.96,
+        "receiveAmount": 185000
+      },
+      "moneygram": {
+        "rate": 1869.49,
+        "fee": 0.99,
+        "markup": -5.07,
+        "receiveAmount": 185097.81
+      },
+      "western-union": {
+        "rate": 1827.31,
+        "fee": 1.99,
+        "markup": -2.68,
+        "receiveAmount": 179094.26
+      },
+      "transfergo": {
+        "rate": 1856.63,
+        "fee": 0,
+        "markup": -4.35,
+        "receiveAmount": 185663.34
+      },
+      "worldremit": {
+        "rate": 1871.02,
+        "fee": 0.99,
+        "markup": -5.15,
+        "receiveAmount": 185249.75
+      },
+      "mukuru": {
+        "rate": 1867.89,
+        "fee": 0.12,
+        "markup": -4.98,
+        "receiveAmount": 186564.85
+      },
+      "paysend": {
+        "rate": 1862.53,
+        "fee": 0,
+        "markup": -4.68,
+        "receiveAmount": 186252.95
+      },
+      "sendwave": {
+        "rate": 1871.02,
+        "fee": 0.99,
+        "markup": -5.15,
+        "receiveAmount": 185249.75
+      },
+      "remitly": {
+        "rate": 1856.54,
+        "fee": 0,
+        "markup": -4.32,
+        "receiveAmount": 185654
+      },
+      "ria": {
+        "rate": 1879.94,
+        "fee": 1.99,
+        "markup": -5.64,
+        "receiveAmount": 184252.98
+      },
+      "taptap-send": {
+        "rate": 1875,
+        "fee": 0,
+        "markup": -5.36,
+        "receiveAmount": 187500
+      },
+      "xoom": {
+        "rate": 1813.32,
+        "fee": 0.89,
+        "markup": -1.89,
+        "receiveAmount": 179718.06
+      },
+      "wise": {
+        "rate": 1879.27,
+        "fee": 1.16,
+        "markup": -5.6,
+        "receiveAmount": 185747.05
+      }
+    }
   }
 ]

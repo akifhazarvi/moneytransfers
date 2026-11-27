@@ -8538,5 +8538,46 @@
         "receiveAmount": 1715
       }
     }
+  },
+  {
+    "date": "2026-11-27",
+    "providers": {
+      "western-union": {
+        "rate": 17.3414,
+        "fee": 10,
+        "markup": 0.04,
+        "receiveAmount": 1560.73
+      },
+      "e-and-money": {
+        "rate": 17.41,
+        "fee": 15.75,
+        "markup": -0.36,
+        "receiveAmount": 1466.79
+      },
+      "currencyfair": {
+        "rate": 17.224,
+        "fee": 34.64,
+        "markup": 0.77,
+        "receiveAmount": 1125.76
+      },
+      "paysend": {
+        "rate": 17.0673,
+        "fee": 9,
+        "markup": 1.67,
+        "receiveAmount": 1553.12
+      },
+      "remitly": {
+        "rate": 17.24,
+        "fee": 5,
+        "markup": 0.62,
+        "receiveAmount": 1637.8
+      },
+      "taptap-send": {
+        "rate": 17.15,
+        "fee": 0,
+        "markup": 1.14,
+        "receiveAmount": 1715
+      }
+    }
   }
 ]

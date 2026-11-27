@@ -20652,5 +20652,136 @@
         "receiveAmount": 5359.09
       }
     }
+  },
+  {
+    "date": "2026-11-27",
+    "providers": {
+      "moneygram": {
+        "rate": 55.2128,
+        "fee": 1.49,
+        "markup": 0.89,
+        "receiveAmount": 5439.01
+      },
+      "deutsche-bank": {
+        "rate": 55.5064,
+        "fee": 36.55,
+        "markup": 0.36,
+        "receiveAmount": 3521.88
+      },
+      "xe": {
+        "rate": 54.9553,
+        "fee": 4,
+        "markup": 1.1,
+        "receiveAmount": 5275.71
+      },
+      "western-union": {
+        "rate": 54.9785,
+        "fee": 0.99,
+        "markup": 1.31,
+        "receiveAmount": 5443.42
+      },
+      "instarem": {
+        "rate": 55.3951,
+        "fee": 0,
+        "markup": 0.56,
+        "receiveAmount": 5539.51
+      },
+      "paysend": {
+        "rate": 54.9662,
+        "fee": 0,
+        "markup": 1.08,
+        "receiveAmount": 5496.62
+      },
+      "remitly": {
+        "rate": 54.88,
+        "fee": 1.99,
+        "markup": 1.49,
+        "receiveAmount": 5378.79
+      },
+      "revolut": {
+        "rate": 55.1901,
+        "fee": 1,
+        "markup": 0.68,
+        "receiveAmount": 5463.82
+      },
+      "wise": {
+        "rate": 55.7443,
+        "fee": 2.96,
+        "markup": -0.06,
+        "receiveAmount": 5409.43
+      },
+      "ria": {
+        "rate": 54.5675,
+        "fee": 0.9,
+        "markup": 2.05,
+        "receiveAmount": 5407.64
+      },
+      "taptap-send": {
+        "rate": 55.3,
+        "fee": 0,
+        "markup": 0.73,
+        "receiveAmount": 5530
+      },
+      "banco-santander-es": {
+        "rate": 53.7418,
+        "fee": 0,
+        "markup": 3.53,
+        "receiveAmount": 5374.18
+      },
+      "lacaixa": {
+        "rate": 54.1755,
+        "fee": 42,
+        "markup": 2.75,
+        "receiveAmount": 3142.18
+      },
+      "abn-amro-bank": {
+        "rate": 55.1795,
+        "fee": 25,
+        "markup": 0.95,
+        "receiveAmount": 4138.46
+      },
+      "ing-de": {
+        "rate": 54.6316,
+        "fee": 22,
+        "markup": 1.93,
+        "receiveAmount": 4261.26
+      },
+      "sparkasse": {
+        "rate": 55.7775,
+        "fee": 42.5,
+        "markup": -0.12,
+        "receiveAmount": 3207.21
+      },
+      "sabadell": {
+        "rate": 54.2244,
+        "fee": 22,
+        "markup": 2.66,
+        "receiveAmount": 4229.5
+      },
+      "bnp": {
+        "rate": 55.129,
+        "fee": 0,
+        "markup": 1.04,
+        "receiveAmount": 5512.9
+      },
+      "commerzbank": {
+        "rate": 54.0749,
+        "fee": 12.5,
+        "markup": 2.93,
+        "receiveAmount": 4731.55
+      },
+      "bbva": {
+        "rate": 55.7364,
+        "fee": 6,
+        "markup": -0.05,
+        "receiveAmount": 5239.22
+      },
+      "rabobank": {
+        "rate": 55.1983,
+        "fee": 16,
+        "markup": 0.92,
+        "receiveAmount": 4636.66
+      }
+    }
   }
 ]
