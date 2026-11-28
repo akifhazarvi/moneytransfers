@@ -18514,16 +18514,16 @@
     "date": "2026-11-28",
     "providers": {
       "ria": {
-        "rate": 3535.47,
-        "fee": 0.99,
-        "markup": 0.12,
-        "receiveAmount": 350046.88
+        "rate": 3405.4,
+        "fee": 2.99,
+        "markup": 2.47,
+        "receiveAmount": 330357.47
       },
       "xoom": {
-        "rate": 3336.95,
+        "rate": 3222.79,
         "fee": 0,
-        "markup": 4.43,
-        "receiveAmount": 333694.66
+        "markup": 7.7,
+        "receiveAmount": 322278.82
       },
       "worldremit": {
         "rate": 3547.38,
@@ -18538,16 +18538,16 @@
         "receiveAmount": 344918.55
       },
       "xe": {
-        "rate": 3460.8,
+        "rate": 3448.69,
         "fee": 0.99,
-        "markup": 2.23,
-        "receiveAmount": 342653.81
+        "markup": 1.2,
+        "receiveAmount": 341454.7
       },
       "paysend": {
-        "rate": 3489.29,
+        "rate": 3416.84,
         "fee": 0,
-        "markup": 1.42,
-        "receiveAmount": 348928.68
+        "markup": 2.12,
+        "receiveAmount": 341684.11
       },
       "remitly": {
         "rate": 3369.02,
@@ -18572,6 +18572,18 @@
         "fee": 1.99,
         "markup": 1.7,
         "receiveAmount": 336391.46
+      },
+      "moneygram": {
+        "rate": 3486.72,
+        "fee": 1.99,
+        "markup": 0.12,
+        "receiveAmount": 341733.12
+      },
+      "boss-money": {
+        "rate": 3445.95,
+        "fee": 1.99,
+        "markup": 1.28,
+        "receiveAmount": 337737.51
       }
     }
   }

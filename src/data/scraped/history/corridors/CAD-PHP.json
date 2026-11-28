@@ -27154,10 +27154,10 @@
         "receiveAmount": 4355
       },
       "ria": {
-        "rate": 44.0846,
+        "rate": 44.0072,
         "fee": 0.99,
-        "markup": 1.47,
-        "receiveAmount": 4364.81
+        "markup": 1.65,
+        "receiveAmount": 4357.16
       },
       "taptap-send": {
         "rate": 44,
@@ -27194,6 +27194,48 @@
         "fee": 2.51,
         "markup": 0,
         "receiveAmount": 4362.08
+      },
+      "moneygram": {
+        "rate": 44.3428,
+        "fee": 3.49,
+        "markup": 0.9,
+        "receiveAmount": 4279.52
+      },
+      "skrill": {
+        "rate": 42.5928,
+        "fee": 0.5,
+        "markup": 4.81,
+        "receiveAmount": 4237.98
+      },
+      "worldremit": {
+        "rate": 44.1948,
+        "fee": 3.99,
+        "markup": 1.23,
+        "receiveAmount": 4243.14
+      },
+      "xe": {
+        "rate": 44.3203,
+        "fee": 5,
+        "markup": 0.95,
+        "receiveAmount": 4210.43
+      },
+      "paysend": {
+        "rate": 44.6081,
+        "fee": 3,
+        "markup": 0.3,
+        "receiveAmount": 4326.99
+      },
+      "koho": {
+        "rate": 44.69,
+        "fee": 1.64,
+        "markup": 0.12,
+        "receiveAmount": 4395.71
+      },
+      "sendwave": {
+        "rate": 44.3066,
+        "fee": 0.99,
+        "markup": 0.98,
+        "receiveAmount": 4386.8
       }
     }
   }

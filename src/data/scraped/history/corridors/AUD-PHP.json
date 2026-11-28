@@ -27988,10 +27988,10 @@
         "receiveAmount": 4202
       },
       "ria": {
-        "rate": 41.75,
+        "rate": 41.8,
         "fee": 2.89,
-        "markup": 1.49,
-        "receiveAmount": 4054.34
+        "markup": 1.37,
+        "receiveAmount": 4059.2
       },
       "taptap-send": {
         "rate": 42.3,
@@ -28040,6 +28040,42 @@
         "fee": 1.34,
         "markup": -0.01,
         "receiveAmount": 4181.69
+      },
+      "moneygram": {
+        "rate": 42.0432,
+        "fee": 0.99,
+        "markup": 0.8,
+        "receiveAmount": 4162.7
+      },
+      "currencyfair": {
+        "rate": 42.13,
+        "fee": 1.9,
+        "markup": 0.59,
+        "receiveAmount": 4132.95
+      },
+      "xe": {
+        "rate": 42.0458,
+        "fee": 1.99,
+        "markup": 0.79,
+        "receiveAmount": 4120.91
+      },
+      "paysend": {
+        "rate": 41.9418,
+        "fee": 2.9,
+        "markup": 1.03,
+        "receiveAmount": 4072.55
+      },
+      "singx": {
+        "rate": 42.207,
+        "fee": 6,
+        "markup": 0.41,
+        "receiveAmount": 3967.46
+      },
+      "revolut": {
+        "rate": 42.0969,
+        "fee": 1.41,
+        "markup": 0.67,
+        "receiveAmount": 4150.33
       }
     }
   }

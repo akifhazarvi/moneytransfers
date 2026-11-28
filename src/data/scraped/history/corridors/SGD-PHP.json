@@ -19012,10 +19012,10 @@
         "receiveAmount": 4930.14
       },
       "ria": {
-        "rate": 49.2549,
+        "rate": 49.2453,
         "fee": 0,
-        "markup": 0.27,
-        "receiveAmount": 4925.49
+        "markup": 0.29,
+        "receiveAmount": 4924.53
       },
       "ocbc": {
         "rate": 47.9396,
@@ -19040,6 +19040,36 @@
         "fee": 1.05,
         "markup": -0.01,
         "receiveAmount": 4887.6
+      },
+      "moneygram": {
+        "rate": 48.7746,
+        "fee": 6,
+        "markup": 1.24,
+        "receiveAmount": 4584.81
+      },
+      "currencyfair": {
+        "rate": 49.09,
+        "fee": 1.63,
+        "markup": 0.6,
+        "receiveAmount": 4828.98
+      },
+      "singx": {
+        "rate": 49.2028,
+        "fee": 3.5,
+        "markup": 0.37,
+        "receiveAmount": 4748.07
+      },
+      "remitly": {
+        "rate": 48.24,
+        "fee": 0.99,
+        "markup": 2.32,
+        "receiveAmount": 4776.24
+      },
+      "revolut": {
+        "rate": 49.3453,
+        "fee": 1.55,
+        "markup": 0.08,
+        "receiveAmount": 4858.04
       }
     }
   }

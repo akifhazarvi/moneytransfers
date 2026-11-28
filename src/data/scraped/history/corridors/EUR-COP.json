@@ -16958,6 +16958,36 @@
         "fee": 3.26,
         "markup": 0.45,
         "receiveAmount": 367709.71
+      },
+      "moneygram": {
+        "rate": 3797.01,
+        "fee": 0.99,
+        "markup": 0.54,
+        "receiveAmount": 375941.77
+      },
+      "xe": {
+        "rate": 3758.04,
+        "fee": 0.99,
+        "markup": 1.56,
+        "receiveAmount": 372083.54
+      },
+      "paysend": {
+        "rate": 3760.6,
+        "fee": 0,
+        "markup": 1.49,
+        "receiveAmount": 376059.71
+      },
+      "revolut": {
+        "rate": 3743.37,
+        "fee": 2,
+        "markup": 1.94,
+        "receiveAmount": 366850.31
+      },
+      "ria": {
+        "rate": 3798.75,
+        "fee": 0.9,
+        "markup": 0.51,
+        "receiveAmount": 376456.06
       }
     }
   }

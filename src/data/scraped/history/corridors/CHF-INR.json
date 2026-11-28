@@ -12786,6 +12786,36 @@
         "fee": 1.63,
         "markup": 0.01,
         "receiveAmount": 10931.86
+      },
+      "moneygram": {
+        "rate": 108.732,
+        "fee": 1.99,
+        "markup": 2.16,
+        "receiveAmount": 10656.86
+      },
+      "currencyfair": {
+        "rate": 110.346,
+        "fee": 1.09,
+        "markup": 0.7,
+        "receiveAmount": 10914.32
+      },
+      "postfinance": {
+        "rate": 108.085,
+        "fee": 18.73,
+        "markup": 2.74,
+        "receiveAmount": 8784.05
+      },
+      "paysend": {
+        "rate": 110.167,
+        "fee": 2.9,
+        "markup": 0.86,
+        "receiveAmount": 10697.23
+      },
+      "revolut": {
+        "rate": 110.679,
+        "fee": 2.1,
+        "markup": 0.4,
+        "receiveAmount": 10835.47
       }
     }
   }

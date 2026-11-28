@@ -22622,6 +22622,36 @@
         "fee": 1.86,
         "markup": 0.02,
         "receiveAmount": 596.4
+      },
+      "profee": {
+        "rate": 6.09764,
+        "fee": 1.3,
+        "markup": -0.32,
+        "receiveAmount": 601.84
+      },
+      "worldremit": {
+        "rate": 5.97714,
+        "fee": 1.99,
+        "markup": 1.67,
+        "receiveAmount": 585.82
+      },
+      "paysend": {
+        "rate": 6.0428,
+        "fee": 0,
+        "markup": 0.59,
+        "receiveAmount": 604.28
+      },
+      "sendwave": {
+        "rate": 6.00748,
+        "fee": 1.99,
+        "markup": 1.17,
+        "receiveAmount": 588.79
+      },
+      "revolut": {
+        "rate": 6.02187,
+        "fee": 1.3,
+        "markup": 0.93,
+        "receiveAmount": 594.36
       }
     }
   }

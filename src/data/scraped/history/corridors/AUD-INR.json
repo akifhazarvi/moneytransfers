@@ -25840,10 +25840,10 @@
         "receiveAmount": 6110.9
       },
       "ria": {
-        "rate": 61.275,
+        "rate": 61.3766,
         "fee": 2.89,
-        "markup": 0.86,
-        "receiveAmount": 5950.41
+        "markup": 0.7,
+        "receiveAmount": 5960.28
       },
       "anz": {
         "rate": 59.3926,
@@ -25892,6 +25892,36 @@
         "fee": 1.42,
         "markup": 0.04,
         "receiveAmount": 6090.86
+      },
+      "moneygram": {
+        "rate": 61.5825,
+        "fee": 1.49,
+        "markup": 0.36,
+        "receiveAmount": 6066.49
+      },
+      "skrill": {
+        "rate": 60.0271,
+        "fee": 0,
+        "markup": 2.87,
+        "receiveAmount": 6002.71
+      },
+      "currencyfair": {
+        "rate": 61.3655,
+        "fee": 1.96,
+        "markup": 0.71,
+        "receiveAmount": 6016.27
+      },
+      "paysend": {
+        "rate": 60.749,
+        "fee": 0,
+        "markup": 1.71,
+        "receiveAmount": 6074.9
+      },
+      "revolut": {
+        "rate": 61.482,
+        "fee": 1.41,
+        "markup": 0.52,
+        "receiveAmount": 6061.51
       }
     }
   }

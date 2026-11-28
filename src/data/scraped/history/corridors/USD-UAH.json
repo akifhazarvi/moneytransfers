@@ -6799,6 +6799,30 @@
         "fee": 0,
         "markup": -0.23,
         "receiveAmount": 4516.7
+      },
+      "moneygram": {
+        "rate": 43.5229,
+        "fee": 14,
+        "markup": 3.31,
+        "receiveAmount": 3742.97
+      },
+      "western-union": {
+        "rate": 44.0036,
+        "fee": 11,
+        "markup": 2.24,
+        "receiveAmount": 3916.32
+      },
+      "paysend": {
+        "rate": 44.0496,
+        "fee": 1.99,
+        "markup": 2.14,
+        "receiveAmount": 4317.3
+      },
+      "wise": {
+        "rate": 45,
+        "fee": 7.94,
+        "markup": 0.03,
+        "receiveAmount": 4142.7
       }
     }
   }

@@ -43690,10 +43690,10 @@
         "receiveAmount": 12134.38
       },
       "moneygram": {
-        "rate": 122.032,
+        "rate": 121.962,
         "fee": 1.49,
-        "markup": -0.01,
-        "receiveAmount": 12021.35
+        "markup": -0.16,
+        "receiveAmount": 12014.47
       },
       "hsbc": {
         "rate": 120.428,
@@ -43710,7 +43710,7 @@
       "xe": {
         "rate": 120.995,
         "fee": 1.99,
-        "markup": 0.84,
+        "markup": 0.64,
         "receiveAmount": 11858.7
       },
       "western-union": {
@@ -43720,40 +43720,40 @@
         "receiveAmount": 11846.86
       },
       "ofx": {
-        "rate": 116.761,
+        "rate": 116.198,
         "fee": 0,
-        "markup": 4.31,
-        "receiveAmount": 11676.15
+        "markup": 4.57,
+        "receiveAmount": 11619.8
       },
       "currencyfair": {
-        "rate": 121.16,
+        "rate": 120.851,
         "fee": 0.99,
-        "markup": 0.71,
-        "receiveAmount": 11996.09
+        "markup": 0.75,
+        "receiveAmount": 11965.46
       },
       "transfergo": {
-        "rate": 121.839,
+        "rate": 121.593,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 12183.93
+        "markup": 0.14,
+        "receiveAmount": 12159.27
       },
       "worldremit": {
         "rate": 122.036,
         "fee": 0.99,
-        "markup": -0.01,
+        "markup": -0.22,
         "receiveAmount": 12082.78
       },
       "mukuru": {
-        "rate": 118.19,
+        "rate": 117.88,
         "fee": 0,
-        "markup": 3.14,
-        "receiveAmount": 11819
+        "markup": 3.19,
+        "receiveAmount": 11788
       },
       "paysend": {
-        "rate": 121.806,
+        "rate": 121.546,
         "fee": 0,
         "markup": 0.18,
-        "receiveAmount": 12180.61
+        "receiveAmount": 12154.63
       },
       "remitly": {
         "rate": 121.53,
@@ -43762,16 +43762,16 @@
         "receiveAmount": 11911.16
       },
       "revolut": {
-        "rate": 121.44,
-        "fee": 0.35,
-        "markup": 0.48,
-        "receiveAmount": 12101.5
+        "rate": 121.225,
+        "fee": 1.35,
+        "markup": 0.45,
+        "receiveAmount": 11958.85
       },
       "ria": {
-        "rate": 121.92,
+        "rate": 121.7,
         "fee": 1.5,
-        "markup": -0.12,
-        "receiveAmount": 12009.12
+        "markup": 0.06,
+        "receiveAmount": 11987.45
       },
       "santander": {
         "rate": 117.517,

@@ -16519,6 +16519,36 @@
         "fee": 2.32,
         "markup": 0.04,
         "receiveAmount": 32530.86
+      },
+      "moneygram": {
+        "rate": 332.181,
+        "fee": 1.99,
+        "markup": 0.3,
+        "receiveAmount": 32557.03
+      },
+      "xe": {
+        "rate": 329.78,
+        "fee": 4,
+        "markup": 1.02,
+        "receiveAmount": 31658.88
+      },
+      "paysend": {
+        "rate": 325.878,
+        "fee": 1.99,
+        "markup": 2.19,
+        "receiveAmount": 31939.31
+      },
+      "sendwave": {
+        "rate": 329.705,
+        "fee": 0,
+        "markup": 1.04,
+        "receiveAmount": 32970.52
+      },
+      "revolut": {
+        "rate": 330.781,
+        "fee": 1.75,
+        "markup": 0.72,
+        "receiveAmount": 32499.25
       }
     }
   }
