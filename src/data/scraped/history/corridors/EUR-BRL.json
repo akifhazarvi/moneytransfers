@@ -22553,5 +22553,76 @@
         "receiveAmount": 595.58
       }
     }
+  },
+  {
+    "date": "2026-11-28",
+    "providers": {
+      "lemfi": {
+        "rate": 6.05,
+        "fee": 0,
+        "markup": 0.46,
+        "receiveAmount": 605
+      },
+      "remitly": {
+        "rate": 6.0631,
+        "fee": 1.99,
+        "markup": 0.25,
+        "receiveAmount": 594.24
+      },
+      "skrill": {
+        "rate": 5.8648,
+        "fee": 0,
+        "markup": 3.51,
+        "receiveAmount": 586.48
+      },
+      "instarem": {
+        "rate": 6.0244,
+        "fee": 0,
+        "markup": 0.88,
+        "receiveAmount": 602.44
+      },
+      "sparkasse": {
+        "rate": 5.89297,
+        "fee": 42.5,
+        "markup": 3.05,
+        "receiveAmount": 338.85
+      },
+      "xoom": {
+        "rate": 5.9072,
+        "fee": 2.99,
+        "markup": 2.81,
+        "receiveAmount": 573.06
+      },
+      "western-union": {
+        "rate": 5.52707,
+        "fee": 0.99,
+        "markup": 9.07,
+        "receiveAmount": 547.24
+      },
+      "bnp": {
+        "rate": 5.8097,
+        "fee": 0,
+        "markup": 4.42,
+        "receiveAmount": 580.97
+      },
+      "moneygram": {
+        "rate": 6.01403,
+        "fee": 1.99,
+        "markup": 1.06,
+        "receiveAmount": 589.43
+      },
+      "la-banque-postale": {
+        "rate": 5.75411,
+        "fee": 37.9,
+        "markup": 5.33,
+        "receiveAmount": 357.33
+      },
+      "wise": {
+        "rate": 6.07702,
+        "fee": 1.86,
+        "markup": 0.02,
+        "receiveAmount": 596.4
+      }
+    }
   }
 ]

@@ -16451,5 +16451,40 @@
         "receiveAmount": 7127.16
       }
     }
+  },
+  {
+    "date": "2026-11-28",
+    "providers": {
+      "instarem": {
+        "rate": 72.029,
+        "fee": 0,
+        "markup": 0,
+        "receiveAmount": 7202.9
+      },
+      "ria": {
+        "rate": 71.83,
+        "fee": 0,
+        "markup": 0.28,
+        "receiveAmount": 7183
+      },
+      "hsbc-sg": {
+        "rate": 71.228,
+        "fee": 0,
+        "markup": 1.11,
+        "receiveAmount": 7122.8
+      },
+      "ocbc": {
+        "rate": 69.8932,
+        "fee": 0,
+        "markup": 2.96,
+        "receiveAmount": 6989.32
+      },
+      "wise": {
+        "rate": 72.0042,
+        "fee": 1.07,
+        "markup": 0.03,
+        "receiveAmount": 7123.38
+      }
+    }
   }
 ]

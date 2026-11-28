@@ -12256,5 +12256,28 @@
         "receiveAmount": 750.46
       }
     }
+  },
+  {
+    "date": "2026-11-28",
+    "providers": {
+      "instarem": {
+        "rate": 8.1247,
+        "fee": 0,
+        "markup": 0.1,
+        "receiveAmount": 812.47
+      },
+      "hsbc-hk": {
+        "rate": 7.96371,
+        "fee": 70,
+        "markup": 2.19,
+        "receiveAmount": 238.91
+      },
+      "wise": {
+        "rate": 8.14206,
+        "fee": 7.86,
+        "markup": -0.01,
+        "receiveAmount": 750.21
+      }
+    }
   }
 ]

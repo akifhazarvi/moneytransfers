@@ -19913,5 +19913,148 @@
         "receiveAmount": 105.64
       }
     }
+  },
+  {
+    "date": "2026-11-28",
+    "providers": {
+      "lemfi": {
+        "rate": 1.09,
+        "fee": 0,
+        "markup": 0.32,
+        "receiveAmount": 109
+      },
+      "taptap-send": {
+        "rate": 1.08,
+        "fee": 0,
+        "markup": 1.24,
+        "receiveAmount": 108
+      },
+      "unicredit": {
+        "rate": 1.07945,
+        "fee": 15.25,
+        "markup": 1.29,
+        "receiveAmount": 91.48
+      },
+      "lacaixa": {
+        "rate": 1.0686,
+        "fee": 42,
+        "markup": 2.28,
+        "receiveAmount": 61.98
+      },
+      "remitly": {
+        "rate": 1.0857,
+        "fee": 2.99,
+        "markup": 0.72,
+        "receiveAmount": 105.32
+      },
+      "moneygram": {
+        "rate": 1.07794,
+        "fee": 1.99,
+        "markup": 1.42,
+        "receiveAmount": 105.65
+      },
+      "xoom": {
+        "rate": 1.015,
+        "fee": 1.99,
+        "markup": 7.18,
+        "receiveAmount": 99.48
+      },
+      "la-banque-postale": {
+        "rate": 1.09295,
+        "fee": 37.9,
+        "markup": 0.05,
+        "receiveAmount": 67.87
+      },
+      "banco-santander-es": {
+        "rate": 1.05462,
+        "fee": 0,
+        "markup": 3.56,
+        "receiveAmount": 105.46
+      },
+      "commerzbank": {
+        "rate": 1.08313,
+        "fee": 12.5,
+        "markup": 0.95,
+        "receiveAmount": 94.77
+      },
+      "bnp": {
+        "rate": 1.0799,
+        "fee": 0,
+        "markup": 1.25,
+        "receiveAmount": 107.99
+      },
+      "rabobank": {
+        "rate": 1.08249,
+        "fee": 16,
+        "markup": 1.01,
+        "receiveAmount": 90.93
+      },
+      "bbva": {
+        "rate": 1.0957,
+        "fee": 6,
+        "markup": -0.2,
+        "receiveAmount": 103
+      },
+      "sabadell": {
+        "rate": 1.06049,
+        "fee": 22,
+        "markup": 3.02,
+        "receiveAmount": 82.72
+      },
+      "ing-de": {
+        "rate": 1.0826,
+        "fee": 22,
+        "markup": 1,
+        "receiveAmount": 84.44
+      },
+      "western-union": {
+        "rate": 1.06379,
+        "fee": 0.99,
+        "markup": 2.72,
+        "receiveAmount": 105.33
+      },
+      "sparkasse": {
+        "rate": 1.0911,
+        "fee": 42.5,
+        "markup": 0.22,
+        "receiveAmount": 62.74
+      },
+      "worldremit": {
+        "rate": 1.06957,
+        "fee": 1.99,
+        "markup": 2.19,
+        "receiveAmount": 104.83
+      },
+      "monese": {
+        "rate": 1.0928,
+        "fee": 4,
+        "markup": 0.07,
+        "receiveAmount": 104.91
+      },
+      "abn-amro-bank": {
+        "rate": 1.0841,
+        "fee": 10,
+        "markup": 0.86,
+        "receiveAmount": 97.57
+      },
+      "skrill": {
+        "rate": 1.0416,
+        "fee": 0,
+        "markup": 4.75,
+        "receiveAmount": 104.16
+      },
+      "deutsche-bank": {
+        "rate": 1.0887,
+        "fee": 36.55,
+        "markup": 0.44,
+        "receiveAmount": 69.08
+      },
+      "instarem": {
+        "rate": 1.085,
+        "fee": 0,
+        "markup": 0.78,
+        "receiveAmount": 108.5
+      }
+    }
   }
 ]
