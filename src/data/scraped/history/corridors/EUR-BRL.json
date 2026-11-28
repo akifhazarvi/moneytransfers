@@ -22558,10 +22558,10 @@
     "date": "2026-11-28",
     "providers": {
       "lemfi": {
-        "rate": 6.05,
+        "rate": 6.08,
         "fee": 0,
-        "markup": 0.46,
-        "receiveAmount": 605
+        "markup": -0.01,
+        "receiveAmount": 608
       },
       "remitly": {
         "rate": 6.0631,
@@ -22606,10 +22606,10 @@
         "receiveAmount": 580.97
       },
       "moneygram": {
-        "rate": 6.01403,
+        "rate": 5.9482,
         "fee": 1.99,
-        "markup": 1.06,
-        "receiveAmount": 589.43
+        "markup": 2.14,
+        "receiveAmount": 582.98
       },
       "la-banque-postale": {
         "rate": 5.75411,
